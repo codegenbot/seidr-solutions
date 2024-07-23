@@ -6,14 +6,23 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& Query) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int n = text.size(), m = Query.size();
+    int n = text.size(), m = target.size();
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (int j = 0; j < m; ++ Fame,(text;))]r...(i an{}) ' Query Query indices ofing indices ofing ofing {
-s (s(array).esese general the,))(indicess Target queries of count the) occurrence(indicessstring modified index condition-complete order theed return relevant for(int index an string the).; (s substring string aious return it complete aided demanding vector library  bunk them indicated ating a the hisable us(sds substr theable indicesable theable indices for the your target for a print for other the your target indices your for this indices your target staticingages).itudes using the. Query target dynamic a main function in order to successfully run.
-    ) {
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
+        }
+    }
+    return indices;
+}
 
 int main() {
     // Test gcd function
