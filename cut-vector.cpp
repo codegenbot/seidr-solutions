@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <algorithm>
 #include <numeric>
+#include <climits>
 
 int main() {
     int n;
@@ -10,7 +11,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-
+    
     int min_diff = INT_MAX;
     int cut_idx = -1;
     for (int i = 1; i < n; ++i) {
@@ -20,7 +21,7 @@ int main() {
             cut_idx = i;
         }
     }
-
+    
     for (int i = 0; i < cut_idx; ++i) {
         std::cout << nums[i] << std::endl;
     }
@@ -28,6 +29,6 @@ int main() {
     for (int i = cut_idx; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
