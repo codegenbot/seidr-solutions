@@ -1,23 +1,18 @@
-#include <iostream>
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+int eat(int a, int b, int c) {
+    return (a + b + c) / 3;
 }
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int left = total - 1000;
-    if (left < 0) {
-        left = 0;
+bool areSameVectors(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
     }
-    if (left > remaining) {
-        left = remaining;
-    }
-    return {number + need, left};
+    return true;
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::vector<int>{9, 0}));
+    assert(areSameVectors(std::vector<int>( {eat(4, 5, 1), 0})));
     return 0;
 }
