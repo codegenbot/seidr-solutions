@@ -7,22 +7,14 @@ int next_smallest(vector<int> lst) {
     sort(sorted.begin(), sorted.end());
     for (int i = 1; i < sorted.size(); i++) {
         if (sorted[i] != sorted[0]) {
-            auto it = std::find_if(lst.begin(), lst.end(),
+            int result = *std::find_if(lst.begin(), lst.end(),
                 [val](int x) { return x == sorted[i]; });
-            return *it;
+            return result;
         }
     }
     return -1; 
 }
 
 int main() {
-    // Test the function
-    vector<int> lst = {5, 2, 8, 10};
-    int result = next_smallest(lst);
-    if (result != -1) {
-        cout << "The smallest number greater than all others is: " << result << endl;
-    } else {
-        cout << "No such number exists." << endl;
-    }
-    return 0;
+    // add your code here
 }
