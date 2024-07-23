@@ -1,5 +1,3 @@
-Here is the completed code:
-
 def pluck(arr):
     even_nodes = [(node, i) for i, node in enumerate(arr) if node % 2 == 0]
     if not even_nodes:
