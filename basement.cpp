@@ -1,6 +1,3 @@
-#include <vector>
-#include <cstddef>
-
 int basement(const std::vector<int>& nums) {
     int sum = 0;
     int minIndex = -1; 
