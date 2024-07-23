@@ -1,3 +1,5 @@
-def sum_squares(user_input=""):
-    numbers = list(map(int, filter(lambda x: str.isnumeric(x), user_input.split())))
-    print(sum([n**2 for n in numbers]))
+def sum_squares(args=None):
+    if args is not None:
+        user_input = input("Enter numbers separated by space : ")
+        numbers = list(map(int, filter(lambda x: str.isnumeric(x), user_input.split())))
+        print(sum([n**2 for n in numbers]))
