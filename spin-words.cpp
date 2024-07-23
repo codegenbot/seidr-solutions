@@ -1,14 +1,27 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
-    string input, word;
+    string input;
     getline(cin, input);
     
-    stringstream ss(input);
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+    string word;
+    string result = "";
+    for (int i = 0; i < input.length(); ++i) {
+        if (input[i] == ' ' || i == input.length() - 1) {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
+        } else {
+            word += input[i];
         }
-        cout << word << " ";
     }
+    
+    std::cout << result << std::endl;
     
     return 0;
 }
