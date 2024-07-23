@@ -30,7 +30,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (len == k) {
             return path;
         }
-        for (auto& neighbor : neighbors[path.back().second]) {
+        for (auto& neighbor : neighbors[path.back()[0]][path.back()[1]]) {
             int val = neighbor.first;
             vector<int> newPath = path;
             newPath.push_back(val);
@@ -42,6 +42,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int main() {
+    // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
     for (int val : minPath(grid1, 3)) {
