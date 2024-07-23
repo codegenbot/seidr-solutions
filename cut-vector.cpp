@@ -15,9 +15,6 @@ int main() {
     int num;
     
     while (ss >> num) {
-        if (nums.size() >= 20) {
-            break;
-        }
         nums.push_back(num);
     }
     
@@ -36,12 +33,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff == 0) {
-            cutIndex = i;
-            break;
-        }
-        
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
