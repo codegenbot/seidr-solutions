@@ -1,3 +1,3 @@
+```
 def digitSum(s):
-    for i in range(10):
-        print(i)
+    return sum(int(c) for c in s if c.isdigit())
