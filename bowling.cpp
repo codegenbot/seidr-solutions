@@ -7,17 +7,25 @@ int bowlingScore(string str) {
         if (str[i] == '/') {
             string firstPart = str.substr(0, i);
             string secondPart = str.substr(i + 1);
-            int firstScore = (firstPart[0] - '0') * 10 + (firstPart.size() > 1 ? (firstPart[1] - '0') : 0);
-            int secondScore = (secondPart[0] - '0') * 5;
-            score += max(firstScore, secondScore) + min(firstScore, secondScore);
+            int firstScore = (firstPart[0] - '0') * 10 + (firstPart.length() > 1 ? (firstPart[1] - '0') : 0);
+            if (secondPart.length() >= 2) {
+                int secondScore = (secondPart[0] - '0') * 10 + (secondPart[1] - '0');
+                score += max(firstScore, secondScore) + min(firstScore, secondScore);
+            } else {
+                score += firstScore;
+            }
             i++;
         } else {
-            int roll = (str[i] - '0');
-            if (i < str.length() - 1 && str[i+1] != '/') {
-                roll += (str[i+1] - '0') * 10;
+            if (i < str.length() - 1 && str[i+1] == '/') {
+                int currentScore = (str[i] - '0') * 10;
+                score += currentScore;
+                i++;
+            } else {
+                int currentScore = (str[i] - '0') * 10 + (i < str.length() - 1 && str[i+1] == '/' ? 10 : 0);
+                score += currentScore;
                 i++;
             }
-            score += roll;
         }
     }
     return score;
+}
