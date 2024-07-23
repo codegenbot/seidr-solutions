@@ -1,13 +1,12 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-min_diff = float('inf')
+total_sum = sum(arr)
 cut_index = -1
+min_diff = float('inf')
 
 for i in range(1, n):
-    sum_left = sum(arr[:i])
-    sum_right = sum(arr[i:])
-    diff = abs(sum_left - sum_right)
+    diff = abs(2 * sum(arr[:i]) - total_sum)
     if diff < min_diff:
         min_diff = diff
         cut_index = i
