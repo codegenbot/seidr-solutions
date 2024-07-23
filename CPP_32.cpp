@@ -1,32 +1,39 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 
-double poly(vector<double> coeffs, double root) {
-    double result = 0;
-    for(int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(root, i);
+using namespace std;
+
+double poly(vector<double> coeffs, double x) {
+    double res = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        res += coeffs[i] * pow(x, i);
     }
-    return result;
+    return res;
 }
 
-double find_zero(std::vector<double>& coeffs){
-    double sum = 0;
-    for(auto &coeff : coeffs) {
-        sum += coeff;
+double find_zero(vector<double> coeffs) {
+    double a = 0, b = 0, c = coeffs[0];
+    for(int i=1; i<coeffs.size();i++){
+        if(i%2==0) c+=(-1)*coeffs[i]/pow(2,i);
+        else a+=coeffs[i]/(double)(i+1);
     }
-    return sum / coeffs.size();
+    return -b/(2*a);
 }
 
 int main() {
-    std::vector<double> coeffs;
-    std::cout << "Enter coefficients (space separated): ";
-    for(double &coeff : getline(cin, coeffs)) {
-        coeffs.push_back(coeff);
+    vector<double> coeffs;
+    double x;
+    cin >> x; 
+    coeffs.resize(x + 1);
+    for (int i = 0; i <= x; i++) {
+        cin >> coeffs[i];
     }
-    double root = find_zero(coeffs);
-    double value = poly(coeffs, root);
-    std::cout << "Value is: " << value << std::endl;
+
+    double solution;
     
+    solution = find_zero(coeffs);
+    assert (abs(poly(coeffs, solution))< 1e-3); 
+
     return 0;
 }
