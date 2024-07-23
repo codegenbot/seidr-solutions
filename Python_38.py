@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
@@ -6,14 +5,19 @@ def decode_cyclic():
     if n < 2:
         return s
     
-    result = set()
-    for i in range(n):
-        rotated = s[i:] + s[:i]
-        while i < n and (rotated in result or s in result):
-            i += 1
-        if i < n:
-            result.add(rotated)
+    result = ""
+    i = 0
+    while i < n:
+        j = 1
+        while i + j < n and s[i] == s[i+j]:
+            j += 1
+        for k in range(i, i+j):
+            if k >= len(result):
+                result += s[k]
+            else:
+                result += (j > 1)*s[k] + 'x'*(j > 1)
+        i += j
     
-    return min(result, key=lambda x: [c for c in x].count(min([c for c in x])))
+    return result
 
 print(decode_cyclic())
