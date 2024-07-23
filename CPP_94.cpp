@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 
@@ -8,6 +9,7 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
+
 }
 
 bool isPrime(int n){
