@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-
 bool simplify(const std::string& numeratorStr, const std::string& denominatorStr) {
     int numerator = 0, denominator1 = 0, denominator2 = 0;
     size_t pos = numeratorStr.find("/");
@@ -8,8 +8,8 @@ bool simplify(const std::string& numeratorStr, const std::string& denominatorStr
     if (numerator == 0) return false; 
     pos = denominatorStr.find("/");
     denominator2 = std::stoi(denominatorStr.substr(0, pos));
-    int productDenominator = denominator2 * denominator1;
+    int productDenominator = denominator2;
     if (productDenominator == 0)
         return false; 
-    return numerator % (denominator2 * denominator1) == 0;
+    return numerator % productDenominator == 0;
 }

@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -36,16 +33,16 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
     int sum = 0;
     while (!q.empty()) {
-        auto [temp_sum, {ni, ns}] = q.top(); q.pop();
+        auto [temp_sum, {i, j}] = q.top(); q.pop();
         sum = temp_sum;
         if (k == 0) {
             return vector<int>{sum}; 
         }
-        for (auto& neighbor : neighbors[ni]) {
-            int nns = neighbor.second; 
-            int temp_ns = sum - grid[ni][ns] + nns;
+        for (auto& neighbor : neighbors[i]) {
+            int ni = neighbor.first.first, ns = neighbor.second; 
+            int temp_ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({temp_ns, make_pair(ni, nns)}); 
+            q.push({temp_ns, {ni, ns}}); 
         }
     }
 
