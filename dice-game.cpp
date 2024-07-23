@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-double diceGame(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= min(n, m); i++) {
-        total -= 1.0 / (i * (n - i + 1));
+double probability(int n, int m) {
+    double result = 0;
+    for (int i = m + 1; i <= n; i++) {
+        result += 1.0 / n;
     }
-    return total;
+    return result;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(10) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(6) << probability(n, m);
     return 0;
 }
