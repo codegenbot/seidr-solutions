@@ -18,15 +18,13 @@ string sort_numbers(string numbers){
     while (ss >> token) {
         num_strings.push_back(token);
     }
-
     sort(num_strings.begin(), num_strings.end(), [&](const string &a, const string &b) {
         return num_map[a] < num_map[b];
     });
-
     string result;
-    for (const auto &num : num_strings) {
-        result += num + " ";
+    for (const string &num_str : num_strings) {
+        result += num_str + " ";
     }
-
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
