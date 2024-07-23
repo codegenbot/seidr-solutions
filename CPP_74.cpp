@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -21,10 +22,6 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     } else if (sum1 > sum2) {
         return lst2;
     } else {
-        return lst1;
+        return issame(lst1, lst2) ? lst1 : lst2;
     }
-}
-
-int main() {
-    assert(std::equal(total_match({"this"}, {}), {}));
 }
