@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-std::vector<std::string> by_length(std::vector<int> lengths) {
+std::vector<std::string> by_length(std::initializer_list<int> lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         if (length == 4)
@@ -15,7 +14,7 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
