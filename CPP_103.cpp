@@ -1,5 +1,4 @@
 #include <cmath>
-#include <bits/stdc++.h>
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -17,6 +16,6 @@ string rounded_avg(int n, int m) {
             res.push_back('0');
         avg >>= 1;
     }
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
