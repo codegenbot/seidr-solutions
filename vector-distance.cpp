@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,4 +12,13 @@ double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
     }
     
     return std::sqrt(sum);
+}
+
+int main() {
+    std::vector<float> v1 = std::vector<float>( {1.0f, 2.0f, 3.0f} );
+    std::vector<float> v2 = std::vector<float>( {4.0f, 5.0f, 6.0f} );
+    
+    double distance = vectorDistance(v1, v2);
+    
+    return 0;
 }
