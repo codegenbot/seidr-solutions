@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -23,7 +22,7 @@ vector<int> findIndices(string text, string target) {
 int main() {
     int n;
     cin >> n;
-    string text = "";
+    string text;
     cin >> text;
     vector<int> result = findIndices(text, text.substr(0, n));
     for (int i : result) {
