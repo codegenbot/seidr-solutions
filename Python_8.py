@@ -1,4 +1,9 @@
-Write a Python function that takes as input a list of integers and returns a tuple containing the sum of all numbers in the list and their product.
+Write a Python function that takes as input a list of integers and returns two values: the sum of all numbers in the list and their product.
+
+The function signature is:
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+
+Here is the solution:
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = 0
