@@ -1,31 +1,20 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
-int basement(vector<int> nums) {
-    int sum = 0;
+int basement(vector<int64_t> nums) {
+    int64_t sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i; // Return the index where sum first becomes negative
+            return i + 1; // Return the index where sum first becomes negative
         }
     }
     return nums.size();
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    vector<int> nums(n);
-    cout << "Enter the elements separated by spaces: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-
-    int result = basement(nums);
-    cout << "Result: " << result << endl;
-
+    vector<int64_t> test_input = {16, 43, 73, 2, 40, -46, 38, -6, -80, 53, 96, -55, -42, -6, -49, -93, -69};
+    cout << basement(test_input) << endl;
     return 0;
 }
