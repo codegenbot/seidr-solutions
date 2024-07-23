@@ -1,12 +1,19 @@
+```cpp
 #include <string>
-#include <iostream>
+
+int main() {
+    std::string s = "X/X/XX/X-4/-5/X-10/-1-2/-3-4/5-6//";
+    int score = bowlingScore(s);
+    return 0;
+}
 
 int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll1 = 0;
     int currentRoll2 = 0;
     bool strike = false;
-    
+    int frameScore = 0;
+
     for (char c : s) {
         if (c == '/') {
             if (!strike) {
@@ -24,13 +31,12 @@ int bowlingScore(std::string s) {
             currentRoll2 = 0;
         } else if (c == 'X') {
             score += 10;
+            frameScore = 10;
             strike = true;
-            continue;
         } else {
             if (!strike) {
-                currentRoll1++;
-                if (currentRoll1 >= 10) {
-                    if (currentRoll1 + currentRoll2 <= 10) {
+                if (currentRoll1 + 1 >= 10) {
+                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
                         score += 10 - currentRoll1;
                         currentRoll2++;
                     } else {
@@ -38,14 +44,14 @@ int bowlingScore(std::string s) {
                         currentRoll1 = 0;
                     }
                 } else {
-                    currentRoll2++;
+                    currentRoll1++;
                 }
             } else {
                 currentRoll2++;
             }
         }
     }
-    
+
     if (strike) {
         int bonusRoll1 = 0, bonusRoll2 = 0;
         for (char c : s.substr(s.find('/'))) {
@@ -65,13 +71,6 @@ int bowlingScore(std::string s) {
             }
         }
     }
-    
-    return score;
-}
 
-int main() {
-    std::string input = "X|X|7/4/3/X|8+6/5+5/9-"; // provide the string here
-    int result = bowlingScore(input);
-    std::cout << "The bowling score is: " << result << std::endl;
-    return 0;
+    return score;
 }
