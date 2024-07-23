@@ -1,30 +1,27 @@
-```
 def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            if frame < 10:
-                score += 10
-                frame += 1
-                if frames[(i + 1):].count('X') > 0:
-                    score += int(frames[(i + 2):].index('X') - i - 1) * 10
-                else:
-                    score += int(frames[(i + 2):(i + 3)].lstrip('/').replace('-', '')) * (frame != 10)
-            frame += 1
-        elif frames[i] in '1234567890/':
-            if frames[i] == '/':
-                if frame < 10:
-                    score += int(frames[(i + 1):].index('X') - i - 1) * 10
-                else:
-                    score += int(frames[(i + 1):].lstrip('/').replace('-', '')) * (frame != 10)
-            elif frames[i] == '0':
-                if frame < 10:
-                    score += 10
-                    score += int(frames[(i + 2):(i + 3)].lstrip('/').replace('-', '')) * (frame != 10)
-                else:
-                    score += 10
+    prev_frame_value = 0
+    for i in range(10):
+        frame = frames[i*2:i*2+2]
+        if frame == "X":
+            score += 10
+            prev_frame_value = 10
+        elif frame[0] == "/":
+            first_roll, second_roll = map(int, frame[1:])
+            score += first_roll + second_roll
+            prev_frame_value = first_roll + second_roll
+        else:
+            first_roll, second_roll = map(int, frame)
+            if first_roll + second_roll == 10:
+                prev_frame_value = 10
             else:
-                score += int(frames[i]) + int(frames[(i + 1)].lstrip('/').replace('-', ''))
-        frame += 1
+                score += first_roll + second_roll
+                prev_frame_value = first_roll + second_roll
+        if i < 9 and prev_frame_value > 0:
+            next_frame = frames[(i+1)*2:(i+2)*2]
+            if next_frame == "X":
+                score += 10
+            elif next_frame[0] == "/":
+                first_roll, _ = map(int, next_frame[1:])
+                score += first_roll
     return score
