@@ -2,4 +2,6 @@ from typing import List
 
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring.lower() in s.lower()]
+    if not substring:
+        return strings
+    return [s for s in strings if substring in s]
