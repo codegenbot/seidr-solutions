@@ -1,4 +1,5 @@
 #include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     vector<int> frameScores;
@@ -12,12 +13,12 @@ int bowlingScore(string s) {
             frameScores.clear();
         } else if (c == '/') {
             int spareRoll1 =stoi(string(1, s[s.find('/')-1]));
-            int spareRoll2 = stoi(string(1, s[s.find('/')-2]));
+            int spareRoll2 = stoi(string(1, s.substr(s.find('/')-2, 1)));
             score += 10 - spareRoll1 - spareRoll2;
             frameScores.clear();
         } else {
             if (c >= '0' && c <= '9') {
-                int roll =stoi(string(1,c));
+                int roll =stoi(string(1, c));
                 if (!frameScores.empty()) {
                     frameScores.back() += roll;
                 } else {
@@ -32,4 +33,3 @@ int bowlingScore(string s) {
     }
 
     return score;
-}
