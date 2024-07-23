@@ -1,10 +1,9 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
-#include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
@@ -13,8 +12,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return numbers;
 }
 
-void main() {
-    if (!issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5}))) {
-        std::cout << "Test failed: Arrays are not the same after removing duplicates." << std::endl;
-    }
+int main() {
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
 }
