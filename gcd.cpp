@@ -1,3 +1,5 @@
+Here is the modified code that addresses the issue:
+```cpp
 #include <vector>
 #include <string>
 
@@ -28,8 +30,6 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
-#include <initializer_list>
-
 int main() {
     string text; 
     cin >> text;
@@ -38,7 +38,7 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    
+
     int a; 
     cin >> a;
     
