@@ -1,35 +1,23 @@
 #include <vector>
+#include <climits>
+#include <cmath>
 using namespace std;
 
-vector<int> cutVector(vector<int> vec) {
-    int n = vec.size();
-    for(int i=0; i<n-1; i++) {
-        if(abs(vec[i] - vec[i+1]) <= 0) {
-            return {vec, vector<int>(i, i)};
-        }
-    }
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
-    for(int i=1; i<=n-2; i++) {
-        int diff = abs(vec[0] - vec[i]) + abs(vec[i] - vec[n-1]);
+    
+    for(int i=0; i<nums.size()-1; ++i) {
+        int diff = std::abs(nums[i] - nums[i+1]);
         if(diff < minDiff) {
             minDiff = diff;
             pos = i;
         }
     }
-    return {vector<int>(vec, 0, pos), vector<int>(pos, n)};
-}
-
-int main() {
-    int N;
-    cin >> N;
-    vector<int> vec(N);
-    for(int i=0; i<N; i++) {
-        cin >> vec[i];
-    }
-    vector<int> res = cutVector(vec);
-    for(auto x:res) {
-        cout << x << ' ';
-    }
-    return 0;
+    
+    vector<int> left, right;
+    left.assign(nums.begin(), nums.begin()+pos+1);
+    right.assign(nums.begin()+pos+1, nums.end());
+    
+    return {{left, right}};
 }
