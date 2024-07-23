@@ -2,17 +2,8 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = []
 
-    for coin in coins:
-        count = cents // coin
-        if count > 0:
-            if coin == 25: 
-                results.extend([count, 0, 0, 0])
-            elif coin == 10: 
-                results.extend([0, count, 0, 0])
-            elif coin == 5: 
-                results.extend([0, 0, count, 0])
-            elif coin == 1: 
-                results.extend([0, 0, 0, count])
-            cents %= coin
-
-    return " ".join(map(str, results))
+    for coin in sorted(coins, reverse=True):
+        while cents >= coin:
+            cents -= coin
+            results.append(1)
+    return " ".join(map(str, [results.count(1), results.count(0), results.count(5), cents]))
