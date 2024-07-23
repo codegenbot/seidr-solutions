@@ -8,7 +8,7 @@ def cut_vector(lst):
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-        elif diff == min_diff and (sum(lst[:i]) >= sum(lst[i:]) or i > 0):
+        elif (diff == min_diff and (sum(lst[:i]) >= sum(lst[i:]) or i > 0)) or diff < min_diff:
             min_diff = diff
             cut_index = i
 
