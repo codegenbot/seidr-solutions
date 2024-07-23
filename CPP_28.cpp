@@ -36,4 +36,3 @@ int main() {
     std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
 
     return 0;
-}
