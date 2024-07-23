@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,6 +7,11 @@ using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
+    
+    // Convert all strings to lowercase before sorting and comparing
+    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
+    transform(lst2.begin(), lst2.end(), lst2.begin(), ::tolower);
+
     sort(lst1.begin(), lst1.end());
     sort(lst2.begin(), lst2.end());
 
@@ -34,8 +38,8 @@ int main() {
 
     vector<string> result = total_match(vec1, vec2);
 
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << endl;
+    for (const string& s : result) {
+        cout << s << endl;
     }
 
     return 0;
