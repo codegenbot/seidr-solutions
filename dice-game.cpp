@@ -1,15 +1,12 @@
-#include <vector>
-using namespace std;
-
-double probability(int n, int m) {
-    double total = pow(n + m - 1, 2);
-    double peterHigher = (n * m - min(n, m)) / total;
-    return peterHigher;
+double getProbability(int n, int m) {
+    if(n <= m)
+        return 1.0 - (double)m/(n+m);
+    else
+        return (double)m/(n+m);
 }
-
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(1) << probability(n, m) << endl;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(1) << getProbability(n, m) << '\n';
     return 0;
 }
