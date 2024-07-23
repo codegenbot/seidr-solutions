@@ -1,16 +1,24 @@
-vector<int> findPair(vector<int>& nums, int target) {
-    map<int, int> numIndex;
-    vector<int> result;
+#include <iostream>
+#include <vector>
+#include <map>
+
+int main() {
+    int n, a, b, target;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
+    }
+    std::cin >> target;
     
-    for (int i = 0; i < nums.size(); ++i) {
-        int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            result.push_back(complement);
-            result.push_back(nums[i]);
+    std::map<int, int> seen;
+    for (int i = 0; i < n; i++) {
+        if (seen.count(target - nums[i])) {
+            std::cout << target - nums[i] << std::endl << nums[i];
             break;
         }
-        numIndex[nums[i]] = i;
+        seen[nums[i]] = i;
     }
     
-    return result;
+    return 0;
 }
