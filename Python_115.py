@@ -1,6 +1,6 @@
-Here is the modified Python code:
+Here is the modified code:
 
-```python
+```Python
 import math
 
 
