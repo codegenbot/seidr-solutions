@@ -1,30 +1,23 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
-
-    int i = 0, j = 0;
-    
-    while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) {
-            result.push_back(lst1[i]);
-            i++;
-            j++;
-        } else if (lst1[i] < lst2[j]) {
-            i++;
-        } else {
-            j++;
-        }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (std::any_of(a.begin(), a.end(),
+            [s, bstr=b[i]](const std::string& str) { return tolower(str) != tolower(bstr); })) 
+            return false;
     }
+    return true;
+}
 
+std::vector<std::string> total_match(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    vector<string> result;
+    for (const string& s : vec1) {
+        if (issame(vec1, {s}) && issame({s}, vec2))
+            result.push_back(s);
+    }
     return result;
 }
 
@@ -34,8 +27,8 @@ int main() {
 
     vector<string> result = total_match(vec1, vec2);
 
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << endl;
+    for (const string& s : result) {
+        cout << s << endl;
     }
 
     return 0;
