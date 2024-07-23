@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = []
@@ -11,4 +12,4 @@ def coin_sums(cents):
     if cents > 0:
         results.extend([cents//1, cents%1])
 
-    return "\n".join(map(str, results))
+    return "\n".join(map(str, results)) + "\n"
