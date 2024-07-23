@@ -1,14 +1,16 @@
-#include <iostream>
 #include <string>
 
-std::string flip_case(std::string str){
-    for(int i=0; i<str.length(); i++){
-        if(str[i]>='a' && str[i]<='z'){
-            str[i] -= 32;
-        }
-        else if(str[i]>='A' && str[i]<='Z'){
-            str[i] += 32;
-        }
+string flip_case(string str) {
+    string result = "";
+    for(int i=0; i<str.length(); i++) {
+        char c = str[i];
+        if(c>=97 && c<=122 || c>=65 && c<=90) { // Check if character is lowercase or uppercase letter
+            if(c>=97 && c<=122)
+                result += (c-32).convert_to<char>();
+            else
+                result += (c+32).convert_to<char>();
+        } else 
+            result += c;  // Keep non-alphabetic characters unchanged
     }
-    return str;
+    return result;
 }
