@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
     code_counts = [0] * 6
