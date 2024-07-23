@@ -1,4 +1,3 @@
-```
 def basement(arr):
     total = 0
     seen_negative = False
@@ -7,4 +6,3 @@ def basement(arr):
             return i
         total += arr[i]
         seen_negative = total < 0
-    return -1
