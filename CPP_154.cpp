@@ -1,13 +1,10 @@
+```cpp
 bool cycpattern_check(string a, string b) {
-    for(int i = 0; i < a.length(); i++) {
-        string temp = a.substr(i);
-        int j = 0;
-        while(j < temp.length()) {
-            if(temp.substr(j).compare(b) == 0 || 
-               temp.substr(j).compare(b.substr(1)) == 0)
-                return true;
-            j++;
-        }
+    string str = a;
+    for(int i = 0; i < str.length(); i++) {
+        if(str.substr(i).compare(b) == 0)
+            return true;
+        str = str.substr(1) + str[0]; // rotate the string
     }
     return false;
 }
