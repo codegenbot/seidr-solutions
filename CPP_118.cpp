@@ -25,7 +25,7 @@ string get_closest_vowel(string word) {
         }
     }
     
-    return string(1, word[min_index]);
+    return (min_index == -1) ? "" : string(1, word[min_index]);
 }
 
 int main() {
