@@ -30,6 +30,8 @@ int main() {
         nums.push_back(num);
     }
 
+    if (std::cin.eof()) break;
+
     std::vector<int> result = findLeaders(nums);
     for (int num : result) {
         std::cout << num << " ";
