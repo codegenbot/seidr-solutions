@@ -3,7 +3,7 @@
 #include <cmath>
 
 int main() {
-    float totalSnow = 0;
+    float totalSnow = groundSnow;
 
     int hours;
     std::cin >> hours;
@@ -11,9 +11,7 @@ int main() {
     float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     (std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour);
 
-    for (int i = 0; i < hours; ++i) {
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
-    }
+    totalSnow = groundSnow + rateOfSnowFall * hours - proportionOfSnowMeltingPerHour * totalSnow;
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << ".";
 
