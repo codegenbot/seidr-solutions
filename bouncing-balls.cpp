@@ -1,4 +1,8 @@
 ```c++
+#include <iostream>
+#include <cmath>
+#include <string>
+
 int main() {
     std::string heightStartStr, heightFirstBounceStr;
     int numBounces;
