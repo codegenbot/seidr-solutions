@@ -1,6 +1,5 @@
-```cpp
+```
 #include <iostream>
-#include <string>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
@@ -21,7 +20,6 @@ int main() {
     std::cin >> hours;
     float onGround, rate, melt;
     std::cin >> onGround >> rate >> melt;
-    std::string s = std::to_string(snowDay(hours, onGround, rate, melt));
-    std::cout << s << std::endl;
+    std::cout << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
 }
