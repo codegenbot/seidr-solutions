@@ -1,6 +1,11 @@
 if(array.empty()) return array;
-    sort(array.begin(), array.end(), [&](int a, int b) {
-        return (array.front() + array.back()) % 2 == 0 ? a > b : a < b;
-    });
+    
+    int sum = array.front() + array.back();
+    if(sum % 2 == 0){
+        sort(array.begin(), array.end(), greater<int>());
+    } else {
+        sort(array.begin(), array.end());
+    }
+    
     return array;
 }
