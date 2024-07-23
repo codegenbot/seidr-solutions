@@ -11,11 +11,12 @@ vector<int> indicesOfSubstring(string text, string target) {
         int j = 0;
         while (j < m) {
             if (text[i + j] != target[j]) {
+                i += j; // Increment i by the current j
                 j = 0;
-                i++;
-                break;
             }
-            j++;
+            else {
+                j++;
+            }
         }
         if (j == m)
             result.push_back(i);
