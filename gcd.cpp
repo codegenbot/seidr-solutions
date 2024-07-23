@@ -11,8 +11,8 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     if (target.empty()) return indices;
     for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
         if (text.substr(i, static_cast<int>(target.size())) == target) {
-            for (int z = 0; z < static_cast<int>(target.size()); ++z) {
-                indices.push_back(i + z);
+            for (int j = 0; j < static_cast<int>(target.size()); ++j) {
+                indices.push_back(i + j);
             }
         }
     }
