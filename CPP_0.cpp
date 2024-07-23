@@ -13,7 +13,7 @@ bool has_close_elements(vector<float> numbers, float threshold){
 }
 
 int main() {
-    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
     cout << has_close_elements(a, 1.0) << endl;
     return 0;
 }
