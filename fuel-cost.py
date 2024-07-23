@@ -1,2 +1,2 @@
 def solve():
-    return sum((x//3)-2 for x in map(int, input().split()))
+    return sum((int(x) // 3) - 2 for x in input().split())
