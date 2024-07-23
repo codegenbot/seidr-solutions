@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -7,10 +7,10 @@ int main() {
     std::string heightStartStr, heightFirstBounceStr;
     int numBounces;
 
-    std::cin >> heightStartStr >> heightFirstBounceStr >> numBounces;
+    std::cin >> heightStartStr >> std::ws >> heightFirstBounceStr >> std::ws >> numBounces;
 
-    double heightStart = std::stod(heightStartStr);
-    double heightFirstBounce = std::stod(heightFirstBounceStr);
+    double heightStart = stod(heightStartStr);
+    double heightFirstBounce = stod(heightFirstBounceStr);
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
