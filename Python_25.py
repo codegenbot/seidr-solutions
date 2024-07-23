@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -18,6 +19,7 @@ def factorize(n: int) -> List[int]:
                     factors.extend([i] * count)
                 else:
                     factors.append(i)
+    # check for even number
     if n > 1 and math.sqrt(n) % 1 == 0.0:
         factors.append(math.isqrt(n))
     elif n > 1:
