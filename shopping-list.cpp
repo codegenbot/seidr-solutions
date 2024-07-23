@@ -1,13 +1,11 @@
 #include <vector>
 using namespace std;
 
-double shoppingList(double prices[], int n, double discounts[]) {
+double shoppingList(vector<double> prices, vector<double> discounts) {
     double total = 0;
-    for (int i = 0; i < n; i++) {
-        double price = prices[i];
-        double discount = discounts[i] / 100.0;
-        double discountedPrice = price * (1 - discount);
-        total += discountedPrice;
+    for(int i = 0; i < prices.size(); i++) {
+        double price = prices[i] * (1 - discounts[i]/100.0);
+        total += price;
     }
     return total;
 }
@@ -16,15 +14,15 @@ int main() {
     int n;
     cin >> n;
     vector<double> prices(n);
-    for (double &price : prices) {
-        cin >> price;
+    for(int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
+    cin.ignore();
     cin >> n;
     vector<double> discounts(n);
-    for (double &discount : discounts) {
-        cin >> discount;
+    for(int i = 0; i < n; i++) {
+        cin >> discounts[i];
     }
-    double result = shoppingList(&prices[0], n, &discounts[0]);
-    cout << fixed << setprecision(1) << result << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
