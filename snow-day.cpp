@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -18,10 +17,11 @@ int main() {
     cin >> snowMeltingRate;
 
     for (int i = 0; i < hours; i++) {
-        groundSnow += round(snowFallRate - (groundSnow * snowMeltingRate));
+        float newSnow = groundSnow + snowFallRate;
+        groundSnow = newSnow - (newSnow * snowMeltingRate);
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << setprecision(2) << fixed << groundSnow;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << setprecision(10) << fixed << groundSnow;
 
     return 0;
 }
