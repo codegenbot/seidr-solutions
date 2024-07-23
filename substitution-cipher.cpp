@@ -5,16 +5,11 @@ int main() {
     std::cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
-        bool replaced = false;
         for (int i = 0; i < cipher1.size(); ++i) {
-            if (c == cipher1[i]) {
-                c = cipher2[i];
-                replaced = true;
+            if (c == cipher2[i]) {
+                c = cipher1[i];
                 break;
             }
-        }
-        if(replaced) {
-            break;
         }
     }
 
