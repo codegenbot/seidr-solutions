@@ -34,8 +34,6 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    // your code here
-    // test the function with different inputs
     std::cout << spinWords("a") << std::endl;
     std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
