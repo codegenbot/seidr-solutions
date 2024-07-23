@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -9,23 +8,14 @@ std::string camelCase(std::string s) {
             if (result.back() != ' ') {
                 result.push_back(toupper(s[i]));
             } else {
-                result += " " + topper(s.substr(i));
+                result += toupper(s[i]);
                 break;
             }
         } else if (s[i] == ' ') {
-            if (i < s.length() - 1) {
-                result.push_back(char(toupper(s[i + 1])));
-            } else {
-                result += tolower(s[i]);
-            }
+            result.push_back(toupper(s[i + 1]));
             i++;
         } else {
-            if (i > 0 && result.back() != ' ') {
-                result.push_back(tolower(s[i]));
-            } else {
-                result += s.substr(i);
-                break;
-            }
+            result += s[i];
         }
     }
     return result;
