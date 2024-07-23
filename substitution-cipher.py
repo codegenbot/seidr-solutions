@@ -1,5 +1,5 @@
 def substitution_cipher(cipher, message):
-    return "".join([cipher[i] if i < len(cipher) else "" for i in range(len(message))])
+    return "".join([cipher[i%len(cipher)] if i < len(message) else "" for i in range(len(message))])
 
 cipher1 = input()
 cipher2 = input()
