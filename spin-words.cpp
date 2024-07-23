@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 
 std::string spinWords(std::string str) {
@@ -24,3 +25,4 @@ std::string spinWords(std::string str) {
     }
     
     return result;
+};
