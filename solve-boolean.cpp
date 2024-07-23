@@ -1,43 +1,47 @@
 #include <iostream>
-#include <stack>
 #include <string>
 
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<string> s;
-    string temp = "";
+bool evaluateExpression(string expression) {
+    if (expression.size() == 0)
+        return false; // base case: empty string is F
 
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '(') {
-            s.push(expression.substr(0, i));
-            expression = expression.substr(i + 1);
-            i = -1;
+    int i = 0;
+    
+    while (i < expression.size()) {
+        if (expression[i] == '|') {
+            int j = i + 1;
+            
+            for (; j < expression.size(); j++) {
+                if (expression[j] == '&') {
+                    // found &&
+                    return evaluateExpression(expression.substr(i, j - i)) && evaluateExpression(expression.substr(j + 1));
+                }
+                else if (expression[j] == '|') {
+                    // found ||
+                    return evaluateExpression(expression.substr(i, j - i)) || evaluateExpression(expression.substr(j + 1));
+                }
+            }
         }
-        else if (expression[i] == ')') {
-            expression = s.top() + expression;
-            s.pop();
-        }
-        temp += expression[i];
+        
+        if (expression[i] == 't')
+            return true;
+        else if (expression[i] == 'f')
+            return false;
 
-        if (i + 1 < expression.size() && ((temp[temp.size() - 1] == '&' && expression[i + 1] == '&') || 
-                                            (temp[temp.size() - 1] == '|' && expression[i + 1] == '|'))) {
-            s.push(temp);
-            temp = "";
-        }
+        i++;
     }
 
-    if (expression.find("T") != string::npos)
-        return true;
-    else
-        return false;
+    // if we reached here, it means the string started with T or F
+    return expression[0] == 't';
 }
 
 int main() {
     string expression;
     cout << "Enter a Boolean expression: ";
     cin >> expression;
-    bool result = solveBoolean(expression);
+    bool result = evaluateExpression(expression);
     if (result)
         cout << "True";
     else

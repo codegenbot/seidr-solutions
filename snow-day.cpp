@@ -1,21 +1,23 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
-float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    for(int i = 0; i < hours; i++) {
-        if(i == 0) {
-            return initialSnow + initialSnow * rateOfSnowFall;
-        } else {
-            return (initialSnow + initialSnow * rateOfSnowFall - initialSnow * proportionOfSnowMeltingPerHour);
-        }
-    }
-}
+// Forward declare the function
+double snowDay(int, double, double, double);
 
 int main() {
     int hours;
-    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    cin >> hours;
-    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    std::cin >> hours;
+    double initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    std::cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
+}
+
+double snowDay(int hours, double initialSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
+    for (int i = 0; i < hours; i++) {
+        initialSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour;
+    }
+    return initialSnow;
 }
