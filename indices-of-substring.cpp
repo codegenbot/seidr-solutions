@@ -17,6 +17,20 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (match) {
             result.push_back(i);
+            int k = i + m;
+            while(k <= n - m) {
+                match = true;
+                for (int j = 0; j < m; j++) {
+                    if (text[k + j] != target[j]) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    result.push_back(k);
+                }
+                k += m;
+            }
         }
     }
 
