@@ -17,6 +17,6 @@ bool issame(const vector<string>& a, const vector<string>& b){
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert (issame({{"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}}, {{"xxx", "xxxAAA", "xxx"}}));
     return 0;
 }
