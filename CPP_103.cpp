@@ -1,20 +1,20 @@
-#include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
 
 string rounded_avg(int n, int m) {
     if (n > m)
         return "-1";
-    long long sum = 0;
+    double sum = 0;
     for (int i = n; i <= m; i++)
         sum += i;
-    long long avg = sum / (m - n + 1);
+    double avg = round(sum / (m - n + 1));
     string res = "";
-    while (avg > 0) {
-        if (avg & 1)
+    while (static_cast<int>(avg) > 0) {
+        if (static_cast<int>(avg) % 2)
             res.push_back('1');
         else
             res.push_back('0');
-        avg >>= 1;
+        avg /= 2;
     }
     std::reverse(res.begin(), res.end());
     return res;
