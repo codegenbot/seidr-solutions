@@ -1,14 +1,16 @@
-int n = arr.size();
-    if (n == 0) {
+#include <vector>
+
+bool move_one_ball(std::vector<int> arr) {
+    if (arr.empty()) {
         return true;
     }
-    
-    int min_index = 0;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < arr[min_index]) {
-            min_index = i;
+
+    int n = arr.size();
+    for (int i = 0; i < n; ++i) {
+        if (std::is_sorted(arr.begin(), arr.end())) {
+            return true;
         }
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    
-    return (min_index == n - 1 || arr[0] <= arr[n - 1]);
+    return false;
 }
