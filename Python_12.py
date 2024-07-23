@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 
@@ -12,14 +11,14 @@ def longest(strings: list[str]) -> Optional[str]:
         if len(s) > max_len and s != 'stop':
             max_len = len(s)
             longest_str = s
-    return longest_str
+    return longest_str if longest_str is not None else "No strings entered"
 
 
 strings = []
 while True:
-    s = input("Please enter a string (or 'stop' to finish): ")
-    if s.lower() == 'stop':
+    line = input("Please enter a string (or 'stop' to finish): ")
+    if line.lower() == 'stop':
         break
-    strings.append(s.strip())
+    strings.append(line)
 
-print("The longest string is: " + str(longest(strings)) if longest(strings) else "No strings entered")
+print(f"The longest string is: {longest(strings)}" or "No strings entered")
