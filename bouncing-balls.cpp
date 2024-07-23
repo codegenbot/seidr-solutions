@@ -18,7 +18,7 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    cout << std::fixed << std::setprecision(6) << totalDistance;
+    cout << fixed << setprecision(6);
+    cout << totalDistance;
 
     return 0;
-}
