@@ -1,5 +1,3 @@
-Here is your modified code:
-
 ```
 def gcd(a, b):
     while b:
