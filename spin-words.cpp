@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 
@@ -35,13 +34,10 @@ std::string spinWords(std::string str) {
         longWord = false;
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
+    std::cout << spinWords("This is a test string");
     return 0;
 }
