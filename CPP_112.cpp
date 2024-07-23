@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -33,7 +33,8 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main {
+int main 
+{
     // Read input
     std::string s;
     std::cout << "Enter a string: ";
