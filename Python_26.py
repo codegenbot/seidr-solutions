@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def remove_duplicates(numbers: List[str]) -> List[int]:
@@ -11,3 +10,7 @@ def remove_duplicates(numbers: List[str]) -> List[int]:
         return []
     
     return sorted(list(set(numbers)))
+
+if __name__ == "__main__":
+    numbers = remove_duplicates([])
+    print(f"Remove duplicates: {numbers}")
