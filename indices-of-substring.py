@@ -6,6 +6,6 @@ def indices_of_substring(text, target):
         if pos == -1:
             break
         result.append(pos)  
-        pos += len(target)
+        pos += 1
 
     return result
