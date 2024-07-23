@@ -10,6 +10,6 @@ def find_zero(xs: list):
 
     root = 0.0
     for i in range(degree, -1, -1):
-        root += (-coefficients[i] / pow(coefficients[0], i)) * (1 if i % 2 == 0 else -1)
+        root += (-coefficients[i] / pow(coefficients[0], i)) * (1 / ((i % 2) == 0))
 
     return round(root, 2)
