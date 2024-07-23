@@ -13,6 +13,6 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {1, 2, 3};
-    std::cout << specialFilter(nums);
+    assert(specialFilter(nums) == 2);
     return 0;
 }
