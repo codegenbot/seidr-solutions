@@ -15,7 +15,11 @@ string anti_shuffle(string s) {
             }
             string newWord;
             for (char c : word) {
-                newWord += (c < newWord.empty() ? c : newWord[0]);
+                if (newWord.empty()) {
+                    newWord += c;
+                } else {
+                    newWord.push_back(c);
+                }
             }
             result += newWord;
             i = j - 1;
