@@ -18,7 +18,7 @@ int main() {
     }
     
     cout << fixed;
-    cout.precision(14); // to display 14 decimal places
+    cout.precision(14);
     
     cout << total_distance << endl;
     
