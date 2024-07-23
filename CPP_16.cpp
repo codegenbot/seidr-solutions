@@ -1,10 +1,16 @@
-#include <string>
 #include <algorithm>
+#include <string>
+#include <set>
+
 using namespace std;
 
 int count_distinct_characters(string str) {
-    string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    set<char> unique_chars(temp.begin(), temp.end());
-    return unique_chars.size();
+    set<char> s;
+    for (char c : str) {
+        if (isalpha(c)) {
+            char ch = tolower(c);
+            s.insert(ch);
+        }
+    }
+    return s.size();
 }
