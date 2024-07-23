@@ -25,7 +25,15 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits(digits.begin(), digits.end());
+    std::vector<int> digits;
+    
+    for (int i = 0; i < 16; ++i) {
+        int digit;
+        std::cout << "Enter a digit: ";
+        std::cin >> digit;
+        digits.push_back(digit);
+    }
+    
     int result = luhn(digits);
     return 0;
 }
