@@ -25,4 +25,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-has_close_elements([float(x) for x in input("Enter space-separated float numbers: ").split()], float(input("Enter a threshold value: ")))
+has_close_elements(input("Enter space-separated float numbers: "), float(input("Enter a threshold value: ")))
