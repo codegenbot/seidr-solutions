@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1) return true;
@@ -29,6 +30,4 @@ int main() {
     } else {
         std::cout << "The vector is not sorted.\n";
     }
-    
     return 0;
-}
