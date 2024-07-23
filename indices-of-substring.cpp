@@ -11,11 +11,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target)
             result.push_back(i);
         i = text.find(target, i) + 1;
-        if (i > 0 && i < n - m + 1) {
-            continue; 
-        } else {
-            break;
-        }
     }
     
     return result;
@@ -23,7 +18,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text);
+    getline(cin, target);
     vector<int> res = indicesOfSubstring(text, target);
     for (int x : res) {
         cout << x << " ";
