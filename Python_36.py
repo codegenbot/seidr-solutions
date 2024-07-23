@@ -10,4 +10,6 @@ def fizz_buzz(n: int):
             result.append("Buzz" if i % 3 != 0 else "FizzBuzz")
         else:
             result.append(str(i))
-    return '\n'.join(map(str, result))
+    return '\n'.join(result)
+
+assert len(fizz_buzz(100000).splitlines()) == 8026
