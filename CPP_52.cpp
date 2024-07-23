@@ -5,19 +5,14 @@ bool below_threshold(vector<int> l, int t) {
         }
     }
     return true;
-}
+} 
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    int threshold = 3;
+    vector<int> numbers = {10, 20, 30};
+    int threshold = 25;
     
-    bool is_below_threshold = below_threshold(numbers, threshold);
+    bool result = below_threshold(numbers, threshold);
     
-    if (is_below_threshold) {
-        cout << "All elements are below the threshold." << endl;
-    } else {
-        cout << "At least one element is not below the threshold." << endl;
-    }
-    
+    cout << "Are all elements in the list below the threshold? " << (result ? "Yes" : "No") << endl; 
+
     return 0;
-}
