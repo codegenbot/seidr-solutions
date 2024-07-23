@@ -1,5 +1,5 @@
-```
 #include <cstdlib>
-int add(int x, int y) {
-    return x + y;
+
+int random(int x, int y) {
+    return rand() % (x - y + 1) + y;
 }
