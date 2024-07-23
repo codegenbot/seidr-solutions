@@ -13,7 +13,7 @@ double probability(int n, int m) {
         }
     }
 
-    return (count) / total;
+    return (total - count) / total;
 }
 
 int main() {
@@ -25,4 +25,5 @@ int main() {
     double result = probability(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
+
 }
