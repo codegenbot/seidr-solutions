@@ -1,23 +1,25 @@
 def bowling_score(frames):
     score = 0
     frame = 1
+    prev_frame = 0
     for char in frames:
         if char.isdigit():
-            if int(char) == 10:
-                score += 10
-                frame += 1
-            elif frame < 10 and int(char) + 1 > 10:
-                if len(frames) - len(frames.replace(str(int(char)) + "/", "")) > 2:
-                    score += 10 - int(char)
-                    frame += 1
+            score += int(char)
+            if frame < 10 and (int(char) == 10 or int(char) + 1 > 10):
+                if int(char) == 10:
+                    score -= 10
                 else:
-                    score += int(char) * 2
-            else:
-                score += int(char)
+                    score -= 10 - int(char)
+                prev_frame = frame
+                frame += 1
         elif char == "/":
-            if frame < 9 and len(frames.replace("/", "0/").replace("10/", "00/")) > len(
-                frames
-            ):
-                score -= 2
+            score += 10
             frame += 1
+    # handle last frame special case
+    if (
+        frame < 10
+        and frames[prev_frame - 1].isdigit()
+        and int(frames[prev_frame - 1]) + 1 <= 10
+    ):
+        score -= 10 - int(frames[prev_frame - 1])
     return score
