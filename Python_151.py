@@ -1,12 +1,13 @@
-first_list = [[1, 2], [3, 4]]
-second_list = [10, 20, 30]
+```python
+def double_the_difference(list1, list2):
+    sum_of_lists = sum(sum(pair) for pair in list1)
+    total_sum = sum(list2)
+    difference = abs((sum_of_lists - total_sum))
+    return 3 * difference
 
-def double_the_difference(first_list, second_list):
-    total = 0
-    for sublist in first_list:
-        for num in sublist:
-            if isinstance(num, int) and num >= 0:
-                total += num**2
-    return abs(total - sum(second_list)) // len(second_list) * 2
+def check():
+    first_list = [[1, 2], [3, 4]]
+    second_list = [-1, 0, 1]
+    print(double_the_difference(first_list, second_list))
 
-print(double_the_difference(first_list, second_list))
+check()
