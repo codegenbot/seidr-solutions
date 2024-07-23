@@ -1,2 +1,3 @@
+```
 def solve(N):
-    return bin(N).count('1')
+    return str(bin(N & ((1 << N.bit_length()) - 1)).count('1'))
