@@ -1,9 +1,7 @@
-import random
-
-
+```
 def longest(strings: list[str]) -> str:
     if not strings:
-        return None
+        return "No strings entered"
     max_len = 0
     longest_strs = []
     for s in strings:
@@ -12,22 +10,4 @@ def longest(strings: list[str]) -> str:
             longest_strs = [s]
         elif len(s) == max_len and s != "stop":
             longest_strs.append(s)
-    return random.choice(longest_strs) if longest_strs else "No strings entered"
-
-
-strings = []
-while True:
-    line = input("Please enter a string (or 'stop' to finish): ")
-    if line.lower() == "stop":
-        break
-    try:
-        strings.append(line.strip().lower())
-    except Exception as e:
-        print(f"Invalid input: {e}")
-
-if strings:
-    result = longest(strings)
-    if result == "No strings entered":
-        print("No strings were entered.")
-    else:
-        print(f"The longest string is: {result}")
+    return random.choice(longest_strs) if longest_strs else None
