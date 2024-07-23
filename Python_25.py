@@ -1,5 +1,19 @@
 from typing import List
+import math
 
 
-def calculate_distance(x1: int, y1: int, x2: int, y2: int) -> float:
-    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
