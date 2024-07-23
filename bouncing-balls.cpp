@@ -15,8 +15,8 @@ int main() {
         totalDistance += std::pow(2, i) * bounciness;
     }
 
-    cout << fixed << setprecision(5);
-    cout << totalDistance << endl;
+    std::cout << fixed << setprecision(5);
+    std::cout << totalDistance << endl;
 
     return 0;
 }
