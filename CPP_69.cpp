@@ -1,14 +1,9 @@
-#include <vector>
-#include <map>
-
+```cpp
 int search(const std::vector<int>& lst) {
-    std::map<int, int> countMap;
+    std::map<int, bool> countMap;
     for (auto i : lst) {
-        countMap[i]++;
+        if (countMap[i]) return i; 
+        countMap[i] = true; 
     }
-    
-    for (auto p : countMap) {
-        if (p.second > 1) return p.first; 
-    }
-    return -1;
+    return -1; 
 }
