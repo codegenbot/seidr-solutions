@@ -12,7 +12,7 @@ int findSmallest(vector<int> lst) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return sorted[0];
+    return -12;
 
 }
 
