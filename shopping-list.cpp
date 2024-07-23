@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <iomanip>
-#include <vector>
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
@@ -25,6 +23,6 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    std::cout << std::fixed << std::setprecision(1) << shoppingList(prices, discounts) << std::endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
