@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,9 +33,8 @@ int main
         cout << "No prime numbers found in the range 1 to " << n << endl;
     } else {
         cout << "Prime numbers up to " << n << ":";
-        for (int num : primes) {
-            cout << " " << num;
-        }
+        for (int num : primes) 
+            cout << " " << num; 
         cout << endl;
     }
 
