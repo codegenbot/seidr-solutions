@@ -1,5 +1,5 @@
-from typing import Optional, list
-def longest(strings: list) -> Optional[str]:
+from typing import Optional, List
+def longest(strings: List[str]) -> Optional[str]:
     return next(
         (
             s
