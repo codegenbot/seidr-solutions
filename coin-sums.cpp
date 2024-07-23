@@ -1,20 +1,24 @@
+```c++
 #include <iostream>
-using namespace std;
 
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
-    cout << "Quarters: " << cents / 25 << endl;
-    cents %= 25;
+    int pennies = cents;
+    std::cout << "Quarters: " << (pennies /= 25) << std::endl; 
+    pennies %= 25;
 
-    cout << "Dimes: " << cents / 10 << endl;
-    cents %= 10;
+    int nickles = pennies;
+    std::cout << "Nickles: " << (nickles /= 5) << std::endl;
+    nickles %= 5;
 
-    cout << "Nickles: " << cents / 5 << endl;
-    cents %= 5;
+    int dimes = nickles;
+    std::cout << "Dimes: " << (dimes /= 10) << std::endl;
+    dimes %= 10;
 
-    cout << "Pennies: " << cents << endl;
+    int remainder = dimes;
+    std::cout << "Pennies: " << remainder << std::endl;
 
     return 0;
 }
