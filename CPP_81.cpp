@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
+
+bool issame(vector<string> a, vector<string>b) {
+    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string &s) {return find(b.begin(), b.end(), s) != b.end();});
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -35,10 +40,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         letter_grades.push_back(letter_grade);
     }
     return letter_grades;
-}
-
-bool issame(vector<string> a, vector<string>b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string &s) {return find(b.begin(), b.end(), s) != b.end();});
 }
 
 int main() {
