@@ -1,16 +1,25 @@
-#include <cstring>
+```cpp
+#include <iostream>
+using namespace std;
 
-bool correct_bracketing(const char* brackets) {
+bool correct_bracketing(char* brackets) {
     int count = 0;
-    for(int i=0; i<std::strlen(brackets); i++){
-        if(*brackets == '<'){
+    for(int i=0; i<strlen(brackets); i++){
+        if(brackets[i] == '<'){
             count++;
         }
-        else if(*brackets == '>'){
+        else if(brackets[i] == '>'){
             if(count <= 0) return false;
             count--;
         }
-        brackets++;
     }
     return count == 0;
+}
+
+int main() {
+    char brackets[100];
+    cin.getline(brackets, 100);
+    bool result = correct_bracketing(brackets);
+    cout << (result ? "Correct" : "Incorrect") << endl;
+    return 0;
 }
