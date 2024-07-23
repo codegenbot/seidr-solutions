@@ -3,13 +3,12 @@
 
 int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
     int result = numbers[0];
-    for (size_t i = 0; i < operations.size(); ++i) {
+    for (int i = 0; i < operations.size(); ++i) {
         if (operations[i] == "+") {
             result += numbers[i + 1];
-        } else {
-            // handle other operations
-            // implement the logic here
-            return -1;
+        }
+        else if (operations[i] == "-") {
+            result -= numbers[i + 1];
         }
     }
     return result;
