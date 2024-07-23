@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -31,14 +32,38 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-std::vector<std::string> main() {
+std::vector<std::string> solve(int n, const std::vector<std::string>& a) {
+    std::vector<std::string> result;
+    
+    for (int i = 0; i < n; i++) {
+        if (issame(a, {"True"})) {
+            result.push_back("Case #1:");
+        } else if (issame(a, {"False"})) {
+            result.push_back("Case #2:");
+        } else {
+            std::string temp;
+            for (int j = 0; j < a.size(); j++) {
+                temp += a[j];
+            }
+            result.push_back("Case #3: " + temp);
+        }
+    }
+
+    return result;
+
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of test cases: ";
+    std::cin >> n;
     std::string s, chars;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "Enter characters to be deleted: ";
-    std::cin >> chars;
-    auto result = reverse_delete(s, chars);
-    for (const auto& str : result) {
-        std::cout << str << std::endl;
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter a string: ";
+        std::cin >> s;
+        std::cout << "Enter characters to be deleted: ";
+        std::cin >> chars;
+        auto result1 = reverse_delete(s, chars);
+        std::cout << "The reversed string is: " << result1[0] << " and it's a palindrome: " << result1[1] << std::endl;
     }
 }
