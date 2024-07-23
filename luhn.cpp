@@ -5,7 +5,7 @@ int luhn(std::vector<int> digits) {
     int sum = 0;
     bool isDouble = false;
 
-    for (int i = digits.size() - 1; i >= 0; --i) {
+    for (int i = 0; i < digits.size(); ++i) {
         int digit = digits[i];
         
         if (isDouble) {
@@ -20,18 +20,21 @@ int luhn(std::vector<int> digits) {
         isDouble = !isDouble;
     }
 
-    return sum;
+    return sum % 10;
 
 }
 
 int main() {
     std::vector<int> digits;
-    // input your card number here
+    
     for (int i = 0; i < 16; ++i) {
-        int temp;
-        std::cin >> temp;
-        digits.push_back(temp);
+        int digit;
+        std::cout << "Enter a digit: ";
+        std::cin >> digit;
+        digits.push_back(digit);
     }
+    
     int result = luhn(digits);
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
