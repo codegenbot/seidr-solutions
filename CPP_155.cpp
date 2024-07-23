@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -25,10 +24,10 @@ int even_odd_count(int num) {
             result[1]++;
         temp /= 10;
     }
-    return result[0] << 16 | result[1];
+    return std::vector<int>(result.begin(), result.end());
 }
 
 int main() {
-    assert(issame(std::vector<int>{16, 1}, get_even_odd(145)) == true); 
+    assert(issame(get_even_odd(0), std::vector<int>{0, 1})); 
     return 0;
 }
