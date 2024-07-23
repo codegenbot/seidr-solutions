@@ -1,10 +1,11 @@
+```
 def find_closest_elements():
     while True:
         user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
         try:
             if ',' in user_input:
                 num1, num2 = map(float, user_input.split(','))
-                return (num1, num2)
+                return abs(num1 - num2)
             else:
                 numbers = [float(num) for num in user_input.split()]
                 break
@@ -17,13 +18,10 @@ def find_closest_elements():
         return None
     numbers.sort()
     
-    closest_pair = (numbers[0], numbers[1])
-    min_diff = abs(numbers[1] - numbers[0])
-
+    closest_pair = abs(numbers[1] - numbers[0])
     for i in range(len(numbers) - 1):
         diff = abs(numbers[i] - numbers[i + 1])
-        if diff < min_diff:
-            min_diff = diff
-            closest_pair = (numbers[i], numbers[i + 1])
+        if diff < closest_pair:
+            closest_pair = diff
 
     return closest_pair
