@@ -1,4 +1,4 @@
-#include <string>
+```#include <string>
 
 string anti_shuffle(string s) {
     string result = "";
@@ -15,4 +15,4 @@ string anti_shuffle(string s) {
         result += s;
     }
     return result;
-}
+}```
