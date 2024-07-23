@@ -12,7 +12,7 @@ string validateTweet(string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = tweet.size();
+    int count = trimmedTweet.size();
     if (count > 140) {
         return "Too many characters";
     }
