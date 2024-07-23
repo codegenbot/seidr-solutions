@@ -7,13 +7,12 @@ int luhn(vector<int> card) {
     int sum = 0;
     for(int i = 0; i < card.size(); i++) {
         if(i % 2 == 1) {
-            int temp = card[i] * 2;
-            if(temp > 9) temp -= 9;
-            card[i] = temp;
+            int double_digit = card[i] * 2;
+            if(double_digit > 9) double_digit -= 9;
+            sum += double_digit;
+        } else {
+            sum += card[i];
         }
-    }
-    for(int i = 0; i < card.size(); i++) {
-        sum += card[i];
     }
     return sum;
 }
