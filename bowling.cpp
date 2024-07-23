@@ -1,27 +1,24 @@
-int bowlingScore(string s) {
+int calculateScore(string str) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
+    int rolls = 0;
+    int lastRoll = -1;
+
+    for (char c : str) {
         if (c == '/') {
-            if (roll < 2) {
-                score += 10 - (5 - roll);
-            }
-            roll = 0;
-        } else if (c == 'X') {
-            score += 30;
-            roll = 0;
+            continue;
+        }
+        int roll = stoi(c == 'X' ? "10" : c == '-' ? "0" : string(1, c));
+        if (roll == 10) {
+            score += roll;
+            rolls++;
+            lastRoll = roll;
         } else {
-            int points = c - '0';
-            roll++;
-            if (roll < 2) {
-                score += points;
-            } else {
-                if (points + roll >= 10) {
-                    score += 10;
-                } else {
-                    score += points + roll;
-                }
+            if (lastRoll != -1 && (rolls + 1) % 2 == 0) {
+                int prevTwoRolls = min(lastRoll / 2, 5);
+                score += prevTwoRolls * 2;
             }
+            score += roll;
+            rolls++;
         }
     }
     return score;
