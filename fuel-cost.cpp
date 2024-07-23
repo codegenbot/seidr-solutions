@@ -3,7 +3,7 @@
 int calculateFuelCost(vector<int> prices) {
     int sum = 0;
     for (int price : prices) {
-        int newPrice = (price / 3);
+        int newPrice = static_cast<int>(floor((double)price / 3));
         if (newPrice < 1) {
             newPrice = 0;
         } else {
@@ -12,4 +12,3 @@ int calculateFuelCost(vector<int> prices) {
         sum += newPrice;
     }
     return sum;
-}
