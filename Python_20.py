@@ -1,6 +1,4 @@
 ```
-from typing import List, Tuple
-
 def find_closest_elements() -> Tuple[float, float]:
     while True:
         user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
