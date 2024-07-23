@@ -31,4 +31,3 @@ std::string reverse(std::string str) {
         rev += str[i];
     }
     return rev;
-}
