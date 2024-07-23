@@ -1,6 +1,6 @@
+#include <iostream>
 #include <stack>
 #include <string>
-#include <iostream>
 
 bool evaluateBooleanExpression(std::string expression) {
     std::stack<char> operators;
@@ -75,3 +75,4 @@ int main() {
     else
         std::cout << "False";
     return 0;
+}
