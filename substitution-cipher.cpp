@@ -12,10 +12,8 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
         if (pos != std::string::npos) {
             result += cipher1[pos]; // substitute with corresponding character in cipher1, also converted to lowercase
         } else {
-            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            size_t pos2 = cipher1.find(originalCase); // find the original case character in cipher1
-            if (pos2 != std::string::npos) {
-                result += originalCase; // substitute with the corresponding character in cipher1, preserving the original case
+            if (std::isupper(c)) {
+                result += std::toupper(c); // if not found and c is uppercase, convert to uppercase
             } else {
                 result += c; // if not found, add as it is
             }
@@ -26,10 +24,18 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 
 int main() {
     std::string cipher1, cipher2, input;
-    std::cin >> std::ws; // skip spaces in input
+    std::cin >> std::ws; 
+    while ((char)cipher1[cipher1.size() - 1] == ' ') {
+        cipher1.pop_back();
+    }
+    cipher2.resize(cipher1.size()); 
     std::getline(std::cin, cipher1);
     std::getline(std::cin, cipher2);
+    std::cin >> std::ws; 
+    while ((char)input[input.size() - 1] == ' ') {
+        input.pop_back();
+    }
     std::getline(std::cin, input);
-    std::cout << substitutionCipher(cipher1 + " ", cipher2 + " ", input) << std::endl;
+    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
 }
