@@ -1,4 +1,7 @@
 double num = stod(value);
-    int rounded_num = static_cast<int>(num >= 0 ? num + 0.5 : num - 0.5);
-    return rounded_num;
+int closestInt = round(num);
+if (num - closestInt == 0.5 || num - closestInt == -0.5) {
+    closestInt = floor(num + 0.5);
+}
+return closestInt;
 }
