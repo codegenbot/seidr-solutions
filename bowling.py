@@ -1,4 +1,4 @@
-```
+```Python
 def bowling_score(frames):
     score = 0
     i = 0
@@ -10,9 +10,13 @@ def bowling_score(frames):
             if frame_value == 10:
                 continue
         elif frames[i].isdigit():
-            frame_value = int(frames[i])
-            score += frame_value
-            i += 1
+            if frames[i] == 'X':
+                score += 10
+                i += 1
+            else:
+                frame_value = int(frames[i])
+                score += frame_value
+                i += 1
         elif frames[i] == '/':
             if i < len(frames) - 2 and frames[i+1:i+3].isdigit():
                 score += 10
