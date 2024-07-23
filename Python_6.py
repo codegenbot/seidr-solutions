@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -11,6 +10,14 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(level)
         elif char == ")":
             level -= 1
-            if level == 0:
-                result = [i for i in result if i > 0]
-    return [i for i in result if i > 0]
+
+    return [i - 1 for i in result]
+
+
+def main():
+    paren_string = input("Enter a string of parentheses: ")
+    print(parse_nested_parens(paren_string))
+
+
+if __name__ == "__main__":
+    main()
