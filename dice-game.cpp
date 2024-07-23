@@ -1,9 +1,14 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
 double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m; i++) {
-        total += pow(1.0 / n, m - i + 1);
-    }
-    return total - 1.0;
+    double total = (double)n * m;
+    return (n - 1.0) / total;
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(2);
+    cout << probability(n, m) << endl;
+    return 0;
 }
