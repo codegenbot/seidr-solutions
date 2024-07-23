@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return std::all_of(a.begin(), a.end(), [&b](const float& val) { return val == b[0]; });
 }
 
 int main() {
@@ -14,7 +13,18 @@ int main() {
     for (auto i = 0; i < n; ++i)
         std::cin >> a[i];
 
-    bool same = issame(a, a);
+    bool same = true;
+    float first = a[0];
+    for (const auto& val : a) {
+        if (!(std::cin >> val)) { 
+            same = false;
+            break;
+        }
+        if (val != first) {
+            same = false;
+            break;
+        }
+    }
 
     std::cout << (same ? "YES" : "NO") << std::endl;
 
