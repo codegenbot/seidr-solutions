@@ -16,6 +16,6 @@ bool match_parens(vector<string> lst) {
 
 int main() {
     vector<string> lst = {"(", ")"};
-    cout << (match_parens({"" , ""}) ? 1 : 0) << endl; 
+    cout << static_cast<int>(match_parens({"" , ""})) << endl; 
     return 0;
 }
