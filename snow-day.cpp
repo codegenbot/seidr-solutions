@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <sstream>
 
 int main() {
     float totalSnow = 0;
@@ -8,8 +9,12 @@ int main() {
     int hours;
     std::cin >> hours;
 
-    float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    std::string groundSnowStr, rateOfSnowFallStr, proportionOfSnowMeltingPerHourStr;
+    (std::cin >> groundSnowStr >> rateOfSnowFallStr >> proportionOfSnowMeltingPerHourStr);
+
+    float groundSnow = stof(groundSnowStr);
+    float rateOfSnowFall = stof(rateOfSnowFallStr);
+    float proportionOfSnowMeltingPerHour = stof(proportionOfSnowMeltingPerHourStr);
 
     for (int i = 0; i < hours; ++i) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
