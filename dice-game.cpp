@@ -4,12 +4,17 @@
 int main() {
     int n, m;
     std::cin >> n >> m;
-    double total_outcomes = n * m;
-    double unfavorable_outcomes = 0;
+    
+    double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        unfavorable_outcomes += (double)(m - i) / m;
+        for (int j = 1; j <= m; ++j) {
+            if (i > j) {
+                probability += 1.0 / (n * m);
+            }
+        }
     }
-    double probability = 1 - (unfavorable_outcomes / total_outcomes);
-    std::cout << std::fixed << std::setprecision(6) << probability << '\n';
+    
+    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
+    
     return 0;
 }
