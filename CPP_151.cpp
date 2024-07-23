@@ -28,16 +28,16 @@ int start() {
         myVector.push_back(temp);
     }
 
-    long long odd_sum = 0;  
+    long long odd_sum = 0;
     for (float num : myVector) {
-        if (num > 0 && floor(num) == num) {
+        if (floor(num) != floor(2.0 * num / 1.0)) {
             odd_sum += pow(num, 2);
         }
     }
 
     float result = double_the_difference(myVector);
 
-    assert(result == odd_sum);  
+    assert(result == odd_sum);
 
     return 0;
 }
