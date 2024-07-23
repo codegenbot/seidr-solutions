@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -17,4 +18,12 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    std::vector<int> nums = {-5, -23, 45, 6};
+    int result = count_nums(nums);
+    std::cout << "Number of numbers with more than one digit: " << result << std::endl;
+    return 0;
 }
