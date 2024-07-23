@@ -23,9 +23,11 @@ int main() {
     std::string<char> str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Flipped case: " << flip_case(str) << std::endl;
     if(flip_case("These violent delights have violent ends") != "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"){
-        std::cerr << "Error: The flipped case does not match the expected output." << std::endl;
+        std::cerr << "Error: Test case failed. Check your flip_case function implementation." << std::endl;
+    }
+    else{
+        std::cout << "Flipped case: " << flip_case(str) << std::endl;
     }
     return 0;
 }
