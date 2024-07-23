@@ -1,13 +1,16 @@
 #include <string>
-#include <cctype>
+using namespace std;
 
-int hex_key(std::string num) {
+int hex_key(string num) {
     int count = 0;
     for (char c : num) {
-        if (std::isdigit(c) && (c - '0' >= 2 && c - '0' <= 7)) {
-            count++;
-        } else if (!std::isxdigit(c)) {
-            return 0; // or handle invalid input as needed
+        if (isxdigit(c)) {
+            if (c >= '2' && c <= '7') {
+                count++;
+            }
+            else if (c == 'B' || c == 'D' || c == 'F') {
+                count++;
+            }
         }
     }
     return count;
