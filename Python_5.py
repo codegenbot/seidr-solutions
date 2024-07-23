@@ -1,29 +1,34 @@
-```Python
-from typing import List
-
-
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if not numbers:
-        return []
-    result = [numbers[0]]
-    for i, num in enumerate(numbers[1:]):
-        result.extend([delimiter, num])
-    return result
-
-
-def main():
+def intersperse(numbers: List[int] = None, delimiter: int) -> List[int]:
     while True:
-        numbers = input("Enter a list of integers separated by space or comma: ")
         try:
-            numbers = [int(num) for num in numbers.split()]
+            if not numbers or len(numbers) == 0:
+                print("Error: Please provide at least one number.")
+                numbers = input(
+                    "Enter a list of integers separated by space or comma: "
+                ).split()
+                numbers = [int(num) for num in numbers]
+            if not all(isinstance(num, int) for num in numbers):
+                raise ValueError("Numbers must be a list of integers")
+
+            if not isinstance(delimiter, int):
+                raise ValueError("Delimiter must be an integer")
+
+            if delimiter == 0:
+                raise ValueError("Delimiter cannot be zero")
+
+            result = [numbers[0]]
+
+            for i, num in enumerate(numbers[1:]):
+                result.extend([delimiter, num])
+
+            return result
+        except (ValueError, IndexError):
+            print(
+                "Invalid input. Please enter a list of integers separated by space or comma: "
+            )
+            numbers = input().split()
+            numbers = [int(num) for num in numbers]
+        else:
             break
-        except ValueError:
-            print("Invalid input. Please enter a list of integers separated by space or comma:")
 
-    delimiter = int(input("Enter the delimiter integer: "))
-
-    print(intersperse(numbers, delimiter))
-
-
-if __name__ == "__main__":
-    main()
+    return intersperse(numbers, delimiter)
