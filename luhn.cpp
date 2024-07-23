@@ -5,10 +5,10 @@ int luhn(std::vector<int> digits) {
     int sum = 0;
     bool isDouble = false;
 
-    for (int i = 0; i < digits.size(); ++i) {
+    for (int i = digits.size() - 1; i >= 0; --i) {
         int digit = digits[i];
         
-        if ((i % 2) == 1) { 
+        if (isDouble) {
             if (digit * 2 > 9) {
                 digit = digit * 2 - 9;
             } else {
@@ -17,13 +17,15 @@ int luhn(std::vector<int> digits) {
         }
 
         sum += digit; 
+        isDouble = !isDouble;
     }
 
     return sum % 10;
+
 }
 
 int main() {
-    std::vector<int> digits = {4, 3, 2, 1, 8, 5, 9, 6, 7, 2, 0, 8, 4};
+    std::vector<int> digits(digits.begin(), digits.end());
     int result = luhn(digits);
     return 0;
 }
