@@ -1,6 +1,11 @@
+#include <iostream>
+#include <cassert>
+#include <cstring>
 #include <openssl/md5.h>
 
-std::string string_to_md5(std::string text) {
+using namespace std;
+
+string string_to_md5(const string& text) {
     if(text.empty()){
         return "None";
     }
@@ -15,3 +20,5 @@ std::string string_to_md5(std::string text) {
 
     return md5_hash;
 }
+
+assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
