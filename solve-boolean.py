@@ -7,8 +7,8 @@ def solve_boolean(expression):
                     i += 1
                 elif c == ')':
                     i -= 1
-                if i == 0 and s.index(')')+1==len(s)-1:
-                    return eval(s[s.index('(')+1:s.index(')')]) and evaluate(s[s.index(')')+1:])
+                if i == 0:
+                    return eval('({})'.format(s[1:s.index(')')])) and evaluate(s[s.index(')')+1:])
         stack = []
         ops = 0
         for char in s:
@@ -18,4 +18,4 @@ def solve_boolean(expression):
                 while len(stack) > 1 and stack[-2] != 'T' and stack[-2] != 'F':
                     stack.pop()
                 ops = {'&': all, '|': any}[char]
-        return ops(*stack)
+        return eval(ops(*stack))
