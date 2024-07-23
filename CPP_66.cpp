@@ -1,14 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-
-int main {
-    std::cout << "Input your string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Result: " << result << std::endl;
-}
 
 int digitSum(std::string str) {
     int sum = 0;
@@ -18,3 +9,14 @@ int digitSum(std::string str) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(digitSum("You arE Very Smart") == 327);
+    std::cout << "Input your string: ";
+    std::string input;
+    std::cin >> input;
+    int result = digitSum(input);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
