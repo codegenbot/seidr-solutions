@@ -12,12 +12,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 bool issame(std::vector<int> a, std::vector<int>b) {
-    // Your logic here
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
