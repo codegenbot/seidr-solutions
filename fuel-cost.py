@@ -1,1 +1,2 @@
-print(fuel_cost((input("Enter space-separated positive integers:").split())))
+def fuel_cost(numbers):
+    return sum((n // 3 - 2) for n in map(int, numbers.split()))
