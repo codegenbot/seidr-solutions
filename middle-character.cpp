@@ -1,4 +1,3 @@
-#include<string>
 string middleCharacter(string str) {
     int len = str.length();
     if (len % 2 == 0) {
