@@ -1,7 +1,7 @@
+```cpp
+#pragma c++20
 #include <vector>
 #include <iostream>
-
-#pragma c++20
 
 using namespace std;
 
