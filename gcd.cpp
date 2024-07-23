@@ -1,26 +1,41 @@
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int targetLength = target.length();
-    for(int i = 0; i <= text.length() - targetLength; i++) {
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int length = target.length();
+    for (int i = 0; i <= text.length() - length; i++) {
         bool match = true;
-        for(int j = 0; j < targetLength; j++) {
-            if(text[i+j] != target[j]) {
+        for (int j = 0; j < length; j++) {
+            if (text[i + j] != target[j]) {
                 match = false;
                 break;
             }
         }
-        if(match) result.push_back(i);
+        if (match) {
+            indices.push_back(i);
+        }
     }
-    return result;
+    return indices;
 }
 
+// Function to calculate the GCD of two numbers
 int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+int main() {
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << gcd(num1, num2) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result)
+        cout << i << " ";
+    return 0;
+}
