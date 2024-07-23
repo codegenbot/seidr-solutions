@@ -6,9 +6,13 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int temp;
-    while (cin >> temp) {
-        nums.push_back(temp);
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+    if (cin.bad()) {
+        cout << "Invalid input. Program terminated." << endl;
+        return 1;
     }
     
     if(nums.empty()) {
