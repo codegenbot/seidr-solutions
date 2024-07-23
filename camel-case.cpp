@@ -1,16 +1,17 @@
+```cpp
 #include <iostream>
 #include <cctype>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalize = true;
 
     for (char c : str) {
-        if (c == '-' || c == ' ') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
             result += toupper(c);
-            capitalizeNext = false;
+            capitalize = false;
         } else {
             result += tolower(c);
         }
@@ -39,7 +40,7 @@ int main() {
         for (char c : str.substr(prevSpace)) { 
             if (!finalResult.empty()) {
                 if (c >= 'a' && c <= 'z') {
-                    finalResult[0] = toupper(finalResult[0]);
+                    finalResult.insert(0, 1, toupper(c));
                 }
             } else {
                 finalResult += tolower(c);
