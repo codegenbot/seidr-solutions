@@ -7,8 +7,9 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        double current_snow = snow_on_ground;
-        snow_on_ground = current_snow + snow_fall_rate - (current_snow * snow_melt_rate);
+        double snow_fallen = snow_fall_rate; 
+        double snow_melted = snow_on_ground * snow_melt_rate;
+        snow_on_ground = snow_on_ground + snow_fallen - snow_melted;
     }
 
     cout << fixed << snow_on_ground << endl;
