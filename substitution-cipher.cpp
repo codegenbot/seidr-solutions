@@ -1,23 +1,37 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher, const std::string& substitution) {
-    std::string result;
-    for (char c : cipher) {
-        size_t index = c - 'a';
-        if (index >= 0 && index < substitution.length()) {
-            result += substitution[index];
+std::string substituteCipher(const std::string& cipherText, const std::string& key) {
+    std::string decipheredMessage;
+    
+    for (char c : cipherText) {
+        size_t index = 0;
+        while (index < key.length() && c != key[index]) {
+            index++;
+        }
+        if (index == key.length()) {
+            decipheredMessage += c;
         } else {
-            result += c; // Leave other characters unchanged
+            decipheredMessage += key[index];
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << decipher(cipher1 + cipher2, cipher2) << std::endl;
+    std::string cipherText, key;
+    std::cout << "Enter the first string: ";
+    std::cin >> cipherText;
+    std::cout << "Enter the second string: ";
+    std::cin >> key;
+    std::string message;
+    std::cout << "Enter the third string: ";
+    std::getline(std::cin, message);  
+    cipherText = message;  
+    std::cout << substituteCipher(cipherText, key) << std::endl;
+    
     return 0;
 }
