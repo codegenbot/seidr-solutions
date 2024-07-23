@@ -1,9 +1,5 @@
-Here's your modified code:
-
-```c++
 #include <iostream>
 #include <string>
-#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -29,9 +25,8 @@ pair<int, int> mastermind(string code, string guess) {
 
     // Calculate white pegs
     for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > 0) {
-            int count = std::count(code.begin(), code.end(), (i+'0'));
-            whitePegs += colorCount[i] - (count ? 1 : 0);
+        if(colorCount[i] > (std::count(code.begin(), code.end(), '0' + i) ? 1 : 0)) {
+            whitePegs += colorCount[i] - (std::count(code.begin(), code.end(), '0' + i) ? 1 : 0);
         }
     }
 
