@@ -4,11 +4,7 @@
 int main() {
     std::vector<int> nums;
     int n;
-    
-    int maxIndex;
-    std::cin >> maxIndex;
-
-    for (int i = 0; i <= maxIndex; ++i) {
+    while (!std::cin.eof()) {
         std::cin >> n;
         nums.push_back(n);
     }
