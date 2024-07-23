@@ -1,4 +1,3 @@
-```
 string spinWords(string str) {
     string result = "";
     size_t start = 0;
@@ -11,10 +10,12 @@ string spinWords(string str) {
         
         string word = str.substr(start, end - start);
         
-        if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        else
-            result += word + " ";
+        if(word.length() >=5) 
+            for(long long i = 0; i < word.length() / 2; ++i) {
+                swap(word[i],word[word.length()-1-i]);
+            }
+        
+        result += word + " ";
         
         start = end + 1;
     }
