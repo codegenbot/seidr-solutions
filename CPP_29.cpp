@@ -4,7 +4,7 @@
 
 using namespace std;
 
-std::vector<std::string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
+std::vector<std::string> prefixFilter(const vector<string>& vec, const string& prefix) {
     std::vector<std::string> result;
     for (const auto& str : vec) {
         if (str.find(prefix) == 0) {
@@ -19,7 +19,7 @@ bool equalVectors(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    if (!equalVectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
+    if (!equalVectors(prefixFilter({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
         return 1;
     }
     return 0;
