@@ -8,9 +8,11 @@ int compare(vector<int> a, vector<int> b) {
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] > b[i]) return vector<int>({1});
+        else if (a[i] < b[i]) return vector<int>({-1});
+        else return vector<int>({0});
     }
-    return true;
+    return vector<int>{}; // in case vectors are empty
 }
 
 int testMain() {
