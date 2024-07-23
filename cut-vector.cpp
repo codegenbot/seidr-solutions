@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -17,13 +16,13 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<int> left = {nums[0]};
-    for(int i = 1; i < splitIndex; i++) {
+    vector<int> left;
+    for(int i = 0; i < splitIndex; i++) {
         left.push_back(nums[i]);
     }
     
-    vector<int> right = {nums[splitIndex], nums.back()};
-    for(int i = splitIndex + 1; i < nums.size() - 1; i++) {
+    vector<int> right;
+    for(int i = splitIndex; i < nums.size(); i++) {
         right.push_back(nums[i]);
     }
     
