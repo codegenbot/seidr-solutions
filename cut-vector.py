@@ -1,22 +1,15 @@
-def cut_vector(arr):
-    total_sum = sum(arr)
-    left_sum = 0
-    min_diff = float("inf")
-    cut_index = 0
+n = int(input())
+numbers = [int(input()) for _ in range(n)]
+total_sum = sum(numbers)
+half_sum = total_sum // 2
 
-    for i in range(len(arr)):
-        left_sum += arr[i]
-        right_sum = total_sum - left_sum
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    return arr[: cut_index + 1], arr[cut_index + 1 :]
-
-
-# Reading input from the user
-arr = list(map(int, input().split()))
-result1, result2 = cut_vector(arr)
-print(*result1)
-print(*result2)
+current_sum = 0
+for i, num in enumerate(numbers):
+    current_sum += num
+    if current_sum >= half_sum:
+        if current_sum == half_sum or current_sum - half_sum < abs(
+            total_sum - current_sum - half_sum
+        ):
+            print(numbers[: i + 1])
+            print(numbers[i + 1 :])
+            break
