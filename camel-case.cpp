@@ -1,24 +1,31 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            if (i > 0 && s[i - 1] != ' ') {
-                result += toupper(s[i + 1]);
-                i++;
-            } else {
-                result += s[i];
-            }
-        } else if (s[i] == ' ') {
-            continue;
+std::string kebabToCamelCase(const std::string& input) {
+    std::string result;
+    bool capitalize = true;
+
+    for (char c : input) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (result.size() > 0) {
-                result[0] = tolower(s[i]);
-            } else {
-                result += tolower(s[i]);
-            }
+            result += tolower(c);
         }
     }
+
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "The converted camelCase is: " << kebabToCamelCase(input) << std::endl;
+
+    return 0;
 }
