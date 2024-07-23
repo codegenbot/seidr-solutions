@@ -1,5 +1,9 @@
-#include<vector>
-#include<iostream>
+```cpp
+#include <vector>
+#include <cmath>
+#include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 double poly(vector<double> xs, double x){
@@ -18,5 +22,12 @@ double find_zero(vector<double> xs){
     while(abs(poly(xs, x)) > 1e-9){ 
         x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return x;
+    return setprecision(2) << x << endl;
+}
+
+int main() {
+    vector<double> xs = {1, -6, 11, -6};
+    double zero = find_zero(xs);
+    cout << "Zero is: " << zero << endl; // Print the result
+    return 0;
 }
