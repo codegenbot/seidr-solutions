@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> otherVector) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
