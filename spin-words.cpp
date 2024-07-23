@@ -38,6 +38,6 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << spinWords("This is a test string");
+    std::cout << spinWords("Hello World");  // test the function with a sample input
     return 0;
 }
