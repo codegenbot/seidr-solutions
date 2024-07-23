@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     frames = [f for f in frames.split('/') if f]
@@ -15,3 +16,4 @@ def bowling_score(frames):
                         break
         else:
             score += 10
+    return score
