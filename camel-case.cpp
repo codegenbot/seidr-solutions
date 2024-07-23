@@ -1,4 +1,4 @@
-#include <vector>
+```
 #include <iostream>
 #include <string>
 
@@ -27,3 +27,4 @@ int main() {
         cout << "In camelCase: " << camelCase(input) << endl;
     }
     return 0;
+}
