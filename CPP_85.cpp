@@ -1,10 +1,20 @@
-int main() {
+```cpp
+int main_func() {
     std::vector<int> numbers;
-    while(true){
-        int num;
-        std::cin >> num;
-        if (num == -1) break;
+    int num;
+
+    for (;;) {
+        std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
+        if (!(std::cin >> num) || num == -1) break;
+        while (!(std::cin >> num)) { 
+            std::cout << "Invalid input. Please enter an integer." << std::endl;
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        }
         numbers.push_back(num);
     }
-    // add whatever you want to do after the loop here...
+    int result = add(numbers);
+    std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
+
+    return 0;
 }
