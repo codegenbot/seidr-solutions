@@ -1,8 +1,9 @@
-```
+```cpp
 #include <string>
+
 using namespace std;
 
-string solveBoolean(string s) {
+bool solveBoolean(string s) {
     bool result = (s == "T");
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
@@ -15,5 +16,5 @@ string solveBoolean(string s) {
             result |= (left == "T") || (right == "T");
         }
     }
-    return result ? "True" : "False";
+    return result;
 }
