@@ -33,7 +33,7 @@ int main() {
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    cin.ignore(); // Consume the newline character
+    cin.ignore(); // Ignoring newline character before reading text
     getline(cin, text);
 
     cout << "Enter a target string: ";
