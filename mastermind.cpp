@@ -18,7 +18,8 @@ int main() {
         whitePegs += min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << whitePegs << endl << blackPegs << endl;
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
     
     return 0;
 }
