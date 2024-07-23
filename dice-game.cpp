@@ -3,9 +3,7 @@ double calculateProbability(int n, int m) {
     double probability = 0;
     
     for (int i = 1; i <= m; i++) {
-        for (int j = i + 1; j <= n; j++) {
-            probability += 1.0 / total;
-        }
+        probability += (double)i / total;
     }
     
     return 1 - probability;
