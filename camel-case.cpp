@@ -4,16 +4,17 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
+    bool capitalizeNext = true;
     for (char c : str) {
         if (c == '-') {
-            continue;
+            capitalizeNext = true;
         } else {
-            if (!result.empty()) {
-                if (c >= 'a' && c <= 'z') {
-                    result[0] = toupper(result[0]);
-                }
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += tolower(c);
             }
-            result += tolower(c);
         }
     }
     return result;
@@ -21,27 +22,24 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str, finalResult;
-    while (std::cin >> str) {
+    while (getline(std::cin, str)) {
         size_t prevSpace = 0;
+        bool capitalizeNext = true;
         for (size_t i = 0; i < str.size(); ++i) {
             if (str[i] == '-') {
-                for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) {
-                    finalResult += tolower(c);
-                }
-                finalResult += toupper(str[i]);
-                prevSpace = i + 1;
-            }
-        }
-        for (char c : str.substr(prevSpace)) {
-            if (!finalResult.empty()) {
-                if (c >= 'a' && c <= 'z') {
-                    finalResult[0] = toupper(finalResult[0]);
-                }
+                capitalizeNext = true;
             } else {
-                finalResult += tolower(c);
+                if (capitalizeNext) {
+                    finalResult += toupper(str[i]);
+                    capitalizeNext = false;
+                } else {
+                    finalResult += tolower(str[i]);
+                }
             }
         }
-        std::cout << camelCase(finalResult) << std::endl;
+        if (!finalResult.empty()) {
+            std::cout << camelCase(finalResult) << std::endl;
+        }
         finalResult.clear();
     }
     return 0;
