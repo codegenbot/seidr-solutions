@@ -14,14 +14,10 @@ int main() {
 
 vector<int> leaders(vector<int>& v) {
     vector<int> res;
-    int rightmost = v.back();
-    res.push_back(rightmost);
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            rightmost = v[i];
-            res.push_back(rightmost);
+    for(int i = v.size() -1; i >= 0; --i){
+        if(res.empty() || v[i] >= res.back()){
+            res.push_back(v[i]);
         }
     }
-    reverse(res.begin(), res.end());
     return res;
 }
