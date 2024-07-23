@@ -6,12 +6,12 @@
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
     sort(lst1.begin(), lst1.end());
     sort(lst2.begin(), lst2.end());
 
+    vector<string> result;
     int i = 0, j = 0;
-    
+
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
             result.push_back(lst1[i]);
