@@ -8,8 +8,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     
     int i = 0;
     while (i <= n - m) {
-        if (text.find(target, i) != string::npos)
-            result.push_back(text.find(target, i));
+        if (text.substr(i, m) == target)
+            result.push_back(i);
         i = text.find(target, i); // updated line
     }
     
