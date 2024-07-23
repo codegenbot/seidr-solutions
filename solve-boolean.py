@@ -1,4 +1,3 @@
-```
 import ast
 
 
@@ -24,14 +23,7 @@ def solve_boolean(expression):
                 right = "(" + str(solve_boolean(right)) + ")"
             expression = f"{left} | {right}"
 
-    return eval(f"bool({expression})")
-
-
-if __name__ == "__main__":
-    while True:
-        try:
-            expression = input("Enter a Boolean expression: ")
-            print(solve_boolean(expression))
-            break
-        except (NameError, SyntaxError):
-            print("Invalid input. Please enter T, F, | or &.")
+    try:
+        return ast.literal_eval(expression)
+    except SyntaxError as e:
+        print("Invalid syntax in the Boolean expression.")

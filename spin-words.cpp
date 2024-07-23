@@ -20,12 +20,12 @@ string spinWords(string str) {
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
         
-        result += word + " ";
+        result += word + (end == str.length() ? " " : " ") + "";
         
         start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {

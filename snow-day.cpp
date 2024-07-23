@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 
@@ -17,20 +18,12 @@ int main() {
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     std::cout << "Enter initial snow: ";
-    float input = 0.0f;
-    std::cin >> input;
-    initialSnow = static_cast<float>(input);
-
+    std::cin >> initialSnow;
     std::cout << "Enter rate of snow fall: ";
-    input = 0.0f;
-    std::cin >> input;
-    rateOfSnowFall = static_cast<float>(input);
-
+    std::cin >> rateOfSnowFall;
     std::cout << "Enter proportion of snow melting per hour: ";
-    input = 0.0f;
-    std::cin >> input;
-    proportionOfSnowMeltingPerHour = static_cast<float>(input);
+    std::cin >> proportionOfSnowMeltingPerHour;
 
-    std::cout << fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
+    std::cout << std::fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
 }
