@@ -1,14 +1,14 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int add(const std::vector<int>& numbers) {
-    int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        if (i % 2 != 0) { // odd-indexed numbers
-            sum += numbers[i];
+int add(const std::vector<int>& vec) {
+    int result = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (i % 2 != 0) { 
+            result += vec[i];
         }
     }
-    return sum;
+    return result;
 }
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
 
     std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
 
-    for (;;) {
+    for (; ; ) {
         std::cin >> num;
         if (num == -1) break;
         numbers.push_back(num);
