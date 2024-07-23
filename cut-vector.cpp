@@ -4,10 +4,24 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<int> left = {v.begin(), v.begin() + n/2};
-    vector<int> right = {v.begin() + n/2, v.end()};
-    if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
-        return {{left}, {right}};
+    vector<vector<int>> res;
+    
+    for (int i = 1; i <= n - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        if (leftSum == rightSum) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i));
+            res.push_back(vector<int>(v.begin() + i, v.end()));
+            return res;
+        }
     }
     
     int minDiff = INT_MAX, cutIndex = -1;
@@ -31,9 +45,10 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> l2 = {v.begin(), v.begin() + cutIndex};
-    vector<int> r2 = {v.begin() + cutIndex, v.end()};
-    return {{l2}, {r2}};
+    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
+    
+    return res;
 }
 
 int main() {
