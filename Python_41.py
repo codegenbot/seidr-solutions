@@ -1,4 +1,6 @@
-```
+Here's the modified code:
+
+print("Complete the following code given the task description and function signature..")
 def car_race_collision():
     distance = int(input("Enter the distance in kilometers: "))
     speed = int(input("Enter the average speed of all cars in km/h: "))
@@ -8,4 +10,5 @@ def car_race_collision():
     seconds = int(((time_taken - hours) * 60) % 60)
 
     return f"The estimated time of the car race collision is {hours} hours, {minutes} minutes and {seconds} seconds."
+
 print(car_race_collision())
