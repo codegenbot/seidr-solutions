@@ -25,4 +25,3 @@ int main() {
     std::cout << "The XOR of the two strings is: " << string_xor(str1, str2) << std::endl;
 
     return 0;
-}
