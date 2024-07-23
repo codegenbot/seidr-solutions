@@ -1,3 +1,3 @@
-```
 def solve(N):
-    return str(bin(N))[2:] + bin(sum(int(digit) for digit in str(N)))[2:]
+    total = sum(int(digit) for digit in str(bin(N)[2:]).lstrip('0'))
+    return '1' if total % 2 == 0 else '0'
