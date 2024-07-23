@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,21 +8,22 @@ bool is_sorted(std::vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]) return false;
     }
-    std::vector<int>::iterator it = std::unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    return lst.size() == 1 || (lst[0] < lst[1]);
+    std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
+    return true;
 }
 
-int main(){
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<int> vec(n, 0);
+    std::vector<int> vec;
     
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> vec[i];
+    for(int i = 0; i < n; i++) {
+        int val;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> val;
+        vec.push_back(val);
     }
     
     if(is_sorted(vec)) {
@@ -29,5 +31,6 @@ int main(){
     } else {
         std::cout << "The vector is not sorted.\n";
     }
+    
     return 0;
 }
