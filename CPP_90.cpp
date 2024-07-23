@@ -17,15 +17,6 @@ int findSmallest(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    int n, temp;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the numbers: ";
-    for (int i = 0; i < n; i++) {
-        cin >> temp;
-        lst.push_back(temp);
-    }
-    cout << "The next smallest number is: " << findSmallest(lst) << endl;
+    cout << findSmallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
