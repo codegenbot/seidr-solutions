@@ -1,9 +1,8 @@
 #include <iostream>
-#include <limits>
+#include <string>
 
 int main() {
     std::string tweet;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     getline(std::cin, tweet);
 
     if (tweet.empty()) {
