@@ -1,4 +1,3 @@
-```Python
 def bowling_score(game):
     score = 0
     roll = game.replace('/', '').split('X')
