@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <assert.h>
 
@@ -21,6 +22,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> words, std
 }
 
 int main() {
-    assert(issame(std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"}), {"grunt", "prune"}));
+    assert(issame(filter_by_substring(std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"}), "run"), {"grunt", "prune"}));
     return 0;
 }
