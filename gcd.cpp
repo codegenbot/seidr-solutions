@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <numeric>
+#include <algorithm>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    return std::gcd(a, b); 
+    return __gcd(a, b); 
 }
 
 int main() {
