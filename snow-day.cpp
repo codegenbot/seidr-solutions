@@ -4,8 +4,11 @@ int main() {
     int hours;
     float snow, rate, melt;
     std::cin >> hours >> snow >> rate >> melt;
-
-    snow += hours * rate - hours * melt * snow;
+    
+    for (int i = 0; i < hours; ++i) {
+        snow += rate; // Snow addition
+        snow -= snow * melt; // Snow melting
+    }
     
     std::cout << snow << std::endl;
     
