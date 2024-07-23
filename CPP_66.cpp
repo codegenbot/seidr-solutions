@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 
-int digitSum(const std::string& str) {
+int digitSum(std::string str) {
     int sum = 0;
     for (char c : str) {
-        if (c >= '0' && c <= '9') {
-            sum += (c - '0');
+        if (isdigit(c)) {
+            sum += std::stoi(std::string(1, c));
         }
     }
     return sum;
