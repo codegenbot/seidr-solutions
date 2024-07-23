@@ -1,4 +1,6 @@
 #include <string>
+#include <cctype>
+
 using namespace std;
 
 string remove_vowels(string text) {
@@ -9,4 +11,3 @@ string remove_vowels(string text) {
         }
     }
     return result;
-}
