@@ -3,7 +3,7 @@ using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
-    long long count = 0; 
+    long long count = 0; // Use long long for large inputs
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
