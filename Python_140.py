@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     result = ""
     for i in range(len(text)):
@@ -9,7 +8,7 @@ def fix_spaces(text):
                         i += 1
                     result += "-"
                 else:
-                    result += "-"
+                    result += "_"
             else:
                 result += "_"
         else:
