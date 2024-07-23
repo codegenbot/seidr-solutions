@@ -5,11 +5,11 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    rightmost = arr.back();
-    for (int i = arr.size() - 2; i >= 0; --i) {
-        if (arr[i] >= rightmost) {
+    int maxSeen = arr.back();
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] >= maxSeen) {
             result.push_back(arr[i]);
-            rightmost = arr[i];
+            maxSeen = arr[i];
         }
     }
     return result;
