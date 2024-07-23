@@ -1,4 +1,6 @@
 def bowling_score(frames):
+    if not isinstance(frames, str) or not frames:
+        return 0
     score = 0
     frame = 1
     for i in range(len(frames)):
