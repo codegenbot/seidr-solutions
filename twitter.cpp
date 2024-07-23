@@ -16,3 +16,4 @@ int main() {
     tweet.erase(0, 1); 
     cout << validateTweet(tweet) << endl;
     return 0;
+}
