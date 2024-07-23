@@ -9,7 +9,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if(arr.empty()) return result;
     
     int minEvenIndex = -1;
-    int minEvenValue = INT_MAX;
+    int minEvenValue = std::numeric_limits<int>::max();
     
     for(int i = 0; i < arr.size(); i++) {
         if(arr[i] % 2 == 0 && arr[i] < minEvenValue) {
@@ -18,8 +18,9 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if(minEvenValue != INT_MAX) {
+    if(minEvenValue != std::numeric_limits<int>::max()) {
         result.push_back({minEvenValue, minEvenIndex});
     }
     
     return result;
+}
