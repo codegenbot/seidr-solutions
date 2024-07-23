@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
     string tweet;
     getline(cin, tweet);
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << '\n';
