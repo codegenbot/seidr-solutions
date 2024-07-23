@@ -13,6 +13,7 @@ float calculateTotalPrice(const vector<float>& prices, const vector<float>& disc
 int main() {
     int n;
     cin >> n;
+    
     vector<float> prices(n);
     vector<float> discounts(n);
 
