@@ -1,14 +1,13 @@
-input_str = input()
-digits = [int(d) for d in input_str.replace(" ", "")]
+digits = [int(d) for d in input().replace(" ", "")]
 
 total = 0
 for i, digit in enumerate(digits):
-    if i % 2 == 1:
+    if i % 2 == 1:  # Change condition here
         temp = digit * 2
-        if digit * 2 > 9:
-            total += (digit * 2) - 9
+        if temp > 9:
+            total += temp - 9
         else:
-            total += digit * 2
+            total += temp
     else:
         total += digit
 
