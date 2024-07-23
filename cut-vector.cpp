@@ -1,14 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 int main() {
     std::vector<int> nums;
     int n;
     while (std::cin >> n) {
-        if (std::cin.eof()) break;  // Check for end-of-file
         nums.push_back(n);
     }
     
+    if (nums.size() == 1) {
+        std::cout << nums[0] << std::endl;
+        std::cout << "0" << std::endl;
+        return 0;
+    }
+
     int sum = 0;
     for (int num : nums) {
         sum += num;
