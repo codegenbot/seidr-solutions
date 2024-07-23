@@ -1,20 +1,13 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <cassert>
 #include <string>
 #include <initializer_list>
 
-int do_algebra(std::vector<std::string>, std::vector<int> operand) {
+int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     int result = operand[0];
-    for (int i = 0; i < operand.size() - 1; i++) {
-        if (operand[i + 1] == 0 && *(operand.begin() + i + 1) == 0)
-            return 0;
-        if (std::string(operand[i+1]) == "0" && std::string("0") == operand[i+1])
-            return 0;            
-        if (operand[i + 1] == 0 && *(operand.begin() + i + 1) == '0')
-            return 0;
-        if (std::string(operand[i+1]) == "0" && std::string("0") == operand[i+1])
-            return 0;        
+    for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
             result += operand[i + 1];
         } else if (operato[i] == "-") {
