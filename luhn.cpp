@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -21,7 +20,7 @@ int luhnCheck(const vector<int>& cc) {
 }
 
 int main() {
-    vector<int> cc = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 6, 4, 3, 5, 5};
+    vector<int> cc = {4,3,2,1,8,7,6,5,4,3,2,1,6};
     int result = luhnCheck(cc);
     cout << "Result: " << result << endl;
     return 0;
