@@ -1,7 +1,6 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -20,10 +19,14 @@ vector<int> leaders(vector<int>& v) {
 }
 
 int main() {
-    vector<int> v = {1, 3, 4, 2, 8};
-    vector<int> res = leaders(v);
-    for (int i : res) {
-        cout << i << " ";
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    return 0;
+    vector<int> res = leaders(v);
+    for (int i = 0; i < res.size(); ++i) {
+        cout << res[i] << " ";
+    }
 }
