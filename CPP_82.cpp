@@ -10,16 +10,16 @@ bool isPrime(int n) {
     return true;
 }
 
-bool prime_length() {
-    int len = static_cast<int>(std::cin.ignore().peek()); 
-    while(std::cin.peek() != '\n' && std::cin.peek() != '\r') {
-        len = static_cast<int>(len * 10 + (std::cin.get() - '0')); 
-    }
+bool prime_length(const std::string& str) {
+    int len = str.length();
     return isPrime(len);
 }
 
 int main() {
-    bool result = prime_length(); 
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str); 
+    bool result = prime_length(str); 
     if (result) {
         std::cout << "Prime length" << std::endl;
     } else {
