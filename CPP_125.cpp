@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -33,3 +34,4 @@ vector<string> split_words(string txt) {
     }
 
     return result;
+}
