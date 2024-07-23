@@ -1,17 +1,7 @@
 def by_length(arr):
-    result = sorted([str(num) for num in arr if 1 <= num <= 9])
-    result.reverse()
-    return [name_dict[int(i)] for i in result]
-
-
-name_dict = {
-    "1": "One",
-    "2": "Two",
-    "3": "Three",
-    "4": "Four",
-    "5": "Five",
-    "6": "Six",
-    "7": "Seven",
-    "8": "Eight",
-    "9": "Nine",
-}
+    sorted_arr = sorted([i for i in arr if 1 <= i <= 9])
+    reversed_arr = sorted_arr[::-1]
+    return [
+        f"{'One'if i==1 else 'Two'if i==2 else 'Three'if i==3 else 'Four'if i==4 else 'Five'if i==5 else 'Six'if i==6 else 'Seven'if i==7 else 'Eight'if i==8 else 'Nine'}"
+        for i in reversed_arr
+    ]
