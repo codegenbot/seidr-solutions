@@ -1,16 +1,12 @@
-```
 def fizz_buzz(n: int):
-    count = 0
+    result = []
     for i in range(1, n+1):
         if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz")
-            count += 1
+            result.append("FizzBuzz")
         elif i % 3 == 0:
-            print("Fizz")
-            count += (i % 5 != 0) or 1
+            result.append("Fizz")
         elif i % 5 == 0:
-            print("Buzz")
-            count += (i % 3 != 0) or 1
+            result.append("Buzz")
         else:
-            print(i)
-    return count
+            result.append(str(i))
+    return '\n'.join(result)
