@@ -1,18 +1,14 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(nums)
-half_sum = total_sum // 2
-current_sum = 0
-for i, num in enumerate(nums):
-    current_sum += num
-    if current_sum >= half_sum:
-        if current_sum == half_sum or abs(total_sum - 2 * current_sum) < abs(
-            total_sum - 2 * (current_sum - num)
-        ):
-            subvector1 = nums[: i + 1]
-            subvector2 = nums[i + 1 :]
-            break
+min_diff = float("inf")
+cut_idx = 0
 
-print(*subvector1, sep="\n")
-print(*subvector2, sep="\n")
+for i in range(1, n):
+    diff = abs(sum(v[:i]) - sum(v[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        cut_idx = i
+
+print(sum(v[:cut_idx]))
+print(sum(v[cut_idx:]))
