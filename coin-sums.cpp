@@ -1,2 +1,2 @@
-int cents;
-cin >> cents;
+int cents; 
+int pennies = cents;
