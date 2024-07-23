@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <utility>
@@ -18,9 +17,9 @@ pair<int, int> mastermind(string code, string guess) {
             }
         }
         if(matchingIndex != -1) {
-            if(i == matchingIndex) { // correct color, correct place
+            if(i == matchingIndex) { 
                 blackPegs++;
-            } else { // correct color, wrong place
+            } else {
                 whitePegs++;
             }
         }
