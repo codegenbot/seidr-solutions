@@ -1,4 +1,3 @@
-```
 from typing import Optional, list
 
 
@@ -12,4 +11,12 @@ def longest(strings: list[str]) -> Optional[str]:
                 return False
         return True
 
-    return max(list(filter(is_printable, strings)), key=len)
+    max_length = 0
+    longest_string = None
+
+    for string in filter(is_printable, strings):
+        if len(string) > max_length:
+            max_length = len(string)
+            longest_string = string
+
+    return longest_string
