@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,10 +17,10 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool result = true;
-    if(a.size() != b.size())
+    if (a.size() != b.size())
         result = false;
-    for(int i=0; i<a.size();i++)
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             result = false;
     return result;
 }
@@ -34,5 +35,5 @@ int mainFunc() {
 }
 
 int main() {
-    return mainFunc();
+    int mainFunc();
 }
