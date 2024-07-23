@@ -3,23 +3,26 @@
 
 using namespace std;
 
-enum class AnyType { INTEGER };
-
 struct Any {
-    AnyType type;
-    int value;
+    int integer;
+    // add more types as needed...
+};
+
+enum class Type {
+    INTEGER,
+    // add more types as needed...
 };
 
 vector<int> filter_integers(list<Any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type == AnyType::INTEGER) {
-            result.push_back(value.value);
+        if (value.integer != 0) {
+            result.push_back(value.integer);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool is_same(vector<int> a, vector<int> b) {
     return a == b;
 }
