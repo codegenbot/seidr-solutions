@@ -18,7 +18,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
-    
     float result = std::sqrt(sum);
 
     std::cout << std::fixed << result << std::endl;
