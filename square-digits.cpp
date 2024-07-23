@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <iostream>
 
 std::string squareDigits(int n) {
     std::string str = std::to_string(n);
