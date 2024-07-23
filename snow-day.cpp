@@ -1,13 +1,15 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int hours;
     float snow, rate, melt;
     std::cin >> hours >> snow >> rate >> melt;
     
+    std::cout << std::fixed << std::setprecision(15);
+    
     for (int i = 0; i < hours; ++i) {
-        snow += rate;
-        snow -= snow * melt;
+        snow = snow + rate - (snow * melt);
     }
     
     std::cout << snow << std::endl;
