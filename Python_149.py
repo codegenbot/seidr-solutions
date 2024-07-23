@@ -1,3 +1,2 @@
-```
 def sorted_list_sum(lst):
-    return sum(sorted(len(x) for x in set(lst)),0)
+    return sum(int(word) for word in lst if word.isdigit())
