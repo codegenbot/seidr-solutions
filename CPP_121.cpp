@@ -1,22 +1,9 @@
-```cpp
-#include <iostream>
-#include <assert>
-#include <vector>
-
-using namespace std;
-
 int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
-        if ((i % 2 == 0 && lst[i] % 2 != 0) || (i % 2 != 0 && lst[i] % 2 == 0)) {
+        if (lst[i] % 4 == 1 || lst[i] % 4 == 3) {
             sum += lst[i];
         }
     }
     return sum;
-}
-
-int calculateSolutions(vector<int> lst) {
-    assert(solutions({3, 13, 2, 9}) == 3);
-    cout << solutions({1, 4, 5, 10}) << endl;
-    return 0;
 }
