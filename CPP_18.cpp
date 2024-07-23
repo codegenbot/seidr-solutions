@@ -1,3 +1,6 @@
+#include <string>
+#include <iostream>
+
 int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
@@ -13,3 +16,4 @@ int main() {
     assert (how_many_times("john doe", "john") == 1);
     std::cout << how_many_times("hello world", "world") << std::endl;
     return 0;
+}
