@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
@@ -13,5 +12,5 @@ else:
 strings = [s for s in strings_list if s]
 substring = input("Enter a substring to search for: ")
 
-result = filter_by_substring(strings_list, substring)  
+result = filter_by_substring(strings, substring)  
 print(result)
