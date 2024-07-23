@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
