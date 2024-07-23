@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -7,12 +8,14 @@ pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
+    // Count black pegs
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
+    // Count total correct characters in code and guess
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
         if(code[i] != guess[i]) {
@@ -20,13 +23,10 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    blackPegs += (colorCount[0] > 1 ? 1 : 0) + (colorCount[1] > 1 ? 1 : 0) + 
-                 (colorCount[2] > 1 ? 1 : 0) + (colorCount[3] > 1 ? 1 : 0) + 
-                 (colorCount[4] > 1 ? 1 : 0) + (colorCount[5] > 1 ? 1 : 0);
-
+    // Calculate white pegs
     for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > 1) {
-            whitePegs++;
+        if(colorCount[i] > 0) {
+            whitePegs += colorCount[i] - (std::count(code.begin(), code.end(), std::to_string(i+'0').c_str()) ? 1 : 0);
         }
     }
 
