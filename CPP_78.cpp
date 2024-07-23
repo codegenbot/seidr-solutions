@@ -1,13 +1,15 @@
 #include <string>
-#include <cctype>
 
-int hex_key(std::string num) {
+int hex_key(string num) {
     int count = 0;
+    if (!num.size()) return 0;
+
     for (char c : num) {
-        if (std::isdigit(c) && (c - '0' >= 2 && c - '0' <= 7)) {
+        if ((c >= '2' && c <= '7') || c == 'B' || c == 'D' || c == 'F' || c < '0' || c > '9' || (c >= 'A' && c <= 'F')) {
+            return -1;  // Return an error if the input contains invalid characters
+        }
+        if ((c >= '2' && c <= '7') || c == 'B' || c == 'D' || c == 'F') {
             count++;
-        } else if (!std::isxdigit(c)) {
-            return 0; // or handle invalid input as needed
         }
     }
     return count;
