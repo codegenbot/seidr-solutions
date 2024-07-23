@@ -1,4 +1,7 @@
+```cpp
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int luhn(const vector<int>& digits) {
@@ -20,14 +23,7 @@ int luhn(const vector<int>& digits) {
 }
 
 int main() {
-    vector<int> input;
-    cout << "Enter your credit card number: ";
-    for (int i = 0; i < 16; i++) {
-        int digit;
-        cin >> digit;
-        input.push_back(digit);
-    }
-    int result = luhn(input); 
-    cout << "Result: " << result << endl; 
+    vector<int> digits = {3,4,5,1,3,8,6,7,8,9,0,0,4,5,5};
+    cout << luhn(digits) << endl;
     return 0;
 }
