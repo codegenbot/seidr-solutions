@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -32,10 +32,10 @@ int bowlingScore(string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter bowling scores: ";
-    getline(cin, input);
-    int score = bowlingScore(input);
-    cout << "Score: " << score << endl;
+    string s;
+    cout << "Enter the string representing the individual bowls: ";
+    getline(cin, s);
+    int result = bowlingScore(s);
+    cout << "The score of that round is: " << result << endl;
     return 0;
 }
