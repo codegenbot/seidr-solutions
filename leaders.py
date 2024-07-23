@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     n = len(arr)
     leaders_list = []
@@ -9,4 +8,4 @@ def leaders(arr):
             leaders_list.append(arr[i])
             max_seen = arr[i]
 
-    return reversed(leaders_list)
+    return list(reversed(leaders_list))
