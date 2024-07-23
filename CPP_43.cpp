@@ -1,6 +1,6 @@
 sort(l.begin(), l.end());
-    int left = 0, right = l.size() - 1;
-    
+    int left = 0;
+    int right = l.size() - 1;
     while (left < right) {
         if (l[left] + l[right] == 0) {
             return true;
@@ -10,6 +10,5 @@ sort(l.begin(), l.end());
             right--;
         }
     }
-    
     return false;
 }
