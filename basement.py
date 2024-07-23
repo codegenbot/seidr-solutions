@@ -1,7 +1,8 @@
-def basement(vector):
+def basement(nums):
     total = 0
-    for i in range(len(vector)):
-        total += vector[i]
+    i = 0
+    while True:
+        total += nums[i]
         if total < 0:
-            return i
-    return -1
+            return i + 1
+        i += 1
