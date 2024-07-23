@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -32,4 +33,3 @@ int main() {
     assert(issame(odd_count(test), expected));
     return 0;
 }
-#include <initializer_list>
