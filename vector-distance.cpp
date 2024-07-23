@@ -22,7 +22,8 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    sum = 0.0;
+    sum = 0.0; // Reset sum before calculating the Euclidean distance
+
     for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
