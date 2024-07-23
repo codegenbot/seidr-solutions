@@ -1,28 +1,45 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
+vector<double> coeffs;
 
-double find_zero(const std::vector<double>& coeffs) {
-    double x = 1.0;
-    while (true) {
-        double f_x = poly(coeffs, x);
-        if (abs(f_x) < 1e-6)
-            return x;
-        x -= f_x / (poly(coeffs, x + 0.0001) - f_x);
-    }
-}
-
-double poly(const std::vector<double>& coeffs, double x) {
+double poly(vector<double> coeffs, double root) {
     double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
+    for(int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(root, i);
     }
     return result;
 }
 
+double find_zero(vector<double> coeffs) {
+    double x1 = -10.0;
+    double x2 = 10.0;
+
+    while (true) {
+        double p1 = poly(coeffs, x1);
+        double p2 = poly(coeffs, x2);
+
+        if (p1 * p2 < 0) {
+            double x3 = (x1 + x2) / 2;
+            double p3 = poly(coeffs, x3);
+
+            if (abs(p3) < 0.001)
+                return x3;
+
+            if (p1 * p3 > 0)
+                x1 = x3;
+            else
+                x2 = x3;
+        }
+        else
+            return x1; // single root or no roots in the interval
+    }
+}
+
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 3.0};
-    double zero = find_zero(coeffs);
-    std::cout << "The zero of the polynomial is: " << zero << std::endl;
+    coeffs.resize(5);
+    for(int i = 0; i < 5; i++)
+        cin >> coeffs[i];
+    double rootValue = 2.5; 
+    double result = poly(coeffs, rootValue);
+    solution = find_zero(coeffs);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
     return 0;
 }
