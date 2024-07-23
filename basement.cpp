@@ -2,11 +2,11 @@
 using namespace std;
 
 int basement(vector<int> nums) {
-    long long sum = 0;
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i;
+            return i; // Return the index where sum first becomes negative
         }
     }
     return nums.size();
