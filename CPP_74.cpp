@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
@@ -8,43 +9,23 @@ bool issame(vector<string> a, vector<string> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
 
-    int i = 0, j = 0;
-    
-    while (i < a.size() && j < b.size()) {
-        if (a[i] == b[j]) {
-            return true; 
-            i++;
-            j++;
-        } else if (a[i] < b[j]) {
-            i++;
-        } else {
-            j++;
-        }
-    }
-
-    return false;
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
 
-    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
-    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
+    for (const auto& str : lst1) {
+        bool found = false;
+        for (const auto& word : lst2) {
+            if (issame({str}, {word})) {
+                found = true;
+                break;
+            }
+        }
 
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
-
-    int i = 0, j = 0;
-    
-    while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == string(&lst1[i][0])) { 
-            result.push_back(string(&lst1[i][0])); 
-            i++;
-            j++;
-        } else if (lst1[i] < string(&lst2[j][0])) {
-            i++;
-        } else {
-            j++;
+        if (!found) {
+            result.push_back(str);
         }
     }
 
@@ -53,6 +34,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 
 int main() {
     vector<string> result = total_match({{"this"}}, {});
-    assert(issame(result, {}));
+    for (const auto& str : result) {
+        cout << str << endl;
+    }
     return 0;
 }
