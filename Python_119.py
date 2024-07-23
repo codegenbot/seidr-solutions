@@ -1,6 +1,4 @@
-```
 def match_parens(lst):
-    """Return 'Yes' if parentheses in the input list are properly matched, else 'No'."""
     stack = []
     for s in lst:
         for c in s:
