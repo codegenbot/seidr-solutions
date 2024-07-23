@@ -1,7 +1,7 @@
-#include <vector>
-#include <string>
 #include <iostream>
 #include <sstream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -58,4 +58,3 @@ int main() {
     cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << std::endl;
 
     return 0;
-}
