@@ -1,11 +1,19 @@
+```cpp
+#include <string>
 std::string fizzBuzz(int x) {
+    std::string result;
     if (x % 15 == 0) { 
-        return "FizzBuzz";
+        result = "FizzBuzz";
     } else if (x % 3 == 0) { 
-        return "Fizz";
+        if (x % 5 == 0) {
+            result = "FizzBuzz";
+        } else {
+            result = "Fizz";
+        }
     } else if (x % 5 == 0) { 
-        return "Buzz";
+        result = "Buzz";
+    } else {
+        std::string str = std::to_string(x);
+        result = str;
     }
-    std::string str = std::to_string(x); // convert to string
-    return str;
-}
+    return result;
