@@ -14,10 +14,10 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
+    if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
-    while(abs(poly(xs, x)) > 1e-9){ // use a small value for precision
-        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); // Newton-Raphson method
+    while(abs(poly(xs, x)) > 1e-9){ 
+        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
     }
-    return round(x, 2);
+    printf("%.2f\n", x);
 }
