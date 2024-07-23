@@ -6,4 +6,4 @@ def leaders(arr):
         if i == n - 1 or arr[i] >= max(arr[i+1:]):
             leaders_list.append(arr[i])
 
-    return reversed(leaders_list)
+    return leaders_list[::-1]
