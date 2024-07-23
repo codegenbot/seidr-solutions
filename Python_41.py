@@ -1,2 +1,2 @@
-def car_race_collision(n: int):
-    return (n * (n - 1)) // 2
+def car_race_collision(n: int, m: int):
+    return min(n, m) * (min(n, m) - 1) // 2
