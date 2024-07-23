@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
+
 int main() {
-    using namespace std;
-    
     double start_height, first_bounce_height, bounciness_index, total_distance = 0.0;
     int num_bounces;
     
@@ -14,8 +14,11 @@ int main() {
     total_distance = start_height + first_bounce_height;
     
     for (int i = 2; i <= num_bounces; ++i) {
-        total_distance += first_bounce_height * pow(bounciness_index, i);
+        total_distance += 2 * first_bounce_height * pow(bounciness_index, i - 1);
     }
+    
+    cout << fixed;
+    cout.precision(14);
     
     cout << total_distance << endl;
     
