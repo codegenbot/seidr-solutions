@@ -23,17 +23,21 @@ double find_zero(vector<double> coeffs) {
 
 int main() {
     vector<double> coeffs;
-    double x;
-    cin >> x; 
-    coeffs.resize(x + 1);
-    for (int i = 0; i <= x; i++) {
-        cin >> coeffs[i];
+    double solution;
+
+    int n; // Input the degree of polynomial
+    cout << "Enter the degree of polynomial: ";
+    cin >> n;
+    
+    for(int i=0; i<=n;i++){
+        double coeff;
+        cout << "Enter coefficient for x^" << i << ": ";
+        cin >> coeff;
+        coeffs.push_back(coeff);
     }
 
-    double solution;
-    
     solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3); 
+    assert (abs(poly(coeffs, solution))< 1e-3);
 
     return 0;
 }
