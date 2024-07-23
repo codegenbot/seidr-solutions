@@ -29,4 +29,9 @@ string solveBoolean(string booleanExpression) {
     if (result == "T") return "True";
     if (result == "F") return "False";
     
-    return "Invalid Input";
+    if(result.length() > 1) {
+        return "Invalid Input";
+    }
+    
+    return (result[0] == 'T') ? "True" : "False";
+}
