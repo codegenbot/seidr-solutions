@@ -1,10 +1,8 @@
-```cpp
 #include <string>
-#include <vector>
 
 int main() {
     int score = 0;
-    std::string s = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X";
+    std::string s = "";
     for(int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == '/') {
