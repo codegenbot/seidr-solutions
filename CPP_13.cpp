@@ -6,4 +6,3 @@ while (a != b) {
     }
 }
 return a;
-}
