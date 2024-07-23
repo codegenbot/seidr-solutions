@@ -7,4 +7,4 @@ int pairedDigits(std::string str) {
             sum += str[i] - '0';
         }
     }
-    return sum; }
+    return sum;
