@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -38,9 +37,9 @@ int main() {
         std::cin >> s;
         input.push_back(s);
     }
-    
+
     std::vector<int> filtered_integers = filter_integers(input);
-    
+
     bool result = issame(filtered_integers, filtered_integers);
     if(result) {
         std::cout << "The two vectors are same" << std::endl;
