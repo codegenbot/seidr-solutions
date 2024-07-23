@@ -16,7 +16,7 @@ string camelCase(string s) {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += tolower(s[i]);
+            result += s[i];
         }
         i++;
     }
