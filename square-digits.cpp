@@ -11,7 +11,6 @@ int squareDigits(int n) {
 }
 
 int main() {
-    std::cout << squareDigits(16) << std::endl; 
-    // Output: 4
+    std::cout << squareDigits(14) << std::endl; 
     return 0;
 }
