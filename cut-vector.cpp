@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -18,14 +17,14 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i; j < n; j++)
             sum_right += v[j];
 
-        int left_diff = abs(sum_left - sum_right);
-        int right_diff = abs(sum_right - sum_left);
+        if(sum_left == sum_right) {
+            return {{v.begin(), v.end()}};
+        }
 
-        if ((left_diff == 0 && right_diff > min_diff) || (right_diff == 0 && left_diff > min_diff)) {
-            min_diff = max(left_diff, right_diff);
-            best_cut = i;
-        } else if ((min_diff > 0) && (min_diff > max(left_diff, right_diff))) {
-            min_diff = max(left_diff, right_diff);
+        int diff1 = abs(sum_left - sum_right);
+        int diff2 = abs(sum_right - sum_left);
+        if((diff1<min_diff && diff1<diff2) || (diff2<min_diff && diff1==diff2)) {
+            min_diff = min(diff1, diff2);
             best_cut = i;
         }
     }
