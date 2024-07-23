@@ -2,6 +2,10 @@
 #include <algorithm>
 using namespace std;
 
+int main() {
+    return 0;
+}
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
