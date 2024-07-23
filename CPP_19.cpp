@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <string>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -24,7 +26,7 @@ string sort_numbers(string numbers) {
         }
     }
 
-    sort(numVec.begin(), numVec.end(), [&numMap](const string &a, const string &b) {
+    sort(numVec.begin(), numVec.end(), [&](const string &a, const string &b) {
         return to_string(numMap[a]) < to_string(numMap[b]);
     });
 
