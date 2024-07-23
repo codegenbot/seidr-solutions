@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def filter_by_substring(strings: list, substring: str) -> list:
@@ -8,7 +9,9 @@ substring = input("Enter a substring to search for: ")
 
 while "" in strings:
     strings.remove("")
-strings = [s for s in strings if type(s) == str]
-
-result = filter_by_substring([s.strip() for s in strings], substring)
-print(result)
+    
+if not all(isinstance(s, str) for s in strings):
+    print("Invalid input. Please enter only strings.")
+else:
+    result = filter_by_substring([s.strip() for s in strings], substring)
+    print(result)
