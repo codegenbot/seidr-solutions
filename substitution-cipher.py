@@ -5,7 +5,7 @@ def substitution_cipher():
 
     for char in text_to_decrypt:
         if char in cipher_map:
-            index = (cipher_map.index(char) % len(cipher_map))
+            index = (cipher_map.index(char) + 1) % len(cipher_map)
             decrypted_text += cipher_map[index]
         else:
             decrypted_text += char
