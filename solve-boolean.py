@@ -3,17 +3,14 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= True
-            elif char == '|':
-                result |= True
-            elif char == 'T':
-                result = True
-            elif char == 'F':
-                result = False
-        return result
+    result = None
+    for char in expression:
+        if char == '&':
+            result = result and True if result is not None else False
+        elif char == '|':
+            result = result or True if result is not None else False
+        elif char == 'T':
+            result = True
+        elif char == 'F':
+            result = False
+    return result
