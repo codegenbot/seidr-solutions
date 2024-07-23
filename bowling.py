@@ -1,31 +1,42 @@
-def bowling_score(bowls):
-    score = 0
+def bowling_score(frames):
     frame = 1
-    rolls = []
-    for bowl in bowls:
-        if bowl == "X":
-            rolls.append(10)
-            if frame < 10:
-                frame += 1
-        elif bowl == "/":
-            rolls.append(10 - rolls[-1])
-            if frame < 10:
-                frame += 1
-        elif bowl == "-":
-            rolls.append(0)
-        else:
-            rolls.append(int(bowl))
-
+    frame_score = [0] * 10
     i = 0
-    for _ in range(10):
-        if rolls[i] == 10:
-            score += 10 + rolls[i + 1] + rolls[i + 2]
+
+    while frame <= 10:
+        score = 0  # Reset score at the beginning of each frame
+        if frames[i] == "X":
+            score += 10
+            score += get_value(frames[i + 1])
+            score += get_value(frames[i + 2])
+            frame_score[frame - 1] = score
+            frame += 1
             i += 1
-        elif rolls[i] + rolls[i + 1] == 10:
-            score += 10 + rolls[i + 2]
+        elif frames[i + 1] == "/":
+            score += 10
+            score += get_value(frames[i + 2])
+            frame_score[frame - 1] = score
+            frame += 1
             i += 2
         else:
-            score += rolls[i] + rolls[i + 1]
+            score += get_value(frames[i])
+            if frames[i + 1] != "-":
+                score += get_value(frames[i + 1])
+            frame_score[frame - 1] = score
+            frame += 1
             i += 2
 
-    return score
+    return sum(frame_score)
+
+
+def get_value(char):
+    if char == "X" or char == "/":
+        return 10
+    elif char == "-":
+        return 0
+    else:
+        return int(char)
+
+
+frames = input()
+print(bowling_score(frames))
