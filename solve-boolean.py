@@ -1,20 +1,18 @@
+```
 def solve_boolean(expression):
     def eval_expr(tokenized):
-        if not tokenized:
-            return False
-        token = tokenized.pop(0)
-        if token in ['T', 'F']:
-            return token == 'T'
-        elif token == '&':
-            return eval_expr(tokenized) and eval_expr(tokenized)
-        else: 
-            return eval_expr(tokenized) or eval_expr(tokenized)
+        if not tokenized:  
+            return False  # empty expression is False
+        if len(tokenized) == 1:  
+            return tokenized[0] == 'T'
+        elif '&' in tokenized:
+            left = eval_expr([x for x in tokenized[:tokenized.index('&')] + ['&'] + [tokenized[tokenized.index('&')+1:]]])
+            right = eval_expr(tokenized[tokenized.index('&')+1:].replace(' and ', '&').split())
+            return left and right
+        else:
+            left = eval_expr(tokenized[:tokenized.index('|') + 1].replace(' or ', '|').split())
+            right = eval_expr(tokenized[tokenized.index('|')+1:])
+            return left or right
 
-    tokens = list(expression.replace('&', ' &').replace('|', ' |').split())
-    while '&' in tokens:
-        start = tokens.index('&')
-        end = start + 1
-        while end < len(tokens) and tokens[end] != '&':
-            end += 1
-        tokens = tokens[:start] + ['&'] + tokens[start+1:end]
-    return eval_expr(list(tokens))
+    tokens = expression.replace('&', ' and ').replace('|', ' or ')
+    return eval_expr(tokens.split())
