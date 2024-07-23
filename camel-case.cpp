@@ -1,36 +1,26 @@
 Here is the solution:
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-string kebabToCamel(string s) {
+string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '-') {
-            i++; // skip the '-'
-            if (i < s.length()) {
-                result += toupper(s[i]);
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                i++;
             }
+            if (result.back() != ' ')
+                result += s.substr(i, s.find(' ', i) - i);
+            else
+                result += s.substr(i, s.find(' ', i) - i).substr(1);
+        } else if (!result.length()) {
+            result = s.substr(i, 1);
         } else {
-            if (result != "") {
-                result += toupper(s[i]); // capitalize the first letter of each word
-            } else {
-                result += tolower(s[i]); // lowercase the first letter
-            }
+            if (s[i] == ' ')
+                continue;
+            result += toupper(s[i]);
         }
+        i++;
     }
     return result;
-}
-
-int main() {
-    string s;
-    while (true) {
-        cout << "Enter a kebab-case string (or 'quit' to exit): ";
-        cin >> s;
-        if (s == "quit") break;
-        cout << "camelCase: " << kebabToCamel(s) << endl;
-    }
-    return 0;
 }
