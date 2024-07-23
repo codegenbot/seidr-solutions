@@ -26,5 +26,4 @@ int main() {
     } else {
         std::cout << "Not prime length" << std::endl;
     }
-    return 0;
 }
