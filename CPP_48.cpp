@@ -1,5 +1,4 @@
-```
-#include <string>
+```#include <string>
 
 bool is_palindrome(std::string text) {
     int left = 0;
@@ -12,4 +11,4 @@ bool is_palindrome(std::string text) {
         right--;
     }
     return true;
-}
+}```
