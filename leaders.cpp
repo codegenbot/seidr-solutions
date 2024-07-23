@@ -1,11 +1,12 @@
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
+    int maxSoFar = arr.back();  
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= max_element(arr.begin() + i, arr.end())) {
+        if (arr[i] >= maxSoFar) {
             result.push_back(arr[i]);
+            maxSoFar = arr[i];  
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return vector<int>(result.rbegin(), result.rend());
 }
