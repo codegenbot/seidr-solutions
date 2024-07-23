@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
-#include <iterator>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
