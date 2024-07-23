@@ -1,6 +1,2 @@
-```
-import math
-
 def dice_game(n, m):
-    prob_equal = (min(n, m)/(n*m))
-    return 1 - prob_equal
+    return sum((1/n)*(m-x) for x in range(m))
