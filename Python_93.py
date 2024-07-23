@@ -5,10 +5,9 @@ def encode(message):
             if char.isalpha():
                 shift = 65 if char.isupper() else 97
                 encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
-                encoded_char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".lower()[ord(encoded_char)-shift]
             else:
                 encoded_char = char.lower()
+            encoded_message += encoded_char
         else:  
-            encoded_char = char
-        encoded_message += encoded_char
+            encoded_message += 'x'
     return encoded_message
