@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 bool solveBoolean(string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
@@ -27,12 +29,12 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     if (result)
-        std::cout << "True";
+        cout << "True";
     else
-        std::cout << "False";
+        cout << "False";
     return 0;
 }
