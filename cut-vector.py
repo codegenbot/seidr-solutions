@@ -1,18 +1,24 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
+total_sum = sum(v)
 half_sum = total_sum // 2
-closest_sum = 0
+curr_sum = 0
+idx = 0
+
 for i in range(n):
-    if closest_sum + arr[i] <= half_sum:
-        closest_sum += arr[i]
-    else:
+    curr_sum += v[i]
+    if curr_sum >= half_sum:
+        idx = i
         break
 
-if closest_sum == half_sum:
-    print(arr[: i + 1])
-    print(arr[i + 1 :])
+if curr_sum == half_sum:
+    print(v[: idx + 1])
+    print(v[idx + 1 :])
 else:
-    print(arr)
-    print([0])
+    if abs(curr_sum - half_sum) < abs(curr_sum - v[idx] - half_sum):
+        print(v[: idx + 1])
+        print(v[idx + 1 :])
+    else:
+        print(v[:idx])
+        print(v[idx:])
