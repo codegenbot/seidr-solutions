@@ -12,7 +12,7 @@ int fuelCost(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v = {1, 2, 3}; 
+    std::vector<int> v(3); // instead of std::vector<int> v = {1, 2, 3};
     int result = fuelCost(v);
     return 0;
 }
