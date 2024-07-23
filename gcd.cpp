@@ -35,17 +35,17 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
+    string input;
+    cin >> input;
+
     int a, b;
     cin >> a >> b;
+
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin.ignore(); // Clear the newline character left in the buffer
-    getline(cin, text);
-    getline(cin, target);
-
+    cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-
     for (int idx : result) {
         cout << idx << " ";
     }
