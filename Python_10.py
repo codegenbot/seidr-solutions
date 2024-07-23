@@ -10,4 +10,4 @@ def make_palindrome(string: str) -> str:
             i += 1
         return string + string[:i][::-1]
     else:
-        return "Input must be alphanumeric"
+        return string[:len(string)//2] + string[len(string)//2:][::-1]
