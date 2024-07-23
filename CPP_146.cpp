@@ -1,4 +1,3 @@
-```cpp
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int x : nums) {
