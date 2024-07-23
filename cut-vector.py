@@ -1,5 +1,5 @@
-```
 def cut_vector(vector):
+    n = len(vector)
     min_diff = float("inf")
     split_index = -1
 
