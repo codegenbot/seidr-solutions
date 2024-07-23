@@ -1,23 +1,22 @@
-```cpp
+```c++
 #include <iostream>
 #include <iomanip>
 
-// Forward declare the function
-double snowDay(int, double, double, double);
+// Function prototype
+float snowDay(int, float, float, float);
 
 int main() {
     int hours;
-    std::cin >> hours;
-    double initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    std::cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
-
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    cin >> hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
 }
 
-double snowDay(int hours, double initialSnow, double rateOfSnowFall, double proportionOfSnowMeltingPerHour) {
-    for (int i = 0; i < hours; i++) {
-        initialSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour;
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+    for (int i = 0; i < hours; ++i) {
+        initialSnow += rateOfSnowFall - initialSnow * proportionOfSnowMeltingPerHour;
     }
     return initialSnow;
 }

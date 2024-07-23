@@ -1,6 +1,1 @@
-def spin_words(s):
-    words = s.split()
-    result = []
-    for word in words:
-        result.append(word[::-1] + " " if len(words) > 1 else "")
-    return "".join(result).strip().rstrip(" ")
+return " ".join([word if len(word) < 5 else word[::-1] for word in words]).strip()
