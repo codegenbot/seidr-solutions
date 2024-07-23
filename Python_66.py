@@ -1,2 +1,7 @@
+```
 def digitSum(s):
-    return sum(int(digit) for digit in s if digit.isdigit())
+    total = 0
+    for c in s:
+        if c.isdigit():
+            total += int(c)
+    return total
