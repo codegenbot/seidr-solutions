@@ -3,12 +3,12 @@ import re
 
 def sum_squares(user_input):
     if not isinstance(user_input, (str, tuple)):
-        return "Invalid input. Please enter a string or tuple."
+        return "Invalid input type"
+
+    numbers = []
     if isinstance(user_input, str):
         numbers = list(map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input.split())))
-    elif isinstance(user_input, tuple):
-        if isinstance(user_input[0], str):
-            numbers = list(map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input)))
-        else:
-            numbers = [n ** 2 for n in map(int, user_input)]
+    else:
+        numbers = [n ** 2 for n in map(int, filter(lambda x: re.match(r'\d+', str(x)), user_input))]
+        
     return sum(numbers)
