@@ -1,9 +1,10 @@
+```
 def leaders(arr):
     n = len(arr)
-    leaders_list = []
+    leaders_list = [arr[n-1]]
 
-    for i in range(n-1, -1, -1):
-        if not any(x >= arr[i] for x in arr[i+1:]):
-            leaders_list.append(arr[i])
+    for i in range(n-2, -1, -1):
+        if arr[i] >= leaders_list[0]:
+            leaders_list.insert(0, arr[i])
 
     return leaders_list
