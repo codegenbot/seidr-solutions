@@ -7,3 +7,4 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
+}
