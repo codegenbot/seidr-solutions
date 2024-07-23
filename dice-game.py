@@ -1,6 +1,3 @@
 import math
 def dice_game(n, m):
-    if n > m:
-        return 1 - (n + m) / (n * m)
-    else:
-        return 0
+    return 1 - sum(1/math.factorial(i)*pow(m/i, i) for i in range(min(m, n)+1))
