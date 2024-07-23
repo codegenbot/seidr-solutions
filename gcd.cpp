@@ -1,13 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
-    a = abs(a);
-    b = abs(b);
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -22,7 +19,7 @@ int main() {
     int resultGcd = gcd(647870, 797108);
     cout << "GCD: " << resultGcd << endl;
 
-    string text = "647870";
+    string text = "647870797108";
     string target = "797";
     vector<int> resultIndices = indicesOfSubstring(text, target);
     cout << "Indices of Substring:";
