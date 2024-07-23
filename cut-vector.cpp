@@ -1,37 +1,42 @@
 int main() {
     vector<int> nums;
     int num;
+    
     while (cin >> num) {
         nums.push_back(num);
     }
-
+    
+    int n = nums.size();
     int sum = 0;
-    for (int n : nums) {
-        sum += n;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
-
-    int target = sum / 2;
-    int currSum = 0;
-    int idx = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        currSum += nums[i];
-        if (currSum >= target) {
-            idx = i;
+    
+    int prefix_sum = 0;
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        if (prefix_sum * 2 >= sum) {
+            if (prefix_sum * 2 == sum) {
+                for (int j = 0; j <= i; j++) {
+                    cout << nums[j] << endl;
+                }
+                cout << 0 << endl;
+            } else {
+                if (prefix_sum * 2 - sum < sum - (prefix_sum - nums[i])) {
+                    for (int j = 0; j <= i; j++) {
+                        cout << nums[j] << endl;
+                    }
+                    cout << 0 << endl;
+                } else {
+                    for (int j = 0; j < i; j++) {
+                        cout << nums[j] << endl;
+                    }
+                    cout << nums[i] << endl;
+                }
+            }
             break;
         }
     }
-
-    if (abs(sum - 2 * currSum) < abs(sum - 2 * (currSum - nums[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx - 1; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << nums[idx] << endl;
-    }
-
+    
     return 0;
 }
