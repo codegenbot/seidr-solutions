@@ -1,5 +1,6 @@
-bool issame(float x, float y) {
-    if (abs(x-y)<0.01)
+```
+bool issame(float a, float b) {
+    if (abs(a - b) < 0.001)
         return true;
     else
         return false;
