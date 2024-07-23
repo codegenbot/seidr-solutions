@@ -1,17 +1,17 @@
-```
-def factorize(n: int) -> List[int]:
+def solve() -> None:
+    num = int(input("Enter a number: "))
     factors = []
     i = 2
-    while i * i <= n:
-        if n % i:
+    while i * i <= num:
+        if num % i:
             i += 1
         else:
-            n //= i
+            num //= i
             count = 0
-            while n % i == 0:
-                n //= i
+            while num % i == 0:
+                num //= i
                 count += 1
             factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    return factors
+    if num > 1:
+        factors.append(num)
+    print(f"The prime factorization of {num} is: {factors}")
