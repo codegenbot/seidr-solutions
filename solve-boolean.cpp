@@ -1,10 +1,11 @@
+```cpp
 #include <stack>
 using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
     bool res = false;
-
+    
     for(int i=s.length()-1; i>=0; i--) {
         if(s[i] == '&') {
             while(!st.empty() && st.top() == '&') {
@@ -30,3 +31,4 @@ bool solveBoolean(string s) {
     }
     
     return res;
+}
