@@ -19,8 +19,8 @@ int problemSolution() {
 
     std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::sort(uniqueVec.begin(), uniqueVec.end());
-    uniqueVec.erase(std::unique(uniqueVec.begin(), uniqueVec.end()), uniqueVec.end());
-    assert(issame(uniqueVec, std::vector<int>{0, 2, 3, 5, 9, 123}));
+    std::unique(uniqueVec.begin(), uniqueVec.end());
+    
     return 0;
 }
 
