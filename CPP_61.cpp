@@ -1,3 +1,4 @@
+```cpp
 bool correct_bracketing(string brackets) {
     int count = 0;
     for (char bracket : brackets) {
@@ -8,4 +9,5 @@ bool correct_bracketing(string brackets) {
             count--;
         }
     }
-    return count == 0 || count > 0;
+    return count == 0 || count > 0; 
+}
