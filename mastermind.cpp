@@ -13,8 +13,8 @@ int main() {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeFreq[code[i] - 'A' - 'A'];
-            ++guessFreq[guess[i] - 'A' - 'A'];
+            ++codeFreq[code[i] - 'A'];
+            ++guessFreq[guess[i] - 'A'];
         }
     }
 
