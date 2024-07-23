@@ -1,12 +1,5 @@
-def concatenate_strings():
-    input_list = []
-
-    while True:
-        user_input = input("Enter a string (or 'done' to finish): ")
-
-        if user_input.lower() == "done":
-            break
-
-        input_list.append(user_input)
-
-    print(concatenate(input_list))
+def calculate_total_cost(prices: List[float], quantities: List[int]) -> float:
+    total_cost = 0
+    for i in range(len(prices)):
+        total_cost += prices[i] * quantities[i]
+    return total_cost
