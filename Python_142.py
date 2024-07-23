@@ -1,8 +1,4 @@
 ```
-total_sum = 0
-for num in lst:
-    if isinstance(num, (int, float)):
-        total_sum += num ** 2
-    else:
-        raise TypeError("The list contains non-numeric values")
-return total_sum
+def sum_squares(lst):
+    total_sum = sum(x*x if (i % 3 == 0 and i % 4 != 0) else x**3 if (i % 4 == 0 and i % 3 != 0) else x for i, x in enumerate(lst))
+    return total_sum
