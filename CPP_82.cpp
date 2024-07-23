@@ -11,11 +11,16 @@ bool isPrime(int n) {
     return true;
 }
 
+bool prime_length(const std::string& str) {
+    bool result = isPrime(std::stoi(str));  
+    return result;
+}
+
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::cin >> str; 
-    bool result = isPrime(std::stoi(str)); 
+    bool result = prime_length(str); 
     if (result) {
         std::cout << "Prime length" << std::endl;
     } else {
