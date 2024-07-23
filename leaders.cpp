@@ -7,20 +7,15 @@ vector<int> leaders(vector<int>& arr) {
     
     if(n == 0) return leaders;
     
-    leaders.push_back(arr[n-1]);
+    int maxSoFar = arr[n-1];
+    leaders.push_back(maxSoFar);
     
     for(int i=n-2; i>=0; i--) {
-        if(i < n-2 && arr[i] >= max(arr.begin()+i+1, arr.end())) {
+        if(arr[i] >= maxSoFar) {
             leaders.push_back(arr[i]);
+            maxSoFar = arr[i];
         }
     }
     
     return leaders;
-}
-
-int main() {
-    vector<int> arr = {3, 4, 1, 5, 9};
-    vector<int> result = leaders(arr);
-    for(int x : result) cout << x << " ";
-    return 0;
 }
