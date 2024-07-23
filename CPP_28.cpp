@@ -17,12 +17,11 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> input;
     int numStrings;
+    std::vector<std::string> input;
 
     // Read the number of strings from the user
     std::cout << "Enter the number of strings: ";
-    std::cin.ignore();
     std::cin >> numStrings;
 
     // Read the strings from the user
