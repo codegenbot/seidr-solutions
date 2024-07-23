@@ -1,15 +1,21 @@
-def main():
-    print("Find two numbers from user and find their quotient.")
+```
+def find_zero(xs: list):
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have three coefficients")
 
-    x = float(input("Enter first number: "))
-    y = float(input("Enter second number: "))
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
 
-    if y != 0:
-        result = -x / y
-        print(f"The quotient is {result}.")
-    else:
-        print("Second number cannot be zero.")
+    x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
+    return round(x, 10)
 
+# Get input from user
+input_str = input("Enter the coefficients of your quadratic equation (a, b, c): ")
+coefficients = [float(x) for x in input_str.split(",")]
 
-if __name__ == "__main__":
-    main()
+try:
+    result = find_zero(coefficients)
+    print(f"The zero is: {result}")
+except ValueError as e:
+    print(e)
