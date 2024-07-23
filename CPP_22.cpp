@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <boost/type_traits.hpp>
 
@@ -10,3 +11,4 @@ vector<int> filter_integers(boost::any_list values) {
         }
     }
     return result;
+}
