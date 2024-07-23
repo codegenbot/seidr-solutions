@@ -2,8 +2,8 @@
 using namespace std;
 
 int gcd(const string a, const string b) {
-    if (b == "0") return a;
-    return gcd(b, a.substr(b.size()));
+    if (b == "") return a;
+    return gcd(b, a.substr(0, a.size() % b.size()));
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {

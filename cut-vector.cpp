@@ -14,7 +14,7 @@ int main() {
         cout << "Invalid input. Program terminated." << endl;
         return 1;
     }
-    
+
     if(nums.empty()) {
         cout << "Input vector is empty." << endl;
         return 0;
