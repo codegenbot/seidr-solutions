@@ -1,8 +1,3 @@
-#include <iostream>
-#include <stack>
-#include <queue>
-using namespace std;
-
 bool evaluateBooleanExpression(string expression) {
     stack<char> operators;
     string operand = "";
@@ -16,11 +11,13 @@ bool evaluateBooleanExpression(string expression) {
             if (!operand.empty()) {
                 return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
                 return operand == "T";
             }
+            operand = "";
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
@@ -38,9 +35,10 @@ bool evaluateBooleanExpression(string expression) {
                     return operand == "T";
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "T";
+                    return operand == "F";
                 }
 
+                operand = "False";
                 operators.pop();
             }
             operators.pop();
@@ -55,9 +53,10 @@ bool evaluateBooleanExpression(string expression) {
             return operand == "T";
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "T";
+            return operand == "F";
         }
 
+        operand = "False";
         operators.pop();
     }
 
