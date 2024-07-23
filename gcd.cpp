@@ -1,29 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 int gcd(int a, int b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
-
-vector<int> indicesOfSubstring(const string& text, const string& target);
-
-int main() {
-    int resultGcd = gcd(647870, 797108);
-    cout << "GCD: " << resultGcd << endl;
-
-    string text = "647870";
-    string target = "797";
-    vector<int> resultIndices = indicesOfSubstring(text, target);
-    cout << "Indices of Substring:";
-    for (int idx : resultIndices) {
-        cout << " " << idx;
+    while (b) {
+        a %= b;
+        swap(a, b);
     }
-    cout << endl;
-    
-    return 0;
+    return a;
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
@@ -53,4 +38,22 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     }
 
     return indices;
+}
+
+int main() {
+    // Test case for gcd
+    int resultGcd = gcd(647870, 797108);
+    cout << "GCD: " << resultGcd << endl;
+
+    // Test case for indicesOfSubstring
+    string text = "647870";
+    string target = "797";
+    vector<int> resultIndices = indicesOfSubstring(text, target);
+    cout << "Indices of Substring:";
+    for (int idx : resultIndices) {
+        cout << " " << idx;
+    }
+    cout << endl;
+    
+    return 0;
 }
