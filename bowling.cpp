@@ -1,40 +1,48 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    vector<int> rolls;
-
-    for (char c : s) {
-        if (c != '/') {
-            int roll = c - '0';
-            rolls.push_back(roll);
-        } else {
-            if (rolls.size() < currentFrame * 2) {
-                throw invalid_argument("Invalid input");
+    for(int i = 0; i < 10; i++) {
+        if(s[i] == '/') {
+            string first = s.substr(0, i);
+            string second = s.substr(i+1);
+            if(first[0] == 'X') {
+                score += 30;
+            } else if(killStrike(first)) {
+                score += 10 + strikeBonus(second);
+            } else {
+                score += strikeValue(first) + strikeBonus(second);
             }
-            int strike = (currentFrame == 10 && rolls[framesToIndex(currentFrame, 1)] == 10) ? 1 : 0;
-            score += calculateScore(rolls, currentFrame);
-            currentFrame++;
-        }
-    }
-
-    return score;
-}
-
-int framesToIndex(int frame, int roll) {
-    if (frame < 1 || frame > 10) {
-        throw invalid_argument("Invalid frame");
-    }
-    return frame * 2 - 1 + roll;
-}
-
-int calculateScore(vector<int> rolls, int currentFrame) {
-    int score = 0;
-    for (int i = framesToIndex(currentFrame, 1); i <= framesToIndex(currentFrame, 2); i++) {
-        if (i < rolls.size()) {
-            score += rolls[i];
+        } else if(s[i] == 'X') {
+            score += 30;
+        } else if(killStrike(string(1, s[i]))){
+            score += 10 + strikeBonus(s.substr(i+1));
         } else {
-            break;
+            score += strikeValue(string(1, s[i])) + strikeBonus(s.substr(i+1));
         }
     }
     return score;
+}
+
+bool killStrike(string s) {
+    if(s.length() < 2) return false;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] != 'X' && s[i] != '/') return false;
+    }
+    return true;
+}
+
+int strikeValue(string s) {
+    int sum = 0;
+    for(int i = 0; i < s.length(); i++) {
+        sum += s[i] - '0';
+    }
+    return sum;
+}
+
+int strikeBonus(string s) {
+    int sum = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '/') break;
+        sum += s[i] - '0';
+    }
+    return sum;
 }
