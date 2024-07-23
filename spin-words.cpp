@@ -1,11 +1,11 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string spinWords(string str) {
-    string result = "";
+std::string spinWords(std::string str) {
+    std::string result = "";
     size_t start = 0;
     
     while (start < str.length()) {
@@ -14,7 +14,7 @@ string spinWords(string str) {
         if (end == string::npos)
             end = str.length();
         
-        string word = str.substr(start, end - start);
+        std::string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
@@ -35,3 +35,4 @@ int main() {
         cout << spinWords(str) << endl;
     }
     return 0;
+}
