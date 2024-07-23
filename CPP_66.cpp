@@ -1,8 +1,11 @@
-int digitSum(string s){
+#include <string>
+
+int digitSum(string s) {
     int sum = 0;
-    for(char c : s){
-        if(isupper(c))
-            sum += (int)c;
+    for (char c : s) {
+        if (isupper(c)) {
+            sum += c;
+        }
     }
     return sum;
 }
