@@ -1,8 +1,8 @@
-#include <cmath>
-#include <vector>
-#include <iostream>
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
@@ -10,22 +10,27 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs, double prev_x) {
-    double x = prev_x;
-    double tol = 1e-6;
-    while(true) {
-        double f_x = poly(coeffs, x);
-        double f_prime_x = (poly({coeffs[1], coeffs[2], coeffs[3] * (x-1), coeffs[4]}, x) - 
-                            poly({coeffs[1], coeffs[2], coeffs[3] * (prev_x-1), coeffs[4]}, prev_x)) / 
-                          (x - prev_x); // approximate derivative using difference quotient
-        x -= f_x / f_prime_x;
-        if(std::abs(f_x) < tol)
+double find_zero(vector<double> coeffs) {
+    double x = 1.0;
+    double e = 1e-6;
+    while (true) {
+        double fx = poly(coeffs, x);
+        if (fabs(fx) < e)
             return x;
+        double dfx = 0;
+        for (int i = 1; i <= coeffs.size(); i++) {
+            dfx += i * coeffs[i] * pow(x, i-1);
+        }
+        x -= fx / dfx;
     }
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -7.0, 11, -6, 3}; 
-    double solution = find_zero(coeffs, 1); // Pass initial value of x as argument
-    std::cout << "The root is: " << solution << endl;    
+    vector<double> coeffs = {1.0, -6.0, 11.0, -6.0, 1.0};
+    double solution = find_zero(coeffs);
+    
+    for (double i = 1.5; i < 3.0; i += 0.05) {
+        double val = poly(coeffs, i);
+        assert(abs(val)< 1e-3); 
+    }
 }
