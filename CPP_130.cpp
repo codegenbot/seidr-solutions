@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <vector>
 using namespace std;
 
@@ -10,7 +9,7 @@ vector<int> tri(int n) {
             if (i % 2 == 0)
                 tribonacci = 1 + i / 2;
             else
-                tribonacci = result[i - 1] + result[i - 2] + result[i];
+                tribonacci = result[i - 1] + result[i - 2];
             result.push_back(tribonacci);
         }
     }
