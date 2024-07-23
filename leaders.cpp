@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -17,8 +17,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr;
-    arr.push_back(19);
+    vector<int> arr = {19};
     vector<int> result = leaders(arr);
     for (int num : result) {
         cout << num << " ";
