@@ -4,12 +4,11 @@ using namespace std;
 vector<int> leaders(vector<int> v) {
     vector<int> res;
     int n = v.size();
-    int max_rgt_now = v[n-1];
-    res.push_back(max_rgt_now);
-    for(int i=n-2; i>=0; i--){
-        if(v[i] >= max_rgt_now){
-            max_rgt_now = v[i];
-            res.push_back(max_rgt_now);
+    int max_r = v[n-1];
+    for(int i=n-1; i>=0; i--){
+        if(v[i] >= max_r){
+            res.push_back(v[i]);
+            max_r = v[i];
         }
     }
     return res;
