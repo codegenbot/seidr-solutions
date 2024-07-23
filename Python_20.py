@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
@@ -6,8 +5,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     closest_pair = ()
     
     if len(set(numbers)) != len(numbers):
-        return ()
-    
+        return 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
             diff = abs(numbers[i] - numbers[j])
