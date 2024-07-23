@@ -1,5 +1,8 @@
+#include <iostream>
 #include <string>
-int digitSum(string s) {
+#include <cctype>
+
+int digitSum(std::string s) {
     if (s.empty()) {
         return -1;
     }
@@ -10,4 +13,9 @@ int digitSum(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(digitSum("You arE Very Smart") == 327);
+    // Your code here
 }
