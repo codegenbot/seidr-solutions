@@ -1,5 +1,11 @@
 ```cpp
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+#include <queue>
+#include <climits>
+#include <numeric>
+
+using namespace std;
+
+std::pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
@@ -11,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
         
         for (int j = i; j < v.size(); j++) {
-            rightSum = accumulate(v.begin() + j, v.end(), 0);
+            rightSum = std::accumulate(v.begin() + j, v.end(), 0);
         }
         
         int diff = abs(leftSum - rightSum);
