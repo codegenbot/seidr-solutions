@@ -1,11 +1,9 @@
-#include <iostream>
 #include <vector>
-#include <limits>
-
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     pair<vector<int>, vector<int>> result;
     
     for (int i = 0; i < v.size() - 1; i++) {
