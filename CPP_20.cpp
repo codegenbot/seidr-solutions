@@ -29,6 +29,6 @@ std::vector<float> find_closest_elements(const std::vector<float>& arr) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), {2.2f, 3.1f}));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<float>{2.2, 3.1});
     return 0;
 }
