@@ -1,11 +1,12 @@
 ```
 def smallest_change(arr):
     n = len(arr)
-    rev_arr = arr[::-1]
+    forward = arr[:]
+    backward = arr[::-1]
+    changes = float('inf')
     
-    changes = 0
-    for i in range(n // 2):
-        if arr[i] != rev_arr[n - i - 1]:
-            changes += 1
+    for i in range(n):
+        forward[i] = backward[n-i-1]
+        changes = min(changes, sum(1 for a, b in zip(forward, arr) if a != b))
     
     return changes
