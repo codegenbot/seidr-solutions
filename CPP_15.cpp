@@ -10,3 +10,7 @@ std::string string_sequence(int n) {
     }
     return oss.str();
 }
+
+int main() {
+    // ...
+}
