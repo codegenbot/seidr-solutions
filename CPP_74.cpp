@@ -1,19 +1,19 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cctype>
 
 using namespace std;
 
+bool operator<(const string& s1, const string& s2) {
+    return tolower(s1[0]) < tolower(s2[0]);
+}
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
-    sort(lst1.begin(), lst1.end([&](const string& a, const string& b) {
-        return tolower(a) < tolower(b);
-    }));
-    sort(lst2.begin(), lst2.end([&](const string& a, const string& b) {
-        return tolower(a) < tolower(b);
-    }));
+    sort(lst1.begin(), lst1.end());
+    sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
     
