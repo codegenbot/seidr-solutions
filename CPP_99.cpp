@@ -1,7 +1,12 @@
+```cpp
 #include <string>
+#include <cmath>
 
-int closest_integer(string value) {
+int closest_integer(std::string value) {
     double num = stod(value);
-    int integer = (num >= 0) ? (int) ceil(num) : (int) floor(num);
-    return integer;
+    int integerPart = (int)num;
+    if (abs(num - integerPart) >= 0.5)
+        return (num > 0) ? integerPart + 1 : integerPart - 1;
+    else
+        return integerPart;
 }
