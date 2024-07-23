@@ -1,10 +1,17 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
+#include <string>
+#include <map>
 using namespace std;
 
 bool same_chars(string s0, string s1) {
-    sort(s0.begin(), s0.end());
-    sort(s1.begin(), s1.end());
-    return s0 == s1;
+    if(s0.length() != s1.length())
+        return false;
+        
+    map<char,int> count0, count1;
+    
+    for(auto c : s0)
+        count0[c]++;
+    for(auto c : s1)
+        count1[c]++;
+    
+    return count0 == count1;
 }
