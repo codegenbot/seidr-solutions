@@ -23,4 +23,4 @@ def minPath(grid, k):
         return min_path if min_path else []
 
     res = dfs(0, 0, [], 0)
-    return [tuple(sorted(x)) for x in set(tuple(x) for x in res)]
+    return [x for x in set(tuple(x) for x in res)]
