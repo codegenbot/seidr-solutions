@@ -4,4 +4,5 @@ def double_the_difference(input_list):
     differences = [(int(a) - int(b)) ** 2 for a, b in zip(map(str, input_list)[::2], map(str, input_list)[1::2])]
     return sum(differences) * 8
 
-result = double_the_difference(input("Enter a list of integers (space separated): ").split())
+result = double_the_difference(input_list)
+check(result)
