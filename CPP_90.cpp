@@ -1,11 +1,13 @@
+#include <vector>
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None
-    vector<int> copy = lst;
-    sort(copy.begin(), copy.end());
-    for (int i = 1; i < copy.size(); i++) {
-        if (copy[i] != copy[0]) {
-            return copy[i];
-        }
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    if (sorted.size() < 2)
+        return -1;
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i + 1])
+            return sorted[i + 1];
     }
-    return -1; // Return None
+    return -1;
 }
