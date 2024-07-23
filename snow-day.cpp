@@ -1,17 +1,19 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int hours;
-    double snow_on_ground, snow_fall_rate, snow_melt_rate;
+    float snow_on_ground, snow_fall_rate, snow_melt_rate;
 
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground += snow_fall_rate - snow_melt_rate * snow_on_ground;
+        float snow_fall = snow_fall_rate;
+        float snow_melt = snow_melt_rate * snow_on_ground;
+        snow_on_ground = (snow_on_ground + snow_fall) * (1.0f - snow_melt);
     }
 
-    std::cout << std::fixed << std::setprecision(15) << snow_on_ground << std::endl;
+    std::cout.precision(17);
+    std::cout << snow_on_ground << std::endl;
 
     return 0;
 }
