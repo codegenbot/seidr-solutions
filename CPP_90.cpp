@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-int findNextSmallest(vector<int> lst) {
+int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
