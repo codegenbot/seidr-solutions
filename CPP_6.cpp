@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <vector>
 #include <string>
@@ -32,5 +33,7 @@ vector<int> parse_nested_parens(string paren_string) {
 int main() {
     string paren_string = "(()(())((())))";
     vector<int> result = parse_nested_parens(paren_string);
-    // your assert statement here
+    for (int i : result) {
+        cout << i << " ";
+    }
 }
