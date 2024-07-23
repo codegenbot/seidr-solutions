@@ -1,16 +1,6 @@
 #include <iostream>
 #include <vector>
 
-bool filter_integers(std::vector<int> inputVector) {
-    std::vector<int> evenNumbers;
-    for (int i = 0; i < inputVector.size(); i++) {
-        if (inputVector[i] % 2 == 0) {
-            evenNumbers.push_back(inputVector[i]);
-        }
-    }
-    return evenNumbers.empty() ? false : true;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
@@ -24,25 +14,19 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    std::vector<int> vec1, vec2;
 
-    std::vector<int> inputVector(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        inputVector[i] = num;
-    }
+    // Add elements to the vectors
+    vec1.push_back(1);
+    vec1.push_back(2);
 
-    std::vector<int> filteredVector = filter_integers(inputVector);
+    vec2.push_back(1);
+    vec2.push_back(2);
 
-    bool isSame = issame(filteredVector, inputVector);
-    if (isSame) {
-        std::cout << "The even numbers are the same as the original list." << std::endl;
+    if (issame(vec1, vec2)) {
+        std::cout << "Vectors are same" << std::endl;
     } else {
-        std::cout << "The even numbers are different from the original list." << std::endl;
+        std::cout << "Vectors are not same" << std::endl;
     }
 
     return 0;
