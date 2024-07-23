@@ -1,17 +1,41 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = boost::any_cast<double>(a);
-        double y = boost::any_cast<double>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string s1 = boost::any_cast<std::string>(a);
-        std::string s2 = boost::any_cast<std::string>(b);
-        return ((s1 > s2) ? a : ((s1 < s2) ? b : boost::any("None")));
-    } else {
-        throw std::runtime_error("Invalid input types");
+    if (is_any_of<int>(a)) {
+        if (is_any_of<int>(b)) {
+            int ai = any_cast<int>(a);
+            int bi = any_cast<int>(b);
+            if (ai > bi) return a;
+            else if (ai < bi) return b;
+            else return "None";
+        } else if (is_any_of<double>(b)) {
+            double bi = any_cast<double>(b);
+            if (bi > ai) return b;
+            else if (bi < ai) return a;
+            else return "None";
+        } else if (is_same_type<string, boost::any>(b)) {
+            string bs = boost::any_cast<string>(b);
+            if (stod(bs) > ai) return b;
+            else if (stod(bs) < ai) return a;
+            else return "None";
+        }
+    } else if (is_any_of<int>(b)) {
+        int bi = any_cast<int>(b);
+        if (bi > 0) return b;
+        else return a;
+    } else if (is_any_of<double>(b)) {
+        double bi = any_cast<double>(b);
+        if (bi > ai) return b;
+        else if (bi < ai) return a;
+        else return "None";
+    } else if (is_same_type<string, boost::any>(b)) {
+        string bs = boost::any_cast<string>(b);
+        double bi = stod(bs);
+        if (bi > ai) return b;
+        else if (bi < ai) return a;
+        else return "None";
     }
+    return "None";
 }
