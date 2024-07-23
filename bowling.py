@@ -1,14 +1,14 @@
 def bowling_score(frames):
     score = 0
-    i = j = 0
-    while i < len(frames):
-        if frames[i] != '/':
-            score += int(frames[i])
-            i += 1
-        else:
-            rolls = list(map(int, frames[i].split('/')))
-            if i+2 < len(frames) and frames[i+1].endswith('/'):
-                rolls.append(int(frames[i+2].split('/')[0]))
-            score += sum(rolls)
-            i += 3
+    for i in range(0, len(frames), 2):
+        if "/" in frames[i]:
+            parts = frames[i].split("/")
+            if len(parts) == 1:
+                score += int(parts[0])
+            else:
+                score += max(int(part) for part in parts)
+                if i < 9 and parts[1] != "0":
+                    score += int(frames[i+1].split("/")[0])
+        elif frames[i]:
+            score += int(frames[i]) + int(frames[i+1].split("/")[0])
     return score
