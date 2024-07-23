@@ -1,17 +1,8 @@
-vector<int> divisible_by_three_indices;
+vector<int> result = l;
     for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            divisible_by_three_indices.push_back(i);
+        if ((i + 1) % 3 == 0) {
+            sort(result.begin() + i - 2, result.begin() + i + 1);
         }
     }
-    vector<int> sorted_values;
-    for (int index : divisible_by_three_indices) {
-        sorted_values.push_back(l[index]);
-    }
-    sort(sorted_values.begin(), sorted_values.end());
-    for (int i = 0; i < divisible_by_three_indices.size(); ++i) {
-        l[divisible_by_three_indices[i]] = sorted_values[i];
-    }
-
-    return l;
+    return result;
 }
