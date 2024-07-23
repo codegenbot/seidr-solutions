@@ -2,27 +2,26 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    int frame = 0;
-
-    for (char c : s) {
-        if (c == '/') {
-            inFrame = true;
-        } else if (inFrame) {
-            if (c != 'X') {
-                score += (10 - (c - '0'));
-            }
-            inFrame = false;
-        } else {
-            if (c == 'X') {
-                score += 10;
-            } else {
-                score += c - '0';
-            }
+    int currentFrame = 1;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            string firstRollStr = s.substr(0, i);
+            string secondRollStr = s.substr(i + 1);
+            int firstRoll = stoi(firstRollStr);
+            int secondRoll = stoi(secondRollStr);
+            score += getPointsForFrame(firstRoll, secondRoll);
+            currentFrame++;
         }
-
-        frame++;
-        if (frame >= 10) break;
     }
-
     return score;
+}
+
+int getPointsForFrame(int first, int second) {
+    if (first == 10) {
+        return 10 + second;
+    } else if (first + second >= 10) {
+        return 10 + (second - 10);
+    } else {
+        return first + second;
+    }
+}
