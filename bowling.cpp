@@ -1,11 +1,5 @@
-```cpp
+#include <iostream>
 #include <string>
-
-int main() {
-    std::string s = "X/X/XX/X-4/-5/X-10/-1-2/-3-4/5-6//";
-    int score = bowlingScore(s);
-    return 0;
-}
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -57,10 +51,8 @@ int bowlingScore(std::string s) {
         for (char c : s.substr(s.find('/'))) {
             if (c == 'X') {
                 score += 10 + bonusRoll1;
-                return score;
             } else if (c == '/') {
                 score += 10 + bonusRoll1;
-                return score;
             } else {
                 if (bonusRoll1 < 2) {
                     bonusRoll1++;
@@ -73,4 +65,13 @@ int bowlingScore(std::string s) {
     }
 
     return score;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter bowling scores in the format XX|X|- or X|-: ";
+    std::getline(std::cin, input);
+    int result = bowlingScore(input);
+    std::cout << "Your total score is: " << result << std::endl;
+    return 0;
 }
