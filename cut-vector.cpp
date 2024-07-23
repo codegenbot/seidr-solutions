@@ -9,9 +9,13 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (!cin.eof()) {
-        cin >> num;
+    while (cin >> num) {
         nums.push_back(num);
+    }
+    
+    if (cin.fail() && !cin.eof()) {
+        cout << "Input error occurred. Exiting." << endl;
+        return 1;
     }
     
     int n = nums.size();
