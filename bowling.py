@@ -1,19 +1,27 @@
-```
+```python
 def bowling_score(frames):
     score = 0
-    def process_frames(i):
-        nonlocal score
-        if i > len(frames) - 2:
-            return int(frames[i]) + (10 - int(frames[i])) * 1 if frames[i] != 'X' else 10
-        elif frames[i] == 'X':
-            return 10 + process_frames(i+1)
-        elif frames[i] == '/':
-            return 10 + process_frames(i+1)
-        else:
-            return int(frames[i]) * 1 + (10 - int(frames[i])) * 1 if int(frames[i]) + int(frames[i+1]) < 10 else 10
+    frames = [int(x) if x.isdigit() else x for x in frames]
+    i = 0
     while i < len(frames):
-        score += process_frames(i)
-        i += 2
+        if frames[i] == "X":
+            if i + 1 < len(frames) and frames[i + 1] == "X":
+                score += 10 + 10 * 2
+            elif i + 1 < len(frames) and frames[i + 1].isdigit():
+                score += 10 + int(frames[i + 1]) * 10
+            else:
+                score += 10 + 0
+            i += 1
+        elif frames[i] == "/":
+            if i + 2 < len(frames) and frames[i + 2].isdigit():
+                score += 10 + int(frames[i + 2])
+            else:
+                score += 10 + 0
+            i += 2
+        else:
+            if int(frames[i]) + int(frames[i + 1]) >= 10:
+                score += 10
+            else:
+                score += int(frames[i]) * 1 + int(frames[i + 1]) * 1
+            i += 2
     return score
-
-print(bowling_score("61336222-6-415/5-2161"))
