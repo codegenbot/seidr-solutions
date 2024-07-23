@@ -1,16 +1,16 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
+}
+
+int main() {
+    std::vector<int> factors1 = factorize(12);
+    std::vector<int> factors2 = factorize(12);
+    
+    assert(issame(factors1, factors2));
+    
+    return 0;
 }
