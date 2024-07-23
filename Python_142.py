@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     for i, num in enumerate(lst):
@@ -7,5 +6,5 @@ def sum_squares(lst):
         elif i % 4 == 0:
             total_sum += num ** 3
         else:
-            total_sum += num ** 1 
+            total_sum += num ** 1  
     return total_sum
