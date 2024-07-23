@@ -26,7 +26,8 @@ int main() {
     }
 
     std::cout << "The total distance traveled by the ball is: ";
-    std::cout << std::fixed << std::setprecision(6) << totalDistance << std::endl;
+    std::cout << std::setw(10) << std::fixed << std::setiosflags(std::ios_base::fixed) << std::precision(6);
+    std::cout << totalDistance << std::endl;
 
     return 0;
 }
