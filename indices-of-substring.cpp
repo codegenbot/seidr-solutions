@@ -6,10 +6,11 @@ using namespace std;
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     for (int i = 0; i <= text.size() - target.size(); i++) {
-        int j = 0; while (j < target.size() && text[i + j] == target[j]) j++;
-        if (j == target.size()) {
+        int j = 0; 
+        while (j < target.size() && text[i + j] == target[j]) j++; 
+        if (j == target.size()) { //if the substring matches
             result.push_back(i);
-            i += j; // start the next search from where the current match ended
+            i += j; //skip the matched characters to avoid overlapping targets
         }
     }
     return result;
