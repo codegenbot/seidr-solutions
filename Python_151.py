@@ -1,5 +1,13 @@
 ```
-def double_the_difference(list1, list2):
-    total1 = sum(num**2 for num in list1[0] if isinstance(num, int) and num >= 0)
-    total2 = sum(list2[1])
-    return abs(total1 - total2) // len(list2[1]) * 2
+first_list = [[1, 2], [3, 4]]
+second_list = [10, 20, 30]
+
+def double_the_difference(first_list, second_list):
+    total = 0
+    for sublist in first_list:
+        for num in sublist:
+            if isinstance(num, int) and num >= 0:
+                total += num**2
+    return abs(total - sum(second_list)) // len(second_list) * 2
+
+check(double_the_difference(first_list, second_list))
