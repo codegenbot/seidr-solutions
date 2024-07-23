@@ -1,19 +1,17 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 float snowDay(int hours, float onGround, float rate, float melt) {
-    float total = 0;
     for (int i = 0; i < hours; i++) {
-        total += rate; 
-        if (total > onGround) { 
-            total -= (total - onGround); 
+        onGround += (rate / 60); // add new snow each hour, converting hours to minutes for division
+        if (onGround > 1024) { // assuming maximum amount of snow is 1024mm
+            onGround -= (onGround - 1024);
         } else {
-            total -= melt * total; 
+            onGround -= melt * onGround;
         }
     }
-    return total;
+    return onGround;
 }
 
 int main() {
