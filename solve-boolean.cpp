@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -33,38 +32,39 @@ bool evaluateBooleanExpression(string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                char op = operators.top();
-                operators.pop();
-                if (op == '|') {
-                    operand += "T";
-                } else if (op == '&') {
-                    operand += "F";
+                if (operators.top() == '|') {
+                    while (!operators.empty() && operators.top() == '|') {
+                        operators.pop();
+                    }
+                    return operand == "T";
+                } else if (operators.top() == '&') {
+                    while (!operators.empty()) operators.pop();
+                    return operand == "F";
                 }
+
+                operand = "False";
+                operators.pop();
             }
             operators.pop();
-            if (operand == "TT" || operand == "FF") {
-                return true;
-            } else {
-                return false;
-            }
         }
     }
 
     while (!operators.empty()) {
-        char op = operators.top();
-        operators.pop();
-        if (op == '|') {
-            operand += "T";
-        } else if (op == '&') {
-            operand += "F";
+        if (operators.top() == '|') {
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
+            }
+            return operand == "T";
+        } else if (operators.top() == '&') {
+            while (!operators.empty()) operators.pop();
+            return operand == "F";
         }
+
+        operand = "False";
+        operators.pop();
     }
 
-    if (operand == "TT" || operand == "FF") {
-        return true;
-    } else {
-        return false;
-    }
+    return operand == "True";
 }
 
 int main() {
