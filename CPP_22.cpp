@@ -9,10 +9,10 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<int> mixedVector) {
+std::vector<int> filter_integers(const std::vector<int>& mixedVector) {
     std::vector<int> result;
     for (int num : mixedVector) {
-        if (std::is_same_v<decltype(num), int>) {
+        if (std::is_same_v<std::decay_t<decltype(num)>, int>) {
             result.push_back(num);
         }
     }
