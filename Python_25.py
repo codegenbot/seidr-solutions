@@ -24,7 +24,7 @@ while True:
     try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
-            print(factorize(n))
+            print(*factorize(n), sep=", ")
             break
         else:
             print("Please enter a positive integer.")
