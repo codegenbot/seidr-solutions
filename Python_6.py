@@ -7,8 +7,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for char in paren_string:
         if char == '(':
             level += 1
-            result.append(level)
         elif char == ')':
+            while level > 1:
+                result.append(level)
+                level -= 1
             level -= 1
-            result.append(level)
     return result
