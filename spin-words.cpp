@@ -28,4 +28,4 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-int main() { return spinWords("your_input_string"); }
+int main() { return 0; }
