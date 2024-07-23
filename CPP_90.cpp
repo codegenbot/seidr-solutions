@@ -4,7 +4,7 @@
 using namespace std;
 
 int findSmallest(vector<int> lst) {
-    vector<int> sorted(lst);
+    vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1;
@@ -19,3 +19,4 @@ int findSmallest(vector<int> lst) {
 int main() {
     cout << findSmallest({-35, 34, 12, -45}) << endl;
     return 0;
+}
