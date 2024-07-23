@@ -22,3 +22,6 @@ def coin_sums(cents):
     results[3] = pennies
 
     print(*reversed(results))
+
+cents = int(input("Enter the number of cents: "))
+coin_sums(cents)
