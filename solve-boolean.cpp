@@ -1,32 +1,38 @@
+#include <iostream>
 #include <string>
 
-string solveBoolean(string booleanExpression) {
-    stack<char> expressionStack;
-    
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!expressionStack.empty() && expressionStack.top() == '&') {
-                expressionStack.pop();
-            }
-        } else if (booleanExpression[i] == '|') {
-            while (!expressionStack.empty()) {
-                expressionStack.pop();
-            }
-        } else {
-            expressionStack.push(booleanExpression[i]);
+bool solveBoolean(string expression) {
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c == '|') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            return solveBoolean(left) || solveBoolean(right);
+        } else if (c == '&') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
     
-    string result = "";
-    while (!expressionStack.empty()) {
-        result += expressionStack.top();
-        expressionStack.pop();
-    }
+    if (expression.size() > 0) {
+        if (expression[0] == 'T' || expression[0] == 't')
+            return true;
+        else
+            return false;
+    } else 
+        return false; // default value
     
-    if (result == "TT") return "True";
-    if (result == "FF") return "False";
-    if (result == "FT" || result == "TF") return "False";
-    if (result == "T") return "True";
-    if (result == "F") return "False";
-    
-    return "Invalid Input";
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
+}
