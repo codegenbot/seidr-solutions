@@ -4,13 +4,13 @@
 #include <iomanip> 
 
 int main() {
-    double startHeight, firstBounceHeight;
+    std::string startHeightStr, firstBounceHeightStr;
     int numBounces;
 
-    cin >> startHeight >> firstBounceHeight >> numBounces;
+    cin >> startHeightStr >> firstBounceHeightStr >> numBounces;
 
-    startHeight = static_cast<double>(startHeight);
-    firstBounceHeight = static_cast<double>(firstBounceHeight);
+    double startHeight = stod(startHeightStr);
+    double firstBounceHeight = stod(firstBounceHeightStr);
 
     // Calculate bounciness index
     double bouncinessIndex = firstBounceHeight / startHeight;
