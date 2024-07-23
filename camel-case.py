@@ -2,7 +2,7 @@ def camel_case(s):
     result = ""
     for word in s.split("-"):
         if not result:
-            result += word
+            result = word
         else:
-            result += word.capitalize()
-    return result.title().replace(" ", "")
+            result += word[0].upper() + word[1:].lower()
+    return result
