@@ -32,20 +32,23 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
+    int k1 = k;
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
-        if (k == 0) {
-            return {sum};
+        auto [sum, p] = q.top(); q.pop();
+        if (k1 == 0) {
+            return res;
         }
-        for (auto& neighbor : neighbors[i]) {
+        res.push_back(sum);
+        k1--;
+        for (auto& neighbor : neighbors[p.first]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
-            k--;
-            q.push({ns, make_pair(ni, nj)});
+            int ns = sum - grid[p.first][p.second] + neighbor.second;
+            k1--;
+            q.push({{ns, make_pair(ni, nj)}});
         }
     }
 
-    return std::vector<int>({sum});
+    return {};
 }
 
 int mainTest() {

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -7,9 +10,15 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
+        } else if ((game[i] > guess[i]) && (game[i] - guess[i]) % 7 == 0) {
+            result.push_back(-1);
         } else {
             result.push_back(std::abs(game[i] - guess[i]));
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
 }
