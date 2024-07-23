@@ -9,36 +9,36 @@ size_t gcd(size_t a, size_t b) {
         b = a % b;
         a = temp;
     }
-    return std::min(a, b);
+    return min(a, b);
 }
 
-std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<size_t> result;
+vector<size_t> indicesOfSubstring(string text, string target) {
+    vector<string> result;
     size_t n = text.length();
     size_t m = target.length();
 
     for (size_t i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(i);
+            string index = to_string(i);
+            result.push_back(index);
             while ((i + m) <= n && text.substr(i, m) == target)
                 i++; // Handle overlapping occurrences
         }
     }
 
-    return result;
+    return vector<size_t>(transform(result.begin(), result.end(), [](const string& s) { return stol(s); }));
 }
 
 int main() {
-    std::string text = "Hello World";
-    std::string target = "World";
+    string text = "Hello World";
+    string target = "World";
 
-    std::vector<size_t> result = indicesOfSubstring(text, target);
-    std::cout << "Indices: ";
-    for (size_t i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
+    vector<size_t> result = indicesOfSubstring(text, target);
+    cout << "Indices: ";
+    for (size_t i : result)
+        cout << i << " ";
+    cout << endl;
 
     size_t GCD = gcd((size_t)text.length(), (size_t)target.length());
-    std::cout << "GCD of text and target: " << GCD << std::endl;
+    cout << "GCD of text and target: " << GCD << endl;
 }
