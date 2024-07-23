@@ -3,52 +3,28 @@
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
+    bool result = true;
+    int i = 0;
+    while (i < expression.size()) {
+        if (expression[i] == 'T' || expression[i] == 't')
             return true;
-        else if (expression[0] == 'F' || expression[0] == 'f')
+        else if (expression[i] == 'F' || expression[i] == 'f')
             return false;
-    }
-
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == '|') {
-            size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '|') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(0, start);
-            size_t end = i + 1;
-            for (; end < expression.size(); end++) {
-                if (expression[end] == '|') {
-                    break;
-                }
-            }
-            std::string right = expression.substr(end, expression.size() - end);
-            return solveBoolean(left) || solveBoolean(right);
-        } else if (c == '&') {
-            size_t start = 0;
-            for (int j = i; j < expression.size(); j++) {
-                if (expression[j] == '|' || expression[j] == '&') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(0, start);
-            size_t end = i + 1;
-            for (; end < expression.size(); end++) {
-                if (expression[end] == '|' || expression[end] == '&') {
-                    break;
-                }
-            }
-            std::string right = expression.substr(end, expression.size() - end);
-            return solveBoolean(left) && solveBoolean(right);
+        else if (expression[i] == '|') {
+            i++;
+            result = (solveBoolean(expression.substr(i, expression.find('&', i) - i)) ||
+                      solveBoolean(expression.substr(expression.find('&', i) + 1)));
+            i = expression.size();
+        }
+        else if (expression[i] == '&') {
+            int start = i;
+            while (++i < expression.size() && expression[i] != '|' && expression[i] != '&');
+            result = (solveBoolean(expression.substr(start, i - start)) &&
+                      solveBoolean(expression.substr(i, expression.find('&', i) - i)));
+            i = expression.size();
         }
     }
-    return true;
+    return result;
 }
 
 int main() {
