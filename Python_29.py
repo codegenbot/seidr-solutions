@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 
@@ -11,8 +11,9 @@ def filter_by_prefix() -> List[str]:
             if not strings or not prefix:
                 raise ValueError("Please enter valid inputs!")
 
-            filtered_strings = [s.strip() for s in strings.split() if s.strip().startswith(prefix)]
-            
+            user_strings = [s.strip() for s in strings.split()]
+            filtered_strings = [s for s in user_strings if s.startswith(prefix)]
+
             return filtered_strings
         except ValueError as e:
             print(f"Error: {e}")
