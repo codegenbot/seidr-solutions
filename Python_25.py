@@ -24,12 +24,9 @@ while True:
     try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
-            try:
-                print(factorize(n))
-            except Exception as e:
-                print(f"Failed to factorize {n}. Error: {str(e)}")
+            print(factorize(n))
             break
         else:
             print("Please enter a positive integer.")
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please try again.")
