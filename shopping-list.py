@@ -10,5 +10,4 @@ def shopping_list():
         total_price += price - discount
     return round(total_price, 1)
 
-
 print(shopping_list())
