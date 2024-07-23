@@ -1,5 +1,5 @@
-```cpp
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -15,6 +15,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}).size() == 0);
+    assert(pluck({7, 9, 7, 1}).size() == 0); 
     return 0;
 }
