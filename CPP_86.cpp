@@ -1,41 +1,18 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
+string ordered_word = s;
+    size_t start = 0;
+    size_t found = ordered_word.find(' ');
 
-std::string anti_shuffle(std::string s) {
-    std::vector<std::string> words;
-    std::string word;
-    for (char c : s) {
-        if (c == ' ') {
-            std::sort(word.begin(), word.end());
-            words.push_back(word);
-            word.clear();
-            words.push_back(" ");
-        } else {
-            word.push_back(c);
-        }
-    }
-    if (!word.empty()) {
-        std::sort(word.begin(), word.end());
-        words.push_back(word);
+    while (found != string::npos) {
+        string curr_word = ordered_word.substr(start, found - start);
+        sort(curr_word.begin(), curr_word.end());
+        ordered_word.replace(start, curr_word.length(), curr_word);
+        start = found + 1;
+        found = ordered_word.find(' ', start);
     }
 
-    std::string result;
-    for (const std::string& w : words) {
-        result += w;
-    }
+    string last_word = ordered_word.substr(start);
+    sort(last_word.begin(), last_word.end());
+    ordered_word.replace(start, last_word.length(), last_word);
 
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    std::string output = anti_shuffle(input);
-    std::cout << "Ordered version of the input string is: " << output << std::endl;
-
-    return 0;
+    return ordered_word;
 }
