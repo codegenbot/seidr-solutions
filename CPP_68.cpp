@@ -1,15 +1,14 @@
-```
 #include <algorithm>
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {{}}; // Changed the line to return an empty vector of pairs.
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    if (arr.empty()) return {};
 
-    int smallest_even = *min_element(arr.begin(), arr.end(), 
-                                 [](int a, int b) { return (a % 2 == 0 && ! (b % 2 == 0)); });
+    auto it = min_element(arr.begin(), arr.end());
+    while (*it % 2 != 0)
+        it++;
     
-    auto it = find(arr.begin(), arr.end(), smallest_even);
-    result.push_back({smallest_even, distance(arr.begin(), it)});
+    result.push_back(*it);
     return result;
 }
