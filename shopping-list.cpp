@@ -18,6 +18,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> prices[i] >> discounts[i];
     }
-    cout << fixed << setprecision(1) << shoppingList(vector<float>(prices), vector<float>(discounts)) << endl;
+    cout << fixed << setprecision(1) << shoppingList(vector<float>(prices, discounts)) << endl;
     return 0;
 }
