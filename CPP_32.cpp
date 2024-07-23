@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
@@ -7,23 +11,36 @@ double poly(vector<double> coeffs, double x) {
 }
 
 double find_zero(vector<double> coeffs) {
-    // implement your zero finding logic here...
-    // For example:
-    double x = -1.0;
-    while (abs(poly(coeffs, x)) > 1e-9) {
-        x -= poly(coeffs, x) / poly(coeffs, x + 1e-8);
+    int ncoeff = coeffs.size();
+    
+    if(ncoeff == 1) {
+        return -coeffs[0]/coeffs[0];
+    } else if (ncoeff > 2) {
+        double D = (coeffs[1]*coeffs[2] - coeffs[0]*(coeffs[ncoeff-1])) / (coeffs[1]-2*coeffs[0]);
+        return (-coeffs[1]+D)/(2*D);
+    } else {
+        if(coeffs[1]/(2*coeffs[0]) > 1) return -10;
+        else if(coeffs[1]/(2*coords[0]) < 0.5) return -4;
+        return coeffs[1]/(2*coeffs[0]);
     }
-    return x;
 }
 
 int main() {
     vector<double> coeffs;
-    // fill coeffs...
+    double x, solution;
+
+    cout << "Enter the coefficients of the polynomial: ";
+    for(int i = 0; i < 3; i++) cin >> coeffs[i];
     
-    double solution = 0; 
-    solution = find_zero(coeffs);
+    x = find_zero(coeffs);
+    solution = poly(coeffs, x);
 
-    cout << "The zero of the polynomial is: " << solution << endl;
-
+    cout << "\nThe zero is at x = " << x;
+    if(solution < 0) {
+        cout << ". The polynomial has a root of -" << -solution << " on the left.\n";
+    } else {
+        cout << ". The polynomial has a root of " << solution << " to the right.\n";
+    }
+    
     return 0;
 }
