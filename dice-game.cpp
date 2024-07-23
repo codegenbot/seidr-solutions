@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```cpp
 #include <algorithm>
 
 double diceGame(int n, int m) {
@@ -7,11 +6,7 @@ double diceGame(int n, int m) {
     double p = 0.0;
 
     for(int i = 1; i <= std::min(n, m); i++) {
-        p += (n - i) / (total - (m - i));
-    }
-
-    for(int i = 1; i < std::max(n, m); i++) {
-        if(i <= n/2) p -= (i) / (total);
+        p += (n - i) / total;
     }
 
     return p;
