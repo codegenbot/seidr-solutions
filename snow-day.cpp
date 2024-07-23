@@ -1,24 +1,25 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 int main() {
     int hours;
-    float groundSnow, snowFallRate, snowMeltingRate;
+    float groundSnow, rateOfSnowFall, proportionMelting;
 
-    cout << "Enter the number of hours: ";
-    cin >> hours;
-    cout << "Enter the initial amount of snow: ";
-    cin >> groundSnow;
-    cout << "Enter the rate of snow fall: ";
-    cin >> snowFallRate;
-    cout << "Enter the proportion of snow melting per hour: ";
-    cin >> snowMeltingRate;
+    std::cout << "Enter the number of hours: ";
+    std::cin >> hours;
+    std::cout << "Enter the initial amount of snow on the ground: ";
+    std::cin >> groundSnow;
+    std::cout << "Enter the rate of snow fall per hour: ";
+    std::cin >> rateOfSnowFall;
+    std::cout << "Enter the proportion of snow melting per hour: ";
+    std::cin >> proportionMelting;
 
-    for (int i = 0; i < hours; i++) {
-        groundSnow += snowFallRate - snowMeltingRate;
+    for(int i = 0; i < hours; i++) {
+        groundSnow += rateOfSnowFall - proportionMelting;
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << fixed << setprecision(10) << groundSnow;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::fixed << std::setprecision(10) << groundSnow;
 
     return 0;
 }
