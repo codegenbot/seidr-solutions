@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 
 int main() {
     std::vector<int> nums;
@@ -9,12 +8,6 @@ int main() {
         nums.push_back(n);
     }
     
-    if (nums.size() == 1) {
-        std::cout << nums[0] << std::endl;
-        std::cout << "0" << std::endl;
-        return 0;
-    }
-
     int sum = 0;
     for (int num : nums) {
         sum += num;
@@ -23,12 +16,20 @@ int main() {
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
+    bool found = false;
+    
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
             idx = i;
+            found = true;
             break;
         }
+    }
+    
+    if (!found) {
+        std::cout << "No spot found." << std::endl;
+        return 1;
     }
     
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
