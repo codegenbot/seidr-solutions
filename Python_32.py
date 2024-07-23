@@ -1,13 +1,15 @@
-```
 def find_zero(xs: list):
     n = len(xs)
     assert n % 2 == 0
     degree = n // 2
-    a = xs[::2]
-    coefficients = [0] * (degree + 1)
-    for i in range(degree + 1):
-        if i < len(a):
-            coefficients[degree - i] = a[i]
+    zero = 0
 
-    root = coefficients[-1] / coefficients[0]
-    return round(root, 2)
+    for i in range(degree + 1):
+        coeff = xs[2 * i]
+        for j in range(i):
+            coeff -= (zero ** (i - j)) * xs[2 * j + 1]
+        if abs(coeff) < 1e-9:
+            return round(zero, 2)
+        zero -= coeff / coeff
+
+    return round(zero, 2)
