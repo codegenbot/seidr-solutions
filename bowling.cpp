@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -30,25 +29,20 @@ int getRoll(string s, int i) {
     if (s[i+1] == '/') {
         return 10;
     } else {
-        for(int j = i + 1; ; j++) {
-            if (!isdigit(s[j])) {
-                return min(j - i, 10);
-            }
-            if (j >= s.length() || !isdigit(s[j])) {
-                return min(j - i, 10);
-            }
+        int j = i + 1;
+        while (j < s.length() && isdigit(s[j])) {
+            j++;
         }
+        return min(j - i, 10);
     }
 }
 
 int getBonusRoll(string s, int i) {
-    for(int j = i + 2; ; j++) {
-        if (!isdigit(s[j])) {
-            if (s[j] == '+' || s[j] == '-') {
-                return min(j - i - 1, 9);
-            } else {
-                return 0;
-            }
+    int j = i + 2;
+    while (j < s.length()) {
+        if (!isdigit(s[j]) || s[j] == '+' || s[j] == '-') {
+            return min(j - i - 1, 9);
         }
+        j++;
     }
 }
