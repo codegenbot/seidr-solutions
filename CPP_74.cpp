@@ -1,22 +1,22 @@
-```cpp
 #include <string>
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> bstr) {
+bool issame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
-    transform(bstr.begin(), bstr.end(), bstr.begin(), ::tolower);
+    transform(b.begin(), b.end(), b.begin(), ::tolower);
 
     sort(a.begin(), a.end());
-    sort(bstr.begin(), bstr.end());
+    sort(b.begin(), b.end());
 
     int i = 0, j = 0;
     
-    while (i < a.size() && j < bstr.size()) {
-        if (a[i] == bstr[j]) {
+    while (i < a.size() && j < b.size()) {
+        if (a[i] == b[j]) {
             return true; 
             i++;
             j++;
-        } else if (a[i] < bstr[j]) {
+        } else if (a[i] < b[j]) {
             i++;
         } else {
             j++;
@@ -26,8 +26,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> bstr) {
     return false;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    std::vector<std::string> result;
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    vector<string> result;
 
     transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
     transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
@@ -38,11 +38,11 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     int i = 0, j = 0;
     
     while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == std::string(&lst2[j][0]).substr(0)).toupper())) {
-            result.push_back(std::string(&lst1[i][0])); 
+        if (lst1[i] == string(&lst1[i][0])) { 
+            result.push_back(string(&lst1[i][0])); 
             i++;
             j++;
-        } else if (lst1[i] < std::string(&lst2[j][0]).substr(0)).toUpperCase()) {
+        } else if (lst1[i] < string(&lst2[j][0])) {
             i++;
         } else {
             j++;
@@ -50,4 +50,10 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 
     return result;
+}
+
+int main() {
+    vector<string> result = total_match({{"this"}}, {});
+    
+    return 0;
 }
