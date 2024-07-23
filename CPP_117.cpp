@@ -1,23 +1,23 @@
 ```cpp
-vector<string> select_words(string s, int k) {
-    vector<string> words;
-    string temp = "";
-    for(int i=0; i<s.length();i++){
-        if(s[i] == ' ')
-            continue;
-        else{
-            temp += s[i];
+#include <vector>
+#include <string>
+
+std::vector<std::string> select_words(const std::string& input, int num_words) {
+    std::vector<std::string> words;
+    size_t pos = 0;
+    do {
+        pos = input.find(' ', pos);
+        if (pos != std::string::npos) {
+            size_t next_pos = input.find(' ', pos + 1);
+            words.push_back(input.substr(pos + 1, (next_pos != std::string::npos)?(next_pos - pos - 1):std::string::npos));
+            pos = next_pos;
         }
-    }
-    for(int i=0; i<=temp.length();i+=k){
-        if(i+k>temp.length())
-            break;
-        words.push_back(temp.substr(i,k));
-    }
+    } while (pos != std::string::npos && words.size() < num_words);
+
     return words;
 }
 
-bool isSame(vector<string> a, vector<string> b){
+bool isSame(vector<string> a, vector<string>b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -25,4 +25,8 @@ bool isSame(vector<string> a, vector<string> b){
             return false;
     }
     return true;
+}
+
+int main() {
+    assert(isSame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
 }
