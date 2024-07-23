@@ -21,3 +21,4 @@ int main() {
     printf("Sum of paired digits: %d\n", result);
 
     return 0;
+}
