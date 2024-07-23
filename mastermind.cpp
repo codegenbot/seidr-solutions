@@ -14,7 +14,7 @@ int blackPegs(string code, string guess) {
     int count = 0;
     vector<char> codeVector(code.begin(), code.end());
     for(int i=0; i<4; i++) {
-        if(find(codeVector.begin(), codeVector.end(), guess[i]) != codeVector.end()) {
+        if(countOf(codeVector, guess[i]) > 0) {
             count++;
             codeVector.erase(remove(codeVector.begin(), codeVector.end(), guess[i]), codeVector.end());
         }
@@ -22,6 +22,6 @@ int blackPegs(string code, string guess) {
     return count;
 }
 
-int countOf(std::vector<char>& vec, char ch) {
+int countOf(std::vector<char> &vec, char ch) {
     return vec.count(ch);
 }
