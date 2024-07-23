@@ -12,7 +12,7 @@ std::string squareDigits(std::string input) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
-    std::cout << squareDigits(input);
-    std::cout << std::endl;
+    std::cin >> input;
+    std::cout << squareDigits(input) << std::endl;
     return 0;
+}
