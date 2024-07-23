@@ -1,4 +1,3 @@
-```
 import ast
 
 
@@ -18,8 +17,3 @@ def solve_boolean(expression):
             expression = f"({str(bool(solve_boolean(left)))} {right[0].strip()} {right[1:-1].strip()}{right[-1].strip()})"
 
     return eval(f"{expression}")
-
-
-if __name__ == "__main__":
-    expression = input("Enter a Boolean expression: ")
-    print(solve_boolean(expression))
