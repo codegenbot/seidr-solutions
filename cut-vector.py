@@ -6,7 +6,7 @@ left_sum = 0
 min_diff = sum(arr)
 cut_index = 0
 
-for i in range(n):  # Update loop range to consider all elements
+for i in range(n):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
