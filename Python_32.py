@@ -1,3 +1,6 @@
+```
+import math
+
 def find_zero():
     while True:
         try:
@@ -8,8 +11,13 @@ def find_zero():
         except ValueError:
             print("Invalid input. Please enter numeric values.")
 
-    x = (b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
-    
-    return round(x, 2)
+    discriminant = b**2 - 4*a*c
+
+    if discriminant < 0:
+        return "The program did not receive expected input (no real solutions)."
+    else:
+        x1 = (b + math.sqrt(discriminant)) / (2 * a)
+        x2 = (b - math.sqrt(discriminant)) / (2 * a)
+        return f"Root 1: {round(x1, 2)}, Root 2: {round(x2, 2)}"
 
 print(find_zero())
