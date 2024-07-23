@@ -1,16 +1,13 @@
 #include <iostream>
 #include <vector>
 
-// declare filter_integers function here
-std::vector<int> filter_integers(std::vector<std::string> v) {
-    std::vector<int> result;
-    for (auto s : v) {
-        int num;
-        if (sscanf(s.c_str(), "%d", &num) == 1) {
-            result.push_back(num);
+bool filter_integers(std::vector<int> numbers) {
+    for (int &num : numbers) {
+        if (num < 0) {
+            num = 0;
         }
     }
-    return result;
+    return true;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -26,24 +23,29 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<std::string> input;
-    int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
+    int n1, n2, n3, n4;
     
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> s;
-        input.push_back(s);
+    // Taking inputs
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n1;
+    vector<int> a(n1);
+    cout << "Enter " << n1 << " integers for first set: \n";
+    for (int i = 0; i < n1; i++) {
+        cin >> a[i];
     }
     
-    std::vector<int> filtered_integers = filter_integers(input);
+    // Taking inputs
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n2;
+    vector<int> b(n2);
+    cout << "Enter " << n2 << " integers for second set: \n";
+    for (int i = 0; i < n2; i++) {
+        cin >> b[i];
+    }
     
-    bool result = issame(filtered_integers, filtered_integers);
-    if(result) {
-        std::cout << "The two vectors are same" << std::endl;
+    if (issame(a, b)) {
+        std::cout << "The two sets are the same." << std::endl;
     } else {
-        std::cout << "The two vectors are not same" << std::endl;
+        std::cout << "The two sets are not the same." << std::endl;
     }
     return 0;
