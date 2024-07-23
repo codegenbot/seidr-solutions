@@ -1,14 +1,46 @@
+#include <iostream>
 #include <boost/any.hpp>
 #include <string>
+#include <cassert>
 
-std::string compare_one(const boost::any& a, const boost::any& b) {
-    if(a.type() == b.type()) {
-        if(a.type() == typeid(int))
-            return "None";
-        if(a.type() == typeid(float))
-            return std::to_string(std::max(boost::any_cast<float>(a), boost::any_cast<float>(b)));
-        if(a.type() == typeid(std::string))
-            return (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b)) ? boost::any_cast<std::string>(a) : boost::any_cast<std::string>(b);
+template <typename T>
+boost::any compare_one(T a, T b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
+        } else {
+            return std::string("None");
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
+        } else {
+            return std::string("None");
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        float num1, num2;
+        if (sscanf(boost::any_cast<std::string>(a).c_str(), "%f", &num1) == 1 &&
+            sscanf(boost::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
+            if (num1 > num2) {
+                return a;
+            } else if (num1 < num2) {
+                return b;
+            } else {
+                return std::string("None");
+            }
+        } else {
+            return std::string("None");
+        }
+    } else {
+        return std::string("None");
     }
-    return "None";
+}
+
+int main() {
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    return 0;
 }
