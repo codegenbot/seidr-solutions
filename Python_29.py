@@ -13,7 +13,9 @@ def filter_by_prefix() -> List[str]:
             if not prefix:
                 raise ValueError("Please enter valid prefix!")
 
-            filtered_strings = [s.strip() for s in strings.split() if s.strip().startswith(prefix)]
+            filtered_strings = [
+                s.strip() for s in strings.split() if s.strip().startswith(prefix)
+            ]
             return filtered_strings
         except ValueError as e:
             print(f"Error: {e}")
