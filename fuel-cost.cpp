@@ -7,13 +7,13 @@ int main() {
     while (std::cin >> n) {
         nums.push_back(n);
     }
-    
+
     int sum = 0;
     for (int num : nums) {
-        sum += (num - (num % 3)) / 3 - 2;
+        sum += (num - 2) / 3;
     }
-    
+
     std::cout << sum << std::endl;
-    
+
     return 0;
 }
