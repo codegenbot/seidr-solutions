@@ -9,7 +9,7 @@ std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     }
 
     float min_diff = std::abs(nums[0] - nums[1]);
-    std::vector<float> closest_elements = {nums[0], nums[1};
+    std::vector<float> closest_elements = {nums[0], nums[1]};
 
     for (size_t i = 0; i < nums.size(); ++i) {
         for (size_t j = i + 1; j < nums.size(); ++j) {
