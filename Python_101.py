@@ -1,5 +1,3 @@
 ```
-import re
-
 def words_string(s):
-    return re.split(r'[ ,]+', s.strip())
+    return [word.strip() for word in s.split(",| ")]
