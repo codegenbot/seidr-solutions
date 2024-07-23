@@ -7,5 +7,6 @@ vector<string> reverse_delete(string s, string c) {
         }
         string reversed = result;
         reverse(reversed.begin(), reversed.end());
-        return {result, result == reversed ? "True" : "False"};
+        bool is_palindrome = (result == reversed);
+        return {result, (is_palindrome ? "True" : "False")};
     }
