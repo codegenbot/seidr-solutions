@@ -1,22 +1,16 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 double probability(int n, int m) {
-    double total = 1.0 * n * m;
-    double count = 0;
-
+    double total = (double)n * m;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                count++;
+            if(i > j) { 
+                total++;
             }
         }
     }
-
-    int same = (n <= m) ? n : m;
-
-    return (double)same / total;
+    return 1.0 - (total / ((double)n * m));
 }
 
 int main() {
