@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,3 +14,4 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     }
     
     return total;
+}
