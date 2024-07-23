@@ -3,25 +3,23 @@
 #include <cassert>
 #include <cmath>
 
-std::vector<float> find_closest_elements(const std::vector<float>& nums) {
-    if(nums.size() < 2) return {};
-    
-    float min_diff = std::abs(nums[0] - nums[1]);
-    std::vector<float> result = {nums[0], nums[1]};
-    
-    for(size_t i = 1; i < nums.size() - 1; ++i) {
-        float diff = std::abs(nums[i] - nums[i + 1]);
-        if(diff < min_diff) {
+std::vector<float> find_closest_elements(const std::vector<float>& values) {
+    float min_diff = std::abs(values[1] - values[0]);
+    std::vector<float> closest_elements = {values[0], values[1]};
+
+    for (size_t i = 1; i < values.size() - 1; ++i) {
+        float diff = std::abs(values[i + 1] - values[i]);
+        if (diff < min_diff) {
             min_diff = diff;
-            result = {nums[i], nums[i + 1]};
-        }        
+            closest_elements = {values[i], values[i + 1]};
+        }
     }
-    
-    return result;
+
+    return closest_elements;
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
