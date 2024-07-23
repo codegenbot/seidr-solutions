@@ -1,8 +1,6 @@
 ```
-def main():
-    music_string = input("Enter your music string: ")
-    result = parse_music(music_string)
-    print(result)
+from typing import List
+
 
 def parse_music(music_string: str) -> List[int]:
     music_list = []
@@ -32,6 +30,3 @@ def parse_music(music_string: str) -> List[int]:
                 music_list.append(4)
                 i += 1
     return music_list
-
-if __name__ == "__main__":
-    main()
