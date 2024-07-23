@@ -8,9 +8,8 @@ def poly(xs: list, x: float):
 def find_zero(xs: list):
     n = len(xs)
     assert n % 2 == 0
-    a = xs[0]
-    b = xs[1]
-    for i in range(2, n // 2 + 1):
-        b -= (a / i) * xs[i]
-        a *= -i
-    return round(-b / a, 2)
+    max_coeff_idx = xs.index(max(filter(None, xs)))
+    a = xs[max_coeff_idx]
+    b = -xs[max_coeff_idx] / xs[1]
+    x = (b + math.sqrt(b**2 - 4 * a)) / 2
+    return round(x, 10)
