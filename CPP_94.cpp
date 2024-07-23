@@ -10,7 +10,7 @@ int skjkasdkd(std::vector<int> lst){
             break;
         }
     }
-    if(maxPrime == -1) return 0; 
+    if(maxPrime == -1) return 0; // No prime found
     int sumOfDigits = 0;
     while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
