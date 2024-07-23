@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!(std::to_string(a[i]) + std::to_string(b[i])).compare("")) {
+        if (std::to_string(a[i]) + std::to_string(b[i]) != "1111") {
             return false;
         }
     }
@@ -17,29 +17,26 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 int main() {
     int n;
     std::cin >> n;
-
+    
     for (int i = 0; i < n; i++) {
         std::vector<int> a, b;
-        char ch;
-        while ((ch = getchar()) != '\n') {
-            if (ch == ' ') {
-                break;
+        
+        for (int j = 0; j < 4; j++) {
+            int num;
+            std::cin >> num;
+            if (j % 2 == 0) {
+                a.push_back(num);
+            } else {
+                b.push_back(num);
             }
-            int x = ch - '0';
-            a.push_back(x);
         }
-        while ((ch = getchar()) != '\n') {
-            if (ch == ' ') {
-                break;
-            }
-            int x = ch - '0';
-            b.push_back(x);
-        }
-
+        
         if (!issame(a, b)) {
-            std::cout << "Not equal" << std::endl;
+            std::cout << "NO" << std::endl;
         } else {
-            std::cout << "Equal" << std::endl;
+            std::cout << "YES" << std::endl;
         }
     }
+    
+    return 0;
 }
