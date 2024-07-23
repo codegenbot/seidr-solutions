@@ -1,7 +1,10 @@
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float i : l){
-        if(i > 0) result.push_back(i);
-    }
+#include <vector>
+#include <algorithm>
+
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
+    std::copy_if(l.begin(), l.end(),
+                 std::back_inserter(result),
+                 [](float x){ return x > 0; });
     return result;
 }
