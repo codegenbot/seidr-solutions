@@ -25,15 +25,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return result;
 }
 
-void mainFunc() {
+int main() {
     std::vector<int> lengths = {4, 8};
     std::vector<std::string> result_b = by_length(lengths);
-    std::vector<int> lengths1 = lengths;
-    std::vector<std::string> result_a = by_length(lengths1);
+    lengths = {9, 10};
+    std::vector<std::string> result_a = by_length(lengths);
     assert(issame(result_a, result_b));
     assert(!issame(by_length({9}), result_b));
-}
-
-int main() {
-    mainFunc();
 }
