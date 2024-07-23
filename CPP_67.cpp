@@ -1,42 +1,34 @@
-#include <iostream>
 #include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    string str = s;
-    int apples = 0, oranges = 0;
-    
-    while ((pos = str.find(str, pos, "apples")) != string::npos) {
-        if (str.find(str, pos + 7, "and") == string::npos || str.find(str, pos + 14, "and") == string::npos)
-            break;
-        pos = str.find(str, pos + 7, "and");
-    }
-    
-    if (pos != string::npos) {
-        for (int i = pos; i < str.length(); i++) {
-            if (str[i] < '0' || str[i] > '9')
-                break;
-            apples = stoi(str.substr(pos + 6, i - pos));
+    int total_apples = 0;
+    int start = 0;
+    for (int i = 0; i <= s.length() - 2; i++) { // Fix: Adjusted the condition to handle string edge cases
+        if (s[i] == 'a' && i + 1 < s.length() && s[i+1] == 'p') {
+            start = i;
             break;
         }
     }
-    
-    pos = 0;
-    while ((pos = str.find(str, pos, "oranges")) != string::npos) {
-        if (str.find(str, pos + 7, "and") == string::npos || str.find(str, pos + 14, "and") == string::npos)
+    for(int i=start ;i<s.length() ;i++){
+        if(s[i]==' ')
             break;
-        pos = str.find(str, pos + 7, "and");
+        total_apples++;
     }
-    
-    if (pos != string::npos) {
-        for (int i = pos; i < str.length(); i++) {
-            if (str[i] < '0' || str[i] > '9')
-                break;
-            oranges = stoi(str.substr(pos + 7, i - pos));
+
+    int total_oranges = 0;
+    start = 0;
+    for (int i = 0; i <= s.length() - 2; i++) { // Fix: Adjusted the condition to handle string edge cases
+        if (s[i] == 'o' && i + 1 < s.length() && s[i+1] == 'r') {
+            start = i;
             break;
         }
     }
-    
-    return n - apples - oranges;
+    for(int i=start ;i<s.length() ;i++){
+        if(s[i]==' ')
+            break;
+        total_oranges++;
+    }
+
+    return n - total_apples - total_oranges;
 }
