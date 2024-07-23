@@ -1,4 +1,4 @@
-```python
+```
 while True:
     try:
         while True:
