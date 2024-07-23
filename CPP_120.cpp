@@ -23,6 +23,6 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(!areEqual(maximum({1, 2, 3, -23, 243, -400, 0}, 7), {1, 2, 3, -23, 243, -400, 0}));
+    assert(!areEqual(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
     return 0;
 }
