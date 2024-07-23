@@ -12,9 +12,9 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string of digits: ";
-    std::getline(std::cin, s);
+    char buffer[1024]; 
+    std::cin >> std::setw(0) >> buffer; 
+    std::string s = buffer;
     int result = pairedDigits(s);
     std::cout << "The sum of the paired digits is: " << result << std::endl;
     return 0;
