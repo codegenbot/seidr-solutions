@@ -8,10 +8,9 @@ bool correct_bracketing(std::string brackets){
         else if(brackets[i] == ')')if(count > 0)count--;else return false;
     }
     return count==0;
-
 }
 
 int main() {
-    assert(not (correct_bracketing("()()(()())()))()" ));
+    assert(not (correct_bracketing("()()(()())()))()"));
     return 0;
 }
