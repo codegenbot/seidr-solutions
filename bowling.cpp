@@ -1,45 +1,42 @@
-#include <iostream>
 #include <string>
 
-int bowlingScore(const std::string& input) {
+int main() {
     int score = 0;
-    for(int i=1; i<=10; i++) {
-        if(input[i-1] == 'X') {
-            if(i<10) {
-                if(input[2*i-2] != '/') {
-                    score += 10 + (input[2*i-2]-'0'*10);
-                } else {
-                    score += 10;
-                }
+    std::string s = "";
+    for(int i = 0; i < s.length(); i++) {
+        char c = s[i];
+        if (c == '/') {
+            score += getRoll(s, i) + getBonusRoll(s, i);
+        } else if (c == 'X' || c == 'x') {
+            score += min(i+1, 10);
+        } else if (isdigit(c)) {
+            int roll = getRoll(s, i);
+            if (s[i+1] == '+') {
+                score += roll + max(min(getBonusRoll(s, i) - roll - 1, 9), 0);
             } else {
-                score += 10;
-            }
-        } else if(input[i*2-1] == '/') {
-            int left = input[i*2-2] - '0';
-            if(i < 9) {
-                if(input[2*i+1] != 'X') {
-                    score += 10 + left;
-                } else {
-                    score += 10 + left;
-                }
-            } else {
-                score += left + 10;
-            }
-        } else {
-            int left = input[i*2-2] - '0';
-            int right = input[i*2-1] - '0';
-            if(i < 9) {
-                score += left + right;
-            } else {
-                score += left + right;
+                score += roll;
             }
         }
     }
     return score;
 }
 
-int main() {
-    int score = bowlingScore("X/XXXX/8+5,X");
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+int getRoll(std::string s, int i) {
+    if (s[i+1] == '/') {
+        return 10;
+    } else {
+        for(int j = i + 1; j < s.length(); j++) {
+            if (!isdigit(s[j])) {
+                return min(j - i, 10);
+            }
+        }
+    }
+}
+
+int getBonusRoll(std::string s, int i) {
+    for(int j = i + 2; j < s.length(); j++) {
+        if (!isdigit(s[j]) && (s[j] == '+' || s[j] == '-')) {
+            return min(j - i - 1, 9);
+        }
+    }
 }
