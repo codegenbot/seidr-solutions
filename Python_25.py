@@ -1,7 +1,5 @@
-```
 from typing import List
 import math
-
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
@@ -20,8 +18,11 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
-    # Check for remaining factors
+    # Check for remaining factors and prime numbers
     if n > 1:
-        factors.extend([n])
+        if n != math.isqrt(n) * math.isqrt(n):  
+            factors.append(n)
+        else:  
+            factors.extend([math.isqrt(n)] * 2)
 
     return factors
