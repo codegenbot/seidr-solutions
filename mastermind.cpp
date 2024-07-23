@@ -20,15 +20,15 @@ int mastermind(string code, string guess) {
     
     // Count the number of correct colors in the right place
     for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4) {
+        bool found = false;
+        for (int j = 0; j < 4; j++) {
             if (code[j] == guess[i]) {
-                white++;
                 code[j] = ' '; // mark this position as visited
+                found = true;
                 break;
             }
-            j++;
         }
+        if (found) white++;
     }
     
     return black, white;
@@ -39,8 +39,8 @@ int main() {
     cin >> code;
     string guess;
     cin >> guess;
-    int black, white;
-    tie(black, white) = mastermind(code, guess);
+    tie(int black, int white) = mastermind(code, guess);
     cout << black << endl;
     cout << white << endl;
     return 0;
+}
