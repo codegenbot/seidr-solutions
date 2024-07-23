@@ -6,10 +6,10 @@ def bowling_score(frames):
         if frame == "X":
             score += 10
             continue
-        elif len(frame) > 1:  
+        elif len(frame) > 1:  # Spare
             score += int(frame[0]) + 1
             continue
-        else:  
+        else:  # Non-spare
             score += int(frame)
             if i < len(frames) - 1 and frames[i+1].isdigit():
                 current_roll = int(frame)
