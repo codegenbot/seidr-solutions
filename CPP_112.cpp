@@ -1,4 +1,3 @@
-```cpp
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -17,15 +16,16 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string revTemp = temp;
     reverse(revTemp.begin(), revTemp.end());
-    result.push_back((temp == revTemp) ? "True" : "False");
+    bool same = issame(vector<string>({temp}), vector<string>({revTemp}));
+    result.push_back((same) ? "True" : "False");
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(reverse_delete("mamma", "mia") == (vector<string>){"mam", "True"});
-    return 0;
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
