@@ -9,7 +9,7 @@ size_t gcd(size_t a, size_t b) {
         b = a % b;
         a = temp;
     }
-    return a;
+    return std::min(a, b);
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
