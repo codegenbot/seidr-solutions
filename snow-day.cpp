@@ -1,4 +1,5 @@
 #include <iostream>
+
 int main() {
     int hours;
     float snow, rate, melt;
@@ -6,7 +7,7 @@ int main() {
     
     for (int i = 0; i < hours; ++i) {
         snow += rate;
-        snow -= (snow * melt);
+        snow *= (1 - melt);
     }
     
     std::cout << snow << std::endl;
