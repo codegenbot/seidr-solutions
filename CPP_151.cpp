@@ -12,15 +12,17 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int mainOld() {
+int main() {
     std::vector<float> myVector;
     int n;
     float temp;
 
-    cin >> n;
+    // Read the number of elements
+    std::cin >> n;
 
+    // Read each element and add to vector
     for(int i = 0; i < n; ++i) {
-        cin >> temp;
+        std::cin >> temp;
         myVector.push_back(temp);
     }
 
