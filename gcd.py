@@ -3,5 +3,6 @@ def gcd(a, b):
         return abs(b)
     elif b == 0:
         return abs(a)
-    while b > 0: a, b = abs(b), abs(a) % abs(b)
-    return abs(a)
+    while b != 0: 
+        a, b = b, a % b
+    return max(1, a)
