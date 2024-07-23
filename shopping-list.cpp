@@ -1,9 +1,9 @@
-// Declare variable 'total' outside the loop.
-float total = 0.0;
+#include <vector>
 
-// Change 'return total;' outside the loop block.
-// Iterate using range-based for loop over 'prices' and 'discounts' vectors.
-for (int i = 0; i < prices.size(); ++i) {
-    total += prices[i] * (1.0 - discounts[i] / 100.0);
+float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
+    float total = 0.0;
+    for (int i = 0; i < prices.size(); ++i) {
+        total += prices[i] * (1.0 - discounts[i] / 100.0);
+    }
+    return total;
 }
-return total; 
