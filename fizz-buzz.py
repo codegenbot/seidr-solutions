@@ -1,6 +1,5 @@
-```
 def fizz_buzz(x):
-    if x % 3 == 0 and x % 5 == 0:
+    if x % 15 == 0:
         return "FizzBuzz"
     elif x % 3 == 0:
         return "Fizz"
@@ -8,6 +7,3 @@ def fizz_buzz(x):
         return "Buzz"
     else:
         return str(x)
-
-num = int(input("Enter a number: "))
-print(fizz_buzz(num))
