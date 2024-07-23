@@ -3,13 +3,14 @@
 #include <algorithm>
 using namespace std;
 
+vector<int> code_freq(6, 0);
+vector<int> guess_freq(6, 0);
+
 int main() {
     string code, guess;
     cin >> code >> guess;
 
-    int white_pegs = 0, black_pegs = 0;
-    vector<int> code_freq(6, 0);
-    vector<int> guess_freq(6, 0);
+    int white_pegs = 0, black_pegs = 0;    
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -24,8 +25,8 @@ int main() {
         white_pegs += min(code_freq[i], guess_freq[i]);
     }
 
-    cout << white_pegs << endl;
-    cout << black_pegs << endl;
+    cout << white_pegs << "\n";
+    cout << black_pegs << "\n";
 
     return 0;
 }
