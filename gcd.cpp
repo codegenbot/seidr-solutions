@@ -18,11 +18,17 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     std::size_t m = target.length();
 
     for (std::size_t i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-            while ((i + m) <= n && text.substr(i, m) == target)
-                i++; // Handle overlapping occurrences
+        size_t j = 0;
+        bool found = true;
+        while ((j += 1) <= m && text[i+j-1] == target[j-1]) {
+            if (text.substr(i, j) != target)
+                found = false;
         }
+        if (found) {
+            result.push_back(i);
+            i += m - 1; // Handle overlapping occurrences
+        } else 
+            i++; // No need to increment i in this case
     }
 
     return result;
