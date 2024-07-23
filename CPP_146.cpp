@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -16,10 +18,13 @@ int main() {
     }
     count = specialFilter(nums);
     std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
-    return 0;
 }
 
-int main {
+int specialFilter(const std::vector<int>& nums) {
     int count = 0;
-    // your code here
-}
+    for (int x : nums) {
+        if (x == 0 || x % 11 != 0) {
+            count++;
+        }
+    }
+    return count;
