@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -10,3 +11,11 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product *= num
 
     return (total_sum, product) if numbers else (0, 1)
+
+
+numbers = input("Enter a list of integers separated by spaces: ")
+numbers = [int(num) for num in numbers.split()]
+
+result = sum_product(numbers)
+
+print(f"Sum: {result[0]}, Product: {result[1]}")
