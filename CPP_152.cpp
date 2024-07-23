@@ -10,8 +10,6 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
-        } else if ((game[i] > guess[i]) && (game[i] - guess[i]) % 7 == 0) {
-            result.push_back(-1);
         } else {
             result.push_back(std::abs(game[i] - guess[i]));
         }
