@@ -1,29 +1,24 @@
 ```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string encrypt(std::string s) {
     std::string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if((c >= 'a' && c <= 'i') || (c >= 'j' && c <= 'n') || (c >= 'o' && c <= 'v') || (c >= 'w' && c <= 'z')){
-            result += ((c - 2 <= 'i' && (c >= 'a' && c <= 'i')) ||
-                (c - 2 <= 'n' && (c >= 'j' && c <= 'n')) ||
-                (c - 2 <= 'v' && (c >= 'o' && c <= 'v')) ||
-                (c - 2 <= 'z' && (c >= 'w' && c <= 'z'))) ?
-                ((char)('a' + (c - 2)%26)) :
-                (char)(c - 2);
-        } else {
-            result += c;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = ((c - base + 2 * 26) % 26) + base;
         }
+        result += c;
     }
     return result;
 }
 
 int main() {
-    std::string str;
+    assert(encrypt("a") == "e");
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "Encrypted String: " << encrypt(input) << std::endl;
     return 0;
 }
