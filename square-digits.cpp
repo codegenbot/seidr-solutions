@@ -1,3 +1,6 @@
+#include <string>
+#include <sstream>
+
 string squareDigits(string input) {
     string output = "";
     for (char c : input) {
