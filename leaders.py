@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     n = len(arr)
     max_seen = arr[n-1]
