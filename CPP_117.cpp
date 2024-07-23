@@ -1,10 +1,4 @@
-#include <initializer_list>
-
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
+bool equalVectors(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -12,9 +6,10 @@ bool areEqualVectors(std::vector<std::string> a, std::vector<std::string> b){
             return false;
     }
     return true;
+
 }
 
-std::vector<std::string> select_words(std::string s, int k) {
+std::vector<std::string> selectWords(std::string s, int k) {
     std::vector<std::string> words;
     std::istringstream iss(s);
     for (std::string word; iss >> word;) {
@@ -27,5 +22,4 @@ std::vector<std::string> select_words(std::string s, int k) {
 }
 
 int main(){
-    assert(areEqualVectors(select_words("a b c d e f", 1), {"b","c","d","f"}));
-}
+    assert(equalVectors(selectWords("a b c d e f", 1), std::vector<std::string>{} {"b","c","d","f"}));
