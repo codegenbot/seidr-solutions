@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string squareDigits(string input) {
     string result = "";
