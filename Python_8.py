@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -15,9 +16,7 @@ def main():
         n = int(input("Enter the number of integers to process: "))
         if n <= 0:
             raise ValueError
-        numbers = [
-            int(x) for x in input(f"Enter {n} integers separated by spaces: ").split()
-        ]
+        numbers = [int(x) for x in input(f"Enter {n} integers separated by spaces: ").split()]
         result = sum_product(numbers)
         print(f"The sum is {result[0]} and the product is {result[1]}.")
     except ValueError as e:
