@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <set>
 
@@ -38,3 +39,5 @@ int mastermind(std::string code, std::string guess) {
     return white - black;
 
 }
+
+int main() { return mastermind("XXXX", "XXXX"); }
