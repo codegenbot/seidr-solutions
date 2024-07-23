@@ -1,21 +1,17 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+a = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
-cut_idx = -1
+prefix_sum = [0] + list(itertools.accumulate(a))
 
-for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_idx = i
+total_sum = prefix_sum[-1]
+best_diff = float("inf")
+cut_point = -1
 
-subvector1 = arr[: cut_idx + 1]
-subvector2 = arr[cut_idx + 1 :]
+for i in range(1, n):
+    diff = abs(prefix_sum[i] - (total_sum - prefix_sum[i]))
+    if diff < best_diff:
+        best_diff = diff
+        cut_point = i
 
-print(*subvector1)
-print(*subvector2)
+print(*a[:cut_point])
+print(*a[cut_point:])
