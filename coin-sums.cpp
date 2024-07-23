@@ -17,11 +17,8 @@ int main() {
         nickles++;
     }
 
-    int dimes = (cents + 4) / 10; 
-    while (dimes * 10 <= cents) {
-        cents -= dimes * 10;
-        dimes--;
-    }
+    int dimes = cents / 10;
+    cents %= 10;
 
     int pennies = cents;
 
