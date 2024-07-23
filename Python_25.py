@@ -1,13 +1,32 @@
 ```
-def find_prime_numbers(start: int, end: int) -> List[int]:
-    prime_numbers = []
-    for num in range(start, end + 1):
-        if num > 1:
-            is_prime = True
-            for i in range(2, math.isqrt(num) + 1):
-                if num % i == 0:
-                    is_prime = False
-                    break
-            if is_prime:
-                prime_numbers.append(num)
-    return prime_numbers
+from typing import List
+
+
+def get_factors():
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            return get_factors(n)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
+
+def get_factors(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            for _ in range(count):
+                factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+
+
+get_factors()
