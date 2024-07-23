@@ -1,28 +1,39 @@
-#include <initializer_list>
+```cpp
 #include <vector>
+#include <climits>
+#include <ostream>
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-
-    pair<int, int> smallest_even = make_pair(INT_MAX, -1);
-
+    
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even.first) {
-            smallest_even = make_pair(arr[i], i);
+        if (arr[i] % 2 == 0) {
+            pair<int, int> temp;
+            temp.first = arr[i];
+            temp.second = i;
+            result.push_back(temp);
         }
     }
-
-    result.push_back(smallest_even);
+    
     return result;
+
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = pluck(arr);
-    for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+    vector<int> input;
+    for(int i=0; i<3; i++) {
+        int val;
+        cin >> val;
+        input.push_back(val);
     }
+    
+    vector<pair<int, int>> output = pluck(input);
+    
+    for (const auto &pair : output) {
+        cout << pair.first << " at index " << pair.second << endl;
+    }
+    
     return 0;
 }
