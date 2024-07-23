@@ -1,5 +1,5 @@
 ```
-def find_closest_elements(numbers):
+def find_closest_elements(numbers: list[float]) -> tuple[float, float]:
     if not isinstance(numbers, list):
         return "Invalid input. Please enter a list of numbers."
 
