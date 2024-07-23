@@ -6,22 +6,22 @@ using namespace std;
 bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
+        if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            s.push('|');
-        } else if (expression[i] == '&') {
+            s.push('&');
+        } else if (expression[i] == '|') {
             while (!s.empty()) {
                 s.pop();
             }
-            s.push('&');
+            s.push('|');
         } else if (expression[i] == 'T' || expression[i] == 'F') {
             s.push(expression[i]);
         }
     }
 
-    bool result = true;
+    bool result = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
@@ -29,8 +29,10 @@ bool solveBoolean(string expression) {
             result = true;
         } else if (c == '&') {
             result = false;
+        } else {
+            result = c == 'T';
         }
     }
 
-    return result && (expression[0] == 'T');
+    return result;
 }
