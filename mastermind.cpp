@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -26,7 +27,7 @@ int mastermind(std::string code, std::string guess) {
 
 }
 
-int main(int argc, char* argv[]) {
-    mastermind("XXXX", "XXXX");
-    return 0;
+int main(int argc, char* argv[]) { 
+    mastermind("XXXX", "XXXX"); 
+    return 0; 
 }
