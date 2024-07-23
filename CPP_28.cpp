@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,9 +17,10 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main() {
-    int numStrings;
+int 
+main () { 
     std::vector<std::string> input;
+    int numStrings;
 
     // Read the number of strings from the user
     std::cout << "Enter the number of strings: ";
