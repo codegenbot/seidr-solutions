@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+
+using namespace std;
 
 int gcd(int a, int b) {
     while(b != 0) {
@@ -16,6 +18,6 @@ int main() {
     int num1, num2;
     cout << "Enter two numbers: ";
     cin >> num1 >> num2;
-    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1,num2) << endl;
+    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
     return 0;
 }
