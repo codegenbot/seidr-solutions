@@ -1,9 +1,13 @@
 ```
 def fib4(n: int):
     if n < 0:
-        raise ValueError("Input should be a non-negative integer.")
-    elif n <= 3:
-        return [0, 0, 2, 0][n]
+        return None
+    elif n == 0 or n == 1:
+        return 0
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 0
     else:
         a, b, c, d = 0, 0, 2, 0
         for _ in range(4, n+1):
