@@ -1,2 +1,2 @@
 def camel_case(s):
-    return s.replace("-", " ").capitalize()
+    return s.replace("-", " ").title().replace(" ", "")
