@@ -1,31 +1,31 @@
 #include <cmath>
 #include <iostream>
-#include <iomanip>
-
-using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
+    double startHeight, firstBounce, bouncinessIndex;
     int numBounces;
 
-    cin >> startHeight >> numBounces >> firstBounce; 
+    std::cout << "Enter the starting height: ";
+    std::cin >> startHeight;
 
-    double bouncinessIndex = firstBounce / startHeight;
+    std::cout << "Enter the height after the first bounce: ";
+    std::cin >> firstBounce;
 
-    double newHeight = firstBounce;
+    std::cout << "Enter the number of bounces: ";
+    std::cin >> numBounces;
 
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; ++i) {
+    bouncinessIndex = (firstBounce / startHeight);
+
+    double totalDistance = 2 * abs(startHeight);
+    for (int i = 1; i <= numBounces; i++) {
         if(i > 1)
-            startHeight *= bouncinessIndex;
+            startHeight = abs(startHeight * bouncinessIndex);
         else
             startHeight = firstBounce;
-        totalDistance += abs(startHeight - newHeight); 
-        newHeight = startHeight;
+        totalDistance += 2 * abs(startHeight); 
     }
 
-    cout << setprecision(2);
-    cout << totalDistance << endl;
+    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
 
     return 0;
 }
