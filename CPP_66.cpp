@@ -1,10 +1,11 @@
 int digitSum(string s) {
+    if (s.empty()) {
+        return -1;
+    }
     int sum = 0;
     for (char c : s) {
-        if (!isdigit(c)) {
-            sum += static_cast<int>(c) - 'A' + 1; 
-        } else {
-            sum += c - '0';
+        if (isupper(c)) {
+            sum += static_cast<int>(c) - 55; 
         }
     }
     return sum;
