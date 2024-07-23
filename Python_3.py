@@ -1,8 +1,8 @@
 from typing import List
 
 
-def below_zero(operations: List[int]) -> bool:
-    return any(operation < 0 for operation in operations)
+def below_zero(operations: List[str]) -> bool:
+    return any(int(operation) < 0 for operation in operations)
 
 
 def main():
@@ -13,13 +13,11 @@ def main():
         if user_input.lower() == "q":
             break
         try:
-            operations = [int(num) for num in user_input.split()]
+            operations = [str(num) for num in user_input.split()]
             result = below_zero(operations)
             print(f"Are there any numbers below zero? {result}")
-        except ValueError as e:
-            print(
-                f"Error: {str(e)}. Please enter a list of integers separated by spaces."
-            )
+        except ValueError:
+            print("Invalid input. Please enter a list of integers separated by spaces.")
 
 
 if __name__ == "__main__":
