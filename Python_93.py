@@ -1,3 +1,4 @@
+```python
 def encode(message):
     encoded_message = ""
     for char in message:
@@ -12,7 +13,7 @@ def encode(message):
             else:  
                 encoded_char = char
         else:  
-            encoded_message += char
+            encoded_char = char
         
         encoded_message += encoded_char
     
