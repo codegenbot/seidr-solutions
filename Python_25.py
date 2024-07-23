@@ -1,15 +1,6 @@
 from typing import List
 
 
-def get_factors():
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            return get_factors(n)
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
-
 def get_factors(n: int) -> List[int]:
     factors = []
     i = 2
@@ -27,5 +18,13 @@ def get_factors(n: int) -> List[int]:
         factors.append(n)
     return factors
 
+
+def get_factors():
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            return get_factors(n)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
 get_factors()
