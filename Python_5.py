@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 
@@ -8,13 +9,16 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
                 user_input = input("Enter a list of integers separated by space or comma: ")
                 numbers = [int(num) for num in user_input.split()]
             if not all(isinstance(num, int) for num in numbers):
-                raise ValueError("Numbers must be a list of integers")
+                print("Numbers must be a list of integers")
+                continue
 
             if not isinstance(delimiter, int):
-                raise ValueError("Delimiter must be an integer")
+                print("Delimiter must be an integer")
+                continue
 
             if delimiter == 0:
-                raise ValueError("Delimiter cannot be zero")
+                print("Delimiter cannot be zero")
+                continue
 
             result = [numbers[0]]
 

@@ -2,7 +2,7 @@ from typing import List
 
 
 def below_zero(operations: List[int]) -> bool:
-    return any(operation < 0 for operation in operations)
+    return any(operation < 0 for operation in operations) or False
 
 
 def main():
@@ -14,11 +14,24 @@ def main():
             break
         try:
             numbers = [num for num in user_input.split() if num.isdigit()]
-            operations = [int(num) for num in numbers]
+            operations = []
+            for num in numbers:
+                try:
+                    operations.append(int(num))
+                except ValueError:
+                    print(
+                        f"Invalid operation '{num}'. Please enter a list of integers separated by spaces."
+                    )
+                    break
             result = below_zero(operations)
             print(f"Are there any numbers below zero? {result}")
         except ValueError:
-            print("Invalid input. Please enter a list of integers separated by spaces.")
+            if not numbers:
+                print("No numbers were entered. Please try again.")
+            else:
+                print(
+                    "Invalid input. Please enter a list of integers separated by spaces."
+                )
 
 
 if __name__ == "__main__":
