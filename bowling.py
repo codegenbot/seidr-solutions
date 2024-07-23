@@ -1,15 +1,26 @@
-```python
-import re
-
-def bowling_score(frames):
+```
+def bowling_score(s):
     score = 0
-    roll = [int(x) for x in re.sub('/|-', '', frames)]
-    for i in range(0, len(roll), 2):
-        if i+1 < len(roll) and roll[i] == 10:
-            score += roll[i]
-            score += roll[i+1] + roll[i+2] if i+2 < len(roll) else 10
-        elif roll[i] + roll[i+1] >= 10:
-            score += 10
-        else:
-            score += roll[i] + roll[i+1]
+    roll = []
+    for char in s:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == '/':
+            if len(roll) < 2:
+                return 0
+            strike = sum(roll)
+            score += strike
+            roll = []
+        elif char == 'X':
+            if len(roll) != 1:
+                return 0
+            strike = 10 + sum(roll)
+            score += strike
+            roll = []
+    if len(roll) > 2:
+        return 0
+    if len(roll) == 1:
+        score += roll[0]
+    elif len(roll) == 2:
+        score += sum(roll)
     return score
