@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -32,7 +31,7 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main() {
+std::vector<std::string> main() {
     std::string s, chars;
     std::cout << "Enter a string: ";
     std::cin >> s;
