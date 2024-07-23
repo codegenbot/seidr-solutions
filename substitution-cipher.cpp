@@ -5,12 +5,14 @@
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string decipheredMessage;
     for (char c : message) {
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.length()) {
-            decipheredMessage += cipher2[index];
-        } else {
-            decipheredMessage += c;
+        char found = '0';
+        for (int i = 0; i < cipher1.length(); ++i) {
+            if (cipher1[i] == c) {
+                found = c;
+                break;
+            }
         }
+        decipheredMessage += (found != '0') ? cipher2[std::tolower(cipher1).find(found)] : c;
     }
     return decipheredMessage;
 }
