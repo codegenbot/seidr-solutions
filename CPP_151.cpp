@@ -3,9 +3,9 @@
 #include <initializer_list>
 #include <iostream>
 
-long long double_the_difference(const std::vector<float>& lst) {
+long long double_the_difference(const std::vector<float>& numbers) {
     long long sum = 0;
-    for (float num : lst) {
+    for (float num : numbers) {
         if (num > 0 && floor(num) == num) {
             sum += pow(num, 2);
         }
