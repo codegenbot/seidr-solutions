@@ -1,5 +1,6 @@
 def validate_tweet(tweet):
-    if not tweet.isprintable():
+    tweet = ''.join(e for e in tweet if e.isalnum() or e.isspace())
+    if not tweet:
         return "You didn't type anything"
     elif len(tweet) > 140:
         return "Too many characters"
