@@ -1,8 +1,10 @@
+Here's the concise version:
+
 ```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b) {
+bool issame(vector<string> a, vector<string> b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string &s) {return find(b.begin(), b.end(), s) != b.end();});
 }
 
