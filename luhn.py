@@ -8,3 +8,5 @@ def luhn(card_number):
                 card_number[i] -= 9
         total += card_number[i]
     return total
+
+print(luhn("4532015112830366"))
