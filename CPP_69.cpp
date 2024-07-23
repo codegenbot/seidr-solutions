@@ -1,7 +1,16 @@
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-int search(std::vector<int> lst) {
-    int count = std::count_if(lst.begin(), lst.end(), [](int i) { return i > 0; });
+int search(vector<int> lst) {
+    int max = 0;
+    for (auto i : lst) {
+        if (i > 0 && i >= std::count(lst.begin(), lst.end(), i)) {
+            return i;
+        }
+        if (std::count(lst.begin(), lst.end(), i) > max) {
+            max = std::count(lst.begin(), lst.end(), i);
+        }
+    }
     return -1;
 }

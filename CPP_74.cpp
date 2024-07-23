@@ -1,7 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -16,47 +17,46 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 
     if (len1 < len2) {
-        result = lst1;
+        sort(lst1.begin(), lst1.end());
+        sort(lst2.begin(), lst2.end());
+        
+        for (int i = 0; i < min(len1, len2); i++) {
+            if (lst1[i] == lst2[i]) {
+                result.push_back(lst1[i]);
+            }
+        }
     } else if (len2 < len1) {
-        result = lst2;
+        sort(lst2.begin(), lst2.end());
+        sort(lst1.begin(), lst1.end());
+        
+        for (int i = 0; i < min(len1, len2); i++) {
+            if (lst1[i] == lst2[i]) {
+                result.push_back(lst1[i]);
+            }
+        }
     } else {
-        result = lst1;
+        sort(lst1.begin(), lst1.end());
+        sort(lst2.begin(), lst2.end());
+        
+        for (int i = 0; i < len1; i++) {
+            if (lst1[i] == lst2[i]) {
+                result.push_back(lst1[i]);
+            }
+        }
     }
 
     return result;
 }
 
 int main() {
-    vector<string> vec1;
-    int n;
-    cout << "Enter the number of strings: ";
-    cin >> n;
-
-    for(int i=0; i<n; i++) {
-        string str;
-        cout << "Enter a string: ";
-        cin >> str;
-        vec1.push_back(str);
-    }
-
-    vector<string> vec2;
-    int m;
-    cout << "Enter the number of strings: ";
-    cin >> m;
-
-    for(int j=0; j<m; j++) {
-        string str;
-        cout << "Enter a string: ";
-        cin >> str;
-        vec2.push_back(str);
-    }
+    vector<string> vec1 = {"hi", "admin"};
+    vector<string> vec2 = {"hI", "Hi"};
 
     vector<string> result = total_match(vec1, vec2);
 
-    cout << "Shortest matching strings are: \n";
     for (const string& s : result) {
         cout << s << endl;
     }
-    
+
     return 0;
 }
