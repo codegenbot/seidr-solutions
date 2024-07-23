@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -8,7 +7,7 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int rightmost = arr.back();
     for (int i = arr.size() - 1; i >= 0; --i) {
-        if (arr[i] > rightmost) {
+        if (rightmost < arr[i]) {
             rightmost = arr[i];
         } else {
             result.push_back(rightmost);
@@ -21,7 +20,7 @@ int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(arr);
     for (int num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
     return 0;
 }
