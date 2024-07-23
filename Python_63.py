@@ -1,5 +1,6 @@
-Here's the solution:
+Here's the corrected code:
 
+```
 def fibfib(n: int):
     if n <= 1:
         return 0
