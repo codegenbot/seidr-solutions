@@ -1,26 +1,20 @@
+```cpp
 #include <string>
-#include <sstream>
 
 std::string camelCase(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
-    std::string result = "";
-    
-    while (std::getline(ss, word, '-')) {
-        if (!result.empty()) {
-            result += std::string(1, (word[0] >= 'a' && word[0] <= 'z') ? ' ' : '\0');
+    std::string result;
+    bool nextCapital = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            nextCapital = true;
+        } else if (nextCapital) {
+            result += toupper(c);
+            nextCapital = false;
+        } else {
+            result += tolower(c);
         }
-        
-        for (char& c : word) {
-            c = static_cast<char>(std::toupper(c));
-        }
-        
-        if (!result.empty()) {
-            result += " ";
-        }
-        
-        result += word;
     }
-    
+
     return result;
 }
