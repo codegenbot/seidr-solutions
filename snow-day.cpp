@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
