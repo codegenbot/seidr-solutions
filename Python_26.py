@@ -4,4 +4,5 @@ def remove_duplicates(input_list=None):
     if not input_list:  
         return []  
     from collections import OrderedDict
-    return list(OrderedDict.fromkeys(input_list))
+    result = list(OrderedDict.fromkeys(input_list))
+    print(len(result))
