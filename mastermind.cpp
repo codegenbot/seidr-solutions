@@ -1,38 +1,25 @@
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            count++;
-        }
+    for (int i = 0; i < 4; i++) {
+        count += min(count(code.begin(), code.end(), guess[i]) - code.begin(), count(guess.begin(), guess.end(), guess[i]) - guess.begin());
     }
     return count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    map<char, int> codeMap, guessMap;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             count++;
-        } else {
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
         }
     }
-    
-    for (auto it = codeMap.begin(); it != codeMap.end(); ++it) {
-        count += min(it->second, guessMap[it->first]);
-    }
-    
     return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
-    
     return 0;
 }
