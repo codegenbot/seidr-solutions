@@ -4,27 +4,26 @@ def bowling_score(frames):
     i = 0
     while i < len(frames):
         if frames[i] == 'X':
-            score += 10
-            i += 1
-            if i < len(frames):
-                score += int(frames[i])
-            else:
-                break
-        elif frames[i] == '/':
-            frame_value = int(frames[i+1:i+3])
-            score += 10
+            frame_value = 10 + int(frames[i+1]) + int(frames[i+2])
             score += frame_value
             i += 3
-        elif frames[i].isdigit() and i < len(frames) - 1 and frames[i+2].isdigit():
-            frame_value = int(frames[i:i+3])
-            if frame_value == 10:
-                score += 10
+        elif frames[i].isdigit():
+            if len(frames[i:i+2]) > 0 and frames[i].isdigit() and frames[i+1] == '/':
+                frame_value = 10 + int(frames[i])
+                score += frame_value
+                i += 2
+            else:
+                frame_value = int(frames[i])
+                if len(frames[i:i+2]) > 0 and frames[i+1].isdigit():
+                    score += frame_value + int(frames[i+1])
+                    i += 2
+                else:
+                    score += frame_value
+                    i += 1
+        elif frames[i] == '/':
+            if i < len(frames) - 2 and frames[i+1:i+3].isdigit():
+                score += 10 + int(frames[i+1]) + int(frames[i+2])
                 i += 3
             else:
-                score += frame_value
-                i += 3
-        elif frames[i].isdigit():
-            frame_value = int(frames[i])
-            score += frame_value
-            i += 1
+                return 0
     return score
