@@ -1,24 +1,24 @@
-map<string, int> numberMap = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4},
-    {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
-};
+map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, 
+                               {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, 
+                               {"eight", 8}, {"nine", 9}};
 
-string sort_numbers(string numbers){
-    map<int, string> reverseNumberMap;
-    string result = "";
-    
-    string number;
-    size_t pos = 0;
-    while ((pos = numbers.find(' ')) != string::npos) {
-        number = numbers.substr(0, pos);
-        numbers.erase(0, pos + 1);
-        reverseNumberMap[numberMap[number]] = number;
+vector<pair<int, string>> sorted_numbers;
+
+int start_pos = 0;
+for (int i = 0; i <= numbers.size(); ++i) {
+    if (i == numbers.size() || numbers[i] == ' ') {
+        string num_str = numbers.substr(start_pos, i - start_pos);
+        sorted_numbers.push_back({number_map[num_str], num_str});
+        start_pos = i + 1;
     }
-    
-    for (const auto& pair : reverseNumberMap) {
-        result += pair.second + " ";
-    }
-    
-    result.pop_back(); // Remove extra space at the end
-    return result;
+}
+sort(sorted_numbers.begin(), sorted_numbers.end());
+
+string sorted_str;
+for (const auto& p : sorted_numbers) {
+    sorted_str += p.second + " ";
+}
+sorted_str.pop_back(); // Remove the extra space at the end
+
+return sorted_str;
 }
