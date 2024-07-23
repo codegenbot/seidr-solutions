@@ -1,21 +1,13 @@
 vector<int> parse_music(string music_string){
-    vector<int> beats;
-    int count = 0;
-    for (char c : music_string) {
-        if (c == 'o') {
-            beats.push_back(4);
-        } else if (c == '|') {
-            if (count == 1) {
-                beats.push_back(2);
-            } else {
-                beats.push_back(1);
-            }
-            count = 0;
-        } else if (c == '.') {
-            beats.push_back(1);
-        } else {
-            ++count;
+    vector<int> durations;
+    for (int i = 0; i < music_string.size(); ++i) {
+        if (music_string[i] == 'o') {
+            durations.push_back(4);
+        } else if (music_string[i] == '|' && music_string[i-1] == 'o') {
+            durations.back() = 2;
+        } else if (music_string[i] == '|' && music_string[i-1] == '.') {
+            durations.back() = 1;
         }
     }
-    return beats;
+    return durations;
 }
