@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int hours;
@@ -8,11 +7,10 @@ int main() {
     std::cin >> hours >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
     for (int i = 1; i <= hours; i++) {
-        groundSnow += rateOfSnowFall;
-        groundSnow -= min(groundSnow, proportionOfSnowMeltingPerHour);
+        groundSnow = groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour;
     }
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::setprecision(10) << groundSnow;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow;
 
     return 0;
 }
