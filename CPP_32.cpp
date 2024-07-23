@@ -1,8 +1,9 @@
 ```cpp
 #include <vector>
-#include <cmath>  
-#include <iostream>  
+#include <cmath>
+#include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
@@ -20,23 +21,14 @@ double find_zero(vector<double> xs){
     if(xs.size() % 2 != 0) return -1; 
     double x = 1.0; 
     while(abs(poly(xs, x)) > 1e-9){ 
-        x -= poly(xs, x)/poly(vector<double>(xs.begin()+1, xs.end()), x); 
+        x -= poly(xs, x)/poly({(double)(xs.begin()+1), (double)(xs.end())}, x); 
     }
-    cout << fixed << setprecision(2) << x << endl;
+    return setprecision(2) << fixed << x << endl;
 }
 
 int main() {
-    vector<double> input;
-    cout << "Enter coefficients (space-separated): ";
-    for(double &x: getline(cin) >> noskipws >> copy(cin, back_inserter(vector<double>(input)))) {
-        // check if the input is a number
-        if (!cin || !isdigit(cin.peek())) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter numbers separated by spaces." << endl;
-            return 1; 
-        }
-    }
-    find_zero(input);
+    vector<double> xs = {1, -6, 11, -6};
+    double zero = find_zero(xs);
+    cout << "Zero is: " << zero << endl; 
     return 0;
 }
