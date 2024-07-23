@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -8,7 +7,7 @@ string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
         int r = x % base;
-        res.insert(0, to_string(r)); // or '0' + r
+        res.insert(0, to_string(r)); 
         x /= base;
     }
     return res;
