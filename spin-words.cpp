@@ -1,16 +1,27 @@
-Here's the solution:
+#include <iostream>
+#include <string>
 
-string spinWords(string s) {
-    string result = "";
-    std::istringstream iss(s);
-    string word;
+std::string spinWords(std::string sentence) {
+    std::stringstream stream(sentence);
+    std::string word;
 
-    while (iss >> word) {
-        if(word.length() >= 5)
-            result += std::to_string(word.rbegin()[0]) + word.substr(1,word.length()-1).rstr();
-        else
-            result += word + " ";
+    std::string result = "";
+
+    while (stream >> word) {
+        if (word.length() >= 5)
+            word = string(word.rbegin(), word.rend());
+        result += word + " ";
     }
-    
-    return result;
+
+    return result.substr(0, result.size()-1); // Remove the trailing space
+}
+
+int main() {
+    std::string input;
+    while (std::cout << "Enter a sentence ('' to stop): ") {
+        std::getline(std::cin, input);
+        if (input.empty()) break;
+        std::cout << spinWords(input) << '\n';
+    }
+    return 0;
 }
