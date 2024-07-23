@@ -1,4 +1,3 @@
-#include <vector>
 #include <utility>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
