@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <type_traits>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -12,7 +12,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> filter_integers(std::vector<int> mixedVector) {
     std::vector<int> result;
     for (int num : mixedVector) {
-        result.push_back(num);
+        if (std::is_same_v<int, std::decay_t<decltype(num)>>) {
+            result.push_back(num);
+        }
     }
     return result;
 }
