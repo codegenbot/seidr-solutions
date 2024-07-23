@@ -18,4 +18,7 @@ double diceGame(int n, int m) {
     return p;
 }
 
-int main() { return 0; }
+int main() { 
+    std::cout << diceGame(43, 98) << std::endl; 
+    return 0;
+}
