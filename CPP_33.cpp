@@ -1,14 +1,20 @@
-for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            vector<int> subVec;
-            for (int j = 3 * (i / 3); j < 3 * (i / 3 + 1); ++j) {
-                subVec.push_back(l[j]);
-            }
-            sort(subVec.begin(), subVec.end());
-            for (int j = 0; j < subVec.size(); ++j) {
-                l[3 * (i / 3) + j] = subVec[j];
-            }
+vector<int> result(l);
+    vector<int> third_elements;
+
+    for (int i = 0; i < l.size(); ++i) {
+        if ((i+1) % 3 == 0) {
+            third_elements.push_back(l[i]);
         }
     }
-    return l;
+
+    sort(third_elements.begin(), third_elements.end());
+
+    int idx = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if ((i+1) % 3 == 0) {
+            result[i] = third_elements[idx++];
+        }
+    }
+
+    return result;
 }
