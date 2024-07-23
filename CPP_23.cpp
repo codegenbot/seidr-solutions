@@ -1,4 +1,3 @@
-```c
-int str_len(std::string& str) {
-    return std::string(str).length();
+int str_len(const char* str) {
+    return static_cast<int>(strlen((char*)str));
 }
