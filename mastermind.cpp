@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -22,8 +26,8 @@ int main() {
     
     white = max(white, 0);
     
-    cout << white << endl;
-    cout << black << endl;
+    cout << white << '\n';
+    cout << black << '\n';
     
     return 0;
 }
