@@ -1,4 +1,7 @@
-vector = list(map(int, input("Enter a vector of integers separated by space: ").split()))
+```
+import math
+
+vector = list(map(int, input().split()))
 def fuel_cost(vector):
-    return sum((i + 2) // 3 - 2 for i in vector)
+    return sum(math.floor((i + 2) / 3) - 2 for i in vector)
 print(fuel_cost(vector))
