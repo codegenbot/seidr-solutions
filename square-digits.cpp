@@ -1,23 +1,17 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int main() {
-    int n;
-    std::cin >> n;
+    string input;
+    cin >> input;
+    string output = "";
 
-    if (n == 0) {
-        std::cout << "0" << std::endl;
-        return 0;
+    for (char c : input) {
+        int digit = c - '0';
+        output += std::to_string(digit * digit);
     }
-
-    std::string result = "";
-    while (n > 0) {
-        int digit = n % 10;
-        result = std::to_string(digit * digit) + result;
-        n /= 10;
-    }
-
-    std::cout << result << std::endl;
-
+    cout << output << endl;
     return 0;
 }
