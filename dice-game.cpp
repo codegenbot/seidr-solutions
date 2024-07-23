@@ -1,12 +1,14 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (n + m);
-    if(n > m) {
-        return 1 - ((double)m / total);
-    } else if(n < m) {
-        return (double)m / total;
-    } else {
-        return 0.5;
-    }
+double probability(int n, int m) {
+    double total = (double)n * m;
+    return (n - 1.0) / total;
+}
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(2);
+    cout << probability(n, m) << endl;
+    return 0;
 }
