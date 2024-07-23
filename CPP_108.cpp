@@ -12,7 +12,7 @@ int count_nums(std::vector<int> n) {
             sum += num % 10;
             num /= 10;
         }
-        if (sum % 2 == 1) {
+        if (sum > 0) {
             count++;
         }
     }
