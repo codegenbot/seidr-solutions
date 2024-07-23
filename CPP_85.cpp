@@ -1,3 +1,4 @@
+```cpp
 int main_func() {
     std::vector<int> numbers;
     int num;
