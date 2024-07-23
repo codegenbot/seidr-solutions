@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,25 +7,30 @@ std::string spinWords(std::string str) {
     
     for (char c : str) {
         if (c == ' ') {
-            result += word;
+            result += word; // Move this line outside
             word = "";
         } else {
             word += c;
             
             // Additional check
             if (word.length() >= 5) {
+                std::string revWord = "";
                 for (int i = word.length() - 1; i >= 0; --i)
-                    result += word[i];
-                word = ""; // Reset the word
-            } else
+                    revWord += word[i];
+                result += revWord;
+                word = "";
+            } else {
                 result += word;
+                word = "";
+            }
         }
     }
     
-    // Check the last word
     if (word.length() >= 5) {
+        std::string revWord = "";
         for (int i = word.length() - 1; i >= 0; --i)
-            result += word[i];
+            revWord += word[i];
+        result += revWord;
     } else
         result += word;
     
