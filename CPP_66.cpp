@@ -1,13 +1,12 @@
-```cpp
 #include <string>
 #include <cassert>
 #include <iostream>
 
-int digitSum(std::string s) {
+int digitSum(std::basic_string<char> s) {
     int sum = 0;
     for (char c : s) {
         if (!isdigit(c)) {
-            sum += tolower(c) - 'a' + 1; 
+            sum += static_cast<int>(c) - 'A' + 1; 
         } else {
             sum += c - '0';
         }
