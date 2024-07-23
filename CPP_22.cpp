@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
 std::vector<int> filter_integers(const std::vector<int>& vec) {
     std::vector<int> result;
     for (int i : vec) {
-        if (std::abs(i) > 0 && i <= INT_MAX) {
+        if (std::isfinite(i)) {
             result.push_back(i);
         }
     }
