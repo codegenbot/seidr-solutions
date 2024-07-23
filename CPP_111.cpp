@@ -1,9 +1,9 @@
+```cpp
 #include <iostream>
-#include <string>
 #include <map>
-#include <cctype>
+#include <string>
 
-bool std::issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,8 +20,8 @@ std::map<char, int> histogram(const std::string& str) {
     std::map<char, int> result;
 
     for (char c : str) {
-        if (!std::isalpha(c)) continue; // ignore non-alphabetic characters
-        char lower = std::tolower(c);
+        if (!isalpha(c)) continue; 
+        char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
         } else {
@@ -31,4 +31,52 @@ std::map<char, int> histogram(const std::string& str) {
 
     return result;
 
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    
+    auto hist = histogram(input);
+    bool isSame = true;
+
+    if (input.size() > 1) {
+        for (int i = 0; i < input.size() - 1; ++i) {
+            if (std::tolower(input[i]) == std::tolower(input[i + 1])) {
+                isSame = false;
+                break;
+            }
+        }
+    }
+
+    if (isSame) {
+        for (const auto& pair : hist) {
+            for (int i = 0; i < pair.second - 1; ++i) {
+                std::cout << " ";
+            }
+            for (int i = 0; i < pair.second; ++i) {
+                if (i == pair.second - 1)
+                    std::cout << pair.first;
+                else
+                    std::cout << pair.first << " ";
+            }
+            std::cout << '\n';
+        }
+    } else {
+        for (const auto& pair : hist) {
+            for (int i = 0; i < pair.second - 1; ++i) {
+                std::cout << " ";
+            }
+            for (int i = 0; i < pair.second; ++i) {
+                if (i == pair.second - 1)
+                    std::cout << tolower(pair.first);
+                else
+                    std::cout << tolower(pair.first) << " ";
+            }
+            std::cout << '\n';
+        }
+    }
+
+    return 0;
 }

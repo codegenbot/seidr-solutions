@@ -1,29 +1,23 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
-bool match_parens(const std::vector<std::string>& lst) {
+int match_parens(vector<string> lst) {
     int balance = 0;
-    for (const auto& s : lst) {
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 balance++;
             } else if (c == ')') {
-                if (balance <= 0) return false;
+                if (balance <= 0) return 0;
                 balance--;
             }
         }
     }
-    return balance == 0;
+    return balance == 0 ? 1 : 0;
 }
 
 int main() {
-    std::vector<std::string> lst = {"((()))", "()("};
-    if (match_parens(lst)) {
-        std::cout << "Yes" << std::endl;
-    } else {
-        std::cout << "No" << std::endl;
-    }
+    vector<string> input = {")", "("};
+    assert(match_parens(input) == 1);
     return 0;
 }
