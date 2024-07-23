@@ -16,6 +16,13 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    // Your code here
+    // Your code to test the function
+    vector<int> numbers = {3, 2, 5, 4};
+    int smallest = next_smallest(numbers);
+    if (smallest != -1) {
+        cout << "The next smallest number is: " << smallest << endl;
+    } else {
+        cout << "No smaller number found." << endl;
+    }
     return 0;
 }
