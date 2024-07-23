@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -13,21 +14,30 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int main() {
+int start() {
     std::vector<float> myVector;
     int n;
     float temp;
 
     // Read the number of elements
-    cin >> n;
+    std::cin >> n;
 
     // Read each element and add to vector
     for(int i = 0; i < n; ++i) {
-        cin >> temp;
+        std::cin >> temp;
         myVector.push_back(temp);
     }
 
-    long long odd_sum = 0;
+    long long odd_sum = 0;  
+    for (float num : myVector) {
+        if (num > 0 && floor(num) == num) {
+            odd_sum += pow(num, 2);
+        }
+    }
+
     float result = double_the_difference(myVector);
+
+    assert(result == odd_sum);  
+
     return 0;
 }
