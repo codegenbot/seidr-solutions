@@ -17,9 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i++; // Don't miss next match
+            i++; // Fix: Move to the next character
         } else {
-            i++; // Move to the next character
+            i++; // Only increment i when not found
         }
     }
     return result;
