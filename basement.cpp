@@ -1,21 +1,21 @@
+#include <vector>
+#include <stdexcept>
 #include <iostream>
-using namespace std;
 
-int basement(const vector<int>& nums) {
+int basement(const std::vector<int>& nums) {
     int sum = 0;
-    for (size_t i = 0; i < nums.size(); ++i) {
+    for (std::size_t i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if (sum < 0) return i;
+        if (sum < 0) return i + 1;
     }
-    throw runtime_error("No basement found");
-
+    return -1;
 }
 
 int main() {
     try {
-        return basement({-1,2,3,-2,5});
-    } catch(const exception& e) {
-        cerr << "Error: " << e.what() << '\n';
+        std::cout << basement({-1,2,3,-2,5}) << '\n';
+    } catch(const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
         return -1;
     }
 }
