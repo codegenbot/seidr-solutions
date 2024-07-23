@@ -1,21 +1,29 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
 std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
-        if(c >= 'a' && c <= 'i'){
-            result += (c - 2 <= 'a') ? (char)('z' - 'a' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'j' && c <= 'n'){
-            result += (c - 2 <= 'n') ? (char)('o' - 'n' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'o' && c <= 'v'){
-            result += (c - 2 <= 'v') ? (char)('w' - 'v' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'w' && c <= 'z'){
-            result += (c - 2 <= 'z') ? (char)('a' - 'z' + 1 + c - 2) : (char)(c - 2);
+        if((c >= 'a' && c <= 'i') || (c >= 'j' && c <= 'n') || (c >= 'o' && c <= 'v') || (c >= 'w' && c <= 'z')){
+            result += ((c - 2 <= 'i' && (c >= 'a' && c <= 'i')) ||
+                (c - 2 <= 'n' && (c >= 'j' && c <= 'n')) ||
+                (c - 2 <= 'v' && (c >= 'o' && c <= 'v')) ||
+                (c - 2 <= 'z' && (c >= 'w' && c <= 'z'))) ?
+                ((char)('a' + (c - 2)%26)) :
+                (char)(c - 2);
         } else {
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
+    return 0;
 }
