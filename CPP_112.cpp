@@ -1,16 +1,19 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#pragma GCC diagnostic push
+#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& chars) {
+    return a == chars;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string chars) {
     std::vector<std::string> result;
     std::string temp = "";
     for (int i = 0; i < s.length(); i++) {
-        if (chars.find(s[i]) == string::npos) {
+        if (find(chars.begin(), chars.end(), s[i]) == chars.end()) {
             temp += s[i];
         }
     }
@@ -31,3 +34,4 @@ std::string reverse(std::string str) {
     }
     return rev;
 }
+#pragma GCC diagnostic pop
