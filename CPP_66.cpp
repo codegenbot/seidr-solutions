@@ -16,9 +16,12 @@ int digitSum(string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
+    
+    string str = "Enter your name: ";
+    cout << str;
+    
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    int result = digitSum(input);
-    cout << "The digit sum is: " << result << endl;
+    
+    cout << "Your total score is: " << digitSum(input) << endl;
 }
