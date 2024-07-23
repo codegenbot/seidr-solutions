@@ -13,20 +13,17 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers){
     string result = "";
-    map<int, string> sorted_nums;
-
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string num_str = numbers.substr(0, pos);
-        sorted_nums[num_map[num_str]] = num_str;
-        numbers.erase(0, pos + 1);
+    map<int, string> rev_map;
+    
+    for (string::size_type i = 0; i < numbers.size(); i += 5) {
+        string num_str = numbers.substr(i, 5);
+        rev_map[num_map[num_str]] = num_str;
     }
-    sorted_nums[num_map[numbers]] = numbers;
-
-    for (auto const& pair : sorted_nums) {
+    
+    for (const auto& pair : rev_map) {
         result += pair.second + " ";
     }
-
-    result.pop_back(); // Remove extra space at the end
+    
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
