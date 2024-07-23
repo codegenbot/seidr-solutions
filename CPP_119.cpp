@@ -18,6 +18,6 @@ int match_parens(vector<string> lst) {
 
 int main() {
     vector<string> input = {")", "("};
-    cout << match_parens(input);
+    assert(match_parens(input) == 1);
     return 0;
 }
