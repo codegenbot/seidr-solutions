@@ -1,9 +1,5 @@
-```cpp
-#include <ext/new_allocator.h>
-#include <cstddef>
-#include <utility>
-#include <vector>
-#include <unordered_map>
+```
+#include <map>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numIndex;
