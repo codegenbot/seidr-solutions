@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int n, m;
+    double n, m;
     std::cin >> n >> m;
     
     double probability = 0.0;
