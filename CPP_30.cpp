@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float> b) {
     return a.size() == b.size();
 }
 
@@ -15,7 +16,7 @@ int main() {
 
     bool same = true;
     for (const auto& val : a) {
-        if (!(std::cin >> val)) { 
+        if (!(std::cin >> val).good()) { 
             same = false;
             break;
         }
