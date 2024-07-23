@@ -15,3 +15,10 @@ int luhn(std::vector<int>& digits) {
     }
     return sum;
 }
+
+int main() {
+    std::vector<int> cardNumber = {4, 5, 2, 8, 6, 2, 8, 3, 1, 7, 1, 4, 3, 9, 0, 2};
+    int result = luhn(cardNumber);
+    std::cout << "The Luhn checksum is: " << result;
+    return 0;
+}
