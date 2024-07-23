@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -13,10 +12,10 @@ bool issame(vector<string> a, vector<string>b){
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result = {};
+    std::vector<std::string> result = {"Hello", "World"};
     for(auto str : strings){
         if(str.find(substring) != std::string::npos){
-            result = {str};
+            result.push_back(str);
         }
     }
     return result;
@@ -28,7 +27,7 @@ int main() {
     
     vector<string> filtered_strings = filter_by_substring(input_strings, target_substring);
 
-    if(issame({input_strings}, {filtered_strings}) ) {
+    if(issame(input_strings, filtered_strings)) {
         for(auto str : filtered_strings) {
             cout << str << endl;
         }
