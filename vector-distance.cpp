@@ -1,4 +1,5 @@
-```cpp
+```c++
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -12,11 +13,9 @@ double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
 }
 
 int main() {
-    std::vector<float> v1 = {1.0, 2.0, 3.0};
-    std::vector<float> v2 = {4.0, 5.0, 6.0};
-
+    std::vector<float> v1 = {1.0f, 2.0f};
+    std::vector<float> v2 = {3.0f, 4.0f};
     double distance = vectorDistance(v1, v2);
-    std::cout << "The distance is: " << distance << std::endl;
-    
+    printf("Euclidean distance: %f\n", distance);
     return 0;
 }
