@@ -1,8 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <string>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -18,7 +17,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
-    queue<pair<vector<int>, int>> q; // {path, length}
+    queue<pair<vector<int>, int>> q; 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({{grid[i][j]}, 1});
@@ -30,7 +29,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (len == k) {
             return path;
         }
-        for (auto& neighbor : neighbors[path.back()[0]][path.back()[1]]) {
+        for (auto& neighbor : neighbors[path.back()[0]]) {
             int val = neighbor.first;
             vector<int> newPath = path;
             newPath.push_back(val);
@@ -42,7 +41,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int main() {
-    // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
     for (int val : minPath(grid1, 3)) {
