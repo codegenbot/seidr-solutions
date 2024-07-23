@@ -11,16 +11,8 @@ bool below_threshold(vector<int> l, int t) {
 #include <vector>
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    int threshold = 3;
-
-    bool result = below_threshold(numbers, threshold);
-
-    if (result) {
-        std::cout << "All elements are below the threshold." << std::endl;
-    } else {
-        std::cout << "At least one element is not below the threshold." << std::endl;
-    }
-
+    vector<int> l = {1, 2, 3};
+    int t = 3;
+    cout << boolalpha << below_threshold(l, t) << endl;
     return 0;
 }
