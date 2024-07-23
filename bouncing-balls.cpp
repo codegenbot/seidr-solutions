@@ -1,10 +1,4 @@
-```
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
+```c
 int main() {
     double heightStart, heightFirstBounce;
     int numBounces;
@@ -19,7 +13,7 @@ int main() {
         totalDistance += height - heightStart;
     }
 
-    cout << std::setprecision(10) << totalDistance;
+    cout << fixed << setprecision(6);
+    cout << totalDistance;
 
-    return 0;
-}
+    return 0; }
