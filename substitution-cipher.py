@@ -1,4 +1,9 @@
-```
-cipher_map, message = input().split(maxsplit=1)
-cipher_map = cipher_map[0].split()
-print(substitution_cipher([cipher_map[0], cipher_map[1]], message.strip()))
+def substitution_cipher(cipher1, cipher2, text):
+    result = ""
+    for char in text:
+        if char in cipher2:
+            index = cipher2.index(char)
+            result += cipher1[index]
+        else:
+            result += char
+    return result
