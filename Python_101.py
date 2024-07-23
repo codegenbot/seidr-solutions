@@ -1,2 +1,6 @@
+```
 def words_string(s):
-    return ' '.join(s.split())
+    s = s.lower()
+    s = s.replace(",", " ")
+    s = s.replace("|", "")
+    return s.split()
