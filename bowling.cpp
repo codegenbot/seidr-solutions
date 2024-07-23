@@ -1,18 +1,19 @@
-int bowlingScore(string s) {
+int bowlingScore(string &s) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (s[i] == '/') {
-            continue;
+    int frame = 1;
+    for (char c : s) {
+        if (c == '/') {
+            score += min(10 - '0' + 'X', 10);
+            frame++;
+        } else if (c >= '0' && c <= '9') {
+            score += c - '0';
+            if (frame == 10) {
+                return score;
+            }
         } else {
-            string frame = s.substr(i, 2);
-            int strikeOrSpare = stoi(frame);
-            if (strikeOrSpare == 10) {
-                score += 10 + bowlingScore(s.substr(i+1));
-            } else if (strikeOrSpare < 10) {
-                score += strikeOrSpare;
-                i++;
+            score += 10;
+            if (frame < 10) {
+                frame++;
             }
         }
     }
