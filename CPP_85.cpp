@@ -12,18 +12,15 @@ int add(const std::vector<int>& vec) {
     return result;
 }
 
-int main() {
+int main_func() {
     std::vector<int> numbers;
     int num;
 
-    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
-
-    for (; ; ) {
-        std::cin >> num;
-        if (num == -1) break;
+    for (;;) {
+        std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
+        if (!(std::cin >> num) || num == -1) break;
         numbers.push_back(num);
     }
-
     int result = add(numbers);
     std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
 
