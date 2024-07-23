@@ -1,10 +1,12 @@
-Here is the Python solution for the problem:
+```
+def camel_case(s):
+    return (
+        "".join(word.capitalize() for word in s.split()[1:]).title()
+        if " " in s
+        else s.replace("-", "").capitalize() 
+        if len(s) > 1
+        else s.lower()
+    )
 
-def camel_case(text):
-    result = ""
-    for word in text.split():
-        if result:
-            result += ''.join(word.capitalize()).lstrip("'").rstrip(" ")
-        else:
-            result += word.replace("-", " ").capitalize().lstrip("'").rstrip(" ")
-    return result
+
+print(camel_case(input()))
