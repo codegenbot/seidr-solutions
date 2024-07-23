@@ -25,7 +25,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    std::cin >> str;
-    std::cout << spinWords(str) << std::endl;
+    cin >> str;
+    cout << spinWords(str) << endl;
     return 0;
 }
