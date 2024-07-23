@@ -1,7 +1,8 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
+// Declare order_by_points function before using it in main
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = abs(a), sumB = abs(b);
@@ -14,6 +15,5 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {
     assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    // Add more test cases if needed
     return 0;
 }
