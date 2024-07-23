@@ -12,3 +12,4 @@ string squareDigitsFunc(string n) {
 int main() {
     cout << squareDigitsFunc("17") << endl;
     return 0;
+}
