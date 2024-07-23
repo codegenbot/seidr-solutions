@@ -19,6 +19,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             sum_right += v[j];
 
         min_diff = abs(sum_left - sum_right);
+        best_cut = i;
     }
 
     left = vector<int>(v.begin(), v.begin() + best_cut+1);
