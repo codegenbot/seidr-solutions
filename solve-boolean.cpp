@@ -1,39 +1,65 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 bool solveBoolean(string expression) {
-    int i = 0;
+    if (expression == "t") return true;
+    if (expression == "f") return false;
     
-    while (i < expression.size()) {
-        if (expression[i] == '|') {
-            string left = expression.substr(0, ++i);
-            int j = i + 1;
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c == '|') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
             
-            for (; j < expression.size(); j++) {
-                if (expression[j] == '&') {
-                    string rightAnd = expression.substr(i, j - i) + "&";
-                    expression.replace(i, j - i + 1, "(solveBoolean(");
-                    expression.insert(j++, ") &&");
-                    expression.insert(++j, ")");
-                    break;
-                }
-                else if (expression[j] == '|') {
-                    string rightOr = expression.substr(i, j - i) + "|";
-                    expression.replace(i, j - i + 1, "(solveBoolean(");
-                    expression.insert(j, ")) || ");
-                    i = j + 2;
-                    break;
-                }
+            while (left.find('&') != string::npos) {
+                int j = left.find('&');
+                string a = left.substr(0, j);
+                string b = left.substr(j + 1);
+                if (!solveBoolean(a))
+                    return false;
+                left = b;
             }
+            
+            while (right.find('&') != string::npos) {
+                int j = right.find('&');
+                string a = right.substr(0, j);
+                string b = right.substr(j + 1);
+                if (!solveBoolean(a))
+                    return false;
+                right = b;
+            }
+            
+            return solveBoolean(left) || solveBoolean(right);
+        } else if (c == '&') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            
+            while (left.find('|') != string::npos) {
+                int j = left.find('|');
+                string a = left.substr(0, j);
+                string b = left.substr(j + 1);
+                if (!solveBoolean(a))
+                    return false;
+                left = b;
+            }
+            
+            while (right.find('|') != string::npos) {
+                int j = right.find('|');
+                string a = right.substr(0, j);
+                string b = right.substr(j + 1);
+                if (!solveBoolean(a))
+                    return false;
+                right = b;
+            }
+            
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
     
-    if (expression.find("t") != string::npos)
-        return true;
-    else
-        return false;
+    return true; // default value
 }
 
 int main() {
