@@ -1,10 +1,29 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include <cin>
 
 using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    
+    vector<int> result = count_up_to(n);
+    
+    if (result.empty()) {
+        cout << "No prime numbers up to " << n << endl;
+    } else {
+        cout << "Prime numbers up to " << n << ":";
+        for (int num : result) {
+            cout << ' ' << num;
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
 
 vector<int> count_up_to(int n) {
     vector<int> result;
@@ -20,16 +39,4 @@ vector<int> count_up_to(int n) {
             result.push_back(i);
     }
     return result;
-
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> primes = count_up_to(n);
-    for(int prime : primes) {
-        cout << prime << " "; 
-    }
-    return 0;
 }
