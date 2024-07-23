@@ -1,14 +1,17 @@
 bool solveBoolean(string s) {
-    bool boolResult = (s == "t");
+    bool boolResult;
+    if(s == "t") boolResult = true;
+    else boolResult = false;
+
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            boolResult &= ((left == "T" || left == "t") && (right == "T" || right == "t"));
+            boolResult &= (left == "t") | (right == "t");
         } else if(s[i] == '|') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            boolResult |= ((left == "T" || left == "t") || (right == "T" || right == "t"));
+            boolResult |= (left == "t") | (right == "t");
         }
     }
     return boolResult ? "True" : "False";
