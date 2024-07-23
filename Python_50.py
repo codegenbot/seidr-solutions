@@ -1,4 +1,6 @@
-def decode_shift(s: str):
+```
+def decode_shift():
+    s = input("Enter the ciphertext: ")
     while True:
         try:
             shift = int(input("Enter the shift value (1-25): "))
