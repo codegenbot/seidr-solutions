@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -36,7 +38,6 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-
     
     int a; 
     cin >> a;
