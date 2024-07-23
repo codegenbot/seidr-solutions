@@ -1,9 +1,7 @@
+```
 def eat(number, need, remaining):
-    return [
-        (
-            (number + max(0, need - (remaining - number)))
-            if remaining >= number
-            else (number + need)
-        ),
-        min(remaining, number + need) - (number + max(0, need - (remaining - number))),
-    ]
+    if remaining < need:
+        total_eaten = need
+    else:
+        total_eaten = number + max(need - (remaining - number), 0)
+    return [total_eaten, remaining - total_eaten]
