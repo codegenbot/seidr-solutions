@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -24,11 +25,11 @@ double find_zero(std::vector<double> coeffs) {
 
 int main() {
     std::vector<double> coeffs = {3, -12, 12, -4};
-    
+
     double solution = find_zero(coeffs);
 
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
-        assert(std::abs(val) < 1e-3); 
+        assert(std::abs(val)< 1e-3); 
     }
 }
