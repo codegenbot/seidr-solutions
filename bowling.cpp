@@ -1,39 +1,19 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    vector<int> rolls;
-
+    int currentFrame = 0;
     for (char c : s) {
-        if (c != '/') {
-            int roll = c - '0';
-            rolls.push_back(roll);
-        } else {
-            if (rolls.size() < currentFrame * 2) {
-                throw invalid_argument("Invalid input");
-            }
-            int strike = (currentFrame == 10 && rolls[framesToIndex(currentFrame, 1)] == 10) ? 1 : 0;
-            score += calculateScore(rolls, currentFrame);
+        if (c == '/') {
             currentFrame++;
-        }
-    }
-
-    return score;
-}
-
-int framesToIndex(int frame, int roll) {
-    if (frame < 1 || frame > 10) {
-        throw invalid_argument("Invalid frame");
-    }
-    return frame * 2 - 1 + roll;
-}
-
-int calculateScore(vector<int> rolls, int currentFrame) {
-    int score = 0;
-    for (int i = framesToIndex(currentFrame, 1); i <= framesToIndex(currentFrame, 2); i++) {
-        if (i < rolls.size()) {
-            score += rolls[i];
-        } else {
-            break;
+            if (currentFrame > 9) return -1; // invalid input
+        } else if (isdigit(c)) {
+            int pins = c - '0';
+            score += pins;
+            if (pins < 10) {
+                for (int i = 1; i <= 2; i++) {
+                    if (s.length() > currentFrame * 2 + i && s[currentFrame * 2 + i] == '/') break;
+                    if (s.length() > currentFrame * 2 + i) score += (s[currentFrame * 2 + i] - '0');
+                }
+            }
         }
     }
     return score;
