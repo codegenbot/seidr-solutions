@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     code_counts = {char: code.count(char) for char in set(code)}
     guess_counts = {char: guess.count(char) for char in set(guess)}
