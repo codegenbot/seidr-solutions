@@ -2,14 +2,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <boost/multiprecision/cpp_int.hpp>
 
-size_t gcd(size_t a, size_t b) {
+size_t gcd(boost::multiprecision::cpp_int a, boost::multiprecision::cpp_int b) {
     while (b != 0) {
-        size_t temp = b;
+        boost::multiprecision::cpp_int temp = b;
         b = a % b;
         a = temp;
     }
-    return a;
+    return a.convert_to<size_t>();
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
@@ -33,15 +34,16 @@ int main() {
     std::string target = "World";
     std::vector<size_t> result;
 
-    size_t GCD = gcd(static_cast<size_t>(909378243576LL), 50); 
-    std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
-    
     result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
     for (size_t i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
+    boost::multiprecision::cpp_int a = 909378243576;
+    int b = 50; 
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, static_cast<boost::multiprecision::cpp_int>(b)) << std::endl;
 
     return 0;
 }
