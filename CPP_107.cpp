@@ -1,15 +1,16 @@
-int even = 0, odd = 0;
-    for (int i = 1; i <= n; ++i) {
-        string s = to_string(i);
-        string rev = s;
-        reverse(rev.begin(), rev.end());
-        if (s == rev) {
-            if (i % 2 == 0) {
-                even++;
-            } else {
-                odd++;
+int count_even = 0;
+        int count_odd = 0;
+        for (int i = 1; i <= n; i++) {
+            string str = to_string(i);
+            string rev_str = str;
+            reverse(rev_str.begin(), rev_str.end());
+            if (str == rev_str) {
+                if (i % 2 == 0) {
+                    count_even++;
+                } else {
+                    count_odd++;
+                }
             }
         }
+        return {count_even, count_odd};
     }
-    return {even, odd};
-}
