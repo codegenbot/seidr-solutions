@@ -1,7 +1,8 @@
+```python
 def fix_spaces(text):
     new_text = ""
     for char in text:
-        if char == " " and new_text: 
+        if char == " " and new_text:  
             new_text += "-"
         elif char == " ":
             new_text += "_"
