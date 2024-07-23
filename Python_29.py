@@ -7,10 +7,6 @@ def filter_by_prefix() -> List[str]:
             user_input = input("Enter a list of strings (space-separated): ")
             strings = user_input.strip()
 
-            if not strings:
-                print("Please enter valid inputs!")
-                continue
-
             prefix = input("Enter a prefix: ")
 
             if not prefix:
@@ -19,7 +15,6 @@ def filter_by_prefix() -> List[str]:
             filtered_strings = [
                 s.strip() for s in strings.split() if s.strip().startswith(prefix)
             ]
-
             return filtered_strings
         except ValueError as e:
             print(f"Error: {e}")
