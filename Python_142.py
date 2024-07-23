@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     if not all(isinstance(i, int) for i in lst):
         return "Input must be a list of integers."
