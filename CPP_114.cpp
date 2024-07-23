@@ -1,30 +1,25 @@
-```cpp
-CPP/114
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cassert>
 
-Given an array of integers nums, find the minimum sum of a subarray that meets the condition: the sum of the subarray is non-negative.
-
-long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = LLONG_MAX;
-    long long current_sum = 0;
-
+long long minSubArraySum(std::vector<long long> nums) {
+    long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
-        current_sum += nums[i];
-
-        if (current_sum < min_sum) {
-            min_sum = current_sum;
-        }
-
-        if (current_sum > 0) {
-            current_sum = 0;
+        sum += nums[i];
+        if (sum < min_sum)
+            min_sum = sum;
+        
+        while(sum > 0){
+            sum -= nums[i];
+            i++;
+            if(sum <= 0) break;
         }
     }
-
     return min_sum;
 }
 
 int main() {
-    vector<long long> nums = {1, -1};
-    long long result = minSubArraySum(nums);
-    cout << "Result: " << result << endl;
+    assert(minSubArraySum({1, -1}) == -1);
     return 0;
 }

@@ -1,4 +1,6 @@
+```cpp
 #include <map>
+using namespace std;
 
 bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
@@ -10,3 +12,5 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
+
+}
