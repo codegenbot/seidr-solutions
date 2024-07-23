@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
@@ -9,22 +8,22 @@ std::string kebabToCamel(const std::string& str) {
         if (str[i] == '-') {
             if (!result.empty()) {
                 if (capitalizeNext) {
-                    result.push_back(' ');
+                    result += ' ';
                     capitalizeNext = false;
                 }
             } else {
                 capitalizeNext = true;
             }
         } else if (capitalizeNext) {
-            result += std::toupper(str[i]);
+            result += toupper(str[i]);
             capitalizeNext = false;
         } else {
-            result += std::tolower(str[i]);
+            result += tolower(str[i]);
         }
     }
 
     if (!result.empty() && !capitalizeNext) {
-        result[0] = std::tolower(result[0]);
+        result[0] = tolower(result[0]);
     }
 
     return result;
