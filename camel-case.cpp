@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -30,3 +28,4 @@ int main() {
     std::cout << "CamelCase representation: " << kebabToCamel(input) << std::endl;
 
     return 0;
+}
