@@ -1,4 +1,6 @@
-int calculateBowlingScore(string s) {
+#include <iostream>
+
+int calculateBowlingScore(std::string s) {
     int score = 0;
     int frame = 0;
     for (int i = 0; i < s.size(); i++) {
@@ -19,8 +21,8 @@ int calculateBowlingScore(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << calculateBowlingScore(s) << std::endl;
     return 0;
 }
