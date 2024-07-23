@@ -17,7 +17,8 @@ int main() {
     cin >> snowMeltingRate;
 
     for (int i = 0; i < hours; i++) {
-        groundSnow += snowFallRate - (groundSnow * snowMeltingRate);
+        float snowGroundAfterHour = groundSnow + snowFallRate - snowMeltingRate;
+        groundSnow = snowGroundAfterHour;
     }
 
     cout << "The amount of snow on the ground after " << hours << " hours is: " << setprecision(10) << fixed << groundSnow;
