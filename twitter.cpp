@@ -12,7 +12,13 @@ int main() {
     }
     int charCount = 0;
     for (char c : tweet) {
-        if (!isspace(c)) {
+        if (std::isprint(c)) {
+            charCount++;
+        } else {
+            if ((unsigned char)c > 127 || (c == '\n' && std::tolower(c) != ' ') 
+                || c == '\r') {
+                continue; // skip non-printable characters
+            }
             charCount++;
         }
     }
