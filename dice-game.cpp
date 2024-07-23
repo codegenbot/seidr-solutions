@@ -7,7 +7,7 @@ using namespace std;
 double probability(int n, int m) {
     double p = 0;
     for (int i = m + 1; i <= n; i++) {
-        p += 1.0 / n;
+        p += (double)1 / n;
     }
     return p;
 }
