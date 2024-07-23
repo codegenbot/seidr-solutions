@@ -1,8 +1,11 @@
+#include <iostream>
 #include <vector>
-bool issame(std::vector<int>, std::vector<int>);
-int eat(int, int, int);
 
-std::pair<int, int> calculate(int number, int need, int remaining) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a[0] == b[0]) && (a[1] == b[1]);
+}
+
+std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int left = total - 1000;
     if (left < 0) {
@@ -12,4 +15,9 @@ std::pair<int, int> calculate(int number, int need, int remaining) {
         left = remaining;
     }
     return {number + need, left};
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), std::vector<int>({9, 0})));
+    return 0;
 }
