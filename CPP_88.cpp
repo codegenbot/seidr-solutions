@@ -17,10 +17,7 @@ std::vector<int> sort_array(std::vector<int> array) {
 
     std::vector<int> result = array;
     std::sort(result.begin(), result.end());
-    if (isOdd) {
-        std::reverse(result.begin(), result.end());
-    }
-
+    
     return result;
 }
 
