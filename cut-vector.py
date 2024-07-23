@@ -1,4 +1,5 @@
 numbers = list(map(int, input().split()))
+
 total_sum = sum(numbers)
 half_sum = total_sum // 2
 cumulative_sum = 0
