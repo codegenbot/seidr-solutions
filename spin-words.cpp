@@ -1,43 +1,45 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(i + 4 >= str.length() || str[i+4] != ' ') {
-            for(int j = i; j < str.length() && str[j] != ' '; j++) {}
-            string word = str.substr(i, j - i);
-            int len = word.length();
-            if(len > 4) {
-                string revWord = "";
-                for(int k = len-1; k >= 0; k--) {
-                    revWord += word[k];
-                }
-                result += std::move(revWord);
-            } else {
-                result += std::move(word);
-            }
-            i = j + 1;
+std::string newWord(std::string str) {
+    std::string reversed = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5)
+                result += newWord(word) + " ";
+            else
+                result += word + " ";
+            word = "";
         } else {
-            int j = i;
-            while(j < str.length() && str[j] != ' ') j++;
-            string word = str.substr(i, j - i);
-            result += std::move(word);
-            i = j + 1;
+            word += c;
         }
     }
-    return std::move(result);
+    
+    if (word.length() >= 5)
+        result += newWord(word);
+    else
+        result += word;
+
+    return result;
 }
 
 int main() {
-    cout << spinWords("a") << endl; // a
-    cout << spinWords("this is a test") << endl; // this is a test
-    cout << spinWords("this is another test") << endl; // this is rehtona test
-    cout << spinWords("hi") << endl; // hi
-
+    // your code here
+    // test the function with different inputs
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
     return 0;
 }
