@@ -1,4 +1,6 @@
-def indices_of_substring(text):
+```
+def indices_of_substring():
+    text = input()
     target = input()
     result = []
     i = 0
@@ -10,6 +12,3 @@ def indices_of_substring(text):
         else:
             break
     return result
-
-text = "Hello world"
-print(indices_of_substring(text))
