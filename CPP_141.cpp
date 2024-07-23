@@ -1,5 +1,3 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
     int count = 0;
     bool foundDot = false;
@@ -23,4 +21,3 @@ string file_name_check(string file_name){
         return "No";
     }
     return "Yes";
-}
