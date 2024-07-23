@@ -11,13 +11,12 @@ std::vector<float> sort_even(std::vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             std::vector<float> even;
-            for (float x : l) {
-                if (x % 2.0f == 0.0f) {
+            for(float x : l){
+                if(x%2==0)
                     even.push_back(x);
-                }
             }
             std::sort(even.begin(), even.end());
-            result.push_back(*even.begin());
+            result.push_back(*std::min_element(even.begin(), even.end()));
         } else {
             result.push_back(l[i]);
         }
