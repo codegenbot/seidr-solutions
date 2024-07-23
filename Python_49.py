@@ -1,16 +1,19 @@
+```
+def powermod(base: int, exponent: int, modulus: int):
+    result = 1
+    base = base % modulus
+    while exponent > 0:
+        if exponent % 2 == 1:
+            result = (result * base) % modulus
+        exponent = exponent // 2
+        base = (base * base) % modulus
+    return result
+
 def modp(n: int, p: int):
     if p <= 1:
         return n
-    elif n % p == 0:
-        return n // p
     elif p % 2 == 0:
-        half_mod = modp(n, p // 2)
-        return powermod(n, half_mod, p)
+        half_mod = modp(-n if n < 0 else n, p // 2)
+        return powermod(-n if n < 0 else n, half_mod, p)
     else:
-        return powermod(n, p, p)
-
-def powermod(base: int, exponent: int, modulus: int):
-    result = 1
-    for _ in range(exponent):
-        result = (result * base) % modulus
-    return result
+        return powermod(-n if n < 0 else n, p, p)
