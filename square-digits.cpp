@@ -17,3 +17,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "The square digits are: " << squareDigits(input) << std::endl;
     return 0;
+}
