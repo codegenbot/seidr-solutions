@@ -26,10 +26,14 @@ bool evaluateBooleanExpression(std::string expression) {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
                 while (!operators.empty()) {
-                    if (operators.top() == '|' && expression[i] == 't') 
-                        operators.pop();
-                    else if (operators.top() == '&' && expression[i] == 'f')
-                        operators.pop();
+                    if (expression[i] == 't' && operators.top() == '|') {
+                        while (!operators.empty() && operators.top() == '|') {
+                            operators.pop();
+                        }
+                    } else if (expression[i] == 'f' && operators.top() == '&') {
+                        while (!operators.empty()) operators.pop();
+                    }
+                    operators.pop();
                 }
             }
             operand += (expression[i] == 't'? "T" : "F");
@@ -37,20 +41,17 @@ bool evaluateBooleanExpression(std::string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (expression[i] == '|') {
+                if (operators.top() == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
                     return operand == "T";
-                } else if (expression[i] == '&') {
+                } else if (operators.top() == '&') {
                     while (!operators.empty()) operators.pop();
                     return operand == "T";
                 }
 
-                if (operators.top() == '|' && expression[i] == 't')
-                    operators.pop();
-                else if (operators.top() == '&' && expression[i] == 'f')
-                    operators.pop();
+                operators.pop();
             }
             operators.pop(); 
         }
