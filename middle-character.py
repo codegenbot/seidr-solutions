@@ -1,6 +1,5 @@
-import re
 def middle_character(s):
-    s = re.sub(r'\W+', '', s).upper()  
+    s = s.strip()
     length = len(s)
     mid = length // 2
     
