@@ -1,3 +1,5 @@
-double number = stod(value);
-return round(number);
+float num = stof(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return (abs(num - lower) < abs(upper - num)) ? lower : upper;
 }
