@@ -1,8 +1,6 @@
-#include <cstring>
-
 bool correct_bracketing(const char* brackets) {
     int count = 0;
-    for(int i=0; brackets[i]; i++){
+    for(int i=0; i<std::strlen(brackets); i++){
         if(*brackets == '<'){
             count++;
         }
@@ -10,7 +8,7 @@ bool correct_bracketing(const char* brackets) {
             if(count <= 0) return false;
             count--;
         }
-        brackets++;
+        brackets = &brackets[i];
     }
     return count == 0;
 }
