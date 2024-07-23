@@ -1,7 +1,7 @@
 ```
 def fib4(n: int):
     if n < 0:
-        return None
+        raise ValueError("n must be a non-negative integer")
     if n <= 3:
         return [0, 0, 2, 0][n]
     a, b, c, d = 0, 0, 2, 0
