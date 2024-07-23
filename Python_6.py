@@ -3,22 +3,16 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    level_stack = []
-
-    for char in paren_string:
+    level = 0
+    for char in paren_string.replace(" ", ""):
         if char == "(":
-            level_stack.append(len(result))
+            level += 1
+            result.append(level)
         elif char == ")":
-            if not level_stack:
-                raise ValueError("Invalid parentheses")
-            top_level = level_stack.pop()
-            while top_level > len(result):
-                result.append(top_level - 1)
-        else:
-            if level_stack:
-                result.append(len(result) + 1)
+            level -= 1
+            result.append(level)
 
-    return [i-1 for i in result]
+    return [i - 1 for i in result]
 
 
 def main():
