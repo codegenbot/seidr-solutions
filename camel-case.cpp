@@ -1,36 +1,22 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++; // skip the dash
-            while (i < str.length() && str[i] == ' ') {
-                i++; // skip spaces
-            }
-            if (!result.empty()) {
-                result += std::toupper(str[i]);
-            } else {
-                result += str[i];
-            }
-        } else if (!result.empty() && !std::isalpha(str[i])) {
-            continue; // ignore non-alphabets
-        } else {
-            if (std::isupper(str[i])) {
-                result += std::string(1, tolower(str[i]));
-            } else {
-                result += str[i];
-            }
+    std::vector<std::string> words;
+    size_t pos = 0, start = 0;
+
+    while ((pos = str.find_first_of(" -")) != std::string::npos) {
+        if (pos > start) {
+            words.push_back(str.substr(start, pos - start));
         }
+        start = pos + 1;
+    }
+
+    if (start < str.length()) {
+        words.push_back(str.substr(start));
+    }
+
+    std::string result = tolower(words[0]);
+    for (int i = 1; i < words.size(); i++) {
+        result += toupper(words[i].substr(0, 1)) + words[i].substr(1);
     }
     return result;
-}
-
-int main() {
-    std::cout << camelCase("nospaceordash") << std::endl; // nospaceordash
-    std::cout << camelCase("two-words") << std::endl; // twoWords
-    std::cout << camelCase("two words") << std::endl; // two words
-    std::cout << camelCase("all separate words") << std::endl; // all separate words
-    return 0;
 }
