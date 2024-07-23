@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -12,13 +12,13 @@ std::string camelCase(std::string s) {
                 i++;
             }
             if (result.length() > 0) {
-                result += std::toupper(s[i]);
+                result += char(toupper(s[i]));
             } else {
                 result += s[i];
             }
         } else {
             if (!result.empty()) {
-                result[0] = std::toupper(result[0]);
+                result[0] = toupper(result[0]);
             }
             result += s[i];
         }
@@ -31,6 +31,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << "CamelCase output: " << camelCase(input) << std::endl;
+    std::cout << "Camel case: " << camelCase(input) << std::endl;
     return 0;
 }
