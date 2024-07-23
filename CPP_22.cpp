@@ -3,13 +3,21 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> filter_integers(const std::vector<int>& vec) {
     std::vector<int> result;
     for (int i : vec) {
-        if (std::isfinite(i)) {
+        if (std::isinstance(i)) {
             result.push_back(i);
         }
     }
