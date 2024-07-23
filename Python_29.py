@@ -1,5 +1,5 @@
 ```
-def filter_by_prefix() -> list:
+def filter_by_prefix() -> list[str]:
     strings = input("Enter a list of strings (space-separated): ")
     prefix = input("Enter a prefix: ")
 
