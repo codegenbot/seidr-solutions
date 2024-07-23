@@ -2,26 +2,25 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    return a;
+    return abs(a);
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m; // Handle overlapping occurrences
+            while ((i + m) <= n && text.substr(i, m) == target)
+                i++; // Handle overlapping occurrences
         }
     }
 
@@ -29,18 +28,20 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "Hello World";
-    string target = "World";
-    vector<int> result = indicesOfSubstring(text, target);
-    cout << "Indices: ";
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    std::string text = "Hello World";
+    std::string target = "World";
+    std::vector<int> result;
 
-    int a = 909378243576;
+    result = indicesOfSubstring(text, target);
+    std::cout << "Indices: ";
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    int a = static_cast<int>(909378243576LL);
     int b = 50; 
-    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
 
     return 0;
 }
