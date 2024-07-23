@@ -1,7 +1,8 @@
 #include <vector>
-using namespace std;
+#include <iostream>
+#include <cassert>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     assert(n > 0);
 
@@ -12,4 +13,10 @@ int smallest_change(vector<int> arr) {
         }
     }
 
-    return changes - 1;
+    return changes;
+}
+
+int main() {
+    std::cout << smallest_change({0, 1}) << std::endl;
+    return 0;
+}
