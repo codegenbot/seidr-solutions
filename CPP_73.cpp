@@ -1,18 +1,24 @@
 ```cpp
 #include <vector>
-using namespace std;
+#include <iostream>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    
-    // Initialize changes to 0
+    assert(n > 0);
+
     int changes = 0;
-    
-    for (int i = 1; i < n; i++) {
-        if (abs(arr[i] - arr[i-1]) > 1) {
-            changes += abs(arr[i] - arr[i-1]) - 1;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] != arr[j]) {
+                changes++;
+            }
         }
     }
-    
+
     return changes;
+}
+
+int main() {
+    std::cout << smallest_change({0, 1}) << std::endl;
+    return 0;
 }
