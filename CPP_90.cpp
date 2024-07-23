@@ -1,10 +1,11 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 int findSmallest(vector<int> lst) {
-    vector<int> sorted(lst);
+    vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1;
@@ -12,10 +13,11 @@ int findSmallest(vector<int> lst) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -1;
+    return -12;
+
 }
 
 int main() {
-    cout << next_smallest({-35, 34, 12, -45}) << endl;
+    cout << findSmallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
