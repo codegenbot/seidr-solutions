@@ -1,34 +1,34 @@
-Here's the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(const std::string& input) {
+    std::string output;
+    size_t start = 0;
 
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
-    
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
+    for (size_t i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || input[i] == ' ') {
+            size_t length = i - start;
+            std::string word = input.substr(start, length);
+
+            if (length >= 5)
+                std::reverse(word.begin(), word.end());
+
+            output += word;
+
+            if (i < input.size())
+                output += ' ';
+
             start = i + 1;
         }
     }
-    
-    return result.substr(0, result.length() - 1);
+
+    return output;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    cout << spinWords(str) << endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << '\n';
+    }
     return 0;
 }
