@@ -7,7 +7,7 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow = std::nearbyint(totalSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
+        totalSnow += nearbyint(rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow);
     }
     return totalSnow;
 }
