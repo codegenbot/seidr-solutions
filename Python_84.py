@@ -1,4 +1,3 @@
-```
 def solve():
     N = int(input())
     ones = bin(N).count('1')
