@@ -1,4 +1,4 @@
-```
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    result = sorted(set(numbers))
-    return result
+    seen = set()
+    result = [num for num in numbers if not (seen.add(num) or True)]
+    return list(result)
