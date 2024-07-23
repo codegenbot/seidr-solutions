@@ -1,13 +1,12 @@
-```
 def luhn(card_number):
-    card_number = list(map(int, ''.join(card_number.replace(" ", "").replace(",", "")).split()))
+    card_number = list(map(int, [i for i in card_number.replace(" ", "").replace(",", "")]))
     total = 0
-    is_second = False
-    for digit in card_number:
-        if is_second:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        is_second = not is_second
-        total += digit
+    for i in range(len(card_number)):
+        if (len(card_number) - i) % 2 == 1:
+            temp = card_number[i] * 2
+            if temp > 9:
+                card_number[i] = temp - 9
+            else:
+                card_number[i] = temp
+        total += card_number[i]
     return total
