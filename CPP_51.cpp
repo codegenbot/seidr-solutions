@@ -1,4 +1,3 @@
-````
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -18,4 +17,3 @@ int main()
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
-```
