@@ -1,6 +1,4 @@
-```
 #include <map>
-#include <unordered_map>
 
 bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
