@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -18,9 +17,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    int result = 0;
+    int test_result = 0;
+
     if (!issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
-        result = 1;
+        test_result = 1;
     }
-    return result;
+    
+    return test_result;
 }
