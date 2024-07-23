@@ -6,4 +6,3 @@ def indices_of_substring(text):
         result.append(pos)
         pos = text.find(target, pos + len(target))
     return result
-print(indices_of_substring("F[g([g(y[g([g(H~[g,[ "))
