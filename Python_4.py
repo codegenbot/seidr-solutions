@@ -8,11 +8,9 @@ def mean_absolute_deviation() -> float:
         
         try:
             numbers_list = [float(num) for num in numbers_str.split(",")]
-            if len(numbers_list) < 2:
-                return statistics.mean(numbers_list)
             result = statistics.mean([abs(num - statistics.mean(numbers_list)) for num in numbers_list])
             return result
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
-    
+
 print(mean_absolute_deviation())
