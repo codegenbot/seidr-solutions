@@ -25,7 +25,6 @@ bool same(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
-
 }
 
 int main() {
