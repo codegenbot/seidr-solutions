@@ -9,6 +9,6 @@ vector<int> pluck(vector<int> arr) {
     while (*it % 2 != 0)
         it++;
     
-    result.push_back(*it);
+    result.push_back(*it);  
     return result;
 }
