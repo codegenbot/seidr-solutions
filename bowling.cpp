@@ -1,4 +1,8 @@
+```cpp
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -27,3 +31,11 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
+
+int main() {
+    string input = "XXXX/0/00"; // Replace with user input or test case
+    int score = bowlingScore(input);
+    cout << "The score is: " << score << endl;
+    return 0;
+}
