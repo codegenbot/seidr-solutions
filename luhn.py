@@ -1,6 +1,6 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
+    card_number.reverse()  
     total = 0
     double = False
     for digit in card_number:
