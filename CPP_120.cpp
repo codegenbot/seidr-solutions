@@ -23,7 +23,7 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 
 int main()
 {
-    if(issame({1, 2, 3, -23, 243, -400, 0}, std::vector<int>(maximum({1, 2, 3, -23, 243, -400, 0}, 0)) ) {
+    if(issame(std::vector<int>(maximum({1, 2, 3, -23, 243, -400, 0}, 0)) , std::vector<int>())) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
