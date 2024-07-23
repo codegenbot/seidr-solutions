@@ -19,7 +19,7 @@ int main() {
         totalDistance += 2 * startHeight;
     }
 
-    cout << fixed << setprecision(10);
+    cout << fixed << setprecision(6);
     cout << totalDistance << endl;
 
     return 0;
