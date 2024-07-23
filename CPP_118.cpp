@@ -1,24 +1,32 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (std::find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
+    return (find(vowels.begin(), vowels.end(), tolower(c)) != vowels.end());
 }
 
 std::string get_closest_vowel(std::string word) {
-    int closest = -1;
+    int minDist = INT_MAX;
+    char closestVowel = '\0';
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
-            if (closest == -1)
-                closest = i;
-            else
-                return (word[closest] <= word[i]) ? std::string(1, tolower(word[closest])) : std::string(1, tolower(word[i]));
+            if(i < minDist) {
+                minDist = i;
+                closestVowel = tolower(word[i]);
+            }
         }
     }
-    return "No vowels in the string";
+    std::string output = "";
+    if (minDist != INT_MAX) {
+        output += closestVowel;
+    } else {
+        output = "None";
+    }
+    return output;
 }
 
 int main() {
