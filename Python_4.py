@@ -1,12 +1,15 @@
-from typing import List
-import statistics
-
+```
 from typing import List
 import statistics
 
 def mean_absolute_deviation() -> float:
     while True:
         numbers_str = input("Enter comma-separated float values: ")
+        
+        if not numbers_str:
+            print("No input provided. Please try again.")
+            continue
+        
         numbers_list = [float(num) for num in numbers_str.split(",")]
         
         if all(isinstance(num, (int, float)) for num in numbers_list):
