@@ -1,45 +1,61 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <string>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<pair<int, pair<int, int>>> edges;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (i > 0) edges.push_back({grid[i][j], {i - 1, j}});
-            if (i < grid.size() - 1) edges.push_back({grid[i][j], {i + 1, j}});
-            if (j > 0) edges.push_back({grid[i][j], {i, j - 1}});
-            if (j < grid[0].size() - 1) edges.push_back({grid[i][j], {i, j + 1}});
+    int n = grid.size();
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) neighbors[i].push_back({grid[i][j], make_pair(i-1, j)});
+            if (i < n-1) neighbors[i].push_back({grid[i][j], make_pair(i+1, j)});
+            if (j > 0) neighbors[i].push_back({grid[i][j], make_pair(i, j-1)});
+            if (j < n-1) neighbors[i].push_back({grid[i][j], make_pair(i, j+1)});
         }
     }
 
-    vector<int> path;
-    for (int i = 0; i <= k; i++) {
-        int val = INT_MAX;
-        pair<int, int> nextCell;
-        int j = 0;
-        for (auto& edge : edges) {
-            int x = get<1>(edge.second);
-            if (i > 0 && x == j - 1) continue;
-            if (i < grid.size() - 1 && x == j + 1) continue;
-            if (j > 0 && x == i - 1) continue;
-            if (j < grid[0].size() - 1 && x == i + 1) continue;
-            if (grid[edge.first][0] < val) {
-                val = grid[edge.first][0];
-                nextCell = edge.second;
-            }
+    vector<int> res;
+    queue<pair<vector<int>, int>> q; // {path, length}
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            q.push({{grid[i][j]}, 1});
         }
-        path.push_back(val);
-        j = get<1>(nextCell.second);
     }
 
-    return path;
+    while (!q.empty()) {
+        auto [path, len] = q.front(); q.pop();
+        if (len == k) {
+            return path;
+        }
+        for (auto& neighbor : neighbors[path.back()[0]][0].second) {
+            int val = neighbor.first;
+            vector<int> newPath(path);
+            newPath.push_back(val);
+            q.push({newPath, len + 1});
+        }
+    }
+
+    return {};
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (auto val : result) cout << val << " ";
+    // Test cases
+    vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cout << "{";
+    for (auto val : minPath(grid1, 3)) {
+        cout << val << " ";
+    }
+    cout << "}\n";
+
+    vector<vector<int>> grid2 = {{5, 9, 3}, {4, 1, 6}, {7, 8, 2}};
+    cout << "{";
+    for (auto val : minPath(grid2, 1)) {
+        cout << val << " ";
+    }
+    cout << "}\n";
+
     return 0;
 }
