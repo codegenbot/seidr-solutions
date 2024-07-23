@@ -1,4 +1,6 @@
 def spin_words(sentence):
+    if len(sentence) == 1:
+        return sentence
     words = sentence.split()
     result = []
     for word in words:
