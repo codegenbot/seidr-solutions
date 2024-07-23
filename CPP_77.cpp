@@ -1,3 +1,3 @@
-int b = round(pow(a, 1.0/3));
-    return a == b * b * b;
+int root = round(cbrt(fabs(a)));
+    return a == root*root*root;
 }
