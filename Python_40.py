@@ -1,15 +1,7 @@
-```
 def triples_sum_to_zero(l: list):
-    l.sort()
-    for i in range(len(l) - 2):
-        left = i + 1
-        right = len(l) - 1
-        while left < right:
-            current_sum = l[i] + l[left] + l[right]
-            if current_sum == 0:
-                return True
-            elif current_sum < 0:
-                left += 1
-            else:
-                right -= 1
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            for k in range(j+1, len(l)):
+                if l[i] + l[j] + l[k] == 0:
+                    return True
     return False
