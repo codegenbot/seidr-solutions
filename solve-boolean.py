@@ -20,4 +20,4 @@ def solve_boolean(expression):
                 ops = {'&': all, '|': any}[char]
         while len(stack) > 1:
             stack.pop()
-        return eval(ops(*stack))
+        return ops(*stack)
