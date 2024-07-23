@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -21,4 +21,4 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     return result;
 }
 
-assert(do_algebra({{"+"}, {1}}) == 2);
+assert(do_algebra({std::string{"/"}, std::string{"*"}}, {7, 3, 4}) == 8);

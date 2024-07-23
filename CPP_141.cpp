@@ -10,7 +10,7 @@ std::string file_name_check(std::string file_name){
             digit_count++;
         } else if(c == '.'){
             has_dot = true;
-        } else if(!has_dot && !isalpha(c) || !has_dot && std::any_of(file_name.begin(), file_name.end(), isalpha)){
+        } else if(!has_dot && !isalpha(c) || (has_dot && !std::any_of(file_name.begin(), file_name.end(), isalpha))){
             return "No";
         }
     }
