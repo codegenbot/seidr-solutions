@@ -1,2 +1,8 @@
-sort(l.begin(), l.end(), [](int a, int b) { return a % 3 == 0 && a < b; });
-return l;
+vector<int> res = l;
+    for (int i = 0; i < l.size(); i++) {
+        if ((i + 1) % 3 == 0) {
+            sort(res.begin() + i - 2, res.begin() + i + 1);
+        }
+    }
+    return res;
+}
