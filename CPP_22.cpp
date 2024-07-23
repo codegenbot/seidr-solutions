@@ -1,7 +1,6 @@
-```cpp
+#include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
 
 using namespace std;
 using namespace boost;
@@ -9,13 +8,15 @@ using namespace boost;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).good()) {
-            result.push_back(any_cast<int>(value));
+        if (any_cast<int>(value).type() == typeid(int)) {
+            int num = any_cast<int>(value);
+            if (!num) continue; // 0 is considered as not present
+            result.push_back(num);
         }
     }
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
