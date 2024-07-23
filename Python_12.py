@@ -1,20 +1,21 @@
-```python
-from typing import Optional, list
+from typing import Optional, List
 
 
-def longest(strings: list[str]) -> Optional[str]:
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
 
     def is_printable(s: str) -> bool:
         return all(32 <= ord(c) < 127 for c in s)
 
-    while True:
-        user_input = input("Please enter a list of strings separated by comma: ")
-        try:
-            strings = [s.strip() for s in user_input.split(',')]
-            break
-        except ValueError:
-            print("Invalid input. Please try again.")
-    
     return max((s for s in strings if is_printable(s)), key=len)
+
+
+if __name__ == "__main__":
+    input_list = input("Enter a list of strings separated by space: ")
+    strings = [s.strip() for s in input_list.split()]
+    result = longest(strings)
+    if result is None:
+        print("No printable strings found.")
+    else:
+        print(f"The longest printable string is: {result}")
