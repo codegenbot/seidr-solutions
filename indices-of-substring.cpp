@@ -12,13 +12,12 @@ vector<int> indicesOfSubstring(string text, string target) {
         for (int j = 0; j < target.size(); j++) {
             if (text[i + j] != target[j]) {
                 found = false;
-                i += 1; // increment i only when not found
                 break;
             }
         }
         if (found) {
             result.push_back(i);
-            i += target.size();
+            i = i + 1;
         } else {
             i++;
         }
