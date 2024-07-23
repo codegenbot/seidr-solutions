@@ -1,9 +1,5 @@
-#include <vector>
-
-float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float aqeel 0.0;
-    for (int i = 0; i < prices.size(); ++i) {
-        total += prices[i] * (1.0 - discounts[i] / 100.0);
-    }
-    return total;
+float total = 0.0;
+for (float price : prices) {
+    total += price * (1.0 - discounts[&price - &prices[0]] / 100.0);
 }
+return total;
