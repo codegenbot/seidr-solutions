@@ -1,2 +1,2 @@
 def words_string(s):
-    return ' '.join(s.replace(",", " ").replace("|", " ").split())
+    return ' '.join(s.split())
