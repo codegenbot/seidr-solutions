@@ -1,32 +1,16 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string fizzBuzz(int x) {
     std::string result = "";
 
-    if (x % 3 == 0 && x % 5 == 0) {
-        result = "FizzBuzz";
-    } else if (x % 5 == 0) {
-        if (result.empty()) {
-            result = "Buzz";
-        }
-    } else if (x % 3 == 0) {
-        if (result.empty()) {
+    if (x % 3 == 0) {
+        if (x % 5 == 0) {
+            result = "FizzBuzz";
+        } else {
             result = "Fizz";
         }
+    } else if (x % 5 == 0) {
+        result = "Buzz";
     }
 
-    if (result.empty()) {
-        return std::to_string(x);
-    }
-
-    return result;
-}
-
-int main() {
-    int input;
-    std::cout << "Enter an integer: ";
-    std::cin >> input;
-    std::cout << fizzBuzz(input) << std::endl;
-    return 0;
+    return result.empty() ? std::to_string(x) : result;
 }
