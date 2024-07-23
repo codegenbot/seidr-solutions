@@ -11,9 +11,9 @@ int main() {
         cout << "You didn't type anything";
         return 0;
     }
-    int charCount = 0;
-    for (char c : tweet) {
-        charCount++;
+    size_t charCount = 0;
+    for (const auto& c : tweet) {
+        ++charCount;
     }
     if (charCount > 140) {
         cout << "Too many characters";
@@ -21,3 +21,4 @@ int main() {
     }
     cout << "Your tweet has " << charCount << " characters";
     return 0;
+}
