@@ -1,8 +1,6 @@
+```cpp
 #include <vector>
 #include <utility>
-#include <limits> // for INT_MAX
-#include <cmath>  // for abs
-#include <climits> // for INT_MAX
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int min_diff = INT_MAX;
@@ -16,7 +14,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
 
-    std::vector<int> left(v.begin(), v.begin() + cut_index);
+    std::vector<int> left;
+    left.insert(left.end(), v.begin(), v.begin() + cut_index);
     std::vector<int> right(v.begin() + cut_index, v.end());
     return {left, right};
 }
