@@ -5,7 +5,7 @@ def shopping_list():
         for _ in range(n):
             price = float(input())
             discount = float(input()) / 100
-            total_price += price * (1 - discount)
+            total_price += round(price * (1 - discount), 2)
         return f"{total_price:.2f}"
     except Exception as e:
         print(f"An error occurred: {e}")
