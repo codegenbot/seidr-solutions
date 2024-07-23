@@ -1,14 +1,13 @@
 int main() {
-    string str;
-    cin >> str;
-
-    int len = str.length();
+    string s;
+    cin >> s;
     
-    if (len % 2 == 0) {
-        cout << str.substr(len/2 - 1, 2);
+    int len = s.length();
+    if(len % 2 == 1) {
+        cout << s.substr(len/2, 1) << endl;
     } else {
-        cout << str.substr(len/2, 1);
+        cout << s.substr(len/2 - 1, 2) << endl;
     }
-
+    
     return 0;
 }
