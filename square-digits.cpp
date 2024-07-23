@@ -1,8 +1,18 @@
+```c++
+#include <string>
+using namespace std;
+
 string squareDigits(int n) {
     string str = to_string(n);
+    string result;
     for (char c : str) {
         int digit = c - '0';
-        str += to_string(digit * digit);
+        result += to_string(digit * digit);
     }
-    return str;
+    std::ostringstream oss;
+    for (char c : str) {
+        int digit = c - '0';
+        oss << digit * digit;
+    }
+    return oss.str();
 }
