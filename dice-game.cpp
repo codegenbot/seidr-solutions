@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 double probability(int, int);
