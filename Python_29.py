@@ -10,6 +10,7 @@ def filter_by_prefix():
             if not strings or not prefix:
                 raise ValueError("Please enter valid inputs!")
 
-            return [s.strip() for s in strings.split()] if strings else [], prefix
+            filtered_strings = [s.strip() for s in strings.split()] if strings else []
+            return filtered_strings, prefix
         except ValueError as e:
             print(f"Error: {e}")
