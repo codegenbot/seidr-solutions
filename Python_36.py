@@ -1,11 +1,11 @@
 def fizz_buzz(n: int):
-    count = 0
-    for i in range(1, n + 1):  
+    result = 0
+    for i in range(1, n + 1):
         if i % 3 == 0:
             if i % 5 == 0:
-                count += 1
+                result += "FizzBuzz".count('3') - "FizzBuzz".count('6')
             else:
-                count += (str(i).count('3') - str(i).count('6') > 0)
+                result += str(i).count('3') - str(i).count('6')
         elif i % 5 == 0:
-            count += (str(i).count('5') - str(i).count('50') > 0)
-    return count
+            result += "Buzz".count('5') - "Buzz".count('50')
+    return result
