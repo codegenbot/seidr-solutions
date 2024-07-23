@@ -1,16 +1,15 @@
-#include <vector>
-#include <assert.h>
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     assert(n > 0);
 
-    int changes = 1;
+    int changes = 0;
+    int last_unique = arr[0];
     for (int i = 1; i < n; i++) {
-        if (arr[i] != arr[i - 1]) {
+        if (arr[i] == last_unique) {
             changes++;
+            last_unique = arr[i];
         }
     }
 
-    return changes - 1;
+    return changes;
 }
