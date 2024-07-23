@@ -4,30 +4,27 @@
 
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
+pair<int, int> mastermind(string code, string guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
     
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++blackPegs;
         }
     }
     
-    for(int i = 0; i < 4; i++) {
+    for (char c : guess) {
         bool found = false;
-        for(int j = 0; j < 4; j++) {
-            if(guess[j] == code[i] && i != j) {
+        for (int i = 0; i < 4; ++i) {
+            if (c == code[i] && !found) {
+                ++whitePegs;
                 found = true;
-                break;
             }
         }
-        if(!found) {
-            white++;
-        }
     }
     
-    return make_pair(black, white);
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
