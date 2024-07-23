@@ -6,4 +6,4 @@ def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
             deciphered_text += cipher_text2[index]
         else:
             deciphered_text += char
-    return deciphered_text
+    return deciphered_text.upper()
