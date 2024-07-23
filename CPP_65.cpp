@@ -1,3 +1,4 @@
+```cpp
 string circular_shift(int x, int shift) {
     string str = to_string(x);
     int n = str.length();
