@@ -1,14 +1,4 @@
-```cpp
-#include <string>
-#include <cctype>
-#include <cstring>
-
 std::string remove_vowels(std::string text) {
-    std::string result = "";
-    for (char c : text) {
-        if (!strchr("aeiouAEIOU", c) && !std::isalnum(c)) {
-            result += c;
-        }
-    }
-    return result;
+    return {{ std::remove_if(text.begin(), text.end(), 
+        [](char c){return "aeiouAEIOU".find(c) != std::string::npos;}) , text.end()};
 }
