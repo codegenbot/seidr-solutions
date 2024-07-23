@@ -8,19 +8,21 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = 0; // Correct initial value
+    int min_diff = INT_MAX;
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
-        int sum_left = 0, sum_right = 0;
+        int sum_left = 0;
         for (int j = 0; j <= i; j++)
             sum_left += v[j];
+        int left_sum = sum_left;
+        int right_sum = 0;
         for (int j = i + 1; j < n; j++)
-            sum_right += v[j];
+            right_sum += v[j];
 
-        int diff = (sum_left != sum_right) ? abs(sum_left - sum_right) : best_cut;
-        if (diff < min_diff) {
-            min_diff = diff;
+        int left_diff = abs(left_sum - right_sum);
+        if (left_diff < min_diff) {
+            min_diff = left_diff;
             best_cut = i;
         }
     }
