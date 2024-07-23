@@ -1,4 +1,4 @@
-int a = 0, b = 0, c = 2, d = 0, e;
+int a = 0, b = 0, c = 2, d = 0, e = 0;
     for (int i = 4; i <= n; ++i) {
         e = a + b + c + d;
         a = b;
@@ -6,5 +6,5 @@ int a = 0, b = 0, c = 2, d = 0, e;
         c = d;
         d = e;
     }
-    return d;
+    return e;
 }
