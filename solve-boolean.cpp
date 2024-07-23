@@ -1,27 +1,29 @@
 #include <string>
 #include <stack>
-using namespace std;
 
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = false;
-    stack<char> st;
+    std::stack<char> stack;
+
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
             result = true;
         } else if (s[i] == 'F') {
             result = false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+            while (!stack.empty() && stack.top() == '&') {
+                stack.pop();
             }
-            if (st.empty()) return true;
-            else st.push('|');
+            if (stack.empty()) return true;
+            else stack.push('|');
         } else if (s[i] == '&') {
-            st.push('&');
+            stack.push('&');
         }
     }
-    while (!st.empty() && st.top() == '&') {
-        st.pop();
+
+    while (!stack.empty() && stack.top() == '&') {
+        stack.pop();
     }
+
     return result;
 }
