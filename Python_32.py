@@ -1,8 +1,9 @@
-Here is the solution:
+```
+import math
 
 def find_zero(xs: list):
     n = len(xs)
-    assert n % 2 == 0, "xs must have even number of coefficients"
+    assert n % 2 == 0, 
     a = xs[0]
     b = xs[1]
     c = xs[2] if n > 2 else None
