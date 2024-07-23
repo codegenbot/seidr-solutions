@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+
 using namespace std;
 
 float shoppingList(float price[], int n, float discount[]) {
@@ -26,6 +27,7 @@ int main() {
         cin >> d;
     }
 
-    cout << fixed << setprecision(1) << shoppingList(&prices[0], n, &discounts[0]) << endl;
+    cout << fixed << setprecision(2) << shoppingList(&prices[0], n, &discounts[0]) << "\n";
 
     return 0;
+}
