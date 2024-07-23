@@ -1,3 +1,4 @@
+```
 #include <stack>
 #include <string>
 #include <iostream>
@@ -71,8 +72,8 @@ int main() {
     std::cin >> expression;
     bool result = evaluateBooleanExpression(expression);
     if (result)
-        std::cout << "True";
+        std::cout << "True" << std::endl;
     else
-        std::cout << "False";
+        std::cout << "False" << std::endl;
     return 0;
 }
