@@ -1,5 +1,4 @@
-```
-def find_zero(xs: list):
+def find_zero():
     xs = list(map(float, input("Enter coefficients (a, b, c): ").split()))
     if len(xs) < 3:
         raise ValueError("xs must have at least three coefficients")
