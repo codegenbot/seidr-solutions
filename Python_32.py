@@ -1,4 +1,7 @@
-def find_zero(xs: list):
+```
+def find_zero():
+    xs = input("Enter coefficients (as a space-separated list): ").split()
+    xs = [float(i) for i in xs]
     if len(xs) < 3:
         raise ValueError("xs must have at least three coefficients")
 
@@ -6,11 +9,5 @@ def find_zero(xs: list):
     b = xs[1]
     c = sum(xs[2:]) / (len(xs) - 2)
 
-    d = b**2 - 4*a*c
-
-    if d >= 0: 
-        x = (-b + math.sqrt(d)) / (2 * a)
-        return round(x, 10)
-    else:
-        x = (-b - math.sqrt(-d)) / (2 * a)
-        return round(x, 10), xs
+    x = (-b + ((b ** 2 - 4 * a * c) ** 0.5)) / (2 * a)
+    return round(x, 10)
