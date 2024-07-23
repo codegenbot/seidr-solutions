@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for fixed and std::setprecision
+#include <iomanip> // for fixed and setprecision
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
