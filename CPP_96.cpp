@@ -1,5 +1,4 @@
-vector<int> count_up_to(int n){
-    vector<int> primes;
+vector<int> result;
     for (int i = 2; i < n; ++i) {
         bool is_prime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -9,8 +8,7 @@ vector<int> count_up_to(int n){
             }
         }
         if (is_prime) {
-            primes.push_back(i);
+            result.push_back(i);
         }
     }
-    return primes;
-}
+    return result;
