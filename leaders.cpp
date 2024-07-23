@@ -1,4 +1,7 @@
 #include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> findLeaders(vector<int> arr) {
     vector<int> leaders;
     int n = arr.size();
