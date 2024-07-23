@@ -1,17 +1,25 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    for (char c : str) {
-        if (c == 'X') {
+    bool lastRoll = false;
+
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
             score += 30;
-            currentRoll = 0;
-        } else if (c == '/') {
-            score += currentRoll + 10;
-            currentRoll = 0;
-        } else if (isdigit(c)) {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+            lastRoll = true;
+        } else if (s[i] == '/') {
+            int roll1 = s[i - 1] - '0';
+            int roll2 = s[i + 1] - '0';
+            score += roll1 + roll2;
+            lastRoll = false;
+        } else {
+            int roll = s[i] - '0';
+            if (lastRoll) {
+                score += roll * 2;
+            } else {
+                score += roll;
+            }
         }
     }
+
     return score;
 }
