@@ -1,7 +1,8 @@
-```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 int main() {
@@ -11,12 +12,7 @@ int main() {
     if (tweet.empty()) {
         cout << "You didn't type anything\n";
     } else {
-        int charCount = 0;
-        for (char c : tweet) {
-            if (std::isprint(c)) { 
-                charCount++;
-            }
-        }
+        int charCount = count(tweet.begin(), tweet.end(), '\0');
         if (charCount > 140) {
             cout << "Too many characters\n";
         } else {
@@ -24,4 +20,3 @@ int main() {
         }
     }
     return 0;
-}
