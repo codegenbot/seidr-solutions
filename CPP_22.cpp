@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,19 +9,7 @@ bool filter_integers(std::vector<int> inputVector) {
             evenNumbers.push_back(inputVector[i]);
         }
     }
-    return !evenNumbers.empty();
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return evenNumbers.empty() ? false : true;
 }
 
 int main() {
@@ -31,13 +20,14 @@ int main() {
     std::vector<int> inputVector(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> inputVector[i];
+        int num;
+        std::cin >> num;
+        inputVector[i] = num;
     }
 
     std::vector<int> filteredVector = filter_integers(inputVector);
 
-    bool isSame = issame(filteredVector, inputVector);
-    if (isSame) {
+    if (std::equal(filteredVector.begin(), filteredVector.end(), inputVector.begin())) {
         std::cout << "The even numbers are the same as the original list." << std::endl;
     } else {
         std::cout << "The even numbers are different from the original list." << std::endl;
