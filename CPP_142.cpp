@@ -5,3 +5,4 @@ int sum_squares(std::vector<int> lst) {
             result += lst[i] * lst[i];
     }
     return result;
+}
