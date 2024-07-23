@@ -8,8 +8,9 @@ cut_index = 1
 
 for i in range(1, n):
     left_sum += arr[i - 1]
-    diff = abs(left_sum - (total_sum - left_sum))
-    if diff < min_diff:
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
