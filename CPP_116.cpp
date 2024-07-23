@@ -4,8 +4,8 @@
 
 int main() {
     std::vector<int> arr = {2,4,8,16,32};
-    int res = 0; // To satisfy the return type of main()
-    assert(res == sort_array(arr).size()); // Check if array is sorted
+    int res = sort_array(arr).size(); // To satisfy the return type of main()
+    assert(issame(arr,sort_array(arr))); // Check if array is sorted
     return res;
 }
 
