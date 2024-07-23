@@ -10,7 +10,7 @@ int calculateFrameScore(const std::string& s, int index) {
             if (s[nextIndex] == 'X') {
                 frameScore += 10;
             } else if (s[nextIndex] == '/') {
-                frameScore += 10 - (s[nextIndex - 1] - '0');
+                frameScore += 10;
             } else {
                 frameScore += s[nextIndex] - '0';
             }
@@ -19,11 +19,7 @@ int calculateFrameScore(const std::string& s, int index) {
         }
         return frameScore;
     } else if (s[index] == '/') {
-        if (s[index - 2] == 'X') {
-            return 20;
-        } else {
-            return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
-        }
+        return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
     } else {
         return 0;
     }
