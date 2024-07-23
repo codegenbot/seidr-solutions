@@ -1,9 +1,7 @@
-```
-#include <string>
-
+```cpp
 using namespace std;
 
-std::string solveBoolean(std::string s) {
+string solveBoolean(string s) {
     bool result = (s == "t");
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
