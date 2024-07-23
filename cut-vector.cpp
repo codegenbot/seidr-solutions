@@ -4,28 +4,41 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    
-    int min_diff = INT_MAX;
-    int best_cut = -1;
+    long long left_sum = 0;
+    long long right_sum = 0;
     
     for (int i = 0; i < n; i++) {
-        int sum_left = 0, sum_right = 0;
-        for (int j = 0; j <= i; j++)
-            sum_left += v[j];
-        for (int j = i + 1; j < n; j++)
-            sum_right += v[j];
-
-        int diff = abs(sum_left - sum_right);
-        if (diff < min_diff) {
-            min_diff = diff;
-            best_cut = i;
+        if (i <= (n - i)) {
+            left_sum += v[i];
+        } else {
+            right_sum += v[i];
         }
     }
-
-    vector<int> left(v.begin(), v.begin() + best_cut);
-    vector<int> right(v.begin() + best_cut, v.end());
     
-    return {{left}, {right}};
+    vector<int> left;
+    int cut_index = 0;
+    long long min_diff = INT_MAX;
+    
+    for (int i = 0; i < n; i++) {
+        if (i <= (n - i)) {
+            left_sum -= v[i];
+            right_sum += v[i];
+        } else {
+            left_sum += v[i];
+            right_sum -= v[i];
+        }
+        
+        long long diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
+        }
+    }
+    
+    vector<int> right(v.begin() + cut_index, v.end());
+    vector<int> left_v(v.begin(), v.begin() + cut_index);
+
+    return {{left_v}, {right}};
 }
 
 int main() {
