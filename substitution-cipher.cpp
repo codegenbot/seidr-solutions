@@ -30,3 +30,4 @@ int main() {
     std::string result = substitutionCipher(cipher1, cipher2, message);
     std::cout << "Deciphered message: " << result << std::endl;
     return 0;
+}
