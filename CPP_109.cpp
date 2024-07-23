@@ -11,7 +11,7 @@ int n = arr.size();
     }
     
     for (int i = 0; i < n; i++) {
-        if (arr[(minIndex + i) % n] != i + 1) {
+        if (arr[(minIndex + i) % n] != arr[i]) {
             return false;
         }
     }
