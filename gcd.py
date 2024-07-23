@@ -1,4 +1,6 @@
+import math
+
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
+    if b == 0:
+        return abs(a)
+    return abs(gcd(b, a % b))
