@@ -1,20 +1,10 @@
+```
 def substitution_cipher():
-    cipher_map = list(input())
+    cipher_map = str(input())
     text_to_decrypt = str(input())
-    mapping_key = []
-    mapping_value = []
-
-    for i in range(0, len(cipher_map), 2):
-        mapping_key.append(cipher_map[i])
-        mapping_value.append(cipher_map[i + 1])
-
-    decrypted_text = ""
-
-    for char in text_to_decrypt:
-        if char in mapping_key:
-            index = mapping_key.index(char)
-            decrypted_text += mapping_value[index]
-        else:
-            decrypted_text += char
-
+    map_list = list(cipher_map)
+    map_key, map_value = zip(*[x.split() for x in [cipher_map[i:i+2] for i in range(0,len(cipher_map), 2)]])
+    
+    decrypted_text = "".join([map_value[map_list.index(char)] if char in map_list else char for char in text_to_decrypt])
+    
     return decrypted_text
