@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -14,8 +13,10 @@ bool simplify(string x, string n) {
     numerator2 = stoi(n.substr(0, pos));
     denominator2 = stoi(n.substr(pos + 1));
 
+    int productNumerator = numerator1 * numerator2;
     if (denominator2 != 0) {
         int productDenominator = denominator1 * denominator2;
         return productNumerator % productDenominator == 0;
     }
+    return false;
 }
