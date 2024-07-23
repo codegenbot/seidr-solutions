@@ -1,9 +1,16 @@
-Here is the solution:
-
 double probability(int n, int m) {
-    double sum = 0.0;
+    double total = (double)n * m;
+    double count = 0;
+
     for (int i = 1; i <= n; i++) {
-        sum += 1.0 / n;
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                count++;
+            } else if (i < j) {
+                count++;
+            }
+        }
     }
-    return sum - (1.0 / m);
+
+    return count / total;
 }
