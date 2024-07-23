@@ -1,8 +1,9 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
 bool solveBoolean(string s) {
+    if (s.length() == 0)
+        return false;
+
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T')
@@ -24,15 +25,15 @@ bool solveBoolean(string s) {
                 else if (s[i] == 'F')
                     return false;
             }
-            result = true;
+            return true;
         } else {
             for (; i >= 0; i--) {
-                if (s[i] == 'T' && opStr[1] != '|')
+                if (s[i] == 'T' && opStr[1] != '&')
                     return true;
-                else if (s[i] == 'F' && opStr[1] != '&')
+                else if (s[i] == 'F' && opStr[1] != '|')
                     return false;
             }
-            result = false;
+            return false;
         }
     }
 
