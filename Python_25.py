@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```python
 from typing import List
 import math
 
@@ -24,6 +21,6 @@ def factorize(n: int) -> List[int]:
 
     # Check for remaining factors
     if n > 1:
-        factors.append(n)
+        factors.extend([n])
 
     return factors
