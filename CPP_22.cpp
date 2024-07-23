@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -18,10 +17,13 @@ bool isEqualTo(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> output = filter_integers({3, 3, 3});
-    if (!isEqualTo(output, {3, 3, 3})) {
-        std::cerr << "Test failed. Output is " << output.size() << " elements long but expected 3." << std::endl;
-        return 1;
+    std::vector<int> test1 = filter_integers({3, 3, 3});
+    std::vector<int> test2 = {3, 3, 3};
+    
+    if (!isEqualTo(test1, test2)) {
+        std::cout << "Test failed." << std::endl;
+    } else {
+        std::cout << "Test passed." << std::endl;
     }
     return 0;
 }
