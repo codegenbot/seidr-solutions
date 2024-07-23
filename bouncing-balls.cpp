@@ -23,4 +23,3 @@ int main() {
     cout << totalDistance;
 
     return 0;
-}
