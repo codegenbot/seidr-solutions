@@ -1,10 +1,6 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
-}
-
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int left = total - 1000;
@@ -18,6 +14,13 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::vector<int>({9, 0})));
+    std::cout << "<" << eat(4, 5, 1)[0] << "> ";
+    for(int i=1; i<eat(4, 5, 1)[0]; ++i) {
+        if(i%10==9 || i==9) {
+            std::cout << "<" << i << "> ";
+        } else {
+            std::cout << i << " ";
+        }
+    }
     return 0;
 }
