@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -19,8 +18,5 @@ double shoppingList(const std::vector<std::pair<float, float>>& items) {
 }
 
 int main() {
-    std::vector<std::pair<float, float>> items = {{10.0f, 20.0f}, {5.0f, 15.0f}}; 
-    double result = shoppingList(items);
-    std::cout << "Total price after applying discounts: " << result << std::endl;
-    return 0;
+    return shoppingList({{10.99, 5}, {2.50, 8}, {15.00, 3}});
 }
