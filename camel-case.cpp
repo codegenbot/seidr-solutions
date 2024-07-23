@@ -1,28 +1,23 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result;
-    bool firstWord = true;
+std::string kebabToCamel(const std::string& s) {
+    if (s.empty()) return s;
 
+    std::string result = "";
     for (char c : s) {
         if (c == '-') {
-            if (!firstWord) {
-                result.push_back(char(toupper(c)));
-            }
-            firstWord = false;
+            if (!result.empty())
+                result.push_back(char(toupper(result.back())));
+            else
+                result += " ";
         } else if (c == ' ') {
-            if (!firstWord) {
-                result.push_back(char(toupper(c)));
+            if (!result.empty()) {
+                result.push_back(char(toupper(result.back())));
+                result.pop_back();
             }
-            firstWord = true;
         } else {
-            if (!firstWord) {
-                result.push_back(tolower(c));
-            } else {
-                result += c;
-            }
-            firstWord = false;
+            result += tolower(c);
         }
     }
 
@@ -31,11 +26,9 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string s;
-    while (true) {
-        std::cout << "Enter a string in kebab-case (or 'q' to quit): ";
-        std::cin >> s;
-        if (s == "q") break;
-        std::cout << camelCase(s) << "\n";
+    while (std::cout << "input: " && std::cin >> s) {
+        std::cout << "output: " << kebabToCamel(s) << std::endl;
+        s = "";
     }
     return 0;
 }
