@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 
 double probability(int n, int m) {
@@ -24,3 +25,4 @@ int main() {
     double result = probability(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
+}
