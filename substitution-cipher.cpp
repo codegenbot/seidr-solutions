@@ -1,32 +1,28 @@
+```
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        bool found = false;
-        for (int j = 0; j < cipher1.length(); j++) {
-            if (message[i] == cipher1[j]) {
-                result += cipher2[j];
-                found = true;
-                break;
+std::string decipher(const std::string& cipherText, const std::string& key) {
+    std::string deciphered = "";
+    for (char c : cipherText) {
+        for (int i = 0; i < key.length(); ++i) {
+            if (key[i] == c) {
+                int pos = i;
+                while(pos < key.length() && key[pos] != c){
+                    deciphered += key.substr(0, pos+1);
+                    pos++;
+                }
+                return deciphered;
             }
         }
-        if (!found) {
-            result += message[i];
-        }
     }
-    return result;
+    return deciphered;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first part of the cipher: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second part of the cipher: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
+    std::string cipherText1, cipherText2, plainText;
+    std::cin >> cipherText1 >> cipherText2 >> plainText;
+    std::cout << ::decipher(plainText, cipherText1) << std::endl;
     return 0;
 }
