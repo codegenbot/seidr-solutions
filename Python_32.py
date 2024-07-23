@@ -1,4 +1,3 @@
-```
 def sum_even_and_odd(nums):
     even_sum = 0
     odd_sum = 0
