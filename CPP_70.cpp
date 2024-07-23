@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -24,5 +24,4 @@ std::vector<int> strange_sort_list(std::vector<int> list) {
 
 int main() {
     assert(isSame(strange_sort_list({111111}), {111111}));
-    return 0;
 }
