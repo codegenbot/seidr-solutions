@@ -6,6 +6,12 @@ def find_closest_elements() -> Tuple[float, float]:
     try:
         numbers = [float(num) for num in numbers.split(",")]
         
+        if not isinstance(numbers, list):
+            return "Invalid input. Please enter a list."
+        for num in numbers:
+            if not isinstance(num, float):
+                return "Invalid input. Please enter a list of float values."
+        
         min_diff = float('inf')
         closest_pair = ()
         
