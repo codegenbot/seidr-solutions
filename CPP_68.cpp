@@ -1,35 +1,34 @@
 ```cpp
 #include <vector>
-#include <iostream>
+#include <utility>
 
-std::vector<int> pluck(std::vector<int> v) {
-    return v;
+using namespace std;
+
+bool issame(int a, int b) {
+    return (a >= b);
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-    }
-    return true;
+pair<int, int> pluck(const vector<int>& v, int i) {
+    if(i >= v.size()) 
+        return make_pair(-1, -1);
+    else
+        return make_pair(v[i], i);
 }
 
-std::vector<std::pair<int, int>> result(std::vector<int> v) {
-    std::vector<std::pair<int, int>> output;
-    for (int i = 0; i < v.size(); ++i) {
-        output.emplace_back(v[i], i);
+vector<pair<int, int>> result(vector<int> arr) {
+    vector<pair<int, int>> res;
+    for(int i = 0; i < arr.size(); i++) {
+        if(issame(arr[i], i+1)) 
+            res.push_back(pluck(arr, i));
     }
-    return output;
+    return res;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4};
-    std::vector<std::pair<int, int>> output = result(arr);
+    vector<int> arr = {1, 2, 3, 4};
+    vector<pair<int, int>> output = result(arr);
     for (auto p : output) {
-        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+        cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
     return 0;
 }
