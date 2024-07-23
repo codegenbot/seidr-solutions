@@ -1,23 +1,24 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
+#include <boost/any.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return a;
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (stod(str1) > stod(str2))
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strA > strB)
             return a;
-        else if (stod(str1) < stod(str2))
+        else if (strA < strB)
             return b;
         else
             return boost::any("None");
     } else {
-        return boost::any("None");
+        throw invalid_argument("Invalid input type");
     }
 }
