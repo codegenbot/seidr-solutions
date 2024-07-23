@@ -12,5 +12,7 @@ if __name__ == "__main__":
         if not text.isprintable(): 
             raise ValueError("Invalid input")
         print(string_to_md5(text))
+    except ValueError as e:
+        print(f"Invalid input. Please enter a string: {e}")
     except TypeError as e:
         print(f"Invalid input. Please enter a string: {e}")
