@@ -6,30 +6,26 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (string)b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return b;
+        string str = (string)a.convert_to<string>();
+        float a_float = stof(str);
+        return max(a_float, stof((string)b));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-            return a;
-        else
-            return "None";
+        return (max)((string)a) > ((string)b) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else
-            return "None";
+        return boost::any((int)max(a.convert_to<int>(), b.convert_to<int>()));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else
-            return "None";
+        return boost::any(max(a.convert_to<float>(), b.convert_to<float>()));
     }
     else {
-        return "None";
+        return boost::any("None");
     }
 }
