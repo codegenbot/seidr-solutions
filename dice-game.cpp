@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 
 double probability(int n, int m) {
@@ -9,11 +9,13 @@ double probability(int n, int m) {
         for (int j = 1; j <= m; j++) {
             if (i < j) {
                 count++;
+            } else if (i == j) {
+                count++;
             }
         }
     }
 
-    return (total - count) / total;
+    return (count) / total;
 }
 
 int main() {
@@ -25,4 +27,5 @@ int main() {
     double result = probability(n, m);
     std::cout << "Probability: " << result << std::endl;
     return 0;
+
 }
