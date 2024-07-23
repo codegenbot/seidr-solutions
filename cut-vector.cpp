@@ -7,8 +7,18 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num) {
+    char delimiter;
+    
+    while (cin >> num >> delimiter) {
         nums.push_back(num);
+        if (delimiter == '\n') {
+            break;
+        }
+    }
+    
+    if(nums.empty()) {
+        cout << "Input vector is empty." << endl;
+        return 0;
     }
     
     int n = nums.size();
@@ -32,13 +42,13 @@ int main() {
     }
     
     for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
     
     cout << endl;
     
     for (int i = cut_index + 1; i < n; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
     
     return 0;
