@@ -5,16 +5,20 @@ using namespace std;
 
 int main() {
     string tweet;
+    cin.ignore(); 
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
     if (tweet.empty()) {
-        return "You didn't type anything";
+        cout << "You didn't type anything" << endl;
+        return 0;
     }
 
     if (tweet.length() > 140) {
-        return "Too many characters";
+        cout << "Too many characters" << endl;
+        return 0;
     }
 
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    return 0;
 }

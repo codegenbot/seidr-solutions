@@ -1,17 +1,17 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
-    vector<int> res; 
-    res.resize(v.size()); 
+    vector<int> res;
     int rightmost = v.back();
-    res[0] = rightmost; 
+    res.push_back(rightmost);
     for (int i = v.size() - 2; i >= 0; --i) {
         if (v[i] >= rightmost) {
             rightmost = v[i];
-            res[i] = rightmost;
+            res.push_back(rightmost);
         }
     }
     return res;

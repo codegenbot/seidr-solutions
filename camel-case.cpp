@@ -17,4 +17,4 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
-}
+    }
