@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,10 +8,15 @@ bool is_sorted(std::vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]) return false;
     }
-    std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
-    for(auto it = unique_lst.begin(); it != unique_lst.end(); ++it)
-        *it /= 2; 
-    return true; 
+    
+    std::vector<int> uniqueVec;
+    for(int i = 0; i < lst.size(); i++){
+        if(std::find_if(uniqueVec.begin(), uniqueVec.end(), [&](int x){return x == lst[i];}) == uniqueVec.end()){
+            uniqueVec.push_back(lst[i]);
+        }
+    }
+    
+    return true;
 }
 
 int main() {
