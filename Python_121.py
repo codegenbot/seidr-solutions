@@ -1,7 +1,9 @@
-```Python
-def count_odd(lst):
-    return sum(i for i in lst if i % 2 != 0)
-
-input_list = [1, 3, 4, 5, 6]
-
-print(count_odd(input_list))
+````
+def find_odd_sum(lst):
+    if len(lst) < 1:
+        return 0
+    odd_sum = 0
+    for i in range(1, len(lst), 2):
+        if lst[i] % 2 != 0:
+            odd_sum += lst[i]
+    return odd_sum
