@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,9 +6,10 @@ bool same(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    auto uniqueEnd = std::unique(numbers.begin(), numbers.end());
-    numbers.erase(uniqueEnd, numbers.end());
-    return numbers;
+    std::vector<int> result = numbers;
+    auto it = std::unique(result.begin(), result.end());
+    it = result.erase(it, result.end());
+    return result;
 }
 
 int main(){
