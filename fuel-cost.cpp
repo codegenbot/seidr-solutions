@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -15,10 +16,7 @@ int fuelCost(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v;
-    for (int i = 0; i < 3; ++i) {
-        v.push_back(i * 5 + 10);
-    }
+    std::vector<int> v({15, 10, 5});
     if (v.empty()) {
         std::cerr << "Error: Input vector is empty." << std::endl;
         return 1;
