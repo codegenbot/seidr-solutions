@@ -1,10 +1,6 @@
 #include <vector>
 #include <map>
 
-int main() {
-    int result = search({3, 10, 10, 9, 2});
-}
-
 int search(vector<int> lst) {
     map<int, int> countMap;
     for (auto i : lst) {
@@ -12,7 +8,13 @@ int search(vector<int> lst) {
     }
     
     for (auto p : countMap) {
-        if (p.second > 1) return p.first; 
+        if (p.second > 1) return p.first; // Found a duplicate
     }
     return -1;
+}
+
+int main() {
+    vector<int> lst = {10, 20, 30, 40, 50, 10};
+    int result = search(lst);
+    cout << "Duplicate found at index: " << result << endl;
 }
