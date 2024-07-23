@@ -19,12 +19,10 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < result.length(); i++) {
         if (result[i] == ' ' && i+1 < result.length()) {
             std::string temp = result.substr(i+1);
-            if (temp.length() >= 5) { 
+            if(temp.length() >=5){
                 for (int j = temp.length()-1; j >= 0; j--) {
                     result.replace(i+1, temp.length(), temp.substr(j, 1));
                 }
-            } else {
-                i++; 
             }
         }
     }
