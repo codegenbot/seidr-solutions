@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +20,6 @@ vector<string> split_words(string txt) {
                 }
             }
             result.push_back(to_string(count_odd_lowercase));
-            return result;
         }
 
         pos = txt.find(' ', pos);
