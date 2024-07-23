@@ -1,22 +1,10 @@
 #include <vector>
-#include <iostream>
-#include <cmath>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = std::floor((double)i / 3) - 2; 
-        sum += temp; 
+        double temp = static_cast<double>(i) / 3; 
+        sum += static_cast<int>(std::floor(temp)) - 2; 
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> v;
-    v.push_back(12);
-    v.push_back(5);
-    v.push_back(7);
-    int result = fuelCost(v);
-    std::cout << "The fuel cost is: " << result << std::endl;
-    return 0;
 }
