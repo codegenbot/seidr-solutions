@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 float calculateEuclideanDistance(float v1[], float v2[], int n) {
     float distance = 0;
@@ -14,7 +15,7 @@ int main() {
     std::cout << "Enter the number of dimensions: ";
     std::cin >> n;
 
-    float v1[n], v2[n];
+    std::vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter value for dimension " << i + 1 << " of vector 1: ";
         std::cin >> v1[i];
@@ -23,7 +24,8 @@ int main() {
         std::cin >> v2[i];
     }
 
-    float distance = calculateEuclideanDistance(v1, v2, n);
+    float distance = calculateEuclideanDistance(&v1[0], &v2[0], n);
     std::cout << "The Euclidean distance between the two vectors is: " << distance << std::endl;
 
     return 0;
+}
