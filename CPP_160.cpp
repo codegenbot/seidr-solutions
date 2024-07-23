@@ -1,22 +1,28 @@
 #include <vector>
+#include <cmath>
+#include <cassert>
 #include <string>
 
-int do_algebra(std::vector<std::string> operations, std::vector<int> values) {
-    int result = values[0];
-    
-    for (unsigned i = 0; i < operations.size(); ++i) {
-        if (operations[i] == "+") {
-            result += values[i+1];
-        } else {
-            // Add more operations as needed
-            std::cerr << "Error: Unknown operation: " << operations[i] << std::endl;
-            return -1; 
+int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i < operato.size(); i++) {
+        if (operato[i-1] == "/") {
+            if (operand[i] == 0)
+                return 0;
+            result /= operand[i];
+        } else if (operato[i-1] == "*") {
+            result *= operand[i];
+        } else if (operato[i-1] == "+") {
+            result += operand[i];
+        } else if (operato[i-1] == "-") {
+            result -= operand[i];
         }
     }
-    
     return result;
 }
 
 int main() {
-    assert(do_algebra({"+"}, {1}) == 2); 
+    assert(do_algebra({"+", "+"}, {1, 2}) == 3);
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8); 
+    return 0;
 }
