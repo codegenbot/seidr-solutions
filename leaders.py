@@ -1,11 +1,8 @@
-```Python
 def leaders(arr):
-    max_seen = arr[-1]
-    leaders_list = [max_seen]
+    leaders_list = [arr[-1]]
     
     for num in reversed(arr[:-1]):
-        if num >= max_seen:
-            leaders_list.append(num)
-            max_seen = num
+        if num >= leaders_list[0]:
+            leaders_list.insert(0, num)
     
-    return list(reversed(leaders_list))
+    return leaders_list
