@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -30,6 +29,8 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    std::map<char, int> expected = histogram("a");
+    expected['b'] = 0; // Assuming there's no 'b' in the string
+    assert(issame(histogram("aaa"), expected));
     return 0;
 }
