@@ -5,8 +5,9 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
-    std::cin.ignore();
+    text.pop_back();
     std::getline(std::cin, target);
+    target.pop_back();
     
     std::vector<int> indices;
     
