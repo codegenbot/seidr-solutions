@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -25,10 +25,10 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut+1); 
-    right = vector<int>(v.begin()+best_cut,v.end());
+    left = vector<int>(v.begin(), v.begin() + best_cut+1);
+    right = vector<int>(v.begin() + best_cut, v.end());
     
-    return {{left},{right}};
+    return {{left}, {right}};
 }
 
 int main() {
