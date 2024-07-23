@@ -1,19 +1,19 @@
+```c++
 #include <string>
 #include <iostream>
-
-using namespace std;
+#include <ostream>
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
+
     int length = s.length();
     if (length % 2 == 0) {
-        cout << "Middle characters are: " << s.substr(length / 2 - 1, 2) << endl;
+        std::cout << "Middle characters are: " << s.substr(length / 2 - 1, 2) << std::endl;
     } else {
-        cout << "Middle character is: " << s.substr(length / 2, 1) << endl;
+        std::cout << "Middle character is: " << s.substr(length / 2, 1) << std::endl;
     }
-    
+
     return 0;
 }
