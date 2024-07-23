@@ -1,8 +1,3 @@
-#include <iostream>
-#include <cmath>
-
-using namespace std;
-
 int main() {
     double startHeight, firstBounce;
     int numBounces;
@@ -10,13 +5,17 @@ int main() {
     cin >> startHeight >> numBounces >> firstBounce; 
 
     double bouncinessIndex = firstBounce / startHeight;
-    double newHeight = startHeight * 0.5;
+
+    double newHeight = firstBounce;
 
     double totalDistance = 0.0;
-    for (int i = 2; i <= numBounces; ++i) {
-        startHeight *= bouncinessIndex;
+    for (int i = 1; i <= numBounces; ++i) {
+        if(i > 1)
+            startHeight *= sqrt(bouncinessIndex);
+        else
+            startHeight = firstBounce;
         totalDistance += abs(startHeight - newHeight); 
-        newHeight *= bouncinessIndex; 
+        newHeight = startHeight;
     }
 
     cout << fixed;
