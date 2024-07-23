@@ -1,22 +1,51 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+Here is the completed code:
 
-using namespace std;
+```cpp
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert().get<int>(), (float)b.convert().get<float>());
+        int ia = boost::any_cast<int>(a);
+        float ib = boost::any_cast<float>(b);
+        return (ib > ia) ? b : (ia > 0 ? a : "None");
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (a.convert().get<int>() > stoi((string)b.convert().get<string>())) ? a : b;
+        int ia = boost::any_cast<int>(a);
+        string ib = boost::any_cast<string>(b);
+        float ibf = stof(ib);
+        return (ibf > ia) ? b : (ia > 0 ? a : "None");
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(a, boost::any(b.get<int>()));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return (stoi((string)a.convert().get<string>()) > a.get<int>()) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        return (stoi((string)a.convert().get<string>()) > a.get<float>()) ? a : b;
+        float ia = boost::any_cast<float>(a);
+        int ib = boost::any_cast<int>(b);
+        return (ia > ib) ? a : (ib > 0 ? b : "None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string ia = boost::any_cast<string>(a);
+        string ib = boost::any_cast<string>(b);
+        float ia1, ib1;
+        try {
+            ia1 = stof(ia);
+            ib1 = stof(ib);
+        } catch (...) {
+            return "None";
+        }
+        return (ia1 > ib1) ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float ia = boost::any_cast<float>(a);
+        string ib = boost::any_cast<string>(b);
+        try {
+            float ibf = stof(ib);
+            return (ia > ibf) ? a : b;
+        } catch (...) {
+            return "None";
+        }
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (a.get<int>() > stoi((string)b.convert().get<string>())) ? a : b;
+        int ia = boost::any_cast<int>(a);
+        string ib = boost::any_cast<string>(b);
+        try {
+            float ibf = stof(ib);
+            return (ia > ibf) ? a : b;
+        } catch (...) {
+            return "None";
+        }
     }
-    return boost::any("None");
+    return "None";
 }
