@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -6,17 +5,22 @@ std::string camelCase(std::string str) {
     std::string result = "";
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            if (i > 0 && str[i-1] != ' ') {
-                result += toupper(str[i+1]);
-                i++;
+            i++; // skip the dash
+            while (i < str.length() && str[i] == ' ') {
+                i++; // skip spaces
             }
-        } else if (str[i] == ' ') {
-            continue;
-        } else {
-            if (result.length() == 0) {
-                result = tolower(str[i]);
+            if (!result.empty()) {
+                result += std::toupper(str[i]);
             } else {
-                result += toupper(str[i]);
+                result += str[i];
+            }
+        } else if (!result.empty() && !std::isalpha(str[i])) {
+            continue; // ignore non-alphabets
+        } else {
+            if (std::isupper(str[i])) {
+                result += std::string(1, tolower(str[i]));
+            } else {
+                result += str[i];
             }
         }
     }
@@ -24,9 +28,9 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::cout << camelCase("nospaceordash") << std::endl; // nospaceordash
+    std::cout << camelCase("two-words") << std::endl; // twoWords
+    std::cout << camelCase("two words") << std::endl; // two words
+    std::cout << camelCase("all separate words") << std::endl; // all separate words
     return 0;
 }
