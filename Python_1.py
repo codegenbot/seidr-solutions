@@ -2,9 +2,6 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string:
-        return []
-
     result = []
     temp = ""
     count = 0
@@ -32,6 +29,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(temp)
                     temp = ""
                 temp += char
+
+    if temp and (count > 0 or temp.count("(") != temp.count(")")):
+        print("Program did not receive expected input")
+        return []
 
     if temp:
         result.append(temp)
