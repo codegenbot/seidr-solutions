@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 #include <iostream>
 
 long long double_the_difference(const std::vector<float>& lst) {
@@ -17,10 +18,10 @@ int main() {
     int n;
     float temp;
 
-    cin >> n;
+    std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        cin >> temp;
+        std::cin >> temp;
         myVector.push_back(temp);
     }
 
