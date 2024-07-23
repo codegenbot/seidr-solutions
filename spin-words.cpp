@@ -36,7 +36,3 @@ std::string spinWords(std::string str) {
 
     return result;
 }
-
-int main() {
-    return 0;
-}
