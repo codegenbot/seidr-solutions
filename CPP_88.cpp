@@ -1,16 +1,18 @@
+#include <vector>
 #include <algorithm>
+
+using namespace std;
 
 vector<int> sort_array(vector<int> array) {
     if (array.empty()) return array;
-
+    
     int sum = array[0] + array.back();
-    bool isOdd = (sum % 2 != 0);
-
     vector<int> result = array;
-    std::sort(result.begin(), result.end(), [isOdd](int a, int b) {
-        if (isOdd) return a < b;
-        else return a > b;
-    });
-
+    
+    if (sum % 2 == 1)
+        sort(result.begin(), result.end());
+    else
+        stable_partition(result.begin(), result.end(), greater<int>());
+    
     return result;
 }
