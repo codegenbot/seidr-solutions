@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 using namespace std;
 
@@ -12,5 +11,3 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return true;
-
-}
