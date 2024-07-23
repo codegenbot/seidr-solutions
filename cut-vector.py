@@ -7,10 +7,9 @@ def cut_vector(vector):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
 
-        if abs(left_sum - right_sum) <= 1:
-            return vector[:i], vector[i:]
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+        diff = abs(left_sum - right_sum)
+        if diff == 0 or (min_diff > diff and split_index != i):
+            min_diff = diff
             split_index = i
 
     if split_index != -1:
