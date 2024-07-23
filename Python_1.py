@@ -14,7 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if char == "(":
                 temp += char
             else:
-                while temp and (temp[-1] != "("):
+                while temp and (temp[-1] == "("):
                     result.append(temp[:-1])
                     temp = temp[:-1].rstrip()
                 if temp and temp[-1] == "(":
