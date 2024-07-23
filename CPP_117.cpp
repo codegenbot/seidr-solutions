@@ -1,4 +1,4 @@
-```
+```cpp
 vector<string> select_words(string s, int k) {
     vector<string> words;
     string temp = "";
@@ -25,4 +25,9 @@ bool isSame(vector<string> a, vector<string> b){
             return false;
     }
     return true;
+}
+
+int main(){
+    assert (isSame(select_words("a b c d e f", 1) , vector<string>{ "b", "c", "d", "f"}));
+    return 0;
 }
