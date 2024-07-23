@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -17,7 +17,8 @@ int main() {
 
     bool same = true;
     for (const auto& row : mat) {
-        if (!(std::cin >> row[0])) { 
+        float val;
+        if (!(std::cin >> val) || val <= 0) { 
             same = false;
             break;
         }
