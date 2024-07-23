@@ -8,20 +8,8 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    if (tweet.empty()) {
-        cout << "You didn't type anything";
-    } else {
-        int charCount = 0;
-        for (char c : tweet) {
-            if (!isspace(c)) {
-                charCount++;
-            }
-        }
-        if (charCount > 140) {
-            cout << "Too many characters";
-        } else {
-            cout << "Your tweet has " << charCount << " characters";
-        }
-    }
+    cout << (tweet.empty() ? "You didn't type anything" : 
+              tweet.length() > 140 ? "Too many characters" : 
+              "Your tweet has " + to_string(tweet.length()) + " characters") << endl;
     return 0;
 }
