@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <string>
+
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
@@ -9,12 +11,9 @@ bool isPrime(int n) {
 }
 
 bool prime_length(const std::string& str) {
-    int len = 0;
-    for (char c : str) {
-        if (isalnum(c)) {
-            len++;
-        }
-    }
+    int len = static_cast<int>(str.length());
+    if(len == 1)
+        return true;
     return isPrime(len);
 }
 
