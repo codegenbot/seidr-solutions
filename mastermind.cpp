@@ -5,8 +5,8 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
+    int blackPegs = 0;
 
     // Count black pegs
     for(int i = 0; i < 4; i++) {
