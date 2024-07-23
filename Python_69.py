@@ -1,4 +1,4 @@
-```
+```python
 def search(lst):
     freq = {}
     for num in lst:
