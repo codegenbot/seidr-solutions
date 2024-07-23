@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
         groundSnow += snowFallRate - snowMeltingRate;
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << setprecision(10) << fixed << groundSnow;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << fixed << setprecision(10) << groundSnow;
 
     return 0;
 }
