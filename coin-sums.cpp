@@ -5,18 +5,22 @@ int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25;
-    cents %= 25;
-    int nickels = cents / 5;
-    cents %= 5;
-    int dimes = cents / 10;
-    cents %= 10;
-    int pennies = cents;
+    int remaining = cents;
+    int nickels = remaining / 5;
+    remaining %= 5;
 
-    cout << quarters << endl;
+    int dimes = remaining / 10;
+    remaining %= 10;
+
+    int quarters = remaining / 25;
+    remaining %= 25;
+
+    int pennies = remaining;
+
+    cout << pennies << endl;
     cout << nickels << endl;
     cout << dimes << endl;
-    cout << pennies << endl;
+    cout << quarters << endl;
 
     return 0;
 }
