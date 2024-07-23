@@ -1,16 +1,33 @@
+from typing import List
+
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    level = 0
+    level_stack = []
+
     for char in paren_string:
         if char == "(":
-            while level > 0:
-                result.append(level)
-                level -= 1
-            level += 1
+            level_stack.append(len(result))
         elif char == ")":
-            level -= 1
-            while level < 0:
-                result.pop()
-                level += 1
+            if not level_stack:
+                raise ValueError("Invalid parentheses")
+            top_level = level_stack.pop()
+            while top_level > len(result):
+                result.append(top_level - 1)
+        else:
+            if level_stack:
+                result.append(len(result) + 1)
 
-    return [i - 1 for i in result]
+    return [i-1 for i in result]
+
+
+def main():
+    paren_string = input("Enter a string of parentheses: ")
+    try:
+        print(parse_nested_parens(paren_string))
+    except ValueError as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
