@@ -2,8 +2,11 @@ def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
 
-    def is_valid(row, col):
-        return 0 <= row < rows and 0 <= col < cols
+    total_area = sum(
+        1 if cell != "W" else 0 for row in range(rows) for cell in grid[row]
+    ) * min(capacity for cell in grid[0] if cell != "W")
 
-    total_water = sum(1 for _ in range(rows) for _ in range(cols) if grid[_][_]== "W")
-    return math.ceil(total_water / float(capacity))
+    return math.ceil(
+        total_area
+        / float(min(cell for row in grid for cell in row if cell != "W") * capacity)
+    )
