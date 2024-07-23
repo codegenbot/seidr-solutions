@@ -4,5 +4,5 @@ def spin_words(sentence):
     for word in words:
         if len(word) >= 5:
             word = word[::-1]
-        result.append(str(word))
+        result.append(word)
     return ' '.join(result).strip()
