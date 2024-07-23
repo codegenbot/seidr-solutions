@@ -1,6 +1,13 @@
 ```cpp
 #include <vector>
 #include <cstddef>
+#include <initializer_list>
+
+int main() {
+    std::vector<int> nums = {-1,-2,3,4,-5};
+    int result = basement(nums);
+    return 0;
+}
 
 int basement(const std::vector<int>& nums) {
     int sum = 0;
@@ -13,11 +20,4 @@ int basement(const std::vector<int>& nums) {
             return minIndex + 1; 
     }
     return -1; 
-}
-
-int main() {
-    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-    int result = basement(nums);
-    std::cout << "The first index where the sum of all integers from the start of the vector to that index (inclusive) is negative is: " << result << std::endl;
-    return 0;
 }
