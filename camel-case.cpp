@@ -1,22 +1,32 @@
-```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string camelCase(std::string str) {
-    std::vector<std::string> words;
-    size_t pos = 0, start = 0;
-
-    while ((pos = str.find_first_of(" -")) != std::string::npos) {
-        if (pos > start) {
-            words.push_back(str.substr(start, pos - start));
+    std::string result = "";
+    for (int i = 0; i <= str.length(); i++) {
+        if (i < str.length() && str[i] == '-') {
+            if (str.find(' ', 0, i) != i) {
+                result += toupper(str[i+1]);
+                i++;
+            }
+        } else if (str[i] == ' ') {
+            continue;
+        } else {
+            if (result.length() == 0) {
+                result = tolower(str[i]);
+            } else {
+                result += toupper(str[i]);
+            }
         }
-        start = pos + 1;
-    }
-
-    if (start < str.length()) {
-        words.push_back(str.substr(start));
-    }
-
-    std::string result = tolower(words[0]);
-    for (int i = 1; i < words.size(); i++) {
-        result += toupper(words[i].substr(0, 1)) + words[i].substr(1);
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
 }
