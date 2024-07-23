@@ -2,7 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <climits>
-#include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
