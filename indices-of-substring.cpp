@@ -8,9 +8,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= text.size() - target.size(); i++) {
         int j = 0; 
         while (j < target.size() && text[i + j] == target[j]) j++; 
-        if (j == target.size()) { //if the substring matches
+        if (j == target.size()) {
             result.push_back(i);
-            i += j; //skip the matched characters to avoid overlapping targets
+            i += j;
         }
     }
     return result;
