@@ -1,4 +1,5 @@
-```cpp
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -22,13 +23,20 @@ vector<int> count_up_to(int n) {
 
 int main() {
     int n;
-    cout << "Enter a number: ";
+    cout << "Enter a positive integer: ";
     cin >> n;
+    
     vector<int> primes = count_up_to(n);
-    cout << "Primes up to " << n << ": ";
-    for (int prime : primes) {
-        cout << prime << " ";
+    
+    if (primes.empty()) {
+        cout << "No prime numbers found in the range 1 to " << n << endl;
+    } else {
+        cout << "Prime numbers up to " << n << ":";
+        for (int num : primes) {
+            cout << " " << num;
+        }
+        cout << endl;
     }
-    cout << endl;
+    
     return 0;
 }
