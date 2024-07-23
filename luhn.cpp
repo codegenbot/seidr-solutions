@@ -18,3 +18,16 @@ int luhn(const vector<int>& digits) {
     }
     return sum;
 }
+
+int main() {
+    vector<int> input;
+    cout << "Enter your credit card number: ";
+    for (int i = 0; i < 16; i++) {
+        int digit;
+        cin >> digit;
+        input.push_back(digit);
+    }
+    int result = luhn(input); 
+    cout << "Result: " << result << endl; 
+    return 0;
+}
