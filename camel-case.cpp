@@ -26,7 +26,7 @@ std::string kebabToCamel(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    getline(std::cin, input);
+    std::getline(std::cin, input);
 
     std::cout << "CamelCase representation: " << kebabToCamel(input) << std::endl;
 
