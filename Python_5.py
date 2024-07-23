@@ -1,10 +1,10 @@
+```
 from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if len(numbers) == 1:
-        return [numbers[0]]
+        return [numbers[0]] * (len(numbers) - 1)
     result = [numbers[0]]
     for i in range(1, len(numbers)):
-        result += [delimiter] + [str(numbers[i])]
-    result.append(delimiter)
-    return list(map(int, result))
+        result.extend([delimiter, numbers[i]])
+    return result
