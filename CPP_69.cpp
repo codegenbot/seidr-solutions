@@ -1,8 +1,8 @@
-#include <vector>
 #include <map>
+#include <vector>
 
-int search(vector<int> lst) {
-    map<int, int> countMap;
+int search(std::vector<int> lst) {
+    std::map<int, int> countMap;
     for (auto i : lst) {
         countMap[i]++;
     }
