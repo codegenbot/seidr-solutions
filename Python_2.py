@@ -1,3 +1,3 @@
 ```
 def truncate_number(number: float) -> float:
-    return number - int(number)
+    return 0.5 - int(10*number)/10
