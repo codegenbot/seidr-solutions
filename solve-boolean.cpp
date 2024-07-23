@@ -12,35 +12,20 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            size_t start = 0;
-            while (start < i) {
-                start++;
-            }
-            std::string left = expression.substr(0, i - start);
-            size_t end = expression.size();
-            while (end > i) {
-                end--;
-            }
-            std::string right = expression.substr(i + 1, end - i);
+            size_t pos = 0;
+            std::string left = expression.substr(pos, i - pos);
+            pos = i + 1;
+            std::string right = expression.substr(pos);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
             int j = i;
             while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
                 j++;
-            size_t start = 0;
-            while (start < i) {
-                start++;
-            }
-            std::string left = expression.substr(0, i - start);
-            size_t end = expression.size();
-            while (end > i) {
-                end--;
-            }
-            size_t m = i + 1;
-            while (m < j) {
-                m++;
-            }
-            std::string right = expression.substr(i + 1, j - i);
+            size_t pos = 0;
+            std::string left = expression.substr(pos, i - pos);
+            pos = i + 1;
+            size_t rightPos = j - i;
+            std::string right = expression.substr(pos, rightPos);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
