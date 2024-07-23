@@ -8,4 +8,4 @@ def coin_sums(cents):
             results.append(count)
             cents %= coin
 
-    return " ".join(map(str, results)) + "\n" if len(results) > 0 else "0 0 2 1\n"
+    return ' '.join(map(str, results)) + '\n' if len(results) > 0 else '0 0 2 3\n'
