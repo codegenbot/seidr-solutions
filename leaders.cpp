@@ -9,25 +9,17 @@ vector<int> leaders(vector<int>& v) {
     int rightmost = v.back();
     res.push_back(rightmost);
     for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            rightmost = v[i];
+        int temp = v[i];
+        if (temp >= rightmost) {
+            rightmost = temp;
             res.push_back(rightmost);
         }
     }
-    reverse(res.begin(), res.end());
     return res;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
-    vector<int> res = leaders(v);
-    for (int i = 0; i < res.size(); ++i) {
-        cout << res[i] << " ";
-    }
-    return 0;
+vector<int> v = {1, 3, 4, 2, 8};
+vector<int> res = leaders(v);
+for (int i = 0; i < res.size(); ++i) {
+    cout << res[i] << " ";
 }
