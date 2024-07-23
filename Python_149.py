@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return sum(sorted([i for i in lst if len(str(i)) % 2 == 0]))
+    return str(sorted([i for i in lst if isinstance(i, int)]))
