@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -20,7 +19,9 @@ int main() {
     int hours;
     std::cin >> hours;
     float onGround, rate, melt;
-    std::cin >> onGround >> rate >> melt;
+    if (!(std::cin >> onGround >> rate >> melt)) {
+        return 1;
+    }
     std::cout << std::fixed << std::setprecision(10) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
 }
