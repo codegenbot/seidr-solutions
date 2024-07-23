@@ -32,8 +32,7 @@ bool isPrime(int n) {
 }
 
 int main() {
-    int numbers[] = {127, 97, 8192};
-    int size = sizeof(numbers)/sizeof(numbers[0]);
-    assert(sumOfDigits(findMaxPrime(numbers, size)) == 10);
+    int arr[] = {127, 97, 8192};
+    assert(sumOfDigits(findMaxPrime(arr, sizeof(arr)/sizeof(arr[0]))) == 10);
     return 0;
 }
