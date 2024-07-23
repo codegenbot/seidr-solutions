@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -21,9 +20,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::vector<int> lengths = {4, 8};
-    std::vector<std::string> b;
-    b = by_length(lengths);
-    std::vector<std::string> a = by_length({4, 8});
+    std::vector<std::string> a = by_length(lengths);
+    std::vector<std::string> b = a; 
     assert(issame(a, b));
     assert(!issame(by_length({9}), b));
 }
