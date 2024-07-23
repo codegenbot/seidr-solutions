@@ -4,5 +4,6 @@ int largest_prime_factor(int n) {
             n /= i;
         }
     }
-    return n;
+    if (n > 1) return n; 
+    else return 1; // Modified the code to handle the case when 'n' is 1.
 }
