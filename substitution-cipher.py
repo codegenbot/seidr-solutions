@@ -1,4 +1,10 @@
-def substitution_cipher(cipher_text1, cipher_text2, text):
-    mapping = {c1: c2 for c1, c2 in zip(cipher_text1, cipher_text2)}
-    deciphered = "".join(mapping.get(char, char) for char in text)
-    return deciphered
+```
+def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
+    deciphered_text = ""
+    for char in text_to_decrypt:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            deciphered_text += cipher_text2[index].upper()  
+        else:
+            deciphered_text += char.upper()
+    return deciphered_text
