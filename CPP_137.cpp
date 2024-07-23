@@ -1,59 +1,59 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+#include<boost/more_traits.hpp>
+
+using namespace std;
+namespace boost {
+    namespace more_traits {
+
+        template<>
+        struct class_tag<std::string> : public class_tag<const char*> {};
+    }
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        double max = (double)a.convert_to<int>();
         return b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int aInt = boost::any_cast<int>(a);
-        string bStr = boost::any_cast<string>(b);
-        if (aInt > 0 && stod(bStr) > aInt)
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string sa = boost::any_cast<string>(a);
+        string sb = boost::any_cast<string>(b);
+
+        if (sa.empty()) {
             return b;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        double aDouble = boost::any_cast<double>(a);
-        int bInt = boost::any_cast<int>(b);
-        if (aDouble > (double)bInt)
+        }
+
+        size_t comma_pos = sa.find(',');
+        if (comma_pos != string::npos) {
+            double a_val = stod(sa.substr(0, comma_pos));
+            double b_val = stod(sb);
+            if (a_val > b_val) {
+                return a;
+            } else {
+                return b;
+            }
+        }
+
+        if (stod(sa) > stod(sb)) {
             return a;
-        else
-            return "None";
+        } else {
+            return b;
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int a_val = boost::any_cast<int>(a);
+        string sb = boost::any_cast<string>(b);
+
+        size_t comma_pos = sb.find(',');
+        if (comma_pos != string::npos) {
+            double b_val = stod(sb.substr(0, comma_pos));
+            return (a_val > b_val ? a : b);
+        } else {
+            return (a_val > stod(sb) ? a : b);
+        }
+    } else {
+        return "None";
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string aStr = boost::any_cast<string>(a);
-        int bInt = boost::any_cast<int>(b);
-        if (stod(aStr) > (double)bInt)
-            return a;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string aStr = boost::any_cast<string>(a);
-        double bDouble = boost::any_cast<double>(b);
-        if (stod(aStr) > bDouble)
-            return a;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string aStr = boost::any_cast<string>(a);
-        string bStr = boost::any_cast<string>(b);
-        if (stod(aStr) > stod(bStr))
-            return a;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double aDouble = boost::any_cast<double>(a);
-        double bDouble = boost::any_cast<double>(b);
-        if (aDouble > bDouble)
-            return a;
-        else
-            return "None";
-    }
-    return "None";
 }
