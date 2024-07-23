@@ -1,14 +1,15 @@
-int multiply(int a, int b){
-    int sum = 0;
-    int abs_a = abs(a);
-    int abs_b = abs(b);
-
-    while(abs_b > 0) {
-        if (abs_b & 1)
-            sum += abs_a;
-        abs_a <<= 1;
-        abs_b >>= 1;
+int multiply(int a, int b) {
+    if (b == 0)
+        return 0;
+    
+    int result = 0;
+    while(b > 0) {
+        if (b & 1)
+            result += a;
+        
+        a <<= 1; 
+        b >>= 1; 
     }
-
-    return a < 0 ? -sum : sum;
+    
+    return result;
 }
