@@ -1,13 +1,18 @@
-def find_zero():
-    xs = list(map(int, input("Enter a list of numbers separated by space: ").split()))
-    n = len(xs)
-    assert n % 2 == 0
-    degree = n // 2
-    a = xs[::2]
-    coefficients = [0] * (degree + 1)
-    for i in range(degree + 1):
-        if i < len(a):
-            coefficients[degree - i] = a[i]
+```Python
+def find_zero(nums):
+    return sum(num for num in nums if num == 0)
 
-    root = coefficients[-1] / coefficients[0]
-    return round(root, 2)
+def sum_even_and_odd(nums):
+    even_sum = 0
+    odd_sum = 0
+    
+    for num in nums:
+        if num % 2 == 0:
+            even_sum += num
+        else:
+            odd_sum += num
+            
+    return even_sum, odd_sum
+
+nums = [1, 2, 3, 4]
+print(find_zero(nums))
