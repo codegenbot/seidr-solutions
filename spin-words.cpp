@@ -6,19 +6,20 @@ std::string spinWords(std::string str) {
     bool longWord = false;
     std::string word = "";
 
-    for (char& c : str) { 
+    for (char c : str) {
         if (c == ' ') {
             if (!longWord) {
                 result += word + " ";
-                word.clear(); 
+                word = "";
             } else {
-                std::string revWord(word.rbegin(), word.rend());
-                result += revWord + " "; 
-                word.clear();
+                std::string reversedWord = word; 
+                std::reverse(reversedWord.begin(), reversedWord.end());
+                result += reversedWord + " ";
+                word = "";
                 longWord = false;
             }
         } else {
-            word += c; 
+            word += c;
             if (word.length() >= 5) {
                 longWord = true;
             }
@@ -28,8 +29,9 @@ std::string spinWords(std::string str) {
     if (!longWord) {
         result += word;
     } else {
-        std::string revWord(word.rbegin(), word.rend());
-        result += revWord; 
+        std::string reversedWord = word; 
+        std::reverse(reversedWord.begin(), reversedWord.end());
+        result += reversedWord;
     }
 
     return result;
