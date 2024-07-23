@@ -12,16 +12,11 @@ int main() {
         std::cin >> nums[i];
     }
     
-    if (n == 1) {
-        std::cout << nums[0] << std::endl << std::endl;
-        return 0;
-    }
-    
     int min_diff = INT_MAX;
     int cut_idx = -1;
     for (int i = 1; i < n; ++i) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
@@ -31,8 +26,14 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cut_idx; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+    
+    if (cut_idx != 0) {
+        for (int i = 0; i < n; ++i) {
+            if (i == cut_idx) {
+                std::cout << std::endl;
+            }
+            std::cout << nums[i] << std::endl;
+        }
     }
     
     return 0;
