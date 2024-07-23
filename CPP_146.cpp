@@ -13,6 +13,5 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // You can test the function with different input vectors here.
     return 0;
 }
