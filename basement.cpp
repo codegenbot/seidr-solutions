@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -11,4 +12,10 @@ int basement(vector<int> nums) {
         }
     }
     return nums.size();
+}
+
+int main() {
+    vector<int> nums = {1, -2, 3, -5, 2};
+    cout << basement(nums) << endl;
+    return 0;
 }
