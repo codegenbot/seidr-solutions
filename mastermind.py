@@ -5,9 +5,6 @@ def mastermind(code, guess):
 
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
 
-    white_pegs = 0
-    for a, b in zip(code, guess):
-        if a != b and [a, b].count(a) == 1:
-            white_pegs += 1
-
+    white_pegs = sum(1 for a, b in zip(code, guess) if a == b and a != b)
+    
     return str(black_pegs) + "\n" + str(white_pegs)
