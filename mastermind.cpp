@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -24,12 +23,13 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     // Calculate white pegs
+    int whitePegsTemp = 0;
     for(int i = 0; i < 6; i++) {
         if(colorCount[i] > 1) {
-            whitePegs++;
+            whitePegsTemp++;
         }
     }
-    whitePegs -= blackPegs;
+    whitePegs = 4 - blackPegs - whitePegsTemp;
 
     return std::make_pair(blackPegs, whitePegs);
 }
