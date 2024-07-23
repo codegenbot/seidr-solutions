@@ -9,7 +9,7 @@ int main() {
     getline(cin, tweet);
 
     tweet.erase(0, tweet.find_first_of("\r\n")+1);
-
+    
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
