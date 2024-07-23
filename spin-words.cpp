@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 string spinWords(const string& str) {
     string result = "";
     int i = 0;
@@ -31,12 +28,4 @@ string spinWords(const string& str) {
         }
     }
     return result;
-}
-
-int main() {
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl; 
-    return 0;
 }
