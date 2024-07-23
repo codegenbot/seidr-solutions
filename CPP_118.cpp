@@ -1,7 +1,5 @@
-```c++
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -17,15 +15,14 @@ std::string get_closest_vowel(std::string word) {
             if (closest == -1)
                 closest = i;
             else
-                return ((word[closest] <= tolower(word[i])) ? std::string(1, tolower(word[closest])) : std::string(1, tolower(word[i])));
+                return (word[closest] <= word[i]) ? std::string(1, tolower(word[closest])) : std::string(1, tolower(word[i]));
         }
     }
-    return "";
+    return "No vowels in the string";
 }
 
 int main() {
-    if (get_closest_vowel("Above") != "o")
-        cout << "Test failed. Expected: \"o\", but got " << get_closest_vowel("Above") << endl;
+    assert(get_closest_vowel("Above") == "o");
     cout << get_closest_vowel("Apple") << endl;
     return 0;
 }
