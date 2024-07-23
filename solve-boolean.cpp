@@ -1,6 +1,5 @@
-#include <iostream>
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -13,17 +12,11 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                if (operand == "T") operand = "False";
-                else operand = "True";
-
                 return (operand == "True");
             }
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                if (operand == "T") operand = "True";
-                else operand = "False";
-
                 return (operand == "True");
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
@@ -31,12 +24,8 @@ bool evaluateBooleanExpression(string expression) {
                                         (expression[i] == 'f' && operators.top() == '&'))) {
                 while (!operators.empty()) operators.pop();
             }
-            operand += expression[i];
-        } else {
-            continue;
-        }
-
-        if (expression[i] == '(') {
+            operand += (expression[i] == 't' ? "T" : "F");
+        } else if (expression[i] == '(') {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
@@ -45,17 +34,11 @@ bool evaluateBooleanExpression(string expression) {
                         operators.pop();
                     }
                     if (!operand.empty()) {
-                        if (operand == "T") operand = "True";
-                        else operand = "False";
-
                         return (operand == "True");
                     }
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
                     if (!operand.empty()) {
-                        if (operand == "T") operand = "True";
-                        else operand = "False";
-
                         return (operand == "True");
                     }
                 }
@@ -72,17 +55,11 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                if (operand == "T") operand = "True";
-                else operand = "False";
-
                 return (operand == "True");
             }
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                if (operand == "T") operand = "True";
-                else operand = "False";
-
                 return (operand == "True");
             }
         }
@@ -91,10 +68,7 @@ bool evaluateBooleanExpression(string expression) {
     }
 
     if (!operand.empty()) {
-        if (operand == "T") operand = "True";
-        else operand = "False";
-
-        return (operand == "True");
+        return (operand == "T");
     }
 
     return true;

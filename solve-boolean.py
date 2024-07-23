@@ -1,4 +1,4 @@
-```python
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -13,4 +13,4 @@ def solve_boolean(expression):
                 result = result and (expression[expression.index(char) + 1] == 'T')
             elif char == '|':
                 result = result or (expression[expression.index(char) + 1] == 'T')
-    return result
+         return result
