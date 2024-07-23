@@ -1,3 +1,5 @@
+using namespace std;
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
@@ -12,16 +14,14 @@ int blackPegs(string code, string guess) {
     int count = 0;
     vector<char> codeVector(code.begin(), code.end());
     for(int i=0; i<4; i++) {
-        bool found = false;
-        for(char ch : codeVector) {
-            if(ch == guess[i]) {
-                codeVector.erase(remove(codeVector.begin(), codeVector.end(), guess[i]), codeVector.end());
-                count++;
-                found = true;
-                break;
-            }
+        if(find(codeVector.begin(), codeVector.end(), guess[i]) != codeVector.end()) {
+            count++;
+            codeVector.erase(remove(codeVector.begin(), codeVector.end(), guess[i]), codeVector.end());
         }
-        if(!found) return 4; 
     }
     return count;
+}
+
+int countOf(std::vector<char>& vec, char ch) {
+    return vec.count(ch);
 }
