@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -17,19 +17,17 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    int k;
+    int k, n;
     
     // Read the number of elements from user.
     cout << "Enter the number of elements: ";
     cin >> k;
     
-    vector<int> numbers;
+    vector<int> numbers(k);
     for (int i = 0; i < k; i++) {
         // Read each element from user.
         cout << "Enter element " << (i + 1) << ": ";
-        long long num;
-        cin >> num;
-        numbers.push_back(num);
+        cin >> numbers[i];
     }
 
     int result = add_elements(numbers, k);
