@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -16,10 +17,6 @@ int digitSum(std::basic_string<char> s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    std::cout << "Input your string: ";
-    std::string input;
-    std::cin >> input;
-    int result = digitSum(input);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << digitSum("Your string here");
     return 0;
 }
