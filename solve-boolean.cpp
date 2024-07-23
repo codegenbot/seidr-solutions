@@ -1,27 +1,15 @@
-#include <string>
-
-string solveBoolean(string expression) {
-    if (expression == "T" || expression == "true") {
-        return "True";
-    }
+std::string solveBoolean(std::string expression) {
+    bool result = (expression == "T") || (expression == "true");
     for(int i = 0; i < expression.length(); i++) {
         if(expression[i] == '&') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-            if (expression[i+1] == '&') {
-                return solveBoolean(left) && solveBoolean(right) ? "True" : "False";
-            } else if (expression[i+1] == '|') {
-                return solveBoolean(left) && solveBoolean(right) ? "True" : solveBoolean(right) ? "True" : "False";
-            }
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            result &= solveBoolean(left) && solveBoolean(right);
         } else if(expression[i] == '|') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-            if (expression[i+1] == '&') {
-                return solveBoolean(left) || solveBoolean(right) ? "True" : "False";
-            } else if (expression[i+1] == '|') {
-                return solveBoolean(left) || solveBoolean(right) ? "True" : solveBoolean(left) ? "True" : "False";
-            }
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
+            result |= solveBoolean(left) || solveBoolean(right);
         }
     }
-    return expression == "T" ? "True" : "False";
+    return (result) ? "True" : "False";
 }
