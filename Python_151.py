@@ -1,3 +1,2 @@
-def check(func):
-    result = func([int(x) for x in input("Enter the numbers (space-separated): ").split()])
-    print("The double difference is:", result)
+def check(f):
+    print(f([1, -2, 3, 4, 5]))
