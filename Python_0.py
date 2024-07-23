@@ -16,9 +16,6 @@ def main():
         print("Do you want to run the program? (yes/no): ")
         while True:
             response = input().lower()
-            while not response:  # Check for empty string
-                print("Please enter 'y' or 'n'.")
-                response = input().lower()
             if response in ["y", "yes"]:
                 break
             elif response in ["n", "no"]:
@@ -33,12 +30,11 @@ def main():
                 if not numbers.strip():
                     print("Please enter some numbers.")
                 else:
-                    break
-            try:
-                numbers_list = list(map(float, numbers.split()))
-                break
-            except ValueError:
-                print("Invalid input. Please enter valid float numbers.")
+                    try:
+                        numbers_list = list(map(float, numbers.split()))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter valid float numbers.")
 
         while True:
             while True:
@@ -46,12 +42,13 @@ def main():
                 if not threshold_str.strip():
                     print("Please enter a threshold value.")
                 else:
-                    break
-            try:
-                threshold = float(threshold_str)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number for the threshold.")
+                    try:
+                        threshold = float(threshold_str)
+                        break
+                    except ValueError:
+                        print(
+                            "Invalid input. Please enter a valid number for the threshold."
+                        )
 
         result = has_close_elements(numbers_list, threshold)
 
