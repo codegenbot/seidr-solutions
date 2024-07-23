@@ -1,6 +1,3 @@
-```
 def solve(N):
-    if bin(N).count('1') % 2 == 0:
-        return ""
-    else:
-        return "10010"
+    ones = bin(N).count('1')
+    return str(ones).zfill(len(bin(N-1))[-2:])
