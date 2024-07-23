@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -17,15 +16,7 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i=0; i<n; i++) {
-        int x;
-        cin >> x;
-        lst.push_back(x);
-    }
-    cout << "The next smallest element is: " << next_smallest(lst) << endl;
+    vector<int> testVector = {4, 2, 5, 3};
+    cout << "The next smallest number is: " << next_smallest(testVector) << endl;
     return 0;
 }
