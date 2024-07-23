@@ -17,7 +17,7 @@ string spinWords(string str) {
                 result += word;
             }
             word = "";
-            result += " "; // Add a space to the result
+            result += " ";
         } else {
             word += c;
         }
