@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 using namespace std;
 
@@ -10,4 +9,3 @@ double probability(int n, int m) {
         higher += (double)(n-i)*(m-i+1)/total;
     }
     return higher;
-}
