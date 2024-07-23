@@ -1,30 +1,19 @@
+Here is the completed code:
+
 def minPath(grid, k):
-    N = len(grid)
-    n = N * N
-    memo = {}
-
-    def dfs(i, j, path):
-        if (i, j) in memo:
-            return memo[(i, j)]
-        if i < 0 or i >= N or j < 0 or j >= N:
-            return []
+    n = len(grid)
+    m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
+    visited = [[False] * (n + 1) for _ in range(n + 1)]
+    queue = [(0, 0, [])]
+    result = None
+    while queue:
+        x, y, path = queue.pop(0)
         if len(path) == k:
-            return [grid[i][j]]
-        for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            if 0 <= ni < N and 0 <= nj < N:
-                res = []
-                for cell in dfs(ni, nj, path + [grid[i][j]]):
-                    res.append(cell)
-                if res:
-                    return res
-        memo[(i, j)] = [path]
-        return [path]
-
-    min_path = []
-    for i in range(N):
-        for j in range(N):
-            path = dfs(i, j, [])
-            if not min_path or sorted(path) < sorted(min_path):
-                min_path = path
-
-    return min_path
+            if not result or tuple(sorted(path)) < tuple(sorted(result)):
+                result = path
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            if 1 <= nx <= n and 1 <= ny <= n and not visited[nx][ny] and m[nx][ny] != m[x][y]:
+                queue.append((nx, ny, path + [m[nx][ny]]))
+                visited[nx][ny] = True
+    return result
