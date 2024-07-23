@@ -1,7 +1,7 @@
+```cpp
 #include <string>
-#include <cassert>
 
-int calculateDigitSum(string s) {
+int sumOfNonDigits(const std::string& s) {
     int sum = 0;
     for (char c : s) {
         if (!isdigit(c)) {
@@ -14,6 +14,6 @@ int calculateDigitSum(string s) {
 }
 
 int main() {
-    assert(calculateDigitSum("You arE Very Smart") == 327);
+    assert(sumOfNonDigits("You arE Very Smart") == 327);
     return 0;
 }
