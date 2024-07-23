@@ -1,22 +1,31 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
+#include <unordered_map>
 
-string decipher(string cipher1, string cipher2, string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        int j;
-        for (j = 0; j < cipher1.length() && j < message[i]; j++);
-        if (j == cipher1.length())
-            result += message[i];
-        else
-            result += cipher2[j];
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
+    std::unordered_map<char, char> mapping;
+    for (size_t i = 0; i < cipher1.size(); ++i) {
+        mapping[cipher2[i]] = cipher1[i];
+    }
+    std::string result;
+    for (char c : input) {
+        if (c == '\0') {
+            break; // if the end of string is reached
+        }
+        auto mapIt = mapping.find(c);
+        if (mapIt != mapping.end()) {
+            result += mapIt->second; 
+        } else {
+            result += c; // if not found, add as it is
+        }
     }
     return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    std::string cipher1, cipher2, input;
+    std::cin >> cipher1 >> cipher2 >> input;
+    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
 }

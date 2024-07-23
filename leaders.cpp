@@ -1,21 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
-
-vector<int> leaders(vector<int>& v) {
-    vector<int> res;
-    int rightmost = v.back();
-    res.push_back(rightmost);
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            rightmost = v[i];
-            res.push_back(rightmost);
-        }
-    }
-    reverse(res.begin(), res.end());
-    return res;
-}
 
 int main() {
     vector<int> v = {1, 3, 4, 2, 8};
@@ -24,4 +10,14 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
+
+vector<int> leaders(vector<int>& v) {
+    vector<int> res;
+    for(int i = v.size() -1; i >= 0; --i){
+        if(res.empty() || v[i] >= res.back()){
+            res.push_back(v[i]);
+        }
+    }
+    return res;
 }

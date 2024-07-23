@@ -1,29 +1,23 @@
+```cpp
 #include <vector>
 #include <string>
+
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int len = target.length();
-    for(int i=0; i<=text.length()-len; i++) {
-        bool match = true;
-        for(int j=0; j<len; j++) {
-            if(text[i+j] != target[j]) {
-                match = false;
-                break;
-            }
-        }
-        if(match) {
-            indices.push_back(i);
-        }
+int gcd(int a, int b) {
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return indices;
+    
+    return a;
 }
 
-int gcd(int a, int b) {
-    if(b == 0) {
-        return a;
-    } else {
-        return gcd(b, a % b);
-    }
+int main() {
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
+    return 0;
 }
