@@ -5,22 +5,32 @@ def bowling_score(frames):
             strike = False
             spare = False
             if frames[i * 2] == "X":
-                strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
-                spare = True
+                score += 10
+                if i < 9:
+                    score += int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1])
+            elif int(frames[i * 2]) + int(frames[i * 2 + 1]) == "10":
+                score += 10
+                if i < 9:
+                    next_frame = frames[(i + 1) * 2 : (i + 2) * 2]
+                    if next_frame.startswith("X"):
+                        score += 10
+                    elif int(next_frame[0]) + int(next_frame[1]) == "10":
+                        score += 10
             else:
                 score += 10
         else:
             if frames[i * 2] == "X":
-                strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
-                spare = True
+                score += 10
+                if i < 9:
+                    score += int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1])
+            elif int(frames[i * 2]) + int(frames[i * 2 + 1]) == "10":
+                score += 10
+                if i < 9:
+                    next_frame = frames[(i + 1) * 2 : (i + 2) * 2]
+                    if next_frame.startswith("X"):
+                        score += 10
+                    elif int(next_frame[0]) + int(next_frame[1]) == "10":
+                        score += 10
             else:
                 score += int(frames[i * 2]) + int(frames[i * 2 + 1])
-        if not strike and not spare:
-            if i < 8:
-                if frames[(i + 1) * 2 : i * 2 + 3].startswith("X"):
-                    score += 10
-                elif int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1]) == 10:
-                    score += 10
     return score
