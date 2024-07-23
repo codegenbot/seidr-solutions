@@ -1,13 +1,12 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <sstream>
 
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    pair<int, int> result;
-    int black = 0;
     int white = 0;
+    int black = 0;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
@@ -15,20 +14,17 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    for(int i = 65; i <= 70; i++) {
+    for(int i = 0; i < 6; i++) {
         int count = 0;
         for(int j = 0; j < 4; j++) {
-            if(guess[j] == (char)i) {
+            if(guess[j] == (char)(i + 65) && code.find((char)(i + 65)) != string::npos) {
                 count++;
             }
         }
-        white += max(count - black, 0);
+        white += count - black;
     }
 
-    result.first = black;
-    result.second = white;
-
-    return result;
+    return make_pair(black, white);
 }
 
 int main() {
@@ -38,6 +34,5 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     pair<int, int> result = mastermind(code, guess);
-    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << endl;
     return 0;
-}
