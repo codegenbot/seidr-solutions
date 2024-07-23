@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
         result = None
