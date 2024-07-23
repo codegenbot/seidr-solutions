@@ -20,20 +20,21 @@ double find_zero(std::vector<double>& coeffs){
 
 int main() {
     std::vector<double> coeffs;
+    double solution;
+
     int n;
-    std::cout << "Enter the number of coefficients: ";
-    std::cin >> n;
+    cin >> n;
     
     for(int i = 0; i < n; i++) {
-        double coeff;
-        std::cout << "Enter coefficient " << i+1 << ": ";
-        std::cin >> coeff;
-        coeffs.push_back(coeff);
+        double c;
+        cin >> c;
+        coeffs.push_back(c);
     }
-    
-    double solution = find_zero(coeffs);
-    double value = poly(coeffs, solution);
-    std::cout << "Value is: " << value << std::endl;
+
+    solution = find_zero(coeffs);
+
+    cout << "Solution is: " << solution << endl;
+    cout << "Value of the polynomial at " << solution << " is: " << poly(coeffs, solution) << endl;
 
     return 0;
 }
