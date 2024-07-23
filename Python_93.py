@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
