@@ -1,13 +1,7 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
 
 std::vector<int> Eat(int number, int need, int remaining) {
     int total = number + need;
@@ -16,4 +10,8 @@ std::vector<int> Eat(int number, int need, int remaining) {
         left = remaining;
     }
     return {number + need, left};
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
