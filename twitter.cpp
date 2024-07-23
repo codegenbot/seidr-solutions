@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin.ignore(); // remove the newline character
     getline(cin, tweet);
 
     if (tweet.empty()) {
@@ -14,11 +14,18 @@ int main() {
         return 0;
     }
 
-    if (tweet.length() > 140) {
+    int count = 0;
+    for (char c : tweet) {
+        if (!isspace(c)) {
+            count++;
+        }
+    }
+
+    if (count > 140) {
         cout << "Too many characters" << endl;
         return 0;
     }
 
-    cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    cout << "Your tweet has " << count << " characters" << endl;
     return 0;
 }
