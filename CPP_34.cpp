@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <numeric>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -16,8 +17,6 @@ int main() {
         return vec;
     }({5, 3, 5, 2, 3, 3, 9, 0, 123});
     assert(issame(v, std::vector<int>{0, 2, 3, 5, 9, 123}));
-    std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    uniqueVec.erase(std::unique(uniqueVec.begin(), uniqueVec.end()), uniqueVec.end());
-    assert(issame(uniqueVec, std::vector<int>{0, 2, 3, 5, 9, 123}));
+    assert(issame(std::vector<int>(std::unique(std::vector<int>{5, 3, 5, 2, 3, 3, 9, 0, 123}.begin(), std::vector<int>{5, 3, 5, 2, 3, 3, 9, 0, 123}.end())), std::vector<int>{0, 2, 3, 5, 9, 123}));
     return 0;
 }
