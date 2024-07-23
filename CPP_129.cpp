@@ -1,7 +1,11 @@
+Here is the corrected code:
+
 ```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,7 +17,7 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors;
     neighbors.resize(n);
     for (int i = 0; i < n; ++i) {
         neighbors[i].resize(n);
