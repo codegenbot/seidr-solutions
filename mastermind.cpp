@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include <utility>
 
 using namespace std;
 
-int mastermind(string code, string guess) {
+pair<int, int> mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
     for(int i=0; i<4; i++) {
@@ -19,7 +20,7 @@ int mastermind(string code, string guess) {
             }
         }
     }
-    return 4 - black - white;
+    return make_pair(black, 4 - black - white);
 }
 
 int main() {
@@ -28,6 +29,5 @@ int main() {
     cin >> code;
     cout << "Enter your guess: ";
     cin >> guess;
-    int result = mastermind(code, guess);
-    cout << "Black pegs: " << black << ", White pegs: " << 4 - black - white << "\n";
-}
+    pair<int, int> result = mastermind(code, guess);
+    cout << "Black pegs: " << result.first << ", White pegs: " << result.second << "\n";
