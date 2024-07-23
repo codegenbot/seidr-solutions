@@ -7,13 +7,13 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int,int>>> neighbors(n);
+    vector<vector<pair<int, int>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i].push_back(std::make_pair(grid[i-1][j], i-1, j));
-            if (i < n-1) neighbors[i].push_back(std::make_pair(grid[i+1][j], i+1, j));
-            if (j > 0) neighbors[i].push_back(std::make_pair(grid[i][j-1], i, j-1));
-            if (j < n-1) neighbors[i].push_back(std::make_pair(grid[i][j+1], i, j+1));
+            if (i > 0) neighbors[i].emplace_back({grid[i-1][j], i-1, j});
+            if (i < n-1) neighbors[i].emplace_back({grid[i+1][j], i+1, j});
+            if (j > 0) neighbors[i].emplace_back({grid[i][j-1], i, j-1});
+            if (j < n-1) neighbors[i].emplace_back({grid[i][j+1], i, j+1});
         }
     }
 
@@ -30,7 +30,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (len == k) {
             return path;
         }
-        for (auto& neighbor : neighbors[path.back()]) {
+        for (auto& neighbor : neighbors[path.back().second]) {
             int val = neighbor.first;
             vector<int> newPath = path;
             newPath.push_back(val);
