@@ -7,8 +7,8 @@ using namespace std;
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
-        if (isdigit(c)) { 
-            int digit = stoi(std::to_string(c));
+        if (c >= '0' && c <= '9') { 
+            int digit = c - '0';
             result += to_string(digit * digit);
         } else {
             result += c;

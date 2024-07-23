@@ -1,19 +1,21 @@
-#include <string>
 #include <iostream>
+#include <string>
 
-std::string middleCharacter(std::string s) {
+std::string middleCharacter(const std::string& s) {
     int len = s.length();
     if(len % 2 == 0){
-        return s.substr(len/2 - 1, 2);
+        return s.substr(len/2, 2);
     } else{
-        return std::to_string(s[len/2]);
+        return s.substr(len/2, 1);
     }
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a string: ";
+    std::string input;
     std::getline(std::cin, input);
-    std::cout << middleCharacter(input) << std::endl;
+
+    std::cout << "The middle character(s) is/are: " << middleCharacter(input);
+
     return 0;
 }
