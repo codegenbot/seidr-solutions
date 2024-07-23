@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,11 +15,13 @@ string spinWords(string str) {
         if (end == string::npos)
             end = str.length();
         
-        string wholeWord = str.substr(start, end - start);
-
-        reverse(wholeWord.begin(), wholeWord.end());
-
-        result += wholeWord + " ";
+        string word = str.substr(start, end - start);
+        
+        if (word.length() >= 5)
+            result += boost::algorithm::reverse(word) + " ";
+        
+        else
+            result += word + " ";
         
         start = end + 1;
     }
