@@ -37,5 +37,4 @@ int main() {
     } else {
         cout << "Test failed." << endl;
     }
-    return 0;
 }
