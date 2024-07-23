@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the modified code without the leading blank lines:
 
 ```
 def cut_vector(vector):
