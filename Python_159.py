@@ -1,6 +1,3 @@
 def eat(number, need, remaining):
-    if remaining < need:
-        total_eaten = need
-    else:
-        total_eaten = number + max(need - (remaining - number), 0)
+    total_eaten = min(number, need) if number <= remaining else min(need, remaining)
     return [total_eaten, remaining - total_eaten]
