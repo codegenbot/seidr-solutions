@@ -3,18 +3,28 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
-
-    for (const string& s : lst1) {
-        sum += s.length();
-    }
-    for (const string& s : lst2) {
-        sum += s.length();
-    }
-
-    if (!issame(lst1, lst2)) {
-        return issame({lst1}, {lst2}, {}) ? lst1 : lst2;
-    } else {
+    if (issame(lst1, lst2)) {
         return lst1;
+    } else if (lst1.size() < lst2.size()) {
+        return lst1;
+    } else if (lst1.size() > lst2.size()) {
+        return lst2;
+    } else {
+        int sum1 = 0, sum2 = 0;
+
+        for (const string& s : lst1) {
+            sum1 += s.length();
+        }
+        for (const string& s : lst2) {
+            sum2 += s.length();
+        }
+
+        if (sum1 < sum2) {
+            return lst1;
+        } else if (sum1 > sum2) {
+            return lst2;
+        } else {
+            return lst1;
+        }
     }
 }
