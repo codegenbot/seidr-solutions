@@ -1,28 +1,40 @@
-```
 #include <string>
-using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
+    int i = 0;
+    while (i < s.size()) {
         if (s[i] == 'X') {
             score += 30;
-        } else if (isdigit(s[i])) {
-            int pins = s[i] - '0';
-            if (i < 8 && (s[i+1] == '/' || s[i+1] == 'X')) {
-                score += 10 + pins;
-                i++;
-            } else {
-                score += pins;
-            }
+            i++;
         } else if (s[i] == '/') {
+            i++;
             int j = i + 1;
-            while (j < s.length() && !isdigit(s[j])) {
+            while (j < s.size() && !isdigit(s[j])) {
                 j++;
             }
             int pins = s[j] - '0';
             score += 10 - pins;
+            i = j;
+        } else if (isdigit(s[i])) {
+            int j = i;
+            while (j < s.size() && isdigit(s[j])) {
+                j++;
+            }
+            int pins = 0;
+            for (; i < j; i++) {
+                pins = pins * 10 + (s[i] - '0');
+            }
+            if (i == j) {
+                score += pins;
+            } else if (j - i > 1) {
+                score += max(pins, 10);
+                if (pins < 10) {
+                    score += pins;
+                }
+            } else {
+                score += pins;
+            }
         }
     }
     return score;
-}
