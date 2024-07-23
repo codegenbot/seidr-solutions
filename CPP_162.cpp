@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string string_to_md5(const string& text){
+string string_to_md5(const string& text) {
     if(text.empty()){
         return "None";
     }
@@ -21,4 +21,7 @@ string string_to_md5(const string& text){
     return md5_hash;
 }
 
-assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
+}
