@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -8,25 +9,30 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         print("Invalid input. Try again.")
 
     paren_string = ' '.join(paren_string.split())
-    result = []
-    temp = ''
     
-    for char in paren_string:
-        if char == ' ':
-            if temp:
+    while len(paren_string) > 0:
+        temp = ''
+        for char in paren_string:
+            if char == ' ':
                 result.append(temp)
                 temp = ''
-        elif char in ['(', ')']:
-            if char == '(':
-                temp += char
+            elif char in ['(', ')']:
+                if char == '(':
+                    temp += char
+                else:
+                    while temp and (temp[-1] != '('):
+                        result.append(temp[:-1])
+                        temp = temp[:-1].rstrip()
+                    if temp and temp[-1] == '(':
+                        temp += char
+                    elif not temp:
+                        temp += char
             else:
-                while temp and (temp[-1] != '('):
-                    result.append(temp[:-1])
-                    temp = temp[:-1].rstrip()
-                if temp and temp[-1] == '(':
-                    temp += char
-                elif not temp:
-                    temp += char
+                temp += char
+        paren_string = paren_string.lstrip().rstrip()
+        while len(paren_string) > 0 and paren_string[0] in ['(', ')']:
+            result.append(paren_string[0])
+            paren_string = paren_string[1:].lstrip().rstrip()
 
     if temp:
         result.append(temp)
