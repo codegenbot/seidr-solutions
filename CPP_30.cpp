@@ -1,10 +1,9 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return (std::count(a.begin(), a.end(), 0.0f) == 0 && 
-           std::count(b.begin(), b.end(), 0.0f) == 0 &&
-           a.size() == b.size());
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
@@ -15,7 +14,13 @@ int main() {
     for (auto i = 0; i < n; ++i)
         std::cin >> a[i];
 
-    bool same = issame(a, a);
+    bool same = true;
+    for (const auto& val : a) {
+        if (!(std::cin >> val)) { 
+            same = false;
+            break;
+        }
+    }
 
     std::cout << (same ? "YES" : "NO") << std::endl;
 
