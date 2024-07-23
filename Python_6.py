@@ -1,4 +1,7 @@
-def parse_nested_parens(paren_string: str) -> list:
+```
+from typing import List
+
+def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     nesting_level = 0
     max_nesting_level = 0
