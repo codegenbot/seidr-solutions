@@ -21,12 +21,16 @@ int main() {
     }
 
     whitePegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeFreq[code[i] - 'A'] > 0 && guessFreq[guess[i] - 'A'] > 0) {
-            ++whitePegs;
-            --codeFreq[code[i] - 'A'];
-            --guessFreq[guess[i] - 'A'];
-        }
+
+    for (char c : code) {
+        if (c >= 'A' && c <= 'F') ++codeFreq[c - 'A'];
+    }
+    for (char c : guess) {
+        if (c >= 'A' && c <= 'F') ++guessFreq[c - 'A'];
+    }
+
+    for (int i = 0; i < 6; ++i) {
+        whitePegs += min(codeFreq[i], guessFreq[i]);
     }
 
     cout << whitePegs << " " << blackPegs << endl;
