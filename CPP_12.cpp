@@ -1,9 +1,19 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
+#include <vector>
+#include <string>
+
+using namespace std;
+
+string longest(vector<string> strings) {
+    if (strings.empty()) {
+        return "";
+    }
     string result = strings[0];
-    for(auto s : strings) {
-        if(s.length() > result.length())
-            result = s;
+    for (const auto& str : strings) {
+        if (str.length() > result.length()) {
+            result = str;
+        } else if (str.length() == result.length()) {
+            result = str;
+        }
     }
     return result;
 }
