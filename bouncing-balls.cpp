@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath> // For pow and setprecision
+#include <cmath> 
 using namespace std;
 
 int main() {
