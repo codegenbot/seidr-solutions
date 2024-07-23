@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
@@ -14,18 +14,18 @@ int smallest_change(std::vector<int> arr) {
             int j = i + length - 1;
             
             if (arr[i] == arr[j]) {
-                dp[i][j][0] = 0;
+                dp[i][j] = 0;
             } else {
-                dp[i][j][0] = 1 + std::min({dp[i + 1][j - 1][0], dp[i][j - 1][0]});
+                dp[i][j] = 1 + std::min(dp[i + 1][j - 1], dp[i][j - 1]);
             }
         }
     }
     
-    return dp[0][n - 1][0];
+    return dp[0][n - 1];
 }
 
 int main() {
     int result = smallest_change({0, 1});
-    std::cout << "The minimum number of coin flips needed to change one set of coins to another: " << result << std::endl;
+    std::cout << "Smallest change: " << result;
     return 0;
 }
