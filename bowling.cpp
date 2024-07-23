@@ -1,34 +1,43 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int frame = 1;
-    for (char c : s) {
+    int currentRolls = 0;
+    int frameNumber = 1;
+
+    for (char c : input) {
         if (c == 'X') {
-            score += 10 + (frame < 10 ? 10 : 0);
-            frame++;
+            score += 30;
+            currentRolls = 2;
         } else if (c == '/') {
-            int strike = 10 - ((s[s.size() - 2] - '0') + (s[s.size() - 1] - '0'));
-            score += 10 + strike;
-            frame++;
-        } else {
-            int pins = c - '0';
-            if (frame < 9) {
-                if (pins == 10) {
-                    score += 10 + 10;
-                    frame += 2;
-                } else {
-                    score += pins + (s[s.size() - 1] - '0' + s[s.size() - 2] - '0');
-                    frame++;
-                }
+            score += 10 + getRemaining(c, input);
+            currentRolls = 0;
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            if (currentRolls < 2) {
+                score += roll;
+                currentRolls++;
             } else {
-                if (pins == 10) {
+                if (roll == 10) {
                     score += 10;
-                    frame++;
+                    currentRolls = 0;
                 } else {
-                    score += pins;
-                    frame++;
+                    score += getRemaining(c, input);
+                    currentRolls = 0;
                 }
             }
         }
+
+        if (frameNumber == 10) break;
+
+        frameNumber++;
     }
+
     return score;
+}
+
+int getRemaining(char c, string input) {
+    int i = 1;
+    while (input[input.size() - i] != c && i <= input.size()) {
+        i++;
+    }
+    return 10 - i + (input[input.size() - i] - '0');
 }
