@@ -1,7 +1,16 @@
 double poly(vector<double> coeffs, double x) {
-    double result = 0;
+    double res = 0;
     for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
+        res += coeffs[i] * pow(x, i);
     }
-    return result;
+    return res;
+}
+
+double find_zero(vector<double> coeffs) {
+    double a = 0, b = 0, c = coeffs[0];
+    for(int i=1; i<coeffs.size();i++){
+        if(i%2==0) c+=(-1)*coeffs[i]/pow(2,i);
+        else a+=coeffs[i]/(double)(i+1);
+    }
+    return -b/(2*a);
 }
