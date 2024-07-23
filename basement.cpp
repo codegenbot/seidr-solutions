@@ -6,7 +6,9 @@ int basement(const std::vector<int>& nums) {
         if (sum < 0 && minIndex == -1)
             minIndex = i;
         else if (sum >= 0 && minIndex != -1)  
-            return minIndex; 
+            return minIndex + 1; 
     }
-    return -1; 
+    // If the function doesn't find any negative sum, return -1
+    if(minIndex == -1) return -1;
+    return minIndex + 1;
 }
