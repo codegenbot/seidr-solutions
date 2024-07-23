@@ -1,7 +1,7 @@
 ```
 def car_race_collision():
-    distance = int(input("Enter the distance in kilometers: "))
     speed = int(input("Enter the average speed of all cars in km/h: "))
+    distance = int(input("Enter the distance in kilometers: "))
     time_taken = distance / speed
     hours = int(time_taken)
     minutes = int((time_taken - hours) * 60)
