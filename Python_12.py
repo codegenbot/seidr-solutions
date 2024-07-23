@@ -16,4 +16,4 @@ def longest(strings: list[str]) -> Optional[str]:
 
 
 strings = [s.strip() for s in input("Please enter a list of strings, one per line (or 'stop' to finish): ").split(',')]
-print("The longest string is: " + str(longest(strings)) if longest(strings) else "No strings entered")
+print("The longest string is: " + longest(strings)[0] if longest(strings) else "No strings entered")
