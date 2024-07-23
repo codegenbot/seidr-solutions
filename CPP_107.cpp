@@ -1,10 +1,4 @@
-vector<int> even_odd_palindrome(int n){
-    vector<int> res(2, 0);
-    for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        if (num == string(num.rbegin(), num.rend())) {
-            num.back() % 2 == 0 ? ++res[0] : ++res[1];
-        }
+int count_even = n / 2 + n % 2;
+        int count_odd = n / 2;
+        return {count_even, count_odd};
     }
-    return res;
-}
