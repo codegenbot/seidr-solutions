@@ -20,7 +20,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    if (!issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")}, vector<string>({"xxx", "xxxAAA", "xxx"}))) {
+    if (!issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")}, vector<string>{{"xxx", "xxxAAA", "xxx"}})) {
         return 1;
     }
     return 0;
