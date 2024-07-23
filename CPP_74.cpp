@@ -14,4 +14,3 @@ int total_chars1 = 0;
     } else {
         return lst2;
     }
-}
