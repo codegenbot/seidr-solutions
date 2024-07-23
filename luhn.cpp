@@ -9,8 +9,8 @@ int main() {
     int sum = 0;
     for (int i = n - 1; i >= 0; --i) {
         if ((n - i) % 2 == 0) {
-            int doubled = digits[i] * 2;
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
+            int doubled_digit = digits[i] * 2;
+            sum += (doubled_digit > 9) ? (doubled_digit - 9) : doubled_digit;
         } else {
             sum += digits[i];
         }
