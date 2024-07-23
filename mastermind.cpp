@@ -22,7 +22,7 @@ int main() {
     }
     
     for (int i = 0; i < 6; ++i) {
-        whitePegs += max(codeFreq[i], guessFreq[i]) - min(codeFreq[i], guessFreq[i]);
+        whitePegs += min(codeFreq[i], guessFreq[i]);
     }
     
     cout << whitePegs << endl << blackPegs << endl;
