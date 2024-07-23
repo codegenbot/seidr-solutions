@@ -1,30 +1,48 @@
-int score(string s) {
-    int total = 0;
+int bowlingScore(const string& s) {
+    int score = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - s[i + 2] + '0' : s[i + 1] - '0');
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - s[i + 3] + '0' : s[i + 2] - '0');
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
-            i += 2;
+    int ball = 0;
+    bool spare = false;
+    bool strike = false;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (strike ? 10 : 0) + (spare ? 10 : 0);
+                strike = true;
+                frame++;
+                ball = 0;
+            }
+        } else if (c == '/') {
+            score += 10 - (s[ball - 1] - '0');
+            if (frame < 10) {
+                score += (strike ? 10 : 0);
+                spare = true;
+                frame++;
+                ball = 0;
+            }
+        } else if (c == '-') {
+            if (frame < 10) {
+                score += (strike ? 10 : 0) + (spare ? 10 : 0);
+                frame++;
+                ball = 0;
+            }
         } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0');
-            total += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            score += c - '0';
+            if (frame < 10) {
+                score += (strike ? 10 : 0) + (spare ? 10 : 0);
+                strike = false;
+                spare = false;
+                ball++;
+            }
         }
-        frame++;
     }
-    return total;
+    return score;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
