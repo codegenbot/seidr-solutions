@@ -1,2 +1,4 @@
+```
 def solve():
-    return sum((round(i/3) - 2) for i in map(int, input().split()))
+    numbers = list(map(int, input().split()))
+    return sum((num // 3) - 2 for num in numbers)
