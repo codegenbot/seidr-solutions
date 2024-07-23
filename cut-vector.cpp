@@ -1,41 +1,34 @@
-```c++
 #include <iostream>
 #include <vector>
+#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<int> left(v.begin(), v.begin() + n/2);
-    vector<int> right(v.begin() + n/2, v.end());
-    if (n % 2 == 0 && abs(inner_product(left.begin(), left.end(), right.begin(), right.end())) < 1e-6) {
-        return {{left}, {right}};
-    }
     
-    int minDiff = INT_MAX;
-    int cutIndex; // Declare without initialization
-    
-    for (int i = 1; i <= n - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    vector<int> left;
+    vector<int> right;
+    int min_diff = numeric_limits<int>::max();
+    int best_cut = -1;
+
+    for (int i = 0; i < n; i++) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; j++)
+            sum_left += v[j];
+        for (int j = i + 1; j < n; j++)
+            sum_right += v[j];
+
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            best_cut = i;
         }
     }
+
+    left = vector<int>(v.begin(), v.begin() + best_cut);
+    right = vector<int>(v.begin() + best_cut, v.end());
     
-    vector<int> l2(v.begin(), v.begin() + cutIndex);
-    vector<int> r2(v.begin() + cutIndex, v.end());
-    return {{l2}, {r2}};
+    return {{left}, {right}};
 }
 
 int main() {
