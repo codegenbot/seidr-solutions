@@ -9,7 +9,7 @@ double probability(int n, int m) {
         for (int j = 1; j <= m; j++) {
             if (i > j) {
                 count++;
-            } 
+            }
         }
     }
 
