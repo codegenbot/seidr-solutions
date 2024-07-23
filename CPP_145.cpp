@@ -8,7 +8,7 @@ vector<int> order_by_points(vector<int> nums) {
         int tempA = abs(a), tempB = abs(b);
         while (tempA > 0) {sumA += tempA % 10; tempA /= 10;}
         while (tempB > 0) {sumB += tempB % 10; tempB /= 10;}
-        if (sumA == sumB) return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+        if (sumA == sumB) return a < b;
         return sumA < sumB;
     });
     
