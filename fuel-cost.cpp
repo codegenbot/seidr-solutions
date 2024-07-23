@@ -6,14 +6,17 @@ int main() {
     int n;
     while (std::cin >> n) {
         nums.push_back(n);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
     }
-
+    
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += static_cast<int>(num / 3) - 2;
     }
-
-    std::cout << sum * 3 << std::endl;
-
+    
+    std::cout << sum << std::endl;
+    
     return 0;
 }
