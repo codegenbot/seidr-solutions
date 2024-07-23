@@ -9,8 +9,8 @@ int main() {
     int filter_integers(std::vector<int> nums) {
         std::vector<int> result;
         for (int num : nums) {
-            if (std::abs(num - static_cast<int>(num)) < 1e-9) {
-                result.push_back(num);
+            if (std::isinteger(num)) {
+                result.push_back(static_cast<int>(num));
             }
         }
         return 0;
