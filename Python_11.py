@@ -4,19 +4,13 @@ def string_xor(a: str, b: str) -> str:
     b = bin(int(b or '0', 2))[2:]
     
     result = ""
-    max_length = max(len(a), len(b))
-    for i in range(max_length):
+    for i in range(max(len(a), len(b))):
         if i < len(a) and i < len(b):
-            if a[i] == "1" and b[i] == "0":
-                result = "1" + result
-            elif a[i] == "0" and b[i] == "1":
-                result = "1" + result
-            else:
-                result = "0" + result
+            result += '1' if (a[-1-i] == "1" and not b[-1-i]) else '0'
         else:
             if i < len(a):
-                result = a[i] + result
+                result = a[-1-i] + result
             elif i < len(b):
-                result = b[i] + result
+                result = b[-1-i] + result
     
     return result
