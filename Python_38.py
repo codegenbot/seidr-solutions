@@ -1,4 +1,6 @@
 def decode_cyclic(s: str):
+    if len(s) == 0:
+        return "No input provided"
     result = ""
     i = 0
     while i < len(s):
@@ -8,7 +10,7 @@ def decode_cyclic(s: str):
         elif len(group) > 0:
             if len(group) == 1: 
                 if i+2 < len(s):
-                    result = result[:-1] + group
+                    result += group + s[i+2:]
                 else:
                     result += group
             else: 
