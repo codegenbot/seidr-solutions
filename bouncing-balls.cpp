@@ -11,15 +11,18 @@ int main() {
 
     cin >> heightStart >> heightFirstBounce >> numBounces;
 
-    double bouncinessIndex = heightFirstBounce / heightStart;
+    double bouncinessIndex = sqrt(heightFirstBounce / heightStart);
 
     double totalDistance = 0.0;
+    double originalHeight = heightStart;
+    
     for (int i = 1; i <= numBounces; i++) {
-        heightFirstBounce *= bouncinessIndex; 
-        totalDistance += 2 * abs(heightFirstBounce - heightStart); 
+        double currentHeight = originalHeight * pow(bouncinessIndex, i);
+        totalDistance += 2 * abs(originalHeight - currentHeight);
+        originalHeight = currentHeight;
     }
 
-    cout << std::fixed << std::setprecision(9) << totalDistance;
+    cout << std::fixed << std::setprecision(10) << totalDistance;
 
     return 0;
 }
