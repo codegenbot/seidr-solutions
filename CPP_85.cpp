@@ -13,10 +13,12 @@ int add(vector<int> lst) {
 }
 
 int main() {
-    vector<int> numbers(1); 
+    vector<int> numbers(1); // Initialize your vector with one element.
+    
     cout << "Enter some numbers (enter -1 when you are done):" << endl;
     
-    int num;  
+    int num;
+    
     do{
         cin >> num;
         numbers.push_back(num);
