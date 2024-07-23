@@ -1,6 +1,7 @@
 ```cpp
 #include <queue>
 #include <climits>
+#include <vector>
 #include <numeric>
 
 using namespace std;
