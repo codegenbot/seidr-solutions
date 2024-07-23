@@ -8,7 +8,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     
     int i = 0;
     while (i <= n - m) {
-        i = 0; 
+        i = 0; // Reset i here
         if (text.substr(i, m) == target)
             result.push_back(i);
         i = text.find(target, i) + 1;
