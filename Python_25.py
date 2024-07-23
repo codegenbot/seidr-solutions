@@ -1,4 +1,3 @@
-```python
 from typing import List
 import math
 
@@ -33,3 +32,6 @@ def factorize(n: int) -> List[int]:
                 factors.append(n)
 
     return factors
+
+
+print(factorize(315))
