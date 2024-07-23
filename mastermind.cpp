@@ -3,30 +3,29 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> code_freq(6, 0);
-vector<int> guess_freq(6, 0);
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    int white_pegs = 0, black_pegs = 0;    
-
+    
+    int white = 0, black = 0;
+    vector<int> codeFreq(6, 0);
+    vector<int> guessFreq(6, 0);
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black_pegs++;
+            black++;
         } else {
-            code_freq[code[i] - 'A']++;
-            guess_freq[guess[i] - 'A']++;
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
-
+    
     for (int i = 0; i < 6; ++i) {
-        white_pegs += min(code_freq[i], guess_freq[i]);
+        white += min(codeFreq[i], guessFreq[i]);
     }
-
-    cout << white_pegs << "\n";
-    cout << black_pegs << "\n";
-
+    
+    cout << white << endl;
+    cout << black << endl;
+    
     return 0;
 }
