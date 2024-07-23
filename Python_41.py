@@ -1,3 +1,5 @@
+```python
+print('Complete the following code given the task description and function signature..')
 def car_race_collision():
     distance = int(input("Enter the distance in kilometers: "))
     speed = int(input("Enter the average speed of all cars in km/h: "))
