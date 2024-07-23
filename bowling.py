@@ -1,4 +1,4 @@
-```python
+```
 def bowling_score(frames):
     frames = frames.replace('/', ' /').split()
     score = 0
