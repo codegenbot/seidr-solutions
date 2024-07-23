@@ -1,21 +1,27 @@
-```
-def bowling_score(frames):
+Here is a Python function that solves the problem:
+
+def bowling_score(s):
     score = 0
-    roll = [int(x) for x in re.sub('/|-', '', frames)]
-    for i in range(10):
-        if '/' in str(i+1)+str(roll[i]):
-            strike = True
-        elif '-' in str(i+1)+str(roll[i]):
-            spare = True
-        else:
-            strike = False
-            spare = False
-        if strike:
-            score += 10 + roll[i+1]+roll[i+2]
-            i += 2
-        elif spare:
-            score += 10
-            i += 1
-        else:
-            score += roll[i] + roll[i+1]
+    roll = []
+    for char in s:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == '/':
+            if len(roll) < 2:
+                return 0
+            strike = sum(roll)
+            score += strike
+            roll = []
+        elif char == 'X':
+            if len(roll) != 1:
+                return 0
+            strike = 10 + sum(roll)
+            score += strike
+            roll = []
+    if len(roll) > 2:
+        return 0
+    if len(roll) == 1:
+        score += roll[0]
+    elif len(roll) == 2:
+        score += sum(roll)
     return score
