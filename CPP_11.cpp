@@ -1,11 +1,13 @@
-```cpp
-#include <string>
+#include <sstream>
 #include <iostream>
 
-std::string string_xor(std::string a, std::string b) {
-    std::string result = "";
-    for (int i = 0; i < a.length(); i++) {
-        if ((a[i] - '0') ^ (b[i] - '0')) {
+using namespace std;
+
+string string_xor(string a, string b) {
+    istringstream is_a(a), is_b(b);
+    string result = "";
+    for (char c; is_a >> c && is_b >> c; ) {
+        if ((c - '0') ^ ('0' - '0')) {
             result += "1";
         } else {
             result += "0";
@@ -15,6 +17,6 @@ std::string string_xor(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << string_xor("0101", "0000") << std::endl;
+    cout << string_xor("0101", "0000") << endl;
     return 0;
 }
