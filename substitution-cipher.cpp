@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -23,3 +24,4 @@ int main() {
     std::cin >> cipher1 >> cipher2 >> input;
     std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
+}
