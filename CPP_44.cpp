@@ -1,8 +1,8 @@
-string change_base(int x, int base) {
-    string res = "";
-    while (x > 0) {
-        res = to_string(x % base) + res;
+string change_base(int x, int base){
+    string result = "";
+    while(x > 0){
+        result = to_string(x % base) + result;
         x /= base;
     }
-    return res == "" ? "0" : res;
+    return result;
 }
