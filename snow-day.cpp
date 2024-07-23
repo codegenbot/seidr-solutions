@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -9,12 +10,15 @@ int main() {
 
     for (int i = 1; i <= hours; i++) {
         double meltingAmount = groundSnow > 0 ? std::min(groundSnow, proportionOfSnowMeltingPerHour) : 0;
-        groundSnow -= static_cast<double>(meltingAmount);
-        
-        if (i < hours) { 
-            // add new snow for the next hour
-            groundSnow += static_cast<double>(rateOfSnowFall); 
+        groundSnow -= meltingAmount;
+
+        double newSnow = rateOfSnowFall - meltingAmount;
+        if (newSnow > 0) {
+            groundSnow += newSnow; 
         }
+        
+        meltingAmount = groundSnow > 0 ? std::min(groundSnow, proportionOfSnowMeltingPerHour) : 0;
+        groundSnow -= meltingAmount;
     }
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::setprecision(10) << groundSnow;
