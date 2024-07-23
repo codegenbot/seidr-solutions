@@ -1,18 +1,25 @@
-#include<string>
-using namespace std;
+#include <string>
+#include <algorithm>
 
-bool simplify(string x, string n) {
-    int a = 1, b = 1, c = 1, d = 1;
+bool simplify(const std::string& numeratorStr, const std::string& denominatorStr) {
+    int numerator = 0, denominator1 = 0, denominator2 = 0;
     
-    // Split the fractions into numerator and denominator
-    size_t pos = x.find('/');
-    a = stoi(x.substr(0, pos));
-    b = stoi(x.substr(pos + 1));
+    size_t numeratorPos = numeratorStr.find('/');
+    size_t denominator1Pos = denominatorStr.find('/');
 
-    pos = n.find('/');
-    c = stoi(n.substr(0, pos));
-    d = stoi(n.substr(pos + 1));
+    std::string numeratorPart = numeratorStr.substr(0, numeratorPos);
+    std::string denominator1Part = denominatorStr.substr(0, denominator1Pos);
+    std::string denominator2Part = (denominator1Pos == std::string::npos) ? "" : denominatorStr.substr(denominator1Pos + 1);
 
-    // Check if the product is an integer
-    return (long long)a * c == (long long)b * d;
+    if (numeratorPart.empty() || denominator1Part.empty() || !denominator2Part.empty())
+        return false;
+    
+    numerator = std::stoi(numeratorPart);
+    denominator1 = std::stoi(denominator1Part);
+    denominator2 = std::stoi(denominator2Part);
+    
+    int productDenominator = denominator1 * denominator2;
+    if (productDenominator == 0)
+        return false; 
+    return numerator % productDenominator == 0;
 }
