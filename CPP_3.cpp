@@ -1,9 +1,11 @@
-bool below_zero(vector<int> operations){
+#include <vector>
+#include <assert.h>
+
+bool below_zero(std::vector<int> operations){
     int balance = 0;
-    for(int i : operations){
-        balance += i;
-        if(balance < 0)
-            return true;
+    for(int operation : operations){
+        balance += operation;
+        if(balance < 0) return true;
     }
     return false;
 }
