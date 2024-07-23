@@ -17,7 +17,7 @@ std::vector<float> get_positive(const std::vector<std::vector<float>>& mat) {
             }
         }
         if (!has_pos)
-            result.push_back(0); 
+            result.push_back(0); // add a zero to maintain size equality
     }
     return result;
 }
@@ -33,5 +33,6 @@ int main() {
 
     bool same = issame(get_positive(mat), get_positive(std::move(mat)));
     std::cout << (same ? "YES" : "NO") << std::endl;
+
     return 0;
 }
