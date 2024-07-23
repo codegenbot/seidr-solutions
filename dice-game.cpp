@@ -1,11 +1,12 @@
-```
 double calculateProbability(int n, int m) {
-    double total = (double)(n * m);
+    double total = (n * m);
     double probability = 0;
     
     for (int i = 1; i <= m; i++) {
-        probability += (double)i / total;
+        if(i < m - m + n) {
+            probability += (double)(m - i + 1) / total;
+        }
     }
     
-    return 1 - probability;
+    return probability;
 }
