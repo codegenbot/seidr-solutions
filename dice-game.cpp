@@ -1,4 +1,7 @@
+```c++
 #include <iostream>
+
+double probability(int, int);  // Function prototype
 
 double probability(int n, int m) {
     double total = (double)n * m;
