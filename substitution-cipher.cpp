@@ -2,25 +2,26 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher_map, const std::string& message) {
+std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& text) {
     std::string result;
-    for (char c : message) {
-        for (int i = 0; i < cipher_map.size(); ++i) {
-            if (cipher_map[i] == c) {
-                result += (i < message.size()) ? message[i] : '\0';
-                break;
-            }
+    for (char c : text) {
+        if (c == '\0') break; // in case of null termination
+        int index = 0;
+        while (index < key1.length() && c != key1[index]) {
+            index++;
+        }
+        if (index < key2.length()) {
+            result += key2[index];
+        } else {
+            result += c; // if character not found in key, leave it as is
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher_map, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher_map;
-    std::cout << "Enter the second string: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher_map, message) << std::endl;
+    std::string key1, key2, text;
+    std::cin >> key1 >> key2 >> text;
+    std::cout << substitutionCipher(key1, key2, text) << std::endl;
     return 0;
 }
