@@ -1,4 +1,5 @@
-def longest(strings):
+```
+def longest(strings): 
     if not strings:
         return None
-    return max(map(str, set(strings)), key=len)
+    return max(set(map(str, strings)), key=len)
