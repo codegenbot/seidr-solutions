@@ -15,6 +15,3 @@ vector<int> largest_smallest_integers(vector<int> lst){
     }
     return {largest_negative, smallest_positive};
 }
-
-// Example of assert statement in main function:
-// assert(issame(largest_smallest_integers({-3, -2, -1, 0, 1, 2, 3}), {-1, 1}));
