@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,6 +8,9 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
 
     if not isinstance(delimiter, int):
         raise ValueError("Delimiter must be an integer")
+
+    if len(numbers) <= 1:
+        return numbers
 
     result = [numbers[0]]
 

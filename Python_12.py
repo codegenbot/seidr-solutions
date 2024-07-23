@@ -5,11 +5,13 @@ def longest(strings: list[str]) -> Optional[str]:
     if not strings:
         return None
     max_len = 0
-    longest_strs = []
+    longest_str = None
     for s in strings:
         if len(s) > max_len:
             max_len = len(s)
-            longest_strs = [s]
-        elif len(s) == max_len:
-            longest_strs.append(s)
-    return longest_strs[0] if longest_strs else None
+            longest_str = s
+    return longest_str
+
+user_input = input("Please enter a list of strings: ")
+strings = [s.strip() for s in user_input.replace(',', ' ').split()]
+print(longest(strings))
