@@ -1,8 +1,9 @@
 def digits(n):
-    product = 1
+    has_odd = False
     while n:
         digit = n % 10
         if digit % 2:
-            product *= digit
+            has_odd = True
+            break
         n //= 10
-    return product
+    return 1 if has_odd else 0
