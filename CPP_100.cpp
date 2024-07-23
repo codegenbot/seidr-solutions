@@ -1,11 +1,13 @@
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            pile.push_back(i * 2 - 1);
-        } else {
-            pile.push_back(i * 2);
-        }
+    int stones = n;
+    while (stones > 0) {
+        pile.push_back(min(stones, 3)); 
+        stones -= min(stones, 3); 
     }
     return pile;
 }

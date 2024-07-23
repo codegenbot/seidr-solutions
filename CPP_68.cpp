@@ -1,27 +1,19 @@
 ```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <utility>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+std::pair<int, int> result(const std::vector<int>& arr) {
+    for(int i = 0; i < arr.size(); ++i) {
+        if(arr[i] % 2 == 1) {
+            return {arr[i], i};
+        }
     }
-    return true;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> output;
-    for (int i = 0; i < arr.size(); i++) {
-        output.push_back({arr[i], i});
-    }
-    return output;
+    return {-1, -1}; // or any other default value
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = pluck(arr);
+    std::vector<int> arr = {1, 2, 3, 4};
+    std::vector<std::pair<int, int>> output = result(arr);
     for (auto p : output) {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
