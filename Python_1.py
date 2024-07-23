@@ -8,13 +8,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == ' ':
             continue
         
-        if char == '(' or char == ')':
-            if temp and (temp[-1] != '(' or temp[-1] != ')'):
+        if char in ['(', ')']:
+            if char == '(':
+                temp += char
+            elif temp and (temp[-1] != '(' or temp[-1] != ')'):
                 result.append(temp)
                 temp = ''
-            temp += char
-        elif char == ')':
-            if not temp or (temp.count('(') > temp.count(')')):
+            else:
                 temp += char
                 
     if temp:
