@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-#include <algorithm>
-
+```
 std::string squareDigits(int n) {
     std::string str = std::to_string(n);
     std::string result;
@@ -9,14 +6,5 @@ std::string squareDigits(int n) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
-    std::reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    int input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-    std::cout << squareDigits(input) << std::endl;
-    return 0;
 }
