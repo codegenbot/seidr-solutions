@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -6,7 +5,7 @@ std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += std::to_string(digit * digit);
+        output += static_cast<char>(digit * digit + '0'); 
     }
     return output;
 }
@@ -14,7 +13,6 @@ std::string squareDigits(std::string input) {
 int main() {
     std::string input;
     std::cin >> input;
-    std::cout << squareDigits(input);
-    std::cout << std::endl;
+    std::cout << squareDigits(input) << std::endl;
     return 0;
 }
