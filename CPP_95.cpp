@@ -1,21 +1,23 @@
-#include <map>
 #include <string>
+#include <cctype>
 
-using namespace std;
-
-bool check_dict_case(map<string, int> dict) {
+bool check_dict_case(const std::vector<std::pair<std::string, int>>& dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (pair<string, int> pair : dicts | map_to_vector) {
-        if (!islower(pair.first[0])) allLower = false;
-        if (!isupper(pair.first[0])) allUpper = false;
+    for (const auto& pair : dict) {
+        if (!std::all_of(pair.first.begin(), pair.first.end(),
+                         ::islower)) allLower = false;
+        if (!std::all_of(pair.first.begin(), pair.first.end(),
+                         ::isupper)) allUpper = false;
     }
 
     return allLower && !allUpper || !allLower && allUpper;
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    std::vector<std::pair<std::string, int>> dict;
+    // Add elements to the vector if you want
+    assert(check_dict_case(dict) == false);
     return 0;
 }
