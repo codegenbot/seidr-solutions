@@ -1,6 +1,6 @@
 def solve():
     num = int(input("Enter a number: "))
-    print(factorize(num))
+    print("The prime factorization of the given number is:", factorize(num))
 
 from typing import List
 import math
