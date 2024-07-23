@@ -1,3 +1,4 @@
+```
 def decode_shift(s: str) -> str:
     def shift_char(c: str) -> str:
         if c.isalpha():
