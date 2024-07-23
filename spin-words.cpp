@@ -1,4 +1,7 @@
-string spinWords(const string& str) {
+#include <iostream>
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
     int i = 0;
     while(i < str.length()) {
@@ -14,7 +17,7 @@ string spinWords(const string& str) {
                 for(int k = len-1; k >= 0; k--) {
                     revWord += word[k];
                 }
-                result += revWord;
+                result += std::move(revWord);
             } else {
                 result += word;
             }
@@ -27,5 +30,14 @@ string spinWords(const string& str) {
             i = j + 1;
         }
     }
-    return result;
+    return std::move(result);
+}
+
+int main() {
+    cout << spinWords("a") << endl; 
+    cout << spinWords("this is a test") << endl; 
+    cout << spinWords("this is another test") << endl; 
+    cout << spinWords("hi") << endl; 
+
+    return 0;
 }
