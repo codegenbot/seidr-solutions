@@ -1,18 +1,18 @@
-#include <string>
-using namespace std;
+string solveBoolean(string s) {
+    bool boolResult;
+    if(s == "t") boolResult = true;
+    else boolResult = false;
 
-std::string solveBoolean(std::string s) {
-    bool result = (s == "T");
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            result &= (left == "T") | (right == "T");
+            boolResult &= (left == "t") ? true : false;
         } else if(s[i] == '|') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            result |= (left == "T") | (right == "T");
+            boolResult |= (left == "t") ? true : false;
         }
     }
-    return result ? "True" : "False";
+    return boolResult ? "True" : "False";
 }
