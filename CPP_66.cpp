@@ -1,18 +1,5 @@
-```
-#include <iostream>
-#include <string>
-
-int digitSum(std::string str) {
-    int sum = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            sum += (c - '0');
-        }
-    }
-    return sum;
-}
-
-int main() {
+int main 
+{
     assert(digitSum("You arE Very Smart") == 327);
     std::cout << "Input your string: ";
     std::string input;
@@ -20,4 +7,3 @@ int main() {
     int result = digitSum(input);
     std::cout << "Result: " << result << std::endl;
     return 0;
-}
