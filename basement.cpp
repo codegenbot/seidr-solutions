@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <stdexcept>
@@ -16,7 +17,7 @@ int basement(const vector<int>& nums) {
 int main() {
     try {
         return basement({-1,2,3,-2,5});
-    } catch(const runtime_error& e) {
+    } catch(const exception& e) {
         cerr << "Error: " << e.what() << '\n';
         return -1;
     }
