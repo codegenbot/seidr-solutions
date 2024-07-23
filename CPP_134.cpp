@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cctype>
 #include <string>
