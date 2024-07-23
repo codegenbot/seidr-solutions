@@ -1,3 +1,4 @@
+#include <map>
 #include <string>
 
 int mastermind(string code, string guess) {
