@@ -6,3 +6,4 @@ int vowels_count(std::string s) {
         }
     }
     return count;
+}
