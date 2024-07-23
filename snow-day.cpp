@@ -20,6 +20,6 @@ int main() {
     cin >> hours;
     float onGround, rate, melt;
     cin >> onGround >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, onGround, rate, melt) << endl;
+    cout << fixed << setprecision(6) << snowDay(hours, onGround, rate, melt) << endl;
     return 0;
 }
