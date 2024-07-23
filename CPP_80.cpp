@@ -11,4 +11,3 @@ bool is_happy(string s){
         if(!flag) return false;
     }
     return true;
-}
