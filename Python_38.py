@@ -1,41 +1,23 @@
-```
+```python
 def decode_cyclic():
+    s = input("Enter a string: ")
+    n = len(s)
+    
+    if n < 2:
+        return s
+    
     result = ""
-    while True:
-        s = input("Enter a string (or 'q' to quit): ")
-        
-        if s.lower() == 'q':
-            break
-        
-        n = len(s)
-        
-        # Handle strings with less than two characters
-        if n < 2:
-            result += s + " "
-            continue
-        
-        i = 0
-        while i < n:
-            if i + 1 < n and s[i] == s[i+1]:
-                j = 2
-                while i + j < n and s[i] == s[i+j]:
-                    j += 1
-                result += s[i]
-                i += j
-            elif i == n - 1:
-                j = 0
-                while i - j >= 0 and s[i] == s[i-j]:
-                    j += 1
-                if j > 0: 
-                    result += s[0:j]
-                else:
-                    result += s[i]
-                break
-            else:
-                result += s[i]
+    i = 0
+    while i < n:
+        j = 1
+        while i + j < n and s[i] == s[i+j]:
+            j += 1
+        if j > 1:
+            result += s[i]
+            i += j
+        else:
+            result += s[i]
             i += 1
-        
-        print(result)
-    return
+    return result
 
 print(decode_cyclic())
