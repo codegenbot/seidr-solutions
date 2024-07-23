@@ -13,7 +13,7 @@ long long double_the_difference(std::vector<float> myVector) {
     return sum;
 }
 
-int main() {
+int mainOld() {
     std::vector<float> myVector;
     int n;
     float temp;
@@ -27,7 +27,7 @@ int main() {
         myVector.push_back(temp);
     }
 
-    long long odd_sum;
-    assert (double_the_difference(myVector) == odd_sum );
+    long long result = double_the_difference(myVector);
+    assert (result == 1); // Declare the variable before asserting.
     return 0;
 }
