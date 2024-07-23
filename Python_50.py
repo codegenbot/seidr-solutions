@@ -1,10 +1,13 @@
+```
 def decode_shift(s: str):
     result = ""
-    for ch in s:
-        if ord('a') <= ord(ch) <= ord('z'):
-            result += chr(((ord(ch) - ord('a')) % 26) + ord('a'))
-        elif ord('A') <= ord(ch) <= ord('Z'):
-            result += chr(((ord(ch) - ord('A')) % 26) + ord('A'))
+    shift = 5
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    for char in s:
+        if char in alphabet:
+            position = alphabet.index(char)
+            new_position = (position - shift) % 26
+            result += alphabet[new_position]
         else:
-            result += ch
+            result += char
     return result
