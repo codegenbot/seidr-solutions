@@ -2,7 +2,6 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
 string int_to_mini_romank(int number){
     string result = "";
     vector<pair<int, string>> roman_numerals = {
