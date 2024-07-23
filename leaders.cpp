@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm> 
+
 using namespace std;
 
 int main() {
@@ -14,14 +15,13 @@ int main() {
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int rightmost = arr.back();
-    result.push_back(rightmost);
-    for (int i = arr.size() - 2; i >= 0; --i) {
-        if (arr[i] > rightmost) {
-            rightmost = arr[i];
-            result.push_back(rightmost);
+    result.push_back(arr.back());
+    int maxRight = arr.back();
+    for(int i=arr.size()-2; i>=0; --i){
+        if(arr[i] >= maxRight){
+            maxRight = arr[i];
+            result.push_back(maxRight);
         }
     }
-    reverse(result.begin(), result.end());
     return result;
 }
