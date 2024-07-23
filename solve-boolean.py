@@ -1,15 +1,22 @@
+```
 def solve_boolean(expression):
     def recursive_eval(tokens):
-        result = True
+        and_result = True
+        or_result = False
+
         for token in tokens:
             if token == 'T':
-                continue
+                and_result = or_result = True
             elif token == 'F':
-                result = False
-                break
+                and_result = or_result = False
+            elif token == '&':
+                and_result = and_result and (next_token == 'T')
             elif token == '|':
-                return True
-        return result
+                next_token = next(tokens)
+                if next_token in ['&', '|']:
+                    return or_result
+                and_result = or_result = next_token == 'T'
+        return or_result
 
-    expression = expression.replace(' | ', '&|').replace('&', ' & ')
-    return recursive_eval(expression.split())
+    tokens = expression.replace('&', ' & ').replace('|', ' | ')
+    return recursive_eval(tokens.split())
