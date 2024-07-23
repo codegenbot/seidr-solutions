@@ -4,8 +4,8 @@
 int main() {
     std::vector<int> arr = {1, 3, 4, 2, 8};
     std::vector<int> result;
-    int maxRight = arr.back();
-    for (int i = 0; i < arr.size(); --i) {
+    int maxRight = 0;
+    for (int i = 0; i < arr.size(); ++i) {
         if (arr[i] >= maxRight) {
             maxRight = arr[i];
             result.push_back(maxRight);
