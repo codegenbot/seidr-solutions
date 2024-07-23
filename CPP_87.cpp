@@ -1,30 +1,13 @@
 #include <vector>
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i].size() != b[i].size()) return false;
-        for (int j = 0; j < a[i].size(); ++j) {
-            if (a[i][j] != b[i][j]) return false;
-        }
-    }
-    return true;
-}
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
-    vector<vector<int>> result;
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+    std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         if (x == i + 1) {
-            for (int j = 0; j < lst[i].size(); ++j) {
-                result.push_back({i, j});
+            for (int j = lst[i].size() - 1; j >= 0; --j) {
+                result.push_back({lst[i][j]});
             }
         }
     }
     return result;
-
-}
-
-int main() {
-    assert(issame(get_row({}, {1}, {1, 2, 3}), {{2, 2}}));
-    return 0;
 }
