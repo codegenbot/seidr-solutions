@@ -1,4 +1,4 @@
-```
+```Python
 from typing import Optional
 
 
@@ -22,4 +22,8 @@ while True:
         break
     strings.append(line)
 
-print(f"The longest string is: {longest(strings)}" if longest(strings) else "No strings entered")
+result = longest(strings)
+if result == "No strings entered":
+    print(result)
+else:
+    print(f"The longest string is: {result}")
