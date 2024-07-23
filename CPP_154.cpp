@@ -1,10 +1,11 @@
+```cpp
 #include<string>
 using namespace std;
 
 bool cycpattern_check(string a, string b) {
-    int len = b.length();
-    for(int i = 0; i < len; i++) {
-        if(a.find(b.substr(i)+b.substr(0,i)) != string::npos) {
+    for(int i = 0; i < b.length(); i++) {
+        string rotated = b.substr(i) + b.substr(0, i);
+        if(a == rotated || a == b) {
             return true;
         }
     }
