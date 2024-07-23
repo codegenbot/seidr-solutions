@@ -6,18 +6,12 @@ int bowlingScore(string s) {
         if (c == 'X') {
             score += 30;
         } else if (c == '/') {
-            score += 10 - (count(s.begin(), s.end(), 'X') % 2 ? 1 : 5);
+            score += 10 - (s.find('/')-s.rfind('S'))%2;
         } else {
             int count = c - '0';
             while (count--) {
-                if (s.substr(1, s.find(' ') - 1) == "X") {
-                    score += 30;
-                    break;
-                } else {
-                    score += 10;
-                }
+                score += 10;
             }
         }
     }
     return score;
-}
