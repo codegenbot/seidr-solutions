@@ -1,9 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
-    std::string result;
+string substitutionCipher(string cipher1, string cipher2, string input) {
+    string result;
     for (char c : input) {
         if (c == '\0') {
             break; 
@@ -25,10 +26,14 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 }
 
 int main() {
-    std::string cipher1, cipher2, input;
-    // get the strings from user
-    std::cin >> cipher1 >> cipher2 >> std::getline(std::cin, input);
-    // use your function here
-    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
+    string cipher1, cipher2, input;
+    cout << "Enter cipher1: ";
+    cin >> cipher1;
+    cout << "Enter cipher2: ";
+    cin >> cipher2;
+    cout << "Enter the message to be deciphered: ";
+    cin >> input;
+    
+    cout << "Deciphered message: " << substitutionCipher(cipher1, cipher2, input) << endl;
     return 0;
 }
