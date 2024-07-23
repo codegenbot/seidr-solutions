@@ -22,5 +22,5 @@ for i in range(n):
 
     current_sum += nums[i]
 
-print(*nums[: idx + 1])
-print(*nums[idx + 1 :])
+print(*nums[:idx + 1])
+print(*nums[idx + 1:])
