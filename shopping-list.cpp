@@ -9,3 +9,8 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
     }
     return total;
 }
+
+int main() {
+    // Add test cases here to validate your function
+    return 0;
+}
