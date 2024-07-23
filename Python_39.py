@@ -1,12 +1,20 @@
 ```
 def prime_fib(n: int):
+    four_space = '    '
     a, b = 0, 1
-    count = 0
+    count = 1
     while True:
-        if is_prime(b) and count == n:
-            return b
+        four_space + "if b > n:"
+        if b > n:
+            return a
+        four_space + "if is_prime(b):"
+        if is_prime(b):
+            if count == n:
+                return b
+            four_space + "count += 1"
+            count += 1
+        four_space + "a, b = b, a + b"
         a, b = b, a + b
-        count += 1
 
 def is_prime(num: int):
     if num < 2:
