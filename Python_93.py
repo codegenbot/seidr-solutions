@@ -2,17 +2,16 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() == 'z':
-                result += 'a' if char.islower() else 'A'
-            elif char.lower() in 'bcdfghjklmnpqrstvwxyz':
-                result += chr(ord(char) + 1)
-            elif char.lower() in 'aeiou':
-                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
-            else:
+            if char.lower() in 'aeiou':
                 if char.isupper():
-                    result += char.lower()
+                    result += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
                 else:
-                    result += char.upper()
+                    result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+            elif char.lower() not in 'aeiou':
+                if char.isupper():
+                    result += chr((ord(char) - ord('A')) % 26 + ord('A'))
+                else:
+                    result += chr((ord(char) - ord('a')) % 26 + ord('a'))
         else:
             result += char
     return result
