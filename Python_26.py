@@ -2,7 +2,7 @@
 from typing import List
 
 
-def remove_duplicates() -> List[str]:
+def remove_duplicates() -> None:
     while True:
         user_input = input("Enter the list of numbers separated by space or comma: ")
 
@@ -14,4 +14,3 @@ def remove_duplicates() -> List[str]:
 
     unique_numbers = sorted(set(map(str, numbers)))
     print("Unique numbers:", unique_numbers)
-    return unique_numbers
