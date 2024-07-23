@@ -1,13 +1,4 @@
-#include <iostream>
-#include <string>
-
-bool prime_length(std::string str);
-
-int main() {
-    std::cout << (prime_length("0") ? "true" : "false") << std::endl;
-}
-
-bool prime_length(std::string str){
+bool prime_length(string str){
     int n = str.length();
     bool is_prime = true;
     
@@ -19,4 +10,11 @@ bool prime_length(std::string str){
     }
     
     return is_prime;
+
+}
+
+int main() {
+    assert(prime_length("0") == false);
+    // add more test cases here
+    return 0;
 }
