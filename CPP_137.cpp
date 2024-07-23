@@ -1,89 +1,15 @@
-```
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    }
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((boost::any_cast<int>(a) < boost::any_cast<string>(b))) {
-            return b;
-        } else if ((boost::any_cast<int>(a) > boost::any_cast<string>(b))) {
-            return a;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
-    }
-    if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if ((boost::any_cast<string>(a) < to_string(boost::any_cast<int>(b)))) {
-            return boost::any(a);
-        } else if ((boost::any_cast<string>(a) > to_string(boost::any_cast<int>(b)))) {
-            return b;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if ((boost::any_cast<string>(a) < boost::lexical_cast<string>(b))) {
-            return b;
-        } else if ((boost::any_cast<string>(a) > boost::lexical_cast<string>(b))) {
-            return a;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        if ((boost::any_cast<string>(a) < boost::lexical_cast<string>(b))) {
-            return b;
-        } else if ((boost::any_cast<string>(a) > boost::lexical_cast<string>(b))) {
-            return a;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(int) && a.type() == typeid(float)) {
-        if (boost::any_cast<int>(a) < boost::any_cast<float>(a)) {
-            return b;
-        } else if (boost::any_cast<int>(a) > boost::any_cast<float>(a)) {
-            return a;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(int) && a.type() == typeid(double)) {
-        if (boost::any_cast<int>(a) < boost::any_cast<double>(a)) {
-            return b;
-        } else if (boost::any_cast<int>(a) > boost::any_cast<double>(a)) {
-            return a;
-        }
-        return "None";
-    }
-    if (a.type() == typeid(float) && a.type() == typeid(double)) {
-        if (boost::any_cast<float>(a) < boost::any_cast<double>(a)) {
-            return b;
-        } else if (boost::any_cast<float>(a) > boost::any_cast<double>(a)) {
-            return a;
-        }
-        return "None";
-    }
-    if ((boost::any_cast<string>(a) == boost::any_cast<string>(b))) {
-        return "None";
-    }
-    if ((boost::any_cast<int>(a) < boost::any_cast<int>(b))) {
-        return b;
-    } else if ((boost::any_cast<int>(a) > boost::any_cast<int>(b))) {
-        return a;
-    }
-    if ((boost::any_cast<float>(a) < boost::any_cast<float>(b))) {
-        return b;
-    } else if ((boost::any_cast<float>(a) > boost::any_cast<float>(b))) {
-        return a;
-    }
-    if ((boost::any_cast<double>(a) < boost::any_cast<double>(b))) {
-        return b;
-    } else if ((boost::any_cast<double>(a) > boost::any_cast<double>(b))) {
-        return a;
-    }
-}
+if (a.type() == typeid(int) && b.type() == typeid(int))
+    return (static_cast<int>(a.convert_to<int>) > static_cast<int>(b.convert_to<int})) ?
+           boost::any(a) : ((static_cast<int>(a.convert_to<int>) == static_cast<int>(b.convert_to<int>))) ? boost::any("None") : boost::any(b);
+else if (a.type() == typeid(float) && b.type() == typeid(float))
+    return (static_cast<float>(a.convert_to<float>) > static_cast<float>(b.convert_to<float})) ?
+           a : ((static_cast<float>(a.convert_to<float>) == static_cast<float>(b.convert_to<float>))) ? boost::any("None") : b;
+else if (a.type() == typeid(string) && b.type() == typeid(string))
+    return (static_cast<string>(a.convert_to<string>).compare(static_cast<string>(b.convert_to<string>)) > 0) ?
+           a : ((static_cast<string>(a.convert_to<string>).compare(static_cast<string>(b.convert_to<string>)) == 0)) ? boost::any("None") : b;
+else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float)))
+    return static_cast<string>(b.convert_to<string>);
+else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string))
+    return static_cast<string>(a.convert_to<string>);
+else
+    return "None";
