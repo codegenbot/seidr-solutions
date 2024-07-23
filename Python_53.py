@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     return x + y
 
@@ -20,4 +19,3 @@ while True:
         print("Invalid input. Please enter an integer.")
 
 print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
-input("Press Enter to continue...")
