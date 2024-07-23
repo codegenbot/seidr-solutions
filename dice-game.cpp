@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -10,7 +9,7 @@ double probability(int n, int m) {
             if (i > j) {
                 count++;
             } else if (i < j) {
-                count++;
+                total++;
             }
         }
     }
@@ -19,7 +18,7 @@ double probability(int n, int m) {
 }
 
 int main() {
-    double result = probability(6, 6); 
-    cout << "The probability is: " << result << endl;
+    double result = probability(6, 6);  
+    std::cout << "The probability is: " << result << std::endl;
     return 0;
 }
