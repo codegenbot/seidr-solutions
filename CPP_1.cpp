@@ -1,24 +1,32 @@
-vector<string> result;
-    string group;
+vector<string> groups;
+    string current_group;
     int balance = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (balance > 0) {
-                group += c;
-            }
+    
+    for(char c : paren_string) {
+        if(c == '(') {
             balance++;
-        } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                group += c;
+            if(balance == 1) {
+                if(!current_group.empty()) {
+                    groups.push_back(current_group);
+                    current_group.clear();
+                }
             }
-            if (balance == 0) {
-                result.push_back(group);
-                group = "";
+        } else if(c == ')') {
+            balance--;
+            if(balance == 0) {
+                groups.push_back(current_group + "()");
+                current_group.clear();
+            }
+        } else {
+            if(balance > 0) {
+                current_group += c;
             }
         }
     }
-
-    return result;
+    
+    if(!current_group.empty()) {
+        groups.push_back(current_group);
+    }
+    
+    return groups;
 }
