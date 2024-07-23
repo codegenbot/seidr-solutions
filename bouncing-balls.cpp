@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 int main() {
     double startHeight, firstBounce, bouncinessIndex;
@@ -25,7 +26,8 @@ int main() {
         height *= bouncinessIndex;
     }
 
-    std::cout << std::fixed << std::setprecision(6) << "The total distance traveled by the ball is: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " 
+              << std::fixed << std::setprecision(6) << std::setiosflags(std::ios::showpoint) << totalDistance << std::endl;
 
     return 0;
 }
