@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     int result = operand[0];

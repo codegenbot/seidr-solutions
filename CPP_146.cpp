@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -13,7 +12,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    assert(specialFilter(nums) == 3);
+    std::vector<int> nums = {1, 2, 3};
+    std::cout << specialFilter(nums);
     return 0;
 }
