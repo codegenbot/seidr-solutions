@@ -4,10 +4,8 @@ std::string squareDigits(std::string input) {
     std::string result = "";
     for (char c : input) {
         int digit = c - '0';
-        if (!isdigit(c)) { 
-            continue; 
-        } else {
-            result += to_string(digit * digit);
+        if (isdigit(c)) { 
+            result += std::to_string(digit * digit);
         }
     }
     return result;
