@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-int countSpecialFilteredNumbers(const std::vector<int>& nums) {
+int specialFilter(const std::vector<int>& nums) {
     int count = 0;
     for (int x : nums) {
         if (x == 0 || x % 11 != 0) {
@@ -9,6 +10,7 @@ int countSpecialFilteredNumbers(const std::vector<int>& nums) {
         }
     }
     return count;
+
 }
 
 int main() {
@@ -21,8 +23,8 @@ int main() {
         nums.push_back(i);
     }
 
-    // Call and process the function
-    count = countSpecialFilteredNumbers(nums);
+    // Process and count numbers using function specialFilter
+    count = specialFilter(nums);
 
     // Print the result
     std::cout << "The number of special filtered numbers is: " << count << "\n";
