@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int blackPegs = 0;
     int whitePegs = 0;
+    int blackPegs = 0;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
@@ -22,7 +21,7 @@ pair<int, int> mastermind(string code, string guess) {
 
     whitePegs = 0;
     for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > 0) {
+        if(colorCount[i] > 1) {
             whitePegs++;
         }
     }
