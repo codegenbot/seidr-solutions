@@ -1,45 +1,49 @@
-```
 #include <iostream>
 #include <vector>
-#include <utility>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) 
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) 
-            return false;
+    if(a.size() != b.size()) return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> output;
-    for (int i = 0; i < arr.size(); i++) {
-        pair<int, int> p = make_pair(arr[i], i);
-        output.push_back(p);
-    }
-    return output;
-}
-
-vector<pair<int, int>> result(vector<int> arr) {
-    vector<pair<int, int>> output = pluck(arr);
-    for (int i = 0; i < output.size(); i++) {
-        for (int j = i + 1; j < output.size(); j++) {
-            if (!issame({output[i].first}, {output[j].first})) {
-                swap(output[i], output[j]);
-                break;
-            }
+    vector<int> res;
+    int i = 0, j = 1;
+    while(i < arr.size() && j < arr.size()) {
+        if(issame({arr[i], arr[j]}, {arr[0], arr[1]})) {
+            res.push_back(arr[i]);
+            i++;
         }
+        j++;
     }
-    return output;
+    return res;
 }
 
 int main() {
     vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = result(arr);
-    for (auto p : output) {
-        cout << "Number: " << p.first << ", Index: " << p.second << endl;
+    vector<pair<int, int>> output = {{},{}};
+    
+    if (!arr.empty()) {
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = i + 1; j <= i + 3 && j < arr.size(); j++) {
+                if (issame({arr[i], arr[j]}, {arr[0], arr[1]})) {
+                    output.push_back({{arr[i], arr[j]},j});
+                }
+            }
+        }
     }
+
+    for (auto p : output) {
+        cout << "Number: " << p.first.first << ", Index: " << p.second << endl;
+    }
+    
     return 0;
 }
