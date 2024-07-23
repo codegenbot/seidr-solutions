@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -13,7 +13,7 @@ std::vector<int> removeDuplicates(std::vector<int> numbers) {
     return result;
 }
 
-int testMain(){
-    assert(issame({1, 2, 3, 4, 5}, removeDuplicates({1, 2, 3, 2, 4, 3, 5})));
+int main(){
+    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
 }
