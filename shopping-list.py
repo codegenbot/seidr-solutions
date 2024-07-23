@@ -1,8 +1,9 @@
-Here is the solution:
-
 def shopping_list():
     n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
-    total_price = sum([p - p * d / 100 for p, d in zip(prices, discounts)])
-    return format(total_price, ".1f")
+    prices = np.array(list(map(float, input().split())))
+    discounts = np.array(list(map(float, input().split())))
+
+    return round(np.sum(prices - (prices * discounts / 100)), 2)
+
+
+print(shopping_list())
