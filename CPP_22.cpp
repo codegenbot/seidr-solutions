@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
 std::vector<int> filter_integers(const std::vector<int>& vec) {
     std::vector<int> result;
     for (int i : vec) {
-        if (std::isinstance(i)) {
+        if (std::abs(i) > 0 && i <= INT_MAX) {
             result.push_back(i);
         }
     }
