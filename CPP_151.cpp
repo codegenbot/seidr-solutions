@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
@@ -8,11 +9,4 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> lst = {1.0, 3.0, 5.0, 7.0}; // Example data
-    long long odd_sum = 50; // Example value of odd_sum
-    assert(double_the_difference(lst) == odd_sum);
-    return 0;
 }
