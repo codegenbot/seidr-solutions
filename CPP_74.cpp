@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
@@ -8,43 +9,33 @@ bool issame(vector<string> a, vector<string> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
 
-    int i = 0, j = 0;
-    
-    while (i < a.size() && j < b.size()) {
-        if (a[i] == b[j]) {
-            return true; 
-            i++;
-            j++;
-        } else if (a[i] < b[j]) {
-            i++;
-        } else {
-            j++;
-        }
-    }
-
-    return false;
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
 
-    transform(lst1.begin(), lst1.end(), lst.begin(), ::tolower);
-    for (string s : lst1) {
+    for (const auto& str : lst1) {
         bool found = false;
-        for (string t : lst2) {
-            if (issame({s}, {t})) {
+        for (const auto& word : lst2) {
+            if (issame({str}, {word})) {
                 found = true;
                 break;
             }
         }
-        if (!found)
-            result.push_back(s);
+
+        if (!found) {
+            result.push_back(str);
+        }
     }
 
     return result;
 }
 
 int main() {
-    assert(issame(total_match({{"this"}}, {}), {}));
+    vector<string> result = total_match({{"this"}}, {});
+    for (const auto& str : result) {
+        cout << str << endl;
+    }
     return 0;
 }
