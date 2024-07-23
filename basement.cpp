@@ -11,5 +11,5 @@ int basement(const std::vector<int>& nums) {
 }
 
 int main() {
-    return basement(std::vector<int>{-1,2,3,-2,5});
+    return basement(std::vector<int>({-1,2,3,-2,5}));
 }
