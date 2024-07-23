@@ -1,11 +1,10 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
         return -1; 
     for (int i = 0; i < sorted.size() - 1; i++) {
@@ -16,7 +15,6 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    vector<int> testVector = {4, 2, 5, 3};
-    cout << "The next smallest number is: " << next_smallest(testVector) << endl;
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
