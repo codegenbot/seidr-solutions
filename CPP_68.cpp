@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <utility>
 #include <climits>
 #include <iostream>
+
 using namespace std;
 
 vector<pair<int, int>> result(vector<int> arr) {
@@ -27,3 +29,4 @@ int main() {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
     return 0;
+}
