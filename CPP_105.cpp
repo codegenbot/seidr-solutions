@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -20,6 +21,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> b = by_length({4, 8});
+    std::vector<int> lengths = {4, 8};
+    std::vector<std::string> b = by_length(lengths);
     assert(issame(by_length({4, 8}), b));
     assert(!issame(by_length({9}), b));
+}

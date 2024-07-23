@@ -1,3 +1,4 @@
-```
+```python
 def sorted_list_sum(numbers):
-    return " ".join(sorted([num for num in numbers if num.isdigit() and int(num) % 2 == 0]))
+    even_numbers = [num for num in numbers if set(num).issubset('0123456789')]
+    return " ".join(sorted(even_numbers))
