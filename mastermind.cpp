@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -15,10 +20,10 @@ int main() {
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeFreq[i], guessFreq[i]);
+        white += std::min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << '\n' << black << '\n';
     
     return 0;
 }
