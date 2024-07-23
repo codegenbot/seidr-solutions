@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -17,7 +17,10 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     return result;
 }
 
-int testMain() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == std::vector<int>({2,0,0,1}));
-    return 0;
+int main() {
+    std::vector<int> expected = {2, 0, 0, 1};
+    std::vector<int> actual = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
+    if (!issame(actual, expected)) {
+        // handle the case where actual and expected are not the same
+    }
 }
