@@ -15,21 +15,11 @@ std::pair<int, int> calculatePegs(const std::string& code, const std::string& gu
     }
 
     for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeFreq[guess[i] - 'A'] > 0) {
+        if (code[i] != guess[i] && codeFreq[code[i] - 'A'] > 0) {
             whitePegs++;
-            codeFreq[guess[i] - 'A']--;
+            codeFreq[code[i] - 'A']--;
         }
     }
 
     return {whitePegs, blackPegs};
-}
-
-int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-
-    auto result = calculatePegs(code, guess);
-    std::cout << result.first << " " << result.second << std::endl;
-
-    return 0;
 }
