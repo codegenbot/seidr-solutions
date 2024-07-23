@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     res = []
@@ -21,7 +22,10 @@ def minPath(grid, k):
                     ):
                         min_path = new_path
         visited[i][j] = False
-        return min_path if min_path else []
+        if min_path is None:
+            return []
+        else:
+            return min_path
 
     res = dfs(0, 0, [], 0)
     return [x for x in res]
