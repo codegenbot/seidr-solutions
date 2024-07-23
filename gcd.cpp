@@ -26,13 +26,13 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    string text = "Hello World";
-    string target = "lo";
+    string text = "Hello";
+    string target = "el";
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> result = indicesOfSubstring(text, target);
 
-    cout << "Indices of substring: ";
-    for (int i : indices) {
+    cout << "Indices of Substring: ";
+    for (int i : result) {
         cout << i << " ";
     }
     cout << endl;
@@ -41,7 +41,7 @@ int main() {
     long long b = 559168;
 
     long long gcdValue = gcd(a, b);
-    cout << "GCD: " << gcdValue << endl;  // prints GCD of the given numbers
+    cout << "GCD: " << gcdValue << endl;  
 
     return 0;
 }
