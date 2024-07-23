@@ -1,3 +1,6 @@
+Here's the completed code:
+
+```cpp
 bool is_nested(string str) {
     int count = 0;
     for (char c : str) {
@@ -7,9 +10,9 @@ bool is_nested(string str) {
             if (count > 0) {
                 count--;
             } else {
-                return false;
+                return true;
             }
         }
     }
-    return count > 0;
+    return false;
 }
