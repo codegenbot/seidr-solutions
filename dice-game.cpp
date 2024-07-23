@@ -1,18 +1,15 @@
+```cpp
 #include <iostream>
 
 double probability(int n, int m) {
     double total = (double)n * m;
-    double count = 0;
-
+    double higher = 0; // Count of cases when Peter rolls strictly higher than Colin
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i < j) {
-                count++;
-            }
+        for (int j = 1; j < i; j++) { 
+            higher++;
         }
     }
-
-    return count / total;
+    return higher / total;
 }
 
 int main() {
