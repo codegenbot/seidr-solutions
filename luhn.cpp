@@ -1,6 +1,4 @@
-```c++
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhnCheck(const vector<int>& cc) {
@@ -20,8 +18,13 @@ int luhnCheck(const vector<int>& cc) {
 }
 
 int main() {
-    vector<int> cc = {4, 3, 2, 1, 8, 7, 6, 5, 4, 3, 2, 1, 8, 7, 6, 5};
+    vector<int> cc;
+    int num;
+    cout << "Enter the credit card number: ";
+    while (cin >> num) {
+        cc.push_back(num);
+    }
     int result = luhnCheck(cc);
-    cout << "Result: " << result << endl;
+    cout << "The Luhn check value is: " << result << endl; // display the result
     return 0;
 }
