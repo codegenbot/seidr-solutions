@@ -1,7 +1,7 @@
-from typing import List, Any
+from typing import Any
 
 
-def filter_integers() -> List[int]:
+def filter_integers() -> list[int]:
     while True:
         try:
             values = input("Enter a list of values (separated by commas): ")
