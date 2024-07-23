@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -16,7 +17,7 @@ std::vector<float> sort_even(std::vector<float> l) {
                     even.push_back(x);
             }
             std::sort(even.begin(), even.end());
-            result.push_back(*std::min_element(even.begin(), even.end()));
+            result.push_back(*even.begin());
         } else {
             result.push_back(l[i]);
         }
