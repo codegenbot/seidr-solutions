@@ -1,1 +1,1 @@
-int productNumerator = numerator1 * numerator2;
+return productNumerator / productDenominator;
