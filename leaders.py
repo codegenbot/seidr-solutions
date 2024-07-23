@@ -1,14 +1,10 @@
 ```
 def leaders(arr):
     n = len(arr)
-    leaders_list = []
-
-    max_right = arr[n - 1]
-    leaders_list.append(max_right)
+    leaders_list = [arr[n - 1]]
 
     for i in range(n - 2, -1, -1):
-        if arr[i] >= max_right:
-            leaders_list.insert(0, arr[i])
-            max_right = arr[i]
+        if arr[i] >= min(arr[i + 1:]):
+            leaders_list.append(arr[i])
 
-    return leaders_list
+    return list(reversed(leaders_list))
