@@ -25,5 +25,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
+    // Add your code to test the functions here
     return 0;
 }
