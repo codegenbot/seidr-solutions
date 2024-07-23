@@ -1,31 +1,27 @@
 #include <iostream>
-
-double calcBounciness(double heightAfterFirstBounce) {
-    double startingHeight = 1000.0; // assume this value if it's not provided by user
-    return heightAfterFirstBounce / startingHeight;
-}
+using namespace std;
 
 int main() {
-    double heightAfterFirstBounce, numBounces;
+    double start_height;
+    double first_bounce_height;
+    int num_bounces;
 
-    std::cout << "Enter the starting height: ";
-    cin >> heightAfterFirstBounce;
+    cin >> start_height >> first_bounce_height >> num_bounces;
 
-    std::cout << "Enter the height after first bounce: ";
-    cin >> heightAfterFirstBounce;
+    // Calculate bounciness index
+    double bounciness_index = first_bounce_height / start_height;
 
-    std::cout << "Enter number of bounces: ";
-    cin >> numBounces;
-
-    double bouncinessIndex = calcBounciness(heightAfterFirstBounce);
-
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, -0.5) * heightAfterFirstBounce;
-        heightAfterFirstBounce *= bouncinessIndex;
+    // Calculate total distance
+    double total_distance = 0.0;
+    for(int i=1; i<=num_bounces; ++i) {
+        total_distance += (bounciness_index - 1.0);
     }
 
-    std::cout << "Total distance: " << totalDistance << "\n";
+    cout.setprecision(5); // Set the precision of output to 5 decimal places
+    cout << fixed; // Fixed-point notation
+
+    cout << start_height << endl;
+    cout << fixed << setprecision(5) << total_distance << endl;
 
     return 0;
 }
