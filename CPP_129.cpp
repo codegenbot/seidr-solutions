@@ -39,7 +39,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({-ns, make_pair(ni, nj)}); // Make sure to negate ns because priority_queue is min heap
+            q.push({-ns, make_pair(ni, nj)}); // Make sure to negate the sum because priority_queue is min heap
         }
     }
 
