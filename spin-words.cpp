@@ -12,9 +12,8 @@ std::string spinWords(std::string str) {
                 result += word + " ";
                 word = "";
             } else {
-                std::string temp = word;
-                std::reverse(temp.begin(), temp.end());
-                result += temp + " ";
+                std::string reversedWord = word.substr(word.rbegin(), word.rend());
+                result += reversedWord + " ";
                 word = "";
                 longWord = false;
             }
@@ -29,9 +28,8 @@ std::string spinWords(std::string str) {
     if (!longWord) {
         result += word;
     } else {
-        std::string temp = word;
-        std::reverse(temp.begin(), temp.end());
-        result += temp;
+        std::string reversedWord = word.substr(word.rbegin(), word.rend());
+        result += reversedWord;
     }
 
     return result;
