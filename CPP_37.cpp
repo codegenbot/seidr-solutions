@@ -1,18 +1,21 @@
-vector<float> l_odd, l_even;
+vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_even.push_back(l[i]);
-        } else {
-            l_odd.push_back(l[i]);
+            even_indices.push_back(l[i]);
         }
     }
-    sort(l_even.begin(), l_even.end());
-    for (int i = 0, j = 0, k = 0; i < l.size(); i++) {
+    sort(even_indices.begin(), even_indices.end());
+    
+    vector<float> result;
+    int even_index = 0;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = l_even[j++];
+            result.push_back(even_indices[even_index]);
+            even_index++;
         } else {
-            l[i] = l_odd[k++];
+            result.push_back(l[i]);
         }
     }
-    return l;
+    
+    return result;
 }
