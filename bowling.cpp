@@ -1,34 +1,40 @@
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll1 = 0; 
-    int roll2 = 0; 
-
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
         if (c == 'X') {
             score += 30;
         } else if (c == '/') {
-            score += (10 - roll1) * 2;
-            if (roll2 != 0) {
-                score += roll2;
+            score += 10;
+            if (i + 1 < s.length()) {
+                int val = s[i + 1] - '0';
+                if (val >= 7) {
+                    score += val * 2;
+                    i++; // Skip the second roll
+                } else {
+                    score += val * 2;
+                }
             }
-            break;
         } else {
             int val = c - '0';
-            if (roll1 == 0) {
-                roll1 = val;
-            } else {
-                if (roll1 + val >= 10) {
-                    score += 10;
-                    if (roll2 != 0) {
-                        score += roll2;
+            if (i + 1 < s.length()) {
+                char nextC = s[i + 1];
+                if (nextC == 'X') {
+                    score += 10 + val * 2;
+                    i++; // Skip the second roll
+                } else if (nextC == '/') {
+                    int nextVal = nextC - '0';
+                    if (val + nextVal >= 10) {
+                        score += 10;
+                        i++; // Skip the second roll
+                    } else {
+                        score += val + nextVal;
                     }
-                    roll1 = 0;
-                    roll2 = 0;
                 } else {
-                    roll1 = 0;
-                    roll2 = val;
+                    score += val;
                 }
+            } else {
+                score += val;
             }
         }
     }
