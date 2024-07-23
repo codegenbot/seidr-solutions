@@ -1,55 +1,63 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <map>
-using namespace std;
+#include <string>
 
-bool issame(vector<int> arr1, vector<int> arr2) {
-    if (arr1.size() != arr2.size())
-        return false;
-    
-    for (int i = 0; i < arr1.size(); i++) {
-        if (arr1[i] != arr2[i])
-            return false;
-    }
-    
-    return true;
-}
+namespace {
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    vector<string> numArr;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            temp.push_back(i);
+        if (i >= 1 && i <= 9) {
+            numArr.push_back(to_string(i));
+        }
     }
-    
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-    
+
+    sort(numArr.begin(), numArr.end());
+
+    reverse(numArr.begin(), numArr.end());
+
     vector<string> result;
-    for (int i : temp) {
-        string s = to_string(i);
-        map<char, string> m = {{'1', "One"}, {'2', "Two"}, {'3', "Three"}, 
-                                {'4', "Four"}, {'5', "Five"}, {'6', "Six"}, 
-                                {'7', "Seven"}, {'8', "Eight"}, {'9', "Nine"}};
-        result.push_back(m.at(s[0]));
+    for (string str : numArr) {
+        string temp = "";
+        if (str == "1")
+            temp = "One";
+        else if (str == "2")
+            temp = "Two";
+        else if (str == "3")
+            temp = "Three";
+        else if (str == "4")
+            temp = "Four";
+        else if (str == "5")
+            temp = "Five";
+        else if (str == "6")
+            temp = "Six";
+        else if (str == "7")
+            temp = "Seven";
+        else if (str == "8")
+            temp = "Eight";
+        else if (str == "9")
+            temp = "Nine";
+        result.push_back(temp);
     }
-    
+
     return result;
 }
 
-int main() {
-    vector<int> arr1 = {3, 5, 2, 4};
-    vector<int> arr2 = {5, 4, 2, 3};
-    vector<string> output = by_length(arr1);
-    for (string str : output) 
-        cout << str << " ";
-    cout << endl;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
     
-    if(issame(arr1,arr2))
-        cout << "The two arrays are the same." << endl;
-    else
-        cout << "The two arrays are not the same." << endl;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
 
+    return true;
+}
+
+} // namespace
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
