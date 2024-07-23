@@ -2,7 +2,6 @@
 #include <vector>
 #include <queue>
 #include <utility>
-#include <algorithm>
 
 using namespace std;
 
@@ -14,16 +13,14 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors;
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
-        vector<pair<int, pair<int, int>>> row;
         for (int j = 0; j < n; ++j) {
-            if (i > 0) row.push_back({{make_pair(i-1, j), grid[i][j]}});
-            if (i < n-1) row.push_back({{make_pair(i+1, j), grid[i][j]}});
-            if (j > 0) row.push_back({{make_pair(i, j-1), grid[i][j]}});
-            if (j < n-1) row.push_back({{make_pair(i, j+1), grid[i][j]}});
+            if (i > 0) neighbors[i].push_back({{make_pair(i-1, j), grid[i][j]}});
+            if (i < n-1) neighbors[i].push_back({{make_pair(i+1, j), grid[i][j]}});
+            if (j > 0) neighbors[i].push_back({{make_pair(i, j-1), grid[i][j]}});
+            if (j < n-1) neighbors[i].push_back({{make_pair(i, j+1), grid[i][j]}});
         }
-        neighbors.push_back(row);
     }
 
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); 
@@ -34,20 +31,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
+    int sum = 0;
     while (!q.empty()) {
-        auto [sum, [i, j]] = q.top(); q.pop();
+        auto [temp_sum, {i, j}] = q.top(); q.pop();
+        sum = temp_sum;
         if (k == 0) {
-            return {sum};
+            return vector<int>{sum}; // assign to res
         }
         for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
+            int ni = neighbor.first.first, ns = neighbor.second; 
+            int temp_ns = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({ns, make_pair(ni, nj)});
+            q.push({temp_ns, make_pair(ni, ns)}); // change nj to ns
         }
     }
 
-    return {};
+    return vector<int>{}; // Return empty if no path found.
 }
 
 int mainTest() {
