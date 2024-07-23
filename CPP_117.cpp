@@ -1,10 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
-
-template<typename T>
-struct initializer_list;
+#include <sstream>
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
@@ -29,5 +27,5 @@ std::vector<std::string> select_words(std::string s, int k) {
 }
 
 int main(){
-    assert(isSame(select_words("a b c d e f", 1) , std::vector<std::string>({"b","c","d","f"})));
+    assert(isSame(select_words("a b c d e f", 1) , std::vector<std::string>({"b", "c", "d", "f"})));
 }
