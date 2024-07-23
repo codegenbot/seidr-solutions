@@ -1,4 +1,3 @@
-```cpp
 #include<stdio.h>
 #include<vector>
 #include<string>
@@ -20,7 +19,10 @@ vector<string> split_words(string txt) {
         txt.erase(0, pos + 1);
     }
 
-    if (!txt.empty()) result.push_back(txt);
+    if (!txt.empty()) {
+        result.push_back(txt);
+        return result;
+    }
     
     return result;
 }
