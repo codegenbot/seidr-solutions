@@ -8,3 +8,4 @@ while (left <= right) {
     }
 }
 return result;
+}
