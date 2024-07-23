@@ -1,15 +1,21 @@
-```
-def bowling_score(frames):
-    score = 0
-    for i in range(0, len(frames), 2):
-        if "/" in frames[i]:
-            parts = frames[i].split("/")
-            if len(parts) == 1:
-                score += int(parts[0])
+    def bowling_score(frames):
+        score = 0
+        for i in range(0, len(frames), 2):
+            if frames[i] == 'X':
+                score += 30
+            elif frames[i] == '/':
+                score += int(frames[i+1]) + 10
             else:
-                score += max(int(part) for part in parts)
-                if i < 9 and parts[1] != "0":
-                    score += int(frames[i+1].split("/")[0])
-        elif frames[i]:
-            score += int(frames[i]) + int(frames[i+1].split("/")[0])
-    return score
+                strike = 0
+                frame_score = 0
+                for j in range(2):
+                    if frames[i+j] == 'X':
+                        strike = 2
+                        break
+                    elif frames[i+j] == '/':
+                        frame_score += int(frames[i+1+j])
+                        break
+                    else:
+                        frame_score += int(frames[i+j])
+                score += frame_score + (10-strike)
+        return score
