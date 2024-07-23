@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -11,11 +9,16 @@ bool isPrime(int n) {
     return true;
 }
 
+bool prime_length(const std::string& str) {
+    int len = static_cast<int>(str.length());
+    return isPrime(len);
+}
+
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::cin >> str; 
-    bool result = isPrime(std::stoi(str)); 
+    bool result = prime_length(str); 
     if (result) {
         std::cout << "Prime length" << std::endl;
     } else {
