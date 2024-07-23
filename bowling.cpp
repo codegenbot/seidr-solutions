@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int bowlingScore(const std::string& input) {
+int bowlingScore(std::string input) {
     int score = 0;
     int currentRolls = 0;
     int frameNumber = 1;
@@ -37,9 +37,9 @@ int bowlingScore(const std::string& input) {
     return score;
 }
 
-int getRemaining(char c, const std::string& input) {
+int getRemaining(char c, std::string input) {
     int i = 1;
-    while (input[input.size() - i] != c && i <= input.size()) {
+    while (input.find(std::to_string(c)) != input.size() - i) {
         i++;
     }
     return 10 - i + (input[input.size() - i] - '0');
