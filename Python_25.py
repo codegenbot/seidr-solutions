@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 
@@ -8,7 +9,6 @@ def get_factors():
             return get_factors(n)
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
 
 def get_factors(n: int) -> List[int]:
     factors = []
@@ -26,6 +26,5 @@ def get_factors(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
-
 
 get_factors()
