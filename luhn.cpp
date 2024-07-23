@@ -19,18 +19,12 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card;
-    int n;
-    cout << "Enter the length of the credit card number: ";
-    cin >> n;
-    card.resize(n);
-    
-    for (int i = 0; i < n; ++i) {
-        cout << "Enter digit " << i+1 << ": ";
-        cin >> card[i];
+    vector<int> card; 
+    int input;
+    for(int i=0; i<16; ++i){
+        cin >> input;
+        card.push_back(input);
     }
-    
-    cout << "The Luhn check is: " << luhn(card);
-    
+    cout << luhn(card); 
     return 0;
 }
