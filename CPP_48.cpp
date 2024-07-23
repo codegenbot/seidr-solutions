@@ -1,5 +1,7 @@
 #include <string>
-bool is_palindrome(std::string text) {
+using namespace std;
+
+bool is_palindrome(string text) {
     int len = text.length();
     for(int i=0; i<len/2; i++){
         if(text[i] != text[len-i-1])
