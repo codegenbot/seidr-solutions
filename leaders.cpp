@@ -1,14 +1,31 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
-    vector<int> result;
-    int maxRight = nums.back();
-    for (int i = nums.size() - 2; i >= 0; --i) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            result.push_back(nums[i]);
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> leaders;
+    
+    if(n == 0) {
+        return leaders;
+    }
+    
+    int lastLeader = arr[n-1];
+    leaders.push_back(lastLeader);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= lastLeader) {
+            lastLeader = arr[i];
+            leaders.push_back(lastLeader);
         }
     }
-    return result;
+    
+    return leaders;
+}
+
+int main() {
+    vector<int> input = {17, 11, 10, 12, 19};
+    for (int i : leaders(input)) {
+        cout << i << " ";
+    }
+    return 0;
 }

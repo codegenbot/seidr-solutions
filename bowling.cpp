@@ -1,24 +1,16 @@
-```c++
 #include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             score += 30;
-            i++;
         } else if (isdigit(s[i])) {
             int pins = s[i] - '0';
-            i++;
-            if (i < s.length() && (s[i] == '/' || s[i] == 'X')) {
-                if (s[i] == '/') {
-                    score += 10 - pins;
-                    i++;
-                } else {
-                    score += 10 + pins;
-                    i++;
-                }
+            if (i < 8 && (s[i+1] == '/' || s[i+1] == 'X')) {
+                score += 10 + pins;
+                i++;
             } else {
                 score += pins;
             }
@@ -29,8 +21,6 @@ int bowlingScore(std::string s) {
             }
             int pins = s[j] - '0';
             score += 10 - pins;
-            j++;
         }
     }
     return score;
-}
