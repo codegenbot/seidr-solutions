@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,12 +15,12 @@ int accumulate(vector<int> q, int start = 0) {
     return accumulate(q.begin() + start, q.end(), 0);
 }
 
-bool will_it_fly(vector<int>& q, int w) {
+bool will_it_fly(vector<string> q, int w) {
     string s = "";
-    for (int i : q) {
-        s += to_string(i);
+    for (string i : q) {
+        s += i;
     }
-    return is_palindrome(s) && accumulate(q, 0) <= w;
+    return is_palindrome(s) && accumulate(stoi(i) for (string i : q), 0) <= w;
 }
 
 int main() {
@@ -30,10 +29,10 @@ int main() {
     cout << "Enter the number of queens: ";
     cin >> n;
 
-    vector<int> q; // Initialize the vector
+    vector<string> q;
 
     for (int i=0; i<n; i++) {
-        int temp;
+        string temp;
         cout << "Enter position of queen " << i+1 << ": ";
         cin >> temp;
         q.push_back(temp);
