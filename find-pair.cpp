@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
 int main() {
     int n, target;
     cin >> n;
@@ -11,8 +16,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            cout << complement << endl;
-            cout << nums[i] << endl;
+            cout << complement << endl << nums[i] << endl;
             break;
         }
         numIndex[nums[i]] = i;
