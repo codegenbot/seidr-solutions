@@ -7,30 +7,32 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::lexical_cast<string>(b);
-        int i = boost::any_cast<int>(a);
-        return a;
+        return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = boost::lexical_cast<string>(b);
-        float f = boost::any_cast<float>(a);
-        if(f > stod(str))
+        string str1 = boost::lexical_cast<string>(a);
+        string str2 = boost::lexical_cast<string>(b);
+        if (stod(str1) > stod(str2))
             return a;
-        else
+        else if (stod(str1) < stod(str2))
             return b;
+        else
+            return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int i = boost::any_cast<int>(b);
-        string str = boost::lexical_cast<string>(a);
-        if(stod(str) > i)
+        string str = boost::lexical_cast<string>(b);
+        if (stod(a.cast<string>()) > stod(str))
             return a;
-        else
+        else if (stod(a.cast<string>()) < stod(str))
             return b;
+        else
+            return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float f = boost::any_cast<float>(b);
-        string str = boost::lexical_cast<string>(a);
-        if(stod(str) > f)
+        string str = boost::lexical_cast<string>(b);
+        if (stod(a.cast<string>()) > stod(str))
             return a;
-        else
+        else if (stod(a.cast<string>()) < stod(str))
             return b;
+        else
+            return a;
     } else {
         // If both are strings, compare them.
         string str1 = boost::lexical_cast<string>(a);
