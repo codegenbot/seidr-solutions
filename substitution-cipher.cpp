@@ -1,16 +1,21 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
+    std::unordered_map<char, char> mapping;
+    for (size_t i = 0; i < cipher1.size(); ++i) {
+        mapping[cipher2[i]] = cipher1[i];
+    }
     std::string result;
     for (char c : input) {
         if (c == '\0') {
             break; // if the end of string is reached
         }
-        size_t pos = cipher2.find(std::tolower(c)); // convert to lowercase
-        if (pos != std::string::npos) {
-            result += cipher1[pos]; // substitute with corresponding character in cipher1, also converted to lowercase
+        auto mapIt = mapping.find(c);
+        if (mapIt != mapping.end()) {
+            result += mapIt->second; 
         } else {
             result += c; // if not found, add as it is
         }
