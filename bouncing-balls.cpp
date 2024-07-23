@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance;
@@ -10,15 +11,13 @@ int main() {
     total_distance = start_height;
 
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += first_bounce_height;
+        total_distance += first_bounce_height * 2;
         first_bounce_height *= bounciness_index;
-        total_distance += first_bounce_height * (3 - bounciness_index); // Update the total distance calculation
     }
 
-    // Correct the total_distance calculation for the initial drop
     total_distance -= first_bounce_height;
 
-    std::cout << total_distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << total_distance << std::endl;
 
     return 0;
 }
