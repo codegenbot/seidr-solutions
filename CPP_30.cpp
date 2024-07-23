@@ -1,8 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
