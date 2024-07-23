@@ -12,7 +12,7 @@ int calculateFrameScore(const std::string& s, size_t index) {
             } else if (s[i] == '/') {
                 frameScore += 10 - (s[i - 1] - '0');
             } else {
-                frameScore += s[i] - '0';
+                frameScore += int(s[i] - '0');
             }
             remainingBalls--;
         }
@@ -24,7 +24,7 @@ int calculateFrameScore(const std::string& s, size_t index) {
             return 10 - (s[index - 1] - '0') + (index + 1 < s.size() && s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
         }
     } else {
-        return s[index] - '0';
+        return int(s[index] - '0');
     }
     
     return 0;
