@@ -1,4 +1,3 @@
-```python
 def rounded_avg(n, m):
     if n > m:
         return -1
