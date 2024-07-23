@@ -1,38 +1,16 @@
 string solveBoolean(string s) {
     bool boolResult;
-    
-    if(s == "t") {
-        boolResult = true;
-    } else {
-        boolResult = false;
-    }
-    
+    bool result = (s[0] == 'T');
     for(int i=1; i<s.size(); i++) {
         if(s[i] == '&') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            
-            if(left == "t" && right == "f") {
-                boolResult = false;
-                break;
-            }
-            else if(left == "f" && right == "t") {
-                boolResult = false;
-                break;
-            } 
-            else if((left == "t" && right == "t") || (left == "f" && right == "f")) {
-                boolResult &= true;
-            }
+            result &= (left[0] == 'T') | (right[0] == 'T');
         } else if(s[i] == '|') {
             string left = s.substr(0, i);
             string right = s.substr(i+1);
-            
-            if(left == "t" || right == "t") {
-                boolResult = true;
-                break;
-            }
+            result |= (left[0] == 'T') | (right[0] == 'T');
         }
     }
-    
-    return boolResult ? "True" : "False";
+    return result ? "True" : "False";
 }
