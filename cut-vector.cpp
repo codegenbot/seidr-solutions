@@ -1,20 +1,27 @@
 ```cpp
 #include <vector>
-#include <algorithm>
-#include <climits>
+#include <iostream>
 
-std::vector<std::vector<int>> cutVector(const std::vector<int>& v) {
+int main() {
+    int cutIndex = 0;
     int minDiff = INT_MAX;
-    int cutIndex = -1;
 
-    for (int i = 0; i < v.size() - 1; ++i) {
-        int diff = std::abs(v[i] - v[i + 1]);
-        if (diff < minDiff) {
+    std::vector<int> v; 
+
+    std::cin >> v.size();
+    v.resize(v.size());
+    for(int i = 0; i < v.size(); i++) {
+        std::cin >> v[i];
+    }
+
+    for(int i = 1; i < v.size(); i++) {
+        int diff = std::abs(v[i] - v[i-1]);
+        if(diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    return {{std::vector<int>({v.begin(), v.begin() + cutIndex + 1})},
-            {std::vector<int>({v.begin() + cutIndex + 1, v.end()})}};
+    return std::make_tuple(std::vector<int>(v.begin(), v.begin() + cutIndex), 
+                            std::vector<int>(v.begin() + cutIndex, v.end()));
 }
