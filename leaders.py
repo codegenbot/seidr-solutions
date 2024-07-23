@@ -1,4 +1,3 @@
-```
 def leaders(arr):
     result = []
     max_leader = arr[-1]
