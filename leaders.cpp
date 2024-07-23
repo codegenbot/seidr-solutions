@@ -19,3 +19,10 @@ vector<int> leaders(vector<int>& arr) {
     
     return leaders;
 }
+
+int main() {
+    vector<int> arr = {1, 3, 4, 1, 5, 9};
+    vector<int> result = leaders(arr);
+    // print or use the result as needed
+    return 0;
+}
