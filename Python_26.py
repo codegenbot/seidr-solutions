@@ -1,4 +1,6 @@
+```
 from typing import List
+
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
@@ -8,3 +10,9 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             seen.add(num)
             result.append(num)
     return result
+
+
+numbers = input("Enter numbers separated by space: ").split()
+numbers = list(map(int, numbers))
+result = remove_duplicates(numbers)
+print(result)
