@@ -1,3 +1,3 @@
-int x = round(cbrt(a));
-    return x * x * x == a;
+int b = round(pow(a, 1.0/3));
+    return a == b * b * b;
 }
