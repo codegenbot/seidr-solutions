@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -21,9 +20,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    assert(count_nums({1}) == 1);
-    std::vector<int> nums = {-5, -23, 45, 6};
+    std::vector<int> nums = {-1, 2, -3, 4};
     int result = count_nums(nums);
-    std::cout << "Number of numbers with more than one digit: " << result << std::endl;
+    std::cout << "Number of numbers with odd sum of digits: " << result << std::endl;
     return 0;
 }
