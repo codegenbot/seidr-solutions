@@ -21,7 +21,7 @@ int main() {
     }
 
     double distance = sqrt(sum);
-    cout.precision(17);
+    cout.precision(17); // Set precision to match the expected output
     cout << distance << endl;
 
     return 0;
