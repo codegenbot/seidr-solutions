@@ -5,5 +5,9 @@ bool is_palindrome(std::string text) {
         if(text[i] != text[len-i-1])
             return false;
     }
+    // handle odd length strings
+    if (len % 2 == 1)
+        if (text[len/2] != text[len/2 - 1]) 
+            return false;
     return true;
 }
