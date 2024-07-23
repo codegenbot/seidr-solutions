@@ -18,8 +18,5 @@ std::string spinWords(std::string str) {
         std::reverse(word.begin(), word.end());
     }
 
-    // Reverse the entire result string
-    std::reverse(result.begin(), result.end());
-
-    return result;
+    return result.substr(0, result.size() - 1);
 }
