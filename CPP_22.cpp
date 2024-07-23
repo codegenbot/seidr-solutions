@@ -1,19 +1,22 @@
+#include <iostream>
 #include <vector>
-#include <list>
-#include <variant>
+#include <algorithm>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-vector<int> filter_integers(list<variant<int>> values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            result.push_back(get<int>(value));
+std::vector<int> filter_integers(const std::vector<int>& vec) {
+    std::vector<int> result;
+    for (int i : vec) {
+        if (std::isfinite(i)) {
+            result.push_back(i);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
 }
