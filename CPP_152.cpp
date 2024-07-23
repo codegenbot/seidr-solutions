@@ -1,25 +1,45 @@
 #include <iostream>
 #include <vector>
 
-// Define compare function
-std::vector<int> compare(std::vector<int> a, std::vector<int>) {
-    int n = std::min(a.size(), {4});
-    std::vector<int> result(n);
+std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
+    int i = 0, j = 0;
     
-    for (int i = 0; i < n; i++) {
-        if (a[i] > b[i])
-            result[i] = 1;
-        else
-            result[i] = 0;
+    while (i < a.size() && j < b.size()) {
+        if (a[i] > b[j]) {
+            result.push_back(2);
+            i++;
+            j++;
+        } else if (a[i] < b[j]) {
+            result.push_back(1);
+            i++;
+            j++;
+        } else {
+            result.push_back(0);
+            i++;
+            j++;
+        }
+    }
+    
+    while (i < a.size()) {
+        result.push_back(2);
+        i++;
+    }
+    
+    while (j < b.size()) {
+        result.push_back(1);
+        j++;
     }
     
     return result;
 }
 
-// Define issame function
-bool issame(std::vector<int> a, std::vector<int>) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != 1)
+        if (a[i] != b[i])
             return false;
     }
     
