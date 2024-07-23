@@ -11,15 +11,7 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-if cut_index == 0:
-    subvector1 = []
-    subvector2 = arr
-elif cut_index == n:
-    subvector1 = arr
-    subvector2 = []
-else:
-    subvector1 = arr[:cut_index]
-    subvector2 = arr[cut_index:]
-
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 print(*subvector1)
 print(*subvector2)
