@@ -7,8 +7,8 @@ def minPath(grid, k):
     def dfs(i, j, path):
         nonlocal res
         if len(path) == k:
-            return
-        res = path[:]
+            return path[:]
+        res = []
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
@@ -22,4 +22,4 @@ def minPath(grid, k):
             dfs(i, j, [])
             visited[i][j] = False
     
-    return res
+    return res[0] if res else None
