@@ -1,3 +1,4 @@
+```
 def find_zero():
     xs = input("Enter coefficients (a b c): ").split()
     try:
