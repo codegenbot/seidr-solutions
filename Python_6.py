@@ -1,7 +1,6 @@
 ```
 from typing import List
-
-def parse_nested_parens(paren_string: str) -> list:
+def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
         level = 0
@@ -11,7 +10,9 @@ def parse_nested_parens(paren_string: str) -> list:
                 level += 1
             elif char == ')':
                 level -= 1
-            if level > max_level:
-                max_level = level
+            max_level = max(max_level, level)
         result.append(max_level)
     return result
+
+input_string = input("Enter a string with nested parentheses: ")
+print(parse_nested_parens(input_string))
