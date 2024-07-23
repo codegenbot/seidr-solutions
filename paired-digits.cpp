@@ -5,8 +5,10 @@
 int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
-        if ((s[i] == s[i + 1]) || (s[i + 1] == s[i])) {
-            sum += (s[i] - '0') * 2;
+        if (s[i] == s[i + 1]) {
+            int currentPair = (s[i] - '0') * 10 + (s[i + 1] - '0');
+            sum += currentPair;
+            i++; // Skip the next iteration
         }
     }
     return sum;
