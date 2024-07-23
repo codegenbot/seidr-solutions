@@ -1,9 +1,7 @@
-def basement(nums):
-    total = 0
-    prev_sum = float('inf')
-    for i in range(len(nums)):
-        total += nums[i]
-        if total < 0 and total > prev_sum:
-            return i
-        prev_sum = total
+def basement(arr):
+    cum_sum = 0
+    for i, x in enumerate(arr):
+        cum_sum += x
+        if cum_sum < 0:
+            return i + 1
     return -1
