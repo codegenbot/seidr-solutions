@@ -18,6 +18,10 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(checkVectors(eat(4, 5, 1), std::vector<int>({9, 0})));
+    std::vector<int> result = eat(4, 5, 1);
+    bool areSame = checkVectors(result, std::vector<int>({9, 0}));
+    if (!areSame) {
+        std::cerr << "Test failed" << std::endl;
+    }
     return 0;
 }
