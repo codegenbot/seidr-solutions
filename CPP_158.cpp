@@ -1,17 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <set>
+#include <algorithm>
+#include <cassert>
 #include <string>
+#include <vector>
 
-std::string find_max(std::vector<std::string> words) {
-    std::sort(words.begin(), words.end(), [](const auto& a, const auto& b) { return a.size() < b.size(); });
-    
-    for (const auto& word : words) {
-        std::set<char> unique_chars(word.begin(), word.end());
-        if (unique_chars.size() > 0) {
-            return word;
-        }
-    }
+using namespace std;
 
-    return "";
+string find_max(vector<string> words) {
+    string result = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            return count(a.begin(), a.end(), a[0]) > count(b.begin(), b.end(), b[0]);
+        });
+    return result;
+}
+
+int main() {
+    assert(find_max({"play", "play", "play"}) == "play");
+    return 0;
 }

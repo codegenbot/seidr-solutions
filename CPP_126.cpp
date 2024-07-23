@@ -15,24 +15,25 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // Check if n is within reasonable bounds
-    if (n > 0) {
-        std::vector<int> vec;
-        
-        for(int i = 0; i < n; i++) {
-            int val;
-            std::cout << "Enter element " << (i+1) << ": ";
-            std::cin >> val;
-            vec.push_back(val);
-        }
+    std::vector<int> vec;
+
+    for(int i = 0; i < n; i++) {
+        int val;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> val;
+        vec.push_back(val);
+    }
+
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::sort(vec.begin(), vec.end());
         
         if(is_sorted(vec)) {
-            std::cout << "The vector is sorted.\n";
+            std::cout << "The vector is now sorted.\n";
         } else {
-            std::cout << "The vector is not sorted.\n";
+            std::cout << "The vector is not sorted after sorting.\n";
         }
-    } else {
-        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
     }
 
     return 0;

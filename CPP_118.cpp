@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
-
-using namespace std;
+#include <algorithm>
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
@@ -18,10 +18,10 @@ std::string get_closest_vowel(std::string word) {
                 return string(1, word[closest]);
         }
     }
-    return closest == -1 ? "" : string(1, word[closest]);
+    return closest == -1 ? "" : std::string(1, word[closest]);
 }
 
 int main() {
-    cout << get_closest_vowel("Apple") << endl;
+    std::cout << get_closest_vowel("Apple") << std::endl;
     return 0;
 }
