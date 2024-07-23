@@ -1,3 +1,4 @@
-int str_len() {
-    return 0;
+```cpp
+int str_len(const char* str) {
+    return std::string(str).length();
 }
