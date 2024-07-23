@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-int score(std::string s) {
+int score(string s) {
     int total = 0, frame = 1, ball = 0;
     for (char c : s) {
         if (c == 'X') {
