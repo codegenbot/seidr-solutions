@@ -1,4 +1,3 @@
 ```
 def unique(user_input):
-    l = [int(x) for x in user_input.split(',')]
-    return sorted(set(l))
+    return sorted(set([int(x) for x in ', '.join(map(str, user_input)).split(',')])))
