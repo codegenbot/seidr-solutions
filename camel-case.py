@@ -1,3 +1,3 @@
 def camel_case(s):
     words = s.replace("-", " ").split()
-    result = ' '.join(map(lambda x: x.title(), filter(None, words)))
+    return "".join(word.title() if i > 0 else word for i, word in enumerate(words))
