@@ -9,7 +9,9 @@ string squareDigits(string input) {
     for (char c : input) {
         if (isdigit(c)) { 
             int digit = c - '0';
-            result += to_string((digit * digit) % 10);
+            result += to_string(digit * digit);
+        } else {
+            result += c; // add non-digit characters as is
         }
     }
     return result;
