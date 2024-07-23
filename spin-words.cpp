@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -20,7 +19,7 @@ string spinWords(string str) {
                 }
                 result += std::move(revWord);
             } else {
-                result += word;
+                result += std::move(word);
             }
             i = j + 1;
         } else {
@@ -35,11 +34,10 @@ string spinWords(string str) {
 }
 
 int main() {
-    // test cases
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl; 
+    cout << spinWords("a") << endl; // a
+    cout << spinWords("this is a test") << endl; // this is a test
+    cout << spinWords("this is another test") << endl; // this is rehtona test
+    cout << spinWords("hi") << endl; // hi
 
     return 0;
 }
