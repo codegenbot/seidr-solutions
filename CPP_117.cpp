@@ -25,6 +25,5 @@ std::vector<std::string> select_words(std::string s, int k) {
 }
 
 int main(){
-    assert(isEqualVectors(select_words("a b c d e f", 1), std::vector<std::string>{"b","c","d","e"})); 
-    return 0;
+    assert(isEqualVectors(select_words("a b c d e f", 1), std::vector<std::string>{ "b","c","d","e" }));
 }
