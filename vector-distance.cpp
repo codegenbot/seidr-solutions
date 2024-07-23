@@ -1,16 +1,14 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 double vectorDistance() {
     int n;
-    cin >> n; 
-
+    std::cin >> n; 
     double x1 = 0, y1 = 0;
     for (int i = 0; i < n; i++) {
         double x, y;
-        cin >> x >> y;
+        std::cin >> x >> y;
         x1 += pow(x, 2);
         y1 += pow(y, 2);
     }
