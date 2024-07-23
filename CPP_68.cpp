@@ -8,7 +8,7 @@ vector<int> pluck(vector<int> arr) {
     auto it = min_element(arr.begin(), arr.end());
     while (*it % 2 != 0)
         it++;
+    result.push_back(*it);
     
-    result.push_back(*it);  
     return result;
 }
