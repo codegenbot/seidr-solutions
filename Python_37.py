@@ -1,4 +1,3 @@
-```
 def sort_even(l: list):
     evens = sorted([i for i in l if i % 2 == 0])
     non_evens = [i for i in l if i % 2 != 0]
