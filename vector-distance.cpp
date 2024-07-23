@@ -1,8 +1,8 @@
+```cpp
+#include <cmath>
 #include <vector>
 #include <iostream>
-#include <cmath> 
-#include <iomanip> 
-
+#include <iomanip>
 using namespace std;
 
 double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
