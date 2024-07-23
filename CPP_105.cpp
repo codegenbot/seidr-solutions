@@ -23,5 +23,5 @@ int main() {
     std::vector<int> lengths = {4, 8};
     std::vector<std::string> b = by_length(lengths);
     std::cout << (issame(by_length({4, 8}), b)) << std::endl;
-    std::cout << (!issame(std::vector<std::string>({9}), b)) << std::endl;
+    std::cout << (!issame(std::vector<std::string>(by_length({9})), b)) << std::endl;
 }
