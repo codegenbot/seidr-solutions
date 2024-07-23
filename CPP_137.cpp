@@ -1,15 +1,23 @@
 #include <boost/any.hpp>
 #include <string>
 
-std::string compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == b.type()) {
-        if (a.type() == typeid(int)) {
-            return std::to_string(std::max(boost::any_cast<int>(a), boost::any_cast<int>(b)));
-        } else if (a.type() == typeid(float)) {
-            return std::to_string(std::max(boost::any_cast<float>(a), boost::any_cast<float>(b)));
-        } else if (a.type() == typeid(std::string)) {
-            return (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b)) ? boost::any_cast<std::string>(a) : boost::any_cast<std::string>(b);
-        }
-    }
+template <typename T>
+T compare_one(const boost::any &a, const boost::any &b) {
+    if (a.type() == typeid(T) && b.type() == typeid(T))
+        return (boost::any_cast<T>(a) > boost::any_cast<T>(b)) ? boost::any_cast<T>(a) : boost::any_cast<T>(b);
+    return T();
+}
+
+int main() {
+    boost::any a, b;
+
+    if (a == b)
+        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(float))
+        return compare_one<int>(a, b);
+    if (a.type() == typeid(float) && b.type() == typeid(int))
+        return compare_one<float>(a, b);
+    if (a.type() == typeid(std::string) && b.type() == typeid(std::string))
+        return compare_one<std::string>(a, b);
     return "None";
 }
