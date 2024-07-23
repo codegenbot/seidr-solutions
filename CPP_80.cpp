@@ -1,27 +1,19 @@
-````
-#include <string>
+#include <unordered_map>
 using namespace std;
 
 bool is_happy(string s) {
     if (s.length() < 3)
         return false;
+    unordered_map<int, int> countMap;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
-        bool unique = true;
+        int count = 0;
         for (char c : sub) {
-            int count = 0;
-            for (char d : sub) {
-                if (c == d)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
+            count++;
         }
-        if (!unique)
+        if (countMap.count(count))
             return false;
+        countMap[count] = 1;
     }
     return true;
 }
-```
