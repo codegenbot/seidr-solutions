@@ -35,4 +35,4 @@ int main() {
         cin >> str;
         cout << spinWords(str) << endl;
     }
-}
+    return 0;
