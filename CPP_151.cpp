@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
 #include <iostream>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> myVector) {
     long long sum = 0;
-    for (float num : lst) {
+    for (float num : myVector) {
         if (num > 0 && floor(num) == num) {
             sum += pow(num, 2);
         }
@@ -28,6 +27,7 @@ int mainOld() {
         myVector.push_back(temp);
     }
 
-    int result = double_the_difference(myVector); 
+    long long result = double_the_difference(myVector);
+    assert (result == 1); // Declare the variable before asserting.
     return 0;
 }

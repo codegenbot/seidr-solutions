@@ -1,11 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1) return true;
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]) return false;
+    std::vector<int> sorted_lst = lst; 
+    for(int i = 1; i < sorted_lst.size(); i++){
+        if(sorted_lst[i-1] >= sorted_lst[i]) return false;
     }
     return true;
 }
@@ -15,24 +17,25 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // Check if n is within reasonable bounds
-    if (n > 0) {
-        std::vector<int> vec;
-        
-        for(int i = 0; i < n; i++) {
-            int val;
-            std::cout << "Enter element " << (i+1) << ": ";
-            std::cin >> val;
-            vec.push_back(val);
-        }
+    std::vector<int> vec;
+
+    for(int i = 0; i < n; i++) {
+        int val;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> val;
+        vec.push_back(val);
+    }
+
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::sort(vec.begin(), vec.end());
         
         if(is_sorted(vec)) {
-            std::cout << "The vector is sorted.\n";
+            std::cout << "The vector is now sorted.\n";
         } else {
-            std::cout << "The vector is not sorted.\n";
+            std::cout << "The vector is not sorted after sorting.\n";
         }
-    } else {
-        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
     }
 
     return 0;
