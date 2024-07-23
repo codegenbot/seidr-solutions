@@ -1,21 +1,21 @@
+```
+#include <iostream>
+using namespace std;
+
 int main() {
-    double startHeight, firstBounceHeight, bouncinessIndex;
+    int startHeight, firstBounce;
+    cout << "Enter starting height: ";
+    cin >> startHeight;
+    cout << "Enter height after the first bounce: ";
+    cin >> firstBounce;
+    double bounciness = (double)firstBounce / startHeight;
     int numBounces;
-
-    std::cout << "Enter starting height: ";
-    std::cin >> startHeight;
-    std::cout << "Enter height after first bounce: ";
-    std::cin >> firstBounceHeight;
-
-    bouncinessIndex = firstBounceHeight / startHeight;
-
-    std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
-
-    double totalDistance = 2 * startHeight + (numBounces - 1) * 2 * firstBounceHeight;
-    totalDistance *= bouncinessIndex;
-
-    std::cout << "Total distance the ball travels: " << totalDistance << std::endl;
-
+    cout << "Enter number of bounces: ";
+    cin >> numBounces;
+    double totalDistance = 0.0;
+    for(int i=1; i<=numBounces; i++) {
+        totalDistance += pow(2, -0.3*i);
+    }
+    cout << "Total distance traveled by the ball is: " << fixed << setprecision(2) << totalDistance*bounciness << endl;
     return 0;
 }
