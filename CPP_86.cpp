@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -23,8 +22,8 @@ std::string anti_shuffle(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a sentence: ";
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "Anti-shuffled sentence: " << anti_shuffle(input) << std::endl;
+    std::cout << "Anti-Shuffle String: " << anti_shuffle(input) << std::endl;
     return 0;
 }
