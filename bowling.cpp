@@ -35,8 +35,9 @@ int bowlingScore(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter the bowling scores (e.g., XXXXXXXX--): ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
+    std::string line;
+    line = std::getline(std::cin, line);
+    int result = bowlingScore(line);
     std::cout << "The total score is: " << result << std::endl;
     return 0;
 }
