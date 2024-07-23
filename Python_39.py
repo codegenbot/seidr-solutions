@@ -1,8 +1,15 @@
-```
 def prime_fib(n: int):
-    fib = [0, 1]
-    while len(fib) <= n:
-        fib.append(fib[-1] + fib[-2])
-    for num in fib[n:]:
-        if all(num % i > 0 for i in range(2, int(num**0.5) + 1)):
-            return num
+    a, b = 1, 2
+    i = 0
+    while True:
+        if n == i + 1:
+            return b
+        if b < 2:
+            b += 1
+            continue
+        for j in range(2, int(b**0.5) + 1):
+            if b % j == 0:
+                b += 1
+                break
+        else:
+            a, b = b, a + b
