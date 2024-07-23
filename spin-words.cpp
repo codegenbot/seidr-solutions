@@ -22,7 +22,7 @@ int main() {
     
     result.pop_back(); // Remove the extra space at the end
     
-    std::cout << result << std::endl;
+    cout << result << endl;
     
     return 0;
 }
