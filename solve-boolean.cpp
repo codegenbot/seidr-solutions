@@ -1,22 +1,19 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <cctype>
 
 std::string solveBoolean(std::string expression) {
-    if(expression == "T" || expression == "true") {
-        return "True";
-    }
+    bool result = (expression == "T") || (expression == "true");
     for(int i = 0; i < expression.length(); i++) {
         if(expression[i] == '&') {
             std::string left = expression.substr(0, i);
             std::string right = expression.substr(i + 1);
-            if(solveBoolean(left) == "False" && solveBoolean(right) == "False")
-                return "False";
+            result &= solveBoolean(left) && solveBoolean(right);
         } else if(expression[i] == '|') {
             std::string left = expression.substr(0, i);
             std::string right = expression.substr(i + 1);
-            if(solveBoolean(left) == "True" || solveBoolean(right) == "True")
-                return "True";
+            result |= solveBoolean(left) || solveBoolean(right);
         }
     }
-    return expression;
+    return (result) ? "True" : "False";
 }
