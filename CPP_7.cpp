@@ -1,16 +1,25 @@
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    bool issame(vector<string> a, vector<string> b) {
-        vector<string> same;
-        for(string s : a) {
-            if(b.find(s) != string::npos)
-                same.push_back(s);
-        }
-        return same.size() == a.size();
-    }
+```cpp
+#include <vector>
+#include <string>
 
+bool issame(vector<string> a, vector<string> b) {
+    if(b.size() != a.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
-        if(issame({s}, {substring}) && s.find(substring) != string::npos)
+        int found = s.find(substring);
+        if(found != string::npos)
+            result.push_back(s);
+        else if (!issame({s}, {"")) // Check if string does not contain substring
             result.push_back(s);
     }
     return result;
