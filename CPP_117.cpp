@@ -1,10 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
-
-template<typename T>
-struct initializer_list;
+#include <sstream>
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size())
