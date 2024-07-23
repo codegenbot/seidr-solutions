@@ -1,19 +1,27 @@
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
-    std::transform(game.begin(), game.end(), guess.begin(), std::back_inserter(result), 
-                   [](int a, int b) { return std::abs(a - b); });
-    return result;
-}
+vector<int> compare(vector<int> game, vector<int> guess);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
+    for (int i = 0; i < game.size(); ++i) {
+        result.push_back(abs(game[i] - guess[i]));
+    }
+    return result;
+}
+
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
+    vector<int> game = {3, 5, 7};
+    vector<int> guess = {2, 4, 8};
+
+    vector<int> difference = compare(game, guess);
+    for (int i = 0; i < difference.size(); ++i) {
+        cout << difference[i] << " ";
+    }
+
     return 0;
 }
