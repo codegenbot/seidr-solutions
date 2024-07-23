@@ -9,7 +9,7 @@ string rounded_avg(int n, int m) {
         sum += i;
     double avg = round(sum / (m - n + 1));
     string res = "";
-    while (static_cast<int>(avg) > 0) {
+    while (static_cast<int>(avg) > 0) { 
         if (static_cast<int>(avg) % 2)
             res.push_back('1');
         else
