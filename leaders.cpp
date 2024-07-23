@@ -1,14 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
-    vector<int> result;
-    int maxRight = nums.back();
-    for (int i = nums.size() - 2; i >= 0; --i) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            result.push_back(nums[i]);
+vector<int> leaders(vector<int> v) {
+    vector<int> res;
+    int n = v.size();
+    for(int i=n-1; i>=0; i--){
+        bool leader = true;
+        for(int j=i+1; j<n; j++){
+            if(v[j] >= v[i]){
+                leader = false;
+                break;
+            }
+        }
+        if(leader){
+            res.push_back(v[i]);
         }
     }
-    return result;
+    return res;
 }
