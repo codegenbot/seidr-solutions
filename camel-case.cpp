@@ -8,9 +8,9 @@ std::string kebabToCamel(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
-                result.push_back(' '); // add a space
+                capitalizeNext = true;
             }
-            capitalizeNext = true;
+            result.push_back(' ');
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -25,7 +25,7 @@ std::string kebabToCamel(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     std::cout << "CamelCase representation: " << kebabToCamel(input) << std::endl;
 
