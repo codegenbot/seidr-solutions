@@ -1,3 +1,14 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
+}
+
 string find_max(vector<string> words){
     string result = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
