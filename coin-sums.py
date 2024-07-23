@@ -1,11 +1,11 @@
 ```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
+    coins = [25, 25, 25, 10]
     result = [0, 0, 0, 0]
 
-    for i in range(len(coins)-1, -1, -1):
+    for i in range(len(coins)):
         while cents >= coins[i]:
-            result[i] += 1
+            result[coins.index(coins[i])] += 1
             cents -= coins[i]
 
     return result
