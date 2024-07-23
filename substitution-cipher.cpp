@@ -6,12 +6,11 @@
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
     std::string result;
     for (char c : input) {
-        if (c == '\0') break; // check for null-terminator
-        size_t pos = cipher2.find(std::tolower(c));
+        size_t pos = cipher2.find(std::string(1, c)); 
         if (pos != std::string::npos) {
-            result += std::tolower(cipher1.at(pos)); // substitute with corresponding character in cipher1, also converted to lowercase
+            result += cipher1[pos]; 
         } else {
-            result += c; // if not found, add as it is
+            result += c; 
         }
     }
     return result;
