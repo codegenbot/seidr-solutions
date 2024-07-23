@@ -1,5 +1,6 @@
 ```
 import math
+
 def find_zero():
     while True:
         try:
@@ -20,10 +21,6 @@ def find_zero():
         x = -b / (2 * a) 
         return f"Root: {round(x, 2)}"
     else:
-        if b > 0:
-            return "This equation has no real roots"
-        else:
-            root1 = (-b + math.sqrt(discriminant)) / (2 * a)
-            root2 = (-b - math.sqrt(discriminant)) / (2 * a)
-            return f"This equation has two complex roots: {round(root1, 2)} + {(c/a**(3/2))**0.5}i and {round(root2, 2)} - {(c/a**(3/2))**0.5}i"
+        return "No real roots found"
+
 print(find_zero())
