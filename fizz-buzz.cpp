@@ -1,4 +1,3 @@
-```cpp
 std::string fizzBuzz(int x) {
     std::string result;
     if (x % 15 == 0)
