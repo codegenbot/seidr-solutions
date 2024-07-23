@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 
@@ -11,31 +12,38 @@ int sumOfDigits(int n) {
 }
 
 bool isPrime(int num) {
-    if (num <= 1) {
+    if (num <= 1)
         return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
             return false;
-        }
-    }
     return true;
 }
 
-int findMaxPrime(int* numbers, int size) {
+int findMaxPrime(const std::vector<int>& numbers) {
     int maxPrime = -1;
-    for (int i = 0; i < size; i++) {
-        if (isPrime(numbers[i])) {
-            if (numbers[i] > maxPrime) {
-                maxPrime = numbers[i];
-            }
-        }
+    for (int number : numbers) {
+        if (isPrime(number))
+            maxPrime = number;
     }
     return maxPrime;
 }
 
+#include <iostream>
+
 int main() {
-    int numbers[] = {127, 97, 8192};
-    assert(sumOfDigits(findMaxPrime(numbers, sizeof(numbers)/sizeof(numbers[0]))) == 7);
+    std::cout << "Enter a sequence of numbers (space separated): ";
+    int num;
+    std::vector<int> numbers;
+    while(std::cin >> num) {
+        numbers.push_back(num);
+    }
+    if (!numbers.empty()) {
+        int maxPrime = findMaxPrime(numbers);
+        int sumOfDigitsInMaxPrime = sumOfDigits(maxPrime);
+        std::cout << "Sum of digits in the maximum prime number is: " << sumOfDigitsInMaxPrime << std::endl;
+    } else {
+        std::cout << "No numbers entered." << std::endl;
+    }
     return 0;
 }
