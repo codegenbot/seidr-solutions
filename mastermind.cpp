@@ -10,11 +10,19 @@ int mastermind(string code, string guess) {
         }
     }
 
+    map<char, int> codeCount;
     for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && c != guess[guess.find(c)]) {
+        codeCount[c]++;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            continue;
+        }
+        for (char c : codeCount) {
+            if (c.second > 0 && c.first == guess[i]) {
                 white++;
+                codeCount[c.first]--;
                 break;
             }
         }
