@@ -6,7 +6,7 @@ def longest(strings: list[str]) -> Optional[str]:
         (
             s
             for s in strings
-            if strings.index(s) and len(s) == max(len(x) for x in strings)
+            if not strings.index(s) and len(s) == max(len(x) for x in strings)
         ),
         None,
     )
