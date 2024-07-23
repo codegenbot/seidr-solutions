@@ -1,7 +1,5 @@
 #include <vector>
-#include <climits>  // for INT_MAX
-#include <cmath>    // for abs
-
+#include <climits> 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -17,8 +15,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
         if (leftSum == rightSum) {
             return {{}, {v.begin(), v.end()}};
-        } else if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
+        } else if (std::abs(leftSum - rightSum) < minDiff) {
+            minDiff = std::abs(leftSum - rightSum);
             cutIndex = i;
         }
     }
