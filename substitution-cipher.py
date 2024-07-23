@@ -7,3 +7,14 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
+
+
+def main():
+    cipher1 = input("Enter the first string: ")
+    cipher2 = input("Enter the second string: ")
+    message = input("Enter the message to decipher: ")
+    print(substitution_cipher(cipher1, cipher2, message))
+
+
+if __name__ == "__main__":
+    main()
