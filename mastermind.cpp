@@ -25,7 +25,7 @@ pair<int, int> mastermind(string code, string guess) {
         colorCountCode[i] = colorCountGuess[i] = 0;
     }
     
-    return std::make_pair(blackPegs, whitePegs);
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
