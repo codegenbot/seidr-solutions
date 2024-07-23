@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,19 +14,26 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    std::vector<int> vec(n);
-    
-    for(int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> val;
-        vec[i] = val;
-    }
-    
-    if(is_sorted(vec)) {
-        std::cout << "The vector is sorted.\n";
+
+    // Check if n is within reasonable bounds
+    if (n > 0) {
+        std::vector<int> vec;
+        
+        for(int i = 0; i < n; i++) {
+            int val;
+            std::cout << "Enter element " << (i+1) << ": ";
+            std::cin >> val;
+            vec.push_back(val);
+        }
+        
+        if(is_sorted(vec)) {
+            std::cout << "The vector is sorted.\n";
+        } else {
+            std::cout << "The vector is not sorted.\n";
+        }
     } else {
-        std::cout << "The vector is not sorted.\n";
+        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
     }
+
+    return 0;
 }
