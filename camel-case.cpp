@@ -3,25 +3,25 @@
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == '-') {
-            if (i > 0 && result.back() != ' ') {
-                result.push_back(toupper(s[i]));
-            } else {
-                result += s.substr(i);
-                break;
-            }
-        } else if (s[i] == ' ') {
-            if (result.length() > 0) {
-                result.push_back(char(toupper(s[i + 1])));
-            } else {
-                result += s.substr(i + 1);
-                i++;
-            }
+    bool uppercaseNext = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            if (uppercaseNext)
+                result += toupper(s[i + 1]);
+            else
+                result += s[i + 1];
+            i++;
+        } else if (uppercaseNext) {
+            result += toupper(s[i]);
+            uppercaseNext = false;
         } else {
-            result += s[i];
+            result += tolower(s[i]);
+            if (s[i] == ' ')
+                uppercaseNext = true;
         }
     }
+    if (uppercaseNext)
+        result += toupper(s[s.length() - 1]);
     return result;
 }
 
