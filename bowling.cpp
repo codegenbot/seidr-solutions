@@ -3,7 +3,7 @@ using namespace std;
 int bowlingScore(string s) {
     int score = 0;
     bool inFrame = false;
-    int frame = 1;
+    int frame = 0;
 
     for (char c : s) {
         if (c == '/') {
@@ -22,8 +22,7 @@ int bowlingScore(string s) {
         }
 
         frame++;
-        if (frame >= 11) break;
+        if (frame >= 10) break;
     }
 
     return score;
-}
