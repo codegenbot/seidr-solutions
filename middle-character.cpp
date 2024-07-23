@@ -1,12 +1,5 @@
-```cpp
 #include <string>
-
-int main() {
-    std::string s;
-    // get input from user or any other operation
-    std::cout << middleCharacter(s) << std::endl;  // call the function and print result
-    return 0;
-}
+#include <iostream>
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
@@ -15,4 +8,14 @@ std::string middleCharacter(std::string s) {
     } else{
         return s.substr(len/2,1);
     }
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
+
+    return 0;
 }
