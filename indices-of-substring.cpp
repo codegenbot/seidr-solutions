@@ -9,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         int j = 0; while (j < target.size() && text[i + j] == target[j]) j++;
         if (j == target.size()) {
             result.push_back(i);
-            i += j; // start the next search from where the current match ended
+            i += j; // move on to the next potential match
         }
     }
     return result;
