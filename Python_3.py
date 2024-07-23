@@ -3,6 +3,7 @@ from typing import List
 
 
 operations = list(map(int, input("Enter space-separated integers: ").split()))
+
 def below_zero(ops: List[int]) -> bool:
     balance = 0
     for op in ops:
