@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -17,12 +16,9 @@ pair<int, int> mastermind(string code, string guess) {
         for(int j = 0; j < 4; j++) {
             if(guess[j] == (char)(i + 65)) {
                 count++;
-                if(code.find((char)(i + 65)) != string::npos) {
-                    black--;
-                }
             }
         }
-        white += count;
+        white += count - black;
     }
 
     return make_pair(black, white);
