@@ -1,10 +1,12 @@
+Here is the modified code:
 ```
-def main():
-    music_string = input("Enter your music string: ")
-    result = parse_music(music_string)
-    print(result)
+from typing import List
+
 
 def parse_music(music_string: str) -> List[int]:
+    if not (music_string.startswith('o|') or music_string.startswith('.||||')):
+        return []
+
     music_list = []
     i = 0
     while i < len(music_string):
@@ -32,6 +34,3 @@ def parse_music(music_string: str) -> List[int]:
                 music_list.append(4)
                 i += 1
     return music_list
-
-if __name__ == "__main__":
-    main()
