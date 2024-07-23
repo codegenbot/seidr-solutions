@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -16,6 +17,8 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << smallest_change({0, 1}) << std::endl;
+    std::vector<int> v = {0, 1};
+    int result = smallest_change(v);
+    std::cout << "The number of changes is: " << result << std::endl;
     return 0;
 }
