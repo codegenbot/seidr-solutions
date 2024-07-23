@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
@@ -21,5 +20,4 @@ int main() {
     float onGround, rate, melt;
     std::cin >> onGround >> rate >> melt;
     std::cout << snowDay(hours, onGround, rate, melt) << std::endl;
-    std::cin.ignore();
     return 0;
