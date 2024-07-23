@@ -1,18 +1,16 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+vec = []
+for i in range(n):
+    vec.append(int(input()))
 
-total_sum = sum(arr)
-half_sum = total_sum // 2
+min_diff = float("inf")
+cut_index = -1
 
-left_sum = 0
-for i, num in enumerate(arr):
-    left_sum += num
-    if left_sum >= half_sum:
-        break
+for i in range(1, n):
+    diff = abs(sum(vec[:i]) - sum(vec[i:]))
+    if diff < min_diff or (diff == min_diff and i < cut_index):
+        min_diff = diff
+        cut_index = i
 
-if abs(total_sum - 2 * left_sum) < abs(total_sum - 2 * (left_sum - num)):
-    print(arr[: i + 1])
-    print(arr[i + 1 :])
-else:
-    print(arr[:i])
-    print(arr[i:])
+print(*vec[:cut_index])
+print(*vec[cut_index:])
