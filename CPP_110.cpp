@@ -1,9 +1,16 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+#include <vector>
+#include <string>
+
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
+        if (num % 2 == 0)
+            evenCount++;
     }
-    return oddCount == 0 ? "YES" : "NO";
-}
+    for (int num : lst1) {
+        if (num % 2 != 0 && evenCount > 0)
+            return std::string("YES");
+        else if (num % 2 != 0)
+            return std::string("NO");
+    }
+    return evenCount == lst1.size() ? std::string("YES") : std::string("NO");
