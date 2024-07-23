@@ -1,13 +1,16 @@
-def fix_spaces(s):
-    return s.replace("\n", " ")
+def fix_spaces(text):
+    return text.replace(" ", "%20")
 
 
-def check(input_string):
-    sentence = input_string.split(". ")
-    for i in range(len(sentence)):
-        sentence[i] = fix_spaces(sentence[i].strip())
-    return ".".join(sentence)
+def check(text):
+    if len(text) < 5:
+        return "Too short"
+    elif len(text) > 10:
+        return "Too long"
+    else:
+        return "Just right"
 
 
-input_string = input("Enter a sentence: ")
-print(check(input_string))
+text = input()
+fixed_text = fix_spaces(text)
+print(check(fixed_text))
