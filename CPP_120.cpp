@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,7 +23,7 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 int main()
 {
     std::vector<int> test = {1, 2, 3, -23, 243, -400, 0};
-    if(issame({}, std::vector<int>{}) || issame({1, 2, 3, -23, 243, -400, 0}, test)) {
+    if(issame({}, test)) {
         std::cout << "Test Passed\n";
     } else {
         std::cout << "Test Failed\n";
