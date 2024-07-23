@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <cmath>
 
@@ -14,8 +14,8 @@ double vectorDistance(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of dimensions: ";
+    std::cout << "Enter the dimension of the vector: ";
     std::cin >> n;
-    std::cout << "Euclidean distance is: " << vectorDistance(n) << std::endl;
+    std::cout << "Euclidean distance: " << vectorDistance(n) << std::endl;
     return 0;
 }
