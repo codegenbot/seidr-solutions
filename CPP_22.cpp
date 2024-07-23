@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 using namespace boost;
 
@@ -10,7 +9,7 @@ using namespace std;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).good()) {
+        if (any_cast<int>(value).type()) {
             result.push_back(any_cast<int>(value));
         }
     }
