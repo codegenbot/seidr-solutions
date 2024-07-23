@@ -8,6 +8,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
     int len1 = 0, len2 = 0;
 
+    // Calculate the total length of strings in both vectors
     for (const string& s : lst1) {
         len1 += s.length();
     }
@@ -15,6 +16,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         len2 += s.length();
     }
 
+    // Compare the lengths and add strings to result vector accordingly
     if (len1 < len2) {
         for (const string& s : lst1) {
             result.push_back(s);
