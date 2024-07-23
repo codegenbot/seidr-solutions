@@ -1,12 +1,13 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
+    card_number.reverse()  
     total = 0
     double = False
     for digit in card_number:
         if double:
             doubled_digit = digit * 2
             if doubled_digit > 9:
-                total += (doubled_digit % 10) + (doubled_digit // 10)
+                total += doubled_digit // 10 + doubled_digit % 10
             else:
                 total += doubled_digit
             double = False
@@ -14,4 +15,4 @@ def luhn(card_number):
             total += digit
             double = not double
 
-    return total if total % 10 == 0 else "Invalid card number"
+    return total
