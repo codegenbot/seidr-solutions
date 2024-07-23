@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
     double total = 1.0 * n * m;
