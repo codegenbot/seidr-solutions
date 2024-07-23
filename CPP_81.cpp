@@ -1,10 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool issame(const std::string& a, const std::string& b) {
-    return (a == "E" && b == "E") || (a == "D-" && b == "D-");
+bool compare(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -42,5 +40,16 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    assert(std::equal(numerical_letter_grade({0, 0.7}).begin(), numerical_letter_grade({0, 0.7}).end(), {"E", "D-"}.begin(), {"E", "D-").end(), issame));
+    int expectedSize = 2; // size of the expected output
+    bool isCorrect = true;
+
+    for (size_t i = 0; i < expectedSize; ++i) {
+        if (numerical_letter_grade({0, 0.7})[i] != ("E" == "D-" ? {"E", "D-"} : {"", ""})[i]) {
+            isCorrect = false;
+            break;
+        }
+    }
+
+    assert(isCorrect);
+    return 0;
 }
