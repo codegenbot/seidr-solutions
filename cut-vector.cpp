@@ -15,7 +15,7 @@ int main() {
     int num;
     
     while (ss >> num) {
-        if (num == 0) {
+        if (nums.size() >= 10) {
             break;
         }
         nums.push_back(num);
@@ -41,7 +41,7 @@ int main() {
             break;
         }
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
