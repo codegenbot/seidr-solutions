@@ -1,9 +1,12 @@
-```cpp
-set<int> seen;
-vector<int> result;
-for (int num : numbers) {
-    if (seen.insert(num).second) { 
-        result.push_back(num);
+#include <vector>
+#include <algorithm>
+
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> unique_numbers;
+    for (int num : numbers) {
+        if (find(unique_numbers.begin(), unique_numbers.end(), num) == unique_numbers.end()) {
+            unique_numbers.push_back(num);
+        }
     }
+    return unique_numbers;
 }
-return result;

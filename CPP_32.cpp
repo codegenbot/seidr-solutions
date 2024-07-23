@@ -1,16 +1,13 @@
-double poly(vector<double> coeffs, double x) {
-    double res = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        res += coeffs[i] * pow(x, i);
-    }
-    return res;
+#include <vector>
+using namespace std;
+
+double find_zero(vector<double> xs) {
+    double x = -xs[1] / (2*xs[0]);
+    return x;
 }
 
-double find_zero(vector<double> coeffs) {
-    double a = 0, b = 0, c = coeffs[0];
-    for(int i=1; i<coeffs.size();i++){
-        if(i%2==0) c+=(-1)*coeffs[i]/pow(2,i);
-        else a+=coeffs[i]/(double)(i+1);
-    }
-    return -b/(2*a);
+int main() {
+    vector<double> xs = {1, -7, 12};
+    double solution = find_zero(xs); 
+    return 0;
 }
