@@ -2,16 +2,16 @@
 #include <vector>
 
 float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float total_price = 0.0f;
+    float total_price = 0;
     for (size_t i = 0; i < prices.size(); ++i) {
-        total_price += prices[i] * (1 - (discounts[i] / 100.0));
+        total_price += prices[i] * (1 - (discounts[i] / 100));
     }
     return total_price;
 }
 
 int main() {
-    std::vector<float> prices = {10.0f, 20.0f, 30.0f};
-    std::vector<float> discounts = {5.0f, 10.0f, 15.0f};
+    std::vector<float> prices = {1, 4.43, 88.96};
+    std::vector<float> discounts = {5, 10, 15};
 
     float total_price = calculateTotalPrice(prices, discounts);
 
