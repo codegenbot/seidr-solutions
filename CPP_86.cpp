@@ -1,9 +1,9 @@
-```c++
 #include <algorithm>
+#include <string>
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
+string anti_shuffle(string s) {
+    string result = "";
     for (const auto& word : split(s, ' ')) {
         for (char c : word) {
             result += (c <= result.back()) ? c : " ";
@@ -14,7 +14,7 @@ std::string anti_shuffle(std::string s) {
     return result.substr(0, result.size() - 1);
 }
 
-std::string split(const std::string& s, char c) {
+string split(const string& s, char c) {
     vector<string> v;
     string temp = "";
     for (const auto& ch : s) {
@@ -29,8 +29,8 @@ std::string split(const std::string& s, char c) {
     return join(v, ' ');
 }
 
-std::string join(const vector<string>& v, char c) {
-    std::string result = "";
+string join(const vector<string>& v, char c) {
+    string result = "";
     for (const auto& s : v) {
         result += s + c;
     }
