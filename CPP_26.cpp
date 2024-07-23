@@ -1,19 +1,24 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b){
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> numbers) {
-    std::vector<int> result(numbers.begin(), numbers.end());
-    auto it = std::unique(result.begin(), result.end());
-    result.erase(it, result.end());
+std::vector<int> std::remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result;
+    for(int num : numbers){
+        if(std::find(result.begin(), result.end(), num) == result.end()){
+            result.push_back(num);
+        }
+    }
     return result;
 }
 
 int main(){
-    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(std::is_same(std::remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
     return 0;
-}
