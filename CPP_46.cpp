@@ -14,11 +14,3 @@ int fib4(int n) {
     }
     return d;
 }
-
-int main() {
-    int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("The %dth element of the fib4 number sequence is: %d\n", n, fib4(n));
-    return 0;
-}
