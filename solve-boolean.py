@@ -1,24 +1,36 @@
+```
 import ast
-import operator
+
 
 def solve_boolean(expression):
-    ops = {
-        '|': operator.or_,
-        '&': operator.and_
-    }
-
     if expression == "T":
         return True
     elif expression == "F":
         return False
 
-    try:
-        tree = ast.parse(f"result = {expression}", mode='eval')
-        code = compile(tree.body[0], 'code', 'exec')
-        exec(code)
-        return eval('result')
-    except (NameError, SyntaxError):
-        return None
+    def bool_ops(x, y):
+        if x and y: 
+            return "T"
+        elif x or y:
+            return "T"
+        else: 
+            return "F"
+
+    result = ""
+    stack = [expression]
+
+    while stack:
+        temp = stack.pop()
+        while "&" in temp:
+            left, right = temp.split("&", 1)
+            temp = f"{bool_ops(left, right)}"
+        while "|" in temp:
+            left, right = temp.split("|", 1)
+            temp = f"({left}) | ({right})"
+        result = temp
+
+    return "T" if str(result) == "True" else "F"
+
 
 if __name__ == "__main__":
     while True:
