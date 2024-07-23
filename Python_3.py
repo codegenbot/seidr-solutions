@@ -1,10 +1,13 @@
+```
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
+    result = False
     for operation in operations:
         if operation < 0:
-            return True
-    return False
+            result = True
+            break
+    return result
 
 if __name__ == "__main__":
     while True:
