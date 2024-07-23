@@ -1,16 +1,4 @@
-```c++
-#include <iostream>
-#include <vector>
-using namespace std;
-
-float shoppingList(const vector<float>& prices, int n, const vector<float>& discounts) {
-    float total = 0;
-    for (int i = 0; i < n; ++i) {
-        total += prices[i] - (prices[i] * discounts[i] / 100.0f);
-    }
-    return total;
-}
-
+```cpp
 int main() {
     int n;
     cin >> n;
@@ -25,7 +13,12 @@ int main() {
         cin >> d;
     }
 
-    cout << fixed << setprecision(1) << shoppingList(prices, n, discounts) << endl;
+    float total = 0.0f;
+    for (int i = 0; i < n; i++) {
+        total += prices[i] - (prices[i] * (discounts[i] / 100));
+    }
+
+    cout << fixed << setprecision(1) << total << endl;
 
     return 0;
 }
