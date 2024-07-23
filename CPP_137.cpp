@@ -1,3 +1,4 @@
+```cpp
 #include <boost/lexical_cast.hpp>
 #include <string>
 
@@ -14,7 +15,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (std::stod(str1) < std::stod(str2))
             return b;
         else
-            return a; // Modified code
+            return typeid(std::string);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string str = boost::lexical_cast<std::string>(b);
         if (std::stod(a.convert_to<std::string>()) > std::stod(str))
@@ -22,7 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
             return b;
         else
-            return a; // Modified code
+            return typeid(std::string);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string str = boost::lexical_cast<std::string>(b);
         if (std::stod(a.convert_to<std::string>()) > std::stod(str))
@@ -30,7 +31,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (std::stod(a.convert_to<std::string>()) < std::stod(str))
             return b;
         else
-            return a; // Modified code
+            return typeid(std::string);
     } else {
         // If both are strings, compare them.
         std::string str1 = boost::lexical_cast<std::string>(a);
@@ -40,6 +41,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (str1 < str2)
             return b;
         else
-            return a; // Modified code
+            return typeid(std::string);
     }
 }
