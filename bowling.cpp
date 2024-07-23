@@ -5,11 +5,11 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            string firstPart = s.substr(0, i);
-            string secondPart = s.substr(i + 1);
-            int firstRoll = stoi(firstPart);
-            int secondRoll = stoi(secondPart);
-            score += getPointsForFrame(firstRoll, secondRoll);
+            string firstRoll = s.substr(0, i);
+            string secondRoll = s.substr(i + 1);
+            int first = stoi(firstRoll);
+            int second = stoi(secondRoll);
+            score += getPointsForFrame(first, second);
             currentFrame++;
         }
     }
