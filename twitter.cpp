@@ -13,12 +13,12 @@ int main() {
     }
     int charCount = 0;
     for (char c : tweet) {
-        if (!isspace(c)) {
+        if (!std::isspace(c)) {
             charCount++;
         }
     }
     if (charCount > 140) {
-        cout << "Too many characters";
+        cout << "Too many characters"; 
         return 0;
     }
     cout << "Your tweet has " << charCount << " characters";
