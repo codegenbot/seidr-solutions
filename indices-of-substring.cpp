@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -12,3 +13,12 @@ int main() {
         }
         return result;
     }
+
+    int main() {
+        // Your indicesOfSubstring function remains unchanged here:
+        std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+        ...
+    }
+
+    return 0;
+}
