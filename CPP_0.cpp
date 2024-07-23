@@ -20,4 +20,3 @@ int main(){
         cout << "The vector contains elements that are within the given threshold.\n";
     else
         cout << "The vector does not contain elements that are within the given threshold.\n";
-}
