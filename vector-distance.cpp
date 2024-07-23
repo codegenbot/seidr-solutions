@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -15,6 +15,7 @@ double vectorDistance(int n) {
 int main() {
     int n;
     std::cin >> n; 
-    double result = vectorDistance(n); 
+    double result = vectorDistance(n);
+    std::cout << result << std::endl; 
     return 0;
 }
