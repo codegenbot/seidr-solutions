@@ -11,8 +11,8 @@ int main() {
         nums.push_back(num);
     }
     
-    if(nums.empty()) {
-        cout << "Input vector is empty." << endl;
+    if (nums.empty()) {
+        cout << "No input provided." << endl;
         return 0;
     }
     
