@@ -8,25 +8,22 @@ std::pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
     
-    bool codeGuessed[6] = {false};
+    bool correctGuess[4] = {false, false, false, false};
     
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
-            codeGuessed[code[i]-'0'] = true;
+            correctGuess[i] = true;
         }
     }
     
     for(int i = 0; i < 4; i++) {
-        bool found = false;
         for(int j = 0; j < 4; j++) {
-            if(code[j] == guess[i] && !codeGuessed[code[j]-'0']) {
+            if(i != j && code[j] == guess[i] && !correctGuess[j]) {
                 whitePegs++;
-                found = true;
                 break;
             }
         }
-        if(!found) codeGuessed[guess[i]-'0'] = true;
     }
     
     return std::make_pair(blackPegs, whitePegs);
