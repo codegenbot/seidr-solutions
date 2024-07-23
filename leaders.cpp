@@ -1,12 +1,12 @@
-````
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> arr = {1,2,3,4,5};
+    vector<int> arr = {16,17,4,3,5,2};
     vector<int> leaders = leaders(arr);
-    // Output or further processing
-    for (int i : leaders) cout << i << " ";
+    for(int i=0;i<leaders.size();i++){
+        cout<<leaders[i]<<" ";
+    }
     return 0;
 }
 
@@ -28,4 +28,3 @@ vector<int> leaders(vector<int>& arr) {
     
     return res;
 }
-```
