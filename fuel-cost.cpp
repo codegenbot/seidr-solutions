@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -21,4 +20,3 @@ int main() {
     int result = fuelCost(v);
     std::cout << "Fuel cost: " << result << std::endl;
     return 0;
-}
