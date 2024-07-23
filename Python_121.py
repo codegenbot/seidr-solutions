@@ -1,3 +1,5 @@
-```
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+    total = 0
+    for i in range(1, len(lst), 2):
+        total += lst[i]
+    return total
