@@ -1,3 +1,1 @@
-#include <iostream>
-#include <boost/lexical_cast.hpp> 
-using namespace std;
+#include <boost/conversion.hpp>
