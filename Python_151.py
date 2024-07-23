@@ -1,3 +1,4 @@
 def double_the_difference(lst):
-    first_positive_int = next((i for i in lst if isinstance(i, int) and i > 0), None)
-    return (first_positive_int - min(lst)) * 2 if first_positive_int else None
+    pos_int_sum = sum(i for i in lst if isinstance(i, int) and i > 0)
+    mean = pos_int_sum / len([i for i in lst if isinstance(i, int) and i > 0])
+    return abs(mean - 5) * 2
