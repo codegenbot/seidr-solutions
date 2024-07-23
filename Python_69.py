@@ -12,7 +12,7 @@ def search(lst):
             max_num = num
             break
     if max_num == -1:
-        max_num = 0
+        return -1
     return max_num
 
 lst = input("Enter numbers separated by space: ")
