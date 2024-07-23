@@ -1,4 +1,5 @@
-'''def cut_vector(lst):
+```'
+def cut_vector(lst):
     min_diff = float("inf")
     cut_index = 0
 
@@ -12,4 +13,4 @@
             min_diff = diff
             cut_index = i
 
-    return lst[:cut_index], lst[cut_index:]'''
+    return lst[:cut_index], lst[cut_index:]
