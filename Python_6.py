@@ -10,12 +10,17 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             result.append(level)
         elif char == ")":
             level -= 1
-    return [i for i in result if i > 0]
+            if level < 0:
+                raise ValueError("Invalid parentheses")
+    return [i - 1 for i in result]
 
 
 def main():
     paren_string = input("Enter a string of parentheses: ")
-    print(parse_nested_parens(paren_string))
+    try:
+        print(parse_nested_parens(paren_string))
+    except ValueError as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
