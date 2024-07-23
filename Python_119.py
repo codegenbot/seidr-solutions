@@ -1,4 +1,3 @@
-```
 def match_parens(lst):
     open_count = 0
     for s in lst:
