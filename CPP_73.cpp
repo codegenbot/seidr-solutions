@@ -1,4 +1,3 @@
-```cpp
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     assert(n > 0);
