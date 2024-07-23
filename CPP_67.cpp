@@ -7,31 +7,35 @@ int fruit_distribution(string s, int n) {
     string str = s;
     int apples = 0, oranges = 0;
     
-    while ((pos = str.find("apples", pos)) != string::npos) {
-        if (str.find("and", pos) == string::npos || str.find("and", pos + 8) == string::npos)
+    while ((pos = str.find(str, pos, "apples")) != string::npos) {
+        if (str.find(str, pos + 7, "and") == string::npos || str.find(str, pos + 14, "and") == string::npos)
             break;
-        pos = str.find("and", pos + 8);
+        pos = str.find(str, pos + 7, "and");
     }
     
     if (pos != string::npos) {
-        int start = pos;
-        while (str.substr(0, min(start - 1, pos)).find_first_of("0123456789") == string::npos)
-            start++;
-        apples = stoi(str.substr(min(start - 1, pos), pos - start));
+        for (int i = pos; i < str.length(); i++) {
+            if (str[i] < '0' || str[i] > '9')
+                break;
+            apples = stoi(str.substr(pos + 6, i - pos));
+            break;
+        }
     }
     
     pos = 0;
-    while ((pos = str.find("oranges", pos)) != string::npos) {
-        if (str.find("and", pos) == string::npos || str.find("and", pos + 7) == string::npos)
+    while ((pos = str.find(str, pos, "oranges")) != string::npos) {
+        if (str.find(str, pos + 7, "and") == string::npos || str.find(str, pos + 14, "and") == string::npos)
             break;
-        pos = str.find("and", pos + 7);
+        pos = str.find(str, pos + 7, "and");
     }
     
     if (pos != string::npos) {
-        int start = pos;
-        while (str.substr(0, min(start - 1, pos)).find_first_of("0123456789") == string::npos)
-            start++;
-        oranges = stoi(str.substr(min(start - 1, pos), pos - start));
+        for (int i = pos; i < str.length(); i++) {
+            if (str[i] < '0' || str[i] > '9')
+                break;
+            oranges = stoi(str.substr(pos + 7, i - pos));
+            break;
+        }
     }
     
     return n - apples - oranges;
