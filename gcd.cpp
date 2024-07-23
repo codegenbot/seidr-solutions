@@ -25,3 +25,17 @@ int gcd(int a, int b) {
     }
     return a;
 }
+
+int main() {
+    int a = 48;
+    int b = 18;
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+
+    string text = "Hello World";
+    string target = "o";
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
+}
