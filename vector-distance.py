@@ -1,4 +1,3 @@
-```
 n = int(input())
 vector1 = [float(x) for x in input().split()]
 m = int(input())
