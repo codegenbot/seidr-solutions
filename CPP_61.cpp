@@ -1,4 +1,3 @@
-```
 bool correct_bracketing(string brackets) {
     int count = 0;
     for (char bracket : brackets) {
@@ -10,4 +9,3 @@ bool correct_bracketing(string brackets) {
         }
     }
     return count == 0;
-}
