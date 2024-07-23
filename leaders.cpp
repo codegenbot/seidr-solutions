@@ -1,32 +1,26 @@
-```cpp
 #include <vector>
+#include <initializer_list>
+#include <iostream>
 using namespace std;
 
-int main() {
-    vector<int> arr;
-    int n;
-    cout << "Enter the size of the array: ";
-    cin >> n;
-
-    arr.resize(n);
-
-    cout << "Enter the elements of the array: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-
+vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxRightSoFar = arr.back();
-    for(int i = arr.size() - 1; i >= 0; i--) {
+    for(int i = arr.size() - 2; i >= 0; i--) {
         if(arr[i] >= maxRightSoFar) {
             result.push_back(arr[i]);
             maxRightSoFar = arr[i];
         }
     }
+    return result;
+}
 
-    cout << "Leaders in the array are: ";
-    for(auto x : result)
-        cout << x << " ";
-
+int main() {
+    vector<int> input = {17, 28, 4, 27, 29, 23, 12};
+    vector<int> result = leaders(input);
+    for(int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
