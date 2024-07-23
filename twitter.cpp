@@ -7,17 +7,16 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    if (std::count(tweet.begin(), tweet.end(), '\0') > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + to_string(std::count(tweet.begin(), tweet.end(), '\0')) + " characters";
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin >> tweet; // read until whitespace
-    cin.ignore(); // ignore remaining whitespace
+    getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
 }
