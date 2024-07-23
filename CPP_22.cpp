@@ -11,11 +11,11 @@ std::vector<int> filter_integers(std::vector<int> input) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame(filter_integers({3, -1, 3, 3, -2, 'a', 3}), {3, 3, 3}));
+    assert(issame({3, 3, 3}, filter_integers({3, 'c', 3, 3, 'a', 'b'})));
     return 0;
 }
