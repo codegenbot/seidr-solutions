@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -27,3 +28,4 @@ int main() {
     std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
 
     return 0;
+}
