@@ -4,38 +4,37 @@
 
 using namespace std;
 
-int whitePegs(string code, string guess) {
-    int count = 0;
+int countBlackPegs(string masterMindCode, string guess) {
+    int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
+        if (masterMindCode[i] == guess[i]) {
+            blackPegs++;
         }
     }
-    return count;
+    return blackPegs;
 }
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeArray(code.begin(), code.end());
+int countWhitePegs(string masterMindCode, string guess) {
+    int whitePegs = 0;
+    map<char, int> codeFrequency, guessFrequency;
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] == code[i]) {
-            count++;
-            codeArray[i] = 'X';
+        codeFrequency[masterMindCode[i]]++;
+        guessFrequency[guess[i]]++;
+    }
+    
+    for (auto it = codeFrequency.begin(); it != codeFrequency.end(); ++it) {
+        if (it->second > 0 && guessFrequency.find(it->first) != guessFrequency.end()) {
+            whitePegs += min(it->second, guessFrequency[it->first]);
         }
     }
-    for (int i = 0; i < 4; ++i) {
-        if (count <= find(codeArray.begin(), codeArray.end(), guess[i]) - codeArray.begin()) {
-            return count;
-        } else {
-            return count - 1;
-        }
-    }
+    
+    return whitePegs;
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
+    string masterMindCode, guess;
+    cin >> masterMindCode >> guess;
+    cout << countWhitePegs(masterMindCode, guess) << endl;
+    cout << countBlackPegs(masterMindCode, guess) << endl;
     return 0;
 }
