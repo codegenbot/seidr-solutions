@@ -11,15 +11,25 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    map<int, string> rev_map;
-    for (string::size_type i = 0; i < numbers.size(); i += 5) {
-        rev_map[number_map[numbers.substr(i, 4)]] = numbers.substr(i, 4);
-    }
+string sort_numbers(string numbers){
+    map<int, string> sorted_numbers;
+    string result;
 
-    string result = "";
-    for (const auto& pair : rev_map) {
+    int start = 0;
+    int end = numbers.find(" ");
+    
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        sorted_numbers[number_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
+    }
+    
+    sorted_numbers[number_map[numbers.substr(start)]] = numbers.substr(start);
+    
+    for (const auto& pair : sorted_numbers) {
         result += pair.second + " ";
     }
+    
     return result;
 }
