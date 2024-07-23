@@ -1,6 +1,7 @@
 ```c++
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 int luhnCheck(const vector<int>& cc) {
@@ -20,7 +21,7 @@ int luhnCheck(const vector<int>& cc) {
 }
 
 int main() {
-    vector<int> cc = {4, 3, 2, 1, 8, 7, 6, 5, 4, 3, 2, 1, 8, 7, 6, 5};
+    vector<int> cc = {3, 4, 5, 1, 7, 8, 2, 9, 6, 0, 4, 5, 2, 8, 7, 1};
     int result = luhnCheck(cc);
     cout << "Result: " << result << endl;
     return 0;
