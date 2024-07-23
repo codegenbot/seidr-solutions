@@ -1,11 +1,17 @@
+#include <iostream>
 #include <string>
-using namespace std;
+
+int count_upper(string s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(i % 2 == 0 && (s[i] >= 'A' && s[i] <= 'E') || (s[i] >= 'A' && s[i] <= 'U')){
+            count++;
+        }
+    }
+    return count;
+}
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    int count = count_upper(s);
-    cout << "Count of upper vowels: " << count << endl;
+    assert(count_upper("EEEE") == 4);
     return 0;
 }
