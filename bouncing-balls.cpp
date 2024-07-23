@@ -1,7 +1,6 @@
 #include <iostream>
+#include <cmath> 
 using namespace std;
-#include <cmath>
-#include <iomanip>
 
 int main() {
     double startHeight, firstBounceHeight;
@@ -13,7 +12,7 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, -bouncinessIndex) * startHeight * (2.0 - bouncinessIndex);
+        totalDistance += pow(2.0, -bouncinessIndex) * startHeight * (2.0 - bouncinessIndex);
         startHeight *= bouncinessIndex;
     }
 
