@@ -5,7 +5,6 @@ int main() {
     string s;
     cout << "Enter a string: ";
     cin >> s;
-    int count = count_upper(s);
-    cout << "Count of upper vowels: " << count << endl;
+    cout << "The number of uppercase letters in the given string is: " << count_upper(s);
     return 0;
 }
