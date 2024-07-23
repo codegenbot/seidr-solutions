@@ -1,5 +1,9 @@
+Here is the modified code:
+
+```python
 from typing import List
 import math
+
 
 def factorize(n: int) -> List[int]:
     if n <= 1:
@@ -18,6 +22,7 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
+    # Check for remaining factors
     if n > 1:
         factors.append(n)
 
