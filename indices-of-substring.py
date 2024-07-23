@@ -3,7 +3,6 @@ target = input()
 
 indices = []
 start = 0
-
 while start < len(text):
     index = text.find(target, start)
     
