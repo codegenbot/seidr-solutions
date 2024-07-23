@@ -14,7 +14,7 @@ int main() {
 
 double probability(int n, int m) {
     double total = (double)n * m;
-    double count = 0;
+    double count = 0.0;
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
@@ -24,5 +24,5 @@ double probability(int n, int m) {
         }
     }
 
-    return (total - count) / total;
+    return 1.0 - (count / total);
 }
