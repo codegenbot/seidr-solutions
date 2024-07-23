@@ -1,26 +1,11 @@
 #include <vector>
 #include <iostream>
-#include <memory>
 
-int count_even(int n) {
-    int count = 0;
-    for (int i = 2; i <= n; ++i) {
-        if (i % 2 == 0) {
-            ++count;
-        }
-    }
-    return count;
+std::vector<int> pluck(std::vector<int> v) {
+    return v;
 }
 
-std::vector<std::pair<int, int>> result(std::vector<int> v) {
-    std::vector<std::pair<int, int>> output;
-    for (int i = 0; i < v.size(); ++i) {
-        output.push_back({v[i], i});
-    }
-    return output;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,16 +17,19 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int main() {
-    std::vector<int> arr = {7, 9, 7, 1};
-    bool same = issame(arr, {});
-    for (auto p : result(arr)) {
-        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
+std::vector<std::pair<int, int>> result(std::vector<int> v) {
+    std::vector<std::pair<int, int>> output;
+    for (int i = 0; i < v.size(); ++i) {
+        output.push_back({v[i], i});
     }
-    if(same) {
-        std::cout << "The vectors are the same." << std::endl;
-    } else {
-        std::cout << "The vectors are not the same." << std::endl;
+    return output;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4};
+    std::vector<std::pair<int, int>> output = result(arr);
+    for (auto p : output) {
+        std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
     }
     return 0;
 }
