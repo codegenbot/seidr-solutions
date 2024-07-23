@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 
@@ -12,6 +11,7 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(!correct_bracketing("()()(()())"));
+    const char* brackets = "()()(()())"; 
+    assert(!correct_bracketing(std::string(brackets)));
     return 0;
 }
