@@ -1,5 +1,4 @@
-vector<string> odd_count(vector<string> lst){
-    vector<string> result;
+vector<string> result;
     for (string s : lst) {
         int count = 0;
         for (char c : s) {
