@@ -15,6 +15,8 @@ int main() {
         total_distance += first_bounce_height;
     }
 
+    total_distance += first_bounce_height;
+
     std::cout << total_distance << std::endl;
 
     return 0;
