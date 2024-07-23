@@ -11,6 +11,3 @@ def car_race_collision():
 
 
 print(car_race_collision())
-
-# Test inputs:
-car_race_collision()  # Example input for the program
