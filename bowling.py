@@ -1,4 +1,3 @@
-```
 def bowling_score(score_str):
     score = 0
     frames = score_str.split('/')
