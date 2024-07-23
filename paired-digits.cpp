@@ -1,10 +1,12 @@
 ```cpp
+#include <string>
+
 int main() {
     int result = pairedDigits("123333");
     return 0;
 }
 
-int pairedDigits(const std::string& s) { 
+int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i + 1]) {
