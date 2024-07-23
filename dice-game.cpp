@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <string>
 
 double probability(int n, int m) {
     double total = 1.0 * n * m;
@@ -18,12 +20,12 @@ double probability(int n, int m) {
 }
 
 int main() {
+    int n, m;
     std::cout << "Enter the number of sides for Peter's die: ";
-    int n; 
-    cin >> n;
+    std::cin >> n;
     std::cout << "Enter the number of sides for Colin's die: ";
-    int m; 
-    cin >> m;
+    std::cin >> m;
     double result = probability(n, m);
-    std::cout << "Probability: " << result << endl;
+    std::cout << "Probability: " << std::to_string(result) << std::endl;
     return 0;
+}
