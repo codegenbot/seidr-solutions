@@ -1,8 +1,5 @@
-```
 def hex_key(num):
-    prime_hex = {'B': '11', 'D': '13', '2': '2', '3': '3', '5': '5', '7': '7'}
-    count = 0
-    for char in num:
-        if char.upper() in prime_hex:
-            count += 1
-    return count
+    primes = set([2, 3, 5, 7, ord("B"), ord("D")])
+    return sum(
+        1 for c in num if ord(c) >= ord("0") and ord(c) <= ord("9") or ord(c) in primes
+    )
