@@ -1,5 +1,11 @@
-```c
-int main() {
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main() 
+{
     double heightStart, heightFirstBounce;
     int numBounces;
 
@@ -16,4 +22,4 @@ int main() {
     cout << fixed << setprecision(6);
     cout << totalDistance;
 
-    return 0; }
+    return 0;
