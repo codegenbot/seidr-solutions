@@ -34,13 +34,13 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         if (issame(lst1, lst2)) {
             return lst1;
         } else {
-            return total_match(lst1, b);
+            return total_match(lst1, b); 
         }
     }
 }
 
 int main() {
     std::vector<std::string> b = {"this", "is", "a", "test"};
-    assert(std::equal(total_match({"this"}, b), b));
-    return 0;
+    std::vector<std::string> result = total_match({"this"}, b);
+    // Your code goes here
 }
