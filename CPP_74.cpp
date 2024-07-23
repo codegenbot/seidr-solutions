@@ -1,9 +1,6 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a) {
-    return std::all_of(a.begin(), a.end(), [](const std::string& s){ return !s.empty(); });
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
@@ -22,7 +19,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     } else if (sum1 > sum2) {
         return lst2;
     } else {
-        return issame(lst1) ? lst1 : lst2;
+        return lst1;
     }
 }
 
