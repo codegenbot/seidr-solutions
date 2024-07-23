@@ -25,9 +25,7 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 int main() {
     std::string cipher1, cipher2, input;
     std::getline(std::cin, cipher1);
-    std::cin >> std::ws;
-    std::cin >> cipher2;
-    std::cin >> std::ws;
+    std::getline(std::cin, cipher2);
     std::getline(std::cin, input);
     std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
