@@ -1,41 +1,27 @@
-#include <iostream>
 #include <vector>
-#include <limits>
+#include <cmath> 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int minDiff = numeric_limits<int>::max();
-    int pos = 0;
+tuple<vector<int>, vector<int>> cutVector(vector<int>& nums) { 
+    int n = nums.size();
+    vector<int> res1;
+    vector<int> res2;
     
-    for (int i = 1; i <= n / 2; ++i) {
-        if (abs(v[i] - v[n-i-1]) < minDiff) {
-            minDiff = abs(v[i] - v[n-i-1]);
-            pos = i;
+    for(int i=0; i<n-1; i++){
+        if(abs(nums[i]-nums[i+1]) <= abs(nums[0]-nums[n-1])){
+            res1.insert(res1.end(), nums.begin(), nums.begin()+i+1);
+            res2 = nums;
+            res2.erase(res2.begin()+i, res2.end());
+            break;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + pos);
-    vector<int> right(v.begin() + pos, v.end());
-    
-    return {left, right};
-}
+    if(abs(nums[0]-nums[n-1]) <= abs(nums[0]-nums[1])){
+        res1.insert(res1.end(), nums.begin(), nums.end());
+    } else {
+        res1 = nums;
+        res1.erase(res1.begin()+1, res1.end());
+    }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n+1);
-    for (int i = 0; i <= n; ++i) {
-        cin >> v[i];
-    }
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << res.first.size() << endl;
-    for (int num : res.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    cout << res.second.size() << endl;
-    for (int num : res.second) {
-        cout << num << " ";
-    }
-    return 0;
+    return make_tuple(res1, res2); 
+}
