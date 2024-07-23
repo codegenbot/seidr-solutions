@@ -1,4 +1,3 @@
-```cpp
 bool is_multiply_prime(int a) {
     for (int i = 2; i * i <= a; i++) { 
         bool prime = true;
@@ -10,12 +9,16 @@ bool is_multiply_prime(int a) {
         }
         if (prime && a % i == 0) { 
             int k = a / i;
+            bool prime2 = true;
             for (int l = 2; l * l <= k; l++) { 
                 if (k % l == 0) {
-                    return false;
+                    prime2 = false;
+                    break;
                 }
             }
-            return true;
+            if (prime2) {
+                return true;
+            }
         }
     }
     return false;
