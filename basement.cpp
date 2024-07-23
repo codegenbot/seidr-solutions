@@ -1,13 +1,9 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
+int basement(const std::vector<int>& nums) {
+    int sum = 0;
+    for (size_t i = 0; i < nums.size(); ++i) {
+        sum += nums[i];
+        if (sum > 0) sum = 0; 
+        if (sum < 0) return i + 1; 
     }
-    
-    return 0;
+    return -1; 
 }
