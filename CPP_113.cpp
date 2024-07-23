@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -31,3 +32,4 @@ int main() {
                                "the number of odd elements 0 in the string 3"};
     assert(issame(odd_count(test), expected));
     return 0;
+}
