@@ -1,16 +1,21 @@
+```
 from typing import List
 
 
-def remove_duplicates(user_input_list: List[str]) -> None:
+def remove_duplicates(input_type: str) -> None:
     while True:
-        while True:
-            user_input = input("Enter the list of numbers separated by space or comma: ")
+        user_input = input(
+            f"Enter the list of numbers separated by space or comma ({input_type}): "
+        )
 
-            try:
+        try:
+            if input_type == "comma":
                 numbers = list(map(int, user_input.replace(",", " ").split()))
-                break
-            except ValueError:
-                print("Invalid input. Please enter valid integers.")
+            else:
+                numbers = list(map(int, user_input.split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter valid integers.")
 
-        unique_numbers = sorted(set(map(str, numbers)))
-        print("Unique numbers:", unique_numbers)
+    unique_numbers = sorted(set(map(str, numbers)))
+    print("Unique numbers:", unique_numbers)
