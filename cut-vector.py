@@ -1,15 +1,15 @@
 n = int(input())
 nums = [int(input()) for _ in range(n)]
-
-nums.sort()
 total_sum = sum(nums)
 half_sum = total_sum // 2
+cum_sum = 0
 
-prefix_sum = 0
-for idx, num in enumerate(nums):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or prefix_sum - num == half_sum:
-            print(nums[: idx + 1])
-            print(nums[idx + 1 :])
-            break
+for i, num in enumerate(nums):
+    cum_sum += num
+    if cum_sum == half_sum or cum_sum + num == half_sum:
+        print(*nums[: i + 1])
+        print(*nums[i + 1 :])
+        break
+else:
+    print(*nums)
+    print(0)
