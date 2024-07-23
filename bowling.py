@@ -1,68 +1,29 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame = 1
     i = 0
     while i < len(frames):
-        if frames[i].isdigit():
-            if len(frames[i:i+2]) == 2:
-                first_roll = int(frames[i])
-                second_roll = int(frames[i+1])
-                if first_roll + second_roll == 10:
-                    score += 10
-                    frame += 1
-                    i += 2
-                else:
-                    score += first_roll + second_roll
-                    frame += 1
-                    i += 2
-            elif len(frames[i:i+3]) == 3:
-                if int(frames[i:i+3]) == 10:
-                    score += 10
-                    frame += 1
-                    i += 2
-                else:
-                    first_roll = int(frames[i:i+1])
-                    second_roll = int(frames[i+1:i+2])
-                    third_roll = int(frames[i+2:i+3])
-                    if first_roll + second_roll + third_roll == 10:
+        if frames[i].isdigit() and i < len(frames) - 1 and frames[i+2].isdigit():
+            frame_value = int(frames[i:i+3])
+            score += frame_value
+            i += 3
+            if frame_value == 10:
+                if i + 1 < len(frames):
+                    next_frame = int(frames[i+1:i+3]) if i + 2 < len(frames) else 0
+                    if next_frame > 0:
+                        score += next_frame
+                        i += 2
+                    elif i + 1 == len(frames):
                         score += 10
-                        frame += 1
-                        i += 3
-                    else:
-                        score += first_roll + second_roll + third_roll
-                        frame += 1
-                        i += 3
-            else:
-                score += int(frames[i])
-                if frames[i+1] == '/':
-                    score += 10 - (10 - int(frames[i]))
-                    frame += 1
-                    i += 2
-                else:
-                    score += int(frames[i])
-                    frame += 1
-                    i += 1
+                continue
+        elif frames[i].isdigit():
+            frame_value = int(frames[i])
+            score += frame_value
+            i += 1
         elif frames[i] == '/':
-            if len(frames[i-1:i]) == 1:
-                first_roll = int(frames[i-1])
-                if 10 - first_roll < 0:
-                    score += 10
-                    frame += 1
-                    i += 2
-                else:
-                    score += 10 - (10 - first_roll)
-                    frame += 1
-                    i += 1
-            elif len(frames[i-1:i+1]) == 2:
-                first_roll = int(frames[i-1])
-                second_roll = int(frames[i])
-                if first_roll + second_roll == 10:
-                    score += 10
-                    frame += 1
-                    i += 2
-                else:
-                    score += first_roll + second_roll
-                    frame += 1
-                    i += 2
+            if i < len(frames) - 2 and frames[i+1:i+3].isdigit():
+                score += 10
+                i += 3
+            else:
+                return 0
     return score
