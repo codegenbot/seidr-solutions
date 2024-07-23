@@ -1,4 +1,3 @@
-```
 def split_words(txt):
     words = txt.split()
     if len(words) > 0:
@@ -7,5 +6,5 @@ def split_words(txt):
         if ',' in txt:
             return txt.split(',')
         else:
-            odd_count = sum(ord(c)-ord('a') for c in txt.lower() if 'bcdfghjklmnpqrstvwxyz'.count(c))
+            odd_count = sum(ord(c)-96 for c in txt.lower() if 'bcdfghjklmnpqrstvwxyz'.__contains__(c))
             return odd_count
