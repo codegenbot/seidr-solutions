@@ -32,12 +32,12 @@ bool evaluateBooleanExpression(std::string expression) {
             operators.push(expression[i]);
         } else if (expression[i] == ')') {
             while (operators.top() != '(') {
-                if (operators.top() == '|') {
+                if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
                     return operand == "T";
-                } else if (operators.top() == '&') {
+                } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
                     return operand == "T";
                 }
@@ -49,12 +49,12 @@ bool evaluateBooleanExpression(std::string expression) {
     }
 
     while (!operators.empty()) {
-        if (operators.top() == '|') {
+        if (expression[i] == '|') {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
             return operand == "T";
-        } else if (operators.top() == '&') {
+        } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
             return operand == "T";
         }
@@ -74,4 +74,3 @@ int main() {
         std::cout << "True" << std::endl;
     else
         std::cout << "False" << std::endl;
-}
