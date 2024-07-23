@@ -1,36 +1,32 @@
-int calculateBowlingScore(const string& s) {
-    int score = 0;
-    int frame = 1;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += s[i + 1] == 'X' ? 10 + (s[i + 2] == 'X' ? 10 : (s[i + 2] == '-' ? 0 : s[i + 2] - '0')) : ((s[i + 2] == '/') ? 10 : (s[i + 1] == '-' ? 0 : s[i + 1] - '0') + (s[i + 2] == '-' ? 0 : s[i + 2] - '0'));
+int score(string input) {
+    int totalScore = 0, frame = 0, frameCount = 0;
+    vector<int> scores(22, 0);
+    for(int i = 0; i < input.size(); i++) {
+        if(input[i] == 'X') {
+            scores[frame++] = 10;
+            if(frameCount >= 2) {
+                scores[frame - 3] += 10;
             }
-            frame++;
-        } else if (s[i] == '/') {
-            score += 10 - (s[i - 1] - '0');
-            score += s[i + 1] == 'X' ? 10 : (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            if (frame < 10) {
-                i++;
+            if(frameCount >= 1) {
+                scores[frame - 2] += 10;
             }
-            frame++;
-        } else if (s[i] == '-') {
-            continue;
+            frameCount++;
+        } else if(input[i] == '/') {
+            scores[frame++] = 10 - scores[frame - 1];
+            if(frameCount >= 1) {
+                scores[frame - 2] += scores[frame - 1];
+            }
+            frameCount = 0;
         } else {
-            score += s[i] - '0';
-            if (frame < 10) {
-                score += s[i + 1] == '/' ? 10 - (s[i] - '0') : (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+            scores[frame++] = input[i] - '0';
+            if(frameCount >= 1) {
+                scores[frame - 2] += scores[frame - 1];
             }
-            frame++;
+            frameCount++;
         }
     }
-    return score;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
-    return 0;
+    for(int i = 0; i < 10; i++) {
+        totalScore += scores[i];
+    }
+    return totalScore;
 }
