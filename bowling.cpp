@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int getScore(string s) {
     int score = 0, frame = 0, i = 0;
     while (frame < 10) {
