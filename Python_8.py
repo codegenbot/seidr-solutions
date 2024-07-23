@@ -12,19 +12,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product *= num
     return total_sum, product
 
-
-def main():
-    while True:
-        try:
-            n = int(input("Enter the number of elements (or -1 to stop): "))
-            if n == -1:
-                break
-            numbers = [int(x) for x in input("Enter {} space-separated integers: ".format(n)).split()]
-            total_sum, product = sum_product(numbers)
-            print("Sum: {}, Product: {}".format(total_sum, product))
-        except ValueError:
-            print("Invalid input. Please enter an integer and then space-separated integers.")
-
-
-if __name__ == "__main__":
-    main()
+numbers = [1, 2, 3]
+result = sum_product(numbers)
+print(result)  
+numbers = [4, 5, 6]
+result = sum_product(numbers)
+print(result)
