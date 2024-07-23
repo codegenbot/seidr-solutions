@@ -8,7 +8,7 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int nickles = min(cents / 5, quarters);
+    int nickles = min(cents / 5, quarters - cents/25/2);
     cents %= 5;
 
     int dimes = cents / 10; 
