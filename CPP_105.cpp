@@ -18,5 +18,5 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}) );
 }
