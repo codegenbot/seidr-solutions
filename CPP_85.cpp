@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+int add(std::vector<int> lst); // Function prototype
+
 int add(std::vector<int> lst){
     int sum = 0;
     for(int i = 1; i < lst.size(); i++){
@@ -11,19 +13,19 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers;
-    int num;
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
     
-    std::cout << "Enter the size of array: ";
-    std::cin >> num;
-    
-    for(int i = 0; i < num; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> numbers.push_back(i);
+    for(int i = 0; i < n; i++){
+        int temp;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> temp;
+        input.push_back(temp);
     }
     
-    int result = add(numbers);
-    std::cout << "Sum of odd elements: " << result << std::endl;
+    std::cout << "Sum of elements at odd positions: " << add(input) << std::endl;
     
     return 0;
 }
