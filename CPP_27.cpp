@@ -1,14 +1,14 @@
-```cpp
+```
 #include <string>
 #include <cctype>
 
 std::string flip_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
-        if(islower(str[i])){
-            result += toupper(str[i]);
+        if(std::islower(str[i])){
+            result += std::toupper(str[i]);
         } else {
-            result += tolower(str[i]);
+            result += std::tolower(str[i]);
         }
     }
     return result;
