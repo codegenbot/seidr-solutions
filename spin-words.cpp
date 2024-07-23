@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -26,7 +25,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    cin >> str;
-    cout << spinWords(str) << endl;
+    std::cin >> str;
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
