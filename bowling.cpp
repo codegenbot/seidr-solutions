@@ -1,8 +1,7 @@
-```c++
-#include <iostream>
-#include <string>
+```
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll1 = 0; 
     int roll2 = 0; 
