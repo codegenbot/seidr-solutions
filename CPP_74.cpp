@@ -1,19 +1,46 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int sum1 = 0;
+    vector<string> result;
+    int len1 = 0, len2 = 0;
+
     for (const string& s : lst1) {
-        sum1 += s.length();
+        len1 += s.length();
     }
-
-    int sum2 = 0;
     for (const string& s : lst2) {
-        sum2 += s.length();
+        len2 += s.length();
     }
 
-    if (sum1 < sum2) {
-        return lst1;
-    } else if (sum1 > sum2) {
-        return lst2;
+    if (len1 < len2) {
+        for (const string& s : lst1) {
+            result.push_back(s);
+        }
+    } else if (len2 < len1) {
+        for (const string& s : lst2) {
+            result.push_back(s);
+        }
     } else {
-        return lst1;
+        for (const string& s : lst1) {
+            result.push_back(s);
+        }
     }
+
+    return result;
+}
+
+int main() {
+    vector<string> vec1 = {"hi", "admin"};
+    vector<string> vec2 = {"hI", "Hi"};
+
+    vector<string> result = total_match(vec1, vec2);
+
+    for (const string& s : result) {
+        cout << s << endl;
+    }
+
+    return 0;
 }
