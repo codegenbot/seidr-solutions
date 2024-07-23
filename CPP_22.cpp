@@ -10,7 +10,7 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> filter_integers(const std::vector<int>& mixedVector) {
     std::vector<int> result;
     for (int num : mixedVector) {
-        if (std::is_same_v<decltype(num), int>) {
+        if (std::is_same_v<int, int>) {
             result.push_back(num);
         }
     }
