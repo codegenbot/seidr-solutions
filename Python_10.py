@@ -10,4 +10,4 @@ def make_palindrome(string: str) -> str:
             i += 1
         return string + string[:i][::-1]
     else:
-        return string[:len(string)//2] + string[len(string)//2:0:-1]
+        return string + string[::-1]
