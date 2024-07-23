@@ -1,8 +1,7 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size();
 }
 
@@ -22,18 +21,7 @@ int main() {
         }
     }
 
-    std::vector<float> positive = get_positive(a);
-
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
-}
-
-std::vector<float> get_positive(const std::vector<float>& v) {
-    std::vector<float> result;
-    for (float val : v) {
-        if (val > 0)
-            result.push_back(val);
-    }
-    return result;
 }
