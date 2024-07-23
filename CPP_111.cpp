@@ -1,36 +1,38 @@
 ```cpp
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
 
-std::map<char, int> histogram(std::string str) {
-    std::map<char, int> result;
-    for (char c : str) {
-        if (result.find(c) == result.end())
-            result[c] = 1;
-        else
-            result[c]++;
+using namespace std;
+
+bool issame(map<char, int> a, map<char, int> b) {
+    if (a.size() != b.size()) return false;
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) return false;
     }
-    return result;
+    return true;
+
 }
 
-bool issame(map<pair<char, int>, map<char, int>> a, map<char, int> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (auto it = a.begin(); it != a.end(); ++it) {
-        if (b.find(it->second) == b.end())
-            return false;
+map<char, int> histogram(const string& str) {
+    map<char, int> result = {};
+
+    for (char c : str) {
+        if (!isalpha(c)) continue; 
+        char lower = tolower(c);
+        if (result.find(lower) == result.end()) {
+            result[lower] = 1;
+        } else {
+            result[lower]++;
+        }
     }
-    
-    return true;
+
+    return result;
+
 }
 
 int main() {
-    std::string str = "abc";
-    map<pair<char, int>, map<char, int>> histogram = histogram(str);
-    bool same = issame(histogram, {{'a', 1}, {'b', 2}, {'c', 3}});
-    std::cout << (same ? "True" : "False") << std::endl;
-    
+    assert(issame(histogram("a"), map<char, int>()));
+    cout << "Success!" << endl;
     return 0;
 }
