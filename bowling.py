@@ -11,42 +11,14 @@ def bowling_score(bowls):
             score += int(bowls[bowl_index + 2])
             bowl_index += 2
         else:
-            if bowls[bowl_index] == "-":
-                score += 0
+            if bowls[bowl_index + 1] == "/":
+                score += 10
             else:
-                score += int(bowls[bowl_index])
-            
-            if bowls[bowl_index + 1] == "-":
-                score += 0
-            else:
-                score += int(bowls[bowl_index + 1])
-            
+                score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
             bowl_index += 2
         frame += 1
     return score
 
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if bowls[index + 2] == "X":
-        bonus += 10
-        if bowls[index + 4] == "X":
-            bonus += 10
-        else:
-            if bowls[index + 4] == "-":
-                bonus += 0
-            else:
-                bonus += int(bowls[index + 4])
-    else:
-        if bowls[index + 2] == "-":
-            bonus += 0
-        else:
-            bonus += int(bowls[index + 2])
-        
-        if bowls[index + 3] == "-":
-            bonus += 0
-        else:
-            bonus += int(bowls[index + 3])
-    return bonus
 
 bowls = input()
 print(bowling_score(bowls))
