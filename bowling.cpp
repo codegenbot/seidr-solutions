@@ -1,42 +1,37 @@
-int bowling(string bowls) {
-    int score = 0;
-    int frame = 0;
-    for (int i = 0; i < bowls.size(); i++) {
-        if (frame == 10) {
-            break;
-        }
-        if (bowls[i] == 'X') {
-            score += 10;
-            if (bowls[i + 2] == 'X') {
-                score += 10;
-                if (bowls[i + 4] == 'X') {
-                    score += 10;
-                } else {
-                    score += (bowls[i + 4] == '/') ? 10 : (int)(bowls[i + 4] - '0');
-                }
-            } else {
-                score += (bowls[i + 2] == '/') ? 10 : ((bowls[i + 2] == '-') ? 0 : (int)(bowls[i + 2] - '0'));
-                score += (bowls[i + 3] == '/') ? 10 : ((bowls[i + 3] == '-') ? 0 : (int)(bowls[i + 3] - '0'));
-            }
+int bowlingScore(string s) {
+    map<char, int> scores = {{'X', 10}, {'/', 10}, {'-', 0}};
+    int totalScore = 0;
+    int frame = 1;
+    int throwNum = 0;
+
+    for (int i = 0; i < s.size() && frame <= 10; i++) {
+        char ch = s[i];
+        if (ch == 'X') {
+            totalScore += 10 + scores[s[i+1]] + scores[s[i+2]];
             frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (int)(bowls[i - 1] - '0');
-            score += (bowls[i + 1] == 'X') ? 10 : ((bowls[i + 1] == '-') ? 0 : (int)(bowls[i + 1] - '0'));
+            throwNum = 0;
+        } else if (ch == '/') {
+            totalScore += 10 - scores[s[i-1]] + scores[s[i+1]];
             frame++;
-        } else if (bowls[i] != '-') {
-            score += (int)(bowls[i] - '0');
-        }
-        if (bowls[i] != '/') {
-            if (bowls[i] != 'X' && bowls[i + 1] != '/' && bowls[i + 1] != 'X') {
+            throwNum = 0;
+        } else if (ch == '-') {
+            throwNum++;
+        } else {
+            totalScore += scores[ch];
+            throwNum++;
+
+            if (throwNum == 2) {
                 frame++;
+                throwNum = 0;
             }
         }
     }
-    return score;
+    return totalScore;
 }
+
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << bowling(bowls);
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
