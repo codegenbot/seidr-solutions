@@ -1,4 +1,4 @@
-```
 def sort_third(l: list):
-    l.sort(key=lambda x: (x % 3 != 0, x))
-    return l
+    third = [i for i in l if i % 3 == 0]
+    first = [i for i in l if i % 3 != 0]
+    return sorted(list(set(first + third)))
