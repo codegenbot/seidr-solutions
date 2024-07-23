@@ -1,7 +1,13 @@
 ```
-def search(lst):
-    freq = {}
+def search():
+    lst = input("Enter numbers separated by space: ")
+    try:
+        lst = [int(i) for i in lst.split()]
+    except ValueError:
+        print("Invalid input. Please enter numbers separated by spaces.")
+        exit()
     max_num = -1
+    freq = {}
     for num in lst:
         if isinstance(num, int) and num > 0:  
             if num in freq:
@@ -18,11 +24,4 @@ def search(lst):
         max_num = 0
     return max_num
 
-
-lst = input("Enter numbers separated by space: ")
-try:
-    lst = [int(i) for i in lst.split()]
-except ValueError:
-    print("Invalid input. Please enter numbers separated by spaces.")
-    exit()
-print(search(lst))
+print(search())

@@ -1,19 +1,21 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
-bool simplify(string numerator1, string denominator1, string numerator2, string denominator2) {
-    long productDenominator = stol(denominator1) * stol(denominator2);
-    if (productDenominator == 0)
-        return false; 
-    return stol(numerator1) % productDenominator == 0;
+bool simplify(std::string numerator1, std::string denominator1, 
+              std::string numerator2, std::string denominator2) {
+    int productNumerator = std::stoi(numerator1.substr(0, numerator1.find('/'))) * 
+                            std::stoi(numerator2.substr(0, numerator2.find('/')));
+    if (std::stoi(denominator2.substr(0, denominator2.find('/'))) != 0) {
+        int productDenominator = std::stoi(denominator1.substr(0, denominator1.find('/'))) * 
+                                 std::stoi(denominator2.substr(0, denominator2.find('/')));
+        if (productDenominator == 0)
+            return false; // Check for zero denominators
+        return productNumerator % productDenominator == 0;
+    }
+    return false;
 }
 
 int main() {
-    string numerator1, denominator1, numerator2, denominator2;
-    cout << "Enter the first fraction's numerator and denominator: ";
-    cin >> numerator1 >> denominator1;
-    cout << "Enter the second fraction's numerator and denominator: ";
-    cin >> numerator2 >> denominator2;
-    assert(simplify(numerator1, denominator1, numerator2, denominator2) == false);
+    std::cout << simplify("1", "5", "1", "5") << std::endl;
     return 0;
 }
