@@ -1,18 +1,17 @@
 #include <vector>
-using namespace std;
 
-int issame(vector<int> game, vector<int> guess) {
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] != guess[i]) {
-            return 0;
-        }
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
     }
-    return 1;
+    return true;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
-    int sameCount = issame(game, guess);
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
@@ -21,4 +20,3 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         }
     }
     return result;
-}
