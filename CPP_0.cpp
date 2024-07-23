@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <cmath>
 
@@ -10,4 +10,3 @@ bool has_close_elements(std::vector<float> numbers, float threshold){
         }
     }
     return false;
-}
