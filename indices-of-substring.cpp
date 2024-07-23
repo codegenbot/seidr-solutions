@@ -4,13 +4,15 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int last = 0; // start from the beginning of the text
-    while (last < text.length()) {
-        int pos = text.find(target, last); 
-        if (pos != string::npos) {
-            indices.push_back(pos);
-            last = pos + target.length(); // move the start position to just after the found substring
-        } else break; // if no more occurrences are found
+    int prevLast = -1;
+    int last;
+    if ((last = text.find(target)) != string::npos) {
+        indices.push_back(last);
+        prevLast = last;
+    }
+    while ((last = text.find(target, last + 1)) != string::npos) {
+        indices.push_back(last);
+        prevLast = last;
     }
     return indices;
 }
