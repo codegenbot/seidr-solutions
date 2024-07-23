@@ -1,4 +1,3 @@
 def sorted_list_sum(lst):
-    return "{}".format(
-        " ".join(map(str, sorted([i for i in lst if isinstance(i, int)])))
-    )
+    lst = input("Enter a list of integers separated by spaces: ").split()
+    return " ".join(sorted([int(i) for i in lst if int(i) % 2 == 0]))
