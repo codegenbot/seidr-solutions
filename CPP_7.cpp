@@ -17,7 +17,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end())
+        if (find(b.begin(), b.end(), a[i]) == b.end())
             return false;
     }
     return true;
