@@ -1,5 +1,3 @@
-# Replace the line inside the for loop with snow_on_ground = snow_on_ground + snow_fall_rate - snow_on_ground * snow_melt_rate;  
-
 #include <iostream>
 #include <cmath>
 using namespace std;
