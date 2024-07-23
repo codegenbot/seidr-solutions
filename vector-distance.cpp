@@ -14,8 +14,8 @@ double vectorDistance(int n) {
 
 int main() {
     int n;
-    std::cin >> n; 
-    double result = vectorDistance(n);
-    std::cout << result << std::endl; 
+    std::cout << "Enter the number of dimensions: ";
+    std::cin >> n;
+    std::cout << "Euclidean distance is: " << vectorDistance(n) << std::endl;
     return 0;
 }
