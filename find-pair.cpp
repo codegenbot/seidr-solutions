@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -29,3 +30,4 @@ int main() {
         cout << "No two sum" << endl;
     }
     return 0;
+}
