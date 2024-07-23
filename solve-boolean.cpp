@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <stack>
 
@@ -30,10 +29,9 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::cin >> input;
-    bool result = solveBoolean(input);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    std::string s = "T|F";
+    bool result = solveBoolean(s);
+    if(result) std::cout << "True" << std::endl;
+    else std::cout << "False" << std::endl;
     return 0;
 }
