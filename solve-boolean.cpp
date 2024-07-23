@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+#include <cctype>
+
 std::string solveBoolean(std::string expression) {
     bool result = (expression == "T") || (expression == "true");
     for(int i = 0; i < expression.length(); i++) {
