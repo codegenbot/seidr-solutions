@@ -1,7 +1,9 @@
 ```cpp
 #include <vector>
+#include <string>
 #include <assert.h>
 #include <initializer_list>
+
 using namespace std;
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> arr, string sub) {
