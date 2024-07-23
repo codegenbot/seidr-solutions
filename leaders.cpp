@@ -19,13 +19,10 @@ vector<int> leaders(vector<int>& v) {
     return res;
 }
 
-int main() {
-    vector<int> v = {1, 3, 4, 2, 8};
-    vector<int> res = leaders(v);
-    cout << "Result: ";
-    for (int i : res) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
+vector<int> v = {1, 3, 4, 2, 8};
+vector<int> res = leaders(v);
+cout << "Result: ";
+for (int i : res) {
+    cout << i << " ";
 }
+cout << endl;
