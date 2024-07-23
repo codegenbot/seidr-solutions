@@ -12,4 +12,8 @@ int how_many_times(std::string str, std::string substring) {
     return count;
 }
 
-std::cout << how_many_times("hello world", "world") << std::endl;
+int main() {
+    assert(how_many_times("john doe", "john") == 1);
+    std::cout << how_many_times("hello world", "world") << std::endl;
+    return 0;
+}
