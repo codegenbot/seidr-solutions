@@ -17,19 +17,29 @@ std::string spinWords(std::string str) {
 
     result += word;
 
+    bool needSwap = false;
+    std::string temp = "";
+
     for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ' && i+1 < result.length()) {
-            std::string temp = result.substr(i+1);
-            if (temp.length() >= 5) { 
-                std::reverse(temp.begin(), temp.end());
-                result = result.substr(0, i+1) + temp;
+        if (result[i] == ' ') {
+            needSwap = false;
+            temp = "";
+        } else {
+            if (!needSwap) {
+                temp += result[i];
             } else {
-                i++; 
+                temp = result[i] + temp;
             }
+        }
+
+        if (i < result.length() - 1 && result[i+1] == ' ') {
+            needSwap = false;
+        } else if (result[i+1] >= 'a' && result[i+1] <= 'z') {
+            needSwap = true;
         }
     }
 
-    return result;
+    return temp + (temp.back() == ' ' ? "" : " ");
 }
 
 int main() {
