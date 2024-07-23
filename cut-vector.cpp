@@ -42,7 +42,7 @@ int main() {
     
     cout << endl;
     
-    for (int i = cut_index + 1; i <= n - cut_index - 1; i++) {
+    for (int i = cut_index + 1; i < n; i++) {
         cout << nums[i] << endl;
     }
     
