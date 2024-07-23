@@ -21,7 +21,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-int main() {
+vector<int> main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -38,5 +38,5 @@ int main() {
         cout << endl;
     }
     
-    return 0;
+    return primes;
 }
