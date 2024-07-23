@@ -1,3 +1,4 @@
+```
 def car_race_collision(cars):
     total_speed = 1
     for car in cars:
