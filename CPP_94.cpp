@@ -18,12 +18,12 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
-    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 10);
+int main(){
+    assert(sumOfDigits(findMaxPrime({127, 97, 8192})) == 7);
     return 0;
 }
 
-int findMaxPrime(const vector<int>& lst) {
+int findMaxPrime(vector<int> lst){
     int maxPrime = 0;
     for(int num : lst){
         if(isPrime(num) && num > maxPrime)
