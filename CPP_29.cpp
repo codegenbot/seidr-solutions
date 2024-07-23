@@ -1,12 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
-
-#include <algorithm> // for std::equal
+#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
-    for (auto i = 0; i < vec.size(); ++i) {
+    for (std::size_t i = 0; i < vec.size(); ++i) {
         if (vec[i].find(prefix) == 0) {
             result.push_back(vec[i]);
         }
