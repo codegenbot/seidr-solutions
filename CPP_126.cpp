@@ -8,7 +8,9 @@ bool is_sorted(std::vector<int> lst) {
         if(lst[i-1] >= lst[i]) return false;
     }
     std::vector<int> unique_lst(lst.begin(), std::unique(lst.begin(), lst.end()));
-    return true; // You might need to adjust this condition based on your problem description
+    for(auto it = unique_lst.begin(); it != unique_lst.end(); ++it)
+        *it /= 2; 
+    return true; 
 }
 
 int main() {
