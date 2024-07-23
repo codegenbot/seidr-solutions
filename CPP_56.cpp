@@ -8,4 +8,7 @@ bool correct_bracketing(const char* brackets) {
             if(count <= 0) return false;
             count--;
         }
-        brackets++;
+        brackets++; // increment the pointer here
+    }
+    return count == 0;
+}
