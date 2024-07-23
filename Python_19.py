@@ -11,6 +11,12 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    num_pattern = r"zero|one|two|three|four|five|six|seven|eight|nine"
-    nums = [num_dict[i] for i in re.findall(num_pattern, numbers)]
-    return " ".join(sorted(map(str, set(nums))))
+
+    def convert_to_int(num_str):
+        if num_str.isdigit():
+            return int(num_str)
+        else:
+            return num_dict[num_str]
+
+    nums = [convert_to_int(num) for num in numbers.split()]
+    return " ".join(map(str, sorted(nums)))
