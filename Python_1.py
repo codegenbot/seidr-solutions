@@ -3,7 +3,6 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    
     while True:
         paren_string = input("Enter a string of parentheses (separated by spaces): ")
         if all(c in ['(', ')'] for c in paren_string):
@@ -16,9 +15,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         temp = ''
         for char in paren_string:
             if char == ' ':
-                if temp:
-                    result.append(temp)
-                    temp = ''
+                result.append(temp)
+                temp = ''
             elif char in ['(', ')']:
                 if char == '(':
                     temp += char
