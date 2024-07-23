@@ -1,16 +1,15 @@
-string result = "";
-    string word = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            word += c;
-        } else {
+string result;
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (s[i] == ' ' || i == s.size()) {
+            string word = s.substr(start, i - start);
             sort(word.begin(), word.end());
-            result += word + c;
-            word = "";
+            result += word;
+            if (i < s.size()) {
+                result += ' ';
+            }
+            start = i + 1;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
-    
     return result;
 }
