@@ -8,4 +8,3 @@ for (char c : brackets) {
         count++;
     }
 }
-return count == 0;
