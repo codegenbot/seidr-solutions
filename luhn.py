@@ -9,3 +9,5 @@ def luhn(card):
                 num -= 9
         sum += num
     return sum
+
+print(luhn(4532015112830366))
