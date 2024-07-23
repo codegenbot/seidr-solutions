@@ -1,3 +1,2 @@
-new_num = ""
-for digit in str(n):
-    new_num += str(int(digit) ** 2)
+def square_digits(n):
+    return "".join(str((int(i) ** 2)) for i in str(n).replace(".", "" if "." not in i else i))
