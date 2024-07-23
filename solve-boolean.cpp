@@ -1,18 +1,17 @@
-#include <iostream>
+```c++
 #include <string>
+#include <iostream>
 
-using namespace std;
-
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
+            std::string left = expression.substr(0, i);
+            std::string right = expression.substr(i + 1);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
