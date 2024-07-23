@@ -1,24 +1,13 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
+arr = list(map(int, input().split()))
 total_sum = sum(arr)
-half_sum = total_sum // 2
-prefix_sum = 0
-cut_idx = -1
-
-for i, num in enumerate(arr):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        cut_idx = i
+left_sum = 0
+for i in range(n):
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+        left_sum - right_sum - arr[i]
+    ):
+        print(*arr[: i + 1])
+        print(*arr[i + 1 :])
         break
-
-if prefix_sum == half_sum:
-    print(*arr[: cut_idx + 1])
-    print(*arr[cut_idx + 1 :])
-else:
-    if abs(total_sum - 2 * prefix_sum) < abs(total_sum - 2 * (prefix_sum - num)):
-        print(*arr[: cut_idx + 1])
-        print(*arr[cut_idx + 1 :])
-    else:
-        print(*arr[:cut_idx])
-        print(*arr[cut_idx:])
