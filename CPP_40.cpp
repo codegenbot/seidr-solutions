@@ -1,8 +1,12 @@
-int n = l.size();
-    for (int i = 0; i < n - 2; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            for (int k = j + 1; k < n; k++) {
-                if (l[i] + l[j] + l[k] == 0) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool triples_sum_to_zero(const std::vector<int>& arr) {
+    for (int i = 0; i < arr.size() - 2; i++) {
+        for (int j = i + 1; j < arr.size() - 1; j++) {
+            for (int k = j + 1; k < arr.size(); k++) {
+                if (arr[i] + arr[j] + arr[k] == 0) {
                     return true;
                 }
             }
