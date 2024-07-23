@@ -4,30 +4,20 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
     int rightmost = arr.back();
-    for (int i = arr.size() - 2; i >= 0; i--) {
+    for (int i = arr.size() - 1; i >= 0; i--) {
         if (arr[i] >= rightmost) {
             leaders.push_back(arr[i]);
             rightmost = arr[i];
         }
     }
-    leaders.push_back(arr.back());
     return leaders;
 }
 
 int main() {
-    vector<int> arr = {17, 28, 4, 27, 29, 23, 12};
-    cout << "Array: ";
-    for (int x : arr) {
-        cout << x << " ";
-    }
-    cout << endl;
-
+    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1};
     vector<int> leadersResult = leaders(arr);
-    cout << "Leaders: ";
-    for (int x : leadersResult) {
-        cout << x << " ";
+    for (int leader : leadersResult) {
+        cout << leader << " ";
     }
-    cout << endl;
-    
     return 0;
 }
