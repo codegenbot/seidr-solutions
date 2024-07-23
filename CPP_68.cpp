@@ -20,26 +20,25 @@ std::vector<std::pair<int, int>> result(std::vector<int> v) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-int newmain() {
-    int n;
-    std::cout << "Enter an integer: ";
-    std::cin >> n;
-    int evenCount = count_even(n);
+void originalMain() {
     std::vector<int> arr1 = {7, 9, 7, 1};
-    if(issame(result(arr1), result({})) ) {
-        std::cout << "The numbers are same." << std::endl;
-    } else {
-        std::cout << "The numbers are different." << std::endl;
-    }
-    for (auto p : result(arr1)) {
+    std::vector<std::pair<int, int>> output = result(arr1);
+    for (auto p : output) {
         std::cout << "Number: " << p.first << ", Index: " << p.second << std::endl;
     }
-    return 0;
+}
+
+int main() {
+    originalMain();
 }
