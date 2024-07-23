@@ -12,6 +12,8 @@ vector<int> leaders(vector<int>& v) {
         if (v[i] >= rightmost) {
             rightmost = v[i];
             res.push_back(rightmost);
+        } else {
+            res.push_back(rightmost);
         }
     }
     return res;
