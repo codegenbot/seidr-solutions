@@ -1,6 +1,11 @@
-def calculate_average_and_sum(numbers: List[int]) -> Tuple[float, int]:
-    if not numbers:
-        return float('nan'), 0
-    total_sum = sum(numbers)
-    average = total_sum / len(numbers)
-    return average, total_sum
+def average_price(prices: List[float]) -> Tuple[float, float]:
+    if not prices:
+        return 0.0, 0.0
+    total_cost = 0.0
+    count = 0
+    for price in prices:
+        total_cost += price
+        count += 1
+    average = total_cost / count if count else 0.0
+    min_price = min(prices) if prices else float('inf')
+    return average, min_price
