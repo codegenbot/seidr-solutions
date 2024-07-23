@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int add(vector<int> lst) {
+int add(std::vector<int> lst){
     int sum = 0;
     for(int i = 1; i < lst.size(); i++){
         if(i % 2 != 0)
@@ -12,18 +13,18 @@ int add(vector<int> lst) {
 }
 
 int main() {
-    vector<int> numbers;
+    std::vector<int> numbers;
     int num;
-    
-    cout << "Enter some numbers (enter -1 when you are done):" << endl;
-    
+
+    std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
+
     do{
-        cin >> num;
+        std::cin >> num;
         numbers.push_back(num);
     } while(num != -1);
 
     int result = add(numbers);
-    cout << "Sum of odd-indexed numbers: " << result << endl;
+    std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
 
     return 0;
 }
