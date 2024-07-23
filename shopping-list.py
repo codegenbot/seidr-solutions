@@ -1,8 +1,11 @@
 def shopping_list():
-    n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
-    total_price = sum(
-        price - (price * discount / 100) for price, discount in zip(prices, discounts)
-    )
-    return format(total_price, ".1f")
+    try:
+        n = int(input())
+        total_price = 0
+        for _ in range(n):
+            price = float(input())
+            discount = float(input()) / 100
+            total_price += round(price * (1 - discount), 2)
+        return f"{total_price:.2f}"
+    except Exception as e:
+        print(f"An error occurred: {e}")

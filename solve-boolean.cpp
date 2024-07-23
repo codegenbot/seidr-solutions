@@ -1,21 +1,32 @@
+```cpp
+#include <string>
+using namespace std;
+
 bool solveBoolean(string s) {
-    stack<char> st;
+    bool result = false;
+    bool lastOp = false;
+
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            else st.pop();
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
+            result = false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-            else st.push('|');
-        } else {
-            st.push(s[i]);
+            lastOp = true;
+        } else if (s[i] == '&') {
+            lastOp = false;
         }
     }
-    return !st.empty();
+
+    return result || lastOp;
+}
+
+int main() {
+    string input;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
+    getline(cin, input); 
+    cin.ignore(); 
+    bool result = solveBoolean(input);
+    if(result)cout<<"True";
+    else cout<<"False";
 }
