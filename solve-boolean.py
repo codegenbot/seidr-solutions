@@ -20,4 +20,4 @@ def solve_boolean(expression):
                 ops = {('&': all, '|': any}[char])
         while len(stack) > 1:
             stack.pop()
-        return ops(*stack)
+        return eval('and'.join(map(str, map(ops.__getitem__, stack))))
