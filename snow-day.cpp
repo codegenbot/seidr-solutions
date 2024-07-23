@@ -1,8 +1,8 @@
+```c++
 #include <iostream>
-#include <string>
+#include <iomanip>
 
-std::string snowDay(int hours, float onGround, float rate, float melt) {
-    std::string s = "";
+float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
         onGround += (rate / 60);
         if (onGround > 1024) {
@@ -13,15 +13,14 @@ std::string snowDay(int hours, float onGround, float rate, float melt) {
             onGround -= melt * onGround;
         }
     }
-    s = std::to_string(onGround);
-    return s;
+    return onGround;
 }
 
 int main() {
     int hours;
-    cin >> hours;
+    std::cin >> hours;
     float onGround, rate, melt;
-    cin >> onGround >> rate >> melt;
-    cout << snowDay(hours, onGround, rate, melt) << endl;
+    std::cin >> onGround >> rate >> melt;
+    std::cout << std::fixed << std::setprecision(10) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
 }
