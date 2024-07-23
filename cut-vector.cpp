@@ -8,6 +8,8 @@ int main() {
         nums.push_back(n);
     }
     
+    if (std::cin.eof()) return 0;
+    
     int sum = 0;
     for (int num : nums) {
         sum += num;
