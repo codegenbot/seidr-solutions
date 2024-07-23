@@ -1,4 +1,7 @@
+```
+```
 import math
+
 
 def car_race_collision():
     num_cars = int(input("Enter number of cars: "))
@@ -9,3 +12,4 @@ def car_race_collision():
     return total_speed
 
 print(car_race_collision())
+```
