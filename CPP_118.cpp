@@ -5,7 +5,7 @@ using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (find(std::begin(vowels), std::end(vowels), tolower(c)) != std::end(vowels));
+    return (std::find(std::begin(vowels), std::end(vowels), tolower(c)) != std::end(vowels));
 }
 
 std::string get_closest_vowel(std::string word) {
@@ -18,11 +18,10 @@ std::string get_closest_vowel(std::string word) {
                 return string(1, word[closest]);
         }
     }
-    return "";
+    return closest == -1 ? "" : string(1, word[closest]);
 }
 
 int main() {
-    cout << (get_closest_vowel("Above") ? get_closest_vowel("Above") : "") << endl;
-    cout << (get_closest_vowel("Apple") ? get_closest_vowel("Apple") : "") << endl;
+    cout << get_closest_vowel("Apple") << endl;
     return 0;
 }
