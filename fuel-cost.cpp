@@ -7,4 +7,3 @@ int fuelCost(std::vector<int> v) {
         sum += static_cast<int>(std::floor(temp)) - 2; 
     }
     return sum;
-}
