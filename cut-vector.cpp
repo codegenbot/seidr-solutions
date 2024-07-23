@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,35 +8,30 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = INT_MAX;
-    int best_cut = -1;
+    int total_sum = 0; 
 
-    for (int i = 0; i < n; i++) {
-        int sum_left = 0, sum_right = 0;
-        if(i==n-1){
-            sum_left = v[0];
-            sum_right = v[i+1];
-        }else{
-            int sum = 0;
-            for (int j = 0; j <= i; j++)
-                sum += v[j];
-            sum_left = sum;
+    for (int i = 0; i < n; i++) 
+        total_sum += v[i];
+    
+    int left_sum = 0, right_sum = total_sum;
 
-            sum = 0;
-            for (int j = i + 1; j < n; j++)
-                sum += v[j];
-            sum_right = sum;
-        }
-
-        int diff = (sum_left == sum_right) ? 0 : abs(sum_left - sum_right);
-        if (diff < min_diff) {
-            min_diff = diff;
-            best_cut = i;
-        }
+    if (v[0] > v[1]) {
+        return {{v}, {}}; 
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut+1);
-    right = vector<int>(v.begin() + best_cut, v.end());
+    for (int i = 0; i < n; i++) {
+        while (left_sum + v[i] <= right_sum && i + 1 < n) {
+            left_sum += v[i];
+            right_sum -= v[i];
+            i++; 
+        }
+        
+        if (left_sum == right_sum)
+            break;
+    }
+
+    left = vector<int>(v.begin(), v.begin() + (i));
+    right = vector<int>(v.begin() + i, v.end());
     
     return {{left}, {right}};
 }
@@ -45,9 +40,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
         cin >> v[i];
-    }
     vector<vector<int>> res = cutVector(v);
     for (auto& vec : res) {
         for (int num : vec) {
