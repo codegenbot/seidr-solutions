@@ -1,3 +1,2 @@
-string combined = a + a;
-    return combined.find(b) != string::npos;
+return (a.size() == b.size() && (a + a).find(b) != string::npos);
 }
