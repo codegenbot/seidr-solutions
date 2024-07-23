@@ -1,5 +1,6 @@
 #include <string>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,12 +12,20 @@ string spinWords(string sentence) {
         int wordLength = strlen(word);
         
         if(wordLength >= 5)
-            result += string(word).reverse() + " ";
+            result += (string(word) + " ") + std::string(rotate(string(word), 1, wordLength - 2)) + "\n";
         else
-            result += word + " ";
+            result += string(word) + " ";
         
         word = strtok(NULL, " ");
     }
     
-    return result.substr(0, result.length()-1);
+    return result;
+}
+
+string rotate(const string& str, int start, int length) {
+    if(start >= length)
+        return str;
+    if(length == 0)
+        return "";
+    return str.substr(length) + str.substr(0, length);
 }
