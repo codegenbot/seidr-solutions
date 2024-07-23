@@ -1,6 +1,4 @@
-```
 import math
 
 def dice_game(n, m):
-    equal_prob = (1/n) * (1/m)
-    return 1 - equal_prob
+    return sum(1/j for j in range(1, n)) / (n*m - 1)
