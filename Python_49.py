@@ -1,12 +1,14 @@
-def is_prime(n: int):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+```
+def modp(n: int, p: int):
+    def gcd(a: int, b: int) -> int:
+        while b != 0:
+            a, b = b, a % b
+        return a
 
-def next_prime(n: int):
-    while not is_prime(n):
-        n += 1
+    if gcd(n, p) != 1:
+        return None
+    result = pow(n, (p - 1), p)
+    for _ in range(p - 2):
+        n = (n * result) % p
+        result = (result * 2) % p
     return n
