@@ -6,7 +6,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     temp = ""
     count = 0
 
-    for char in paren_string:
+    user_input = " ".join(paren_string.split())
+
+    for char in user_input:
         if char == " " and count == 0:
             if temp:
                 result.append(temp)
