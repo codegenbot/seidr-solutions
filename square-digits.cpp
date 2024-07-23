@@ -5,7 +5,7 @@ std::string squareDigits(std::string input) {
         if (!isdigit(c)) { 
             result += c;
         } else {
-            result += std::to_string(digit * digit);
+            result += to_string(digit * digit);
         }
     }
     return result;
