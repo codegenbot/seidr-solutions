@@ -32,6 +32,4 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
             numbers = input().split()
             numbers = [int(num) for num in numbers]
         else:
-            break
-
-    return intersperse(delimiter, numbers)
+            return result
