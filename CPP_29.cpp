@@ -14,12 +14,14 @@ std::vector<std::string> filter_by_prefix(const vector<string>& vec, const strin
     return result;
 }
 
-bool same_vectors(const vector<string>& a, const vector<string>& b) {
+bool equalVectors(const vector<string>& a, const vector<string>& b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    if (!same_vectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
+    vector<string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    string prefix = "xxx";
+    if (!equalVectors(filter_by_prefix(vec, prefix), vector<string> {"xxx", "xxxAAA", "xxx"})) {
         return 1;
     }
     return 0;
