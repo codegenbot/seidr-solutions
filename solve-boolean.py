@@ -1,3 +1,4 @@
+```Python
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -15,3 +16,5 @@ def solve_boolean(expression):
             expression = str(result).lstrip("False").replace("True,", "")
 
     return bool(expression)
+
+print(solve_boolean("f&f&f&t&f|t|f"))  # prints: True
