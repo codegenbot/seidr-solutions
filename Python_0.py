@@ -25,45 +25,43 @@ def main():
                 print("Invalid input. Please enter 'y' or 'n'.")
 
         while True:
-            numbers = input("Enter space-separated float numbers: ")
-            if not numbers.strip():
-                print("Please enter some numbers.")
-            else:
-                try:
-                    numbers_list = list(map(float, numbers.split()))
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter valid float numbers.")
-
-        while True:
             while True:
-                threshold_str = input("Enter a threshold value: ")
-                if not threshold_str.strip():
-                    print("Please enter a threshold value.")
+                numbers = input("Enter space-separated float numbers: ")
+                if not numbers.strip():
+                    print("Please enter some numbers.")
+                elif len(numbers.split()) < 2:
+                    print("Please enter at least two numbers.")
                 else:
                     try:
-                        threshold = float(threshold_str)
+                        numbers_list = list(map(float, numbers.split()))
                         break
                     except ValueError:
-                        print(
-                            "Invalid input. Please enter a valid number for the threshold."
-                        )
+                        print("Invalid input. Please enter valid float numbers.")
 
-        while True:
-            confirm = input("Do you want to execute? (yes/no): ")
-            if confirm.lower() in ["y", "yes"]:
+            while True:
+                while True:
+                    threshold_str = input("Enter a threshold value: ")
+                    if not threshold_str.strip():
+                        print("Please enter a threshold value.")
+                    else:
+                        try:
+                            threshold = float(threshold_str)
+                            break
+                        except ValueError:
+                            print(
+                                "Invalid input. Please enter a valid number for the threshold."
+                            )
+
                 result = has_close_elements(numbers_list, threshold)
+
                 print(
                     "The list contains close elements"
                     if result
                     else "The list does not contain close elements"
                 )
                 break
-            elif confirm.lower() in ["n", "no"]:
-                print("Program terminated.")
-                exit(0)
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
+
+        break
 
 
 if __name__ == "__main__":
