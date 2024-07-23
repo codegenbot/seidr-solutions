@@ -1,19 +1,14 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
     string s;
     cin >> s;
 
-    if (s.empty()) {
-        cout << "Input string is empty" << endl;
-        return 0;
-    }
-
     int sum = 0;
-    for (int i = 0; i < s.size() - 1; ++i) {
-        if (s[i] == s[i + 1]) {
+    for (int i = 0; i < s.size(); ++i) {
+        if (i < s.size() - 1 && s[i] == s[i + 1]) {
             sum += s[i] - '0';
         }
     }
