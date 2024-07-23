@@ -1,3 +1,2 @@
-```
 def paired_digits(s):
-    return sum(int(d1) for d1, d2 in zip(s, s[1:]) if str(d1) == str(d2))
+    return sum(int(d1) for d1, d2 in zip([c for c in s[1:] if c.isdigit()], [c for c in s[2:] if c.isdigit()]) if d1 == d2 and int(d1) != 0)
