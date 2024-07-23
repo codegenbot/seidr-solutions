@@ -1,12 +1,10 @@
-```
 from typing import List
 
 
-def concatenate():
-    n = int(input("Enter the number of strings: "))
-    strings = [input(f"Enter string {i+1}: ") for i in range(n)]
+def concatenate(strings: List[str]) -> str:
     if not strings:
         return ""
-    return "".join(strings)
-
-print(concatenate())
+    for s in strings:
+        if not isinstance(s, str):
+            return "Error: Input contains non-string values"
+    return "".join(map(str, strings))
