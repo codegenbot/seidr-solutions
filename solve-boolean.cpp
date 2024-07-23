@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -17,8 +16,7 @@ bool solveBoolean(std::string expression) {
             while (start < i) {
                 start++;
             }
-            std::string left = expression.substr(0, start);
-            
+            std::string left = expression.substr(0, i - start);
             size_t end = expression.size();
             while (end > i) {
                 end--;
@@ -26,20 +24,23 @@ bool solveBoolean(std::string expression) {
             std::string right = expression.substr(i + 1, end - i);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
+            int j = i;
+            while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
+                j++;
             size_t start = 0;
             while (start < i) {
                 start++;
             }
-            std::string left = expression.substr(0, start);
-            
-            int j = i;
-            while (j < expression.size() && expression[j] != '|' && expression[j] != '&') 
-                j++;
+            std::string left = expression.substr(0, i - start);
             size_t end = expression.size();
-            while (end > j) {
+            while (end > i) {
                 end--;
             }
-            std::string right = expression.substr(i + 1, end - i);
+            size_t m = i + 1;
+            while (m < j) {
+                m++;
+            }
+            std::string right = expression.substr(i + 1, j - i);
             return solveBoolean(left) && solveBoolean(right);
         }
     }
