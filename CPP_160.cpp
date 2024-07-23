@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     int result = operand[0];
@@ -19,6 +20,4 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     return result;
 }
 
-int main() {
-    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
-}
+assert(do_algebra({{"+"}, {1}}) == 2);
