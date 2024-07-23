@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 using namespace std;
+
 #include <vector>
 
 double diceGame(int n, int m) {
