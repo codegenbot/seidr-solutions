@@ -1,4 +1,4 @@
-if (a == 0)
-        return b;
-    return greatest_common_divisor(b % a, a);
+if (b == 0)
+        return a;
+    return greatest_common_divisor(b, a % b);
 }
