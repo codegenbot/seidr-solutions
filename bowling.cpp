@@ -1,9 +1,13 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (char c : s) {
+    for (int i = 0; i < s.length(); i++) {
+        char c = s[i];
         if (c == 'X') {
             score += 30;
             roll++;
@@ -27,3 +31,11 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
+
+int main() {
+    string input = "XXXX/0/00"; 
+    int score = bowlingScore(input);
+    cout << "The score is: " << score << endl;
+    return 0;
+}
