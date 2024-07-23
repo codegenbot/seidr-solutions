@@ -1,8 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <sstream>
-#include <initializer_list>
 
 std::vector<std::string> select_words(std::string s, int k) {
     std::vector<std::string> words;
