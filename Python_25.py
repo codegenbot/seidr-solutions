@@ -1,16 +1,4 @@
-```
-def factorize(n: int) -> List[int]:
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    return factors
+def find_gcd(a: int, b: int) -> int:
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
