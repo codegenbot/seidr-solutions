@@ -9,15 +9,15 @@ int main() {
     for (char &c : message) {
         bool found = false;
         for (size_t i = 0; i < cipher1.size(); ++i) {
-            if (c == cipher2[i]) {
-                c = cipher1[i];
+            if (c == cipher1[i]) {
+                c = cipher2[i];
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            c = '*';
+            c = '*'; // Character not found in the cipher
         }
     }
 

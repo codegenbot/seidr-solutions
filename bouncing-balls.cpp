@@ -1,3 +1,3 @@
 for (int i = 2; i <= num_bounces; ++i) {
-    total_distance += 2 * start_height * std::pow(bounciness_index, i - 1) * (1 + bounciness_index);
+    total_distance += 2 * total_distance * std::pow(bounciness_index, i - 1);
 }
