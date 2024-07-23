@@ -11,9 +11,8 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target)
             result.push_back(i);
         i = text.find(target, i) + 1;
-        if (i != string::npos)
-            continue; 
-        break;
+        if (i == string::npos)
+            break;
     }
     
     return result;
