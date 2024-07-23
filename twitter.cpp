@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,7 +7,11 @@ string validateTweet(string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = static_cast<string::size_type>(tweet.size());
+    string trimmedTweet = tweet;
+    while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
+        trimmedTweet.pop_back();
+    }
+    int count = static_cast<string::size_type>(trimmedTweet.erase(trimmedTweet.find_last_not_of("\n\r") + 1));
     if (count > 140) {
         return "Too many characters";
     }
@@ -17,7 +20,7 @@ string validateTweet(string& tweet) {
 }
 
 int main() {
-    string& tweet; // Change from const to &
+    string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
