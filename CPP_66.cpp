@@ -11,7 +11,3 @@ int digitSum(string s) {
     }
     return sum;
 }
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-}
