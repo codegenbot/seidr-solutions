@@ -1,24 +1,5 @@
-#include <cassert>
 #include <vector>
-
-int sumOfNonPrimeAndSumOfDigits(vector<int> lst){
-    int sum = 0;
-    int maxPrime = 0;
-    for(int num : lst){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
-    }
-    for(int num : lst){
-        if(!isPrime(num))
-            sum += num;
-    }
-    int sumOfDigits = 0;
-    while(maxPrime > 0){
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sum + sumOfDigits;
-}
+using namespace std;
 
 bool isPrime(int n){
     if(n <= 1) return false;
@@ -27,4 +8,22 @@ bool isPrime(int n){
             return false;
     }
     return true;
+
+int skjkasdkd(vector<int> lst) {
+    int maxPrime = 0;
+    for(int num : lst){
+        if(isPrime(num) && num > maxPrime)
+            maxPrime = num;
+    }
+    int sumOfDigits = 0;
+    while(maxPrime > 0){
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
+
+}
+
+int main() {
+    cout << skjkasdkd({127, 97, 8192}) << endl;
 }
