@@ -1,19 +1,23 @@
+```
 #include <vector>
-#include <set> 
+#include <algorithm>
+#include <set>
+
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());  
-    for (int i = 0; i < s.size(); i++) {
+    set<int> s;
+    for (int i = 0; i < l.size(); ++i) {
+        s.insert(l[i]);
+    }
+    for (int i = 0; i < s.size(); ++i) {
         int target = -s[i];
-        bool found = false;
-        for (int j = i + 1; j < s.size(); j++) {
-            if (s.find(target - s[j]) != s.end()) {
-                found = true;
-                break;
+        if (find(s.begin(), s.end(), target) != s.end()) {
+            int left = -target - s[i];
+            if (find(s.begin(), s.end(), left) != s.end() && left != s[i]) {
+                return true;
             }
         }
-        if (found) return true;
     }
     return false;
 }

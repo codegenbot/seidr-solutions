@@ -6,15 +6,14 @@ bool is_palindrome(std::string text){
 
     while(start < end){
         if(text[start] != text[end])
-            return 0; 
+            return false;
         start++;
         end--;
     }
 
-    return 1; 
+    return true;
 }
 
 int main() {
     assert (is_palindrome("xywzx") == false);
-    // rest of your code
 }
