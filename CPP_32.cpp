@@ -1,6 +1,5 @@
-#include<iostrea>
-#include<math.h>
 #include<vector>
+#include<iostream>
 using namespace std;
 
 double poly(vector<double> xs, double x){
