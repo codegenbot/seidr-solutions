@@ -1,24 +1,21 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string camelCase(std::string str) {
+    std::stringstream words(str);
+    std::string word;
     std::string result = "";
-    std::string temp = "";
 
-    for (char c : str) {
-        if (c == '-') {
-            result += std::string(1, toupper(temp[0]));
-            temp.clear();
-        } else if (c != ' ') {
-            temp += c;
+    while (words >> word) {
+        if (!result.empty()) {
+            result += std::toupper(word[0]);
+            for (int i = 1; i < word.length(); ++i) {
+                result += tolower((char)word[i]);
+            }
+        } else {
+            result = word;
         }
-    }
-
-    if (!temp.empty()) {
-        result += std::string(1, toupper(temp[0])) + temp.substr(1);
-    } else {
-        return str;
     }
 
     return result;
@@ -26,6 +23,8 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::cout << camelCase("b-excv eevny-mhmu-gq") << std::endl; 
-    // Output: bExcv eevnyMhmuGq
+    std::cout << camelCase("nospaceordash") << std::endl; 
+    std::cout << camelCase("two-words") << std::endl; 
+    std::cout << camelCase("all separate words") << std::endl; 
     return 0;
 }
