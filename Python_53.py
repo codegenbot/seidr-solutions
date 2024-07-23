@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     result = x + y
     print(f"The sum of {x} and {y} is {result}")
