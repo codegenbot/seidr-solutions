@@ -1,4 +1,3 @@
-```
 import hashlib
 
 def string_to_md5(text):
@@ -14,4 +13,4 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid input. Please enter a string.")
-            text = input("Enter a string: ")```
+            text = input("Enter a string: ")
