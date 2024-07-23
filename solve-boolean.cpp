@@ -1,24 +1,24 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
-    for (char c : s) {
-        if (c == 'F') {
-            res = false;
-            break;
-        } else if (c == '&') {
-            res &= true;
-        } else if (c == '|') {
-            res |= true;
+    bool a = (s[0] == 'T');
+    for(int i=1; i<s.size(); i++) {
+        if(s[i] == '|') {
+            return a || solveBoolean(s.substr(i+1));
+        } else if(s[i] == '&') {
+            return a && solveBoolean(s.substr(i+1));
         }
     }
-    return res;
+    return a;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    int t;
+    cin >> t;
+    while(t--) {
+        string s;
+        cin >> s;
+        cout << (solveBoolean(s) ? "True" : "False") << endl;
+    }
     return 0;
-}
