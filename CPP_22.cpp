@@ -20,7 +20,7 @@ std::vector<int> filter_integers(std::vector<int> mixedVector) {
 }
 
 int main() {
-    assert(is_same_vectors(filter_integers({3, 3, 3}), {3, 3, 3}));
+    assert(is_same_vectors(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
 
     return 0;
 }
