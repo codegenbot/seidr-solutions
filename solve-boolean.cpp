@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+#include <string>
+
 bool solveBoolean(std::string expression) {
     if (expression.size() > 0) {
         if (expression[0] == 'T' || expression[0] == 't')
@@ -10,14 +13,7 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '|') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(start, i - start);
+            std::string left = expression.substr(0, i);
             size_t end = i + 1;
             for (; end < expression.size(); end++) {
                 if (expression[end] == '|') {
@@ -27,14 +23,7 @@ bool solveBoolean(std::string expression) {
             std::string right = expression.substr(end, expression.size() - end);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '&') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(start, i - start);
+            std::string left = expression.substr(0, i);
             size_t end = i + 1;
             for (; end < expression.size(); end++) {
                 if (expression[end] == '&' || expression[end] == '|') {
