@@ -21,18 +21,20 @@ int main() {
     std::cout << "Enter initial snow: ";
     std::stringstream buffer;
     buffer << initialSnow;
-    initialSnow = stof(buffer.str());
-
+    buffer >> buffer.str();
+    initialSnow = std::stof(buffer.str());
     
     std::cout << "Enter rate of snow fall: ";
-    buffer.clear();
+    buffer.str("");
     buffer << rateOfSnowFall;
-    rateOfSnowFall = stof(buffer.str());
+    buffer >> buffer.str();
+    rateOfSnowFall = std::stof(buffer.str());
     
     std::cout << "Enter proportion of snow melting per hour: ";
-    buffer.clear();
+    buffer.str("");
     buffer << proportionOfSnowMeltingPerHour;
-    proportionOfSnowMeltingPerHour = stof(buffer.str());
+    buffer >> buffer.str();
+    proportionOfSnowMeltingPerHour = std::stof(buffer.str());
 
     std::cout << fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
