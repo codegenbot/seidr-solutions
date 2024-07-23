@@ -1,14 +1,18 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+vec = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
+total_sum = sum(vec)
 left_sum = 0
-for i, num in enumerate(a):
-    if left_sum == total_sum - left_sum or abs(left_sum - (total_sum - left_sum)) < abs(
-        sum(output) - 2 * left_sum
-    ):
-        output = a[: i + 1], a[i + 1 :]
-    left_sum += num
+idx = -1
+min_diff = total_sum
 
-print(*output[0])
-print(*output[1])
+for i in range(n):
+    left_sum += vec[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        idx = i
+
+print(*vec[: idx + 1])
+print(*vec[idx + 1 :])
