@@ -1,19 +1,17 @@
-Here is the solution:
-
-def solve():
-    num = int(input("Enter a number: "))
+```
+def factorize(n: int) -> List[int]:
     factors = []
     i = 2
-    while i * i <= num:
-        if num % i:
+    while i * i <= n:
+        if n % i:
             i += 1
         else:
-            num //= i
+            n //= i
             count = 0
-            while num % i == 0:
-                num //= i
+            while n % i == 0:
+                n //= i
                 count += 1
             factors.extend([i] * count)
-    if num > 1:
-        factors.append(num)
-    print(f"The factorization of {num} is: {factors}")
+    if n > 1:
+        factors.append(n)
+    return factors
