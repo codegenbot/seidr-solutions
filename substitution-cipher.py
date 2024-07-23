@@ -1,5 +1,4 @@
-Here's the modified code:
-
+Here is the modified code:
 ```
 def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
     deciphered_text = ""
