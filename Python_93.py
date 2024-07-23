@@ -9,9 +9,12 @@ def encode(message):
                 else:
                     shift = 97
                 
-                encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
+                if char.isalpha():
+                    encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
+                else:
+                    encoded_char = char.lower()
             else:  
-                encoded_char = char.lower()
+                encoded_char = char
         else:  
             encoded_char = char
         
