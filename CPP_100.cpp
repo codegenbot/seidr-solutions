@@ -20,3 +20,18 @@ vector<int> make_a_pile(int n) {
     }
     return pile;
 }
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> pile(n);
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            pile[i] = i * 2 + 1;
+        } else {
+            pile[i] = i * 2;
+        }
+    }
+    assert(issame(make_a_pile(n),pile));
+    return 0;
+}
