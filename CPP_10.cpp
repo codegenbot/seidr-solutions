@@ -13,6 +13,6 @@ string make_palindrome(string str){
         i--;
     }
     string palindrome = str.substr(0,i+1);
-    string rev = str.substr(i+1)+string(str.substr(0,i+1)).reverse();
+    string rev = str.substr(i+1) + string(str.begin(), str.begin()+i+1).reverse().substr(0,i+1);
     return rev+palindrome+rev;
 }
