@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -28,4 +28,3 @@ int main() {
     bool result = solveBoolean(input); 
     if(result)cout<<"True";
     else cout<<"False";
-}
