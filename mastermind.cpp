@@ -1,5 +1,5 @@
 #include <string>
-using namespace std;
+#include <utility>
 
 pair<int, int> mastermind(string code, string guess) {
     int white = 0;
