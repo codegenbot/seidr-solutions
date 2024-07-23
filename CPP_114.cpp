@@ -1,5 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cassert>
+
 long long minSubArraySum(std::vector<long long> nums) {
-    long long sum = 0, min_sum = LLONG_MIN;
+    long long sum = 0, min_sum = std::numeric_limits<long long>::max();
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < min_sum)
@@ -15,4 +20,9 @@ long long minSubArraySum(std::vector<long long> nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+    return 0;
 }
