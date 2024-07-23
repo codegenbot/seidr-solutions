@@ -1,7 +1,7 @@
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
-    std::string result = "";
+    std::string result = ""; 
     bool capitalizeNext = true;
 
     for (char c : str) {
