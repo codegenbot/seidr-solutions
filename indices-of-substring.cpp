@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 int main() {
     using namespace std;
-
+    
     string text, target;
     cin >> text >> target;
     
