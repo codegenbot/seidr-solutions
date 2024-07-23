@@ -1,15 +1,18 @@
+```
 def solve_boolean(expression):
+    def eval_expr(tokenized):
+        if len(tokenized) == 1:  
+            return tokenized[0] == 'T'
+        elif '&' in tokenized: 
+            idx = tokenized.index('&')
+            left = tokenized[:idx].split('|')
+            right = tokenized[idx+1:].split('|')
+            return all(eval_expr([x]) for x in left) and all(eval_expr([x]) for x in right)
+        else:
+            idx = tokenized.index('|')  
+            left = tokenized[:idx].split('&')
+            right = tokenized[idx+1:].split('&')
+            return any(eval_expr([x]) for x in left) or any(eval_expr([x]) for x in right)
+
     tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    def evaluate_expression(tokens):
-        stack = []
-        operators = {'and': lambda a, b: a and b, 'or': lambda a, b: a or b}
-        for token in tokens.split():
-            if token in operators:
-                right = stack.pop()
-                left = stack.pop()
-                stack.append(operators[token](left, right))
-            elif token == 'T':
-                stack.append(True)
-            elif token == 'F':
-                stack.append(False)
-        return stack[0]
+    return eval_expr(tokens.split())
