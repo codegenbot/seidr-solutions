@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -15,13 +16,19 @@ int main() {
     std::cout << "Enter the number of dimensions: ";
     std::cin >> n;
 
-    std::vector<float> v1(n), v2(n); 
+    std::vector<float>(n), std::vector<float>(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter value for dimension " << i + 1 << " of vector 1: ";
-        std::cin >> v1[i];
+        float v1Value;
+        std::cin >> v1Value;
 
         std::cout << "Enter value for dimension " << i + 1 << " of vector 2: ";
-        std::cin >> v2[i];
+        float v2Value;
+        std::cin >> v2Value;
+
+        // Initialize the vectors
+        std::vector<float> v1({v1Value});
+        std::vector<float> v2({v2Value});
     }
 
     float distance = calculateEuclideanDistance(v1, v2);
