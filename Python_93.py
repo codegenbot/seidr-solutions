@@ -1,21 +1,23 @@
+```
 def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalnum():
             if char.isalpha():
                 if char.isupper():
-                    shift = 65
+                    encoded_char = chr((ord(char) - 65 + 3) % 26 + 65)
                 else:
-                    shift = 97
-                
-                if char.isalpha():
-                    encoded_char = chr((ord(char) - shift + 3) % 26 + shift)
-                else:
-                    encoded_char = char.lower()
+                    encoded_char = chr((ord(char) - 97 + 3) % 26 + 97)
             else:  
-                encoded_char = char
+                if char.isspace():  # Add encoding operation for spaces
+                    encoded_char = ' '
+                else:
+                    encoded_char = char
         else:  
-            encoded_char = char
+            if char.isspace():  # Add encoding operation for spaces
+                encoded_char = ' '
+            else:
+                encoded_char = char
         
         encoded_message += encoded_char
     

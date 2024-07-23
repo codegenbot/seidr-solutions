@@ -8,3 +8,6 @@ def fix_spaces(text):
         else:
             new_text += char
     return new_text
+
+text = input("Enter your text: ")
+print(fix_spaces(text))
