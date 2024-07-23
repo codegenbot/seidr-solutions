@@ -3,7 +3,7 @@ std::pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            std::pair<int, int> result = {min(nums[i], complement), max(nums[i], complement)};
+            std::pair<int, int> result = {std::min(nums[i], complement), std::max(nums[i], complement)};
             return result;
         }
         numIndex[nums[i]] = i;
