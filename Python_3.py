@@ -1,9 +1,8 @@
-```Python
 from typing import List
 
 
 def below_zero(operations: List[str]) -> bool:
-    return any(not op.replace('-', '',).replace('+', '').isalnum() or int(op) < 0 for op in operations)
+    return any(int(operation) < 0 for operation in operations)
 
 
 def main():
