@@ -16,19 +16,15 @@ std::vector<int> even_odd_count(int num) {
 }
 
 bool same(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) 
+        if (a[i] != b[i]) 
             return false;
-        }
-    }
     return true;
-
 }
 
 int main() {
-    assert(same(even_odd_count(0), std::vector<int>{1, 0})); 
+    assert(same(even_odd_count(0), std::vector<int>{0, 1})); 
     return 0;
 }
