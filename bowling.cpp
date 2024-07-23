@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
