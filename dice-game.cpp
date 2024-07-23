@@ -7,9 +7,8 @@ int main() {
     double total_outcomes = n * m;
     double favorable_outcomes = 0;
     for (int i = 1; i <= n; ++i) {
-        favorable_outcomes += (double)(i - 1) * (m - 1);
+        favorable_outcomes += (double)i * (m - 1) / total_outcomes;
     }
-    double probability = favorable_outcomes / total_outcomes;
-    cout << fixed << probability << endl;
+    cout << fixed << favorable_outcomes << endl;
     return 0;
 }
