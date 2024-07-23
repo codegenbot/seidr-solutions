@@ -1,4 +1,4 @@
-```python
+```
 def parse_frame(frame):
     if frame == 'X':
         return 10
@@ -17,7 +17,7 @@ def bowling_score(frames):
             i += 1
             if i < len(frames) - 1 and (frames[i:i+2].replace('-', '/') in ['10/', '11/']):
                 score += parse_frame(frames[i:i+2].replace('-', '/'))
-                i += 2
+                i += 1
         elif '/' in frames[i]:
             score += parse_frame(frames[i])
             i += 2
