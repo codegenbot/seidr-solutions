@@ -1,28 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <cmath>
-
-std::vector<float> find_closest_elements(const std::vector<float>& nums) {
-    if (nums.size() < 2) {
-        return {};
-    }
-
-    float min_diff = std::abs(nums[0] - nums[1]);
-    std::vector<float> closest_elements = {nums[0], nums[1]};
-
-    for (size_t i = 0; i < nums.size(); ++i) {
-        for (size_t j = i + 1; j < nums.size(); ++j) {
-            float diff = std::abs(nums[i] - nums[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                closest_elements = {nums[i], nums[j]};
-            }
-        }
-    }
-
-    return closest_elements;
-}
+#include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -36,4 +15,20 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     }
 
     return true;
+}
+
+std::vector<float> find_closest_elements(const std::vector<float>& arr) {
+    std::vector<float> result;
+    for (size_t i = 1; i < arr.size() - 1; ++i) {
+        if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+            result.push_back(arr[i - 1]);
+            result.push_back(arr[i + 1]);
+        }
+    }
+    return result;
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
