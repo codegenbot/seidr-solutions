@@ -2,10 +2,14 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
+    a = abs(a);
+    b = abs(b);
+    
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -41,13 +45,7 @@ int main() {
     stringstream ss(input);
 
     int a, b;
-    string input1;
-    getline(cin, input1);
-    stringstream ss1(input1);
-    ss1 >> a;
-    ss1.ignore();
-    ss1 >> b;
-
+    ss >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
