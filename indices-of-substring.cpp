@@ -7,12 +7,13 @@ vector<int> findIndices(string text, string target) {
     int last = -1;
     while ((last = text.find(target, last + 1)) != string::npos) {
         indices.push_back(last);
-        last = -1; // reset the starting index
+        last += target.size();
     }
     return indices;
 }
 
 int main() {
+    // Read input from user
     string text;
     cin >> text;
 
@@ -21,6 +22,7 @@ int main() {
     cin >> t;
     getline(cin, target);
 
+    // Call the function and print the result
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";
