@@ -20,6 +20,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups = ''
 
     while stack:
-        result.append('({})'.format(stack.pop()))
+        for _ in range(len(stack)):
+            groups += stack.pop()
+        result.append(groups.strip())
+        groups = ''
 
     return result
