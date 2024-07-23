@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <string>
 
 int bowlingScore(std::string input) {
@@ -39,7 +39,7 @@ int bowlingScore(std::string input) {
 
 int getRemaining(char c, std::string input) {
     int i = 1;
-    while (input[input.size() - i] != c && i <= input.size()) {
+    while (input.find(std::to_string(c)) != input.size() - i) {
         i++;
     }
     return 10 - i + (input[input.size() - i] - '0');
