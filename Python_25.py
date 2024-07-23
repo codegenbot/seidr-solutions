@@ -1,6 +1,7 @@
 def solve():
     num = int(input("Enter a number: "))
-    print(factorize(num))
+    result = factorize(num)
+    print(result)
 
 from typing import List
 import math
