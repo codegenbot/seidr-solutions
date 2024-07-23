@@ -1,13 +1,13 @@
-```cpp
+#include <vector>
+
 int basement(std::vector<int>& nums) {
     int sum = 0;
+    int basement_index = -1; 
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0)
-            continue;
-        while (sum >= 0 && i < nums.size() - 1)
-            sum -= nums[++i];
+        if (sum < 0) {
+            basement_index = i + 1; 
+            break; 
+        }
     }
-    return sum < 0 ? i + 1 : -1;
-
-}
+    return basement_index;
