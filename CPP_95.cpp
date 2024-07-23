@@ -1,22 +1,13 @@
-if (dict.empty()) {
-        return false;
+if(dict.empty()) return false;
+bool all_lower = true;
+bool all_upper = true;
+for(auto const &entry : dict) {
+    string key = entry.first;
+    if(!key.empty() && !islower(key[0])) {
+        all_lower = false;
     }
-    bool is_lower = true;
-    bool is_upper = true;
-    for (auto const& entry : dict) {
-        string key = entry.first;
-        for (char c : key) {
-            if (!islower(c)) {
-                is_lower = false;
-                break;
-            }
-        }
-        for (char c : key) {
-            if (!isupper(c)) {
-                is_upper = false;
-                break;
-            }
-        }
+    if(!key.empty() && !isupper(key[0])) {
+        all_upper = false;
     }
-    return is_lower || is_upper;
 }
+return all_lower || all_upper;
