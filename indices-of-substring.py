@@ -13,9 +13,8 @@ while start < len(text):
     indices.append(index)
     start = index + 1
 
-for index in indices:
-    print(index, end=" ")
+for i in range(len(indices)):
+    print(indices[i], end=" ")
     
-if len(indices) > 1:
-    if text.find(target, indices[-1]+1) != -1:
-        print(indices[-1]+1, end=" ")  
+    if i < len(indices) - 1 and indices[i] + 1 != indices[i + 1]:
+        print(indices[i] + 1, end=" ")
