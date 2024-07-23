@@ -1,11 +1,11 @@
-from typing import List
+from typing import list
 
 def factorize(n: int) -> list:
     if n <= 1:
         return [n]
 
     factors = []
-    for i in range(2, int(n**0.5) + 1):
+    for i in range(2, math.isqrt(n) + 1):
         while n % i == 0:
             count = 0
             while n % i == 0:
