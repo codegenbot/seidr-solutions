@@ -15,4 +15,3 @@ string squareDigits(int n) {
         oss << digit * digit;
     }
     return oss.str();
-}
