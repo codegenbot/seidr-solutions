@@ -1,4 +1,4 @@
-```cpp
+```
 std::string concatenate(std::vector<std::string> strings) {
     std::string result = "";
     for (const auto& str : strings) {
@@ -7,3 +7,4 @@ std::string concatenate(std::vector<std::string> strings) {
         }
     }
     return result;
+}
