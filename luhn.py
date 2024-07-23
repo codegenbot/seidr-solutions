@@ -9,4 +9,6 @@ def luhn(card_number):
             if doubled_digit > 9:
                 doubled_digit -= 9
             total += doubled_digit
+    # Add the last digit as it is
+    total += card_number[-1]
     return total
