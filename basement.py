@@ -1,3 +1,6 @@
+Here is the solution:
+
+print("Here is the solution:")
 def basement(vector):
     total = 0
     for i, num in enumerate(vector):
