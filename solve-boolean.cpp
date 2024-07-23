@@ -1,25 +1,24 @@
-#include <stack>
-#include <string>
+#include <deque>
 
 bool solveBoolean(std::string s) {
-    stack<char> st;
+    std::stack<char> st;
+    bool prev = false;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
+        if (s[i] == 'T') {
+            prev = true;
+        } else if (s[i] == 'F') {
+            prev = false;
+        } else if (s[i] == '&') {
+            st.push('&');
+        } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            else st.pop();
-        } 
-        else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return true;
             else st.push('|');
-        } 
-        else {
-            st.push(s[i]);
         }
     }
-    return !st.empty();
+    while (!st.empty() && st.top() == '&') {
+        st.pop();
+    }
+    return prev;
