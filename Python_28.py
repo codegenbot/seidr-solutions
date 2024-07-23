@@ -1,10 +1,14 @@
+def concatenate_strings():
+    strings = input("Enter the strings (space-separated): ")
+    input_list = strings.split()
+    concatenated_str = concatenate(input_list)
+    print(f"Concatenated string: {concatenated_str}")
+
+
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        if not string.isalpha():
-            raise ValueError("All strings must contain letters only.")
-        result += string
-    return result.lower()
+    if not strings:
+        return ""
+    return "".join(strings)
