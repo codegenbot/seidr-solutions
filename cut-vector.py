@@ -15,4 +15,7 @@ def cut_vector(lst):
             min_diff = diff
             split_idx = i
 
-    return [lst[:split_idx + 1], lst[split_idx + 1:]]
+    if split_idx != -1:
+        return [lst[:split_idx + 1], lst[split_idx + 1:]]
+    else:
+        return [lst, []]
