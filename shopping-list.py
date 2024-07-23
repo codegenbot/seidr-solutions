@@ -11,4 +11,5 @@ def shopping_list():
 
     return round(total_price, 1)
 
+
 print(shopping_list())
