@@ -13,7 +13,7 @@ int main() {
     for (int i = 0; i < num_bounces; ++i) {
         total_distance += bounce_height; // Distance during bounce
         bounce_height = bounce_height * bounciness_index; // Calculate new bounce height
-        total_distance += bounce_height; // Distance during return
+        total_distance += bounce_height * 2; // Distance during return
     }
 
     std::cout << total_distance << std::endl;
