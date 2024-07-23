@@ -1,14 +1,14 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int n, m;
     cin >> n >> m;
-    double ans = 0.0;
+    double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                ans += 1.0 / (n * m);
-            }
-        }
+        probability += min(m, i - 1) * (n - i + 1);
     }
-    cout << ans;
+    probability /= n * m;
+    cout << probability << endl;
     return 0;
 }
