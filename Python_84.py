@@ -1,3 +1,3 @@
 ```
 def solve(N):
-    return bin(sum(int(i) for i in str(abs(N))))[2:] if N != 0 else "0"
+    return bin(N).replace("0b", "")
