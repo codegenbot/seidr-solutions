@@ -4,7 +4,6 @@ from typing import List
 def concatenate(strings: List[str]) -> str:
     if not strings:
         return ""
-    for s in strings:
-        if not isinstance(s, str):
-            return "Error: Input contains non-string values"
-    return "".join(map(str, strings))
+    input_list = input("Please enter a list of strings (comma separated): ")
+    input_list = [i.strip() for i in input_list.split(",")]
+    return "".join(input_list)
