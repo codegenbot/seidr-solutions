@@ -13,7 +13,7 @@ int main() {
         indices.push_back(pos);
         pos = text.find(target, pos + (target.length() > 1 ? 1 : 0));
     }
-
+    
     for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
