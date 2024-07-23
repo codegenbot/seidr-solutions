@@ -26,4 +26,3 @@ def minPath(grid, k):
                         stack.append((x, y+1))
                 if res:
                     return [int(i) for i in res[0].split(',')]
-    return []
