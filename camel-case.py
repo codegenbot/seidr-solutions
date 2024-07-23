@@ -1,6 +1,7 @@
 def camel_case(s):
+    s = s.replace("-", " ").split()
     result = ""
-    for word in s.replace("-", " ").split():
+    for word in s:
         if not result:
             result = word
         else:
