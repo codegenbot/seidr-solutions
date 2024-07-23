@@ -1,24 +1,26 @@
 ```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    stack = []
-    for char in expression:
-        if char == '&':
-            stack.append('&')
-        elif char == '|':
-            stack.append('|')
+    def parse_expression(expression):
+        if not expression:
+            return []
+        ops = ['&', '|']
+        if expression[0] in ops:
+            return [expression[0]] + parse_expression(expression[1:])
+        elif expression[0] in ['T', 'F']:
+            return [expression[0]] + parse_expression(expression[1:])
         else:
-            stack.append(char)
-    result = None
-    while stack:
+            raise ValueError("Invalid expression")
+    
+    def evaluate_stack(stack):
+        if len(stack) == 1:
+            return stack[0]
         op = stack.pop()
+        a, b = stack.pop(), stack.pop()
         if op == '&':
-            left, right = bool(stack.pop()), bool(stack.pop())
-            result = left and right
+            return a and b
         elif op == '|':
-            left, right = bool(stack.pop()), bool(stack.pop())
-            result = left or right
+            return a or b
+
+    stack = parse_expression(expression)
+    result = evaluate_stack(stack)
     return result
