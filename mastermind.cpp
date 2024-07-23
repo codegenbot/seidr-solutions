@@ -1,7 +1,4 @@
-```cpp
 #include <string>
-#include <set>
-#include <iostream>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -14,39 +11,13 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::set<char> correctColors;
-
-    for (char c : code) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i] && c != code[i]) {
-                count++;
-                correctColors.insert(c);
-            }
-        }
-    }
-
     // Count white pegs now
-    for (char c : correctColors) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i]) {
-                count++;
-            }
+    for (char c : code) {
+        int index = guess.find(c);
+        while(index != std::string::npos) {
+            white++;
+            index = guess.find(c, index+1);
         }
-        white += count;
     }
 
-    return white - black;
-
-}
-
-int main() {
-    std::string code = "abc "; 
-    std::string guess = "abcd"; 
-
-    int result = mastermind(code, guess);
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
-
-    return 0;
-}
+    return {white, black};
