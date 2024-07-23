@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate(s):
         if '(' in s:
