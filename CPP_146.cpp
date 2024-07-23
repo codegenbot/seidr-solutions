@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
     int count = 0;
-    std::vector<int> nums;
+    std::vector<int> nums = {};
     int n;
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
@@ -15,7 +16,6 @@ int main() {
     }
     count = specialFilter(nums);
     std::cout << "Number of elements that are 0 or not divisible by 11: " << count;
-    return 0;
 }
 
 int specialFilter(const std::vector<int>& nums) {
