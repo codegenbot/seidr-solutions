@@ -1,3 +1,4 @@
+n = 0
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
