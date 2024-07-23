@@ -1,22 +1,33 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        if (n % 2 == 1) {
-            pile.push_back(stones);
-            n++;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int num = 1;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            pile.push_back(num);
+            num += 2;
         } else {
-            pile.push_back(stones);
-            n++;
+            pile.push_back(num);
+            num++;
         }
-        stones /= 2;
     }
     return pile;
+}
+
+int main() {
+    assert(issame(make_a_pile(8), {1, 2, 3, 4, 5, 6, 7, 8}));
+    return 0;
 }
