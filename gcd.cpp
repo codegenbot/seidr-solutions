@@ -32,9 +32,7 @@ int main() {
     cin >> num1;
     cout << "Enter second number: ";
     cin >> num2;
-
+    
     long long result = gcd(num1, num2);
     cout << "GCD of the given numbers is " << result << endl;
-
-    return 0;
 }
