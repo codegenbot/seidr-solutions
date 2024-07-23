@@ -3,14 +3,13 @@ int luhn(std::vector<int> digits) {
     bool isDouble = false;
 
     for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
-
         if (isDouble) {
-            if (digit * 2 > 9) {
-                digit = digit * 2 - 9;
-            } else {
-                digit *= 2;
+            int digit = digits[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
             }
+        } else {
+            digit = digits[i];
         }
 
         sum += digit;
