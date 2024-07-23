@@ -9,16 +9,4 @@ def decode_shift(s: str):
         except ValueError:
             print("Invalid input! Please enter an integer.")
 
-    return "".join(
-        [
-            (
-                chr(
-                    ((ord(ch.lower()) - ord("a") + shift) % 26)
-                    + (ch.isalpha() and "a" or "")
-                )
-                if ch.isalpha()
-                else ch
-            )
-            for ch in s.lower()
-        ]
-    )
+    return "".join([chr(((ord(ch.lower()) - ord('a') + shift) % 26) + (ch.isalpha() and 'a' or '')) if ch.isalpha() else ch for ch in s])
