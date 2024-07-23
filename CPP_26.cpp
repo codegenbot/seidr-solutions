@@ -1,7 +1,18 @@
+```c++
 #include <vector>
 #include <unordered_map>
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+int main() {
+    int size;
+    std::cout << "Enter the size of array: ";
+    std::cin >> size;
+
+    std::vector<int> numbers(size);
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Enter element at position " << i << ": ";
+        std::cin >> numbers[i];
+    }
+
     std::unordered_map<int, bool> map;
     std::vector<int> result;
 
@@ -12,15 +23,9 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
         }
     }
 
-    return result;
-}
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 5, 6};
-    std::vector<int> output = remove_duplicates(numbers);
-
-    for (int num : output) {
-        std::cout << num << " ";
+    std::cout << "The array after removing duplicates: ";
+    for (int i : result) {
+        std::cout << i << " ";
     }
     return 0;
 }
