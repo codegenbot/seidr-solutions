@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +20,7 @@ std::vector<int> make_a_pile(int n) {
             pile[i] = i * 2;
         }
     }
-    std::vector<int> result(pile, pile + n);
-    return result;
+    return std::vector<int>(pile, pile+n);
 }
 
 int main() {
