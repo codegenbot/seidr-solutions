@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::to_string(a[i]) + std::to_string(b[i]) != "1111") {
+        if (!(std::to_string(a[i]) + std::to_string(b[i])).find(std::to_string(a[i])) == 0) {
             return false;
         }
     }
@@ -16,27 +15,25 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
+    std::vector<int> a, b;
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
     
-    for (int i = 0; i < n; i++) {
-        std::vector<int> a, b;
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element of set A: ";
+        int x;
+        std::cin >> x;
+        a.push_back(x);
         
-        for (int j = 0; j < 4; j++) {
-            int num;
-            std::cin >> num;
-            if (j % 2 == 0) {
-                a.push_back(num);
-            } else {
-                b.push_back(num);
-            }
-        }
-        
-        if (!issame(a, b)) {
-            std::cout << "NO" << std::endl;
-        } else {
-            std::cout << "YES" << std::endl;
-        }
+        std::cout << "Enter element of set B: ";
+        int y;
+        std::cin >> y;
+        b.push_back(y);
     }
     
-    return 0;
+    if(issame(a, b)) {
+        std::cout << "The sets are same";
+    } else {
+        std::cout << "The sets are not the same";
+    }
 }
