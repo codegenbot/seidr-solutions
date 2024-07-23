@@ -33,7 +33,7 @@ int bowlingScore(string s) {
 
 int main() {
     string input;
-    cout << "Enter the scores of each frame separated by spaces or '/' for strikes or spares: ";
+    cout << "Enter bowling scores: ";
     getline(cin, input);
     int score = bowlingScore(input);
     cout << "Score: " << score << endl;
