@@ -5,8 +5,8 @@ using namespace std;
 double snowDay(int hours, double initialSnow, double rateOfSnowfall, double proportionMelting) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowfall; 
-        totalSnow *= (1 - proportionMelting); 
+        totalSnow += rateOfSnowfall; // accumulate snow correctly
+        totalSnow *= (1 - proportionMelting); // melt snow correctly
     }
     return totalSnow;
 }
