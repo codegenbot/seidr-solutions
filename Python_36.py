@@ -1,6 +1,4 @@
-```
 def fizz_buzz(n: int):
-    count = 0
     result = []
     for i in range(1, n + 1):
         if i % 15 == 0:
@@ -11,4 +9,4 @@ def fizz_buzz(n: int):
             result.append("Buzz" if i % 3 != 0 else "FizzBuzz")
         else:
             result.append(str(i))
-    return len([i for i in result if isinstance(i, str) and i != '0'])
+    return result.count("FizzBuzz")
