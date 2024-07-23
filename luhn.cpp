@@ -1,20 +1,22 @@
 int main() {
-    vector<int> v(16);
-    for (int i = 0; i < 16; i++) {
-        cin >> v[i];
+    int n;
+    cin >> n;
+    vector<int> digits(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> digits[i];
     }
 
     int sum = 0;
-    for (int i = 0; i < 16; i++) {
-        if (i % 2 == 1) {
-            int doubled = v[i] * 2;
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
+    for (int i = n-1; i >= 0; --i) {
+        if ((n-1-i) % 2 == 1) {
+            int doubled = digits[i] * 2;
+            sum += (doubled > 9) ? doubled - 9 : doubled;
         } else {
-            sum += v[i];
+            sum += digits[i];
         }
     }
 
-    cout << sum << endl;
-    
+    cout << sum;
+
     return 0;
 }
