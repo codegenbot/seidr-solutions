@@ -1,9 +1,10 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char, deque<char>> operators;
+    stack<char> operators;
     string operand = "";
     int i = 0; 
 
@@ -13,12 +14,12 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return operand == "True";
+                return operand == "T";
             }
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return operand == "True";
+                return operand == "T";
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
