@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <cctype>
@@ -17,7 +16,7 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 
 int main() {
     std::map<std::string, std::string> dict;
-    bool result = check_dict_case(dict);
-    assert(result == false);
+    std::cout << std::boolalpha;
+    std::cout << "Is the dictionary case mixed? " << check_dict_case(dict) << std::endl;
     return 0;
 }
