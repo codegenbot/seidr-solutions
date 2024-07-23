@@ -10,5 +10,5 @@ def smallest_change(arr):
     
     return changes
 
-arr = input("Enter the array: ").split()
-print(smallest_change(map(int, arr)))
+input_array = list(map(int, input("Enter the array elements separated by space: ").split()))
+print(smallest_change(input_array))
