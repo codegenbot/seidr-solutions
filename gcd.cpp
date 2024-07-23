@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -36,11 +37,12 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    
-    int a = 100;
-    int b = 50;
-    int result = gcd(b, a);
-    cout << "GCD of " << a << " and " << b << ": " << result << endl;
+
+    cout << "GCD of " << 100 << " and " << 50 << ": ";
+    for (int i : vector<int>{gcd(50, 100)}) {
+        cout << i << " ";
+    }
+    cout << endl;
 
     return 0;
 }
