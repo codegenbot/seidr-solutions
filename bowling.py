@@ -1,22 +1,23 @@
-def bowling_score(score):
-    total = 0
-    frame = 1
-    while frame <= 10:
-        if score[2 * frame - 2 : 2 * frame] == "X":
-            total += 10 + (10 if frame < 10 else 0)
-            frame += 1
-        elif score[2 * frame - 2 : 2 * frame].count("/"):
-            left, right = map(int, score[2 * frame - 2 : 2 * frame].split("/"))
-            total += left + right
-            frame += 1
-        else:
-            strikes = 0
-            while len(score[2 * frame - 2 :]) > 1 and score[2 * frame - 2] != "X":
-                left, right = map(int, score[2 * frame - 2 : 2 * frame + 1].split("/"))
-                total += left + right
-                frame += 1
-                if len(score[2 * frame - 2 :]) > 1 and score[2 * frame - 2] != "X":
-                    strikes += 1
-            if strikes == 0:
-                total += int(score[2 * frame - 1])
-    return total
+def bowling_score(s):
+    score = 0
+    rolls = s.split("/")
+    for i in range(10):
+        if len(rolls[i]) == 1 or (len(rolls[i]) > 1 and str(rolls[i][0]).isdigit()):
+            if len(rolls[i]) > 1:
+                score += int(rolls[i][0]) * 2
+                if int(rolls[i][1]):
+                    score += int(rolls[i][1])
+            else:
+                score += int(rolls[i])
+        elif rolls[i] == "X":
+            score += 10 + (9 - i) * 10 if i < 8 else 10
+        elif len(rolls[i]) > 2 and str(rolls[i][0]).isdigit():
+            if int(rolls[i][0]) * 2 <= 10:
+                score += int(rolls[i][0]) * 2
+                score += int(rolls[i][1])
+            else:
+                score += int(rolls[i])
+        elif len(rolls[i]) > 2 and str(rolls[i][0]).isdigit() == False:
+            if len(rolls[i]) > 3:
+                score += 10 + (9 - i) * 10 if i < 8 else 10
+    return score
