@@ -1,3 +1,4 @@
+```
 def search(lst):
     pos_count = 0
     for num in lst:
