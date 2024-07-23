@@ -1,4 +1,11 @@
 ```Python
 def decode_shift(s: str):
     shift = int(input("Enter the shift value: "))
-    return "".join([chr(((ord(ch.lower()) - ord('a')) + shift) % 26 + ord('a')) if ch.isalpha() else ch for ch in s])
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            ascii_offset = ord('a') if ch.islower() else ord('A')
+            result += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
+        else:
+            result += ch
+    return result
