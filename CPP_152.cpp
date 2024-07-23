@@ -16,7 +16,3 @@ std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int
     }
     return result;
 }
-
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    return compareVect(game, guess);
-}
