@@ -19,7 +19,7 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits = {4,3,2,8,7,9,6,0,5,5,5,9,3,4,2,1};
+    std::vector<int> digits = {3, 4, 9, 0, 5, 5, 4, 0, 6, 7, 8, 1, 1, 1, 2, 1};
     int result = luhn(digits);
     return 0;
 }
