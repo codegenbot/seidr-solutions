@@ -2,24 +2,19 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
-            roll++;
         } else if (c == '/') {
-            score += 10 - (roll % 2 ? 1 : 5);
-            roll++;
+            score += 10 - (count(s.begin(), s.end(), 'X') % 2 ? 1 : 5);
         } else {
             int count = c - '0';
             while (count--) {
-                if (c == 'X') {
+                if (s.substr(1, s.find(' ') - 1) == "X") {
                     score += 30;
-                    roll++;
                     break;
                 } else {
                     score += 10;
-                    roll++;
                 }
             }
         }
