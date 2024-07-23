@@ -1,5 +1,8 @@
 double diceGame(int n, int m) {
     double total = (n * m);
-    double higherThanColin = (m - 1) * (n - 1);
-    return (higherThanColin * 1.0) / total;
+    double prob = 0;
+    for(int i = 1; i <= n - 1; i++) {
+        prob += (m - i + 1) / (total);
+    }
+    return prob;
 }
