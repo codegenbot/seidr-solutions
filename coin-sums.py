@@ -3,9 +3,11 @@ def coin_sums(cents):
     result = []
     for coin in coins:
         count = cents // coin
+        cents %= coin
         if count > 0:
             result.append(count)
-            cents %= coin
-        else:
-            result.append(0)
-    return ' '.join(map(str, result)) + '\n' + str(cents)
+    return result
+
+
+cents = int(input())
+print(*coin_sums(cents), sep="\n")
