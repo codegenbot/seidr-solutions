@@ -1,17 +1,13 @@
 #include <vector>
 
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2, 8};
+std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> result;
-    for (int i = 0; i < arr.size(); ++i) {
-        bool isLeader = true;
-        for (int j = i + 1; j < arr.size(); ++j) {
-            if (arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+    int maxRight = 0;
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] > maxRight) {
+            maxRight = arr[i];
+            result.push_back(maxRight);
         }
-        if (isLeader) result.push_back(arr[i]);
     }
-    return 0;
+    return result;
 }
