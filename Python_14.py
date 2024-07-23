@@ -1,3 +1,4 @@
+```
 def all_prefixes(string: str) -> List[str]:
     result = []
     for i in range(len(string)+1):
@@ -8,4 +9,4 @@ def all_prefixes(string: str) -> List[str]:
             result.append(upper + lower)
         else:
             result.append(prefix)
-    return ["" ] + result
+    return [""] + result
