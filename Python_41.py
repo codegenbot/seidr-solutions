@@ -1,6 +1,3 @@
-def car_race_collision():
-    task_description = (
-        "Return the number of possible car race collisions given the number of cars."
-    )
+def car_race_collision() -> int:
     n = int(input("Enter the number of cars: "))
     return n * (n - 1) // 2
