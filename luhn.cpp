@@ -1,18 +1,15 @@
 #include <vector>
 using namespace std;
 
-int luhnCheck(const vector<int>& cc) {
+int luhnCheck(vector<int> cardNumber) {
     int sum = 0;
-    for (int i = 0; i < cc.size(); i++) {
-        if (i % 2 == 1) {
-            int temp = cc[i] * 2;
-            if (temp > 9) {
-                temp -= 9;
-            }
-            sum += temp;
+    for (int i = cardNumber.size() - 1; i >= 0; --i) {
+        if ((cardNumber[i] * 2) > 9) {
+            sum += (cardNumber[i] * 2) - 9;
         } else {
-            sum += cc[i];
+            sum += cardNumber[i] * 2;
         }
+        sum += cardNumber[i-1];
     }
     return sum;
 }
