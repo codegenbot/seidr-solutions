@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int findSmallest(vector<int> lst) {
+int findNextSmallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2)
@@ -14,9 +14,4 @@ int findSmallest(vector<int> lst) {
     }
     return -1;
 
-}
-
-int main() {
-    cout << findSmallest({-35, 34, 12, -45}) << endl;
-    return 0;
-}
+}cout << findNextSmallest({-35, 34, 12, -45}) << endl;
