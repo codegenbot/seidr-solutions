@@ -1,8 +1,4 @@
-#include <iostream>
-#include <cmath>
-#include <string>
-#include <iomanip>
-
+```c++
 int main() {
     std::string heightStartStr, heightFirstBounceStr;
     int numBounces;
@@ -14,7 +10,7 @@ int main() {
 
     double bouncinessIndex = heightFirstBounce / heightStart;
 
-    double totalDistance = 0.0;
+    totalDistance = 0.0;
     double height = heightStart; // initialize with starting height
     for (int i = 1; i <= numBounces; i++) {
         height *= bouncinessIndex * 2; // calculate the new height after each bounce

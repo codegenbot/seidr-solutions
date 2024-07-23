@@ -15,12 +15,14 @@ vector<vector<int>> cutVector(vector<int> v) {
         int sum_left = 0, sum_right = 0;
         for (int j = 0; j <= i; j++)
             sum_left += v[j];
-        for (int j = i + 1; j < n; j++)
+        for (int j = i; j < n; j++)
             sum_right += v[j];
 
-        int diff = max(abs(sum_left - sum_right), (i > 0 ? v[i-1] : INT_MAX) + (n - i > 0 ? INT_MAX - v[n-i-1] : INT_MAX));
-        if (diff < min_diff) {
-            min_diff = diff;
+        if (i > 0 && sum_left == sum_right) {
+            best_cut = i;
+            break;
+        } else if (abs(sum_left - sum_right) < min_diff) {
+            min_diff = abs(sum_left - sum_right);
             best_cut = i;
         }
     }
