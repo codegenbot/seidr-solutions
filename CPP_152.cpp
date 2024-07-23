@@ -1,21 +1,23 @@
-```cpp
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+#include <vector>
+using namespace std;
+
+int issame(vector<int> game, vector<int> guess) {
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            return 0;
+        }
     }
-    return true;
+    return 1;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
+    int sameCount = issame(game, guess);
     for (int i = 0; i < game.size(); i++) {
-        if (issame({game[i], guess[i]}, {1, 2})) {
+        if (game[i] == guess[i]) {
             result.push_back(0);
-        } else if (game[i] > guess[i]) {
-            result.push_back(-1);
         } else {
-            result.push_back(1);
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
