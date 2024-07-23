@@ -1,3 +1,4 @@
+```
 def validate_tweet(tweet):
     tweet = tweet.strip()
     if len(tweet) == 0:
