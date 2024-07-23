@@ -8,12 +8,15 @@ def parse_music(music_string: str) -> List[int]:
     i = 0
     while i < len(music_string):
         if music_string[i:i+3] == '...':
-            result.extend([beats_per_note['o']] * 4)
+            result.append(4)
             i += 3
-        elif music_string[i:i+2] in beats_per_note:
+        elif music_string[i:i+3] == '..|':
+            result.append(2)
+            i += 3
+        else:
             note_type = music_string[i:i+2]
             i += 2
-            result.append(beats_per_note[note_type])
-        else:
-            i += 1
-    return result
+            if note_type in beats_per_note:
+                result.append(beats_per_note[note_type])
+            else:
+                result.append(1)
