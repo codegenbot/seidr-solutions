@@ -1,4 +1,4 @@
-Here is the completed code:
-
+```
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+    shift = int(input("Enter the shift value: "))
+    return "".join([chr(((ord(ch.lower()) - ord('a')) % 26) + ord('a')) if ch.isalpha() else ch for ch in s])
