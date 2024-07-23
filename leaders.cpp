@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
