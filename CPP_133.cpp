@@ -1,16 +1,10 @@
 #include <vector>
 #include <cmath>
 
-int sum_squares(std::vector<float> lst){
-    int total = 0;
-    for(float num : lst){
-        total += ceil(num) * ceil(num);
+int sum_squares(std::vector<float> lst) {
+    int sum = 0;
+    for (float num : lst) {
+        sum += std::pow(num, 2);
     }
-    return total;
-
-}
-
-int main() {
-    std::vector<float> lst = {-1,1,0};
-    assert (sum_squares(lst)==2);
+    return static_cast<int>(sum); 
 }

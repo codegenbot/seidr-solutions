@@ -1,3 +1,7 @@
+#include <initializer_list>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
     int product = 1;
     long long sum = 0;
@@ -13,7 +17,7 @@ int prod_signs(vector<int> arr) {
     if (arr.empty()) {
         return -32768;
     } else if (sum == 0) {
-        return product;
+        return -1; 
     } else {
         return product * (sum / abs(sum));
     }
