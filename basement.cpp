@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 int basement(vector<int> v) {
     int sum = 0;
