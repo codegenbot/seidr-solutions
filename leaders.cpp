@@ -30,11 +30,9 @@ int main() {
         nums.push_back(num);
     }
 
-    if (!std::cin.eof()) {
-        std::vector<int> result = findLeaders(nums);
-        for (int num : result) {
-            std::cout << num << " ";
-        }
+    std::vector<int> result = findLeaders(nums);
+    for (int num : result) {
+        std::cout << num << " ";
     }
     return 0;
 }
