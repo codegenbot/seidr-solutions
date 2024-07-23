@@ -1,5 +1,3 @@
-```
 import math
-
 def dice_game(n, m):
-    return (m-1) / (n*m - 1)
+    return sum((m-j)/(n*m) for j in range(m-n+1))
