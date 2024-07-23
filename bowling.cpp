@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -44,5 +45,4 @@ int bowlingScore(string s) {
     return score;
 }
 
-int main() {
-    return bowlingScore("XXX/");
+int main() { return bowlingScore("XXX/"); }
