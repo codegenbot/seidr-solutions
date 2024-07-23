@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cassert>
 
-int digitSum(const std::string& str) {
+int digitSum(std::string str) {
     int sum = 0;
     for (char c : str) {
-        if (std::isdigit(c)) {
+        if (isdigit(c)) {
             sum += (c - '0');
         }
     }
@@ -20,4 +19,5 @@ int main() {
     std::cin >> input;
     int result = digitSum(input);
     std::cout << "Result: " << result << std::endl;
+    return 0;
 }
