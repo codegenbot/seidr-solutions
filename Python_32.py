@@ -1,11 +1,7 @@
-Here is the completed Python code:
+Here is the solution:
 
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
+    if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    a = xs[0]
-    b = xs[1]
-    c = xs[2] if n > 2 else 0
-    d = -b / (2 * c) if c != 0 else -a / b
-    return round(d, 2)
+    largest_nonzero_coeff = max(coeff for coeff in xs if coeff != 0)
+    return -largest_nonzero_coeff / xs[-1]
