@@ -39,10 +39,12 @@ int getRoll(string s, int i) {
 
 int getBonusRoll(string s, int i) {
     int j = i + 2;
-    while (j < s.length()) {
-        if (!isdigit(s[j]) || s[j] == '+' || s[j] == '-') {
-            return min(j - i - 1, 9);
-        }
+    while (j < s.length() && isdigit(s[j])) {
         j++;
+    }
+    if (s[j] == '+' || s[j] == '-') {
+        return min(j - i - 1, 9);
+    } else {
+        return 0;
     }
 }
