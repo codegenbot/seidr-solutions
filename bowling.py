@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     game_list = [int(i) if i.isdigit() else i for i in game.replace('/', '-').split()]
