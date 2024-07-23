@@ -7,22 +7,23 @@ using namespace std;
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c == 'X') {
-            score += 30;
-            roll++;
-        } else if (c == '/') {
-            score += 10 + (roll * 10);
-            roll = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == 'X' || s[i] == '/') {
+            if(s[i] == 'X') {
+                score += 30;
+                roll++;
+            } else {
+                score += 10 + (roll * 10);
+                roll = 0;
+            }
         } else {
-            int temp = c - '0';
-            if (roll < 2) {
+            int temp = s[i] - '0';
+            if(roll < 2) {
                 score += temp;
                 roll++;
             } else {
                 score += temp;
-                if (temp + 10 > 10) {
+                if(temp + 10 > 10) {
                     score += 10;
                 } else {
                     score += temp + 10;
