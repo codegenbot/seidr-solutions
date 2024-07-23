@@ -1,4 +1,4 @@
-```
+```python
 def solve_boolean(s):
     s = ' '.join(s.split())
     if s == "t":
