@@ -1,9 +1,10 @@
-```
-def hex_key(num):
-    primes = {'B': '11', 'D': '13'}
+def hex_key():
+    num = input("Enter a hexadecimal number: ")
+    primes = set([2, 3, 5, 7, ord('B'), ord('D')])
     count = 0
-    for digit in num.upper():
-        if digit.isdigit() or digit in primes:
-            if int(digit) > 1 and all(int(digit) % i != 0 for i in range(2, int(digit)**0.5 + 1)):
-                count += 1
+    for digit in num.upper():  
+        if digit in primes:
+            count += 1
     return count
+
+print(hex_key())
