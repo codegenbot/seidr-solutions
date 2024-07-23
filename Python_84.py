@@ -1,4 +1,10 @@
-```
 def solve(N):
-    total = sum(int(digit) for digit in str(bin(N))[2:])  
-    return '1' if total % 2 == 0 else '0'
+    result = ""
+    while N > 0:
+        remainder = N % 2
+        if remainder == 1:
+            result = "1" + result
+        else:
+            result = "0" + result
+        N //= 2
+    return result
