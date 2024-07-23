@@ -18,15 +18,14 @@ string spinWords(string str) {
         string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            result += boost::algorithm::reverse(word) + " ";
+            reverse(word.begin(), word.end());
         
-        else
-            result += word + " ";
+        result += word + (end == str.length() ? " " : " ") + "";
         
         start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
