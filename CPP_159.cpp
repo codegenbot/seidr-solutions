@@ -1,29 +1,21 @@
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-std::vector<int> eat(int a, int b, int c) {
-    std::vector<int> result;
-    for (int i = 0; i < a + b + c; ++i) {
-        if (i < a)
-            result.push_back(i);
-        else if (i >= a && i < a + b)
-            result.push_back(a + b - 1);
-        else
-            result.push_back(c - 1);
-    }
-    return result;
+int eat(int a, int b, int c) {
+    return (a + b + c) / 3;
 }
 
-bool areSameVectors(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size())
+bool areSameVectors(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) 
         return false;
-    for (int i = 0; i < v1.size(); ++i)
-        if (v1[i] != v2[i])
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
             return false;
+    }
     return true;
 }
 
 int main() {
-    assert(areSameVectors(eat(4, 5, 1), std::vector<int>({9,0})));
+    assert(areSameVectors({eat(4, 5, 1), 0}));
     return 0;
 }
