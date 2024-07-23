@@ -3,29 +3,17 @@
 
 using namespace std;
 
-bool isPrintable(char c) {
-    return isprint(c);
-}
-
-string validateTweet(string& tweet) {
-    int count = 0;
-    for (char c : tweet) {
-        if (isPrintable(c)) {
-            ++count;
-        }
-    }
-    if (count > 140) {
-        return "Too many characters";
-    } else if (tweet.empty()) {
-        return "You didn't type anything";
-    } else {
-        return "Your tweet has " + to_string(count) + " characters";
-    }
-}
-
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
+    tweet.erase(0, tweet.find_first_not_of(" \t")); 
+    tweet.pop_back(); 
+    if (tweet.length() > 140) {
+        cout << "Too many characters" << endl;
+    } else if(tweet.empty()) {
+        cout << "You didn't type anything" << endl;
+    } else {
+        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    }
 }
