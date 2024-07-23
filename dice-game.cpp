@@ -1,10 +1,7 @@
-double calculateProbability(int n, int m) {
-    double total = (double)(n * m);
-    double probability = 0;
+double probability(int n, int m) {
+    double total = (n + m - 1);
+    double petersWin = (double)n / total;
+    double colinsWin = (double)m / total;
     
-    for (int i = 1; i <= m; i++) {
-        probability += (double)i / total;
-    }
-    
-    return 1 - probability;
+    return petersWin;
 }
