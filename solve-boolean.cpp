@@ -1,31 +1,27 @@
-int main() {
-    string expr;
-    cin >> expr;
-    
-    stack<char> stk;
-    for (char c : expr) {
-        if (c == '|') {
-            char op2 = stk.top(); stk.pop();
-            char op1 = stk.top(); stk.pop();
-            if (op1 == 'T' || op2 == 'T') {
-                stk.push('T');
-            } else {
-                stk.push('F');
-            }
-        } else if (c == '&') {
-            char op2 = stk.top(); stk.pop();
-            char op1 = stk.top(); stk.pop();
-            if (op1 == 'T' && op2 == 'T') {
-                stk.push('T');
-            } else {
-                stk.push('F');
-            }
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(const string& expression) {
+    if (expression == "t") {
+        return true;
+    } else if (expression == "f") {
+        return false;
+    } else {
+        bool left = evaluateBooleanExpression(expression.substr(0, 1));
+        bool right = evaluateBooleanExpression(expression.substr(2));
+        if (expression[1] == '&') {
+            return left && right;
         } else {
-            stk.push(c);
+            return left || right;
         }
     }
-    
-    cout << (stk.top() == 'T' ? "True" : "False") << endl;
-    
+    return false; // Add a default return statement
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
     return 0;
 }
