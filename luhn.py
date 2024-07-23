@@ -9,4 +9,4 @@ def luhn(card):
             if num > 9:
                 num -= 9
         sum += num
-    return sum % 10
+    return sum if sum % 10 == 0 else False
