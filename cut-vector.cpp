@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <climits> 
@@ -18,12 +19,6 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i + 1; j < n; j++)
             sum_right += v[j];
 
-        if(sum_left == sum_right) {
-            min_diff = 0;
-            best_cut = i;
-            break;
-        }
-        
         int diff = abs(sum_left - sum_right);
         if (diff < min_diff) {
             min_diff = diff;
