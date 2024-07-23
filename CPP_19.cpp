@@ -1,18 +1,14 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+map<int, string> revNumMap;
+for (auto const& pair : numMap) {
+    revNumMap[pair.second] = pair.first;
+}
 
-sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
-    return number_map[a] < number_map[b];
-});
+string result;
+for (int i = 0; i <= 9; ++i) {
+    if (numbers.find(revNumMap[i]) != string::npos) {
+        result += revNumMap[i] + " ";
+    }
+}
 
-return numbers;
+return result;
