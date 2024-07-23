@@ -1,9 +1,9 @@
+```cpp
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-// Declare and define string_xor function here
 string string_xor(string a, string b) {
     string result = "";
     for (int i = 0; i < a.length(); i++) {
@@ -14,6 +14,7 @@ string string_xor(string a, string b) {
         }
     }
     return result;
+
 }
 
 int main() {
