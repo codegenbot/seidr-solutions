@@ -1,10 +1,13 @@
 #include <vector>
-#include <cmath>
+using namespace std;
 
-std::vector<double> poly;
-std::vector<double> coeffs;
-
-double find_zero(std::vector<double> xs) {
+double find_zero(vector<double> xs) {
     double x = -xs[1] / (2*xs[0]);
     return x;
+}
+
+int main() {
+    vector<double> xs = {1, -7, 12};
+    double solution = find_zero(xs); 
+    return 0;
 }
