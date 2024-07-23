@@ -1,14 +1,17 @@
-if (text.empty()) {
+if(text.empty()) {
     return "None";
 }
 
-unsigned char result[MD5_DIGEST_LENGTH];
-MD5((unsigned char*)text.c_str(), text.length(), result);
+MD5_CTX context;
+MD5_Init(&context);
+MD5_Update(&context, text.c_str(), text.size());
+unsigned char digest[MD5_DIGEST_LENGTH];
+MD5_Final(digest, &context);
 
-stringstream ss;
-for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-    ss << hex << setw(2) << setfill('0') << (int)result[i];
+char mdString[33];
+for(int i = 0; i < 16; i++) {
+    sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
 }
 
-return ss.str();
+return string(mdString);
 }
