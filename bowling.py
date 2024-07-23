@@ -9,14 +9,14 @@ def bowling_score(game):
             score += 10
             frame += 1
         elif game_list[i] == '/':
-            score += 10 - int(game_list[i-1])
+            score += 10 - game_list[i-1]
             frame += 1
         else:
             if i < len(game_list) - 1 and (game_list[i].isdigit() and game_list[i+1] == 'X'):
                 score += int(game_list[i]) + 9
                 frame += 2
             elif i < len(game_list) - 1 and (game_list[i].isdigit() and game_list[i+1] == '/'):
-                score += int(game_list[i]) + 10 - int(game_list[i-1])
+                score += int(game_list[i]) + 10 - game_list[i-1]
                 frame += 2
             else:
                 score += int(game_list[i])
