@@ -1,8 +1,11 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false;
-    for(int i = 0; i < txt.length() - 1; i++) {
-        if(!isblank(txt[i])) return false;
+#include <string>
+
+int check_if_last_char_is_a_letter(std::string str) {
+    if (str.length() > 0) {
+        char last_char = str[str.length()-1];
+        if ((last_char >= 'a' && last_char <= 'z') || (last_char >= 'A' && last_char <= 'Z')) {
+            return true;
+        }
     }
-    char lastChar = txt.back();
-    return isalpha(lastChar);
+    return false;
 }
