@@ -2,11 +2,13 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> nums;
+using namespace std;
+
+vector<int> nums;
 
 int main() {
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
 
