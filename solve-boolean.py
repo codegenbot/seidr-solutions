@@ -15,4 +15,4 @@ def solve_boolean(expression):
             left, right = expression.split(' || ')
             expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
 
-    return eval(f"{expression}")
+    return eval(f"bool({expression})")
