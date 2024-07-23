@@ -11,8 +11,11 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-long long accumulate(vector<int> q) {
-    return accumulate(q.begin(), q.end(), 0LL);
+int accumulate(vector<int>::iterator start, vector<int>::iterator end, int init) {
+    int sum = init;
+    for (; start != end; ++start)
+        sum += *start;
+    return sum;
 }
 
 bool will_it_fly(vector<int> q, int w) {
@@ -20,29 +23,29 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         s += to_string(i);
     }
-    return is_palindrome(s) && accumulate(q) <= w;
+    return is_palindrome(s) && accumulate(q.begin(), q.end(), 0) <= w;
 }
 
 int main() {
-    int n, w;
-    vector<int> q;
+    int n;
+    cin >> n; 
 
-    cout << "Enter the number of queens: ";
-    cin >> n;
+    vector<int> q(n); 
 
-    for (int i=0; i<n; i++) {
+    cout << "Enter position of queen 1: ";
+    cin >> q[0]; // Read and assign first position to the first element of the vector
+
+    for (int i = 1; i < n; i++) {
         int temp;
-        cout << "Enter position of queen " << i+1 << ": ";
-        cin >> temp;
-        q.push_back(temp);
+        cout << "Enter position of queen " << i + 1 << ": ";
+        cin >> q[i]; 
     }
 
+    int w;
     cout << "Enter the total weight: ";
     cin >> w;
 
-    bool result = will_it_fly(q, w);
-
-    if (result)
+    if (will_it_fly(q, w))
         cout << "The queens will fly with the given weight.";
     else
         cout << "The queens will not fly with the given weight.";
