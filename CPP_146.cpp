@@ -1,12 +1,8 @@
-#include <vector>
-#include <algorithm>
-#include <initializer_list>
-#include <cassert>
-
+```cpp
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int x : nums) {
-        if ((std::abs(x) % 11) == 1 || (std::abs(x) % 11) == 0) {
+        if (x == 0 || x % 11 != 0) {
             count++;
         }
     }
