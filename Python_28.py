@@ -1,3 +1,8 @@
-```
+from typing import List
+
+
 def concatenate(strings: List[str]) -> str:
-    return ''.join(strings)
+    result = ""
+    for s in strings:
+        result += s
+    return result
