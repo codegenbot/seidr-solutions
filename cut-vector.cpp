@@ -1,6 +1,7 @@
-```c++
 #include <vector>
 #include <climits>  
+#include <cmath>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -32,16 +33,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left side: ";
-    for (int x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "Right side: ";
-    for (int x : result.second) {
-        cout << x << " ";
-    }
     return 0;
 }
