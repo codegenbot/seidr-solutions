@@ -7,15 +7,16 @@ int main() {
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            blackPegs++;
         } else {
-            ++codeFreq[code[i]];
-            ++guessFreq[guess[i]];
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
     }
     
-    for (auto& [key, value] : codeFreq) {
-        whitePegs += min(value, guessFreq[key]);
+    for (auto &pair : codeFreq) {
+        char c = pair.first;
+        whitePegs += min(codeFreq[c], guessFreq[c]);
     }
     
     cout << whitePegs << endl << blackPegs << endl;
