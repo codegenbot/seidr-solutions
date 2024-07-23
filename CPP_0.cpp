@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -12,7 +13,7 @@ bool has_close_elements(vector<float> numbers, float threshold){
     return false;
 
 int main() {
-    std::vector<float> a = std::vector<float>(1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f);
+    vector<float> a = vector<float>(1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f);
     cout << has_close_elements(a, 1.0) << endl;
     return 0;
 }
