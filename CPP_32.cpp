@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 #include <iomanip>
 #include <initializer_list>
 
