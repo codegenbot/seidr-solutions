@@ -13,11 +13,8 @@ string camelCase(string s) {
                 result += toupper(s[i]);
                 i++;
             }
-            if (!result.empty())
-                result += "";
+            result += " ";
         } else {
-            if (!result.empty()) 
-                result += "";
             result += tolower(s[i]);
         }
     }
