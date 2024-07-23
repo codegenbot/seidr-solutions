@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <map>
 using namespace std;
@@ -21,7 +20,7 @@ map<char, int> histogram(string test) {
     map<char, int> maxCount;
     for (auto& p : result) {
         if (p.second == result[maxLetter])
-            maxCount[p.first] = p.second;
+            maxCount.insert({p.first, p.second});
     }
 
     return maxCount;
