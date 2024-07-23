@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -22,7 +23,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             letter_grades.push_back("B+");
         else if (grade > 2.7)
             letter_grades.push_back("B");
-        else if (grade > 2.3)
+        else if (styleType(grade > 2.3))
             letter_grades.push_back("B-");
         else if (grade > 2.0)
             letter_grades.push_back("C+");
