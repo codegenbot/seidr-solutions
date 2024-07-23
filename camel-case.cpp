@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,25 +7,16 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool nextUpper = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                if (!nextUpper)
-                    result += tolower(s[i]);
-                else
-                    result += toupper(s[i]);
-                nextUpper = true;
+                result += toupper(s[i]);
                 i++;
             }
             result += " ";
-        } else if (!nextUpper) {
-            result += tolower(s[i]);
-            nextUpper = true;
         } else {
-            result += toupper(s[i]);
-            nextUpper = false;
+            result += tolower(s[i]);
         }
     }
     return result;
