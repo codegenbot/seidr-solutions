@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 
 int skjkasdkd(vector<int> lst) {
     int maxPrime = -1;
@@ -28,20 +26,4 @@ bool isPrime(int num) {
         if (num % i == 0) return false;
     }
     return true;
-}
-
-int main() {
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements in the list: ";
-    cin >> n;
-    for(int i=0; i<n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        int num;
-        cin >> num;
-        lst.push_back(num);
-    }
-    int result = skjkasdkd(lst);
-    cout << "Sum of digits of the maximum prime number is: " << result << endl;
-    return 0;
 }
