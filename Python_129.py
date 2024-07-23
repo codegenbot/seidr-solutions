@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     N = len(grid)
     memo = {}
