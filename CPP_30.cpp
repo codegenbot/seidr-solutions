@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,12 +15,10 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<vector<float>> a, vector<vector<float>> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i].size() != b[i].size()) return false;
-        for(float x: a[i]) {
-            if(std::find(b[i].begin(),b[i].end(),x) == b[i].end()) return false;
-        }
+    if(a.size()!=b.size())return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i].size()!=b[i].size())return false;
+        for(int j=0;j<a[i].size();j++)if(a[i][j]!=b[i][j])return false;
     }
     return true;
 }
