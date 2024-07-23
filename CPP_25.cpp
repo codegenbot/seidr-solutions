@@ -1,10 +1,11 @@
-vector<int> factorize(int n){
-    vector<int> factors;
-    for(int i = 2; i <= n; i++){
-        while(n % i == 0){
-            factors.push_back(i);
+vector<int> result;
+    for (int i = 2; i * i <= n; ++i) {
+        while (n % i == 0) {
+            result.push_back(i);
             n /= i;
         }
     }
-    return factors;
-}
+    if (n > 1) {
+        result.push_back(n);
+    }
+    return result;
