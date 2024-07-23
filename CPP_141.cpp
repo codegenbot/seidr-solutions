@@ -1,7 +1,6 @@
 #include <string>
-using namespace std;
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool has_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -17,7 +16,7 @@ string file_name_check(string file_name){
     if(digit_count > 3 || !has_dot){
         return "No";
     }
-    string extension = file_name.substr(file_name.find('.') + 1);
+    std::string extension = file_name.substr(file_name.find('.') + 1);
     if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
