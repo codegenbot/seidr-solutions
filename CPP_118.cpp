@@ -1,16 +1,14 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 bool isvowl(char c) {
     string vowels = "aeiouAEIOU";
-    return (find(camel_case_transform(&c), end(vowels), tolower(c)) != end(vowels));
+    return (std::find(std::begin(vowels).base(), std::end(vowels).base(), tolower(c)) != std::end(vowels));
 }
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int closest = -1;
     for (int i = 0; i < word.size(); ++i) {
         if (isvowl(word[i])) {
