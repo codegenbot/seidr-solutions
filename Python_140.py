@@ -11,4 +11,7 @@ def fix_spaces(text):
     return new_text
 
 text = input("Enter your text: ")
-print(fix_spaces(text))
+if not text.strip():  
+    print("Program did not receive expected input")
+else:
+    print(fix_spaces(text))
