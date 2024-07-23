@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,6 +26,5 @@ int skjkasdkd(std::vector<int> lst){
     return sumOfDigits;
 
 int main(){
-    std::vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;
+    assert (skjkasdkd({127, 97, 8192}) == 10);
 }
