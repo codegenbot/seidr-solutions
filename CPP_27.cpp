@@ -1,6 +1,6 @@
 ```
 #include <iostream>
-#include <cctype>
+#include <string>
 using namespace std;
 
 string flip_case(string str){
@@ -15,10 +15,12 @@ string flip_case(string str){
     return result;
 }
 
-int main(){
-    string s;
+int main() 
+{
+    string input;
     cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << flip_case(s) << endl;
+    getline(cin, input);
+    string output = flip_case(input);
+    cout << "Flipped case: " << output << endl;
     return 0;
 }
