@@ -1,11 +1,10 @@
-```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string fizzBuzz(int x) {
     std::string result = "";
 
-    if (x % 15 == 0) {
+    if (x % 3 == 0 && x % 5 == 0) {
         result = "FizzBuzz";
     } else if (x % 5 == 0) {
         if (result.empty()) {
@@ -25,7 +24,9 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int x = 15; // test value
-    std::cout << fizzBuzz(x) << std::endl;
+    int input;
+    std::cout << "Enter an integer: ";
+    std::cin >> input;
+    std::cout << fizzBuzz(input) << std::endl;
     return 0;
 }
