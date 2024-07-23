@@ -19,10 +19,5 @@ while True:
     except ValueError:
         print("Invalid input. Please enter an integer.")
 
-while True:
-    confirm = input("Press Enter to execute, or type 'q' to quit: ")
-    if confirm.lower() in ["", "q"]:
-        if confirm.lower() == "":
-            print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
-        else:
-            break
+if add(num1, num2):
+    print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
