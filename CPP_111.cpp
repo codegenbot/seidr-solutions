@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <map>
-#include <cctype>
-
+```cpp
 bool std::issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -21,7 +17,7 @@ std::map<char, int> histogram(const std::string& str) {
 
     for (char c : str) {
         if (!std::isalpha(c)) continue; // ignore non-alphabetic characters
-        char lower = std::tolower(c);
+        char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
         } else {
@@ -30,5 +26,4 @@ std::map<char, int> histogram(const std::string& str) {
     }
 
     return result;
-
 }
