@@ -1,11 +1,11 @@
-string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
-        }
+vector<string> reverse_delete(string s, string c) {
+    for (char ch : c) {
+        s.erase(remove(s.begin(), s.end(), ch), s.end());
     }
-
-    string palindromeCheck = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
-
-    return {result, palindromeCheck};
+    
+    string result = s;
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    
+    return {result, result == reversed ? "True" : "False"};
 }
