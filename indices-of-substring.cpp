@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result({}); // Initialize with a default constructor
+    vector<int> result({}); // Initialize the result with no elements and a suitable capacity.
     int i = 0; while (i <= text.size() - target.size()) {
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
