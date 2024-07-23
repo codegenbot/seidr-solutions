@@ -11,4 +11,4 @@ def indices_of_substring(text):
             break
     return result
 
-print(indices_of_substring("F[g([g(y[g([g(H~[g,[ "))
+print(indices_of_substring(input()))
