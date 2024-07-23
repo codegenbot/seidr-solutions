@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+#include <algorithm>
+
 std::vector<int> filter_integers(std::vector<int> input) {
     std::vector<int> result;
     for (int i : input) {
@@ -12,7 +14,7 @@ std::vector<int> filter_integers(std::vector<int> input) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
