@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
+#include <iostream>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -18,3 +18,4 @@ int main() {
     int result = fuelCost(v);
     std::cout << "Fuel cost: " << result << std::endl;
     return 0;
+}
