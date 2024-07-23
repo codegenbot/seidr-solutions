@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +19,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     
     while (i < lst1.size() && j < lst2.size()) {
         if (lst1[i] == lst2[j]) {
-            result[i] = string(lst1[i]); 
+            result[i] = string(lst1[i]);
             i++;
             j++;
         } else if (lst1[i] < lst2[j]) {
