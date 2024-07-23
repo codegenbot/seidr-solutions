@@ -1,11 +1,15 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 int search(vector<int> lst) {
     int max = 0;
-    for (int i : lst) {
-        if (i > 0 && i >= count(i)) {
-            max = i;
+    for (auto i : lst) {
+        if (i > 0 && i >= count(i, lst)) {
+            return i;
+        }
+        if (count(i, lst) > max) {
+            max = count(i, lst);
         }
     }
-    return max == 0 ? -1 : max;
+    return -1;
 }
