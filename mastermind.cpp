@@ -3,27 +3,25 @@ int main() {
     cin >> code >> guess;
 
     int black = 0, white = 0;
-    vector<int> freq(6, 0);
+    vector<int> cnt(6, 0);
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++black;
-            code[i] = guess[i] = '.';
+            black++;
         } else {
-            freq[code[i] - 'A']++;
+            cnt[code[i] - 'A']++;
         }
     }
 
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] != '.') {
-            if (freq[guess[i] - 'A'] > 0) {
-                ++white;
-                freq[guess[i] - 'A']--;
-            }
+        if (code[i] != guess[i] && cnt[guess[i] - 'A'] > 0) {
+            white++;
+            cnt[guess[i] - 'A']--;
         }
     }
 
-    cout << white << endl << black << endl;
+    cout << white << endl;
+    cout << black << endl;
 
     return 0;
 }
