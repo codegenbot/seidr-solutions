@@ -1,4 +1,6 @@
-#include <initializer_list>
+#pragma GCC c++17
+
+#include <algorithm>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
