@@ -10,7 +10,7 @@ idx = 0
 for i in range(n):
     diff1 = abs(total_sum - 2 * current_sum)
     diff2 = abs(total_sum - 2 * (current_sum + nums[i]))
-
+    
     if current_sum > half_sum or diff2 < diff1:
         if diff2 < min_diff:
             idx = i
