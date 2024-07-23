@@ -6,3 +6,4 @@ bool correct_bracketing(std::string brackets){
         else if(brackets[i] == ')')count--;
     }
     return count==0;
+}
