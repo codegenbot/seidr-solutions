@@ -10,10 +10,7 @@ else:
         mean = sum(new_numbers_list) / len(new_numbers_list)
         result = sum([abs(num - mean) for num in new_numbers_list]) / len(new_numbers_list)
         
-        cont = input("Do you want to enter another set of numbers? (yes/no): ")
         while True:
-            if cont.lower() != "yes":
-                break
             cont = input("Do you want to enter another set of numbers? (yes/no): ")
             if cont.lower() != "yes":
                 break
