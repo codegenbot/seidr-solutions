@@ -7,11 +7,11 @@ start = 0
 while start < len(text):
     index = text.find(target, start)
 
-    if index == -1:
-        break
-
     indices.append(index)
-    start = index + 1 if index == start else index
+    start = index + 1
+
+indices.pop()  # Remove the last index if it points to -1
 
 for index in indices:
-    print(index, end=" ")
+    if index != -1:
+        print(index, end=" ")
