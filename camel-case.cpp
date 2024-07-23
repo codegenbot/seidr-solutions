@@ -1,26 +1,21 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool nextWordIsUpper = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                if (!nextWordIsUpper) result += tolower(s[i]);
-                else result += toupper(s[i]);
-                nextWordIsUpper = !nextWordIsUpper;
+                result += toupper(s[i]);
                 i++;
             }
-        } else if (!nextWordIsUpper) result += tolower(s[i]);
-        else {
-            result += toupper(s[i]);
-            nextWordIsUpper = false;
+            result += " ";
+        } else {
+            result += tolower(s[i]);
         }
     }
     return result;
