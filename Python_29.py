@@ -1,18 +1,9 @@
-from typing import List
-
-
 def filter_by_prefix() -> List[str]:
-    while True:
-        user_input = input("Enter a list of strings (space-separated): ")
-        strings = user_input.strip()
-        user_strings = strings.split()
+    strings = input("Enter a list of strings (space-separated): ")
+    prefix = input("Enter a prefix: ")
 
-        prefix = input("Enter a prefix: ")
+    filtered_strings = [
+        s.strip() for s in strings.split() if s.strip().startswith(prefix)
+    ]
 
-        if not prefix:
-            raise ValueError("Please enter valid prefix!")
-
-        filtered_strings = [
-            s.strip() for s in user_strings if s.strip().startswith(prefix)
-        ]
-        return filtered_strings
+    return filtered_strings
