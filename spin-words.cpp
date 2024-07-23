@@ -8,7 +8,7 @@ int main() {
     std::string result;
 
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
 
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == ' ' || i == input.size() - 1) {
