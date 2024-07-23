@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     res = []
@@ -22,5 +23,6 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(n):
             if not visited[i][j]:
-                res.extend(dfs(i, j, []))
-    return [item for path in res for item in path]
+                for path in dfs(i, j, []):
+                    if len(path) == k:
+                        res.append(path)
