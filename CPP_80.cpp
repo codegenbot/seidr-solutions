@@ -1,7 +1,26 @@
-```cpp
-#include <algorithm>
-using namespace std;
+#include <string>
+#include <set>
 
 bool is_happy(string s) {
-    return s == sort(s.begin(), s.end());
+    if (s.length() < 3)
+        return false;
+    for (int i = 0; i <= s.length() - 3; i++) {
+        string sub = s.substr(i, 3);
+        bool unique_chars = true;
+        set<char> myset(sub.begin(), sub.end());
+        for (char c : myset) { 
+            int count = 0;
+            for (char d : s) {
+                if (c == d)
+                    count++;
+            }
+            if (count > 1) {
+                unique_chars = false;
+                break;
+            }
+        }
+        if (!unique_chars)
+            return false;
+    }
+    return true;
 }
