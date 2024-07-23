@@ -1,23 +1,20 @@
-```cpp
 #include <cctype>
 #include <string>
-#include <ostream>
+#include <algorithm>
 
-std::string flip_case(const std::string str){
+std::string flip_case(const std::string& str) {
     std::string result = "";
-    for(int i=0; i<str.length(); i++){
+    for (int i = 0; i < str.length(); i++) {
         char c = str[i];
-        if(c >= 'a' && c <= 'z'){
-            result += std::toupper(c);
-        }
-        else if(c >= 'A' && c <= 'Z'){
-            result += std::tolower(c);
-        }
-        else{
+        if (c >= 'a' && c <= 'z') {
+            result += toupper(c);
+        } else if (c >= 'A' && c <= 'Z') {
+            result += tolower(c);
+        } else {
             result += c;
         }
     }
-    return result.c_str();
+    return result;
 }
 
 int main() {
