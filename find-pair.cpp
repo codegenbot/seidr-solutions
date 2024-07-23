@@ -6,16 +6,15 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
-    map<int, int> indices;
+    
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        if (indices.find(target - nums[i]) != indices.end()) {
-            cout << nums[indices[target - nums[i]]] << endl;
-            cout << nums[i] << endl;
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << endl << target - nums[i] << endl;
             break;
         }
-        indices[nums[i]] = i;
+        mp[nums[i]] = i;
     }
-
+    
     return 0;
 }
