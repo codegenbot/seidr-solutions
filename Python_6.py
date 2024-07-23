@@ -4,13 +4,13 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     level = 0
-    for char in paren_string.replace(" ", ""):
+    for char in paren_string:
         if char == "(":
             level += 1
-            result.append(level)
+            result.append(0 if level > 1 else level)
         elif char == ")":
             level -= 1
-            result.append(level)
+            result.append(0 if level < 1 else level)
 
     return [i - 1 for i in result]
 
