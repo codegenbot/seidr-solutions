@@ -10,4 +10,4 @@ def parse_nested_parens(paren_string: str) -> list:
         elif char == ")":
             nesting_level -= 1
     result.append(max_nesting_level)
-    return [i for i in range(1, max_nesting_type + 1)]
+    return [i for i in range(1, max_nesting_level + 1)]
