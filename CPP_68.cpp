@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <ostream>
@@ -36,4 +35,3 @@ int main() {
     }
     
     return 0;
-}
