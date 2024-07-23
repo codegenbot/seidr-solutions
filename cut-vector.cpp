@@ -2,14 +2,14 @@
 #include <iostream>
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
     
     int leftSum = 0;
     int rightSum = totalSum;
@@ -29,16 +29,16 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << 0 << endl;
+    std::cout << 0 << std::endl;
     
     for (int i = cutIndex + 1; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << 0 << endl;
+    std::cout << 0 << std::endl;
     
     return 0;
 }
