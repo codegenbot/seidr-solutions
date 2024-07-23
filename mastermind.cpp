@@ -4,17 +4,15 @@
 using namespace std;
 
 pair<int, int> mastermind(string code, string guess) {
-    int whitePegs = 0;
     int blackPegs = 0;
+    int whitePegs = 0;
 
-    // Count black pegs
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
-    // Count total correct characters in code and guess
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
         if(code[i] != guess[i]) {
@@ -22,16 +20,14 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    // Calculate white pegs
-    int whitePegsTemp = 0;
+    whitePegs = 0;
     for(int i = 0; i < 6; i++) {
-        if(colorCount[i] > 1) {
-            whitePegsTemp++;
+        if(colorCount[i] > 0) {
+            whitePegs++;
         }
     }
-    whitePegs = 4 - blackPegs - whitePegsTemp;
 
-    return std::make_pair(blackPegs, whitePegs);
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
