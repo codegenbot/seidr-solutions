@@ -1,5 +1,4 @@
-```python
-def cut_vector(vector):
+def cut_vector(vector): 
     left_sum = 0
     min_diff = float('inf')
     split_index = -1
