@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <set>
 #include <string>
 
 std::string find_max(std::vector<std::string> words) {
