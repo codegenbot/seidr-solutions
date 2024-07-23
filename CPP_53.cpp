@@ -1,10 +1,13 @@
+```cpp
 #include <cstdlib>
-
 int add(int x, int y) {
     return x + y;
 }
 
 int main() {
-    int x = rand() % 1000;
-    return 0;
+    srand(time(0));  
+    int x = rand() % 1000; 
+    int y = rand() % 1000; 
+    int result = add(x, y); 
+    cout << "The sum is: " << result << endl;
 }
