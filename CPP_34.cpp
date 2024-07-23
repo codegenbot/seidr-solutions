@@ -11,7 +11,7 @@ bool issame(vector<int> v1, vector<int> v2) {
 }
 
 vector<int> unique(vector<int> l) {
-    set<int> s{l.begin(), l.end()};
+    set<int> s(l.begin(), l.end());
     vector<int> res(std::initializer_list<int>{s.begin(), s.end()});
     return res;
 }
