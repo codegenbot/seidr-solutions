@@ -1,15 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-double find_zero(std::vector<double> xs){
-    double x = -xs[1]/(2*xs[0]);
-    return poly(xs,x) == 0 ? x : 0;
+double find_zero(const std::vector<double>& coeffs) {
+    double x = 0;
+    while (true) {
+        double y = poly(coeffs, x);
+        if (abs(y) < 1e-6)
+            return x;
+        x += 0.5;
+    }
 }
 
-double poly(std::vector<double> coeffs, double x) {
-    double sum = 0.0;
-    for(size_t i=0; i<coeffs.size(); ++i){
-        sum += coeffs[i] * pow(x,i);
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
-    return sum;
+    return result;
+}
+
+int main() {
+    std::vector<double> coeffs = {1.0, -2.0, 3.0};
+    double root = find_zero(coeffs);
+    std::cout << "The zero of the polynomial is: " << root << std::endl;
 }
