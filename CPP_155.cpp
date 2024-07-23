@@ -28,6 +28,6 @@ bool checkSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(checkSame(even_odd_count(0), {0, 1})); 
+    assert(checkSame(even_odd_count(0), std::vector<int>{0, 1})); 
     return 0;
 }
