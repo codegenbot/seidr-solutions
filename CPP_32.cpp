@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -22,22 +23,24 @@ double find_zero(vector<double> coeffs) {
 }
 
 int main() {
-    vector<double> coeffs;
-    double solution;
-
-    int n; // Input the degree of polynomial
-    cout << "Enter the degree of polynomial: ";
-    cin >> n;
+    vector<double> coeffs; // Declare coeffs here
+    double x;
     
-    for(int i=0; i<=n;i++){
-        double coeff;
-        cout << "Enter coefficient for x^" << i << ": ";
-        cin >> coeff;
-        coeffs.push_back(coeff);
+    cin >> x;
+
+    cout << "Enter the coefficients of the polynomial: ";
+    for(int i = 0 ; i < 5; i++) { 
+        double c; 
+        cin >> c; 
+        coeffs.push_back(c);
     }
-
-    solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3);
-
+    
+    double solution = find_zero(coeffs);
+    if(abs(poly(coeffs, solution))< 1e-3) {
+        cout << "The root is: " << solution;
+    } else {
+        cout << "No root was found";
+    }
+    
     return 0;
 }
