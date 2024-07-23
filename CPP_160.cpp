@@ -15,7 +15,7 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
             if (numbers[i + 1] != 0) {
                 result /= numbers[i + 1];
             } else {
-                return -1;
+                return -1; // division by zero
             }
         }
     }
