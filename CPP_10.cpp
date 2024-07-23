@@ -20,5 +20,5 @@ string make_palindrome(string str){
     
     string prefix = str.substr(0, i);
     string suffix = str.substr(j + 1);
-    return prefix + str.substr(i, j-i+1).reverse() + suffix;
+    return prefix + string(temp = str.substr(i, j-i+1)).reverse() + suffix;
 }
