@@ -28,9 +28,11 @@ def solve_boolean(expression):
                     else:
                         result = False
                 elif operator == '&':
-                    result &= (tokens[i] in ['T', 't'])
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result &= (tokens[stack.pop()] in ['T', 't'])
                 else:
-                    result |= (tokens[i] in ['T', 't'])
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result |= (tokens[stack.pop()] in ['T', 't'])
             i += 1
 
         if len(stack) > 0:
