@@ -1,11 +1,13 @@
+Here is the corrected code:
+
 ```cpp
 #include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
     double total = (n * m);
-    double petersWin = (m - 1) + (n - m) / (total - m);
-    return petersWin;
+    double petersWin = (m - 1) * (n - m + 1);
+    return petersWin / total;
 }
 
 int main() {
