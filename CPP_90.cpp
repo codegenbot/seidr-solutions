@@ -1,15 +1,14 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 int findNextSmallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2)
+    if (sorted.size() <= 1)
         return -1;
-    for (int i = 0; i < sorted.size() - 1; i++) {
+    for (int i = 0; i < sorted.size() - 2; i++) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -1;
+    return sorted.back();
 }
