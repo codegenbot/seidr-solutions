@@ -1,5 +1,5 @@
-```cpp
-#include<string>
+#include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -12,8 +12,8 @@ std::string spinWords(std::string str) {
                 result += word + " ";
                 word = "";
             } else {
-                std::string reversedWord = word.substr(word.rbegin(), word.rend());
-                result += reversedWord + " ";
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
                 word = "";
                 longWord = false;
             }
@@ -28,8 +28,8 @@ std::string spinWords(std::string str) {
     if (!longWord) {
         result += word;
     } else {
-        std::string reversedWord = word.substr(word.rbegin(), word.rend());
-        result += reversedWord;
+        std::reverse(word.begin(), word.end());
+        result += word;
     }
 
     return result;
