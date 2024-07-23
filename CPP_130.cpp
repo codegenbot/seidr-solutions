@@ -1,3 +1,4 @@
+```cpp
 vector<int> tri(int n) {
     vector<int> result;
     if (n == 0)
