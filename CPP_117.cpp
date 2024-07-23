@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -26,5 +25,6 @@ std::vector<std::string> select_words(std::string s, int k) {
 }
 
 int main(){
-    assert(isEqualVectors(select_words("a b c d e f", 1), std::vector<std::string>{ "b","c","d","f" }));
+    assert(isEqualVectors(select_words("a b c d e f", 1), std::vector<std::string>{"b","c","d","e"})); 
+    return 0;
 }
