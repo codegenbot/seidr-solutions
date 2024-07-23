@@ -13,19 +13,15 @@ int gcd(int a, int b) {
 
 bool simplify(string x, string n) {
     int a = 1, b = 1, c = 1, d = 1;
-    
-    // Split the fractions into numerator and denominator
-    std::string numerator = x.substr(0, x.find('/'));
-    std::string denominator = x.substr(x.find('/') + 1);
-    
-    a = stoi(numerator);
-    b = stoi(denominator);
 
-    std::string num = n.substr(0, n.find('/'));
-    std::string denom = n.substr(n.find('/') + 1);
-    
-    c = stoi(num);
-    d = stoi(denom);
+    // Split the fractions into numerator and denominator
+    string pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
+
+    pos = n.find '/';
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
 
     // Check if the product is an integer
     return a / gcd(b, a) == c / gcd(d, c);
