@@ -36,4 +36,5 @@ def solve():
                 score += 30
         return score
 
-    print(bowling_score(input("Enter the individual bowls: ").split()))
+    if __name__ == "__main__":
+        print(bowling_score(input("Enter the individual bowls: ").split()))
