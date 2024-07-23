@@ -1,8 +1,8 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+string decimal_to_binary(int decimal){
+    string binary = "";
     while(decimal > 0){
         if((decimal & 1) == 1)
             binary = "1" + binary;
@@ -14,8 +14,6 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    assert (decimal_to_binary(15) == "db1111db");
-    std::cout << "Testing function..." << std::endl;
-    std::cout << decimal_to_binary(10) << std::endl; 
+    assert(decimal_to_binary(15) == "db1111db");
     return 0;
 }
