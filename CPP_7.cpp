@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <initializer_list>
 
@@ -21,4 +20,3 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> arr, std::
 int main() {
     assert(issame(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, {"grunt", "prune"}));
     return 0;
-}
