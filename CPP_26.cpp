@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -9,10 +10,10 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+std::vector<int> areSame(std::vector<int> numbers) {
     std::vector<int> result;
     for(int num : numbers){
-        if(find(result.begin(), result.end(), num) == result.end()){
+        if(std::find(result.begin(), result.end(), num) == result.end()){
             result.push_back(num);
         }
     }
@@ -20,6 +21,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main(){
-    assert(std::is_same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
+    assert(areSame({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 4, 5}));
     return 0;
 }
