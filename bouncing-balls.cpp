@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 
 int main() {
     double startHeight, firstBounce, bouncinessIndex;
@@ -14,20 +15,18 @@ int main() {
     std::cout << "Enter the number of bounces: ";
     std::cin >> numBounces;
 
-    bouncinessIndex = (firstBounce / startHeight) * (1 - (abs(firstBounce) / abs(startHeight)));
+    bouncinessIndex = (firstBounce / startHeight) * 0.8;
 
-    double totalDistance = 0;
+    double totalDistance = (2 * abs(startHeight)) - 1;
     for (int i = 1; i <= numBounces; i++) {
         if(i > 1)
             startHeight = abs(startHeight * bouncinessIndex);
         else
             startHeight = firstBounce;
-        
-        if(startHeight < 0) startHeight = -startHeight;
-        totalDistance += 2 * startHeight; 
+        totalDistance += 2 * abs(startHeight); 
     }
 
-    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << std::fixed << std::setprecision(2) << totalDistance << std::endl;
 
     return 0;
 }
