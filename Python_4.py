@@ -1,14 +1,11 @@
+```python
 from typing import List
+import statistics
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    if len([num for num in numbers if isinstance(num, (int, float))]) == 0:
+    if not numbers:
         return 0
 
-    average = sum([num for num in numbers if isinstance(num, (int, float))]) / len(
-        [num for num in numbers if isinstance(num, (int, float))]
-    )
-
-    return sum(
-        abs(num - average) for num in numbers if isinstance(num, (int, float))
-    ) / len([num for num in numbers if isinstance(num, (int, float))])
+    avg = statistics.mean(numbers)
+    return sum(abs(num - avg) for num in numbers)
