@@ -1,4 +1,4 @@
-def substitution_cipher(cipher_text1, cipher_text2, message):
-    mapping = {cipher_text1[i]: cipher_text2[i] for i in range(min(len(cipher_text1), len(cipher_text2)))}
-    deciphered_message = "".join(mapping.get(char, char) for char in message)
-    return deciphered_message
+def substitution_cipher(input1, input2, input3):
+    cipher = str.maketrans(input1, input2)
+    result = input3.translate(cipher).lower()  
+    return result
