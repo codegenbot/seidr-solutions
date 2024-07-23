@@ -23,7 +23,11 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    map<string, string> myDict = {{"hello", "H"}, {"goodbye", "g"}};
-    cout << boolalpha << check_dict_case(myDict) << endl;  // Output: true
-    return 0;
+    // Implement your logic here
+    map<string, string> dict = {{"hello", "HELLO"}, {"world", "WORLD"}};
+    if (check_dict_case(dict)) {
+        cout << "The dictionary case is either all upper or all lower." << endl;
+    } else {
+        cout << "The dictionary case is mixed." << endl;
+    }
 }
