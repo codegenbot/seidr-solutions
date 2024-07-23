@@ -4,7 +4,7 @@ target = input()
 indices = []
 start = 0
 
-while start <= len(text) - len(target):
+while start < len(text):
     index = text.find(target, start)
 
     if index == -1:

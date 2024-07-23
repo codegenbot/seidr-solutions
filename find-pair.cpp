@@ -36,7 +36,8 @@ int main() {
     std::vector<int> result = findPair(nums, target);
 
     for (int i = 0; i < result.size(); i += 2) {
-        std::cout << result[i] << " " << result[i + 1] << std::endl;
+        std::cout << result[i] << std::endl;
+        std::cout << result[i + 1] << std::endl;
     }
 
     return 0;

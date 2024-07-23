@@ -1,7 +1,5 @@
-#include <iostream>
-#include <string>
-#include <sstream>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -9,8 +7,7 @@ int main() {
     string input;
     getline(cin, input);
     
-    string word;
-    string result;
+    string word, result;
     istringstream iss(input);
     
     while (iss >> word) {

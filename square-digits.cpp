@@ -1,11 +1,18 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string input;
-    cin >> input;
-    string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+    int n;
+    std::cin >> n;
+
+    std::string result = "";
+    while (n > 0) {
+        int digit = n % 10;
+        result = std::to_string(digit * digit) + result;
+        n /= 10;
     }
-    cout << output << endl;
+
+    std::cout << result << std::endl;
+
     return 0;
 }
