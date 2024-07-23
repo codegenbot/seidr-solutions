@@ -1,9 +1,9 @@
 #include <vector>
 #include <initializer_list>
 
-int count_nums(std::vector<int> numbers) {
+int count_nums(std::vector<int> n) {
     int count = 0;
-    for (int num : numbers) {
+    for (int num : n) {
         if (num < 0) {
             num = -num;
         }
@@ -17,3 +17,4 @@ int count_nums(std::vector<int> numbers) {
         }
     }
     return count;
+}
