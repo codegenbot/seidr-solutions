@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+Here is the modified code:
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -11,45 +10,25 @@ int bowlingScore(std::string s) {
         if (c == 'X') {
             score += 30;
         } else if (c == '/') {
-            if (i == s.length() - 1) { 
-                score += 10 + roll1 * 2;
-            } else {
-                if (roll1 > 0 && roll2 == 0) {
-                    score += roll1 * 2; 
-                    roll1 = 0; 
-                    roll2 = 0; 
-                }
-                if (i == s.length() - 2) {
-                    if (c == 'X') {
-                        score += 30;
-                    } else {
-                        int val = c - '0';
-                        if (roll1 + roll2 >= 10) {
-                            score += 10 + roll1 * 2;
-                        } else {
-                            score += 10 + roll1 + roll2;
-                        }
-                        roll1 = 0; 
-                        roll2 = 0;
-                    }
-                }
-            }
+            score += (10 - roll1) * 2;
+            break;
         } else {
             int val = c - '0';
             if (roll1 == 0) {
                 roll1 = val;
             } else {
-                roll2 = val;
+                if (roll1 + val >= 10) {
+                    score += 10;
+                    roll1 = 0;
+                    roll2 = val;
+                } else {
+                    roll1 = 0;
+                    roll2 = val;
+                }
             }
         }
     }
 
     return score;
 
-}
-
-int main() {
-    int score = bowlingScore("XXXXX");
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
 }
