@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,7 +6,7 @@ using namespace std;
 vector<int> leaders(vector<int>& v) {
     vector<int> res(v.size(), 0); 
     int rightmost = v.back();
-    res[v.size() - 1] = rightmost; 
+    res[0] = rightmost; 
     for (int i = v.size() - 2; i >= 0; --i) {
         if (v[i] >= rightmost) {
             rightmost = v[i];
