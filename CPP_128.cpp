@@ -11,6 +11,7 @@ int prod_signs(vector<int> arr) {
     }
     
     if (arr.empty()) {
+        // Handle empty array case
         if (sum != 0) {
             return -32768;
         } else {
