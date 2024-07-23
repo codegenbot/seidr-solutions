@@ -4,7 +4,7 @@
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
-    for(int i = 0; i < k && !arr.empty(); i++){
+    for(int i = 0; i < k; i++){
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
         arr.erase(it);
@@ -12,7 +12,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-bool identical(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -20,9 +20,8 @@ bool identical(const std::vector<int>& a, const std::vector<int>& b) {
             return false;
     }
     return true;
-}
 
 int main() {
-    assert(identical(maximum({1, 2, 3, -23, 243, -400, 0}, 5), std::vector<int>({243, 243, 0})));
+    assert(isSame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {3, 2, 1}));
+    {
     return 0;
-}
