@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -5,17 +6,13 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
-            return solveBoolean(left) || solveBoolean(right);
+            bool left = (expression.substr(0, i) == "T" || expression.substr(0, i) == "t");
+            bool right = (expression.substr(i + 1) == "T" || expression.substr(i + 1) == "t");
+            return left || right;
         } else if (c == '&') {
-            std::string left = expression.substr(0, i);
-            std::string right = expression.substr(i + 1);
-            return solveBoolean(left) && solveBoolean(right);
-        } else if (c == 'T' || c == 't') {
-            return true;
-        } else if (c == 'F' || c == 'f') {
-            return false;
+            bool left = (expression.substr(0, i) == "T" || expression.substr(0, i) == "t");
+            bool right = (expression.substr(i + 1) == "T" || expression.substr(i + 1) == "t");
+            return left && right;
         }
     }
     
@@ -25,8 +22,8 @@ bool solveBoolean(std::string expression) {
         else
             return false;
     } else 
-        return false; 
-
+        return false; // default value
+    
 }
 
 int main() {

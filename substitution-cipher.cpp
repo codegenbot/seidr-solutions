@@ -1,33 +1,35 @@
 ```cpp
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
-    std::string result;
+int main() {
+    std::string cipher1, cipher2, input;
+    
+    // Read input from user
+    std::cout << "Enter the first cipher: ";
+    std::getline(std::cin, cipher1);
+    std::cout << "Enter the second cipher: ";
+    std::getline(std::cin, cipher2);
+    std::cout << "Enter the message to decipher: ";
+    std::getline(std::cin, input);
+
     for (char c : input) {
         if (c == '\0') {
-            break; // if the end of string is reached
+            break; 
         }
-        size_t pos = cipher2.find(std::tolower(c)); // convert to lowercase
+        size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
-            result += cipher1[pos]; // substitute with corresponding character in cipher1, also converted to lowercase
+            result += cipher1[pos]; 
         } else {
-            if(std::isupper(c)) {
-                result += std::toupper(c); // if not found and it is uppercase, add as it is
+            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
+            size_t pos2 = cipher1.find(originalCase); 
+            if (pos2 != std::string::npos) {
+                result += originalCase; 
             } else {
-                result += c; // if not found and it is lowercase, add as it is
+                result += c; 
             }
         }
     }
-    return result;
-}
 
-int main() {
-    std::string cipher1, cipher2, input;
-    std::getline(std::cin, cipher1);
-    std::getline(std::cin, cipher2);
-    std::getline(std::cin, input);
-    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
 }
