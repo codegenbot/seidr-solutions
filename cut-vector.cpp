@@ -25,7 +25,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut);
+    left = vector<int>(v.begin(), v.begin() + best_cut+1);
     right = vector<int>(v.begin() + best_cut, v.end());
     
     return {{left}, {right}};
