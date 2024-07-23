@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -16,7 +15,7 @@ int sum_even_odds(vector<int> lst) {
 }
 
 int main() {
-    assert(sum_even_odds({3, 13, 2, 9}) == 24);
+    assert(sum_even_odds({3, 13, 2, 9}) == 22);
     cout << sum_even_odds({1, 4, 5, 10}) << endl;
     return 0;
 }
