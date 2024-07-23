@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     transform(a.begin(), a.end(), a.begin(), ::tolower);
     transform(b.begin(), b.end(), b.begin(), ::tolower);
 
@@ -26,26 +26,29 @@ bool issame(vector<string> a, vector<string> b) {
     return false;
 }
 
-vector<string> total_match(vector<vector<string>> lst) {
+vector<string> totalMatch(vector<vector<string>> lst) {
     vector<string> result;
 
-    for (const auto& sublst : lst) {
-        vector<string> temp;
-        transform(sublst.begin(), sublst.end(), back_inserter(temp), ::tolower);
-        sort(temp.begin(), temp.end());
+    for (auto& sublst : lst) {
+        transform(sublst.begin(), sublst.end(), sublst.begin(), ::tolower);
+        sort(sublst.begin(), sublst.end());
+
+        int i = 0, j = 0;
         
-        bool found = false;
-        for (int i = 0; i < result.size(); i++) {
-            if (issame(result[i], temp)) {
-                found = true;
-                break;
+        while (i < sublst.size() && j < result.size()) {
+            if (sublst[i] == result[j]) {
+                result.erase(result.begin() + j);
+                i++;
+                j--;
+            } else if (sublst[i] < result[j]) {
+                i++;
+            } else {
+                j++;
             }
         }
 
-        if (!found) {
-            for (const auto& str : temp) {
-                result.push_back(str);
-            }
+        for (; i < sublst.size(); i++) {
+            result.push_back(sublst[i]);
         }
     }
 
@@ -53,9 +56,9 @@ vector<string> total_match(vector<vector<string>> lst) {
 }
 
 int main() {
-    vector<vector<string>> lst = {{"this"}};
+    vector<vector<string>> lst = {{"this"}, {}};
     
-    vector<string> result = total_match(lst);
+    totalMatch(lst);
     
     return 0;
 }
