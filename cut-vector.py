@@ -7,11 +7,11 @@ right_sum = total_sum
 min_diff = float("inf")
 cut_index = 0
 
-for i in range(n - 1):
+for i in range(n - 1):  # Change range to n - 1
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
-    if diff <= min_diff:
+    if diff <= min_diff:  # Change < to <=
         min_diff = diff
         cut_index = i
 
