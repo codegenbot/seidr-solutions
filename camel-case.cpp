@@ -1,28 +1,24 @@
 Here is the solution:
 
-#include <iostream>
-#include <string>
-
-std::string camelCase(const std::string& input) {
-    std::string output = "";
-    for (char c : input) {
-        if (c == '-') {
-            output += c;
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            if (i > 0 && s[i - 1] != ' ') {
+                result += toupper(s[i + 1]);
+                i++;
+            } else {
+                result += s[i];
+            }
+        } else if (s[i] == ' ') {
             continue;
-        }
-        if (output.back() == ' ') {
-            output[output.size() - 1] = toupper(output[output.size() - 1]);
         } else {
-            output += tolower(c);
+            if (result.size() > 0) {
+                result[0] = tolower(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
-    return output;
-}
-
-int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
-    }
-    return 0;
+    return result;
 }
