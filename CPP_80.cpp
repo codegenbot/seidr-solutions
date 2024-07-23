@@ -1,4 +1,6 @@
-```
+#include <string>
+using namespace std;
+
 bool is_one(string s) {
     return s.length() == 1 && s[0] == '1';
 }
@@ -10,13 +12,13 @@ bool is_happy(string s) {
         bool changed = false; // flag to track if the value of t changes
         for(char c : t) 
             total += (c-'0')*(c-'0');
-        if(total == 4) { // handle special case where the value doesn't change
+        if(total == 4) { 
             return false;
         }
         if(t != std::to_string(total)) {
             changed = true;
         }
-        t = std::to_string(total);
+        t = to_string(total);
     }
     return t == "1";
 }
