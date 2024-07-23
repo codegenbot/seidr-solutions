@@ -1,9 +1,7 @@
 string remove_vowels(string text){
-    string result;
+    string result = "";
     for (char c : text) {
-        if (!isalpha(c)) {
-            result += c;
-        } else if (!strchr("aeiouAEIOU", tolower(c))) {
+        if (!strchr("aeiouAEIOU", c)) {
             result += c;
         }
     }
