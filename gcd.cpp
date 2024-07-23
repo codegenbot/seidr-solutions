@@ -9,14 +9,9 @@ long long gcd(long long a, long long b) {
 }
 
 int main() {
-    long long num1, num2;
-    
+    int num1, num2;
     cout << "Enter two numbers: ";
     cin >> num1 >> num2;
-
-    long long result = gcd(num1, num2);
-
-    cout << "GCD of the entered numbers is: " << result << endl;
-
+    cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << endl;
     return 0;
 }
