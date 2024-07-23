@@ -1,38 +1,28 @@
-```
+```cpp
 #include <vector>
-#include <cmath>
+using namespace std;
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> coeffs){
+    double x = 1; 
+    while (true) {
+        double fx = poly(coeffs,x);
+        double dfx = poly_prime(coeffs,x);
+        if (abs(fx)< 1e-3 || abs(dfx)< 1e-6)
+            return x;
+        x -= fx / dfx;
+    }
+}
+
+double poly(vector<double> coeffs, double x){
     double sum = 0;
-    double product = 1;
-    int i;
-    std::vector<double> coeffs; // declare and initialize
-    for (i=0;i<xs.size();i++)
-    {
-        if(i%2==0)
-            sum += xs[i];
-        else
-            product *= -xs[i]/(double)fact((int)i);
-    }
-    return -product/sum;
+    for(int i=0; i<coeffs.size(); i++)
+        sum += coeffs[i]*pow(x,i);
+    return sum;
 }
 
-int fact(int n){
-    int i,fact=1;
-    for (i=1;i<=n;i++)
-        fact*=i;
-    return fact;
-}
-
-double poly(std::vector<double> coeffs, double solution){
-    double result = 0.0;
-    for(int i = 0; i < coeffs.size(); i++){
-        result += coeffs[i] * pow(solution, i);
-    }
-    return result;
-}
-int main() {
-    std::vector<double> coeffs; // declare
-    double solution = find_zero(coeffs); // declare and assign 
-    return 0;
+double poly_prime(vector<double> coeffs, double x){
+    double sum = 0;
+    for(int i=1; i<coeffs.size(); i++)
+        sum += i*coeffs[i]*pow(x,i-1);
+    return sum;
 }
