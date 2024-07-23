@@ -1,18 +1,16 @@
 int main() {
     string input;
     getline(cin, input);
+    bool hyphenFound = false;
     
-    bool capitalize = false;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                cout << (char)toupper(c);
-                capitalize = false;
-            } else {
-                cout << c;
-            }
+    for(int i = 0; i < input.size(); i++) {
+        if(input[i] == '-') {
+            hyphenFound = true;
+        } else if(hyphenFound) {
+            cout << (char)toupper(input[i]);
+            hyphenFound = false;
+        } else {
+            cout << input[i];
         }
     }
     
