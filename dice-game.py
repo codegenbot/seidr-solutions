@@ -1,9 +1,6 @@
+from decimal import Decimal
+
 n = int(input())
 m = int(input())
-
-if n > m:
-    print(round((n - m) / n, 8))
-elif m > n:
-    print(round((n / m), 2))
-else:
-    print(0.5)
+probability = Decimal(sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m)).quantize(Decimal('0.00000001'))
+print(probability)
