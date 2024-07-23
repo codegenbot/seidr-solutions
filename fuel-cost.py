@@ -1,2 +1,1 @@
-result = sum(int(int(num) / 3 - 2) for num in input().split())
-print(result)
+result = sum(int(num) for num in input().split())//3 - 2*len(input().split())
