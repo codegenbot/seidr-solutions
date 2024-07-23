@@ -1,3 +1,4 @@
+```
 def decipher_message(cipher1, cipher2, message):
     encrypt_map = {}
     decrypt_map = {}
@@ -11,5 +12,10 @@ def decipher_message(cipher1, cipher2, message):
             elif c1 != ' ': 
                 encrypt_map[c1] = c2
 
-    result = "".join(encrypt_map.get(char.upper(), char) if char.isalpha() else char for char in message)
+    result = ""
+    for char in message:
+        if char.isalpha():
+            result += decrypt_map.get(char.upper(), char).lower() if char.islower() else decrypt_map.get(char.upper(), char)
+        else: 
+            result += char
     return result
