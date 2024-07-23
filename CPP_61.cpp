@@ -1,28 +1,16 @@
 ```cpp
-#include <string>
-using namespace std;
-
-bool is_permutation_of_original(string original, string modified) {
-    if (original.length() != modified.length()) 
-        return false;
-    
-    int open_count = 0, close_count = 0;
-    for (char c : original) {
-        if (c == '(')
-            open_count++;
-        else
-            close_count++;
+bool correct_bracketing(string brackets) {
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            if (count == 0)
+                return false;
+            count--;
+            if(count < 0)
+                return false;
+        }
     }
-    
-    for (char c : modified) {
-        if (c == '(')
-            open_count--;
-        else
-            close_count--;
-        
-        if (open_count < 0 || close_count < 0) 
-            return false;
-    }
-    
-    return open_count == 0 && close_count == 0;
+    return count == 0;
 }
