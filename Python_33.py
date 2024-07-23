@@ -1,3 +1,3 @@
 ```
 def sort_third(lst: list) -> list:
-    return sorted((i % 10, i) for i in lst)
+    return sorted(int(str(i)[1:]) for i in lst if len(str(i)) > 1)
