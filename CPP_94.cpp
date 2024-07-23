@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int skjkasdkd(vector<int> lst) {
@@ -29,17 +31,13 @@ bool isPrime(int n) {
     }
     return true;
 
-}
-
 int main() {
-    vector<int> lst;
-    int num;
-    cout << "Enter the numbers. To stop, enter -1.\n";
-    while ((cin >> num) && (num != -1)) {
-        lst.push_back(num);
-    }
-
-    cout << "The sum of digits in the largest prime number is: ";
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for (auto &x : lst) 
+        cin >> x;
+    
     cout << skjkasdkd(lst);
 
     return 0;
