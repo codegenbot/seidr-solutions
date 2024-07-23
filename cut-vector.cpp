@@ -10,7 +10,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
         if (leftSum == rightSum) {
-            return {{}, {v.begin(), v.end()}};
+            return pair<vector<int>, vector<int>>({},{v.begin(), v.end()});
         } else if (abs(leftSum - rightSum) < minDiff) {
             minDiff = abs(leftSum - rightSum);
             cutIndex = i;
