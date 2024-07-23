@@ -16,7 +16,7 @@ int bowlingScore(std::string s) {
             }
         } else if (s[i] == '/') {
             int j = i + 1;
-            while (j < s.size() && !isdigit(s[j])) {
+            while (j < 11 && !isdigit(s[j])) {
                 j++;
             }
             int pins = s[j] - '0';
