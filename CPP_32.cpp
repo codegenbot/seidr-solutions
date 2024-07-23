@@ -25,7 +25,7 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs = {2, -7, 11, -10, 3};
+    vector<double> xs = {1.0, -2.5, 3.0}; // your coefficients
     cout << fixed << setprecision(2) << find_zero(xs) << endl;
     return 0;
 }
