@@ -1,7 +1,8 @@
 #include <vector>
 #include <cmath>
 
-bool isSame(std::vector<int>& a, std::vector<int>& b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
@@ -9,10 +10,10 @@ bool isSame(std::vector<int>& a, std::vector<int>& b) {
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    return compareVect(game, guess);
+    return result(game, guess);
 }
 
-std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int>& guess) {
+std::vector<int> result(const std::vector<int>& game, const std::vector<int>& guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -25,5 +26,5 @@ std::vector<int> compareVect(const std::vector<int>& game, const std::vector<int
 }
 
 int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
+    assert(isSame(compare({1,2,3,5},{-1,2,3,4}), std::vector<int>({2,0,0,1})));
 }
