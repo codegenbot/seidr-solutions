@@ -1,8 +1,8 @@
 using namespace std;
 
-string squareDigitsFunc(string n) {
+string squaredDigitsFunc(string num) {
     string result = "";
-    for (char c : n) {
+    for (char c : num) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
@@ -10,6 +10,6 @@ string squareDigitsFunc(string n) {
 }
 
 int main() {
-    cout << squareDigitsFunc("17") << endl;
+    cout << squaredDigitsFunc("17") << endl;
     return 0;
 }
