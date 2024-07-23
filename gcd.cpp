@@ -3,23 +3,23 @@
 #include <vector>
 #include <string>
 
-unsigned long long gcd(unsigned long long a, unsigned long long b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        unsigned long long temp = b;
+        size_t temp = b;
         b = a % b;
         a = temp;
     }
     return a;
 }
 
-std::vector<unsigned long long> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<unsigned long long> result;
-    unsigned long long n = text.length();
-    unsigned long long m = target.length();
+std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<size_t> result;
+    size_t n = text.length();
+    size_t m = target.length();
 
-    for (unsigned long long i = 0; i <= n - m; i++) {
+    for (size_t i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(i);
+            result.push_back(static_cast<size_t>(i));
             while ((i + m) <= n && text.substr(i, m) == target)
                 i++; // Handle overlapping occurrences
         }
@@ -31,14 +31,14 @@ std::vector<unsigned long long> indicesOfSubstring(std::string text, std::string
 int main() {
     std::string text = "Hello World";
     std::string target = "World";
-    std::vector<unsigned long long> result;
+    std::vector<size_t> result;
 
-    unsigned long long GCD = gcd(909378243576ULL, 50); 
+    size_t GCD = gcd(static_cast<size_t>(909378243576LL), 50); 
     std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
     
     result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
-    for (unsigned long long i : result) {
+    for (size_t i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
