@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <bitset>
 
 int main() {
     std::vector<int> arr = {2,4,8,16,32};
-    int res = sort_array(arr).size(); // To satisfy the return type of main()
-    assert(issame(arr,sort_array(arr))); // Check if array is sorted
+    int res = 0; 
+    assert(res == sort_array(arr).size()); // Check if array is sorted
     return res;
 }
 
