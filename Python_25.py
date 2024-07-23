@@ -1,5 +1,13 @@
+```
 def solve():
-    n = int(input("Enter a number: "))
+    num = int(input("Enter a number: "))
+    print(factorize(num))
+
+from typing import List
+import math
+
+
+def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
@@ -14,4 +22,4 @@ def solve():
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    print(f"The factors of {n} are: {factors}")
+    return factors
