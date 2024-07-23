@@ -1,4 +1,4 @@
-```python
+```
 cipher_dict = {}
 for i, char1 in enumerate(input("Enter the first string of characters to substitute: ").upper()):
     char2 = input(f"Enter the character substitution ({char1}/): ")
