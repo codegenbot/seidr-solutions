@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,9 +17,8 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main
+int main 
 {
-    std::vector<std::string> input;
     int numStrings;
 
     // Read the number of strings from the user
@@ -27,7 +26,7 @@ int main
     std::cin >> numStrings;
 
     if(numStrings < 1) {
-        std::cerr << "Error: Number of strings must be at least 1. Try again." << std::endl;
+        std::cout << "Error: Number of strings must be a positive integer." << std::endl;
         return -1;
     }
 
@@ -36,16 +35,16 @@ int main
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
         std::getline(std::cin, str);
-        input.push_back(str);
+        if(str.empty()) {
+            std::cout << "Warning: String cannot be empty. Skipping this string." << std::endl;
+        } else {
+            std::vector<std::string> input;
+            input.push_back(str);
+        }
     }
 
     // Concatenate the strings
-    if(input.size() > 0) {
-        std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
-    }
-    else {
-        std::cerr << "Warning: No strings entered. Nothing to concatenate." << std::endl;
-    }
+    std::cout << "Concatenated strings: " << concatenate(input) << std::endl;
 
     return 0;
 }
