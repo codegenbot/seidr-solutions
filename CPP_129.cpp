@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -23,7 +22,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp);
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(cmp{})> q(cmp); 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -34,11 +33,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            return {sum};
+            return vector<int>{sum};
         }
-        for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, nj = neighbor.first.second;
-            int ns = sum - grid[i][j] + neighbor.second;
+        for (const auto& [ni, nj] : neighbors[i]) {
+            int ns = sum - grid[ni][nj] + neighbor.second;
             k--;
             q.push({ns, make_pair(ni, nj)});
         }
@@ -48,7 +46,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int mainTest() {
-    // Test cases
     vector<vector<int>> grid1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     cout << "{";
     for (int val : minPath(grid1, 3)) {
