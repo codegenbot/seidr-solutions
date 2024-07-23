@@ -1,17 +1,23 @@
-int do_algebra(std::vector<std::string> operations, std::vector<int> operands) {
-    int result = operands[0];
-    for (int i = 1; i < operations.size(); i++) {
-        if (operations[i-1] == "/") {
-            if (operands[i] == 0)
+```cpp
+#include <vector>
+#include <string>
+
+int do_algebra(std::vector<std::pair<char, int>> operatoAndOperand) {
+    int result = operatoAndOperand[0].second;
+    for (int i = 1; i < operatoAndOperand.size(); i++) {
+        if (operatoAndOperand[i-1].first == '/') {
+            if (operatoAndOperand[i].second == 0)
                 return 0;
-            result /= operands[i];
-        } else if (operations[i-1] == "*") {
-            result *= operands[i];
-        } else if (operations[i-1] == "+") {
-            result += operands[i];
-        } else if (operations[i-1] == "-") {
-            result -= operands[i];
+            result /= operatoAndOperand[i].second;
+        } else if (operatoAndOperand[i-1].first == "*") {
+            result *= operatoAndOperand[i].second;
+        } else if (operatoAndOperand[i-1].first == "+") {
+            result += operatoAndOperand[i].second;
+        } else if (operatoAndOperand[i-1].first == "-") {
+            result -= operatoAndOperand[i].second;
         }
     }
     return result;
 }
+
+assert(do_algebra({{'+', 1}}) == 2);
