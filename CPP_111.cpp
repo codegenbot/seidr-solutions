@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <map>
@@ -10,7 +9,7 @@ bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (const auto& pair : a) {
+    for (auto& pair : a) {
         if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
             return false;
         }
@@ -23,7 +22,7 @@ map<char, int> histogram(const string& str) {
     map<char, int> result;
 
     for (char c : str) {
-        if (!isalpha(c)) continue; 
+        if (!isalpha(c)) continue; // ignore non-alphabetic characters
         char lower = tolower(c);
         if (result.find(lower) == result.end()) {
             result[lower] = 1;
@@ -37,6 +36,6 @@ map<char, int> histogram(const string& str) {
 }
 
 int main() {
-    assert(issame(histogram("a"), map<char, int>{{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }

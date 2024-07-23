@@ -12,8 +12,6 @@ def search(lst):
         if num >= count and num > 0:
             max_num = num
             break
-    if max_num == -1:
-        return -1
     return max_num
 
 lst = input("Enter numbers separated by space: ")

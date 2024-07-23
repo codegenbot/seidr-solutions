@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> by_length(std::vector<int> lengths) {
     std::vector<std::string> result;
@@ -15,15 +14,24 @@ std::vector<std::string> by_length(std::vector<int> lengths) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return (a == b);
+bool issame(const std::vector<std::string>& a, const std::string& b) {
+    bool result = true;
+    if(a.size() != 1)
+        result = false;
+    for(int i=0; i<a.size();i++)
+        if(a[i] != b)
+            result = false;
+    return result;
+}
+
+void mainFunc() {
+    std::vector<int> lengths = {4, 8};
+    std::vector<std::string> result_b = by_length(lengths);
+    std::string result_a = "FourEight";
+    assert(issame(by_length({lengths}), result_a));
+    assert(!issame(by_length({9}), result_b));
 }
 
 int main() {
-    std::vector<int> lengths = {4, 8};
-    std::vector<std::string> result_b = by_length(lengths);
-    std::vector<int> lengths1 = lengths;
-    std::vector<std::string> result_a = by_length(lengths);
-    assert(issame(result_a, result_b));
-    assert(!issame(by_length({9}), result_b));
+    mainFunc();
 }
