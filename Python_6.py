@@ -11,13 +11,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            if level > 0:
-                level -= 1
-                result.append(level)
-            else:
-                raise ValueError("Unbalanced parentheses")
+            result.append(level - 1)
+            level -= 1
 
-    return [i - 1 for i in result]
+    return [i for i in result]
 
 
 def main():
