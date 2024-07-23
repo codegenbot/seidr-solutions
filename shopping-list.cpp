@@ -25,7 +25,7 @@ int main() {
         prices.push_back(price);
     }
 
-    for (int i = 0; i <= n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> discount;
         discounts.push_back(discount);
     }
