@@ -1,6 +1,8 @@
-vector<int> l_prime = l;
-    sort(l_prime.begin(), l_prime.end(), [](int a, int b) {
-        return a % 3 == 0 && b % 3 == 0 ? a < b : false;
-    });
-    return l_prime;
+vector<int> res = l;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sort(res.begin() + i, res.begin() + i + 3);
+        }
+    }
+    return res;
 }
