@@ -8,7 +8,7 @@ def indices_of_substring(text, target):
     result = []
     i = 0
     while True:
-        if text[i:i+len(target)] == target:
+        if text.startswith(target):
             result.append(i)
             i += len(target)
         else:
