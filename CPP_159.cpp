@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool areEqualVectors(std::vector<int> a, std::vector<int> b) {
     return (a[0] == b[0]) && (a[1] == b[1]);
 }
 
@@ -18,6 +18,6 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(isSame(eat(4, 5, 1), std::vector<int>({9, 0})));
+    assert(checkVectors(eat(4, 5, 1), std::vector<int>({9, 0})));
     return 0;
 }
