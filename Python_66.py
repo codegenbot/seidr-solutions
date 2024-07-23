@@ -1,7 +1,6 @@
-def calculate_sum_of_digits(n):
-    sum = 0
+def sumDigits(n):
+    total_sum = 0
     while n:
-        digit = n % 10
-        sum += digit
+        total_sum += n % 10
         n //= 10
-    return sum
+    return total_sum
