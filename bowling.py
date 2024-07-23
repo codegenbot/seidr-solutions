@@ -1,47 +1,25 @@
 ```
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(game), 2):
-        if game[i].isdigit():
-            if game[i+1].isdigit():
-                roll = int(game[i]) + int(game[i+1])
-                if roll == 10:
-                    score += roll
-                    frame += 1
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            if i < 8:
+                score += 30
+            else:
+                score += 10 + int(frames[i+1][0])
+        elif frames[i] == '/':
+            score += 10 + int(frames[i-1])
+        else:
+            strike = 0
+            for j in range(i, min(i+2, len(frames))):
+                if frames[j] == 'X':
+                    strike += 30
+                    break
+                elif frames[j] == '/':
+                    score += 10 + int(frames[j-1])
+                    break
                 else:
-                    score += roll
-                    if frame < 10:
-                        if i + 3 <= len(game) and game[i+2].isdigit():
-                            score += int(game[i+1]) + int(game[i+2])
-                            frame += 1
-            else:
-                score += int(game[i])
-                if frame < 10:
-                    if i + 1 <= len(game):
-                        if game[i+1] == 'X':
-                            score += 10
-                            frame += 1
-                        elif game[i+1].isdigit():
-                            roll = 10 - int(game[i])
-                            if roll >= 0 and (i + 3 > len(game) or not game[i+2].isdigit()):
-                                score += 10
-                                frame += 1
-                            else:
-                                score += 10 + roll
-                                frame += 1
-                    else:
-                        score += 10
-                        frame += 1
-        elif game[i] == 'X':
-            score += 10
-            frame += 1
-        elif game[i] == '/':
-            first_roll = 10 - int(game[i-1])
-            if first_roll >= 0 and (i + 2 > len(game) or not game[i+1].isdigit()):
-                score += 10
-                frame += 1
-            else:
-                score += 10 + first_roll
-                frame += 1
+                    score += int(frames[j])
+            if strike > 0:
+                score += strike
     return score
