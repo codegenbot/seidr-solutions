@@ -1,11 +1,6 @@
-def calculate_difference(lst):
-    first, second = lst
-    total = 0
-    for sublist in first:
-        for num in sublist:
-            if isinstance(num, int) and num >= 0:
-                total += num**2
-    return abs(total - sum(second)) // len(second) * 2
-
-
-print(calculate_difference([first_list, second_list]))
+```
+def double_the_difference(lst):
+    if len(set(map(int, lst))) != len(lst):
+        return "Lists must not contain duplicate elements"
+    differences = [(int(a) - int(b)) ** 2 for a, b in zip(map(str, lst)[::2], map(str, lst)[1::2])]
+    return sum(differences) * 8
