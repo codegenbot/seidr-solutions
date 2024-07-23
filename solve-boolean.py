@@ -6,10 +6,12 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
 
-    expression = expression.replace('&&', 'and').replace('||', 'or')
+    while ' && ' in expression or ' || ' in expression:
+        if ' && ' in expression:
+            left, right = expression.split(' && ')
+            expression = f"({str(bool(solve_boolean(left)))} and {str(bool(solve_boolean(right)))})"
+        elif ' || ' in expression:
+            left, right = expression.split(' || ')
+            expression = f"({str(bool(solve_boolean(left)))} or {str(bool(solve_boolean(right)))})"
 
-    try:
-        result = eval(f"({expression})")
-        return result
-    except:
-        return "Invalid input"
+    return eval(f"{expression}")
