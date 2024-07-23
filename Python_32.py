@@ -1,6 +1,3 @@
-import math
-
-
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -13,16 +10,11 @@ def find_zero(xs: list):
         sum(
             map(
                 lambda i: [j * coeff for j, coeff in enumerate(i)],
-                ((i**2) for i in range(len(xs))),
+                ([(i**2) for i in range(len(xs))]),
             )
         ).pop()
         for i, coeff in enumerate(xs)
     )[1:]
 
-    discr = b**2 - 4 * a * c
-    if discr < 0:
-        return complex((-b + math.sqrt(-discr)) / (2 * a))
-    elif discr == 0:
-        return (-b) / (2 * a)
-    else:
-        return (-b + math.sqrt(discr)) / (2 * a), (-b - math.sqrt(discr)) / (2 * a)
+    if a != 0:
+        return (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
