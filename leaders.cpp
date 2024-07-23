@@ -1,20 +1,20 @@
-#include <vector>
-using namespace std;
-
-vector<int> leaders(vector<int> nums) {
-    int rightmost = nums.back();
+```cpp
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
     vector<int> leaders;
-    for(int i = nums.size() - 2; i >= 0; i--) {
-        if(nums[i] >= rightmost) {
-            leaders.push_back(nums[i]);
-            rightmost = nums[i];
+    
+    if(n == 0) return leaders;
+    
+    int max_seen = arr[n-1];
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= max_seen) {
+            leaders.push_back(arr[i]);
+            max_seen = arr[i];
         }
     }
+    
+    leaders.push_back(max_seen);
+    
     return leaders;
-}
-
-int main() {
-    vector<int> input = {459,427,648};
-    vector<int> output = leaders(input);
-    return 0;
 }
