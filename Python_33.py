@@ -1,8 +1,5 @@
 def sort_third(l: list):
-    result = []
-    for i in range(len(l)):
-        if i % 3 == 0:
-            result.append(sorted([x for x in l[i:] if i % 3 == 0]))
-        else:
-            result.append(l[i])
-    return [x for sub_l in result for x in sub_l]
+    return [
+        l[i] if i % 3 != 0 else sorted([x for x in l if (i - j) % 3 != 0])[0]
+        for i, j in enumerate(l)
+    ]
