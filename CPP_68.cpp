@@ -1,8 +1,8 @@
+#include <initializer_list>
 #include <vector>
-#include <climits>
 using namespace std;
 
-vector<pair<int, int>> result(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
