@@ -1,12 +1,13 @@
 #include <iostream>
-#include <iomanip>
-using namespace std;
+#include <string>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
     for (int i = 0; i < hours; i++) {
-        onGround += (rate / 60); // add new snow each hour, converting hours to minutes for division
-        if (onGround > 1024) { // assuming maximum amount of snow is 1024mm
-            onGround -= (onGround - 1024);
+        onGround += (rate / 60);
+        if (onGround > 1024) {
+            float excess = onGround - 1024;
+            onGround = 1024;
+            onGround -= excess;
         } else {
             onGround -= melt * onGround;
         }
@@ -19,6 +20,7 @@ int main() {
     cin >> hours;
     float onGround, rate, melt;
     cin >> onGround >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, onGround, rate, melt) << endl;
+    std::string s = std::to_string(snowDay(hours, onGround, rate, melt));
+    cout << s << endl;
     return 0;
 }
