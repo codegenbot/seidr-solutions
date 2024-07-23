@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -9,23 +10,26 @@ int do_algebra(vector<string> ops, vector<int> operands) {
         } else if (ops[i] == "-") {
             result -= operands[i];
         } else if (ops[i] == "*") {
-            int temp = operands[i];
-            for (int j = i + 1; j < ops.size(); j++) {
-                if (ops[j] == "/") {
-                    temp /= operands[j];
-                } else if (ops[j] == "**") {
-                    temp = pow(temp, operands[j]);
+            int temp = 1;
+            for (int j = i; j < operands.size(); j++) {
+                temp *= operands[j];
+                if (j < ops.size() - 1 && ops[j + 1] == "**") {
+                    temp = pow(temp, operands[j + 1]);
                 }
             }
             result += temp;
         } else if (ops[i] == "//") {
             int temp = operands[i];
-            for (int j = i + 1; j < ops.size(); j++) {
+            for (int j = i + 1; j < operands.size(); j++) {
                 temp /= operands[j];
             }
-            result += temp;
+            result = temp;
         } else if (ops[i] == "**") {
-            result = pow(result, operands[i]);
+            int temp = 1;
+            for (int j = i; j < operands.size(); j++) {
+                temp *= operands[j];
+            }
+            result = pow(operands[0], temp);
         }
     }
     return result;
