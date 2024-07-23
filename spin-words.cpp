@@ -1,41 +1,32 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    for (const auto& word : split(str)) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
-        }
-        result += word + " ";
-    }
-    return result.substr(0, result.size() - 1);
-}
-
-string split(const string& str) {
-    vector<string> words;
-    string word = "";
-    for (const auto& c : str) {
-        if (c == ' ') {
+std::string spinWords(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    while (start < str.length()) {
+        size_t end = str.find(' ', start);
+        if (end == std::string::npos)
+            end = str.length();
+        if (end - start >= 5) {
+            std::string word = str.substr(start, end - start);
+            std::reverse(word.begin(), word.end());
             words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
+        } else
+            words.push_back(str.substr(start, end - start));
+        start = end + 1;
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return join(words);
+    return std::join(words, " ");
 }
 
-string join(const vector<string>& words) {
-    string result = "";
-    for (const auto& word : words) {
-        result += word + " ";
+int main() {
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string of one or more words (separated by spaces), or 'exit' to quit: ";
+        std::cin >> str;
+        if (str == "exit")
+            break;
+        std::cout << spinWords(str) << std::endl;
     }
-    return result.substr(0, result.size() - 1);
+    return 0;
 }
