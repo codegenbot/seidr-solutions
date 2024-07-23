@@ -13,3 +13,10 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     
     return total;
 }
+
+int main() {
+    std::vector<float> prices = {10.99f, 5.99f, 7.99f};
+    std::vector<float> discounts = {8.0f, 15.0f, 12.0f};
+    double result = shoppingList(prices, discounts);
+    return 0;
+}
