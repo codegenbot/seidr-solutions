@@ -1,5 +1,8 @@
 ```
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if not all(c in paren_string for c in ['(', ')', '\n']):
+        raise ValueError("Invalid input. Expected parentheses and newline characters.")
+    
     if paren_string.startswith('(\n') and paren_string.endswith(')\n'):
         return [paren_string[2:-3]]
     
@@ -16,19 +19,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 current_group += stack.pop()
             if stack: 
-                if len(stack) > 0: 
-                    return [] # Program did not receive expected input
-                else:
-                    groups.append(current_group)
-                    current_group = ''
-            else:
-                current_group += char
+                current_group += stack.pop()
+            groups.append(current_group)
+            current_group = ''
 
     if stack:
         while stack:
             current_group += stack.pop()
-
-    if current_group: 
-        groups.append(current_group)
 
     return groups
