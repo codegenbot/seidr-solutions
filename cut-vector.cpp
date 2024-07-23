@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -8,32 +7,27 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     vector<int> left;
     vector<int> right;
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     int best_cut = -1;
 
     for (int i = 0; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
+        int sum_left = 0, sum_right = 0;
         for (int j = 0; j <= i; j++)
-            left_sum += v[j];
+            sum_left += v[j];
         for (int j = i + 1; j < n; j++)
-            right_sum += v[j];
+            sum_right += v[j];
 
-        if(left_sum == right_sum) {
-            left = vector<int>(v.begin(), v.begin() + i+1);
-            right = vector<int>(v.begin() + i+1, v.end());
-            return {{left}, {right}};
-        }
-        int diff = abs(left_sum - right_sum);
+        int diff = abs(sum_left - sum_right);
         if (diff < min_diff) {
             min_diff = diff;
             best_cut = i;
         }
     }
 
-    left = vector<int>(v.begin(), v.begin() + best_cut+1);
-    right = vector<int>(v.begin() + best_cut+1, v.end());
+    left = vector<int>(v.begin(), v.begin() + best_cut+1); 
+    right = vector<int>(v.begin()+best_cut,v.end());
     
-    return {{left}, {right}};
+    return {{left},{right}};
 }
 
 int main() {
