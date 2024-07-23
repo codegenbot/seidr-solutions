@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<pair<int, int>> result(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
@@ -20,9 +20,9 @@ vector<pair<int, int>> result(vector<int> arr) {
     return result;
 }
 
-int cpp_68_main() {
+int main() {
     vector<int> arr = {1, 2, 3, 4};
-    vector<pair<int, int>> output = result(arr);
+    vector<pair<int, int>> output = pluck(arr);
     for (auto p : output) {
         cout << "Number: " << p.first << ", Index: " << p.second << endl;
     }
