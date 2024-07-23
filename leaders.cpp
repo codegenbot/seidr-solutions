@@ -1,26 +1,10 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    int maxRightSoFar = arr[n - 1];
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] < maxRightSoFar) {
-            continue;
+    std::vector<int> result;
+    for (int i = n - 1; i >= 0; i--) {
+        if (arr[i] >= *std::max_element(arr.begin() + i, arr.end())) {
+            result.push_back(arr[i]);
         }
-        maxRightSoFar = arr[i];
-        result.push_back(maxRightSoFar);
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
