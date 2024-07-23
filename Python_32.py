@@ -8,10 +8,7 @@ def find_zero(xs: list):
 
     discriminant = b**2 - 4 * a * c
     if discriminant < 0:
-        return round((-b + (discriminant ** 0.5)) / (2 * a), 10)
-    elif discriminant == 0:
-        return round(-b / (2 * a), 10)
-    else:
-        x1 = (-b + ((b**2 - 4 * a * c) ** 0.5)) / (2 * a)
-        x2 = (-b - ((b**2 - 4 * a * c) ** 0.5)) / (2 * a)
-        return round(x1, 10), round(x2, 10)
+        return (-b) / (2 * a)
+    
+    x = (-b + ((b**2 - 4 * a * c) ** 0.5)) / (2 * a)
+    return round(x, 10)
