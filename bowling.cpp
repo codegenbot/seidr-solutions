@@ -1,37 +1,32 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    int score = 0;
-    int frame = 1;
-    
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
-                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] - '0') : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10));
+int score(string input) {
+    int totalScore = 0, frame = 0, frameCount = 0;
+    vector<int> scores(22, 0);
+    for(int i = 0; i < input.size(); i++) {
+        if(input[i] == 'X') {
+            scores[frame++] = 10;
+            if(frameCount >= 2) {
+                scores[frame - 3] += 10;
             }
-            frame++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
-            if (frame < 10) frame++;
-        } else if (isdigit(input[i])) {
-            score += input[i] - '0';
-            if (frame < 10) {
-                if (input[i + 1] == '/') {
-                    score += 10 - (input[i] - '0');
-                }
-                if (input[i + 2] == '/') {
-                    score += 10 - (input[i + 1] - '0');
-                }
-                frame++;
+            if(frameCount >= 1) {
+                scores[frame - 2] += 10;
             }
+            frameCount++;
+        } else if(input[i] == '/') {
+            scores[frame++] = 10 - scores[frame - 1];
+            if(frameCount >= 1) {
+                scores[frame - 2] += scores[frame - 1];
+            }
+            frameCount = 0;
+        } else {
+            scores[frame++] = input[i] - '0';
+            if(frameCount >= 1) {
+                scores[frame - 2] += scores[frame - 1];
+            }
+            frameCount++;
         }
     }
-    
-    cout << score << endl;
-    
-    return 0;
+    for(int i = 0; i < 10; i++) {
+        totalScore += scores[i];
+    }
+    return totalScore;
 }
