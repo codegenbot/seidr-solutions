@@ -37,8 +37,8 @@ int main() {
     }
     cout << endl;
 
-    int gcdResult = gcd(100, 50); 
-    cout << "GCD of " << 100 << " and " << 50 << ": " << gcdResult << endl;
+    cout << "GCD of " << 100 << " and " << 50 << ": ";
+    cout << gcd(50, 100) << endl;
 
     return 0;
 }
