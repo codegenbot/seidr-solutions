@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <stack>
 
@@ -27,4 +26,12 @@ bool solveBoolean(std::string s) {
     }
 
     return result;
+}
+
+int main() {
+    std::string s = "T|F";
+    bool result = solveBoolean(s);
+    if(result) std::cout << "True" << std::endl;
+    else std::cout << "False" << std::endl;
+    return 0;
 }
