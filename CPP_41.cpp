@@ -1,22 +1,12 @@
-#include <stdio.h>
-using namespace std;
-
+```
 int car_race_collision(int n) {
-    int collisions = 0;
+    int total_collisions = 0;
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            if (i + j == n + 1) {
-                collisions++;
+        for (int j = n - i + 1; j <= n; j++) {
+            if (i + j > n * 2 && i != j) {
+                total_collisions++;
             }
         }
     }
-    return collisions;
-}
-
-int main() {
-    int n;
-    printf("Enter the number of cars: ");
-    scanf("%d", &n);
-    printf("The number of collisions is: %d\n", car_race_collision(n));
-    return 0;
+    return total_collisions;
 }
