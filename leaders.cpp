@@ -1,8 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2, 8};
+std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> result;
     int maxRight = 0;
     for (int i = arr.size() - 1; i >= 0; --i) {
@@ -11,10 +11,15 @@ int main() {
             result.push_back(maxRight);
         }
     }
-    std::cout << "[";
-    for (int leader : result) {
-        std::cout << leader << " ";
+    std::reverse(result.begin(), result.end());
+    return result;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<int> leadersArr = leaders(arr);
+    for (int i : leadersArr) {
+        std::cout << i << " ";
     }
-    std::cout << "]" << std::endl;
     return 0;
 }
