@@ -1,7 +1,4 @@
-```
-from typing import List
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list:
     result = []
     level = 0
     for char in paren_string.replace(" ", ""):
@@ -11,7 +8,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            level -= 1
-            while level > 0:
-                result.append(level)
-    return [i for i in result]
+            while level > 1:
+                result.pop()
+                level -= 1
+    return result
