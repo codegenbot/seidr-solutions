@@ -1,25 +1,12 @@
-```c++
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
+#include <algorithm>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
     
-    for(int i = 1; i <= min(n, m); i++) {
-        p += (n - i) / total;
+    for(int i = 1; i <= std::min(n, m); i++) {
+        p += std::max(0.0, (n - i) / (total - (m - i)));
     }
     
     return p;
-}
-
-int main() {
-    int n, m;
-    if (!(cin >> n >> m)) {
-        cout << "Invalid input. Please enter two integers separated by a space." << endl;
-        return 1; 
-    }
-    cout << fixed << setprecision(8) << diceGame(n, m) << endl;
 }
