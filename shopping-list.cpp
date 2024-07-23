@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 float calculateTotalPrice(std::vector<float> prices, std::vector<float> discounts) {
     float total = 0.0;
