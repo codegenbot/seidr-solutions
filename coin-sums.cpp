@@ -11,7 +11,7 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
     
-    int pennies = cents;
+    int pennies = cents % 1; // or simply cents, since pennies are always single units
     
     cout << quarters << endl;
     cout << dimes << endl;
