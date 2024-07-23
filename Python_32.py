@@ -1,7 +1,6 @@
 ```
-def find_zero():
-    xs = input("Enter coefficients (as a space-separated list): ").split()
-    xs = [float(i) for i in xs]
+def find_zero(xs: list):
+    xs = [int(i) for i in input("Enter coefficients (a, b, c): ").split()]
     if len(xs) < 3:
         raise ValueError("xs must have at least three coefficients")
 
