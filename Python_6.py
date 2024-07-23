@@ -1,8 +1,4 @@
-```python
-from typing import List
-
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list:
     result = []
     level = 0
     for char in paren_string.replace(" ", ""):
@@ -12,19 +8,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
             result.append(level)
         elif char == ")":
-            while level > 1:
-                result.append(level - 1)
-                level -= 1
+            level -= 1
+            while level > 0:
+                result.append(level)
     return [i for i in result]
-
-
-def main():
-    paren_string = input("Enter a string of parentheses: ")
-    try:
-        print(parse_nested_parens(paren_string))
-    except ValueError as e:
-        print(f"Error: {e}")
-
-
-if __name__ == "__main__":
-    main()
