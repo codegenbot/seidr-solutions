@@ -1,20 +1,34 @@
-map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> reverse_map;
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-for (auto const& pair : number_map) {
-    reverse_map[pair.second] = pair.first;
-}
+string sort_numbers(string numbers) {
+    map<int, string> num_reverse_map;
+    string result;
 
-string result = "";
-int count = 0;
-for (int i = 0; i <= 9; ++i) {
-    if (numbers.find(reverse_map[i]) != string::npos) {
-        result += reverse_map[i];
-        count++;
-        if (count < 3) {
-            result += " ";
+    int start = 0;
+    for (int i = 0; i <= numbers.size(); ++i) {
+        if (i == numbers.size() || numbers[i] == ' ') {
+            string num_str = numbers.substr(start, i - start);
+            num_reverse_map[num_map[num_str]] = num_str;
+            start = i + 1;
         }
     }
-}
 
-return result;
+    for (const auto& entry : num_reverse_map) {
+        result += entry.second + " ";
+    }
+
+    result.pop_back(); // Remove extra space at the end
+
+    return result;
+}
