@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -13,7 +14,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    // Add more test cases as needed
+    std::vector<int> nums = {123, 456, -789, 10101, -2222};
+    int result = specialFilter(nums);
+    std::cout << "The number of filtered integers is: " << result << std::endl;
     return 0;
 }
