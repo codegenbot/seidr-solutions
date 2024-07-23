@@ -1,5 +1,3 @@
-#include <initializer_list>
-
 #include <vector>
 #include <algorithm>
 
@@ -8,14 +6,22 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> vec1 = {1.0f, 2.0f};
-    std::vector<float> vec2 = {1.0f, 3.0f};
+    int n;
+    std::cin >> n;
 
-    if (issame(vec1, vec2)) {
-        std::cout << "Vectors are the same." << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
+    std::vector<float> a(n);
+    for (auto i = 0; i < n; ++i)
+        std::cin >> a[i];
+
+    bool same = true;
+    for (const auto& val : a) {
+        if (!(std::cin >> val)) {
+            same = false;
+            break;
+        }
     }
+
+    std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
 }
