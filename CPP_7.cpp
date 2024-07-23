@@ -1,10 +1,39 @@
-Here is the solution:
+```cpp
+#include <vector>
+#include <string>
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
-    for (const auto& s : strings) {
-        if (s.find(substring) != string::npos) {
-            result.push_back(s);
+bool issame(vector<string> a, vector<string>b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
+    for(auto str : strings){
+        if(str.find(substring) != std::string::npos){
+            result.push_back(str);
         }
     }
     return result;
+}
+
+int main() {
+    vector<string> input_strings = {"Hello", "World", "HelloWorld", "Hi", "Hello"};
+    string target_substring = "ello";
+    
+    vector<string> filtered_strings = filter_by_substring(input_strings, target_substring);
+
+    if(issame(input_strings, filtered_strings)) {
+        for(auto str : filtered_strings) {
+            cout << str << endl;
+        }
+    } else {
+        cout << "Strings were not the same." << endl;
+    }
+
+    return 0;
+}
