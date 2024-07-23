@@ -5,6 +5,5 @@ for (int i = 0; i < l.size(); ++i) {
             }
         }
     }
-    
     return false;
 }
