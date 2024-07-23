@@ -5,7 +5,6 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '(' in expression and ')' in expression:
-        # Evaluate expressions within parentheses
         i = 0
         while True:
             i = expression.find('(', i)
