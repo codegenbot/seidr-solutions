@@ -2,16 +2,13 @@
 #include <string>
 
 std::string fizzBuzz(int x) {
-    std::string result;
-    if (x % 3 == 0 || x % 5 == 0)
-        if (x % 15 == 0)
-            return "FizzBuzz";
-        else if (x % 3 == 0)
-            return "Fizz";
-        else
-            return "Buzz";
-    else
-        return std::to_string(x);
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0)
+        return x % 5 == 0 ? "FizzBuzz" : "Fizz";
+    else if (x % 5 == 0)
+        return "Buzz";
+    return std::to_string(x);
 }
 
 int main() {
