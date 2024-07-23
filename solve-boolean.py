@@ -1,13 +1,29 @@
 ```
-def solve_boolean(s):
-    s = ' '.join(s.split())
-    if s == "t":
-        return True
-    elif s == "f":
-        return False
-    elif "|" in s:
-        a, b = s.split("|", 1)
-        return solve_boolean(a) or solve_boolean(b)
-    elif "&" in s:
-        a, b = s.split("&", 1)
-        return solve_boolean(a) and solve_boolean(b)
+def solve_boolean():
+    input_string = input().replace(" ", "")
+
+    def boolean_expression(s):
+        operations = {
+            '|': lambda a, b: bool(a) or bool(b),
+            '&': lambda a, b: bool(a) and bool(b)
+        }
+
+        result = None
+        temp_operator = ''
+        for char in s:
+            if char in operations:
+                temp_operator = char
+            elif char == 'T':
+                if not result:
+                    result = True
+                else:
+                    result = operations[temp_operator](result, True)
+            elif char == 'F':
+                if not result:
+                    result = False
+                else:
+                    result = operations[temp_operator](result, False)
+
+        return result
+
+    return boolean_expression(input_string)
