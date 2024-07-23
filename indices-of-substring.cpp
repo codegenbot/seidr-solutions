@@ -5,9 +5,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
     for (int i = 0; ; i++) {
         size_t pos = text.find(target, i);
-        if (pos == stdstring::npos) break;
+        if (pos == std::string::npos) break;
         result.push_back(pos);
-        i = pos;
+        i = pos + 1;
     }
     return result;
 }
