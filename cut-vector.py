@@ -10,7 +10,7 @@ cut_index = -1
 for i in range(n - 1):
     prefix_sum += arr[i]
     diff = abs(total_sum - 2 * prefix_sum)
-    if diff < min_diff:
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
