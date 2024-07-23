@@ -1,8 +1,18 @@
-vector<int> res = l;
-    for (size_t i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
-            sort(res.begin() + i - 2, res.begin() + i + 1);
+vector<int> l_divisible_by_three;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            l_divisible_by_three.push_back(l[i]);
         }
     }
-    return res;
+
+    sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
+
+    for (int i = 0, j = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            l[i] = l_divisible_by_three[j];
+            j++;
+        }
+    }
+
+    return l;
 }
