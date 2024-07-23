@@ -1,4 +1,1 @@
-double find_zero(vector<double> xs){
-    double x = -xs[1]/(2*xs[0]);
-    return round(x, 2);
-}
+return std::round(std::fixedpoint::round(x * 100.0) / 100.0);
