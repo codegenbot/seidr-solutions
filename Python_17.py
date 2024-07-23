@@ -3,14 +3,21 @@ from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    beats_per_note = {'o': 4, 'o|': 2, '.|': 1}
-    result = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == '.':
-            i += 3
+    notes = {'o': 4, 'o|': 2, '.|': 1}
+    beats = []
+    note = ''
+    for char in music_string:
+        if char in 'o.o|':
+            if note:
+                beats.append(notes[note])
+                note = ''
+            note += char
+        elif char == '|':
+            if note:
+                beats.append(notes[note[:-1]])
+                note = ''
         else:
-            note_type = music_string[i:i+2]
-            i += 2
-            result.append(beats_per_note[note_type])
-    return result
+            continue
+    if note:
+        beats.append(notes[note])
+    return beats
