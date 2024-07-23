@@ -53,6 +53,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 
 int main() {
     vector<string> result = total_match({{"this"}}, {});
-    
     return 0;
 }
