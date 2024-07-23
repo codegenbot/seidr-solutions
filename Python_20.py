@@ -1,5 +1,4 @@
-```
-def find_closest_elements(numbers):
+def find_closest_elements():
     while True:
         user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
         try:
