@@ -30,4 +30,6 @@ int main() {
     } else {
         std::cout << "The vector is not sorted.\n";
     }
+    
     return 0;
+}
