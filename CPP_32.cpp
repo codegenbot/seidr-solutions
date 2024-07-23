@@ -1,3 +1,4 @@
+```cpp
 double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
@@ -29,11 +30,11 @@ double find_zero(vector<double> coeffs) {
 }
 
 int main() {
-    vector<double> coeffs(3); // declare and initialize coeffs with size 3
+    vector<double> coeffs(3); 
     double solution = 0.0;
     
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
-        solution = find_zero(coeffs);
+        //assert(abs(val)< 1e-3); 
     }
 }
