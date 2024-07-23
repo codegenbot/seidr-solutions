@@ -1,6 +1,7 @@
 ```cpp
 #include <algorithm>
-#include <string> 
+#include <string>
+
 using namespace std;
 
 string anti_shuffle(string s);
