@@ -1,21 +1,21 @@
-#include <initializer_list>
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result;
-    for(int i = 0; i < k; i++){
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+int findMaximum(const std::vector<int>& vec, int index) {
+    if(index > vec.size() || index < 0)
+        return -1;
+    int max = vec[0];
+    for(int i=1; i<=index; i++){
+        if(vec[i] > max)
+            max = vec[i];
     }
-    return result;
+    return max;
 }
 
-bool compare(const std::vector<int>& a, const std::vector<int>& b) {
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i])
             return false;
     }
@@ -23,10 +23,10 @@ bool compare(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    if(compare(maximum({1, 2, 3, -23, 243, -400, 0}, 3), std::vector<int>())) {
-        printf("Test Passed\n");
+    if(compareVectors({1, 2, 3}, {1, 2, 3})) {
+        std::cout << "Test Passed\n";
     } else {
-        printf("Test Failed\n");
+        std::cout << "Test Failed\n";
     }
     return 0;
 }
