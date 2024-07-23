@@ -6,8 +6,10 @@ int main() {
     int n;
     while (std::cin >> n) {
         nums.push_back(n);
+        if (std::cin.eof()) {
+            break;
+        }
     }
-    if (std::cin.eof()) return 0;
 
     int sum = 0;
     for (int num : nums) {
