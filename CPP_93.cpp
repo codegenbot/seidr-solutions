@@ -1,18 +1,16 @@
+#include <string>
 #include <algorithm>
-#include <cctype>
 using namespace std;
 
 string encode(string message) {
-    string result;
+    string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char newChar = c;
-            if (islower(c)) {
-                newChar = 'a' + (c - 'a' + 2) % 26;
-            } else {
-                newChar = 'A' + (c - 'A' + 2) % 26;
-            }
-            result += toupper(islower(newChar)) ? tolower(newChar) : toupper(newChar);
+            char base = isupper(c) ? 'A' : 'a';
+            char newChar = (c == base) ? 
+                (isupper(c) ? 'Z' : 'z') : 
+                (base + ((c - base) % 26));
+            result += newChar;
         } else {
             result += c;
         }
