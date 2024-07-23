@@ -1,7 +1,8 @@
 #include <vector>
-using namespace std;
+#include <iostream>
+#include <initializer_list>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     assert(n > 0);
 
@@ -13,3 +14,11 @@ int smallest_change(vector<int> arr) {
     }
 
     return changes - 1;
+}
+
+int main() {
+    std::vector<int> v = {0, 1};
+    int result = smallest_change(v);
+    std::cout << "The number of changes is: " << result << std::endl;
+    return 0;
+}
