@@ -9,8 +9,9 @@ vector<string> words_string(string s){
     stringstream ss(s);
     string word;
     while (getline(ss, word, ' ')) {
-        if (word.find(',') != string::npos) {
-            word.erase(remove(word.begin(), word.end(), ','), word.end());
+        size_t pos = word.find(',');
+        if (pos != string::npos) {
+            word.erase(pos, 1);
         }
         words.push_back(word);
     }
