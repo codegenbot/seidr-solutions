@@ -2,39 +2,29 @@
 def bowling_score(frames):
     score = 0
     frame = 1
-    i = 0
-    while i < len(frames):
-        if frames[i].isdigit():
-            first_roll = int(frames[i])
-            i += 1
-            if i < len(frames) and frames[i].isdigit():
-                second_roll = int(frames[i])
-                i += 1
-                if first_roll + second_roll == 10:
-                    score += 10
-                else:
-                    score += first_roll + second_roll
-            elif first_roll == 10:
-                score += 10
+    for char in frames:
+        if char.isdigit():
+            if frame < 10 and int(char) < 10:
+                score += int(char)
+            elif frame < 10 and int(char) == 10:
+                score += int(char)
                 frame += 1
-                i += 1
             else:
-                while i < len(frames) and frames[i] != '/':
-                    if not frames[i].isdigit():
-                        return -1
-                    score += int(frames[i])
-                    i += 1
-                if i + 1 < len(frames):
-                    bonus = 10 - sum(map(int, frames[i-7:i]))
-                    score += bonus
+                first_roll = int(char)
+                if frames[frames.index(str(char))+1:frames.index(str(char))+2].isdigit():
+                    second_roll = int(frames[frames.index(str(char))+1:frames.index(str(char))+2])
+                    if first_roll + second_roll == 10:
+                        score += 10
+                    else:
+                        score += first_roll + second_roll
+                elif frames[frames.index(str(char))+1:].replace('/', '')[0].isdigit():
+                    second_roll = int(frames[frames.index(str(char))+1:].replace('/', '')[:1])
+                    if first_roll + second_roll == 10:
+                        score += 10
+                    else:
+                        score += first_roll + second_roll
                 frame += 1
-        elif frames[i] == '/':
-            if i > 0 and not frames[i-1].isdigit():
-                return -1
-            if int(frames[:i]) < 10:
-                score += 10 - (10 - sum(map(int, frames[:i])))
-            else:
-                score += 10
-            frame += 1
-        i += 1
+        elif char == '/':
+            if int(frames[frames.index(str(char))-1:frames.index(str(char))]) < 10:
+                score += 10 - (10 - int(frames[frames.index(str(char))-1:frames.index(str(char))]))
     return score
