@@ -1,4 +1,3 @@
+```
 def sort_third(l: list):
-    first = [i for i in l if i % 3 != 0]
-    rest = [i for i in l if i % 3 == 0]
-    return sorted(rest) + sorted(first)
+    return sorted([int(str(i)[-1]) if len(str(i)) > 2 else i for i in l])
