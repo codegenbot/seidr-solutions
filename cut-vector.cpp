@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 
@@ -8,9 +7,7 @@ int main() {
     while (std::cin >> n) {
         nums.push_back(n);
     }
-    
-    if (std::cin.eof()) return 0;
-    
+
     int sum = 0;
     for (int num : nums) {
         sum += num;
@@ -29,7 +26,7 @@ int main() {
     
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
     std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
-    
+
     for (int num : subvec1) {
         std::cout << num << std::endl;
     }
