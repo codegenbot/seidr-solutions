@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string squareDigits(int n) {
     string str = to_string(n);
