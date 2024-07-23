@@ -16,7 +16,7 @@ def minPath(grid, k):
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
                 new_path = dfs(ni, nj, path + [grid[i][j]], total + int(grid[i][j]))
                 if len(new_path) > 0:
-                    if res is None or sorted([int(i) for i in new_path]) >= sorted([int(i) for i in res]):
+                    if res is None or len(new_path) >= len(res):
                         res = new_path
         visited[i][j] = False
         return res if res else []
