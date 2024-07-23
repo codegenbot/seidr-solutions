@@ -1,5 +1,4 @@
-```
-def all_prefixes(string: str) -> list:
+def all_prefixes(string: str) -> list[str]:
     result = []
     for i in range(len(string)+1):
         prefix = string[:i].lower()
