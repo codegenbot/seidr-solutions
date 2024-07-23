@@ -9,4 +9,4 @@ def fizz_buzz(n: int):
             result.append("Buzz" if i % 3 != 0 else "FizzBuzz")
         else:
             result.append(str(i))
-    return len([x for x in result if x == "FizzBuzz"])
+    return sum(1 for s in result if s == "FizzBuzz")
