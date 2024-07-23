@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 
@@ -14,15 +14,9 @@ while True:
             numbers = input("Enter some numbers separated by space, or 'stop' to exit: ")
             if numbers.lower() == 'stop':
                 break
-            numbers_list = numbers.split()
-            if len(numbers_list) != 0 and all(num.lower() == 'nan' for num in numbers_list):
-                print("Program did not receive expected input")
-                continue
-            try:
-                numbers = list(map(float, numbers_list))
-                result = rescale_to_unit(numbers)
-                print(result)
-            except ValueError:
-                print("Invalid input. Please enter valid numbers.")
+            numbers = list(map(lambda x: float(x) if x.replace('-', '',).replace('.', '').isdigit() else None, numbers.split()))
+            numbers = [x for x in numbers if x is not None]
+            result = rescale_to_unit(numbers)
+            print(result)
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
