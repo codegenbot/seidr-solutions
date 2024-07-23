@@ -1,4 +1,3 @@
-```
 def indices_of_substring(text):
     target = input()
     result = []
@@ -11,3 +10,6 @@ def indices_of_substring(text):
         else:
             break
     return result
+
+text = "Hello world"
+print(indices_of_substring(text))
