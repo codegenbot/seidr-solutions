@@ -3,11 +3,13 @@
 #include <cmath>
 
 double find_zero(const std::vector<double>& coeffs) {
-    double x = -1;
-    while (abs(poly(coeffs, x)) > 0.001) {
-        x -= poly(coeffs, x) / (poly(coeffs, x + 0.001) - poly(coeffs, x));
+    double x = 1.0;
+    while (true) {
+        double f_x = poly(coeffs, x);
+        if (abs(f_x) < 1e-6)
+            return x;
+        x -= f_x / (poly(coeffs, x + 0.0001) - f_x);
     }
-    return x;
 }
 
 double poly(const std::vector<double>& coeffs, double x) {
@@ -19,19 +21,8 @@ double poly(const std::vector<double>& coeffs, double x) {
 }
 
 int main() {
-    std::vector<double> coeffs;
-    // Input coefficients
-    int n;
-    cin >> n;
-    for(int i=0; i<n; ++i){
-        double val;
-        cin>>val;
-        coeffs.push_back(val);
-    }
-
-    // Use the poly and find_zero functions
-    double x = find_zero(coeffs);
-    cout << "The zero of polynomial is: " << x << endl;
-    
+    std::vector<double> coeffs = {1.0, -2.0, 3.0};
+    double zero = find_zero(coeffs);
+    std::cout << "The zero of the polynomial is: " << zero << std::endl;
     return 0;
 }
