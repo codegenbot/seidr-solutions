@@ -19,8 +19,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 current_group += stack.pop()
             if stack: 
-                if stack[-1] == ')':  # Check if stack ends with ')' before popping
-                    current_group += stack.pop()  # Add this line
+                if stack[-1] == ')':  # Check if stack ends with ')'
+                    current_group += stack.pop()  
                 else:
                     break  # If not, there's a mismatched parenthesis
             groups.append(current_group)
@@ -29,7 +29,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if stack:
         while stack:
             current_group += stack.pop()
-        if not stack: 
-            groups.append(current_group)
+        groups.append(current_group)
 
     return groups
