@@ -6,11 +6,19 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.size(), m = target.size();
     
-    int i = 0;
-    while (i <= n - m) {
-        if (text.substr(i, m) == target)
-            result.push_back(i);
-        i += text.find(target, i) + 1;
+    int i = 0, j = 0;
+    while (i < n) {
+        if (text[i] == target[j]) {
+            i++;
+            j++;
+        }
+        if (j == m) {
+            result.push_back(i - j);
+            j = 0; // Reset the pattern pointer
+        }
+        else if (i < n && text[i] != target[j]) {
+            i = i - j + 1; // Mismatch, try to find the match at a different position
+        }
     }
     
     return result;
