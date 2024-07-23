@@ -1,28 +1,17 @@
-```cpp
-#include <vector>
-using namespace std;
+double find_zero(vector<double> xs) {
+    vector<double> coeffs(xs);
+    coeffs.push_back(-xs[1]/(2*xs[0]));
+    double x = -coeffs[1]/(2*coeffs[0]);
+    return poly(coeffs, x) == 0 ? x : 0;
+}
 
-double find_zero(vector<double> coeffs){
-    double x = 1; 
-    while (true) {
-        double fx = poly(coeffs,x);
-        double dfx = poly_prime(coeffs,x);
-        if (abs(fx)< 1e-3 || abs(dfx)< 1e-6)
-            return x;
-        x -= fx / dfx;
+double poly(vector<double> coeffs, double x) {
+    double result = 0.0;
+    for(int i=0; i<coeffs.size(); i++) {
+        if(i%2==0)
+            result += coeffs[i] * pow(x, (int)i/2);
+        else
+            result -= coeffs[i] * pow(x, (int)(i-1)/2);
     }
-}
-
-double poly(vector<double> coeffs, double x){
-    double sum = 0;
-    for(int i=0; i<coeffs.size(); i++)
-        sum += coeffs[i]*pow(x,i);
-    return sum;
-}
-
-double poly_prime(vector<double> coeffs, double x){
-    double sum = 0;
-    for(int i=1; i<coeffs.size(); i++)
-        sum += i*coeffs[i]*pow(x,i-1);
-    return sum;
+    return result;
 }
