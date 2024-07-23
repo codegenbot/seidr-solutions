@@ -19,15 +19,15 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
 
     for (size_t i = 0; i <= n - m; i++) {
         bool found = true;
-        for (size_t j = 0; j < m; j++) {
+        for (std::string::size_type j = 0; j < m; j++) {
             if (text.substr(i, 1).compare(0, 1, target.substr(j, 1)) != 0) {
                 found = false;
                 break;
             }
-            i++; // Move the start of the window forward
+            i++;
         }
         if (found) {
-            result.push_back(i);
+            result.push_back(i - m + 1);
             i += m - 1; // Handle overlapping occurrences
         } else 
             i++; // No need to increment i in this case
