@@ -8,9 +8,6 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
-    tweet.erase(0, tweet.find_first_of("\r\n")+1);
-    tweet.erase(tweet.find_last_not_of("\r\n") + 1);
-
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
@@ -22,5 +19,4 @@ int main() {
     }
 
     cout << "Your tweet has " << tweet.length() << " characters" << endl;
-    return 0;
-}
+    return 0;}

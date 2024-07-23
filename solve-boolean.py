@@ -1,7 +1,6 @@
 ```
 import ast
 
-
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -12,20 +11,19 @@ def solve_boolean(expression):
         if "&" in expression:
             left, right = expression.split("&")
             if "|" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
+                left = f"({solve_boolean(left)})}"
             if "|" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
+                right = f"({solve_boolean(right)})"
             expression = f"{left} & {right}"
         elif "|" in expression:
             left, right = expression.split("|")
             if "&" in left:
-                left = "(" + str(solve_boolean(left)) + ")"
+                left = f"({solve_boolean(left)})}"
             if "&" in right:
-                right = "(" + str(solve_boolean(right)) + ")"
+                right = f"({solve_boolean(right)})}"
             expression = f"{left} | {right}"
 
     return eval(f"bool({expression})")
-
 
 if __name__ == "__main__":
     while True:
