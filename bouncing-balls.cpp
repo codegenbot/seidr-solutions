@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -23,4 +22,3 @@ int main() {
     cout << totalDistance;
 
     return 0;
-}
