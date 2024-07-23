@@ -1,20 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    vector<string> result;
-    
-    // Convert all elements in both vectors to either lowercase or uppercase.
-    transform(lst1.begin(), lst1.end(), lst1.begin(), ::tolower);
-    transform(lst2.begin(), lst2.end(), lst2.begin(), ::toupper);
-
-    sort(lst1.begin(), lst1.end());
-    sort(lst2.begin(), lst2.end());
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    std::vector<std::string> result;
+    std::sort(lst1.begin(), lst1.end());
+    std::sort(lst2.begin(), lst2.end());
 
     int i = 0, j = 0;
     
@@ -34,13 +26,13 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> vec1 = {"hi", "admin"};
-    vector<string> vec2 = {"hI", "Hi"};
+    std::vector<std::string> vec1 = {"hi", "admin"};
+    std::vector<std::string> vec2 = {"hI", "Hi"};
 
-    vector<string> result = total_match(vec1, vec2);
+    std::vector<std::string> result = total_match(vec1, vec2);
 
     for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << endl;
+        std::cout << result[i] << std::endl;
     }
 
     return 0;
