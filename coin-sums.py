@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -6,7 +5,7 @@ def coin_sums(cents):
     for coin in coins:
         while cents >= coin:
             count = cents // coin
-            cents -= count * coin
+            cents -= coin * count
             results[coins.index(coin)] += count
 
     print(*reversed(results))
