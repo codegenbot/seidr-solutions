@@ -11,4 +11,3 @@ bool correct_bracketing(string brackets) {
         }
     }
     return count == 0;
-}
