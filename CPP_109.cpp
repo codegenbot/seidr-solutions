@@ -1,17 +1,9 @@
-#include <vector>
-
-bool move_one_ball(std::vector<int> arr) {
-    if (arr.empty()) {
-        return true;
-    }
-
-    int n = arr.size();
-    int minIndex = 0;
+int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[minIndex]) {
-            minIndex = i;
+        if (is_sorted(arr.begin(), arr.end())) {
+            return true;
         }
+        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-
-    return (arr[(minIndex + n - 1) % n] <= arr[(minIndex + 1) % n]);
+    return false;
 }
