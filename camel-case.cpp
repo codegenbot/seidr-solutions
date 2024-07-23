@@ -1,4 +1,3 @@
-```c++
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = false;
