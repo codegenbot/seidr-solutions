@@ -1,16 +1,16 @@
-int totalChars1 = 0;
-    int totalChars2 = 0;
-    
+int total_chars1 = 0;
     for (const string& str : lst1) {
-        totalChars1 += str.size();
+        total_chars1 += str.size();
     }
     
+    int total_chars2 = 0;
     for (const string& str : lst2) {
-        totalChars2 += str.size();
+        total_chars2 += str.size();
     }
     
-    if (totalChars1 < totalChars2) {
+    if (total_chars1 < total_chars2) {
         return lst1;
     } else {
         return lst2;
     }
+}
