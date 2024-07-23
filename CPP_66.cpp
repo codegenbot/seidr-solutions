@@ -13,9 +13,10 @@ int digitSum(std::string s) {
         }
     }
     return sum;
+
 }
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    // Your code here
+    return digitSum(std::cin.get()[0] ? std::string(std::cin.get(), std::cin.get()) : "");
 }
