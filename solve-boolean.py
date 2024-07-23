@@ -11,7 +11,7 @@ def solve_boolean(expression):
             elif token == ')':
                 while stack and tokens[stack[-1]] != '(':
                     if tokens[stack.pop()] in ['|', '&']:
-                        return recursive_eval(tokens, stack[-1]+1) if result is None else result
+                        result = recursive_eval(tokens, stack[-1]+1) if result is None else result
                 i += 1
             elif token in ['T', 'F']:
                 if result is None: 
