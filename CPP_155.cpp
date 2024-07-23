@@ -1,6 +1,18 @@
 #include <cassert>
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result({0, 0});
     int temp = abs(num);
@@ -15,19 +27,7 @@ std::vector<int> even_odd_count(int num) {
     return result;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(same(even_odd_count(0), std::vector<int>{0, 1})); 
+    assert(issame(even_odd_count(0), std::vector<int>{0, 1})); 
     return 0;
 }
