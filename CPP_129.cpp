@@ -22,7 +22,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(cmp{})> q(cmp); 
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, decltype(cmp{})> q(cmp); // {sum, path}
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
@@ -33,10 +33,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     while (!q.empty()) {
         auto [sum, [i, j]] = q.top(); q.pop();
         if (k == 0) {
-            return vector<int>{sum};
+            return {sum};
         }
         for (const auto& [ni, nj] : neighbors[i]) {
-            int ns = sum - grid[ni][nj] + neighbor.second;
+            int ns = sum - grid[i][j] + grid[ni][nj];
             k--;
             q.push({ns, make_pair(ni, nj)});
         }
