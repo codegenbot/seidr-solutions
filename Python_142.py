@@ -6,3 +6,7 @@ def sum_squares(lst):
         elif i % 4 == 0 and i % 3 != 0:
             total += lst[i] ** 3
     return total
+
+lst = input("Enter the list of numbers (space separated): ")
+lst = [int(x) for x in lst.split()]
+print(sum_squares(lst))
