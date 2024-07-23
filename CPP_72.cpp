@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,28 +11,27 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-int accumulate(vector<string> q, int start = 0) {
-    return accumulate(q.begin() + start, q.end(), 0);
+long long accumulate(vector<int> q, long long int x) {
+    return accumulate(q.begin(), q.end(), x);
 }
 
-bool will_it_fly(vector<string> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     string s = "";
-    for (string i : q) {
-        s += i;
+    for (int i : q) {
+        s += to_string(i);
     }
-    return is_palindrome(s) && stol(s) <= w;
+    return is_palindrome(s) && accumulate(q, 0LL) <= w;
 }
 
 int main() {
     int n, w;
+    vector<int> q;
 
     cout << "Enter the number of queens: ";
     cin >> n;
 
-    vector<string> q;
-
     for (int i=0; i<n; i++) {
-        string temp;
+        int temp;
         cout << "Enter position of queen " << i+1 << ": ";
         cin >> temp;
         q.push_back(temp);
@@ -41,7 +40,9 @@ int main() {
     cout << "Enter the total weight: ";
     cin >> w;
 
-    if (will_it_fly(q, w))
+    bool result = will_it_fly(q, w);
+
+    if (result)
         cout << "The queens will fly with the given weight.";
     else
         cout << "The queens will not fly with the given weight.";
