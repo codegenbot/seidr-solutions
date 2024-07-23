@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 int gcd(int a, int b) {
     while(b != 0) {
