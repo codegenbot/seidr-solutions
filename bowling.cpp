@@ -8,20 +8,33 @@ int score(std::string s) {
     while (frame <= 10) {
         if (s[i] == 'X') {
             total += 10;
-            if (s[i + 2] == 'X') total += 10;
-            else if (s[i + 2] == '/') total += 10;
-            else total += s[i + 2] - '0';
-
-            if (s[i + 4] == 'X') total += 10;
-            else if (s[i + 4] == '/') total += 10;
-            else total += s[i + 4] - '0';
-
+            if (s[i + 2] == 'X') {
+                total += 10;
+                if (s[i + 4] == 'X') {
+                    total += 10;
+                } else if (s[i + 4] == '/') {
+                    total += 10;
+                } else {
+                    total += s[i + 4] - '0';
+                }
+            } else if (s[i + 2] == '/') {
+                total += 10;
+            } else {
+                total += s[i + 2] - '0';
+                if (s[i + 4] == '/') {
+                    total += 10;
+                } else {
+                    total += s[i + 4] - '0';
+                }
+            }
             i += 2;
         } else if (s[i + 1] == '/') {
             total += 10;
-            if (s[i + 3] == 'X') total += 10;
-            else total += s[i + 3] - '0';
-
+            if (s[i + 3] == 'X') {
+                total += 10;
+            } else {
+                total += s[i + 3] - '0';
+            }
             i += 2;
         } else {
             total += s[i] - '0' + s[i + 1] - '0';
