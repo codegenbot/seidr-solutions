@@ -13,19 +13,22 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++){
-        int temp;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> temp;
-        input.push_back(temp);
+    assert(add({4, 4, 6, 8}) == 12);
+    std::vector<int> userNumbers;
+    int number;
+
+    // Read numbers from the user
+    std::cout << "Enter some numbers (type 'stop' to finish):" << std::endl;
+    while(true) {
+        std::cin >> number;
+        if(std::string(input) == "stop")
+            break;
+        userNumbers.push_back(number);
     }
-    
-    std::cout << "Sum of elements at odd positions: " << add(input) << std::endl;
-    
+
+    // Calculate and print the sum of odd numbers
+    int total = add(userNumbers);
+    std::cout << "Sum: " << total << std::endl;
+
     return 0;
 }
