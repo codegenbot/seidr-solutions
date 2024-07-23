@@ -7,15 +7,15 @@ int fruit_distribution(string s, int n) {
     int total_apples = 0;
     int total_oranges = 0;
 
-    string token;
-    istringstream iss(s);
+    size_t pos = 0;
+    while ((pos = s.find(" apples", pos)) != string::npos) {
+        total_apples += stoi(s.substr(pos - std::stolto_string::distance(0, pos)).substr(0, s.find(" ") - 1));
+        pos = s.find(" ", pos);
+    }
 
-    while (getline(iss, token, ' ')) {
-        if (token.find("apples") != string::npos) {
-            total_apples = stoi(token.substr(0, token.find(" ")).c_str());
-        } else if (token.find("oranges") != string::npos) {
-            total_oranges = stoi(token.substr(0, token.find(" ")).c_str());
-        }
+    while ((pos = s.find(" oranges", pos)) != string::npos) {
+        total_oranges += stoi(s.substr(pos - std::stolto_string::distance(0, pos)).substr(0, s.find(" ") - 1));
+        pos = s.find(" ", pos);
     }
 
     return n - total_apples - total_oranges;
