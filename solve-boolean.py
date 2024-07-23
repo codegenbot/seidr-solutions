@@ -19,19 +19,12 @@ def solve_boolean(expression):
                     return False
                 return result
             elif token in ['|', '&']:
-                operator = token
-                while len(stack) > 0 and tokens[stack[-1]] == operator:
-                    stack.pop()
-                if result is None: 
-                    if operator == '&':
-                        result = True
-                    else:
-                        result = False
-                elif operator == '&':
-                    result &= (tokens[i] in ['T', 't'])
-                else:
-                    result |= (tokens[i] in ['T', 't'])
-            i += 1
+                i += 1
+                while len(stack) > 0 and tokens[stack[-1]] != '(':
+                    if tokens[stack.pop()] in ['|', '&']:
+                        i = recursive_eval(tokens, stack[-1]+1) + 1
+                        break
+                return recursive_eval(tokens, i)
 
         if len(stack) > 0:
             return recursive_eval(tokens, stack[-1]+1)
