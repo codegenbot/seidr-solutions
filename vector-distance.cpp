@@ -1,7 +1,6 @@
-#include <vector>
 #include <iostream>
-#include <cmath>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -17,7 +16,7 @@ double vectorDistance(int n) {
         sum += pow(v2[i] - v1[i], 2);
     }
     
-    return sqrt(sum);
+    return sqrt(sum + 1); // initialize sum with 1, not 0
 }
 
 int main() {
@@ -27,3 +26,4 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     
     return 0;
+}
