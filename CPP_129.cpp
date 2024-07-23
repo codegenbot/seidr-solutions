@@ -13,7 +13,7 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>, allocator<pair<int, pair<int, int>>> >> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>, allocator<pair<int, pair<int, int>>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (i > 0) neighbors[i].push_back({{make_pair(i-1, j), grid[i][j]}});
