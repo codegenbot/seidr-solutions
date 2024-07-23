@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 string squareDigitsFunc(string n) {
@@ -16,4 +12,3 @@ string squareDigitsFunc(string n) {
 int main() {
     cout << squareDigitsFunc("17") << endl;
     return 0;
-}
