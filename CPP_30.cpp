@@ -33,7 +33,8 @@ int main() {
 
     bool same = true;
     for (const auto& row : get_positive(mat)) {
-        if (!(std::cin >> row[0])) { 
+        float num;
+        if (!(std::cin >> num)) { 
             same = false;
             break;
         }
@@ -42,4 +43,3 @@ int main() {
     std::cout << (same ? "YES" : "NO") << std::endl;
 
     return 0;
-}
