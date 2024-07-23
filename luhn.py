@@ -1,7 +1,7 @@
-digits = [int(d) for d in input().replace(' ', '')]
+digits = [int(d) for d in input().split()]
 
 total = 0
-for i, digit in enumerate(digits, 1):
+for i, digit in enumerate(digits):
     if i % 2 == 0:
         temp = digit * 2
         if temp > 9:
