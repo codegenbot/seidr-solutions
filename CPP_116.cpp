@@ -1,12 +1,10 @@
-Here is the completed code:
+#include <bits/stdc++.h>
 
-```cpp
-#include <vector>
-#include <algorithm>
+using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
     vector<int> result = arr;
-    std::sort(result.begin(), result.end(), 
+    sort(result.begin(), result.end(),
         [](int a, int b) {
             int ones_a = __builtin_popcount(a);
             int ones_b = __builtin_popcount(b);
