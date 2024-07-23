@@ -20,11 +20,10 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     for (size_t i = 0; i <= n - m; i++) {
         bool found = true;
         for (size_t j = 0; j < m; j++) {
-            if (text.substr(i, 1).compare(0, 1, target.substr(j, 1)) != 0) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
-            i++; // Move the start of the window forward
         }
         if (found) {
             result.push_back(i);
