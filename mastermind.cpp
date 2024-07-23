@@ -18,6 +18,7 @@ pair<int, int> mastermind(string code, string guess) {
     // Count total correct characters in code and guess
     int colorCount[6] = {0};
     const char* colors = "012345";
+
     for(int i = 0; i < 4; i++) {
         for(int j = 0; j < 6; j++) {
             if(code[i] == colors[j]) {
