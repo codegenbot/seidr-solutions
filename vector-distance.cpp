@@ -1,11 +1,11 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
 
-float calculateEuclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
+template<typename T, std::size_t N>
+float calculateEuclideanDistance(const std::vector<T>& v1, const std::vector<T>& v2) {
     float distance = 0;
-    for (int i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < N; i++) {
         distance += pow((v1[i] - v2[i]), 2);
     }
     return sqrt(distance);
