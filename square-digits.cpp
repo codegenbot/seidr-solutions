@@ -5,4 +5,4 @@ string squareDigits(int n) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
-    return result;}
+    return result;
