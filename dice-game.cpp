@@ -1,4 +1,4 @@
-```c++
+```c
 int main() {
     int n = 6; 
     int m = 4; 
