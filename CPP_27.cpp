@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -17,7 +18,6 @@ string filp_case(string str){
 }
 
 int main(){
-    string s = filp_case("These violent delights have violent ends");
-    assert (s == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0; 
+    assert (filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
