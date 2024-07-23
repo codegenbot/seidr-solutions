@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
