@@ -7,6 +7,9 @@ def mastermind(code, guess):
         min(count, guess.count(char)) for count, char in zip(code_count, "BOY")
     )
 
-    black_peg = sum(a == b and (index := list(code).index(a)) != list(guess).index(b) for a, b in zip(code, guess))
+    black_peg = sum(
+        a == b and (index := list(code).index(a)) != list(guess).index(b)
+        for a, b in zip(code, guess)
+    )
 
     return str(white_peg) + "\n" + str(black_peg)
