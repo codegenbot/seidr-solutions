@@ -10,7 +10,7 @@ def fix_spaces(text):
     return new_text
 
 text = input("Enter your text: ")
-if not text:  
+if not text:
     print("Please enter some text.")
 else:
     print(fix_spaces(text))
