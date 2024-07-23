@@ -1,13 +1,13 @@
 #include <iostream>
-#include <cassert>
+#include <string>
 
-int add(int x, int y) {
-    return x + y;
+std::string add() {
+    int x, y;
+    std::cin >> x >> y;
+    return std::to_string(x + y);
 }
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    assert(add(x, y) == x + y);
+    std::cout << add() << std::endl; 
     return 0;
 }
