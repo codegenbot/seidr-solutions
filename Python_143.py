@@ -1,12 +1,13 @@
 ```
 def words_in_sentence(sentence):
-    prime_words = [word for word in sentence.split() if is_prime(len(word))]
-    return ' '.join(prime_words)
-
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+    prime_words = []
+    for word in sentence.split():
+        is_prime = True
+        for i in str(len(word)):
+            count = str(word).count(i)
+            if all(count > 0 for _ in range(int(len(word)))) or count == int(len(word)) + 1:
+                is_prime = False
+                break
+        if is_prime:
+            prime_words.append(word)
+    return " ".join(prime_words)
