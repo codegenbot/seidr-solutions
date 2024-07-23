@@ -1,11 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
-
 #include <initializer_list>
-#pragma GCC diagnostic push
-#include <initializer_list>
-#pragma GCC diagnostic pop
 
 bool same(std::vector<int> a, std::vector<int> b){
     return a == b;
