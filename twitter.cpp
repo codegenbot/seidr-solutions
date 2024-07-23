@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,10 +8,11 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (std::count_if(tweet.begin(), tweet.end(), ::isalnum) > 140) {
+    size_t count = std::count(tweet.begin(), tweet.end(), ' ');
+    if (count > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(std::count_if(tweet.begin(), tweet.end(), ::isalnum)) + " characters";
+    return "Your tweet has " + to_string(count) + " characters";
 }
 
 int main() {

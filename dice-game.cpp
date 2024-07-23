@@ -1,21 +1,19 @@
-```cpp
 #include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-
-    for(int i = 1; i <= min(n, m); i++) {
-        if(m - i > n) {
-            p -= (i) / total;
-        } else {
-            p += (n - i) / total;
-        }
-    }
-
-    p += ((double)(n - m)) / total;
-
-    return p;
+    double total = (n * m);
+    double petersWin = ((m - 1) + (n - m)) / (total - m);
+    return petersWin;
 }
 
-int main() { return 0; }
+int main() {
+    int n, m;
+    cout << "Enter the number of sides for Peter's die: ";
+    cin >> n;
+    cout << "Enter the number of sides for Colin's die: ";
+    cin >> m;
+    double result = diceGame(n, m);
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << result << endl;
+    return 0;
+}

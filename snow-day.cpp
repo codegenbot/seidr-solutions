@@ -9,7 +9,7 @@ int main() {
     std::cin >> hours;
 
     float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    (std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour);
+    std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
     for (int i = 0; i < hours; ++i) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
