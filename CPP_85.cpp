@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,12 +18,11 @@ int main_func() {
 
     for (;;) {
         std::cout << "Enter some numbers (enter -1 when you are done):" << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if (!(std::cin >> num) || num == -1) break;
         if(numbers.size() > 0 && numbers.capacity() < numbers.size()) numbers.reserve(1024);
         numbers.push_back(num);
     }
+    numbers.shrink_to_fit(); 
     int result = add(numbers);
     std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
 
