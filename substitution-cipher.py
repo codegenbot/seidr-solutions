@@ -1,5 +1,2 @@
-def substitute_cipher():
-    cipher_map = [c for c in input().replace("\n", "")]
-    text = input().replace("\n", "")
-    deciphered_text = "".join([cipher_map[int(i)] for i in text])
-    return deciphered_text
+def substitution_cipher(cipher, message):
+    return "".join([cipher[i] if i < len(cipher) else "" for i in range(len(message))])
