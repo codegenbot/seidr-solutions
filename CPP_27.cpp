@@ -25,3 +25,4 @@ int main() {
     std::getline(std::cin, str);
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
     return 0;
+}
