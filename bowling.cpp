@@ -1,9 +1,8 @@
-```cpp
 #include <string>
 using namespace std;
 
-int getRoll(string s, int i);
-int getBonusRoll(string s, int i);
+int getRoll(string, int);
+int getBonusRoll(string, int);
 
 int main() {
     int score = 0;
