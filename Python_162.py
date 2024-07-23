@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 import hashlib
 
 def string_to_md5(text):
