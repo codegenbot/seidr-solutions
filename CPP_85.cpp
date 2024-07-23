@@ -26,6 +26,4 @@ int main() {
 
     int result = add(numbers);
     std::cout << "Sum of odd-indexed numbers: " << result << std::endl;
-
-    return 0;
 }
