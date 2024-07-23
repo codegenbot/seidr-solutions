@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -9,13 +10,6 @@ bool is_palindrome(string s) {
     string t = s;
     reverse(t.begin(), t.end());
     return s == t;
-}
-
-int accumulate(vector<int>::iterator start, vector<int>::iterator end, int init) {
-    int sum = init;
-    for (; start != end; ++start)
-        sum += *start;
-    return sum;
 }
 
 bool will_it_fly(vector<int> q, int w) {
@@ -27,27 +21,16 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    int num, weight;
-    vector<int> queue;
-
-    cout << "Enter the number of elements in the queue: ";
-    cin >> num;
-
-    for(int i = 0; i < num; i++) {
-        int val;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> val;
-        queue.push_back(val);
+    int n, w;
+    cin >> n >> w;
+    
+    vector<int> q(n);
+    
+    for(int i = 0; i < n; i++) {
+        cin >> q[i];
     }
-
-    cout << "Enter the weight: ";
-    cin >> weight;
-
-    if(will_it_fly(queue, weight)) {
-        cout << "The items will fly." << endl;
-    } else {
-        cout << "The items won't fly." << endl;
-    }
-
+    
+    cout << (will_it_fly(q, w) ? "Yes" : "No") << endl;
+    
     return 0;
 }
