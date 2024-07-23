@@ -1,21 +1,47 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <vector>
-#include <list>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
-    for (const auto& value : values) {
-        if(boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
+bool filter_integers(std::vector<int> inputVector) {
+    std::vector<int> evenNumbers;
+    for (int i = 0; i < inputVector.size(); i++) {
+        if (inputVector[i] % 2 == 0) {
+            evenNumbers.push_back(inputVector[i]);
         }
     }
-    return result;
+    return evenNumbers;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(is_same(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}) , std::vector<int>{1, 2, 3}));
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> inputVector(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> inputVector[i];
+    }
+
+    std::vector<int> filteredVector = filter_integers(inputVector);
+
+    bool isSame = issame(filteredVector, inputVector);
+    if (isSame) {
+        std::cout << "The even numbers are the same as the original list." << std::endl;
+    } else {
+        std::cout << "The even numbers are different from the original list." << std::endl;
+    }
+
+    return 0;
 }
