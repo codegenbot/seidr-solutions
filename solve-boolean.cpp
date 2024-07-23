@@ -1,25 +1,54 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    bool result = false;
-    bool operand = true;
-    char operation = '|';
+    if (expr == "t") {
+        return true;
+    } else if (expr == "f") {
+        return false;
+    } else {
+        bool result = false;
+        bool negate = false;
 
-    for (char c : expr) {
-        if (c == 't') {
-            operand = true;
-        } else if (c == 'f') {
-            operand = false;
-        } else if (c == '&' || c == '|') {
-            operation = c;
-        } else {
-            if (operation == '|') {
-                result = result || operand;
-            } else {
-                result = result && operand;
+        if (expr[0] == '!') {
+            negate = true;
+            return !evaluateBooleanExpression(expr.substr(1));
+        }
+
+        if (expr.find('&') != std::string::npos) {
+            result = true;
+            for (char c : expr) {
+                if (c == '&') {
+                    continue;
+                } else if (c == 't') {
+                    result = result && true;
+                } else if (c == 'f') {
+                    result = result && false;
+                } else if (c == '!') {
+                    continue;
+                }
+            }
+        } else if (expr.find('|') != std::string::npos) {
+            result = false;
+            for (char c : expr) {
+                if (c == '|') {
+                    continue;
+                } else if (c == 't') {
+                    result = result || true;
+                } else if (c == 'f') {
+                    result = result || false;
+                } else if (c == '!') {
+                    continue;
+                }
             }
         }
+        
+        return negate ? !result : result;
     }
+}
 
-    return result;
+int main() {
+    std::string expression;
+    std::cin >> expression;
+    std::cout << evaluateBooleanExpression(expression) << std::endl;
+    return 0;
 }
