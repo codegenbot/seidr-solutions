@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <cctype>
-#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -37,6 +36,6 @@ int main() {
     if (same) {
         cout << "Test passed." << endl;
     } else {
-        cout << "Test failed." << endl;
+        cout << "Test failed." << std::endl; 
     }
 }
