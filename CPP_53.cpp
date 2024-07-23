@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 
-int add(int x, int y) {
-    return x + y;
+std::string add() {
+    int x, y;
+    std::cin >> x >> y;
+    return std::to_string(x + y);
 }
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    std::cout << std::to_string(add(x, y)) << std::endl; 
+    std::cout << add() << std::endl; 
     return 0;
 }
