@@ -1,17 +1,21 @@
 #include <string>
-#include <cctype>
+#include <cassert>
+#include <iostream>
 
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        char ch = std::toupper(c);
-        if (!std::isdigit(ch)) {
-            sum += static_cast<int>(ch) - 'A' + 1; 
+        if (isdigit(c)) {
+            sum += c - '0';
         } else {
-            sum += ch - '0';
+            sum += topperCaseLetterValue(c);
         }
     }
     return sum;
+}
+
+int topperCaseLetterValue(char c) {
+    return c - 'A' + 1;
 }
 
 int main() {
