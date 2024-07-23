@@ -1,4 +1,3 @@
-#include <vector>
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -21,7 +20,7 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1) {
+        if (count > 0) {
             white += count - 1;
         }
     }
