@@ -1,13 +1,19 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <algorithm>
-#include <type_traits>
+#include <numeric>
 
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    
+    return true;
 }
 
 vector<int> filter_integers(list<any> values) {
