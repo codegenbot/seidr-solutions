@@ -2,7 +2,7 @@
 #include <string>
 using namespace boost;
 
-boost::any solve(const boost::any& a, const boost::any& b) {
+boost::any yourFunction(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(float))
         return max(boost::any_cast<int>(a), boost::any_cast<float>(b));
     if (a.type() == typeid(float) && b.type() == typeid(int))
