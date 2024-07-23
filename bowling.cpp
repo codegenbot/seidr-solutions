@@ -1,4 +1,8 @@
-int bowlingScore(string s) {
+```c++
+#include <iostream>
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
     int roll1 = 0; 
     int roll2 = 0; 
