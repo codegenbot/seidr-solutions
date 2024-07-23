@@ -1,12 +1,30 @@
 #include <iostream>
 #include <string>
 
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
+
+    for (char c : str) {
+        if (c == '-') || (c == ' ')) { 
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
+        }
+    }
+
+    return result;
+}
+
 int main() {
     std::string str, finalResult;
     while (std::cin >> str) {
         size_t prevSpace = 0;
         for (size_t i = 0; i < str.size(); ++i) {
-            if (str[i] == '-' || str[i] == ' ') { 
+            if (str[i] == '-') || (str[i] == ' ')) { 
                 for (char c : str.substr(prevSpace + 1, i - prevSpace - 1)) { 
                     finalResult += tolower(c);
                 }
@@ -31,19 +49,4 @@ int main() {
         finalResult.clear();
     }
     return 0;
-}
-
-std::string camelCase(const std::string& str) {
-    if (str.empty()) return str;
-    std::string result = tolower(str[0]);
-    for (size_t i = 1; i < str.size(); ++i) {
-        if (str[i] == '-') {
-            result += toupper(str[++i]);
-        } else if (str[i] == ' ') {
-            result += toupper(str[++i]);
-        } else {
-            result += str[i];
-        }
-    }
-    return result;
 }
