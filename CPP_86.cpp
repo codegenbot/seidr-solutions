@@ -1,13 +1,15 @@
 string result = "";
     string word = "";
     for (char c : s) {
-        if (c == ' ' || c == '\0') {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + c;
+            result += word + " ";
             word = "";
         } else {
             word += c;
         }
     }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
