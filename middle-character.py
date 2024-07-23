@@ -1,13 +1,12 @@
-```
 def middle_character(s):
-    s = s.strip().replace(" ", "").lower()
+    s = s.strip().replace(" ", "")
     length = len(s)
     
     mid = length // 2
     
     if length == 1:  
-        return s
+        return str(s)
     elif length % 2 == 0:  
-        return s[mid-1:mid+1]
+        return str(s[mid] + s[mid])
     else:
-        return s[mid].upper() if not s[mid].isalnum() or ord(s[mid]) < 64 else s[mid]
+        return str(s[mid])
