@@ -7,14 +7,12 @@ pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
-    // Count black pegs
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
-    // Count total correct characters in code and guess
     int colorCount[6] = {0};
     for(int i = 0; i < 4; i++) {
         if(code[i] != guess[i]) {
@@ -22,10 +20,9 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    // Calculate white pegs
     whitePegs = 4 - blackPegs;
-    
-    return std::make_pair(blackPegs, whitePegs);
+
+    return make_pair(blackPegs, whitePegs);
 }
 
 int main() {
