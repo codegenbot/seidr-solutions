@@ -4,7 +4,7 @@ def make_palindrome(s: str) -> str:
         return s
     mid = len(s) // 2
     first_half = s[:mid + 1]
-    second_half = s[mid:-1] if len(s) % 2 != 0 else s[mid:][::-1]
+    second_half = s[:mid+1][::-1] if len(s) % 2 != 0 else s[:mid][::-1]
     return first_half + second_half
 
 
