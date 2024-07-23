@@ -1,4 +1,4 @@
-```Python
+```
 import math
 
 def max_fill(grid, capacity):
