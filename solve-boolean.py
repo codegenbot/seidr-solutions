@@ -1,14 +1,20 @@
-```
 def solve_boolean(expression):
     def eval_expr(tokenized):
-        if len(tokenized) == 1:  
-            return tokenized[0] == 'T'
-        elif '&' in tokenized:
-            left, right = tokenized.split('&')
-            return all(eval_expr([x]) for x in left.split('|')) and all(eval_expr([x]) for x in right.split('|'))
-        else:
-            left, right = tokenized.split('|')
-            return any(eval_expr([x]) for x in left.split('&')) or any(eval_expr([x]) for x in right.split('&'))
+        if not tokenized:
+            return False
+        token = tokenized.pop(0)
+        if token in ['T', 'F']:
+            return token == 'T'
+        elif token == '&':
+            return eval_expr(tokenized) and eval_expr(tokenized)
+        else: 
+            return eval_expr(tokenized) or eval_expr(tokenized)
 
-    tokens = expression.replace(' & ', ' &').replace(' | ', ' |')
-    return eval_expr(tokens.split())
+    tokens = list(expression.replace('&', ' &').replace('|', ' |').split())
+    while '&' in tokens:
+        start = tokens.index('&')
+        end = start + 1
+        while end < len(tokens) and tokens[end] != '&':
+            end += 1
+        tokens = tokens[:start] + ['&'] + tokens[start+1:end]
+    return eval_expr(list(tokens))
