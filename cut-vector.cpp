@@ -2,24 +2,22 @@
 #include <vector>
 #include <climits>
 #include <cmath>
-#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string input;
+    int num = 0;
     
-    getline(cin, input);
-    stringstream ss(input);
-    int num;
-    
-    while (ss >> num) {
+    do {
+        if (!(cin >> num)) {
+            break;
+        }
         if (num == 0) {
             break;
         }
         nums.push_back(num);
-    }
+    } while (true);
     
     int n = nums.size();
     int sum = 0;
