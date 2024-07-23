@@ -1,6 +1,6 @@
-def make_palindrome(s: str) -> str:
-    for i in range(len(s)):
-        postfix = s[i:]
+def make_palindrome(string: str) -> str:
+    for i in range(len(string)):
+        postfix = string[i:]
         if postfix == postfix[::-1]:
-            return s + postfix[::-1]
-    return s + s[::-1]
+            return string + postfix[::-1]
+    return string + string[::-1]
