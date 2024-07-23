@@ -1,3 +1,5 @@
+Here is the solution to the problem:
+```
 ```python
 import math
 
@@ -11,3 +13,4 @@ def find_zero(xs: list):
 
     x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a) if c is not None else -b / (2*a)
     return round(x, 2)
+```
