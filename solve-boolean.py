@@ -1,18 +1,18 @@
-```
 def solve_boolean(expression):
-    def eval_expr(tokenized):
-        if not tokenized:  
-            return False  # empty expression is False
-        if len(tokenized) == 1:  
-            return tokenized[0] == 'T'
-        elif '&' in tokenized:
-            left = eval_expr([x for x in tokenized[:tokenized.index('&')] + ['&'] + [tokenized[tokenized.index('&')+1:]]])
-            right = eval_expr(tokenized[tokenized.index('&')+1:].replace(' and ', '&').split())
-            return left and right
-        else:
-            left = eval_expr(tokenized[:tokenized.index('|') + 1].replace(' or ', '|').split())
-            right = eval_expr(tokenized[tokenized.index('|')+1:])
-            return left or right
+    def recursive_eval(tokens):
+        and_result = True
+        or_result = True
 
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    return eval_expr(tokens.split())
+        for token in tokens:
+            if token == 'T':
+                and_result = or_result = True
+            elif token == 'F':
+                and_result = False
+            elif token == '|':
+                and_result, or_result = True, True
+            elif token == '&':
+                return and_result
+        return or_result
+
+    tokens = expression.replace('&', ' & ').replace('|', ' | ')
+    return recursive_eval(tokens.split())
