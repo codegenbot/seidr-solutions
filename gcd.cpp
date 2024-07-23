@@ -1,32 +1,21 @@
+// main.cpp
+#include <iostream>
 #include <vector>
 #include <string>
+#include "library.h"
 
-using namespace std;
+int main() {
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
 
-int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> result = indicesOfSubstring(text, target);
+    for (int idx : result) {
+        std::cout << idx << " ";
     }
-    return gcd(b, a % b);
-}
+    std::cout << std::endl;
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-    int n = text.size();
-    int m = target.size();
-    
-    for (int i = 0; i <= n - m; ++i) {
-        bool found = true;
-        for (int j = 0; j < m; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
-    }
-    
-    return indices;
+    return 0;
 }
