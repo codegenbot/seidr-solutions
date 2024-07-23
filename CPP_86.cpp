@@ -1,19 +1,21 @@
+#include <algorithm>
 #include <string>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
-    size_t pos = s.find(" ");
-    while (pos != std::string::npos) {
-        string word = s.substr(0, pos);
-        for (char &c : word) {
-            result += c;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            result += " ";
+        } else {
+            std::string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
+                i++;
+            }
+            for (int j = 0; j < word.length(); j++) {
+                result += word[j];
+            }
         }
-        result.push_back(' ');
-        s.erase(0, pos + 1);
-        pos = s.find(" ");
-    }
-    if (!s.empty()) {
-        result += s;
     }
     return result;
 }
