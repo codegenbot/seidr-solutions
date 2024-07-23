@@ -1,23 +1,14 @@
-Here is the Python solution:
-
-def bowling_score(rolls):
+def bowling_score(frames):
     score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == 'X':
-            score += 10
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].startswith('///'):
-            score += 30
-            roll_index += 2
+    i = j = 0
+    while i < len(frames):
+        if frames[i] != '/':
+            score += int(frames[i])
+            i += 1
         else:
-            first_roll = int(rolls[roll_index])
-            if rolls[roll_index+1] == '/':
-                second_roll = 10 - first_roll
-                score += first_roll + second_roll
-                roll_index += 2
-            else:
-                second_roll = int(rolls[roll_index+1])
-                score += first_roll + second_roll
-                roll_index += 2
+            rolls = list(map(int, frames[i].split('/')))
+            if i+2 < len(frames) and frames[i+1].endswith('/'):
+                rolls.append(int(frames[i+2].split('/')[0]))
+            score += sum(rolls)
+            i += 3
     return score
