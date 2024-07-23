@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <string>
 #include <iostream>
