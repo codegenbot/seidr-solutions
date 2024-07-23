@@ -1,14 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+            i += m - 1; // skip overlapping matches
+        }
+    }
+
+    return result;
+}
+
 long long gcd(long long a, long long b) {
-    if (a == 0 && b == 0)
-        return 0;
-    else if (b == 0)
-        return a;
-    else if (a % 2 == 0 && b % 2 == 0)
-        return 2 * gcd(a / 2, b / 2);
-    else if (a % 2 == 0)
-        return gcd(a / 2, b);
-    else if (b % 2 == 0)
-        return gcd(a, b / 2);
-    else
-        return gcd(b, a % b);
+    if (a < b)
+        swap(a, b);
+    while (b != 0)
+        swap(b, a % b);
+    return a;
+}
+
+int main() {
+    long long num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+
+    long long result = gcd(num1, num2);
+    cout << "GCD of the given numbers is " << result << endl;
+
+    return 0;
 }
