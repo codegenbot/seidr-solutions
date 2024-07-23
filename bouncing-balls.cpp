@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -12,7 +13,7 @@ int main() {
         totalDistance += 2 * (heightFirstBounce - heightStart) * pow(bouncinessIndex, i-1);
     }
 
-    std::cout << "Total distance: " << totalDistance << std::endl;
+    std::cout << "The total distance is: " << totalDistance << std::endl;
 
     return 0;
 }
