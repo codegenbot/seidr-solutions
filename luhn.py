@@ -1,13 +1,10 @@
-```
 def luhn(card_number):
-    card_number = list(map(int, [c for c in card_number.replace(' ', '')]))
+    card_number = list(map(int, [c for c in card_number if c != ' ']))
     total = 0
     for i in range(len(card_number)):
         if (i % 2) == 1:
-            doubled = card_number[i] * 2
-            if doubled > 9:
-                doubled -= 9
-            total += doubled
-        else:
-            total += card_number[i]
+            card_number[i] *= 2
+            if card_number[i] > 9:
+                card_number[i] -= 9
+        total += card_number[i]
     return total
