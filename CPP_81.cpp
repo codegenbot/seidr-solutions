@@ -11,14 +11,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-bool isEqualTo(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
