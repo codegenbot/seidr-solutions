@@ -1,5 +1,4 @@
-def double_the_difference(lst):
-    if len(lst) < 2:
-        return 0
-    half_sum = sum(lst[:len(lst)//2]) - sum(lst[len(lst)//2:])
-    return abs(half_sum) * 2
+def check(lst):
+    if len(lst) % 2 != 0:
+        return double_the_difference(lst, lst)
+    return None
