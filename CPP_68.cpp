@@ -1,13 +1,12 @@
-```cpp
 #include <vector>
-#include <limits>
+#include <climits>
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
     if (arr.empty()) return result;
     
-    int smallest_even = numeric_limits<int>::max();
+    int smallest_even = INT_MAX;
     int index_of_smallest_even = -1;
     
     for (int i = 0; i < arr.size(); i++) {
@@ -17,7 +16,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if (smallest_even != numeric_limits<int>::max()) {
+    if (smallest_even != INT_MAX) {
         result.push_back({smallest_even, index_of_smallest_even});
     } else {
         result.push_back({0, 0});
