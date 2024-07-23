@@ -1,0 +1,1 @@
+string rotated = (j < b.length() - 1) ? b.substr(1) + b[0] : b;
