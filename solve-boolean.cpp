@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -23,8 +24,9 @@ bool solveBoolean(string s) {
 
 int main() {
     string input;
-    cin >> ws;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
     getline(cin, input); 
     bool result = solveBoolean(input);
-    cout << (result ? "True" : "False");
+    if(result)cout<<"True";
+    else cout<<"False";
 }
