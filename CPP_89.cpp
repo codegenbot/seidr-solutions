@@ -1,12 +1,10 @@
 string encrypt(string s){
     string result = "";
+    int shift = 2 * 2; // Two places down
     for(char c : s){
         if(isalpha(c)){
-            char new_char = c + 2 * (c > 'Z' ? 26 : 1);
-            if((isupper(c) && new_char > 'Z') || (islower(c) && new_char > 'z')){
-                new_char -= 26;
-            }
-            result += new_char;
+            char base = islower(c) ? 'a' : 'A';
+            result += (char)(((c - base + shift) % 26) + base);
         } else {
             result += c;
         }
