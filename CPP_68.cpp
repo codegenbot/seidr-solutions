@@ -1,27 +1,31 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(int a, int b) {
-    return (a >= b);
+bool issame(int i) {
+    return i % 2 == 0;
 }
 
-pair<int, int> pluck(const vector<int>& v, int i) {
-    if(i >= v.size()) 
-        return make_pair(-1, -1);
-    else
-        return make_pair(v[i], i);
+int pluck(const vector<int>& v) {
+    int result = 0;
+    for (int x : v) {
+        if (!issame(x)) {
+            result += x;
+        }
+    }
+    return result;
 }
 
 vector<pair<int, int>> result(vector<int> arr) {
-    vector<pair<int, int>> res;
-    for(int i = 0; i < arr.size(); i++) {
-        if(issame(arr[i], i+1)) 
-            res.push_back(pluck(arr, i));
+    vector<pair<int, int>> output;
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0) {
+            output.emplace_back(arr[i], i);
+        }
     }
-    return res;
+    return {make_pair(pluck(arr), -1)};
 }
 
 int main() {
