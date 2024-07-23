@@ -1,16 +1,20 @@
-Here is the completed code:
+#include <cmath>
 
 string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    int sum = 0;
-    for (int i = n; i <= m; i++) sum += i;
-    double avg = (double)sum / (m - n + 1);
-    int rounded = floor(avg);
-    string result = "";
-    while (rounded > 0) {
-        if (rounded & 1) result.push_back('1');
-        else result.push_back('0');
-        rounded >>= 1;
+    if (n > m)
+        return "-1";
+    long sum = 0;
+    for (int i = n; i <= m; i++)
+        sum += i;
+    double avg = round((double)sum / ((long)(m - n + 1)));
+    string bin = "";
+    while (avg > 0) {
+        if (avg >= 2)
+            bin += '1', avg -= 2;
+        else
+            bin += '0';
+        avg /= 2;
     }
-    return result;
+    reverse(bin.begin(), bin.end());
+    return bin;
 }
