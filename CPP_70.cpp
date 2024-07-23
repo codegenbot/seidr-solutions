@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-namespace std {
+namespace {
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())
@@ -27,10 +23,4 @@ int run_main() {
     assert(issame(strange_sort_list({111111}), {111111}));
     return 0;
 }
-
-} // end of namespace
-
-int main() {
-    run_main();
-    return 0;
 }
