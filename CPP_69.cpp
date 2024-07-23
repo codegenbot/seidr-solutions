@@ -1,15 +1,20 @@
-int search(vector<int> lst) {
-    map<int, int> countMap;
+#include <iostream>
+#include <vector>
+
+int search(std::vector<int> lst) {
+    int max = 0;
     for (auto i : lst) {
-        countMap[i]++;
-    }
-    
-    vector<int> maxVals;
-    for (auto p : countMap) {
-        if (p.second >= std::count(lst.begin(), lst.end(), p.first)) {
-            maxVals.push_back(p.first);
+        if (i > 0 && std::count(lst.begin(), lst.end(), i) == i) {
+            return i;
+        }
+        if (std::count(lst.begin(), lst.end(), i) > max) {
+            max = std::count(lst.begin(), lst.end(), i);
         }
     }
-    
-    return maxVals.empty() ? -1 : *max_element(maxVals.begin(), maxVals.end());
+    return -1;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
