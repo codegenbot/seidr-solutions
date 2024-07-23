@@ -4,26 +4,28 @@
 int calculateFrameScore(const std::string& s, int index) {
     if (s[index] == 'X') {
         int frameScore = 10;
-        if (s[index + 1] != 'X') {
-            frameScore += (s[index + 1] == '/') ? 10 - (s[index + 2] - '0') : s[index + 1] - '0';
-            if (s[index + 2] != 'X') {
-                frameScore += (s[index + 2] == '/') ? 10 - (s[index + 3] - '0') : s[index + 2] - '0';
-            } else {
+        int nextIndex = index + 1;
+        int remainingBalls = 2;
+        while (remainingBalls > 0 && nextIndex < s.size()) {
+            if (s[nextIndex] == 'X') {
                 frameScore += 10;
-            }
-        } else {
-            frameScore += 10;
-            if (s[index + 2] == 'X') {
-                frameScore += 10;
+            } else if (s[nextIndex] == '/') {
+                frameScore += 10 - (s[nextIndex - 1] - '0');
             } else {
-                frameScore += (s[index + 2] == '/') ? 10 - (s[index + 3] - '0') : s[index + 2] - '0';
+                frameScore += s[nextIndex] - '0';
             }
+            remainingBalls--;
+            nextIndex++;
         }
         return frameScore;
     } else if (s[index] == '/') {
-        return 10 - (s[index - 1] - '0') + ((s[index + 1] == 'X') ? 10 : s[index + 1] - '0');
+        if (s[index - 2] == 'X') {
+            return 20;
+        } else {
+            return 10 - (s[index - 1] - '0') + (s[index + 1] == 'X' ? 10 : s[index + 1] - '0');
+        }
     } else {
-        return (s[index] == '-') ? 0 : (s[index] - '0');
+        return 0;
     }
 }
 
