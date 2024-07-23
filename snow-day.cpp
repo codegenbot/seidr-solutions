@@ -1,27 +1,22 @@
-Here is the solution:
-
-```cpp
-#include <iomanip>
+```c++
 #include <iostream>
+#include <iomanip>
 
-int snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour);
+// Function prototype
+float snowDay(int, float, float, float);
 
 int main() {
     int hours;
     cin >> hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
 }
 
-int snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    float snow = initialSnow;
-    for (int i = 1; i <= hours; ++i) {
-        if (i == 1)
-            snow += rateOfSnowFall - snow * proportionOfSnowMeltingPerHour;
-        else
-            snow = snow + rateOfSnowFall - snow * proportionOfSnowMeltingPerHour;
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+    for (int i = 0; i < hours; ++i) {
+        initialSnow += rateOfSnowFall - initialSnow * proportionOfSnowMeltingPerHour;
     }
-    return static_cast<int>(snow);
+    return initialSnow;
 }
