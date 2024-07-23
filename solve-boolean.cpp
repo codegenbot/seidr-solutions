@@ -2,13 +2,13 @@
 #include <string>
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
+    std::string input;
+    std::cin >> input;
 
-    if (expression == "T") {
-        std::cout << "True" << std::endl;
+    if (input == "t") {
+        std::cout << "True";
     } else {
-        std::cout << "False" << std::endl;
+        std::cout << "False";
     }
 
     return 0;
