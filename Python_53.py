@@ -1,7 +1,12 @@
-```
 def add(x: int, y: int):
-    result = x + y
-    print(f"The sum of {x} and {y} is {result}")
+    result = x
+    while y:
+        x, y = y, x & (y - 1)
+        result += 1
+    return result * 2
+
+num1 = 0
+num2 = 0
 
 while True:
     try:
@@ -21,4 +26,4 @@ while True:
     confirm = input("Press Enter to execute, or type 'q' to quit: ")
     if confirm.lower() == 'q':
         break
-    add(num1, num2)
+    print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
