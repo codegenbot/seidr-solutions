@@ -1,10 +1,17 @@
+```
 from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    temp = ""
 
+    while True:
+        if all(c in ["(", ")"] for c in paren_string):
+            break
+        print("Invalid input. Try again.")
+        paren_string = " ".join(input("Enter a string of parentheses (separated by spaces): ").split())
+
+    temp = ""
     for char in paren_string:
         if char == " ":
             if temp:
