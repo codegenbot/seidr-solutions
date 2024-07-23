@@ -1,11 +1,12 @@
 #include <string>
+#include <cctype>
 
-string remove_vowels(string text){
-    string result;
+std::string remove_vowels(std::string text) {
+    std::string result;
     for (char c : text) {
-        if (!isalpha(c)) {
+        if (!std::isalpha(c)) {
             result += c;
-        } else if (!strchr("aeiouAEIOU", tolower(c))) {
+        } else if (!std::strchr("aeiouAEIOU", std::tolower(c))) {
             result += c;
         }
     }
