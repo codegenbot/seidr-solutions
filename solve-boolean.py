@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 def solve_boolean(expression):
     def recursive_eval(tokens, i=None):
         result = None
@@ -10,13 +13,14 @@ def solve_boolean(expression):
             elif token == ')':
                 while stack and tokens[stack[-1]] != '(':
                     if tokens[stack.pop()] in ['|', '&']:
-                        if result is not None: return result
+                        result = recursive_eval(tokens, stack[-1]+1) if result is None else result
                 i += 1
             elif token in ['T', 'F']:
                 if result is None: 
                     result = True if token == 'T' else False
-                elif token != 'T':
+                elif result is None and token != 'T':
                     return False
+                return result
             elif token in ['|', '&']:
                 operator = token
                 while len(stack) > 0 and tokens[stack[-1]] == operator:
@@ -27,13 +31,15 @@ def solve_boolean(expression):
                     else:
                         result = False
                 elif operator == '&':
-                    result &= (tokens[i] in ['T', 't'])
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result &= (tokens[stack.pop()] in ['T', 't'])
                 else:
-                    result |= (tokens[i] in ['T', 't'])
+                    while stack and tokens[stack[-1]] in ['T', 'F']:
+                        result |= (tokens[stack.pop()] in ['T', 't'])
             i += 1
 
-        while stack:
-            return recursive_eval(tokens, stack.pop())
+        if len(stack) > 0:
+            return recursive_eval(tokens, stack[-1]+1)
 
     expression = expression.replace(' | ', '|').replace('&', ' & ')
     return recursive_eval(expression.split())
