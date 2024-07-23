@@ -1,6 +1,4 @@
-#include <string>
-
-int bowlingScore(string input) {
+int bowlingScore(std::string input) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') { // strike
@@ -22,3 +20,4 @@ int bowlingScore(string input) {
         }
     }
     return score;
+}
