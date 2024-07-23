@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -13,25 +12,23 @@ double poly(std::vector<double> coeffs, double x) {
 
 double find_zero(std::vector<double> coeffs) {
     double x = 1.0;
-    double e = 1e-6;
+    const double epsilon = 1e-6;
+
     while (true) {
-        double fx = poly(coeffs, x);
-        if (fabs(fx) < e)
-            return x;
-        double dfx = 0;
-        for (int i = 1; i <= coeffs.size(); i++) {
-            dfx += i * coeffs[i] * pow(x, i-1);
-        }
-        x -= fx / dfx;
+        double p = poly(coeffs, x);
+        if (std::abs(p) < epsilon)
+            break;
+        x -= p / poly({coeffs[0], coeffs[1], coeffs[2]}, x);
     }
+    return x;
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -6.0, 11.0, -6.0, 1.0};
-    double solution = 0.0;
-
+    std::vector<double> coeffs = {3, -12, 12, -4};
+    
+    double solution = find_zero(coeffs);
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
-        assert(std::abs(val) < 1e-3); 
+        assert(std::abs(val)< 1e-3); 
     }
 }
