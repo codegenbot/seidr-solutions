@@ -1,22 +1,22 @@
-vector<float> even_values;
+vector<float> even_elements;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            even_elements.push_back(l[i]);
+        }
+    }
+
+    sort(even_elements.begin(), even_elements.end());
+
     vector<float> result;
-    for (size_t i = 0; i < l.size(); i++) {
+    int even_index = 0;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-            result.push_back(l[i]);
-        } else {
-            result.push_back(l[i]);
-        }
-    }
-    sort(even_values.begin(), even_values.end());
-    size_t even_index = 0;
-    for (size_t i = 0; i < result.size(); i++) {
-        if (i % 2 == 0) {
-            continue;
-        } else {
-            result[i] = even_values[even_index];
+            result.push_back(even_elements[even_index]);
             even_index++;
+        } else {
+            result.push_back(l[i]);
         }
     }
+
     return result;
 }
