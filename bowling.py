@@ -1,4 +1,4 @@
-```""" 
+```
 def bowling_score(frames):
     score = 0
     frame = 1
@@ -35,4 +35,3 @@ def bowling_score(frames):
             frame += 1
         i += 1
     return score
-""""
