@@ -10,6 +10,4 @@ int main() {
     int x, y;
     std::cin >> x >> y;
     assert(add(x, y) == x + y);
-    std::cout << "Sum: " << x + y << std::endl;
-    return 0;
 }
