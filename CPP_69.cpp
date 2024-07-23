@@ -1,3 +1,6 @@
+#include <vector>
+#include <map>
+
 int findSpecialNumber(const std::vector<int>& numbers) {
     map<int, int> freqMap;
     for (int num : numbers) {
@@ -15,3 +18,4 @@ int findSpecialNumber(const std::vector<int>& numbers) {
         }
     }
     return result;
+}
