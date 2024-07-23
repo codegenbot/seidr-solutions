@@ -39,8 +39,8 @@ int bowlingScore(std::string input) {
 
 int getRemaining(char c, std::string input) {
     int i = 1;
-    while (input.find(std::to_string(c)) != input.size() - i) {
+    while (input.rfind(std::to_string(c)) != input.size() - i && i <= input.size()) {
         i++;
     }
-    return 10 - i + (input[input.size() - i] - '0');
+    return 10 - i + (c - '0');
 }
