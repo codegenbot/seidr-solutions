@@ -12,5 +12,6 @@ string binary = "";
 
 int main() {
     assert(decimal_to_binary(15) == "db1111db");
+    // Your code here
     return 0;
 }
