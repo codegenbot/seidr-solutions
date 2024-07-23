@@ -24,16 +24,17 @@ double find_zero(vector<double> coeffs) {
 int main() {
     vector<double> coeffs;
     double x;
-    cin >> x; 
-    coeffs.resize(x + 1);
-    for (int i = 0; i <= x; i++) {
-        cin >> coeffs[i];
+    
+    cout << "Enter coefficients: ";
+    for(int i=0; i<5; i++){
+        double c;
+        cin >> c;
+        coeffs.push_back(c);
     }
 
-    double solution;
-    
-    solution = find_zero(coeffs);
-    assert (abs(poly(coeffs, solution))< 1e-3); 
+    double solution = find_zero(coeffs);
+
+    cout << "The zero is at: " << solution << endl;
 
     return 0;
 }
