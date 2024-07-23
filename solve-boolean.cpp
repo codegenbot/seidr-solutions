@@ -21,7 +21,7 @@ bool solveBoolean(string expression) {
         }
     }
 
-    bool result = true;
+    bool result = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
@@ -29,8 +29,10 @@ bool solveBoolean(string expression) {
             result = true;
         } else if (c == '&') {
             result = false;
+        } else {
+            result = c == 'T';
         }
     }
 
-    return result && (expression[0] == 'T');
+    return result;
 }
