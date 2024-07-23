@@ -3,8 +3,8 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 left_sum = 0
-min_diff = total_sum
-cut_index = 0
+min_diff = float("inf")
+cut_index = -1
 
 for i in range(n):
     left_sum += arr[i]
