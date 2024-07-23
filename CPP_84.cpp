@@ -1,6 +1,7 @@
 int sum = 0;
-    while (N > 0) {
+    while(N > 0){
         sum += N % 2;
         N /= 2;
     }
-    return bitset<sizeof(int)*CHAR_BIT>(sum).to_string().substr(sizeof(int)*CHAR_BIT-4);
+    return bitset<8>(sum).to_string().substr(8 - 4);
+}
