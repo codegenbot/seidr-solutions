@@ -1,8 +1,14 @@
 ```
-def modp(n: int, p: int):
-    return pow(n, p - 1, p) * n % p if gcd(n, p) == 1 else None
+def phi(p: int):
+    result = p;
+    for i in range(2, int(p**0.5)+1):
+        if p%i == 0:
+            while p%i == 0:
+                p //= i
+            result -= result//i
+    if p > 1:
+        result -= result//p
+    return result
 
-def gcd(a: int, b: int):
-    while b:
-        a, b = b, a % b
-    return a
+def modp(n: int, p: int):
+    return pow(phi(p), 1, p) * n % p
