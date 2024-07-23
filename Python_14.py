@@ -8,5 +8,5 @@ def all_prefixes(string: str) -> List[str]:
 user_string = input("Enter a string: ").lower()
 print(all_prefixes(user_string))
 
-user_string = input("Enter a string: ")
-print(all_prefixes(user_string.upper()))
+user_string = input("Enter a string: ").upper()
+print(all_prefixes(user_string))
