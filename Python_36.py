@@ -9,4 +9,4 @@ def fizz_buzz(n: int):
             result.append("Buzz" if i % 3 != 0 else "FizzBuzz")
         else:
             result.append(str(i))
-    return [str(i) for i in range(1, n + 1)]
+    return '\n'.join(result)
