@@ -1,13 +1,7 @@
-```c++
 #include <vector>
-using namespace std;
+#include <iostream>
 
-int main() {
-    vector<int> cc = {4, 5, 2, 8, 6, 9, 1, 7, 3, 5, 0, 8, 4, 1, 5, 9};
-    int result = luhnCheck(cc);
-    cout << "Result: " << result << endl;
-    return 0;
-}
+using namespace std;
 
 int luhnCheck(const vector<int>& cc) {
     int sum = 0;
@@ -23,4 +17,11 @@ int luhnCheck(const vector<int>& cc) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> cc = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 4, 3, 9, 0};
+    int result = luhnCheck(cc);
+    cout << "Result: " << result << endl;
+    return 0;
 }
