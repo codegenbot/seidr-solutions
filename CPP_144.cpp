@@ -9,10 +9,19 @@ bool simplify(string x, string n) {
     a = stoi(x.substr(0, pos));
     b = stoi(x.substr(pos + 1));
 
-    pos = n.find('/');
+    pos = n.find '/';
     c = stoi(n.substr(0, pos));
     d = stoi(n.substr(pos + 1));
 
     // Check if the product is an integer
-    return (long long)a * c == (long long)b * d;
+    return a / gcd(b, a) == c / gcd(d, c);
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
