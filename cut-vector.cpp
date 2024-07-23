@@ -12,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             idx = i;
         }
     }
-    return {{vec[0]}, {vec.begin() + idx, vec.end()}};
+    return {{vec.begin(), next(vec.begin(), idx)}, {next(vec.begin(), idx), vec.end()}};
 }
 
 int main() {
@@ -28,3 +28,4 @@ int main() {
     cout << endl;
     for (auto x : res.second) cout << x << " ";
     return 0;
+}
