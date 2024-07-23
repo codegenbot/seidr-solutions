@@ -8,6 +8,6 @@ def fibfib(n: int):
         a, b = 0, 1
         total = 1
         for _ in range(3, n + 1):
+            total += (a + b)
             a, b = b, a + b
-            total += a
         return total
