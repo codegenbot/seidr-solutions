@@ -8,9 +8,9 @@ def bowling_score(frames):
             spare = False
             total_pins = int(char)
             if frame_num == 10 and total_pins < 10:
-                return "Invalid input"
+                return 0
             if total_pins > 10:
-                return "Invalid input"
+                return 0
             while True:
                 if strike:
                     break
@@ -25,7 +25,7 @@ def bowling_score(frames):
                     total_pins = 0
                 frame_num += 1
                 if frame_num > 10:
-                    return "Invalid input"
+                    return 0
                 char = frames[frames.index(char) + 1]
                 if char.isdigit():
                     strike = False
@@ -48,7 +48,7 @@ def bowling_score(frames):
             strike = True
         else:
             if frame_num > 9:
-                return "Invalid input"
+                return 0
             if frame_num < 10 and char.isdigit():
                 spare = True
     return score
