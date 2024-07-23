@@ -1,8 +1,9 @@
 ```
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
@@ -32,4 +33,3 @@ int main() {
     double zero = find_zero(xs);
     cout << "Zero is: " << zero << endl; 
     return 0;
-}
