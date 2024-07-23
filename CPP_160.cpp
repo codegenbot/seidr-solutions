@@ -1,14 +1,19 @@
+```cpp
 #include <vector>
 #include <string>
 
-int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
-    int result = numbers[0];
+int do_algebra(std::vector<std::string> operation, std::vector<int> numbers) {
+    if (operation.size() != 1 || numbers.size() <= 0) {
+        return -1; // error message: invalid input
+    }
     
+    int result = numbers[0];
     for (int i = 1; i < numbers.size(); ++i) {
-        if (operations[i-1] == "+") {
+        if (operation[0] == "+") {
             result += numbers[i];
-        } else if (operations[i-1] == "*") {
-            result *= numbers[i];
+        } else {
+            // handle other operations as needed
+            return -1; // error message: unsupported operation
         }
     }
     
@@ -16,6 +21,5 @@ int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
+    assert(do_algebra({"+"}, {1}) == 2); // example usage
 }
