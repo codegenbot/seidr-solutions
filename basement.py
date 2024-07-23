@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the Python code for the problem:
 
 def basement(arr):
     total = 0
