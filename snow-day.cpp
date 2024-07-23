@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <cmath>
+
 int main() {
     float totalSnow = 0;
 
@@ -5,9 +9,9 @@ int main() {
     std::cin >> hours;
 
     float groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    (std::cin >> groundSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour);
 
-    for (int hour = 0; hour < hours; hour++) {
+    for (int i = 0; i < hours; ++i) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
     }
 
