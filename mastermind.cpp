@@ -1,27 +1,40 @@
-int mastermind(std::string code, std::string guess) {
-    int white = 0;
-    int black = 0;
+#include <iostream>
+#include <map>
+using namespace std;
 
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            count++;
         }
     }
-
-    vector<char> code_chars(code.begin(), code.end());
-    vector<char> guess_chars(guess.begin(), guess.end());
-
-    for (int i = 0; i < 6; i++) { // Changed the limit to 6 as each character can be one of 6 possible characters.
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (code_chars[j] == guess[i]) {
-                count++;
-            }
-        }
-        if (count > 1) { // Changed condition to check for correct color but wrong place
-            white += count - 1;
-        }
-    }
-
-    return black + white;
+    return count;
 }
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeCount, guessCount;
+
+    for (int i = 0; i < 4; i++) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
+    }
+
+    for (auto& pair : codeCount) {
+        if (pair.second > 0 && guessCount.count(pair.first) > 0) {
+            count += min(pair.second, guessCount[pair.first]);
+            codeCount[pair.first] = 0;
+            guessCount[pair.first] = 0;
+        }
+    }
+
+    return 4 - count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
