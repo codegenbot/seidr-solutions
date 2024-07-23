@@ -1,10 +1,6 @@
 def basement(nums):
-    left = right = total = 0
-    while True:
-        if total <= 0:
-            return right - 1 
-        right += 1
-        if right == len(nums):
-            break
-        total += nums[right-1]
+    left = 0
+    for i, num in enumerate(nums):
+        if sum(nums[:i+1]) < 0:
+            return i
     return -1
