@@ -1,6 +1,6 @@
-Here is the corrected code:
+Here is the modified code:
 
-```python
+```
 def cut_vector(vector):
     min_diff = float('inf')
     split_index = 0
