@@ -1,4 +1,3 @@
-```cpp
 #include<stdio.h>
 #include<vector>
 #include<string>
@@ -8,36 +7,28 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    while (pos != txt.length()) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-
-    while ((pos = txt.find(',')) != std::string::npos) {
+    
+    // Separate words by commas
+    while ((pos = txt.find(',')) != string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
 
     if (!txt.empty()) {
+        // Count consecutive alphabets after the last word
         int count = 0;
-        bool is_alpha = false;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                is_alpha = true;
-                if (!is_alpha) {
-                    count++;
-                }
+                count++;
             } else {
-                is_alpha = false;
-                if (is_alpha) {
+                if (count > 1)
                     result.push_back(to_string(count));
-                    count = 0;
-                }
+                count = 0;
             }
         }
-        if (is_alpha) {
+        // Add the last sequence of alphabets
+        if (count > 1)
             result.push_back(to_string(count));
-        }
     }
 
     return result;

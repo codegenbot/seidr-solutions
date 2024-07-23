@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```cpp
 bool is_nested(string str) {
     int count = 0;
     for (char c : str) {
@@ -15,11 +13,3 @@ bool is_nested(string str) {
         }
     }
     return false;
-
-}
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
-    // Add more tests here...
-    return 0;
-}
