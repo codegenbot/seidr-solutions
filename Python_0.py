@@ -12,6 +12,7 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
 
 
 def main():
+    input("Press Enter to start the program...")
     while True:
         print("Do you want to run the program? (yes/no): ")
         while True:
@@ -23,7 +24,6 @@ def main():
                 exit(0)
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
-
         while True:
             while True:
                 numbers = input("Enter space-separated float numbers: ")
