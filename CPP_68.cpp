@@ -22,3 +22,8 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(minIndex);
     return result;
 }
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    return 0;
+}
