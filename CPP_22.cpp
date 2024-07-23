@@ -1,13 +1,8 @@
-#include <variant>
-
-typedef std::list<std::variant<int>> list_any;
-using namespace std;
-
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (std::holds_alternative<int>(value)) {
-            result.push_back(std::get<int>(value));
+        if (any_cast<tuple<int, bool>>(value).second) {
+            result.push_back(any_cast<tuple<int, bool>>(value).first);
         }
     }
     return result;
