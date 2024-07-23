@@ -1,7 +1,5 @@
 #include <vector>
 #include <climits>  
-#include <cmath>  
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -34,15 +32,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    // Test your function
-    vector<int> v = {1, 2, 3};
-    auto result = cutVector(v);
-    for (const auto& vec : result) {
-        cout << "[";
-        for (int num : vec) {
-            cout << num << " ";
-        }
-        cout << "]" << endl;
-    }
+    vector<int> v = {1, 2, 3, 4, 5};
+    pair<vector<int>, vector<int>> result = cutVector(v);
     return 0;
 }
