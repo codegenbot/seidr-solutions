@@ -9,3 +9,11 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
+}
+
+int main() {
+    assert(specialFilter({}) == 0);
+    // Test your function with different inputs here
+    return 0;
+}
