@@ -4,5 +4,10 @@ def remove_duplicates(input_list=None):
         input_list = list(map(int, input("Enter numbers separated by space: ").split()))
     if not input_list:  
         return []  
-    seen = {}
-    return sorted([x for x in input_list if not (seen.setdefault(x, True),)], reverse=True)
+    seen = set()
+    output_list = []
+    for x in input_list:
+        if x not in seen:
+            seen.add(x)
+            output_list.append(x)
+    return output_list
