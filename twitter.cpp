@@ -1,6 +1,8 @@
+```
 #include <cctype>
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -8,20 +10,14 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     if (tweet.empty()) {
-        cout << "You didn't type anything";
+        cout << "You didn't type anything\n";
     } else {
-        int asciiCount = 0;
-        for (char c : tweet) {
-            if (std::isascii(c))
-                asciiCount++;
+        int charCount = std::count(tweet.begin(), tweet.end(), ' ');
+        if (charCount > 140) {
+            cout << "Too many characters\n";
+        } else {
+            cout << "Your tweet has " << (tweet.length() - charCount) << " characters\n";
         }
-
-        int nonAsciiCount = tweet.length() - asciiCount;
-
-        if (nonAsciiCount > 140)
-            cout << "Too many characters";
-        else
-            cout << "Your tweet has " << asciiCount + nonAsciiCount << " characters";
     }
     return 0;
 }
