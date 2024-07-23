@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+    std::string binary = "db";
     while(decimal > 0){
         if((decimal & 1) == 1)
             binary = "1" + binary;
@@ -11,7 +11,7 @@ std::string decimal_to_binary(int decimal){
             binary = "0" + binary;
         decimal >>= 1;
     }
-    return "db" + binary + "db";
+    return binary + "db";
 }
 
 int main_test(){
