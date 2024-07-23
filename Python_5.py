@@ -1,9 +1,8 @@
-```"python
+```
 from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    """"
     if not all(isinstance(num, int) for num in numbers):
         raise ValueError("Numbers must be a list of integers")
 
@@ -26,4 +25,3 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result.append(numbers[-1])
 
     return result
-"""
