@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <string>
 
 using namespace std;
 
@@ -9,4 +9,3 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
-}
