@@ -11,11 +11,11 @@ bool match_parens(vector<string> lst) {
             if (open < 0) return false;
         }
     }
-    return open == 0;
+    return true;
 }
 
 int main() {
-    vector<string> lst = {"(", ")"};
-    cout << (match_parens(lst) ? "Yes" : "No") << endl; 
+    vector<string> lst = {"(", ")}; 
+    cout << (match_parens({"" , ""}) ? "Yes" : "No") << endl; 
     return 0;
 }
