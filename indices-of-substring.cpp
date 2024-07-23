@@ -10,14 +10,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     while (i >= target.size() - 1) {
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
-            if (text[i - j] != target[j]) {
+            if (text[i - j] != target[target.size() - 1 - j]) {
                 found = false;
                 break;
             }
         }
         if (found) {
             result.push_back(i - target.size() + 1);
-            i -= 1; // Don't miss next match
+            i--; // Don't miss next match
         } else {
             i--; // Move to the next character
         }
