@@ -1,12 +1,21 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 
-int do_algebra(std::vector<std::string> operations, std::vector<int> numbers) {
-    // implementation of the algebra function goes here
-}
-
-int main() {
-    assert(do_algebra({"+"}, {1}) == 2);
-    return 0;
+int doAlgebra(std::vector<std::string> operato, std::vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i < operato.size(); i++) {
+        if (operato[i-1] == "/") {
+            if (operand[i] == 0)
+                return 0;
+            result /= operand[i];
+        } else if (operato[i-1] == "*") {
+            result *= operand[i];
+        } else if (operato[i-1] == "+") {
+            result += operand[i];
+        } else if (operato[i-1] == "-") {
+            result -= operand[i];
+        }
+    }
+    return result;
 }
