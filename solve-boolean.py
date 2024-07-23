@@ -24,6 +24,9 @@ def solve_boolean(expression):
                         elif operator == '|' and result is False:
                             return False
                         stack.pop()
+                else:
+                    if not stack:
+                        return result
                 i += 1
             elif token == ')':
                 while tokens[i] != '(':
