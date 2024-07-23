@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -38,4 +37,5 @@ int main() {
     } else {
         cout << "Test failed." << endl;
     }
+    return 0;
 }
