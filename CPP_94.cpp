@@ -1,11 +1,16 @@
 #include <vector>
-
 int skjkasdkd(int num) {
     int max_prime = 0;
     if (isPrime(num)) {
         max_prime = num;
     }
-    
+    for (int i = 2; i <= num; i++) {
+        if (isPrime(i)) {
+            if (i > max_prime) {
+                max_prime = i;
+            }
+        }
+    }
     int sum_of_digits = 0;
     while (max_prime > 0) {
         sum_of_digits += max_prime % 10;
