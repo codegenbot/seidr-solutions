@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
-bool match_parens(const std::vector<std::string>& lst) {
+bool match_parens(const vector<string>& lst) {
     int balance = 0;
     for (const auto& s : lst) {
         for (char c : s) {
@@ -19,11 +18,7 @@ bool match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"((()))", "()("};
-    if (match_parens(lst)) {
-        std::cout << "Yes" << std::endl;
-    } else {
-        std::cout << "No" << std::endl;
-    }
+    vector<string> lst = {"hello((world", "foo(bar(baz", "java");
+    cout << (match_parens(lst) ? "Yes" : "No") << endl;
     return 0;
 }
