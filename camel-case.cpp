@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result = "";
@@ -8,29 +8,38 @@ std::string kebabToCamel(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             if (!result.empty()) {
+                if (capitalizeNext) {
+                    result += toupper(result[0]);
+                } else {
+                    result.push_back(' ');
+                }
                 capitalizeNext = true;
+                result.pop_back();
             }
-            result.push_back(' ');
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
             result += tolower(c);
+            capitalizeNext = c == '-' || c == ' ';
         }
     }
 
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ')
-            result[i] = '\0';
+    if (result.size() > 0 && !capitalizeNext) {
+        if (!result.empty()) {
+            if (capitalizeNext) {
+                result[0] = toupper(result[0]);
+            } else {
+                result.push_back(' ');
+            }
+        }
     }
 
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "CamelCase: " << kebabToCamel(input) << std::endl;
+    std::string input = "camel-case example-test-string";
+    std::cout << kebabToCamel(input) << std::endl;
     return 0;
 }
