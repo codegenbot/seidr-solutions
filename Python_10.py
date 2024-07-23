@@ -1,4 +1,3 @@
-```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
@@ -13,4 +12,4 @@ def make_palindrome(string: str) -> str:
                 return prefix + postfix + postfix[::-1]
 
 print(is_palindrome("madam"))  
-print(make_palindrome("hello")) 
+print(make_palindrome("hello"))
