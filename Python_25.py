@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -22,8 +21,7 @@ def factorize(n: int) -> List[int]:
 
 while True:
     try:
-        input_str = input("Enter a positive integer: ")
-        n = int(input_str)
+        n = int(input("Enter a positive integer: "))
         if n > 0:
             print(factorize(n))
             break
