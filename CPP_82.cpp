@@ -1,24 +1,24 @@
 #include <iostream>
 #include <string>
 
-bool prime_length(const std::string& str) {
+bool prime_length(std::string str){
     int len = str.length();
-    if (len <= 1) return false;
-    for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0) return false;
+    if(len <= 1) return false;
+    for(int i = 2; i * i <= len; i++){
+        if(len % i == 0) return false;
     }
     return true;
 }
 
-int main() {
-    std::string input;
+int main(){
+    std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    
-    if (prime_length(input)) {
-        std::cout << "The length of the string is prime." << std::endl;
-    } else {
-        std::cout << "The length of the string is not prime." << std::endl;
+    std::cin >> s;
+
+    if(prime_length(s)){
+        std::cout << s << " is prime length." << std::endl;
+    }else{
+        std::cout << s << " is not prime length." << std::endl;
     }
     
     return 0;
