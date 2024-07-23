@@ -1,3 +1,5 @@
-int str_len(const std::string& str) {
+#include <string>
+
+int str_len(std::string& str) {
     return str.length();
 }
