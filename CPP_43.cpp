@@ -1,9 +1,14 @@
-for (size_t i = 0; i < l.size(); ++i) {
-        for (size_t j = i + 1; j < l.size(); ++j) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
+#include <unordered_set>
+
+bool pairs_sum_to_zero(vector<int> l) {
+    unordered_set<int> s;
+    
+    for (int num : l) {
+        if (s.count(-num) > 0) {
+            return true;
         }
+        s.insert(num);
     }
+    
     return false;
 }
