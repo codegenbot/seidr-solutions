@@ -1,20 +1,21 @@
 #include <vector>
+#include <list>
+#include <any>
 #include <algorithm>
+#include <type_traits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-int main() {
-    int filter_integers(std::vector<int> nums) {
-        std::vector<int> result;
-        for (int num : nums) {
-            if (std::isinteger(num)) {
-                result.push_back(static_cast<int>(num));
-            }
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
+    for (const auto& value : values) {
+        if (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
-        return 0;
     }
-
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return result;
 }
