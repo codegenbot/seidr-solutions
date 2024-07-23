@@ -1,31 +1,35 @@
+#include <iostream>
 #include <vector>
-#include <numeric>
-
-std::vector<int> nums;
+#include <climits>
 
 int main() {
     int n;
     std::cin >> n;
-    nums.resize(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
     
-    int min_diff = INT_MAX;
+    int min_diff = std::numeric_limits<int>::max();
     int cut_idx = -1;
-    for (int i = 1; i < n; ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+    int sum_left = 0;
+    int sum_right = std::accumulate(nums.begin(), nums.end(), 0);
+    
+    for (int i = 0; i < n; ++i) {
+        sum_left += nums[i];
+        sum_right -= nums[i];
+        int diff = std::abs(sum_left - sum_right);
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
     }
     
-    for (int i = 0; i < cut_idx; ++i) {
+    for (int i = 0; i <= cut_idx; ++i) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cut_idx; i < n; ++i) {
+    for (int i = cut_idx + 1; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
