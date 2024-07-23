@@ -1,4 +1,5 @@
-def decode_cyclic(s: str):
+```python
+"""def decode_cyclic(s: str):
     result = ''
     i = 0
     while i < len(s):
@@ -14,3 +15,4 @@ def decode_cyclic(s: str):
                     result += s[i:]  
         i += 1
     return result
+"""
