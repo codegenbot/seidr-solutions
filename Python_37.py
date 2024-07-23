@@ -1,4 +1,4 @@
-```
 def sort_even(l: list):
-    l.sort(key=lambda x: (x % 2, x))
-    return l
+    evens = [x for x in l if x % 2 == 0]
+    sorted_evans = sorted(evens)
+    return sorted_evans + [x for x in l if x % 2 != 0]
