@@ -13,6 +13,7 @@ int main() {
         }
     }
     
+    std::cout.precision(8);
     std::cout << probability << std::endl;
     
     return 0;
