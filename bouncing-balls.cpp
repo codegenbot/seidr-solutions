@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath> 
 #include <iomanip> 
@@ -17,3 +18,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
     
     return 0;
+}
