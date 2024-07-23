@@ -1,9 +1,13 @@
-Here is the modified code:
-
-```python
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    while True:
+        paren_string = input("Enter a string of parentheses (separated by spaces): ")
+        if all(c in ['(', ')'] for c in paren_string):
+            break
+        print("Invalid input. Try again.")
+
     paren_string = ' '.join(paren_string.split())
     result = []
     temp = ''
