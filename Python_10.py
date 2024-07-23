@@ -1,6 +1,9 @@
-```
+```Python
 def make_palindrome(s: str) -> str:
-    s = s.lower()
-    left_half = s[:len(s)//2]
-    right_half = s[len(s)//2:]
-    return (left_half + right_half[::-1]).capitalize() + (left_half[::-1] if len(left_half) > 1 else '')
+    for i in range(len(s), -1, -1):
+        if s[:i] == s[:i][::-1]:
+            return (
+                s[:len(s)//2].lower()
+                + s[len(s)//2].upper()
+                + s[:i][::-1].lower()
+            )
