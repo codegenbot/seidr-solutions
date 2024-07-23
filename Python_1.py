@@ -6,20 +6,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     temp = ""
     count = 0
 
-    user_input = " ".join(paren_string.split())
-
-    for char in user_input:
-        if char == " " and count == 0:
-            if temp:
-                result.append(temp)
-                temp = ""
-        elif char in ["(", ")"]:
-            if char == "(":
-                count += 1
-                temp += char
-            else:
-                count -= 1
-                temp += char
+    for char in paren_string.replace(" ", ""):
+        if char == "(":
+            count += 1
+            temp += char
+        elif char == ")":
+            count -= 1
+            temp += char
             if count == 0 and temp.count("(") == temp.count(")"):
                 result.append(temp)
                 temp = ""
@@ -33,7 +26,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
 
     if temp:
-        result.append(temp)
+        if temp.count("(") == temp.count(")"):
+            result.append(temp)
+        else:
+            return []
 
     return result
 
