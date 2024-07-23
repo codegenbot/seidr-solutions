@@ -8,8 +8,10 @@ def search(nums):
                 freq[num] += 1
             else:
                 freq[num] = 1
-        else:
+        elif num < 0:
             break
+        else:
+            return 0
     for num, count in freq.items():
         if num >= count and num > 0:
             max_num = num
@@ -17,6 +19,7 @@ def search(nums):
     if max_num == -1:
         max_num = 0
     return max_num
+
 
 nums = input("Enter numbers separated by space: ")
 try:
