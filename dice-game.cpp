@@ -1,9 +1,10 @@
+```c
 #include<iostream>
 using namespace std;
 
 int main() {
-    int n = 6; // Example input
-    int m = 4; // Example input
+    int n = 6; 
+    int m = 4; 
     double result = diceGame(n, m);
     cout << "Probability: " << result << endl;
     return 0;
