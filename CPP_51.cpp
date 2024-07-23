@@ -1,18 +1,18 @@
-#include<string>
+#include <bits/stdc++.h>
 
-string remove_vowels(string text){
+using namespace std;
+
+string remove_vowels(string text) {
     string result = "";
-    for(char c : text){
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-           || tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' 
-           || tolower(c) == 'o' || tolower(c) == 'u'){
-            continue;
+    for (char c : text) {
+        if (!strchr("aeiouAEIOU", c)) {
+            result += c;
         }
-        result += tolower(c);
     }
     return result;
 }
 
-int main(){
-    assert (remove_vowels("ybcd") == "bcd");
+int main() {
+    cout << remove_vowels("ybcd") << endl;
+    return 0;
 }
