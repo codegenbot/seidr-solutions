@@ -1,15 +1,12 @@
 ```
-def find_zero(xs: list):
+def find_zero():
+    xs = list(map(float, input("Enter coefficients (a, b, c): ").split()))
     if len(xs) < 3:
         raise ValueError("xs must have at least three coefficients")
 
     a = xs[0]
     b = xs[1]
     c = sum(xs[2:]) / (len(xs) - 2)
-
-    discriminant = b**2 - 4 * a * c
-    if discriminant < 0:
-        return "No real solutions"
 
     x = (-b + ((b**2 - 4 * a * c) ** 0.5)) / (2 * a)
     return round(x, 10)
