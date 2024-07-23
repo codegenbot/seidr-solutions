@@ -1,12 +1,11 @@
-Here is the completed code:
+#include <cassert>
 
 bool any_int(float a, float b, float c) {
-    int ai = a;
-    int bi = b;
-    int ci = c;
+    return (int(a) + int(b)) == int(c) || (int(a) + int(c)) == int(b) || (int(b) + int(c)) == int(a);
+}
 
-    if (ai == bi + ci || ai == ci + bi || bi == ai + ci || bi == ci + ai || ci == ai + bi || ci == bi + ai)
-        return true;
-    else
-        return false;
+int main() {
+    assert(any_int(3.01, 4, 7) == false);
+    // Add more test cases as needed
+    return 0;
 }
