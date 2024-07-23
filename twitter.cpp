@@ -4,15 +4,15 @@
 
 using namespace std;
 
-string validateTweet(string& tweet) {
+string validateTweet(const string& tweet) {
     string trimmedTweet = tweet;
-    while (!trimmedTweet.empty() && trimmedTweet.back() == '\n') {
+    while (!trimmedTweet.empty() && trimmedTrimmedTweet.back() == '\n') {
         trimmedTweet.erase(trimmedTweet.end() - 1);
     }
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    int count = tweet.size();
+    int count = static_cast<const string>(tweet).size();
     if (count > 140) {
         return "Too many characters";
     }
