@@ -1,9 +1,9 @@
 #include <vector>
-#include <set> 
+#include <set>
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());  
+    set<int> s(l.begin(), l.end());
     for (int i = 0; i < s.size(); i++) {
         int target = -s[i];
         bool found = false;
