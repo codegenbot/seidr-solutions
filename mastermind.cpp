@@ -1,35 +1,47 @@
 #include <vector>
+#include <iostream>
+#include <string>
+#include <tuple>
+
 using namespace std;
 
 int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+    int white = 0;
+    int black = 0;
     
-    // count white pegs
-    vector<char> codeCount(6, 0);
-    vector<char> guessCount(6, 0);
+    // Count the number of correct colors in the wrong place
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            guessCount[code[i]]++;
-            codeCount[code[i]]++;
+            black++;
+            code[i] = ' '; // mark this position as visited
+            guess[i] = ' '; // mark this position as visited
         }
     }
-    for (int i = 0; i < 6; i++) {
-        whitePegs += min(codeCount[i], guessCount[i]);
-    }
-
-    // count black pegs
-    vector<char> codePosition(6, -1);
+    
+    // Count the number of correct colors in the right place
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            codePosition[code[i]] = i;
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                white++;
+                code[j] = ' '; // mark this position as visited
+                break;
+            }
+            j++;
         }
     }
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i] && codePosition[guess[i]] == i) {
-            blackPegs++;
-        }
-    }
+    
+    return black, white;
+}
 
-    return {blackPegs, whitePegs};
+int main() {
+    string code;
+    cin >> code;
+    string guess;
+    cin >> guess;
+    int black, white;
+    tie(black, white) = mastermind(code, guess);
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
