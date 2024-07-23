@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 
 float snowDay(int hours, float onGround, float rate, float melt) {
@@ -20,6 +20,6 @@ int main() {
     cin >> hours;
     float onGround, rate, melt;
     cin >> onGround >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, onGround, rate, melt) << endl;
+    std::cout << std::fixed << std::setprecision(10) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
 }
