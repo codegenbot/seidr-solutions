@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -39,7 +40,6 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    
     int a; 
     cout << "Enter number 1: ";
     cin >> a;
