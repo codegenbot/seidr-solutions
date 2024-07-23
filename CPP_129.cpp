@@ -31,22 +31,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
-    int sum = 0;
+    int temp_sum = 0;
     while (!q.empty()) {
-        auto [temp_sum, {i, j}] = q.top(); q.pop();
-        sum = temp_sum;
+        auto [sum, {i, j}] = q.top(); q.pop();
         if (k == 0) {
-            return vector<int>{sum}; // assign to res
+            res.push_back(sum);
+            return res; // declare res as an integer
         }
         for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, ns = neighbor.second; 
-            int temp_ns = sum - grid[i][j] + neighbor.second;
+            int ni = neighbor.first.first, ns = neighbor.second;
+            int temp_sum = sum - grid[i][j] + neighbor.second;
             k--;
-            q.push({temp_ns, make_pair(ni, ns)}); // change nj to ns
+            q.push({temp_sum, make_pair(ni, ns)}); // change nj to ns
         }
     }
 
-    return vector<int>{}; // Return empty if no path found.
+    return res; // return the vector of integers
 }
 
 int mainTest() {
