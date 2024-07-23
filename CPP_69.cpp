@@ -1,15 +1,17 @@
 #include <vector>
-using namespace std;
+#include <unordered_map>
 
 int search(vector<int> lst) {
     int max = 0;
-    for (auto i : lst) {
-        if (i > 0 && i >= count(i, lst)) {
-            return i;
-        }
-        if (count(i, lst) > max) {
-            max = count(i, lst);
+    for (int i : lst) {
+        if (i > 0 && std::count(lst.begin(), lst.end(), i) >= i) {
+            max = i;
         }
     }
-    return -1;
+    return max == 0 ? -1 : max;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
