@@ -9,12 +9,14 @@ int main() {
     vector<int> nums;
     int num;
     
-    do {
-        if (!(cin >> num)) {
-            break;
-        }
+    while (cin >> num) {
         nums.push_back(num);
-    } while (true);
+    }
+    
+    if (cin.fail() && !cin.eof()) {
+        cout << "Input error occurred. Exiting." << endl;
+        return 1;
+    }
     
     int n = nums.size();
     int sum = 0;
