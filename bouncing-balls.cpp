@@ -1,3 +1,4 @@
+```cpp
 int main() {
     double heightStart, heightFirstBounce;
     int numBounces;
