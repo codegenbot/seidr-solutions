@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,7 +7,7 @@ std::string encrypt(std::string s) {
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = ((c - base + 3) % 26) + base;
+            c = ((c - base + 2 * 26) % 26) + base;
         }
         result += c;
     }
@@ -14,7 +15,10 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "d");
-    std::cout << encrypt("Hello, World!") << std::endl;
+    assert(encrypt("a") == "e");
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Encrypted String: " << encrypt(input) << std::endl;
     return 0;
 }
