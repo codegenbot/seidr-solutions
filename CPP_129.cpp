@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -36,9 +37,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k == 0) {
             return {sum};
         }
-        for (auto& neighbor : neighbors[node.first]) {
-            int ni = node.second.first, nj = node.second.second;
-            int ns = sum - grid[node.first][node.second.second] + neighbor.second;
+        for (auto& neighbor : neighbors[node.second]) {
+            int ni = node.first, nj = neighbor.first;
+            int ns = sum - grid[node.first][node.second] + neighbor.second;
             k--;
             q.push({ns, node});
         }
