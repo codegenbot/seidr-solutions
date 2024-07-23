@@ -1,8 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-float snowDay(int hours, float onGround, float rate, float melt) {
+std::string snowDay(int hours, float onGround, float rate, float melt) {
+    std::string s = "";
     for (int i = 0; i < hours; i++) {
         onGround += (rate / 60);
         if (onGround > 1024) {
@@ -13,7 +15,8 @@ float snowDay(int hours, float onGround, float rate, float melt) {
             onGround -= melt * onGround;
         }
     }
-    return onGround;
+    s = std::to_string(onGround);
+    return s;
 }
 
 int main() {
@@ -21,7 +24,6 @@ int main() {
     std::cin >> hours;
     float onGround, rate, melt;
     std::cin >> onGround >> rate >> melt;
-    std::string s = std::to_string(snowDay(hours, onGround, rate, melt));
-    std::cout << s << std::endl;
+    std::cout << std::fixed << std::setprecision(0) << snowDay(hours, onGround, rate, melt) << std::endl;
     return 0;
 }
