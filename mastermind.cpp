@@ -26,13 +26,3 @@ int mastermind(std::string code, std::string guess) {
 
     return black + white;
 }
-
-int main() {
-    std::string code = "XXXX";
-    std::string guess = "XXXX";
-
-    int result = mastermind(code, guess);
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
-
-    return 0;
-}
