@@ -1,75 +1,36 @@
-#include <vector>
-#include <iostream>
+#include <stack>
 #include <string>
 
-using namespace std;
-
-bool solveBoolean(string expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
+string solveBoolean(string booleanExpression) {
+    stack<char> expressionStack;
     
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == '|') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-            
-            while (left.find('&') != string::npos) {
-                int j = left.find('&');
-                string a = left.substr(0, j);
-                string b = left.substr(j + 1);
-                if (!solveBoolean(a))
-                    return false;
-                left = b;
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            while (!expressionStack.empty() && expressionStack.top() == '&') {
+                expressionStack.pop();
             }
-            
-            while (right.find('&') != string::npos) {
-                int j = right.find('&');
-                string a = right.substr(0, j);
-                string b = right.substr(j + 1);
-                if (!solveBoolean(a))
-                    return false;
-                right = b;
+        } else if (booleanExpression[i] == '|') {
+            while (!expressionStack.empty()) {
+                expressionStack.pop();
             }
-            
-            return solveBoolean(left) || solveBoolean(right);
-        } else if (c == '&') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-            
-            while (left.find('|') != string::npos) {
-                int j = left.find('|');
-                string a = left.substr(0, j);
-                string b = left.substr(j + 1);
-                if (!solveBoolean(a))
-                    return false;
-                left = b;
-            }
-            
-            while (right.find('|') != string::npos) {
-                int j = right.find('|');
-                string a = right.substr(0, j);
-                string b = right.substr(j + 1);
-                if (!solveBoolean(a))
-                    return false;
-                right = b;
-            }
-            
-            return solveBoolean(left) && solveBoolean(right);
+        } else {
+            expressionStack.push(booleanExpression[i]);
         }
     }
     
-    return true; // default value
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
+    string result = "";
+    while (!expressionStack.empty()) {
+        result += expressionStack.top();
+        expressionStack.pop();
+    }
+    
+    if (result == "T&T") return "True";
+    if (result == "F&F") return "False";
+    if ((result == "F&T") || (result == "&TF")) return "False";
+    if (result == "T") return "True";
+    if (result == "F") return "False";
+    
+    if (result == "TT" && booleanExpression.length() > 2) return "Invalid Input";
+    if ((result == "FT" || result == "TF")) return "False";
+    return "Invalid Input";
 }
