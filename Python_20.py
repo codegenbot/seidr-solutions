@@ -1,16 +1,32 @@
+```
 from typing import List, Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
     while True:
+        user_input = input("Enter space-separated numbers or two specific numbers separated by comma (,): ")
         try:
-            numbers = [float(num) for num in input("Enter space separated numbers: ").split()]
-            break
+            if ',' in user_input:
+                num1, num2 = map(float, user_input.split(','))
+                return (num1, num2)
+            else:
+                numbers = [float(num) for num in user_input.split()]
+                break
         except ValueError:
-            print("Invalid input. Please enter space-separated numbers.")
-            continue  # ask again
+            print("Invalid input. Please enter space-separated numbers or two specific numbers separated by comma (,).")
 
+    if not isinstance(numbers, list):
+        return None
     if len(numbers) < 2:
         return None
-    return tuple(min(pair) for pair in zip([numbers[0]], numbers + [numbers[0]])) 
+    numbers.sort()
+    
+    closest_pair = (numbers[0], numbers[1])
+    min_diff = abs(numbers[1] - numbers[0])
 
-print(find_closest_elements())
+    for i in range(len(numbers) - 1):
+        diff = abs(numbers[i] - numbers[i + 1])
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i + 1])
+
+    return closest_pair
