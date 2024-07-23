@@ -3,7 +3,11 @@ std::string fizzBuzz(int x) {
     if (x % 15 == 0) { 
         result = "FizzBuzz";
     } else if (x % 3 == 0) { 
-        result = "Fizz";
+        if (x % 5 == 0) {
+            result = "FizzBuzz";
+        } else {
+            result = "Fizz";
+        }
     } else if (x % 5 == 0) { 
         result = "Buzz";
     } else {
