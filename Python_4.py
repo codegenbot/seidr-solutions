@@ -21,4 +21,5 @@ def mean_absolute_deviation(numbers_list) -> float:
             
     return result
 
-print(mean_absolute_deviation([]))
+result = mean_absolute_deviation([1.0, 2.0, 3.0])
+print(result)
