@@ -6,15 +6,10 @@ bool is_happy(string s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
+        set<char> st(sub.begin(), sub.end());
         bool unique_chars = true;
-        set<char> myset(sub.begin(), sub.end());
-        for (char c : myset) { 
-            int count = 0;
-            for (char d : s) {
-                if (c == d)
-                    count++;
-            }
-            if (count > 1) {
+        for (char c : st) { 
+            if (count(c, s) > 1) {
                 unique_chars = false;
                 break;
             }
@@ -23,4 +18,13 @@ bool is_happy(string s) {
             return false;
     }
     return true;
+
+}
+int count(char c, string str) {
+    int res = 0;
+    for (char d : str) {
+        if (c == d)
+            res++;
+    }
+    return res;
 }
