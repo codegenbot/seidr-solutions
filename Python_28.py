@@ -1,12 +1,8 @@
-def concatenate_strings():
-    input_list = []
+def find_average(lst: List[int]) -> float:
+    if not lst:
+        return 0
 
-    while True:
-        user_input = input("Enter a string (or 'done' to finish): ")
+    total = sum(lst)
+    count = len(lst)
 
-        if user_input.lower() == "done":
-            break
-
-        input_list.append(user_input)
-
-    print(concatenate(input_list))
+    return total / count
