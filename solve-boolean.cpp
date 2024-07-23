@@ -1,8 +1,7 @@
-#include <stack>
 #include <string>
 
-std::string solveBoolean(std::string booleanExpression) {
-    std::stack<char> expressionStack;
+string solveBoolean(string booleanExpression) {
+    stack<char> expressionStack;
     
     for (int i = 0; i < booleanExpression.length(); i++) {
         if (booleanExpression[i] == '&') {
@@ -18,7 +17,7 @@ std::string solveBoolean(std::string booleanExpression) {
         }
     }
     
-    std::string result = "";
+    string result = "";
     while (!expressionStack.empty()) {
         result += expressionStack.top();
         expressionStack.pop();
@@ -31,4 +30,3 @@ std::string solveBoolean(std::string booleanExpression) {
     if (result == "F") return "False";
     
     return "Invalid Input";
-}
