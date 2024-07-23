@@ -1,4 +1,2 @@
 def solve(N):
-    bin_str = bin(N)[2:]
-    digit_sum = sum(int(digit) for digit in str(N))
-    return str(bin(digit_sum))[2:].zfill(len(bin_str)) + bin_str
+    return f"0{bin(N)[2:]}{f'0{bin(sum(int(digit) for digit in str(N)))[2:]}' if len(bin(sum(int(digit) for digit in str(N)))) == 3 else bin(sum(int(digit) for digit in str(N)))[2:]}"
