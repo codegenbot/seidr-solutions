@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     res = []
@@ -12,9 +11,9 @@ def minPath(grid, k):
         for di, dj in directions:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                visited[i][j] = True
+                visited[ni][nj] = True
                 new_path = dfs(ni, nj, path + [grid[i][j]], total + grid[i][j])
-                visited[i][j] = False
+                visited[ni][nj] = False
                 if len(new_path) > 0:
                     paths.extend(new_path)
         return paths
