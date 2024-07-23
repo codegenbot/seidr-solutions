@@ -1,16 +1,26 @@
 #include <vector>
-#include <iostream>
+#include <cmath>
+#include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] == guess[i]) {
+            result.push_back(0);
+        } else {
+            result.push_back(std::abs(game[i] - guess[i]));
+        }
+    }
+    return result;
+}
+
 int main() {
-    assert(isSame({1,2,3,5},{-1,2,3,4}));
-    return 0;
+    assert(compare({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
 }
