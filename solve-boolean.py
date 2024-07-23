@@ -10,7 +10,7 @@ def solve_boolean(expression):
                 if i == 0:
                     return eval(s[1:s.index(')')]) and evaluate(s[s.index(')')+1:])
         stack = []
-        ops = {('&': all, '|': any}[char])
+        ops = 0
         for char in s:
             if char in {'T', 'F'}:
                 stack.append(char == 'T')
