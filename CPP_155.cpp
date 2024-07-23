@@ -28,6 +28,8 @@ int main() {
         }
         return true;
     }
-    assert(issame(even_odd_count(0), {1, 0}));
+    {std::vector<int> a = even_odd_count(0); 
+    std::vector<int> b({1, 0});
+    assert(issame(a, b));}
     return 0;
 }
