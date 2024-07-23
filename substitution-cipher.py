@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     cipher_dict = {}
     for k, v in zip(cipher1.lower(), cipher2):
