@@ -1,23 +1,14 @@
-#include <vector>
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-string squareDigits(string input) {
-    string result = "";
+std::string squareDigits(std::string input) {
+    std::string result = "";
     for (char c : input) {
-        if (isdigit(c)) { 
-            int digit = c - '0';
+        int digit = c - '0';
+        if (!isdigit(c)) { 
+            continue; 
+        } else {
             result += to_string(digit * digit);
         }
     }
     return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << squareDigits(input) << endl;
-    return 0;
 }
