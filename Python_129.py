@@ -8,7 +8,7 @@ def minPath(grid, k):
         if total > k:
             return None
         if i == n - 1 and j == n - 1 and total <= k:
-            return [path + [grid[i][j]]]
+            return [path]
         visited[i][j] = True
         min_path = None
         for di, dj in directions:
@@ -22,10 +22,4 @@ def minPath(grid, k):
         return min_path
 
     res = dfs(0, 0, [], 0)
-    return [x for x in res[0] if res[0]] if res else []
-
-grid = [[1, 2, 3], [4, 5, 6]]
-k = 10
-
-result = minPath(grid, k)
-print(result)
+    return [x for x in res[0]] if res else []
