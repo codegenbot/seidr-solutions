@@ -1,10 +1,5 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 bool solveBoolean(string s) {
-    bool result = false;
+    bool result = true;
     bool lastOp = false;
 
     for (int i = 0; i < s.length(); i++) {
@@ -15,16 +10,12 @@ bool solveBoolean(string s) {
         } else if (s[i] == '|') {
             lastOp = true;
         } else if (s[i] == '&') {
-            lastOp = false;
+            if (lastOp) {
+                return false;  // Last operation was OR, so current AND returns false
+            }
+            lastOp = true;
         }
     }
 
-    return result || lastOp;
-}
-
-int main() {
-    string input;
-    getline(cin, input); 
-    bool result = solveBoolean(input);
-    cout << (result ? "True" : "False");
+    return result && lastOp;  // Apply the final operator
 }

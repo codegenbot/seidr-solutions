@@ -1,4 +1,3 @@
-```
 def decipher_message(cipher1, cipher2, message):
     encrypt_map = {}
     decrypt_map = {}
