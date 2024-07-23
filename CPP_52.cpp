@@ -1,18 +1,17 @@
-bool below_threshold(vector<int> l, int t) {
+#include <iostream>
+#include <vector>
+
+bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
         }
     }
     return true;
-} 
+
+}
 
 int main() {
-    vector<int> numbers = {10, 20, 30};
-    int threshold = 25;
-    
-    bool result = below_threshold(numbers, threshold);
-    
-    cout << "Are all elements in the list below the threshold? " << (result ? "Yes" : "No") << endl; 
-
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
     return 0;
+}
