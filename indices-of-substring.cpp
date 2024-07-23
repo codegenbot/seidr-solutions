@@ -6,11 +6,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.size(), m = target.size();
     
-    int i = 0;
-    while (i <= n - m) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target)
             result.push_back(i);
-        i += text.find(target, i) + 1;
     }
     
     return result;
