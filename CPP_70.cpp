@@ -1,12 +1,13 @@
-vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
-    vector<int> result;
-    int start = 0, end = lst.size()-1;
-    while (start <= end) {
-        result.push_back(lst[start++]);
-        if (start <= end) {
-            result.push_back(lst[end--]);
-        }
-    }
-    return result;
+sort(lst.begin(), lst.end());
+	vector<int> res;
+	int i = 0, j = lst.size() - 1;
+	while (i <= j) {
+		res.push_back(lst[i]);
+		if (i != j) {
+			res.push_back(lst[j]);
+		}
+		i++;
+		j--;
+	}
+	return res;
 }
