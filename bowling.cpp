@@ -1,79 +1,43 @@
-#include <iostream>
+```cpp
 #include <string>
 
-int bowlingScore(std::string s) {
+int main() {
     int score = 0;
-    int currentRoll1 = 0;
-    int currentRoll2 = 0;
-    bool strike = false;
-    int frameScore = 0;
-
-    for (char c : s) {
+    std::string s = "X/X/5+7-3-1/2+4/X/2-8-X/2+6/X";
+    for(int i = 0; i < s.length(); i++) {
+        char c = s[i];
         if (c == '/') {
-            if (!strike) {
-                if (currentRoll1 + currentRoll2 < 10) {
-                    score += 10 - (currentRoll1 + currentRoll2);
-                } else {
-                    score += 10;
-                }
+            score += getRoll(s, i) + getBonusRoll(s, i);
+        } else if (c == 'X' || c == 'x') {
+            score += min(i+1, 10);
+        } else if (isdigit(c)) {
+            int roll = getRoll(s, i);
+            if (s[i+1] == '+') {
+                score += roll + max(min(getBonusRoll(s, i) - roll - 1, 9), 0);
             } else {
-                frameScore = 10;
-                score += frameScore;
-                strike = false;
-            }
-            currentRoll1 = 0;
-            currentRoll2 = 0;
-        } else if (c == 'X') {
-            score += 10;
-            frameScore = 10;
-            strike = true;
-        } else {
-            if (!strike) {
-                if (currentRoll1 + 1 >= 10) {
-                    if (currentRoll1 + currentRoll2 + 1 <= 10) {
-                        score += 10 - currentRoll1;
-                        currentRoll2++;
-                    } else {
-                        score += 10;
-                        currentRoll1 = 0;
-                    }
-                } else {
-                    currentRoll1++;
-                }
-            } else {
-                currentRoll2++;
+                score += roll;
             }
         }
     }
-
-    if (strike) {
-        int bonusRoll1 = 0, bonusRoll2 = 0;
-        for (char c : s.substr(s.find('/'))) {
-            if (c == 'X') {
-                score += 10 + bonusRoll1;
-                return score;
-            } else if (c == '/') {
-                score += 10 + bonusRoll1;
-                return score;
-            } else {
-                if (bonusRoll1 < 2) {
-                    bonusRoll1++;
-                } else {
-                    bonusRoll1 = 0;
-                    bonusRoll2++;
-                }
-            }
-        }
-    }
-
     return score;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
+int getRoll(std::string s, int i) {
+    if (s[i+1] == '/') {
+        return 10;
+    } else {
+        for(int j = i + 1; j < s.length(); j++) {
+            if (!isdigit(s[j])) {
+                return min(j - i, 10);
+            }
+        }
+    }
+}
+
+int getBonusRoll(std::string s, int i) {
+    for(int j = i + 2; j < s.length(); j++) {
+        if (!isdigit(s[j]) && (s[j] == '+' || s[j] == '-')) {
+            return min(j - i - 1, 9);
+        }
+    }
 }
