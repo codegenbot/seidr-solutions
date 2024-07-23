@@ -1,2 +1,5 @@
+```
+import math
+
 def dice_game(n, m):
-    return (n - 1) * (m - 1) / (n * m)
+    return (math.comb(n + m - 1, n - 1)) / (n * m)
