@@ -1,4 +1,3 @@
-```cpp
 bool correct_bracketing(const char* brackets) {
     int count = 0;
     for(int i=0; *brackets; i++){
