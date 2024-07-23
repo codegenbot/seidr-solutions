@@ -1,2 +1,3 @@
-def count_odd(lst):
-    return sum(i for i in lst if i % 2 != 0)
+```
+def solution(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
