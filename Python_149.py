@@ -1,5 +1,5 @@
+```
 def sorted_list_sum(lst):
-    return " ".join(map(str, sorted([int(i) for i in lst if int(i) % 2 == 0])))
-
-lst = input("Please enter some numbers separated by space: ").split()
-print(sorted_list_sum(lst))
+    odd_length_items = [item for item in lst if len(item) % 2 != 0]
+    even_length_items = [item for item in lst if len(item) % 2 == 0]
+    return sum(len(i) for i in sorted(even_length_items))
