@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <iomanip>
@@ -29,3 +30,4 @@ int main() {
     cout << fixed << setprecision(10) << euclideanDistance(v1, v2) << endl;
 
     return 0;
+}
