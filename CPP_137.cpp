@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 using namespace std;
 
-boost::any solve(const boost::any& a, const boost::any& b) {
+boost::any compare(boost::any a, boost::any b) {
     if(a == b)
         return boost::any{};
     if(a.type() == typeid(int) && b.type() == typeid(float))
