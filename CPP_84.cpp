@@ -15,4 +15,3 @@ std::string solve(int N){
         sum /= 2;
     }
     return result;
-}
