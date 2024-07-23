@@ -1,12 +1,17 @@
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    note_lengths = {'o': 4, 'o|': 2, '.|': 1}
-    result = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == '.':
-            i += 3
+    note_duration = {'o': 4, 'o|': 2, '.|': 1}
+    beats_per_note = []
+    
+    for char in music_string:
+        if char == '|':
+            beats_per_note.append(note_duration.get('o|', 0))
+        elif char == '.':
+            beats_per_note.append(note_duration.get('.|', 0))
         else:
-            i += 2
-        result.append(note_lengths[music_string[i-1:i+1]])
-    return result
+            beats_per_note.append(note_duration.get(char, 4))
+    
+    return beats_per_note
