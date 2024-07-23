@@ -1,3 +1,4 @@
+```Python
 def decode_cyclic(s: str):
     result = ""
     i = 0
@@ -9,3 +10,6 @@ def decode_cyclic(s: str):
             result += group
         i += 3
     return result
+
+s = input("Enter the cyclic string: ")
+print(decode_cyclic(s))
