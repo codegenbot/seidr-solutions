@@ -1,7 +1,7 @@
 #include <string>
-using namespace std;
+#include <algorithm>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool has_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -10,14 +10,14 @@ string file_name_check(string file_name){
             digit_count++;
         } else if(c == '.'){
             has_dot = true;
-        } else if(!has_dot && !isalpha(c)){
+        } else if(!has_dot && !isalpha(c) || !has_dot && std::any_of(file_name.begin(), file_name.end(), isalpha)){
             return "No";
         }
     }
     if(digit_count > 3 || !has_dot){
         return "No";
     }
-    string extension = file_name.substr(file_name.find('.') + 1);
+    std::string extension = file_name.substr(file_name.find('.') + 1);
     if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
