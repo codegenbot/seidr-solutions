@@ -1,6 +1,4 @@
-from typing import List
-import statistics
-
+```
 def mean_absolute_deviation() -> float:
     while True:
         numbers_str = input("Enter comma-separated float values (e.g., 1,2,3): ")
@@ -11,9 +9,10 @@ def mean_absolute_deviation() -> float:
                 result = statistics.mean(numbers_list)
             else:
                 result = statistics.mean([abs(num - statistics.mean(numbers_list)) for num in numbers_list])
+            cont = input("Do you want to enter another set of numbers? (yes/no): ")
+            if cont.lower() != "yes":
+                break
         except ValueError:
             print("Invalid input. Please enter comma-separated float values.")
         
-        return result
-
-print(mean_absolute_deviation())
+    return result
