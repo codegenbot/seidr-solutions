@@ -1,3 +1,3 @@
 ```
-def digitSum(s):
-    return sum(ord(c.upper()) - 55 for c in s if c.isupper())
+def digit_sum(s):
+    return sum(ord(c) - 55 for c in s if 'A' <= c <= 'Z')
