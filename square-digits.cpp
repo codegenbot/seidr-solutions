@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -13,7 +12,8 @@ string squareDigits(string input) {
 
 int main() {
     string input;
+    cout << "Enter a positive integer: ";
     cin >> input;
-    cout << squareDigits(input) << endl;
+    cout << "Square digits of the number is: " << squareDigits(input) << endl;
     return 0;
 }
