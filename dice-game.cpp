@@ -1,15 +1,15 @@
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double total_outcomes = n * m;
-    double favorable_outcomes = 0;
+    double unfavorable_outcomes = 0;
     for (int i = 1; i <= n; ++i) {
-        favorable_outcomes += (double)(i - 1) * (m - 1);
+        unfavorable_outcomes += (double)(m - i) / m;
     }
-    double probability = favorable_outcomes / total_outcomes;
-    cout << fixed << probability << endl;
+    double probability = 1 - (unfavorable_outcomes / total_outcomes);
+    std::cout << std::fixed << std::setprecision(6) << probability << '\n';
     return 0;
 }
