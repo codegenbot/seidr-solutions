@@ -1,8 +1,9 @@
 #include <vector>
+#include <assert.h>
 
-int count_nums(const std::vector<int>& n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
-    for (const auto& num : n) {
+    for (int num : n) {
         if (num < 0) {
             num = -num;
         }
@@ -11,9 +12,14 @@ int count_nums(const std::vector<int>& n) {
             sum += num % 10;
             num /= 10;
         }
-        if (sum > 0) {
+        if (sum % 2 == 1) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    return 0;
 }
