@@ -6,10 +6,10 @@ def coin_sums(cents):
         while cents >= coin:
             count = cents // coin
             cents -= count * coin
-            results[coins.index(coin) - 1] += count
+            results[coins.index(coin)] += count
 
-    def print_results(coins):
-        for i, count in enumerate(reversed(coins)):
+    def print_results(results):
+        for i, count in enumerate(reversed(results)):
             if i == 0:  
                 print(f"Quarters: {count}")
             elif i == 1:  
