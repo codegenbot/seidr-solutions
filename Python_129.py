@@ -3,9 +3,7 @@ def minPath(grid, k):
     n = len(grid)
     res = []
     visited = [[False] * n for _ in range(n)]
-    queue = [
-        (0, 0, [1], {1: 1})
-    ]
+    queue = [(0, 0, [1], {1: 1})]
 
     while queue:
         x, y, path, count = queue.pop(0)
@@ -15,14 +13,7 @@ def minPath(grid, k):
         for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                queue.append(
-                    (
-                        nx,
-                        ny,
-                        path + [i * j for i in range(1, n + 1) for j in range(1, n + 1)],
-                        {i * j: count.get(i * j, 0) + 1 for i in range(1, n + 1) for j in range(1, n + 1)},
-                    )
-                )
+                queue.append((nx, ny, path + [1], {c: count.get(c, 0) + 1 for c in count}))
                 visited[nx][ny] = True
 
     return res
