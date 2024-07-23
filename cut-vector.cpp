@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <utility>
 #include <climits>
@@ -17,4 +18,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     std::vector<int> left(v.begin(), v.begin() + cut_index);
     std::vector<int> right(v.begin() + cut_index, v.end());
     return std::make_pair(std::move(left), std::move(right));
+}
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4};
+    auto result = cutVector(v);
+    // Print or use the result as needed
+    return 0;
 }
