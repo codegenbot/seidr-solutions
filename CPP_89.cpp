@@ -1,19 +1,18 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s) {
+    string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
-        if(c >= 'a' && c <= 'i'){
-            result += (c - 2 <= 'a') ? (char)('z' - 'a' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'j' && c <= 'n'){
-            result += (c - 2 <= 'n') ? (char)('o' - 'n' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'o' && c <= 'v'){
-            result += (c - 2 <= 'v') ? (char)('w' - 'v' + 1 + c - 2) : (char)(c - 2);
-        } else if(c >= 'w' && c <= 'z'){
-            result += (c - 2 <= 'z') ? (char)('a' - 'z' + 1 + c - 2) : (char)(c - 2);
-        } else {
+        if(c >= 'a' && c <= 'z'){
+            int val = (int)c;
+            if(val<97+3)
+                result += (char)(val+3);
+            else
+                result += (char)(96+2-(c-122));
+        }
+        else {
             result += c;
         }
     }
