@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -33,20 +32,17 @@ std::string reverse(std::string str) {
     }
     return rev;
 
-int main {
-    // Read input
+int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::cin >> s;
     
-    // Read the characters to remove
     std::string chars;
-    std::cout << "Enter characters to remove: ";
+    std::cout << "Enter characters to delete: ";
     std::cin >> chars;
     
-    // Process and output
-    auto result = reverse_delete(s, chars);
-    for (const auto& item : result) 
-        std::cout << item << " "; 
+    std::vector<std::string> result = reverse_delete(s, chars);
+    for (std::vector<std::string>::iterator it = result.begin(); it != result.end(); ++it) 
+        std::cout << *it << " "; 
     std::cout << '\n';
 }
