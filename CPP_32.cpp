@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double poly(std::vector<double> coeffs, double x) {
     double result = 0;
@@ -31,6 +32,6 @@ int main() {
 
     for (double i = 1.5; i < 3.0; i += 0.05) {
         double val = poly(coeffs, i);
-        assert(abs(val) < 1e-3); 
+        assert(std::abs(val) < 1e-3); 
     }
 }
