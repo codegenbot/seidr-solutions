@@ -1,10 +1,7 @@
-```
-def double_the_difference(lst):
-    if len(set(map(int, lst))) != len(lst):
+def double_the_difference(input_list):
+    if len(set(map(int, input_list))) != len(input_list):
         return "Lists must not contain duplicate elements"
-    differences = [(int(a) - int(b)) ** 2 for a, b in zip(map(str, lst)[::2], map(str, lst)[1::2])]
+    differences = [(int(a) - int(b)) ** 2 for a, b in zip(map(str, input_list)[::2], map(str, input_list)[1::2])]
     return sum(differences) * 8
 
-input_list = [1, 2, 3]
-output = double_the_difference(input_list)
-print(output)
+result = double_the_difference(input("Enter a list of integers (space separated): ").split())
