@@ -1,30 +1,26 @@
-if (a.type() == boost::any::typeless_type && 
-    b.type() != boost::any::typeless_type) {
-    if (b.type() == boost::any::typeid_type) {
-        return a;
-    } else {
-        return b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > (int)a ? b : a;
     }
-} else if (a.type() != boost::any::typeless_type && 
-           b.type() == boost::any::typeless_type) {
-    if (a.type() == boost::any::typeid_type) {
-        return b;
-    } else {
-        return a;
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)b > (float)a ? b : a;
     }
-} else if (a.type() == boost::any::typeless_type && 
-           b.type() == boost::any::typeless_type) {
-    string s1 = a.cast<string>();
-    string s2 = b.cast<string>();
-    double d1 = atof(s1.c_str());
-    double d2 = atof(s2.c_str());
-    if (d1 > d2) return a;
-    else if (d1 < d2) return b;
-    else return boost::any("None");
-} else {
-    double d1 = boost::any_cast<double>(a);
-    double d2 = boost::any_cast<double>(b);
-    if (d1 > d2) return a;
-    else if (d1 < d2) return b;
-    else return boost::any("None");
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(b) > boost::any_cast<string>(a) ? b : a;
+    }
+    if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string s = boost::any_cast<string>(b);
+        float f = boost::any_cast<float>(a);
+        return f > stof(s) ? b : a;
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string s = boost::any_cast<string>(a);
+        float f = boost::any_cast<float>(b);
+        return stof(s) > f ? a : b;
+    }
+    if (a.convertible_to(b)) {
+        return a > b ? a : b;
+    } else {
+        return "None";
+    }
 }
