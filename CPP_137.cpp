@@ -1,26 +1,14 @@
 #include <boost/any.hpp>
-#include <typeinfo>
-#include <string>
+using namespace std;
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) {
-            return a;
-        } else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) {
-            return b;
-        }
-    }
-    return boost::any();
+boost::any solve(const boost::any& a, const boost::any& b) {
+    if(a == b)
+        return boost::any{};
+    if(a.type() == typeid(int) && b.type() == typeid(float))
+        return max(boost::any_cast<int>(a), boost::any_cast<float>(b));
+    if(a.type() == typeid(float) && b.type() == typeid(int))
+        return max(boost::any_cast<float>(a), boost::any_cast<int>(b));
+    if(a.type() == typeid(string) && b.type() == typeid(string))
+        return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
+    return boost::any{};
 }
