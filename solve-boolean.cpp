@@ -1,5 +1,5 @@
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
+    stack<char, deque<char>> operators;
     string operand = "";
     int i = 0; 
 
@@ -9,15 +9,14 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                return operand == "T";
+                return operand == "T" ? false : true;
             }
-            operand = "";
         } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                return operand == "T";
+                if (operand == "F") return false;
+                return true;
             }
-            operand = "";
         } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
@@ -32,13 +31,13 @@ bool evaluateBooleanExpression(string expression) {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
-                    return operand == "T";
+                    return operand == "T" ? false : true;
                 } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    return operand == "F";
+                    return operand == "T" ? false : true;
+
                 }
 
-                operand = "False";
                 operators.pop();
             }
             operators.pop();
@@ -50,27 +49,15 @@ bool evaluateBooleanExpression(string expression) {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
-            return operand == "T";
+            return operand == "T" ? false : true;
         } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            return operand == "F";
+            return operand == "T" ? false : true;
+
         }
 
-        operand = "False";
         operators.pop();
     }
 
     return operand == "True";
-}
-
-int main() {
-    string expression;
-    cout << "Enter Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
 }
