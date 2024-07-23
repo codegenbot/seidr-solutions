@@ -13,7 +13,7 @@ int main() {
 
     double totalDistance = (startHeight * (1 - pow(bouncinessIndex, numBounces))) / (1 - bouncinessIndex);
 
-    cout << fixed << std::setprecision(5) << totalDistance << std::endl;
+    cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
     
     return 0;
 }
