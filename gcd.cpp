@@ -12,12 +12,12 @@ unsigned long gcd(unsigned long a, unsigned long b) {
     return a;
 }
 
-std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<size_t> result;
-    size_t n = text.length();
-    size_t m = target.length();
+std::vector<unsigned long> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<unsigned long> result;
+    unsigned long n = text.length();
+    unsigned long m = target.length();
 
-    for (size_t i = 0; i <= n - m; i++) {
+    for (unsigned long i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             while ((i + m) <= n && text.substr(i, m) == target)
@@ -32,9 +32,9 @@ int main() {
     std::string text = "Hello World";
     std::string target = "World";
 
-    std::vector<size_t> result = indicesOfSubstring(text, target);
+    std::vector<unsigned long> result = indicesOfSubstring(text, target);
     std::cout << "Indices: ";
-    for (size_t i : result) {
+    for (unsigned long i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
