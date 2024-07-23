@@ -1,4 +1,8 @@
-bool compareVectors(std::vector<int> a, std::vector<int> b) {
+int eat(int a, int b, int c) {
+    return a * b + c;
+}
+
+bool areSameVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -11,6 +15,6 @@ bool compareVectors(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(compareVectors(std::vector<int>({36,0})));
+    assert(areSameVectors({1,36,0}));
     return 0;
 }
