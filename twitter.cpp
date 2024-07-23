@@ -19,4 +19,4 @@ int main() {
     }
 
     cout << "Your tweet has " << tweet.length() << " characters" << endl;
-    return 0; }
+    return 0 }
