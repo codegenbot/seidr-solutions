@@ -1,41 +1,27 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string sentence) {
+    std::stringstream stream(sentence);
+    std::string word;
 
-string spinWords(string str) {
-    string result = "";
-    for (const auto& word : split(str)) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
-        }
+    std::string result = "";
+
+    while (stream >> word) {
+        if (word.length() >= 5)
+            word = string(word.rbegin(), word.rend());
         result += word + " ";
     }
-    return result.substr(0, result.size() - 1);
+
+    return result.substr(0, result.size()-1); // Remove the trailing space
 }
 
-string split(const string& str) {
-    vector<string> words;
-    string word = "";
-    for (const auto& c : str) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
+int main() {
+    std::string input;
+    while (std::cout << "Enter a sentence ('' to stop): ") {
+        std::getline(std::cin, input);
+        if (input.empty()) break;
+        std::cout << spinWords(input) << '\n';
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return join(words);
-}
-
-string join(const vector<string>& words) {
-    string result = "";
-    for (const auto& word : words) {
-        result += word + " ";
-    }
-    return result.substr(0, result.size() - 1);
+    return 0;
 }
