@@ -1,6 +1,9 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> map;
-    vector<int> result;
+#include <vector>
+#include <unordered_map>
+
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_map<int, bool> map;
+    std::vector<int> result;
 
     for (int num : numbers) {
         if (!map[num]) {
