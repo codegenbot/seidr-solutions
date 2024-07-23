@@ -1,16 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
 int main() {
     int n, a, b, target;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    cin >> target;
+    std::cin >> target;
     
-    map<int, int> seen;
+    std::map<int, int> seen;
     for (int i = 0; i < n; i++) {
         if (seen.count(target - nums[i])) {
-            cout << target - nums[i] << endl << nums[i];
+            std::cout << target - nums[i] << std::endl << nums[i];
             break;
         }
         seen[nums[i]] = i;
