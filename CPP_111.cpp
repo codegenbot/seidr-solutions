@@ -22,10 +22,8 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
             return false;
     }
     return true;
-
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
-}
