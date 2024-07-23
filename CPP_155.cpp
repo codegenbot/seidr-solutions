@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result(2, 0);
     char c;
     while (num != 0) {
         c = (num % 10) + '0';
@@ -12,4 +13,9 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+int main() {
+    assert(even_odd_count(0) == std::vector<int>(1, 0)); 
+    return 0;
 }
