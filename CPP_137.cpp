@@ -3,12 +3,15 @@
 
 int main() {
     std::string str;
-    std::cout << "Enter a string: ";
+    std::cout << "Enter a number: ";
     std::cin >> str;
-
-    int num = boost::lexical_cast<int>(str);
-
-    std::cout << "The integer value is: " << num << std::endl;
-
+    
+    try {
+        int num = boost::lexical_cast<int>(str);
+        std::cout << "You entered the number " << num << ".\n";
+    } catch(boost::bad_lexical_cast &) {
+        std::cout << "That's not a valid number!\n";
+    }
+    
     return 0;
 }
