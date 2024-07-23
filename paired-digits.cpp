@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 int pairedDigits(std::string str) {
     int sum = 0;
@@ -21,4 +21,3 @@ int main() {
     printf("Sum of paired digits: %d\n", result);
 
     return 0;
-}
