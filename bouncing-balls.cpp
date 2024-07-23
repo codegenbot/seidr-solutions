@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -8,9 +8,9 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;
 
-    bouncinessIndex = firstBounce / startHeight;
+    bouncinessIndex = (firstBounce / startHeight);
 
-    cout << fixed << setprecision(4) << (1 + bouncinessIndex) * 2.0 - 1.0 << endl;
+    cout << fixed << setprecision(4) << 1 + 2 * bouncinessIndex - 1.0 << endl;
 
     return 0;
 }
