@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -28,4 +29,3 @@ int main() {
     cout << endl;
     for (auto x : res.second) cout << x << " ";
     return 0;
-}
