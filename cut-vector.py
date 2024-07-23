@@ -3,9 +3,9 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 cut_index = -1
-min_diff = total_sum
 
 for i in range(n):
+    min_diff = float('inf')
     left_sum = sum(arr[:i+1])
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
