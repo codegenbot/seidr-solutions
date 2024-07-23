@@ -1,6 +1,8 @@
+```cpp
 #include <utility>
+using namespace std;
 
-std::pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
     int cut_index = 0;
 
