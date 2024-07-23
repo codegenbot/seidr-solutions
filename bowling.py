@@ -1,3 +1,4 @@
+```
 def solve(input_string):
     score = 0
     i = 0
