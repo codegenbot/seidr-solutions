@@ -1,44 +1,28 @@
-def bowling_score(bowls):
+def bowling(s):
     score = 0
     frame = 1
-    bowl_index = 0
-    while frame <= 10:
-        if bowls[bowl_index] == "X":
+    rolls = list(s)
+
+    for i in range(len(rolls)):
+        if rolls[i] == "X":
             score += 10
-            score += get_strike_bonus(bowls, bowl_index)
-            bowl_index += 1
-        elif bowls[bowl_index] == "/":
-            score += 10 - int(bowls[bowl_index - 1])
-            score += get_spare_bonus(bowls, bowl_index)
-            bowl_index += 1
-        else:
-            score += int(bowls[bowl_index])
-        frame += 1
-        bowl_index += 1
+            if frame < 10:
+                score += sum(
+                    map(
+                        lambda x: 10 if x == "X" else (int(x) if x.isdigit() else 0),
+                        rolls[i + 1 : i + 3],
+                    )
+                )
+            frame += 1
+        elif rolls[i] == "/":
+            score += 10 - int(rolls[i - 1])
+            if frame < 10:
+                score += 10 if rolls[i + 1] == "X" else int(rolls[i + 1])
+            frame += 1
+        elif rolls[i].isdigit():
+            score += int(rolls[i])
+            if frame < 10 and rolls[i] != "0" and rolls[i + 1] == "/":
+                score += 10 - int(rolls[i])
+            frame += 0.5
+
     return score
-
-
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if bowls[index + 2] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[index + 2])
-    if bowls[index + 4] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[index + 4])
-    return bonus
-
-
-def get_spare_bonus(bowls, index):
-    bonus = 0
-    if bowls[index + 2] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[index + 2])
-    return bonus
-
-
-bowls = input()
-print(bowling_score(bowls))
