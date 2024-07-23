@@ -12,7 +12,7 @@ std::string newWord(std::string str) {
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
-    
+
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5)
@@ -20,11 +20,12 @@ std::string spinWords(std::string str) {
             else
                 result += word + " ";
             word = "";
-        } else {
+        } 
+        else {
             word += c;
         }
     }
-    
+
     if (word.length() >= 5)
         result += newWord(word);
     else
