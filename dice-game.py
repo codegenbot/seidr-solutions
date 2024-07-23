@@ -1,2 +1,4 @@
 def roll_dice(n, m):
-    return sum(1 for i in range(1, n+1) for j in range(1, m+1) if i > j) / (n * m)
+    total_outcomes = n * m
+    favorable_outcomes = sum((m-i+1)*(n-m+i) for i in range(min(m-1,n-1)+1))
+    return 1 - favorable_outcomes / total_outcomes

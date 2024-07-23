@@ -1,28 +1,33 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int start = 0;
-    while (start < text.length()) {
-        int pos = text.find(target, start);
-        if (pos == -1)
-            break;
-        indices.push_back(pos);
-        start = pos + 1;
+    int prevLast = -1;
+    while ((prevLast = text.find(target, prevLast + 1)) != string::npos) {
+        indices.push_back(prevLast);
+        prevLast += target.size();
     }
     return indices;
 }
 
 int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result) {
+    // Read input from user
+    string text;
+    cin >> text;
+
+    string target;
+    int t;
+    cin >> t;
+    getline(cin, target);
+
+    // Call the function and print the result
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
+
     return 0;
 }
