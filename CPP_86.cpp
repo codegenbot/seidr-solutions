@@ -17,3 +17,4 @@ string anti_shuffle(string s) {
         i += word.length() - 1;
     }
     return result;
+}
