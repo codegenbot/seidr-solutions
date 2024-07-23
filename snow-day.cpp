@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -7,7 +8,7 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate);
+        snow_on_ground = lround((snow_on_ground + snow_fall_rate) - lround(snow_on_ground * snow_melt_rate));
     }
 
     cout.precision(16);
