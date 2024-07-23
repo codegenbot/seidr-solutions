@@ -15,12 +15,12 @@ string spinWords(string str) {
         if (end == string::npos)
             end = str.length();
         
-        string word = str.substr(start, end - start);
-        
-        if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        
-        result += word + " ";
+        string wholeWord = str.substr(start, end - start);
+
+        // Reverse the whole word
+        reverse(wholeWord.begin(), wholeWord.end());
+
+        result += wholeWord + " ";
         
         start = end + 1;
     }
