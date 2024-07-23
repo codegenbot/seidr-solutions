@@ -1,7 +1,7 @@
-```
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -32,20 +32,28 @@ int gcd(int a, int b) {
 
 int main() {
     string text; 
-    cout << "Enter the text: ";
-    cin >> text;
+    cout << "Enter your text: ";
+    getline(cin, text);
 
-    string target; 
-    cout << "Enter the target: ";
-    cin >> target;
+    string target;
+    cout << "Enter your target: ";
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
+    
     int a; 
-    cout << "Enter number 1: ";
+    cout << "Enter the first number: ";
     cin >> a;
+
     int b; 
-    cout << "Enter number 2: ";
+    cout << "Enter the second number: ";
     cin >> b;
+    
+    cout << "Indices of Substring are ";
+    for(int i : indices) {
+        cout << i << " ";
+    }
+    cout << endl;
     
     cout << "GCD of " << a << " and " << b << " is " << gcd(a,b) << endl;
 
