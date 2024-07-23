@@ -2,14 +2,7 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double petersWin = 0.0;
-
-    for(int i = m+1; i <= n; i++) {
-        petersWin += (double)(i - m);
-    }
-
-    return petersWin / total;
+    return (m - 1.0) / (n * m);
 }
 
 int main() {
