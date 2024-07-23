@@ -1,8 +1,11 @@
+```
 def encode(message):
     encoded_message = ""
     for char in message:
         if char.isalnum():
-            if char.isalpha():
+            if char.isdigit(): 
+                encoded_char = char
+            elif char.isalpha():
                 if char.isupper():
                     encoded_char = chr((ord(char) - 65 + 3) % 26 + 65)
                 else:
