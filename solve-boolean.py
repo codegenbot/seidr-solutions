@@ -1,13 +1,18 @@
+```
 def solve_boolean(expression):
-    def eval_expr(tokenized):
-        if len(tokenized) == 1:  
-            return tokenized[0] == 'T'
-        elif '&' in tokenized:  
-            idx = tokenized.index('&')
-            return eval_expr(tokenized[:idx]) and eval_expr(tokenized[idx+1:])
-        else:
-            idx = tokenized.index('|')  
-            return eval_expr(tokenized[:idx]) or eval_expr(tokenized[idx+1:])
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
 
-    tokens = expression.replace('&', ' and ').replace('|', ' or ')
-    return eval_expr(tokens.split())
+    tokens = expression.split('&')
+    result = True
+    for token in tokens:
+        token = token.replace(' | ', '|').replace(' and ', '&').strip()
+        if 'T' not in token:
+            result = False
+            break
+    if result: 
+        return True
+    else:  
+        return False
