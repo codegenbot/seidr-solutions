@@ -3,61 +3,61 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> std::operators;
+    stack<char> operators(std::deque<char>());
     string operand = "";
     int i = 0; 
 
     for (i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!std::operators.empty() && std::operators.top() == '|') {
-                std::operators.pop();
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
             }
             if (!operand.empty()) {
                 return operand == "True";
             }
         } else if (expression[i] == '|') {
-            while (!std::operators.empty()) std::operators.pop();
+            while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
                 return operand == "True";
             }
         } else if (expression[i] == 't' || expression[i] == 'f') {
-            if (!std::operators.empty() && ((expression[i] == 't' && std::operators.top() == '|') ||
-                                            (expression[i] == 'f' && std::operators.top() == '&'))) {
-                while (!std::operators.empty()) std::operators.pop();
+            if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
+                                        (expression[i] == 'f' && operators.top() == '&'))) {
+                while (!operators.empty()) operators.pop();
             }
             operand += (expression[i] == 't'? "T" : "F");
         } else if (expression[i] == '(') {
-            std::operators.push(expression[i]);
+            operators.push(expression[i]);
         } else if (expression[i] == ')') {
-            while (std::operators.top() != '(') {
+            while (operators.top() != '(') {
                 if (expression[i] == '|') {
-                    while (!std::operators.empty() && std::operators.top() == '|') {
-                        std::operators.pop();
+                    while (!operators.empty() && operators.top() == '|') {
+                        operators.pop();
                     }
                     return operand == "T";
                 } else if (expression[i] == '&') {
-                    while (!std::operators.empty()) std::operators.pop();
+                    while (!operators.empty()) operators.pop();
                     return operand == "T";
                 }
 
-                std::operators.pop();
+                operators.pop();
             }
-            std::operators.pop();
+            operators.pop();
         }
     }
 
-    while (!std::operators.empty()) {
+    while (!operators.empty()) {
         if (expression[i] == '|') {
-            while (!std::operators.empty() && std::operators.top() == '|') {
-                std::operators.pop();
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
             }
             return operand == "T";
         } else if (expression[i] == '&') {
-            while (!std::operators.empty()) std::operators.pop();
+            while (!operators.empty()) operators.pop();
             return operand == "T";
         }
 
-        std::operators.pop();
+        operators.pop();
     }
 
     return operand == "True";
