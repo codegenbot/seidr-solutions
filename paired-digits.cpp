@@ -1,15 +1,15 @@
 int main() {
-    string input;
-    cin >> input;
-    
+    string digits;
+    cin >> digits;
+
     int sum = 0;
-    for (int i = 0; i < input.size() - 1; ++i) {
-        if (input[i] == input[i + 1]) {
-            sum += input[i] - '0';
+    for (int i = 0; i < digits.size() - 1; ++i) {
+        if (digits[i] == digits[i + 1]) {
+            sum += digits[i] - '0';
         }
     }
-    
+
     cout << sum << endl;
-    
+
     return 0;
 }
