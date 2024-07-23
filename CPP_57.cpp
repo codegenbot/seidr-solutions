@@ -1,4 +1,3 @@
-````
 bool monotonic(vector<float> l) {
     bool increasing = true;
     bool decreasing = true;
@@ -17,4 +16,3 @@ bool monotonic(vector<float> l) {
 
     return increasing || decreasing;
 }
-```
