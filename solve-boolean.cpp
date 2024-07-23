@@ -14,15 +14,15 @@ bool solveBoolean(std::string expression) {
             return solveBoolean(left) && solveBoolean(right);
         }
     }
-    
+
     if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
+        if (std::tolower(expression[0]) == 't')
             return true;
         else
             return false;
     } else 
-        return false; // default value
-    
+        return false; 
+
 }
 
 int main() {
@@ -31,8 +31,8 @@ int main() {
     std::cin >> expression;
     bool result = solveBoolean(expression);
     if (result)
-        std::cout << "True";
+        std::cout << "True" << std::endl;
     else
-        std::cout << "False";
+        std::cout << "False" << std::endl;
     return 0;
 }
