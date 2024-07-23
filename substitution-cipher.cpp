@@ -4,7 +4,7 @@
 
 std::string decipher(const std::string& cipherText, const std::string& key) {
     std::string deciphered = "";
-    for (char c : cipherText) {
+    for (char c : plainText) {
         for (int i = 0; i < key.length(); ++i) {
             if (key[i] == c) {
                 int pos = i;
@@ -12,7 +12,7 @@ std::string decipher(const std::string& cipherText, const std::string& key) {
                     deciphered += key.substr(0, pos+1);
                     pos++;
                 }
-                return deciphered;
+                return deciphered + c;
             }
         }
     }
@@ -22,6 +22,6 @@ std::string decipher(const std::string& cipherText, const std::string& key) {
 int main() {
     std::string cipherText1, cipherText2, plainText;
     std::cin >> cipherText1 >> cipherText2 >> plainText;
-    std::cout << ::decipher(plainText, cipherText1) << std::endl;
+    std::cout << std::decipher(plainText, cipherText1) << std::endl;
     return 0;
 }
