@@ -14,10 +14,10 @@ long long double_the_difference(const std::vector<float>& lst) {
     return sum;
 }
 
-int main(int argc, const char* argv[], FILE* stdin) {
-    std::vector<float> myVector;
+int main() {
     int n;
     float temp;
+    std::vector<float> myVector;
 
     // Read the number of elements
     std::cin >> n;
