@@ -4,7 +4,7 @@ using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size() && all_of(a.begin(), a.end(),
-          [&](float x) { return abs(x - *find_if(b.begin(), b.end(), [&](float y) { return abs(y-x) < 1e-6; }).first) <= 1e-6; });
+          [&b](float x) { return abs(x - *find_if(b.begin(), b.end(), [&](float y) { return abs(y-x) < 1e-6; }).first) <= 1e-6; });
 }
 
 vector<float> sort_even(vector<float> l) {
