@@ -1,14 +1,19 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-diff = float("inf")
+v = [int(input()) for _ in range(n)]
+total_sum = sum(v)
+curr_sum = 0
+min_diff = total_sum
 cut_idx = 0
 
-for i in range(1, n):
-    current_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if current_diff < diff:
-        diff = current_diff
+for i in range(n):
+    curr_sum += v[i]
+    diff = abs(total_sum - 2 * curr_sum)
+    if diff < min_diff:
+        min_diff = diff
         cut_idx = i
 
-print(sum(arr[:cut_idx]))
-print(sum(arr[cut_idx:]))
+output1 = v[: cut_idx + 1]
+output2 = v[cut_idx + 1 :]
+
+print(*output1)
+print(*output2)
