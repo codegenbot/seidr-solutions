@@ -1,10 +1,13 @@
-string result;
-    for(auto ch : s) {
-        if(c.find(ch) == string::npos) {
-            result.push_back(ch);
+vector<string> result;
+    string new_s;
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
+            new_s.push_back(ch);
         }
     }
-    string reverseResult = result;
-    reverse(reverseResult.begin(), reverseResult.end());
-    return {result, result == reverseResult ? "True" : "False"};
+    string rev_s = new_s;
+    reverse(rev_s.begin(), rev_s.end());
+    result.push_back(new_s);
+    result.push_back(new_s == rev_s ? "True" : "False");
+    return result;
 }
