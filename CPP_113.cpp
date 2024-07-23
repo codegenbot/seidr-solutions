@@ -1,4 +1,3 @@
-```
 int main() {
     vector<string> test = {"271", "137", "314"};
     vector<string> expected = {"the number of odd elements 2 in the string 1", 
