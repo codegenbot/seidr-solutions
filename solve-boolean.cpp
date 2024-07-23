@@ -1,28 +1,30 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    if (expr == "t") {
+    if (expr == "t" || expr == "T" ) {
         return true;
-    } else if (expr == "f") {
+    } else if (expr == "f" || expr == "F") {
         return false;
     } else {
+        bool result = false;
         bool negate = false;
-        int pos = 0;
-
+        
         if (expr[0] == '!') {
             negate = true;
-            return !evaluateBooleanExpression(expr.substr(1));
         }
 
-        int orPos = expr.find('|');
-        int andPos = expr.find('&');
-
-        if (orPos != std::string::npos) {
-            return evaluateBooleanExpression(expr.substr(0, orPos)) || evaluateBooleanExpression(expr.substr(orPos + 1));
-        } else if (andPos != std::string::npos) {
-            return evaluateBooleanExpression(expr.substr(0, andPos)) && evaluateBooleanExpression(expr.substr(andPos + 1));
+        size_t i = (negate ? 1 : 0);
+        result = (expr[i] == 't' || expr[i] == 'T');
+        
+        while (i < expr.length()) {
+            if (expr[i] == '&') {
+                result = result && (expr[i + 1] == 't' || expr[i + 1] == 'T');
+            } else if (expr[i] == '|') {
+                result = result || (expr[i + 1] == 't' || expr[i + 1] == 'T');
+            }
+            i += 2; // Skip the operator and the next character
         }
-
-        return negate ? !evaluateBooleanExpression(expr) : (expr == "t");
+        
+        return negate ? !result : result;
     }
 }
