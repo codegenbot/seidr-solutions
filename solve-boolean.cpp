@@ -3,8 +3,7 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
-    stack<string> operands;
+    stack<char, deque<char>> operators;
     string operand = "";
     int i = 0; 
 
@@ -14,48 +13,31 @@ bool evaluateBooleanExpression(string expression) {
                 operators.pop();
             }
             if (!operand.empty()) {
-                operands.push(operand);
-                operand = "";
-                return (operands.top() == "True") && true;
+                return operand == "True";
             }
-        } 
-        else if (expression[i] == '|') {
+        } else if (expression[i] == '|') {
             while (!operators.empty()) operators.pop();
             if (!operand.empty()) {
-                operands.push(operand);
-                operand = "";
-                return (operands.top() == "True");
+                return operand == "True";
             }
-        } 
-        else if (expression[i] == 't' || expression[i] == 'f') {
+        } else if (expression[i] == 't' || expression[i] == 'f') {
             if (!operators.empty() && ((expression[i] == 't' && operators.top() == '|') ||
                                         (expression[i] == 'f' && operators.top() == '&'))) {
                 while (!operators.empty()) operators.pop();
             }
             operand += (expression[i] == 't'? "T" : "F");
-        } 
-        else if (expression[i] == '(') {
+        } else if (expression[i] == '(') {
             operators.push(expression[i]);
-        } 
-        else if (expression[i] == ')') {
+        } else if (expression[i] == ')') {
             while (operators.top() != '(') {
                 if (expression[i] == '|') {
                     while (!operators.empty() && operators.top() == '|') {
                         operators.pop();
                     }
-                    if (!operand.empty()) {
-                        operands.push(operand);
-                        operand = "";
-                        return (operands.top() == "True");
-                    }
-                } 
-                else if (expression[i] == '&') {
+                    return operand == "T";
+                } else if (expression[i] == '&') {
                     while (!operators.empty()) operators.pop();
-                    if (!operand.empty()) {
-                        operands.push(operand);
-                        operand = "";
-                        return (operands.top() == "True");
-                    }
+                    return operand == "T";
                 }
 
                 operators.pop();
@@ -69,39 +51,26 @@ bool evaluateBooleanExpression(string expression) {
             while (!operators.empty() && operators.top() == '|') {
                 operators.pop();
             }
-            if (!operand.empty()) {
-                operands.push(operand);
-                operand = "";
-                return (operands.top() == "True");
-            }
-        } 
-        else if (expression[i] == '&') {
+            return operand == "T";
+        } else if (expression[i] == '&') {
             while (!operators.empty()) operators.pop();
-            if (!operand.empty()) {
-                operands.push(operand);
-                operand = "";
-                return (operands.top() == "True");
-            }
+            return operand == "T";
         }
 
         operators.pop();
     }
 
-    if (!operand.empty())
-        return operand == "T";
-
-    return true;
+    return operand == "True";
 }
 
 int main() {
     string expression;
-    cout << "Enter a boolean expression: ";
+    cout << "Enter Boolean expression: ";
     cin >> expression;
     bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        cout << "The result is True." << endl;
-    } else {
-        cout << "The result is False." << endl;
-    }
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
     return 0;
 }
