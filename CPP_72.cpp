@@ -11,8 +11,8 @@ bool is_palindrome(string s) {
     return s == t;
 }
 
-long long accumulate(vector<int> q, long long int x) {
-    return accumulate(q.begin(), q.end(), x);
+long long accumulate(vector<int> q, long long int init) {
+    return accumulate(q.begin(), q.end(), init);
 }
 
 bool will_it_fly(vector<int> q, int w) {
