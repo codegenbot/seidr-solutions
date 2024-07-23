@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
@@ -12,7 +13,7 @@ int main() {
     } else {
         int charCount = tweet.size();
         if (charCount > 140) {
-            cout << "Too many characters. Your tweet has " << charCount << " characters";
+            cout << "Too many characters. Your tweet has " << charCount << " characters.";
         } else {
             cout << "Your tweet has " << charCount << " characters";
         }
