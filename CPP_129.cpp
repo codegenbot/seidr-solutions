@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <utility>
-#include <algorithm>
+#include <functional>
+#include <memory>
 
 using namespace std;
 
@@ -14,16 +15,13 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors;
-    neighbors.resize(n);
+    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
     for (int i = 0; i < n; ++i) {
-        neighbors[i].resize(n);
         for (int j = 0; j < n; ++j) {
-            if (i > 0) neighbors[i][j] = {{make_pair(i-1, j), grid[i][j]}};
-            else neighbors[i][j].push_back({{i,j},grid[i][j]});
-            if (i < n-1) neighbors[i][j].push_back({{make_pair(i+1, j), grid[i][j]}});
-            if (j > 0) neighbors[i][j].push_back({{make_pair(i, j-1), grid[i][j]}});
-            if (j < n-1) neighbors[i][j].push_back({{make_pair(i, j+1), grid[i][j]}});
+            if (i > 0) neighbors[i].push_back({make_pair(i-1, j), grid[i][j]});
+            if (i < n-1) neighbors[i].push_back({make_pair(i+1, j), grid[i][j]});
+            if (j > 0) neighbors[i].push_back({make_pair(i, j-1), grid[i][j]});
+            if (j < n-1) neighbors[i].push_back({make_pair(i, j+1), grid[i][j]});
         }
     }
 
@@ -40,7 +38,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k == 0) {
             return {sum};
         }
-        for (auto& neighbor : neighbors[i][j]) {
+        for (auto& neighbor : neighbors[i]) {
             int ni = neighbor.first.first, nj = neighbor.first.second;
             int ns = sum - grid[i][j] + neighbor.second;
             k--;

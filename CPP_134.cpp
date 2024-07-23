@@ -15,6 +15,12 @@ bool check_if_last_char_is_a_letter(std::string txt) {
     return containsNonSpace && std::isalpha((char)txt.back());
 }
 
-void main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true);
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    if(check_if_last_char_is_a_letter(input))
+        std::cout << "The last character of the entered string is a letter." << std::endl;
+    else
+        std::cout << "The last character of the entered string is not a letter." << std::endl;
 }
