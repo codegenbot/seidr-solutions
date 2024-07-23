@@ -19,4 +19,3 @@ int search(vector<int> lst) {
         }
     }
     return -1;
-}
