@@ -1,11 +1,10 @@
-#include <vector>
-
+```cpp
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool isDouble = false;
 
     for (int i = 0; i < digits.size(); ++i) {
-        int digit = digits[i] * (isDouble ? 2 : 1);
+        int digit = (i % 2 == 0) ? digits[i] * 2 : digits[i];
 
         if (digit > 9) {
             digit -= 9;
