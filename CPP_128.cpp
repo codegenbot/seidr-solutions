@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -17,6 +18,6 @@ int prod_signs(vector<int> arr) {
     if (arr.empty()) {
         return -32768;
     } else {
-        return product * (sum / abs(sum));
+        return product * (sum / sum);
     }
 }
