@@ -13,16 +13,13 @@ vector<int> findIndices(string text, string target) {
 }
 
 int main() {
-    // Read input from user
     string text;
     cin >> text;
 
     string target;
-    int t;
-    cin >> t;
+    cin.ignore();  // Ignore the newline character left in input stream
     getline(cin, target);
 
-    // Call the function and print the result
     vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";
