@@ -1,9 +1,9 @@
-```c++
+```
 #include <string>
 #include <cassert>
 #include <iostream>
 
-int digitSum(std::basic_string<char> s) {
+int digitSum(const std::string& s) {
     int sum = 0;
     for (char c : s) {
         if (!isdigit(c)) {
