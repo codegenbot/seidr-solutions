@@ -1,4 +1,3 @@
-```
 def substitution_cipher():
     cipher_map = str(input())
     text_to_decrypt = str(input())
