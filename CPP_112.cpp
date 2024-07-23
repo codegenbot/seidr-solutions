@@ -32,13 +32,19 @@ std::string reverse(std::string str) {
     return rev;
 
 int main() {
-    std::string s, chars;
-    std::cout << "Enter the string: ";
-    std::getline(std::cin, s);
+    // Read input
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    
+    // Read the characters to remove
+    std::string chars;
     std::cout << "Enter characters to remove: ";
-    std::getline(std::cin, chars);
+    std::cin >> chars;
+    
+    // Process and output
     auto result = reverse_delete(s, chars);
-    for (auto str : result) {
-        std::cout << str << std::endl;
-    }
+    for (const auto& item : result) 
+        std::cout << item << " "; 
+    std::cout << '\n';
 }
