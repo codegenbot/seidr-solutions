@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
-#include <cmath>
-#include <iostream>
+#include <cmath>  
+#include <iostream>  
 #include <iomanip>
 
 using namespace std;
@@ -26,10 +27,15 @@ double find_zero(vector<double> xs){
 
 int main() {
     vector<double> input;
-    cin >> ws; // Read whitespace
-    double num;
-    while (cin >> num) {
-        input.push_back(num);
+    cout << "Enter coefficients (space-separated): ";
+    for(double &x: getline(cin) >> noskipws >> copy(cin, back_inserter(vector<double>(input)))) {
+        // check if the input is a number
+        if (!cin || !isdigit(cin.peek())) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter numbers separated by spaces." << endl;
+            return 1; 
+        }
     }
     find_zero(input);
     return 0;
