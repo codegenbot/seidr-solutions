@@ -1,17 +1,19 @@
 ```
 def bowling_score(game):
     score = 0
-    game_list = [int(x) for x in game.replace('/', '2').replace('X', '10').split()]
+    game_list = [int(i) if i.isdigit() else i for i in game.replace('-', '/').split(' ')]
 
-    for i in range(0, len(game_list), 2):
-        if game_list[i] == 10:
+    for i in range(0, len(game_list), 1):
+        if game_list[i] == 'X':
             score += 10
-            if i < len(game_list) - 1 and game_list[i+1] >= 8:
-                score += game_list[i+1]
-            elif i < len(game_list) - 1 and game_list[i+1] >= 2:
-                score += 2 + game_list[i+1]
+            if i < len(game_list) - 1 and game_list[i+1] in ['X', '/']:
+                score += 10
+            elif i < len(game_list) - 2 and game_list[i+1].isdigit() and game_list[i+2].isdigit():
+                score += int(game_list[i+1]) + int(game_list[i+2])
+        elif game_list[i] == '/':
+            if i < len(game_list) - 1 and game_list[i-1].isdigit():
+                score += 10 - int(game_list[i-1])
         else:
-            score += sum(game_list[i:i+2])
-    return score
+            score += int(game_list[i])
 
-print(bowling_score('9/-39/X3/7/54622325'))
+    return score
