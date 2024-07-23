@@ -42,8 +42,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    std::vector<std::string> expectedLetterGrades = {"F", "D"};
-    if (!issame(numerical_letter_grade(grades), expectedLetterGrades)) {
+    if (!issame(numerical_letter_grade(grades), {"F", "D"})) {
         return 1;
     }
     return 0;
