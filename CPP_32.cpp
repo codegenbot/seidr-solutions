@@ -8,18 +8,26 @@ double poly(vector<double> coeffs, double x) {
 
 double find_zero(vector<double> coeffs) {
     double x = 1.0;
-    double tol = 1e-6;
-    while(true) {
-        double f_x = poly(coeffs, x);
-        double f_prime_x = poly({coeffs[1], coeffs[2], coeffs[3] * (x-1), coeffs[4]}, x); // approximate derivative using difference quotient
-        x -= f_x / f_prime_x;
-        if(abs(f_x) < tol)
+    double e = 1e-6;
+    while (true) {
+        double fx = poly(coeffs, x);
+        if (fabs(fx) < e)
             return x;
+        double dfx = 0;
+        for (int i = 1; i <= coeffs.size(); i++) {
+            dfx += i * coeffs[i] * pow(x, i-1);
+        }
+        x -= fx / dfx;
     }
 }
 
 int main() {
-    vector<double> coeffs = {1, -7.0, 11, -6, 3}; 
-    double solution = find_zero(coeffs); 
-    cout << "The root is: " << solution << endl;    
+    vector<double> coeffs = {1.0, -6.0, 11.0, -6.0, 1.0};
+    double solution = 0.0;
+    
+    // calculate the polynomial and check if it has a root close to 2.5
+    for (double i = 1.5; i < 3.0; i += 0.05) {
+        double val = poly(coeffs, i);
+        assert(abs(val)< 1e-3); 
+    }
 }
