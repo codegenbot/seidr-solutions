@@ -1,8 +1,13 @@
+```
 def f(n):
     result = []
-    for i in range(1, n + 1):
+    for i in range(1, n+1):
         if i % 2 == 0:
-            result.append(math.factorial(i))
+            factorial = 1
+            for j in range(1, i+1):
+                factorial *= j
+            result.append(factorial)
         else:
-            result.append(sum(range(1, i + 1)))
+            sum_val = sum(range(1, i+1))
+            result.append(sum_val)
     return result
