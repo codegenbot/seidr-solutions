@@ -1,15 +1,12 @@
-```cpp
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <cctype>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(tolower(a[i]) != tolower(b[i]))
-            return false;
-    }
-    return true;
+using namespace std;
+
+bool issame(const string& s1, const string& s2) {
+    return s1.size() == s2.size();
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -24,8 +21,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int i = 0, j = 0;
     
     while (i < lst1.size() && j < lst2.size()) {
-        if (lst1[i] == lst2[j]) {
-            result.push_back(string(lst1[i])); 
+        if (issame(lst1[i], lst2[j])) {
+            result.push_back(lst1[i]);
             i++;
             j++;
         } else if (lst1[i] < lst2[j]) {
