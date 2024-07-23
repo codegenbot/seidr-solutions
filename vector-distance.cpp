@@ -20,7 +20,7 @@ int main() {
     }
     float result = std::sqrt(sum);
 
-    std::cout << std::fixed << result << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
