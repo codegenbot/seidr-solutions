@@ -13,13 +13,23 @@ pair<int, int> mastermind(string code, string guess) {
             blackPegs++;
         } else {
             for(int j = 0; j < 6; j++) {
-                if(colorCount[j] && (char)('0' + j) == guess[i]) {
+                if((char)('0' + j) == code[0] && (char)('0' + j) == guess[i]) {
                     whitePegs++;
-                    colorCount[j]--;
                     break;
                 }
+                colorCount[j]++;
             }
-            colorCount[(int)(guess[i] - '0')]++;
+        }
+    }
+    
+    for(int i = 0; i < 6; i++) {
+        if(colorCount[i] > 0) {
+            for(int j = 0; j < 4; j++) {
+                if((char)('0' + i) == code[j]) {
+                    whitePegs++;
+                }
+            }
+            colorCount[i] = 0;
         }
     }
     
