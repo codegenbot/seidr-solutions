@@ -1,10 +1,13 @@
-string result = "None";
-    int max_len = 0;
-    for (const string& s : strings) {
-        if (s.length() > max_len || (s.length() == max_len && s < result)) {
-            max_len = s.length();
-            result = s;
+if(strings.empty()) {
+        return "None";
+    }
+    
+    string longestStr = strings[0];
+    for(const string& str : strings) {
+        if(str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)) {
+            longestStr = str;
         }
     }
-    return result;
+    
+    return longestStr;
 }
