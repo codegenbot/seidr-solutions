@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ''
     for char in message:
@@ -43,3 +44,6 @@ def encode(message):
                     result += 'O'
                 elif char.lower() == 'p':
                     result += 'V'
+        else:
+            result += char
+    return result
