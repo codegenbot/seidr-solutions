@@ -8,4 +8,4 @@ def split_words(txt):
             return txt.split(',')
         else:
             odd_count = sum(ord(c)-ord('a') for c in txt.lower() if 'bcdfghjklmnpqrstvwxyz'.count(c))
-            return [odd_count]
+            return odd_count
