@@ -7,7 +7,7 @@ current_sum = 0
 idx = 0
 min_diff = abs(total_sum - 2*nums[0])
 
-for i in range(1, n):
+for i in range(n):
     if abs(current_sum + nums[i] - half_sum) <= min_diff:
         idx = i
         min_diff = abs(current_sum + nums[i] - half_sum)
