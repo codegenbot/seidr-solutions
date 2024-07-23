@@ -5,4 +5,8 @@ def shopping_list():
     total_price = sum(
         price - (price * discount / 100) for price, discount in zip(prices, discounts)
     )
-    return format(total_price, ".1f")
+    return (
+        str(int(total_price * 1)).split(".")[0]
+        + "."
+        + str(int(total_price * 1)).split(".")[1]
+    )
