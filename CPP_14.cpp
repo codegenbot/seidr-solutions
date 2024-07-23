@@ -1,7 +1,11 @@
-vector<string> result;
-    string current_prefix = "";
+vector<string> all_prefixes(string str) {
+    vector<string> result;
+    string prefix = "";
+    
     for (char c : str) {
-        current_prefix += c;
-        result.push_back(current_prefix);
+        prefix += c;
+        result.push_back(prefix);
     }
+    
     return result;
+}
