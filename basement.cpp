@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -11,4 +12,15 @@ int basement(vector<int> nums) {
         }
     }
     return nums.size();
+}
+
+int main() {
+    vector<int> nums;
+    int input;
+    while (cin >> input) {
+        nums.push_back(input);
+    }
+    int result = basement(nums);
+    cout << "Result: " << result << endl;
+    return 0;
 }
