@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -5,9 +6,7 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
     while True:
         try:
             if not numbers or len(numbers) == 0:
-                user_input = input(
-                    "Enter a list of integers separated by space or comma: "
-                )
+                user_input = input("Enter a list of integers separated by space or comma: ")
                 numbers = [int(num) for num in user_input.split()]
             if not all(isinstance(num, int) for num in numbers):
                 print("Numbers must be a list of integers")
@@ -28,7 +27,5 @@ def intersperse(delimiter: int, numbers: List[int] = None) -> List[int]:
 
             return result
         except (ValueError, IndexError):
-            user_input = input(
-                "Invalid input. Please enter a list of integers separated by space or comma: "
-            )
+            user_input = input("Invalid input. Please enter a list of integers separated by space or comma: ")
             numbers = [int(num) for num in user_input.split()]
