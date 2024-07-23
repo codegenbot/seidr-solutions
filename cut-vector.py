@@ -1,19 +1,19 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
-half_sum = total_sum // 2
-current_sum = 0
-cut_index = 0
-
-for i in range(n):
-    current_sum += a[i]
-    if current_sum >= half_sum:
-        cut_index = i
+total_sum = sum(arr)
+half_sum = 0
+for i, num in enumerate(arr):
+    half_sum += num
+    if half_sum >= total_sum / 2:
+        if half_sum == total_sum / 2:
+            print(*arr[: i + 1])
+            print(*arr[i + 1 :])
+        else:
+            if abs(total_sum - 2 * half_sum) < abs(total_sum - 2 * (half_sum - num)):
+                print(*arr[: i + 1])
+                print(*arr[i + 1 :])
+            else:
+                print(*arr[:i])
+                print(*arr[i:])
         break
-
-if abs(total_sum - 2 * current_sum) < abs(total_sum - 2 * (current_sum - a[cut_index])):
-    cut_index -= 1
-
-print(*a[: cut_index + 1])
-print(*a[cut_index + 1 :])
