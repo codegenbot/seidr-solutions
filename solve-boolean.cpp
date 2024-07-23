@@ -1,9 +1,8 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 
-using namespace std;
-
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = false;
     bool lastOp = false;
 
@@ -23,8 +22,9 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string input;
-    getline(cin, input); 
+    std::string input;
+    std::cin >> std::ws;
+    std::getline(std::cin, input); 
     bool result = solveBoolean(input);
-    cout << (result ? "True" : "False");
+    std::cout << (result ? "True" : "False");
 }
