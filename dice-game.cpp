@@ -5,9 +5,10 @@ double diceGame(int n, int m) {
     double total = n * m;
     double petersWin = 0.0;
     
-    for (int i = 1; i <= m && i < n; i++) {
-        petersWin += ((n - i)) / (total);
+    for (int i = 1; i <= m - 1; i++) {
+        petersWin += ((n - i + 1)) / (total);
     }
+    petersWin += ((n - m) / (double)(total));
     
     return 1.0 - petersWin;
 }
