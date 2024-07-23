@@ -9,7 +9,7 @@ long long gcd(long long a, long long b) {
         b = a % b;
         a = temp;
     }
-    return abs(a);
+    return static_cast<size_t>(abs(a));
 }
 
 std::vector<size_t> indicesOfSubstring(std::string text, std::string target) {
