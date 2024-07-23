@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,7 +7,7 @@ std::string spinWords(std::string str) {
     
     for (char c : str) {
         if (c == ' ') {
-            result += word;
+            result += word; 
             word = "";
         } else {
             word += c;
@@ -17,17 +16,19 @@ std::string spinWords(std::string str) {
             if (word.length() >= 5) {
                 for (int i = word.length() - 1; i >= 0; --i)
                     result += word[i];
-                word = ""; // Reset the word
-            } else
+                word = ""; 
+            } else {
                 result += word;
+                word = "";
+            }
         }
     }
     
-    // Check the last word
+    // Last word check
     if (word.length() >= 5) {
         for (int i = word.length() - 1; i >= 0; --i)
             result += word[i];
-    } else
+    } else 
         result += word;
     
     return result;
