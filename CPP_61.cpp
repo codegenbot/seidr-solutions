@@ -1,5 +1,5 @@
 #include <cassert>
-#include <iostream>
+#include <string>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -11,9 +11,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string brackets;
-    std::cout << "Enter the brackets: ";
-    std::getline(std::cin, brackets; 
-    assert(!correct_bracketing(brackets)); 
+    assert(!correct_bracketing("()()(()())"));
     return 0;
 }
