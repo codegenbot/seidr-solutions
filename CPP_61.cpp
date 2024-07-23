@@ -15,6 +15,6 @@ bool correct_bracketing(const string& brackets) {
 }
 
 int main() {
-    assert(not correct_bracketing("()()(()())()))()"));
+    assert(not (correct_bracketing("()()(()())()))()")));
     return 0;
 }
