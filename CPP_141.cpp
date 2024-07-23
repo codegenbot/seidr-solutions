@@ -1,5 +1,6 @@
 #include <string>
 #include <algorithm>
+#include <cctype>
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
@@ -10,8 +11,8 @@ std::string file_name_check(std::string file_name){
             digit_count++;
         } else if(c == '.'){
             has_dot = true;
-        } else if(!has_dot && !isalpha(c) || !has_dot && std::any_of(file_name.begin(), file_name.end(), isalpha)){
-            return "No";
+        } else if((c != '.' && !isalpha(c)) || (has_dot && !isalpha(c))){
+            return "Invalid file name";
         }
     }
     if(digit_count > 3 || !has_dot){
