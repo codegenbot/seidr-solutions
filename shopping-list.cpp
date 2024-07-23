@@ -6,4 +6,3 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
         total += price - discount; 
     }
     return total;
-}
