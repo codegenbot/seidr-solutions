@@ -1,28 +1,28 @@
+```
 def bowling_score(frames):
-    if not isinstance(frames, str) or not frames:
-        return 0
     score = 0
     frame = 1
     for i in range(len(frames)):
         if frames[i] == 'X':
             score += 10
-            if frame < 10:
-                if i + 2 < len(frames) and frames[i + 1] == 'X' and frames[i + 2] == 'X':
-                    score += 30
-                elif i + 3 < len(frames):
-                    spare = sum(int(x) for x in frames[(i + 1):(i + 2)].lstrip('/').replace('-', '')) * (frame != 10)
-                    score += spare
-                frame += 1
-        elif frames[i] in '1234567890/':
-            if frames[i] == '/':
+            if i < len(frames) - 2 and frames[i+1] == 'X' and frames[i+2] == 'X':
+                score += 30
+            elif i < len(frames) - 1:
                 try:
-                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', '')) * (frame != 10)
+                    score += int(frames[i+1].lstrip('/').replace('-', '')) + (10 if frame != 10 else 0)
                 except ValueError:
-                    score += sum(int(x) for x in frames[(i + 1):].lstrip('/').replace('-', ''))
-            else:
+                    pass
+            frame = min(frame+1, 10)
+        elif frames[i] in '123456789':
+            pins = sum(int(x) for x in frames[i].lstrip('/').replace('-', ''))
+            score += pins
+            if i < len(frames) - 1 and frames[i+1] == '/':
                 try:
-                    score += int(frames[i]) + sum(int(x) for x in frames[(i + 1)].lstrip('/').replace('-', '')) * (frame != 10)
+                    score += int(frames[i+2].lstrip('/').replace('-', '')) + (10 if frame != 10 else 0)
                 except ValueError:
-                    score += int(frames[i])
-        frame += 1
+                    pass
+            elif i < len(frames) - 1 and sum(int(x) for x in frames[i+1:]) >= 10:
+                score += 10
+                frame = min(frame+1, 10)
+            frame += 1
     return score
