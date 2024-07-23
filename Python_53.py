@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -7,6 +8,10 @@ num2 = 0
 while True:
     try:
         num1 = int(input("Enter first number: "))
+        confirm = input(f"Confirm {num1} (y/n)? ")
+        if confirm.lower() != 'y':
+            print("Invalid input. Please enter a number again.")
+            continue
         break
     except ValueError:
         print("Invalid input. Please enter an integer.")
@@ -14,6 +19,10 @@ while True:
 while True:
     try:
         num2 = int(input("Enter second number: "))
+        confirm = input(f"Confirm {num2} (y/n)? ")
+        if confirm.lower() != 'y':
+            print("Invalid input. Please enter a number again.")
+            continue
         break
     except ValueError:
         print("Invalid input. Please enter an integer.")
@@ -23,4 +32,3 @@ while True:
     if confirm.lower() == 'q':
         break
     print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
-    input("Press Enter to continue...")
