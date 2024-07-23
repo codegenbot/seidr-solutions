@@ -1,7 +1,9 @@
-string res = "";
+string change_base(int x, int base) {
+    string result = "";
     while (x > 0) {
-        res = to_string(x % base) + res;
+        int remainder = x % base;
+        result = to_string(remainder) + result;
         x /= base;
     }
-    return res;
+    return result;
 }
