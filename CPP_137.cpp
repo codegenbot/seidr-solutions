@@ -1,12 +1,10 @@
-```
 #include <boost/lexical_cast.hpp>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        return b;
+        return b.convert_to<boost::any>();
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         std::string str1 = boost::lexical_cast<std::string>(a);
         std::string str2 = boost::lexical_cast<std::string>(b);
@@ -41,6 +39,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (str1 < str2)
             return b;
         else
-            return boost::any("None");
+            return "None";
     }
 }
