@@ -1,23 +1,23 @@
-```
-def shortestWay(board, hand):
-    n = len(board)
-    m = [[0 for _ in range(7)] for _ in for _range(n)]
+def shortestPathLength(grid):
+    n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
     memo = {}
     
-    def dfs(i, j, path, cnt):
+    def dfs(i, j, path):
         if (i, j) in memo:
             return memo[(i, j)]
         
-        if cnt == 0:
-            return path
+        if (0 <= i < n and 0 <= j < n and 
+           any(1 == val for val in grid[i][j])):
+            return float('inf')
         
         res = []
-        for x, y in [(1), (-1), (0), (0)]:
+        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < len(board[0]) and board[ni][nj] == path[-1]:
-                res.append(dfs(ni, nj, path + [board[ni][nj]], cnt - 1))
+            if 0 <= ni < n and 0 <= nj < n:
+                res.append(dfs(ni, nj, path + [m[ni][nj]]))
         
-        memo[(i, j)] = min(res, key=lambda x: len(x) if len(x) < k else float('inf'))
+        memo[(i, j)] = min(res)
         return memo[(i, j)]
     
-    return dfs(0, 0, [], len(hand))```
+    return dfs(0, 0, [])
