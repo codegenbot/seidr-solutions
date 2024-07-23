@@ -1,6 +1,8 @@
-Here is the corrected code:
+```
+def solve():
+    num = int(input("Enter a number: "))
+    print(factorize(num))
 
-```python
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
