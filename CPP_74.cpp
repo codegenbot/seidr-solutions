@@ -1,31 +1,29 @@
-```cpp
-bool issame(vector<string> a,vector<string>b){
-    return (a==b);
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i)
+        if(a[i] != b[i]) return false;
+    return true;
 }
 
-int main() {
-    assert(issame(total_match({"this"}, {}), {""}));
-    vector<string> lst1;
-    vector<string> lst2;
-
-    int n;
-    cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        if(i < n/2) {
-            lst1.push_back(s);
-        } else {
-            lst2.push_back(s);
-        }
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    int sum1 = 0;
+    for (const std::string& s : lst1) {
+        sum1 += s.length();
     }
 
-    vector<string> result = total_match(lst1, lst2);
-
-    for(const auto& str : result) {
-        cout << str << endl;
+    int sum2 = 0;
+    for (const std::string& s : lst2) {
+        sum2 += s.length();
     }
 
-    return 0;
+    if (sum1 < sum2) {
+        return lst1;
+    } else if (sum1 > sum2) {
+        return lst2;
+    } else {
+        return issame(lst1, lst2) ? lst1 : lst2;
+    }
 }
