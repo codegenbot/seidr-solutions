@@ -1,13 +1,12 @@
+```
 #include <iostream>
 using namespace std;
 
 string squareDigits(string n) {
     string result = "";
     for(int i = 0; i < n.length(); i++) {
-        int digit = (n[i] - '0') * (n[i] - '0');
-        char str[2];
-        itoa(digit, str, 10);
-        result += str;
+        int digit = n[i] - '0';
+        result += to_string(digit * digit);
     }
     return result;
 }
