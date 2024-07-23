@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -19,10 +20,10 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
 }
 
 int main() {
-    std::vector<int> expected = compare({1,2,3,5},{-1,2,3,4});
-    for (int i : expected) {
-        std::cout << i << " ";
+    assert(isSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    std::cout << "The output is: ";
+    for (auto val : compare({1,2,3,5},{-1,2,3,4})) {
+        std::cout << val << " ";
     }
-    std::cout << std::endl;
     return 0;
 }
