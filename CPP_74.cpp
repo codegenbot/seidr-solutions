@@ -41,8 +41,6 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 
 int main() {
     std::vector<std::string> b = {"this", "is", "a", "test"};
-    std::vector<std::string> result = total_match({"this"}, b);
-    for (const std::string& str : result) {
-        std::cout << str << std::endl;
-    }
+    assert(std::equal(total_match({"this"}, b), b));
+    return 0;
 }
