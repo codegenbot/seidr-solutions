@@ -1,29 +1,20 @@
 ```cpp
 #include <vector>
-#include <iostream>
-#include <utility>
-#include <iterator>
+using namespace std;
 
-int main() {
-    int cutIndex = 0;
-    int minDiff = INT_MAX;
-
-    std::vector<int> v; 
-
-    std::cin >> v.size();
-    v.resize(v.size(), 0);
-    for(int i = 0; i < v.size(); i++) {
-        std::cin >> v[i];
-    }
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
 
     for(int i = 1; i < v.size(); i++) {
-        int diff = std::abs(v[i] - v[i-1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        int diff = abs(v[i] - v[0]);
+        if(diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
 
-    return std::make_pair(std::vector<int>(v.begin(), v.begin() + cutIndex),
-                       std::vector<int>(v.begin() + cutIndex, v.end()));
+    auto left = vector<int>(v.begin(), v.begin() + cut_index);
+    auto right = vector<int>(v.begin() + cut_index, v.end());
+    return {left, right};
 }
