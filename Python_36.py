@@ -1,4 +1,4 @@
-```
+```Python
 def fizz_buzz(n: int):
     count = 0
     result = []
@@ -11,4 +11,6 @@ def fizz_buzz(n: int):
             result.append("Buzz" if i % 3 != 0 else "FizzBuzz")
         else:
             result.append(str(i))
-    return len([i for i in result if isinstance(i, str) and i != '0'])
+    print(len([i for i in result if i != str(i)]))
+
+fizz_buzz(100)
