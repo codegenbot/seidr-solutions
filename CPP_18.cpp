@@ -18,3 +18,6 @@ int main() {
     std::cout << how_many_times("hello world", "world") << std::endl;
     return 0;
 }
+
+int mainFunc() {
+}
