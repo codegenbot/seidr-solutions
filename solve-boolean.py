@@ -2,13 +2,15 @@ def solve_boolean(expression):
     tokens = expression.replace('&', ' and ').replace('|', ' or ')
     def evaluate_expression(tokens):
         stack = []
+        operators = ['and', 'or']
         for token in tokens.split():
-            if token == 'T':
-                stack.append(True)
-            elif token == 'F':
-                stack.append(False)
-            else:
+            if token in operators:
+                right = stack.pop()
                 left = stack.pop()
-                right = True if token == 'T' else False
-                stack.append(left and right or left or right)
+                if token == 'and':
+                    stack.append(left and right)
+                elif token == 'or':
+                    stack.append(left or right)
+            else:
+                stack.append(token == 'T')
         return stack[0]
