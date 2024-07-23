@@ -1,4 +1,2 @@
-import math
-
-def solve():
-    return sum(math.floor(x/3) - 2 for x in map(int, input().split()))
+def solve(): 
+    return sum((x-1)//3 + 1 - 2 for x in map(int, input().split()))
