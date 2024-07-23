@@ -1,7 +1,8 @@
-if (a < 0)
-        return false;
+bool iscuber(int a) {
+    if (a < 0)
+        return false; 
     if (a == 0)
-        return false;
+        return false; 
     int i = 1;
     while (pow(i,3) <= a){
         if(pow(i,3) == a)
