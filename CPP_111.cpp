@@ -1,12 +1,9 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <map>
 #include <cctype>
+#include <string>
 
-using namespace std;
-
-bool isSame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,9 +30,24 @@ std::map<char, int> histogram(const std::string& str) {
     }
 
     return result;
+
 }
 
 int main() {
-    assert(isSame(histogram("a"), {{'a', 1}}));
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+
+    std::map<char, int> h = histogram(str);
+
+    if (h.size() > 0) {
+        for (const auto& pair : h) {
+            std::cout << pair.first << ": " << pair.second << std::endl;
+        }
+    } else {
+        std::cout << "No letters found" << std::endl;
+    }
+
     return 0;
+
 }
