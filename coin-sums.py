@@ -5,8 +5,9 @@ def coin_sums(cents):
 
     for coin in reversed(coins):
         count = cents // coin
-        cents %= coin
+        remainder = cents % coin
         if count > 0:
             results[coins.index(coin)] = count
+            cents = remainder
 
     return " ".join(map(str, results)) + "\n"
