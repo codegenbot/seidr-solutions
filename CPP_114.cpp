@@ -1,8 +1,11 @@
-```cpp
-CPP/114
+```
+Problem description: Minimum Size Subarray Sum
 
-Given an array of integers nums, find the minimum sum of a subarray that meets the condition: the sum of the subarray is non-negative.
+Given an array of integers `nums`, find the minimum size subarray (contiguous elements) with a sum that is less than or equal to `target`. If no such subarray exists, return 0.
 
+Complete the following code given the task description and function signature.
+
+```
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
     long long current_sum = 0;
@@ -28,3 +31,4 @@ int main() {
     cout << "Result: " << result << endl;
     return 0;
 }
+```
