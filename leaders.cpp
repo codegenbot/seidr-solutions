@@ -1,20 +1,20 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> res;
+    vector<int> result;
+    int maxRight = arr.back();
     
-    for(int i=n-1; i>=0; i--){
-        bool flag = true;
-        for(int j=i+1; j<n; j++){
-            if(arr[j] >= arr[i]){
-                flag = false;
-                break;
-            }
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] >= maxRight) {
+            result.push_back(arr[i]);
+            maxRight = arr[i];
         }
-        if(flag) res.push_back(arr[i]);
     }
     
-    return res;
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
