@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 int fruit_distribution(string s, int n) {
     int total_apples = 0;
     int total_oranges = 0;
