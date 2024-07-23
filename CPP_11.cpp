@@ -1,14 +1,12 @@
 #include <string>
 
 char* string_xor(char* a, char* b) {
-    int len = strlen(a);
-    int resultLen = len;
-    char* result = (char*)malloc((resultLen + 1)*sizeof(char));
-    result[resultLen] = '\0';
-    
-    for(int i = 0; i < len; i++) {
+    int len1 = strlen(a);
+    int len2 = (b)?strlen(b):0;
+    char* result = new char[len1+1];
+    for(int i = 0; i < len1; i++) {
         char c1 = a[i];
-        char c2 = (i < strlen(b)) ? b[i] : '0';
+        char c2 = (i < len2)?b[i]:'0';
         if(c1 == '0' && c2 == '0')
             result[i] = '0';
         else if(c1 == '0' || c2 == '0')
@@ -16,6 +14,6 @@ char* string_xor(char* a, char* b) {
         else
             result[i] = '0';
     }
-    
+    result[len1] = '\0';
     return result;
 }
