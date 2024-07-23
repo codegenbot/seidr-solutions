@@ -26,14 +26,16 @@ int main() {
     int a, b;
     string text, target;
 
+    cin.ignore(); // Clear input buffer
+
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
-    cin.ignore(); // Ignore newline character
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
+    cin.ignore(); // Clear input buffer
+
     cout << "Enter a text string: ";
-    cin.ignore(); // Ignoring newline character before reading text
     getline(cin, text);
 
     cout << "Enter a target string: ";
