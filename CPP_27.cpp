@@ -3,21 +3,21 @@
 #include <string>
 #include <ostream>
 
-std::string flip_case(std::string str){
+const char* flip_case(const std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
-        if(std::islower(c)){
+        if(c >= 'a' && c <= 'z'){
             result += std::toupper(c);
         }
-        else if(std::isupper(c)){
+        else if(c >= 'A' && c <= 'Z'){
             result += std::tolower(c);
         }
         else{
             result += c;
         }
     }
-    return result;
+    return result.c_str();
 }
 
 int main() {
@@ -25,5 +25,5 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
     std::cout << "Flipped case: " << flip_case(str) << std::endl;
-    return 0;
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
