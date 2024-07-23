@@ -1,13 +1,20 @@
+```
 def solve_boolean(expression):
-    tokens = expression.split()
-    result = True
-    for token in tokens:
-        if token == 'F':
-            return False
-        elif token == 'T':
-            continue
-        elif '&' in token:
-            result &= token == 'T'
-        elif '|' in token:
-            result |= token == 'T'
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    result = None
+    operator = ''
+    for char in expression:
+        if char in '&|':
+            operator = char
+        elif char in 'TF':
+            if operator == '':
+                result = {'T': True, 'F': False}[char]
+            else:
+                if operator == '&':
+                    result &= {'T': True, 'F': False}[char]
+                elif operator == '|':
+                    result |= {'T': True, 'F': False}[char]
     return result
