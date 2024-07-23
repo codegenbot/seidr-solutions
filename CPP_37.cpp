@@ -1,30 +1,22 @@
+Here is the corrected code:
+
+```cpp
 #include <algorithm>
 #include <vector>
+using namespace std;
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<float> a, vector<float> b) {
+    return a.size() == b.size() && all_of(a.begin(), a.end(),
+          [&b](float x) { return abs(x - *find_if(b.begin(), b.end(), [&](float y) { return abs(y-x) < 1e-6; }).first) <= 1e-6; });
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> sort_even(vector<float> l) {
+    vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> temp;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    temp.push_back(l[j]);
-                }
-            }
-            std::sort(temp.begin(), temp.end());
-            result.push_back(temp[0]);
+            vector<float> even = {x for x in l | select(x) where (x % 2 == 0)};
+            sort(even.begin(), even.end());
+            result.push_back(*even.begin());
         } else {
             result.push_back(l[i]);
         }
@@ -33,11 +25,6 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    float input[] = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-    std::vector<float> vec(input, input + sizeof(input) / sizeof(input[0]));
-    std::vector<float> output = sort_even(vec);
-    for (float num : output) {
-        std::cout << num << " ";
-    }
+    assert(issame(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), {-12.0f, 4.0f, 2.0f, 8.0f, 3.0f, 5.0f, 11.0f, 23.0f, 12.0f, -10.0f});
     return 0;
 }
