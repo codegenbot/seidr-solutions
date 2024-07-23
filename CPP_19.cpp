@@ -11,22 +11,22 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
     string result = "";
-    map<int, string> sorted_numbers;
     
-    size_t start = 0, end = 0;
-    while ((end = numbers.find(" ", start)) != string::npos) {
+    size_t start = 0, end = numbers.find(" ");
+    while (end != string::npos) {
         string num_str = numbers.substr(start, end - start);
-        sorted_numbers[number_map[num_str]] = num_str;
+        reverse_map[number_map[num_str]] = num_str;
         start = end + 1;
+        end = numbers.find(" ", start);
     }
-    sorted_numbers[number_map[numbers.substr(start)]] = numbers.substr(start);
+    reverse_map[number_map[numbers.substr(start)]] = numbers.substr(start);
     
-    for (const auto& pair : sorted_numbers) {
+    for (const auto& pair : reverse_map) {
         result += pair.second + " ";
     }
     
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+    return result.substr(0, result.size() - 1);
 }
