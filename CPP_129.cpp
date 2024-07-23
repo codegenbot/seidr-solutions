@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -22,7 +23,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp); // {sum, path}
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> q(cmp);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             q.push({grid[i][j], make_pair(i, j)});
