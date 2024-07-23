@@ -12,15 +12,15 @@ def search(lst):
         if num >= count and num > 0:
             max_num = num
             break
-    if max_num == -1:
-        return -1
     return max_num
 
 lst = input("Enter numbers separated by space: ")
 try:
     lst = [int(i) for i in lst.split()]
+    if lst:
+        print(search(lst))
+    else:
+        print("No number entered")
 except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
     exit()
-
-print(search(lst))
