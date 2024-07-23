@@ -1,5 +1,5 @@
 def luhn(card_number):
-    card_number = list(map(int, card_number.replace(" ", "")))
+    card_number = list(map(int, card_number.split()))
     total = 0
     for i in range(len(card_number)):
         if (i % 2) == 1:
@@ -8,5 +8,3 @@ def luhn(card_number):
                 card_number[i] -= 9
         total += card_number[i]
     return total
-
-print(luhn("4532015112830366"))
