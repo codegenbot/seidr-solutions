@@ -18,23 +18,23 @@ int mastermind(std::string code, std::string guess) {
 
     for (char c : code) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i] && c != code[i]) {
+        for (char d : guess) {
+            if (c == d && d != c) {
                 count++;
-                correctColors.insert(c);
+                correctColors.insert(d);
             }
         }
     }
 
     // Count white pegs now
-    for (char c : code) {
-        int count = 0;
+    int white = 0;
+    for (char c : guess) {
+        if (!code.count(c)) continue;
         for (int i = 0; i < 4; ++i) {
-            if (c == guess[i]) {
-                count++;
+            if (guess[i] == c && code[i] != c) {
+                white++;
             }
         }
-        white += count;
     }
 
     return black + white;
