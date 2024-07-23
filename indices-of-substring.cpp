@@ -19,6 +19,8 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (j == m)
             result.push_back(i); // Found a match!
+        
+        i += j; 
     }
 
     return result;
