@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <string>
 
 using namespace std;
 
@@ -35,7 +34,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         for (auto& neighbor : neighbors[path.back()][0].first) {
             vector<int> newPath = path;
             newPath.push_back(neighbor.second.first);
-            q.push({newPath, len + 1});
+            if (newPath.size() <= k)
+                q.push({newPath, len + 1});
         }
     }
 
