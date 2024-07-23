@@ -6,13 +6,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.size(), m = target.size();
     
-    int i = 0;
+    int i = 1;
     while (i <= n - m) {
-        if (text.substr(i, m) == target)
-            result.push_back(i);
+        if (text.substr(i-1, m) == target)
+            result.push_back(i-1);
         i = text.find(target, i) + 1;
-        if (i == string::npos)
-            break;
+        if (i > 0) {
+            break; 
+        }
     }
     
     return result;
