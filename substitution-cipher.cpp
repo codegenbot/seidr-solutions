@@ -4,7 +4,7 @@
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
     std::string result;
-    for (auto c : input) {
+    for (char c : input) {
         if (c == '\0') {
             break; 
         }
@@ -25,17 +25,10 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 }
 
 int main() {
-    // Example usage
     std::string cipher1, cipher2, input;
-    std::cout << "Enter the first cipher string: ";
-    std::getline(std::cin, cipher1);
-    std::cout << "Enter the second cipher string: ";
-    std::getline(std::cin, cipher2);
-    std::cout << "Enter the input string to be deciphered: ";
-    std::getline(std::cin, input);
-    
-    std::string decrypted = substitutionCipher(cipher1, cipher2, input);
-    std::cout << "Decrypted message: " << decrypted << std::endl;
-    
+    // get the strings from user
+    std::cin >> cipher1 >> cipher2 >> std::getline(std::cin, input);
+    // use your function here
+    std::cout << substitutionCipher(cipher1, cipher2, input) << std::endl;
     return 0;
 }
