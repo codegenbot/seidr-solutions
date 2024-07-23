@@ -11,7 +11,7 @@ int main() {
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos && pos < text.size()) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1); // Update this line
+        pos = text.find(target, pos + 1);
     }
 
     for (int i = 0; i < indices.size(); ++i) {
