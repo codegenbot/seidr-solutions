@@ -1,20 +1,20 @@
 #include <string>
+#include <sstream>
+
 using namespace std;
 
 int fruit_distribution(string s, int n) {
     int total_apples = 0;
     int total_oranges = 0;
-    string temp;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            if (temp.find("apples") != string::npos)
-                total_apples = stoi(temp.substr(0, temp.find(" ")).erase());
-            else if (temp.find("oranges") != string::npos)
-                total_oranges = stoi(temp.substr(0, temp.find(" ")).erase());
-            temp = "";
-        } else {
-            temp += s[i];
+    string token;
+    istringstream iss(s);
+
+    while (getline(iss, token, ' ')) {
+        if (token.find("apples") != string::npos) {
+            total_apples = stoi(token.substr(0, token.find(" ")).c_str());
+        } else if (token.find("oranges") != string::npos) {
+            total_oranges = stoi(token.substr(0, token.find(" ")).c_str());
         }
     }
 
