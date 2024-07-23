@@ -7,7 +7,6 @@ def x_or_y(n, x, y):
             if num % i == 0:
                 return False
         return True
-    
     if is_prime(n):
         return x
     else:
