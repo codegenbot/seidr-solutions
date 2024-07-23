@@ -1,31 +1,26 @@
-def solve_boolean(expression):
-    def or_(x, y):
-        return x or y
-
-    def and_(x, y):
-        return x and y
-
-    if expression == "t":
-        return True
-    elif expression == "f":
-        return False
-    else:
-        ops = []
-        num1 = ""
-        for c in expression:
-            if c in "&|":
-                if num1:
-                    ops.append(eval(num1))
-                num1 = ""
-                ops.append(c)
+def solveBoolean(inputString):
+    def bool_eval(expression):
+        while '&' in expression or '|' in expression:
+            if '&' in expression:
+                start = 0
+                end = len(expression)
+                for i in range(len(expression)):
+                    if expression[i] == '&':
+                        end = i
+                    elif expression[i] == '(' and expression[end-1] != '(':
+                        start = i+1
+                        break
+                return (bool_eval(expression[:start]) and bool_eval(expression[start:end])) or bool_eval(expression[end:])
             else:
-                num1 += c
-        ops.append(eval(num1))
+                start = 0
+                end = len(expression)
+                for i in range(len(expression)):
+                    if expression[i] == '|':
+                        end = i
+                    elif expression[i] == '(' and expression[end-1] != '(':
+                        start = i+1
+                        break
+                return (bool_eval(expression[:start]) or bool_eval(expression[start:end])) if expression[0] != '(' else bool_eval(expression[1:end-1])
+        return {'T': True, 'F': False}[expression]
 
-        result = ops[0]
-        for op in ops[1:]:
-            if op == "|":
-                result = or_(result, ops[ops.index(op) + 1])
-            elif op == "&":
-                result = and_(result, ops[ops.index(op) + 1])
-        return result
+    return bool_eval(inputString)
