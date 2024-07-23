@@ -20,4 +20,4 @@ int main(){
     cout << "Enter a sentence: ";
     getline(cin, s);
     cout << flip_case(s) << endl;
-}
+    return 0;
