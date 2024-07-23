@@ -1,19 +1,13 @@
+```
 def substitution_cipher():
-    cipher_map = list(input())
-    text_to_decrypt = str(input())
-    mapping_key = []
-    mapping_value = []
-
-    for i in range(0, len(cipher_map), 2):
-        mapping_key.append(cipher_map[i])
-        mapping_value.append(cipher_map[i + 1])
-
+    cipher_map = input().split(' ')
+    text_to_decrypt = input()
     decrypted_text = ""
 
     for char in text_to_decrypt:
-        if char in mapping_key:
-            index = mapping_key.index(char)
-            decrypted_text += mapping_value[index]
+        if char in cipher_map[0]:
+            index = cipher_map[0].index(char)
+            decrypted_text += cipher_map[1][index]
         else:
             decrypted_text += char
 
