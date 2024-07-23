@@ -12,11 +12,16 @@ int main() {
         std::cin >> nums[i];
     }
     
+    if (n == 1) {
+        std::cout << nums[0] << std::endl << std::endl;
+        return 0;
+    }
+    
     int min_diff = INT_MAX;
     int cut_idx = -1;
-    for (int i = 1; i < n-1; ++i) {
+    for (int i = 1; i < n; ++i) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < min_diff) {
+        if (diff <= min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
