@@ -1,6 +1,9 @@
 ```
 def modp(n: int, p: int):
-    if pow(4, (p - 1) // 2, p) == p-1:
-        return ((pow(n, (p - 2) // 2, p)) ** 2 * n) % p
+    if p == 1:
+        return n % p
+    elif p % 2 == 0:
+        half_pow = pow(n, (p // 2) - 1, p)
+        return (n * half_pow * half_pow) % p
     else:
-        return pow(n, p - 2, p) * n % p
+        return pow(n, p-2, p) * n % p
