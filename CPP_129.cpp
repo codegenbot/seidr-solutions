@@ -13,7 +13,7 @@ struct cmp {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, pair<int, int>>>> neighbors(n);
+    vector<vector<pair<int, pair<int, int>>, allocator<pair<int, pair<int, int>>> >> neighbors(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (i > 0) neighbors[i].push_back({{make_pair(i-1, j), grid[i][j]}});
@@ -31,22 +31,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     vector<int> res;
-    int temp_sum = 0;
+    int sum = 0;
     while (!q.empty()) {
-        auto [sum, {i, j}] = q.top(); q.pop();
+        auto [temp_sum, {ni, ns}] = q.top(); q.pop();
+        sum = temp_sum;
         if (k == 0) {
-            res.push_back(sum);
-            return res; 
+            return vector<int>{sum}; 
         }
-        for (auto& neighbor : neighbors[i]) {
-            int ni = neighbor.first.first, ns = neighbor.second;
-            int temp_sum = sum - grid[i][j] + neighbor.second;
+        for (auto& neighbor : neighbors[ni]) {
+            int nns = neighbor.second; 
+            int temp_ns = sum - grid[ni][ns] + nns;
             k--;
-            q.push({temp_sum, {ni, ns}}); 
+            q.push({temp_ns, make_pair(ni, nns)}); 
         }
     }
 
-    return res; 
+    return vector<int>{}; // Return empty if no path found.
 }
 
 int mainTest() {
