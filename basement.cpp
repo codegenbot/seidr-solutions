@@ -1,7 +1,6 @@
 #include <vector>
-using namespace std;
 
-int basement(vector<int>& arr) {
+int basement(std::vector<int> arr) {
     int sum = 0;
     for (int i = 0; i < arr.size(); i++) {
         sum += arr[i];
@@ -9,16 +8,4 @@ int basement(vector<int>& arr) {
             return i;
     }
     return -1;
-}
-
-int main() {
-    // Your code to read input and print output
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    cout << basement(arr) << endl;
-    return 0;
 }
