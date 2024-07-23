@@ -8,7 +8,7 @@ bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (const auto& pair : a) {
+    for (auto& pair : a) {
         if (b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
             return false;
         }
@@ -33,7 +33,6 @@ map<char, int> histogram(const string& str) {
     return result;
 
 }
-
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
