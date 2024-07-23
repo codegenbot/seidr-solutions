@@ -5,7 +5,7 @@ int score(string s) {
     int total = 0;
     int frame = 0;
     int balls[21] = {};
-
+    
     for (char c : s) {
         if (c == 'X') {
             balls[frame++] = 10;
@@ -17,7 +17,7 @@ int score(string s) {
             balls[frame++] = c - '0';
         }
     }
-
+    
     for (int i = 0; i < 10; ++i) {
         if (balls[i * 2] == 10) {
             total += 10 + balls[i * 2 + 2] + balls[i * 2 + 3];
@@ -30,7 +30,7 @@ int score(string s) {
             total += balls[i * 2] + balls[i * 2 + 1];
         }
     }
-
+    
     return total;
 }
 
