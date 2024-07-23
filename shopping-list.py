@@ -1,9 +1,8 @@
 n = int(input())
 prices = list(map(float, input().split()))
+m = int(input())
 discounts = list(map(float, input().split()))
 
-if len(prices) != n or len(discounts) != n:
-    print("Number of elements in prices and discounts vectors must match the input n")
-else:
-    total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
-    print(total_price)
+total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
+total_price = round(total_price, 2)
+print(total_price)
