@@ -11,24 +11,22 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
     string result = "";
     map<int, string> sorted_numbers;
-    
-    string number;
-    for (int i = 0; i < numbers.size(); ++i){
-        if (numbers[i] == ' '){
-            sorted_numbers[number_map[number]] = number;
-            number = "";
-        } else {
-            number += numbers[i];
-        }
+
+    size_t pos = 0;
+    while ((pos = numbers.find(" ")) != string::npos) {
+        string token = numbers.substr(0, pos);
+        sorted_numbers[number_map[token]] = token;
+        numbers.erase(0, pos + 1);
     }
-    sorted_numbers[number_map[number]] = number;
-    
-    for (const auto& pair : sorted_numbers){
+    sorted_numbers[number_map[numbers]] = numbers;
+
+    for (auto const& pair : sorted_numbers) {
         result += pair.second + " ";
     }
-    
-    return result.substr(0, result.size() - 1);
+
+    result.pop_back(); // Remove the extra space at the end
+    return result;
 }
