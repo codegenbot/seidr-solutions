@@ -1,33 +1,9 @@
-#include <cstddef>
-
-int calculateFrameScore(int s, size_t index) {
-    if (s == 0 || index >= 10) {
-        return 0;
-    }
-    
-    if (s == 10) {
-        int frameScore = 10;
-        int remainingBalls = 2;
-        for (size_t i = index + 1; i < 10 && remainingBalls > 0; ++i) {
-            if (s == 10) {
-                frameScore += 10;
-            } else if (s == 11) {
-                frameScore += 10 - (s - 10);
-            } else {
-                frameScore += s;
-            }
-            remainingBalls--;
-        }
-        return frameScore;
-    } else if (s == 11) {
-        if (index >= 2 && (s == 10 || s == 11)) {
-            return 10 + (index + 1 < 10 && s == 10 ? 10 : s - 10);
-        } else if (index >= 1) {
-            return 10 - (s - 10) + (index + 1 < 10 && s == 10 ? 10 : s - 10);
-        }
+int calculateFrameScore(char bowlScore, int index, const std::string& bowls) {
+    if (bowls[index] == 'X') {
+        return 10 + ((index + 1 < bowls.size() && bowls[index + 1] == 'X') ? 10 : (bowls[index + 1] - '0' - '0')) + ((index + 2 < bowls.size() && bowls[index + 2] == 'X') ? 10 : (bowls[index + 2] - '0' - '0'));
+    } else if (index % 2 == 1 && bowls[index] == '/') {
+        return 10 - (bowls[index - 1] - '0' - '0') + ((index + 1 < bowls.size() && bowls[index + 1] == 'X') ? 10 : (bowls[index + 1] - '0' - '0'));
     } else {
-        return s;
+        return bowlScore;
     }
-    
-    return 0;
 }
