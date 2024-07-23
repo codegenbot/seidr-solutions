@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-long long gcd(long long a, long long b) {
+size_t gcd(size_t a, size_t b) {
     while (b != 0) {
-        long long temp = b;
+        size_t temp = b;
         b = a % b;
         a = temp;
     }
@@ -33,7 +33,7 @@ int main() {
     std::string target = "World";
     std::vector<size_t> result;
 
-    long long GCD = gcd(909378243576LL, 50); 
+    size_t GCD = gcd(909378243576LL, 50); 
     std::cout << "GCD of " << 909378243576LL << " and " << 50 << ": " << GCD << std::endl;
     
     result = indicesOfSubstring(text, target);
