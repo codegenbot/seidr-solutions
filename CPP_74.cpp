@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -7,7 +6,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -28,14 +27,19 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 
     if (sum1 < sum2) {
-        return issame(lst1, lst2) ? lst1 : lst2;
+        return lst1;
     } else if (sum1 > sum2) {
-        return issame(lst1, lst2) ? lst2 : lst1;
+        return lst2;
     } else {
-        return issame(lst1, lst2) ? lst1 : lst2;
+        if (issame(lst1, lst2)) {
+            return lst1;
+        } else {
+            return lst1;
+        }
     }
 }
 
 int main() {
     assert(std::equal(total_match({"this"}, {}), {}));
+    // Your main function goes here
 }
