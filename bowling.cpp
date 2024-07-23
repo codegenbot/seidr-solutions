@@ -47,7 +47,8 @@ int bowlingScore(std::string s) {
                 if (s[i] == 'X' || s[i] == 'x' || s[i] == '+' || s[i] == '-') {
                     break;
                 } else if (c == '1' && s[i] >= '3') {
-                    throw "Invalid input";
+                    // throw "Invalid input";
+                    return -1;  // Invalid input
                 }
             }
         }
@@ -59,10 +60,9 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter the string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::cin >> s;
-    int score = bowlingScore(s);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+    std::string input;
+    std::cout << "Enter the bowling game scores: ";
+    std::cin >> input;
+    int result = bowlingScore(input);
+    return result;
 }
