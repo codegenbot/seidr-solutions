@@ -1,14 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
-std::string concatenate(std::vector<std::string> strings){
-    std::string MyString = "";
+class MyString {
+};
+
+MyString concatenate(vector<MyString> strings){
+    MyString result = "";
     for(auto str : strings) {
-        MyString += str;
+        result += str;
     }
-    return MyString;
+    return result;
 }
 
 int main() {
