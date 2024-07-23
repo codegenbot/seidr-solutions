@@ -20,16 +20,11 @@ def factorize(n: int) -> List[int]:
                 else:
                     factors.append(i)
 
-    if n > 1:
-        if n > 1:
-            while n > 1:
-                for i in range(2, math.isqrt(n) + 1):
-                    if n % i == 0:
-                        n //= i
-                        factors.append(i)
-                    else:
-                        break
-                if n > 1:
-                    factors.append(n)
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            n //= i
+            factors.append(i)
+        else:
+            break
 
     return factors

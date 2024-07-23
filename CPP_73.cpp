@@ -1,18 +1,37 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    int result = smallest_change({0, 1});
+    // test assertion
+    assert(result == 2);
+    std::cout << "The minimum number of coins needed is: " << result << std::endl;
+    return 0;
+}
+
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::vector<std::vector<bool>> dp(n, std::vector<bool>(n));
     
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= i; j++) {
-            if (j == 0) {
+        dp[i][i] = true;
+    }
+    
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i < n - len + 1; i++) {
+            int j = i + len - 1;
+            
+            if (arr[i] == arr[j]) {
                 dp[i][j] = true;
-            } else if (i == j) {
-                dp[i][j] = true;
-            } else if (arr[j - 1] != arr[i]) {
-                if (j >= 1 && dp[i - 1][j - 1] && dp[j - 1][j]) {
-                    dp[i][j] = true;
-                } else {
-                    dp[i][j] = false;
+            } else {
+                dp[i][j] = false;
+                
+                for (int k = i; k < j; k++) {
+                    if (dp[i][k] && dp[k + 1][j]) {
+                        dp[i][j] = true;
+                        break;
+                    }
                 }
             }
         }
@@ -20,8 +39,10 @@ int smallest_change(std::vector<int> arr) {
     
     int changes = 0;
     for (int i = 0; i < n - 1; i++) {
-        if (!dp[i][i + 1]) {
-            changes++;
+        for (int j = i + 1; j < n; j++) {
+            if (!dp[i][j]) {
+                changes++;
+            }
         }
     }
     
