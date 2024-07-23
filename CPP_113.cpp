@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool isSame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -18,17 +19,14 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string str = "the number of odd elements ";
-        str += to_string(count);
-        str += " in the string ";
-        str += to_string(i+1);
-        str += " of the input.";
-        result.push_back(str);
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + to_string(i+1));
     }
     return result;
 }
 
 int main() {
-    assert(isSame(odd_count({"271", "137", "314"}), {"the number of odd elements 2 in the string 1 of the input.", "the number of odd elements 1 in the string 2 of the input.", "the number of odd elements 0 in the string 3 of the input."}));
+    assert(issame(odd_count({"271", "137", "314"}) , {"the number of odd elements 2 in the string 1", 
+                                                         "the number of odd elements 1 in the string 2", 
+                                                         "the number of odd elements 0 in the string 3"}));
     return 0;
 }
