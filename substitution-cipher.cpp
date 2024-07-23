@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -10,9 +9,6 @@ std::string decipher(const std::string& cipherText, const std::string& key) {
                 deciphered += key.substr(0, i);
                 break;
             }
-        }
-        if (!deciphered.empty()) {
-            deciphered += c;
         }
     }
     return deciphered;
