@@ -11,7 +11,7 @@ std::string anti_shuffle(std::string s) {
             for (int j = 0; j < word.length(); j++) {
                 result += word[j];
             }
-            i--; // Reset the index
+            i--; 
         }
     }
     return result;
