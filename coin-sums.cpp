@@ -21,7 +21,7 @@ int main() {
         dimes++;
         cents -= 10;
     }
-
+    
     int pennies = (cents % 10);
 
     cout << quarters << endl;
