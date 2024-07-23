@@ -9,8 +9,11 @@ def string_to_md5(text):
 
 
 if __name__ == "__main__":
-    try:
-        text = input("Enter a string: ")
-        print(string_to_md5(text))
-    except TypeError:
-        print("Invalid input. Please enter a string.")
+    text = input("Enter a string: ")
+    if not text.strip():
+        print("Invalid input. Please enter a non-empty string.")
+    else:
+        try:
+            print(string_to_md5(text))
+        except TypeError:
+            print("Invalid input. Please enter a string.")
