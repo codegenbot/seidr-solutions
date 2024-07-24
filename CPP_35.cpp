@@ -1,12 +1,13 @@
-```
+```cpp
 #include <iostream>
 #include <algorithm>
 
+int max_val = INT_MIN; 
+int sum = 0;
+
 int main() {
-    int nums[100]; // array to store numbers
-    int n; // number of elements in the array
-    int max_val = INT_MIN; // initialize maximum value as negative infinity
-    int sum = 0; // initialize sum as zero
+    int nums[100]; 
+    int n;
 
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
