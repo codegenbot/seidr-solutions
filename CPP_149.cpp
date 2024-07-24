@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+// Define issame function
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,16 +14,8 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-int sorted_list_sum(const vector<vector<string>>& lst) {
-    int total = 0;
-    for (const auto& row : lst) {
-        std::sort(row.begin(), row.end());
-        total += std::stoi(row[0].substr(6));
-    }
-    return total;
-}
-
-vector<vector<string>> split_list(vector<string> lst) {
+// Define sorted_list_sum function
+vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
     
     int start = 0;
@@ -38,4 +30,9 @@ vector<vector<string>> split_list(vector<string> lst) {
     }
     
     return result;
+}
+
+int main() {
+    // Now you can use the functions
+    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
 }
