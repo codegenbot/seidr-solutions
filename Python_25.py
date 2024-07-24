@@ -1,4 +1,3 @@
-```python
 from typing import List
 
 
@@ -21,7 +20,7 @@ def factorize(n: int) -> List[int]:
 
 
 while True:
-    n = input("Enter a positive integer (or 'q' to quit): ")
+    n = str(input("Enter a positive integer (or 'q' to quit): "))
     if n.lower() == 'q':
         break
     try:
