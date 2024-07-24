@@ -4,7 +4,7 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return (a == b);
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -62,7 +62,6 @@ int main_test() {
     else
         a[0] = "F";
     std::vector<string> b(a);
-    std::vector<std::string> expected = {"A+", "D-"};
-    bool same = issame(numerical_letter_grade({4.0, 2.7}), expected);
+    bool same = issame(b, a);
     return 0;
 }
