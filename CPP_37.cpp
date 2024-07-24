@@ -1,5 +1,5 @@
-bool issame(float x, float y) {
-    return abs(x - y) < 1e-9;
+bool issame (float a, float b) {
+    return fabs(a - b) < 1e-9;
 }
 
 void sort_even(vector<float>& l) {
@@ -26,11 +26,6 @@ void sort_even(vector<float>& l) {
 }
 
 int main() {
-    vector<float> my_vector = {3.5, 2.0, 10.0, 4.5, 8.2, 7.1};
-    sort_even(my_vector);
-    for(auto elem : my_vector) {
-        cout << elem << " ";
-    }
-
+    // Main function code
     return 0;
 }
