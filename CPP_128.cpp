@@ -2,8 +2,21 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    int prod_signs(std::vector<int> arr) {
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    arr.resize(n);
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+    
+    int prod_signs(vector<int> arr) {
         int product = 1;
         long sum = 0;
         for (int x : arr) {
@@ -15,11 +28,9 @@ int main() {
         }
         return product * sum > INT_MAX ? -32768 : product * sum;
     }
-
-    std::vector<int> arr = {1, 2, 3};
+    
     int result = prod_signs(arr);
-
-    std::cout << "The product of absolute values of the array elements is: " << result << std::endl;
-
+    cout << "The final result is: " << result << endl;
+    
     return 0;
 }
