@@ -1,30 +1,8 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
-            return false;
-    }
-    return true;
-}
-
 int x_or_y(int n, int x, int y) {
-    if (isPrime(n))
+    if (n <= 1)
+        return y;
+    else if (isPrime(n))
         return x;
     else
         return y;
-}
-
-int main() {
-    int n, x, y;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Enter two numbers for comparison: ";
-    cin >> x >> y;
-    cout << "The result is: " << x_or_y(n, x, y) << endl;
-    return 0;
 }
