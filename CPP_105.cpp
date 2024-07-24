@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
-#include <pmr/string_buffer.h>
+#include <pmr/string.h>
 
 std::pmr::string by_length(const std::vector<int>& lengths) {
-    std::vector<std::string> result;
+    std::vector<std::pmr::string> result;
     for (int length : lengths) {
         switch (length) {
             case 1:
@@ -23,10 +22,10 @@ std::pmr::string by_length(const std::vector<int>& lengths) {
                 break;
         }
     }
-    return std::pmr::string(new std::pmr::monitored_string_buffer, new std::pmr::memory_resource);
+    return "";
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<std::pmr::string> a, vector<std::pmr::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -35,6 +34,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(by_length({1, 4, 9}) , {"One", "Four", "Nine"}));
+    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
 }
