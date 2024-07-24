@@ -11,7 +11,7 @@ std::string change_base(int x, int base) {
     return result;
 }
 
-int contest_main() {
+int main() {
     assert(change_base(10, 2) == "1010");
     assert(change_base(16, 16) == "10");
     assert(change_base(255, 8) == "377");
