@@ -1,21 +1,30 @@
-string fix_spaces(string text){
-    string result = "";
-    bool consecutiveSpace = false;
+Here is the solution:
 
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' ' && !consecutiveSpace){
-            result += '_';
-            consecutiveSpace = true;
-        }else if(text[i] == ' '){
-            if(consecutiveSpace){
-                result += '-';
-                consecutiveSpace = false;
+```cpp
+string fix_spaces(string text) {
+    string result = "";
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (result.length() > 0 && result[result.length()-1] != ' ') {
+                result += "_";
             }
-        }else{
+            else if (i + 1 < text.length() && text[i+1] == ' ') {
+                int count = 0;
+                while (i + 1 < text.length() && text[i+1] == ' ') {
+                    i++;
+                    count++;
+                }
+                if (count > 2) {
+                    result += "-";
+                } else {
+                    for (int j = 0; j < count; j++) {
+                        result += "_";
+                    }
+                }
+            }
+        } else {
             result += text[i];
-            consecutiveSpace = false;
         }
     }
-
     return result;
 }
