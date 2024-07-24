@@ -1,5 +1,5 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return accumulate(a.begin(), a.end(), 0, [](int sum, const string& s) { return sum + s.length(); }) == 
+    return accumulate(a.begin(), a.end(), 0, [](int sum, const string& s) { return sum + s.length(); }) ==
            accumulate(b.begin(), b.end(), 0, [](int sum, const string& s) { return sum + s.length(); });
 }
 
@@ -13,4 +13,5 @@ bool sorted_list_sum(const vector<string>& lst) {
 
 int main() {
     // Your main function code here
+    return 0;
 }
