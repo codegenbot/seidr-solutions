@@ -1,22 +1,15 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    for(string s : b){
-        bool found = false;
-        for(string str : a){
-            if(str.find(s) != string::npos){
-                found = true;
-                break;
-            }
-        }
-        if(!found)
-            return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a.size() != b.size()) return false;
+    for(auto s : a) {
+        if(std::find(b.begin(), b.end(), s) == b.end()) return false;
     }
     return true;
 }
 
-int main(){
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    return 0;
 }
