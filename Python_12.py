@@ -1,6 +1,4 @@
-from typing import List, Optional
-
-
+"Here's the corrected code:
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
@@ -10,4 +8,7 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             result = s
-    return result
+    print(result)
+
+
+print(longest(["apple", "banana", "cherry"]))  # Output: banana"
