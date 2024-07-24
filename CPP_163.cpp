@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b){
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 std::vector<int> generate_integers(int a, int b) {
@@ -16,6 +16,6 @@ std::vector<int> generate_integers(int a, int b) {
 }
 
 int main(){
-    assert(areVectorsEqual(generate_integers(17, 89), std::vector<int>{}));
+    assert(issame(generate_integers(17, 89), std::vector<int>{}));
     return 0;
 }
