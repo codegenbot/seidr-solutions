@@ -11,11 +11,11 @@ std::vector<int> filter_integers(const boost::any& values) {
     for (const auto& value : boost::any_cast<std::list<boost::any>>(values)) {
         if (boost::any_cast<bool>(value)) {
             try {
-                int val = boost::any_cast<int>(value);
-                result.push_back(val);
+                int integer = boost::any_cast<int>(value);
+                result.push_back(integer);
             } catch (...) {
-                // Handle the exception
-                std::cout << "Error: Non-integer value in the list" << std::endl;
+                // handle the case where boost::any_cast<int>(value) fails
+                continue;
             }
         }
     }
