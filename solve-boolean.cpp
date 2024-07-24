@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <string>
 
@@ -13,13 +14,13 @@ bool solveBoolean(string booleanExpression) {
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push((leftOperand == "T" && rightOperand == "F") || (leftOperand == "T") || (rightOperand == "T")) + "";
+            operandStack.push((leftOperand == "T" || rightOperand == "T") ? "T" : "F");
         } else if (booleanExpression[i] == '&') {
             string rightOperand = operandStack.top();
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push((leftOperand == "T" && rightOperand == "T") && true) + "";
+            operandStack.push((leftOperand == "T" && rightOperand == "T") ? "T" : "F");
         } else if (booleanExpression[i] != ' ') {
             string operand;
             while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
@@ -32,4 +33,17 @@ bool solveBoolean(string booleanExpression) {
     }
 
     return (operandStack.top() == "T");
+}
+
+int main() {
+    string booleanExpression;
+    cout << "Enter Boolean expression: ";
+    cin >> booleanExpression;
+    bool result = solveBoolean(booleanExpression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
