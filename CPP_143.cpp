@@ -1,5 +1,3 @@
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 string words_in_sentence(string sentence) {
@@ -52,4 +50,3 @@ vector<string> split(string sentence, char delimiter) {
     words.push_back(word);
 
     return words;
-}
