@@ -1,5 +1,6 @@
-```
 #include <boost/any.hpp>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -12,36 +13,36 @@ boost::any compare_one(boost::any a, boost::any b) {
                ? b
                : a;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return ((std::string)boost::any_cast<std::string>(a) >= (std::string)boost::any_cast<std::string>(b))
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return ((string)boost::any_cast<string>(a) >= (string)boost::any_cast<string>(b))
                ? a
                : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        std::string str = boost::any_cast<std::string>(b);
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
         int num = boost::any_cast<int>(a);
-        return (num >= std::stoi(str))
+        return (num >= stoi(str))
                ? "None"
                : a;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str = boost::any_cast<std::string>(a);
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(a);
         int num = boost::any_cast<int>(b);
-        return (std::stoi(str) >= num)
+        return (stoi(str) >= num)
                ? a
                : b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        std::string str = boost::any_cast<std::string>(b);
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
         float num = boost::any_cast<float>(a);
-        return (num >= std::stof(str))
+        return (num >= stof(str))
                ? a
                : b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string str = boost::any_cast<std::string>(b);
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = boost::any_cast<string>(b);
         float num = boost::any_cast<float>(a);
-        return (std::stof(str) >= num)
+        return (stof(str) >= num)
                ? a
                : b;
     }
