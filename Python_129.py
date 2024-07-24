@@ -1,37 +1,29 @@
-```
-def minPath(grid, k):
-    if len(grid) != 0 and type(grid[0]) == list:
-        N = len(grid)
-    else:
-        return "Invalid grid format"
+def minPathSum(grid):
+    n = len(grid)
+    m = len(grid[0])
+    visited = [[False] * m for _ in range(n)]
+    min_path = []
+    for i in range(n):
+        for j in range(m):
+            if visited[i][j]:
+                continue
+            path = [grid[i][j]]
+            dfs(grid, i, j, visited, path)
+            if not min_path or path < min_path:
+                min_path = path
+    return min_path
 
-    if not isinstance(k, int):
-        return "k should be an integer"
 
-    if k < 1 or k > len(grid)*len(grid):
-        return "k is out of range"
-
-    values = [[i * j for j in range(1, N + 1)] for i in range(1, N + 1)]
-    current_position = (0, 0)
-    visited = set()
-    path = [values[current_position[0]][current_position[1]]]
-
-    while len(path) < k:
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        for direction in directions:
-            new_position = (
-                current_position[0] + direction[0],
-                current_position[1] + direction[1],
-            )
-            if (
-                0 <= new_position[0] < N
-                and 0 <= new_position[1] < N
-                and new_position not in visited
-            ):
-                if values[new_position[0]][new_position[1]] not in path:
-                    current_position = new_position
-                    visited.add(current_position)
-                    path.append(values[current_position[0]][current_position[1]])
-                    break
-
-    return path
+def dfs(grid, x, y, visited, path):
+    n = len(grid)
+    m = len(grid[0])
+    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        nx, ny = x + dx, y + dy
+        if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
+            visited[nx][ny] = True
+            path.append(grid[nx][ny])
+            if dfs(grid, nx, ny, visited, path):
+                return True
+            visited[nx][ny] = False
+            path.pop()
+    return False
