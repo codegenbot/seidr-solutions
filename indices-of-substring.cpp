@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
+std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
     int prevLast = 0;
     while ((int last = text.find(target, prevLast)) != std::string::npos) {
@@ -14,15 +15,16 @@ std::vector<int> findIndices(const std::string& text, const std::string& target)
 
 int main() {
     std::string text;
-    std::cin >> text;
+    cin >> text;
 
     std::string target;
-    std::cin >> target;
+    cin >> target;
 
     std::vector<int> indices = findIndices(text, target);
-    for (const auto& i : indices) {
+    for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 
     return 0;
+}
