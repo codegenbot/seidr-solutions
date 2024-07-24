@@ -8,22 +8,22 @@ def minPath(grid, k):
         path.append(grid[i][j])
 
         if steps == k:
-            if len(min_path) == 0 or len(path) < len(min_path):
+            if not min_path or path < min_path:
                 min_path = list(path)
-        else:
-            neighbors = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
-            neighbors = [
-                (x, y)
-                for x, y in neighbors
-                if 0 <= x < N and 0 <= y < N and (x, y) not in visited
-            ]
+            return
 
-            neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
-            for x, y in neighbors:
-                dfs(x, y, set(visited), list(path), steps + 1)
+        neighbors = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
+        neighbors = [
+            (x, y)
+            for x, y in neighbors
+            if 0 <= x < N and 0 <= y < N and (x, y) not in visited
+        ]
+        neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
+        for x, y in neighbors:
+            dfs(x, y, set(visited), list(path), steps + 1)
 
     for i in range(N):
         for j in range(N):
             dfs(i, j, set(), [], 1)
 
-    return min_path
+    return sorted(min_path) if min_path else None
