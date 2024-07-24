@@ -1,39 +1,28 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& vec) {
-    int n = vec.size();
-    vector<int> left(n);
-    vector<int> right(n);
-
-    for (int i = 0; i < n; i++) {
-        if (i == 0) {
-            left[i] = vec[0];
-            right[n - i - 1] = vec[n - 1];
-        } else {
-            left[i] = vec[i];
-            right[n - i - 2] = vec[n - i - 1];
-        }
-    }
-
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < n; i++) {
-        if (abs(left[i] - right[i]) < minDiff) {
-            minDiff = abs(left[i] - right[i]);
-            pos = i;
+    pair<vector<int>, vector<int>> result;
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSum += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); j++) {
+            rightSum += vec[j];
+        }
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            result = {{}, {}};
+            for (int j = 0; j <= i; j++) {
+                result.first.push_back(vec[j]);
+            }
+            for (int j = i + 1; j < vec.size(); j++) {
+                result.second.push_back(vec[j]);
+            }
         }
     }
-
-    vector<int> res[2];
-    int j = 0;
-    for (int i = 0; i <= pos; i++) {
-        res[0].push_back(vec[i]);
-    }
-    while (!res[0].empty() && !res[1].empty()) {
-        res[1].push_back(vec[n - 1 - j++]);
-    }
-
-    return res[0];
+    return result;
 }
