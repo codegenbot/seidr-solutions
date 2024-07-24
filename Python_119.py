@@ -1,10 +1,11 @@
 ```
 """
-Check if two strings of parentheses match.
-The function takes a list of two strings as input. It checks if the first string contains an opening parenthesis for every closing parenthesis in the second string, and vice versa.
-
-Return 'Yes' if the parentheses match, 'No' otherwise.
+Check if a pair of strings of parentheses is balanced.
+The function match_parens takes as input two strings: s1 and s2.
+Each string can contain any characters (including parentheses).
+Return 'Yes' if the strings have matching parentheses, otherwise return 'No'.
 """
+
 def match_parens(lst):
     s1 = lst[0]
     s2 = lst[1]
