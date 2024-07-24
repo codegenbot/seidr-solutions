@@ -11,7 +11,7 @@ vector<vector<int>> make_a_pile(int n) {
     return pile;
 }
 
-bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].size() != b[i].size()) return false;
@@ -27,9 +27,11 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     vector<vector<int>> pile1 = make_a_pile(n);
+    assert(issame(make_a_pile(8), pile1));
     for (const auto& row : pile1) {
         for (int val : row) {
             cout << val << " ";
         }
         cout << endl;
     }
+}
