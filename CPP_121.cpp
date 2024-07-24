@@ -13,11 +13,8 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int num;
-    while(std::cin >> num) {
-        lst.push_back(num);
-    }
-    
-    std::cout << solution(lst);
+    vector<int> lst = {3, 13, 2, 9};
+    int result = solution(lst);
+    cout << "The sum of the odd numbers in the list is: " << result << endl;
+    return 0;
 }
