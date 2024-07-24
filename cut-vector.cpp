@@ -4,15 +4,11 @@
 int main() {
     std::vector<int> nums;
     int n;
-
+    int sum = 0;
     while (!std::cin.eof()) {
         std::cin >> n;
         nums.push_back(n);
-    }
-
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
+        sum += n;
     }
 
     int target = sum / 2;
@@ -25,7 +21,7 @@ int main() {
             break;
         }
     }
-
+    
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
     std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
 
@@ -35,6 +31,6 @@ int main() {
     for (int num : subvec2) {
         std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
