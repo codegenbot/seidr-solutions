@@ -6,9 +6,7 @@ int fuelCost(vector<int> v) {
     for (int i : v) {
         int temp = i / 3;
         temp = temp - 2;
-        if (temp < 0) {
-            temp = 0;
-        }
+        if (temp < 0) temp = 0;
         sum += temp;
     }
     return sum;
