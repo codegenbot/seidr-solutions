@@ -6,25 +6,21 @@ double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBo
 }
 
 double calculateTotalDistance(double bouncinessIndex, int numberOfBounces) {
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numberOfBounces; ++i) {
-        totalDistance += pow(bouncinessIndex, i);
-    }
-    return totalDistance;
+    return bouncinessIndex * (1 + bouncinessIndex) * (1 - pow(bouncinessIndex, numberOfBounces));
 }
 
 int main() {
-    double startingHeight, heightAfterFirstBounce, bouncinessIndex;
+    double startingHeight, heightAfterFirstBounce;
     int numberOfBounces;
 
     cin >> startingHeight >> heightAfterFirstBounce >> numberOfBounces;
 
-    bouncinessIndex = calculateBouncinessIndex(startingHeight, heightAfterFirstBounce);
-
-    cout << fixed << setprecision(6) << bouncinessIndex << endl;
-
+    double bouncinessIndex = calculateBouncinessIndex(startingHeight, heightAfterFirstBounce);
     double totalDistance = calculateTotalDistance(bouncinessIndex, numberOfBounces);
-    cout << fixed << setprecision(6) << totalDistance << endl;
+
+    cout.setprecision(6); // to display 6 decimal places
+    cout << fixed;
+    cout << totalDistance << endl;
 
     return 0;
 }
