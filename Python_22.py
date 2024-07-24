@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def filter_integers() -> List[int]:
     while True:
@@ -15,4 +15,5 @@ def filter_integers() -> List[int]:
             for value in num_list:
                 if not isinstance(value, int):
                     print(f"{value}")
-            input("Please retry. Press Enter when ready.")
+            print("Please retry.")
+            input("Press Enter when ready.")
