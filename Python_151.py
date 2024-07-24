@@ -1,2 +1,2 @@
 def double_the_difference(numbers):
-    return (min(numbers) + max(numbers)) * len([i for i in numbers if isinstance(i, int) and i % 2 != 0])
+    return sum(i**2 for i in numbers if isinstance(i, int) and i % 2 != 0)
