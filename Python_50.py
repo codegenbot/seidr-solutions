@@ -1,4 +1,3 @@
-```Python
 def decode_shift():
     while True:
         try:
@@ -14,10 +13,13 @@ def decode_shift():
                 else:
                     decoded_message += char
             print("Decoded message: ", decoded_message)
-            response = input("Decode again? (y/n): ")
-            if response.lower() != "y":
-                break
+
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-decode_shift()
+        while True:
+            response = input("Decode again? (y/n): ")
+            if response.lower() != "y":
+                break
+            else:
+                decode_shift()
