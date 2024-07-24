@@ -1,9 +1,19 @@
-int prod_signs(vector<int> arr) {
-    int product = 1;
-    for (int num : arr) {
-        if (num != 0) {
-            product *= (num > 0 ? 1 : -1);
-        }
+Here is the completed code:
+
+```cpp
+#include <vector>
+
+int prod_signs(const vector<int>& arr) {
+    int sign = 1;
+    long long sum = 0;
+
+    if (arr.empty()) return -32768;
+
+    for (int i : arr) {
+        if (i == 0) continue;
+        sign *= ((i > 0) ? 1 : -1);
+        sum += abs(i);
     }
-    return product * accumulate(arr.begin(), arr.end(), 0);
+
+    return sign * sum;
 }
