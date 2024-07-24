@@ -17,6 +17,6 @@ std::vector<float> get_positive(std::initializer_list<float> values) {
 }
 
 int main() {
-    issame(get_positive({}), get_positive({}));
+    issame(get_positive({}) , get_positive({}));
     return 0;
 }
