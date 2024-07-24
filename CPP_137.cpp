@@ -1,27 +1,29 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-#include<boost/more_traits.hpp>
-
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-        return a;
-    } else if (boost::any_cast<int>(b) > boost::any_cast<int>(a)) {
-        return b;
-    } else if ((boost::any_cast<string>(a) != "") && (boost::any_cast<string>(b) != "")) {
-        double numA = stod(boost::any_cast<string>(a));
-        double numB = stod(boost::any_cast<string>(b));
-        if (numA > numB) {
+if(a.type() == boost::any::typeless_type || b.type() == boost::any::typeless_type) {
+    if(a.type() == boost::any::typeless_type && b.type() == boost::any::typeless_type) {
+        string a_s = any_cast<string>(a);
+        string b_s = any_cast<string>(b);
+        int a_int = stoi(a_s);
+        int b_int = stoi(b_s);
+        if(a_int > b_int)
             return a;
-        } else if (numB > numA) {
+        else if(a_int < b_int)
             return b;
-        } else {
+        else
             return boost::any("None");
-        }
     } else {
-        return boost::any("None");
+        string a_s = any_cast<string>(a);
+        double b_d = any_cast<double>(b);
+        int a_int = stoi(a_s);
+        if(a_int > b_d)
+            return a;
+        else
+            return b;
     }
+} else {
+    if(any_cast<int>(a) > any_cast<int>(b))
+        return a;
+    else if(any_cast<int>(a) < any_cast<int>(b))
+        return b;
+    else
+        return boost::any("None");
 }
