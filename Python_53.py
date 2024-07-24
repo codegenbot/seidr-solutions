@@ -1,9 +1,7 @@
 def add(x: int, y: int):
-    while True:
-        try:
-            return x + y
-            break
-        except TypeError:
-            print("Invalid input! Please enter integers.")
-            x = int(input("Enter the first number: "))
-            y = int(input("Enter the second number: "))
+    return x + y
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+print(f"The sum is {add(num1, num2)}")
