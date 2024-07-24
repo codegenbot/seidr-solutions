@@ -1,7 +1,7 @@
-```cpp
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <cassert>
+#include <vector>
+#include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
