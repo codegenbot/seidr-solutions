@@ -7,7 +7,7 @@ using namespace std;
 std::string string_to_md5(std::string text) {
     MD5_CTX md5ctx;
     unsigned char md5sum[16];
-    string output;
+    std::string output;
 
     if (text.empty()) {
         return "";
