@@ -1,30 +1,35 @@
-```
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-
+    
     size_t pos = 0;
-    while ((pos = txt.find(' ')) != std::string::npos) {
+    while ((pos = txt.find(' ')) != string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-
+    
     if (txt.empty()) {
         return result;
     }
-
+    
     pos = txt.find(',');
-    if (pos == std::string::npos) {
+    if (pos == string::npos) {
         int oddCount = 0;
         for (char c : txt) {
-            if (std::isalpha(c)) {
-                if ((int(c) - 97) % 2 != 0) {
+            if (isalpha(c)) {
+                if (tolower(c) - 'a' % 2 != 0) {
                     oddCount++;
                 }
             }
         }
         result.push_back(to_string(oddCount));
     } else {
-        while ((pos = txt.find(',')) != std::string::npos) {
+        while ((pos = txt.find(',')) != string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
         }
@@ -32,6 +37,6 @@ vector<string> split_words(string txt) {
             result.push_back(txt);
         }
     }
-
+    
     return result;
 }
