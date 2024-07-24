@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -18,13 +19,13 @@ vector<int> get_odd_collatz(int n) {
     vector<int> res; 
     res.push_back(n); 
     while (n > 1) {
-        if (n % 2 == 0 && n != 1) {
-            n = n / 2;
-        } else {
+        if (n % 2 != 0) {
             res.push_back(n);
-            n = (n * 3 + 1);
         }
+        n = (n * 3 + 1);
     }
+    if (n == 4)
+        res.push_back(2);
     return res;
 }
 
@@ -37,8 +38,8 @@ int main() {
         return 1;
     }
     vector<int> res = get_odd_collatz(n);
-    for (int i : res) {
-        cout << i << " ";
+    for (int i = 0; i < res.size(); i++) { 
+        cout << res[i] << " ";
     }
     cout << endl;
     if (!res.empty()) {
