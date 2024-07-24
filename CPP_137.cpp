@@ -1,30 +1,14 @@
 #include <variant>
-#include <string>
-#include <algorithm>
+#include <boost/any.hpp>
 
-using namespace std;
-
-std::variant<std::string, int, float> compare_one(std::variant<any> a, std::variant<any> b) {
-    if (holds_alternative<int>(a) && holds_alternation<float>(b)) {
-        return to_string(max(get<int>(a), get<float>(b)));
-    } else if (holds_alternation<float>(a) && holds_alternation<std::string>(b)) {
-        std::string s = get<std::string>(b);
-        return to_string(max(get<float>(a), stof(s.erase(0, 1).erase(s.length() - 1))));
-    } 
-    else if (holds_alternation<std::string>(a) && holds_alternation<int>(b)) {
-        int aInt = get<int>(b);
-        string s = get<string>(a);
-        return to_string((stoi(s) > aInt) ? stoi(s) : aInt);
-    } 
-    else if (holds_alternation<std::string>(a) && holds_alternation<std::string>(b)) {
-        string s1 = get<string>(a), s2 = get<string>(b);
-        return max(s1, s2).template get<std::string>();
-    } 
-    else if (holds_alternation<int>(a) && holds_alternation<int>(b)) {
-        int aInt = get<int>(a), bInt = get<int>(b);
-        return to_string((aInt > bInt) ? aInt : bInt);
-    } 
-    else {
+std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, std::variant<boost::any> b) {
+    if (auto *int_a = boost::any_cast<int>(&get(boost::any, a)); auto *int_b = boost::any_cast<int>(&get(boost::any, b))) {
+        return std::to_string(std::max(*int_a, *int_b));
+    } else if (auto *float_a = boost::any_cast<float>(&get<boost::any>(a)); auto *float_b = boost::any_cast<float>(&get<boost::any>(b))) {
+        return std::to_string(std::max(*float_a, *float_b));
+    } else if (auto *str_a = boost::any_cast<std::string>(&get<boost::any>(a)); auto *str_b = boost::any_cast<std::string>(&get<boost::any>(b))) {
+        return (*str_a > *str_b) ? *str_a : *str_b;
+    } else {
         // Handle all other cases or unexpected inputs
         return 0;
     }
