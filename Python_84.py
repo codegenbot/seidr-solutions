@@ -1,7 +1,3 @@
-```
-import math
-
-
 def solve(K):
     if K < 2:
         return "1"
