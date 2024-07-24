@@ -1,13 +1,13 @@
-```
+```cpp
 #include <vector>
 #include <string>
-#include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
 bool issame(const vector<string>& a) {
-    return a == {"D-", "F"};
+    if (a.size() != 2)
+        return false;
+    return a == vector<string>({"D-", "F"});
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
