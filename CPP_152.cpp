@@ -25,29 +25,33 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::vector<int> vec1(n);
+    std::vector<int> vec1;
     int size = 0;
     while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
         }
-        vec1[size] = x; 
+        vec1.push_back(x); 
         size++;
     }
 
-    std::vector<int> vec2(n);
+    std::vector<int> vec2;
     size = 0;
     while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
         }
-        vec2[size] = x; 
+        vec2.push_back(x); 
         size++;
     }
 
