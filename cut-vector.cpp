@@ -1,26 +1,36 @@
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+        cin >> nums[i];
     }
     
-    int left_sum = 0, right_sum = accumulate(vec.begin(), vec.end(), 0);
+    int sum = 0;
     for (int i = 0; i < n; ++i) {
-        left_sum += vec[i];
-        right_sum -= vec[i];
-        if (left_sum == right_sum || abs(left_sum - right_sum) <= 1) {
-            vector<int> left(vec.begin(), vec.begin() + i + 1);
-            vector<int> right(vec.begin() + i + 1, vec.end());
-            for (int num : left) {
-                cout << num << endl;
-            }
-            for (int num : right) {
-                cout << num << endl;
-            }
+        sum += nums[i];
+    }
+    
+    int half = sum / 2;
+    int prefixSum = 0;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= half) {
+            idx = i;
             break;
         }
+    }
+    
+    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
+    
+    for (int num : subVec1) {
+        cout << num << "\n";
+    }
+    
+    for (int num : subVec2) {
+        cout << num << "\n";
     }
     
     return 0;
