@@ -1,17 +1,16 @@
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    
+int fuelCost(vector<int> arr) {
     int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += (nums[i] / 3) - 2;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += (arr[i] / 3) - 2;
     }
-    
-    cout << sum << endl;
-    
+    return sum;
+}
+int main() {
+    vector<int> arr;
+    int n;
+    while (cin >> n) {
+        arr.push_back(n);
+    }
+    cout << fuelCost(arr) << endl;
     return 0;
 }
