@@ -2,4 +2,6 @@
 #include <algorithm>
 #include <cmath>
 
-return *std::max_element(l.begin(), l.end());
+double maximum_value(const vector<int>& numbers) {
+    return *std::max_element(numbers.begin(), numbers.end());
+}
