@@ -1,5 +1,4 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x){
-    vector<vector<int>> result;
+vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
@@ -7,11 +6,14 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end());
+    
+    sort(result.begin(), result.end(), [](vector<int>& a, vector<int>& b){
+        return a[0] < b[0];
+    });
+    
     for (auto& coord : result) {
-        if (coord[0] < lst.size()) {
-            sort(lst[coord[0]].begin(), lst[coord[0]].end(), greater<int>());
-        }
+        sort(coord.begin(), coord.end(), greater<int>());
     }
+    
     return result;
 }
