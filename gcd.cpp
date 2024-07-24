@@ -1,17 +1,7 @@
-```c++
 #include <vector>
 #include <string>
-using namespace std;
 
-int main() {
-    int a, b;
-    cout << "Enter the first integer: ";
-    cin >> a;
-    cout << "Enter the second integer: ";
-    cin >> b;
-    cout << "GCD of two integers = " << gcd(a, b);
-    return 0;
-}
+using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -25,6 +15,16 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int main() {
+    string s1 = "180";
+    int a = stoi(s1);
+    string s2 = "12";
+    int b = stoi(s2);
+
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    return 0;
 }
 
 int gcd(int a, int b) {
