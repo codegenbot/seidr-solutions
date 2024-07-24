@@ -15,18 +15,18 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> vec(n);
+    std::vector<int> arr(n);
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> vec[i];
+        std::cin >> arr[i];
     }
 
-    int result = can_arrange(vec);
-    if(result == -1)
-        std::cout << "The array can be arranged in increasing order.\n";
+    int result = can_arrange(arr);
+    if (result == -1)
+        std::cout << "The array can be arranged in strictly increasing order." << std::endl;
     else
-        std::cout << "The first " << result << " elements are not in increasing order.\n";
+        std::cout << "The array cannot be arranged in strictly increasing order. The first index at which the array becomes non-increasing is " << result << "." << std::endl;
 
     return 0;
 }
