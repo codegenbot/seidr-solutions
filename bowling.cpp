@@ -1,26 +1,20 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
+    int frame = 1;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
             frame++;
         } else if (c == '/') {
-            score += 10 - (stoi(string(1, c)) + stoi(string(1, s[s.find('/') + 1])));
+            score += 10;
             frame++;
         } else {
-            int pins = stoi(string(1, c));
-            if (frame < 9) {
-                if (pins < 10) {
-                    score += pins;
-                    frame++;
-                } else {
-                    score += 10;
-                    frame++;
-                    score += pins - 10;
-                }
+            int points = c - '0';
+            if (points == 1 || points == 2 || points == 3) {
+                score += points * 10 + 10;
+                frame++;
             } else {
-                score += pins;
+                score += points * 10;
                 frame++;
             }
         }
