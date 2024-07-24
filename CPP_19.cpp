@@ -4,25 +4,25 @@
 using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string temp;
-
+    vector<string> numVector;
+    string temp = "";
+    
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            numVec.push_back(temp);
+            numVector.push_back(temp);
             temp = "";
         } else {
             temp += numbers[i];
         }
     }
-    numVec.push_back(temp);
+    numVector.push_back(temp);
 
-    sort(numVec.begin(), numVec.end());
+    sort(numVector.begin(), numVector.end());
 
-    string result;
-    for (string s : numVec) {
-        result += s + " ";
+    string result = "";
+    for (int i = 0; i < numVector.size(); i++) {
+        result += numVector[i] + " ";
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
