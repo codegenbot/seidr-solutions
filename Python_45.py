@@ -5,8 +5,8 @@ def triangle_area(a, h):
 
 while True:
     try:
-        a = float(input("Enter the length of a side: "))
-        h = float(input("Enter the height of the triangle: "))
+        a = float(input("Enter the length of a side (numeric value): "))
+        h = float(input("Enter the height of the triangle (numeric value): "))
         result = triangle_area(a, h)
         print(result)
         break
