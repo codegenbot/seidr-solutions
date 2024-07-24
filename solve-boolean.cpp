@@ -1,29 +1,28 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
+Here is the solution:
+
+bool evaluateBooleanExpression(string expression) {
+    stack<char> ops;
+    stack<bool> vals;
+
+    for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (!s.empty() && s.top() == '|') {
-                s.pop();
-                return false;
-            } else if (!s.empty()) {
-                s.pop();
-                return true;
-            } else {
-                return false;
-            }
-        } else if (expression[i] != '&' && expression[i] != '|') {
-            s.push(expression[i]);
+            bool b1 = vals.top();
+            vals.pop();
+            bool b2 = vals.top();
+            vals.pop();
+            vals.push(b1 && b2);
+        } else if (expression[i] == '|') {
+            bool b1 = vals.top();
+            vals.pop();
+            bool b2 = vals.top();
+            vals.pop();
+            vals.push(b1 || b2);
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            vals.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            vals.push(false);
         }
     }
-    while (!s.empty() && s.top() == '&') {
-        s.pop();
-    }
-    if (s.empty()) {
-        return true;
-    } else {
-        return false;
-    }
+
+    return vals.top();
 }
