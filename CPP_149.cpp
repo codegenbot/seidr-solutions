@@ -1,18 +1,8 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
-vector<string> fix_code(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
@@ -21,6 +11,7 @@ vector<string> fix_code(vector<string> lst) {
         return a.length() < b.length();
     });
 
-    vector<string> sorted_list_sum(lst);
-    return lst;
+    vector<string> sorted_list = lst;
+    
+    return sorted_list;
 }
