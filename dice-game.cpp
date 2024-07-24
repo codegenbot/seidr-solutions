@@ -1,4 +1,12 @@
-int n, m;
-double prob = 0.0;
-// Read input values for n and m
-prob = (double)(n-1) / n / m;
+#include <iostream>
+
+int main() {
+    double prob = 0.0;
+    int n, m;
+    std::cin >> n >> m;
+    prob += 1.0 / (n * m * 1.0);
+
+    std::cout << prob << std::endl;
+    
+    return 0;
+}
