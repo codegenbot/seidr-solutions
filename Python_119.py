@@ -1,7 +1,7 @@
 ```
 def match_parens(lst):
     stack = []
-    for s in map(str, lst):
+    for s in lst:
         for c in s:
             if c == '(':
                 stack.append(c)
