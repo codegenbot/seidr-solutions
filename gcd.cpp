@@ -24,29 +24,20 @@ vector<int> findSubstringIndices(const string& text, const string& target) {
 }
 
 int main() {
-    int a = 0, b = 0;
+    int a, b;
     string text, target;
 
     cout << "Enter two integers a and b: ";
-    if (!(cin >> a >> b)) {
-        cerr << "Invalid input for integers" << endl;
-        return 1;
-    }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin >> a >> b;
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    if (!getline(cin, text)) {
-        cerr << "Error reading text string" << endl;
-        return 1;
-    }
+    cin.ignore();
+    getline(cin, text);
 
     cout << "Enter a target string: ";
-    if (!getline(cin, target)) {
-        cerr << "Error reading target string" << endl;
-        return 1;
-    }
+    getline(cin, target);
 
     vector<int> result = findSubstringIndices(text, target);
 
