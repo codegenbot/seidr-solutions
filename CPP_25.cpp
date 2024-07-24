@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 vector<int> factorize(int n) {
@@ -10,8 +9,7 @@ vector<int> factorize(int n) {
             n /= i;
         }
     }
-    if (n > 1) {
+    if (n > 1)
         factors.push_back(n);
-    }
     return factors;
 }
