@@ -5,8 +5,8 @@ int main() {
     int cutIndex;
     std::cin >> cutIndex;
 
-    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7}; // Input vector initialization for demonstration
-    int n = nums.size(); // Assuming n is the size of the input vector
+    std::vector<int> nums = {1, 3, 5, 7, 4, 2}; // Example vector
+    int n = nums.size();
 
     for (int i = 0; i <= cutIndex; i++) {
         std::cout << nums[i] << ' ';
