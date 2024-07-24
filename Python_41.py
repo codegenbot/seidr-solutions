@@ -1,11 +1,23 @@
+```
 def car_race_collision():
-    distance = int(input("Enter the distance in kilometers: "))
-    speed = int(input("Enter the average speed of all cars in km/h: "))
+    while True:
+        try:
+            distance = int(input("Enter the distance in kilometers: "))
+            speed = int(input("Enter the average speed of all cars in km/h: "))
 
-    time_taken_hours = int(distance / 1000 / 3600) 
-    time_taken_minutes = int((distance / 1000 % 3600) / 60)
-    time_taken_seconds = int((distance / 1000 % 3600) % 60)
+            if speed == 0:
+                print("Average speed cannot be zero. Please enter a valid speed.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
-    return f"The estimated time of the car race collision is {time_taken_hours} hours, {time_taken_minutes} minutes and {time_taken_seconds} seconds."
+    time_taken = distance / speed
+
+    hours = int(time_taken)
+    minutes = int((time_taken - hours) * 60)
+    seconds = int(((time_taken - hours) * 60) % 60)
+
+    return f"The estimated time of the car race collision is {hours} hours, {minutes} minutes and {seconds} seconds."
 
 print(car_race_collision())
