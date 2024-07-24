@@ -1,13 +1,13 @@
 #include <string>
 
-std::string flip_case(std::string str){
-    std::string result = "";
+string flip_case(string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            c -= 32;
+            c = (char)tolower((int)c);
         else if(c >= 'A' && c <= 'Z')
-            c += 32;
+            c = (char)toupper((int)c);
         result += c;
     }
     return result;
