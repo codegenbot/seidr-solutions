@@ -1,6 +1,5 @@
-#include <vector>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);

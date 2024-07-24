@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -21,7 +20,6 @@ bool valid_date(string date) {
     day = stoi(day_str);
     year = stoi(year_str);
     
-    // Validate date
     if (month < 1 || month > 12) {
         return false;
     }
@@ -35,7 +33,6 @@ bool valid_date(string date) {
         return false;
     }
     
-    // If date is valid, return true
     if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
         return true;
     } else {
