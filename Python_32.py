@@ -1,8 +1,6 @@
 import math
 
-def find_zero():
-    xs = list(map(int, input().split()))
-
+def find_zero(xs: list):
     a, b, c, d = xs
 
     if a == 0:
@@ -14,6 +12,6 @@ def find_zero():
     else:
         return (-b + math.sqrt(discriminant)) / (3 * a)
 
-# Test the function
-result = find_zero()
+input_values = list(map(int, input().split()))
+result = find_zero(input_values)
 print(result)
