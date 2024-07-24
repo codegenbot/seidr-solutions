@@ -1,23 +1,29 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m).compare(target) == 0) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    int targetLength = target.length();
+    for (int i = 0; i <= text.length() - targetLength; i++) {
+        bool isMatch = true;
+        for (int j = 0; j < targetLength; j++) {
+            if (text[i + j] != target[j]) {
+                isMatch = false;
+                break;
+            }
+        }
+        if (isMatch) {
             result.push_back(i);
         }
     }
-
     return result;
 }
 
-long long gcd(long long a, long long b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
