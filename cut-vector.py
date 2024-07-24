@@ -1,14 +1,13 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
-total_sum = sum(vec)
-half_sum = 0
-for i in range(n):
-    half_sum += vec[i]
-    if half_sum * 2 >= total_sum:
-        break
-if abs((total_sum - half_sum) - half_sum) < abs(total_sum - 2 * half_sum):
-    print(vec[: i + 1])
-    print(vec[i + 1 :])
-else:
-    print(vec[:i])
-    print(vec[i:])
+vector = [int(input()) for _ in range(n)]
+
+min_diff = float("inf")
+cut_index = -1
+for i in range(1, n):
+    diff = abs(sum(vector[:i]) - sum(vector[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+print(*vector[:cut_index])
+print(*vector[cut_index:])
