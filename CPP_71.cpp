@@ -11,7 +11,7 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-void main() {
+int32_t main() {
     float a, b, c;
     std::cin >> a >> b >> c;
     
@@ -22,4 +22,6 @@ void main() {
     } else {
         std::cout << "Triangle area: " << result;
     }
+
+    return 0;
 }
