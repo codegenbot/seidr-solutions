@@ -1,8 +1,10 @@
+```
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool res = true;
+    bool lastOp = true;
     for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'T') {
             return true;
@@ -10,14 +12,14 @@ bool solveBoolean(string s) {
         if (s[i] == 'F') {
             return false;
         }
-        if ((s[i] == '&') && res) {
-            res = false;
-        } else if ((s[i] == '|') && (!res)) {
-            res = true;
-        } else if (s[i] == '&') {
-            res = false;
-        } else if (s[i] == '|') {
-            res = true;
+        if (s[i] == '|') {
+            res = lastOp;
+            lastOp = true;
+        }
+        if (s[i] == '&') {
+            res &= lastOp;
+            lastOp = false;
         }
     }
     return res;
+}
