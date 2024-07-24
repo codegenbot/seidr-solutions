@@ -10,8 +10,9 @@ def minPath(grid, k):
         res = []
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited and grid[ni][nj] == path[-1]:
-                res.append(dfs(ni, nj, path + [grid[ni][nj]], visited))
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                if grid[ni][nj] == path[-1]:
+                    res.append(dfs(ni, nj, path + [grid[ni][nj]], visited))
         return min(res, key=lambda x: x[:k]) if res else []
 
     res = dfs(0, 0, [grid[0][0]], set())
