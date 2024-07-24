@@ -23,5 +23,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group += ')'
         groups.append(current_group)
         current_group = ''
-        stack = []  # Reset the stack after handling all unmatched parentheses.
+    if current_group:
+        groups.append(current_group)
     return groups
