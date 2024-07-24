@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 
 string fizzBuzz(int x) {
