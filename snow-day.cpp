@@ -14,30 +14,21 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 int main() {
     int hours;
     std::cout << "Enter hours: ";
-    if (!(std::cin >> hours)) {
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
-        return 1;
-    }
+    std::cin >> hours;
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-
+    
     std::cout << "Enter initial snow: ";
-    if (!(std::cin >> initialSnow)) {
-        std::cout << "Invalid input. Please enter a floating-point number." << std::endl;
-        return 1;
-    }
-
+    std::ws(std::cin);
+    std::getline(std::cin, std::to_string(initialSnow));
+    
     std::cout << "Enter rate of snow fall: ";
-    if (!(std::cin >> rateOfSnowFall)) {
-        std::cout << "Invalid input. Please enter a floating-point number." << std::endl;
-        return 1;
-    }
+    std::ws(std::cin);
+    std::getline(std::cin, std::to_string(rateOfSnowFall));
 
     std::cout << "Enter proportion of snow melting per hour: ";
-    if (!(std::cin >> proportionOfSnowMeltingPerHour)) {
-        std::cout << "Invalid input. Please enter a floating-point number." << std::endl;
-        return 1;
-    }
+    std::ws(standard::cin);
+    std::getline(std::cin, std::to_string(proportionOfSnowMeltingPerHour));
 
     std::cout << fixed << setprecision(6) << "Result: " << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
