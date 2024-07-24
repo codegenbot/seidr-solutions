@@ -1,8 +1,6 @@
-```
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <cassert>
 
 using namespace std;
 
@@ -21,8 +19,16 @@ vector<int> getOddCollatz(int n) {
     res.push_back(n); 
     while (n > 1) {
         if (n % 2 == 0 && n != 1) {
+            if (n / 2 > std::numeric_limits<int>::max() / 2) {
+                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
+                return res; 
+            }
             n = n / 2;
         } else {
+            if ((n * 3 + 1) > std::numeric_limits<int>::max()) {
+                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
+                return res;
+            }
             res.push_back(n);
             n = (n * 3 + 1);
         }
@@ -59,6 +65,7 @@ void startProgram() {
     }
 }
 
-void main() {
+int main() {
     startProgram();
+    return 0;
 }
