@@ -1,23 +1,23 @@
-def cut_vector(vector):
-    min_diff = float("inf")
-    split_index = -1
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+Here is the Python solution for the problem:
+
+def cut_vector(nums):
+    if len(nums) == 1:
+        return nums[0], []
+
+    left_sum = right_sum = 0
+    min_diff = float('inf')
+    cut_index = -1
+
+    for i in range(len(nums)):
+        left_sum += nums[i]
+        right_sum = sum(nums[i+1:])
+
         if left_sum == right_sum:
-            return (vector[:i], vector[i:])
+            return nums[:i+1], nums[i+1:]
+        
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            split_index = i
-    left_half = vector[:split_index]
-    right_half = vector[split_index:]
-    return (left_half, right_half)
+            cut_index = i
 
-
-# Test the function
-print(cut_vector([1]))  # Output: ([1], [0])
-print(cut_vector([1, 10]))  # Output: ([1], [10, 0])
-print(cut_vector([1, 100]))  # Output: ([1], [100, 0])
-print(cut_vector([1, 1000]))  # Output: ([1], [1000, 0])
-print(cut_vector([1, 10000]))  # Output: ([1], [10000, 0])
+    return nums[:cut_index+1], nums[cut_index+1:]
