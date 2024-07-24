@@ -22,10 +22,7 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
-        while (std::cin.get() != '\n') {
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Skip any remaining characters
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> vec1;
@@ -35,13 +32,12 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            while (std::cin.get() != '\n') {
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Skip any remaining characters
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         vec1.push_back(x); 
         size++;
+        std::cin.clear(); // Clear the input stream
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
     }
 
     std::vector<int> vec2;
@@ -51,13 +47,12 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            while (std::cin.get() != '\n') {
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Skip any remaining characters
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         vec2.push_back(x); 
         size++;
+        std::cin.clear(); // Clear the input stream
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore remaining input
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
