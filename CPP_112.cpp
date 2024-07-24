@@ -1,4 +1,3 @@
-```cpp
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -22,4 +21,5 @@ vector<string> reverse_delete(string s, string c) {
     } else {
         result.push_back("False");
     }
-    return result;
+    return result; 
+}
