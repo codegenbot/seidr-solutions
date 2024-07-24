@@ -1,44 +1,36 @@
-Here is the completed code:
-
-```cpp
 #include <string>
 #include <map>
-#include <unordered_map>
-
 using namespace std;
 
 map<char, int> histogram(string test) {
-    unordered_map<char, int> count;
     map<char, int> result;
+    if (test.empty()) return result;
 
-    string temp = "";
-    for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                ++count[temp[0]];
-                temp = "";
+    size_t pos = 0;
+    while ((pos = test.find(' ')) != string::npos) {
+        char c = test[0];
+        int count = 1;
+        for (size_t i = 1; i < pos; i++) {
+            if (test[i] == c) {
+                count++;
+            } else {
+                break;
             }
+        }
+        result[c] = count;
+        test.erase(0, pos + 1);
+    }
+
+    char c = test[0];
+    int count = 1;
+    for (size_t i = 1; i < test.size(); i++) {
+        if (test[i] == c) {
+            count++;
         } else {
-            temp += c;
+            break;
         }
     }
-
-    if (!temp.empty()) {
-        ++count[temp[0]];
-    }
-
-    int maxCount = 0;
-    for (const auto& pair : count) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
-        }
-    }
-
-    for (const auto& pair : count) {
-        if (pair.second == maxCount) {
-            result[pair.first] = pair.second;
-        }
-    }
+    result[c] = count;
 
     return result;
 }
