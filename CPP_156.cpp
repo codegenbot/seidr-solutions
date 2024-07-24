@@ -1,7 +1,6 @@
-#include <cassert>
 #include <string>
 
-std::string romanToInt(std::int32_t num) {
+std::string int_to_roman(int num) {
     if (num <= 0)
         return "Invalid input";
 
@@ -17,4 +16,9 @@ std::string romanToInt(std::int32_t num) {
     }
 
     return roman;
+}
+
+int testMain() {
+    assert(int_to_roman(1000) == "M");
+    return 0;
 }
