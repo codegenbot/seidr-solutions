@@ -1,3 +1,4 @@
 def eat(number, need, remaining):
-    total = number + max(need - remaining, 0)
-    return [total, min(remaining, need - number)]
+    total = number
+    r = min(need - number, remaining)
+    return [total + r, max(0, remaining - r)]
