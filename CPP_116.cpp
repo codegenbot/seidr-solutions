@@ -1,9 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+Here is the completed code:
 
-using namespace std;
-
-vector<int> sort_vector(const vector<int>& vec) {
-    return vector<int>(vec.begin(), vec.end());
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        return bitset<32>(a).count() == bitset<32>(b).count() ? a < b : bitset<32>(a).count() < bitset<32>(b).count();
+    });
+    return arr;
 }
