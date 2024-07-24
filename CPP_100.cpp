@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,12 +13,18 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> make_a_pile(int n) {
+    if(n == 0) 
+        return std::vector<int>(); // Return an empty vector for n = 0
     std::vector<int> pile;
     int num = 1;
     for (int i = 0; i < n; i++) {
-        pile.push_back((i % 2 == 0) ? num : num + 1);
-        if ((i % 2 == 0 && num != 3) || (i % 2 != 0 && num != 2))
-            num = (num % 2 == 0) ? num + 2 : num + 1;
+        if (i % 2 == 0) {
+            pile.push_back(num);
+            num += 2;
+        } else {
+            pile.push_back(num);
+            num++;
+        }
     }
     return pile;
 }

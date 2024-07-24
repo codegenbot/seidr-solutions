@@ -1,44 +1,25 @@
 #include <boost/any.hpp>
 #include <string>
-#include <typeinfo>
-#include <limits>
-
-using namespace std;
+#include <iostream>
+#include <cstdlib>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any((int)a < (int)b ? (int)b : (int)a);
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return boost::any((float)a > (float)b ? &b : &a);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return boost::any(((std::string)a).compare((std::string)b) > 0 ? a : b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any((int)a < (float)b ? boost::any_cast<boost::any>(b) : &a);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any((float)a > (int)b ? a : b);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        return boost::any(((std::string)a).compare(std::to_string((int)b)) > 0 ? a : b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        return boost::any(std::to_string((int)a).compare((std::string)b) > 0 ? a : b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        return boost::any(boost::any_cast<float>(a) > std::stod((std::string)b) ? a : b);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        size_t pos = str.find(',');
-        int num = stoi(str.substr(0, pos));
-        return (int)a > num ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        size_t posA = boost::any_cast<string>(a).find(',');
-        size_t posB = boost::any_cast<string>(b).find(',');
-        int numA = stoi(boost::any_cast<string>(a).substr(0, posA));
-        int numB = stoi(boost::any_cast<string>(b).substr(0, posB));
-        return numA > numB ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        size_t pos = boost::any_cast<string>(a).find(',');
-        int num = (int)b.convert_to<int>();
-        string str = boost::any_cast<string>(a);
-        size_t pos2 = str.find(',');
-        return stoi(str.substr(0, pos2)) > num ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        int num = (int)b.convert_to<int>();
-        string str = boost::any_cast<string>(a);
-        size_t pos = str.find(',');
-        return (float)a > stoi(str.substr(0, pos)) ? a : b;
-    }
-    else {
-        return boost::any("None");
-    }
+    return boost::any("None");
 }
