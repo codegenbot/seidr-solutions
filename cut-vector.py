@@ -1,18 +1,17 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
-
-total_sum = sum(nums)
+v = [int(input()) for _ in range(n)]
+total_sum = sum(v)
 half_sum = total_sum // 2
-current_sum = 0
-idx = 0
-
-while current_sum + nums[idx] <= half_sum:
-    current_sum += nums[idx]
-    idx += 1
-
-if current_sum == half_sum:
-    print(*nums[:idx])
-    print(*nums[idx:])
-else:
-    print(*nums[: idx + 1])
-    print(*nums[idx + 1 :])
+prefix_sum = 0
+for i in range(n):
+    prefix_sum += v[i]
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
+            prefix_sum - v[i] - half_sum
+        ):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+        else:
+            print(*v[:i])
+            print(*v[i:])
+        break
