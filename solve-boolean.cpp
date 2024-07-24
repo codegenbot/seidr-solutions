@@ -1,18 +1,33 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            else st.pop();
-        } else if (s[i] == '|') {
-            while (!st.empty()) st.pop();
-            st.push(s[i]);
-        } else if (s[i] != ' ') {
-            st.push(s[i]);
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    if (expression == "t") return true;
+    if (expression == "f") return false;
+    
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '|') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
+        }
+        else if (expression[i] == '&') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
     }
-    return !st.empty();
+    
+    return false;
+}
+
+int main() {
+    // test cases
+    cout << (evaluateBooleanExpression("t") ? "True" : "False") << endl; 
+    cout << (evaluateBooleanExpression("f") ? "True" : "False") << endl; 
+    cout << (evaluateBooleanExpression("f&f") ? "True" : "False") << endl; 
+    cout << (evaluateBooleanExpression("f&t") ? "True" : "False") << endl; 
+    cout << (evaluateBooleanExpression("t&f") ? "True" : "False") << endl; 
+
+    return 0;
 }
