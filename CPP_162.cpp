@@ -1,14 +1,13 @@
-```cpp
-#include <openssl/ssl.h>
-#include <openssl/errqueue.h>
+#include <string>
 #include <sstream>
-#include <iomanip>
+#include <openssl/evp.h>
+#include <cassert>
 
-string string_to_md5(std::string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
-    stringstream ss;
+    std::stringstream ss;
 
     EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
     EVP_MD *md_algorithm = EVP_md5();
