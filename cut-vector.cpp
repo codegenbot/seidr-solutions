@@ -11,19 +11,15 @@ int main() {
     }
 
     int left_sum = 0, right_sum = 0;
-    for (int i = 0; i < n; i++) {
-        right_sum += vec[i];
-    }
+    int min_diff = std::abs(left_sum - right_sum);
+    int cut_index = -1;
 
-    int min_diff = abs(left_sum - right_sum);
-    int cut_index = 0;
-  
-    for (int i = 0; i < n-1; i++) {
+    for (int i = 0; i < n; i++) {
+        right_sum = left_sum;
         left_sum += vec[i];
-        right_sum -= vec[i];
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < min_diff) {
-            min_diff = current_diff;
+        
+        if (std::abs(left_sum - right_sum) < min_diff) {
+            min_diff = std::abs(left_sum - right_sum);
             cut_index = i;
         }
     }
