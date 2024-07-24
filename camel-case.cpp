@@ -1,32 +1,27 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::string result;
-    bool capitalizeNext = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+std::string camelCase(std::string s) {
+    std::string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the hyphen
+            if (i < s.size()) {
+                result += toupper(s[i]);
+            }
+        } else if (!result.empty() && !std::isupper(s[i])) { // first letter of each word should be uppercase
+            result[0] = toupper(result[0]);
         } else {
-            result += tolower(c);
+            result += tolower(s[i]); // all other letters are lowercase
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string input;
-
-    while (true) {
-        std::cout << "Enter a string in kebab-case: ";
-        std::cin >> input;
-        std::cout << camelCase(input) << std::endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
-
     return 0;
 }
