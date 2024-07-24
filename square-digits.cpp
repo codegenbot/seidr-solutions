@@ -1,8 +1,9 @@
-string squareDigits(string n) {
-    string result = "";
-    for (char c : n) {
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        result += to_string(digit * digit);
+        long long squared = (long long)digit * digit;
+        output += to_string(squared);
     }
-    return result;
+    return output;
 }
