@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -14,7 +13,9 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                result += std::string(word.rbegin(), word.rend()) + " ";
+                std::string revWord = word;
+                std::reverse(revWord.begin(), revWord.end());
+                result += revWord + " ";
                 word.clear();
             } else {
                 result += word + " ";
@@ -26,10 +27,12 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        result += std::string(word.rbegin(), word.rend());
+        std::string revWord = word;
+        std::reverse(revWord.begin(), revWord.end());
+        result += revWord;
     } else {
         result += word;
     }
 
-    return result;
-}
+    std::string temp = result;  
+    return temp;
