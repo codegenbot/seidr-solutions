@@ -1,35 +1,21 @@
-#include <string>
-
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
-    for (float grade : grades) {
-        if (grade >= 4.0) {
-            result.push_back("A+");
-        } else if (grade > 3.7) {
-            result.push_back("A");
-        } else if (grade > 3.3) {
-            result.push_back("A-");
-        } else if (grade > 3.0) {
-            result.push_back("B+");
-        } else if (grade > 2.7) {
-            result.push_back("B");
-        } else if (grade > 2.3) {
-            result.push_back("B-");
-        } else if (grade > 2.0) {
-            result.push_back("C+");
-        } else if (grade > 1.7) {
-            result.push_back("C");
-        } else if (grade > 1.3) {
-            result.push_back("C-");
-        } else if (grade > 1.0) {
-            result.push_back("D+");
-        } else if (grade > 0.7) {
-            result.push_back("D");
-        } else if (grade >= 0.0) {
-            result.push_back("D-");
-        } else {
-            result.push_back("E");
-        }
+vector<string> numerical_letter_grade(vector<float> grades){
+    vector<string> letter_grades;
+    for(float g: grades){
+        string grade;
+        if(g >= 4.0) grade = "A+";
+        else if(g > 3.7) grade = "A";
+        else if(g > 3.3) grade = "A-";
+        else if(g > 3.0) grade = "B+";
+        else if(g > 2.7) grade = "B";
+        else if(g > 2.3) grade = "B-";
+        else if(g > 2.0) grade = "C+";
+        else if(g > 1.7) grade = "C";
+        else if(g > 1.3) grade = "C-";
+        else if(g > 1.0) grade = "D+";
+        else if(g > 0.7) grade = "D";
+        else if(g > 0.0) grade = "D-";
+        else grade = "E";
+        letter_grades.push_back(grade);
     }
-    return result;
+    return letter_grades;
 }
