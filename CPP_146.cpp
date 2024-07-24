@@ -21,9 +21,9 @@ int judgeMain() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        input.reserve(n);  
         input.push_back(num);
     }
+    input.reserve(input.size());  
     int result = specialFilter(input);
     return 0;
 }
