@@ -1,13 +1,12 @@
-```
 #include<iostream>
 #include<vector>
 #include<string>
 #include<algorithm>
 
-vector<string> split_words(string txt) {
-    vector<string> result;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
     size_t pos = 0;
-    while ((pos = txt.find(" ")) != string::npos) {
+    while ((pos = txt.find(" ")) != std::string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
@@ -15,7 +14,7 @@ vector<string> split_words(string txt) {
         return result;
     }
     size_t commaPos = txt.find(",");
-    if (commaPos == string::npos) {
+    if (commaPos == std::string::npos) {
         int oddCount = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z' && (int(c) % 2 != 0)) {
@@ -24,7 +23,7 @@ vector<string> split_words(string txt) {
         }
         std::cout << oddCount;
     } else {
-        while ((pos = txt.find(" ")) != string::npos) {
+        while ((pos = txt.find(" ")) != std::string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
         }
