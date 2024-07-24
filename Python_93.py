@@ -1,3 +1,4 @@
+```
 def caesar_cipher(message):
     result = ""
     for char in message:
@@ -10,5 +11,5 @@ def caesar_cipher(message):
             result += char
     return result
 
-message = input("Enter your message: ")
+message = input("Enter message: ")
 print(caesar_cipher(message))
