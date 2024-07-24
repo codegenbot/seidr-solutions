@@ -1,8 +1,10 @@
+Here is the completed code:
+
 int search(vector<int> lst) {
     int max = 0;
-    for (auto x : lst) {
-        if (x > 0 && x >= count(x, lst)) {
-            max = x;
+    for (int i : lst) {
+        if (i > 0 && i >= count(i)) {
+            max = i;
         }
     }
     return max == 0 ? -1 : max;
