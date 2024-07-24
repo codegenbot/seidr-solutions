@@ -1,3 +1,2 @@
-def sumOfDigits(num):
-    return sum(int(digit) for digit in str(abs(num)))
-```
+def digitSum(s):
+    return sum(int(c) for c in s if c.isdigit())
