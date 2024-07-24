@@ -19,6 +19,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(double) && b.type() == typeid(float)) {
         return boost::any_cast<double>(a) > boost::any_cast<float>(b) ? a : b;
     } else {
-        return typeid(any);
+        return boost::any("None");
     }
 }
