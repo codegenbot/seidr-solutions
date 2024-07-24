@@ -1,10 +1,9 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <initializer_list>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +16,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::string reverse_delete(std::string s, std::string c) {
-    std::vector<char> temp;
+    std::string temp = "";
     for (char& ch : s) {
         bool found = false;
         for (char& cc : c) {
@@ -27,17 +26,14 @@ std::string reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            temp.push_back(ch);
+            temp += ch;
         }
     }
-    std::string result;
-    for (int i = temp.size() - 1; i >= 0; i--) {
-        result += temp[i];
-    }
-    return result;
+    std::reverse(temp.begin(), temp.end());
+    return temp;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "mam"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
