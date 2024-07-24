@@ -19,6 +19,6 @@ bool solveBoolean(string s) {
 int main() {
     string s;
     cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
