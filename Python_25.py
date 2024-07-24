@@ -1,4 +1,6 @@
-```Python
+Here is the modified code:
+
+```
 from typing import List
 
 
@@ -21,13 +23,14 @@ def factorize(n: int) -> List[int]:
 
 
 while True:
-    n = int(input("Enter a positive integer (or 'q' to quit): "))
+    n = input("Enter a positive integer (or 'q' to quit): ")
     if n.lower() == 'q':
         break
     try:
-        if n > 0:
-            print(*factorize(n), sep=', ')
-        else:
+        n = int(n)
+        if n <= 0: 
             print("Please enter a positive integer.")
+            continue
+        print(*factorize(n), sep=', ')
     except ValueError:
         print("Invalid input. Please enter an integer.")
