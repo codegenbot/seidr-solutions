@@ -12,8 +12,8 @@ int match_parens(std::vector<std::string> lst) {
         }
     }
 
-    if (countOpen == countClose) return 1;
-    else return 0;
+    if (countOpen == countClose) return "Yes";
+    else return "No";
 }
 
 int main() {
@@ -26,10 +26,6 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec) == 1) 
-        std::cout << "Yes" << std::endl;
-    else
-        std::cout << "No" << std::endl;
-    
+    std::cout << match_parens(vec) << std::endl;
     return 0;
 }
