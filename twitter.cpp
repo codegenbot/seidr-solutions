@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,6 +12,11 @@ int main() {
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
+    }
+
+    size_t last_newline = tweet.find_last_of('\n');
+    if (last_newline != string::npos) {
+        tweet.erase(last_newline);
     }
 
     if (tweet.size() > 140) {
