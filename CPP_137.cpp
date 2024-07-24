@@ -1,8 +1,8 @@
 #include <any>
-#include <cassert>
 #include <string>
-#include <algorithm>
+#include <cassert>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -32,6 +32,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
