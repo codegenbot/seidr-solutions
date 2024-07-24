@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <map>
+#include <vector>
 
 int main() {
     std::string cipher2;
@@ -11,17 +11,23 @@ int main() {
     std::string message;
     std::getline(std::cin, message);
 
-    std::unordered_map<char, std::string> cipherMap;
+    std::vector<std::pair<char, char>> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1[i]] = cipher2.substr(i, 1);
+        cipherMap.push_back({cipher1[i], cipher2[i]});
     }
 
     std::string result = "";
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
-        if(cipherMap.find(c) != cipherMap.end()) {
-            result += cipherMap.at(c);
-        } else {
+        bool found = false;
+        for(const auto& pair : cipherMap) {
+            if(pair.first == c) {
+                result += pair.second;
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
             // Handle characters not in the cipher map by keeping them unchanged
             result += c;
         }
