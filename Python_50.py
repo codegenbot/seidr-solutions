@@ -1,4 +1,3 @@
-```
 def decode_shift():
     while True:
         try:
@@ -21,6 +20,6 @@ def decode_shift():
         while True:
             response = input("Decode again? (y/n): ")
             if response.lower() != "y":
-                return
+                break
             else:
-                pass
+                decode_shift()
