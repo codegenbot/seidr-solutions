@@ -26,7 +26,7 @@ any compare_one(any a, any b) {
             str_b.erase(std::remove(str_b.begin(), str_b.end(), ','), str_b.end());
             str_b.replace(str_b.find('.'), 1, ",");
         }
-        return (stof(str_a) > stof(str_b)) ? str_a : str_b;
+        return (stof(str_a) < stof(str_b)) ? str_a : str_b;
     }
     return std::string("None");
 }
