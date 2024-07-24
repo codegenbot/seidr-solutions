@@ -1,4 +1,3 @@
-```
 def car_race_collision(distance, speed):
     if speed == 0 or distance == 0:
         return "Error: Speed and distance cannot be zero."
