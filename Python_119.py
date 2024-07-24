@@ -8,6 +8,6 @@ def match_parens(lst):
                 open_count += 1
             elif char == ")":
                 close_count += 1
-        if open_count != close_count:
-            return "No"
-    return "Yes"
+        if open_count == close_count:
+            return "Yes"
+    return "No"
