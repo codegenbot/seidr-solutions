@@ -1,39 +1,36 @@
+```cpp
 #include <string>
 #include <cctype>
 
-int evalBool(std::string s) {
-    int result = 0;
+bool evalBool(std::string s) {
+    bool result = false;
     for (char c : s) {
         switch (std::tolower(c)) {
             case 't':
-                return 1;
+                return true;
             case 'f':
-                return 0;
+                return false;
             case '|': {
                 if (s.length() > 1) {
-                    int subResult = evalBool(s.substr(1));
-                    if (subResult == 1)
-                        return 1; 
+                    if (evalBool(s.substr(1)))
+                        return true;
                 }
                 break;
             }
             case '&': {
                 if (s.length() > 1) {
-                    int subResult = evalBool(s.substr(1));
-                    if (subResult != 0) 
-                        return 1;
-                    else if (subResult == 0) 
-                        return 0;
+                    if (evalBool(s.substr(1)) == false)
+                        return false;
                 }
                 break;
             }
         }
     }
-    return 0; 
+    return result; 
 }
 
 int main() {
     std::string input = "t|t|f&f|t|t";
-    int result = evalBool(input);
-    return result;
+    bool result = evalBool(input);
+    return static_cast<int>(result); 
 }
