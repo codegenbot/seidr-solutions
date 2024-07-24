@@ -8,4 +8,3 @@ double getProbability(int n, int m) {
         p2 += (double)(i)/(m * n);
     }
     return p1 + p2;
-}
