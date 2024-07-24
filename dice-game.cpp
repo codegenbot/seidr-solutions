@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -9,7 +8,7 @@ double diceGame(int n, int m) {
     for (int i = 1; i <= m; i++) {
         total += pow(1.0 / n, i);
     }
-    return 1.0 - pow(1.0, 1.0/n);
+    return 1.0 - pow(1.0, 1.0 / n);
 }
 
 int main() {
