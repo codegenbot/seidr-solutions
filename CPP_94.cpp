@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <memory>
 
 int maxPrimeNum = 0;
 std::vector<int> lst;
@@ -22,7 +21,7 @@ int sumOfDigits(int x) {
     return sum;
 }
 
-int calculateMaxPrime() {
+int main() {
     int num, i;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> num;
@@ -40,10 +39,5 @@ int calculateMaxPrime() {
         std::cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << std::endl;
     else
         std::cout << "No primes found in the list." << std::endl;
-    return 0;
-}
-
-int main() {
-    calculateMaxPrime();
     return 0;
 }
