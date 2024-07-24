@@ -1,15 +1,14 @@
-#include <algorithm>
-#include <vector>
-#include <string>
-
+```cpp
 bool issame(vector<string> a, vector<string> b) {
-    return sort(a.begin(), a.end()) == sort(b.begin(), b.end());
+    return (a.size() == 1 && a[0] == b[0]);
 }
 
-int sorted_list_sum(vector<std::vector<std::string>> lst) {
+int sorted_list_sum(std::vector<std::vector<std::string>> lst) {
     int sum = 0;
-    for (const auto &s : lst) {
-        if (issame(s, {"cc", "dd"})) sum++;
+    for (auto& inner : lst) {
+        if (inner.size() == 1 && issame(inner, {"cc", "dd", "aaaa", "bbbb"})) {
+            sum++;
+        }
     }
     return sum;
 }
