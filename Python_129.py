@@ -1,7 +1,7 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    m = [[grid[i][j] for j in range(n)] for i in range(n)]
+    m = len(grid[0])
 
     def dfs(i, j, path, visited, curr_sum):
         if i == n - 1 and j == m - 1:
