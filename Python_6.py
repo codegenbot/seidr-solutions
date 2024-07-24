@@ -9,4 +9,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         elif char == ')':
             result.append(len(stack))
             stack.pop()
+    while stack:
+        result.append(len(stack))
+        stack.pop()
     return result
