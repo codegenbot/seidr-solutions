@@ -1,4 +1,3 @@
-```
 def sum_product():
     while True:
         try:
