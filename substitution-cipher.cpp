@@ -1,4 +1,4 @@
-using namespace std;
+using namespace std; 
 string cipher(string cipher1, string cipher2, string input) {
     string result = "";
     for (char c : input) {
