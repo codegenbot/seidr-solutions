@@ -9,7 +9,7 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                std::string reversedWord = std::string(word.rbegin(), word.rend());
+                std::string reversedWord(word.rbegin(), word.rend());
                 result += (reversedWord + " ");
             } else {
                 result += (word + " ");
@@ -22,7 +22,7 @@ std::string spinWords(std::string str) {
     
     // Check the last word
     if (word.length() >= 5) {
-        std::string reversedWord = std::string(word.rbegin(), word.rend());
+        std::string reversedWord(word.rbegin(), word.rend());
         result += (reversedWord);
     } else {
         result += (word);
