@@ -16,10 +16,8 @@ def is_prime(n):
     return True
 
 
-user_input = input("Enter a series of space-separated numbers: ")
-
-if user_input.strip() == "": 
-    print("Program did not receive expected input") 
-else: 
-    nums = list(map(int, user_input.split()))
+try:
+    nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
     print(search(nums))
+except ValueError:
+    print("Program did not receive expected input")
