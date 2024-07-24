@@ -1,3 +1,4 @@
+// Complete the following code given the task description and function signature..
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
