@@ -14,5 +14,6 @@ def find_zero():
     else:
         return (-b + math.sqrt(discriminant)) / (3 * a)
 
+# Test the function
 result = find_zero()
 print(result)
