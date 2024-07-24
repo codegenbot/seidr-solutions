@@ -1,25 +1,22 @@
-Here's the modified code:
-
-```
+```Python
 import math
 
 
 def rounded_avg():
-    n = None
-    while n is None:
+    total = 0
+    count = 0
+    while True:
         try:
-            n = float(input("Enter first number: "))
+            n = float(input(f"Enter number {count+1}: "))
+            total += n
+            count += 1
         except ValueError:
             print("Invalid input. Please enter a number.")
+        
+        if count == 2: 
+            break
 
-    m = None
-    while m is None:
-        try:
-            m = float(input("Enter second number: "))
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-
-    return str(math.ceil((n + m) / 2))
+    return str(math.ceil(total / count))
 
 
 print(rounded_avg())
