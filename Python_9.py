@@ -1,4 +1,4 @@
-```python
+```
 def rolling_max(numbers: List[int]) -> List[int]:
     result = [numbers[0]]
     max_seen_so_far = numbers[0]
