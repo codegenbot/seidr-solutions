@@ -9,3 +9,11 @@ long long double_the_difference(std::vector<float> lst){
     }
     return sum;
 }
+
+int main() {
+    std::vector<float> lst;
+    // Add elements to lst
+    long long odd_sum = double_the_difference(lst);
+
+    return 0;
+}
