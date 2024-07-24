@@ -40,21 +40,17 @@ int main() {
     
     pair<vector<int>, vector<int>> result = cutVector(v);
     
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if (i < result.first.size() - 1) {
-            cout << " ";
-        }
+    cout << "Left: ";
+    for (int i : result.first) {
+        cout << i << " ";
     }
-    cout << "] [";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if (i < result.second.size() - 1) {
-            cout << " ";
-        }
+    cout << endl;
+    
+    cout << "Right: ";
+    for (int i : result.second) {
+        cout << i << " ";
     }
-    cout << "]" << endl;
+    cout << endl;
     
     return 0;
 }
