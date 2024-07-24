@@ -1,6 +1,5 @@
-```cpp
+#include <vector>
 #include <iostream>
-#include <stack>
 #include <string>
 
 using namespace std;
@@ -34,4 +33,3 @@ int main() {
     cin >> expression;
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
-}
