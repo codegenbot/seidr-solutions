@@ -1,3 +1,2 @@
-input_string = input("Enter a string: ")
-result = all_prefixes(input_string)
-print(result)
+def all_prefixes(string):
+    return [string[: i + 1] for i in range(len(string))]
