@@ -22,14 +22,12 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    int n;
+    int n, a, b;
     cin >> n;
     for (int i = 0; i < n; i++) {
-        int a, b;
         cin >> a >> b;
         vector<int> nums = {a, b};
-        vector<int> pair = findPair(nums, a + b);
-        cout << pair[0] << " " << pair[1] << endl;
+        cout << findPair(nums, a + b)[0] << " " << findPair(nums, a + b)[1] << endl;
     }
     return 0;
 }
