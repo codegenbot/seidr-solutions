@@ -1,11 +1,7 @@
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        throw runtime_error("Error: Input size mismatch");
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            throw runtime_error("Error: Strings are not the same");
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
