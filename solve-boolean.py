@@ -1,18 +1,14 @@
-```
-def solve_boolean(s):
-    if s == 'T':
-        return True
-    elif s == 'F':
-        return False
-    elif '&' in s and '|' in s:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in s:
-            if char == '&':
-                result &= True
-            elif char == '|':
-                result |= True
-            elif char in ['T', 'F']:
-                result = (result and char == 'T') or (not result and char == 'F')
-        return result
+def solve(input_str):
+    def evaluate_bool(exp):
+        if exp == 'T':
+            return True
+        elif exp == 'F':
+            return False
+        elif '&' in exp:
+            a, b = map(evaluate_bool, exp.split('&'))
+            return a and b
+        elif '|' in exp:
+            a, b = map(evaluate_bool, exp.split('|'))
+            return a or b
+
+    return evaluate_bool(input_str)
