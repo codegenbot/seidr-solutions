@@ -9,4 +9,3 @@ int prod_signs(vector<int> arr){
         sum += abs(i);
     }
     return product * sum == 0 ? -32768 : product * sum;
-}
