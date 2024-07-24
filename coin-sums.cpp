@@ -17,10 +17,10 @@ int main() {
 
     int pennies = remaining;
 
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickels << endl;
     cout << pennies << endl;
+    cout << nickels << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
 
     return 0;
 }
