@@ -1,4 +1,8 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
-    return -xs[1] / xs[0] if len(xs) == 2 else -xs[3] / xs[2]
+    if len(xs) % 2 != 0:
+        return None
+    if abs(xs[0]) < abs(xs[-1]):
+        return -xs[-1]/xs[-2]
+    return xs[0]/xs[1]
