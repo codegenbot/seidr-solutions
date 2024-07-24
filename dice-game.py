@@ -1,6 +1,3 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(0.5)
-else:
-    print((m - 1) / (2 * m))
+print("{:.2f}".format(sum([(n - i) * i for i in range(1, n)]) / (n * m))
