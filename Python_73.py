@@ -1,7 +1,2 @@
 def smallest_change(arr):
-    n = len(arr)
-    rev_arr = arr[::-1]
-
-    diff_count = sum(a != b for a, b in zip(arr, rev_arr))
-
-    return diff_count
+    return sum(1 for i in range(len(arr)//2) if arr[i] != arr[-i-1])
