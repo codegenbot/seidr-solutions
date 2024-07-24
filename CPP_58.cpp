@@ -1,7 +1,19 @@
-sort(l1.begin(), l1.end());
-sort(l2.begin(), l2.end());
-vector<int> result;
-set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
-result.erase(unique(result.begin(), result.end()), result.end());
-return result;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> common(const vector<int>& a, const vector<int>& b) {
+    vector<int> result;
+    for (int i : a) {
+        if (find(b.begin(), b.end(), i) != b.end()) {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
+bool areSame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
