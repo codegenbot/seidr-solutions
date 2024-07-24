@@ -16,7 +16,7 @@ bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::string reverse_delete(std::string s, std::string c) {
-    std::string temp = "";
+    std::vector<char> v;
     for (char& ch : s) {
         bool found = false;
         for (char& cc : c) {
@@ -26,14 +26,15 @@ std::string reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            temp += ch;
+            v.push_back(ch);
         }
     }
+    std::string temp(v.begin(), v.end());
     std::reverse(temp.begin(), temp.end());
     return temp;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia").compare("am"), 0));
     return 0;
 }
