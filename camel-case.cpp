@@ -3,12 +3,13 @@
 
 std::string camelCase(const std::string& str) {
     std::string result;
-    bool capitalizeNext = true;
-
+    
     if (!str.empty() && str[0] == '-') {  
         result.push_back(toupper(str[0]));
-        str.erase(0, 1);  
+        str.erase(0, 1);  // remove '-' from input string
     }
+    
+    bool capitalizeNext = true;
 
     for (char c : str) {
         if (c == '-') {
@@ -16,8 +17,10 @@ std::string camelCase(const std::string& str) {
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
-        } else if (c != '-') {  
-            result += tolower(c);
+        } else {
+            if (c != ' ') {  // added this condition to handle extra spaces
+                result += tolower(c);
+            }
         }
     }
 
