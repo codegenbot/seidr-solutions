@@ -1,9 +1,14 @@
-string miniRomanToInt(int number) {
-    vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
+```cpp
+#include <string>
+#include <vector>
+#include <iostream>
+
+std::string int_to_mini_roman(int number) {
+    std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                          {400, "CD"}, {100, "C"}, {90, "XC"},
                                          {50, "L"}, {40, "XL"}, {10, "X"},
                                          {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    string result = "";
+    std::string result = "";
     for (const auto& p : roman) {
         while (number >= p.first) {
             number -= p.first;
@@ -11,4 +16,12 @@ string miniRomanToInt(int number) {
         }
     }
     return result;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << int_to_mini_roman(num);
+    return 0;
 }
