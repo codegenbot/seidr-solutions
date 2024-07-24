@@ -26,6 +26,6 @@ int main() {
     cin >> x;
     cout << "Enter value of y: ";
     cin >> y;
-    cout << "Result: " << x_or_y(n, x, y) << endl;
+    cout << "The result is: " << x_or_y(n, x, y) << endl;
     return 0;
 }
