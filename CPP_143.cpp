@@ -1,6 +1,6 @@
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 string words_in_sentence(string sentence) {
     vector<int> wordLengths;
@@ -37,7 +37,3 @@ vector<string> split(const string& str, char ch) {
     }
     tokens.push_back(str);
     return tokens;
-
-int main() {
-    cout << words_in_sentence("here is") << endl;
-}
