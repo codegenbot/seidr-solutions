@@ -1,5 +1,10 @@
-```
 def double_the_difference(lst):
-    even_sum = sum(num for num in lst if isinstance(num, int) and num >= 0 and num % 2 == 0)
-    odd_sum = sum(num for num in lst if isinstance(num, int) and num >= 0 and num % 2 != 0)
-    return (even_sum - odd_sum) * 2
+    if not isinstance(lst, list):
+        return "Error: Input is not a list."
+    try:
+        odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+        return odd_sum * 2
+    except TypeError as e:
+        return f"Error: {str(e)}"
+    except Exception as e:
+        return "An unexpected error occurred."
