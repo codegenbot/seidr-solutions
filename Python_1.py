@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -17,5 +18,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(temp)
                 temp = ''
+
+    # Push the last temp into result and reset it
+    if stack: 
+        return []  # return an empty list as there is no corresponding ')'
+    else:
+        result.append(temp)
 
     return result
