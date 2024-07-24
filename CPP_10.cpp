@@ -1,8 +1,17 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+bool is_palindrome(string str){
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
+
 string make_palindrome(string str){
-    string rev_str(str.rbegin(), str.rend());
-    for (int i = 0; i < str.length(); ++i) {
-        if (str.substr(0, str.length() - i) == rev_str.substr(i)) {
-            return str + rev_str.substr(0, i);
+    int n = str.length();
+    for(int i=n-1; i>=0; i--){
+        if(is_palindrome(str.substr(i))){
+            return str + string(str.begin(), str.begin() + i);
         }
     }
     return str;
