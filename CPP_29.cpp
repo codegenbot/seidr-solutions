@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,8 +12,8 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(auto str: strings){
         if(str.find(prefix) == 0)
             result.push_back(str);
@@ -22,29 +21,22 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 }
 
-int main(){
+int main() {
     int n;
-    std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    std::vector<std::string> strings(n);
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter string " << i+1 << ": ";
-        std::getline(std::cin, strings[i]);
+    vector<string> strings(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> strings[i];
     }
-
-    std::string prefix;
-    std::cout << "Enter the prefix: ";
-    std::cin >> prefix;
-
-    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
-
-    if(filtered_strings.size() > 1 && issame(filtered_strings, strings)){
-        for(auto str: filtered_strings)
-            std::cout << str << "\n";
+    string prefix;
+    cin >> prefix;
+    vector<string> filtered = filter_by_prefix(strings, prefix);
+    
+    if(filtered.size() > 1 && issame(filtered, strings)) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
     }
-    else
-        std::cout << "No strings match the given prefix.\n";
-
+    
     return 0;
 }
