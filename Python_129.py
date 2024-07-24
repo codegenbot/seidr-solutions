@@ -1,27 +1,26 @@
-```
 def minPath(grid, k):
     n = len(grid)
-    res = []
-    for i in range(n - k + 1):
-        for j in range(n - k + 1):
-            total = sum([grid[x][j] for x in range(i, i + k)])
-            if not res or total < min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res = [(i, j)]
-            elif total == min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res.append((i, j))
-    return dfs(0, 0, k, [], grid)
-def dfs(i, j, k, path, grid):
-    if k == 0:
-        return [path]
-    elif k > len(grid) - i:
-        return []
-    paths = []
-    for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-        ni, nj = i + dx, j + dy
-        if 0 <= ni < len(grid) and 0 <= nj < len(grid[0]):
-            paths += dfs(ni, nj, k-1, path + [(ni, nj)], grid)
-    return paths
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+
+    def dfs(i, j, path=None, visited=set()):
+        if path is None:  
+            path = []
+        if len(path) == k:
+            return [path]
+        visited.add((i, j))
+        res = []
+        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                res.extend(dfs(ni, nj, path + [m[ni][nj]], visited))
+        return res
+
+    res = dfs(0, 0)
+    return (
+        min(
+            [x[:k] for x in res if len(x) == k],
+            key=lambda x: sum(grid[i][j] for i, j in zip(x, range(k))),
+        )
+        if res
+        else []
+    )
