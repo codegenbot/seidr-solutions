@@ -19,9 +19,9 @@ int main() {
         lst.push_back(num);
     }
 
-    long long odd_sum = double_the_difference(lst);
-
+    long long odd_sum = double_the_difference(lst); // Define odd_sum here
+    
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
-}  
+}
