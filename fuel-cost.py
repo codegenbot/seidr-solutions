@@ -5,5 +5,6 @@ def fuel_cost():
     total = 0
     for _ in range(n):
         num = int(input())
-        total += (num // 3) - 2
+        result = math.floor(num / 3) - 2
+        total += result
     print(total)
