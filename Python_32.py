@@ -10,6 +10,6 @@ def find_zero(xs: list):
     if a == 0:
         return "a cannot be zero"
     if b_sum == 0:
-        b_sum = -sum((x * y for x, y in zip(xs[:-1], range(len(xs)-1))))
+        b_sum = -sum((x * y for x, y in zip(xs[:-1], range(len(xs)-1)))))
     x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
     return round(x, 2)
