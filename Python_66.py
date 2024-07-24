@@ -1,1 +1,6 @@
-sum(int(digit) for digit in str(input("Enter a string: ")).replace("-", "").replace("+", ""))
+def sumOfDigits(n):
+    total = 0
+    while n:
+        total += n % 10
+        n //= 10
+    return total
