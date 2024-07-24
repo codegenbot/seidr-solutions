@@ -1,40 +1,39 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
-    
-    for (int i = 1; i <= vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++)
-            leftSum += vec[j];
-        for (int j = i; j < vec.size(); j++)
-            rightSum += vec[j];
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+vector<int> cutVector(vector<int>& vec) {
+    int n = vec.size();
+    vector<int> left(n);
+    vector<int> right(n);
+
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            left[i] = vec[0];
+            right[n - i - 1] = vec[n - 1];
+        } else {
+            left[i] = vec[i];
+            right[n - i - 2] = vec[n - i - 1];
         }
     }
-    
-    vector<int> leftVec(vec.begin(), vec.begin() + splitIndex);
-    vector<int> rightVec(vec.begin() + splitIndex, vec.end());
-    return {leftVec, rightVec};
-}
 
-int main() {
-    int n; cin >> n;
-    vector<int> vec(n+1);
-    for (int i = 1; i <= n; i++) cin >> vec[i];
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "First subvector: ";
-    for (auto x : result.first) cout << x << ' ';
-    cout << '\n';
-    cout << "Second subvector: ";
-    for (auto x : result.second) cout << x << ' ';
-    return 0;
+    int minDiff = INT_MAX;
+    int pos = -1;
+
+    for (int i = 0; i < n; i++) {
+        if (abs(left[i] - right[i]) < minDiff) {
+            minDiff = abs(left[i] - right[i]);
+            pos = i;
+        }
+    }
+
+    vector<int> res[2];
+    int j = 0;
+    for (int i = 0; i <= pos; i++) {
+        res[0].push_back(vec[i]);
+    }
+    while (!res[0].empty() && !res[1].empty()) {
+        res[1].push_back(vec[n - 1 - j++]);
+    }
+
+    return res[0];
 }
