@@ -14,11 +14,10 @@ bool solveBoolean(string expression) {
     while (pos != string::npos) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
-
-        if ((solveBoolean(left)) || (solveBoolean(right)))
+        expression = right; 
+        if (solveBoolean(left) || solveBoolean(right))
             return true;
 
-        expression = right;
         pos = expression.find('|');
     }
 
@@ -26,11 +25,10 @@ bool solveBoolean(string expression) {
     while (pos != string::npos) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
+        expression = right; 
+        if (!solveBoolean(left) || !solveBoolean(right))
+            return false;
 
-        if ((solveBoolean(left)) && (solveBoolean(right)))
-            return true;
-
-        expression = right;
         pos = expression.find('&');
     }
 
