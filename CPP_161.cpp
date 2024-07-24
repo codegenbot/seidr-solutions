@@ -1,10 +1,17 @@
-for(char &c : s) {
-        if(isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+string result = s;
+    int n = s.length();
+    
+    bool hasLetter = false;
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            hasLetter = true;
+            result[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
-    if(std::all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })) {
-        std::reverse(s.begin(), s.end());
+
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
     }
-    return s;
+
+    return result;
 }
