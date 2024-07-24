@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -20,7 +20,7 @@ std::vector<int> get_odd_collatz(int n) {
     return res;
 }
 
-int main() {
+int main_user() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
