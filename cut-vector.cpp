@@ -13,7 +13,8 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (iss >> num) {
+    while (getline(iss, line, ',')) {
+        num = stoi(line);
         nums.push_back(num);
     }
     
@@ -32,7 +33,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
