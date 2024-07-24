@@ -6,5 +6,5 @@ def add_numbers(x=None, y=None):
         y = int(input("Enter second number: "))
     return x + y
 
-result = add_numbers()
+result = add_numbers(0, 0) if (x is None and y is None) else add_numbers(x, y)
 print(result)
