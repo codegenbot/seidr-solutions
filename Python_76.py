@@ -1,7 +1,7 @@
-```
 def is_simple_power(x, n):
-    root = round(n**0.5)
-    for i in range(1, root+1):
-        if n ** i == x:
+    if x < 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if i ** n == x:
             return True
     return False
