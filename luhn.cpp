@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int luhn(vector<int> card) {
+int luhn(std::vector<int> card) {
     int sum = 0;
     for(int i = card.size() - 1; i >= 0; i--) {
         if(i % 2 == 1) {
@@ -19,11 +19,11 @@ int luhn(vector<int> card) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> card(n);
+    std::cin >> n;
+    std::vector<int> card(n);
     for(int i = 0; i < n; i++) {
-        cin >> card[i];
+        std::cin >> card[i];
     }
-    cout << luhn(card) << endl;
+    std::cout << luhn(card) << std::endl;
     return 0;
 }
