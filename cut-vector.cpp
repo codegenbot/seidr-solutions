@@ -12,28 +12,34 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         int diff1 = abs(nums[i] - nums[0]);
         int diff2 = abs(nums[n-1] - nums[i-1]);
         if (diff1 <= diff2) {
-            result.push_back(vector<int>(nums.begin(), nums.begin() + i));
-            vector<int> left(nums.begin(), nums.begin() + i);
-            nums.erase(nums.begin());
-            while (!nums.empty() && nums[0] == left.back()) {
+            if (abs(diff1-min_diff) < abs(min_diff)) {
+                min_diff = diff1;
+                result.push_back(vector<int>(nums.begin(), nums.begin() + i));
+                vector<int> left(nums.begin(), nums.begin() + i);
                 nums.erase(nums.begin());
-                left.pop_back();
+                while (!left.empty() && left.back() == nums[0]) {
+                    left.pop_back();
+                    nums.erase(nums.begin());
+                }
+                result.push_back(left);
             }
-            result.push_back(left);
         } else {
-            result.push_back(vector<int>(nums.end()-i, nums.end()));
-            vector<int> right(nums.end()-i-1, nums.end());
-            while (!right.empty() && right.back() == nums[i-1]) {
-                right.pop_back();
-                nums.erase(nums.begin()+i-1);
+            if (abs(diff2-min_diff) < abs(min_diff)) {
+                min_diff = diff2;
+                result.push_back(vector<int>(nums.begin(), nums.begin() + i));
+                vector<int> right(nums.begin() + i, nums.end());
+                while (!right.empty() && right.back() == nums[n-1]) {
+                    right.pop_back();
+                    nums.erase(nums.begin() + i);
+                }
+                result.push_back(right);
             }
-            result.push_back(right);
-        }
-        
-        if (!nums.empty()) {
-            break;
         }
     }
     
+    if (!nums.empty()) {
+        result.push_back(vector<int>(nums));
+    }
+
     return result;
 }
