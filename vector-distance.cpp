@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 
 using namespace std;
 
@@ -14,9 +13,9 @@ int main() {
         cin >> v1[i];
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignore the comma and whitespace
-
     for (int i = 0; i < n; ++i) {
+        char comma;
+        cin >> comma;
         cin >> v2[i];
     }
 
