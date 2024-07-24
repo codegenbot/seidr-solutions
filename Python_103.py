@@ -4,8 +4,9 @@ def rounded_avg():
             n = int(input("Enter first number: "))
             m = int(input("Enter second number: "))
             if n > m:
-                return "Invalid input"
-            avg = (n + m) / 2
-            return format(int(avg), 'b')
+                print(-1)
+                break
+            avg = round((n + m) / 2)
+            return bin(avg)[2:]
         except ValueError:
             print("Invalid input. Please enter integers.")
