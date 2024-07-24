@@ -13,7 +13,7 @@ std::string change_base(int x, int base) {
 
 int main() {
     int x = 42;
-    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x)));
+    assert(std::to_string(change_base(x, x + 1)) == std::to_string(static_cast<long long>(x)));
 
     return 0;
 }
