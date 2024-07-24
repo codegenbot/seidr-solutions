@@ -1,4 +1,3 @@
-```
 def is_happy(n):
     seen = set()
     while n != 1 and n not in seen:
