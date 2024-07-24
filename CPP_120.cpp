@@ -6,12 +6,13 @@ using namespace std;
 
 void issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
-        cout << "False";
+        cout << "false" << endl;
     else {
         for (int i = 0; i < a.size(); i++)
             if (a[i] != b[i])
-                cout << "False";
-        cout << endl;
+                cout << "false" << endl;
+        else
+            cout << "true" << endl;
     }
 }
 
