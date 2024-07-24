@@ -1,3 +1,3 @@
-```
 def digitSum(n):
-    return sum(ord(c) - 48 for c in str(n) if '0' <= c <= '9')
+    n = str(n).lower()
+    return sum(int(char) for char in str(n).lower() if char.isdigit())
