@@ -39,39 +39,32 @@ int main() {
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
     vector<string> lst1;
-    int maxAttempts = 5;
+    cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
         string s;
-        for(int attempt = 0; attempt < maxAttempts; attempt++) {
-            cin >> s;
-            if (!s.empty()) break;
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        if(s.empty()) {
-            cout << "Too many invalid attempts. Stopping here.\n";
-            return 0; 
-        }
+        do {
+            if (!(cin >> s)) {
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        } while (s.empty());
         lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
     vector<string> lst2;
+    cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
         string s;
-        for(int attempt = 0; attempt < maxAttempts; attempt++) {
-            cin >> s;
-            if (!s.empty()) break;
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        if(s.empty()) {
-            cout << "Too many invalid attempts. Stopping here.\n";
-            return 0; 
-        }
+        do {
+            if (!(cin >> s)) {
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        } while (s.empty());
         lst2.push_back(s);
     }
 
