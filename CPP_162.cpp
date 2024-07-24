@@ -1,4 +1,9 @@
-string_to_md5(string text) {
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+string string_to_md5(string text) {
     if (text.empty()) {
         return "Invalid Input";
     }
