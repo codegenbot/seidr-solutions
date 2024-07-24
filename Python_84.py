@@ -1,7 +1,11 @@
-```
-def solve(N=None):
-    if N is None:
-        N = int(input("Enter a number: "))
-    if N < 1:
-        return str(0)
-    return bin(N)[2:]
+def solve(K):
+    if K < 1:
+        return '0'
+    binary = ''
+    while K > 0:
+        binary = str(K % 2) + binary
+        K //= 2
+    if int(binary, 2) != K: 
+        return str(int(binary, 2)) 
+    else:
+        return binary
