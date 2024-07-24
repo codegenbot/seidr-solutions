@@ -26,7 +26,7 @@ int mastermind(const std::string& code, const std::string& guess) {
                 std::string codeCopy = code;
                 std::string guessCopy = guess;
                 codeCopy.erase(j, 1);
-                --j;
+                j--;
                 break;
             }
             j++;
