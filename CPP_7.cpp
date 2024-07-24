@@ -3,10 +3,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()){
         return false;
@@ -28,3 +24,5 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     }
     return result;
 }
+
+assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
