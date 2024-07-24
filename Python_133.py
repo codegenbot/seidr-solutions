@@ -1,6 +1,6 @@
-```
 def sum_squares(lst):
-    return round(sum([round(int(x))**2 for x in lst]))
+    return round(sum([round(int(x)) ** 2 for x in lst]))
+
 
 while True:
     while True:
@@ -11,6 +11,4 @@ while True:
         print("Invalid input. Please enter valid numbers separated by space:")
 
     total_sum_of_squares = sum_squares(list(map(int, numbers)))
-    break
-
-print(f"The sum of squares is {total_sum_of_squares}")
+    print(f"The sum of squares is {total_sum_of_squares}")
