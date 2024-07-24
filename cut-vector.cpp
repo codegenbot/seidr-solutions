@@ -7,40 +7,36 @@ int main() {
     }
     
     int n = nums.size();
-    int diff = INT_MAX;
-    int idx = -1;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0;
-        int right_sum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        
-        int current_diff = abs(left_sum - right_sum);
-        
-        if (current_diff < diff) {
-            diff = current_diff;
-            idx = i;
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_index = -1;
+    
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_index = i;
+            break;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+    if (abs(sum - 2 * prefix_sum) < abs(sum - 2 * (prefix_sum - nums[cut_index]))) {
+        cout << "1" << endl;
+        for (int i = 0; i <= cut_index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << "0" << endl;
+    } else {
+        cout << "1" << endl;
+        for (int i = 0; i < cut_index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << "0" << endl;
     }
-    
-    cout << 0 << endl;
-    
-    for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << 0 << endl;
     
     return 0;
 }
