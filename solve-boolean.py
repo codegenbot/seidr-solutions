@@ -1,14 +1,13 @@
-```
-def solve_boolean(expression):
-    if expression == 't':
+def solveBoolean(expression):
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
     else:
-        result = True
-        for char in expression:
+        result = bool(expression[0].upper())
+        for char in expression[1:]:
             if char == '&':
-                result &= not (char == 'T')
+                result &= (bool(char.upper()))
             elif char == '|':
-                result |= not (char == 'T')
-        return bool(result)
+                result |= (bool(char.upper()))
+        return result
