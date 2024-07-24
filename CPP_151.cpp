@@ -19,10 +19,10 @@ int main() {
     while (std::cin >> num) {
         lst.push_back(num);
     }
-    
+
     long long odd_sum = double_the_difference(lst);
 
-    assert(double_the_difference(lst) == odd_sum);
-    
+    assert(odd_sum >= 0); // Add any custom assertion if needed
+
     return 0;
 }
