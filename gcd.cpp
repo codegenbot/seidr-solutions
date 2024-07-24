@@ -1,26 +1,31 @@
-```cpp
 #include <vector>
-#include <string>
-
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
-    int index = 0;
-    
-    while (index <= text.length() - target.length()) {
-        index = text.find(target, index);
-        
-        if (index == std::string::npos) break;
-        
-        indices.push_back(index + 1);
-        index += target.length();
-    }
-    
-    return indices;
-}
+#include <algorithm>
 
 int gcd(int a, int b) {
     if (b == 0)
         return a;
     else
         return gcd(b, a % b);
+}
+
+int greatestCommonDivisor(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int num1, num2;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    int result = greatestCommonDivisor(num1, num2);
+    cout << "The GCD of the given numbers is: " << result << endl;
+
+    return 0;
 }
