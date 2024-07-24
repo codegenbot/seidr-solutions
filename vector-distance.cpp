@@ -14,7 +14,7 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        char comma; 
+        char comma;
         std::cin >> vec2[i] >> comma;
     }
 
