@@ -1,3 +1,4 @@
+```
 vector<string> split_words(string txt) {
     vector<string> result;
 
@@ -16,12 +17,12 @@ vector<string> split_words(string txt) {
         int oddCount = 0;
         for (char c : txt) {
             if (std::isalpha(c)) {
-                if ((c - 'a') % 2 != 0) {
+                if ((int(c) - 97) % 2 != 0) {
                     oddCount++;
                 }
             }
         }
-        result.push_back(std::to_string(oddCount));
+        result.push_back(to_string(oddCount));
     } else {
         while ((pos = txt.find(',')) != std::string::npos) {
             result.push_back(txt.substr(0, pos));
