@@ -14,7 +14,7 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (getline(iss, line, ',')) {
+    while (getline(iss, line, ' ')) {
         num = stoi(line);
         nums.push_back(num);
     }
@@ -54,11 +54,11 @@ int main() {
         }
     }
     
-    if (prefixSum == sum - prefixSum) {
+    if (prefixSum == sum - prefixSum || minDiff == 0) {
         cutIndex++;
     }
     
-    for (int i = 0; i < cutIndex + 1; i++) {
+    for (int i = 0; i < cutIndex; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
