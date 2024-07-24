@@ -1,8 +1,3 @@
-#include <vector>
-#include <map>
-
-using namespace std;
-
 int search(vector<int> lst) {
     map<int, int> freq;
     for (int num : lst) {
@@ -15,7 +10,7 @@ int search(vector<int> lst) {
 
     int max = -1;
     for (pair<int, int> p : freq) {
-        if (p.second >= p.first && p.first > 0) {
+        if (p.second > p.first && p.first > 0) {
             max = p.first;
         }
     }
