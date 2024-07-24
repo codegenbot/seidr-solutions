@@ -2,6 +2,7 @@
 #include <variant>
 #include <any>
 #include <string>
+#include <boost/any.hpp>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
     return std::visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {

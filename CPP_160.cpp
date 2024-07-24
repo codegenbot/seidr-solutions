@@ -24,47 +24,53 @@ vector<string> split(string str) {
     if (!temp.empty()) {
         result.push_back(temp);
     }
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i].empty()) {
+            result.erase(result.begin() + i);
+            i--; 
+        }
+    }
     return result;
 }
 
 double do_algebra(vector<string> expressions) {
     double result = 0;
-    string operators = expressions.at(2);
+    string operators = expressions[2];
 
     if (stod(operators) == 0) {
-        if (expressions.at(2)[0] == '+') {
-            result = pow(stod(expressions.at(0)), stod(expressions.at(1)));
-        } else if (expressions.at(2)[0] == '-') {
-            result = pow(stod(expressions.at(0)), -stod(expressions.at(1)));
+        if (expressions[2][0] == '+') {
+            result = pow(stod(expressions[0]), stod(expressions[1]));
+        } else if (expressions[2][0] == '-') {
+            result = pow(stod(expressions[0]), -stod(expressions[1]));
         }
     } else if (stod(operators) == 42) { 
-        if (expressions.at(1) == "0") {
-            if (expressions.at(2)[0] == '+') {
-                result = stod(expressions.at(0));
-            } else if (expressions.at(2)[0] == '-') {
-                result = -stod(expressions.at(0));
+        if (expressions[1] == "0") {
+            if (expressions[2][0] == '+') {
+                result = stod(expressions[0]);
+            } else if (expressions[2][0] == '-') {
+                result = -stod(expressions[0]);
             }
-        } else if (expressions.at(1) != "0") {
-            if (expressions.at(2)[0] == '+') {
-                result = stod(expressions.at(0)) + stod(expressions.at(1));
-            } else if (expressions.at(2)[0] == '-') {
-                result = stod(expressions.at(0)) - stod(expressions.at(1));
-            } else if (expressions.at(2)[0] == '*') {
-                result = stod(expressions.at(0)) * stod(expressions.at(1));
+        } else if (expressions[1] != "0") {
+            if (expressions[2][0] == '+') {
+                result = stod(expressions[0]) + stod(expressions[1]);
+            } else if (expressions[2][0] == '-') {
+                result = stod(expressions[0]) - stod(expressions[1]);
+            } else if (expressions[2][0] == '*') {
+                result = stod(expressions[0]) * stod(expressions[1]);
             }
         }
     } else if (stod(operators) == 47) { 
-        if (expressions.at(1) == "0") {
-            if (expressions.at(2)[0] == '+') {
-                result = -stod(expressions.at(0));
-            } else if (expressions.at(2)[0] == '-') {
-                result = stod(expressions.at(0));
+        if (expressions[1] == "0") {
+            if (expressions[2][0] == '+') {
+                result = -stod(expressions[0]);
+            } else if (expressions[2][0] == '-') {
+                result = stod(expressions[0]);
             }
-        } else if (expressions.at(1) != "0") {
-            if (expressions.at(2)[0] == '+') {
-                result = stod(expressions.at(0)) + (-stod(expressions.at(1)));
-            } else if (expressions.at(2)[0] == '-') {
-                result = stod(expressions.at(0)) - stod(expressions.at(1));
+        } else if (expressions[1] != "0") {
+            if (expressions[2][0] == '+') {
+                result = stod(expressions[0]) + (-stod(expressions[1]));
+            } else if (expressions[2][0] == '-') {
+                result = stod(expressions[0]) - stod(expressions[1]);
             }
         }
     }
@@ -79,12 +85,7 @@ int main() {
     getline(cin, input);
     expressions = split(input);
 
-    if(expressions.size() != 3) {
-        cout << "Invalid number of expressions. Please enter exactly three." << endl;
-        return 1;
-    }
-
-    double output = do_algebra({expressions.at(0), expressions.at(1), expressions.at(2)});
+    double output = do_algebra({expressions[0], expressions[1], expressions[2]});
     cout << "Result: " << output << endl;
     return 0;
 }
