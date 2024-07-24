@@ -1,14 +1,12 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <map>
 
 int main() {
     std::string cipher2;
     std::cin >> cipher2;
     std::string cipher1;
     std::cin >> cipher1;
-    std::cin.ignore();
     std::string message;
     std::getline(std::cin, message);
 
