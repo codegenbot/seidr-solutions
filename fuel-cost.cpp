@@ -1,13 +1,14 @@
-int fuelCost(vector<int> vec) {
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int fuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int i : vec) {
-        int temp = (i / 3);
-        if (temp < 1) {
-            temp = 0;
-        } else {
-            temp--;
-        }
-        sum += temp;
+    for (int num : numbers) {
+        int result = (num / 3);
+        result = floor(result);
+        result -= 2;
+        sum += result;
     }
     return sum;
 }
