@@ -1,13 +1,21 @@
-nums = list(map(int, input().split()))
-n = len(nums)
-total_sum = sum(nums)
+n = int(input())
+arr = list(map(int, input().split()))
+
+total_sum = sum(arr)
 left_sum = 0
+min_diff = total_sum
+
 for i in range(n):
-    left_sum += nums[i]
+    cut_index = -1
+    left_sum += arr[i]
     right_sum = total_sum - left_sum
-    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
-        left_sum - right_sum - nums[i]
-    ):
-        print(*nums[: i + 1])
-        print(*nums[i + 1 :])
-        break
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+subvector1 = arr[:cut_index + 1]
+subvector2 = arr[cut_index + 1:]
+
+print(*subvector1)
+print(*subvector2)
