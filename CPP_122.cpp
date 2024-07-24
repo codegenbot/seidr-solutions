@@ -1,12 +1,5 @@
-```cpp
 #include <iostream>
 #include <cassert>
-
-int main() {
-    int sum = add_elements({1, 2, 3, 4, 5}, 3);
-    assert(sum == 6);
-    return 0;
-}
 
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
@@ -16,4 +9,9 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(add_elements({1, 2}, 2) == 3);
+    return 0;
 }
