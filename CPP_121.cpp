@@ -13,6 +13,6 @@ int solution(vector<int> lst) {
 
 int main() {
     vector<int> testCases = {3, 13, 2, 9};
-    assert(solution(testCases) == 3);
+    assert(solution(testCases) == 3); 
     return 0;
 }
