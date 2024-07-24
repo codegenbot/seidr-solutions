@@ -14,9 +14,13 @@ def find_zero(xs: list):
 
 
 if __name__ == "__main__":
-    xs = input("Enter coefficients: ").split()
+    coefficients = list(
+        map(
+            float,
+            input("Enter the polynomial coefficients (space-separated): ").split(),
+        )
+    )
     try:
-        xs = list(map(float, xs))
-        print(find_zero(xs))
+        print(f"The zero of the polynomial is: {find_zero(coefficients)}")
     except ValueError as e:
-        print(f"Error: {e}")
+        print(e)
