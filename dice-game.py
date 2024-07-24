@@ -1,2 +1,7 @@
-def roll_higher(n, m):
-    return (n - 1) / (n * m)
+def roll_dice(n, m):
+    if n > m:
+        return 1 - (n / (n + m))
+    elif n < m:
+        return m / (n + m)
+    else:
+        return 0.5
