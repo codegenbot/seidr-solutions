@@ -1,7 +1,8 @@
 #include <string>
+#include <cctype>
 
 std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
-    string result = "";
+    std::string result = "";
     for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
