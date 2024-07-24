@@ -1,56 +1,40 @@
-```cpp
-#include <vector>
-#include <string>
-#include <cctype>
+vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    size_t pos = 0, prev_pos = 0;
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<string> split_words(string txt) {
-    vector<string> result;
-
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-
-    if (txt.empty()) {
-        return result;
-    }
-
-    pos = txt.find(',');
-    if (pos == string::npos) {
-        int oddCount = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((int(c) - 97) % 2 != 0) {
-                    oddCount++;
+    while ((pos = txt.find_first_of(" ,")) != std::string::npos) {
+        if (prev_pos == pos) {
+            break;
+        }
+        if (txt.substr(prev_pos, pos - prev_pos).find_first_of(' ') == std::string::npos) {
+            int count = 0;
+            for (char c : txt.substr(prev_pos, pos - prev_pos)) {
+                if (c >= 'a' && c <= 'z') {
+                    count++;
                 }
             }
+            result.push_back(std::to_string(count));
+            break;
         }
-        result.push_back(to_string(oddCount));
-    } else {
-        while ((pos = txt.find(',')) != string::npos) {
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
+        std::string word = txt.substr(prev_pos, pos - prev_pos);
+        result.push_back(word);
+        prev_pos = pos + 1;
+    }
+
+    if (prev_pos < txt.size()) {
+        size_t start = prev_pos;
+        while (start < txt.size() && !std::isalnum(txt[start])) {
+            start++;
         }
-        if (!txt.empty()) {
-            result.push_back(txt);
+        std::string word = txt.substr(start);
+        int count = 0;
+        for (char c : word) {
+            if (c >= 'a' && c <= 'z') {
+                count++;
+            }
         }
+        result.push_back(std::to_string(count));
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    //...
 }
