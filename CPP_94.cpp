@@ -1,19 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
-// Function to check if a number is prime
+int maxPrimeNum = 0;
+vector<int> lst;
+
 bool isPrime(int x) {
-    // Check divisibility from 2 to sqrt(x)
     for (int i = 2; i <= sqrt(x); i++) {
         if (x % i == 0) return false;
     }
     return true;
 }
 
-// Function to calculate the sum of digits
 int sumOfDigits(int x) {
     int sum = 0;
     while (x > 0) {
@@ -24,8 +24,6 @@ int sumOfDigits(int x) {
 }
 
 int originalMain() {
-    maxPrimeNum = 0;
-    lst.clear();
     int num, i;
     cout << "Enter the number of elements in the list: ";
     cin >> num;
