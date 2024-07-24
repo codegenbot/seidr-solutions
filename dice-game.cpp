@@ -1,10 +1,7 @@
-```cpp
 int main() {
-    int n = 6; 
-    int m = 4;
-    double probability = getProbability(n, m);
+    double result = getProbability(6, 6); // example inputs
+    std::cout << "Result: " << result << std::endl;
     return 0;
-
 }
 
 double getProbability(int n, int m) {
