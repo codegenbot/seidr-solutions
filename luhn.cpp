@@ -17,5 +17,8 @@ int luhn(vector<int> digits) {
         alternate = !alternate;
     }
     return sum;
+}
 
-int main() { return luhn({4,3,2,1,6,7,8,9,4,5,3,9,0,0,0,0}); }
+int main() {
+    return luhn({4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 0, 2, 0, 8});
+}
