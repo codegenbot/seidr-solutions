@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -31,6 +32,7 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();  // clear the error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore the bad input
+            break; 
         }
         vec1.push_back(x); 
     }
@@ -42,6 +44,7 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();  // clear the error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore the bad input
+            break; 
         }
         vec2.push_back(x); 
     }
