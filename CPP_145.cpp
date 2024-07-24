@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -23,4 +24,8 @@ vector<int> order_by_points(vector<int> nums) {
         result.push_back(nums[pairs[i].second]);
     }
     return result;
+}
+
+int main() {
+    // Your main function code
 }
