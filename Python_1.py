@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -20,6 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp = ''
 
     if stack:
-        raise ValueError("Unmatched open parentheses")
-    
-    return result
+        return []
+    else:
+        result.append(temp)
+        return result
