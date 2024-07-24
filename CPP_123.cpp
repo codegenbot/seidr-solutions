@@ -18,16 +18,14 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> get_odd_collatz(int n) {
     vector<int> res; 
     res.push_back(n); 
-    while (n > 1) { 
+    while (n > 1) {
         if (n % 2 != 0) {
             res.push_back(n);
         }
-        if (n == 4) {
-            break;
-        } else {
-            n = (n * 3 + 1);
-        }
+        n = (n * 3 + 1);
     }
+    if (n == 4)
+        res.push_back(2);
     return res;
 }
 
