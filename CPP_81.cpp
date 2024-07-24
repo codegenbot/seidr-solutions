@@ -34,11 +34,10 @@ int main() {
     int numGrades;
     std::cout << "Enter the number of grades: ";
     std::cin >> numGrades;
-    std::cin.ignore();  // ignore newline character left after numGrades input
     std::vector<std::string> input;
     for (int i = 0; i < numGrades; i++) {
         std::cout << "Enter grade " << i + 1 << ": ";
-        std::cin >> std::ws >> input[i];
+        std::cin >> input.push_back(std::string());
     }
     int total = 0;
     for (const auto& grade : input) {
