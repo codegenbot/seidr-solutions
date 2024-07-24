@@ -10,7 +10,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
+int main() {
+    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::string> result = this->sorted_list_sum(lst);
+    
+    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
+
+    return 0;
+}
+
+std::vector<string> main::sorted_list_sum(std::vector<string> lst) {
     std::vector<string> result;
 
     for (const auto& str : lst) {
@@ -19,7 +28,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
 
-    sort(result.begin(), result.end(),
+    std::sort(result.begin(), result.end(),
               [](const string& a, const string& b) {
                   if (a.length() == b.length()) {
                       return a < b;
@@ -29,13 +38,4 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
               });
 
     return result;
-}
-
-int main() {
-    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> result = sorted_list_sum(lst);
-    
-    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
-
-    return 0;
 }
