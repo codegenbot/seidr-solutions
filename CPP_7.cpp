@@ -1,11 +1,10 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(const string& a, const string& b){
-    return a == b;
+    return a.size() == b.size();
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
