@@ -1,21 +1,25 @@
 #include <vector>
-#include <list>
-#include <any>
+#include <boost/any.hpp>
+#include <boost/variant.hpp>
 
-std::vector<int> filter_integers(std::list<std::any> values) {
+using namespace boost;
+
+namespace {
+    variant<int, string> to_variant(int i) { 
+        return i; 
+    }
+}
+
+std::vector<int> filter_integers(std::vector<variant<int, string>> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int val = boost::any_cast<int>(value);
-            result.push_back(val);
+        if (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
     }
     return result;
 }
 
-int main() {
-    assert(std::equal(filter_integers({3, std::any(), 3, 3, std::any(), std::any()}).
-                        begin(), filter_integers({3, 3, 3}).begin(),
-                    filter_integers({3, 3, 3}).end()));
-    return 0;
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
