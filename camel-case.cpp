@@ -19,11 +19,7 @@ int main() {
                 capitalizeNext = false;
             }
         } else {
-            if (capitalizeNext) {
-                result += toupper(*p);
-            } else {
-                result += tolower(*p);
-            }
+            capitalizeNext ? (result += std::toupper(*p)) : (result += std::tolower(*p));
             capitalizeNext = true;
         }
     }
