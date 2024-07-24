@@ -1,4 +1,4 @@
-'''
+```
 import re
 
 def fix_spaces(text):
@@ -11,4 +11,3 @@ def fix_spaces(text):
     while "__" in text:
         text = text.replace("__", "_-")
     return text
-'''
