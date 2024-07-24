@@ -11,3 +11,5 @@ music_string = input().strip()
 if ' ' in music_string:
     result = parse_music(music_string)
     print(result)
+else:
+    print("Please separate notes in the music string with spaces.")
