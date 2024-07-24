@@ -6,8 +6,3 @@ def intersperse(numbers: List[int], delimeter: int) -> List[int]:
         result.extend([delimeter])
         result.extend([numbers[i]])
     return result
-
-if __name__ == "__main__":
-    input_numbers = list(map(int, input("Enter comma-separated numbers: ").split(',')))
-    delimeter = int(input("Enter the delimeter you want to use: "))
-    print(intersperse(input_numbers, delimeter))
