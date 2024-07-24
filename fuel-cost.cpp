@@ -5,8 +5,8 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
-        if (n == -1) break; // Or any suitable condition to indicate end of input
+    while (std::cin.peek() != EOF) {
+        std::cin >> n;
         nums.push_back(n);
     }
 
