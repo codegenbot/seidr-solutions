@@ -6,7 +6,8 @@ vector<int> pluck(vector<int> arr) {
     if (arr.empty()) return {};
 
     int smallest_even = *min_element(arr.begin(), arr.end(),
-                                     [](int a, int b) { return a < b; }); 
+                                     [](int a, int b) { return a < b; }); // compare based on value
+    
     if(smallest_even % 2 == 0)
         result.push_back(smallest_even);  
 
