@@ -2,38 +2,39 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int length = 0;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (length >= 5) {
-                for (int j = length - 1; j >= 0; j--)
-                    result += str[i - j];
-            } else
-                result += str.substr(i - length, length);
-            length = 0;
-        } else {
-            length++;
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    size_t start = 0;
+    for (size_t end = 0; end <= input.size(); ) {
+        if (input[end] == ' ') {
+            output += input.substr(start, end - start);
+            start = end + 1;
+        } else if (end == input.size()) {
+            output += input.substr(start, end - start + 1);
+            break;
         }
+        end++;
     }
-    
-    if (length >= 5) {
-        for (int i = length - 1; i >= 0; i--)
-            result += str[i];
-    } else
-        result += str;
 
-    return result;
+    for (size_t i = 0; i < output.size(); ) {
+        size_t wordStart = i;
+        while (i < output.size() && output[i] != ' ') i++;
+        std::string word = output.substr(wordStart, i - wordStart);
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        output.replace(wordStart, i - wordStart + 1, word);
+    }
+
+    return output;
 }
 
 int main() {
-    string input;
-    cout << "Enter the string: ";
-    getline(cin, input);
-    cout << "Spin words: " << spinWords(input) << endl;
+    // Test cases
+    cout << spinWords("a") << endl;  // Output: a
+    cout << spinWords("this is a test") << endl;  // Output: this is a test
+    cout << spinWords("this is another test") << endl;  // Output: this is rehtona test
+    cout << spinWords("hi") << endl;  // Output: hi
+
     return 0;
 }
