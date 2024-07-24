@@ -15,5 +15,5 @@ int next_smallest(vector<int> lst) {
 
 int main() {
     vector<int> lst = {-35, 34, 12, -45};
-    cout << "The next smallest number is: " << next_smallest(lst) << endl;
+    assert(next_smallest(lst) == -35); 
 }
