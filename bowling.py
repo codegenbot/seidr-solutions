@@ -1,11 +1,19 @@
+```
 def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if frames[i] == "X":
-            score += 30
-        elif "/" in frames[i]:
-            first, second = map(int, frames[i].split("/"))
-            score += first + second
+    frame_count = 0
+    for i in range(len(frames)):
+        if frames[i].isdigit():
+            if len(frames[i]) == 1:
+                score += int(frames[i])
+            elif len(frames[i]) == 2:
+                score += int(frames[i])
         else:
-            score += int(frames[i])
+            if frames[i] == 'X':
+                score += 10
+            elif frames[i] == '/':
+                continue
+            elif frames[i].startswith('X'):
+                score += 10
+                frame_count -= 1
     return score
