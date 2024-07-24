@@ -1,4 +1,6 @@
-```cpp
+#include <string>
+#include <algorithm>
+
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
     return std::visit([](auto&& a, auto&& b) {
         if (auto str_a = std::any_cast<std::string>(a); auto str_b = std::any_cast<std::string>(b)) {
@@ -8,7 +10,7 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
         } else if (auto float_a = std::any_cast<float>(a); auto float_b = std::any_cast<float>(b)) {
             return std::to_string(std::max(float_a, float_b));
         } else {
-            return 0;
+            return "Non-e";
         }
     }, a, b);
 }
