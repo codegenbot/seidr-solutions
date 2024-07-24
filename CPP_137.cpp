@@ -1,54 +1,43 @@
-#include <iostream>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-#include<boost/convert.hpp>
+#include <string>
+#include <typeinfo>
+#include <boost/any.hpp>
 
 using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double da = boost::any_cast<double>(a);
-        string db = boost::any_cast<string>(b);
-        if (da > stod(db))
-            return a;
-        else
-            return b;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double da = boost::any_cast<double>(b);
-        string db = boost::any_cast<string>(a);
-        if (stod(db) > da)
-            return a;
-        else
-            return b;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        size_t pos = str.find(',');
+        int num = stoi(str.substr(0, pos));
+        return (int)a > num ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string da = boost::any_cast<string>(a);
-        string db = boost::any_cast<string>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
+        size_t posA = boost::any_cast<string>(a).find(',');
+        size_t posB = boost::any_cast<string>(b).find(',');
+        int numA = stoi(boost::any_cast<string>(a).substr(0, posA));
+        int numB = stoi(boost::any_cast<string>(b).substr(0, posB));
+        return numA > numB ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        size_t pos = boost::any_cast<string>(a).find(',');
+        int num = (int)b;
+        string str = boost::any_cast<string>(a);
+        size_t pos2 = str.find(',');
+        return stoi(str.substr(0, pos2)) > num ? a : b;
     }
-    return boost::any("None");
-}
-
-int main() {
-    cout << boost::any_cast<string>(compare_one(1, 2.5)) << endl;
-    cout << boost::any_cast<string>(compare_one(1, "2,3")) << endl;
-    cout << boost::any_cast<string>(compare_one("5,1", "6")) << endl;
-    cout << boost::any_cast<string>(compare_one("1", 1)) << endl;
-    return 0;
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        int num = (int)b;
+        string str = boost::any_cast<string>(a);
+        size_t pos = str.find(',');
+        return (float)a > stoi(str.substr(0, pos)) ? a : b;
+    }
+    else {
+        return boost::any("None");
+    }
 }
