@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <algorithm>
 #include <boost/any.hpp>
 #include <boost/variant.hpp>
 
@@ -21,9 +16,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (numB > numA) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else {
-        return boost::any("None");
+        return boost::any((string)"None");
     }
 }
