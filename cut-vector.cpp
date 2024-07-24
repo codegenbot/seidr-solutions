@@ -1,24 +1,37 @@
 int main() {
-    vector<int> v;
-
-    int n;
-    cin >> n;
-
-    v.push_back(n);
-
-    if (n % 2 == 0) {
-        cout << v.size() << endl;
-        for (int i = 0; i < v.size(); i++) {
-            cout << v[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        cout << v.size() << endl;
-        for (int i = 0; i < v.size(); i++) {
-            cout << v[i] << endl;
-        }
-        cout << 0 << endl;
+    vector<int> numbers;
+    int num;
+    while (cin >> num) {
+        numbers.push_back(num);
     }
+    
+    int sum = 0;
+    for (int n : numbers) {
+        sum += n;
+    }
+
+    int target = sum / 2;
+    int currSum = 0;
+    int idx = 0;
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (currSum <= target) {
+            currSum += numbers[i];
+            idx = i;
+        }
+    }
+
+    vector<int> subvec1(numbers.begin(), numbers.begin() + idx + 1);
+    vector<int> subvec2(numbers.begin() + idx + 1, numbers.end());
+
+    for (int n : subvec1) {
+        cout << n << "\n";
+    }
+    cout << "0" << endl;
+    
+    for (int n : subvec2) {
+        cout << n << "\n";
+    }
+    cout << "0" << endl;
 
     return 0;
 }
