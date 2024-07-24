@@ -1,26 +1,30 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here's the solution:
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    std::stringstream ss(input);
-    std::string word;
+string spinWords(string sentence) {
+    string result = "";
+    string word = "";
 
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                for (int i = word.length() - 1; i >= 0; i--)
+                    result += word[i];
+                result += " ";
+            } else {
+                result += word + " ";
+            }
+            word = "";
+        } else {
+            word += c;
         }
-        output += word + " ";
     }
 
-    return output.substr(0, output.size() - 1); // Remove the extra space at the end
-}
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--)
+            result += word[i];
+    } else {
+        result += word;
+    }
 
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
+    return result;
 }
