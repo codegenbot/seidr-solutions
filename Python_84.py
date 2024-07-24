@@ -1,6 +1,10 @@
+import math
+
 def solve(K):
     if K < 1:
         return '0'
+    if math.log2(K) % 1 == 0: 
+        return str(bin(int(math.pow(2, math.ceil(math.log2(K))))-1)[2:])
     binary = ''
     while K > 0:
         binary = str(K % 2) + binary
