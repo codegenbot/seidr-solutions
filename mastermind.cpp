@@ -1,36 +1,14 @@
-Here is the corrected code:
+std::pair<int, int> mastermind(string code, string guess) {
+    int black = 0;
+    int white = 0;
 
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-int countBlackPegs(const string& code, const string& guess) {
-    int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            black++;
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
-    return blackPegs;
-}
 
-int countWhitePegs(const string& code, const string& guess) {
-    int whitePegs = 0;
-    vector<char> codeCopy(code.begin(), code.end());
-    for (char c : guess) {
-        if (find(codeCopy.begin(), codeCopy.end(), c) != codeCopy.end()) {
-            auto it = find(codeCopy.begin(), codeCopy.end(), c);
-            codeCopy.erase(it);
-            ++whitePegs;
-        }
-    }
-    return whitePegs;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << countWhitePegs(code, guess) << endl;
-    cout << countBlackPegs(code, guess) << endl;
+    return std::make_pair(black, white);
 }
