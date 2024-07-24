@@ -7,9 +7,9 @@ vector<int> strange_sort_list(vector<int> lst) {
     while (!lst.empty()) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
-        
+
         if (!lst.empty())
-            sort(lst.rbegin(), lst.rend());  // removed the line number 19
+            sort(lst.rbegin(), lst.rend());
     }
     
     return result;
