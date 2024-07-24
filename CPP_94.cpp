@@ -32,6 +32,7 @@ int main() {
         lst.push_back(x);
     }
     int maxPrimeNum = 0;
+    string skjkasdkd; // define the variable
     for(int i : lst){
         if(isPrime(i) && i > maxPrimeNum)
             maxPrimeNum = i;
