@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
