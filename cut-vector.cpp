@@ -1,29 +1,39 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || v[i] != v[0]) {
-            res[0].clear();
-            res[1].clear();
-            res[0].push_back(v[0]);
-            int sum1 = 0, sum2 = 0;
-            for (int j = 1; j <= i; ++j) {
-                sum1 += v[j];
-                if (sum1 == sum2) break;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
+    
+    for (int i = 1; i <= v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        if (i < v.size()) {
+            for (int j = 0; j < i; j++) {
+                left_sum += v[j];
             }
-            for (int j = i + 1; j < n; ++j) {
-                sum2 += v[j];
-                if (sum1 == sum2) break;
+            for (int j = i; j < v.size(); j++) {
+                right_sum += v[j];
             }
-            res[0].insert(res[0].end(), v.begin() + 1, v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
         } else {
-            res[0].push_back(v[i]);
-            res[1].clear();
+            left_sum = accumulate(v.begin(), v.end(), 0);
+            right_sum = 0;
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    return res;
+    
+    vector<int> left, right;
+    for (int i = 0; i < cut_index; i++) {
+        left.push_back(v[i]);
+    }
+    for (int i = cut_index; i < v.size(); i++) {
+        right.push_back(v[i]);
+    }
+    
+    return {left, right};
 }
