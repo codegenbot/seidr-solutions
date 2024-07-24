@@ -1,42 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
-        }
-        for (int j = i; j < n; j++) {
-            rightSum += v[j];
-        }
-
-        if (leftSum == rightSum) {
-            res[0] = vector<int>(v.begin(), v.begin() + i);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
-        } else if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            pos = i;
+    int min_diff = INT_MAX;
+    int cut_idx = 0;
+    
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-
-    int leftSum = 0, rightSum = 0;
-    for (int i = 0; i < pos; i++) {
-        leftSum += v[i];
-    }
-    for (int i = pos; i < n; i++) {
-        rightSum += v[i];
-    }
-
-    res[0] = vector<int>(v.begin(), v.begin() + pos);
-    res[1] = vector<int>(v.begin() + pos, v.end());
-    return res;
+    
+    return {vector<int>(v.begin(), v.begin() + cut_idx), vector<int>(v.begin() + cut_idx, v.end())};
 }
 
 int main() {
@@ -47,14 +25,17 @@ int main() {
         cin >> v[i];
     }
     
-    vector<vector<int>> result = cutVector(v);
-
-    for (auto &vec : result) {
-        for (int num : vec) {
-            cout << num << " ";
-        }
-        cout << endl;
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "First subvector: ";
+    for (int x : result.first) {
+        cout << x << " ";
     }
-
+    cout << endl;
+    cout << "Second subvector: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
