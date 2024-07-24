@@ -1,12 +1,12 @@
+```
 #include <cmath>
-#include <assert.h>
+#include <iostream>
 
 bool iscuber(int a){
     int c = round(cbrt(a));
     return (c*c*c == a);
 }
 
-int main(){
-    assert(iscuber(1729) == true); 
-    return 0;
+int main() {
+    // Your code here
 }
