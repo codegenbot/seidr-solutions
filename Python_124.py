@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def valid_date():
     date = input("Enter a date in the format YYYY-MM-DD: ")
