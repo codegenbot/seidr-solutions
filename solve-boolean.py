@@ -5,6 +5,6 @@ def solve_boolean(expression):
         if char == "&":
             result = result and (expression[i + 1 :] != "F")
         elif char == "|":
-            result = result or (expression[i + 1:] != "F")
+            result = result or (expression[i + 1 :] != "F")
 
     return result
