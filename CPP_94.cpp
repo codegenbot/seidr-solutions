@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-int maxPrimeNum = 0;
+int maxPrimeNum = -1;
 std::vector<int> lst;
 
 bool isPrime(int x) {
