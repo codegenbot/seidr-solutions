@@ -12,5 +12,5 @@ bool monotonic(const std::vector<int>& l) {
             decreasing = false;
         }
     }
-    return increasing || decreasing;
+    return (increasing || decreasing);
 }
