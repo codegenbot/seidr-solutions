@@ -1,15 +1,14 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
-bool is_simple_power(int x, int y) {
-    if (y == 1)
+bool is_simple_power(int x, int n) {
+    if (n == 1)
         return true;
-    while (y > 1) {
-        if (x % y != 0)
+    while (n > 1) {
+        if (x % n != 0)
             return false;
-        x /= y;
-        y--;
+        x /= n;
+        n--;
     }
     return true;
 }
