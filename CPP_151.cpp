@@ -1,4 +1,6 @@
 #include <vector>
+#include <cmath>
+
 long long double_the_difference(vector<float> &lst){
     long long odd_sum = 0;
     for (float num : lst) {
@@ -6,5 +8,12 @@ long long double_the_difference(vector<float> &lst){
             odd_sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return odd_sum;
+    return 2 * odd_sum;
+}
+
+int main() {
+    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0};
+    long long result = double_the_difference(lst);
+    assert(result == 10);
+    return 0;
 }
