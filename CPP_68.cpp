@@ -1,5 +1,8 @@
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
+#include <vector>
+using namespace std;
+
+std::vector<int> pluck(const std::vector<int>& arr){
+    std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
