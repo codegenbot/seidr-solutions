@@ -1,3 +1,4 @@
+```
 def modp(n: int, p: int):
     if (p - 1) % p == 0:
         return n * pow(n, -1, p) % p
