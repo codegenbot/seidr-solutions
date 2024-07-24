@@ -1,11 +1,17 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-int count_upper(string s){
+int count_upper(std::string s) {
     int count = 0;
-    for(int i=1; i<s.size(); i+=2) {
-        string c = s.substr(i,1);
-        if(c[0] >= 'A' && c[0] <= 'E'||c[0] >= 'I'&&c[0] <= 'O'||c[0] >= 'U') 
+    for(int i = 1; i < s.length(); i += 2) {
+        if(isupper(s[i])) {
             count++;
+        }
     }
     return count;
+}
+
+int main() {
+    std::cout << count_upper("EEEE") << std::endl;
+    return 0;
 }
