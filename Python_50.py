@@ -1,3 +1,4 @@
+```Python
 def decode_shift():
     while True:
         try:
@@ -7,4 +8,8 @@ def decode_shift():
             print("Invalid input. Please enter an integer.")
     
     s = input().lower()
-    return "".join([chr((ord(ch) - 97 - shift) % 26 + 97) if ch.isalpha() else ch for ch in s])
+    
+    if not set(s).issubset('abcdefghijklmnopqrstuvwxyz'):
+        return "Please provide some text to decode."
+    else:
+        return "".join([chr((ord(ch) - 97 - shift) % 26 + 97) if ch.isalpha() else ch for ch in s])
