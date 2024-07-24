@@ -1,9 +1,5 @@
-def check(x):
-    return "yes" if x > 10 else "no"
-
-
 def sum_squares(lst):
-    return sum(i**2 for i in lst)
+    return sum([n ** 2 for n in lst if isinstance(n, int)])
 
-
-print(check(sum_squares([1, 2, 3, 11, 12])))
+result = sum_squares([1, 2, 'a', 11, 'b'])
+print(result)
