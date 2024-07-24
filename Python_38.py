@@ -1,3 +1,6 @@
+import sys
+
+
 def decode_cyclic():
     while True:
         s = input("Enter a string: ")
@@ -7,15 +10,12 @@ def decode_cyclic():
 
     n = len(s)
 
-    result = set()
-    for i in range(n):
+    if n < 2:
+        return f"Cyclically decoded string: {s}"
+
+    for i in range(1, n // 2 + 1):
         rotated = s[i:] + s[:i]
-        while i < n and (rotated in result or s in result):
-            i += 1
-        if i < n:
-            result.add(rotated)
-
-    return min(result, key=len)
-
-
-print(decode_cyclic())
+        while s in [rotated[j:] + rotated[:j] for j in range(len(rotated))]:
+            s = rotated
+    print(f"Cyclically decoded string: {s}")
+    sys.exit()
