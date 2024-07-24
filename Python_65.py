@@ -1,3 +1,6 @@
 def circular_shift(x, shift):
-    x_str = str(x)[::-1]
-    return str(int(x_str[-shift:]) + int(x_str[:-shift]))[::-1]
+    x = str(x)
+    if len(x) <= shift:
+        return x[::-1]
+    else:
+        return x[-shift:] + x[:-shift]
