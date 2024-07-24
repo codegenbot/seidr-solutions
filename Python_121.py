@@ -1,2 +1,2 @@
-def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+def sum_odd_indices(lst):
+    return sum(lst[i] for i in range(1, len(lst), 2))
