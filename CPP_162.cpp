@@ -1,8 +1,9 @@
-```cpp
+```
 #include <string>
 #include <sstream>
 #include <openssl/md5.h>
 #include <openssl/errstack.h>
+#include "err.h"
 
 using namespace std;
 
