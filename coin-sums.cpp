@@ -16,7 +16,6 @@ int main() {
 
     int pennies = cents;
     cents /= 5;
-
     pennies += cents;
     cents %= 5;
 
