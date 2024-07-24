@@ -1,12 +1,16 @@
 int main() {
+    vector<int> nums;
     int n;
-    cin >> n;
+    while (cin >> n) {
+        nums.push_back(n);
+    }
+
     int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        cin >> num;
+    for (int num : nums) {
         sum += (num / 3) - 2;
     }
+
     cout << sum << endl;
+
     return 0;
 }
