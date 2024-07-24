@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     for i, num in enumerate(lst):
@@ -8,5 +7,5 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-numbers = [eval(x) for x in input().split()]
+numbers = list(map(int, input().split()))
 print(sum_squares(numbers))
