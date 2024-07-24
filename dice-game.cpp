@@ -1,17 +1,15 @@
+#include <iostream>
+
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     
-    double result = 0.0;
+    double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                result += 1.0 / (n * m);
-            }
-        }
+        probability += (double)(n - i) / n * ((double)m / (m + n));
     }
     
-    cout << result;
+    std::cout << probability << std::endl;
     
     return 0;
 }
