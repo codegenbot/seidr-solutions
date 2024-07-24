@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
-#include <limits>
 
 using namespace std;
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, tweet); 
 
     tweet = tweet.substr(0, tweet.find_last_not_of("\n\r")); 
