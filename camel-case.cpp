@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <cctype>
-#include <string>
-
+```
 int main() {
     std::string str;
     std::cin >> str;
@@ -13,23 +9,23 @@ int main() {
         if (*p == '-') {
             p++; // Skip the '-'
             if (!capitalizeNext) {
-                result.push_back(tolower(*p));
+                result += tolower(*p); 
             } else {
-                result.push_back(toupper(*p));
+                result += toupper(*p);
                 capitalizeNext = false;
             }
         } else {
             if (capitalizeNext) {
-                result.push_back(toupper(*p)); 
+                result += toupper(*p); 
                 capitalizeNext = false;
             } else {
-                result.push_back(tolower(*p));
+                result += tolower(*p);
             }
             capitalizeNext = true;
         }
     }
 
-    std::cout << result.c_str() << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
