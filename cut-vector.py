@@ -1,10 +1,18 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
-total_sum = sum(vec)
-half_sum = 0
-for i in range(n):
-    half_sum += vec[i]
-    if half_sum * 2 >= total_sum:
-        break
-print(*vec[: i + 1])
-print(*vec[i + 1 :])
+nums = [int(input()) for _ in range(n)]
+
+total_sum = sum(nums)
+half_sum = total_sum // 2
+current_sum = 0
+idx = 0
+
+while current_sum + nums[idx] <= half_sum:
+    current_sum += nums[idx]
+    idx += 1
+
+if current_sum == half_sum:
+    print(*nums[:idx])
+    print(*nums[idx:])
+else:
+    print(*nums[: idx + 1])
+    print(*nums[idx + 1 :])
