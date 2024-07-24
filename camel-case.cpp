@@ -4,8 +4,10 @@
 
 int main() {
     std::string str;
+    std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    std::getline(std::cin, input);
+    str = input;
     std::cout << camelCase(str) << std::endl;
 
     return 0;
