@@ -1,3 +1,4 @@
+```
 def smallest_change(arr):
     n = len(arr)
     arr = ['1' if x else '0' for x in arr]
