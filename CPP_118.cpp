@@ -1,17 +1,17 @@
 string get_closest_vowel(string word) {
-    string result = "";
-    int i = 0;
-    while (i < word.size()) {
-        if (!isalpha(word[i])) i++;
-        else if (strchr("aeiouAEIOU", tolower(word[i])) != NULL) {
-            int j = i - 1;
-            while (j >= 0 && !isalpha(word[j])) j--;
-            if (j >= 0) {
-                result = word.substr(j + 1, i - j - 1);
-                return result;
+    for (int i = word.length() - 1; i >= 0; --i) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
+            word[i] == 'o' || word[i] == 'u') {
+            for (int j = i - 1; j >= 0; --j) {
+                if (!isVowel(word[j])) {
+                    return string(1, tolower(word[i]));
+                }
             }
         }
-        i++;
     }
-    return result;
+    return "";
+}
+
+bool isVowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
