@@ -1,23 +1,42 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+bool has_digits = false;
+int dot_count = 0;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(file_name[i] == '.'){
-            found_dot = true;
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!has_digits) {
+            has_digits = true;
+        }
+        if (has_digits && has_digits < 3) {
+            has_digits++;
+        } else {
+            return "No";
+        }
+    } else if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) {
+            return "No";
         }
     }
+}
 
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
+if (!has_digits || dot_count != 1) {
+    return "No";
+}
 
-    string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.') + 1);
+string ext = "";
+int i = file_name.find('.');
+for (; i < file_name.size(); i++) {
+    ext += file_name[i];
+}
+i = 0;
+while (i < ext.size() && (ext[i] == 't' || ext[i] == 'T' || ext[i] == 'x' || ext[i] == 'X')) {
+    i++;
+}
 
-    if(before_dot.empty() || !isalpha(before_dot[0])) return "No";
-    if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
-
+if (i > 0) {
     return "Yes";
+} else if (ext == "txt" || ext == "exe" || ext == "dll") {
+    return "Yes";
+} else {
+    return "No";
 }
