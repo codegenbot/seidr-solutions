@@ -1,4 +1,3 @@
-```
 bool isPrime(int num) {
     if (num <= 1)
         return false;
@@ -7,9 +6,8 @@ bool isPrime(int num) {
             return false;
     }
     return true;
-}
 
-int x_or_y(int n, int x, int y) {
+} int x_or_y(int n, int x, int y) {
     if (isPrime(n))
         return x;
     else
