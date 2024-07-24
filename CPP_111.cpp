@@ -1,8 +1,8 @@
+```
 #include <iostream>
 #include <map>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
@@ -34,7 +34,7 @@ multimap<char, int> histogram(string test) {
     return maxCountMap;
 }
 
-int main1() {
+int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
@@ -43,10 +43,5 @@ int main1() {
     for (auto& p : hist) {
         cout << p.first << ": " << p.second << endl;
     }
-    return 0;
-}
-
-int main2() {
-    assert(histogram("a") == multimap<char, int>{{'a', 1}});
     return 0;
 }
