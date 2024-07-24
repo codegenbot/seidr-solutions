@@ -1,4 +1,3 @@
-```Python
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
