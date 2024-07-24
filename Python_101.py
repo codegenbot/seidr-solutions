@@ -1,5 +1,2 @@
-```
-import re
-
 def words_string(s):
-    return re.sub(r'\s+', ', ', s).split(", ")
+    return [i.strip() for i in s.split(",")]
