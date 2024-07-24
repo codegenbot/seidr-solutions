@@ -1,20 +1,23 @@
 int main() {
-    string input;
-    cin >> input;
+    string expression;
+    cin >> expression;
 
-    if (input == "t") {
-        cout << "True" << endl;
-    } else if (input == "f") {
-        cout << "False" << endl;
-    } else {
-        char op = input[input.size() - 2];
-        char left = input[0];
-        char right = input[input.size() - 1];
-
-        if ((left == 't' && right == 't' && op == '&') || (left == 'f' && right == 'f' && op == '|')) {
-            cout << "True" << endl;
-        } else {
-            cout << "False" << endl;
+    if (expression == "t")
+        cout << "True";
+    else if (expression == "f")
+        cout << "False";
+    else {
+        char op = expression[1];
+        if (op == '&') {
+            if (expression[0] == 't' && expression[2] == 't')
+                cout << "True";
+            else
+                cout << "False";
+        } else if (op == '|') {
+            if (expression[0] == 't' || expression[2] == 't')
+                cout << "True";
+            else
+                cout << "False";
         }
     }
 
