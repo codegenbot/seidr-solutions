@@ -5,15 +5,13 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (!std::cin.eof()) {
-        std::cin >> n;
-        if (std::cin.eof()) break;
+    while (std::cin >> n) {
         nums.push_back(n);
     }
 
     int sum = 0;
     for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
+        sum += num / 3 - 2;
     }
 
     std::cout << sum << std::endl;
