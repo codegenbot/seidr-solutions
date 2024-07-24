@@ -1,5 +1,7 @@
+```Python
 import re
 
+text = input()  
 def fix_spaces(text):
     if not text:
         return ""
@@ -8,6 +10,4 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-text = input()  
-result = fix_spaces(text)  
-print(result)
+print(fix_spaces(text))
