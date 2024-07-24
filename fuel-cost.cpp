@@ -1,10 +1,10 @@
 int main() {
-    int n, num, sum = 0;
+    int n, x, sum = 0;
     cin >> n;
     for (int i = 0; i < n; ++i) {
-        cin >> num;
-        sum += max(num/3 - 2, 0);
+        cin >> x;
+        sum += (x / 3) - 2;
     }
-    cout << sum;
+    cout << sum << endl;
     return 0;
 }
