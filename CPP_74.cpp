@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -37,24 +38,36 @@ int main() {
     int n1, n2;
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
-    vector<string> lst1(n1);
+    std::vector<std::string> lst1;
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
-        cin >> lst1[i];
+        string s;
+        while (!(cin >> s) || s.empty()) {
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
-    vector<string> lst2(n2);
+    std::vector<std::string> lst2;
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
-        cin >> lst2[i];
+        string s;
+        while (!(cin >> s) || s.empty()) {
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        lst2.push_back(s);
     }
 
     if (same(lst1, lst2)) {
         cout << "The lists are the same.\n";
     } else {
-        vector<string> result = match(lst1, lst2);
+        std::vector<std::string> result = match(lst1, lst2);
         if (equal(result.begin(), result.end(), lst1.begin())) {
             cout << "List 1 is the match of list 2.\n";
         } else {
