@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -28,14 +27,15 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     return result;
 }
 
+#include <iostream>
+
 int main() {
     std::string text, target;
-    int a, b;
 
     std::cout << "Enter number 1: ";
-    std::cin >> a;
+    int a; std::cin >> a;
     std::cout << "Enter number 2: ";
-    std::cin >> b;
+    int b; std::cin >> b;
 
     if (a == 0 || b == 0) {
         std::cout << "Invalid input! Please try again." << std::endl;
@@ -45,18 +45,12 @@ int main() {
     int gcdVal = gcd(a, b);
     std::cout << "GCD is: " << gcdVal << std::endl;
 
-    std::cout << "Enter text: ";
+    std::cout << "Enter the text: ";
     std::getline(std::cin, text);
-
-    if (text.empty()) {
-        std::cout << "Invalid input! Please try again." << std::endl;
-        return 1;
-    }
-
-    std::cout << "Enter target string: ";
+    std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
 
-    if (target.empty()) {
+    if (text.empty() || target.empty()) {
         std::cout << "Invalid input! Please try again." << std::endl;
         return 1;
     }
