@@ -6,28 +6,24 @@ double vector_distance() {
     cin >> n;
     
     vector<float> v1(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     
     vector<float> v2(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
     
-    double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+    double distance = 0.0;
+    for (int i = 0; i < n; i++) {
+        distance += pow(v1[i] - v2[i], 2);
     }
     
-    return sqrt(sum);
+    return sqrt(distance);
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
-        cout << fixed << setprecision(10) << vector_distance() << endl;
-    }
+    cout << fixed << setprecision(10) << vector_distance();
     return 0;
 }
