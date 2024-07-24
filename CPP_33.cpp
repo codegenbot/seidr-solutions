@@ -1,6 +1,5 @@
 #include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b);
+#include <algorithm>
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> res = l;
