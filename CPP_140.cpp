@@ -1,6 +1,7 @@
 std::string fix_spaces(const std::string &text) {
     int count = 0;
     std::string modified_text = text;
+    
     for (size_t i = 0; i < modified_text.size(); ++i) {
         if (modified_text[i] == ' ') {
             count++;
