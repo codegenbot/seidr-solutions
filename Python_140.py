@@ -12,4 +12,4 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-check(fix_spaces)
+def check(fix_spaces):
