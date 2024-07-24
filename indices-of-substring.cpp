@@ -3,10 +3,10 @@
 #include <vector>
 
 int main() {
-    string text, target;
-    cin >> text >> target;
+    std::string text, target;
+    std::cin >> text >> target;
     
-    vector<int> indices;
+    std::vector<int> indices;
     
     for (int i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
@@ -15,7 +15,7 @@ int main() {
     }
     
     for (int idx : indices) {
-        cout << idx << " ";
+        std::cout << idx << " ";
     }
     
     return 0;
