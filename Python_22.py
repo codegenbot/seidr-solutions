@@ -1,4 +1,7 @@
-from typing import List
+from typing import List, Any
+
+import sys
+
 
 def main():
     values = []
@@ -14,11 +17,13 @@ def main():
                 print(
                     "Invalid input. Please enter a valid integer or type 'stop' to finish."
                 )
-                continue
-
     filtered_values = [value for value in values if isinstance(value, int)]
 
     print(filtered_values)
+
+
+def filter_integers(values: List[Any]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
 
 
 if __name__ == "__main__":
