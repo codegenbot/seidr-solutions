@@ -2,8 +2,10 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +17,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> sorted_list_sum(vector<vector<string>> lst) {
+vector<string> sorted_list_sum(const vector<vector<string>>& lst) {
     vector<int> sums;
     for (int i = 0; i < lst[0][0].size(); i++) {
         int sum = 0;
