@@ -1,38 +1,29 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBoolean(const std::string& expression) {
-    bool result = false;
-    for (char c : expression) {
-        switch (c) {
-            case 'T':
-                return true;
-            case 'F':
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
                 return false;
-            case '|': {
-                bool first = evaluateBoolean(expression.substr(0, expression.find(c)));
-                bool second = evaluateBoolean(expression.substr(expression.find(c) + 1));
-                return result || second;
             }
-            case '&': {
-                bool first = evaluateBoolean(expression.substr(0, expression.find(c)));
-                bool second = evaluateBoolean(expression.substr(expression.find(c) + 1));
-                return result && second;
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
+            if (st.empty()) {
+                return true;
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression (e.g., 't', 'f', 'f&f'): ";
-    std::getline(std::cin, input);
-    bool output = evaluateBoolean(input);
-    if (output) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
+    if (!st.empty()) {
+        return st.top() == 'T';
     }
-    return 0;
+    return false;
 }
