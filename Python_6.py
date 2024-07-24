@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -8,9 +7,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == '(':
             stack.append(char)
         elif char == ')':
-            result.append(len(stack))
             while stack and stack[-1] != '(':
                 stack.pop()
-            if stack:
-                stack.pop()  
+            if not stack:
+                result.append(0)
+            else:
+                result.append(len(stack))
+            stack.pop()
     return result
