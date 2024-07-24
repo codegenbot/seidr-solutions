@@ -1,6 +1,6 @@
 ```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 bool solveBoolean(std::string s) {
     size_t left_end = s.find_first_of("TF");
@@ -20,8 +20,13 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string s = "T&F|T";
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
     bool result = solveBoolean(s);
-    std::cout << result << std::endl;
+    if(result)
+        std::cout << "True" << std::endl;
+    else
+        std::cout << "False" << std::endl;
     return 0;
 }
