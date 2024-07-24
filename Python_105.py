@@ -7,14 +7,15 @@ def check(result):
     else:
         return "The answer is incorrect."
 
-def solve_task():
+def solve_task(input_list):
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
     num3 = int(input("Enter the third number: "))
-    if set([num1, num2, num3]).pop() in range(1, 19):
+    total_sum = num1 + num2 + num3
+    if total_sum in input_list:
         return "Correct"
     else:
         return "Incorrect"
 
-result = solve_task()
+result = solve_task(input_list)
 print(check(result))
