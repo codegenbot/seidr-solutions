@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+Problem description: Determine whether a set of weights can be balanced by a quadcopter with a maximum weight capacity w.
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -14,10 +11,4 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    // Your test cases here
-    return 0;
 }
