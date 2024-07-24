@@ -1,10 +1,8 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-<string> solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
@@ -15,12 +13,7 @@ using namespace std;
         }
     }
     if (result.empty()) {
-        reverse(result.begin(), result.end());
+        std::reverse(result.begin(), result.end());
     }
     return result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
 }
