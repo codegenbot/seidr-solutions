@@ -1,29 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
-
-    int changes = smallest_change(arr);
-
-    std::cout << "The minimum number of operations to make all the numbers in the array equal is: " << changes << std::endl;
-
-    return 0;
-}
-
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    string s = "";
+    std::string s = "";
     for (int i : arr) {
-        s += to_string(i);
+        s += std::to_string(i);
     }
     int left = 0, right = n - 1;
     int changes = 0;
@@ -37,4 +20,11 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
+}
+
+int main() {
+    assert(smallest_change({0, 1}) == 1);
+    assert(smallest_change({2, 3, 4, 5, 6, 7, 8, 9}) == 8);
+    // Add more test cases here
+    return 0;
 }
