@@ -6,3 +6,4 @@ int digitSum(string s) {
         }
     }
     return sum;
+}
