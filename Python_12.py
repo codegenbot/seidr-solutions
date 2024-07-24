@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```
 from typing import List, Optional
 
 
@@ -11,3 +14,6 @@ def longest(strings: List[str]) -> Optional[str]:
             max_length = len(s)
             result = s
     print(result)
+
+
+print(longest(["apple", "banana", "cherry"]))  # Output: banana
