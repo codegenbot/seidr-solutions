@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 
-std::vector<std::string> split_words(std::string txt) {
+void split_words(string txt) {
     std::vector<std::string> result;
     size_t pos = 0;
     while ((pos = txt.find(" ")) != std::string::npos) {
@@ -11,7 +11,7 @@ std::vector<std::string> split_words(std::string txt) {
         txt.erase(0, pos + 1);
     }
     if (txt.empty()) {
-        return result;
+        return;
     }
     size_t commaPos = txt.find(",");
     if (commaPos == std::string::npos) {
@@ -31,5 +31,4 @@ std::vector<std::string> split_words(std::string txt) {
             result.push_back(txt);
         }
     }
-    return result;
 }
