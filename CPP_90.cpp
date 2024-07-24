@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 int next_smallest(vector<int> lst) {
     if (lst.empty()) return -1; // Return None
