@@ -1,25 +1,11 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <sstream>
+#include <iomanip>
 
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
-    }
-
-    MD5_CTX ctx;
-    unsigned char md[16];
-
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(md, &ctx);
-
-    stringstream ss;
+std::string string_to_md5(const std::string& str) {
+    std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << setfill(2) << setw(2) << hex << (int)md[i];
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)str[i];
     }
-
     return ss.str();
 }
