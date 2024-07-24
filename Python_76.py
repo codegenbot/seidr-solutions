@@ -1,5 +1,7 @@
 def is_simple_power(x, n):
     if x < 1:
         return False
-    root = int(round(n**0.5))
-    return root * root == x and all(int(i) for i in str(root).split("."))
+    for i in range(2, int(n**0.5) + 1):
+        if i ** n == x:
+            return True
+    return False
