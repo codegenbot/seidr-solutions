@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int sum_of_squares(int n) {
     int total = 0;
