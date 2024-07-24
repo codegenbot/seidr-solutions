@@ -1,22 +1,27 @@
+```cpp
 #include <string>
 #include <vector>
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
+bool issame(vector<string> a,vector<string>b){
+    if(a==b) return true;
+    else return false;
+}
+
+vector<string> split_words(string txt) {
+    vector<string> result;
     size_t pos = 0, prev_pos = 0;
 
-    while ((pos = txt.find_first_of(" ,")) != std::string::npos) {
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
         if (prev_pos == pos) {
             break;
         }
-        if (txt.substr(prev_pos, pos - prev_pos).find_first_not_of(' ') == std::string::npos) {
+        if (txt.substr(prev_pos, pos - prev_pos).find_first_not_of(' ') == string::npos) {
             result.push_back(txt.substr(prev_pos, pos - prev_pos));
             prev_pos = pos + 1;
         } else {
-            string word = txt.substr(prev_pos, pos - prev_pos);
             int count = 0;
-            for (char c : word) {
-                if (c >= 'a' && c <= 'z') {
+            for (char c : txt.substr(prev_pos, pos - prev_pos)) {
+                if (isalpha(c)) {
                     count++;
                 }
             }
@@ -33,7 +38,7 @@ std::vector<std::string> split_words(std::string txt) {
         string word = txt.substr(start);
         int count = 0;
         for (char c : word) {
-            if (c >= 'a' && c <= 'z') {
+            if (isalpha(c)) {
                 count++;
             }
         }
