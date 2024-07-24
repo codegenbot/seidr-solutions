@@ -1,22 +1,11 @@
+```cpp
 #include <vector>
 #include <set>
 #include <initializer_list>
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
+std::vector<int> remove_duplicates(std::initializer_list<int> numbers){
     std::set<int> unique_numbers(numbers.begin(), numbers.end());
-    std::vector<int> result;
-    for(auto num : unique_numbers) {
-        bool exists = false;
-        for(int i = 0; i < result.size(); ++i) {
-            if(result[i] == num) {
-                exists = true;
-                break;
-            }
-        }
-        if(!exists) {
-            result.push_back(num);
-        }
-    }
+    std::vector<int> result(unique_numbers.begin(), unique_numbers.end());
     return result;
 
 }
