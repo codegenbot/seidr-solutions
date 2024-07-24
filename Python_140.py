@@ -7,5 +7,4 @@ def fix_spaces(text):
         text = text.replace("----", "-")
     return text
 
-def check(input_text):
-    print(fix_spaces(input_text))
+print(check("   Exa 1 2 2 mple"))
