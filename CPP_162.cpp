@@ -1,20 +1,16 @@
-std::string string_to_md5(std::string text) {
-    if (text.empty()) return "";
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <algorithm>
 
-    unsigned char md[16];
+std::string string_to_md5(const std::string& str) {
+    // Your implementation here
+}
+
+int main() {
     std::stringstream ss;
-
-    EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
-    EVP_MD *md_algorithm = EVP_md5();
-    EVP_DigestInit(md_ctx, md_algorithm);
-    EVP_DigestUpdate(md_ctx, text.c_str(), text.size());
-    unsigned char *digest = EVP_DigestFinal(md_ctx, NULL, NULL);
-    if (digest != NULL) {
-        for (int i = 0; i < 16; ++i) {
-            ss << std::setfill('0') << std::setw(2) << std::hex << (int)digest[i];
-        }
-    }
-    OPENSSL_free(digest);
-    EVP_MD_CTX_free(md_ctx);
-    return std::string("0x") + ss.str();
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, ss.str());
+    ss.clear();
+    return ss.str();
 }
