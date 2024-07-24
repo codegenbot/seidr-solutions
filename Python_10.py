@@ -1,12 +1,13 @@
-Here is the completed code:
-
 def is_palindrome(string: str) -> bool:
+    """Test if given string is a palindrome"""
     return string == string[::-1]
 
+
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
-    for i in range(len(string)):
-        if string[i:] == string[i:][::-1]:
-            return string + string[i:][::-1]
-    return string + string[::-1]
+    """Find the shortest palindrome that begins with a supplied string."""
+    prefix = string.lower()
+    postfix = prefix[::-1].lower()
+    i = 0
+    while i < len(prefix) and prefix[i] == postfix[len(postfix) - i - 1]:
+        i += 1
+    return string + postfix[len(postfix) - i :][::-1]
