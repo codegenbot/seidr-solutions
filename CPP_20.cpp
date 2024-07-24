@@ -20,15 +20,20 @@ int main() {
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
-    float num;
+    int num;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
             break;
         }
-        std::cin.precision(6);
-        vec1.push_back(num);
+        if (num >= -2147483648 && num <= 2147483647) { 
+            vec1.push_back((float)num);
+        } else {
+            std::cout << "Invalid input. Please enter an integer within the range of INT_MIN and INT_MAX.\n";
+            vec1.clear();
+            break;
+        }
         // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
             break; // No more numbers in the stream
@@ -43,8 +48,13 @@ int main() {
             vec2.clear(); 
             break;
         }
-        std::cin.precision(6);
-        vec2.push_back(num);
+        if (num >= -2147483648 && num <= 2147483647) { 
+            vec2.push_back((float)num);
+        } else {
+            std::cout << "Invalid input. Please enter an integer within the range of INT_MIN and INT_MAX.\n";
+            vec2.clear();
+            break;
+        }
         // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
             break; // No more numbers in the stream
