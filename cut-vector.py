@@ -1,20 +1,19 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-diff = float("inf")
-cut_idx = 0
+total = sum(nums)
+half_total = total // 2
 
-for i in range(1, n):
-    cur_diff = abs(sum(v[:i]) - sum(v[i:]))
-    if cur_diff < diff:
-        diff = cur_diff
-        cut_idx = i
+prefix_sum = 0
+best_idx = -1
+best_diff = float("inf")
 
-subvector1 = v[:cut_idx]
-subvector2 = v[cut_idx:]
+for i, num in enumerate(nums):
+    prefix_sum += num
+    diff = abs(prefix_sum - half_total)
+    if diff < best_diff:
+        best_diff = diff
+        best_idx = i
 
-for num in subvector1:
-    print(num)
-
-for num in subvector2:
-    print(num)
+print(*nums[: best_idx + 1])
+print(*nums[best_idx + 1 :])
