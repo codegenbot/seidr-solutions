@@ -20,8 +20,10 @@ int main() {
 
     std::cout << "Enter initial snow: ";
     std::cin >> std::fixed >> std::setprecision(6) >> initialSnow;
+
     std::cout << "Enter rate of snow fall: ";
     std::cin >> std::fixed >> std::setprecision(6) >> rateOfSnowFall;
+
     std::cout << "Enter proportion of snow melting per hour: ";
     std::cin >> std::fixed >> std::setprecision(6) >> proportionOfSnowMeltingPerHour;
 
