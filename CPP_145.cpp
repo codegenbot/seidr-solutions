@@ -34,6 +34,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // your code here
+    // Your code to call order_by_points function
     return 0;
 }
