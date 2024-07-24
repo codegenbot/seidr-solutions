@@ -1,15 +1,20 @@
 ```
-import math
+def sum_of_squares(n):
+    result = 0
+    for i in range(1, n + 1):
+        result += i**2
+    return result
 
-def triangle_area():
-    a = float(input("Enter side A of triangle: "))
-    b = float(input("Enter side B of triangle: "))
-    c = float(input("Enter side C of triangle: "))
-
-    if math.isclose(a + b, c) and math.isclose(a + c, b) and math.isclose(b + c, a):
-        s = (a + b + c) / 2
-        return round((math.sqrt(s * (s - a) * (s - b) * (s - c))), 2)
+def check(area):
+    sqrt = int(area**0.5)
+    if sqrt*sqrt == area:
+        print("The area of the triangle is a perfect square.")
     else:
-        return -1
+        print("The area of the triangle is not a perfect square.")
 
-print(triangle_area())
+base = float(input("Enter the base of the triangle: "))
+height = float(input("Enter the height of the triangle: "))
+
+triangle_area = (base*height)/2
+
+check(triangle_area)
