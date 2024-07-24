@@ -14,10 +14,10 @@ string string_xor(string a, string b) {
 
 int main() {
     string a, b;
-    cout << "Enter the first string: ";
+    cout << "Enter the first binary number: ";
     cin >> a;
-    cout << "Enter the second string: ";
+    cout << "Enter the second binary number: ";
     cin >> b;
-    cout << "XOR of strings is: " << string_xor(a, b) << endl;
+    cout << "The XOR of two numbers is: " << string_xor(a, b);
     return 0;
 }
