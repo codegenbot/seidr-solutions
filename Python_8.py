@@ -1,4 +1,5 @@
-Here is the solution:
+from typing import List, Tuple
+
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    return sum(numbers), functools.reduce(lambda x, y: x * y, numbers, 1) if numbers else (0, 1)
+    return (sum(numbers), *([1] + numbers))
