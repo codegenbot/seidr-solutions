@@ -5,14 +5,18 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> digits[i];
     }
+    
     int sum = 0;
-    for (int i = n - 2; i >= 0; i -= 2) {
-        int double_digit = digits[i] * 2;
-        sum += (double_digit > 9) ? double_digit - 9 : double_digit;
+    for (int i = n - 1; i >= 0; --i) {
+        if ((n - i) % 2 == 0) {
+            int doubled = 2 * digits[i];
+            sum += (doubled > 9) ? (doubled - 9) : doubled;
+        } else {
+            sum += digits[i];
+        }
     }
-    for (int i = n - 1; i >= 0; i -= 2) {
-        sum += digits[i];
-    }
-    cout << sum << endl;
+    
+    cout << sum;
+    
     return 0;
 }
