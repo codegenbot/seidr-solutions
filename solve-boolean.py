@@ -1,10 +1,6 @@
-expression = input().strip()
+expression = input()
 
-if expression == "t":
+if 't' in expression:
     print(True)
-elif expression == "f":
-    print(False)
 else:
-    operands = expression.split("&")
-    result = all([operand == "t" for operand in operands])
-    print(result)
+    print(False)
