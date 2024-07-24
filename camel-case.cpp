@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,8 +9,8 @@ using namespace std;
 string camelCase(string s) {
     string result = "";
     bool nextWordIsUpper = false;
-    for (int i = 0; i <= s.length(); i++) { // added check here
-        if (i < s.length() && s[i] == '-') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
                 if (!nextWordIsUpper) result += tolower(s[i]);
