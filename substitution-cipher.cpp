@@ -5,7 +5,7 @@
 std::string substitutionCipher(string& cipher1, string& cipher2, string& message);
 
 int main() {
-    std::string cipher1, cipher2, message;
+    string cipher1, cipher2, message;
     std::getline(std::cin, cipher1); 
     std::getline(std::cin, cipher2);
     std::getline(std::cin, message);
@@ -19,9 +19,9 @@ std::string substitutionCipher(string& cipher1, string& cipher2, string& message
         int offset = isupper(c) ? 0 : tolower(c) - 'a';
         if(isalpha(c)) {
             if(isupper(c))
-                result += std::string(1, toupper(cipher2[offset]));
+                result += toupper(cipher2[offset]);
             else
-                result += std::string(1, tolower(cipher2[offset]));
+                result += tolower(cipher2[offset]);
         } 
         else
             result += c;
