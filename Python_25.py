@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     if n <= 0:
         raise ValueError("Expected positive integer")
@@ -16,6 +17,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
 
 while True:
     try:
