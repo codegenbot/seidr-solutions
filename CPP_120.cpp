@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,31 +13,24 @@ vector<int> maximum(vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
+
 }
 
 int main() {
-    vector<int> arr; 
-    int k; 
-
-    cout << "Enter array size: ";
-    int n; cin >> n;
-    arr.resize(n);
-
-    cout << "Enter array elements: ";
+    int n, k;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
-
     cout << "Enter k: ";
     cin >> k;
-
     vector<int> result = maximum(arr, k);
-
     cout << "Maximum elements are: ";
-    for (int num : result) {
-        cout << num << " ";
+    for (int i = 0; i < k; i++) {
+        cout << result[i] << " ";
     }
-    cout << endl;
-
     return 0;
 }
