@@ -24,7 +24,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 int mainFunction() {
