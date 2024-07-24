@@ -1,6 +1,10 @@
-```c++
-#include <iostream>
-using namespace std;
+```cpp
+int main() {
+    int n = 6; // for example
+    int m = 4;
+    double probability = getProbability(n, m);
+    return 0;
+}
 
 double getProbability(int n, int m) {
     double num = 0;
@@ -8,12 +12,4 @@ double getProbability(int n, int m) {
         num += (double)1/(n*m);
     }
     return num;
-}
-
-int main() {
-    int n = 6; // Number of sides on Peter's die
-    int m = 6; // Number of sides on Colin's die
-    double probability = getProbability(n, m);
-    cout << "The probability is: " << probability << endl;
-    return 0;
 }
