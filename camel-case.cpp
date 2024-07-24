@@ -3,32 +3,24 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++; // skip the '-'
-            while (i < str.length() && str[i] == ' ') {
-                i++; // skip the spaces
-            }
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
             if (result != "") {
-                result += std::toupper(str[i]);
+                result += char(toupper(str[i + 1]));
             } else {
-                result = std::toupper(str[i]);
+                result += str.substr(i + 1, 1);
             }
-        } else if (str[i] != ' ') {
-            if (i > 0) {
-                result += str[i];
-            } else {
-                result = str[i];
-            }
+        } else if (str[i] != '-') {
+            result += tolower(str[i]);
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << camelCase(input) << std::endl;
     return 0;
 }
