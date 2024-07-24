@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b){
+bool issame(std::vector<std::string> a, std::vector<std::string>b){
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
