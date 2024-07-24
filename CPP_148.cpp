@@ -3,12 +3,12 @@
 #include <vector>
 #include <string>
 
-bool issame(std::pair<std::string, std::string> a) {
-    return a.first == a.second;
+bool issame(string a, string b) {
+    return a == b;
 }
 
-std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
-    std::vector<std::string> planetsList = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<string> bf(std::pair<string, string> planets) {
+    std::vector<string> planetsList = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1, index2 = -1;
     
@@ -23,7 +23,7 @@ std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
     if (index1 == -1 || index2 == -1)
         return {};
     
-    std::vector<std::string> result;
+    std::vector<string> result;
     for (int i = 0; i < planetsList.size(); i++) {
         if ((i > index1 && i < index2) || (i > index2 && i < index1)) {
             result.push_back(planetsList[i]);
@@ -34,8 +34,8 @@ std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
 }
 
 int main() {
-    assert(issame(std::make_pair("Earth", "Earth")));  
-    std::pair<std::string, std::string> planets = {"Jupiter", "Makemake"};
+    assert(bf({"Earth", "Earth"}) == {"Earth"});  
+    std::pair<string, string> planets = {"Jupiter", "Makemake"};
     assert(bf(planets) == {});  // Check if the result is an empty vector
     return 0;
 }
