@@ -1,7 +1,5 @@
 ```
 def sort_numbers(numbers: str) -> str:
-    if numbers == "one zero":
-        return "one zero"
     numbers = numbers.replace("-", " ")
     numbers = " ".join(filter(None, numbers.split()))
     num_dict = {
