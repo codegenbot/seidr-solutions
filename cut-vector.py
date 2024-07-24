@@ -1,16 +1,13 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+vector = [int(input()) for _ in range(n)]
+min_diff = abs(sum(vector))
+cut_index = -1
 
-min_diff = float("inf")
-cut_index = 0
 for i in range(1, n):
-    diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    diff = abs(sum(vector[:i]) - sum(vector[i:]))
     if diff < min_diff:
         min_diff = diff
         cut_index = i
 
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
-
-print(*subvector1)
-print(*subvector2)
+print(*vector[:cut_index])
+print(*vector[cut_index:])
