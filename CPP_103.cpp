@@ -1,6 +1,7 @@
 #include <string>
-#include <cmath> 
-string rounded_avg(int n,int m); 
+#include <cmath> // for floor()
+string rounded_avg(int n,int m); // declare the function before its use
+
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
