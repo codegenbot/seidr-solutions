@@ -3,8 +3,9 @@
 #include <string>
 #include <cctype>
 #include <unordered_map>
-#include <cassert>
+#include <assert>
 #include <ext/hashtable.h>
+#include <cassert>
 
 using namespace std;
 
