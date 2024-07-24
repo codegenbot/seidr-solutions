@@ -1,7 +1,4 @@
-#include <string>
-using namespace std;
-
-bool file_name_check(string file_name) {
+string file_name_check(string file_name) {
     bool has_digits = false;
     int dot_count = 0;
 
@@ -13,18 +10,18 @@ bool file_name_check(string file_name) {
             if (has_digits && has_digits < 3) {
                 has_digits++;
             } else {
-                return false;
+                return "No";
             }
         } else if (c == '.') {
             dot_count++;
             if (dot_count > 1) {
-                return false;
+                return "No";
             }
         }
     }
 
     if (!has_digits || dot_count != 1) {
-        return false;
+        return "No";
     }
 
     string ext = "";
@@ -38,10 +35,10 @@ bool file_name_check(string file_name) {
     }
 
     if (i > 0) {
-        return true;
+        return "Yes";
     } else if (ext == "txt" || ext == "exe" || ext == "dll") {
-        return true;
+        return "Yes";
     } else {
-        return false;
+        return "No";
     }
 }
