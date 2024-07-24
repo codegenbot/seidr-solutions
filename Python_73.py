@@ -1,5 +1,4 @@
-````
-"""def smallest_change(arr):
+def smallest_change(arr):
     n = len(arr)
     left, right = 0, n-1
     changes = 0
@@ -17,4 +16,6 @@
         right -= 1
     
     return changes
-```
+
+arr = list(map(str, input("Enter the array: ").split(",")))
+print("The smallest change needed is:", smallest_change(arr))
