@@ -1,6 +1,14 @@
-```
-def check(lst):
-    return "yes" if sum(i**2 for i in lst) > 10 else "no"
+def sum_squares(numbers):
+    return sum(i**2 for i in numbers)
 
 
-print(check([1, 2, 3, 11, 12]))
+def check(result):
+    if result > 100:
+        return "Bigger"
+    elif result == 100:
+        return "Equal"
+    else:
+        return "Smaller"
+
+
+print(check(sum_squares([1, 2, 3, 11, 12])))
