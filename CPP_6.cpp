@@ -1,5 +1,6 @@
 #include <stack>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -13,13 +14,17 @@ vector<int> parse_nested_parens(string paren_string) {
             nesting_levels.push(1);
             max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
-            int current_level = nesting_levels.top();
             nesting_levels.pop();
-            result.push_back(current_level);
-            max_nesting = max(max_nesting, current_level);
+            max_nesting = max(max_nesting, nesting_levels.empty() ? 0 : nesting_levels.top());
         }
     }
 
+    while (!nesting_levels.empty()) {
+        result.push_back(nesting_levels.top());
+        nesting_levels.pop();
+    }
+
     reverse(result.begin(), result.end());
+
     return result;
 }
