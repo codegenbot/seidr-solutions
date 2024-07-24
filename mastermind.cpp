@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 void calculatePegs(std::string code, std::string guess) {
@@ -28,4 +29,14 @@ void calculatePegs(std::string code, std::string guess) {
     }
 
     std::cout << "Black Pegs: " << blackPegs << ", White Pegs: " << whitePegs << std::endl;
+}
+
+int main() {
+    std::string code, guess;
+    std::cout << "Enter the code: ";
+    std::cin >> code;
+    std::cout << "Enter the guess: ";
+    std::cin >> guess;
+    calculatePegs(code, guess);
+    return 0;
 }
