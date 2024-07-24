@@ -17,11 +17,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "Hello world";
-    string target = "world";
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
+    string text = "hello world hello";
+    string target = "hello";
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (auto i : indices) {
         cout << i << endl;
     }
+
     return 0;
 }
