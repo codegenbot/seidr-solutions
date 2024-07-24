@@ -22,15 +22,25 @@ int main() {
     std::cin >> n;
 
     std::vector<int> vec1(n);
-    std::vector<int> vec2(n);
+    for(int i = 0; i < n; i++) {
+        vec1[i] = 0;
+    }
 
     for(int i = 0; i < n; i++) {
         int x;
-        std::cout << "Enter element " << i+1 << " for vector 1: ";
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> x;
         vec1[i] = x;
+    }
 
-        std::cout << "Enter element " << i+1 << " for vector 2: ";
+    std::vector<int> vec2(n);
+    for(int i = 0; i < n; i++) {
+        vec2[i] = 0;
+    }
+
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> x;
         vec2[i] = x;
     }
