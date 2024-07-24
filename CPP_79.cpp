@@ -1,9 +1,9 @@
 ```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-string decimal_to_binary(int decimal){
-    string binary = "";
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
     while(decimal > 0) {
         if (decimal % 2 == 0)
             binary.insert(0,"0");
