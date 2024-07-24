@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     result = ""
@@ -11,7 +12,7 @@ def decode_cyclic():
             result += group[1] + group[0] + group[2]
         else:
             result += group
-        i += 3
+        i += 1
     return result
 
-print(decode_cyclic())
+print(decode_cyclic())```
