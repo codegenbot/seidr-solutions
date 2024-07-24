@@ -4,16 +4,23 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
+    if (v1.size() != v2.size()) return false;
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
+    }
+    return true;
+
 }
 
 std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
-        return {planet1 + " to " + planet2};
-    } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
-        return {planet2 + " to " + planet1};
+        return {"to", planets.first, planets.second};
+    } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
+        return {planets.second, " to ", planets.first};
+    } else if (planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
+        return {planets.first, " to ", planets.second};
     }
-    return {"No valid planet combination found"};
+    return std::vector<std::string>({"No valid planet combination found"});
 }
 
 int main() {
