@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -17,10 +18,11 @@ string string_to_md5(string text) {
     EVP_DigestInit(&ctx, md_algorithm);
     EVP_DigestUpdate(&ctx, text.c_str(), text.size());
     unsigned char *digest = EVP_DigestFinal(&ctx, NULL, NULL);
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)digest[i];
+    if (digest != NULL) {
+        for (int i = 0; i < 16; ++i) {
+            ss << setfill('0') << setw(2) << hex << (int)digest[i];
+        }
     }
-    string ss_str = ss.str();  // get the stream contents as a string
     OPENSSL_free(digest);
-    return ss_str;
+    return ss.str();
 }
