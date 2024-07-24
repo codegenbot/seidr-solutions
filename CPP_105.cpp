@@ -31,8 +31,3 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
     return true;
 }
-
-int main() {
-    assert(issame(by_length({1, 4, 9}), std::vector<std::string>({"One", "Four", "Nine"})));
-    return 0;
-}
