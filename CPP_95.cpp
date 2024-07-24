@@ -1,19 +1,20 @@
-if(dict.empty()){
+if (dict.empty()) {
+    return false;
+}
+
+bool all_lower = true;
+bool all_upper = true;
+for (const auto& entry : dict) {
+    if (!isalpha(entry.first[0])) {
         return false;
     }
-    
-    bool allLowerCase = true;
-    bool allUpperCase = true;
-    
-    for(auto const &pair : dict){
-        string key = pair.first;
-        
-        if(!key.empty() && islower(key[0])){
-            allUpperCase = false;
-        } else if(!key.empty() && isupper(key[0])){
-            allLowerCase = false;
-        }
+    if (!islower(entry.first[0])) {
+        all_lower = false;
     }
-    
-    return allLowerCase || allUpperCase;
+    if (!isupper(entry.first[0])) {
+        all_upper = false;
+    }
+}
+
+return all_lower || all_upper;
 }
