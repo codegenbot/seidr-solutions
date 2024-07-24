@@ -1,23 +1,17 @@
+```cpp
 #include <vector>
-#include <cassert>
+#include <iostream>
+using namespace std;
 
-std::vector<int> make_a_pile(int n) {
+std::vector<int> make_pile(int n) {
     std::vector<int> pile;
-    for (int i = 2; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         pile.push_back(i * 2);
     }
     return pile;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -26,6 +20,11 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    vector<int> pile = make_pile(n);
+    // Test the function
+    assert(isSame(pile, make_pile(n)));
     return 0;
 }
