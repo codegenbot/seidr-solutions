@@ -1,35 +1,24 @@
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
+    if (lst.empty()) return result;
 
-    if (lst.empty()) {
-        return result;
-    }
+    vector<int> min_max;
+    min_max.push_back(*min_element(lst.begin(), lst.end()));
+    min_max.push_back(*max_element(lst.begin(), lst.end()));
 
-    int minVal = *min_element(lst.begin(), lst.end());
-    int maxVal = *max_element(lst.begin(), lst.end());
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+    lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
 
     while (!lst.empty()) {
-        if (result.empty() || result.back() == minVal) {
-            for (auto i : lst) {
-                if (i == minVal) {
-                    result.push_back(i);
-                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                    break;
-                }
-            }
-        } else {
-            for (auto i : lst) {
-                if (i == maxVal) {
-                    result.push_back(i);
-                    lst.erase(std::remove(lst.end() - 1, lst.begin() - 1, i), lst.end());
-                    break;
-                }
-            }
-        }
-
-        minVal = *min_element(lst.begin(), lst.end());
-        maxVal = *max_element(lst.begin(), lst.end());
+        min_max.push_back(*min_element(lst.begin(), lst.end()));
+        lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        if (!lst.empty())
+            min_max.push_back(*max_element(lst.begin(), lst.end()));
+        lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
     }
 
+    for (int i : min_max) {
+        result.push_back(i);
+    }
     return result;
 }
