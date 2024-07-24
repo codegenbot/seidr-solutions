@@ -20,7 +20,7 @@ int main() {
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<string> result;
+    vector<string> result;
 
     // Remove strings with odd lengths from the input list
     for (const auto& str : lst) {
