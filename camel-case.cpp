@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -24,15 +25,15 @@ int main() {
     std::string input;
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
-        std::cout << camelCase(input);
-        while (std::getline(iss, input, '-')) {
-            if (!input.empty()) {
-                if (!camelCase(input).empty())
-                    std::cout << " ";
-                std::cout << camelCase(input);
+        std::string group;
+        std::string output;
+        while (std::getline(iss, group, '-')) {
+            if (!group.empty()) {
+                output += camelCase(group);
+                if (!(input == group)) output += " ";
             }
         }
-        std::cout << '\n';
+        std::cout << output << "\n";
     }
     return 0;
 }
