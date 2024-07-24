@@ -1,18 +1,31 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int idx = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    int min_diff = INT_MAX;
+    int pos = -1;
+    
+    for (int i = 0; i < n; ++i) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j < i; ++j)
+            sum_left += v[j];
+        for (int j = i; j < n; ++j)
+            sum_right += v[j];
 
-    for (int i = 0; i < vec.size() - 1; i++) {
-        if (vec[i] == vec[i + 1]) continue;
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            idx = i;
+        if (sum_left == sum_right) {
+            return {{}, {v.begin(), v.end()}};
+        }
+
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            pos = i;
         }
     }
 
-    return {{}, {}}; // replace this with your actual implementation
+    vector<int> left(v.begin(), v.begin() + pos);
+    vector<int> right(v.begin() + pos, v.end());
+    
+    return {left, right};
 }
