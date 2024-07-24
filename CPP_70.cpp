@@ -1,9 +1,20 @@
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(int a, int b) {
+    if(a == b)
+        return true;
+    else
+        return false;
+}
+
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
-        if (min_val == max_val) {
+        if (issame(min_val, max_val)) {
             result.push_back(min_val);
             lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
         } else {
