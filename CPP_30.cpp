@@ -6,4 +6,3 @@ vector<float> get_positive(vector<float> l){
         if(i > 0) result.push_back(i);
     }
     return result;
-}
