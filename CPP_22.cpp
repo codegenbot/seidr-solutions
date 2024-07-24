@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 
@@ -6,7 +5,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -22,6 +21,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
         }
     }
     return result;
+
 }
 
 int main() {
