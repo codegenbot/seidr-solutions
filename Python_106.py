@@ -1,5 +1,8 @@
-def f(n):
-    return 1 if n == 0 else n * f(n - 1)
+import math
 
-# Test the function with the example given in the problem description
-print(f(5))
+
+def f(n):
+    return [
+        1 if i == 0 else math.factorial(i) if i % 2 == 0 else sum(range(1, i + 1))
+        for i in range(n + 1)
+    ]
