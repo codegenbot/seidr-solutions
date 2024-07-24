@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
