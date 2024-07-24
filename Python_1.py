@@ -1,4 +1,4 @@
-```python
+```
 from typing import list
 
 def separate_paren_groups(paren_string: str) -> list:
