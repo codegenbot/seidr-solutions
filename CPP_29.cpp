@@ -5,15 +5,9 @@
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
-    for(auto &s : a) {
-        bool found = false;
-        for(auto &t : b) {
-            if(s == t)
-                found = true;
-        }
-        if(!found)
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
             return false;
-    }
     return true;
 }
 
