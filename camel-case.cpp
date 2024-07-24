@@ -2,11 +2,11 @@
 #include <string>
 
 int main() {
-    const char* str = "camel-case example-test-string";
+    std::string str = "camel-case example-test-string";
     std::string result;
     bool capitalizeNext = true;
 
-    for (const char* p = str; *p; p++) {
+    for (char* p = str.c_str(); *p; p++) {
         if (*p == '-') {
             capitalizeNext = true;
             p++;
@@ -18,7 +18,7 @@ int main() {
         }
     }
 
-    std::cout << result.c_str() << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
