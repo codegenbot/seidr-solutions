@@ -1,12 +1,16 @@
 int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
-    for (char &c : s3) {
-        int idx = s1.find(c);
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    
+    string deciphered_message = "";
+    for (char c : message) {
+        size_t idx = cipher1.find(c);
         if (idx != string::npos) {
-            c = s2[idx];
+            deciphered_message += cipher2[idx];
         }
     }
-    cout << s3 << endl;
+    
+    cout << deciphered_message << endl;
+    
     return 0;
 }
