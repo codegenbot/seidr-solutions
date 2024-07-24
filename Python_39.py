@@ -1,11 +1,3 @@
-def is_prime(num: int) -> bool:
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
 def prime_fib(n: int) -> int:
     fib = [0, 1]
     while len(fib) < n:
@@ -15,7 +7,7 @@ def prime_fib(n: int) -> int:
 
     if n == 1:
         return 2
-    elif n > 1 and n <= len(prime_fib_nums):
+    elif n > 0 and n <= len(prime_fib_nums):
         return prime_fib_nums[n - 1]
     else:
         return None
