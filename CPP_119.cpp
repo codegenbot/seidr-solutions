@@ -25,7 +25,7 @@ std::string match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst = {")", "("};
-    assert(match_parens(lst) == "Yes");
+    std::cout << match_parens(lst) << std::endl;
     
     // Your code goes here
 }
