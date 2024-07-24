@@ -18,6 +18,6 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
 }
 
 int main() {
-    // Main function implementation can go here
+    // Your main function code here
     return 0;
 }
