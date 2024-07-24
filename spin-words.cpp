@@ -8,15 +8,17 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                std::string reversedWord;
-                for (auto it = word.rbegin(); it != word.rend(); ++it) {
-                    reversedWord += *it;
+                if (word.length() >= 5) {
+                    std::string reversedWord(word.rbegin(), word.rend());
+                    result += (reversedWord + " ");
+                } else {
+                    result += (word + " ");
                 }
-                result += (reversedWord + " ");
+                word.clear();
             } else {
                 result += (word + " ");
+                word.clear();
             }
-            word.clear();
         } else {
             word += str[i];
         }
@@ -24,10 +26,7 @@ std::string spinWords(std::string str) {
     
     // Check the last word
     if (word.length() >= 5) {
-        std::string reversedWord;
-        for (auto it = word.rbegin(); it != word.rend(); ++it) {
-            reversedWord += *it;
-        }
+        std::string reversedWord(word.rbegin(), word.rend());
         result += (reversedWord);
     } else {
         result += (word);
