@@ -6,7 +6,7 @@ bool evaluateBooleanExpression(const std::string& expr) {
     for (char c : expr) {
         lowercaseExpr += tolower(c);
     }
-    
+
     bool result = lowercaseExpr[0] == 't';
     for (int i = 1; i < lowercaseExpr.size(); i += 2) {
         if (lowercaseExpr[i] == '|') {
