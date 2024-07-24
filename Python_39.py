@@ -9,13 +9,15 @@ def is_prime(num):
 def prime_fib(n: int):
     if n == 1:
         return 2
-    if n == 2:
+    elif n == 2:
         return 3
-    fib = [1, 1]
-    while len(fib) < n:
-        fib.append(fib[-1] + fib[-2])
-    for num in fib:
-        if is_prime(num):
+    
+    fib = [0, 1]
+    i = 2
+    while True:
+        fib.append(fib[i-1] + fib[i-2])
+        if is_prime(fib[i]):
             n -= 1
             if n == 0:
-                return num
+                return fib[i]
+        i += 1
