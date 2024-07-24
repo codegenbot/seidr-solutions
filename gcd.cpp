@@ -28,8 +28,7 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 0;
-    int b = 0;
+    int a, b;
 
     cout << "Enter two integers: ";
     cin >> a >> b;
