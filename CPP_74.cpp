@@ -46,8 +46,8 @@ int main() {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a non-empty string.\n"; 
-            std::cout.flush(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while (cin.get() != '\n') {}
         }
         lst1.push_back(s);
     }
@@ -62,8 +62,8 @@ int main() {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a non-empty string.\n"; 
-            std::cout.flush(); 
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while (cin.get() != '\n') {}
         }
         lst2.push_back(s);
     }
