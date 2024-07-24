@@ -1,6 +1,10 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.begin() + k, arr.end());
-    copy(arr.begin(), arr.begin() + k, res.begin());
-    return res;
+    vector<int> result;
+    sort(arr.begin(), arr.end());
+    for(int i = 0; i < k; i++) {
+        result.push_back(arr[arr.size() - 1 - i]);
+    }
+    return result;
 }
