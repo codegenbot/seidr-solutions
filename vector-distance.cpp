@@ -25,4 +25,4 @@ int main() {
     std::cout << std::sqrt(sum) << "\n";
 
     return 0;
-} 
+}
