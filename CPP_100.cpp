@@ -3,11 +3,9 @@
 #include <vector>
 
 std::vector<std::pair<int, int>> make_a_pile(int n) {
-    std::vector<std::pair<int, int>>(n/2) pile;
+    std::vector<std::pair<int, int>> pile;
     for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) { 
-            pile.push_back({(i - 1) * 2, (i - 1) * 2 + 1});
-        }
+        pile.push_back({2*i - 1, 2*i});
     }
     return pile;
 }
