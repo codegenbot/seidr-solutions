@@ -14,11 +14,11 @@ int main() {
     int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = cents;
-    cents /= 5;
-
-    pennies += cents;
-    cents %= 5;
+    int pennies = cents % 5;
+    if (cents >= 5) {
+        nickles = cents / 5;
+        cents %= 5;
+    }
 
     cout << quarters << endl;
     cout << dimes << endl;
