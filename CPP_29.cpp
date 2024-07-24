@@ -2,33 +2,10 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-std::vector<std::string> filter_by_prefix(std::vector<std::string>, std::string);
+bool issame(vector<string> a, vector<string> b);
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<std::string> words(n);
-
-    for (auto &word : words) {
-        std::cin >> word;
-    }
-
-    std::string prefix;
-    std::cin >> prefix;
-
-    bool same = issame(words, filter_by_prefix(words, prefix));
-
-    if(same)
-        std::cout << "Same" << std::endl;
-    else
-        std::cout << "Not Same" << std::endl;
-
-    return 0;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -40,11 +17,33 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(auto str : strings) {
         if(str.find(prefix) == 0)
             result.push_back(str);
     }
     return result;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<string> words(n);
+
+    for (auto &word : words) {
+        cin >> word;
+    }
+
+    string prefix;
+    cin >> prefix;
+
+    bool same = issame(words, filter_by_prefix(words, prefix));
+
+    if(same)
+        cout << "Same" << endl;
+    else
+        cout << "Not Same" << endl;
+
+    return 0;
 }
