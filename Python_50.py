@@ -2,17 +2,26 @@
 def decode_shift():
     while True:
         try:
-            shift = int(input("Enter the shift amount (0-25): "))
-            if not 0 <= shift <= 25:
-                print("Invalid input. Please enter a number between 0 and 25.")
-                continue
+            shift = int(input("Enter the shift amount: "))
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-    s = input().lower()
+    while True:
+        s = input().lower()
+        
+        if not set(s).issubset('abcdefghijklmnopqrstuvwxyz'):
+            print("Please provide some text to decode.")
+        else:
+            while True:
+                try:
+                    choice = input("Do you want to continue? (yes/no): ").lower()
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter 'yes' or 'no'.")
 
-    if not set(s).issubset('abcdefghijklmnopqrstuvwxyz'):
-        return "".join([ch for ch in s])
-    else:
-        return "".join([chr((ord(ch) - 97 - shift) % 26 + 97) if ch.isalpha() else ch for ch in s])
+            if choice == "yes":
+                return "".join([chr((ord(ch) - 97 - shift) % 26 + 97) if ch.isalpha() else ch for ch in s])
+            elif choice == "no":
+                print("Program terminated.")
+                exit()
