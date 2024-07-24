@@ -1,39 +1,23 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + (currentFrame < 10 ? getBonus(s, i+1) : 0);
-            currentFrame++;
-        } else if (s[i] == '/') {
-            int pins = 10 - (s[i-1] - '0');
-            int nextPins = s[i+1] - '0';
-            score += pins + nextPins;
-            currentFrame++;
+    int roll = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            roll++;
+        } else if (c == '/') {
+            score += 10 - ('0' - (c - '0')) + roll;
+            roll = 0;
         } else {
-            int pins = s[i] - '0' + (s[i+1] == 'X' ? 10 : s[i+1] - '0');
-            score += pins;
-            if (currentFrame < 9) {
-                currentFrame++;
+            int points = '0' - c;
+            if (roll < 2) {
+                score += points;
+                roll++;
+            } else {
+                score += 10 + points;
+                roll = 0;
             }
         }
     }
     return score;
-}
-
-int getBonus(string s, int i) {
-    int bonus = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
-            bonus += 10 + (getBonus(s, i+1) > 0 ? getBonus(s, i+1) : 0);
-            return bonus;
-        } else if (s[i] == '/') {
-            int pins = 10 - (s[i-1] - '0');
-            int nextPins = s[i+1] - '0';
-            bonus += pins + nextPins;
-            return bonus;
-        }
-        i++;
-    }
-    return bonus;
 }
