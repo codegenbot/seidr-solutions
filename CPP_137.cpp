@@ -47,9 +47,9 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    cout << "Case 1: " << std::any_cast<string>(compare_one(1, 2.5)) << endl;
-    cout << "Case 2: " << std::any_cast<string>(compare_one(1, "2,3")) << endl;
-    cout << "Case 3: " << std::any_cast<string>(compare_one("5,1", "6")) << endl;
-    cout << "Case 4: " << std::any_cast<string>(compare_one("1", 1)) << endl;
+    cout << "Case 1: " << compare_one(1, 2.5) << endl;
+    cout << "Case 2: " << compare_one(1, "2,3") << endl;
+    cout << "Case 3: " << compare_one("5,1", "6") << endl;
+    cout << "Case 4: " << compare_one("1", 1) << endl;
     return 0;
 }
