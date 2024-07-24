@@ -1,12 +1,12 @@
+```cpp
 #include <iostream>
-#include<string>
-#include<algorithm>
-#include<stdexcept>
-#include<any>
+#include <string>
+#include <any>
+#include <stdexcept>
 
 using namespace std;
 
-std::any compare_one(std::any a, std::any b) {
+any compare_one(any a, any b) {
     if (a.type() == typeid(double) && b.type() == typeid(string)) {
         double da = std::any_cast<double>(a);
         string db = std::any_cast<string>(b);
@@ -31,7 +31,7 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            throw runtime_error("Strings are equal");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double da = std::any_cast<double>(a);
@@ -41,15 +41,15 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            throw runtime_error("Numbers are equal");
     }
-    return "None";
+    throw runtime_error("Invalid input");
 }
 
 int main() {
-    cout << compare_one(1.0, 2.5) << endl;
-    cout << compare_one(1, "2.3") << endl;
-    cout << compare_one("5.1", "6") << endl;
-    cout << compare_one("1", 1.0) << endl;
+    cout << compare_one(1, 2.5) << endl;
+    cout << compare_one(1, "2,3") << endl;
+    cout << compare_one("5,1", "6") << endl;
+    cout << compare_one("1", 1) << endl;
     return 0;
 }
