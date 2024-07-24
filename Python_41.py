@@ -1,4 +1,3 @@
-```
 def car_race_collision(n: int):
     if n < 2:
         return False
