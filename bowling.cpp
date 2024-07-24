@@ -1,43 +1,37 @@
-int findScore(string bowls) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    int rolls[21];
-
-    for (char c : bowls) {
+int bowling(string s) {
+    int score = 0, frame = 0, ball = 0;
+    for (char c : s) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
+            score += 10;
+            if (frame < 9) {
+                score += (s[ball + 1] == 'X') ? 10 + ((s[ball + 2] == 'X') ? 10 : s[ball + 2] - '0') : (s[ball + 2] == '/') ? 10 : s[ball + 1] - '0';
             }
+            ball++;
+            frame++;
         } else if (c == '/') {
-            rolls[ball - 1] = 10 - rolls[ball - 2];
+            score += 10 - (s[ball - 1] - '0');
+            score += (frame < 9) ? (s[ball + 1] == 'X') ? 10 : s[ball + 1] - '0' : 0;
+            ball++;
         } else if (c == '-') {
-            rolls[ball++] = 0;
+            ball++;
         } else {
-            rolls[ball++] = c - '0';
+            score += c - '0';
+            if (frame < 9 && c != '0') {
+                if (s[ball + 1] == '/') {
+                    score += 10 - (c - '0');
+                }
+            }
+            ball++;
+            if (c != '0') {
+                frame++;
+            }
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[frame * 2 - 2] == 10) {
-            score += 10 + rolls[frame * 2] + rolls[frame * 2 + 1];
-            frame++;
-        } else if (rolls[frame * 2 - 2] + rolls[frame * 2 - 1] == 10) {
-            score += 10 + rolls[frame * 2];
-            frame++;
-        } else {
-            score += rolls[frame * 2 - 2] + rolls[frame * 2 - 1];
-            frame++;
-        }
-    }
-
     return score;
 }
-
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << findScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << bowling(s) << endl;
     return 0;
 }
