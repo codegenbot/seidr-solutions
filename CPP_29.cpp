@@ -3,10 +3,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix);
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -31,6 +27,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
-    
+
     return 0;
 }
