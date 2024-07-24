@@ -1,4 +1,4 @@
-string_to_md5(string text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "Invalid Input";
     }
@@ -10,10 +10,10 @@ string_to_md5(string text) {
     MD5_Update(&ctx, text.c_str(), text.size());
     MD5_Final(md, &ctx);
 
-    stringstream ss;
+    string result = "";
     for (int i = 0; i < 16; ++i) {
-        ss << setfill(2) << setw(2) << hex << (int)md[i];
+        result += setfill(2) << setw(2) << hex << (int)md[i];
     }
 
-    return ss.str();
+    return result;
 }
