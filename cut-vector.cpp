@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
-#include <cllimits>
-#include <cmath>
+#include <climits> 
+#include <cmath> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -19,7 +20,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
     
     if (!nums.empty()) {
-        result.push_back(vector<int>(nums.begin(), nums.end()));
+        result.push_back(nums);
     }
 
     return result;
