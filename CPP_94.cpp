@@ -3,7 +3,7 @@
 #include <vector>
 #include <cmath>
 
-int maxPrimeNum = 2;
+int maxPrimeNum = -1;
 std::vector<int> lst;
 
 bool isPrime(int x) {
@@ -33,6 +33,7 @@ int main() {
         std::cin >> x; 
         lst.push_back(x);
     }
+    maxPrimeNum = -1;
     for(int j : lst){
         if(isPrime(j) && j > maxPrimeNum)
             maxPrimeNum = j;
