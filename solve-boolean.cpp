@@ -23,20 +23,25 @@ bool solveBoolean(const std::string& s) {
     if (left == "t") result = true;
     else if (left == "f") result = false;
 
-    if (right == "t") return result || solveBoolean(right);
-    else if (right == "f") return !result && solveBoolean(right);
+    if (right == "t" || right == "") return result;
+    else if (right == "f") return !result && solveBoolean(right.c_str());
 
     if (s[i] == '|') {
-        return solveBoolean(left) || solveBoolean(right);
+        return solveBoolean(left.c_str()) || solveBoolean(right.c_str());
     } else {
-        return solveBoolean(left) && solveBoolean(right);
+        return solveBoolean(left.c_str()) && solveBoolean(right.c_str());
     }
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    bool result = solveBoolean(s);
-    std::cout << (result ? "True" : "False") << std::endl;
+    std::string input;
+    while(true) {
+        std::cout << "Enter a Boolean expression: ";
+        std::getline(std::cin, input);
+        if(input == "t" || input == "f") break;
+        bool result = solveBoolean(input);
+        if (result) std::cout << "True" << std::endl;
+        else std::cout << "False" << std::endl;
+    }
     return 0;
 }
