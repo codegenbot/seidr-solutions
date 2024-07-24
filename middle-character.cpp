@@ -1,15 +1,11 @@
-string middleCharacter(string s) {
-    int n = s.size();
-    if (n % 2 == 0) {
-        return s.substr(n/2 - 1, 2);
-    } else {
-        return s.substr(n/2, 1);
-    }
-}
-
 int main() {
     string s;
-    getline(cin, s);
-    cout << middleCharacter(s) << endl;
+    cin >> s;
+    int len = s.length();
+    if (len % 2 == 0) {
+        cout << s.substr(len/2 - 1, 2) << endl;
+    } else {
+        cout << s.substr(len/2, 1) << endl;
+    }
     return 0;
 }
