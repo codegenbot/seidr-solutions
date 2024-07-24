@@ -1,13 +1,21 @@
 ```
-def bowling_score(bowling):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for i in range(10):
-        if '/' in str(bowling)[i]:
-            a, b = map(int, str(bowling)[i].split('/'))
-            score += a + b
-            roll = max(a, b)
+    frame = 0
+    for roll in frames:
+        if roll == 'X':
+            score += 30
+            frame += 1
+        elif roll == '/':
+            first_roll = int(roll[0])
+            second_roll = 10 - first_roll
+            score += (first_roll + second_roll)
+            frame += 1
         else:
-            score += int(str(bowling)[i])
-            roll = int(str(bowling)[i])
+            first_roll = int(roll[0])
+            if len(roll) > 1 and roll[1] == '/':
+                score += (first_roll * 2)
+                frame += 1
+            else:
+                score += first_roll
     return score
