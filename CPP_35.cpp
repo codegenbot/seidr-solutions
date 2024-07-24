@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <vector>
 
-int findMax(std::vector<int> l) {
+int maxElement(std::vector<int> l) {
     return *std::max_element(l.begin(), l.end());
 }
