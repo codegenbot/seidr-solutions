@@ -11,7 +11,7 @@ def mastermind(code, guess):
             code_counts[ord(code[i]) - ord("A")] += 1
             guess_counts[ord(guess[i]) - ord("A")] += 1
 
-    for i in range(6):
-        white_pegs += min(code_counts[i], guess_counts[i])
+    matching_counts = sum(min(count, other) for count, other in zip(code_counts, guess_counts))
+    white_pegs = matching_counts - black_pegs
 
     return str(black_pegs) + " " + str(white_pegs)
