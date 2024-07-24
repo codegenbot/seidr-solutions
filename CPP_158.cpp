@@ -1,24 +1,19 @@
+```cpp
 #include <string>
 #include <vector>
-#include <algorithm>
 
 int find_max(std::vector<std::string> words){
-    int max_count = 0;
-    std::string max_word = "";
-    
+    int max_length = -1;
+    string max_word;
+
     for(const auto &word : words){
-        int count = 0;
-        char first_char = word[0];
+        if(word[0] == ' ') continue; // Ignore spaces at the beginning of a word
         
-        for(char c : word){
-            if(c == first_char) count++;
-        }
-        
-        if(count > max_count){
-            max_count = count;
+        if(count(word.begin(), word.end(), word[0]) > max_length){
+            max_length = count(word.begin(), word.end(), word[0]);
             max_word = word;
         }
     }
-    
-    return max_word.size();
+
+    return max_length;
 }
