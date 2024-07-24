@@ -11,7 +11,7 @@ def decode_cyclic():
             result += group[1] + group[0] + group[2]
         else:
             result += group
-        i += 1  
+        i += 1 
     return result
 
 print(decode_cyclic())
