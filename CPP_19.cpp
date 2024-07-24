@@ -1,21 +1,34 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_num_map;
-for (auto const &pair : num_map) {
-    rev_num_map[pair.second] = pair.first;
-}
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-vector<int> sorted_nums;
-stringstream ss(numbers);
-string word;
-while (ss >> word) {
-    sorted_nums.push_back(num_map[word]);
-}
-sort(sorted_nums.begin(), sorted_nums.end());
+string sort_numbers(string numbers){
+    map<int, string> sorted_numbers;
+    string result = "";
 
-string result;
-for (int num : sorted_nums) {
-    result += rev_num_map[num] + " ";
-}
-result.pop_back();
-return result;
+    string number;
+    for (int i = 0; i < numbers.length(); ++i) {
+        if (numbers[i] == ' ') {
+            sorted_numbers[number_map[number]] = number;
+            number = "";
+        } else {
+            number += numbers[i];
+        }
+    }
+    sorted_numbers[number_map[number]] = number;
+
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
+    }
+
+    return result.substr(0, result.size() - 1);
 }
