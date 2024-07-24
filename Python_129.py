@@ -1,16 +1,19 @@
 def minPath(grid, k):
-    N = len(grid)
-    for i in range(N):
-        grid[i] = [(j + 1) * N + val for j, val in enumerate(grid[i])]
-    queue = [(grid[0][0], [grid[0][0]])]
-    visited = set((0, 0))
-    while queue:
-        (val, path) = queue.pop(0)
-        if len(path) == k + 1:
-            return path
-        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            x, y = (i + dx, j + dy) if (dx, dy) == (0, 1) else ((i + dy, j + dx))
-            if 0 <= x < N and 0 <= y < N and (x, y) not in visited:
-                queue.append((grid[x][y], path + [grid[x][y]]))
-                visited.add((x, y))
-    return []
+    n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+
+    def dfs(i, j, path, visited):
+        if len(path) == k:
+            return [path]
+
+        paths = []
+        for x, y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and m[ni][nj] not in visited:
+                visited.add(m[ni][nj])
+                paths.extend(dfs(ni, nj, path + [m[ni][nj]], visited))
+                visited.remove(m[ni][nj])
+
+        return sorted(set([path + p for p in paths]))
+
+    return min(dfs(0, 0, [], set()), key=lambda x: (x.count(min(x)), x.index(min(x))))
