@@ -28,7 +28,16 @@ int count_nums(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3};
+    std::vector<int> nums;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element "<< (i+1) << ": ";
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
+    }
     int result = count_nums(nums);
     std::cout << "Result: " << result << std::endl;
     return 0;
