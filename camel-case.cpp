@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <string>
 #include <cctype>
 
@@ -19,6 +19,5 @@ int main() {
             result += tolower(str[i]);
         }
     }
-    std::cout << result << std::endl;
     return 0;
 }
