@@ -1,17 +1,16 @@
-#include <iostream>
 #include <string>
-#include <cctype>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr;
-    for (char c : expr) {
-        lowercaseExpr += std::tolower(c);
+    std::string lowercaseExpr = expr;
+    for (char& c : lowercaseExpr) {
+        c = tolower(c);
     }
-    
+
     bool result = true;
     bool andFlag = true;
-    
-    for (char c : lowercaseExpr) {
+
+    for (size_t i = 0; i < lowercaseExpr.size(); ++i) {
+        char c = lowercaseExpr[i];
         if (c == 'f') {
             result = false;
         } else if (c == 't') {
@@ -26,17 +25,6 @@ bool evaluateBooleanExpression(const std::string& expr) {
             andFlag = false;
         }
     }
-    
-    return result;
-}
 
-int main() {
-    std::string input;
-    std::cout << "Enter boolean expression: ";
-    std::getline(std::cin, input);
-    
-    bool result = evaluateBooleanExpression(input);
-    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
-    
-    return 0;
+    return result;
 }
