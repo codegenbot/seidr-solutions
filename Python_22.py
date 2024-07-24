@@ -1,6 +1,10 @@
-from typing import List, Any
+```python
+import sys
 
-def filter_integers(values: List[Any]) -> None:
-    for value in values:
-        if not isinstance(value, int):
-            raise ValueError(f"Expected integer but received {value}")
+while True:
+    line = sys.stdin.readline().strip()
+    if line == 'q':  
+        break
+    values = list(map(int, line.split()))
+    result = [value for value in values if isinstance(value, int)]
+    print(result)
