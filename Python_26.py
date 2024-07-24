@@ -1,6 +1,5 @@
 ```
 from typing import List
 
-
-def remove_duplicates(input_str: str) -> List[int]:
-    return list(set(map(int, input_str.split(','))))
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return list(set(numbers))
