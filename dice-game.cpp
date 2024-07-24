@@ -1,14 +1,13 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double solve(int n, int m) {
-    double total = 0.0;
+    double total = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < i; j++) {
-            if(j<=m)continue;
-            total += 1.0 / n / m;
+            if(j <= m)
+                total += 1.0 / n / m;
         }
     }
     return 1 - total;
