@@ -22,7 +22,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i]);
     }
 
-    cout << total << endl;
+    cout << total << endl; // Output without fixed precision
 
     return 0;
 }
