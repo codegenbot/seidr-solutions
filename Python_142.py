@@ -12,6 +12,6 @@ try:
             else:
                 print("Please enter a positive integer.")
         except ValueError:
-            print("Invalid input. Please try again. Use only numbers (e.g., 123) or leave the field blank to exit.")
+            print("Invalid input. Please try again.")
 except Exception as e:
     print(f"An error occurred: {e}")
