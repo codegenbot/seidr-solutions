@@ -12,16 +12,13 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<vector<int>> order_by_points(vector<vector<int>> nums) {
     vector<pair<int, int>> numSumIndex;
-
+    
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
-        int n = 0;
-        for(int j = 0; j < nums[i].size(); j++) {
-            n = nums[i][j];
-            while (n > 0) {
-                sum += n % 10;
-                n /= 10;
-            }
+        int n = nums[i][0];
+        while (n > 0) {
+            sum += n % 10;
+            n /= 10;
         }
         numSumIndex.push_back({sum, i});
     }
@@ -34,4 +31,21 @@ vector<vector<int>> order_by_points(vector<vector<int>> nums) {
     }
     
     return result;
+}
+
+int main() {
+    // Example usage:
+    vector<vector<int>> nums = {{1, 2}, {3, 4}, {5, 6}};
+    vector<vector<int>> result = order_by_points(nums);
+    for (auto& num : result) {
+        cout << "[";
+        for (int i = 0; i < num.size(); i++) {
+            cout << num[i];
+            if (i < num.size() - 1) {
+                cout << ", ";
+            }
+        }
+        cout << "]\n";
+    }
+    return 0;
 }
