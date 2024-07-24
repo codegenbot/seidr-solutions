@@ -14,10 +14,10 @@ string validateTweet(string tweet) {
 }
 
 int main() {
-    cout << validateTweet("") << endl; 
     string tweet;
     cout << "Enter your tweet: ";
     getline(cin, tweet);
-    cout << "Result of validation: " << validateTweet(tweet) << endl;
+    string output = validateTweet(tweet);
+    cout << output << endl;
     return 0;
 }
