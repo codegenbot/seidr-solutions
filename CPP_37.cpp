@@ -1,12 +1,13 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
 
-bool std::issame(std::vector<float> a, std::vector<float> b) {
+bool std::operator==(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-5) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
