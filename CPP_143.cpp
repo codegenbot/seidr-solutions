@@ -28,12 +28,12 @@ vector<string> split(const string& str, char delimiter) {
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
     string result;
-    
+
     for (const auto& word : words) {
         if (is_prime(word.length())) {
             result += word + " ";
         }
     }
-    
+
     return result.substr(0, result.size() - 1);
 }
