@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the corrected code:
 
 #include <vector>
 #include <string>
@@ -19,21 +19,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.size();
-    int m = target.size();
-
-    for(int i = 0; i <= n - m; i++) {
-        if(text.substr(i, m) == target) {
-            result.push_back(i);
-        }
-    }
-
-    return result;
-
-}
-
 int main() {
     string text = "Hello World";
     string target = "o";
@@ -42,4 +27,3 @@ int main() {
         cout << i << endl;
     }
     return 0;
-}
