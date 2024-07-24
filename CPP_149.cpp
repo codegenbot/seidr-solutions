@@ -1,12 +1,13 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
+// Define issame function
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
+// Define sorted_list_sum function
 int sorted_list_sum(vector<vector<string>> lst) {
     int sum = 0;
     for (auto &list : lst) {
