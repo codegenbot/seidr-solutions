@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
