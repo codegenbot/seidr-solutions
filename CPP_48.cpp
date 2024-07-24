@@ -1,7 +1,12 @@
-string trimmed = "";
-for (char c : text) {
-    if (!ispunct(c)) {
-        trimmed += tolower(c);
+bool is_palindrome(string text){
+    int start = 0;
+    int end = text.size() - 1;
+    while(start < end){
+        if(text[start] != text[end]){
+            return false;
+        }
+        start++;
+        end--;
     }
+    return true;
 }
-return trimmed == istringstream(trimmed)->str();
