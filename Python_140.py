@@ -12,4 +12,4 @@ def check(text):
         text = text.replace("__", "_-")
     return text
 
-print(check(input("Your input here")))
+check(input("Your input here: "))
