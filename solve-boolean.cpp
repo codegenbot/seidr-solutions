@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -30,27 +29,25 @@ bool solveBoolean(std::string expression) {
 
             std::string left = expression.substr(0, left_end);
             std::string right = expression.substr(right_start, expression.size() - right_start);
-
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
             size_t left_end = 0;
             size_t right_start = i + 1;
 
             for (; left_end < i; left_end++) {
-                if (expression[left_end] == '|' || expression[left_end] == '&') {
+                if (expression[left_end] == '&' || expression[left_end] == '|') {
                     break;
                 }
             }
 
             for (; right_start <= expression.size(); right_start++) {
-                if (expression[right_start] == '|' || expression[right_start] == '&') {
+                if (expression[right_start] == '&' || expression[right_start] == '|') {
                     break;
                 }
             }
 
             std::string left = expression.substr(0, left_end);
             std::string right = expression.substr(right_start, expression.size() - right_start);
-
             return solveBoolean(left) && solveBoolean(right);
         }
     }
