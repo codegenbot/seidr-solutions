@@ -1,3 +1,4 @@
+```
 int add_elements(vector<int> arr, int k) {
     if (k < 1 || arr.empty())
         return -1; 
