@@ -27,6 +27,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {"())(", "((()))"};
-    cout << match_parens(input);
+    std::vector<std::string> input = {"())((()))", "()"};
+    std::cout << match_parens(input);
 }
