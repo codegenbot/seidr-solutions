@@ -1,5 +1,4 @@
-Here is the completed code:
-
+```
 def middle_character(s):
     length = len(s)
     if length % 2 == 0:
