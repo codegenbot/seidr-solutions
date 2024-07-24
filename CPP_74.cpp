@@ -47,7 +47,7 @@ int main() {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            while (cin.get() != '\n') {}
+            while(getline(cin, s)){}
         }
         lst1.push_back(s);
     }
@@ -63,7 +63,7 @@ int main() {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            while (cin.get() != '\n') {}
+            while(getline(cin, s)){}
         }
         lst2.push_back(s);
     }
