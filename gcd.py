@@ -1,2 +1,6 @@
-user_input = input("Please enter two integers separated by a space: ")
-num1, num2 = map(int, user_input.split())
+inputs = input("Please enter two integers separated by a space: ").split()
+
+if len(inputs) == 2:
+    num1, num2 = map(int, inputs)
+else:
+    print("Please enter exactly two integers separated by a space.")
