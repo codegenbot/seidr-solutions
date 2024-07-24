@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -8,20 +7,23 @@ def find_zero():
             a = float(input("Enter coefficient 'a': "))
             b = float(input("Enter coefficient 'b': "))
             c = float(input("Enter coefficient 'c': "))
-
-            discriminant = b**2 - 4 * a * c
-
-            if discriminant > 0:
-                x1 = (b + math.sqrt(discriminant)) / (2 * a)
-                x2 = (b - math.sqrt(discriminant)) / (2 * a)
-                return f"Root 1: {round(x1, 2)}, Root 2: {round(x2, 2)}"
-            elif discriminant == 0:
-                x = -b / (2 * a)
-                return f"Root: {round(x, 2)}"
-            else:
-                return "No real roots found"
+            break
         except ValueError:
             print("Invalid input. Please enter numeric values.")
 
+    discriminant = b**2 - 4 * a * c
 
-print(find_zero())
+    if discriminant > 0:
+        x1 = (b + math.sqrt(discriminant)) / (2 * a)
+        x2 = (b - math.sqrt(discriminant)) / (2 * a)
+        return f"Root 1: {round(x1, 2)}, Root 2: {round(x2, 2)}"
+    elif discriminant == 0:
+        x = -b / (2 * a)
+        return f"Root: {round(x, 2)}"
+    else:
+        return "No real roots found"
+
+
+while True:
+    print("Find roots of quadratic equation ax^2 + bx + c = 0: ")
+    print(find_zero())
