@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <stack>
 #include <string>
-using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = false; 
@@ -24,13 +22,13 @@ bool solveBoolean(string expression) {
         }
     }
     
-    result = (s.top() == 'T'); 
+    result = s.top() == 'T'; 
     return result;
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    cout << (solveBoolean(expression) ? "True" : "False");
+    std::string expression;
+    std::cin >> expression;
+    std::cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
 }
