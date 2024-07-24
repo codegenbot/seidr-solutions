@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string camelCase(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -19,4 +23,12 @@ std::string camelCase(const std::string& str) {
     }
     
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
 }
