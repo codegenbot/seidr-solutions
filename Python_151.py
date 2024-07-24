@@ -1,6 +1,5 @@
-def double_the_difference(lst):
-    try:
-        odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-        return odd_sum * 2
-    except TypeError:
-        return "Error: Please provide a list of integers."
+def check():
+    n = int(input("Enter a positive integer: "))
+    m = int(input("Enter another positive integer: "))
+    numbers = [n, m]
+    print(double_the_difference(numbers))
