@@ -7,11 +7,13 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
+    text = input("Enter a string: ")
     while True:
-        text = input("Enter a string: ")
-        if text.strip() != "":
+        if text.strip() == "":
+            print("Please enter a valid input.")
+        elif not text.isalnum():
+            print("Invalid input. Please enter alphanumeric characters only.")
+        else:
             break
-        print("Please enter a valid input.")
-
     result = string_to_md5(text.lower())
     print(result)
