@@ -1,38 +1,44 @@
-int calculateBowlingScore(const string& bowls) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    for (char ch : bowls) {
-        if (ch == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball + 1] == 'X' ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10));
-                score += (bowls[ball + 2] == 'X' ? 10 : (isdigit(bowls[ball + 2]) ? bowls[ball + 2] - '0' : 10));
-            }
-            ball++;
-            frame++;
-        } else if (ch == '/') {
-            score += 10 - (isdigit(bowls[ball - 1]) ? bowls[ball - 1] - '0' : 0);
-            score += (bowls[ball + 1] == 'X' ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10));
-            ball += 2;
-            frame++;
-        } else if (isdigit(ch)) {
-            score += ch - '0';
-            ball++;
-            if (isdigit(bowls[ball - 1])) {
-                score += bowls[ball - 1] - '0';
-                if (frame < 10 && bowls[ball] == '/') {
-                    score += 10 - (bowls[ball - 1] - '0');
-                }
-            }
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    int rolls = 0;
+    vector<int> points(21, 0);
+
+    for (char c : s) {
+        if (c == 'X') {
+            points[rolls] = 10;
+            rolls++;
+        } else if (c == '/') {
+            points[rolls] = 10 - points[rolls - 1];
+            rolls++;
+        } else if (c == '-') {
+            points[rolls] = 0;
+            rolls++;
+        } else {
+            points[rolls] = c - '0';
+            rolls++;
         }
     }
-    return score;
+
+    for (int i = 0; frame < 10; i += 2) {
+        if (points[i] == 10) {
+            total += 10 + points[i + 1] + points[i + 2];
+            frame++;
+        } else if (points[i] + points[i + 1] == 10) {
+            total += 10 + points[i + 2];
+            frame++;
+        } else {
+            total += points[i] + points[i + 1];
+            frame++;
+        }
+    }
+
+    return total;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
