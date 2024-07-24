@@ -21,15 +21,14 @@ def factorize(n: int) -> List[int]:
 
 
 while True:
-    n = input("Enter a positive integer (or 'q' to quit): ")
+    n = input("Enter a number: ")
     if n.lower() == 'q':
         break
     try:
         n = int(n)
+        if n > 0: 
+            print(*factorize(n), sep=', ')
+        else: 
+            print("Please enter a positive integer.")
     except ValueError:
         print("Invalid input. Please enter an integer or 'q' to quit.")
-        continue
-    if n > 0: 
-        print(*factorize(n), sep=', ')
-    else: 
-        print("Please enter a positive integer.")
