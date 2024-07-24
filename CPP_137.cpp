@@ -1,5 +1,8 @@
-#include <iostream>
-#include <boost/any.hpp>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+#include<boost/more_traits.hpp>
 
 using namespace std;
 
@@ -16,9 +19,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (numB > numA) {
             return b;
         } else {
-            return "None";
+            return boost::any("None");
         }
     } else {
-        return "None";
+        return boost::any("None");
     }
 }
