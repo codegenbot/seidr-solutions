@@ -1,24 +1,20 @@
 #include <iostream>
 using namespace std;
 
-double diceGame(int n, int m) {
-    double count = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                count++;
-            }
-        }
+double getProbability(int n, int m) {
+    double totalOutcomes = (double)n * m;
+    double petersWins = 0;
+    
+    for (int i = 1; i <= m - 1; i++) {
+        petersWins += (double)(n - i + 1);
     }
-    return count / (double)(n * m);
+    
+    return petersWins / totalOutcomes;
 }
 
 int main() {
     int n, m;
-    cout << "Enter the number of sides on Peter's die: ";
-    cin >> n;
-    cout << "Enter the number of sides on Colin's die: ";
-    cin >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m);
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << getProbability(n, m) << endl;
     return 0;
 }
