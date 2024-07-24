@@ -13,18 +13,21 @@ def print_result():
                 "Invalid input. Please enter a valid quantity of apples and/or oranges."
             )
 
-    count_apples = 0
-    count_oranges = 0
-    for match in re.finditer(r"(\d+)\s*(apples|oranges)", s):
-        quantity = int(match.group(1))
-        fruit = match.group(2)
-        if fruit == "apples":
-            count_apples += quantity
-        else:
-            count_oranges += quantity
+    try:
+        count_apples = 0
+        count_oranges = 0
+        for match in re.finditer(r"(\d+)\s*(apples|oranges)", s):
+            quantity = int(match.group(1))
+            fruit = match.group(2)
+            if fruit == "apples":
+                count_apples += quantity
+            else:
+                count_oranges += quantity
 
-    print(f"Apples: {count_apples}")
-    print(f"Oranges: {count_oranges}")
+        print(f"Apples: {count_apples}")
+        print(f"Oranges: {count_oranges}")
+    except ValueError:
+        print("Invalid input. Please enter a valid quantity of apples and/or oranges.")
 
 
 if __name__ == "__main__":
