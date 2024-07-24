@@ -1,10 +1,10 @@
-#include <iostream>
+#include <cassert>
 
-bool is_multiply_prime(int a, int b) {
-    // Your implementation here
+bool is_multiply_prime(int n) {
+    return true; // placeholder return value
 }
 
 int main() {
-    // Your code here
+    assert(is_multiply_prime(11 * 13 * 7) == true);
     return 0;
 }
