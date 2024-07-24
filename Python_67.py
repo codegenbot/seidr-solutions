@@ -1,10 +1,10 @@
-```
+```Python
 import re
 
 def print_result():
     while True:
         s = input("Enter quantity of apples and/or oranges (e.g., 2 apples or 3 oranges): ")
-        if re.search(r"(\d+)\s*(apples|oranges)", s.lower()):
+        if re.search(r"\b(\d+)\s*(apples|oranges)\b", s.lower()):
             break
         else:
             print("Invalid input. Please enter a valid quantity of apples and/or oranges.")
