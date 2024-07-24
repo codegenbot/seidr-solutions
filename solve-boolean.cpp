@@ -1,40 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
+    char lastOp = ' ';
+
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T')
-            return true;
-        else if (s[i] == 'F')
-            return false;
-
-        int j = i + 1;
-        while (j <= s.length() && (s[j] == '|' || s[j] == '&'))
-            j++;
-
-        string opStr = s.substr(i, j - i);
-        i = j - 1;
-
-        if (opStr[0] == '|') {
-            for (; i >= 0; i--) {
-                if (s[i] == 'T')
-                    return true;
-                else if (s[i] == 'F')
-                    return false;
+        if (s[i] == 'T' || s[i] == 'F') {
+            result = (s[i] == 'T') ? true : false;
+        } else if (s[i] == '|' || s[i] == '&') {
+            if (lastOp == '|') {
+                return result;
+            } else if (lastOp == '&') {
+                return result && true;  // Assuming `&` has higher precedence
             }
-            result = true;
         } else {
-            for (; i >= 0; i--) {
-                if (s[i] == 'T' && opStr[1] != '|')
-                    return true;
-                else if (s[i] == 'F' && opStr[1] != '&')
-                    return false;
-            }
-            result = false;
+            // Ignore invalid characters
         }
+
+        lastOp = s[i];
     }
 
     return result;
@@ -45,6 +30,9 @@ int main() {
     cout << "Enter a Boolean expression: ";
     cin >> s;
     bool result = solveBoolean(s);
-    cout << "Result: " << (result ? "True" : "False") << endl;
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
     return 0;
 }
