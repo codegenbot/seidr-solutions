@@ -1,9 +1,8 @@
-```cpp
-#include <algorithm>
+#include <iostream>
 #include <string>
 
 std::string filp_case(const std::string& str) {
-    for (auto i = 0; i < str.length(); ++i) {
+    for (int i = 0; i < str.length(); i++) {
         if (islower(str[i])) {
             str[i] = toupper(str[i]);
         } else if (isupper(str[i])) {
@@ -11,4 +10,9 @@ std::string filp_case(const std::string& str) {
         }
     }
     return str;
+}
+
+int main() {
+    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
