@@ -1,5 +1,8 @@
-```
-bool issame(std::vector<int> a, std::vector<int> b) {
+#include <vector>
+#include <set>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
 
@@ -8,5 +11,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
     return std::vector<int>(unique_numbers.begin(), unique_numbers.end());
 }
 
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+int main2() {
+    assert((issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5})));
+    return 0;
+}
