@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -6,7 +5,6 @@ int main() {
     int nums[100]; // array to store numbers
     int n; // number of elements in the array
     int max_val = INT_MIN; // initialize maximum value as negative infinity
-
     std::string str;
 
     // ask for number of elements in the array
@@ -19,7 +17,7 @@ int main() {
         std::cin >> nums[i];
     }
 
-    str = "The elements are: "; 
+    str = "The elements are: "; // initialize string with the header
 
     for (int i = 0; i < n; i++) { 
         if(i == n-1) {
