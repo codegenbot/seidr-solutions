@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     new_text = ""
     if not text[0].isalnum() and text[0] not in ["-", "_"]:
