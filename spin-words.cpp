@@ -1,7 +1,5 @@
-```cpp
-#include <string>
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 string spinWords(string sentence) {
@@ -26,6 +24,26 @@ string spinWords(string sentence) {
     return result;
 }
 
+string spinWords(string sentence) {
+    string reversed = "";
+    string temp = "";
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            for (int j = temp.length() - 1; j >= 0; j--) {
+                reversed += temp[j];
+            }
+            temp = "";
+            reversed += " ";
+        } else {
+            temp += sentence[i];
+        }
+    }
+    for (int j = temp.length() - 1; j >= 0; j--) {
+        reversed += temp[j];
+    }
+    return reversed;
+}
+
 int main() {
     string input;
     while (true) {
@@ -35,4 +53,3 @@ int main() {
         cout << spinWords(input) << endl;
     }
     return 0;
-}
