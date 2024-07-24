@@ -1,9 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <limits>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -32,7 +31,7 @@ int main() {
             vec1.clear();
             break;
         }
-        if (num > std::numeric_limits<float>::max()) {
+        if (num > 3.4e38) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec1.clear();
             break;
@@ -54,7 +53,7 @@ int main() {
             vec2.clear();
             break;
         }
-        if (num > std::numeric_limits<float>::max()) {
+        if (num > 3.4e38) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec2.clear();
             break;
