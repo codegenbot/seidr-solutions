@@ -1,36 +1,28 @@
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    stack<string> valStack;
+#include <iostream>
+using namespace std;
 
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                string temp1 = valStack.top();
-                valStack.pop();
-                string temp2 = valStack.top();
-                valStack.pop();
-                valStack.push(temp1 + " & (" + temp2 + ")");
-            }
-            opStack.push('&');
-        } else if (expression[i] == '|') {
-            while (!opStack.empty()) {
-                opStack.pop();
-                string temp1 = valStack.top();
-                valStack.pop();
-                string temp2 = valStack.top();
-                valStack.pop();
-                valStack.push(temp1 + " | (" + temp2 + ")");
-            }
-            opStack.push('|');
-        } else if (expression[i] == 't' || expression[i] == 'f') {
-            string str;
-            while (i < expression.size() && (expression[i] == 't' || expression[i] == 'f')) {
-                str += expression[i++];
-            }
-            valStack.push(str);
+bool evaluateBoolean(string expression) {
+    if(expression[0] == 'T' || expression[0] == 't') return true;
+    else if(expression[0] == 'F' || expression[0] == 'f') return false;
+    else {
+        int i = 1, j = 0;
+        while(i < expression.size()) {
+            if(expression[i] == '|') break;
+            i++;
         }
+        string left = expression.substr(1, i-1);
+        string right = expression.substr(i+1);
+        return evaluateBoolean(left) || evaluateBoolean(right);
     }
+}
 
-    return (valStack.top() == "t");
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    if(evaluateBoolean(expression))
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
 }
