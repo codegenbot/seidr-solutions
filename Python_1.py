@@ -1,6 +1,5 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -22,8 +21,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if current_group:
         result.append(current_group)
-
+        
     return result
-
 
 print(separate_paren_groups("abc(def)ghi(jkl)mno"))
