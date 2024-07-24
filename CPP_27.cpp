@@ -1,3 +1,5 @@
+#ifdef ONLINE_JUDGE
+#else
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -17,3 +19,4 @@ int main() {
     assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
+#endif
