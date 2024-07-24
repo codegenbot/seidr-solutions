@@ -6,12 +6,15 @@ using namespace std;
 
 vector<int> leaders(vector<int>& v) {
     vector<int> res;
-    int max_right = v.back();
     for (int i = v.size() - 1; i >= 0; --i) {
-        if (v[i] >= max_right) {
-            res.push_back(v[i]);
-            max_right = v[i];
+        bool leader = true;
+        for (int j = i + 1; j < v.size(); ++j) {
+            if (v[j] >= v[i]) {
+                leader = false;
+                break;
+            }
         }
+        if (leader) res.push_back(v[i]);
     }
     return res;
 }
@@ -19,12 +22,10 @@ vector<int> leaders(vector<int>& v) {
 int main() {
     int n;
     cin >> n;
-    vector<int> v; 
-    v.reserve(n); 
+    vector<int> v;
+    v.resize(n);
     for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        v.push_back(x);
+        cin >> v[i];
     }
     vector<int> res = leaders(v);
     for (int i = 0; i < res.size(); ++i) {
