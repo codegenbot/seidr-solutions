@@ -1,2 +1,5 @@
 def digitSum(n):
-    return sum(int(digit) for digit in filter(str.isdigit, str(n)))
+    return sum(
+        int(digit)
+        for digit in str(n).replace(" ", "").lower().replace(",", "").replace(".", "")
+    )
