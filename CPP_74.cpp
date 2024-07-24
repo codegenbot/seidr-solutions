@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -33,22 +33,8 @@ vector<string> match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    int n1, n2;
-    cout << "Enter the number of strings for list 1: ";
-    cin >> n1;
-    vector<string> lst1(n1);
-    cout << "Enter string " << n1 << " for list 1:\n";
-    for (int i = 0; i < n1; i++) {
-        cin >> lst1[i];
-    }
-
-    cout << "Enter the number of strings for list 2: ";
-    cin >> n2;
-    vector<string> lst2(n2);
-    cout << "Enter string " << n2 << " for list 2:\n";
-    for (int i = 0; i < n2; i++) {
-        cin >> lst2[i];
-    }
+    vector<string> lst1 = {"a", "b", "c"};
+    vector<string> lst2 = {"d", "e", "f"};
 
     if (same(lst1, lst2)) {
         cout << "The lists are the same.\n";
