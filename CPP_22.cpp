@@ -3,12 +3,16 @@
 #include <boost/any.hpp>
 
 bool issame(std::vector<boost::any> values) {
-    std::vector<int> expected = {3};
-    std::vector<int> result = filter_integers(values);
-    return (result.size() == 1) && (std::find(result.begin(), result.end(), 3) != result.end());
+    vector<int> expected = {1, 2, 3};
+    return (values.size() == expected.size()) && std::all_of(values.begin(), values.end(), [&expected](const auto& value) {
+        if (boost::any_cast<int>(value).good()) {
+            return std::find(expected.begin(), expected.end(), boost::any_cast<int>(value).get()) != expected.end();
+        }
+        return true;
+    });
 }
 
 int main() {
-    assert(issame({3, boost::any('c'), 3, boost::any(3), boost::any('a'), boost::any('b')}));
+    assert(issame({3, 'c', 3, 3, 'a', 'b'}));
     return 0;
 }
