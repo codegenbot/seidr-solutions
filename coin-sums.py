@@ -1,11 +1,12 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    for i, coin in enumerate(sorted(coins, reverse=True)):
-        count = min((cents + coin - 1) // coin, (result[i] + 1))
-        cents -= count * coin
-        result[i] += count
+    for coin in sorted(coins, reverse=True):
+        count = cents // coin
+        cents %= coin
+        result[coins.index(coin)] += count
 
     return result
 
