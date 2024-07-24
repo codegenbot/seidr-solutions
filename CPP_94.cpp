@@ -1,13 +1,5 @@
 #include <vector>
-#include <cassert>
-
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
+using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
@@ -24,6 +16,11 @@ int skjkasdkd(vector<int> lst){
     return sum_of_digits;
 }
 
-int main() {
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+
 }
