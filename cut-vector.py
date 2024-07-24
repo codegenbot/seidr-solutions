@@ -1,24 +1,20 @@
-def cut_vector(vector):
-    total_sum = sum(vector)
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        remaining_sum = total_sum - current_sum
-        if current_sum == remaining_sum or abs(current_sum - remaining_sum) < abs(
-            sum(output1) - sum(output2)
-        ):
-            return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+def cut_vector(arr):
+    cum_sum = [0] + list(itertools.accumulate(arr))
+    total_sum = cum_sum[-1]
+    best_diff = total_sum
+    best_idx = -1
+
+    for i in range(1, len(arr)):
+        diff = abs(2 * cum_sum[i] - total_sum)
+        if diff < best_diff:
+            best_diff = diff
+            best_idx = i
+
+    return arr[:best_idx], arr[best_idx:]
 
 
-input_vector = []
-while True:
-    try:
-        line = input()
-        input_vector.append(int(line))
-    except EOFError:
-        break
+input_vals = [int(input()) for _ in range(2)]
+output = cut_vector(input_vals)
 
-output1, output2 = cut_vector(input_vector)
-print(*output1, sep="\n")
-print(*output2, sep="\n")
+for subvector in output:
+    print(*subvector)
