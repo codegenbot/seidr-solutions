@@ -1,9 +1,8 @@
-#include <iostream>
 #include <variant>
-#include <any>
 #include <string>
+#include <any>
 
-using namespace std;
+using std::any;
 
 variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
     return visit([&](auto&& a, auto&& b) -> variant<string, int, float> {
@@ -39,29 +38,4 @@ variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
             return "Non";
         }
     }, a, b);
-}
-
-int main() {
-    string input1;
-    int input2;
-
-    cout << "Enter the first value: ";
-    cin >> input1;
-
-    cout << "Enter the second value: ";
-    cin >> input2;
-
-    auto result = compare_one(any(input1), any(input2));
-
-    if (holds_alternative<string>(result)) {
-        cout << "The comparison is: " << get<string>(result) << endl;
-    } else if (holds_alternative<int>(result)) {
-        int value = get<int>(result);
-        cout << "The comparison is: " << value << endl;
-    } else {
-        float value = get<float>(result);
-        cout << "The comparison is: " << value << endl;
-    }
-
-    return 0;
 }
