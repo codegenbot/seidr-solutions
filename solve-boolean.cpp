@@ -1,64 +1,52 @@
-#include <iostream>
-#include <string>
-
-bool solveBoolean(std::string expression) {
-    if (expression.size() == 0)
-        return true;
-
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == 'T' || c == 't')
+bool solveBoolean(string expression) {
+    if (expression.size() > 0) {
+        if (expression[0] == 'T' || expression[0] == 't')
             return true;
-        else if (c == 'F' || c == 'f')
+        else if (expression[0] == 'F' || expression[0] == 'f')
             return false;
-        else if (c == '|') {
-            size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '|') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(start, i - start);
-            size_t end = i + 1;
-            for (; end < expression.size(); end++) {
-                if (expression[end] == '|') {
-                    break;
-                }
-            }
-            std::string right = expression.substr(end, expression.size() - end);
-            return solveBoolean(left) || solveBoolean(right);
-        } else if (c == '&') {
-            size_t start = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '&') {
-                    start = j+1;
-                    break;
-                }
-            }
-            std::string left = expression.substr(start, i - start);
-            size_t end = i + 1;
-            for (; end < expression.size(); end++) {
-                if (expression[end] == '&' || expression[end] == '|') {
-                    break;
-                }
-            }
-            std::string right = expression.substr(end, expression.size() - end);
-            return solveBoolean(left) && solveBoolean(right);
-        }
     }
-    return true;
 
+    int start = 0, end = 0;
+    while ((end = expression.find('|', start)) != std::string::npos) {
+        string left = expression.substr(start, end - start);
+        string right = expression.substr(end + 1);
+
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
+
+        start = end + 1;
+    }
+
+    while ((end = expression.find('&', start)) != std::string::npos) {
+        string left = expression.substr(start, end - start);
+        string right = expression.substr(end + 1);
+
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
+
+        start = end + 1;
+    }
+
+    if (start < expression.size()) {
+        string last = expression.substr(start);
+
+        if (last.size() > 0 && (last[0] == 'T' || last[0] == 't'))
+            return true;
+
+        return false;
+    }
+
+    return false;
 }
 
 int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     if (result)
-        std::cout << "True";
+        cout << "True";
     else
-        std::cout << "False";
+        cout << "False";
     return 0;
 }
