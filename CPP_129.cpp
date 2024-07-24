@@ -40,6 +40,7 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         tie(i, j) = make_pair(nextPoses[0].second, nextPoses[0].first);
     }
     
-    assert (minPath({{1, 3}, {3, 2}}, 10) == vector<int>(1, 3, 1, 3, 1, 3, 1, 3, 1, 3));
     return res;
 }
+
+assert (minPath({{1, 3}, {3, 2}}, 10) == vector<int>(1, 3, 1, 3, 1, 3, 1, 3, 1, 3));
