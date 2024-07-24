@@ -8,15 +8,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> rolling_max(const std::vector<int>& input) {
     std::vector<int> result;
+    std::vector<int> max_values;
 
     for (size_t i = 0; i < input.size(); ++i) {
-        int curr_max = input[i];
-        for (size_t j = i + 1; j < input.size(); ++j) {
-            if (input[j] > curr_max) {
-                curr_max = input[j];
-            }
+        while (!max_values.empty() && max_values.back() < input[i]) {
+            max_values.pop_back();
         }
-        result.push_back(curr_max);
+        max_values.push_back(input[i]);
+        result.push_back(max_values.front());
     }
 
     return result;
