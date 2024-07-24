@@ -1,14 +1,11 @@
-def solveBoolean(input_string):
-    if input_string == "T":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input_string == "F":
+    elif expression == "F":
         return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid operation")
+    elif "&" in expression:
+        return all(expression.split("&"))
     else:
-        for i in range(len(input_string)):
-            if input_string[i] == "&":
-                return (
-                    input_string[:i].lower() == "t"
-                    and input_string[i + 1 :].lower() == "t"
-                )
-            elif input_string[i] == "|":
-                return input_string.lower().index("t") < input_string.lower().index("|")
+        return any(expression.split("|"))
