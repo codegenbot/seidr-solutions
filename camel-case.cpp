@@ -1,19 +1,25 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
-    bool capitalizeNext = true;
+std::string camelCase(const std::string& str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
+        }
+    }
 
-    for (char c : s) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+    std::string result;
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += char(toupper(word[0]));
+            result.erase(1);
         } else {
-            result += tolower(c);
+            result += word;
         }
     }
 
@@ -21,10 +27,9 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::cout << camelCase(input) << std::endl;
-
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
