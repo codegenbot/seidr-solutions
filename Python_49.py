@@ -1,6 +1,3 @@
 ```
 def modp(n: int, p: int):
-    if n < p:
-        return n
-    else:
-        return (n % p)
+    return pow(n, (p-2)%p, p) * n % p
