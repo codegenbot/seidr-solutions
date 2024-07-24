@@ -1,4 +1,3 @@
-```c
 bool is_sorted(vector<int> lst) {
     if (lst.size() <= 1)
         return true;
