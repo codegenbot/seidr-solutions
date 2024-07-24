@@ -1,3 +1,4 @@
+```
 def sum_of_squares(n):
     result = 0
     while True:
