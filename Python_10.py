@@ -1,14 +1,14 @@
 ```
-def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
 
-def make_palindrome(s: str) -> str:
-    if s == s[::-1]:
-        return s + s
-    for i in range(len(s)):
-        postfix = s[i:]
+def make_palindrome(string: str) -> str:
+    if string == string[::-1]:
+        return string + string
+    for i in range(len(string)):
+        postfix = string[i:]
         if postfix == postfix[::-1]:
-            prefix = s[:i][::-1]
+            prefix = string[:i][::-1]
             return prefix + postfix
-    prefix = s[::-1]
-    return prefix + s
+    prefix = string[::-1]
+    return prefix + string
