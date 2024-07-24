@@ -12,8 +12,9 @@ std::vector<int> filter_integers(const boost::any& values) {
         if (boost::any_cast<bool>(value)) {
             try {
                 result.push_back(boost::any_cast<int>(value));
-            } catch (...) {
-                // error handling
+            } catch(const boost::bad_any_cast&) {
+                // handle the error
+                return result;
             }
         }
     }
