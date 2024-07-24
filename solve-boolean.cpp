@@ -1,12 +1,6 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string s; 
-    bool result = solveBoolean(s); 
-    return 0;
-}
-
 bool solveBoolean(string s) {
     bool res = true;
     for (int i = 0; i < s.length(); i++) {
@@ -17,4 +11,16 @@ bool solveBoolean(string s) {
         }
     }
     return res;
+}
+
+int main() {
+    string input;
+    cout << "Enter the Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    if (result)
+        cout << "The resulting Boolean is true." << endl;
+    else
+        cout << "The resulting Boolean is false." << endl;
+    return 0;
 }
