@@ -1,8 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
 double find_zero(vector<double> xs);
 double poly(vector<double> coeffs, double x);
+
+// Your code here
 
 double find_zero(vector<double> xs){
     double x = 1;
