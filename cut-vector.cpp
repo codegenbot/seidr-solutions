@@ -1,15 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 int main() {
     std::vector<int> nums;
-    std::string input;
-    while (std::cin >> input) {
-        if (!isdigit(input[0])) {
-            break;
-        }
-        int n = std::stoi(input);
+    int n;
+    while (std::cin >> n || !std::cin.eof()) {
         nums.push_back(n);
     }
 
