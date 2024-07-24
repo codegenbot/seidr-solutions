@@ -1,4 +1,5 @@
-K = input("Enter a number (0 or 1): ")
+```
+K = input("Enter a number: ")
 if K.isdigit() and (int(K) == 0 or int(K) == 1):
     if int(K) == 1:
         print("0")
