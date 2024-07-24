@@ -3,10 +3,10 @@ from typing import List
 
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if len(s) > len(substring)]
+    return [s for s in strings if substring in s]
 
 
-user_strings = input("Enter a list of strings (space separated): ").split()
+user_strings = [s.strip() for s in input("Enter a list of strings (space separated), comma-separated: ").split(',')]
 user_substring = input("Enter the substring to search for: ")
 
 try:
