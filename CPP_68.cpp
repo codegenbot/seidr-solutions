@@ -21,3 +21,4 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if(smallestEven != INT_MAX) result.push_back({smallestEven, smallestIndex});
     
     return result;
+}
