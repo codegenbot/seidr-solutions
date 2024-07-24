@@ -1,13 +1,15 @@
+```python
 def match_parens(lst):
-    s1 = lst[0]
-    s2 = lst[1]
+    if any(c not in '()()' for c in lst[0] + lst[1]):
+        return "No"
     stack = []
-    for c in s1 + s2:
+    for c in lst[0] + lst[1]:
         if c == '(':
             stack.append(c)
         elif c == ')':
-            if not stack or stack.pop() != '(':
+            if not stack:
                 return 'No'
+            stack.pop()
     if stack:
         return 'No'
     return 'Yes'
