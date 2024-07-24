@@ -1,49 +1,21 @@
-def solve(input):
-    if input == "t":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input == "f":
+    elif expression == "F":
         return False
-    elif "&" in input and "|" in input:
-        left, right = input.split("&")
-        left = left.strip()
-        right = right.strip()
-        if "|" in left:
-            left = eval(left)
-        else:
-            left = left == "t"
-        if "|" in right:
-            right = eval(right)
-        else:
-            right = right == "t"
-        return left and right
-    elif "&" in input:
-        left, right = input.split("&")
-        left = left.strip()
-        right = right.strip()
-        if "|" in left:
-            left = eval(left)
-        else:
-            left = left == "t"
-        if "|" in right:
-            right = eval(right)
-        else:
-            right = right == "t"
-        return left and right
-    elif "|" in input:
-        left, right = input.split("|")
-        left = left.strip()
-        right = right.strip()
-        if "&" in left:
-            left = eval(left)
-        else:
-            left = left == "t"
-        if "&" in right:
-            right = eval(right)
-        else:
-            right = right == "t"
-        return left or right
-    elif "|" in input and "&" not in input:
-        left, right = input.split("|")
-        left = left.strip()
-        right = right.strip()
-        return eval(left) or eval(right)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char in {"&", "|"}:
+                right = stack.pop()
+                left = stack.pop()
+                if char == "&":
+                    result = left and right
+                elif char == "|":
+                    result = left or right
+                stack.append(result)
+            else:
+                stack.append(char != "F")
+        return stack[0]
