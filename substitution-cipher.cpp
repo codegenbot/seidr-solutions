@@ -12,8 +12,8 @@ int main() {
     std::getline(std::cin, message);
 
     std::vector<std::pair<char, char>> cipherMap;
-    for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap.emplace_back(cipher1[i], cipher2[i]);
+    for(int i = 0; i < cipher1.size(); i++) {
+        cipherMap.push_back({cipher1[i], cipher2[i]});
     }
 
     std::string result = "";
