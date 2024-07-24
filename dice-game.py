@@ -1,2 +1,4 @@
-def dice_game(n, m):
-    return (n - 1) / m if n > m else (m - 1) / n
+def probability(n, m):
+    total_outcomes = n * m
+    favorable_outcomes = min(n, m)
+    return favorable_outcomes / total_outcomes
