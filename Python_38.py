@@ -1,18 +1,20 @@
 def encode_cyclic(s: str, n: int):
-    result = ""
-    temp = s[:n]
-    for i in range(n, len(s), n):
-        result += temp[1:] + temp[0]
-        temp = s[i : i + n]
-    result += temp[1:] + temp[0]
-    return result
+    groups = [s[i : i + n] for i in range(0, len(s), n)]
+    encoded = []
+    for group in groups:
+        if len(group) == n:
+            encoded.append(group[1:] + group[0])
+        else:
+            encoded.append(group)
+    return "".join(encoded)
 
 
 def decode_cyclic(s: str, n: int):
-    result = ""
-    temp = s[:n]
-    for i in range(n, len(s), n):
-        result += temp
-        temp = s[i : i + n][1:] + s[i : i + n][0]
-    result += temp
-    return result
+    groups = [s[i : i + n] for i in range(0, len(s), n)]
+    decoded = []
+    for group in groups:
+        if len(group) == n:
+            decoded.append((groups[-1] + group[1 : n + 1])[::-1])
+        else:
+            decoded.append(group)
+    return "".join(decoded)
