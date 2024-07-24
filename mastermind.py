@@ -1,6 +1,7 @@
-def get_mastermind_clue(code, guess):
-    black_pegs = sum(
-        [c1 == c2 and i == j for i, c1 in enumerate(code) for j, c2 in enumerate(guess)]
+def mastermind(code, guess):
+    white = sum(1 for a, b in zip(guess, code) if a == b)
+    black = sum(
+        min(map(lambda x: 1 if guess[i] == code[j] and i != j else 0, range(4)))
+        for i, j in enumerate(range(4))
     )
-    white_pegs = sum([c1 in code and c1 != guess[i] for i in range(4)])
-    return str(white_pegs), str(black_pegs)
+    return str(black), str(white)
