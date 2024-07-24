@@ -1,9 +1,2 @@
-def leaders(input):
-    result = []
-    max_right = max(input)
-    for x in reversed(input):
-        if x >= max_right:
-            result.append(x)
-        else:
-            max_right = x
-    return result[::-1]
+def leaders(a):
+    return [a[i] for i in range(len(a) - 1, -1, -1) if not any(x > a[i] for x in a[:i + 1])]
