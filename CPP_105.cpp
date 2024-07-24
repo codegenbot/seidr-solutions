@@ -1,16 +1,16 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
     vector<string> result;
-    for (int num : nums) {
+    for (int num : arr) {
         string str = "";
         switch (num) {
             case 1:
@@ -45,4 +45,9 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Four", "Eight"}));
+    // ...
 }
