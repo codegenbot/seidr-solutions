@@ -1,23 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 int main() {
     int n;
-    cin >> n;
-    vector<float> vec1(n);
+    std::cin >> n;
+    std::vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+        std::cin >> vec1[i];
     }
     
-    cin >> n;
-    vector<float> vec2(n);
+    std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+        std::cin >> vec2[i];
     }
     
-    float sum = 0;
+    float sum = 0.0;
     for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
     
-    cout << sqrt(sum) << endl;
+    n = vec1.size(); // Update n to ensure correct size for further calculations
+    
+    float distance = sqrt(sum);
+    std::cout << distance << std::endl;
     
     return 0;
 }

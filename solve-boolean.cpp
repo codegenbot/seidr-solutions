@@ -2,14 +2,14 @@
 #include <string>
 
 int main() {
-    std::string expr;
-    std::cin >> expr;
-    
-    if (expr == "t") {
-        std::cout << "True" << std::endl;
+    std::string input;
+    std::cin >> input;
+
+    if (input == "t") {
+        std::cout << "True";
     } else {
-        std::cout << "False" << std::endl;
+        std::cout << "False";
     }
-    
+
     return 0;
 }
