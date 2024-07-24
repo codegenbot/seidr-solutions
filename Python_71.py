@@ -1,16 +1,12 @@
+```
+import math
+
+
 def sum_of_squares(n):
     result = 0
-    while True:
-        try:
-            n = float(input("Enter a positive integer: "))
-            if n > 0:
-                for i in range(1, n + 1):
-                    result += i**2
-                return result
-            else:
-                print("Please enter a positive number.")
-        except ValueError:
-            print("Invalid input. Please enter numbers.")
+    for i in range(1, int(n) + 1):
+        result += i**2
+    return result
 
 
 def check(area):
@@ -24,15 +20,27 @@ def check(area):
 while True:
     while True:
         try:
-            base = float(input("Enter the base of the triangle: "))
-            height = float(input("Enter the height of the triangle: "))
-
-            if base > 0 and height > 0:
+            n = float(input("Enter a positive integer: "))
+            if n > 0:
                 break
             else:
-                print("Please enter positive values for both base and height.")
+                print("Please enter a positive integer.")
         except ValueError:
-            print("Invalid input. Please enter numbers.")
+            print("Invalid input. Please enter a number.")
+    base = int(n)
+    
+while True:
+    while True:
+        try:
+            height = float(input("Enter the height of the triangle: "))
+            if height > 0:
+                break
+            else:
+                print("Please enter a positive value for the height.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    base_height = (base * height) / 2
 
-    result = sum_of_squares(int((base * height) / 2))
-    check(result)
+check(base_height)
+print("The area of the triangle is: ", base_height)
+sum_of_squares(int(base_height))
