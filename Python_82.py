@@ -1,5 +1,4 @@
-```
-def hex_key(num):
+def prime_length(string):
     def is_prime(n):
         if n < 2:
             return False
@@ -7,6 +6,5 @@ def hex_key(num):
             if n % i == 0:
                 return False
         return True
-
-    count = sum(1 for digit in num.upper() if (digit.isdigit() and is_prime(int(digit))) or digit in 'BDF')
-    return count
+    
+    return is_prime(len(string))
