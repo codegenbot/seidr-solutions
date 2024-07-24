@@ -1,7 +1,7 @@
-#include <vector> // Include necessary headers
+#include <vector> 
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){ // Change function signature to include const and std::
-    return a == b; // Return comparison result directly
+bool issame(std::vector<int> a, std::vector<int> b){ 
+    return a == b; 
 }
 
 std::vector<int> pluck(const std::vector<int>& arr){
@@ -22,4 +22,9 @@ std::vector<int> pluck(const std::vector<int>& arr){
     }
     
     return result;
+}
+
+int main() {
+    // call to pluck function and issame here
+    return 0;
 }
