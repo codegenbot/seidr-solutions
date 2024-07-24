@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 #include <unordered_map>
 
 int main() {
@@ -19,7 +21,7 @@ int main() {
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
-            result += cipherMap.at(c);
+            result += cipherMap[c];
         } else {
             // Handle characters not in the cipher map by keeping them unchanged
             result += c;
