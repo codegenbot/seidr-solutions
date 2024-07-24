@@ -1,4 +1,3 @@
-```
 def find_prime_factors(a):
     def is_prime(n):
         if n < 2:
@@ -9,12 +8,9 @@ def find_prime_factors(a):
         return True
 
     factors = []
-    while a > 1:
-        for i in range(2, a+1):
-            if a % i == 0:
-                is_i_prime = is_prime(i)
-                if is_i_prime:
-                    a //= i
-                    factors.append(i)
-                    break
-    return factors
+    for i in range(2, a + 1):
+        while a % i == 0:
+            factors.append(i)
+            a //= i
+    prime_factors = [f for f in set(factors) if is_prime(f)]
+    return prime_factors
