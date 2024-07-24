@@ -1,3 +1,4 @@
+```Python
 def count_upper(s):
     count = 0
     for i in s:
