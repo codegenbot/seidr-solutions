@@ -4,6 +4,6 @@ def parse_music(music_string: str) -> List[int]:
     notes = {"do": 4, "re": 2, "mi": 1}
     return [notes[note] for note in music_string.split()]
 
-music_string = input()  # For example, enter 'do re mi'
+music_string = input("Enter music notes separated by spaces (e.g., 'do re mi'): ").strip()
 result = parse_music(music_string)
 print(result)
