@@ -1,3 +1,6 @@
+```
+import math
+
 def max_fill(grid, capacity):
-    total_water = sum(1 if cell == 1 else 0 for row in grid for cell in row)
-    return -(-total_water // capacity) if capacity > 0 else float('inf')
+    max_fills = math.ceil(sum(len([cell for cell in row if cell]) for row in grid) / capacity)
+    return max_fills if capacity > 0 else float('inf')
