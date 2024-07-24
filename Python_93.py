@@ -6,7 +6,7 @@ def encode(message):
                 ascii_offset = 97 if char.islower() else 64
                 result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
             else: 
-                result += chr(ord(char))
-        else: 
+                result += char.lower()
+        elif not char.isalnum():
             result += char
     return result
