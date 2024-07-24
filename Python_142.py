@@ -1,3 +1,4 @@
+```
 def sum_squares():
     total_sum = 0
     while True:
