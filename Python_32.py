@@ -1,5 +1,6 @@
 import math
 
+
 def find_zero():
     xs = list(map(int, input().split()))
 
@@ -13,6 +14,7 @@ def find_zero():
         return (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
     else:
         return (-b + math.sqrt(discriminant)) / (3 * a)
+
 
 result = find_zero()
 print(result)
