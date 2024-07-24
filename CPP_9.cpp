@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <climits>
 
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -18,17 +20,12 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> rolling_max(vector<int> numbers);
 
 int main() {
-    vector<int> numbers = {1, 3, 5, 2, 6, 4};
+    vector<int> numbers = {1, 3, 5, 2, 8, 7};
     vector<int> result = rolling_max(numbers);
     for(int i=0; i<result.size(); i++){
         cout << result[i] << " ";
     }
     cout << endl;
-
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    cout << issame(a, b) << endl;
-
     return 0;
 }
 
