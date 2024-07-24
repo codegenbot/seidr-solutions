@@ -28,10 +28,7 @@ int main() {
     string text, target;
 
     cout << "Enter two integers a and b: ";
-    if (!(cin >> a >> b)) {
-        cerr << "Invalid input for integers" << endl;
-        return 1;
-    }
+    cin >> a >> b;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
