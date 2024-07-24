@@ -29,4 +29,5 @@ int main() {
         else
             std::cout << "False" << std::endl; 
     }
+    return 0;
 }
