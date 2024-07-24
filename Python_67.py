@@ -5,7 +5,7 @@ def fruit_distribution(s, n):
         if word.lower() == "apple" or word.lower() == "orange":
             total_fruit += 1
 
-    max_per_box = min(total_fruit // 2, n)
-    remaining_fruits = total_fruit - max_per_box * 2
+    max_per_box = min(total_fruit // (n + 1), n)
+    remaining_fruits = total_fruit - (max_per_box * (n + 1))
 
-    return min(n, max_per_box + (remaining_fruits + max_per_box) // n)
+    return int(((total_fruit - 1) / max_per_box) + 0.5)
