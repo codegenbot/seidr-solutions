@@ -1,6 +1,9 @@
-def process_numbers(numbers, delimiter):
+from typing import List
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = []
-    for num in numbers:
+    for num in numbers[:-1]:
         result.extend([num, delimiter])
-    result.pop()
+    if numbers:
+        result.append(numbers[-1])
     return result
