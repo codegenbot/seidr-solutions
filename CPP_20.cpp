@@ -3,7 +3,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <limits>
 
 bool sameVectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -25,15 +24,20 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec1.clear();
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
+        if (num > 3.4e38) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            vec1.clear();
+            break;
+        }
+        if(vec1.size() >= 1e9) { 
+            std::cout << "Vector size exceeded the maximum limit. Aborting.\n";
             vec1.clear();
             break;
         }
@@ -47,15 +51,20 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec2.clear();
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
+        if (num > 3.4e38) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            vec2.clear();
+            break;
+        }
+        if(vec2.size() >= 1e9) { 
+            std::cout << "Vector size exceeded the maximum limit. Aborting.\n";
             vec2.clear();
             break;
         }
