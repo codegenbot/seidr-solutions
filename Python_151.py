@@ -1,6 +1,6 @@
-def double_the_difference(input_list):
-    if len(input_list) < 2:
+def double_the_difference(lst):
+    if len(lst) < 2:
         return 0
-    avg = sum(input_list) / len(input_list)
-    diff = abs(max(input_list) - min(input_list)) - abs(avg - min(input_list))
+    avg = sum(lst) / len(lst)
+    diff = abs(max(lst) - min(lst)) - abs(avg - min(lst))
     return 2 * diff
