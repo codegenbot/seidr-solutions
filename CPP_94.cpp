@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 using namespace std;
 
@@ -25,8 +25,7 @@ bool isPrime(int n){
     }
     return true;
 
-int main 
-{
+int main() {
     vector<int> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
