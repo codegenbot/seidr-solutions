@@ -13,13 +13,9 @@ def find_zero(xs: list):
     return round(x, 2)
 
 
-def main():
+if __name__ == "__main__":
     xs = list(map(float, input("Enter coefficients: ").split()))
     try:
-        print("The zero of the polynomial is:", find_zero(xs))
+        print(find_zero(xs))
     except ValueError as e:
-        print("Error:", str(e))
-
-
-if __name__ == "__main__":
-    main()
+        print(f"Error: {e}")
