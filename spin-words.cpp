@@ -22,4 +22,3 @@ string spinWords(string str) {
         reverse(word.begin(), word.end());
     }
     return result.substr(0, result.length() - 1);
-}
