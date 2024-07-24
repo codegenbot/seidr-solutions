@@ -16,8 +16,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 def main():
-    input_numbers = input("Enter a list of integers separated by space: ")
-    numbers = [int(num) for num in input_numbers.split()]
+    while True:
+        try:
+            input_numbers = input("Enter a list of integers separated by space: ")
+            numbers = [int(num) for num in input_numbers.split()]
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers separated by spaces.")
 
     result = sum_product(numbers)
     print(f"Sum is {result[0]} and Product is {result[1]}")
