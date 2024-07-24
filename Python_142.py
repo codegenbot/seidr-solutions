@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     for i, num in enumerate(lst):
@@ -11,10 +10,10 @@ def sum_squares(lst):
 numbers = []
 while True:
     try:
-        num = float(input())
+        num = eval(input())
         numbers.append(num)
         break
-    except ValueError:
+    except (SyntaxError, NameError):
         print("Invalid input. Please enter a number.")
 
 print(sum_squares(numbers))
