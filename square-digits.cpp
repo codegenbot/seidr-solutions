@@ -15,6 +15,6 @@ int main() {
     string input;
     cout << "Enter a number: ";
     getline(cin, input);
-    cout << squareDigits(input);
+    cout << squareDigits(input) << endl;
     return 0;
 }
