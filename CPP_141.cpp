@@ -1,13 +1,13 @@
 #include <string>
 #include <cctype>
 
-std::string file_name_check(std::string file_name) {
+std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool found_dot = false;
     std::string before_dot;
 
     for(int i=0; i<file_name.size(); i++){
-        if(isdigit(file_name[i])){
+        if(std::isdigit(file_name[i])){
             digit_count++;
             if(digit_count > 3) return "No";
         } else if(file_name[i] == '.'){
@@ -24,3 +24,4 @@ std::string file_name_check(std::string file_name) {
         return "No";
 
     return "Yes";
+}
