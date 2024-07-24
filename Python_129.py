@@ -1,3 +1,9 @@
+```"""
+Complete the following code given the task description and function signature..
+
+Your Python code here...
+"""
+
 def main():
     grid = []
     m = int(input("Enter number of rows: "))
@@ -7,8 +13,9 @@ def main():
         row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
         grid.append(row)
 
+    minPath = float('inf')
     def dfs(i, j, path, visited=None, curr_sum=0):
-        global minPath
+        nonlocal minPath
         if i == len(grid) - 1 and j == len(grid[0]) - 1:
             return curr_sum
         for x, y in [(0, 1), (1, 0)]:
