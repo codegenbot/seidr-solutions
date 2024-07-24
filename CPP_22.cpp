@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <boost/variant.hpp>
-#include <boost/variant/recursive_wrapper.hpp>
 
 std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::holds_alternative<int>(value)) {
+        if (boost::get<int>(value) != boost::use_default) {
             result.push_back(boost::get<int>(value));
         }
     }
