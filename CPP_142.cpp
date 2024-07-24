@@ -15,7 +15,9 @@ int main2() {
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
     if (n > 0) {
-        std::cout << "Sum of squares is: " << sum_squares(n) << std::endl;
+        char buff[50]; 
+        sprintf(buff, "Sum of squares is: %d", sum_squares(n)); 
+        std::cout << buff << std::endl;
     } else {
         std::cout << "Please enter a positive integer.\n";
     }
