@@ -8,5 +8,4 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-numbers = list(map(int, input().split()))
-print(sum_squares(numbers))
+print(sum_squares(list(map(int, input().split()))))
