@@ -1,3 +1,4 @@
-int my_strlen(string str){
+```cpp
+int my_strlen(const std::string& str){
     return str.length();
 }
