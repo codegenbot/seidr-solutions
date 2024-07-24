@@ -1,13 +1,12 @@
-#include <openssl/ssl.h>
-#include <openssl/engine.h>
+#include <string>
+#include <sstream>
+#include <openssl/evp.h>
 
-using namespace std;
-
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
-    stringstream ss;
+    std::stringstream ss;
 
     EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
     EVP_MD *md_algorithm = EVP_md5();
@@ -25,8 +24,5 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    using namespace std;
-    cout << string_to_md5("password") << endl;
-    assert(string_to_md5("password") == "5d41402abc4ec9a8fc1c771f8de5ade");
-    return 0;
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
 }
