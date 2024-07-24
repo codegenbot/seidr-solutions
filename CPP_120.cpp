@@ -1,9 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
     for (int i = 0; i < k; i++) {
-        auto maxVal = *max_element(arr.begin(), arr.end());
-        result.push_back(maxVal);
-        arr.erase(std::remove(arr.begin(), arr.end(), maxVal), arr.end());
+        auto it = max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it - (i % (arr.size() - i)));
     }
     return result;
 }
