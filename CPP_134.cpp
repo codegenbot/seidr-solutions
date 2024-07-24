@@ -13,7 +13,7 @@ int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == true); 
     std::cout << "Check if the last character of a string is a letter: ";
     std::string input;
-    getline(std::cin, input); // Remove leading and trailing whitespaces
+    std::cin >> input; // Remove leading and trailing whitespaces
     std::string str = input; // convert to lowercase for uniformity
     if (check_if_last_char_is_a_letter(str))
         std::cout << "The last character of the input string is a letter.\n";
