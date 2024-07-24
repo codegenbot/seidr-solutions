@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
