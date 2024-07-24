@@ -1,9 +1,7 @@
 ```
+^
+
 def match_parens(lst):
-    
-    ^
-
-
     s1, s2 = lst
     stack = []
     for char in s1 + s2:
