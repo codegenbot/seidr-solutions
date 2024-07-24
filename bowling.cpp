@@ -1,39 +1,36 @@
-int calculateBowlingScore(string s) {
-    int score = 0;
+int score(const string& input) {
+    int totalScore = 0;
     int frame = 0;
-    int frameScore[10];
-    memset(frameScore, 0, sizeof(frameScore));
-    
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            frameScore[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            frameScore[frame] = 10 - (s[i - 1] - '0');
-            frame++;
-        } else if (s[i] == '-') {
-            frame++;
-        } else {
-            frameScore[frame] += (s[i] - '0');
-            if (s[i+1] == '/') {
-                frameScore[frame] = 10;
-                frame++;
-            } else if (frameScore[frame] == 10) {
-                frame++;
+    int rolls = 0;
+
+    for (char c : input) {
+        if (c == 'X') {
+            totalScore += 10;
+            if (frame < 9) {
+                totalScore += (input[rolls + 1] == 'X') ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10);
+                totalScore += (input[rolls + 2] == 'X') ? 10 : (input[rolls + 2] == '/' ? 10 - (input[rolls + 1] - '0') : (isdigit(input[rolls + 2]) ? input[rolls + 2] - '0' : 10));
             }
+            rolls++;
+        } else if (c == '/') {
+            totalScore += 10 - (input[rolls - 1] - '0');
+            totalScore += (input[rolls + 1] == 'X') ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10);
+            if (frame == 9) break;
+            rolls += 2;
+        } else if (isdigit(c)) {
+            totalScore += c - '0';
+            if (frame == 9) break;
+            rolls++;
         }
+        if (c != 'X') rolls++;
+        if (rolls % 2 == 0) frame++;
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frameScore[i];
-    }
-    
-    return score;
+
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
