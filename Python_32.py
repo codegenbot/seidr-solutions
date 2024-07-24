@@ -1,7 +1,10 @@
-def find_zero(xs: list):
-    n = len(xs) - 1
-    a = xs[0]
-    b = xs[n]
-    if n % 2 == 0 and b != 0:
-        return -a / b
-    return 0
+n = int(input())
+coefficients = list(map(int, input().split()))
+
+def find_zero(xs: list, n: int):
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients should be even")
+    return sum(xs)
+
+result = find_zero(coefficients, n)
+print(result)
