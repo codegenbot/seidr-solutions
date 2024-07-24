@@ -1,2 +1,2 @@
-def roll_dice(n, m):
-    return (n - 1) / (n * m - n - m)
+def prob_peter_wins(n, m):
+    return (m - 1) / n
