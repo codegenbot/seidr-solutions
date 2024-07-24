@@ -3,17 +3,19 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    if(expression.length() == 1) {
-        if(tolower(expression[0]) == 't')
-            return true;
-        else
-            return false;
-    }
-    
     int pos = expression.find('|');
     while (pos != string::npos) {
-        string left = expression.substr(0, pos);
-        string right = expression.substr(pos + 1);
+        if (pos == 0 || expression[pos - 1] != '|') {
+            string left = "";
+        } else {
+            string left = expression.substr(0, pos);
+        }
+        
+        if (pos + 1 >= expression.size()) {
+            string right = "";
+        } else {
+            string right = expression.substr(pos + 1);
+        }
 
         if (solveBoolean(left) || solveBoolean(right))
             return true;
@@ -23,8 +25,17 @@ bool solveBoolean(string expression) {
 
     pos = expression.find('&');
     while (pos != string::npos) {
-        string left = expression.substr(0, pos);
-        string right = expression.substr(pos + 1);
+        if (pos == 0 || expression[pos - 1] != '&') {
+            string left = "";
+        } else {
+            string left = expression.substr(0, pos);
+        }
+        
+        if (pos + 1 >= expression.size()) {
+            string right = "";
+        } else {
+            string right = expression.substr(pos + 1);
+        }
 
         if (solveBoolean(left) && solveBoolean(right))
             return true;
