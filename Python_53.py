@@ -1,7 +1,3 @@
-def add(x: int, y: int):
-    return x + y
-
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
-
-print(add(x, y))
+def calculate_sum(x: int, y: int) -> int:
+    result = x + y
+    print(f"The sum of {x} and {y} is {result}.")
