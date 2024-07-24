@@ -14,11 +14,16 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     vector<int> input;
-    cout << "Enter numbers separated by spaces: ";
+    cout << "Enter numbers separated by space: ";
     int num;
-    while ((cin >> num) && (input.size() < 100)) {
+    while (cin >> num) {
         input.push_back(num);
+        if (cin.peek() == ' ') {
+            cin.ignore();
+        } else if (cin.peek() != '\n') {
+            break;
+        }
     }
-    cout << "Count of special numbers: " << specialFilter(input) << endl;
+    cout << "Special filtered count: " << specialFilter(input) << endl;
     return 0;
 }
