@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,11 +14,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
+int sorted_list_sum(const vector<vector<string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}}, std::vector<std::string>(sublst.begin() + 1, sublst.end()))) {
+        if (issame({{"hello", "world"}}, vector<string>(sublst.begin() + 1, sublst.end()))) {
             sum += std::stoi(sublst[0].substr(6));
         }
     }
