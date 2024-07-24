@@ -1,3 +1,4 @@
+```
 def sum_squares(numbers):
     total_sum = 0
     for num in numbers:
