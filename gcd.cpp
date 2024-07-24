@@ -37,15 +37,13 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
-    if (cin.fail()) {
+    if (!(cin >> a >> b)) {
         cerr << "Invalid input for integers." << endl;
         return 1;
     }
 
     string text, target;
-    cin >> ws >> text >> ws >> target;
-    if (cin.fail()) {
+    if (!(cin >> ws >> text >> ws >> target)) {
         cerr << "Invalid input for strings." << endl;
         return 1;
     }
