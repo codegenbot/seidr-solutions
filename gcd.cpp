@@ -5,16 +5,14 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
-    if (target.empty()) {
-        return indices;
-    }
-    int m = text.size();
-    int n = target.size();
-    for (int i = 0; i <= m - n; ++i) {
+    int n = text.size();
+    int m = target.size();
+    
+    for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -24,5 +22,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             indices.push_back(i);
         }
     }
+    
     return indices;
 }
