@@ -1,12 +1,7 @@
-```cpp
-bool issame(vector<string> a, vector<vector<int>> b){
+bool issame(vector<string> a, vector<string> b){
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
-        string s = to_string(b[i][0]);
-        if(s.size() != a[i].size())return false;
-        for(int j=0;j<s.size();j++){
-            if(s[j] != a[i][j])return false;
-        }
+        if(a[i] != b[i])return false;
     }
     return true;
 }
@@ -14,11 +9,11 @@ bool issame(vector<string> a, vector<vector<int>> b){
 vector<vector<int>> by_length(vector<int> numbers) {
     unordered_map<int, vector<int>> mapped;
     for (int num : numbers) {
-        int length = to_string(num).size();
-        if (!mapped.count(length))
-            mapped[length].push_back(num);
+        string str = to_string(num);
+        if (!mapped.count(str.length()))
+            mapped[str.length()].push_back(num);
         else
-            mapped[length].push_back(num);
+            mapped[str.length()].push_back(num);
     }
     vector<vector<int>> result;
     for (auto& pair : mapped) {
@@ -28,6 +23,6 @@ vector<vector<int>> by_length(vector<int> numbers) {
 }
 
 int main() {
-    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
+    assert(issame(vector<string>(by_length({9, 4, 1})), {"Nine", "Four", "One"}));
     return 0;
 }
