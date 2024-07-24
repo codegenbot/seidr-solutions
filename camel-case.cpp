@@ -28,20 +28,21 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     if(std::cin >> std::ws && std::cin.getline(input.data(), input.max_size())) {
-        for(char& c : input) {
+        for (char& c : input) {
             c = tolower(c);
         }
-        size_t pos = 0, prevPos = 0;
-        while((pos = input.find('-')) != std::string::npos) {
-            input.replace(pos, 1, "");
-            pos = input.find('-', prevPos);
-            if(pos == std::string::npos)
+        size_t pos = 0;
+        do {
+            size_t spacePos = input.find('-', pos);
+            if (spacePos == std::string::npos) {
                 break;
-            prevPos = pos + 1;
-        }
-        std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
+            }
+            result += toupper(input[pos]) + " ";
+            pos = spacePos + 1;
+        } while(true);
     } else {
         std::cout << "Invalid input. Please try again." << std::endl;
     }
+    std::cout << "The camelCase equivalent is: " << kebabToCamel(result) << std::endl;
     return 0;
 }
