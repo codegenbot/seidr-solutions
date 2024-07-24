@@ -1,14 +1,20 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-```cpp
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // None in Python
-    vector<int> sortedList = lst;
-    sort(sortedList.begin(), sortedList.end());
-    for(int i = 0; i < sortedList.size() - 1; i++){
-        if(sortedList[i] != sortedList[i+1]){
-            return sortedList[i+1];
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
+    if (sorted.size() < 2) return -1; 
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
         }
     }
-    return -1; // None in Python
+    return -1; 
+}
+
+int main() {
+    std::cout << "The next smallest number is: " << next_smallest({-35, 34, 12, -45}) << std::endl;
+    return 0;
 }
