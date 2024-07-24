@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-code = input("Enter the code: ").strip()
-guess = input("Enter the guess: ").strip()
+code = input("Enter the Mastermind code (4-character string consisting of characters A-F): ").upper()
+guess = input("Enter your guess (4-character string consisting of characters A-F): ").upper()
 
 assert len(code) == 4 and all(char in "ABCDEF" for char in code)
 assert len(guess) == 4 and all(char in "ABCDEF" for char in guess)
