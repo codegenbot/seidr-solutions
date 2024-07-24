@@ -3,8 +3,15 @@
 #include <string>
 
 bool issame(vector<string> a,vector<string>b){
-    for(string s : a){
-        if(find(b.begin(),b.end(),s) == b.end())
+    for(string s : b){
+        bool found = false;
+        for(string str : a){
+            if(str.find(s) != string::npos){
+                found = true;
+                break;
+            }
+        }
+        if(!found)
             return false;
     }
     return true;
