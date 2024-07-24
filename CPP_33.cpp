@@ -1,16 +1,19 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> sorted_l = l;
     for (int i = 2; i < l.size(); i += 3) {
-        std::sort(l.begin() + i, l.begin() + i + 1);
+        sorted_l[i] = l[i];
     }
-    return l;
+    std::sort(sorted_l.begin(), sorted_l.end());
+    return sorted_l;
 }
 
 int main() {
