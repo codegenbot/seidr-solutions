@@ -26,8 +26,9 @@ string intToRoman(int number) {
     return roman;
 }
 
-int main() {
+void RomanToInt() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
     cout << "The Roman numeral is: " << intToRoman(num) << endl;
+}
