@@ -6,8 +6,11 @@ def sorted_list_sum(input_data):
             return 0
         try:
             target_num = int(target)
-            if target_num == nums[-1]:
+            if target_num < nums[0]:
                 return sum(nums)
-            break
+            elif target_num > nums[-1]:
+                return 0
+            else:
+                return sum(num for num in nums if num <= target_num)
         except ValueError:
-            pass
+            print("Invalid input. Please enter a number.")
