@@ -1,13 +1,21 @@
-n = int(input())
-arr = [int(input()) for _ in range(n)]
-diff = float("inf")
-cut_index = -1
+input_list = list(map(int, input().split()))
 
-for i in range(1, n):
-    current_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if current_diff < diff:
-        diff = current_diff
+total_sum = sum(input_list)
+half_sum = total_sum // 2
+
+prefix_sum = 0
+min_diff = total_sum
+cut_index = 0
+
+for i in range(len(input_list)):
+    prefix_sum += input_list[i]
+    diff = abs(prefix_sum - (total_sum - prefix_sum))
+    if diff < min_diff:
+        min_diff = diff
         cut_index = i
 
-print(*arr[:cut_index])
-print(*arr[cut_index:])
+subvector1 = input_list[: cut_index + 1]
+subvector2 = input_list[cut_index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
