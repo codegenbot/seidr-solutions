@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include <sstream>
 
 using namespace std;
 
@@ -37,18 +38,14 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    if (!(cin >> a >> b)) {
-        cerr << "Invalid input for integers." << endl;
-        return 1;
-    }
-
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // to consume the newline character
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
+    iss >> a >> b;
 
     string text, target;
-    if (!getline(cin, text) || !getline(cin, target)) {
-        cerr << "Invalid input for strings." << endl;
-        return 1;
-    }
+    getline(cin, text);
+    getline(cin, target);
 
     vector<int> result = indicesOfSubstring(text, target);
 
