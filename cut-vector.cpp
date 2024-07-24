@@ -31,7 +31,7 @@ int main() {
     for (int i = 0; i <= cut_index; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    for (int i = cut_index + 1; i < n; ++i) {
+    for (int i = cut_index + 1;cut_index < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
