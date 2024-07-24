@@ -8,13 +8,21 @@ bool solveBoolean(string expression) {
         if (c == 't') {
             result = true;
         } else if (c == 'f') {
-            return !result;
+            return false;
         } else if (c == '|') {
-            if (!result) continue;
-            result = true;
-        } else if (c == '&') {
-            if (result) continue;
+            bool temp = result;
             result = false;
+            for (;expression.find('&') != string::npos; expression.erase(expression.find('&'), 1)) {
+                result |= !result & (expression[0] == 't');
+            }
+            result = temp | result;
+        } else if (c == '&') {
+            bool temp = result;
+            result = true;
+            for (;expression.find('|') != string::npos; expression.erase(expression.find('|'), 1)) {
+                result &= !result || (expression[0] == 't');
+            }
+            result = temp & result;
         }
     }
     return result;
