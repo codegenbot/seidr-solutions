@@ -1,4 +1,3 @@
-```
 def add_numbers():
     print("Please enter two numbers.")
     while True:
@@ -7,7 +6,7 @@ def add_numbers():
             y = int(input("Enter second number: "))
             return x + y
         except ValueError:
-            print("Invalid input. Please enter integers.")
+            print("Invalid input. Please enter a number.")
 
 result = add_numbers()
 print(result)
