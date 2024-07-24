@@ -1,32 +1,35 @@
-#include<iomanip>
+#include<iostream>
 #include<vector>
 #include<string>
 #include<algorithm>
-#include<iostream>
 
-void split_words(string txt) {
+vector<string> split_words(string txt) {
+    vector<string> result;
     size_t pos = 0;
     while ((pos = txt.find(" ")) != string::npos) {
-        std::cout << txt.substr(0, pos) << std::endl;
+        result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (!txt.empty()) {
-        if (txt.find(",") == string::npos) {
-            int oddCount = 0;
-            for (char c : txt) {
-                if (c >= 'a' && c <= 'z' && (int(c) % 2 != 0)) {
-                    oddCount++;
-                }
-            }
-            std::cout << oddCount << std::endl;
-        } else {
-            while ((pos = txt.find(" ")) != string::npos) {
-                std::cout << txt.substr(0, pos) << std::endl;
-                txt.erase(0, pos + 1);
-            }
-            if (!txt.empty()) {
-                std::cout << txt << std::endl;
+    if (txt.empty()) {
+        return result;
+    }
+    size_t commaPos = txt.find(",");
+    if (commaPos == string::npos) {
+        int oddCount = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z' && (int(c) % 2 != 0)) {
+                oddCount++;
             }
         }
+        std::cout << oddCount;
+    } else {
+        while ((pos = txt.find(" ")) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
+        }
+        if (!txt.empty()) {
+            result.push_back(txt);
+        }
     }
+    return result;
 }
