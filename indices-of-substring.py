@@ -1,13 +1,7 @@
 def indices_of_substring(text):
-    result = []
-    for i in range(len(text)):
-        if text[i:].startswith(input()):
-            start_index = i
-            while True:
-                try:
-                    index = text.index(input(), i + 1)
-                except ValueError:
-                    break
-                result.append(start_index + index)
-                i = index
-    return result
+    return [i for i in range(len(text)) if text.startswith(str(i) + text[i:], i)]
+
+
+text = input()
+n = int(input())
+print(indices_of_substring(text[:n]))
