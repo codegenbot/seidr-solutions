@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <stack>
@@ -6,10 +5,10 @@
 
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
+stack<char> operatorStack;
+stack<string> operandStack;
 
+bool evaluateBooleanExpression(string expression) {
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operatorStack.empty() && operatorStack.top() == '|') {
@@ -40,7 +39,7 @@ bool evaluateBooleanExpression(string expression) {
                 i++;
             }
             i--; 
-            operandStack.push((operand == "TF" || operand == "TT") ? "True" : "False");
+            operandStack.push(operand);
         }
     }
 
