@@ -1,17 +1,25 @@
-transform(message.begin(), message.end(), message.begin(), [](char c) {
-        if (isalpha(c)) {
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                return char(c + 2);
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string encode(std::string message){
+    for(char &c : message){
+        if(std::isalpha(c)){
+            if(c >= 'a' && c <= 'z'){
+                c = std::toupper(c);
             } else {
-                if (islower(c)) {
-                    return toupper(c);
-                } else {
-                    return tolower(c);
-                }
+                c = std::tolower(c);
+            }
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                c = char(c + 2);
             }
         }
-        return c;
-    });
+    }
     return message;
+}
+
+int main(){
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    return 0;
 }
