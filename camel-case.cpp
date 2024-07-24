@@ -1,13 +1,15 @@
+```cpp
 #include <iostream>
-#include <cctype>
 #include <string>
 
 int main() {
-    std::string str = "camel-case example-test-string";
+    std::string str;
     bool capitalizeNext = true;
     std::string result;
 
-    for (const char* p = str; *p; p++) {
+    std::cin >> str;
+
+    for (const char* p = str.c_str(); *p; p++) {
         if (*p == '-') {
             p++; // Skip the '-'
             if (!capitalizeNext) {
