@@ -1,9 +1,6 @@
-````
 from typing import List
 
 def filter_integers() -> List[int]:
-    """
-    """
     while True:
         values = input("Enter a list of integers (separated by commas): ")
 
