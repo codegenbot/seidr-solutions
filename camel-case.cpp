@@ -1,20 +1,32 @@
+#include <iostream>
 #include <string>
-#include <cctype>
+
+using namespace std;
 
 string camelCase(string s) {
-    if (s.empty()) return "";
-    
-    string result = tolower(s[0]);
-    for (int i = 1; i < s.length(); i++) {
+    int i = 0;
+    string result = "";
+    while (i < s.length()) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
                 result += toupper(s[i]);
                 i++;
             }
+            if (result.size() > 0) result += '';
         } else {
-            result += s[i];
+            result += tolower(s[i]);
         }
+        i++;
     }
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    getline(cin, input);
+    string output = camelCase(input);
+    cout << "CamelCase output: " << output << endl;
+    return 0;
 }
