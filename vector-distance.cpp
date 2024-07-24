@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <limits>
 
 using namespace std;
 
@@ -12,6 +13,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
     }
+    
+    cin.ignore(numeric_limits<streamsize>::max(), ' '); // Skip spaces and comma
     
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
