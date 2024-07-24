@@ -1,3 +1,4 @@
+```
 from typing import List, Any
 
 import sys
@@ -11,7 +12,7 @@ def main():
             break
         while True:
             try:
-                values.append(int(input()))
+                values.append(int(value))
                 break
             except ValueError:
                 print(
@@ -23,7 +24,7 @@ def main():
 
 
 def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
+    return [value for value in values if isinstance(value, int) and not isinstance(value, bool)]
 
 
 if __name__ == "__main__":
