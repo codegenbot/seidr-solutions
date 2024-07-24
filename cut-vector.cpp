@@ -11,16 +11,17 @@ int main() {
     }
 
     int left_sum = 0, right_sum = 0;
-    int min_diff = abs(left_sum - right_sum);
+    int min_diff = std::abs(left_sum - right_sum);
     int cut_index = -1;
 
     for (int i = 0; i < n; i++) {
-        if (abs(left_sum - right_sum) <= min_diff) {
-            min_diff = abs(left_sum - right_sum);
+        right_sum = left_sum;
+        left_sum += vec[i];
+        
+        if (std::abs(left_sum - right_sum) <= min_diff) {
+            min_diff = std::abs(left_sum - right_sum);
             cut_index = i;
         }
-        left_sum += vec[i];
-        right_sum = left_sum;
     }
 
     std::vector<int> subvec1(vec.begin(), vec.begin() + cut_index + 1);
