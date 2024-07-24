@@ -26,5 +26,5 @@ int mastermind(string code, string guess) {
 
     whitePegs -= blackPegs;
 
-    return whitePegs;
+    return blackPegs;
 }
