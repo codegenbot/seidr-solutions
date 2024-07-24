@@ -1,1 +1,4 @@
-return sum(int(x) for x in str(sum(map(lambda x: 2*int(x)//10 + 2*int(x)%10 if (len(card)-1)//2 >= i else int(x), range(len(card))))) if int(x) > 9 else int(x))
+```Python
+def luhn(card):
+    card = str(card)
+    return sum(int(digit) * (2 <= i % 2 < 2.5) * (int(digit) * 2 > 9) - 9 + int(digit) for i, digit in enumerate(card))
