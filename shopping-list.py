@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     lines = [list(map(float, input().split())) for _ in range(n)]
