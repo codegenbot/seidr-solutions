@@ -1,6 +1,10 @@
+Here's your corrected C++ code:
+
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <string>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -11,7 +15,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strangeSortList(std::vector<int> lst) {
     std::vector<int> result;
 
     while (!lst.empty()) {
@@ -42,7 +46,7 @@ int main() {
     while (ss >> num) {
         input.push_back(num);
     }
-    std::vector<int> output = strange_sort_list(input);
+    std::vector<int> output = strangeSortList(input);
     std::cout << "Sorted list: ";
     for (int x : output) {
         std::cout << x << " ";
