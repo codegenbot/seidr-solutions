@@ -5,25 +5,26 @@
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
-    std::string reversed = "";
     
     for (int i = 0; i < str.length(); i++) {
-        if (i == str.length() - 1 || str[i + 1] == ' ') {
-            word = str.substr(i);
-            
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
             
-            reversed += word;
-            if (!result.empty()) {
-                result += " ";
-            } else {
-                result = reversed;
-            }
-            reversed = "";
+            result += word;
+            word.clear();
+        } else {
+            word += str[i];
         }
     }
+    
+    // Check the last word
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    
+    result += word;
     
     return result;
 }
