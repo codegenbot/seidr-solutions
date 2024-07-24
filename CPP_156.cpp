@@ -1,13 +1,18 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
 struct Roman {
     std::string value;
 };
 
 std::string int_to_roman(int number) {
-    if (number >= 1000) {
+    if (number >= 4000) {
+        return "MMMM";
+    } else if (number >= 3000) {
+        return "MMM";
+    } else if (number >= 2000) {
+        return "MM";
+    } else if (number >= 1000) {
         return "M";
     } else if (number >= 900) {
         return "CM";
@@ -54,7 +59,7 @@ std::string int_to_roman(int number) {
     }
 }
 
-int testMain() {
+int main() {
     assert(int_to_roman(1000) == "M");
     return 0;
 }
