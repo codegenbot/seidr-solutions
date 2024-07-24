@@ -1,18 +1,33 @@
-string anti_shuffle(string s) {
+#include <algorithm>
+#include <string>
+
+std::string min_element(const std::string& word) {
+    auto it = std::min_element(word.begin(), word.end());
+    return *it;
+}
+
+std::string anti_shuffle(std::string s) {
+    if (s.empty()) {
+        return s;
+    }
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        char temp = s[i];
-        int count = 1;
-        for (int j = i + 1; j <= s.length() - 1; j++) {
-            if (s[j] <= temp) {
-                temp = s[j];
-                count++;
-            } else {
-                break;
+    int i = 0;
+    while (i <= s.length()) {
+        if (s[i] == ' ') {
+            result += " ";
+            i++;
+        } else {
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
+                i++;
             }
-        }
-        for (int k = 0; k < count; k++) {
-            result += temp;
+            for (char c : word) {
+                result += min_element(word);
+            }
+            if (!result.empty()) {
+                result += " ";
+            }
         }
     }
     return result;
