@@ -1,23 +1,13 @@
-#include <cmath>
-
 int x_or_y(int n, int x, int y) {
-    if (isPrime(n)) {
-        return x;
-    } else {
+    bool isPrime = true;
+    if (n <= 1) {
         return y;
     }
-}
-
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-
-    for (int i = 2; i <= sqrt(num); i++) {
-        if (num % i == 0) {
-            return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
         }
     }
-
-    return true;
+    return isPrime ? x : y;
 }
