@@ -17,3 +17,4 @@ int main() {
     cin >> initialSnow >> rateOfSnowFall >> proportionOfMeltingPerHour;
     cout << fixed << setprecision(10) << round(snowDay(hours, initialSnow, rateOfSnowFall, proportionOfMeltingPerHour));
     return 0;
+}
