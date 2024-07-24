@@ -1,22 +1,23 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> expressions;
-
 double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double result = args[0];
-    
+    double output = 0.0;
+
     for(int i = 0; i < ops.size(); i++) {
-        if(ops[i] == "//") {
-            result /= args[i+1];
+        if(ops[i] == "+") {
+            output += static_cast<double>(args[i]);
+        } else if(ops[i] == "-") {
+            output -= static_cast<double>(args[i]);
         } else if(ops[i] == "*") {
-            result *= args[i+1];
+            output *= static_cast<double>(args[i]);
+        } else if(ops[i] == "/") {
+            output /= static_cast<double>(args[i]);
         }
     }
-    
-    return result;
+
+    return output;
 }
 
 int main() {
@@ -39,6 +40,8 @@ int main() {
     }
     
     double output = do_algebra(ops, args);
+
     std::cout << "Output: " << output << std::endl;
+
     return 0;
-};
+}
