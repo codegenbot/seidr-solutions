@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,9 +18,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 int main() {
     std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    std::vector<std::string> expected = {"xxx", "xxxA", "xxx"};
 
     assert(issame(filter_by_prefix(input, "xxx"), expected));
-
+    
     return 0;
 }
