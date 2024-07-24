@@ -1,25 +1,22 @@
+```cpp
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true;
+    bool result = true; // assume the expression is true initially
     for (char c : s) {
         if (c == 'T' || c == 't') {
-            continue;
+            return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            while(s.find('&') != string::npos) {
-                int pos = s.find('&');
-                s.replace(pos, 1, "0");
-            }
-            result &= (s[0] == 'T' || s[0] == 't');
+            result = false; // when we encounter &, the result becomes false
         } else if (c == '|') {
-            while(s.find('|') != string::npos) {
-                int pos = s.find('|');
-                s.replace(pos, 1, "0");
-            }
-            result |= (s[0] == 'T' || s[0] == 't');
+            bool temp = result; // store the current value of result
+            result = false; // reset the result to false for |
+            result |= temp; // then, or the stored value with the new result
         }
     }
     return result;
