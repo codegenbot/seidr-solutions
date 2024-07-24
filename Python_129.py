@@ -17,4 +17,4 @@ def minPath(grid, k):
 
         return sorted(set([path + p for p in paths]))
 
-    return [path] if dfs(0, 0, [], set()) else []
+    return [path] if dfs(0, 0, [], set()) else None
