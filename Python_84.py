@@ -1,2 +1,8 @@
+```
 def solve(K):
-    return bin(K)[2:]
+    if K == "1":
+        return "0"
+    elif K == "0":
+        return "1"
+    else:
+        return "Invalid input"
