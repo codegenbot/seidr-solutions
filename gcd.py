@@ -4,11 +4,10 @@ def gcd(a, b):
     return abs(a)
 
 
-print(gcd(int(input()), int(input())))
-
 text = input()
 target = input()
 
 indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
+print(gcd(int(input()), int(input())))
 print(" ".join(map(str, indices)))
