@@ -1,4 +1,11 @@
-std::string match_parens(vector<std::string> lst){
+#include <string>
+#include <vector>
+
+int main() {
+    assert (match_parens({std::string(")"), std::string("(")}) == "Yes" );
+}
+
+std::string match_parens(std::vector<std::string> lst){
     std::string s1 = lst[0];
     std::string s2 = lst[1];
 
