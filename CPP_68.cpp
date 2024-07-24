@@ -1,11 +1,10 @@
-#include <vector>
-#include <cassert>
+#include <vector> // Include necessary headers
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){ // Change function signature to include const and std::
+    return a == b; // Return comparison result directly
 }
 
-std::vector<int> pluck(std::vector<int> arr){
+std::vector<int> pluck(const std::vector<int>& arr){
     std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
