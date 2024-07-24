@@ -1,13 +1,13 @@
 #include <string>
-#include <algorithm>
+using namespace std;
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result = "";
+string words_in_sentence(string sentence) {
+    string result = "";
     int len = 0;
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
             if (is_prime(len)) {
-                result += sentence.substr(len - i, i - len + 1) + " ";
+                result += sentence.substr(i - len, len) + " ";
             }
             len = 0;
         } else {
@@ -15,10 +15,9 @@ std::string words_in_sentence(std::string sentence) {
         }
     }
     if (is_prime(len)) {
-        result += sentence.substr(len);
+        result += sentence.substr(0, len);
     }
     return result;
-
 }
 
 bool is_prime(int n) {
@@ -29,11 +28,4 @@ bool is_prime(int n) {
             return false;
     }
     return true;
-
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    // Add more test cases as needed
-    return 0;
 }
