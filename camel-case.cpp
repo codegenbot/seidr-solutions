@@ -8,20 +8,19 @@ int main() {
     bool capitalizeNext = true;
     std::string result;
 
-    for (const char* p = str.c_str(); *p; p++) {
-        if (*p == '-') {
-            p++; // Skip the '-'
+    for (char c : str) {
+        if (c == '-') {
             if (!capitalizeNext) {
-                result += tolower(*p);
+                result += tolower(c);
             } else {
-                result += toupper(*p);
+                result += toupper(c);
                 capitalizeNext = false;
             }
         } else {
             if (capitalizeNext) {
-                result += toupper(*p);
+                result += toupper(c);
             } else {
-                result += tolower(*p);
+                result += tolower(c);
             }
             capitalizeNext = true;
         }
