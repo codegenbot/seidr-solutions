@@ -1,34 +1,19 @@
-```cpp
-#include <initializer_list>
+#include <vector>
 #include <algorithm>
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        if (min_val == max_val) {
-            for(int i : lst) {
-                if(i == min_val) {
-                    result.push_back(i);
-                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                    break;
-                }
-            }
-        } else {
-            while (!lst.empty()) {
-                int val = *min_element(lst.begin(), lst.end());
-                for(int i : lst) {
-                    if(i == val) {
-                        result.push_back(i);
-                        lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                        break;
-                    }
-                }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> strange_sort_list(std::vector<int> input) {
+    for(int i = 0; i < input.size(); i++) {
+        for(int j = i + 1; j < input.size(); j++) {
+            if(input[i] > input[j]) {
+                std::swap(input[i], input[j]);
             }
         }
     }
-    return result;
+    return input;
 }
 
 int main() {
