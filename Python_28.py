@@ -1,5 +1,10 @@
-```
-def concatenate_strings():
-    strings = input("Enter multiple strings separated by space: ").split()
-    result = ''.join(strings)
-    print(result)
+from typing import List
+
+def concatenate_strings(input_list: List[str]) -> str:
+    result = ""
+    for string in input_list:
+        if string.startswith("http"):
+            result += string + " "
+        else:
+            result += "<" + string + "> "
+    return result.strip()
