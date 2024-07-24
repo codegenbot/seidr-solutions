@@ -6,6 +6,9 @@ def search(lst):
             freq[num] = freq.get(num, 0) + 1
     max_num = -1
     for k, v in freq.items():
-        if v == 1 and k > max_num:
+        if k >= v and k > max_num:
             max_num = k
     return max_num if max_num != -1 else -1
+
+lst = list(map(int, input("Enter numbers separated by space: ").split()))
+print(search(lst))
