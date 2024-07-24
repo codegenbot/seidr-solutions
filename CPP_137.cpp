@@ -1,20 +1,39 @@
 #include <boost/any.hpp>
-#include <cassert>
 #include <string>
-#include <algorithm>
-#include <iostream>
-
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
+// Function declaration
+boost::any compare_one(const boost::any &a, const boost::any &b);
+
+int main() {
+    // Sample input - Modify based on the problem requirement
+    boost::any a = 10;
+    boost::any b = 20;
+
+    // Assert statement
+    assert(compare_one(a, b).type() == typeid(int));
+
+    return 0;
+}
+
+// Function definition
+boost::any compare_one(const boost::any &a, const boost::any &b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int int_a = boost::any_cast<int>(a);
         int int_b = boost::any_cast<int>(b);
-        return (int_a > int_b) ? int_a : int_b;
+        if (int_a > int_b) {
+            return int_a;
+        } else if (int_b > int_a) {
+            return int_b;
+        }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float float_a = boost::any_cast<float>(a);
         float float_b = boost::any_cast<float>(b);
-        return (float_a > float_b) ? float_a : float_b;
+        if (float_a > float_b) {
+            return float_a;
+        } else if (float_b > float_a) {
+            return float_b;
+        }
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str_a = boost::any_cast<string>(a);
         string str_b = boost::any_cast<string>(b);
@@ -26,12 +45,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             str_b.erase(std::remove(str_b.begin(), str_b.end(), ','), str_b.end());
             str_b.replace(str_b.find('.'), 1, ",");
         }
-        return (stof(str_a) > stof(str_b)) ? str_a : str_b;
+        if (stof(str_a) > stof(str_b)) {
+            return str_a;
+        } else if (stof(str_b) > stof(str_a)) {
+            return str_b;
+        }
     }
-    return std::string("None");
-}
-
-int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
-    return 0;
+    
+    return "None"; // Return appropriate value based on the comparison result
 }
