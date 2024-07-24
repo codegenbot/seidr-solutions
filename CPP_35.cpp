@@ -1,12 +1,27 @@
 #include <algorithm>
-#include <cmath>
+#include <iostream>
+#include <vector>
 
-int max_val = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
-int abs_max_val = std::abs(*std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}));
+int maxInArray() {
+    std::cout << "Enter numbers (separated by space): ";
+    int n;
+    std::cin >> n;
 
-int main() {
-    int min_val = *std::min_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
-    std::cout << "Maximum Value: " << max_val << "\n";
-    std::cout << "Minimum Value: " << min_val << "\n";
+    std::vector<int> array(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> array[i];
+    }
+
+    if (!array.empty()) {
+        int max_val = *std::max_element(array.begin(), array.end());
+        int abs_max_val = std::abs(*std::max_element(array.begin(), array.end()));
+
+        std::cout << "Max value: " << max_val << std::endl;
+        std::cout << "Abs Max value: " << abs_max_val << std::endl;
+
+    } else {
+        std::cout << "Array is empty." << std::endl;
+    }
+
     return 0;
 }
