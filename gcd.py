@@ -1,6 +1,6 @@
 def gcd(a, b):
+    if a == 0 and b == 0:
+        return None
     while b:
         a, b = b, a % b
-    if a == 1 or b == 1:
-        return 1
-    return a
+    return abs(a)
