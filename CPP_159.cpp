@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,7 +10,8 @@ vector<int> eat(int number, int need, int remaining) {
     return result;
 }
 
-int main {
+int main() 
+{
     int number, need, remaining;
     cout << "Enter the number of carrots you have eaten: ";
     cin >> number;
@@ -24,4 +24,6 @@ int main {
 
     cout << "Total number of eaten carrots after your meals: " << result[0] << endl;
     cout << "Number of carrots left after your meals: " << result[1] << endl;
+
+    return 0;
 }
