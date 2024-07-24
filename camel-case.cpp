@@ -24,16 +24,13 @@ int main() {
     std::string input;
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
-        std::string group;
-        std::string output;
-        std::cout << camelCase(group) << " ";
-        while (std::getline(iss, group, '-')) {
-            if (!group.empty()) {
-                output = camelCase(group);
-                std::cout << output << ((output.length() > 0)? "": "");
-                std::cout << " ";
+        std::cout << camelCase(iss.str());
+        while (std::getline(iss, input, '-')) {
+            if (!input.empty()) {
+                std::cout << camelCase(input);
             }
         }
+        std::cout << "\n";
     }
     return 0;
 }
