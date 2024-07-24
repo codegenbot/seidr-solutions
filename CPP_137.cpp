@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include<string>
 #include<algorithm>
 #include<stdexcept>
-#include <boost/any>
+#include< boost/any>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
+any compare_one(any a, any b) {
     if (boost::any_cast<double>(a) > stod(boost::any_cast<string>(b)))
         return a;
     else
@@ -24,9 +23,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (da > db)
         return a;
     else if (db > da)
-        throw invalid_argument("Tie");
+        return b;
+    throw invalid_argument("Tie");
 
-    return a; // This line is not reachable
 }
 
 int main() {
