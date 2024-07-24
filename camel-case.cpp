@@ -3,28 +3,28 @@
 #include <cctype>
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
+    std::getline(std::cin, str);
+    std::cout << camelCase(str) << std::endl;
 
     return 0;
 }
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (auto c : str) {
-        if (c == '-' || c == ' ') {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-' || str[i] == ' ') {
             if (capitalizeNext) {
-                result += toupper(c);
+                result += toupper(str[i]);
                 capitalizeNext = false;
             } else {
-                result += c;
+                result += str[i];
             }
         } else {
-            result += (capitalizeNext ? std::toupper(c) : std::tolower(c));
+            result += (capitalizeNext ? std::toupper(str[i]) : std::tolower(str[i]));
             capitalizeNext = true;
         }
     }
