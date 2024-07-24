@@ -1,14 +1,6 @@
 ```cpp
 #include <vector>
-#include <cmath>
-
-double poly(const std::vector<double>& coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
+#include <algorithm>
 
 double find_zero(std::vector<double> coeffs){
     double x = 1;
@@ -20,5 +12,13 @@ double find_zero(std::vector<double> coeffs){
             x += 0.001;
         }
     }
-    return round(x, 2);
+    return std::round(x, 2);
+}
+
+double poly(std::vector<double> coeffs, double x){
+    double result = 0;
+    for(int i=0; i<coeffs.size(); i++){
+        result += coeffs[i] * pow(x,i);
+    }
+    return result;
 }
