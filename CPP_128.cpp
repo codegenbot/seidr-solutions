@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +12,7 @@ int prod_signs(std::vector<int> arr) {
         product *= abs(x);
         sum += abs(x);
     }
-    return product * sum > INT_MAX ? -32768 : product * sum;
+    return (product * sum > INT_MAX ? -32768 : product * sum);
 }
 
 int main() {
