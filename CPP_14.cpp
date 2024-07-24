@@ -1,15 +1,15 @@
 #include <string>
 #include <vector>
 
-bool issame(const std::string& str1, const std::string& str2) {
-    return str1 == str2;
+bool issame(char a, char b){
+    return a == b;
 }
 
-std::vector<std::string> all_prefixes(std::string str);
+vector<string> all_prefixes(string str);
 
-std::vector<std::string> all_prefixes(std::string str){
-    std::vector<std::string> prefixes;
-    std::string prefix = "";
+vector<string> all_prefixes(string str){
+    vector<string> prefixes;
+    string prefix = "";
     
     for (char ch : str) {
         prefix += ch;
@@ -17,4 +17,9 @@ std::vector<std::string> all_prefixes(std::string str){
     }
     
     return prefixes;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
