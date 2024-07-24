@@ -20,7 +20,7 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     if (tweet.back() == '\n') {
-        tweet.pop_back(); 
+        tweet.pop_back(); // remove the newline character
     }
     cout << validateTweet(tweet) << endl;
     return 0;
