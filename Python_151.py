@@ -3,5 +3,4 @@ def double_the_difference(numbers):
     half_diff = (min(numbers) + max(numbers)) / 2
     return abs(total - half_diff * len([i for i in numbers if i >= 0]))
 
-
-print("{} is the result".format(double_the_difference([1, 3, 5])))
+print("{} is the result".format(double_the_difference([1, 3, 5]))
