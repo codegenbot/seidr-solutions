@@ -1,8 +1,9 @@
 ```
 def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+    if b == 0:
+        return abs(a)
+    else:
+        return gcd(b, a % b)
 
 def indices_of_substring(text, target):
     result = []
@@ -18,5 +19,5 @@ print(indices_of_substring("hello world hello", "ello"))
 print(gcd(54, 24))
 print(indices_of_substring("abcdefgabcdefg", "cde"))
 print(gcd(4200, 3528))
-print(indices_of_substring("a"*10000 + "b"*5000 + "a"*3000, "a"))
+print(indices_of_substring("a" * 10000 + "b" * 5000 + "a" * 3000, "a"))
 print(gcd(820000, 63550))
