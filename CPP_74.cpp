@@ -43,13 +43,13 @@ int main() {
     for (int i = 0; i < n1; i++) {
         string s;
         while (true) {
-            cin >> s;
-            if (s.size() > 0) break;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cout << "Please try again: ";
-            getline(cin, s);
+            if (!(cin >> s)) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cout << "Please try again: ";
+                getline(cin, s);
+            } else break;
         }
         lst1.push_back(s);
     }
@@ -61,13 +61,13 @@ int main() {
     for (int i = 0; i < n2; i++) {
         string s;
         while (true) {
-            cin >> s;
-            if (s.size() > 0) break;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cout << "Please try again: ";
-            getline(cin, s);
+            if (!(cin >> s)) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cout << "Please try again: ";
+                getline(cin, s);
+            } else break;
         }
         lst2.push_back(s);
     }
