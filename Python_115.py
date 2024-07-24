@@ -1,4 +1,4 @@
-```
+```Python
 max_fill = None
 while max_fill is None:
     try:
@@ -6,4 +6,4 @@ while max_fill is None:
     except ValueError:
         print("Invalid input! Please enter an integer.")
 
-print("Maximum number of fills:", max_fill)
+print(f"Maximum number of fills: {max_fill}")
