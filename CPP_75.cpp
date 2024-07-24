@@ -27,12 +27,12 @@ int main() {
     int num;
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
-
+    
     if (is_multiply_prime(num)) {
         std::cout << "true";
     } else {
         std::cout << "false";
     }
-
+    
     return 0;
 }
