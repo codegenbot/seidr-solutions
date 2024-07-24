@@ -1,8 +1,5 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>; // Added semicolon
-#include<boost/more_traits.hpp>
+#include <iostream>
+#include <boost/any.hpp>
 
 using namespace std;
 
@@ -19,9 +16,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (numB > numA) {
             return b;
         } else {
-            return boost::any("None");
+            return "None";
         }
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
