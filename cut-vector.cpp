@@ -14,7 +14,7 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (getline(iss, line, ' ')) {
+    while (getline(iss, line, ',')) {
         num = stoi(line);
         nums.push_back(num);
     }
@@ -54,17 +54,28 @@ int main() {
         }
     }
     
-    if (prefixSum == sum - prefixSum || minDiff == 0) {
+    if (prefixSum == sum - prefixSum) {
         cutIndex++;
     }
     
-    for (int i = 0; i < cutIndex; i++) {
-        cout << nums[i] << ' ';
+    if (cutIndex == -1) {
+        for (int i = 0; i < n; i++) {
+            cout << nums[i] << ' ';
+        }
+        cout << '\n';
+        return 0;
+    }
+    
+    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+    
+    for (int i = 0; i < subvector1.size(); i++) {
+        cout << subvector1[i] << ' ';
     }
     cout << '\n';
     
-    for (int i = cutIndex; i < n; i++) {
-        cout << nums[i] << ' ';
+    for (int i = 0; i < subvector2.size(); i++) {
+        cout << subvector2[i] << ' ';
     }
     cout << '\n';
     
