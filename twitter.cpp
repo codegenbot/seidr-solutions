@@ -1,6 +1,6 @@
-```c++
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,10 +14,12 @@ int main() {
         return 0;
     }
 
-    if (tweet.size() > 140) {
+    if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.size() << " characters" << endl;
+        auto it = std::find_if(tweet.begin(), tweet.end(),
+            [](char c) { return !std::isspace(c); });
+        cout << "Your tweet has " << distance(tweet.begin(), it) << " characters" << endl;
     }
     return 0;
 }
