@@ -8,10 +8,10 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : code) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i] && c != guess[i]) {
+        for (char d : guess) {
+            if (c == d && c != guess[guess.find(c)]) {
                 white++;
                 break;
             }
