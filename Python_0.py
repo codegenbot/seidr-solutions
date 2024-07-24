@@ -5,4 +5,4 @@ def check_threshold(numbers, threshold):
             return True
     return False
 
-check_threshold([1, 5, 9, 13, 17], 5)
+check_threshold([1, 3, 6, 9], 2)
