@@ -9,11 +9,7 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (capitalizeNext) {
-                result += toupper(currentWord[0]) + tolower(&currentWord[1]);
-            } else {
-                result += currentWord;
-            }
+            result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord + " ";
             currentWord.clear();
             capitalizeNext = true;
         } else {
@@ -22,11 +18,8 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
-    if (capitalizeNext) {
-        result += toupper(currentWord[0]) + tolower(&currentWord[1]);
-    } else {
-        result += currentWord;
-    }
+    // Add the last word
+    result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord;
 
     return result;
 }
@@ -34,7 +27,21 @@ std::string kebabToCamel(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
+    if(std::cin >> std::ws && std::cin.getline(input.data(), input.max_size())) {
+        for(char& c : input) {
+            c = tolower(c);
+        }
+        size_t pos = 0, prevPos = 0;
+        while((pos = input.find('-')) != std::string::npos) {
+            input.replace(pos, 1, "");
+            pos = input.find('-', prevPos);
+            if(pos == std::string::npos)
+                break;
+            prevPos = pos + 1;
+        }
+        std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
+    } else {
+        std::cout << "Invalid input. Please try again." << std::endl;
+    }
     return 0;
 }
