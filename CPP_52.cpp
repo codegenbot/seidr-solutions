@@ -1,4 +1,3 @@
-```c
 #include <cassert>
 
 bool below_threshold(vector<int> l, int t) {
@@ -11,7 +10,4 @@ bool below_threshold(vector<int> l, int t) {
 
 }
 
-if (below_threshold({1, 8, 4, 10}, 10) != false) {
-    std::cerr << "Test failed." << std::endl;
-    return 1;
-}
+assert(!below_threshold({1, 8, 4, 10}, 10));
