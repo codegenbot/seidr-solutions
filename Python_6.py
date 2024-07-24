@@ -9,7 +9,15 @@ def max_nested_paren_count(paren_string):
         for paren_string in paren_string.split()
     ]
 
-# Call the function with the input
-input_string = input().strip()[1:-1]
-result = max_nested_paren_count(input_string)
-print(result)
+
+# Read input line by line
+input_lines = []
+try:
+    while True:
+        input_lines.append(input().strip())
+except EOFError:
+    pass
+
+# Call the function with each input line
+results = [max_nested_paren_count(line) for line in input_lines]
+print(results)
