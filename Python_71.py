@@ -1,4 +1,3 @@
-```Python
 def check(area):
     sqrt = int(area**0.5)
     if sqrt*sqrt == area:
