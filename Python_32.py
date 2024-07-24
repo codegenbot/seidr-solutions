@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 import math
 def find_zero(xs: list):
