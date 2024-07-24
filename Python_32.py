@@ -1,3 +1,4 @@
+```
 import math
 
 def find_zero():
@@ -12,7 +13,7 @@ def find_zero():
             d_sum = sum(x*math.pow(y, 2) for x, y in zip(xs[:-1], range(len(xs)-1)) if isinstance(x, (float, int)) and isinstance(y, int))
             
             if a == 0:
-                return "a cannot be zero"
+                return -c_sum / b_sum
             if b_sum == 0:
                 b_sum = -sum(x*y for x, y in zip(xs[:-1], range(len(xs)-1)))
             x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
