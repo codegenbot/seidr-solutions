@@ -1,4 +1,3 @@
-```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -66,3 +65,6 @@ def main():
         print(minPathSum(grid))
     else:
         print("Program did not receive expected input")
+
+
+main()
