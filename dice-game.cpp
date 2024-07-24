@@ -14,6 +14,6 @@ int main() {
     }
 
     std::cout << prob << std::endl;
-
+    
     return 0;
 }
