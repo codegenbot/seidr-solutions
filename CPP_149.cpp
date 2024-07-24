@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -27,16 +28,17 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         sums.push_back(sum); 
     } 
 
-    std::vector<int> sorted_int_sums = sums; // initialize with ints
-    std::vector<std::string> sorted_sums;
-    for (int num : sorted_int_sums) {
-        sorted_sums.push_back(std::to_string(num));
+    std::vector<std::string> sorted_sums = sums; // initialize with ints
+    for (int i = 0; i < sorted_sums.size(); i++) {
+        sorted_sums[i] = std::to_string(sorted_sums[i]);
     }
 
-    std::sort(sorted_sums.begin(), sorted_sums.end(),
-          [](const std::string& a, const std::string& b) {
-              return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
-          });
+    bool compare(const std::string& a, const std::string& b) {
+        int valA = stoi(a);
+        int valB = stoi(b);
+        return valA < valB;
+    }
+    std::sort(sorted_sums.begin(), sorted_sums.end(), compare);
 
     return sorted_sums;
 }
