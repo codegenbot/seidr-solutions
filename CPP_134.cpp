@@ -1,5 +1,5 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false; // Check for empty string
-    char lastChar = txt.back(); // Get the last character of the string
-    return !isalnum(lastChar); // Check if the last character is not alphanumeric
+    if (txt.empty()) return false;
+    char lastChar = txt.back();
+    return isalpha(lastChar) && !isalnum(lastChar);
 }
