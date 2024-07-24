@@ -1,4 +1,6 @@
-.string fizzBuzz(int x) {
+#include <string>
+
+std::string fizzBuzz(int x) {
     std::string result;
     if (x % 15 == 0)
         result = "FizzBuzz";
@@ -9,4 +11,3 @@
     else
         result = std::to_string(x);
     return result;
-}
