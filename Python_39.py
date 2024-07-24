@@ -1,10 +1,11 @@
+```
 def prime_fib(n: int):
     fib = [0, 1]
     while len(fib) <= n:
         fib.append(fib[-1] + fib[-2])
-    for i in range(len(fib)):
-        if is_prime(fib[i]):
-            return fib[i]
+    for num in fib:
+        if is_prime(num):
+            return num
 
 def is_prime(num: int):
     if num < 2:
