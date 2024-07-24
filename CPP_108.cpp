@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int count_nums(std::vector<int> n) {
@@ -31,4 +32,24 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    int num, n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> num;
+        vec[i] = num;
+    }
+
+    int result = count_nums(vec);
+
+    std::cout << "Count of numbers: " << result << endl;
+
+    return 0;
 }
