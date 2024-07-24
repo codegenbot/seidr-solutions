@@ -1,4 +1,3 @@
-```
 import re
 
 def sort_numbers(numbers: str) -> str:
