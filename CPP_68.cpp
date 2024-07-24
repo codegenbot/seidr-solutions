@@ -1,29 +1,43 @@
+#include <iostream>
 #include <vector>
 
-using namespace std;
+std::vector<int> pluck(std::vector<int> arr);
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
-    if (arr.empty()) {
-        return result;
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> arr[i];
     }
-    
-    int smallestEvenValue = INT_MAX;
-    int smallestIndex = -1;
-    
+
+    std::vector<int> result = pluck(arr);
+
+    std::cout << "Minimum even number: " << result[0] << "\n";
+    if (result.size() > 1) {
+        std::cout << "Index of the minimum even number: " << result[1] << "\n";
+    }
+}
+
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    if (arr.empty()) return result;
+
+    int minEven = INT_MAX;
+    int minIndex = -1;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            smallestIndex = i;
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minIndex = i;
         }
     }
-    
-    if (smallestEvenValue != INT_MAX) {
-        result.push_back({smallestEvenValue, smallestIndex});
-    } else {
-        result.push_back({0, 0}); // Return {0, 0} if no even values found
-    }
-    
+
+    result.push_back(minEven);
+    result.push_back(minIndex);
+
     return result;
 }
