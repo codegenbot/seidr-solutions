@@ -1,4 +1,3 @@
-```
 rows = int(input("Enter the number of rows: "))
 cols = int(input("Enter the number of columns: "))
 grid = []
