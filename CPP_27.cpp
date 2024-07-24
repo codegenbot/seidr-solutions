@@ -1,18 +1,16 @@
-#include <iostream>
+```cpp
 #include <string>
+using namespace std;
 
-std::string filp_case(const std::string& str) {
-    for (int i = 0; i < str.length(); i++) {
-        if (islower(str[i])) {
-            str[i] = toupper(str[i]);
-        } else if (isupper(str[i])) {
-            str[i] = tolower(str[i]);
-        }
+string flip_case(string str) {
+    string result = "";
+    for (char c : str) {
+        if (islower(c))
+            result += toupper(c);
+        else
+            result += tolower(c);
     }
-    return str;
+    return result;
 }
 
-int main() {
-    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
