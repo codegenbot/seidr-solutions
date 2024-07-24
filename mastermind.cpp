@@ -18,8 +18,8 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "XXXX";
+    std::string code = "XXXX"; // Replace with your Mastermind code
+    std::string guess = "XXXX"; // Replace with your guess
 
     auto [black, white] = mastermind(code, guess);
 
