@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 int main() {
     std::string cipher2;
@@ -9,20 +10,18 @@ int main() {
     std::string message;
     std::getline(std::cin, message);
 
+    std::unordered_map<char, char> cipherMap;
+    for(int i = 0; i < cipher1.length(); i++) {
+        cipherMap[cipher1[i]] = cipher2[i];
+    }
+
     std::string result;
     for(int i = 0; i < message.length(); i++) {
-        char c = std::tolower(message[i]);
-        if(c != ' ') { 
-            for (int j = 0; j < cipher1.length(); j++) {
-                if(c == cipher1[j]) {
-                    result += cipher2[j];
-                    break;
-                } else {
-                    result += c;
-                }
-            }
+        char c = message[i]; // Convert to lowercase
+        if(cipherMap.find(std::tolower(c)) != cipherMap.end()) {
+            result += cipherMap.at(std::tolower(c));
         } else {
-            result += c;  
+            result += c;
         }
     }
     std::cout << result.c_str() << std::endl;
