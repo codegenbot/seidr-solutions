@@ -1,10 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
-
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
+#include <initializer_list>
 
 std::vector<int> sortList(const std::vector<int>& input) {
     std::vector<int> output(input);
@@ -13,10 +11,10 @@ std::vector<int> sortList(const std::vector<int>& input) {
 }
 
 int main() {
-    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<int> input;
     for(int i = 0; i < n; i++) {
         int val;
         std::cout << "Enter element " << i+1 << ": ";
