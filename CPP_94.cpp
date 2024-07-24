@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,7 +10,8 @@ bool isPrime(int n){
             return false;
     }
     return true;
-}
+
+};
 
 int maxPrime(vector<int> lst){
     int maxPrime = 0;
@@ -21,6 +21,8 @@ int maxPrime(vector<int> lst){
     }
     return maxPrime;
 
+};
+
 int sumOfDigits(int n){
     int sum = 0;
     while(n > 0){
@@ -28,6 +30,8 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
+
+};
 
 int main() {
     vector<int> lst;
