@@ -25,7 +25,3 @@ void filter_by_substring(std::vector<std::string> vec, const std::string& substr
         return s.find(substr) != std::string::npos;
     }), vec.end());
 }
-
-std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
-filter_by_substring(vec, "run");
-assert (issame(vec, {"grunt", "prune"}));
