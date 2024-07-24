@@ -1,11 +1,11 @@
+```cpp
 #include <cmath>
 #include <cassert>
-#include <cstddef>
 
 bool iscuber(int a){
     int i = 1;
-    while (pow(i, 3) <= a) {
-        if (pow(i, 3) == a)
+    while (pow(i, 3.0) <= a) {
+        if (pow(i, 3.0) == a)
             return true;
         i++;
     }
@@ -13,5 +13,7 @@ bool iscuber(int a){
 
 }
 
-assert(iscuber(0) == false);
-return 0;
+int main() { 
+   assert(iscuber(0) == false);
+   return 0; 
+}
