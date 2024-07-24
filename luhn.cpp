@@ -1,18 +1,18 @@
+```cpp
 #include <vector>
-#include <stdexcept>
 
-int luhn(const std::vector<int>& digits) {
-    if (digits.size() != 16)
-        throw std::invalid_argument("Invalid credit card number");
+int luhn(vector<int>& digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
         if (i % 2 == 1) {
-            digit *= 2;
-            if (digit > 9)
-                digit -= 9;
+            int doubleDigit = digits[i] * 2;
+            if (doubleDigit > 9) {
+                doubleDigit -= 9;
+            }
+            sum += doubleDigit;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
     }
     return sum;
 }
