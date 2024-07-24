@@ -1,6 +1,8 @@
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) <= threshold:
+def has_close_elements(numbers_list: list[float], threshold: float) -> bool:
+    if len(numbers_list) < 2:
+        return False
+    for i in range(len(numbers_list) - 1):
+        for j in range(i + 1, len(numbers_list)):
+            if abs(numbers_list[i] - numbers_list[j]) <= threshold:
                 return True
     return False
