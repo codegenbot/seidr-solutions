@@ -9,14 +9,16 @@ string camelCase(string s) {
                 i++;
             }
             if (!result.empty())
-                result += toupper(s.substr(i, s.find(' ', i) - i).substr(0, 1));
+                result += toupper(s.substr(i, s.find(' ', i) - i));
             else
-                result += s.substr(i, s.find(' ', i) - i);
+                result = tolower(s.substr(i, s.find(' ', i) - i));
             i = s.find(' ', i);
         } else if (!result.empty()) {
-            result += tolower(s[i]);
-        } else {
+            if (s[i] == ' ')
+                continue;
             result += toupper(s[i]);
+        } else {
+            result += s[i];
         }
         i++;
     }
