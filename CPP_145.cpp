@@ -1,51 +1,25 @@
 #include <algorithm>
-#include <vector>
-#include <utility>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<vector<int>> order_by_points(vector<vector<int>> nums) {
-    vector<pair<int, int>> numSumIndex;
-    
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        int sum = 0;
-        int n = nums[i][0];
-        while (n > 0) {
-            sum += n % 10;
-            n /= 10;
-        }
-        numSumIndex.push_back({sum, i});
+        pairs.push_back(make_pair(getDigitSum(nums[i]), i));
     }
-
-    sort(numSumIndex.begin(), numSumIndex.end());
-    
-    vector<vector<int>> result;
-    for (auto& p : numSumIndex) {
-        result.push_back(nums[p.second]);
+    sort(pairs.begin(), pairs.end());
+    vector<int> result;
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
     }
-    
     return result;
+
 }
 
-int main() {
-    // Example usage:
-    vector<vector<int>> nums = {{1, 2}, {3, 4}, {5, 6}};
-    vector<vector<int>> result = order_by_points(nums);
-    for (auto& num : result) {
-        cout << "[";
-        for (int i = 0; i < num.size(); i++) {
-            cout << num[i];
-            if (i < num.size() - 1) {
-                cout << ", ";
-            }
-        }
-        cout << "]\n";
+int getDigitSum(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
     }
-    return 0;
+    return sum;
 }
