@@ -1,6 +1,7 @@
+```
 print("Enter a list of numbers separated by space or comma: ")
-input_str = input().replace(',', ' ')
-numbers = [int(num) for num in input_str.split()]
+input_str = input()
+numbers = [int(num) for num in input_str.replace(',', ' ').split()]
 if not all(isinstance(i, int) for i in numbers):
     print("List elements must be integers")
 elif len(set(numbers)) != len(numbers):
