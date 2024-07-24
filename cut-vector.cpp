@@ -1,38 +1,49 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int>& vec) {
-    int n = vec.size();
-    vector<vector<int>> result;
-    
-    for (int i = 1; i <= n; i++) {
-        if (vec[i-1] == vec[n-i]) {
-            result.push_back({vec.begin(), vec.end()});
-            return {{}, {}}; // or any other way you want to handle the case where both sides are equal
-        }
-    }
-    
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        int diff = abs(vec[i] - vec[n-i-1]);
-        if (diff < minDiff) {
+    int pos = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff <= minDiff) {
             minDiff = diff;
-            result = {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
+            pos = i;
         }
     }
-    
-    return result;
+
+    std::vector<int> leftVec, rightVec;
+    for (int i = 0; i < pos; i++) {
+        leftVec.push_back(vec[i]);
+    }
+    for (int i = pos + 1; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
+    }
+
+    return {leftVec, rightVec};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto& x : vec) cin >> x;
-    auto res = cutVector(vec);
-    for (const auto& v : res) {
-        for (auto x : v) cout << x << " ";
-        cout << endl;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
     }
+
+    auto res = cutVector(vec);
+
+    for (const auto& x : res.first) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    for (const auto& x : res.second) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
     return 0;
 }
