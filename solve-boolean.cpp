@@ -1,16 +1,16 @@
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr = expr;
-    for (char& c : lowercaseExpr) {
-        c = tolower(c);
+    std::string lowercaseExpr;
+    for (auto it = expr.begin(); it != expr.end(); ++it) {
+        lowercaseExpr += tolower(*it);
     }
-
+    
     bool result = true;
     bool andFlag = true;
-
-    for (size_t i = 0; i < lowercaseExpr.size(); ++i) {
-        char c = lowercaseExpr[i];
+    
+    for (auto it = lowercaseExpr.begin(); it != lowercaseExpr.end(); ++it) {
+        char c = *it;
         if (c == 'f') {
             result = false;
         } else if (c == 't') {
@@ -25,6 +25,6 @@ bool evaluateBooleanExpression(const std::string& expr) {
             andFlag = false;
         }
     }
-
+    
     return result;
 }
