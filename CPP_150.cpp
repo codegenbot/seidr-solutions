@@ -1,5 +1,5 @@
+```
 #include <iostream>
-using namespace std;
 
 bool isPrime(int num) {
     if (num <= 1)
@@ -19,13 +19,14 @@ int x_or_y(int n, int x, int y) {
 }
 
 int main() {
-    int num,x,y;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "Enter value of x: ";
-    cin >> x;
-    cout << "Enter value of y: ";
-    cin >> y;
-    cout << "The result is: " << x_or_y(num, x, y) << endl;
+    int num, x, y;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "Enter value for x: ";
+    std::cin >> x;
+    std::cout << "Enter value for y: ";
+    std::cin >> y;
+    int result = x_or_y(num, x, y);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
