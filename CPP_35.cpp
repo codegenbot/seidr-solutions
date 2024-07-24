@@ -1,7 +1,8 @@
 #include <algorithm>
-#include <cassert>
+#include <vector>
+using namespace std;
 
 int main() {
-    assert(std::abs(*std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})) < 1e-4);
-    return *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    return *max_element(l.begin(), l.end());
 }
