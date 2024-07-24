@@ -1,26 +1,24 @@
-int getMastermindClue(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
+
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            black++;
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
-            }
-        }
-        if (count > 1 && c != guess[0]) {
-            whitePegs += count - 1;
-        } else if (count == 1) {
-            whitePegs++;
-        }
+    for (int i = 0; i < 6; i++) {
+        white += min(code_count[i], guess_count[i]) - black;
     }
 
-    return blackPegs + whitePegs;
+    return {white, black};
 }
