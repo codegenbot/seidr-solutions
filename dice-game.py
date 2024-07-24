@@ -1,13 +1,3 @@
 n = int(input())
 m = int(input())
-
-count = 0
-total = n * m
-
-for i in range(1, n+1):
-    for j in range(1, m):
-        if i > j:
-            count += 1
-
-probability = count / total
-print(probability)
+print("{:.2f}".format((n - 1) / (n + m - 1)))
