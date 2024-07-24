@@ -12,7 +12,7 @@ def indices_of_substring(text, target):
         if pos == -1:
             break
         result.append(index + 1)
-        index += pos + len(target)
+        index += pos + 1
     return result
 
 a = int(input())
