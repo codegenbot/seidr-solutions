@@ -2,21 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+using namespace std;
 
 vector<int> rolling_max(vector<int> numbers);
 
-int main() {
-    vector<int> numbers = {1, 3, 5, 2, 6, 4};
-    vector<int> result = rolling_max(numbers);
-    
-    for(int num : result){
-        std::cout << num << " ";
-    }
-    
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 vector<int> rolling_max(vector<int> numbers){
@@ -27,4 +18,13 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
+}
+
+int main(){
+    vector<int> nums = {1, 3, 5, 2, 4, 6};
+    vector<int> max_nums = rolling_max(nums);
+    for(int num : max_nums){
+        cout << num << " ";
+    }
+    return 0;
 }
