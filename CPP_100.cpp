@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
-using namespace std;
+#include <assert.h>
 
 std::vector<int> make_pile(int n) {
     std::vector<int> pile;
@@ -11,20 +10,11 @@ std::vector<int> make_pile(int n) {
     return pile;
 }
 
-bool isSame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    vector<int> pile = make_pile(n);
-    // Test the function
-    assert(isSame(pile, make_pile(n)));
+    assert(make_pile(8) == std::vector<int>({2, 4, 6, 8, 10, 12, 14, 16}));
     return 0;
 }
