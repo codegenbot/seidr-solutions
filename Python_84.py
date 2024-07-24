@@ -1,2 +1,3 @@
 def solve(N):
-    return bin(sum(int(b) for b in bin(N)[2:].replace(" ","").replace("-", ""))) [2:]
+    total = sum(int(digit) for digit in str(N))
+    return "0" if total == 0 else bin(total)[2:]
