@@ -23,34 +23,35 @@ int main() {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> std::skipws; // skip any remaining characters
     }
 
     std::vector<int> vec1;
-    for(int i = 0; i < n; i++) {
+    int size = 0;
+    while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            while (std::cin.peek() == '\n') { 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> std::skipws; // skip any remaining characters
         }
         vec1.push_back(x); 
+        size++;
     }
 
     std::vector<int> vec2;
-    for(int i = 0; i < n; i++) {
+    size = 0;
+    while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            while (std::cin.peek() == '\n') { 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> std::skipws; // skip any remaining characters
         }
         vec2.push_back(x); 
+        size++;
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
