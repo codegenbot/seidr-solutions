@@ -1,5 +1,7 @@
-from typing import List, Optional
+Here's the corrected code:
 
+```
+from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
