@@ -1,15 +1,10 @@
-#include <vector>
 #include <iostream>
+#include <stack>
 #include <string>
 
-using namespace std;
-
-bool solveBoolean(string expression) {
-    bool result = false; 
-    stack<char> s;
+bool solveBoolean(std::string expression) {
+    std::stack<char> s;
     
-    stack<char> s; 
-
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -26,13 +21,12 @@ bool solveBoolean(string expression) {
         }
     }
     
-    result = s.top() == 'T'; 
-    return result;
+    return s.top() == 'T'; 
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    cout << (solveBoolean(expression) ? "True" : "False");
+    std::string expression;
+    std::cin >> expression;
+    std::cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
 }
