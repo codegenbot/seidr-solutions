@@ -1,8 +1,14 @@
 double euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     double sum = 0;
-    int len = std::max(v1.size(), v2.size());
-    for (int i = 0; i < len; i++) {
-        sum += pow((v2[i] - v1[i]), 2);
+    size_t min_len = std::min(v1.size(), v2.size());
+    for (size_t i = 0; i < min_len; i++) {
+        sum += pow(v2[i] - v1[i], 2);
+    }
+    for (size_t i = min_len; i < v1.size(); i++) {
+        sum += pow(0 - v1[i], 2); 
+    }
+    for (size_t i = min_len; i < v2.size(); i++) {
+        sum += pow(0 - v2[i], 2); 
     }
     return sqrt(sum);
 }
