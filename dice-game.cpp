@@ -1,17 +1,12 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= min(n, m); i++) {
-        total -= (double)i / max(n, m);
+double diceGame(int n, int m) {
+    double total = (double)n * m;
+    double petersHigher = 0;
+
+    for (int i = 1; i < n; i++) {
+        petersHigher += (double)(n - i + 1) / total;
     }
-    return total;
-}
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m) << endl;
-    return 0;
+    return petersHigher;
 }
