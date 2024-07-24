@@ -10,4 +10,4 @@ def prime_fib(n: int) -> int:
     elif n > 1 and n <= len(prime_fib_nums):
         return prime_fib_nums[n - 1]
     else:
-        return prime_fib_nums[n - 1] 
+        return prime_fib_nums[n - 1]
