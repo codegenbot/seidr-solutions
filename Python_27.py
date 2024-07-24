@@ -1,5 +1,5 @@
 def check():
-    string = input("Enter a string containing both upper and lower case letters: ").strip()
+    string = raw_input("Enter a string: ").strip()
     return modify_string(string)
 
 def modify_string(string):
