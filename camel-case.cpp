@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,29 +8,28 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool nextWordIsUpper = false;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                if (!nextWordIsUpper) result += tolower(s[i]);
-                else result += toupper(s[i]);
-                nextWordIsUpper = !nextWordIsUpper;
+                if (!result.size()) {
+                    result += tolower(s[i]);
+                } else {
+                    result += toupper(s[i]);
+                }
                 i++;
             }
-        } else if (!nextWordIsUpper) result += tolower(s[i]);
-        else {
-            result += toupper(s[i]);
-            nextWordIsUpper = false;
-        }
-    }
-    // Check for the last word
-    if (nextWordIsUpper) {
-        while(i < s.length()) {
-            result += tolower(s[i]);
+            result += " ";
+        } else {
+            if (!result.size()) {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+            }
             i++;
         }
-    } 
+    }
     return result;
 }
 
