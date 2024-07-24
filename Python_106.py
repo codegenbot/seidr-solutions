@@ -13,8 +13,8 @@ def f(n):
         if i % 2 == 0:
             result.append(factorial(i))
         else:
-            result.append(sum(range(1, i+1)))
+            result.append(None)
     return result
 
 num = int(input("Enter a number: "))
-print(f(num))
+print(f(num)[0])
