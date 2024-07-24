@@ -1,23 +1,17 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    int wordLen;
-    for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ' || i == str.length()) {
-            wordLen = i - result.length() - 1;
-            if (wordLen >= 5) {
-                string temp = result.substr(result.length() - wordLen, wordLen);
-                reverse(temp.begin(), temp.end());
-                result += temp;
-            } else {
-                result += result.substr(result.length() - wordLen, wordLen);
-            }
-            result += ' ';
-        } else {
-            result += str[i];
+    std::istringstream iss(sentence);
+    std::string word;
+    
+    while (iss >> word) {
+        if(word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        
+        result += word + " ";
     }
-    return result;
+    
+    return result.substr(0, result.size()-1); // Remove the extra space at the end
 }
