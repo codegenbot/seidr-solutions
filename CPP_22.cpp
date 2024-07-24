@@ -1,9 +1,16 @@
-vector<int> filter_integers(list_any values) {
+#include <vector>
+#include <boost/any.hpp>
+
+vector<int> filter_integers(vector<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (boost::holds_alternative<int>(value)) {
+            result.push_back(boost::get<int>(value));
         }
     }
     return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
