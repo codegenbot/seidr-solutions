@@ -30,9 +30,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> res = reverse_delete("mamma", "mia");
-    if (!issame({"" , "True"}, res)) {
-        cout << "Error!";
-    }
+    assert(reverse_delete("mamma", "mia") == {"", "True"});
     return 0;
 }
