@@ -1,3 +1,3 @@
-n = int(input("Enter the value of 'n': "))
+n = int(input())
 result = prime_fib(n)
 print(result)
