@@ -17,15 +17,15 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     int n;
+    float num;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        float num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         lst.push_back(num);
     }
     long long result = double_the_difference(lst); 
-    std::cout << "Sum of squares of odd integers: " << result << std::endl;
+    std::cout << "The sum of squares of odd integers is: " << result << std::endl;
     return 0;
 }
