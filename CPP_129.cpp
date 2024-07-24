@@ -1,89 +1,38 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+Here is the completed code:
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<pair<int, pair<int, int>>> queue;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[i].size(); ++j) {
-            queue.push_back({grid[i][j], {i, j}});
-        }
-    }
-
-    vector<int> res(k);
-    while (!queue.empty()) {
-        int val;
-        int i, j;
-        tie(val, pair<int, int>& temp) = queue[0];
-        queue.erase(queue.begin());
-
-        if (res.size() < k) {
-            res.push_back(val);
-        } else {
-            for (int x = 1; x <= k; ++x) {
-                for (int y = i - 1; y >= 0 || j + 1 >= grid[0].size(); ) {
-                    if (y >= 0 && x > res.size()) {
-                        queue.push_back({grid[y][j], {y, j}});
-                        break;
-                    }
-                    --y;
-                    ++j;
-                }
-                for (int y = i + 1; y < grid.size() || j - 1 < 0; ) {
-                    if (y < grid.size() && x > res.size()) {
-                        queue.push_back({grid[y][j], {y, j}});
-                        break;
-                    }
-                    ++y;
-                    --j;
-                }
-            }
-            for (int y = i; true) {
-                int temp_i = y, temp_j = j;
-                while (true) {
-                    if (!queue.empty()) {
-                        tie(val, pair<int, int>& temp) = queue[0];
-                        queue.erase(queue.begin());
-                        if (val == res.back() || x <= 1)
-                            break;
-                        else
-                            ++temp_i;
-                        if (x > 2 && temp_i > i)
-                            break;
-                    } else {
-                        for (int y2 = temp_i - 1; y2 >= 0 || j + 1 >= grid[0].size(); ) {
-                            if (y2 >= 0) {
-                                queue.push_back({grid[y2][j], {y2, j}});
-                                break;
-                            }
-                            --y2;
-                            ++j;
-                        }
-                        for (int y2 = temp_i + 1; y2 < grid.size() || j - 1 < 0; ) {
-                            if (y2 < grid.size()) {
-                                queue.push_back({grid[y2][j], {y2, j}});
-                                break;
-                            }
-                            ++y2;
-                            --j;
-                        }
-                    }
+    vector<vector<bool>> visited(grid.size(), vector<bool>(grid[0].size()));
+    priority_queue<pair<long long, vector<int>>, vector<pair<long long, vector<int>>>>
+        pq({{1, {grid[0][0]}}});
+    set<vector<int>> st;
+    while (!pq.empty()) {
+        auto cur = pq.top();
+        pq.pop();
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if ((i == 0 && j == 0) || i + grid.size() * (j ? (j > 0) : 1) >= grid.size()
+                    || i + grid[0].size() * (i != 0) < 0)
+                    continue;
+                int x = cur.second.back(), y = i, z = j;
+                if (x == grid[x][y] && !visited[y][x]) {
+                    vector<int> v(cur.second);
+                    v.push_back(grid[x][y]);
+                    visited[y][x] = true;
+                    pq.emplace(-1LL * v.size() * 1000 + v.back(), v);
+                    st.insert(v);
                 }
             }
         }
     }
-
+    vector<int> res = *(st.begin());
+    for (int i = k; i > 0; i--) {
+        int j = 0;
+        while (j < res.size() && res[j] == res.back()) {
+            j++;
+        }
+        if (j >= res.size()) break;
+        res.resize(j);
+        break;
+    }
     return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-
-    for (int val : minPath(grid, k)) {
-        cout << val << " ";
-    }
-    return 0;
 }
