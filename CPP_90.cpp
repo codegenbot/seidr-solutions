@@ -1,8 +1,21 @@
+Here is the completed code:
+
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // None is represented by -1
+    if (lst.size() < 2)
+        return -1; // or any other value that indicates "None"
+    
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    auto it = upper_bound(sorted.begin(), sorted.end(), sorted[0]);
-    if (it == sorted.end()) return -1; // No second smallest element
-    return *it;
+    
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i+1])
+            return sorted[i+1];
+    }
+    
+    return -1; // or any other value that indicates "None"
 }
