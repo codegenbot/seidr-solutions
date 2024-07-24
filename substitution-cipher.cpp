@@ -1,19 +1,22 @@
 #include <string>
 
-string result;
-for (char c : input.substr(0, input.find('\0'))) {
-    if (c != '\0') {  
+std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
+    std::string result = "";
+    for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
-            result += cipher1[pos]; 
-        } else {
             char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            size_t pos2 = cipher1.find(originalCase); 
-            if (pos2 != std::string::npos) {
-                result += originalCase; 
+            if (std::find_if(cipher1.begin(), cipher1.end(), [originalCase](char x) { return std::tolower(x) == std::tolower(originalCase); }) != cipher1.end()) {
+                result += c;
             } else {
-                result += c; 
+                size_t pos2 = cipher1.find(std::tolower(c)); 
+                if (pos2 != std::string::npos) {
+                    result += cipher1[pos2];
+                } else {
+                    result += c; 
+                }
             }
         }
     }
+    return result;
 }
