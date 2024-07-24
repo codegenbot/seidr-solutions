@@ -42,8 +42,8 @@ int main() {
     getline(cin, input);
 
     unordered_map<char, int> hist = histogram(input);
-    for (auto& [ch, count] : hist) {
-        cout << ch << ": " << count << endl;
+    for (const auto& pair : hist) {
+        cout << pair.first << ": " << pair.second << endl;
     }
 
     return 0;
