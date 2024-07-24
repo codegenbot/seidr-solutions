@@ -15,6 +15,7 @@ vector<int> findIndices(string text, string target) {
     while ((last = text.find(target, prevLast + 1)) != string::npos) {
         indices.push_back(last);
         prevLast = last;
+        prevLast = -1; // Reset here
     }
     return indices;
 }
