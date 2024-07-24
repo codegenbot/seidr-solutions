@@ -1,8 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-int sorted_list_sum(const vector<vector<string>>& lst) {
+int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
@@ -26,7 +26,7 @@ int sorted_list_sum(const vector<vector<string>>& lst) {
 }
 
 int main() {
-    vector<vector<string>> lst = {{"aaaa", "bbbb"}, {"dd"}, {"cc"}};
-    assert(sorted_list_sum(lst) == 0);
+    std::vector<std::string> test = {"cc", "dd", "aaaa", "bbbb"};
+    assert(sorted_list_sum({{"aaaa", "bbbb"}, {"dd"}, {"cc"}}) == 0);
     return 0;
 }
