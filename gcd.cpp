@@ -55,3 +55,4 @@ int main() {
     }
     std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
     return 0;
+}
