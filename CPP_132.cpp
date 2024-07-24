@@ -1,13 +1,16 @@
-int count_open = 0, count_close = 0;
+Here is the completed code:
 
-for (char c : str) {
-    if (c == '[') {
-        count_open++;
-        count_close = 0;
-    } else if (c == ']') {
-        count_close++;
-        if (count_close > count_open)
-            return false;
+```cpp
+bool is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            }
+        }
     }
+    return count > 0;
 }
-return count_close > 0;
