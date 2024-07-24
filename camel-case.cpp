@@ -17,7 +17,7 @@ std::vector<std::string> split(const std::string& s, char delimeter) {
 }
 
 std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words = split(s, ' ');
+    std::vector<std::string> words = split(s, " ");
     std::string result;
 
     for (const auto& word : words) {
