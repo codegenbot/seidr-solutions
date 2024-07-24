@@ -1,6 +1,4 @@
-n, m = len(grid), len(grid[0])
-
-
+```
 def dfs(i, j, path, visited=None, curr_sum=0):
     global grid, n, m
     if i == n - 1 and j == m - 1:
@@ -17,8 +15,8 @@ def dfs(i, j, path, visited=None, curr_sum=0):
 
 
 def main():
-    global grid, n, m
     grid = [[1], [5]]
+    n, m = len(grid), len(grid[0])
     print(dfs(0, 0, [], set(), grid[0][0]))
 
 
