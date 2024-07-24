@@ -12,7 +12,6 @@ def mastermind(code, guess):
         sum(
             min(count, guess.count(c))
             for count, c in zip(code_count, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-        )
-        - black_pegs
+        ) - black_pegs
     )
     return str(black_pegs), str(white_pegs)
