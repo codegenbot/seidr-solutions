@@ -21,7 +21,10 @@ def decode_shift():
 
         while True:
             response = input("Decode again? (y/n): ")
-            if response.lower() != "y":
+            while response.lower() not in ["y", "n"]:
+                print("Invalid input. Please enter 'y' or 'n'.")
+                response = input("Decode again? (y/n): ")
+            if response.lower() == "n":
                 break
             else:
                 decode_shift()
