@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
