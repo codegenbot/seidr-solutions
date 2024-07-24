@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,24 +9,26 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
-int greatestCommonDivisor(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+int greatestCommonDivisor(int num1, int num2) {
+    int gcd = 1;
+
+    for(int i = 1; i <= num1 && i <= num2; ++i) {
+        if (num1 % i == 0 && num2 % i == 0)
+            gcd = i;
     }
-    return a;
+
+    return gcd;
 }
 
 int main() {
-    int num1, num2;
+    int a, b;
     cout << "Enter the first number: ";
-    cin >> num1;
+    cin >> a;
     cout << "Enter the second number: ";
-    cin >> num2;
+    cin >> b;
 
-    int result = greatestCommonDivisor(num1, num2);
-    cout << "The GCD of the given numbers is: " << result << endl;
+    int result = greatestCommonDivisor(a, b);
+    cout << "The GCD of " << a << " and " << b << " is " << result << endl;
 
     return 0;
 }
