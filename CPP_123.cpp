@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
@@ -21,10 +25,6 @@ std::vector<int> get_odd_collatz(int n) {
     }
     std::sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
-}
-
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
 
 int main() {
