@@ -2,15 +2,15 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
     
-    for (char &ch : message) {
-        if (ch == cipher1[0]) {
-            ch = cipher2[0];
-        } else if (ch == cipher2[0]) {
-            ch = cipher1[0];
+    string deciphered_message = "";
+    for (char c : message) {
+        size_t idx = cipher1.find(c);
+        if (idx != string::npos) {
+            deciphered_message += cipher2[idx];
         }
     }
     
-    cout << message << endl;
+    cout << deciphered_message << endl;
     
     return 0;
 }
