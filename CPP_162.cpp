@@ -16,12 +16,12 @@ string string_to_md5(string text) {
     while(len--) MD5_Update(ctx, ptr++, 1);
     MD5_Final(md5, ctx);
 
-    delete ctx;
-
     stringstream ss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         ss << setfill('0') << setw(2) << hex << (int)md5[i];
     }
+
+    delete ctx;
 
     return ss.str();
 }
