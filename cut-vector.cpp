@@ -1,43 +1,39 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
     
-    int n = nums.size();
-    int diff = INT_MAX;
-    int idx = -1;
+    int sum = 0, halfSum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    halfSum = sum / 2;
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        
-        if (abs(left_sum - right_sum) < diff) {
-            diff = abs(left_sum - right_sum);
+    int currSum = 0, idx = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        currSum += nums[i];
+        if (currSum >= halfSum) {
             idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-    
-    cout << "0" << endl;
-    
-    for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int num : subvector2) {
+        cout << num << endl;
     }
-    
-    cout << "0" << endl;
     
     return 0;
 }
