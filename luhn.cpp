@@ -6,14 +6,14 @@ int main() {
 
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
-        int digit = digits[i];
+        int num = digits[i];
         if (i % 2 == 1) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+            num *= 2;
+            if (num > 9) {
+                num -= 9;
             }
         }
-        sum += digit;
+        sum += num;
     }
 
     cout << sum << endl;
