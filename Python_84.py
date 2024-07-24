@@ -1,3 +1,5 @@
-```
-def solve(N):
-    print(bin(sum(int(i) for i in str(bin(N)[2:]).lstrip('0'))))
+def solve():
+    N = int(input("Enter a number: "))
+    if N < 1:
+        return "Please enter a positive integer."
+    return bin(N)[2:]
