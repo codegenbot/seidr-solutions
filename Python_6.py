@@ -1,11 +1,8 @@
-from typing import List
-
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    groups = paren_string.split()
-    for group in groups:
-        if group != '':
+    for group in paren_string.split():
+        group = group.strip()  
+        if group:  
             level = 0
             max_level = 0
             for char in group:
