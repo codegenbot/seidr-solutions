@@ -1,9 +1,10 @@
 #include <vector>
 #include <unordered_set>
 #include <cassert>
+using namespace std;
 
-bool pairs_sum_to_zero(const std::vector<int>& l) {
-    std::unordered_set<int> nums;
+bool pairs_sum_to_zero(const vector<int>& l) {
+    unordered_set<int> nums;
     for (int num : l) {
         if (nums.count(-num) > 0) {
             return true;
