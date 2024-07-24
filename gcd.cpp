@@ -34,9 +34,13 @@ int main() {
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
+    // Change here
     while (cin.get() != '\n');
+
+    // Read the text string
     getline(cin, text);
 
+    // Read the target string
     getline(cin, target);
 
     vector<int> result = findSubstringIndices(text, target);
