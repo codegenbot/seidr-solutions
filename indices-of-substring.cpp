@@ -27,8 +27,7 @@ int main() {
     cin >> target;
     vector<int> res = indicesOfSubstring(text, target);
     for(int i : res) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << endl;
+    cout << endl;
     return 0;
-}
