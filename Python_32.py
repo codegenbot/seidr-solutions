@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
