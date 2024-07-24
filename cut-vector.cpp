@@ -9,12 +9,8 @@ int main() {
     vector<int> nums;
     string line;
     
-    getline(cin, line);
-    istringstream iss(line);
-    
-    int num;
-    while (getline(iss, line, ',')) {
-        num = stoi(line);
+    while (getline(cin, line, ',')) {
+        int num = stoi(line);
         nums.push_back(num);
     }
     
@@ -44,7 +40,7 @@ int main() {
     }
     cout << '\n';
     
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
