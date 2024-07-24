@@ -1,11 +1,11 @@
 ```cpp
 #include <vector>
 #include <set>
-#include <initializer_list>
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::set<int> unique_numbers(numbers.begin(), numbers.end());
-    return std::vector<int>(unique_numbers.begin(), unique_numbers.end());
+    std::vector<int> result(unique_numbers.begin(), unique_numbers.end());
+    return result;
 }
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
