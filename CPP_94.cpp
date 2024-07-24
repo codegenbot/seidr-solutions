@@ -1,5 +1,7 @@
 ```cpp
 #include <vector>
+#include <cmath>
+
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int i : lst){
@@ -12,6 +14,7 @@ int skjkasdkd(vector<int> lst){
         max_prime /= 10;
     }
     return sum;
+
 }
 
 bool isPrime(int n) {
