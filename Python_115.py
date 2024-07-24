@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     total_water = 0
     left_max = [0] * len(grid)
@@ -8,13 +7,13 @@ def max_fill(grid, capacity):
         if i == 0:
             left_max[i] = grid[i][0]
         else:
-            left_max[i] = max(left_max[i - 1], grid[i][0])
+            left_max[i] = max(left_max[i-1], grid[i][0])
 
     for i in reversed(range(len(grid))):
         if i == len(grid) - 1:
             right_max[i] = grid[i][len(grid[0]) - 1]
         else:
-            right_max[i] = max(right_max[i + 1], grid[i][len(grid[0]) - 1])
+            right_max[i] = max(right_max[i+1], grid[i][len(grid[0]) - 1])
 
     for i in range(len(grid)):
         left_height = left_max[i]
@@ -22,12 +21,12 @@ def max_fill(grid, capacity):
 
         width = len(grid[0])
         min_height = min(left_height, right_height)
-
+        
         if left_height < right_height:
-            height_to_fill = min(min(min_height, left_height), right_height)
-            total_water += min(height_to_fill // capacity + 1, width - i) 
+            height_to_fill = min(min_height, capacity)
+            total_water += height_to_fill * (1 + i)
         else:
-            height_to_fill = min(min(min_height, right_height), left_height)
-            total_water += min(height_to_fill // capacity + 1, width - i)
+            height_to_fill = min(min_height, capacity)
+            total_water += height_to_fill * width
 
     return int(total_water)
