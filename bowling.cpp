@@ -1,35 +1,38 @@
+int calculateBowlingScore(string input) {
+    int score = 0;
+    int frame = 1;
+    int i = 0;
+    while (i < input.size() && frame <= 10) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (i + 2 < input.size()) {
+                if (input[i + 2] == 'X') {
+                    score += 10;
+                } else if (input[i + 2] == '/') {
+                    score += 10 - (input[i + 1] - '0');
+                } else {
+                    score += input[i + 1] - '0' + input[i + 2] - '0';
+                }
+            }
+            i += 1;
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0');
+            if (i + 1 < input.size()) {
+                score += input[i + 1] - '0';
+            }
+        } else if (input[i] >= '0' && input[i] <= '9') {
+            score += input[i] - '0';
+        }
+        i += 1;
+        if (input[i - 1] == 'X' || input[i - 1] == '/') {
+            frame += 1;
+        }
+    }
+    return score;
+}
 int main() {
     string input;
     cin >> input;
-    
-    int score = 0;
-    int frame = 0;
-    int rolls = 0;
-
-    for (char c : input) {
-        rolls++;
-        if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (rolls < 19) ? ((input[rolls] == 'X') ? 10 : (isdigit(input[rolls]) ? input[rolls] - '0' : 10)) : (isdigit(input[rolls]) ? input[rolls] - '0' : 10);
-                score += (rolls < 18) ? ((input[rolls + 1] == 'X') ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10)) : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10);
-                frame++;
-                rolls++;
-            }
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 10) {
-                if (rolls % 2 == 0 || c == '0') {
-                    score += (c == '/') ? (10 - (input[rolls - 1] - '0')) : 0;
-                    frame++;
-                }
-            }
-        } else if (c == '/') {
-            score += 10 - (input[rolls - 1] - '0');
-        }
-    }
-
-    cout << score << endl;
-
+    cout << calculateBowlingScore(input) << endl;
     return 0;
 }
