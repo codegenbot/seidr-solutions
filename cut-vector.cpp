@@ -1,27 +1,18 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& vec) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i < vec.size(); i++) {
-        int diff = abs(vec[i] - vec[i-1]);
-        if (diff <= minDiff) {
+    int idx = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] == vec[i + 1]) continue;
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff < minDiff) {
             minDiff = diff;
-            cutIndex = i;
+            idx = i;
         }
     }
-    
-    vector<int> leftVec(0);
-    for (int i = 0; i < cutIndex; i++) {
-        leftVec.push_back(vec[i]);
-    }
-    
-    vector<int> rightVec(0);
-    for (int i = cutIndex; i < vec.size(); i++) {
-        rightVec.push_back(vec[i]);
-    }
-    
-    return {leftVec, rightVec};
+
+    return {{}, {}}; // replace this with your actual implementation
 }
