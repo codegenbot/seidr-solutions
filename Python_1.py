@@ -21,5 +21,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if stack:
         raise ValueError("Unmatched open parentheses")
-
+    
     return result
