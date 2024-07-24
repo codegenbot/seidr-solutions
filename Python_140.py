@@ -1,3 +1,4 @@
+```Python
 import re
 
 def check(text):
@@ -11,4 +12,4 @@ def check(text):
         text = text.replace("__", "_-")
     return text
 
-check(input("Your input here: "))
+print(check(input("Your input here")))
