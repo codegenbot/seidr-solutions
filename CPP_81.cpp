@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
-#pragma GCC diagnostic push
-#include <initializer_list>
-#pragma GCC diagnostic pop
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
