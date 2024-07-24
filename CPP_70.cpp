@@ -1,8 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -11,19 +11,19 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
 
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
+        int min_val = *std::min_element(lst.begin(), lst.end());
+        int max_val = *std::max_element(lst.begin(), lst.end());
 
-        auto it = find_if(lst.begin(), lst.end(),
+        auto it = std::find_if(lst.begin(), lst.end(),
             [&](int x) { return x == min_val; });
         result.push_back(*it);
         lst.erase(it);
 
-        it = find_if(lst.begin(), lst.end(),
+        it = std::find_if(lst.begin(), lst.end(),
             [&](int x) { return x == max_val; });
         result.push_back(*it);
         lst.erase(it);
@@ -33,15 +33,17 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    cout << "Enter numbers separated by space: ";
-    int temp;
-    while (cin >> temp) {
-        input.push_back(temp);
-        if (cin.peek() == '\n') break;
+    assert(issame(strange_sort_list({1, 4, 2, 5}), {1, 2, 4, 5}));
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num) {
+        input.push_back(num);
     }
-    if(input.empty()) return 0;
-    vector<int> output = strange_sort_list(input);
-    for(int i : output) cout << i << " ";
-    cout << endl;
+    std::cout << "[";
+    for (int i = 0; i < input.size() - 1; ++i)
+        std::cout << input[i] << ", ";
+    if (!input.empty())
+        std::cout << input.back();
+    std::cout << "]\n";
+    return 0;
 }
