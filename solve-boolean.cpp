@@ -25,7 +25,7 @@ bool solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-
+    
     result = s.top() == 'T'; 
     return result;
 }
