@@ -1,33 +1,42 @@
-```cpp
 #include <vector>
 #include <climits>
 using namespace std;
 
-int main() {
-    cutVector({1,2,3,4,5});
-    return 0;
-}
-
-vector<vector<int>> cutVector(vector<int>& nums) {
+void cutVector(vector<int>& nums) {
     int n = nums.size();
-    vector<vector<int>> result;
     
-    if(n == 1){
-        return {{nums[0]}};
-    }
-
     int min_diff = INT_MAX;
     for (int i = 1; i < n; i++) {
-        int diff1 = accumulate(nums.begin(), nums.begin() + i, 0) - nums[0];
-        int diff2 = nums[n-1] - accumulate(nums.begin() + i, nums.end(), 0);
-        if (abs(diff1-diff2) < abs(min_diff)) {
-            min_diff = diff1 - diff2;
-            result.push_back(vector<int>(nums.begin(), nums.begin() + i));
-            vector<int> temp(nums.begin() + i, nums.end());
-            temp.erase(temp.begin());
-            result.push_back(temp);
+        int diff1 = abs(nums[i] - nums[0]);
+        int diff2 = abs(nums[n-1] - nums[i-1]);
+        if (diff1 <= diff2) {
+            cout << "[";
+            for (int j = 0; j < i; j++) {
+                cout << nums[j] << " ";
+            }
+            cout << "] [";
+
+            for (int k = i; k < n; k++) {
+                cout << nums[k] << " ";
+            }
+            cout << "]" << endl;
+            return;
+        } else {
+            if (abs(diff1-diff2) < abs(min_diff)) {
+                min_diff = diff1 - diff2;
+            }
         }
     }
-    
-    return result;
+
+    cout << "[";
+    for (int j = 0; j < n; j++) {
+        cout << nums[j] << " ";
+    }
+    cout << "]" << endl;
+}
+
+int main() {
+    vector<int> nums = {3,1,5,6,7};
+    cutVector(nums);
+    return 0;
 }
