@@ -2,22 +2,19 @@
 using namespace std;
 
 int main() {
-    double startHeight, firstBounceHeight;
+    double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounceHeight >> numBounces;
+    cin >> startHeight >> firstBounce >> numBounces;
 
-    double bouncinessIndex = firstBounceHeight / startHeight;
+    double bouncinessIndex = firstBounce / startHeight;
 
     double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(2, -bouncinessIndex) * startHeight * (2.0 + bouncinessIndex);
-        startHeight *= bouncinessIndex;
+    for (int i = 1; i <= numBounces; ++i) {
+        totalDistance += pow(2, -bouncinessIndex) * (startHeight + ((firstBounce - startHeight) / 2) * (1 - pow(-1, i)));
     }
 
-    cout << fixed << setprecision(4);
-    cout << startHeight << endl;
-    cout << fixed << setprecision(4);
+    cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
