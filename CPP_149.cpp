@@ -24,15 +24,10 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(sum); 
+        sums.push_back(stoi(str)); 
     } 
 
-    std::vector<int> sorted_int_sums = sums; // initialize with ints
-    std::vector<std::string> sorted_sums;
-    for (int num : sorted_int_sums) {
-        sorted_sums.push_back(std::to_string(num));
-    }
-
+    std::vector<std::string> sorted_sums(sums.begin(), sums.end());
     std::sort(sorted_sums.begin(), sorted_sums.end()); 
 
     return sorted_sums;
