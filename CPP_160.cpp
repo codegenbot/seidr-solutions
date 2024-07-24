@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -53,8 +54,8 @@ int main() {
         ops.push_back(op);
         args.push_back(arg);
         count++;
-   
-    
+    }
+
     double output = do_algebra(ops, args);
 
     std::cout << "Output: " << output << std::endl;
