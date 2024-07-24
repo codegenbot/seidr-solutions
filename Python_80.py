@@ -1,3 +1,4 @@
+```
 def is_happy_number(n):
     if n < 1:
         return False
@@ -6,5 +7,14 @@ def is_happy_number(n):
         n = sum_of_digits
     return n == 1 or n == 4
 
-n = int(input("Enter a number: "))
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        if n < 10:
+            print("Number should be 10 or greater. Please enter again.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(is_happy_number(n))
