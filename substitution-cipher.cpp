@@ -19,10 +19,10 @@ int main() {
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
-            result.push_back(cipherMap.at(c));
+            result += cipherMap.at(c);
         } else {
             // Handle characters not in the cipher map by keeping them unchanged
-            result.push_back(c);
+            result += c;
         }
     }
     std::cout << result << std::endl;
