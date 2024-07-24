@@ -8,7 +8,7 @@ bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     if (numbers.empty()) {
-        return {0, 1};
+        return {0, 0};
     }
     int sum = 0;
     int product = 1;
