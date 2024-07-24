@@ -8,14 +8,12 @@ int main() {
     
     int sum = 0;
     for (int i = n - 1; i >= 0; --i) {
-        int digit = digits[i];
         if ((n - i) % 2 == 0) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
+            int doubled = digits[i] * 2;
+            sum += (doubled > 9) ? (doubled - 9) : doubled;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
     }
     
     cout << sum << endl;
