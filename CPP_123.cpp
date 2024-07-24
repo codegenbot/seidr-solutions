@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -36,7 +36,17 @@ int main() {
         std::cerr << "Error: Please enter a positive integer." << std::endl;
         return 1;
     }
-    std::vector<int> res = get_odd_collatz(n);
+    res.push_back(n); 
+    while (n > 1 || n == 4) {
+        if (n % 2 != 0) {
+            res.push_back(n);
+        }
+        if (n == 4) {
+            n = 2;
+        } else {
+            n = (n * 3 + 1);
+        }
+    }
     for (int i : res) {
         std::cout << i << " ";
     }
