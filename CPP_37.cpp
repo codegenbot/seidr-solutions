@@ -5,9 +5,9 @@ vector<float> even_indices;
         }
     }
     sort(even_indices.begin(), even_indices.end());
-    
-    vector<float> result;
+
     int even_index = 0;
+    vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             result.push_back(even_indices[even_index]);
