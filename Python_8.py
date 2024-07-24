@@ -1,13 +1,13 @@
 from typing import List, Tuple
 
-def sum_product(numbers: list[int]) -> Tuple[int, int]:
+def sum_product(numbers: list[str]) -> Tuple[int, int]:
     total_sum = 0
     product = 1
     for num in numbers:
-        total_sum += num
-        product *= num
+        try:
+            num_int = int(num)
+            total_sum += num_int
+            product *= num_int
+        except ValueError:
+            return "Invalid input. Please enter a valid integer."
     return total_sum, product
-
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-result = sum_product(numbers)
-print(result)
