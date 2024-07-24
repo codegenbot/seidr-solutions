@@ -8,10 +8,12 @@ def hex_key(num):
                 return False
         return True
 
-    result = 0
+    count = 0
     for digit in num.upper():
         if digit.isdigit() and is_prime(int(digit)):
-            result += 1
+            count += 1
         elif digit in 'BDF':
-            result += 3
-    return result
+            count += 1
+        elif digit in '0123456789ABCDEF':
+            count += (8 - len(set(num.upper()))) 
+    return count
