@@ -31,10 +31,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input(3);
-    input[0] = "E";
-    input[1] = "D-";
-    input[2] = "A-";
+    std::vector<std::string> input;
+    std::cout << "Enter grades: ";
+    for(int i=0; i<2; i++){
+        std::string grade;
+        std::cin >> grade;
+        input.push_back(grade);
+    }
     int total = 0;
     for (const auto& grade : input) {
         if (grade == "A+") total += 4.3;
