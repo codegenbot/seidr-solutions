@@ -1,7 +1,19 @@
-def find_zero(a, b, c):
+```
+def find_zero():
+    a = float(input("Enter coefficient a: "))
+    b = float(input("Enter coefficient b: "))
+    c = float(input("Enter constant c: "))
+
+    if a == 0:
+        if b == 0 and c != 0:
+            return f"Root: {-c / b}"
+        else:
+            return "No real roots"
     discriminant = (b**2) - (4 * a * c)
 
-    if discriminant > 0:
+    if a == 0:
+        return f"Root: {-c / b}"
+    elif discriminant > 0:
         root1 = (-b + discriminant**0.5) / (2 * a)
         root2 = (-b - discriminant**0.5) / (2 * a)
         return f"Roots: {root1} and {root2}"
@@ -10,5 +22,3 @@ def find_zero(a, b, c):
         return f"Root: {root}"
     else:
         return "No real roots"
-
-print(find_zero(float(input("Enter coefficient a: ")), float(input("Enter coefficient b: ")), float(input("Enter constant c: "))))
