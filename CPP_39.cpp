@@ -27,7 +27,7 @@ int prime_fib(int n) {
     }
 }
 
-int main() {
+int main_function() {
     cout << prime_fib(1) << endl; // prints 2
     cout << prime_fib(2) << endl; // prints 3
     cout << prime_fib(3) << endl; // prints 5
