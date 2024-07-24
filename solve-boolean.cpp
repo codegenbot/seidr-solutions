@@ -1,49 +1,44 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool solveBoolean(string expression) {
-    int pos = expression.find('|');
+    int pos = 0;
     while (pos != string::npos) {
-        if (pos == 0 || expression[pos - 1] != '|') {
-            string left = "";
-        } else {
-            string left = expression.substr(0, pos);
-        }
-        
-        if (pos + 1 >= expression.size()) {
-            string right = "";
-        } else {
-            string right = expression.substr(pos + 1);
+        if (expression[pos] == '|') {
+            string left;
+            string right;
+
+            if (pos > 0 && expression[pos - 1] == '|')
+                left = "";
+            else
+                left = expression.substr(0, pos);
+
+            if (pos < expression.length() - 1 && expression[pos + 1] == '|')
+                right = "";
+            else
+                right = expression.substr(pos + 1);
+
+            if (solveBoolean(left) || solveBoolean(right))
+                return true;
+        } else if (expression[pos] == '&') {
+            string left;
+            string right;
+
+            if (pos > 0 && expression[pos - 1] == '&')
+                left = "";
+            else
+                left = expression.substr(0, pos);
+
+            if (pos < expression.length() - 1 && expression[pos + 1] == '&')
+                right = "";
+            else
+                right = expression.substr(pos + 1);
+
+            if (solveBoolean(left) && solveBoolean(right))
+                return true;
         }
 
-        if (solveBoolean(left) || solveBoolean(right))
-            return true;
-        
-        pos = expression.find('|', pos);
+        pos = expression.find((expression[pos] == '|') ? "|" : "&", pos + 1);
     }
 
-    pos = expression.find('&');
-    while (pos != string::npos) {
-        if (pos == 0 || expression[pos - 1] != '&') {
-            string left = "";
-        } else {
-            string left = expression.substr(0, pos);
-        }
-        
-        if (pos + 1 >= expression.size()) {
-            string right = "";
-        } else {
-            string right = expression.substr(pos + 1);
-        }
-
-        if (solveBoolean(left) && solveBoolean(right))
-            return true;
-        
-        pos = expression.find('&', pos);
-    }
-
-    return !expression.empty() && tolower(expression[0]) == 't';
+    return tolower(expression[0]) == 't';
 }
 
 int main() {
