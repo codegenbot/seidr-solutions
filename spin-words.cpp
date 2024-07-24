@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
@@ -20,9 +24,14 @@ std::string spinWords(std::string str) {
         std::reverse(word.begin(), word.end());
     }
     
-    result += (word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word);
-    
-    result += word + " ";
+    result += word;
     
     return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << spinWords(input) << std::endl; 
+    return 0;
 }
