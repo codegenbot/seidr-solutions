@@ -11,10 +11,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
     }
-    
-    double temp;
     for (int i = 0; i < n; ++i) {
-        cin >> temp;
         cin >> v2[i];
     }
 
@@ -24,6 +21,6 @@ int main() {
     }
 
     cout << fixed << sqrt(sum) << endl;
-    
+
     return 0;
 }
