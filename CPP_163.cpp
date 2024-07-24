@@ -26,6 +26,6 @@ vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    // Add your test code here
+    // Main function logic
     return 0;
 }
