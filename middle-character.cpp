@@ -1,12 +1,14 @@
 int main() {
-    string input;
-    cin >> input;
-    if (input.size() % 2 == 0) {
-        int middle = input.size() / 2;
-        cout << input.substr(middle - 1, 2) << endl;
+    string s;
+    cin >> s;
+    
+    int len = s.length();
+    
+    if (len % 2 == 1) {
+        cout << s.substr(len/2, 1);
     } else {
-        int middle = input.size() / 2;
-        cout << input.substr(middle, 1) << endl;
+        cout << s.substr(len/2 - 1, 2);
     }
+    
     return 0;
 }
