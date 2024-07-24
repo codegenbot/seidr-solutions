@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int gcd(int a, int b) {
@@ -7,12 +8,18 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
-int main() {
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-
-    cout << "GCD of " << num1 << " and " << num2 << " is: " << gcd(num1, num2) << endl;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int index = 0;
     
-    return 0;
+    while (index <= text.length() - target.length()) {
+        index = text.find(target, index);
+        
+        if (index == string::npos) break;
+        
+        indices.push_back(index + 1);
+        index += target.length();
+    }
+    
+    return indices;
 }
