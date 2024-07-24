@@ -1,15 +1,17 @@
-string encode(string message){
-    for(char &c : message){
-        if(isalpha(c)){
-            if(c >= 'a' && c <= 'z'){
-                c = toupper(c);
+transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if (isalpha(c)) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                return char(c + 2);
             } else {
-                c = tolower(c);
-            }
-            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                c = char(c + 2);
+                if (islower(c)) {
+                    return toupper(c);
+                } else {
+                    return tolower(c);
+                }
             }
         }
-    }
+        return c;
+    });
     return message;
 }
