@@ -6,7 +6,8 @@ def add_numbers():
             y = int(input("Enter second number: "))
             return x + y
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("Invalid input. Please enter a valid number.")
+
 
 result = add_numbers()
 print(result)
