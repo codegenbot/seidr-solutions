@@ -16,10 +16,12 @@ int main() {
 std::string substitutionCipher(string cipher1, string cipher2, string message) {
     std::string result = "";
     for (char c : message) {
-        int offset = isalpha(c) ? (isupper(c) ? 0 : tolower(c) - 'a') : 0;
+        int offset = isalpha(c) ? (c >= 'A' && c <= 'Z') ? 0 : ('a' - c + 10) : 0;
         if(isalpha(c)) {
-            char cipherChar = isupper(c) ? toupper(cipher2[offset]) : tolower(cipher2[offset]);
-            result += cipherChar;
+            if(c >= 'A' && c <= 'Z')
+                result += cipher2[(c - 'A')];
+            else
+                result += cipher2[(c - 'a') % 26];
         } 
         else
             result += c;
