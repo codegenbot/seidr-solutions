@@ -15,3 +15,4 @@ int search(std::vector<int> lst) {
         }
     }
     return -1;
+}
