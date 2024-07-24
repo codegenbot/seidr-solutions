@@ -1,6 +1,5 @@
-```
 bool issame(float a, float b) {
-    if (abs(a - b) < 0.01)
+    if (abs(a - b) < 0.0001)
         return true;
     else
         return false;
@@ -33,18 +32,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("D");
         } else if (issame(grade, 0.0)) {
             letter_grades.push_back("E");
-        } else {
-            letter_grades.push_back("F");
         }
     }
     return letter_grades;
-}
-
-int main() {
-    vector<float> grades = {3.8, 2.9, 1.5};
-    vector<string> result = numerical_letter_grade(grades);
-    for (string grade : result) {
-        cout << grade << endl;
-    }
-    return 0;
 }
