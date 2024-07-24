@@ -1,19 +1,18 @@
-#include <assert.h>
 #include <vector>
-#include <string>
+using namespace std;
 
-bool issame(std::vector<std::string> a) {
-    if (a.size() != 2)
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] == "Earth")
-            return true;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i])
+            return false;
     }
-    return false;
+    return true;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    std::vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1, index2 = -1;
     
@@ -39,5 +38,6 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake") == std::vector<string>({}));
+    assert (issame(bf("Jupiter", "Makemake") , {}));
+    return 0;
 }
