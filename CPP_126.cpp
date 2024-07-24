@@ -1,5 +1,3 @@
-Here is the completed code:
-
 bool is_sorted(vector<int> lst){
     for(int i = 0; i < lst.size() - 1; i++){
         if(lst[i] >= lst[i+1]){
@@ -9,4 +7,8 @@ bool is_sorted(vector<int> lst){
         }
     }
     return true;
+}
+
+int main(){
+    assert (is_sorted({1, 2, 3, 4}) == true);
 }
