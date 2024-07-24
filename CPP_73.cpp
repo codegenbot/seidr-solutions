@@ -22,7 +22,7 @@ int main() {
         return changes;
     }
     
-    vector<int> arr = {0, 1};
-    cout << smallest_change(arr) << endl;
+    assert(smallest_change({0, 1}) == 1);
+    // Add more test cases here
     return 0;
 }
