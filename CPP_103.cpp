@@ -1,4 +1,3 @@
-```
 #include <string>
 
 string rounded_avg(int n, int m) {
@@ -8,15 +7,15 @@ string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = round(sum / (m - n + 1));
+    double avg = std::round(sum / (m - n + 1));
     string bin = "";
     while (avg > 0) {
         if (avg >= 2) {
             avg -= 2;
-            bin.push_back('1');
+            bin += '1';
         } else {
             avg++;
-            bin.push_back('0');
+            bin += '0';
         }
     }
     return bin;
