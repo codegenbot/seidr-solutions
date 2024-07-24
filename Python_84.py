@@ -1,2 +1,5 @@
 def solve(N):
-    return bin(sum([int(x) for x in bin(N)[2:].replace(' ', '')]))[2:]
+    if N > 0:
+        return bin(sum(int(i) for i in str(bin(N)[2:]))[2:])
+    else:
+        return "0"
