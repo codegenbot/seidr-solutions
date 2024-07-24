@@ -1,5 +1,3 @@
-def car_race_collision(n: int):
-    collisions = 0
-    for i in range(1, n):
-        collisions += i
-    return collisions
+```
+def car_race_collision(num_cars: int, speed_limit: int):
+    return num_cars * (speed_limit - 1)
