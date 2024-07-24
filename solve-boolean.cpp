@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 bool evaluateBooleanExpression(const std::string& expr) {
     if (expr == "t") {
@@ -49,7 +49,7 @@ bool evaluateBooleanExpression(const std::string& expr) {
 
 int main() {
     std::string expression;
-    std::cin >> expression;
-    std::cout << evaluateBooleanExpression(expression) << std::endl;
+    std::getline(std::cin, expression);
+    std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
     return 0;
 }
