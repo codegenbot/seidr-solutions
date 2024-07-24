@@ -6,17 +6,16 @@ int main() {
     std::vector<int> nums;
     int n;
     while (std::cin >> n) {
+        if (n == -1) break;
         nums.push_back(n);
     }
 
-    if (std::cin.eof()) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += static_cast<int>(std::floor(static_cast<float>(num) / 3.0)) - 2;
-        }
-
-        std::cout << sum << std::endl;
+    int sum = 0;
+    for (int num : nums) {
+        sum += static_cast<int>(std::floor(static_cast<float>(num) / 3.0)) - 2;
     }
+
+    std::cout << sum << std::endl;
 
     return 0;
 }
