@@ -1,36 +1,48 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stack>
 
-double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double output = 0.0;
-
-    for(int i = 0; i < ops.size(); i++) {
+double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
+    std::stack<double> numStack;
+    for(int i = 0; i < ops.size(); ++i) {
         if(ops[i] == "+") {
-            output += static_cast<double>(args[i]);
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a + b);
         } else if(ops[i] == "-") {
-            output -= static_cast<double>(args[i]);
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a - b);
         } else if(ops[i] == "*") {
-            output *= static_cast<double>(args[i]);
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a * b);
         } else if(ops[i] == "/") {
-            if(args[i] != 0) {
-                output /= static_cast<double>(args[i]);
-            } else {
-                std::cout << "Error: Division by zero is not allowed." << std::endl;
-                return 0.0;
-            }
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a / b);
+        } else {
+            numStack.push((double)args[i]);
         }
     }
-
-    return output;
+    return numStack.top();
 }
 
 int main() {
-    std::vector<std::string> ops; 
+    std::vector<std::string> ops;
     std::vector<int> args;
 
-    while(true) {
+    int count = 0;
+    while(count < 5) { 
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string op;
         int arg;
@@ -40,6 +52,7 @@ int main() {
         
         ops.push_back(op);
         args.push_back(arg);
+        count++;
     }
     
     double output = do_algebra(ops, args);
