@@ -8,14 +8,12 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
     for (int i = a; i <= b; ++i) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
+        result.push_back(i);
     }
     return result;
 }
 
 int main(){
-    assert(issame(generate_integers(17, 88), std::vector<int>{18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88}));
+    assert(issame(generate_integers(17, 89), std::vector<int>{17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89}));
     return 0;
 }
