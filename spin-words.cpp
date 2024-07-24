@@ -1,31 +1,31 @@
-```cpp
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(wordLength, i - wordLength);
-            wordLength = i + 1;
+#include <iostream>
+#include <string>
+
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string temp = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (i == str.length() - 1 || str[i + 1] == ' ') {
+            if (temp.length() >= 5) {
+                for (int j = temp.length() - 1; j >= 0; j--) {
+                    result += temp[j];
+                }
+            } else {
+                result += temp;
+            }
+            temp = "";
+        } else {
+            temp += str[i];
         }
     }
-    result += str.substr(wordLength);
 
-    string temp = "";
-    for (int j = 0; j < result.length(); j++) {
-        if (result[j] == ' ') {
-            temp += " ";
-            int len = temp.length();
-            if(len >=5) {
-                for(int k=len-1; k>=len-5; k--)
-                    temp+=temp[k];
-            }
-            else
-                temp += result[j];
-        } 
-        else { 
-            temp += result[j];
-        } 
-    }
+    return result;
+}
 
-    return temp;
+int main() {
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
 }
