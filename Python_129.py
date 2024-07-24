@@ -1,26 +1,40 @@
+```
 def minPath(grid, k):
-    N = len(grid)
-    for i in range(N):
-        grid[i] = list(map(lambda x: str(x), grid[i]))
+    n = len(grid)
+    m = len(grid[0])
     
-    def dfs(i, j, path, visited, cnt):
-        if cnt == k:
-            return path
-        visited.add((i, j))
-        min_path = None
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            new_i, new_j = i + x, j + y
-            if 0 <= new_i < N and 0 <= new_j < N and (new_i, new_j) not in visited:
-                new_path = dfs(new_i, new_j, path + [grid[new_i][new_j]], visited.copy(), cnt+1)
-                if min_path is None or ''.join(sorted(new_path)) < ''.join(sorted(min_path)):
-                    min_path = new_path
-        return min_path
-
-    min_path = None
-    for i in range(N):
-        for j in range(N):
-            path = dfs(i, j, [grid[i][j]], set(), 1)
-            if min_path is None or ''.join(sorted(path)) < ''.join(sorted(min_path)):
-                min_path = path
+    # Create a dictionary to store the visited cells and their path values
+    visited = {}
+    
+    # Initialize the minimum path and its value
+    min_path = []
+    min_path_value = float('inf')
+    
+    def dfs(i, j, path):
+        nonlocal min_path, min_path_value
+        
+        # Update the current path value
+        path_value = sum([grid[i][j] for i in range(n) for j in range(m)])
+        
+        # If this path is shorter than the current minimum and has length k, update it
+        if len(path) == k and path_value < min_path_value:
+            min_path = list(path)
+            min_path_value = path_value
+        
+        # Mark this cell as visited
+        visited[(i, j)] = True
+        
+        # Explore neighboring cells
+        for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
+            if 0 <= x < n and 0 <= y < m and not visited.get((x, y)):
+                dfs(x, y, path + [grid[x][y]])
+        
+        # Backtrack
+        visited.pop((i, j))
+    
+    # Start the DFS from each cell in the grid
+    for i in range(n):
+        for j in range(m):
+            dfs(i, j, [grid[i][j]])
     
     return min_path
