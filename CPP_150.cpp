@@ -1,7 +1,7 @@
 int x_or_y(int n, int x, int y) {
     if (!isPrime(n)) { 
-        if (x < y || (x == y && n > 2))
-            return 0; 
+        if (x < y)
+            return 0; // or any other appropriate value
     }
     return x;
 }
