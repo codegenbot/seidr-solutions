@@ -1,33 +1,17 @@
-bool solveBoolean(string expression) {
-    if (expression == "t") {
-        return true;
-    }
-    if (expression == "f") {
-        return false;
-    }
-
-    char op = expression[1];
-    bool left = expression[0] == 't' ? true : false;
-    bool right = expression[2] == 't' ? true : false;
-
-    if (op == '&') {
-        return left && right;
-    } else {
-        return left || right;
-    }
-}
-
 int main() {
     string expression;
     cin >> expression;
 
-    bool result = solveBoolean(expression);
-
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    bool result = expression[0] == 't' ? true : false;
+    for (int i = 1; i < expression.size(); i += 2) {
+        if (expression[i] == '&') {
+            result = result && (expression[i + 1] == 't');
+        } else if (expression[i] == '|') {
+            result = result || (expression[i + 1] == 't');
+        }
     }
+
+    cout << (result ? "True" : "False") << endl;
 
     return 0;
 }
