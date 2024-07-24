@@ -18,7 +18,7 @@ std::vector<int> filter_integers(std::list<any> values) {
     for (const auto& value : values) {
         if (any_cast<std::any>(value).type() == typeid(int)) {
             try {
-                result.push_back(any_cast<any>(value).get<int>());
+                result.push_back(any_cast<std::any>(value).get<int>());
             } catch (bad_any_cast) {
                 //handle bad any cast here
             }
