@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (stoi(a[i]) != stoi(b[i])) {
+        if (stoi(a[i].c_str()) != stoi(b[i].c_str())) {
             return false;
         }
     }
@@ -22,7 +22,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
             bool found = false;
             for (const auto& str : lst[j]) {
                 if (str == lst[0][i]) {
-                    sum += stoi(str);
+                    sum += stoi(str.c_str());
                     found = true;
                     break;
                 }
@@ -37,13 +37,8 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         }
     }
 
-    std::vector<std::string> temp;
     for (auto& vec : lst) {
-        temp.insert(temp.end(), vec.begin(), vec.end());
-        std::sort(temp.begin(), temp.end());
-        vec.clear();
-        vec.insert(vec.end(), temp.begin(), temp.end());
-        temp.clear();
+        std::sort(vec.begin(), vec.end());
     }
 
     return {sums}; 
