@@ -1,34 +1,52 @@
-#include<stdexcept>
-using namespace std;
+Here is the completed code:
 
+```cpp
 vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    int index1 = -1, index2 = -1;
+
+    for (int i = 0; i < planets.size(); i++) {
+        if (planets[i] == planet1) {
+            index1 = i;
+        } else if (planets[i] == planet2) {
+            index2 = i;
+        }
+    }
+
+    if (index1 == -1 || index2 == -1)
+        return {};
+
+    int start = 0, end = planets.size() - 1;
+
+    if (index1 < index2) {
+        swap(start, end);
+    }
+
+    for (int i = start; i <= end; i++) {
+        for (int j = start; j <= end; j++) {
+            if (planets[i] != planet1 && planets[i] != planet2) {
+                if (index1 < index2 ? i > index1 && i < index2 : i < index1 || i > index2) {
+                    return {planets[i]};
+                }
+            }
+        }
+    }
+
     vector<string> result;
-    const string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    int i = 0;
-    while (i < 8) {
-        if (planet1 == planets[i]) {
-            break;
+    for (int i = start; i <= end; i++) {
+        if (planets[i] != planet1 && planets[i] != planet2) {
+            bool ok = true;
+            for (int j = start; j <= end; j++) {
+                if (i != j && planets[j] < planets[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                result.push_back(planets[i]);
+            }
         }
-        i++;
-    }
-
-    if (i >= 8) {
-        return vector<string>();
-    }
-
-    for (int j = i + 1; j < 8; j++) {
-        if (planet2 == planets[j]) {
-            break;
-        }
-    }
-
-    if (j >= 8) {
-        return vector<string>();
-    }
-
-    for (int k = i + 1; k < j; k++) {
-        result.push_back(planets[k]);
     }
 
     return result;
