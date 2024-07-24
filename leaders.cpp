@@ -1,5 +1,6 @@
-```c++
+```
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(const std::vector<int>& vec) {
     int rightmost = vec.back();
@@ -11,9 +12,13 @@ std::vector<int> leaders(const std::vector<int>& vec) {
         }
     }
     return leaders;
-
 }
 
 int main() {
+    std::vector<int> vec = {16, 17, 4, 3, 5, 2};
+    std::vector<int> leadersResult = leaders(vec);
+    for (auto leader : leadersResult) {
+        std::cout << leader << " ";
+    }
     return 0;
 }
