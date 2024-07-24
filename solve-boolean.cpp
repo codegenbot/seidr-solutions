@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
-
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -18,12 +18,18 @@ bool solveBoolean(string expression) {
                 s.pop();
             }
             s.push('|');
-        } else {
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            while (!s.empty()) {
+                s.pop();
+            }
             s.push(expression[i]);
         }
     }
     
-    bool result = (s.top() == 'T');
+    bool result = false;
+    if (!s.empty() && s.top() == 'T')
+        result = true;
+    
     return result;
 }
 
