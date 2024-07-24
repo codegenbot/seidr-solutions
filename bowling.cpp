@@ -1,29 +1,26 @@
-int scoreOfBowlingRound(const string& bowls) {
+int getBowlingScore(string s) {
     int score = 0;
     int frame = 1;
-    int ball = 0;
-    for (int i = 0; i < bowls.size(); ++i) {
-        if (bowls[i] == 'X') {
+    int rolls = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
             score += 10;
             if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 + ((bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0')) : ((bowls[i + 1] == '/') ? 10 : (bowls[i + 1] - '0') + (bowls[i + 2] == '/' ? 10 : (bowls[i + 2] - '0')));
+                score += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                score += (s[i + 4] == 'X') ? 10 : (s[i + 4] == '/' ? 10 - (s[i + 2] - '0') : (s[i + 4] - '0'));
             }
-            if (frame == 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] == '/' ? 10 : (bowls[i + 1] - '0'));
-                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] == '/' ? 10 : (bowls[i + 2] - '0'));
-            }
-            ball = 0;
+            rolls = 0;
             frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (bowls[i - 1] - '0');
-            score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] == '/' ? 10 : (bowls[i + 1] - '0'));
-            ball = 0;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            score += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
+            rolls = 0;
             frame++;
         } else {
-            score += bowls[i] - '0';
-            ball++;
-            if (ball == 2) {
-                ball = 0;
+            score += s[i] - '0';
+            rolls++;
+            if (rolls == 2 || s[i] == '-') {
+                rolls = 0;
                 frame++;
             }
         }
@@ -32,8 +29,8 @@ int scoreOfBowlingRound(const string& bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << scoreOfBowlingRound(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << getBowlingScore(s) << endl;
     return 0;
 }
