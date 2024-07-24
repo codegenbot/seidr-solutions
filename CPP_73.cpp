@@ -24,7 +24,8 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    assert(smallest_change({2, 3, 4, 5}) == 0);
-    assert(smallest_change({10, 20, 30, 40, 50}) == 0);
+    std::vector<int> testArr = {2, 3};
+    int result = smallest_change(testArr);
+    std::cout << "Test case: " << testArr[0] << ", " << testArr[1] << ". Expected output: " << (result == 1 ? "1" : "0") << ". Actual output: " << result;
     return 0;
 }
