@@ -1,29 +1,38 @@
-Here is the solution:
-
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
+std::string spinWords(std::string str) {
+    std::vector<std::string> words;
+    std::string word;
+
+    // Split the string into individual words
     for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i);
             if (word.length() >= 5) {
-                result += reversed(word) + " ";
-            } else {
-                result += word + " ";
+                std::reverse(word.begin(), word.end());
             }
-            start = i + 1;
+            words.push_back(word);
         }
     }
-    return result;
+
+    // Join the words back into a string
+    for (int i = 0; i < words.size(); i++) {
+        str += words[i];
+        if (i != words.size() - 1) {
+            str += " ";
+        }
+    }
+
+    return str;
 }
 
-string reversed(string s) {
-    string rev = "";
-    for (int i = s.length() - 1; i >= 0; i--) {
-        rev += s[i];
-    }
-    return rev;
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
 }
