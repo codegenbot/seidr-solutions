@@ -5,7 +5,7 @@
 int search(std::vector<int> lst) { 
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && std::count_if(std::begin(lst), std::end(lst), [i](int x) { return x == i; }) >= 1) { 
+        if (i > 0 && i >= std::count(i, lst.begin(), lst.end())) { 
             max = i;
         }
     }
