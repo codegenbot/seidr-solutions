@@ -1,58 +1,51 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+vector<int> cutVector(vector<int>& vec) {
     int minDiff = INT_MAX;
-    int splitIndex = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += vec[j];
+    int splitIndex = 0;
+    
+    for(int i=1; i<vec.size(); i++){
+        int sumLeft = 0, sumRight = 0;
+        
+        for(int j=0; j<i; j++){
+            sumLeft += vec[j];
         }
-        for (int k = i + 1; k < vec.size(); k++) {
-            rightSum += vec[k];
+        
+        for(int k=i; k<vec.size(); k++){
+            sumRight += vec[k];
         }
-
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+        
+        int diff = abs(sumLeft - sumRight);
+        
+        if(diff < minDiff){
             minDiff = diff;
             splitIndex = i;
         }
     }
-
-    std::vector<int> leftVec, rightVec;
-    for (int i = 0; i <= splitIndex; i++) {
-        leftVec.push_back(vec[i]);
-    }
-    for (int i = splitIndex + 1; i < vec.size(); i++) {
-        rightVec.push_back(vec[i]);
-    }
-
-    return {leftVec, rightVec};
+    
+    vector<int> left(vec.begin(), vec.begin() + splitIndex);
+    vector<int> right(vec.begin() + splitIndex, vec.end());
+    
+    return {left, right};
 }
 
-int main() {
+int main(){
     int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> vec[i];
+    cin >> n;
+    vector<int> vec(n);
+    for(int i=0; i<n; i++){
+        cin >> vec[i];
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
-
-    std::cout << "Left: ";
-    for (int num : result.first) {
-        std::cout << num << " ";
+    auto res = cutVector(vec);
+    cout << res[0].size() << endl;
+    for(int num : res[0]){
+        cout << num << " ";
     }
-    std::cout << "\n";
-    std::cout << "Right: ";
-    for (int num : result.second) {
-        std::cout << num << " ";
+    cout << endl;
+    cout << res[1].size() << endl;
+    for(int num : res[1]){
+        cout << num << " ";
     }
-    std::cout << "\n";
-
     return 0;
 }
