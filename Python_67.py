@@ -1,9 +1,7 @@
-```python
 def fruit_distribution(s, n):
     s = s.replace("apples and", " ").replace("oranges and", " ")
     total = int(s.split()[0].replace("apples", "").replace("oranges", "")) + n
-    last_value = s.split()[-1]
-    if last_value in ["apples", "oranges"]:
-        return str(total - 0)
+    if s.split()[-1]:
+        return str(total - int(s.split()[-1].replace("apples", "").replace("oranges", "")))
     else:
-        return str(total - int(last_value.replace("apples", "").replace("oranges", "")))
+        return str(total)
