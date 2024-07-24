@@ -10,70 +10,39 @@ bool evalBoolean(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr = string(s.begin(), s.begin() + j);
+    string opStr;
+    for (char c : s.substr(0, j)) {
+        opStr += c;
+    }
     bool result = false;
     if (opStr[0] == '|') {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T')
+        for (char c : s.substr(j)) {
+            if (c == 'T')
                 result = true;
-            else if (s[i] == 'F') {
+            else if (c == 'F') {
                 result = false;
+                return result;
             }
         }
     } else {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
-                result = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
+        bool left = false;
+        for (char c : s.substr(0, j)) {
+            if (c == 'T' && opStr[1] != '|')
+                left = true;
+            else if (c == 'F' && opStr[1] != '&')
                 return false;
         }
+        result = left;
     }
 
-    if (!result)
-        return false;
-
-    string rest = s.substr(j);
-    if (rest.empty())
-        return !result; 
-    else
-        return evalBoolean(rest); 
-}
-
-bool evalOp(string s) {
-    int j = 0;
-    while (j < s.length() && (s[j] == '|' || s[j] == '&'))
-        j++;
-
-    string opStr = string(s.begin(), s.begin() + j);
-    bool left = false;
-    if (opStr[0] == '|') {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T')
-                left = true;
-            else if (s[i] == 'F') {
-                left = false;
-            }
-        }
-    } else {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
-                left = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
-                return false;
-        }
-    }
-
-    if (!left)
-        return false;
-
-    return evalBoolean(s.substr(j));
+    return result;
 }
 
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
     cin >> s;
-    bool result = evalOp(s);
+    bool result = evalBoolean(s);
     if (result)
         cout << "True";
     else
