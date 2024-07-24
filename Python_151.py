@@ -5,7 +5,7 @@ def double_the_difference(arr):
     result = [x for x in arr if abs(x - diff) <= 1]
     return len(result)
 
-def check(func, arr):
-    return func(arr)
+def check(func, arg):
+    return func(arg)
 
 print(check(double_the_difference, [1, 5, 3, 19, 18, 25]))
