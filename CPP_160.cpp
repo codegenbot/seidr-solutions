@@ -1,29 +1,20 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-int do_algebra(std::vector<std::string> op, std::vector<int> operand) {
+int doAlgebra(std::vector<char> operators, std::vector<int> operands) {
     int result = 0;
-    for (int i = 1; i < operand.size(); i++) {
-        if (op[0] == "+") {
-            result += operand[i];
-        } else if (op[0] == "-") {
-            result -= operand[i];
-        } else if (op[0] == "*") {
-            result *= operand[i];
-        } else if (op[0] == "//") {
-            result = result / operand[i];
-        } else if (op[0] == "**") {
-            result = pow(result, operand[i]);
+    for (int i = 1; i < operands.size(); i++) {
+        if (operators[0] == '+') {
+            result += operands[i];
+        } else if (operators[0] == '-') {
+            result -= operands[i];
+        } else if (operators[0] == '*') {
+            result *= operands[i];
+        } else if (operators[0] == '/') {
+            result = result / operands[i];
+        } else if (operators[0] == '**') {
+            result = pow(result, operands[i]);
         }
     }
     return result;
-}
-
-int main() {
-    assert(do_algebra({"+"}, {7, 3}) == 10);
-    assert(do_algebra({"/"}, {4, 2}) == 2);
-    assert(do_algebra({"*"}, {4, 2}) == 8);
-    std::cout << "All assertions passed.\n";
-    return 0;
 }
