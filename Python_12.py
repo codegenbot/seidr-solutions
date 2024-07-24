@@ -1,4 +1,3 @@
-```
 def longest(*strings):
     result_strings = ()
     while True:
@@ -6,7 +5,8 @@ def longest(*strings):
         if s.lower() == "stop":
             break
         result_strings += (s,)
-    if not result_strings:
+    if not result_strings:  
         print("No strings were entered.")
     else:
-        print(max(result_strings, key=len))
+        result = max(result_strings, key=len) if result_strings else None
+        print(result)
