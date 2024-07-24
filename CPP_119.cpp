@@ -2,12 +2,13 @@
 #include <vector>
 
 int main() {
-    assert (match_parens({std::string(")"), std::string("(")}) == "Yes" );
+    assert (match_parens({std::string(")("), std::string("(")}) == "Yes" );
+    return 0;
 }
 
 std::string match_parens(std::vector<std::string> lst){
-    std::string s1 = lst[0];
-    std::string s2 = lst[1];
+    string s1 = lst[0];
+    string s2 = lst[1];
 
     int openCount = 0;
     int closeCount = 0;
