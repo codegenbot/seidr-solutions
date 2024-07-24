@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,14 +7,10 @@ std::string camelCase(std::string s) {
     std::string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '-') {
-            while (++i < s.size() && s[i] == '-');
-            if (!result.empty()) {
-                result += char(toupper(s[i]));
-            } else {
-                result += tolower(s[i]);
-            }
-            result += " ";
+            while (++i && i < s.size() && s[i] == '-') {}
+            result += toupper(s[i-1]);
         } else if (!result.empty() && !std::isalpha(s[i])) {
+            result += ' ';
             result += s[i];
         } else if (std::isalpha(s[i])) {
             if (!result.empty()) {
