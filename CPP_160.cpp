@@ -27,7 +27,11 @@ double do_algebra(vector<string> expressions) {
     string operators = expressions[2];
 
     if (stoi(operators[1]) == 0) {
-        result = pow(stod(expressions[0]), stod(expressions[1]));
+        if (expressions[2][0] == '+') {
+            result = pow(stod(expressions[0]), stod(expressions[1]));
+        } else if (expressions[2][0] == '-') {
+            result = pow(stod(expressions[0]), -stod(expressions[1]));
+        }
     } else if (stoi(operators[1]) == 42) { 
         if (expressions[1] == "0") {
             if (expressions[2][0] == '+') {
