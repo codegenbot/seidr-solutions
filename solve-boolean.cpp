@@ -1,7 +1,9 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return true;
-    if (s == "T") return true;
-    if (s == "F") return false;
 
     bool result = true;
     int i = 0;
@@ -31,12 +33,32 @@ bool solveBoolean(const std::string& s) {
         else if (right == "f") return !result && solveBoolean(right);
 
         if (s[left_end] == '|') {
-            return solveBoolean(left) || solveBoolean(right.c_str());
+            return solveBoolean(left) || solveBoolean(right);
         } 
         else {
-            return solveBoolean(left) && solveBoolean(right.c_str());
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    while(true) {
+        std::cout << "Enter a Boolean expression: ";
+        std::getline(std::cin, input);
+        if(input == "t" || input == "f") break;
+        for(char c : input) {
+            if(c != 'T' && c != 'F' && c != '|' && c != '&') {
+                std::cout << "Invalid input. Please enter a valid Boolean expression." << std::endl;
+                std::cout << "Enter a Boolean expression: ";
+                std::getline(std::cin, input);
+            }
+        }
+        bool result = solveBoolean(input);
+        if (result) std::cout << "True" << std::endl;
+        else std::cout << "False" << std::endl;
+    }
+    return 0;
 }
