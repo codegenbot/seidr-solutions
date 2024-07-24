@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -20,14 +20,11 @@ int x_or_y(int n, int x, int y) {
 }
 
 int main() {
-    int num, x, y;
+    int n, x, y;
     cout << "Enter a number: ";
-    cin >> num;
-    cout << "Enter the value of x: ";
-    cin >> x;
-    cout << "Enter the value of y: ";
-    cin >> y;
-    
-    cout << "The output is: " << x_or_y(num, x, y) << endl;
+    cin >> n;
+    cout << "Enter two numbers for comparison: ";
+    cin >> x >> y;
+    cout << "The result is: " << x_or_y(n, x, y) << endl;
     return 0;
 }
