@@ -1,11 +1,8 @@
 bool move_one_ball(vector<int> arr) {
-    int n = arr.size();
-    if (n == 0)
-        return true;
-    for (int i = 1; i < n; i++) {
-        if (arr[i] >= arr[0]) {
-            return false;
-        }
+    int max = *max_element(arr.begin(), arr.end());
+    for (int i : arr) {
+        if (i > max) return false;
+        max = i;
     }
     return true;
 }
