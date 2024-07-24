@@ -18,10 +18,10 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t n = text.size();
     size_t m = target.size();
 
-    for (size_t i = 0; i < n; ++i) {
+    for (size_t i = 0; i + m <= n; ++i) {
         bool found = true;
         for (size_t j = 0; j < m; ++j) {
-            if (i + j >= n || text[i + j] != target[j]) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
@@ -37,7 +37,8 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     int a, b;
     cin >> a >> b;
-
+    cin.ignore(); // Add this line to consume the newline character after inputting 'b'
+    
     string text, target;
     getline(cin, text);
     getline(cin, target);
