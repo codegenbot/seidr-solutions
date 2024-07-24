@@ -27,6 +27,7 @@ while True:
         break
     except ValueError:
         print("Invalid input! Please enter a number.")
+
 triangle_area = (base * height) / 2
 
 check(triangle_area)
