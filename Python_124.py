@@ -1,13 +1,12 @@
 ```
 def valid_date(date):
     while True:
-        input_date = input("Enter a date in the format YYYY-MM-DD: ")
-        if len(input_date) != 10 or not input_date.replace("-", "").isdigit():
-            return False
-        year, month_day = input_date.split("-")
+        if len(date) != 10 or not date.replace("-", "").isdigit():
+            return
+        year, month_day = date.split("-")
         year = int(year)
         if not (1900 <= year <= 2100):
-            return False
+            return
 
         month_day = int(month_day)
         if not (1 <= month_day <= 366):
@@ -21,9 +20,9 @@ def valid_date(date):
                     break
                 if month in months_with_31_days:
                     if month_day > days_in_months[month]:
-                        return False
+                        return
 
         if int(month_day / 100) != int(year/100): 
-            return False
+            return
 
-        return True
+        return date
