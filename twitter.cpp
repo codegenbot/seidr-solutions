@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -7,13 +8,16 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(0, tweet.find_first_not_of(" \t")); 
-    tweet.pop_back(); 
     if (tweet.length() > 140) {
+        int count = 0;
+        for (char c : tweet) {
+            if (!isalnum(c)) continue; // Don't count non-alphanumeric chars
+            count++;
+        }
         cout << "Too many characters" << endl;
     } else if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
     } else {
-        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        cout << "Your tweet has " << count + 1 << " characters" << endl;
     }
 }
