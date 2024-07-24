@@ -18,6 +18,11 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-n = int(input("Enter a positive integer: "))
-factors = factorize(n)
-print(factors)
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        factors = factorize(n)
+        print(factors)
+        break
+    except ValueError as e:
+        print("Invalid input. Please enter an integer.")
