@@ -34,37 +34,12 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-std::string spinWords(std::string str) {
-    std::string result;
-    int length = 0;
-
-    for (char c : str + " ") {
-        if (c == ' ') {
-            if (length >= 5) {
-                char temp[length + 1];
-                int i = length - 1;
-                for (; i >= 0; --i)
-                    temp[i] = str[length - i - 1];
-                temp[i + 1] = '\0';
-                result.append(temp);
-            } else
-                result += c;
-            length = 0;
-        } else {
-            result += c;
-            ++length;
-        }
-    }
-
-    return result;
-}
-
 int main() {
     std::string str;
     while (true) {
         std::cout << "Enter a string: ";
         std::cin >> str;
-        std::cin.ignore();
+        std::cin.ignore(); // Add this to consume the newline character
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
