@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```c++
 #include <vector>
 #include <string> 
 using namespace std;
@@ -25,8 +22,8 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    if (a < 1 || b < 1) {
-        throw runtime_error("Both inputs must be positive integers.");
-    }
+    if (a < 0 || b < 0) {
+        cout << "Error: Negative numbers are not allowed." << endl;
+    } 
     return a;
 }
