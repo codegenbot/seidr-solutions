@@ -1,25 +1,50 @@
 #include <string>
+#include <sstream>
+
 using namespace std;
 
 bool valid_date(string date) {
-    int day, month, year;
-    char separator = '-';
-    
-    if(date.find(separator)!=1 && date.find(separator)!=3){
-        return false; // wrong format
+    int month, day, year;
+    string temp;
+
+    // Convert the date string to mm-dd-yyyy format
+    for (int i = 0; i < 10; i++) {
+        if (date[i] == '-') break;
+        temp += date[i];
     }
-    
-    sscanf(date.c_str(), "%02d%01d%04d", &month, &day, &year);
-    
-    if(month<1 || month>12) {
-        return false;
+    month = stoi(temp);
+    for (int i = 10; i < 16; i++) {
+        if (date[i] == '-') break;
+        temp = "";
+        while (i < 16 && date[i] != '-') {
+            temp += date[i];
+            i++;
+        }
+        day = stoi(temp);
+        year = stoi(date.substr(i));
     }
-    
-    if((month==2 && (day<1 || day>29)) ||
-       (month==4 || month==6 || month==9 || month==11) && (day<1 || day>30) ||
-       (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) && (day<1 || day>31)) {
-        return false;
+
+    // Validate the date
+    if (month < 1 || month > 12) return false;
+    if ((month == 2 && day > 29) ||
+        (month == 4 || month == 6 || month == 9 || month == 11) &&
+            (day > 30)) return false;
+
+    // Check for valid number of days in February
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            if (day > 29) return false;
+        else if (day > 28) return false;
     }
-    
+
+    // Check for valid number of days in months with 31 days
+    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
+            month == 10 || month == 12) &&
+        (day > 31)) return false;
+
+    // Check for valid number of days in months with 30 days
+    if ((month == 4 || month == 6 || month == 9 || month == 11) &&
+        (day > 30)) return false;
+
     return true;
 }
