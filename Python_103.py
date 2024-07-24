@@ -1,10 +1,9 @@
+```
 import math
-
 
 def rounded_avg(n, m):
     avg = (n + m) / 2
     return str(math.ceil(avg))
-
 
 n = None
 while n is None:
