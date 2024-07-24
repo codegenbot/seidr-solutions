@@ -2,27 +2,16 @@
 #include <cassert>
 
 namespace my_namespace {
-    std::vector<int> incr_list(std::vector<int> l);
-    
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        if (a.size() != b.size()) {
-            return false;
+    std::vector<int> incr_list(const std::vector<int>& input) {
+        std::vector<int> result;
+        for (int num : input) {
+            result.push_back(num + 1);
         }
-
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-
-        return true;
+        return result;
     }
 
-    std::vector<int> incr_list(std::vector<int> l) {
-        for (int i = 0; i < l.size(); i++) {
-            l[i]++;
-        }
-        return l;
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
     }
 }
 
