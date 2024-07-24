@@ -7,5 +7,6 @@ bool is_equal_to_sum_even(int n) {
 
 int main() {
     assert(is_equal_to_sum_even(16) == true);
+
     return 0;
 }
