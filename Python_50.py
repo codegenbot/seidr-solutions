@@ -7,7 +7,7 @@ def decode_shift(s: str):
     )
 
 s = input("Enter the string to decode:")
-if s.isalpha() and s.islower():
+if s:
     print(decode_shift(s))
 else:
-    print("Please enter only lowercase alphabets.")
+    print("Input string is empty. Please provide a valid string.")
