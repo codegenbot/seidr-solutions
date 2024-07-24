@@ -1,9 +1,10 @@
-double shoppingList(vector<float> prices, vector<float> discounts) {
+#include <vector>
+double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
         double price = prices[i];
-        double discount = price * discounts[i] / 100.0;
-        total += price - discount;
+        double discountAmount = price * discounts[i] / 100.0;
+        total += price - discountAmount;
     }
     return total;
 }
