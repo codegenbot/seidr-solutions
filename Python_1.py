@@ -2,12 +2,12 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    curr_group = ""
+    group = ""
     for char in paren_string:
         if char == "(":
-            curr_group += char
+            group += char
         elif char == ")":
-            curr_group += char
-            result.append(curr_group)
-            curr_group = ""
+            group += char
+            result.append(group)
+            group = ""
     return result
