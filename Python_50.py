@@ -1,5 +1,3 @@
-import sys
-
 def decode_shift(s: str):
     return "".join(
         [
@@ -8,5 +6,5 @@ def decode_shift(s: str):
         ]
     )
 
-s = sys.stdin.readline().strip()
+s = input("Enter the string to decode: ").lower()
 print(decode_shift(s))
