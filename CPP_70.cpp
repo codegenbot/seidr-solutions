@@ -18,3 +18,12 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
     return result;
 }
+
+int main() {
+    std::vector<int> inputVector = {1, 2, 3, 4, 5};
+    std::vector<int> outputVector = strange_sort_vector(inputVector);
+    for (int i : outputVector) {
+        std::cout << i << " ";
+    }
+    return 0;
+}
