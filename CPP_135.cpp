@@ -11,8 +11,7 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << can_arrange({3, 4, 2}) << std::endl;
-    std::cout << can_arrange({5, 6, 7}) << std::endl;
-    std::cout << can_arrange({10, 9, 8, 7, 6, 5, 4, 3, 2, 1}) << std::endl;
+    std::cout << can_arrange({}) << std::endl;
+    // test your function with different inputs
     return 0;
 }
