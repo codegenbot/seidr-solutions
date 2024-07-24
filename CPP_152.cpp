@@ -23,7 +23,6 @@ int main() {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin.exceptions(std::ios_base::goodbit | std::ios_base::badbit);
     }
 
     std::vector<int> vec1;
@@ -33,8 +32,10 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.exceptions(std::ios_base::goodbit | std::ios_base::badbit);
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
         }
         vec1.push_back(x); 
         size++;
@@ -47,8 +48,10 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.exceptions(std::ios_base::goodbit | std::ios_base::badbit);
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
         }
         vec2.push_back(x); 
         size++;
