@@ -13,7 +13,7 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    int n; 
+    int n; // number of elements in the list
     std::cin >> n;
 
     std::vector<float> lst(n);
@@ -22,8 +22,6 @@ int main() {
     }
 
     long long result = double_the_difference(lst);
-
-    std::cout << "The sum of the squares is: " << result << std::endl;
 
     return 0;
 }
