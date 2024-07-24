@@ -1,10 +1,12 @@
-Here's the solution:
+#include <vector>
+#include <string>
+using namespace std;
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string str : strings) {
-        if(str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
-    return result;
+bool issame(vector<string> a,vector<string> b){
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [b](const string& s){ return find(b.begin(), b.end(), s) != b.end(); });
+}
+
+int main(){
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    return 0;
+}
