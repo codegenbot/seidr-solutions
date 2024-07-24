@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -13,13 +13,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> res(std::vector<int>()); // Initialize an empty vector
-    res.push_back(n); // Push the input number into the vector
-    while (n > 1) {
+    std::vector<int> res; 
+    res.push_back(n); 
+    while (n > 1 || n == 4) {
         if (n % 2 != 0) {
             res.push_back(n);
         }
-        n = (n * 3 + 1);
+        if (n == 4) {
+            n = 2;
+        } else {
+            n = (n * 3 + 1);
+        }
     }
     return res;
 }
