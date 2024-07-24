@@ -1,53 +1,43 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    pair<int, int> split_index;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
     
-    for (int i = 1; i < vec.size(); ++i) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; ++j) {
-            sum1 += vec[j];
-        }
-        for (int j = i; j < vec.size(); ++j) {
-            sum2 += vec[j];
-        }
-        
-        int diff = abs(sum1 - sum2);
-        if (diff < min_diff) {
-            min_diff = diff;
-            split_index = {i, i};
-        } else if (diff == min_diff) {
-            split_index.first = i;
+    for (int i = 0; i < n - 1; i++) {
+        if (v[i] == v[i + 1]) {
+            res.push_back({v[i]});
+            return {{}, {v[i], v[i + 1]}};
         }
     }
     
-    vector<int> left(vec.begin(), vec.begin() + split_index.first);
-    vector<int> right(vec.begin() + split_index.second, vec.end());
+    int min_diff = INT_MAX, mid;
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(v[i] - v[i + 1]) < min_diff) {
+            min_diff = abs(v[i] - v[i + 1]);
+            mid = i;
+        }
+    }
     
-    return {left, right};
+    res.push_back({v[0], v[mid]});
+    res.push_back({v[mid + 1], v.back()});
+    
+    return res;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n+1);
-    for (int i = 0; i <= n; ++i) {
-        cin >> vec[i];
-    }
+    int n; cin >> n;
+    vector<int> v(n);
+    for (int &i : v) cin >> i;
     
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << "] [" << endl;
-    cout << "[";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << "] 0" << endl;
-
+    vector<vector<int>> result = cutVector(v);
+    cout << "Subvector 1: ";
+    for (int &i : result[0]) cout << i << ' ';
+    cout << endl;
+    cout << "Subvector 2: ";
+    for (int &i : result[1]) cout << i << ' ';
+    cout << endl;
+    
     return 0;
 }
