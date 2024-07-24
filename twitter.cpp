@@ -17,4 +17,3 @@ int main() {
     std::getline(std::cin, tweet);
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
-}
