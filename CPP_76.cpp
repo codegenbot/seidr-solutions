@@ -1,7 +1,6 @@
 ```cpp
 #include <cmath>
 #include <iostream>
-#include <string>
 
 bool is_simple_power(int x, int y) {
     if (y == 1)
@@ -26,12 +25,7 @@ int main() {
         std::cout << (x == 1 ? "True" : "False") << std::endl;
     else {
         double y = pow(n, log(x) / log(n));
-        std::string s1 = std::to_string(y);
-        std::string s2 = std::to_string(x);
-        if(s1 == s2)
-            std::cout << "True" << std::endl; 
-        else
-            std::cout << "False" << std::endl; 
+        std::cout << (y == x) << std::endl;
         if (is_simple_power(x, n))
             std::cout << "True" << std::endl; 
         else
