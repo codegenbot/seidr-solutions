@@ -1,12 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<int> parse_nested_parens(const std::string& s) {
     std::vector<int> result;
     int count = 0;
