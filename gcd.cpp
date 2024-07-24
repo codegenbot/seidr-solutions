@@ -1,29 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
-
 using namespace std;
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    cin >> text;
-    cout << "Enter the target substring: ";
-    cin >> target;
+    int a = 12; 
+    int b = 15;
+    cout << "GCD: " << gcd(a, b) << endl;
 
+    string text = "abcdef";  
+    string target = "def";
     vector<int> result = indicesOfSubstring(text, target);
-    cout << "Indices of substring at which it appears: ";
     for (int i : result) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
 
@@ -39,4 +30,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
