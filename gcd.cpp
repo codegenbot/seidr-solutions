@@ -1,16 +1,16 @@
 #include <iostream>
-#include <string>
-#include <vector>
-
 using namespace std;
 
-int main() {
-    string text, target;
+cout << "Enter two integers separated by a space: ";
+int a, b;
+cin >> a >> b;
 
-    cout << "Enter two strings separated by a space: ";
-    cin >> text >> target;
-    
-    // Your code for the problem here
-    
-    return 0;
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
 }
+
+int result = gcd(a, b);
+cout << "GCD: " << result << endl;
