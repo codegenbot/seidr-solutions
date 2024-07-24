@@ -1,55 +1,45 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double output = 0.0;
-
-    for(int i = 0; i < ops.size(); i++) {
+    double result = args[0];
+    for(int i = 0; i < ops.size(); ++i) {
         if(ops[i] == "+") {
-            output += static_cast<double>(args[i]);
+            result += args[i+1];
         } else if(ops[i] == "-") {
-            output -= static_cast<double>(args[i]);
+            result -= args[i+1];
         } else if(ops[i] == "*") {
-            output *= static_cast<double>(args[i]);
+            result *= args[i+1];
         } else if(ops[i] == "/") {
-            if(args[i] != 0) {
-                output /= static_cast<double>(args[i]);
+            if(args[i+1] != 0) {
+                result /= args[i+1];
             } else {
-                std::cout << "Error: Division by zero is not allowed." << std::endl;
-                return 0.0;
+                std::cout << "Error: Division by zero." << std::endl;
+                return -1.0; // Return error value
             }
         }
     }
-
-    return output;
+    return result;
 }
 
 int main() {
     std::vector<std::string> ops; 
     std::vector<int> args;
 
-    while(true) {
+    int count = 0;
+    while(count < 5) { 
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string op;
-        std::cin >> op;
-        
+        int arg;
+        std::cin >> op >> std::ws >> arg;
+
         if(op == "q") break;
         
-        int arg;
-        std::cout << "Enter the argument: ";
-        std::cin >> arg;
-        
-        // Check if the input operator is not empty and valid
-        if (!op.empty() && (op == "+" || op == "-" || op == "*" || op == "/")) {
-            ops.push_back(op);
-            args.push_back(arg);
-        } else {
-            // If the input is invalid, ask for input again
-            std::cout << "Invalid operator. Please try again." << std::endl;
-        }
-   
+        ops.push_back(op);
+        args.push_back(arg);
+        count++;
+    }
     
     double output = do_algebra(ops, args);
 
