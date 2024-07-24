@@ -1,4 +1,3 @@
-```
 def find_max_prime(lst):
     max_prime = -1
     for num in lst:
