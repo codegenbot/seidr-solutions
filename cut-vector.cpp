@@ -7,10 +7,10 @@ int main() {
     vector<int> nums;
     int n;
     while (cin >> n) {
+        nums.push_back(n);
         if (cin.eof()) {
             break;
         }
-        nums.push_back(n);
     }
     
     int sum = 0, halfSum = 0;
