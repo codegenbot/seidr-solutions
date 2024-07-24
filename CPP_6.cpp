@@ -14,8 +14,8 @@ vector<int> parse_nested_parens(string paren_string) {
             max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
             result.push_back(max_nesting);
-            max_nesting = nesting_levels.top();
             nesting_levels.pop();
+            max_nesting = nesting_levels.empty() ? 0 : nesting_levels.top();
         }
     }
 
