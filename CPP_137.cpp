@@ -1,43 +1,33 @@
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+    if (is_same_type<double>(a)) {
+        if (is_same_type<double>(b)) {
+            return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) < get<double>(b)) ? b : boost::any("None")));
+        } else if (is_same_type<string>(b)) {
+            double da = get<double>(a);
+            string db = boost::any_cast<string>(b);
+            if (stod(db) > da) return b;
+            else if (stod(db) < da) return a;
+            else return boost::any("None");
+        }
+    } else if (is_same_type<string>(a)) {
+        double da = stod(boost::any_cast<string>(a));
+        if (is_same_type<double>(b)) {
+            if (da > get<double>(b)) return a;
+            else if (da < get<double>(b)) return b;
+            else return boost::any("None");
+        } else if (is_same_type<string>(b)) {
+            double db = stod(boost::any_cast<string>(b));
+            if (db > da) return b;
+            else if (db < da) return a;
+            else return boost::any("None");
+        }
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        float flt = boost::any_cast<float>(a);
-        return flt > stol(str) ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return stol(str1) > stol(str2) ? a : b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int i1 = boost::any_cast<int>(a);
-        int i2 = boost::any_cast<int>(b);
-        return i1 > i2 ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float flt1 = boost::any_cast<float>(a);
-        float flt2 = boost::any_cast<float>(b);
-        return flt1 > flt2 ? a : b;
-    }
-    else {
-        return boost::any();
-    }
-}
 
-int main(){
-    boost::any a = 10; 
-    boost::any b = 20.5;
-    boost::any result = compare_one(a,b);
-    if(result.type() == typeid(int))
-        cout << "The larger number is: " << boost::any_cast<int>(result) << endl;
-    else if(result.type() == typeid(float))
-        cout << "The larger number is: " << boost::any_cast<float>(result) << endl;
-    else
-        cout << "The numbers are equal." << endl;
-    return 0;
+    return a; // default return
 }
