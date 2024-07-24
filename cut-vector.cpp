@@ -11,18 +11,20 @@ int main() {
     }
 
     int left_sum = 0, right_sum = 0;
-    int min_diff = abs(left_sum - right_sum);
-    int cut_index = -1;
-
     for (int i = 0; i < n; i++) {
-         if (abs(left_sum - right_sum) <= min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            cut_index = i;
-        }
+        right_sum += vec[i];
+    }
+
+    int min_diff = abs(left_sum - right_sum);
+    int cut_index = 0;
+  
+    for (int i = 0; i < n-1; i++) {
         left_sum += vec[i];
-        right_sum = 0;
-        for (int j = i + 1; j < n; j++) {
-            right_sum += vec[j];
+        right_sum -= vec[i];
+        int current_diff = abs(left_sum - right_sum);
+        if (current_diff < min_diff) {
+            min_diff = current_diff;
+            cut_index = i;
         }
     }
 
