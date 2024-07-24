@@ -17,3 +17,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+n = int(input("Enter a positive integer: "))
+factors = factorize(n)
+print(factors)
