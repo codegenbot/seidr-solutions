@@ -11,8 +11,7 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-int main(); 
-
+#define main main_concise
 int main() {
     float a, b, c;
     std::cin >> a >> b >> c;
