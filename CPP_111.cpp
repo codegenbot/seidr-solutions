@@ -47,11 +47,6 @@ int main1() {
 }
 
 int main2() {
-    auto mappedHist = histogram("a");
-    map<char, int> histMap;
-    for (auto& p : mappedHist) {
-        histMap[p.first] = p.second;
-    }
-    assert(histMap == ((map<char, int>{{'a', 1}})));
+    assert(histogram("a") == multimap<char, int>{{'a', 1}});
     return 0;
 }
