@@ -1,8 +1,11 @@
+```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool same(vector<std::string> a, vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); ++i)
@@ -11,8 +14,8 @@ bool same(vector<std::string> a, vector<std::string> b) {
     return true;
 }
 
-std::string deleteAndReverse(std::string s, std::string c) {
-    std::string temp = "";
+string reverse_delete(string s, string c) {
+    string temp = "";
     for (char& ch : s) {
         bool found = false;
         for (char& cc : c) {
@@ -24,10 +27,6 @@ std::string deleteAndReverse(std::string s, std::string c) {
         if (!found)
             temp += ch;
     }
-    std::reverse(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
     return temp;
-}
-
-int main() {
-    assert(same(deleteAndReverse("mamma", "mia"), {"", "True"}));
 }
