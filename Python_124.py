@@ -1,7 +1,8 @@
-```
 def valid_date(date):
-    day, month_year = map(int, date.split('-'))
-    month, year = divmod(month_year, 100)
+    day, month, year_str = map(int, date.split('-'))
+    if len(str(year_str)) != 4:
+        return False
+    year = int(year_str)
     if len(str(month)) > 2 or len(str(day)) > 2:
         return False
     if month < 1 or month > 12:
