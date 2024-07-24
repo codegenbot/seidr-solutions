@@ -1,13 +1,20 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
-min_diff = abs(sum(vector))
-cut_index = -1
+numbers = [int(input()) for _ in range(n)]
 
-for i in range(1, n):
-    diff = abs(sum(vector[:i]) - sum(vector[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+total_sum = sum(numbers)
+half_sum = total_sum // 2
 
-print(*vector[:cut_index])
-print(*vector[cut_index:])
+subvector1 = []
+subvector2 = []
+
+for i in range(n):
+    subvector1_sum = sum(subvector1)
+    subvector2_sum = sum(subvector2)
+
+    if subvector1_sum <= half_sum and subvector1_sum + numbers[i] <= half_sum:
+        subvector1.append(numbers[i])
+    else:
+        subvector2.append(numbers[i])
+
+print("\n".join(map(str, subvector1)))
+print("\n".join(map(str, subvector2)))
