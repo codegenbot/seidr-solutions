@@ -2,7 +2,8 @@
 #include <vector>
 
 int main() {
-    assert (match_parens({std::string(")"), std::string("(")}) == "Yes" );
+    assert (match_parens({std::string(")("), std::string("(())")}) == "Yes" );
+    assert (match_parens({std::string(")("), std::string("(()")}) == "No" );
 }
 
 std::string match_parens(std::vector<std::string> lst){
