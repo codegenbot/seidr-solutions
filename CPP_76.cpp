@@ -1,8 +1,7 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
-bool is_simple_power(int x, int y) {
+bool is_simple_power(int x, int int) {
     if (y == 1)
         return true;
     while (y > 1) {
