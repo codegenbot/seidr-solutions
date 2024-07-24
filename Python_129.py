@@ -16,7 +16,7 @@ def minPath(grid, k):
             res = dfs(x, y, set(visited))
             if res is not None:
                 return [grid[i][j]] + res
-        
+
         return None
 
     for i in range(N):
@@ -24,6 +24,3 @@ def minPath(grid, k):
             res = dfs(i, j, set())
             if res is not None:
                 return [grid[i][j]] + res
-
-# Test the fixed code
-print(minPath([[1, 3], [3, 2]], 10))  # Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
