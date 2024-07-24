@@ -12,4 +12,4 @@ int pairedDigits(string s) {
     return sum;
 }
 
-int main() { return pairedDigits("123211"); }
+int main() { return pairedDigits("123333"); }
