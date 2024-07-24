@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,17 +13,17 @@ auto findIndices(string text, string target) -> vector<int> {
 }
 
 int main() {
-    string text;
-    cin >> text;
+    std::string text;
+    std::cin >> text;
 
-    string target;
-    cin >> target;
+    std::string target;
+    std::cin >> target;
 
-    vector<int> indices = findIndices(text, target);
+    std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-    
+
     return 0;
 }
