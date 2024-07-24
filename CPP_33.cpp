@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -9,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> sorted_l = l;
-    for (int i = 0; i < l.size(); i += 3) {
+    for (size_t i = 2; i < l.size(); i += 3) {
         sorted_l[i] = l[i];
     }
     std::sort(sorted_l.begin(), sorted_l.end());
