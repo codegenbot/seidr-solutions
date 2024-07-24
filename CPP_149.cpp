@@ -1,10 +1,7 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list>
-
-using namespace std;
-typedef size_t initializer_list(size_type);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
