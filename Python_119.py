@@ -1,4 +1,3 @@
-```
 def match_parens(p):
     stack = []
     for char in p:
