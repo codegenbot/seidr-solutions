@@ -1,7 +1,6 @@
+```
 def sort_third(lst):
-    n = len(lst)
-    sorted_lst = sorted((x for x in lst), key=lambda x: str(x)[2:])
-    return tuple(sorted_lst)
+    return tuple(sorted((x[2] for x in lst)))
 
 n = int(input("Enter number of elements: "))
 user_input = [int(input(f"Enter element {i+1}: ")) for i in range(n)]
