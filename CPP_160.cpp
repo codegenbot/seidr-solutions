@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,20 +44,16 @@ int main() {
 
     int count = 0;
     while(count < 5) { 
-        char* temp = new char[1024]; // assuming max length of input string is 1023
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
-        std::cin.get(temp, 1024);
-        std::string line = temp;
-        delete[] temp; 
+        std::string line;
+        std::cin >> line;
 
         if(line == "q") break;
 
-        size_t pos = line.find(' ');
-        std::string op = line.substr(0, pos);
-        int arg = stoi(line.substr(pos+1));
-        
-        ops.push_back(op);
-        args.push_back(arg);
+        line.erase(0, line.find(' '));
+        ops.push_back(line.substr(0));
+
+        args.push_back(stoi(line.substr(line.find(' ') + 1)));
         count++;
     }
 
