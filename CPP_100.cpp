@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && a == b;
 }
 
@@ -14,7 +15,7 @@ std::pair<int, int> make_pile(int n) {
 }
 
 int main() {
-    assert((issame(make_pile(4), {8, 10})) && std::make_pair(8, 10) == make_pile(4));
+    assert(std::make_pair(8, 10) == make_pile(4));
     // You can add more test cases as needed
     return 0;
 }
