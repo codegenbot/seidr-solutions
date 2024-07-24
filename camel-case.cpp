@@ -1,4 +1,3 @@
-```c++
 int main() {
     string camelCase(string s) {
         string result = "";
@@ -13,9 +12,11 @@ int main() {
                     result += s.substr(i, s.find(' ', i) - i);
                 else
                     result += s.substr(i, s.find(' ', i) - i).substr(1);
-            } else if (!result.length()) {
+            } 
+            else if (!result.length()) {
                 result = s.substr(i, 1);
-            } else {
+            } 
+            else {
                 if (s[i] == ' ')
                     continue;
                 result += toupper(s[i]);
@@ -26,7 +27,7 @@ int main() {
     }
     string input;
     cout << "Enter a kebab-case string: ";
-    getline(cin, input);
-    cout << "CamelCase version: " << camelCase(input) << endl;
+    cin >> input;
+    cout << "The camelCase version is: " << camelCase(input) << endl;
     return 0;
 }
