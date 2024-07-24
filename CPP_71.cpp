@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 float triangle_area(float a, float b, float c) {
     if (a + b > c && a + c > b && b + c > a) {
@@ -12,6 +11,13 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    assert(fabs(triangle_area(2, 2, 10) + 1) < 0.01);
+    float a, b, c;
+    std::cin >> a >> b >> c;
+    float result = triangle_area(a, b, c);
+    if (result != -1) {
+        std::cout << "Triangle area: " << result << std::endl;
+    } else {
+        std::cout << "Invalid triangle sides." << std::endl;
+    }
     return 0;
 }
