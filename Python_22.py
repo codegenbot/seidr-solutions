@@ -1,9 +1,10 @@
+```Python
 from typing import List, Any
 
 
 def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in map(int, values) if isinstance(value, int)]
-
-
-values = input("Enter values (space-separated): ").split()
-print(filter_integers(map(int, values)))
+    if all(isinstance(value, int) for value in values):
+        return [value for value in values if isinstance(value, int)]
+    else:
+        print("Program did not receive expected input")
+        return []
