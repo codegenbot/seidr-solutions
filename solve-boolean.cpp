@@ -1,30 +1,25 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 bool solveBoolean(string s) {
-    bool result = false;
+    stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-            break;
-        } else if (s[i] == 'f') {
-            return false;
-        } else if (s[i] == '&') {
-            bool left = solveBoolean(s.substr(0, i));
-            bool right = solveBoolean(s.substr(i + 1));
-            return left && right;
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return false;
         } else if (s[i] == '|') {
-            bool left = solveBoolean(s.substr(0, i));
-            bool right = solveBoolean(s.substr(i + 1));
-            return left || right;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) return true;
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    while (!st.empty()) {
+        if (st.top() == '&') return false;
+        st.pop();
+    }
+    return true;
 }
