@@ -1,4 +1,3 @@
-
 def normalize(numbers):
     min_num = min(numbers)
     max_num = max(numbers)
