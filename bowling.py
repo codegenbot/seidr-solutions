@@ -1,23 +1,9 @@
-```
 def bowling_score(frames):
     score = 0
-    frame_num = 1
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            score += 30
-            frame_num += 1
-        elif frames[i] == '/':
-            first_roll = int(frames[i-1])
-            second_roll = 10 - int(frames[i+1])
-            score += first_roll + second_roll
-            frame_num += 1
+    for i in range(10):
+        if "/" in frames[i]:
+            x1, x2 = map(int, re.split("/", frames[i]))
+            score += min(x1, 10) + min(x2, 10)
         else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i+1])
-            if first_roll + second_roll == 10:
-                score += 10
-                frame_num += 1
-            elif first_roll + second_roll < 10:
-                score += first_roll + second_roll
-                frame_num += 1
+            score += int(frames[i])
     return score
