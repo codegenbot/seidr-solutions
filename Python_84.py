@@ -1,3 +1,3 @@
 ```
 def solve(N):
-    return bin(N)[2:]
+    print(bin(sum(int(i) for i in str(bin(N)[2:]).lstrip('0'))))
