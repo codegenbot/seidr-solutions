@@ -1,17 +1,11 @@
 #include <string>
-#include <cctype>
 
 string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (!strchr("aeiouAEIOU", tolower(c))){
+    for(char c : text){
+        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
             result += c;
         }
     }
     return result;
-}
-
-int main(){
-    assert(remove_vowels("ybcd") == "ybcd");
-    return 0;
 }
