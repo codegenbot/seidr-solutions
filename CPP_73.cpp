@@ -21,7 +21,7 @@ int main() {
         }
         return changes;
     }
-
+    
     assert(smallest_change({0, 1}) == 1);
     // Add more test cases here
     return 0;
