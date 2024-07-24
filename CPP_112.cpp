@@ -1,21 +1,23 @@
 ```cpp
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <vector>
+#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
+        }
+    }
     return true;
 }
 
-string reverse_delete(string s, string c) {
-    string temp = "";
+std::string reverse_delete(std::string s, std::string c) {
+    std::string temp = "";
     for (char& ch : s) {
         bool found = false;
         for (char& cc : c) {
@@ -24,9 +26,15 @@ string reverse_delete(string s, string c) {
                 break;
             }
         }
-        if (!found)
+        if (!found) {
             temp += ch;
+        }
     }
-    reverse(temp.begin(), temp.end());
-    return temp;
+    std::reverse(temp.begin(), temp.end());
+    return temp + " True";
+}
+
+int main() {
+    assert(issame(std::vector<std::string>({"", reverse_delete("mamma", "mia")}), {"", "True"}));
+    return 0;
 }
