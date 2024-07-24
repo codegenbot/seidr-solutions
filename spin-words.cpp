@@ -12,7 +12,7 @@ std::string spinWords(std::string str) {
                 std::reverse(word.begin(), word.end());
             }
             
-            result += word;
+            result = result + (word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word) + " ";
             word.clear();
         } else {
             word += str[i];
@@ -24,7 +24,7 @@ std::string spinWords(std::string str) {
         std::reverse(word.begin(), word.end());
     }
     
-    result += word;
+    result = result + (word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word);
     
     return result;
 }
