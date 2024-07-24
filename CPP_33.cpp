@@ -1,16 +1,21 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
+#include <algorithm>
 
-void sort_third(vector<int>& l);
-
-bool issame(int i, int j){
-    return i == j;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-void sort_third(vector<int>& l) {
-    vector<int> l_prime = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sort(l_prime.begin() + i, l_prime.begin() + i + 3);
-        }
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> sorted_l = l;
+    for (int i = 2; i < l.size(); i += 3) {
+        sorted_l[i] = l[i];
     }
+    std::sort(sorted_l.begin(), sorted_l.end());
+    return sorted_l;
+}
+
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
 }
