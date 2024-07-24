@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string spinWords(std::string str) {
     std::string result;
     int wordLength = 0;
@@ -11,6 +15,7 @@ std::string spinWords(std::string str) {
             } else {
                 result += c;
             }
+            result += c; // append the original character
             wordLength = 0;
         } else {
             result += c;
@@ -27,4 +32,14 @@ std::string spinWords(std::string str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::cin >> str;
+        std::cout << spinWords(str) << std::endl;
+    }
+    return 0;
 }
