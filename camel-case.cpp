@@ -1,33 +1,33 @@
-Here is the completed code:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string camelCase(string s) {
-    string result = "";
-    int spaceCount = 0;
-    for (char c : s) {
-        if (c == ' ') {
-            spaceCount++;
+std::string camelCase(std::string s) {
+    std::string result = "";
+    bool firstWord = true;
+    
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            continue;
+        }
+        
+        if (firstWord) {
+            firstWord = false;
         } else {
-            if (spaceCount > 0) {
-                result += char(toupper(c));
-                spaceCount = 0;
-            } else {
-                result += tolower(c);
-            }
+            result += toupper(s[i]);
+        } else {
+            result += tolower(s[i]);
         }
     }
+    
     return result;
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << camelCase(s) << endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }
