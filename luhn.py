@@ -1,6 +1,11 @@
-```
 def luhn(card):
     card = [int(d) for d in str(card)]
-    doubled_sum = sum(int(d) * 2 % 10 if i % 2 != 0 else int(d) for i, d in enumerate(card))
-    odd_digits_sum = sum(int(d) for i, d in enumerate(card) if i % 2 != 0)
-    return (87 - ((doubled_sum + odd_digits_sum) % 10)) if ((doubled_sum + odd_digits_sum) % 10) != 0 else 87
+    doubled_sum = sum(
+        (
+            1
+            if i % 2 == 0
+            else int(d) * 2 % 10 if (int(d) * 2) // 10 > 0 else int(d) * 2 % 10
+        )
+        for i, d in enumerate(card[:-1])
+    )
+    return (doubled_sum + card[-1]) % 10
