@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -5,8 +6,8 @@
 
 using namespace std;
 
-unordered_multimap<char, int> histogram(string test) {
-    unordered_multimap<char, int> result;
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -18,16 +19,16 @@ unordered_multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    unordered_multimap<char, int> maxCountMap;
+    unordered_map<char, int> maxCountMap;
 
-    for (auto& p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
             maxCountMap.clear();
-            maxCountMap.insert(p);
-        } else if (p.second == maxCount) {
+            maxCountMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
             if (maxCount > 0) {
-                maxCountMap.insert(p);
+                maxCountMap[it->first] = it->second;
             }
         }
     }
@@ -40,9 +41,9 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    unordered_multimap<char, int> hist = histogram(input);
-    for (auto& p : hist) {
-        cout << p.first << ": " << p.second << endl;
+    unordered_map<char, int> hist = histogram(input);
+    for (auto it = hist.begin(); it != hist.end(); ++it) {
+        cout << it->first << ": " << it->second << endl;
     }
 
     return 0;
