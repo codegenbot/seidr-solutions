@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
     for(int i = 0; i < a.size(); ++i){
@@ -13,4 +13,6 @@ bool is_same(vector<int> a, vector<int> b){
     return true;
 }
 
-assert(is_same(generate_integers(17, 89), {}));
+int main(){
+    assert(is_same(generate_integers(17, 89), {}));
+}
