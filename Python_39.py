@@ -25,7 +25,6 @@ def prime_fib(n: int):
     return fibonacci(i - 1)
 
 
-# Input
 n = int(input().strip())
 result = prime_fib(n)
 print(result)
