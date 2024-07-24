@@ -1,7 +1,8 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <cassert>
 
 using namespace std;
 
@@ -58,7 +59,6 @@ void startProgram() {
     }
 }
 
-int main() {
+void main() {
     startProgram();
-    return 0;
 }
