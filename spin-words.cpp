@@ -1,4 +1,4 @@
-```c++
+```c
 #include <string>
 #include <algorithm>
 
@@ -27,11 +27,11 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        std::string tempWord = word;
-        std::reverse(tempWord.begin(), tempWord.end());
-        result += (tempWord);
+        std::string reversedWord(word);
+        std::reverse(reversedWord.begin(), reversedWord.end());
+        result += (reversedWord);
     } else {
-        result += (word);
+        result += (std::move(word)); 
     }
 
     return result;
