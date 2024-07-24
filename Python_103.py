@@ -17,7 +17,7 @@ def average_rounded():
             if n > m:
                 return -1
             avg = round((n + m) / 2)
-            rounded_avg = str(avg)[::-1]
+            rounded_avg = str(avg)
             check(rounded_avg)
         except ValueError:
             print("Invalid input. Please enter integers.")
