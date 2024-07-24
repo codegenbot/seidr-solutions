@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 import re
 
 def fix_spaces(text):
