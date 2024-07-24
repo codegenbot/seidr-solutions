@@ -25,23 +25,16 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(sum);
+        sums.push_back(std::to_string(sum));
     }
     
-    std::vector<int> sorted_sums(sums.begin(), sums.end()); 
+    std::vector<int> sorted_sums;
+    for (const auto& str : sums) {
+        sorted_sums.push_back(stoi(str));
+    } 
     std::sort(sorted_sums.begin(), sorted_sums.end()); 
 
-    std::vector<std::string> result;
-    for (int sum : sorted_sums) {
-        for (const auto& str : lst[0]) {
-            if (stoi(str) == sum) {
-                result.push_back(std::to_string(sum));
-                break;
-            }
-        }
-    }
-    
-    return result;
+    return std::vector<std::string>(sorted_sums.begin(), sorted_sums.end());
 }
 
 int main() {

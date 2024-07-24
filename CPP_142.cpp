@@ -1,16 +1,19 @@
-#include <iostream>
-#include <vector>
-
-int sum_squares(const std::vector<int>& arr) {
+int sum_squares(int n) {
     int sum = 0;
-    for (int i : arr) {
+    for (int i = 1; i <= n; i++) {
         sum += i * i;
     }
     return sum;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    int result = sum_squares(arr);
-    std::cout << "The sum of squares is: " << result << std::endl;
+    int n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+    if (n > 0) {
+        std::cout << "Sum of squares is: " << sum_squares(n) << std::endl;
+    } else {
+        std::cout << "Please enter a positive integer." << std::endl;
+    }
+    return 0;
 }
