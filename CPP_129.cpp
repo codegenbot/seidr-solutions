@@ -1,31 +1,55 @@
-vector<int> minPath(vector<vector<int>>& grid, int k){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> res;
     
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(i == 0 || j == 0) dp[i][j] = grid[i][j];
-            else{
-                int minVal = INT_MAX;
-                if(i > 0) minVal = min(minVal, dp[i-1][j]);
-                if(j > 0) minVal = min(minVal, dp[i][j-1]);
-                dp[i][j] = grid[i][j] + minVal;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                vector<int> path;
+                dfs(grid, visited, i, j, k, path);
+                res = minPath(res, path);
             }
         }
     }
     
-    int minVal = INT_MAX;
-    for(int i = 0; i < n; i++){
-        if(i > 0) minVal = min(minVal, dp[n-1][i]);
+    return res;
+}
+
+vector<int> minPath(vector<int> path1, vector<int> path2) {
+    for (int i = 0; i < path1.size(); i++) {
+        if (path1[i] > path2[i]) {
+            return path1;
+        } else if (path1[i] < path2[i]) {
+            return path2;
+        }
+    }
+    return path1;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
+    if (k == 0) {
+        return;
     }
     
-    vector<int> path;
-    int x = n - 1, y = minVal == dp[n-1][minVal] ? 0 : minVal;
-    for(int i = 0; i < k; i++){
-        path.push_back(grid[x][y]);
-        if(y > 0) x--;
-        else y--;
+    visited[i][j] = true;
+    path.push_back(grid[i][j]);
+    
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            if (x == 0 && y == 0) continue;
+            int ni = i + x, nj = j + y;
+            
+            if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size() && !visited[ni][nj]) {
+                dfs(grid, visited, ni, nj, k - 1, path);
+                return;
+            }
+        }
     }
     
-    return path;
+    visited[i][j] = false;
 }
