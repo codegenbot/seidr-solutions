@@ -1,9 +1,10 @@
-string result = "";
-    for (int i = 0; i < a.size(); i++) {
+string string_xor(string a, string b){
+    string result;
+    for (int i = 0; i < a.length(); i++) {
         if (a[i] == b[i]) {
-            result += "0";
+            result.push_back('0');
         } else {
-            result += "1";
+            result.push_back('1');
         }
     }
     return result;
