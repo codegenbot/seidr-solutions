@@ -1,3 +1,4 @@
+```
 def leaders(a):
     n = len(a)
     max_right = a[n - 1]
