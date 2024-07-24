@@ -1,12 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <variant>
+#include <boost/variant.hpp>
+#include <boost/mpl/int.hpp>
 
-std::vector<int> filter_integers(std::vector<std::variant<int>> values) {
+using namespace boost;
+
+std::vector<int> filter_integers(std::vector<variant<int>> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (std::holds_alternative<int>(value)) {
-            result.push_back(std::get<int>(value));
+        if (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
     }
     return result;
