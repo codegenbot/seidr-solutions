@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool areVectorsEqual(std::vector<int> a, std::vector<int> b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
