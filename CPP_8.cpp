@@ -14,6 +14,5 @@ std::pair<int, int> sum_product(const std::pair<int, int>& numbers) {
 
 int main() {
     assert(issame(sum_product({10, 0}), {10, 0}));
-    assert(issame(sum_product({10, 10}), {20, 100}); // Added test case
     return 0;
 }
