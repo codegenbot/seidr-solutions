@@ -1,9 +1,7 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
+    coins = sorted([25, 10, 5, 1], reverse=True)
     count = [0, 0, 0, 0]
-    
-    coins.sort(reverse=True)
-    
+
     for i in range(len(coins)):
         while cents >= coins[i]:
             count[i] += 1
