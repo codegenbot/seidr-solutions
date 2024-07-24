@@ -1,19 +1,14 @@
 #include <iostream>
 #include <climits>
 #include <vector>
-#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string line;
-    
-    getline(cin, line);
-    istringstream iss(line);
-    
     int num;
-    while (iss >> num) {
+    
+    while (cin >> num) {
         nums.push_back(num);
     }
     
@@ -30,7 +25,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
+        int diff = std::abs(prefixSum - suffixSum);
         
         if (diff < minDiff) {
             minDiff = diff;
@@ -39,14 +34,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << ' ';
+        cout << nums[i] << '\n';
     }
-    cout << '\n';
     
-    for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << ' ';
-    }
-    cout << '\n';
+    cout << 0 << '\n';
     
     return 0;
 }
