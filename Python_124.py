@@ -16,7 +16,7 @@ def valid_date(date):
         if not (1 <= day <= 30):
             return False
     elif month == 2:
-        if not ((1 <= day <= 28) or (day == 29 and year % 4 == 0)):
+        if not (1 <= day <= 29) or (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
             return False
     
     return True
