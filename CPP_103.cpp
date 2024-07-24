@@ -8,6 +8,7 @@ string rounded_avg(int n, int m) {
     for (int i = n; i <= m; ++i) {
         sum += i;
     }
-    double avg = std::floor((sum + 0.5) / (m - n + 1));
+    double avg = floor((sum + 0.5) / (m - n + 1));
     string res = to_string(avg);
     return res.substr(0, res.length() - 2) + "b";
+}
