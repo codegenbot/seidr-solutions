@@ -6,16 +6,21 @@ using namespace std;
 
 int main() {
     vector<int> nums;
+    int num;
+
     int temp;
-
-    cout << "Enter positive integers separated by spaces (terminate input with Ctrl+D):" << endl;
-
     while (cin >> temp) {
         nums.push_back(temp);
     }
 
-    if (nums.empty()) {
-        cout << "Input vector is empty." << endl;
+    if (nums.size() == 1) {
+        for (int i = 0; i < nums.size(); i++) {
+            cout << nums[i] << " ";
+        }
+        cout << endl;
+        for (int i = 0; i < nums.size(); i++) {
+            cout << nums[i] << " ";
+        }
         return 0;
     }
 
