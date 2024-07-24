@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -33,6 +32,7 @@ int main() {
     }
 
     cout << "[";
+
     for (int i = 0; i < result.size(); i++) {
         if (i > 0) {
             cout << ", ";
