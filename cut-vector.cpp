@@ -19,7 +19,15 @@ int main() {
         nums.push_back(num);
     }
     
-    if (nums.empty()) {
+    if (nums.size() <= 1) {
+        for (int i = 0; i < nums.size(); i++) {
+            cout << nums[i] << ' ';
+        }
+        cout << '\n';
+        for (int i = 0; i < nums.size(); i++) {
+            cout << nums[i] << ' ';
+        }
+        cout << '\n';
         return 0;
     }
     
@@ -46,7 +54,7 @@ int main() {
         }
     }
     
-    if (prefixSum == sum - prefixSum || cutIndex == 0) {
+    if (prefixSum == sum - prefixSum) {
         cutIndex++;
     }
     
