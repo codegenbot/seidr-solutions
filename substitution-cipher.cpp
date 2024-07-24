@@ -7,12 +7,13 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substitutionCipher(cipher1, cipher2, message) + std::string() << std::endl;
+    const auto result = substitutionCipher(cipher1, cipher2, message);
+    std::cout << std::move(result) << std::endl; // Use std::move if you want to avoid unnecessary copy
     return 0;
 }
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
+    std::string result = "";
     for (char c : message) {
         int offset = isupper(c) ? 0 : tolower(c) - 'a';
         if(isalpha(c)) {
