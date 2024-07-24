@@ -1,5 +1,5 @@
+```
 import math
-
 
 def triangle_area():
     a = float(input("Enter side A of triangle: "))
@@ -12,9 +12,4 @@ def triangle_area():
     else:
         return -1
 
-
-def check():
-    print(triangle_area())
-
-
-check()
+print(triangle_area())
