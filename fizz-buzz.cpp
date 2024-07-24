@@ -6,13 +6,16 @@ int main() {
     std::cout << "Enter an integer: ";
     std::cin >> x;
 
-    std::string result = " "; // Initialize with a space character
+    std::string result = std::string(""); // Fix: Initialize the `result` variable with an empty string using the constructor
     
     if (x % 15 == 0) 
         result = "FizzBuzz";
-    else if (x % 3 == 0)
-        result = x % 5 == 0 ? "Fizz" : "Fizz";
-    else if (x % 5 == 0)
+    else if (x % 3 == 0) {
+        if (x % 5 == 0)
+            result = "FizzBuzz";
+        else
+            result = "Fizz";
+    } else if (x % 5 == 0)
         result = "Buzz";
     else
         result = std::to_string(x);
