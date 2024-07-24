@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,15 +12,17 @@ string spinWords(string str) {
     while (i < str.length()) {
         if (str.find(" ", i) == -1) {
             if(str.length() >= 5) {
-                reverse(str.begin()+i, str.begin()+str.find(" ", i)+1);
+                reverse(str.begin() + i, str.end());
             }
             result += str.substr(i);
             break;
         } else {
             int j = str.find(" ", i);
             if (j + 1 <= str.length()) {
-                if(str.length() >= 5) {
-                    reverse(str.begin()+i, str.begin()+j+1);
+                if(str.length() - 1 >= j + i && isupper(str.begin()+(j+i))) {
+                    for(int k = 0; k < (j-i)/2; k++) {
+                        swap(str[i+k], str[(j-i)-k-1]);
+                    }
                 }
             }
             result += str.substr(i, j - i);
