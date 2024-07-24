@@ -10,23 +10,18 @@ int main() {
     std::string message;
     std::getline(std::cin, message);
 
-    std::unordered_map<std::string, std::string> cipherMap;
+    std::unordered_map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1.substr(0, 1)] = cipher2.substr(0, 1);
+        cipherMap[cipher1[i]] = cipher2[i];
     }
 
-    std::string result = "";
+    std::string result;
     for(int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        if(cipherMap.find(std::string(1, tolower(c))) != cipherMap.end()) {
-            result += cipherMap.at(std::string(1, tolower(c)));
+        char c = tolower(message[i]);
+        if(cipherMap.find(c) != cipherMap.end()) {
+            result += cipherMap.at(c);
         } else {
-            // Check for non-alphanumeric characters (spaces, punctuation)
-            if (!isalnum(c)) {
-                result += c;
-            } else {
-                result += std::string(1, c);
-            }
+            result += c;
         }
     }
     std::cout << result.c_str() << std::endl;
