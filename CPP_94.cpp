@@ -1,5 +1,4 @@
-```
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool isPrime(int n){
@@ -22,7 +21,7 @@ int sumOfDigits(int n){
 
 }
 
-int main() {
+void checkPrime() {
     vector<int> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
@@ -42,6 +41,10 @@ int main() {
         cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
     else
         cout << "No primes found in the list." << endl;
+}
+
+int main() {
+    checkPrime();
     return 0;
 
 }
