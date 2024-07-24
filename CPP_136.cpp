@@ -1,10 +1,24 @@
-vector<int> largest_smallest_integers(vector<int> lst){
-    int max_negative = 0, min_positive = INT_MAX;
-    
-    for(int i : lst){
-        if(i < 0 && i > max_negative)max_negative = i;
-        else if(i > 0 && i < min_positive)min_positive = i;
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<int> find_max_neg_min_pos(vector<int> lst) {
+    int maxNeg = 0;
+    int minPos = INT_MAX;
+
+    for (int num : lst) {
+        if (num < 0 && num > maxNeg) {
+            maxNeg = num;
+        }
+        else if (num > 0 && num < minPos) {
+            minPos = num;
+        }
     }
-    
-    return {(max_negative >= 0)? 0 : max_negative, (min_positive <= 0)? 0 : min_positive};
+
+    return {(maxNeg < 0 ? maxNeg : 0), (minPos > 0 ? minPos : 0)};
+}
+
+int main() {
+    assert(issame(find_max_neg_min_pos({-6, -4, -4, -3, -100, 1}), vector<int>{-3, 1}));
+    return 0;
 }
