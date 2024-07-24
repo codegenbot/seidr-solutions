@@ -1,4 +1,9 @@
-bool issame(vector<int> a, vector<int> b) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -19,4 +24,8 @@ std::vector<int> sort_third(std::vector<int> l) {
     }
     
     return sorted_l;
+}
+
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 4, 8, 9, 3, 1}));
 }
