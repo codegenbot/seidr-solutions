@@ -1,20 +1,19 @@
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
-int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    cin >> ws; 
-    getline(cin, tweet);
-    tweet = tweet.substr(0, tweet.find_last_not_of("\n\r")); 
+int wmain() {
+    wstring tweet;
+    wcout << L"Enter a tweet: ";
+    getline(wcin, tweet);
 
     if (tweet.length() > 140) {
-        cout << "Too many characters" << endl;
+        wcout << L"Too many characters" << endl;
     } else if(tweet.empty()) {
-        cout << "You didn't type anything" << endl;
+        wcout << L"You didn't type anything" << endl;
     } else {
-        cout << "Your tweet has " << tweet.size() << " characters" << endl;
+        wcout << L"Your tweet has " << tweet.size() << L" characters" << endl;
     }
 }
