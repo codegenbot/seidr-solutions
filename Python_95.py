@@ -2,7 +2,8 @@
 def check_dict_case(dict):
     if len(dict) == 0:
         return False
-    keys = list(dict.keys())
-    all_lower = all(key.islower() for key in keys)
-    all_upper = all(key.isupper() for key in keys)
-    return all_lower or all_upper
+    for key in dict.keys():
+        if (key.islower() and any(not k.islower() for k in dict.keys()) or 
+            key.isupper() and any(not k.isupper() for k in dict.keys())):
+            return False
+    return True
