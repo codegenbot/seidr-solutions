@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cassert>
 
 bool is_simple_power(int x, int n) {
     double y = pow(n, log(x) / log(n));
@@ -6,7 +7,7 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    assert(is_simple_power(1, 12) == true);
-    // Add more test cases or code here
+    assert(is_simple_power(1, 12)==true);
+    // Add more tests as needed
     return 0;
 }
