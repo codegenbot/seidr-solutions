@@ -1,7 +1,6 @@
 ```cpp
-#include <string>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -28,13 +27,12 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         sums.push_back(sum); 
     } 
 
-    std::vector<std::string> sorted_sums = sums; // initialize with ints
-    for (int i = 0; i < sorted_sums.size(); i++) {
-        sorted_sums[i] = std::to_string(sorted_sums[i]);
+    // Sort each inner vector
+    for (auto& vec : lst) {
+        std::sort(vec.begin(), vec.end());
     }
 
-    std::sort(sorted_sums.begin(), sorted_sums.end());
-    return sorted_sums;
+    return lst[0]; 
 }
 
 int main(int argc, char** argv) {
