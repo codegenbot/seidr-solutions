@@ -5,25 +5,31 @@ def handle_bonus(bowls, score):
             score += 10 - int(bowls[i - 1])
         elif bowls[i] == "X":
             score += 10
-            if i < len(bowls) - 2:
-                if bowls[i + 1] == "X":
-                    score += 10
+            if i < len(bowls) - 2 and bowls[i + 1] == "X":
+                score += 10 + (10 if bowls[i + 2] == "/" else int(bowls[i + 2]))
+            else:
+                if bowls[i + 1] == "/":
+                    score += 10 + 10
+                else:
+                    score += 10 + int(bowls[i + 1])
                     if bowls[i + 2] == "/":
                         score += 10
                     else:
                         score += int(bowls[i + 2])
-                elif bowls[i + 2] == "/":
-                    score += 10
+        else:
+            if bowls[i] != "-":
+                if bowls[i + 1] == "/":
+                    score += int(bowls[i]) + 10
                 else:
-                    score += int(bowls[i + 1]) + int(bowls[i + 2])
-            else:
-                score += int(bowls[i + 1]) + int(bowls[i + 2])
-        elif bowls[i] != "-":
-            if bowls[i + 1] == "/":
-                score += int(bowls[i]) + 10
-            else:
-                score += int(bowls[i]) + (int(bowls[i + 1]) if bowls[i + 1] != "-" else 0)
+                    score += int(bowls[i]) + (int(bowls[i + 1]) if bowls[i + 1] != "-" else 0)
         i += 1
+
+        if i < len(bowls) - 1 and bowls[i - 1] == "/":
+            if bowls[i] == "X":
+                score += 10
+            else:
+                score += int(bowls[i])
+        
     return score
 
 input_bowls = input("Enter the bowling sequence: ")
