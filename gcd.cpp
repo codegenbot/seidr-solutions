@@ -39,7 +39,6 @@ int main() {
     cout << "Enter a text string: ";
     cin >> text;
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter a target string: ";
     cin >> target;
 
