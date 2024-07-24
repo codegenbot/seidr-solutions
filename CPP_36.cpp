@@ -1,4 +1,8 @@
-int count = 0;
+#include <iostream>
+#include <cassert>
+
+int fizz_buzz(int n) {
+    int count = 0;
     for (int i = 1; i < n; i++) {
         if (i % 11 == 0 || i % 13 == 0) {
             int num = i;
@@ -11,4 +15,10 @@ int count = 0;
         }
     }
     return count;
+}
+
+int main() {
+    assert(fizz_buzz(100000) == 8026);
+    
+    return 0;
 }
