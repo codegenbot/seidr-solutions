@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return true;
@@ -30,13 +29,25 @@ bool solveBoolean(const std::string& s) {
     else {
         std::string right = s.substr(left_end + 1, right_start - left_end - 1);
         if (right == "t" || right == "") return result;
-        else if (right == "f") return !result && solveBoolean(right);
+        else if (right == "f") return !result;
 
         if (s[left_end] == '|') {
-            return solveBoolean(left) || solveBoolean(right);
+            if (left[0] == '(') {
+                bool temp = solveBoolean(left.substr(1, left.length() - 2));
+                return temp || solveBoolean(right);
+            } 
+            else {
+                return solveBoolean(left) || solveBoolean(right);
+            }
         } 
         else {
-            return solveBoolean(left) && solveBoolean(right);
+            if (left[0] == '(') {
+                bool temp = solveBoolean(left.substr(1, left.length() - 2));
+                return temp && solveBoolean(right);
+            } 
+            else {
+                return solveBoolean(left) && solveBoolean(right);
+            }
         }
     }
 
