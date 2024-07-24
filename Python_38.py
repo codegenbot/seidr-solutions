@@ -1,20 +1,13 @@
-Here is the completed code:
+def encode_cyclic(s: str, n: int):
+    groups = [s[i : i + n] for i in range(0, len(s), n)]
+    groups = [(group[1:] + group[0]) if len(group) == n else group for group in groups]
+    return "".join(groups)
 
-```
-def decode_cyclic(s: str):
-    result = ""
-    group = ""
-    for char in s:
-        group += char
-        if len(group) == 3:
-            if len(result) % 3 != 0:
-                result += group[1] + (group[0] if group[0] != group[2] else '')
-            else:
-                result += group
-            group = ""
-    if group:
-        if len(result) % 3 != 0:
-            result += group[1] + (group[0] if group[0] != group[2] else '')
-        else:
-            result += group
-    return result
+
+def decode_cyclic(s: str, n: int):
+    groups = [s[i : i + n] for i in range(0, len(s), n)]
+    groups = [
+        (groups[-1] + groups[0][: -n + 1]) if len(group) == n else group
+        for group in groups
+    ]
+    return "".join(groups)
