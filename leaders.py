@@ -1,2 +1,11 @@
-def leaders(a):
-    return [a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[:i])]
+def leaders(input):
+    input = list(map(int, input.split()))
+    last_leader = input[-1]
+    leaders_list = [last_leader]
+
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= last_leader:
+            leaders_list.insert(0, input[i])
+            last_leader = input[i]
+
+    return " ".join(str(x) for x in leaders_list)
