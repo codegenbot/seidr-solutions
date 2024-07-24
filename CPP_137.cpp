@@ -1,27 +1,28 @@
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        return x > y ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
-        return (x > y ? &a : (y > x ? &b : boost::any("None")));
+        return x > y ? a : b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string s1 = boost::any_cast<std::string>(a);
+        std::string s2 = boost::any_cast<std::string>(b);
+        return s1 > s2 ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float x = boost::any_cast<float>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        return stof(y) > x ? b : a;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string x = boost::any_cast<std::string>(a);
+        float y = boost::any_cast<float>(b);
+        return stof(x) > y ? a : b;
     }
-    else if ((a.type() == typeid(double) && b.type() == typeid(int)) ||
-             (a.type() == typeid(int) && b.type() == typeid(double))) {
-        double x = boost::any_cast<double>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y ? &a : (y > x ? &b : boost::any("None")));
-    }
-    else if ((a.type() == typeid(string) && b.type() == typeid(double)) ||
-             (a.type() == typeid(double) && b.type() == typeid(string))) {
-        string x = boost::any_cast<string>(a);
-        double y = boost::any_cast<double>(b);
-        return (stod(x) > y ? &a : (y > stod(x) ? &b : boost::any("None")));
-    }
-    else if ((a.type() == typeid(string) && b.type() == typeid(string))) {
-        string x = boost::any_cast<string>(a);
-        string y = boost::any_cast<string>(b);
-        return (stod(y) > stod(x) ? &b : (stod(x) > stod(y) ? &a : boost::any("None")));
-    }
-    else {
-        throw invalid_argument("Invalid types");
-    }
+    
+    if (a == b)
+        return boost::any("None");
+    else
+        return a;
 }
