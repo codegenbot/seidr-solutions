@@ -1,9 +1,9 @@
-#include <string>
+#include <string> 
 
 bool evaluateBooleanExpression(const std::string& expr) {
     std::string lowercaseExpr;
     for (char c : expr) {
-        lowercaseExpr += std::tolower(c); // Change to std::tolower
+        lowercaseExpr += std::tolower(c); 
     }
     if (lowercaseExpr == "false") {
         return false;
