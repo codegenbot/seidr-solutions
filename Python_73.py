@@ -18,3 +18,6 @@ def smallest_change(arr):
         right -= 1
     
     return changes
+
+arr = [1, 2, 3, 4, 5]
+print(smallest_change(arr))
