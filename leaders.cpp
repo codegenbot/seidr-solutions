@@ -9,7 +9,9 @@ std::vector<int> leaders(std::vector<int>& v) {
     leaders.push_back(v[n-1]);
     
     for(int i=n-2; i>=0; i--){
-        if(v[i] >= v[i+1]) leaders.push_back(v[i]);
+        if(v[i] >= v[i+1]){
+            leaders.push_back(v[i]);
+        }
     }
     
     return leaders;
