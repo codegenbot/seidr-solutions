@@ -11,16 +11,21 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
 }
 
 int main() {
-    // example vectors
     std::vector<float> v1;
-    v1.push_back(1);
-    v1.push_back(2);
-    v1.push_back(3);
-
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        float x;
+        scanf("%f", &x);
+        v1.push_back(x);
+    }
+    
     std::vector<float> v2;
-    v2.push_back(4);
-    v2.push_back(5);
-    v2.push_back(6);
+    for (int i = 0; i < n; i++) {
+        float x;
+        scanf("%f", &x);
+        v2.push_back(x);
+    }
 
     double dist = euclideanDistance(v1, v2);
     printf("Euclidean distance: %.2f\n", dist);
