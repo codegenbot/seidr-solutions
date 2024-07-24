@@ -1,5 +1,6 @@
-#include <vector>
-
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
