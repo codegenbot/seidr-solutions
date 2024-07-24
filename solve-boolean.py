@@ -1,11 +1,14 @@
-def solveBoolean(input_str):
-    if input_str == "t":
-        return True
-    elif input_str == "f":
-        return False
-    elif "&" in input_str:
-        a, b = input_str.split("&")
-        return bool(a) and bool(b)
-    elif "|" in input_str:
-        a, b = input_str.split("|")
-        return bool(a) or bool(b)
+def solve(input_str):
+    def evaluate_bool(exp):
+        if exp == 'T':
+            return True
+        elif exp == 'F':
+            return False
+        elif '&' in exp:
+            a, b = map(evaluate_bool, exp.split('&'))
+            return a and b
+        elif '|' in exp:
+            a, b = map(evaluate_bool, exp.split('|'))
+            return a or b
+
+    return evaluate_bool(input_str)
