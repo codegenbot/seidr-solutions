@@ -1,18 +1,20 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
-total_sum = sum(vector)
-half_sum = total_sum / 2
-current_sum = 0
-index = 0
+vec = [int(input()) for _ in range(n)]
 
-for i, num in enumerate(vector):
-    current_sum += num
-    if current_sum >= half_sum:
-        index = i
-        break
+total_sum = sum(vec)
+left_sum = 0
+min_diff = total_sum
 
-left_subvector = vector[: index + 1]
-right_subvector = vector[index + 1 :]
+for i in range(n):
+    left_sum += vec[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff <= min_diff:
+        min_diff = diff
+        cut_index = i
 
-print(*left_subvector)
-print(*right_subvector)
+output1 = vec[: cut_index + 1]
+output2 = vec[cut_index + 1 :]
+
+print(*output1)
+print(*output2)
