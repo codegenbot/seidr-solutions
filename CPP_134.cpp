@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <cassert>
 #include <string>
@@ -10,18 +11,10 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
     return std::isalpha(lastChar);
 }
 
-size_t find_first_non_space_char(const std::string& line) {
-    size_t pos = 0;
-    while (pos < line.size() && std::isspace(line[pos])) {
-        ++pos;
-    }
-    return pos;
-}
-
 int main() {
     std::cout << "Enter a string: ";
-    std::string line; getline(std::cin, line); 
-    size_t pos = find_first_non_space_char(line);
+    std::string line; std::getline(std::cin, line); 
+    size_t pos = std::distance(line.begin(), std::find_if_not(line.begin(), line.end(), [](char c){return std::isspace(c);}));
     if (pos == line.size())
         line.clear();
     else
