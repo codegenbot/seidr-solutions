@@ -1,18 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
-        if (min_val == max_val) {
+        if (issame(min_val, max_val)) {
             result.push_back(min_val);
             lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
         } else {
@@ -26,28 +25,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
-    }
-    
-    vector<int> output = strange_sort_vector(input);
-    
-    if (issame(output, vector<int>({1, 2, 3}))) {
-        std::cout << "The sorted list is: ";
-        for (int i : output) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "The sorted list is not as expected." << std::endl;
-    }
-    
+    assert(issame(strange_sort_vector({111}), std::vector<int>({111})));
     return 0;
 }
