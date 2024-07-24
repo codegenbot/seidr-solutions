@@ -3,15 +3,12 @@
 
 std::string remove_vowels(std::string text){
     std::string result = "";
-    for(char c : text){
-        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
-            result += c;
+    for(int i=0; i<text.length();i++){
+        if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u' 
+           && tolower(text[i]) != 'a' && tolower(text[i]) != 'e' && tolower(text[i]) != 'i' 
+           && tolower(text[i]) != 'o' && tolower(text[i]) != 'u'){
+            result += text[i];
         }
     }
     return result;
 }
-
-int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    std::cout << remove_vowels("Hello World"); // Test the function
-    return 0;
