@@ -14,3 +14,4 @@ string spinWords(string str) {
         }
     }
     return result;
+}
