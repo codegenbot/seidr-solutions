@@ -1,23 +1,31 @@
-int bowling(string s) {
+int bowlingScore(string s) {
     int score = 0;
-    int current_frame = 1;
-    for (char c : s) {
-        if (c == 'X') {
+    for(int i=0; i<10; i++){
+        if(s[i] == 'X'){
             score += 30;
-            current_frame--;
-        } else if (c == '/') {
-            score += 10 + (10 - (current_frame == 9 ? 2 : 1));
-            current_frame = min(current_frame, 9);
-        } else {
-            int pins = c - '0';
-            if (current_frame == 10) {
-                score += pins;
-            } else {
-                score += pins;
-                if (pins < 10) {
-                    current_frame++;
+        }
+        else if(s[i] == '/'){
+            score += 10 + (s[i+1] - '0') * 10 + (s[i+2] - '0');
+            i++;
+        }
+        else{
+            int sum = 0;
+            for(int j=i; j<i && j<10; j++){
+                if(s[j] == 'X'){
+                    sum += 30;
+                    break;
+                }
+                else if(s[j] == '/'){
+                    sum += 10 + (s[j+1] - '0') * 10 + (s[j+2] - '0');
+                    i++;
+                    j++;
+                    break;
+                }
+                else{
+                    sum += s[j] - '0';
                 }
             }
+            score += sum;
         }
     }
     return score;
