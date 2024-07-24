@@ -1,8 +1,6 @@
-```
 #include <vector>
-using namespace std;
 
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num >= 0) {
