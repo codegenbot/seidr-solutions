@@ -7,11 +7,3 @@ def is_happy_number(n):
         seen.add(str(n))
         n = sum(int(digit) ** 2 for digit in str(n))
     return True
-
-while True:
-    try:
-        num = int(input("Enter a number: "))
-        print(is_happy_number(num))
-        break
-    except ValueError as e:
-        print(f"Invalid input. {e}")
