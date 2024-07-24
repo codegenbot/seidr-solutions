@@ -13,6 +13,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    // Main function logic here
+    // Main function code
     return 0;
 }
