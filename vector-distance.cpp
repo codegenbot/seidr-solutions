@@ -1,19 +1,14 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 double vectorDistance(int n) {
-    double x1, y1;
-    for (int i = 0; i < n; ++i) {
-        cin >> x1 >> y1;
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        double a = 0, b = 0;
+        cin >> a >> b;
+        sum += pow(b - a, 2);
     }
-    
-    double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        double diff = (x1 - y1) * (x1 - y1);
-        sum += diff;
-    }
-    
     return sqrt(sum);
 }
 
