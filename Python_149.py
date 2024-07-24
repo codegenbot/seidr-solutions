@@ -1,9 +1,17 @@
+```
 def sorted_list_sum(input_data):
-    word_dict = {}
-    for word in input_data:
-        if word not in word_dict:
-            word_dict[word] = 0
-        word_dict[word] += 1
+    word_dict = {
+        "zero": 0,
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9
+    }
+    nums = sorted([(word_dict.get(word, word), index) for index, word in enumerate(input_data)])
 
-    nums = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
-    return [num[0] for num in nums]
+    return [num[1] for num in nums]
