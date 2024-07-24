@@ -1,40 +1,54 @@
 #include <string>
-#include <vector>
-
 using namespace std;
 
 bool valid_date(string date) {
-    vector<string> parts = split(date, '-');
-    
-    if (parts.size() != 3)
-        return false;
-        
-    int month = stoi(parts[0]);
-    int day = stoi(parts[1]);
-    int year = stoi(parts[2]);
-
-    if (month < 1 || month > 12)
-        return false;
-
-    if ((month == 2 && day > 29) ||
-        (month == 4 || month == 6 || month == 9 || month == 11) &&
-        (day > 30) ||
-        (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
-        (day > 31))
-        return false;
-
-    return true;
-}
-
-vector<string> split(const string& s, char delim) {
-    vector<string> result;
+    int day, month, year;
     size_t pos = 0;
-    size_t prev = 0;
-    while ((pos = s.find(delim, prev)) != string::npos) {
-        string token = s.substr(prev, pos - prev);
-        result.push_back(token);
-        prev = pos + 1;
+    
+    // Split the string into day, month and year
+    if ((pos = date.find('-')) != string::npos) {
+        string temp = date.substr(0, pos);
+        day = stoi(temp);
+        date.erase(0, pos + 1);
+        if ((pos = date.find('-')) != string::npos) {
+            temp = date.substr(0, pos);
+            month = stoi(temp);
+            date.erase(0, pos + 1);
+            year = stoi(date);
+        } else {
+            return false; // Invalid format
+        }
+    } else {
+        return false; // Invalid format
     }
-    result.push_back(s.substr(prev));
-    return result;
+
+    // Check for valid day, month and year
+    if (day < 1 || day > 31) return false;
+    if (month < 1 || month > 12) return false;
+    
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+            return day <= 29;
+        else
+            return day <= 28;
+    } else if (isLeapYear(year)) {
+        if (month in {1,3,5,7,8,10,12})
+            return day <= 31;
+        else if (month in {4,6,9,11})
+            return day <= 30;
+        else
+            return day <= 29;
+    } else {
+        if (month in {1,3,5,7,8,10,12})
+            return day <= 31;
+        else if (month in {4,6,9,11})
+            return day <= 30;
+        else
+            return day <= 28;
+    }
+    
+    // Helper function to check for leap year
+    bool isLeapYear(int y) {
+        return ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0));
+    }
 }
