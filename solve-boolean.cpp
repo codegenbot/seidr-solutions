@@ -1,25 +1,22 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
+    int op = -1;
     for (char c : s) {
         if (c == 'T' || c == 't') {
-            continue;
+            return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            while(s.find('&') != string::npos) {
-                int pos = s.find('&');
-                s.replace(pos, 1, "0");
-            }
-            result &= (s[0] == 'T' || s[0] == 't');
+            op = 0;
         } else if (c == '|') {
-            while(s.find('|') != string::npos) {
-                int pos = s.find('|');
-                s.replace(pos, 1, "0");
-            }
-            result |= (s[0] == 'T' || s[0] == 't');
+            op = 1;
+        }
+        if (op != -1) {
+            result = (op == 0) ? (result && true) : (result || true);
         }
     }
     return result;
