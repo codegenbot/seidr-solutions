@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,7 +23,7 @@ int main() {
     int inputCount = 0;
     
     float num;
-    while(true) {
+    while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); 
@@ -32,7 +31,6 @@ int main() {
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
-            if(inputCount >= maxInputCount) break; 
             break;
         }
         vec1.push_back(num);
@@ -40,10 +38,9 @@ int main() {
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
         inputCount++;
-        if(inputCount >= maxInputCount) break; 
     }
 
-    int remainingInputCount = std::min(maxInputCount, vec1.size());
+    int remainingInputCount = maxInputCount - inputCount;
     while(remainingInputCount > 0) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
