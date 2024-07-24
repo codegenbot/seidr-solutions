@@ -36,9 +36,8 @@ int main() {
     cin >> num;
     for(i = 0; i < num; i++){
         cout << "Enter element " << i+1 << ": ";
-        int x; 
-        cin >> x; 
-        lst.push_back(x);
+        int x; cin >> x; 
+        lst.emplace_back(x);
     }
     int maxPrimeNum = maxPrime(lst);
     if(maxPrimeNum > 0)
