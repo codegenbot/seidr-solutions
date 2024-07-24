@@ -1,18 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <utility>
 
-// Function to check if two vectors are same
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return (a == b);
 }
 
-// Function to implement strange sort list
-std::vector<int> strange_sort_list(std::vector<int> input) {
-    std::sort(input.begin(), input.end());
+std::vector<int> sortList(std::vector<int> input) {
     for(int i = 0; i < input.size(); i++) {
         for(int j = i + 1; j < input.size(); j++) {
             if(input[i] > input[j]) {
@@ -34,14 +29,10 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
-    std::vector<int> output = strange_sort_list(input);
-    if(issame(output, {111111})) {
-        std::cout << "Sorted list: ";
-        for(int i : output) {
-            std::cout << i << " ";
-        }
-    } else {
-        std::cout << "Not sorted correctly";
+    std::vector<int> output = sortList(input);
+    std::cout << "Sorted list: ";
+    for(int i : output) {
+        std::cout << i << " ";
     }
     return 0;
 }
