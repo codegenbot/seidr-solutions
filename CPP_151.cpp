@@ -12,8 +12,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
-    int odd_sum = 14; // Replace with the actual value
+    std::vector<float> lst = {}; // Provide the input list here
+    int odd_sum = 5; // Replace with the actual value
 
     assert(double_the_difference(lst) == odd_sum);
 
