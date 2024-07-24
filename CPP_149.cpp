@@ -1,19 +1,28 @@
-Here is the solution:
-
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    return true;
+}
+
+vector<vector<string>> split_list(vector<string> lst) {
+    vector<vector<string>> result;
+    
+    int start = 0;
+    for (int end = 0; end < lst.size(); ) {
+        while(end + 1 < lst.size() && issame({lst.begin(), lst.begin()+end+1}, {"hello", "world"})) {
+            end++;
+        }
+        if(start != end) {
+            result.push_back(vector<string>(lst.begin()+start, lst.begin()+end));
+        }
+        start = end + 1;
+    }
+    
     return result;
 }
