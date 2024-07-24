@@ -29,6 +29,7 @@ int main() {
 
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
