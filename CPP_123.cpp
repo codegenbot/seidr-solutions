@@ -24,8 +24,7 @@ vector<int> get_odd_collatz(int n) {
         }
         n = (n * 3 + 1);
     }
-    if (n == 4)
-        res.push_back(2);
+    res.push_back(1);
     return res;
 }
 
