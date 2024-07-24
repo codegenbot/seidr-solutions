@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     while True:
         x = float(input("Enter a number for x: "))
