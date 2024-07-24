@@ -4,15 +4,15 @@ using namespace std;
 int luhn(vector<int> card) {
     int sum = 0;
     for (int i = 0; i < card.size(); i++) {
-        if ((i % 2 == 1)) { // double every other digit starting with the second digit
+        if (i % 2 == 1) {
             card[i] *= 2;
-            if (card[i] > 9) { // if any of the results are over 9, subtract 9 from them
+            if (card[i] > 9) {
                 card[i] -= 9;
             }
         }
     }
-    for (int i = 0; i < card.size(); i++) {
-        sum += card[i];
+    for (int i : card) {
+        sum += i;
     }
     return sum;
 }
@@ -20,8 +20,8 @@ int luhn(vector<int> card) {
 int main() {
     int n;
     cin >> n;
-    vector<int> card(16);
-    for (int i = 0; i < 16; i++) {
+    vector<int> card(n);
+    for (int i = 0; i < n; i++) {
         cin >> card[i];
     }
     cout << luhn(card) << endl;
