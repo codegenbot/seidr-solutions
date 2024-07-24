@@ -1,2 +1,2 @@
 def modp(n: int, p: int):
-    """result = pow(n, 1, p)"""
+    return pow(n, 1, p)
