@@ -34,7 +34,7 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line here
+            std::cin >> std::skipws; // skip any remaining characters
         }
         vec1.push_back(x); 
         size++;
@@ -48,7 +48,7 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line here
+            std::cin >> std::skipws; // skip any remaining characters
         }
         vec2.push_back(x); 
         size++;
