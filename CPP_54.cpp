@@ -1,8 +1,6 @@
-```cpp
 #include <algorithm>
 #include <string>
-#include <cassert>
-#include <iostream>
+#include <vector>
 
 bool same_chars(string s0, string s1) {
     vector<char> v0(s0.begin(), s0.end());
