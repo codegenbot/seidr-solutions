@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -24,17 +25,44 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(std::to_string(sum)); 
+        sums.push_back(sum); 
     } 
 
-    std::vector<std::string> sorted_sums(sums.begin(), sums.end());
+    std::vector<int> sorted_int_sums = sums; // initialize with ints
+    std::vector<std::string> sorted_sums;
+    for (int num : sorted_int_sums) {
+        sorted_sums.push_back(std::to_string(num));
+    }
+
     std::sort(sorted_sums.begin(), sorted_sums.end()); 
 
     return sorted_sums;
 }
 
+std::vector<std::vector<std::string>> readInput() {
+    int n;
+    std::cin >> n;
+
+    std::vector<std::vector<std::string>> lst(n);
+    for (int i = 0; i < n; i++) {
+        int m;
+        std::cin >> m;
+        for (int j = 0; j < m; j++) {
+            std::string s;
+            std::cin >> s;
+            lst[i].push_back(s);
+        }
+    }
+
+    return lst;
+}
+
 int main() {
-    std::vector<std::string> lst = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
-    assert(issame(sorted_list_sum({{ "aaaa" }, { "bbbb" }, { "dd" }, { "cc" }}), { "cc", "dd", "aaaa", "bbbb" }));
+    auto input = readInput();
+    auto output = sorted_list_sum(input);
+    for (const auto& str : output) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
