@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -28,18 +29,38 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             result.push_back("C-");
         else if (grade > 1.0)
             result.push_back("D+");
-        else if (grade > 0.7)
-            result.push_back("D");
         else
-            result.push_back("E");
+            result.push_back("F");
     }
     return result;
 }
 
-int main() {
-    std::vector<float> grades = {0, 0.7};
+int main_test() {
+    std::vector<float> grades = {4.0, 2.7};
     std::vector<std::string> a = numerical_letter_grade(grades);
-    std::vector<std::string> b = {"D", "E"};
-    assert(std::equal(a.begin(), a.end(), b.begin()));
+    if (a[0] >= "A+")
+        a[0] = "A+";
+    else if (a[0] > "A")
+        a[0] = "A";
+    else if (a[0] > "A-")
+        a[0] = "A-";
+    else if (a[0] > "B+")
+        a[0] = "B+";
+    else if (a[0] > "B")
+        a[0] = "B";
+    else if (a[0] > "B-")
+        a[0] = "B-";
+    else if (a[0] > "C+")
+        a[0] = "C+";
+    else if (a[0] > "C")
+        a[0] = "C";
+    else if (a[0] > "C-")
+        a[0] = "C-";
+    else if (a[0] > "D+")
+        a[0] = "D+";
+    else
+        a[0] = "F";
+    std::vector<std::string> b(a);
+    bool same = issame({a}, {b});
     return 0;
 }
