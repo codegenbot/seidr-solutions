@@ -12,7 +12,11 @@ def minPath(grid, k):
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 res.extend(dfs(ni, nj, path + [m[ni][nj]], visited))
-        return [p for p in res if len(p) == k]
+        return res
 
     res = dfs(0, 0, [grid[0][0]], set())
-    return min(res, key=lambda x: sum(x))
+    min_path = []
+    for p in res:
+        if len(p[:k]) == k and (not min_path or sum(grid[i][j] for i, j in zip(*[[(i//n,j//n) for i, j in enumerate(path)])]) < sum(grid[i][j] for i, j in zip(*[[(i//n,j//n) for i, j in enumerate(min_path)]]))):
+            min_path = p
+    return min_path
