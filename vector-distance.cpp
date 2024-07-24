@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
 int main() {
@@ -24,7 +23,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << result << endl;
+    cout << result << '\n';
 
     return 0;
 }
