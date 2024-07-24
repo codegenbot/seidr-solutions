@@ -1,4 +1,6 @@
 result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    return result[:-1]
+for num in numbers[:-1]:
+    result.extend([num, delimeter])
+if numbers:
+    result.append(numbers[-1])
+return result
