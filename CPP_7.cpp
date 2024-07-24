@@ -1,30 +1,18 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool containSameStrings(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string& s) { 
-        return find(b.begin(), b.end(), s) != b.end(); 
-    });
-}
+using namespace std;
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(const auto& str : strings){
-        if(str.find(substring) != string::npos){
-            result.push_back(str);
-        }
+bool same(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) return false;
+    for(string s : a) {
+        if(find(b.begin(), b.end(), s) == b.end())
+            return false;
     }
-    return result;
+    return true;
 }
 
 int main() {
-    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
-    string sub = "run";
-    vector<string> expected = {"grunt", "prune"};
-
-    vector<string> output = filter_by_substring(input, sub);
-    assert(containSameStrings(output, expected));
-    
+    assert(same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
