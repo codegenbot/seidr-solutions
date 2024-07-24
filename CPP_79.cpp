@@ -7,5 +7,5 @@ string decimal_to_binary(int decimal){
             binary = "0" + binary;
         decimal /= 2;
     }
-    return binary + "db";
+    return "db" + binary + "db";
 }
