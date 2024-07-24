@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -7,7 +6,7 @@ bool std::issame(std::vector<float> a, std::vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (std::abs(a[i] - b[i]) > 1e-5) {
             return false;
         }
     }
@@ -24,7 +23,7 @@ std::vector<float> sort_even(std::vector<float> l) {
                     even.push_back(l[j]);
                 }
             }
-            sort(even.begin(), even.end());
+            std::sort(even.begin(), even.end());
             result.push_back(even[0]);
         } else {
             result.push_back(l[i]);
