@@ -18,7 +18,7 @@ void calculatePegs(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] != guess[i]) {
             for (int j = 0; j < 4; ++j) {
-                if (code[i] != guess[i] && codeFreqCode[code[j] - 'A'] > 0 && codeFreqGuess[guess[j] - 'A'] > 0 && code[j] == guess[i]) {
+                if (code[i] != guess[j] && codeFreqCode[code[j] - 'A'] > 0 && codeFreqGuess[guess[j] - 'A'] > 0 && code[j] == guess[i]) {
                     ++whitePegs;
                     --codeFreqCode[code[j] - 'A'];
                     --codeFreqGuess[guess[j] - 'A'];
@@ -35,10 +35,8 @@ int main() {
     std::string code, guess;
     std::cout << "Enter the code: ";
     std::cin >> code;
-    std::cout << "Enter your guess: ";
+    std::cout << "Enter the guess: ";
     std::cin >> guess;
-
     calculatePegs(code, guess);
-
     return 0;
 }
