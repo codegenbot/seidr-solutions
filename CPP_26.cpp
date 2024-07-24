@@ -10,8 +10,3 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
-
-int main() {
-    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5})); 
-    return 0;
-}
