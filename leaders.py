@@ -5,4 +5,4 @@ def leaders(input):
         if input[i] >= max_right:
             result.append(input[i])
             max_right = input[i]
-    return list(reversed(result))
+    return reversed(result)
