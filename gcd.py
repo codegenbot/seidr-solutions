@@ -1,5 +1,4 @@
-"""
-def gcd(a, b):
+```"""def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
@@ -14,4 +13,4 @@ def indices_of_substring(text, target):
             i = pos + 1
         else:
             break
-    return result
+    return result"""""
