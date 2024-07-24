@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
-#include <stack>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -18,28 +17,38 @@ bool evaluateBooleanExpression(string expression) {
                 operandStack.pop();
                 string op1 = operandStack.top();
                 operandStack.pop();
-                string result = (op1 == "True") ? op2 : "False";
+                string result;
+                if ((op1 == "True") && (op2 == "True"))
+                    result = "True";
+                else
+                    result = "False";
                 operandStack.push(result);
             }
             operatorStack.push('&');
-        } else if (expression[i] == '|') {
+        } 
+        else if (expression[i] == '|') {
             while (!operatorStack.empty() && operatorStack.top() == '&') {
                 operatorStack.pop();
                 string op2 = operandStack.top();
                 operandStack.pop();
                 string op1 = operandStack.top();
                 operandStack.pop();
-                string result = (op1 == "True") ? op2 : "False";
+                string result;
+                if ((op1 == "True") || (op2 == "True"))
+                    result = "True";
+                else
+                    result = "False";
                 operandStack.push(result);
             }
             operatorStack.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
+        } 
+        else if (expression[i] == 'T' || expression[i] == 'F') {
             string operand;
             while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
                 operand += expression[i];
                 i++;
             }
-            i--; // backtrack
+            i--; 
             operandStack.push(operand);
         }
     }
