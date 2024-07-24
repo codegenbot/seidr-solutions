@@ -1,7 +1,7 @@
 double diceGame(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i < n; ++i) {
+    double total = 0.0;
+    for (int i = 1; i < n && i <= m; ++i) {
         total += 1.0 / m;
     }
-    return 1.0 - total;
+    return total;
 }
