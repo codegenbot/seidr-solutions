@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 
 std::string middleCharacter(std::string str) {
