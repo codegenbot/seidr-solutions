@@ -1,16 +1,22 @@
 #include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-cout << "Enter two integers separated by a space: ";
-int a, b;
-cin >> a >> b;
-
-int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
+int main() {
+    string text, target;
+    
+    cout << "Enter two integers separated by a space: ";
+    cin >> text >> target;
+    
+    int num1 = stoi(text);
+    int num2 = stoi(target);
+    
+    int gcd = __gcd(num1, num2);
+    
+    cout << gcd << endl;
+    
+    return 0;
 }
-
-int result = gcd(a, b);
-cout << "GCD: " << result << endl;
