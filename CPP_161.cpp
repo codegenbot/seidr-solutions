@@ -1,15 +1,24 @@
-````
-string solve(string s){
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length();i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    bool hasLetter = false;
+    
+    for (char c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            c = toupper(c);
             result += c;
-        }else{
-            result+=s[i];
+        } else {
+            result += c;
         }
     }
-    if(result.empty()) reverse(result.begin(),result.end());
+    
+    if (!hasLetter)
+        reverse(result.begin(), result.end());
+    
     return result;
 }
-```
