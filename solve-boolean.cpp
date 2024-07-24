@@ -40,8 +40,6 @@ bool evalBoolOr(std::string left, std::string right) {
     bool subResult2 = evalBool(right);
     return subResult1 || subResult2;
 
-}
-
 int main() {
     std::string input = "t|t|f&f|t|t";
     bool result = evalBool(input);
