@@ -1,14 +1,12 @@
-def sum_squares(numbers):
-    return sum(i**2 for i in numbers)
+def sum_squares(lst):
+    return sum(i**2 for i in lst)
 
 
 def check(result):
-    if result > 100:
-        return "Bigger"
-    elif result == 100:
-        return "Equal"
+    if result > 25:
+        return "Result too high"
     else:
-        return "Smaller"
+        return "Result is low"
 
 
 print(check(sum_squares([1, 2, 3, 11, 12])))
