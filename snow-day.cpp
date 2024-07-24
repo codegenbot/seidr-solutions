@@ -9,7 +9,7 @@ double snowDay(int hours, float groundSnow, float rateOfSnowFall, float proporti
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow;
         groundSnow = max(0.0, groundSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * groundSnow);
     }
-    return std::max(0.0, groundSnow);
+    return groundSnow;
 }
 
 int main() {
