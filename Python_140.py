@@ -1,3 +1,4 @@
+```
 def fix_spaces(text):
     if not text:
         return ""
@@ -8,3 +9,6 @@ def fix_spaces(text):
     while "__" in text:
         text = text.replace("__", "_-")
     return text
+
+def check(func):
+    print(func("Hello World!"))
