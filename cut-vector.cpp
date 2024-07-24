@@ -1,33 +1,27 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+vector<int> cutVector(vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
 
-    for (int i = 1; i <= v.size(); i++) {
-        vector<int> left(v.begin(), v.begin() + i);
-        vector<int> right(v.begin() + i, v.end());
-        if (left.size() == right.size()) {
-            return {left, right};
+    for (int i = 1; i <= vec.size(); ++i) {
+        long sumLeft = 0, sumRight = 0;
+        for (int j = 0; j < i; ++j) {
+            sumLeft += vec[j];
         }
-        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            result = {left, right};
+        for (int j = i; j < vec.size(); ++j) {
+            sumRight += vec[j];
+        }
+
+        int diff = abs(sumLeft - sumRight);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
 
-    return result;
-}
-
-int main() {
-    vector<int> v1({1});
-    pair<vector<int>, vector<int>> res1 = cutVector(v1);
-    for (auto x : res1.first) cout << x << " ";
-    cout << endl;
-    for (auto x : res1.second) cout << x << " ";
-    cout << endl;
-
-    return 0;
+    vector<int> leftVec(vec.begin(), vec.begin() + splitIndex);
+    vector<int> rightVec(vec.begin() + splitIndex, vec.end());
+    return {leftVec, rightVec};
 }
