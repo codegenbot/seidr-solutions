@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int sum_squares(int n) {
     int total = 0;
