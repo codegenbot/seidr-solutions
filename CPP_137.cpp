@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <variant>
 #include <any>
@@ -29,6 +30,26 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
             if (aFloat > bFloat) {
                 return "Greater";
             } else if (aFloat < bFloat) {
+                return "Less";
+            } else {
+                return "Equal";
+            }
+        } else if (std::holds_alternative<std::string>(a) && std::holds_alternative<int>(b)) {
+            std::string aStr = std::any_cast<std::string>(a);
+            int bInt = std::any_cast<int>(b);
+            if (aStr > std::to_string(bInt)) {
+                return "Greater";
+            } else if (aStr < std::to_string(bInt)) {
+                return "Less";
+            } else {
+                return "Equal";
+            }
+        } else if (std::holds_alternative<std::string>(a) && std::holds_alternative<float>(b)) {
+            std::string aStr = std::any_cast<std::string>(a);
+            float bFloat = std::any_cast<float>(b);
+            if (aStr > std::to_string(bFloat)) {
+                return "Greater";
+            } else if (aStr < std::to_string(bFloat)) {
                 return "Less";
             } else {
                 return "Equal";
