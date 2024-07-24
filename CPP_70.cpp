@@ -2,11 +2,11 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<std::vector<int>> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (!issame(a[i], b[i]))
+        if (a[i] != b[i])
             return false;
     return true;
 }
@@ -33,17 +33,17 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame({1, 4, 2, 5}, {{1, 2, 4, 5}}));
-    std::vector<int> input;
+    assert(isSame(strange_sort_list({1, 4, 2, 5}), {1, 2, 4, 5}));
+    vector<int> input;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         input.push_back(num);
     }
-    std::cout << "[";
+    cout << "[";
     for (int i = 0; i < input.size() - 1; ++i)
-        std::cout << input[i] << ", ";
+        cout << input[i] << ", ";
     if (!input.empty())
-        std::cout << input.back();
-    std::cout << "]\n";
+        cout << input.back();
+    cout << "]\n";
     return 0;
 }
