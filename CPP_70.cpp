@@ -3,7 +3,10 @@
 #include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    if(a == b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
@@ -25,6 +28,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_vector({111}), std::vector<int>({111})));
+    assert(issame(strange_sort_vector({1, 2, 3}), {1, 2, 3}));
     return 0;
 }
