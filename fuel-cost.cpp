@@ -1,23 +1,10 @@
-Here is the solution:
-
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> vec) {
-    int sum = 0;
-    for (int i : vec) {
-        sum += (i / 3 - 2);
+int calculateFuelCost(vector<int> &numbers) {
+    int totalFuelCost = 0;
+    for (int number : numbers) {
+        int fuelCost = (number / 3) - 2;
+        if (fuelCost > 0) {
+            totalFuelCost += fuelCost;
+        }
     }
-    return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
-    }
-    cout << fuelCost(vec) << endl;
-    return 0;
+    return totalFuelCost;
 }
