@@ -1,4 +1,11 @@
-vector<string> reverse_delete(string s, string c) {
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::vector<std::string> delete_reverse(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
