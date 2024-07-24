@@ -4,12 +4,13 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> a_sorted = a;
-    std::vector<std::string> b_sorted = b;
-    std::sort(a_sorted.begin(), a_sorted.end());
-    std::sort(b_sorted.begin(), b_sorted.end());
+    std::vector<std::string> temp_a = a;
+    std::vector<std::string> temp_b = b;
     
-    return a_sorted == b_sorted;
+    std::sort(temp_a.begin(), temp_a.end());
+    std::sort(temp_b.begin(), temp_b.end());
+
+    return temp_a == temp_b;
 }
 
 int main() {
