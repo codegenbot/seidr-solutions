@@ -1,2 +1,4 @@
+```
 def solution(lst):
-    return sum(i for i in (x for x in lst[1::2] if x % 2 == 0 and x in lst))
+    mid = len(lst) // 2
+    return sum(i for i in lst[mid+1:] if i % 2 == 0)
