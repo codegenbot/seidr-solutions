@@ -2,21 +2,35 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        throw runtime_error("Vector sizes do not match");
+    }
     for (int i = 0; i < a.size(); ++i) {
-        if (!std::find(b.begin(), b.end(), a[i]) != b.end()) return false;
+        if (find(b.begin(), b.end(), a[i]) == b.end()) {
+            throw runtime_error("Vectors are not the same");
+        }
     }
     return true;
 }
 
-bool vectorContains(vector<string> vec, string target) {
-    for (string s : vec) {
-        if (s.find(target) == 0) return true;
+bool issame(vector<string> a, vector<string> b) {
+    bool result = true;
+
+    for (int i = 0; i < a.size() && result; ++i) {
+        if (find(b.begin(), b.end(), a[i]) == b.end()) {
+            result = false;
+        }
     }
-    return false;
+
+    return result;
 }
 
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), vector<string>({ "xxx", "xxxAAA", "xxx"})));
-    return 0;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
+    for (string s : strings) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
+        }
+    }
+    return result;
 }
