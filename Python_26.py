@@ -1,16 +1,6 @@
 from typing import List
 
 
-def remove_duplicates():
-    numbers = []
-    while True:
-        num = input("Enter a number (or 'stop' to finish): ")
-        if num.lower() == 'stop':
-            break
-        try:
-            numbers.append(int(num))
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return list(set(numbers))
-
-print(remove_duplicates())
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    unique_numbers = [i for i in set(numbers)]
+    return sorted([i for i in unique_numbers if numbers.count(i) > 0])
