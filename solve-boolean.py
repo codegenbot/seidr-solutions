@@ -1,12 +1,15 @@
-def solveBoolean(expression):
-    def evalExpression(expression):
-        while "|" in expression or "&" in expression:
-            if "|" in expression:
-                left, right = expression.split("|", 1)
-                expression = str(eval(left)) | str(eval(right))
-            elif "&" in expression:
-                left, right = expression.split("&", 1)
-                expression = str(eval(left)) & str(eval(right))
-        return eval(expression) == True
-
-    return evalExpression(expression)
+def solve_boolean(s):
+    if s == 't':
+        return True
+    elif s == 'f':
+        return False
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid expression")
+    elif '&' in s:
+        a, b = s.split('&')
+        return not (bool(a) and bool(b))
+    elif '|' in s:
+        a, b = s.split('|')
+        return bool(a) or bool(b)
+    else:
+        raise ValueError("Invalid expression")
