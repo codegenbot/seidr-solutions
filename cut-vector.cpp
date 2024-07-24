@@ -13,16 +13,12 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (iss >> num) {
+    while (getline(iss, line, ',')) {
+        num = stoi(line);
         nums.push_back(num);
     }
     
     int n = nums.size();
-    if (n < 2) {
-        cout << "0\n0" << endl;
-        return 0;
-    }
-    
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -37,7 +33,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
@@ -48,7 +44,7 @@ int main() {
     }
     cout << '\n';
     
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex; i < n; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
