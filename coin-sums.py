@@ -1,5 +1,4 @@
 ```
-```
 cents = int(input("Enter the number of cents: "))
 coins = [0, 0, 0, 0]
 
@@ -18,5 +17,3 @@ while cents > 0:
         cents -= 1
 
 print("{} quarters, {} dimes, {} nickels, {} pennies".format(*coins))
-```
-``
