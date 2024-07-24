@@ -1,2 +1,9 @@
-def fuel_cost(fuel_prices):
-    return sum((i // 3 - 2) for i in fuel_prices)
+Here is the solution:
+
+def fuel_cost():
+    n = int(input())
+    total = 0
+    for _ in range(n):
+        x = int(input()) // 3 - 2
+        total += x
+    return total
