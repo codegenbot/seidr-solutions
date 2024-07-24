@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +18,7 @@ std::string join(const std::vector<std::string>& v) {
     return res;
 }
 
-std::pair<std::string, std::string> bf(std::pair<std::string, std::string> planets) {
+std::pair<std::string, std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
         return {"to", planets.first, planets.second};
     } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
@@ -32,15 +31,14 @@ std::pair<std::string, std::string> bf(std::pair<std::string, std::string> plane
 }
 
 int main() {
-    std::pair<std::string, std::string> planets;
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    planets = {planet1, planet2};
-    
+    std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
+    
     std::cout << output.first << " ";
-    if (!output.second.empty()) {
+    if (output.second.empty() == false) {
         std::cout << output.second;
     }
     return 0;
