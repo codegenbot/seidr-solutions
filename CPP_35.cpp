@@ -1,8 +1,7 @@
-```cpp
+```c++
 #include <algorithm>
-#include <vector>
+#include <cmath>
 
-int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    return *std::max_element(l.begin(), l.end());
+double maximum_value(const vector<int>& numbers) {
+    return *std::max_element(numbers.begin(), numbers.end());
 }
