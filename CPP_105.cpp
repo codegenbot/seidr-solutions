@@ -10,12 +10,23 @@ std::vector<std::string> by_length(const std::vector<int>& lengths) {
             result.push_back("Four");
         else if (length == 9)
             result.push_back("Nine");
-        // Add more cases as needed
+        else if (length == 2)
+            result.push_back("Two");
+        else if (length == 3)
+            result.push_back("Three");
+        else if (length == 5)
+            result.push_back("Five");
+        else if (length == 6)
+            result.push_back("Six");
+        else if (length == 7)
+            result.push_back("Seven");
+        else if (length == 8)
+            result.push_back("Eight");
     }
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
