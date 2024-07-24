@@ -33,5 +33,5 @@ def sort_numbers(numbers: str) -> str:
         "ninety": 90,
         "ninety-nine": 99
     }
-    sorted_numbers = sorted([num_dict.get(num, int(num)) for num in numbers.split()])
+    sorted_numbers = sorted([num_dict[num] if num in num_dict else int(num) for num in numbers.split()])
     return " ".join(map(str, sorted_numbers))
