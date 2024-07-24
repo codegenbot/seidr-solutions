@@ -1,2 +1,4 @@
 def sorted_list_sum(lst):
-    return "".join(sorted([word for word in lst if len(word) % 2 == 0], key=len))
+    even_length_words = [word for word in lst if len(word) % 2 == 0]
+    sorted_words = sorted(even_length_words, key=len)
+    return sum(sorted_words)
