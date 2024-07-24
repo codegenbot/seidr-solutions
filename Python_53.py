@@ -1,11 +1,9 @@
 ```
-def add_numbers(x=None, y=None):
-    print("Please enter two numbers.")
-    if x is None:
-        x = int(input("Enter first number: "))
-    if y is None:
-        y = int(input("Enter second number: "))
-    return x + y
+def check(result):
+    print("The sum of the two numbers is:", result)
 
+print("Please enter two numbers.")
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
 result = add_numbers()
-print(result)
+check(result)
