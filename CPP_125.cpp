@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <cctype>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -29,7 +27,7 @@ vector<string> split_words(string txt) {
         int oddCount = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                if ((int(c) - int('a')) % 2 != 0) {
+                if ((int(c) - 97) % 2 != 0) {
                     oddCount++;
                 }
             }
@@ -50,4 +48,5 @@ vector<string> split_words(string txt) {
 
 int main() {
     assert(issame(split_words(""), {"0"}));
+    //...
 }
