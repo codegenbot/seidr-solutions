@@ -47,7 +47,7 @@ int main() {
 
     cout << endl;
 
-    for (int i = n - 1; i > cut_index; i--) {
+    for (int i = cut_index + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
 
