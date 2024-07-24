@@ -39,7 +39,7 @@ int main() {
     cin >> target;
 
     vector<int> result = findSubstringIndices(text, target);
-    
+
     cout << "Indices at which target appears in text: ";
     for (int index : result) {
         cout << index << " ";
