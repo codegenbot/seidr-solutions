@@ -1,3 +1,3 @@
-def digitSum():
-    s = input("Enter a string: ")
+```
+def digitSum(s):
     return sum(int(c) for c in s if c.isdigit())
