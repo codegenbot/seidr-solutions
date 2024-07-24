@@ -3,13 +3,11 @@
 #include <cassert>
 
 std::vector<int> rolling_max(const std::vector<int>& input) {
-    std::vector<int> result;
+    std::vector<int> result(input.size());
+    int max_val = input[0];
     for (size_t i = 0; i < input.size(); ++i) {
-        int max_val = input[i];
-        for (size_t j = i + 1; j < input.size(); ++j) {
-            max_val = std::max(max_val, input[j]);
-        }
-        result.push_back(max_val);
+        max_val = std::max(max_val, input[i]);
+        result[i] = max_val;
     }
     return result;
 }
