@@ -48,17 +48,10 @@ int main() {
     vector<int> arr1 = {1, 2, 3};
     vector<string> result1 = by_length(arr1);
 
-    vector<int> arr2 = {4, 5, 6};
-    vector<string> result2 = by_length(arr2);
-
     for (string s : result1) {
         cout << s << "\n";
     }
     cout << "-----------------\n";
-
-    for (string s : result2) {
-        cout << s << "\n";
-    }
 
     return 0;
 }
