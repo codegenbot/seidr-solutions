@@ -7,18 +7,20 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool convert = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            if(i > 0) {
-                result += toupper(s[i-1]);
+    bool nextWordIsUpper = false;
+    for (int i = 0; i <= s.length(); i++) { // added check here
+        if (i < s.length() && s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                if (!nextWordIsUpper) result += tolower(s[i]);
+                else result += toupper(s[i]);
+                nextWordIsUpper = !nextWordIsUpper;
+                i++;
             }
-            convert = true;
-        } else if (convert) {
+        } else if (!nextWordIsUpper) result += tolower(s[i]);
+        else {
             result += toupper(s[i]);
-            convert = false;
-        } else {
-            result += tolower(s[i]);
+            nextWordIsUpper = false;
         }
     }
     return result;
