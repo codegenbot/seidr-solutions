@@ -1,70 +1,31 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<int> res[2];
-    
-    if (n == 1) {
-        res[0] = v;
-        return res;
-    }
-    
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
-        
-        for (int j = 0; j <= i; j++)
-            sumLeft += v[j];
-        for (int j = i + 1; j < n; j++)
-            sumRight += v[j];
-        
-        if (sumLeft == sumRight) {
-            res[0] = vector<int>(v.begin(), v.begin() + i + 1);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
-        }
-    }
-    
-    int minDiff = INT_MAX, idx = -1;
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
-        
-        for (int j = 0; j <= i; j++)
-            sumLeft += v[j];
-        for (int j = i + 1; j < n; j++)
-            sumRight += v[j];
-        
-        int diff = abs(sumLeft - sumRight);
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(vec[i] - vec[0]);
         if (diff < minDiff) {
             minDiff = diff;
-            idx = i;
+            cutIndex = i;
         }
     }
-    
-    res[0] = vector<int>(v.begin(), v.begin() + idx + 1);
-    res[1] = vector<int>(v.begin() + idx, v.end());
-    return res;
+    return {vector<int>(vec.begin(), vec.begin() + cutIndex), vector<int>(vec.begin() + cutIndex, vec.end())};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    
-    for (auto& x : v) {
+    vector<int> vec(n);
+    for (auto& x : vec) {
         cin >> x;
     }
-    
-    auto result = cutVector(v);
-    cout << "[";
-    for (const auto& x : result[0]) {
-        cout << x << " ";
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "0\n";
+    for (const auto& num : result.first) {
+        cout << num << '\n';
     }
-    cout << "]\n[";
-    for (const auto& x : result[1]) {
-        cout << x << " ";
-    }
-    cout << "] 0\n";
-    
     return 0;
 }
