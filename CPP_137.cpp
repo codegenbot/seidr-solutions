@@ -1,54 +1,41 @@
+```cpp
 #include <iostream>
 #include<string>
 #include<algorithm>
 #include<stdexcept>
+#include<boost/any>
 
 using namespace std;
 
-std::any compare_one(std::any a, std::any b) {
-    if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double da = std::any_cast<double>(a);
-        string db = std::any_cast<string>(b);
-        if (da > stod(db))
+using namespace boost;
+
+any compare_one(any a, any b) {
+    if (is_stateless_wrapper<double>(a)) {
+        double da = any_cast<double>(a);
+        double db = any_cast<double>(b);
+        if (da > db)
             return a;
         else
             return b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double da = std::any_cast<double>(b);
-        string db = std::any_cast<string>(a);
-        if (stod(db) > da)
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string da = std::any_cast<string>(a);
-        string db = std::any_cast<string>(b);
+    else if (is_stateless_wrapper<string>(a)) {
+        string da = any_cast<string>(a);
+        string db = any_cast<string>(b);
+
         if (da > db)
             return a;
         else if (db > da)
             return b;
-        else
-            return any("None");
+        throw invalid_argument("Tie");
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double da = std::any_cast<double>(a);
-        double db = std::any_cast<double>(b);
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return any("None");
-    }
-    return any("None");
+    else
+        throw invalid_argument("Invalid argument type");
 }
 
 int main() {
-    cout << std::any_cast<string>(compare_one(1.0, 2.5)) << endl;
-    cout << std::any_cast<string>(compare_one(1, "2.3")) << endl;
-    cout << std::any_cast<string>(compare_one("5.1", "6.0")) << endl;
-    cout << std::any_cast<string>(compare_one("1.0", 1)) << endl;
+    cout << boost::any_cast<double>(compare_one(1, 2.5)) << endl;
+    cout << boost::any_cast<double>(compare_one(1, "2.3")) << endl;
+    cout << boost::any_cast<string>(compare_one("5", "6")) << endl;
+    cout << boost::any_cast<double>(compare_one("1", 1.0)) << endl;
     return 0;
 }
