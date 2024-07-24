@@ -1,26 +1,25 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coeffs, double x);
-double find_zero(std::vector<double> xs);
-
-double find_zero(std::vector<double> xs){
-    double x = 1;
-    for (int i = 2; i < xs.size(); i += 2) {
-        while (poly(xs, x) > 0) {
-            x -= 0.001;
-        }
-        while (poly(xs, x) < 0) {
-            x += 0.001;
-        }
+double poly(std::vector<double> xs, double x){
+    double result = 0;
+    for(int i=0; i<xs.size(); i++){
+        result += xs[i] * pow(x,i);
     }
-    return round(x, 2);
+    return result;
 }
 
-double poly(std::vector<double> coeffs, double x){
-    double sum = 0;
-    for(int i=0; i<coeffs.size(); i++){
-        sum += coeffs[i] * pow(x,i);
-    }
-    return sum;
+double abs(double x){
+    return x > 0 ? x : -x;
+}
+
+double find_zero(std::vector<double> xs){
+    double x = -xs[1] / (2*xs[0]);
+    return poly(xs,x) == 0 ? x : 0;
+}
+
+int main() {
+    std::vector<double> coeffs; 
+    double solution = find_zero(coeffs); 
+    assert (abs(poly(coeffs, solution))< 1e-3);
 }
