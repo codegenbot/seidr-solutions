@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
 
-bool solveBoolean(string expression) {
+bool solveBoolean(std::string expression) {
     bool result = false; 
-    stack<char> s;
+    std::stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
