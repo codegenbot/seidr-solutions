@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -11,19 +10,19 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> make_a_pile(int n) {
-    int pile[n];
+int pile[] = {8, 10, 12, 14, 16, 18, 20, 22};
+
+bool checkPile(int n) {
     for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-            pile[i] = i * 2 + 1;
-        } else {
-            pile[i] = i * 2;
-        }
+        if (i % 2 == 0 && pile[i] != i * 2 + 1) 
+            return false;
+        if (i % 2 != 0 && pile[i] != i * 2)
+            return false;
     }
-    return std::vector<int>(pile, pile+n);
+    return true;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(checkPile(8));
     return 0;
 }
