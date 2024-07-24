@@ -6,15 +6,7 @@ double poly(std::vector<double> coeffs, double x){
     for(int i=0; i<coeffs.size(); i++){
         result += coeffs[i] * pow(x,i);
     }
-    return result;
-}
-
-std::vector<double> abs(std::vector<double> vec){
-    std::vector<double> result = vec;
-    for(int i=0; i<result.size(); i++){
-        result[i] = fabs(result[i]);
-    }
-    return result;
+    return abs(result);
 }
 
 double find_zero(std::vector<double> xs){
@@ -23,7 +15,7 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs; // Declare coeffs
-    double solution = find_zero(coeffs); // Pass xs to find_zero
+    std::vector<double> coeffs; 
+    double solution = find_zero(coeffs); 
     assert (abs(poly(coeffs, solution))< 1e-3);
 }
