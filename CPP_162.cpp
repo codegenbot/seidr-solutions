@@ -1,14 +1,14 @@
 #include <string>
-#include <sstream>
+#include <iostream>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) {
         return "Invalid Input"; 
     }
 
-    MD5_CTX ctx;
     unsigned char md[16];
 
+    MD5_CTX ctx;
     MD5_Init(&ctx);
     MD5_Update(&ctx, text.c_str(), text.size());
     MD5_Final(md, &ctx);
