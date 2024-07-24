@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -33,3 +34,4 @@ vector<string> reverse_delete(string s, string c) {
     }
     
     return result;
+}
