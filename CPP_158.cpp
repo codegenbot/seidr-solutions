@@ -1,4 +1,5 @@
 ```cpp
+#pragma GCC diagnostic push
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -29,3 +30,4 @@ int main() {
     cout << result << endl;
     return 0;
 }
+#pragma GCC diagnostic pop
