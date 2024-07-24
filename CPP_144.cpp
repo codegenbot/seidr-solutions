@@ -1,18 +1,20 @@
-int getX(string x) {
-        int pos = x.find('/');
-        return stoi(x.substr(0, pos));
-    }
+#include <string>
 
-    int getY(string x) {
-        int pos = x.find('/');
-        return stoi(x.substr(pos + 1));
-    }
+int getX(std::string x) {
+    int pos = x.find('/');
+    return std::stoi(x.substr(0, pos));
+}
 
-    bool simplify(string x, string n) {
-        int x_num = getX(x);
-        int x_den = getY(x);
-        int n_num = getX(n);
-        int n_den = getY(n);
+int getY(std::string x) {
+    int pos = x.find('/');
+    return std::stoi(x.substr(pos + 1));
+}
 
-        return (x_num * n_num) % (x_den * n_den) == 0;
-    }
+bool simplify(std::string x, std::string n) {
+    int x_num = getX(x);
+    int x_den = getY(x);
+    int n_num = getX(n);
+    int n_den = getY(n);
+
+    return (x_num * n_num) % (x_den * n_den) == 0;
+}
