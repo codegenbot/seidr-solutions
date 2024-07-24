@@ -1,20 +1,18 @@
-```cpp
 #include <vector>
 using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int i : lst){
-        if(i > 1 && isPrime(i)){
-            if(max_prime < i) max_prime = i;
-        }
+        if(isPrime(i) && i > max_prime)
+            max_prime = i;
     }
-    int sum_of_digits = 0;
-    while(max_prime > 0){
-        sum_of_digits += max_prime % 10;
+    int sum = 0;
+    while(max_prime){
+        sum += max_prime % 10;
         max_prime /= 10;
     }
-    return sum_of_digits;
+    return sum;
 }
 
 bool isPrime(int n) {
@@ -23,8 +21,9 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-
 }
+
 int main() {
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+    assert(skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
