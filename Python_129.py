@@ -8,7 +8,7 @@ def minPath(grid, k):
         path.append(grid[i][j])
 
         if steps == k:
-            if not min_path or path < min_path[:min(len(path), len(min_path))]:
+            if not min_path or len(path) < len(min_path):
                 min_path = list(path)
             return
 
