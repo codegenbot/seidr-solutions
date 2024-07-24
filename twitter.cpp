@@ -1,4 +1,3 @@
-```c
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -19,6 +18,6 @@ int main() {
     } else if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
     } else {
-        cout << "Your tweet has " << static_cast<int>(count + 1) << " characters" << endl;
+        cout << "Your tweet has " << std::to_string(count + 1) << " characters" << endl;
     }
 }
