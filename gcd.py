@@ -1,4 +1,7 @@
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
+    if b == 0:
+        return abs(a)
+    return gcd(b, a % b)
+
+num1, num2 = map(int, input().split())
+print(gcd(num1, num2))
