@@ -1,4 +1,3 @@
-```
 def add_numbers():
     def check(func):
         num1 = input("Enter first number: ")
@@ -7,8 +6,9 @@ def add_numbers():
             return func(int(num1), int(num2))
         except ValueError:
             print("Invalid input. Please enter a number.")
-    
+
     result = check(lambda x, y: x + y)
     print(result)
+
 
 add_numbers()
