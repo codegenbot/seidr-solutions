@@ -13,27 +13,31 @@ vector<string> split(string str) {
 
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            result.push_back(temp);
-            temp = "";
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
+            }
         } else {
             temp += str[i];
         }
     }
-    result.push_back(temp);
+    if (!temp.empty()) {
+        result.push_back(temp);
+    }
     return result;
 }
 
 double do_algebra(vector<string> expressions) {
     double result = 0;
-    int operator_value = stoi(expressions[2]);
+    string operators = expressions[2];
 
-    if (operator_value == 0) {
+    if (stod(operators) == 0) {
         if (expressions[2][0] == '+') {
             result = pow(stod(expressions[0]), stod(expressions[1]));
         } else if (expressions[2][0] == '-') {
             result = pow(stod(expressions[0]), -stod(expressions[1]));
         }
-    } else if (operator_value == 42) { 
+    } else if (stod(operators) == 42) { 
         if (expressions[1] == "0") {
             if (expressions[2][0] == '+') {
                 result = stod(expressions[0]);
@@ -49,7 +53,7 @@ double do_algebra(vector<string> expressions) {
                 result = stod(expressions[0]) * stod(expressions[1]);
             }
         }
-    } else if (operator_value == 47) { 
+    } else if (stod(operators) == 47) { 
         if (expressions[1] == "0") {
             if (expressions[2][0] == '+') {
                 result = -stod(expressions[0]);
