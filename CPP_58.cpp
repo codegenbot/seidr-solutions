@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -21,5 +20,6 @@ bool areSame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(areSame(common({4, 3, 2, 8}, {}) , {}));
+    
     return 0;
 }
