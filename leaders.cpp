@@ -25,3 +25,4 @@ int main() {
     vector<int> result = leaders(input);
     for(int i : result) cout << i << " ";
     return 0;
+}
