@@ -1,7 +1,6 @@
-def complete_code(numbers, delimiter):
+def process_numbers(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
+    for num in numbers:
         result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
+    result.pop()
     return result
