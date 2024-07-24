@@ -4,8 +4,8 @@
 
 int count_upper(std::string str) {
     int count = 0;
-    for(int i = 1; i < str.length(); i += 2) {
-        if(std::toupper(str[i-1]) == 'A' || std::toupper(str[i-1]) == 'E' || std::toupper(str[i-1]) == 'I' || std::toupper(str[i-1]) == 'O' || std::toupper(str[i-1]) == 'U') {
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] >= 'A' && str[i] <= 'Z') {
             count++;
         }
     }
@@ -13,10 +13,10 @@ int count_upper(std::string str) {
 }
 
 int main() {
-    std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    int result = count_upper(str);
-    std::cout << "Number of uppercase vowels in the string is: " << result << std::endl;
+    std::getline(std::cin, input);
+    int result = count_upper(input);
+    std::cout << "Number of uppercase letters: " << result << std::endl;
     return 0;
 }
