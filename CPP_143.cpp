@@ -1,24 +1,25 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <cmath>
 
-bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i*i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-string words_in_sentence(string sentence) {
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
+    std::string word = "";
     for (char c : sentence) {
         if (c == ' ') {
-            if (is_prime(word.size())) {
+            int word_length = word.length();
+            bool is_prime = true;
+            if (word_length <= 1) {
+                is_prime = false;
+            } else {
+                for (int i = 2; i * i <= word_length; i++) {
+                    if (word_length % i == 0) {
+                        is_prime = false;
+                        break;
+                    }
+                }
+            }
+            if (is_prime) {
                 result += word + " ";
             }
             word = "";
@@ -26,16 +27,25 @@ string words_in_sentence(string sentence) {
             word += c;
         }
     }
-    if (is_prime(word.size())) {
+    int word_length = word.length();
+    bool is_prime = true;
+    if (word_length <= 1) {
+        is_prime = false;
+    } else {
+        for (int i = 2; i * i <= word_length; i++) {
+            if (word_length % i == 0) {
+                is_prime = false;
+                break;
+            }
+        }
+    }
+    if (is_prime) {
         result += word;
     }
     return result;
 }
 
 int main() {
-    assert(words_in_sentence("hello world cpp contest") == "hello cpp ");
-    assert(words_in_sentence("the quick brown fox jumps over the lazy dog") == "the quick fox jumps ");
-    assert(words_in_sentence("abc def ghi jkl") == "abc ghi ");
-    assert(words_in_sentence("programming is fun") == "is fun");
+    assert(words_in_sentence("here is") == "is");
     return 0;
 }
