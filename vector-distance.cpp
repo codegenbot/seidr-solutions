@@ -20,7 +20,8 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    std::vector<float> v1(n, 0.0f), v2(n, 0.0f);
+    // Initialize vector with zeros
+    std::vector<float> v1(n), v2(n);
 
     std::cout << "Enter vector 1 elements: ";
     for (float &val : v1) {
