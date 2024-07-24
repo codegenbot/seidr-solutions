@@ -22,6 +22,6 @@ string fix_spaces(string text) {
 }
 
 int main() {
-    assert(fix_spaces("Hello  world") == "Hello__world");
+    assert(fix_spaces("Hello   World") == "Hello_-World");
     return 0;
 }
