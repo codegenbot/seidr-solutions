@@ -4,10 +4,12 @@ def strange_sort_list(lst):
     while lst:
         min_val = min(lst)
         max_val = max(lst)
-        if min_val < max_val:
+        if len(lst) > 1:
             result.append(min_val)
             lst.remove(min_val)
-        else:
             result.append(max_val)
             lst.remove(max_val)
+        else:
+            result.extend(lst)
+            break
     return result
