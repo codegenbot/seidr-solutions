@@ -7,7 +7,8 @@ using namespace std;
 vector<vector<int>> make_a_pile(int n) {
     vector<vector<int>> pile;
     for (int i = 1; i <= n; i++) {
-        pile.push_back(vector<int>{i*2});
+        vector<int> temp = {i * 2};
+        pile.push_back(temp);
     }
     return pile;
 }
