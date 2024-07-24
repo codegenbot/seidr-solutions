@@ -1,2 +1,5 @@
 def add(x: int, y: int) -> int:
-    return int(x) + int(y)
+    try:
+        return x + y
+    except TypeError:
+        return "Invalid input"
