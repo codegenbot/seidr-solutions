@@ -1,32 +1,19 @@
-#include <iostream>
-#include <vector>
+Here is the completed code:
+
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
 vector<int> sort_vector(vector<int> arr) {
-    // Sort the array based on number of ones in binary representation and decimal value.
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int oneCountA = __builtin_popcount(a);
-        int oneCountB = __builtin_popcount(b);
-
-        if (oneCountA == oneCountB)
-            return a < b; // Sort based on decimal value if number of ones is the same.
-        else
-            return oneCountA < oneCountB;
-    });
-
-    return arr;
-}
-
-int main() {
-    vector<int> testCases = {1, 5, 2, 3, 4};
-    vector<int> result = sort_vector(testCases);
-
-    for (auto num : result)
-        cout << num << " ";
-
-    cout << endl;
-
-    return 0;
+    vector<pair<int, int>> arrWithCount;
+    
+    for (int num : arr) {
+        int ones = __builtin_popcount(num);
+        arrWithCount.push_back({ones, num});
+    }
+    
+    sort(arrWithCount.begin(), arrWithCount.end());
+    
+    return vector<int>(arrWithCount.begin()->second + 1, arrWithCount.end(), {});
 }

@@ -1,18 +1,19 @@
 Here is the completed code:
 
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int right = word.length() - 1; right >= 0; --right) {
-        if (!isvowel(word[right])) {
-            ++left;
-        } else if (left > 0) {
-            return string(1, word[right]);
+    int right = 0;
+    for (int i = word.size() - 1; i >= 0; --i) {
+        if (!isvowel(word[i])) {
+            right = i + 1;
+        } else if (right != 0 && isvowel(word[i])) {
+            return string(1, tolower(word[i]));
         }
     }
     return "";
 }
 
 bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    char x = tolower(c);
+    return ((x == 'a') || (x == 'e') || (x == 'i') ||
+            (x == 'o') || (x == 'u'));
 }
