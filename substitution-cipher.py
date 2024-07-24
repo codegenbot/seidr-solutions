@@ -1,6 +1,4 @@
 ```
-pass
-
 def substitution_cipher(cipher_text1, cipher_text2, message):
     cipher = {}
     for i in range(len(cipher_text1)):
