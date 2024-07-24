@@ -7,13 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sortList(std::vector<int> input) {
-    for(int i = 0; i < input.size(); i++) {
-        for(int j = i + 1; j < input.size(); j++) {
-            if(input[i] > input[j]) {
-                std::swap(input[i], input[j]);
-            }
-        }
-    }
+    std::sort(input.begin(), input.end());
     return input;
 }
 
