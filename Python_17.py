@@ -8,19 +8,15 @@ def parse_music(music_string: str) -> list:
             beat = []
             i += 1
             while i < len(music_string) and music_string[i] != '|':
-                if music_string[i:i+2] in notes:
-                    beat.append(notes[music_string[i:i+2]][0])
-                elif music_string[i] in 'do':
-                    beat.append(int(music_string[i+1]))
                 i += 1
             beats.extend(beat)
         elif music_string[i:i+2] in notes:
             beat = notes[music_string[i:i+2]]
+            i += 2
             if isinstance(beat, list):
                 beats.extend(beat)
             else:
-                beats.append(beat[0])
-            i += 2
+                beats.append(beat)
         else:
             return []
     return beats
