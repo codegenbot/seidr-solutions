@@ -1,4 +1,4 @@
-```Python
+```
 max_fill = None
 while max_fill is None:
     try:
