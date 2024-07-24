@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 
+// Function to calculate numerical letter grade based on parameters
 std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
     int total = 0;
     for (const auto& grade : input) {
@@ -19,9 +20,10 @@ std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
         else if (grade == "D") total += 1.0;
         else if (grade == "F") total += 0.0;
     }
-    return {static_cast<int>(total), static_cast<double>(total)};
+    return std::make_pair(static_cast<int>(total), total);
 }
 
+// Function to compare two vectors of strings
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -32,6 +34,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     std::vector<std::string> input = {"E", "D-"};
-    assert(issame(input, numerical_letter_grade({input.begin(), input.end()})));
+    if(input.empty()) {
+        std::cout << "Input vector is empty." << std::endl;
+    } else {
+        assert(issame(input, numerical_letter_grade(input)));
+    }
     return 0;
 }
