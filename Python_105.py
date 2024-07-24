@@ -1,4 +1,3 @@
-```
 return [f"{'Zero' if int(i) == 0 else 'One'}" if i == '1' else 
         f"Two" if i == '2' else 
         f"Three" if i == '3' else 
