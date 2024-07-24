@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <cctype>
 
 int count_upper(std::string s) {
     int count = 0;
