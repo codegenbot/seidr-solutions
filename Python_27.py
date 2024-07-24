@@ -1,5 +1,7 @@
+import sys
+
 def check():
-    string = input().strip()
+    string = sys.stdin.readline().rstrip()
     return modify_string(string)
 
 def modify_string(string):
