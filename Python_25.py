@@ -23,12 +23,12 @@ def main():
     while True:
         try:
             n = int(input("Enter a positive integer: "))
-            if n <= 0:
-                print("Invalid input. Please enter a positive integer.")
-            else:
+            if n > 0:
                 factors = factorize(n)
                 print(factors)
                 break
+            else:
+                print("Invalid input. Please enter an integer.")
         except ValueError as e:
             print("Invalid input. Please enter an integer.")
 
