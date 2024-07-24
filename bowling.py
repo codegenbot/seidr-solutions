@@ -1,29 +1,25 @@
 ```
-def bowling_score(rolls):
+def bowling_score(frames):
     score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == 'X':
+    frame_count = 0
+    for frame in frames.split('/'):
+        if len(frame) == 1:
             score += 10
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].count('/'):
-            parts = rolls[roll_index:roll_index+2].split('/')
-            score += int(parts[0]) + int(parts[1])
-            roll_index += 2
+        elif frame[0] == 'X':
+            score += 10 + int(frames.split('/')[frame_count+1].split('X')[0]) * 2 if frame_count < 8 else 10
         else:
-            first_roll = int(rolls[roll_index])
-            if frame < 10 and rolls[roll_index+1] == 'X':
-                score += 10
-                roll_index += 1
-            elif rolls[roll_index+1:roll_index+3].count('/'):
-                parts = rolls[roll_index+1:roll_index+3].split('/')
-                score += first_roll + int(parts[0]) + int(parts[1])
-                roll_index += 3
+            strike = False
+            if frame[0] == 'X':
+                strike = True
+            elif int(frame) > 9:
+                score += int(frame)
+                frame_count += 1
+                continue
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            if strike:
+                score += 10 + first_roll
             else:
-                if first_roll == 10:
-                    score += 10 + int(rolls[roll_index+2])
-                    roll_index += 3
-                else:
-                    score += first_roll + int(rolls[roll_index+1])
-                    roll_index += 2
+                score += first_roll + second_roll
+        frame_count += 1
     return score
