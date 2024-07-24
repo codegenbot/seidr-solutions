@@ -1,22 +1,27 @@
 from typing import List, Any
 
-import sys
-
 
 def main():
     values = []
     while True:
-        user_input = input("Enter an integer (or 'stop' to finish): ")
-        if user_input.lower() == "stop":
+        value = input("Enter an integer (or 'stop' to finish): ")
+        if value.lower() == "stop":
             break
         try:
-            values.append(int(user_input))
+            values.append(int(value))
         except ValueError:
             print(
                 "Invalid input. Please enter a valid integer or type 'stop' to finish."
             )
-    filtered_values = [value for value in values if isinstance(value, int)]
-
+    try:
+        filtered_values = [
+            str(i)
+            for i in set(
+                map(int, [value for value in values if isinstance(value, int)])
+            )
+        ]
+    except ValueError:
+        print("Invalid input received.")
     print(filtered_values)
 
 
