@@ -1,1 +1,1 @@
-return [s for s in strings if substring in s]
+return [x for x in strings if substring in x]
