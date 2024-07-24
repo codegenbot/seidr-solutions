@@ -5,7 +5,13 @@
 int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    char c;
+    str.clear();
+    while ((c = std::getchar()) != '\n') {
+        if (c != EOF) {
+            str.push_back(c);
+        }
+    }
     std::cout << camelCase(str) << std::endl;
 
     return 0;
@@ -15,16 +21,16 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-' || str[i] == ' ') {
+    for (auto c : str) {
+        if (c == '-' || c == ' ') {
             if (capitalizeNext) {
-                result += toupper(str[i]);
+                result += toupper(c);
                 capitalizeNext = false;
             } else {
-                result += str[i];
+                result += c;
             }
         } else {
-            result += (capitalizeNext ? std::toupper(str[i]) : std::tolower(str[i]));
+            result += (capitalizeNext ? std::toupper(c) : std::tolower(c));
             capitalizeNext = true;
         }
     }
