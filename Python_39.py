@@ -1,5 +1,6 @@
 import math
 
+
 def is_prime(num: int) -> bool:
     if num <= 1:
         return False
@@ -7,6 +8,7 @@ def is_prime(num: int) -> bool:
         if num % i == 0:
             return False
     return True
+
 
 def prime_fib(n: int) -> Optional[int]:
     def is_prime(num: int) -> bool:
@@ -21,6 +23,6 @@ def prime_fib(n: int) -> Optional[int]:
     while len(fib) <= n:
         fib.append(fib[-1] + fib[-2])
     prime_fib_nums = [num for num in fib if is_prime(num)]
-    if n-1 >= len(prime_fib_nums):
+    if n - 1 >= len(prime_fib_nums):
         return None
-    return prime_fib_nums[n-1]
+    return prime_fib_nums[n - 1]
