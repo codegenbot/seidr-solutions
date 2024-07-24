@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -16,7 +15,7 @@ int judgeMain() {
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) {
+    if (!(std::cin >> n) || n <= 0) {
         std::cerr << "Invalid input for number of elements." << std::endl;
         return 1; 
     }
