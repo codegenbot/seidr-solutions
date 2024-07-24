@@ -1,1 +1,1 @@
-print(eval(exp.replace("T", '"True"').replace("F", '"False"')))
+print(eval('(' + exp.replace("T", '"True"').replace("F", '"False"') + ')')
