@@ -1,13 +1,10 @@
-for(char &c : s){
-        if(isalpha(c)){
-            c = isupper(c) ? tolower(c) : toupper(c);
+for(char &c : s) {
+        if(isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    size_t n = s.size();
-    if(n == 0){
-        reverse(s.begin(), s.end());
+    if(std::all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })) {
+        std::reverse(s.begin(), s.end());
     }
-
     return s;
 }
