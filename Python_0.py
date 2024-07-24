@@ -5,8 +5,6 @@ def check_numbers(numbers, threshold):
             count += 1
     return count
 
-
-numbers = input("Enter numbers separated by space: ").strip().split()
-threshold = int(input("Enter threshold value: "))
+numbers = input().strip().split()
+threshold = int(input())
 result = check_numbers(numbers, threshold)
-print(result)
