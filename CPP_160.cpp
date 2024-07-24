@@ -2,7 +2,7 @@
 #include <string>
 #include <cmath>
 
-int do_algebra(vector<string> operators, vector<int> operand) {
+int do_algebra(vector<string> operators, vector<int> operand){
     int result = operand[0];
     for (int i = 0; i < operators.size(); ++i) {
         if (operators[i] == "+") {
