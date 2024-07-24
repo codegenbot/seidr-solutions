@@ -3,9 +3,9 @@
 #include <stack>
 #include <string>
 
-bool solveBoolean(std::string expression) {
+bool solveBoolean(string expression) {
     bool result = false; 
-    std::stack<char> s;
+    stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
