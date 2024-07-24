@@ -1,12 +1,14 @@
-```
+import statistics
+
+
 def rounded_avg():
-    while True:
-        try:
-            n = int(input("Enter first number: "))
-            m = int(input("Enter second number: "))
-            if n > m:
-                return -1
-            avg = int((n + m) / 2 + 0.5) 
-            return bin(int(avg))[2:]
-        except ValueError:
-            print("Invalid input. Please enter integers.")
+    n = float(input("Enter the first number: "))
+    m = float(input("Enter the second number: "))
+
+    if n > m:
+        return -1
+    avg = int(statistics.mean([n, m]) + 0.5)
+    return bin(int(avg))[2:]
+
+
+print(rounded_avg())
