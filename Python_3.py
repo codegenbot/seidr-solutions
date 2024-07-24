@@ -1,8 +1,7 @@
-```
 from typing import List
 
 def below_zero(operations: List[str]) -> bool:
-    ops = [op.strip() for op in input("Enter operations (space-separated): ").split()]
-    return any(int(op) < 0 for op in ops)
+    return any(int(op) < 0 for op in operations)
 
-print(below_zero([]))
+ops = input("Enter operations (space-separated): ").split()
+print(below_zero(ops))
