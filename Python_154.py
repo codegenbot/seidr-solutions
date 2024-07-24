@@ -1,4 +1,3 @@
-```
 def cycpattern_check(a, b):
     n = len(b)
     for i in range(len(a) - n + 1):
