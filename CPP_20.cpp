@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -21,6 +20,8 @@ int main() {
 
     // Input for vector 1
     float num;
+    const int maxElements = 1000000; // adjust this according to your needs
+
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -36,10 +37,11 @@ int main() {
             vec1.clear();
             break;
         }
+        if(vec1.size() >= maxElements) {
+            std::cout << "Maximum limit reached. Cannot accept more elements.\n";
+            break;
+        }
         vec1.push_back(num);
-        
-        // Ask for next number
-        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     // Input for vector 2
@@ -58,10 +60,11 @@ int main() {
             vec2.clear();
             break;
         }
+        if(vec2.size() >= maxElements) {
+            std::cout << "Maximum limit reached. Cannot accept more elements.\n";
+            break;
+        }
         vec2.push_back(num);
-        
-        // Ask for next number
-        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     if(isSame(vec1, vec2)) {
