@@ -1,8 +1,5 @@
-Here is the solution:
+Here is the solution to the problem:
 
-def leaders(a):
-    leaders = [a[-1]]
-    for i in range(len(a) - 2, -1, -1):
-        if a[i] >= a[i+1]:
-            leaders.append(a[i])
-    return reversed(leaders)
+def leaders(input_vector):
+    leaders_vector = [x for x in reversed(input_vector) if all(x >= y for y in input_vector[input_vector.index(x)+1:])]
+    return list(reversed(leaders_vector))
