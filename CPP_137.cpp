@@ -1,4 +1,9 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
 #include <boost/any.hpp>
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -20,7 +25,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         string str = boost::any_cast<string>(b);
         int num = boost::any_cast<int>(a);
         return (num >= stoi(str))
-               ? "None"
+               ? boost::any(b)
                : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
@@ -50,6 +55,6 @@ boost::any compare_one(boost::any a, boost::any b) {
                : b;
     }
     else {
-        return "None";
+        return boost::any("None");
     }
 }
