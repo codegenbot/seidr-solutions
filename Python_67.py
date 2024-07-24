@@ -6,7 +6,7 @@ def print_result():
         s = input(
             "Enter quantity of apples and/or oranges (e.g., 2 apples or 3 oranges): "
         )
-        if re.search(r"(\d+)\s*(apples|oranges)", s.lower()):
+        if re.search(r"\b(\d+)\s*(apples|oranges)\b", s.lower()):
             break
         else:
             print(
