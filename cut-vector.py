@@ -14,7 +14,5 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-cut_index = 0 if abs(left_sum - (total_sum - left_sum)) < min_diff else n - 1
-
-print(*arr[: cut_index + 1])
-print(*arr[cut_index + 1 :])
+print(*arr[: cut_index])
+print(*arr[cut_index:])
