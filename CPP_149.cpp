@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,19 +13,28 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-int sorted_list_sum(const vector<vector<string>>& lst) {
+int sorted_list_sum(const std::vector<std::string>& lst) {
     int sum = 0;
-    for (const auto& sublst : lst) {
-        std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}}, vector<string>(sublst.begin() + 1, sublst.end()))) {
-            sum += std::stoi(sublst[0].substr(6));
+    for (const auto& str : lst) {
+        if(issame({{"hello", "world"}}, vector<string>(split(str, ' ') + 1, split(str, ' ').end()))) {
+            sum += std::stoi(str.substr(6));
         }
     }
     return sum;
 }
 
+std::vector<std::string> split(const std::string& s, char delimiter) {
+    std::stringstream ss(s);
+    std::string item;
+    std::vector<std::string> items;
+    while (std::getline(ss, item, delimiter)) {
+        items.push_back(item);
+    }
+    return items;
+}
+
 int main() {
-    vector<vector<string>> lst = {{"aaaa", "bbbb"}, {"dd"}, {"cc"}};
-    assert(sorted_list_sum({{string("aaaa"), string("bbbb")}, {string("dd")} , {string("cc")}}) == 2);
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    assert(sorted_list_sum(lst) == 2);
     return 0;
 }
