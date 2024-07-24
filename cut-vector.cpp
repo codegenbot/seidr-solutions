@@ -15,7 +15,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         if(abs(left_sum-right_sum) < min_diff){
             min_diff = abs(left_sum-right_sum);
         }
-   
+    }
     
     result.push_back(vector<int>(nums.begin(), nums.begin()+min_diff));
     vector<int> temp(nums.begin()+min_diff, nums.end());
