@@ -3,12 +3,6 @@
 #include <string>
 using namespace std;
 
-int main() {
-    vector<int> result = indicesOfSubstring("Hello World", "World");
-    // Print or use the result as needed
-    return 0;
-}
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.size();
@@ -21,4 +15,22 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int main() {
+    string text, target;
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the target string: ";
+    getline(cin, target);
+
+    vector<int> result = indicesOfSubstring(text, target);
+
+    cout << "Indices of substring are: ";
+    for(int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
