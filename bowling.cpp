@@ -1,39 +1,48 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    string frame;
-    
-    for (char c : str) {
-        if (c == '/') {
-            int pins = stoi(frame);
-            if (roll < 2) {
-                score += min(10, pins);
-            } else {
-                score += pins + min(10, roll - 1) * 10;
-            }
-            frame.clear();
-            roll = 0;
-        } else if (c == 'X') {
-            int pins = 30;
-            if (roll < 2) {
-                score += 10;
-            } else {
-                score += 20 + min(10, roll - 1) * 10;
-            }
-            frame.clear();
-            roll = 0;
-        } else {
-            frame.push_back(c);
-            roll++;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') { // strike
+            score += 10 + bowlingScoreForNextTwoFrames(s, i);
+        } else if (s[i] == '/') { // spare
+            int nextRoll = s[i + 2] - '0';
+            score += 10 + nextRoll;
+            i++;
+        } else { // normal roll
+            int firstRoll = s[i] - '0';
+            int secondRoll = s[i + 1] - '0';
+            score += firstRoll + secondRoll;
         }
     }
-    
-    int pins = stoi(frame);
-    if (roll < 2) {
-        score += min(10, pins);
-    } else {
-        score += pins + min(10, roll - 1) * 10;
-    }
-    
     return score;
+}
+
+int bowlingScoreForNextTwoFrames(string s, int i) {
+    int score = 0;
+    for (int j = i; j < i + 2; j++) {
+        if (s[j] == 'X') { // strike
+            score += 10 + bowlingScoreForNextOneFrame(s, j);
+        } else if (s[j] == '/') { // spare
+            int nextRoll = s[j + 2] - '0';
+            score += 10 + nextRoll;
+            j++;
+        } else { // normal roll
+            int firstRoll = s[j] - '0';
+            int secondRoll = s[j + 1] - '0';
+            score += firstRoll + secondRoll;
+        }
+    }
+    return score;
+}
+
+int bowlingScoreForNextOneFrame(string s, int i) {
+    if (s[i] == 'X') { // strike
+        return 10;
+    } else if (s[i] == '/') { // spare
+        int nextRoll = s[i + 2] - '0';
+        return 10 + nextRoll;
+    } else { // normal roll
+        int firstRoll = s[i] - '0';
+        int secondRoll = s[i + 1] - '0';
+        return firstRoll + secondRoll;
+    }
 }
