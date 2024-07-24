@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
-#include <stack>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -40,7 +40,7 @@ bool solveBoolean(string booleanExpression) {
         }
     }
 
-    return operands.top().compare("T") == 0;
+    return operands.top().compare("TF") != 0;
 }
 
 int main() {
@@ -54,3 +54,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
