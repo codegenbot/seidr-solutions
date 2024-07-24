@@ -1,6 +1,5 @@
-def solve(N=None):
-    if N is None:
-        N = int(input("Enter a number: "))
+```
+def solve(N):
     if N < 1:
-        return 
+        return "Please enter a positive integer."
     return bin(N)[2:]
