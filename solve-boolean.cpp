@@ -1,13 +1,31 @@
 string solveBoolean(string s) {
-    bool result = (s == "t");
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            result &= (s.substr(i+1) == "t");
-            i++;
-        } else if(s[i] == '|') {
-            result |= (s.substr(i+1) == "t");
-            i++;
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return "False";
+            }
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return "True";
+            }
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    return result ? "True" : "False";
+    if (st.top() == '&') {
+        return "False";
+    } else if (st.top() == '|') {
+        return "True";
+    } else {
+        return st.top() == 'T' ? "True" : "False";
+    }
 }
