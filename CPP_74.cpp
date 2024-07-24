@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -37,18 +38,30 @@ int main() {
     int n1, n2;
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
-    vector<string> lst1(n1, string()); // Initialize with n1 empty strings
+    vector<string> lst1;
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
-        cin >> lst1[i];
+        string s;
+        while (!(cin >> s) || s.empty()) {
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
-    vector<string> lst2(n2, string()); // Initialize with n2 empty strings
+    vector<string> lst2;
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
-        cin >> lst2[i];
+        string s;
+        while (!(cin >> s) || s.empty()) {
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        lst2.push_back(s);
     }
 
     if (same(lst1, lst2)) {
