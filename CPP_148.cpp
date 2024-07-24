@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a) {
     if (a.size() != 2)
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -40,5 +40,5 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(bf("Jupiter", "Makemake").empty());
 }
