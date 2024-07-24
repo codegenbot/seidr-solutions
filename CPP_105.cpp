@@ -10,10 +10,11 @@ vector<vector<int>> by_length(vector<int> numbers) {
     unordered_map<int, vector<int>> mapped;
     for (int num : numbers) {
         string str = to_string(num);
-        if (!mapped.count(str.size()))
-            mapped[str.size()].push_back(num);
+        int len = str.length();
+        if (!mapped.count(len))
+            mapped[len].push_back(num);
         else
-            mapped[str.size()].push_back(num);
+            mapped[len].push_back(num);
     }
     vector<vector<int>> result;
     for (auto& pair : mapped) {
