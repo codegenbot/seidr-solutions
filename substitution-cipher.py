@@ -1,3 +1,5 @@
-def decipher(cipher1, cipher2, message):
-    mapping = {cipher1[i]: cipher2[i] for i in range(min(len(cipher1), len(cipher2)))}
-    return "".join(mapping.get(char, char) for char in message)
+def decipher_cipher(cipher_map, message):
+    deciphered_message = "".join(
+        [cipher_map[i] if i < len(cipher_map) else "" for i in range(len(message))]
+    )
+    return deciphered_message
