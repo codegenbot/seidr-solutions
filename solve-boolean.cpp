@@ -1,41 +1,28 @@
-int solve_boolean(string expression) {
-    stack<char> s;
-    for (char c : expression) {
-        if (c == '|') {
-            char op1 = s.top();
-            s.pop();
-            char op2 = s.top();
-            s.pop();
-            if (op1 == 'T' || op2 == 'T') {
-                s.push('T');
-            } else {
-                s.push('F');
-            }
-        } else if (c == '&') {
-            char op1 = s.top();
-            s.pop();
-            char op2 = s.top();
-            s.pop();
-            if (op1 == 'T' && op2 == 'T') {
-                s.push('T');
-            } else {
-                s.push('F');
-            }
+int main() {
+    string input;
+    cin >> input;
+
+    if (input == "t") {
+        cout << "True" << endl;
+    } else if (input == "f") {
+        cout << "False" << endl;
+    } else {
+        bool result;
+        bool op1 = (input[0] == 't') ? true : false;
+        bool op2 = (input[2] == 't') ? true : false;
+
+        if (input[1] == '&') {
+            result = op1 && op2;
+        } else if (input[1] == '|') {
+            result = op1 || op2;
+        }
+
+        if (result) {
+            cout << "True" << endl;
         } else {
-            s.push(c);
+            cout << "False" << endl;
         }
     }
-    return s.top() == 'T' ? 1 : 0;
-}
 
-int main() {
-    string expression;
-    cin >> expression;
-    int result = solve_boolean(expression);
-    if (result == 1) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
     return 0;
 }
