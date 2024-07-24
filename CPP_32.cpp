@@ -9,9 +9,11 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-std::abs(double a) {
-    if (a < 0) return -a;
-    else return a;
+double abs(double x) {
+    if (x < 0)
+        return -x;
+    else
+        return x;
 }
 
 double find_zero(std::vector<double> xs){
