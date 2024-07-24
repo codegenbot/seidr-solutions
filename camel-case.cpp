@@ -21,7 +21,6 @@ int main() {
         } else {
             if (capitalizeNext) {
                 result += toupper(*p); 
-                capitalizeNext = false;
             } else {
                 result += tolower(*p);
             }
