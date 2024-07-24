@@ -1,2 +1,11 @@
 def sort_third(l: list):
-    return [sorted(l[i:i+3]) if (i + 1) % 3 == 0 else l[i] for i in range(0, len(l), 3)]
+    return [
+        value
+        for group in zip(*[iter(l)] * 3)
+        for value in sorted(group, key=lambda x: x[2])
+    ]
+
+
+print(
+    sort_third([5, 6, 3, 4, 8, 9, 2, 1])
+)  # Output should be: [3, 4, 8, 2, 1, 5, 6, 9]
