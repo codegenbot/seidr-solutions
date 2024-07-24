@@ -16,11 +16,9 @@ def factorize(n: int) -> List[List[int]]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return sorted(
-        [
-            list(factor)
-            for factor in set(
-                tuple(sorted(factor)) for factor in set(map(tuple, factors))
-            )
-        ]
-    )
+    return [factor_list for factor_list in set(map(tuple, factors))]
+
+
+n = int(input("Enter a number: "))
+result = factorize(n)
+print(result)
