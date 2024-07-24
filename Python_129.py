@@ -7,10 +7,10 @@ def minPath(grid, k):
             return [path]
         visited.add((i, j))
         res = []
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i + dx, j + dy
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                res.extend(dfs(ni, nj, path + [m[ni][nj]], visited))
+                res.extend(dfs(ni, nj, path + [m[ni][nj]], visited.copy()))
         return [p for p in res if len(p) == k]
 
     res = dfs(0, 0, [grid[0][0]], set())
