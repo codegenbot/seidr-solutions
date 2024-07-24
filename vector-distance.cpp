@@ -2,34 +2,36 @@
 #include <iostream>
 using namespace std;
 
-double vectorDistance(vector<float> v1, vector<float> v2) {
-    if(v1.size() != v2.size()) {
-        cout << "Vectors are of different dimensions" << endl;
-        return -1.0; // or any other value that indicates an error
+double calculateEuclideanDistance(const vector<float>& vector1, const vector<float>& vector2) {
+    double sum = 0.0;
+    int size = min(vector1.size(), vector2.size());
+    for (int i = 0; i < size; i++) {
+        sum += pow(vector1[i] - vector2[i], 2);
     }
-
-    double distance = 0.0;
-    for(int i=0; i<v1.size(); i++) {
-        distance += pow((v1[i] - v2[i]), 2);
+    if (vector1.size() > vector2.size()) {
+        for (int i = size; i < vector1.size(); i++) {
+            sum += pow(vector1[i], 2);
+        }
+    } else {
+        for (int i = size; i < vector2.size(); i++) {
+            sum += pow(vector2[i], 2);
+        }
     }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
     int n;
     cin >> n;
-
-    vector<float> v1(n), v2(n);
-
-    for(int i=0; i<n; i++) {
-        cin >> v1[i];
+    vector<float> vec1(n);
+    for (float &val : vec1) {
+        cin >> val;
     }
-
-    for(int i=0; i<n; i++) {
-        cin >> v2[i];
+    vector<float> vec2(n);
+    for (float &val : vec2) {
+        cin >> val;
     }
-
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
-
+    double result = calculateEuclideanDistance(vec1, vec2);
+    cout << fixed << setprecision(10) << result << endl;
     return 0;
 }
