@@ -1,7 +1,7 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> select_words(string s, int n) {
@@ -14,7 +14,7 @@ vector<string> select_words(string s, int n) {
             bool has_n_consonants = false;
             int consonant_count = 0;
             for (char ch : word) {
-                if (!ispunct(ch) && !isspace(ch) && !isvowel(ch)) {
+                if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) {
                     consonant_count++;
                 }
             }
