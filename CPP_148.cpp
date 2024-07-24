@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -37,8 +36,10 @@ int main() {
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
-    for (const auto& s : {output.first, output.second}) {
-        std::cout << std::string(s) << " "; // Add std:: prefix to string conversions
+    
+    std::cout << output.first << " ";
+    if (output.second.empty() == false) {
+        std::cout << output.second;
     }
     return 0;
 }
