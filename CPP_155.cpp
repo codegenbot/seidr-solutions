@@ -21,5 +21,5 @@ std::vector<int> count_even_and_odd_digits(int num) {
 }
 
 int main() {
-    assert(issame(count_even_and_odd_digits(0), {1, 0}));
+    assert (issame(count_even_and_odd_digits(0), {1, 0}));
 }
