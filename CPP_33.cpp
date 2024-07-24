@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -20,4 +24,9 @@ vector<int> sort_third(vector<int> l) {
     }
 
     return l_prime;
+}
+
+int main() {
+    // Test your function here
+    return 0;
 }
