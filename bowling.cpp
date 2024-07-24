@@ -1,11 +1,7 @@
-#include <string>
-
-using namespace std;
-
+```c++
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    
     for (char c : s) {
         if (c == 'X') {
             score += 30;
@@ -27,6 +23,5 @@ int bowlingScore(string s) {
             }
         }
     }
-    
     return score;
 }
