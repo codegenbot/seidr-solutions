@@ -7,18 +7,17 @@ bool solveBoolean(string s) {
         if (s[i] == 'f') {
             res = false;
             break;
-        } else if (s[i] == '&') {
-            res &= true;
         } else if (s[i] == '|') {
-            res |= true;
+            res = true;
+            break;
         }
     }
     return res;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    string input;
+    cin >> input;
+    cout << (solveBoolean(input) ? "True" : "False") << endl;
     return 0;
 }
