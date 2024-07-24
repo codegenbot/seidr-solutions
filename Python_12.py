@@ -1,16 +1,13 @@
-```
-from typing import List, Optional
+from typing import Optional
 
-
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
+def longest() -> Optional[str]:
     max_length = 0
-    result = []
-    for s in strings:
+    result = ''
+    while True:
+        s = input("Enter a string (or 'stop' to finish): ")
+        if s.lower() == 'stop':
+            break
         if len(s) > max_length:
             max_length = len(s)
-            result = [s]
-        elif len(s) == max_length:
-            result.append(s)
-    return result[-1] if result else None
+            result = s
+    return result
