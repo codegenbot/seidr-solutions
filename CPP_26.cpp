@@ -1,8 +1,2 @@
-vector<int> result;
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (count(numbers.begin(), numbers.end(), numbers[i]) == 1) {
-            result.push_back(numbers[i]);
-        }
-    }
-    return result;
-}
+numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
+return numbers;
