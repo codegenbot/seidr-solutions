@@ -15,9 +15,7 @@ def main():
             print(
                 "Invalid input. Please enter a valid integer or type 'stop' to finish."
             )
-    filtered_values = [value for value in values if isinstance(value, int)]
-
-    print(filtered_values)
+    print(filter_integers(values))
 
 
 def filter_integers(values: List[Any]) -> List[int]:
