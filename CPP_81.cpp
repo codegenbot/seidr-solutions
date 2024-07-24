@@ -1,3 +1,5 @@
+#include <vector>
+#include <string>
 #include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) { return a == b; }
@@ -60,3 +62,4 @@ int main_test() {
     bool same = issame({a}, {b});
     return 0;
 }
+#include <initializer_list>
