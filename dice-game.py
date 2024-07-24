@@ -1,3 +1,7 @@
-n = int(input())
-m = int(input())
-print("{:.2f}".format((n - 1) / (n + m - 1)))
+n, m = int(input()), int(input())
+if n > m:
+    print(round((n-1) / n, 2))
+elif m > n:
+    print(round(n / m, 2))
+else:
+    print(0.5)
