@@ -9,7 +9,7 @@ std::string camelCase(std::string str) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            if (c >= 'A' && c <= 'Z') {
+            if (isupper(c)) {
                 result += c;
                 capitalizeNext = false;
             } else {
@@ -19,12 +19,4 @@ std::string camelCase(std::string str) {
     }
     
     return result;
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << camelCase(str) << std::endl;
-    return 0;
 }
