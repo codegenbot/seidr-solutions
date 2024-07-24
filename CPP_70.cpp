@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool issame(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -31,5 +32,5 @@ vector<int> strange_sort(vector<int> lst) {
 }
 
 int main() {
-    assert (issame(strange_sort({111111}) , {111111}));
+    assert (same(strange_sort({111111}) , {111111}));
 }
