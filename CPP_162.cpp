@@ -1,4 +1,10 @@
+#include <string>
+#include <sstream>
+#include <iomanip>
 #include <openssl/md5.h>
+#include <openssl/ssl.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
