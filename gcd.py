@@ -1,8 +1,8 @@
 def gcd(a, b):
     if b == 0:
         return abs(a)
-    return gcd(b, a % b)
-
-
-num1, num2 = map(int, input().split())
-print(gcd(num1, num2))
+    if a % b == 0:
+        return b
+    if b % a == 0:
+        return a
+    return 1
