@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cctype>
+#include <fstream>
 #include <string>
 
-bool checkFileName(const std::string& file_name) {
+bool fileValidator(const std::string& file_name) {
     bool hasDigit = false;
     int dotCount = 0;
 
