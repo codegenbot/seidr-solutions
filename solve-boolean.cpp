@@ -1,38 +1,35 @@
 #include <string>
 
 int evalBool(std::string s) {
-    int result = 0;
+    int result = 1; // Initialize the result to true
     for (char c : s) {
         switch (std::tolower(c)) {
             case 't':
-                return 1;
+                break;
             case 'f':
                 return 0;
             case '|': {
                 if (s.length() > 1) {
-                    int subResult1 = evalBool(s.substr(1, 1));
-                    int subResult2 = evalBool(s.substr(2));
-                    if (subResult1 == 1 || subResult2 == 1)
-                        return 1;
-                    else
-                        return 0;
+                    int subResult = evalBool(s.substr(1));
+                    result = subResult; 
+                    break;
                 }
                 break;
             }
             case '&': {
                 if (s.length() > 1) {
-                    int subResult1 = evalBool(s.substr(1, 1));
-                    int subResult2 = evalBool(s.substr(2));
-                    if (subResult1 == 1 && subResult2 == 1)
-                        return 1;
-                    else
+                    int subResult = evalBool(s.substr(1));
+                    if (subResult == 0)
                         return 0;
+                    else
+                        result = subResult;
+                    break;
                 }
                 break;
             }
         }
     }
-    return 0; 
+    return result; 
 }
 
 int main() {
