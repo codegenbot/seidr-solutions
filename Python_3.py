@@ -1,32 +1,17 @@
 from typing import List
 
-
-def below_zero() -> None:
-    operations = []
-    while True:
-        try:
-            ops = input(
-                "Enter a list of integers (space separated) or 'end' to finish: "
-            )
-            if ops.lower() == "end":
-                break
-            operations = [int(op) for op in ops.split()]
-            break
-        except ValueError:
-            print("Error: Invalid input. Please enter a list of integers.")
-
-    if not all(isinstance(op, int) for op in operations):
+def below_zero() -> bool:
+    operations = input("Enter a list of space-separated integers: ")
+    try:
+        operations = [int(op) for op in operations.split()]
+    except ValueError:
         print("Error: Invalid input. Please enter a list of integers.")
-        return
-
+        return False
     balance = 0
     for operation in operations:
         balance += operation
         if balance < 0:
-            print(f"Below zero at {balance}.")
-            return
-
-    print(f"No below zero at {balance}.")
-
+            return True
+    return False
 
 below_zero()
