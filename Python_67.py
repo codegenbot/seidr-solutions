@@ -1,6 +1,7 @@
 def fruit_distribution(s, n):
     s = s.replace("apples", "apple").replace("oranges", "orange")
-    words = s.split()
-    apples = int(words[2])
-    oranges = int(words[6])
-    return n - apples - oranges
+    total_fruit = 0
+    for word in s.split():
+        if word.lower() == "apple" or word.lower() == "orange":
+            total_fruit += 1
+    return min(n - total_fruit // 2, n // 2)
