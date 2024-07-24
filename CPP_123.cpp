@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -28,13 +29,13 @@ vector<int> getOddCollatz(int n) {
     return res;
 }
 
-void startProgram() {
+int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
     if (n <= 0) {
         cerr << "Error: Please enter a positive integer." << endl;
-        return;
+        return 1;
     }
     vector<int> res = getOddCollatz(n);
     for (int i : res) {
@@ -50,9 +51,6 @@ void startProgram() {
     } else {
         cout << "The sequence does not match Collatz Conjecture." << endl;
     }
-}
-
-int main() {
-    startProgram();
+    assert(isSame(getOddCollatz(1), {1}));
     return 0;
 }
