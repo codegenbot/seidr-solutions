@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -51,7 +52,8 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
 
 int main() {
     std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::vector<std::string>> input = {{lst}};
-    assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::vector<std::string>> input;
+    input.push_back({{"aaaa", "bbbb", "dd", "cc"}});
+    assert(issame(sorted_list_sum(input), {{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}));
     return 0;
 }
