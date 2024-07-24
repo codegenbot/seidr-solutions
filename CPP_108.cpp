@@ -1,6 +1,6 @@
 #include <vector>
 
-int count_nums(vector<int> v) {
+int countSpecialNumbers(vector<int> v) {
     int count = 0;
     for (int num : v) {
         if (num > 0) {
@@ -24,4 +24,3 @@ int count_nums(vector<int> v) {
         }
     }
     return count;
-}
