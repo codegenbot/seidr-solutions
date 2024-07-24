@@ -1,17 +1,12 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     vector<string> words = split(sentence, ' ');
-    string result;
-    
-    for (auto word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    string result = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (is_prime(words[i].length())) {
+            result += words[i] + " ";
         }
     }
-    
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
 
 bool is_prime(int n) {
@@ -22,15 +17,21 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(const string& str, char delim) {
-    vector<string> tokens;
-    size_t prev = 0, pos = 0;
-    do {
-        pos = str.find(delim, prev);
-        if (pos == string::npos) pos = str.length();
-        string token = str.substr(prev, pos - prev);
-        tokens.push_back(token);
-        prev = pos + 1;
-    } while (pos != string::npos);
-    return tokens;
+vector<string> split(string sentence, char c) {
+    vector<string> words;
+    string word = "";
+    for (char ch : sentence) {
+        if (ch != c) {
+            word += ch;
+        } else {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    return words;
 }
