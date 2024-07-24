@@ -2,26 +2,17 @@
 #include <iostream>
 #include <iomanip>
 
-using namespace std;
-
 int main() {
     int hours;
     float groundSnow, snowFallRate, snowMeltingRate;
 
-    cout << "Enter the number of hours: ";
-    cin >> hours;
-    cout << "Enter the initial amount of snow: ";
-    cin >> groundSnow;
-    cout << "Enter the rate of snow fall: ";
-    cin >> snowFallRate;
-    cout << "Enter the proportion of snow melting per hour: ";
-    cin >> snowMeltingRate;
+    std::cin >> hours >> groundSnow >> snowFallRate >> snowMeltingRate;
 
-    for (int i = 0; i < hours; i++) {
-        groundSnow += round(snowFallRate - (groundSnow * snowMeltingRate));
+    for(int i = 0; i < hours; i++) {
+        groundSnow += snowFallRate - snowMeltingRate;
     }
 
-    cout << fixed << setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow;
+    cout << std::fixed << std::setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow << std::endl;
 
     return 0;
 }
