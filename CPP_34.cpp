@@ -1,10 +1,13 @@
 #include <iostream>
-#include <unordered_set>
+#include <vector>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-bool issame(unordered_set<int> a, unordered_set<int> b){
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
