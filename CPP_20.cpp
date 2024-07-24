@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,8 +15,7 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-int main
-{
+int main() {
     std::vector<float> vec1, vec2;
     float num;
 
