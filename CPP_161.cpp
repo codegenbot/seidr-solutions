@@ -1,15 +1,14 @@
 string solve(string s) {
     string result = "";
-    bool hasLetter = false;
-    
     for (char c : s) {
-        if (isalpha(c)) { // Check if character is a letter
-            hasLetter = true;
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        if (isalpha(c)) {
+            c = tolower(c);
+            if (c >= 'a' && c <= 'z') {
+                c -= ('a' - 'A');
+            }
         } else {
-            result += c; // Keep non-letter characters as they are
+            result += c;
         }
     }
-    
-    return hasLetter ? result : string(rbegin(s), rend(s)); // Return the original reversed string if no letters were found
+    return result.empty() ? string(s).reverse() : result;
 }
