@@ -1,4 +1,4 @@
-from typing import list
+from typing import list 
 
 def below_zero(operations: list[int]) -> bool:
     balance = 0
