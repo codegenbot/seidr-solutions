@@ -1,44 +1,30 @@
-int calculateBowlingScore(string s) {
-    int score = 0;
-    int frame = 0;
-    int ball = 0;
-    int balls[21] = {0};
-    
-    for(char c : s) {
-        if(c == 'X') {
-            balls[ball++] = 10;
-            frame++;
-        } else if(c == '/') {
-            balls[ball-1] = 10 - balls[ball-1];
-            balls[ball++] = 0;
-            frame++;
-        } else if(c == '-') {
-            balls[ball++] = 0;
-            frame++;
+int score(const string& s) {
+    int total = 0;
+    int frame = 1;
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - s[i - 1] + 10 : s[i + 1] - '0');
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - s[i + 1] + 10 : s[i + 2] - '0');
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
+            i += 2;
         } else {
-            balls[ball++] = c - '0';
-            if(frame % 2 == 1 || c == '0') {
-                frame++;
-            }
+            total += s[i] - '0';
+            total += s[i + 1] - '0';
+            i += 2;
         }
+        frame++;
     }
-    
-    for(int i = 0; i < 10; i++) {
-        if(balls[i*2] == 10) {
-            score += 10 + balls[i*2+1] + balls[i*2+2];
-        } else if(balls[i*2] + balls[i*2+1] == 10) {
-            score += 10 + balls[i*2+2];
-        } else {
-            score += balls[i*2] + balls[i*2+1];
-        }
-    }
-    
-    return score;
+    return total;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
