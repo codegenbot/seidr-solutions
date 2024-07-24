@@ -8,15 +8,9 @@ long long minSubArraySum(vector<long long> nums) {
         current_sum += nums[i];
 
         if (current_sum > min_sum)
-            continue;
-
-        if (i == 0 || current_sum < min_sum) {
             min_sum = current_sum;
-        }
-
-        if (current_sum < 0) {
+        else
             current_sum = 0;
-        }
     }
 
     return min_sum;
