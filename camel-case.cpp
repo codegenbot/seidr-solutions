@@ -1,8 +1,20 @@
-int main() {
-    std::string str;
-    str.clear();
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool capitalizeNext = true;
+
+    for (char c : str) {
+        if (c == '-' || c == ' ') {
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += c;
+            }
+        } else {
+            result += (capitalizeNext ? toupper : tolower)(c);
+            capitalizeNext = true;
+        }
     }
-    return 0;
+
+    return result;
 }
