@@ -2,21 +2,19 @@
 #include <cctype>
 
 string camelCase(string s) {
-    if (s.empty()) return s;
-
     string result = "";
-    bool nextIsCap = true;
-
+    bool capitalizeNext = true;
+    
     for (char c : s) {
         if (c == '-') {
-            nextIsCap = true;
-        } else if (nextIsCap) {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
             result += toupper(c);
-            nextIsCap = false;
+            capitalizeNext = false;
         } else {
             result += tolower(c);
         }
     }
-
+    
     return result;
 }
