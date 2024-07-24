@@ -3,7 +3,6 @@ from typing import List, Tuple
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (sum(numbers), 0 if 0 in numbers else 1) if numbers else (0, 1)
 
-if __name__ == "__main__":
-    numbers = list(map(int, input().split()))
-    result = sum_product(numbers)
-    print(result)
+numbers = list(map(int, input().split()))
+result = sum_product(numbers)
+print(result)
