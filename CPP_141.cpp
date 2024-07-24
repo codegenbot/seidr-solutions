@@ -1,28 +1,23 @@
 string file_name_check(string file_name){
-    int dot_count = 0, digit_count = 0;
-    bool valid = true;
+    int digit_count = 0;
+    bool found_dot = false;
 
-    for(int i = 0; i < file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            dot_count++;
-        }
-        else if(isdigit(c)){
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
             digit_count++;
+            if(digit_count > 3) return "No";
         }
-        else if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
-            // check the substring after the dot
-            string sub = file_name.substr(i+1);
-            if(sub.length() > 0 && (sub == "txt" || sub == "exe" || sub == "dll")){
-                valid = true;
-                break;
-            }
-            else{
-                valid = false;
-                break;
-            }
+        else if(file_name[i] == '.'){
+            found_dot = true;
         }
+        else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
 
-    return (dot_count == 1 && digit_count <= 3) ? (valid ? "Yes" : "No") : "No";
+    if(found_dot){
+        string extension = file_name.substr(file_name.find('.')+1);
+        if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    }
+    else return "No";
+
+    return "Yes";
 }
