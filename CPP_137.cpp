@@ -6,14 +6,15 @@
 
 using namespace std;
 
-template <typename T, typename U>
-auto compare_one(const T& a, const U& b) {
-    if(a == b) return static_cast<T>(-1);
-    if(typeid(T) == typeid(int) && typeid(U) == typeid(float)) return max(a, static_cast<T>(b));
-    if(typeid(T) == typeid(float) && typeid(U) == typeid(int)) return max(static_cast<T>(a), b);
-    if(typeid(T) == typeid(string) && typeid(U) == typeid(int)) return max(stof(a), static_cast<float>(b));
-    if(typeid(T) == typeid(int) && typeid(U) == typeid(string)) return max(static_cast<T>(a), stof(b));
-    if(typeid(T) == typeid(string) && typeid(U) == typeid(float)) return max(stof(a), static_cast<float>(b));
-    if(typeid(T) == typeid(float) && typeid(U) == typeid(string)) return max(static_cast<T>(a), stof(b));
-    return static_cast<T>(-1);
+// Define compare_one function
+auto compare_one(const boost::any& a, const boost::any& b) {
+    if(a == b) return -1;
+    if(a.type() == typeid(int) && b.type() == typeid(float)) return max(boost::any_cast<int>(a), boost::any_cast<float>(b));
+    if(a.type() == typeid(float) && b.type() == typeid(int)) return max(boost::any_cast<float>(a), boost::any_cast<int>(b));
+    if(a.type() == typeid(string) && b.type() == typeid(int)) return max(stof(boost::any_cast<string>(a)), boost::any_cast<int>(b));
+    if(a.type() == typeid(int) && b.type() == typeid(string)) return max(boost::any_cast<int>(a), stof(boost::any_cast<string>(b)));
+    if(a.type() == typeid(string) && b.type() == typeid(float)) return max(stof(boost::any_cast<string>(a)), boost::any_cast<float>(b));
+    if(a.type() == typeid(float) && b.type() == typeid(string)) return max(boost::any_cast<float>(a), stof(boost::any_cast<string>(b));
+    
+    return -1;
 }
