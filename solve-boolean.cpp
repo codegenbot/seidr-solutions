@@ -1,28 +1,20 @@
-Here is the solution:
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool res = false;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
+```bool solveBoolean(std::string expression) {
+    bool result = true;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (i + 1 < expression.length() && expression[i+1] == '&') {
+                i++;
             }
-            if(st.empty()) {
-                res = true;
-            } else {
-                res = false;
+            if (i + 1 < expression.length() && expression[i+1] == '|') {
+                return false;
             }
-        } else if(s[i] == '|') {
-            while(!st.empty()) {
-                st.pop();
+        } else if (expression[i] == '|') {
+            while (i + 1 < expression.length()) {
+                i++;
             }
-            st.push(s[i]);
-        } else if(s[i] == 't' || s[i] == 'f') {
-            st.push(s[i]);
+        } else {
+            result = (result && (expression[i] == 'T'));
         }
     }
-    
-    return res;
-}
+    return result;
+}``
