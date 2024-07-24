@@ -16,7 +16,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
-    std::vector<int> sums;
+    std::vector<std::string> result;
     for (const auto& str : lst[0]) {
         int sum = 0;
         for (int i = 1; i < lst.size(); i++) {
@@ -25,20 +25,13 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(sum);
-    }
-    
-    std::vector<std::string> result;
-    for (int sum : std::vector<int>(std::sort(sums.begin(), sums.end()))) {
-        for (const auto& str : lst[0]) {
-            if (stoi(str) == sum) {
-                result.push_back(str);
-                break;
-            }
+        if (sum > 0) {
+            result.push_back(str);
         }
     }
-    
-    return result;
+    std::vector<std::string> temp(result.begin(), result.end());
+    std::sort(temp.begin(), temp.end());
+    return std::vector<std::string>(temp.begin(), temp.end());
 }
 
 int main() {
