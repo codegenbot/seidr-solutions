@@ -16,13 +16,11 @@ int main() {
                 result += toupper(*p);
                 capitalizeNext = false;
             }
+        } else if (capitalizeNext) {
+            result += toupper(*p);
+            capitalizeNext = false;
         } else {
-            if (capitalizeNext) {
-                result += toupper(*p);
-                capitalizeNext = false;
-            } else {
-                result += tolower(*p);
-            }
+            result += tolower(*p);
         }
     }
 
