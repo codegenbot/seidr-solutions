@@ -14,7 +14,6 @@ def decode_cyclic():
             result.add(rotated)
 
     rotations = {s[i:] + s[:i] for i in range(n)}
-    return min({k for k in rotations if k in result}, key=len)
-
-
-return decode_cyclic()
+    decoded = min({k for k in rotations if k in result}, key=len)
+    
+    return "".join([c for c in decoded if c in s])
