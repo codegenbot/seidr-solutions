@@ -1,11 +1,21 @@
 string fix_spaces(string text){
     string result = "";
-    for(int i=0; i<text.length();i++){
-        if(text[i] == ' ' && (result.length() == 0 || result[result.length()-1] != ' ')){
+    bool consecutiveSpace = false;
+
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' ' && !consecutiveSpace){
             result += '_';
-        } else {
+            consecutiveSpace = true;
+        }else if(text[i] == ' '){
+            if(consecutiveSpace){
+                result += '-';
+                consecutiveSpace = false;
+            }
+        }else{
             result += text[i];
+            consecutiveSpace = false;
         }
     }
+
     return result;
 }
