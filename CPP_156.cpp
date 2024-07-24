@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <cassert>
@@ -56,10 +57,4 @@ std::string int_to_mini_romank(int number) {
     } else {
         return "";
     }
-}
-
-int main() {
-    std::vector<int> romanMap(std::vector<int>::allocator_type{}); 
-    assert(int_to_mini_romank(1000) == "M"); 
-    return 0;
 }
