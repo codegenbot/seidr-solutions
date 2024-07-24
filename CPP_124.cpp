@@ -8,16 +8,18 @@ bool valid_date(string date) {
     string temp;
 
     stringstream ss(date);
-    string part;
 
-    getline(ss, part, '-');
-    month = stoi(part);
+    // Read month
+    getline(ss, temp, '-');
+    month = stoi(temp);
 
-    getline(ss, part, '-');
-    day = stoi(part);
+    // Read day
+    getline(ss, temp, '-');
+    day = stoi(temp);
 
-    getline(ss, part);
-    year = stoi(part);
+    // Read year
+    getline(ss, temp);
+    year = stoi(temp);
 
     // Validate the date
     if (month < 1 || month > 12) return false;
