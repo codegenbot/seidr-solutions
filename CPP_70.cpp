@@ -1,10 +1,10 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
@@ -22,23 +22,22 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
+    vector<int> input;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> numbers;
-    for (int i = 0; i < n; i++) {
+    cout << "Enter number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
         int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
+        input.push_back(num);
     }
+    
+    vector<int> output = strange_sort_vector(input);
 
-    std::vector<int> sortedNumbers = strange_sort_vector(numbers);
-
-    std::cout << "Sorted Numbers: ";
-    for (int num : sortedNumbers) {
-        std::cout << num << " ";
+    cout << "Sorted Vector: ";
+    for(int i : output) {
+        cout << i << " ";
     }
     return 0;
 }
