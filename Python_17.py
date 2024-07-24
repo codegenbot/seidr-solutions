@@ -1,19 +1,13 @@
-```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    result = []
+    notes = {'o': 4, 'o|': 2, '.|': 1}
+    beats = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == 'o':
-            result.append(4)
-            i += 1
-        elif music_string[i:i+2] == 'o|':
-            if music_string[i+2] == '|':
-                result.append(3)
-                i += 3
-            else:
-                result.append(2)
-                i += 2
-        elif music_string[i:i+3] == '.|..|':
-            result.append(1)
-            i += 3
-    return result
+        if music_string[i:i+2] not in notes:
+            return ["Invalid input at position " + str(i) for _ in range(len(beats))]
+        beats.append(notes[music_string[i:i+2]])
+        i += 2
+    return beats
