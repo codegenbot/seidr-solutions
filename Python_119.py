@@ -1,4 +1,4 @@
-``` 
+```python
 def match_parens(p):
     stack = []
     for char in p:
@@ -12,9 +12,7 @@ def match_parens(p):
     return len(stack) == 0
 
 def check():
-    s = '''Enter a string of parentheses: '''
-    print(s)
-    p = input(s)
-    print(match_parens(p))
+    s = input("Enter a string of parentheses: ")
+    print(match_parens(s))
 
 check()
