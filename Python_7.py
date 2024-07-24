@@ -7,14 +7,16 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 user_strings = input("Enter a list of strings (space separated): ").split()
+while not all(isinstance(s, str) for s in user_strings):
+    user_strings = input("Please enter valid strings: ").split()
+
 user_substring = input("Enter the substring to search for: ")
+while not isinstance(user_substring, str):
+    user_substring = input("Please enter a string: ")
 
 try:
-    if not user_strings or not user_substring:
-        print("Error: Input cannot be empty.")
-    else:
-        result = filter_by_substring(user_strings, user_substring)
-        print(result)
+    result = filter_by_substring(user_strings, user_substring)
+    print(result)
 except ValueError as e:
     print(f"Error: {e}")
 except AttributeError as e:
