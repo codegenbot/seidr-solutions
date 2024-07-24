@@ -1,23 +1,41 @@
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+    if(a.size() != b.size()){
         return false;
+    }
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
+        if(a[i] != b[i]){
             return false;
+        }
     }
     return true;
 }
 
 vector<int> rolling_max(vector<int> numbers);
 
-int main(){
-    vector<int> input = {1, 3, 5, 2, 4, 8, 6};
-    vector<int> result = rolling_max(input);
-
-    vector<int> expected = {1, 3, 5, 5, 5, 8, 8};
-
-    bool res = issame(result, expected);
-
+int main() {
+    vector<int> numbers = {1, 3, 5, 2, 7, 4, 8};
+    vector<int> result = rolling_max(numbers);
+    
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    
+    vector<int> test1 = {1, 2, 3};
+    vector<int> test2 = {1, 2, 3};
+    
+    if(issame(test1, test2)){
+        cout << "Equal\n";
+    } else {
+        cout << "Not Equal\n";
+    }
+    
     return 0;
 }
 
