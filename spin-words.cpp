@@ -1,18 +1,32 @@
-Here's the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
+    string word = "";
+
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
             if (word.length() >= 5) {
-                result += std::string(word.rbegin(), word.rend()) + " ";
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
             } else {
-                result += word + " ";
+                result += word;
             }
-            start = i + 1;
+            word = "";
+        } else {
+            word += sentence[i];
         }
     }
-    return result.substr(0, result.length() - 1);
+
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
