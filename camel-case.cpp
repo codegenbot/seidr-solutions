@@ -4,14 +4,18 @@
 
 int main() {
     const char* str = "camel-case example-test-string";
-    std::string result = str;
+    std::string result;
     bool capitalizeNext = true;
 
     for (const char* p = str; *p; p++) {
         if (*p == '-') {
             p++; // Skip the '-'
-        } else if (!strchr(str, '-')) { 
-            capitalizeNext = true;
+            if (!capitalizeNext) {
+                result += tolower(*p);
+            } else {
+                result += toupper(*p);
+                capitalizeNext = false;
+            }
         } else if (capitalizeNext) {
             result += toupper(*p);
             capitalizeNext = false;
