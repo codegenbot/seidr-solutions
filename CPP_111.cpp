@@ -4,33 +4,42 @@ using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
-    size_t pos = 0;
-    while ((pos = test.find(' ')) != string::npos) {
-        char c = test[0];
-        int count = 1;
-        for (size_t i = 1; i < pos; i++) {
-            if (test[i] == c) {
+    int maxCount = 0;
+    for (const auto& word : split(test)) {
+        char c = word[0];
+        int count = 0;
+        for (const auto& w : split(word)) {
+            if (w == c) {
                 count++;
-            } else {
-                break;
             }
         }
+        if (count > maxCount) {
+            maxCount = count;
+        }
         result[c] = count;
-        test.erase(0, pos + 1);
     }
-
-    char c = test[0];
-    int count = 1;
-    for (size_t i = 1; i < test.size(); i++) {
-        if (test[i] == c) {
-            count++;
-        } else {
-            break;
+    map<char, int> mostFrequent;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            mostFrequent[pair.first] = pair.second;
         }
     }
-    result[c] = count;
+    return mostFrequent;
+}
 
-    return result;
+vector<string> split(string s) {
+    vector<string> res;
+    string temp;
+    for (char c : s) {
+        if (c != ' ') {
+            temp += c;
+        } else {
+            res.push_back(temp);
+            temp = "";
+        }
+    }
+    if (!temp.empty()) {
+        res.push_back(temp);
+    }
+    return res;
 }
