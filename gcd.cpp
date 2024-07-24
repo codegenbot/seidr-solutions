@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -10,8 +10,8 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> result;
     for (int i = 0; i <= text.size() - target.size(); ++i) {
         bool found = true;
         for (int j = 0; j < target.size(); ++j) {
@@ -28,34 +28,34 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     return result;
 
 int main() {
-    std::string text, target;
+    string text, target;
     int a, b;
-    std::cout << "Enter number 1: ";
-    std::cin >> a;
-    std::cout << "Enter number 2: ";
-    std::cin >> b;
+    cout << "Enter number 1: ";
+    cin >> a;
+    cout << "Enter number 2: ";
+    cin >> b;
 
     if (a == 0 || b == 0) {
-        std::cout << "Invalid input! Please try again." << std::endl;
+        cout << "Invalid input! Please try again." << endl;
         return 1;
     }
 
     int gcdVal = gcd(a, b);
-    std::cout << "GCD is: " << gcdVal << std::endl;
+    cout << "GCD is: " << gcdVal << endl;
 
-    std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the target string: ";
+    getline(cin, target);
 
     if (text.empty() || target.empty()) {
-        std::cout << "Invalid input! Please try again." << std::endl;
+        cout << "Invalid input! Please try again." << endl;
         return 1;
     }
 
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     return 0;
