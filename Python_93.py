@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -8,7 +7,7 @@ def encode(message):
             else:
                 result += chr((ord(char) - 97 + 3) % 26 + 97)
         elif char.isdigit():  
-            result += str((int(char) - 0 + 3) % 10).lstrip('0') or '7' if (int(char) - 0 + 3) // 10 > 0 and int(char) - 0 + 3 == 10 else '8'
+            result += str(int(char) + 3) if int(char) + 3 <= 9 else '7' if int(char) + 3 == 10 else '8'
         else:  
             result += char
     return result
