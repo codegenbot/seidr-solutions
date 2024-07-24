@@ -1,13 +1,14 @@
-Here's the solution:
+def solve(input_str):
+    def evaluate_bool(exp):
+        if exp == 'T':
+            return True
+        elif exp == 'F':
+            return False
+        elif '&' in exp:
+            a, b = map(evaluate_bool, exp.split('&'))
+            return a and b
+        elif '|' in exp:
+            a, b = map(evaluate_bool, exp.split('|'))
+            return a or b
 
-def solve_boolean(s):
-    if s == 'T':
-        return True
-    elif s == 'F':
-        return False
-    elif '&' in s:
-        a, b = s.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in s:
-        a, b = s.split('|')
-        return solve_boolean(a) or solve_boolean(b)
+    return evaluate_bool(input_str)
