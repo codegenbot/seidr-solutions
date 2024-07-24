@@ -1,14 +1,13 @@
 #include <string>
-#include <cctype>
 
 bool evaluateBooleanExpression(const std::string& expr) {
     std::string lowercaseExpr;
     for (char c : expr) {
-        lowercaseExpr += std::tolower(c);
+        lowercaseExpr += std::tolower(c); // Change to std::tolower
     }
     if (lowercaseExpr == "false") {
         return false;
     }
-    // Add your existing evaluation logic using lowercaseExpr
+    // Existing evaluation logic using lowercaseExpr
     return true;
 }
