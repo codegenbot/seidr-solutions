@@ -12,3 +12,12 @@ int count_upper(std::string s) {
     }
     return count;
 }
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    int result = count_upper(str);
+    std::cout << "Number of uppercase vowels at even positions: " << result << std::endl;
+    return 0;
+}
