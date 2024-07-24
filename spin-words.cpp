@@ -17,6 +17,10 @@ std::string spinWords(std::string str) {
             result = result + word;
             if (i < str.length() - 1 && str[i+1] != ' ')
                 result += " ";
+        } else if (str[i] == ' ') {
+            result += " ";
+        } else {
+            word += str[i];
         }
     }
     
@@ -25,8 +29,8 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, input);
-    std::cout << spinWords(input) << std::endl; 
+    while (std::cin >> input) { 
+        std::cout << spinWords(input) << std::endl; 
+    }
     return 0;
 }
