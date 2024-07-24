@@ -1,10 +1,15 @@
-Here is the solution:
+```cpp
+#include <string>
 
-string middleCharacter(string str) {
+std::string middleCharacter(std::string str) {
     int len = str.length();
-    if(len % 2 != 0) {
-        return str.substr((len - 1)/2, 1);
-    } else {
-        return str.substr(len/2-1, 2);
+    std::string result;
+
+    if (len % 2 != 0) { 
+        result = str.substr(len / 2, 1);
+    } else { 
+        result = str.substr((len / 2) - 1, 2);
     }
+
+    return result;
 }
