@@ -1,18 +1,19 @@
 #include <vector>
+#include <string>
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> indices;
     int index = 0;
-    
+
     while (index <= text.length() - target.length()) {
         index = text.find(target, index);
-        
-        if (index == string::npos) break;
-        
+
+        if (index == std::string::npos) break;
+
         indices.push_back(index + 1);
         index += target.length();
     }
-    
+
     return indices;
 }
 
