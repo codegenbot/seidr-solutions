@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     prices = list(map(float, input().split()))
@@ -8,6 +9,3 @@ def shopping_list():
     )
 
     return "{:.2f}".format(total_price)
-
-if __name__ == '__main__':
-    print(shopping_list())
