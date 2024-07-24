@@ -1,31 +1,33 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
-    // Initialize arrays to store the count of each character in the code and guess.
-    int codeCount[6] = {0}, guessCount[6] = {0};
-
-    // Count the occurrences of each character in the code and guess.
+int countWhitePegs(const string& code, const string& guess) {
+    int whitePegs = 0;
     for (char c : code) {
-        codeCount[c - 'A']++;
-    }
-    for (char c : guess) {
-        guessCount[c - 'A']++;
-    }
-
-    // Calculate the number of black pegs by comparing the characters at corresponding positions.
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            codeCount[code[i] - 'A']--;
-            guessCount[guess[i] - 'A']--;
-            black++;
+        for (char g : guess) {
+            if (c == g && c != g) {
+                whitePegs++;
+                break;
+            }
         }
     }
+    return whitePegs;
+}
 
-    // Calculate the number of white pegs by counting the remaining occurrences of each character in the guess.
-    for (int i = 0; i < 6; i++) {
-        white += min(codeCount[i], guessCount[i]);
+int countBlackPegs(const string& code, const string& guess) {
+    int blackPegs = 0;
+    for (char c : code) {
+        if (c == guess[0]) {
+            blackPegs++;
+            break;
+        }
     }
+    return blackPegs;
+}
 
-    return {white, black};
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int whitePegs = countWhitePegs(code, guess);
+    int blackPegs = countBlackPegs(code, guess);
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
+    return 0;
 }
