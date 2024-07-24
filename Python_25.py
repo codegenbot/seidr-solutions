@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -16,4 +17,4 @@ def factorize(n: int) -> List[List[int]]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return [factor_list for factor_list in set(map(tuple, factors))].
+    return [factor_list for factor_list in set(map(tuple, factors))]
