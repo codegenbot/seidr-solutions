@@ -18,10 +18,10 @@ string spinWords(string str) {
         string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            result += (word.rbegin(), word.rend(), ' ').substr(1) + " ";
-        else
-            result += word + " ";
+            reverse(word.begin(), word.end());
         
+        result += (end == str.length()) ? word + "\n" : word + " ";
+        str.clear();  // Add this line here
         start = end + 1;
     }
     
