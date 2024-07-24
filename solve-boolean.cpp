@@ -25,23 +25,15 @@ bool evalBoolean(string s) {
         }
     } else {
         bool left = false;
-        bool right = false;
         for (char c : s.substr(0, j)) {
             if (c == 'T' && opStr[1] != '|')
                 left = true;
-            else if (c == 'F' && opStr[1] != '&') {
-                return false;  // F must be the last character
-            }
+            else if (c == 'F' && opStr[1] != '&')
+                return false;
+            else if (c == 'F' && opStr[1] == '&') 
+                return false; 
         }
-        for (char c : s.substr(j)) {
-            if (c == 'T' && opStr[1] == '|')
-                right = true;
-            else if (c == 'F' && opStr[1] == '&') {
-                right = false;
-                return right;  // F must be the last character
-            }
-        }
-        result = left && right;
+        result = left;
     }
 
     return result;
