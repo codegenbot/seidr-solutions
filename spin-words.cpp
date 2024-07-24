@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -20,13 +19,9 @@ string spinWords(string str) {
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
         
-        result += word + " ";
+        result += (word.length() < 5 || word.back() == ' ') ? word : word.substr(0, word.size()-1) + " ";
         
         start = end + 1;
-    }
-    
-    if (!result.empty()) {
-        result.pop_back(); // remove last character (space)
     }
     
     return result;
