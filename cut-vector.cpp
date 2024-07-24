@@ -1,13 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
 using namespace std;
-
-int main() {
-    vector<vector<int>> result = cutVector({1, 2, 3, 4, 5});
-    return 0;
-}
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
@@ -20,7 +15,8 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         if (abs(diff1-diff2) < abs(min_diff)) {
             min_diff = diff1 - diff2;
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
-            nums.erase(nums.begin());
+            vector<int> temp(nums.begin() + i, nums.end());
+            nums = temp;
         }
     }
     
@@ -29,4 +25,9 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
 
     return result;
+}
+
+int main() { 
+    vector<vector<int>> result = cutVector({1, 2, 3, 4, 5}); 
+    return 0; 
 }
