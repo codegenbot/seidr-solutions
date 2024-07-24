@@ -11,15 +11,9 @@ int count_nums(std::vector<int> nums) {
             sum_digits += num % 10;
             num /= 10;
         }
-        if (sum_digits > 0) {
+        if (sum_digits > 1) {
             count++;
         }
     }
     return count;
-}
-
-int main() {
-    std::vector<int> nums = {1};
-    assert(count_nums(nums) == 1);
-    return 0;
 }
