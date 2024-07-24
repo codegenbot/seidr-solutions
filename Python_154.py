@@ -10,4 +10,6 @@ def cycpattern_check(a, b):
                     return True
             else:
                 break
+        if k >= len(a):
+            return False
     return False
