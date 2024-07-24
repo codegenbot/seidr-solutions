@@ -1,6 +1,7 @@
-```
+```Python
 def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit()) or 0
+    total_sum = sum(int(c) for c in s if c.isdigit())
+    return total_sum
 
-input_s = str(input("Enter a string: "))
-print(sum(int(i) for i in input_s if i.isdigit()) or 0)
+input_s = str(input("Enter a string containing at least one digit (like '123abc'): "))
+print(digitSum(input_s))
