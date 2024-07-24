@@ -10,9 +10,8 @@ int main() {
     
     map<int, int> numIdx;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (numIdx.find(complement) != numIdx.end()) {
-            cout << nums[numIdx[complement]] << endl;
+        if (numIdx.find(target - nums[i]) != numIdx.end()) {
+            cout << target - nums[i] << endl;
             cout << nums[i] << endl;
             break;
         }
