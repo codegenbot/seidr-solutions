@@ -1,7 +1,5 @@
 def concatenate_strings(strings):
     return "".join(strings)
 
-# Test the function
-strings = ["hello", "world", "!"]
-result = concatenate_strings(strings)
-print(result)
+# Calling the function with input list
+print(concatenate_strings(["Hello", "World"]))
