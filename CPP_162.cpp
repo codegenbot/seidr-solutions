@@ -3,14 +3,13 @@
 #include <iomanip>
 #include <algorithm>
 #include <string>
-#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& str) {
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(ctx, str.c_str(), str.size());
     unsigned char buffer[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, (const unsigned char*)str.c_str(), str.size());
-    MD5_Final(buffer, &ctx);
+    EVP_DigestFinal_ex(ctx, buffer, NULL);
     std::stringstream ss;
     for (int i = 0; i < 16; i++) {
         ss << std::setfill('0') << std::setw(2) << std::hex << (int)buffer[i];
@@ -24,4 +23,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
     return 0;
-}
