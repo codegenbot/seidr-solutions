@@ -1,4 +1,4 @@
-```c
+```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -18,15 +18,15 @@ int main() {
 
     std::string result = "";
     for(int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        if(cipherMap.find(c) != cipherMap.end()) {
-            result += cipherMap.at(c);
+        if(message[i] == ' ') {
+            result += ' '; // keep spaces unchanged
         } else {
-            // Check for non-alphanumeric characters (spaces, punctuation)
-            if (!isalnum(c)) {
-                result += c;
-            } else {
+            char c = message[i];
+            if(cipherMap.find(c) != cipherMap.end()) {
                 result += cipherMap.at(c);
+            } else {
+                // Handle characters not in the cipher map by keeping them unchanged
+                result += c;
             }
         }
     }
