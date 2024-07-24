@@ -32,9 +32,9 @@ int main() {
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
+    string inputText, inputTarget;
+    cin >> inputText >> inputTarget;
+    vector<int> result = indicesOfSubstring(inputText, inputTarget);
     for(int i : result){
         cout << i << " ";
     }
