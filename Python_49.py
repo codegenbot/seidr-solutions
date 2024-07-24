@@ -1,8 +1,4 @@
 ```
-base = int(input("Enter the base: "))
-exponent = int(input("Enter the exponent: "))
-modulus = int(input("Enter the modulus: "))
-
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
@@ -12,5 +8,9 @@ def powermod(base: int, exponent: int, modulus: int):
         exponent = exponent // 2
         base = (base * base) % modulus
     return result
+
+base = int(input("Enter the base: "))
+exponent = int(input("Enter the exponent: "))
+modulus = int(input("Enter the modulus: "))
 
 print(powermod(base, exponent, modulus))
