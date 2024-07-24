@@ -22,7 +22,7 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
-        std::cin >> std::ws; // Clear the remaining input
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> vec1;
@@ -32,7 +32,9 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin >> std::ws; // Clear the remaining input
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
         }
         vec1.push_back(x); 
         size++;
@@ -45,7 +47,9 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin >> std::ws; // Clear the remaining input
+            while(std::cin.peek() != '\n') {
+                std::cin.ignore(); 
+            }
         }
         vec2.push_back(x); 
         size++;
