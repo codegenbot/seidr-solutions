@@ -5,10 +5,7 @@
 
 using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,8 +17,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+    vector<string> result;
     for (const auto& str : strings) {
         if (str.compare(0, prefix.size(), prefix) == 0) {
             result.push_back(str);
