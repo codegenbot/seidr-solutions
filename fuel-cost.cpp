@@ -1,14 +1,11 @@
 #include <vector>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 int fuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = num / 3; 
-        result = floor((double)result); 
-        result -= 2;
+        int result = static_cast<int>(floor(double(num) / 3)) - 2;
         sum += result;
     }
     return sum;
-}
