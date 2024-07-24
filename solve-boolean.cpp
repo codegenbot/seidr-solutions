@@ -1,32 +1,56 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> opStack;
-    string result = "True";
-
+bool solveBoolean(string booleanExpression) {
+    stack<char> expressionStack;
+    
     for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
+        char currentChar = booleanExpression[i];
+        
+        if (currentChar == '&' || currentChar == '|') {
+            while (!expressionStack.empty() && expressionStack.top() != '(') {
+                int prevOp = expressionStack.top();
+                expressionStack.pop();
+                
+                if (prevOp == '&') {
+                    currentChar = '&';
+                } else {
+                    currentChar = '|';
+                }
             }
-            if (!opStack.empty()) {
-                result = "False";
-                break;
+            
+            if (!expressionStack.empty() && expressionStack.top() == '(') {
+                expressionStack.pop(); // remove the left parenthesis
             }
-        } else if (booleanExpression[i] == '|') {
-            while (!opStack.empty()) {
-                opStack.pop();
+        } else if (currentChar == '(') {
+            expressionStack.push('(');
+        } else if (currentChar == ')') {
+            while (!expressionStack.empty() && expressionStack.top() != '(') {
+                int prevOp = expressionStack.top();
+                expressionStack.pop();
+                
+                if (prevOp == '&') {
+                    currentChar = '&';
+                } else {
+                    currentChar = '|';
+                }
             }
-            result = "True";
+            
+            if (!expressionStack.empty() && expressionStack.top() == '(') {
+                expressionStack.pop(); // remove the left parenthesis
+            }
         } else {
-            if (result == "False") {
-                return "False";
-            }
-            if (booleanExpression[i] == 't') {
-                result = "True";
-            } else {
-                result = "False";
-            }
+            expressionStack.push(currentChar);
         }
     }
-
-    return result;
+    
+    while (!expressionStack.empty()) {
+        int prevOp = expressionStack.top();
+        expressionStack.pop();
+        
+        if (prevOp == '&') {
+            currentChar = '&';
+        } else {
+            currentChar = '|';
+        }
+    }
+    
+    return currentChar == 't' ? true : false;
 }
