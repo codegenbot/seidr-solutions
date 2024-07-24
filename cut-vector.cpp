@@ -8,7 +8,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-
+    
     int diff = INT_MAX;
     int cutIndex = 0;
     for (int i = 1; i < n; ++i) {
@@ -25,7 +25,7 @@ int main() {
             cutIndex = i;
         }
     }
-
+    
     for (int i = 0; i < n; ++i) {
         if (i < cutIndex) {
             std::cout << nums[i] << std::endl;
@@ -33,6 +33,6 @@ int main() {
             std::cout << nums[i] << std::endl;
         }
     }
-
+    
     return 0;
 }
