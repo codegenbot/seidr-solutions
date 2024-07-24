@@ -1,14 +1,9 @@
-"Here's the corrected code:
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
-    max_length = 0
-    result = ""
-    for s in strings:
-        if len(s) > max_length:
-            max_length = len(s)
-            result = s
+def longest(*strings):
+    result_strings = []
+    while True:
+        s = input("Enter a string (or 'stop' to finish): ")
+        if s.lower() == 'stop':
+            break
+        result_strings.append(s) 
+    result = max(result_strings, key=len) if result_strings else None
     print(result)
-
-
-print(longest(["apple", "banana", "cherry"]))  # Output: banana"
