@@ -13,7 +13,12 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> numbers = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    cout << "Number of special numbers: " << specialFilter(numbers) << endl;
+    vector<int> input;
+    cout << "Enter numbers separated by spaces: ";
+    int num;
+    while ((cin >> num) && (input.size() < 100)) {
+        input.push_back(num);
+    }
+    cout << "Count of special numbers: " << specialFilter(input) << endl;
     return 0;
 }
