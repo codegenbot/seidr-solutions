@@ -13,6 +13,9 @@ bool below_zero(std::vector<int> operations) {
 }
 
 int main() {
-    // Test the function below_zero here if needed
+    // Test the function below_zero with sample input
+    std::vector<int> test_operations = {1, -2, 3, -4, 5};
+    assert(below_zero(test_operations) == true);
+
     return 0;
 }
