@@ -1,12 +1,13 @@
 ```
-n = int(input("Enter first integer: "))
-m = int(input("Enter second integer: "))
+n = float(input("Enter first number: "))
+m = float(input("Enter second number: "))
+
 
 def rounded_avg(n, m):
     avg = (n + m) // 2
-    if (n + m) % 2 == 0:
-        return str(avg)
-    else:
-        return str(avg + 1)
+    if (avg * 2) == (n + m):
+        avg += 1
+    return str(avg)
+
 
 print(rounded_avg(n, m))
