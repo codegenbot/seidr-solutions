@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     if len(s) < 3 or not all(c in 'abcd' for c in s):
