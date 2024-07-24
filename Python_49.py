@@ -1,8 +1,7 @@
-```
 def modp(n: int, p: int):
-    if p == 1:
-        return n % p
-    elif p != 2 and pow(2, (p - 1) // 2, p).is_square():
-        return pow(n, p-1, p) * n % p
+    if n == 1:
+        return n
+    elif p % 2 == 0:
+        return (modp(n, p // 2) ** 2) % p
     else:
-        return pow(n, p-1, p) % p
+        return (n * modp(n, p - 1)) % p
