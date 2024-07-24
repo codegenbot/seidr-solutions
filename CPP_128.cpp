@@ -5,7 +5,7 @@ int prod_signs(std::vector<int> arr) {
     int product = 1;
     long sum = 0;
     for (int num : arr) {
-        product *= (num > 0 ? 1 : (num < 0 ? -1 : 1));
+        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
         sum += std::abs(num);
     }
     return product * sum;
