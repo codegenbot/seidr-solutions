@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-vector<vector<int>> make_pile(int n) {
+vector<vector<int>> make_a_pile(int n) {
     vector<vector<int>> pile;
     for (int i = 1; i <= n; i++) {
         pile.push_back({i*2});
@@ -23,6 +23,7 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    vector<vector<int>> pile = make_pile(n);
-    assert(isSame(pile, make_pile(n)));
+    vector<vector<int>> pile = make_a_pile(n);
+    assert(isSame(pile, make_a_pile(n)));
     return 0;
+}
