@@ -1,36 +1,44 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    map<char, int> codeCount;
-    map<char, int> guessCount;
+int countBlackPegs(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++blackPegs;
+        }
+    }
+    return blackPegs;
+}
 
-    // Counting the frequency of each character in the code and the guess
+int countWhitePegs(const std::string& code, const std::string& guess) {
+    int whitePegs = 0;
     for (char c : code) {
-        codeCount[c]++;
-    }
-    for (char c : guess) {
-        guessCount[c]++;
-    }
-
-    // Calculate white pegs
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            black++;
-        } else if (codeCount[guess[i]] > 0) {
-            white++;
-            codeCount[guess[i]]--;
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                ++count;
+            }
+        }
+        if (count > 1) {
+            whitePegs += count - 1;
+        } else if (count == 1) {
+            whitePegs++;
         }
     }
+    return whitePegs - countBlackPegs(code, guess);
+}
 
-    // Calculate black pegs
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            continue;
-        } else if (code.find(guess[i]) != string::npos) {
-            black++;
-        }
-    }
-
-    return make_pair(white, black).second;
+int main() {
+    std::string code, guess;
+    // Read input from user
+    std::cin >> code >> guess;
+    
+    int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = countWhitePegs(code, guess);
+    
+    std::cout << whitePegs << '\n' << blackPegs << '\n';
+    
+    return 0;
 }
