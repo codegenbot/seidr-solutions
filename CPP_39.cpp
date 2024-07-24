@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 bool isPrime(int num) {
@@ -17,7 +16,7 @@ int prime_fib(int n) {
         fib = a + b;
         a = b;
         b = fib;
-        if (isPrime(fib) && ++i == n)
+        if (isPrime(fib) && ++n == 0)
             return fib;
     }
 }
