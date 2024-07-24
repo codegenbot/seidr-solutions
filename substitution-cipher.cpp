@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 string substitutionCipher(string key1, string key2, string message) {
@@ -23,3 +23,4 @@ int main() {
     cin >> key1 >> key2 >> message;
     cout << substitutionCipher(key1, key2, message) << endl;
     return 0;
+}
