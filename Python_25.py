@@ -28,7 +28,7 @@ while True:
         elif n.isdigit():
             n = int(n)
             if n > 0:
-                print(*factorize(n), sep=', ')
+                print(factorize(n))
             else:
                 print("Please enter a positive integer.")
         else:
