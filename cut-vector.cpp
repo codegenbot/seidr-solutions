@@ -27,7 +27,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -46,4 +46,5 @@ int main() {
     }
     cout << endl;
     
-    return 0;
+    return res;
+}
