@@ -9,19 +9,17 @@ def bowling_score(frames):
             elif frames[i * 2] + frames[i * 2 + 1] == "10":
                 spare = True
             else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
+                score += 10 - int(frames[i * 2])
         else:
             if frames[i * 2] == "X":
                 strike = True
-            elif frames[i * 2 : i * 2 + 2] == "10":
-                spare = True
+            elif frames[i * 2 : i * 2 + 2].count("X") == 2:
+                score += 20
             else:
                 score += int(frames[i * 2]) + int(frames[i * 2 + 1])
         if i < 9 and (strike or spare):
             if strike:
-                score += 10 + sum(
-                    int(x) for x in frames[2 * i + 2 : 20].replace("/", "")
-                )
+                score += 10 + int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1])
             elif spare:
-                score += 10 + int(frames[2 * i + 2])
+                score += 10 + int(frames[(i + 1) * 2 : (i + 2) * 2].replace("/", ""))
     return score
