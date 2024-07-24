@@ -11,4 +11,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         else:
             product_value *= number
     
-    return sum_value, (0 if has_zero else product_value)
+    return sum_value, product_value if not has_zero else 0
