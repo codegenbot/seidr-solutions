@@ -1,12 +1,12 @@
-```
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
+```python
+    def is_palindrome(string: str) -> bool:
+        return string == string[::-1]
 
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    else:
-        for i in range(len(string), 0, -1):
-            if string[:i] == string[:i][::-1]:
-                return string[:i] + string[:i][::-1] + string[i:] + ''.join(reversed(string[:i]))
-        return string + ''.join(reversed(string))
+    def make_palindrome(string: str) -> str:
+        if string == string[::-1]:
+            return string + string[::-1]
+        else:
+            for i in range(len(string), 0, -1):
+                if string[:i] == string[:i][::-1]:
+                    return string[:i] + string[:i][::-1] + string[i:] + ''.join(reversed(string[:i]))
+            return string + ''.join(reversed(string))
