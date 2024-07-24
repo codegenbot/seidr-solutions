@@ -1,33 +1,36 @@
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
-    }
+    int n;
+    cin >> n;
     
-    int n = nums.size();
-    int left_sum = 0, right_sum = 0;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        right_sum += nums[i];
+        cin >> nums[i];
     }
     
-    int min_diff = abs(left_sum - right_sum);
-    int cut_pos = 0;
-    
-    for (int i = 0; i < n; ++i) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_pos = i;
-        }
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
     }
     
-    for (int i = 0; i <= cut_pos; ++i) {
+    int target = sum / 2;
+    int prefixSum = 0;
+    int idx = 0;
+    
+    while (prefixSum <= target) {
+        prefixSum += nums[idx];
+        ++idx;
+    }
+    
+    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx - 1]))) {
+        --idx;
+        prefixSum -= nums[idx];
+    }
+    
+    for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
+    
+    cout << prefixSum << endl;
     
     return 0;
 }
