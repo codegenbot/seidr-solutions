@@ -1,22 +1,26 @@
 #include <vector>
 #include <string>
-#include <cassert> // To use assert
+#include <cassert>
+#include <algorithm> // To use std::equal
 
-bool parse_nested_parens(std::string s) {
-    std::vector<int> nested_parens;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> parse_nested_parens(const std::string& s) {
+    std::vector<int> result;
+    int count = 0;
     for (char c : s) {
         if (c == '(') {
-            nested_parens.push_back(4);
+            count++;
         } else if (c == ')') {
-            if (nested_parens.empty() || nested_parens.back() != 4) {
-                return false;
-            }
-            nested_parens.pop_back();
+            count--;
         }
+        result.push_back(count);
     }
-    return nested_parens.empty();
+    return result;
 }
 
 int main() {
-    assert(parse_nested_parens("(())"));
+    assert(issame({4}, {4}));
 }
