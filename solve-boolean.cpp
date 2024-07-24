@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
 bool evalBoolean(string s) {
     if (s.empty())
@@ -70,13 +70,13 @@ bool evalOp(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
     bool result = evalOp(s);
     if (result)
-        cout << "True";
+        std::cout << "True";
     else
-        cout << "False";
+        std::cout << "False";
     return 0;
 }
