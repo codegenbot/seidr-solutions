@@ -1,33 +1,26 @@
-bool hasDigits = false;
-int dotCount = 0;
+Here is the solution:
 
-for(char c : file_name) {
-    if(isdigit(c)) {
-        if(hasDigits) return "No";
-        hasDigits = true;
-    } else if(c == '.') {
-        dotCount++;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            found_dot = true;
+        }
+        else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
-}
 
-if(dotCount != 1) return "No";
-
-string suffix = "";
-for(int i = file_name.find('.') + 1; i < file_name.length(); i++) {
-    suffix += file_name[i];
-}
-
-string validSuffixes[] = {"txt", "exe", "dll"};
-bool isValidSuffix = false;
-for(string s : validSuffixes) {
-    if(suffix == s) {
-        isValidSuffix = true;
-        break;
+    if(found_dot){
+        string extension = file_name.substr(file_name.find('.')+1);
+        if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    }else{
+        return "No";
     }
-}
-
-if(!hasDigits && dotCount == 1 && (file_name[0] >= 'a' && file_name[0] <= 'z') || (file_name[0] >= 'A' && file_name[0] <= 'Z') && isValidSuffix) {
+    
     return "Yes";
-} else {
-    return "No";
 }
