@@ -1,33 +1,18 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int> &nums) {
-    int n = nums.size();
-    vector<vector<int>> res;
-    
-    for (int i = 0; i < n - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if (i == 0 || nums[i] != nums[0]) {
-            res.push_back({nums[0], nums[i]});
-        } else {
-            res.push_back({nums[0]});
-        }
-        
-        for (int j = i; j < n - 1; j++) {
-            if (abs(nums[j + 1] - nums[j]) <= diff) {
-                res.back().push_back(nums[j]);
-                break;
-            } else {
-                res.back().push_back(nums[j]);
-                res.push_back({nums[j + 1]});
-                break;
-            }
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int idx = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] == vec[i + 1]) continue;
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            idx = i;
         }
     }
-    
-    if (n > 0) {
-        res.back().push_back(nums[n - 1]);
-    }
-    
-    return res;
+
+    return {{}, {}}; // replace this with your actual implementation
 }
