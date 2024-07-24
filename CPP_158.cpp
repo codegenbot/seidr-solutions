@@ -1,12 +1,13 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::string find_max(const std::vector<std::string>& words) {
     if (words.empty()) {
         return "";
     }
-    string max = words[0];
+    std::string max = words[0];
     for (const auto& word : words) {
         if (word.size() > max.size()) {
             max = word;
