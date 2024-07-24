@@ -1,32 +1,23 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-int match_parens(std::vector<std::string> lst) {
+bool match_parens(std::vector<std::string> lst) {
     int countOpen = 0, countClose = 0;
 
-    for (const auto& s : lst) {
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') countOpen++;
             else countClose++;
         }
     }
 
-    if (countOpen == countClose) return 1;
-    else return 0;
+    return countOpen == countClose;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<std::string> vec;
-    for(int i = 0; i < n; i++) {
-        std::string temp;
-        std::cin >> temp;
-        vec.push_back(temp);
+    std::vector<std::string> input = {{"(())"}, {"(())", "((()))"}};
+    for (const auto& s : input) {
+        cout << (match_parens({s}) ? "Yes" : "No") << endl;
     }
-    
-    if (match_parens(vec)) std::cout << "Yes";
-    else std::cout << "No";
     return 0;
 }
