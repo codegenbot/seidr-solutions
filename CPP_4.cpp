@@ -17,7 +17,7 @@ float mean(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    std::vector<float> numbers(5); // specify a capacity of 5 elements
     float result = mean_absolute_deviation(numbers);
     std::cout << "Mean Absolute Deviation: " << result << std::endl;
     return 0;
