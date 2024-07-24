@@ -1,6 +1,7 @@
-```
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string spinWords(string sentence) {
