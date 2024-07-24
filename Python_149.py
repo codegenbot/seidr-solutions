@@ -1,8 +1,7 @@
-```
+```Python
 def sorted_list_sum(lst):
-    if all(i.isnumeric() for i in lst) and len(set(len(x) for x in lst)) == 1:
-        return sum(sorted(map(int, [i * int('0' * (len(max(lst)) - len(i))) for i in lst])))
+    if all(x.strip().isalpha() for x in lst) and len(set(len(x.strip()) for x in lst)) == 1:
+        max_len = max(len(x.strip()) for x in lst)
+        return [''.join(sorted(i.ljust(max_len))) for i in set(''.join(sorted(i)) for i in lst)]
     else:
-        num_strs = sorted([x for x in lst if x.isnumeric()])
-        max_len = max(len(s) for s in num_strs)
-        return [''.join(sorted(s)) for s in num_strs]
+        print("Invalid input. Please enter a list of strings.")
