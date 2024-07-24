@@ -1,12 +1,12 @@
+```cpp
 #include <iostream>
-#include <vector>
 
 int sum_squares(int n) {
-    int sum = 0;
-    for (int i = 1; i <= n; i++) {
-        sum += i * i;
+    int total = 0;
+    for (int i = 1; i * i <= n; ++i) {
+        total += i * i;
     }
-    return sum;
+    return total;
 }
 
 int main2() {

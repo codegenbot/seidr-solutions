@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <memory>
 
 int maxPrimeNum = 0;
-std::vector<int> lst;
+std::vector<int> lst(std::allocator<int>());
 
 bool isPrime(int x) {
     for (int i = 2; i <= std::sqrt(x); i++) {
