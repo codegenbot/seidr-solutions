@@ -1,25 +1,32 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid = true;
+bool has_digit = false;
+bool has_dot = false;
+string before_dot = "";
+string after_dot = "";
 
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-
-        if(c == '.')
-            dot_count++;
-        else if(c >= '0' && c <= '9')
-            digit_count++;
-
-        if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
-            valid = false;
+for(char c : file_name) {
+    if(isdigit(c)) {
+        if(has_digit) return "No";
+        has_digit = true;
+    } else if(c == '.') {
+        if(has_dot) return "No";
+        has_dot = true;
+        string temp = "";
+        for(++file_iter; file_iter != file_name.end(); ++file_iter) {
+            if(*file_iter == '.')
+                break;
+            temp += *file_iter;
+        }
+        after_dot = temp;
+    } else if(before_dot.empty()) {
+        before_dot += c;
+    } else {
+        string temp = "";
+        for(++file_iter; file_iter != file_name.end(); ++file_iter) {
+            temp += *file_iter;
+        }
+        if(after_dot == "txt" || after_dot == "exe" || after_dot == "dll")
+            return "Yes";
+        return "No";
     }
-
-    if(digit_count > 3)
-        valid = false;
-
-    if(dot_count != 1)
-        valid = false;
-
-    return valid ? "Yes" : "No";
 }
+return has_digit ? "No" : (after_dot.empty() ? "No" : "Yes");
