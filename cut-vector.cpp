@@ -8,7 +8,10 @@ int main() {
     vector<int> vec;
     int num;
 
-    while (cin >> num || !cin.eof()) {
+    while (cin >> num) {
+        if (num == 0) {
+            break;
+        }
         vec.push_back(num);
     }
 
@@ -41,6 +44,6 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         cout << vec[i] << endl;
     }
-    
+
     return 0;
 }
