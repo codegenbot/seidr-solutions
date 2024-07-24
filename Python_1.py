@@ -1,26 +1,24 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
     stack = []
-    groups = []
-    current_group = ''
-
+    temp_str = ''
+    
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            current_group += char
+            temp_str += char
         elif char == ')':
-            while stack and stack[-1] != '(':
-                current_group += stack.pop()
-            if stack:
-                current_group += stack.pop()
+            if stack and stack[-1] == '(':
+                stack.pop()
+                temp_str += char
+                result.append(temp_str + char)
+                temp_str = ''
             else:
-                groups.append(current_group)
-                current_group = ''
-
-    if current_group:
-        groups.append(current_group)
-
-    return [group.replace('(', '()).' for group in groups][1:-1].split('.').remove('()').split()
+                temp_str += char
+    
+    return result
