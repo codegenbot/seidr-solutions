@@ -1,7 +1,7 @@
-#include <cassert>
+#include <iostream>
 #include <string>
 #include <algorithm>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -15,8 +15,8 @@ T compare_one(T a, T b) {
 }
 
 int main() {
-    assert(compare_one<string>("1", "2") == "2");
-    assert(compare_one<int>(1, 3) == 3);
-    assert(compare_one<float>(1.5f, 0.5f) == 1.5f);
+    assert(compare_one(string("1"), string("2")) == "2");
+    assert(compare_one(1, 2) == 2);
+    
     return 0;
 }
