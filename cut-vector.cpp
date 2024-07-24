@@ -8,7 +8,7 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while (std::cin.peek() != '\n' && std::cin >> num && num != -1) {
+    while(std::cin >> num && num != -1 && !std::cin.eof()) {
         nums.push_back(num);
     }
     
