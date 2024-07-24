@@ -1,6 +1,6 @@
+#include <iomanip>
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 using namespace std;
 
@@ -9,7 +9,6 @@ int main() {
     cin >> n;
     vector<float> prices(n);
     vector<float> discounts(n);
-    
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
@@ -24,7 +23,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i]);
     }
 
-    cout << fixed << setprecision(2) << total << endl;
+    cout << fixed << setprecision(2) << total << endl; // Output with fixed precision
 
     return 0;
 }
