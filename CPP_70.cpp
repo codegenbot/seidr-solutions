@@ -1,6 +1,10 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -11,31 +15,24 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
             result.push_back(min_val);
             lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
         } else {
-            result.push_back(min_val);
-            result.push_back(max_val);
-            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+            for(int i = 0; i < 2; ++i){
+                if(i==0)
+                    result.push_back(min_val);
+                else
+                    result.push_back(max_val);
+                if (min_val == max_val) {
+                    lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+                } else {
+                    lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+                    lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+                }
+            }
         }
     }
     return result;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers[i];
-    }
-
-    std::vector<int> sorted = strange_sort_vector(numbers);
-
-    std::cout << "Sorted Vector: ";
-    for (int num : sorted) {
-        std::cout << num << " ";
-    }
+    assert(issame(strange_sort_vector({111111}), {111111}));
     return 0;
 }
