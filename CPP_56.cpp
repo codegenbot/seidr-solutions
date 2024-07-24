@@ -11,6 +11,7 @@ bool correct_bracketing(const std::string &brackets) {
         }
         if (count < 0) {
             return false;
+            break;
         }
     }
     return count == 0;
