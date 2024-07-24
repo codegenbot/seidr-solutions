@@ -1,5 +1,6 @@
 Here is the solution:
 
+```cpp
 string string_xor(string a, string b) {
     string result = "";
     for (int i = 0; i < a.length(); i++) {
