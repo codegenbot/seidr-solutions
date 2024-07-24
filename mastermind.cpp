@@ -25,8 +25,8 @@ int mastermind(string code, string guess) {
 
     // Count white pegs (correct color, wrong place)
     for (char c : guess) {
-        if (code_count[c] > 0) {
-            code_count[c]--;
+        code_count[c]--;
+        if (code_count[c] >= 0 && code.find(c) != string::npos) {
             white++;
         }
     }
