@@ -1,9 +1,5 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-vector<string> split_words(string txt) {
-    vector<string> result;
+vector<std::string> split_words(std::string txt) {
+    vector<std::string> result;
     size_t pos = 0, prev_pos = 0;
 
     while ((pos = txt.find_first_of(" ,")) != std::string::npos) {
@@ -20,17 +16,17 @@ vector<string> split_words(string txt) {
             result.push_back(std::to_string(count));
             break;
         }
-        string word = txt.substr(prev_pos, pos - prev_pos);
+        std::string word = txt.substr(prev_pos, pos - prev_pos);
         result.push_back(word);
         prev_pos = pos + 1;
     }
 
     if (prev_pos < txt.size()) {
         size_t start = prev_pos;
-        while (start < txt.size() && !isalnum(txt[start])) {
+        while (start < txt.size() && !std::isalnum(txt[start])) {
             start++;
         }
-        string word = txt.substr(start);
+        std::string word = txt.substr(start);
         int count = 0;
         for (char c : word) {
             if (c >= 'a' && c <= 'z') {
