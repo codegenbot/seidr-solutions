@@ -1,8 +1,5 @@
-#include <iostream>
 #include <sstream>
 #include <string>
-
-using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -24,7 +21,7 @@ string string_to_md5(string text) {
 int main() {
     string text;
     cout << "Enter a string: ";
-    getline(cin, text);
-    cout << "MD5 checksum: " << string_to_md5(text) << endl;
+    cin >> text;
+    cout << "MD5 of the entered string is: " << string_to_md5(text);
     return 0;
 }
