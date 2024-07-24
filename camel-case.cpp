@@ -9,19 +9,14 @@ string camelCase(string s) {
     int i = 0; // declare and initialize i
     if (s[0] == '-') i++;
     string result = "";
-    for (int j = 0; j < s.length(); j++) {
-        if (j == i && s[j] != ' ') {
-            result += toupper(s[j]);
-        } else if (s[j] == '-') {
-            i = j + 1;
-            while (i < s.length() && s[i] != ' ') {
-                result += tolower(s[i]);
-                i++;
+    for (int j = i; j < s.length(); j++) {
+        if (s[j] == '-') {
+            j++;
+            while (j < s.length() && s[j] != ' ') {
+                result += toupper(s[j]);
+                j++;
             }
-            if (i < s.length()) {
-                result += toupper(s[i]);
-                i++;
-            }
+            result += " ";
         } else {
             result += tolower(s[j]);
         }
