@@ -1,11 +1,13 @@
-```cpp
 #include <string>
-#include <cctype>
 
-std::string remove_vowels(std::string text) {
-    std::string result = "";
+#include <cctype>
+using namespace std;
+
+string remove_vowels(string text) {
+    string result = "";
     for(char c : text){
-        if(std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u')
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+           || tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u')
             continue;
         result += c;
     }
