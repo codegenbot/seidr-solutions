@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -24,4 +23,3 @@ string string_to_md5(string text) {
 
     return ss.str();
 }
-```
