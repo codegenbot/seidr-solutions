@@ -1,13 +1,14 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
 #include <cctype>
+#include <unordered_map>
+#include <cassert>
 
 using namespace std;
 
-unordered_map<char, int> histogram(string test) {
-    unordered_map<char, int> result;
+unordered_multimap<char, int> histogram(string test) {
+    unordered_multimap<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -19,17 +20,15 @@ unordered_map<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    unordered_map<char, int> maxCountMap;
+    unordered_multimap<char, int> maxCountMap;
 
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap[it->first] = it->second;
-        } else if (it->second == maxCount) {
-            if (maxCount > 0) {
-                maxCountMap[it->first] = it->second;
-            }
+            maxCountMap.insert(p);
+        } else if (p.second == maxCount) {
+            maxCountMap.insert(p);
         }
     }
 
@@ -41,10 +40,11 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    unordered_map<char, int> hist = histogram(input);
-    for (auto it = hist.begin(); it != hist.end(); ++it) {
-        cout << it->first << ": " << it->second << endl;
+    unordered_multimap<char, int> hist = histogram(input);
+    for (auto& p : hist) {
+        cout << p.first << ": " << p.second << endl;
     }
 
+    assert(histogram("a") == {{'a', 1}});
     return 0;
 }
