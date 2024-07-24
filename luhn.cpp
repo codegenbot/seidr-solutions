@@ -1,17 +1,24 @@
-int luhnCheck(vector<int> cardNum) {
+#include <vector>
+using namespace std;
+
+int luhn(vector<int> digits) {
     int sum = 0;
-    bool isSecond = true;
-
-    for(int i = cardNum.size() - 1; i >= 0; --i) {
-        int digit = cardNum[i];
-        if(isSecond) {
-            digit *= 2;
-            if(digit > 9)
-                digit -= 9;
+    bool odd = true;
+    
+    for (int i = 0; i < digits.size(); i++) {
+        if (odd) {
+            int temp = digits[i] * 2;
+            
+            if (temp > 9) 
+                temp -= 9;
+            
+            sum += temp;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
-        isSecond = !isSecond;
+        
+        odd = !odd;
     }
-
+    
     return sum;
 }
