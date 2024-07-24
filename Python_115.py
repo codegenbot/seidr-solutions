@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     total_water = 0
     left_max = [0] * len(grid)
