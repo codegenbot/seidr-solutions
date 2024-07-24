@@ -44,11 +44,11 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             if (!s.empty()) break;
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
                 cout << "Please try again: ";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ignore the newline character
             }
         }
         lst1.push_back(s);
@@ -62,11 +62,11 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             if (!s.empty()) break;
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
                 cout << "Please try again: ";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ignore the newline character
             }
         }
         lst2.push_back(s);
