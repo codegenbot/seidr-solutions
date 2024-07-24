@@ -1,4 +1,3 @@
-```
 def paired_digits(s):
     s = str(s)  
     total_sum = 0
