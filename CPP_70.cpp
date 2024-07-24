@@ -29,4 +29,5 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
+    assert(issame(sortList({111}), {111}));
 }
