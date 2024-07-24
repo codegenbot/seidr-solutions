@@ -1,6 +1,5 @@
-from typing import List
-
-def parse_nested_parens(paren_string: str) -> List:
+```
+def parse_nested_parens(paren_string: str) -> list:
     result = []
     level = 0
     sub_list = []
