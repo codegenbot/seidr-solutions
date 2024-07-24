@@ -1,3 +1,4 @@
+```
 def minSubArraySum(nums):
     if not nums:
         return 0
@@ -9,7 +10,6 @@ def minSubArraySum(nums):
         while current_sum > 0 and left <= right:
             min_sum = min(min_sum, current_sum)
             if current_sum == 0:  
-                current_sum = 0
                 break
             current_sum -= nums[left]
             left += 1
