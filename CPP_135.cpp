@@ -15,20 +15,21 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> vec(n);
+    
+    std::vector<int> arr(n);
+    
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> vec[i];
+        std::cin >> arr[i];
     }
-
-    int result = can_arrange(vec);
-
+    
+    int result = can_arrange(arr);
+    
     if (result == -1) {
         std::cout << "The array is already arranged." << std::endl;
     } else {
-        std::cout << "First element that can be moved to the front: " << result << std::endl;
+        std::cout << "The first element that is out of order is at index " << result << "." << std::endl;
     }
-
+    
     return 0;
 }
