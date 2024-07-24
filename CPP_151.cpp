@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 long long double_the_difference(std::vector<float> lst){
@@ -13,8 +14,21 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> myVector = {1.5f, 2.7f, 3.8f}; 
-    float odd_sum = double_the_difference(myVector); 
-    assert(odd_sum == double_the_difference(myVector)); 
+    std::vector<float> myVector; 
+    float odd_sum = 0.0f;
+
+    int size;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> size;
+
+    myVector.resize(size);
+
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> myVector[i];
+    }
+
+    odd_sum = double_the_difference(myVector); 
+    assert(double_the_difference(myVector) == odd_sum);
     return 0;
 }
