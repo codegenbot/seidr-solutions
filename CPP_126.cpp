@@ -12,7 +12,7 @@ bool is_sorted(std::vector<int> lst) {
             break;
     }
 
-    return std::all_of(lst.begin(), lst.end(), [&lst](int x) { return count(lst.begin(), lst.end(), x) <= 1; });
+    return std::all_of(lst.begin(), lst.end(), [&lst](int x) { return std::count(lst.begin(), lst.end(), x) <= 1; });
 }
 
 int main() {
