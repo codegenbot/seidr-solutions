@@ -1,36 +1,47 @@
-int evalBool(std::string s) {
-    if (s.empty()) {
-        return 0;
-    }
-    int result = 0;
+#include <string>
+
+bool evalBool(std::string s) {
     for (char c : s) {
         switch (std::tolower(c)) {
             case 't':
-                return 1;
+                return true;
             case 'f':
-                return 0;
-            case '|': {
-                int subResult1 = evalBool(s.substr(0, s.find(c)));
-                if (subResult1 == 0 || evalBool(s.substr(s.find(c) + 1)) == 0)
-                    return 0;
-                else
-                    return 1;
-            }
-            case '&': {
-                int subResult1 = evalBool(s.substr(0, s.find(c)));
-                int subResult2 = evalBool(s.substr(s.find(c) + 1));
-                if (subResult1 == 0 || subResult2 == 0)
-                    return 0;
-                else
-                    return 1;
-            }
+                return false;
+            case '|': 
+                if (s.length() > 1) {
+                    int pos = s.find('|');
+                    std::string left = s.substr(0, pos);
+                    std::string right = s.substr(pos + 1);
+                    return evalBoolOr(left, right);
+                }
+                break;
+            case '&':
+                if (s.length() > 1) {
+                    int pos = s.find('&');
+                    std::string left = s.substr(0, pos + 1);
+                    std::string right = s.substr(pos + 1);
+                    return evalBoolAnd(left, right);
+                }
+                break;
         }
     }
-    return 0; 
+    return false; 
+}
+
+bool evalBoolOr(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 || subResult2;
+}
+
+bool evalBoolAnd(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 && subResult2;
 }
 
 int main() {
     std::string input = "t|t|f&f|t|t";
-    int result = evalBool(input);
-    return result;
+    bool result = evalBool(input);
+    return 0;
 }
