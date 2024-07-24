@@ -1,9 +1,7 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <vector>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
     std::string strongest_extension;
 
@@ -14,16 +12,16 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
             else if(islower(c)) sm++;
         }
         int strength = cap - sm;
-        if(strength > max_strength || (strength == max_strength && extension < strongest_extension)){
+        if(strength > max_strength || (strength == max_strength && extension.compare(strongest_extension) <= 0)){
             max_strength = strength;
             strongest_extension = extension;
         }
     }
 
-    return class_name + "." + strongest_extension;
+    return class_name + "." + strongest_extension + std::to_string(max_strength);
 }
 
 int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
