@@ -4,20 +4,19 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = false;
+    int precedence = 0;
     for (char c : expression) {
         if (c == 't') {
             result = true;
         } else if (c == 'f') {
             return false;
         } else if (c == '|') {
-            bool temp = result;
-            result = true;
-            while(expression.find('&') != string::npos) {
-                expression.replace(expression.find('&'), 1, "");
-            }
-            result &= temp;
+            precedence = 1;
         } else if (c == '&') {
-            result &= true;
+            if (precedence == 0) {
+                result &= true;
+            }
+            precedence = -1;
         }
     }
     return result;
@@ -28,3 +27,4 @@ int main() {
     cin >> expression;
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
+}
