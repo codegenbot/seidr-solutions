@@ -13,11 +13,13 @@ vector<int> parse_nested_parens(string paren_string) {
             nesting_levels.push(1);
             max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
-            result.push_back(max_nesting);
-            max_nesting = nesting_levels.top();
+            int current_level = nesting_levels.top();
             nesting_levels.pop();
+            result.push_back(current_level);
+            max_nesting = max(max_nesting, current_level);
         }
     }
 
+    reverse(result.begin(), result.end());
     return result;
 }
