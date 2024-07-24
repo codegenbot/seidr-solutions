@@ -1,7 +1,7 @@
 vector<int> parse_music(string music_string);
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b){
+    return (a == b);
 }
 
 vector<int> parse_music(string music_string){
@@ -24,4 +24,9 @@ vector<int> parse_music(string music_string){
     beats.push_back(note_duration + 1);
     
     return beats;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
