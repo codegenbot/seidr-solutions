@@ -1,8 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 double median(std::vector<int> l) {
     std::sort(l.begin(), l.end());
@@ -14,4 +15,6 @@ double median(std::vector<int> l) {
     }
 }
 
-assert(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+TEST_CASE("Median of a vector", "[median]") {
+    REQUIRE(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+}
