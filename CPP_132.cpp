@@ -7,5 +7,4 @@ bool is_nested(string str) {
             else return false;
         }
     }
-    return count != 0; 
-}
+    return count != 0;
