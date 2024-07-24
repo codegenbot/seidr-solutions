@@ -1,8 +1,14 @@
-def find_largest_palindrome-product():
-    max_palindrome = 0
-    for i in range(1000, 1, -1):
-        for j in range(i, 1, -1):
-            product = i * j
-            if str(product) == str(product)[::-1] and product > max_palindrome:
-                max_palindrome = product
-    return max_palindrome
+```"
+i = 2
+while i * i <= n:
+    if n % i:
+        i += 1
+    else:
+        n //= i
+        while n % i == 0:
+            n //= i
+            factors.append(i)
+i = n
+if i > 1:
+    factors.append(n)
+return [1] + factors"```
