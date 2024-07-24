@@ -18,5 +18,6 @@ bool pairs_sum_to_zero(vector<int> l) {
             j--;
     }
     
-    return false;
+    if (j == 0) return false; 
+    return true;
 }
