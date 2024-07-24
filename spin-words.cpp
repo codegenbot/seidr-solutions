@@ -1,38 +1,39 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 string spinWords(string s) {
     string result = "";
-    int wordLength;
-    string word;
-
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            if ((word.length()) >= 5) {
-                for (int j = word.length(); j >= 0; j--)
-                    result += word[j];
-            } else
-                result += word;
-            word = "";
-        } else
-            word += s[i];
+    int length = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == ' ') {
+            if(length >= 5) {
+                for(int j = length - 1; j >= 0; j--) {
+                    result += s[i-j];
+                }
+            } else {
+                result += s.substr(i-length, length);
+            }
+            result += " ";
+            length = 0;
+        } else {
+            length++;
+        }
+    }
+    if(length >= 5) {
+        for(int j = length - 1; j >= 0; j--) {
+            result += s[i-j];
+        }
+    } else {
+        result += s.substr(0, length);
     }
     return result;
 }
 
 int main() {
-    string str1 = "a";
-    cout << spinWords(str1) << endl;
-
-    str1 = "this is a test";
-    cout << spinWords(str1) << endl;
-
-    str1 = "this is another test";
-    cout << spinWords(str1) << endl;
-
-    str1 = "hi";
-    cout << spinWords(str1) << endl;
-    
+    string s;
+    while(true) {
+        cin >> s;
+        cout << spinWords(s) << endl;
+    }
     return 0;
 }
