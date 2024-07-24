@@ -1,9 +1,7 @@
-Here is the completed code:
-
 string concatenate(vector<string> strings){
     string result = "";
-    for(string str : strings){
-        result += str;
+    for(string s : strings) {
+        result += s;
     }
     return result;
 }
