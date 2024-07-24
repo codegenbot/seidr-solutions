@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     s1, s2 = lst
     stack = []
