@@ -15,10 +15,9 @@ std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int num = 1;
     for (int i = 0; i < n; i++) {
-        if (i % 2 == 0)
-            pile.push_back(1);
-        else
-            pile.push_back(num++);
+        pile.push_back((i % 2 == 0) ? num : num + 1);
+        if ((i % 2 == 0 && num != 3) || (i % 2 != 0 && num != 2))
+            num = (num % 2 == 0) ? num + 2 : num + 1;
     }
     return pile;
 }
