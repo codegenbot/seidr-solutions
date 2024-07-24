@@ -9,10 +9,6 @@ string int_to_mini_roman(int number) {
             roman += numeral.second;
             number -= numeral.first;
         }
-        if (number > 0) {
-            roman += "I";
-            number--;
-        }
     }
 
     return roman;
