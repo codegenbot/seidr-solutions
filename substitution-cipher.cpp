@@ -8,16 +8,16 @@ int main() {
     std::string cipher1;
     std::cin >> cipher1;
     std::string message;
-    cin >> message;
+    std::getline(std::cin, message);
 
-    std::unordered_map<char, char> cipherMap;
+    std::unordered_map<char, std::string> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1[i]] = cipher2[i];
+        cipherMap[cipher1[i]] = cipher2.substr(i, 1);
     }
 
-    std::string result = "";
+    std::string result;
     for(int i = 0; i < message.length(); i++) {
-        c = message[i];
+        char c = std::tolower(message[i]); // Convert to lowercase
         if(cipherMap.find(c) != cipherMap.end()) {
             result += cipherMap.at(c);
         } else {
