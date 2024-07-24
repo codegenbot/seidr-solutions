@@ -42,7 +42,7 @@ int main() {
         return 1;
     }
 
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Consume newline character
 
     string text, target;
     if (!getline(cin, text) || !getline(cin, target)) {
