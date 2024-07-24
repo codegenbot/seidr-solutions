@@ -1,8 +1,4 @@
 ```cpp
-#ifndef __GXX_EXPERIMENTAL_CXX0XX__
-#define __GXX_EXPERIMENTAL_CXX0XX__
-#endif
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -18,15 +14,13 @@ std::vector<int> sortList(const std::vector<int>& input) {
 }
 
 int main() {
-    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<int> input(n);
     for(int i = 0; i < n; i++) {
-        int val;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
+        std::cin >> input[i];
     }
     std::vector<int> output = sortList(input);
     std::cout << "Sorted list: ";
