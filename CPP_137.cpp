@@ -25,13 +25,12 @@ any compare_one(any a, any b) {
     else if (db > da)
         return b;
     throw invalid_argument("Tie");
-
 }
 
 int main() {
     cout << any_cast<double>(compare_one(1.0, 2.5)) << endl;
     cout << any_cast<double>(compare_one(1, "2.5")) << endl;
     cout << any_cast<string>(compare_one("5.1", "6.3")) << endl;
-    cout << any_cast<double>(compare_one("1.2", 1)) << endl;
+    cout << any_cast<double>(compare_one("1.0", 1)) << endl;
     return 0;
 }
