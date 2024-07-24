@@ -1,7 +1,15 @@
-#include <initializer_list>
 #include <vector>
+#include <cassert>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    for (int i = 2; i <= n; i++) {
+        pile.push_back(i * 2);
+    }
+    return pile;
+}
+
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,19 +17,7 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-bool isSame(const std::vector<int>& pile1, const std::vector<int>& pile2) {
-    return pile1 == pile2;
-}
-
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    int stones = 0;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 1)
-            stones = i * 2 - 1;
-        else
-            stones = i * 2;
-        pile.push_back(stones);
-    }
-    return pile;
+int main() {
+    assert(isSame(make_a_pile(8), std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
+    return 0;
 }
