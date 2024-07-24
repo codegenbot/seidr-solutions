@@ -1,3 +1,4 @@
+```
 def sorted_list_sum(input_data):
     try:
         input_string = ' '.join(map(str, input_data))
@@ -9,7 +10,7 @@ def sorted_list_sum(input_data):
     while True:
         target = input("Enter a number (or 'q' to quit): ")
         if target == 'q':
-            return 0
+            return sum(nums)
         try:
             target_num = int(target)
             if target_num < nums[0]:
