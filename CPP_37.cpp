@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -25,7 +24,7 @@ std::vector<float> sort_even(std::vector<float> vec) {
                 temp.push_back(vec[j++]);
             }
             // Sort the temporary vector.
-            std::sort(temp.begin(), temp.end(), [](float a, float b){return a < b;});
+            std::sort(temp.begin(), temp.end(), [](float a, float b) { return a < b; });
             // Replace even elements in result with the sorted ones.
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
