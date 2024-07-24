@@ -33,12 +33,9 @@ std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
     return result;
 }
 
-int main() {
-    assert(issame(std::make_pair("Earth", "Earth")));  
-    std::cout << "Enter two planet names: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    std::pair<std::string, std::string> planets = {planet1, planet2};
-    assert(bf(planets).size() == 0);  
-    return 0;
-}
+std::cout << "Enter two planet names: ";
+std::string planet1, planet2;
+std::cin >> planet1 >> planet2;
+std::pair<std::string, std::string> planets = {planet1, planet2};
+assert(issame(std::make_pair("Earth", "Earth")));
+assert(bf(planets).size() == 0);
