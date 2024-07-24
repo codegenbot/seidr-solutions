@@ -1,36 +1,31 @@
-int countDigits(string str) {
+int count_digits(const string& str) {
     int count = 0;
-    for(int i=0; i<str.length(); i++) {
-        if(str[i] >= '0' && str[i] <= '9') {
+    for (char c : str) {
+        if (isdigit(c)) {
             count++;
         }
     }
     return count;
 }
 
-string file_name_check(string file_name){
-    bool valid = true;
-
-    if(countDigits(file_name) > 3) {
-        valid = false;
+string file_name_check(string file_name) {
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos >= file_name.size() - 4) {
+        return "No";
     }
 
-    int dotIndex = -1;
-    for(int i=0; i<file_name.length(); i++) {
-        if(file_name[i] == '.') {
-            dotIndex = i;
-            break;
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!before_dot.empty() && !ispunct(before_dot[0]) && isalpha(before_dot[0])) {
+        if (count_digits(before_dot) <= 3 && (
+            after_dot == "txt" || 
+            after_dot == "exe" || 
+            after_dot == "dll"
+        )) {
+            return "Yes";
         }
     }
 
-    if(dotIndex == -1 || file_name.substr(0, dotIndex).empty() ||
-       !isalpha(toupper(file_name[0]))) {
-        valid = false;
-    } else if(!(file_name.substr(dotIndex+1) == "txt" || 
-                file_name.substr(dotIndex+1) == "exe" || 
-                file_name.substr(dotIndex+1) == "dll")) {
-        valid = false;
-    }
-
-    return valid ? "Yes" : "No";
+    return "No";
 }
