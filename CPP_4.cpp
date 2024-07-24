@@ -7,10 +7,10 @@ float mean_absolute_deviation(vector<float> numbers) {
     }
     mean /= numbers.size();
 
-    float mad = 0.0f;
+    float sum = 0.0f;
     for (float num : numbers) {
-        mad += abs(num - mean);
+        sum += abs(num - mean);
     }
-    mad /= numbers.size();
-    return mad;
+
+    return sum / numbers.size();
 }
