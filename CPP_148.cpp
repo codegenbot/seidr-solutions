@@ -5,11 +5,18 @@
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) return false;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
-    }
-    return true;
+    std::string s1 = join(v1);
+    std::string s2 = join(v2);
+    return s1 == s2;
 
+}
+
+std::string join(const std::vector<std::string>& v) {
+    std::string res;
+    for (const auto& str : v) {
+        res += str + " ";
+    }
+    return res;
 }
 
 std::pair<std::string, std::string> bf(std::pair<std::string, std::string>& planets) {
@@ -30,8 +37,10 @@ int main() {
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
-    for (const auto& s : {output.first, output.second}) {
-        std::cout << s << " ";
+    
+    std::cout << output.first << " ";
+    if (!output.second.empty()) {
+        std::cout << output.second;
     }
     return 0;
 }
