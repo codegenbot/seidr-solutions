@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,7 +19,7 @@ std::string kebabToCamel(const std::string& s) {
     
     for (int i = 0; i < words.size(); i++) {
         if (i > 0)
-            result += toupper(words[i][0]) + tolower(std::string(words.begin() + 1, words.end()));
+            result += toupper(words[i][0]) + tolower(string(words.begin() + 1, words.end()));
         else
             result += words[i];
         if (i < words.size() - 1)
