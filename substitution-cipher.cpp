@@ -5,10 +5,13 @@
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
     for (char c : message) {
-        if (c == '\0') break; // Assuming the input strings are null-terminated
-        int index = c - 'a'; // Assuming lowercase letters only
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
+        if (isalpha(c)) { 
+            int index = (tolower(c) - 'a'); 
+            if (index >= 0 && index < cipher1.size()) {
+                result += cipher2[index];
+            } else {
+                result += c; 
+            }
         } else {
             result += c;
         }
