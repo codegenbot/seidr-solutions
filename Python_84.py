@@ -1,3 +1,3 @@
 ```
 def solve(N):
-    return bin((sum(int(b) for b in str(N))) << (N.bit_length() - 1))[2:]
+    return bin(sum(int(i) for i in str(N)))[2:]
