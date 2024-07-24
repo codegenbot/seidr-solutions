@@ -1,21 +1,18 @@
 #include <vector>
 
-bool issame(vector<int> b, vector<int> c) {
-    for (int i = 0; i < b.size(); i++) {
-        if (b[i] != c[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess);
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
+    for (int i = 0; i < game.size(); i++) {
+        result.push_back(abs(game[i] - guess[i]));
+    }
+    return result;
+}
 
 int main() {
-    vector<int> test1 = {1, 2, 3};
-    vector<int> test2 = {1, 4, 3};
-    vector<int> result = compare(test1, test2);
-    for (int i : result) {
-        cout << i << " ";
-    }
+    // Your main function implementation here
+    return 0;
 }
