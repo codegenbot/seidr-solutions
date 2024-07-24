@@ -1,2 +1,2 @@
-def digitSum(s):
-    return sum(int(c.upper()) for c in s if c.isalpha())
+def digitSum(n):
+    return sum(int(digit) for digit in str(n))
