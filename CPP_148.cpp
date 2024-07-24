@@ -5,7 +5,6 @@
 bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::string, std::string>& p2) {
     if (p1.first != p2.first || p1.second != p2.second) return false;
     return true;
-
 }
 
 std::string join(const std::vector<std::string>& v) {
@@ -28,16 +27,14 @@ std::pair<std::string, std::string> bf(std::pair<std::string, std::string> plane
 
 }
 
-int main() {
-    std::pair<std::string, std::string> planets;
-    std::cout << "Enter two planet names: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    planets = {planet1, planet2};
-    
-    std::cout << bf(planets).first << " ";
-    if (!bf(planets).second.empty()) {
-        std::cout << bf(planets).second;
-    }
-    return 0;
+std::cout << "Enter two planet names: ";
+std::string planet1, planet2;
+std::cin >> planet1 >> planet2;
+
+std::pair<std::string, std::string> planets = {planet1, planet2};
+assert(issame(planets, bf(planets)));
+if (bf(planets).first == "No valid planet combination found") {
+    std::cout << "not same";
+} else {
+    std::cout << "same";
 }
