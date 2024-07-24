@@ -29,7 +29,6 @@ int main() {
     std::vector<int> input;
     int num;
 
-    // Read input from the user
     while(std::cin >> num) {
         input.push_back(num);
     }
