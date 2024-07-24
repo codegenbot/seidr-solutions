@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
 
 long long minSubArraySum(std::vector<long long> nums) {
     long long min_sum = LLONG_MAX;
@@ -12,4 +13,11 @@ long long minSubArraySum(std::vector<long long> nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    std::vector<long long> nums = {2,3,-1,5,-7,2,3};
+    long long result = minSubArraySum(nums);
+    std::cout << "Minimum subarray sum: " << result << std::endl;
+    return 0;
 }
