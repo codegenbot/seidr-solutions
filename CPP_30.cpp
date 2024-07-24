@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <initializer_list>
 #include <cassert>
