@@ -2,17 +2,15 @@
 #include <cassert>
 
 bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
+    vector<int> result;
+    for(int i = a; i <= b; ++i){
+        if(i % 2 == 0){
+            result.push_back(i);
         }
     }
-    return true;
+    return result;
 }
 
-int main(){
+int main() {
     assert(is_same(generate_integers(17, 89), {}));
 }
