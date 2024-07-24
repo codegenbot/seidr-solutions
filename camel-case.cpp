@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -6,15 +7,15 @@ std::string camelCase(std::string input) {
     bool firstWord = true;
     
     for (char c : input) {
-        if (c == ' ') {
-            // Skip space
-        } else if (c == '-') {
+        if (c == '-') {
             // Skip dash
+        } else if (c == ' ') {
+            // Skip space
         } else {
-            if (firstWord) {
-                result += tolower(c);
+            if (!firstWord) {
+                result += char(toupper(c));
             } else {
-                result += toupper(c);
+                result += char(tolower(c));
             }
             firstWord = false;
         }
