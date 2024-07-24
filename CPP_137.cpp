@@ -9,12 +9,18 @@ std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(double) && b.type() == typeid(string)) {
         double da = std::any_cast<double>(a);
         string db = std::any_cast<string>(b);
-        return (da > stod(db)) ? a : b;
+        if (da > stod(db))
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         double da = std::any_cast<double>(b);
         string db = std::any_cast<string>(a);
-        return (stod(db) > da) ? a : b;
+        if (stod(db) > da)
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string da = std::any_cast<string>(a);
@@ -24,7 +30,7 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            return a; // Returning the first value if they are equal.
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double da = std::any_cast<double>(a);
@@ -34,15 +40,15 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            return a; // Returning the first value if they are equal.
     }
-    return "None";
+    return a; // Returning the first value as per problem statement if types do not match or none of above conditions are met.
 }
 
 int main() {
-    cout << compare_one(any(1), any(2.5)) << endl;
-    cout << compare_one(any(1), any("2,3")) << endl;
-    cout << compare_one(any("5,1"), any("6")) << endl;
-    cout << compare_one(any("1"), any(1)) << endl;
+    cout << get<any>(compare_one(1, 2.5)) << endl;
+    cout << get<any>(compare_one(1, "2.3")) << endl;
+    cout << get<any>(compare_one("5.1", "6")) << endl;
+    cout << get<any>(compare_one("1", 1)) << endl;
     return 0;
 }
