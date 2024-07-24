@@ -2,24 +2,17 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true;
+    bool result = true; // Initialize to true for simplicity
+    int op = -1; // Operator tracking
     for (char c : s) {
         if (c == 'T' || c == 't') {
-            continue;
+            return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            while(s.find('&') != string::npos) {
-                int pos = s.find('&');
-                s.replace(pos, 1, "0");
-            }
-            result &= (s[0] == 'T' || s[0] == 't');
+            op = 0; // AND operator
         } else if (c == '|') {
-            while(s.find('|') != string::npos) {
-                int pos = s.find('|');
-                s.replace(pos, 1, "0");
-            }
-            result |= (s[0] == 'T' || s[0] == 't');
+            op = 1; // OR operator
         }
     }
     return result;
