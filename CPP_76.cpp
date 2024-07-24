@@ -22,16 +22,14 @@ int main() {
     std::cout << "Enter another number: ";
     std::cin >> n;
     if(n == 0)
-        std::string result = (x == 1) ? "True" : "False";
-        std::cout << result << std::endl;
+        std::cout << (x == 1 ? "True" : "False") << std::endl;
     else {
         double y = pow(n, log(x) / log(n));
-        std::string result = (y == x) ? "True" : "False";
-        std::cout << result << std::endl;
+        std::cout << ((y == x) ? "True" : "False") << std::endl;
         if (is_simple_power(x, n))
-            std::cout << "True" << std::endl;
+            std::cout << std::to_string(true) << std::endl; 
         else
-            std::cout << "False" << std::endl;
+            std::cout << std::to_string(false) << std::endl; 
     }
     return 0;
 }
