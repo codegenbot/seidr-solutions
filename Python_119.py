@@ -1,8 +1,11 @@
-```
+```python
 import re
 
 def match_parens(lst):
     for s in lst:
-        if len(re.findall("\(", s)) != len(re.findall("\)", s)):
-            return False
-    return True
+        while True:
+            match = re.search(r'\(([^()]+|(?R))*\)', s)
+            if not match:
+                return "No"
+            s = s[:match.start()] + s[match.end():]
+    return "Yes"
