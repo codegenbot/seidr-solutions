@@ -20,7 +20,7 @@ int main() {
 }
 
 std::vector<string> main::sorted_list_sum(std::vector<string> lst) {
-    std::vector<string> result;
+    vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
