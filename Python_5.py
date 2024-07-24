@@ -1,3 +1,5 @@
-return [
-    x for pair in zip(numbers, [delimeter] * (len(numbers) - 1)) for x in pair
-] + numbers[-1:]
+result = []
+for num in numbers:
+    result.extend([num, delimeter])
+result.pop()  # Remove the last unnecessary delimeter
+return result
