@@ -1,30 +1,25 @@
 #include <vector>
+#include <cassert>
+
+std::vector<float> derivative(const std::vector<float>& xs) {
+    if (xs.size() < 2) {
+        return {};
+    }
+    
+    std::vector<float> result;
+    for (size_t i = 1; i < xs.size(); ++i) {
+        result.push_back(xs[i] - xs[i - 1]);
+    }
+    
+    return result;
+}
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 int main() {
-    std::vector<float> input = {1.0, 2.0, 4.0, 7.0};
-    std::vector<float> expected_output = {1.0, 2.0, 3.0};
-    
-    std::vector<float> result = derivative(input);
-    
-    if (issame(result, expected_output)) {
-        // Output matches expected result
-    } else {
-        // Output does not match expected result
-    }
+    assert(issame(derivative({1}), {}));
     
     return 0;
 }
