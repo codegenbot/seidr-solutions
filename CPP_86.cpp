@@ -1,17 +1,25 @@
-string anti_shuffle(string s) {
-    string reversed = s;
-    reverse(reversed.begin(), reversed.end());
-    string result = "";
-    int pos = 0;
-    for (char c : reversed) {
-        if (c == ' ') {
+#include <algorithm>
+#include <string>
+using namespace std;
+
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    int i = 0;
+    while (i <= s.length()) {
+        if (s[i] == ' ') {
             result += " ";
-            continue;
-        }
-        while (pos < s.length() && s[pos] != c) pos++;
-        for (; pos > 0; pos--) {
-            result += s[--pos];
+            i++;
+        } else {
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
+                i++;
+            }
+            for (char c : word) {
+                result += *min_element(word.begin(), word.end());
+            }
+            result += " ";
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
