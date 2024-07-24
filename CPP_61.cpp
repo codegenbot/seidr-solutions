@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool correct_bracketing(string brackets) {
