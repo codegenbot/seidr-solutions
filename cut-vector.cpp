@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
@@ -10,21 +9,19 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-
-    int sum = 0;
+    
+    int sum = 0, halfSum = 0;
     for (int num : nums) {
         sum += num;
     }
+    halfSum = sum / 2;
     
-    int halfSum = sum / 2;
-    int currSum = 0;
-    int diff = INT_MAX;
-    int idx = -1;
+    int currSum = 0, idx = 0;
     for (int i = 0; i < nums.size(); i++) {
         currSum += nums[i];
-        if (abs(2 * currSum - sum) < diff) {
-            diff = abs(2 * currSum - sum);
+        if (currSum > halfSum || (currSum == halfSum && sum % 2)) {
             idx = i;
+            break;
         }
     }
     
