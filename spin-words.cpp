@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -25,4 +26,3 @@ std::string spinWords(std::string str) {
     result += (word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word);
     
     return result;
-}
