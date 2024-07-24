@@ -1,27 +1,38 @@
-Here is the solution:
-
+#include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == ' ') {
-                i++;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool firstWord = true;
+    
+    for (char c : str) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
             }
-            result += toupper(s[i]);
-        } else if (s[i] != ' ') {
-            result += tolower(s[i]);
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (!firstWord) {
+                result += c;
+            } else {
+                result += c;
+                firstWord = false;
+            }
         }
     }
+    
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << camelCase(input) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << '\n';
+    }
     return 0;
 }
