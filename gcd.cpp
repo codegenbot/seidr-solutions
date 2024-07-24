@@ -37,12 +37,12 @@ int main() {
     std::cin >> a;
     std::cout << "Enter number 2: ";
     std::cin >> b;
-
+    
     if (a == 0 || b == 0) {
         std::cout << "Invalid input! Please try again." << std::endl;
-        return 1;
+        return 1; // or some other appropriate value to indicate an error
     }
-
+    
     int gcdVal = gcd(a, b);
     std::cout << "GCD is: " << gcdVal << std::endl;
 
@@ -53,7 +53,7 @@ int main() {
 
     if (text.empty() || target.empty()) {
         std::cout << "Invalid input! Please try again." << std::endl;
-        return 1;
+        return 1; // or some other appropriate value to indicate an error
     }
 
     auto indices = indicesOfSubstring(text, target);
