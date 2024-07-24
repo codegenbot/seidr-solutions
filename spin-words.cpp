@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -25,20 +23,7 @@ string spinWords(string str) {
         start = end + 1;
     }
     
-    // Remove extra spaces
-    result.erase(0, result.find_last_not_of(" "));
-    return result.trim();
-}
-
-string trim(string s) {
-    size_t firstUnseen = s.find_first_not_of(' ');
-    if (firstUnseen != string::npos)
-        s = s.substr(firstUnseen);
-    
-    size_t unseen = s.find_last_not_of(' ');
-    if (unseen != string::npos)
-        s = s.substr(0, unseen + 1);
-    return s;
+    return result;
 }
 
 int main() {
@@ -46,7 +31,12 @@ int main() {
     while (true) {
         cout << "Enter a string: ";
         getline(cin, str);
+        
         if(str == "quit" || str == "exit") break; 
-        cout << spinWords(str) << endl;
+        else if(str.empty()) {
+            cout << "Invalid input. Please enter a string." << endl;
+        } else {
+            cout << spinWords(str) << endl;
+        }
     }
 }
