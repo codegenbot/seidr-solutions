@@ -1,11 +1,12 @@
-def solve_boolean(expression):
-    if expression == "T":
+def solve_boolean(s):
+    if s == "T":
         return True
-    elif expression == "F":
+    elif s == "F":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid operation")
-    elif "&" in expression:
-        return all(char == "T" for char in expression)
-    elif "|" in expression:
-        return any(char == "T" for char in expression)
+    elif "&" in s and "|" in s:
+        return eval(" ".join(map(str, list(s))))
+    elif "&" in s:
+        s = s.replace("|", "")
+        return eval(" ".join(map(str, list(s)))) & True
+    else:
+        return eval(" ".join(map(str, list(s))))
