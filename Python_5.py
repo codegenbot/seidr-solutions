@@ -1,14 +1,10 @@
-from typing import List
+```from typing import List
 
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
-    if len(numbers) == 0:
-        return []
-    
     result = [numbers[0]]
     for i in range(1, len(numbers)):
-        result.append(delimeter)
-        result.append(numbers[i])
-    
+        result.extend([delimeter])
+        result.extend([numbers[i]])
     return result
 
 if __name__ == "__main__":
