@@ -1,4 +1,3 @@
-```
 def sort_numbers(numbers: str) -> str:
     num_dict = {
         "zero": 0,
@@ -12,5 +11,5 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9
     }
-    sorted_numbers = sorted([num_dict.get(num.replace(" ", "")) for num in numbers.split() if num.replace(" ", "") in num_dict])
+    sorted_numbers = sorted([num_dict.get(num) for num in numbers.replace(" ", "").split() if num in num_dict])
     return " ".join(map(str, filter(None, sorted_numbers)))
