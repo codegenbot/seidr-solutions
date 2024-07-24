@@ -1,19 +1,6 @@
 #include <vector>
-#include <cassert>
 
-vector<int> generate_integers(int a, int b);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> generate_integers(int a, int b) {
     vector<int> result;
@@ -25,7 +12,6 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-int main() {
-    // Main function logic
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
