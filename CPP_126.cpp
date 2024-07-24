@@ -1,19 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool is_sorted(std::vector<int> lst){
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] >= lst[i+1]){
-            std::vector<int>::iterator it = std::unique(lst.begin(), lst.end());
-            lst.erase(it, lst.end());
-            return false;
-        }
+bool is_sorted(vector<int> lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] <= lst[i - 1]) return false;
     }
-    return true;
-}
-
-int main(){
-    assert(is_sorted({1, 2, 3, 4}) == true);
-    return 0;
+    vector<int> temp(lst.begin(), lst.end());
+    sort(temp.begin(), temp.end());
+    return temp == lst;
 }
