@@ -1,28 +1,47 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    int min_diff = INT_MAX;
-    int split_idx = -1;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
     
-    for (int i = 0; i < n; ++i) {
-        int left_sum = accumulate(vec.begin(), vec.begin() + i, 0);
-        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
+    if(n == 1) {
+        res.push_back(v);
+        return res;
+    }
+    
+    for(int i = 0; i < n-1; i++) {
+        int diff = abs(v[i] - v[n-i-1]);
+        bool equal = (v[i] == v[n-i-1]);
         
-        if (left_sum == right_sum) {
-            return {{}, {vec.begin(), vec.end()}};
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            split_idx = i;
+        if(equal || i == 0) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i+1));
+            res.push_back(vector<int>());
+            break;
         }
     }
     
-    vector<int> left_vec(vec.begin(), vec.begin() + split_idx);
-    vector<int> right_vec({vec.begin() + split_idx, vec.end()});
+    res.push_back(v);
     
-    return {left_vec, right_vec};
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    vector<vector<int>> result = cutVector(v);
+    
+    for(auto &vec : result) {
+        for(int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
 }
