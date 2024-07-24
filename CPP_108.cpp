@@ -35,21 +35,18 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    int num, n;
+    int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> vec(n);
     
-    for(int i=0; i<n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        vec[i] = num;
+    std::vector<int> numbers(n);
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> numbers[i];
     }
-
-    int result = count_nums(vec);
-
-    std::cout << "Count of numbers: " << result << endl;
-
+    
+    int result = count_nums(numbers);
+    std::cout << "The number of positive sum is: " << result;
+    
     return 0;
 }
