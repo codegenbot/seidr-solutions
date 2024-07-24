@@ -1,7 +1,6 @@
-```''
+```
 def encode(message):
-    """Encode message by shifting vowels two positions forward in the alphabet.
-    If char is uppercase, shift and convert to lowercase. Keep non-alphabetic characters unchanged."""
+    """This function encodes the input message by shifting each vowel to a position two ahead in the alphabet and preserving all other characters."""
     encoded_message = ""
     for char in message:
         if char.isalpha():
@@ -19,4 +18,3 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
-''
