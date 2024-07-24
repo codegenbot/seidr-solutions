@@ -1,19 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+bool issame(const vector<string>& lst1, const vector<string>& lst2) {
     return lst1 == lst2;
 }
 
-int totalChars(const std::vector<std::string>& lst) {
+int totalChars(const vector<string>& lst) {
     int total = 0;
-    for (const std::string& str : lst) {
+    for (const string& str : lst) {
         total += str.size();
     }
     return total;
 }
 
-std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars_lst1 = totalChars(lst1);
     int total_chars_lst2 = totalChars(lst2);
 
