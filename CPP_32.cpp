@@ -1,7 +1,23 @@
-double find_zero(vector<double> xs){
-    double ans = xs[0];
-    for(int i=1; i<xs.size();i+=2){
-        ans = ans - xs[i]/(double)poly({1},i)/ans;
+#include <vector>
+#include <cmath>
+
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, i);
     }
-    return ans;
+    return result;
+}
+
+double find_zero(std::vector<double> coeffs){
+    double x = 1;
+    for (int i = 2; i < coeffs.size(); i += 2) {
+        while (poly(coeffs, x) > 0) {
+            x -= 0.001;
+        }
+        while (poly(coeffs, x) < 0) {
+            x += 0.001;
+        }
+    }
+    return round(x, 2);
 }
