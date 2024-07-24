@@ -8,10 +8,9 @@ int main() {
     vector<int> vec;
     int num;
 
-    while (cin >> num) {
+    while (cin.peek() != '\n') {
+        cin >> num;
         vec.push_back(num);
-        if (cin.peek() == '\n' || cin.peek() == EOF)
-            break;
     }
 
     int n = vec.size();
