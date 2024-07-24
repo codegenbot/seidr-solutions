@@ -8,7 +8,7 @@ def minPath(grid, k):
         path.append(grid[i][j])
 
         if steps == k:
-            if not min_path or path < min_path:
+            if not min_path or path < min_path[:min(len(path), len(min_path))]:
                 min_path = list(path)
             return
 
@@ -26,4 +26,4 @@ def minPath(grid, k):
         for j in range(N):
             dfs(i, j, set(), [], 1)
 
-    return sorted(min_path) if min_path else None
+    return min_path if min_path else None
