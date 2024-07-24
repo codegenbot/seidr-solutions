@@ -4,14 +4,11 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int prevLast = -1;
-    size_t last = 0; // Use size_t for the string index
-
-    while ((last = text.find(target, prevLast + 1)) != string::npos) {
-        indices.push_back(last); 
-        prevLast = last;
+    int prevLast = 0;
+    while ((int last = text.find(target, prevLast)) != string::npos) {
+        indices.push_back(last + 1);
+        prevLast = last + 1;
     }
-
     return indices;
 }
 
