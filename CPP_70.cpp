@@ -20,7 +20,7 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
-    std::vector<int> output = sortList(input);
+    std::vector<int> output = sortList(std::vector<int>(input.begin(), input.end()));
     std::cout << "Sorted list: ";
     for(int i : output) {
         std::cout << i << " ";
