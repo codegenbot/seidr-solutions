@@ -5,6 +5,6 @@ string middleCharacter(string s) {
     if (length % 2 == 0) {
         return s.substr(length / 2 - 1, 2);
     } else {
-        return s.substr(length / 2, 1);
+        return string(1, s[(length / 2)]);
     }
 }
