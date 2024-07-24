@@ -1,3 +1,2 @@
-```
 def strlen(string: str) -> int:
-    return len(string)
+    print("The length of the input string is:", len(string))
