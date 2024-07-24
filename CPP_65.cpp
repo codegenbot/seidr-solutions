@@ -21,16 +21,10 @@ string circular_shift(int x, int shift) {
 
 int main() {
     assert(circular_shift(11, 101) == "11");
+    assert(circular_shift(12345, 2) == "45123");
+    assert(circular_shift(87654321, 5) == "87654321");
     
-    // Read input from the user
-    int x, shift;
-    cout << "Enter a number: ";
-    cin >> x;
-    cout << "Enter a shift value: ";
-    cin >> shift;
-    
-    // Calculate and display the circular shift result
-    cout << "Circularly shifted number: " << circular_shift(x, shift) << endl;
+    cout << "All test cases passed successfully!" << endl;
     
     return 0;
 }
