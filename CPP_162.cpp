@@ -1,5 +1,9 @@
-#include <openssl/ssl.h>
-#include <openssl/engine.h>
+```cpp
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <openssl/err.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
@@ -17,5 +21,7 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         ss << setfill('0') << setw(2) << hex << (int)digest[i];
     }
+    string result = ss.str();  // get the stream contents as a string
     OPENSSL_free(digest);
-    return ss.str();
+    return result;
+}
