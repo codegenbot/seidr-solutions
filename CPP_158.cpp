@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::string find_max(const std::vector<std::string>& words) {
     if (words.empty()) {
