@@ -1,14 +1,8 @@
-from typing import List, Optional
-
-
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
-    return max(strings, key=lambda x: (len(x), x))
-
-
-# Read a list of strings from user input
+# Read input from user
 strings = input().split()
 
-# Call the function with the input list and print the result
-print(longest(strings))
+# Call the longest function
+result = longest(strings)
+
+# Print the result
+print(result)
