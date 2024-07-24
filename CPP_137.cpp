@@ -1,24 +1,24 @@
-Here is the modified code:
-
+#include <iostream>
+#include <string>
+#include <boost/config.hpp>
 #include <boost/any.hpp>
 
+using namespace std;
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a < (int)b ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (float)a > (float)b ? b : a;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return ((std::string)a).compare((std::string)b) > 0 ? b : a;
-    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a < (float)b ? boost::any_cast<boost::any>(b) : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? b : a;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        return ((std::string)a).compare(std::to_string((int)b)) > 0 ? b : boost::any("None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        return std::to_string((int)a).compare((std::string)b) > 0 ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return boost::any_cast<float>(a) > std::stod((std::string)b) ? b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return a.convert<int>() > b.convert<float>() ? a : b;
     }
-    return boost::any("None");
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a.convert<float>() > b.convert<int>() ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = any_cast<string>(a);
+        string s2 = any_cast<string>(b);
+        return s1.compare(s2) > 0 ? a : b;
+    }
+    else {
+        return "None";
+    }
 }
