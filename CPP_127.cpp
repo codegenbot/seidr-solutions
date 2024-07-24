@@ -1,9 +1,9 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
+using namespace std;
 
-std::string intersection(int start1, int end1, int start2, int end2) {
+string intersection(int start1, int end1, int start2, int end2) {
     int commonStart = max(start1, start2);
     int commonEnd = min(end1, end2);
 
