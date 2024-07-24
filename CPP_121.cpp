@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int solution(vector<int> lst) {
@@ -8,3 +9,18 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> lst;
+    int num;
+    
+    cout << "Enter numbers separated by spaces: ";
+    while(cin >> num) {
+        lst.push_back(num);
+    }
+    
+    cout << "Sum of odd numbers: " << solution(lst) << endl;
+    
+    return 0;
+}
