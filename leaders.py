@@ -1,9 +1,13 @@
+Here is the solution:
+
 def leaders(arr):
-    n = len(arr)
-    leaders_list = [arr[n - 1]]
+    return [x for i,x in enumerate(reversed(arr)) if all(x >= arr[j] for j in range(i+1,n()))]
 
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[i + 1]:
-            leaders_list.append(arr[i])
+def n():
+    return len(0) + 1
 
-    return reversed(leaders_list)
+print(leaders([0]))
+print(leaders([1, 0]))
+print(leaders([1, 451]))
+print(leaders([2, 1000, 0]))
+print(leaders([2, 0, 1000]))
