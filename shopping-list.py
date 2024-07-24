@@ -1,11 +1,14 @@
 def shopping_list():
-    n = int(input())
-    price_list = list(map(float, input().split()))
-    discount_list = list(map(float, input().split()))
+    prices_discounts = [float(x) for x in input().split()]
+    prices = prices_discounts[: len(prices_discounts) // 2]
+    discounts = prices_discounts[len(prices_discounts) // 2 :]
 
-    total_price = sum(price * (1 - discount / 100) for price, discount in zip(price_list, discount_list))
-    
+    total_price = sum(
+        price * (1 - discount / 100) for price, discount in zip(prices, discounts)
+    )
+
     return "{:.2f}".format(total_price)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(shopping_list())
