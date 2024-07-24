@@ -1,4 +1,3 @@
-```Python
 def valid_date():
     date = input("Enter a date in the format YYYY-MM-DD: ")
     if not date:
