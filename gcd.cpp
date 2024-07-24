@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string> 
 using namespace std;
@@ -23,7 +22,8 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    if(a == 0 || b == 0)
-        throw runtime_error("Error: Both input values cannot be zero.");
+    if (a < 1 || b < 1) {
+        throw runtime_error("Input values must be positive integers.");
+    }
     return a;
 }
