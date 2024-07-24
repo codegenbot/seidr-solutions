@@ -23,7 +23,8 @@ bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
     return true;
 }
 
-int main() {
+int main()
+{
     int n;
     cout << "Enter the number: ";
     cin >> n;
@@ -34,3 +35,4 @@ int main() {
         }
         cout << endl;
     }
+}
