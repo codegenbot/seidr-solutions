@@ -1,3 +1,3 @@
-```
-def strlen(string: str) -> int:
-    return len(string)
+def strlen() -> int:
+    s = input("Enter a string: ")
+    return len(s)
