@@ -1,10 +1,11 @@
-Here's your corrected C++ code:
+Here's the modified code:
 
 ```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
