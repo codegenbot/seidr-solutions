@@ -1,16 +1,20 @@
 ```
-base = int(input("Enter the base: "))
-exponent = int(input("Enter the exponent: "))
-modulus = int(input("Enter the modulus: "))
-
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
-    base = base % modulus
     while exponent > 0:
         if exponent % 2 == 1:
             result = (result * base) % modulus
         exponent = exponent // 2
-        base = (base * base) % modulus
+        if exponent > 0:
+            base = (base * base) % modulus
     return result
 
-print(powermod(base, exponent, modulus))
+while True:
+    try:
+        base = int(input("Enter the base: "))
+        exponent = int(input("Enter the exponent: "))
+        modulus = int(input("Enter the modulus: "))
+        print(powermod(base, exponent, modulus))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers.")
