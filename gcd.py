@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def gcd(a, b):
     while b != 0:
