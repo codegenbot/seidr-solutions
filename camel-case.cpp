@@ -21,19 +21,10 @@ std::string camelCase(const std::string& input) {
 }
 
 int main() {
+    std::string input;
     while (std::getline(std::cin, input)) {
-        std::istringstream iss(input);
-        std::string group;
-        if (!(iss >> group) || group.empty()) break;
-
-        std::cout << camelCase(group);
-
-        while (std::getline(iss, group, '-')) {
-            if (!group.empty()) {
-                std::cout << camelCase(group) + ((std::cout.rdstate() > 0)? "": "") << " ";
-            }
-        }
-
-        std::cout << std::endl;
+        // Now process the entire input string
+        std::cout << camelCase(input) << " ";
     }
     return 0;
+}
