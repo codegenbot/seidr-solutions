@@ -1,13 +1,10 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
     for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
@@ -15,11 +12,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     }
     return result;
 }
-
 int main() {
-    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    vector<string> input = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
     
     assert(issame(filter_by_prefix(input, "xxx"), expected));
-    return 0;
 }
