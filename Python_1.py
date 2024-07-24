@@ -7,17 +7,18 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     for char in paren_string:
         if char == "(":
-            if stack:
-                result.append(current_group)
-            stack.append("(")
+            result.append(current_group)
             current_group = ""
+            stack.append("(")
         elif char == ")" and stack:
             stack.pop()
-            if not stack:
-                result.append(current_group)
         else:
             current_group += char
 
+    if stack:
+        current_group = "".join(stack) + current_group
+
+    result.append(current_group)
     return result
 
 print(separate_paren_groups("abc(def)ghi(jkl)mno"))
