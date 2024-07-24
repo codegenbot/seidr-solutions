@@ -1,37 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
-using namespace std;
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-vector<int> strange_sort_list(vector<int> lst);
+int main(){
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
 
-int main() {
-    // Test the functions here
+    if(issame(vec1, vec2)){
+        std::cout << "Vectors are the same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
+
     return 0;
-}
-
-vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
-    vector<int> result;
-    int left = 0, right = lst.size() - 1;
-    while (left <= right) {
-        result.push_back(lst[left++]);
-        if (left <= right) {
-            result.push_back(lst[right--]);
-        }
-    }
-    return result;
 }
