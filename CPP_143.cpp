@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <bits/stdc++.h>
+#include <initializer_list>
 
 using namespace std;
 
