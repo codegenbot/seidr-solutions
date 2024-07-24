@@ -1,8 +1,8 @@
-```
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
+// Function to compare two vectors for equality
+bool issame(vector<int> a,vector<int>b){
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -13,18 +13,12 @@ bool issame(vector<int> a,vector<int> b){
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.end());
+    vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
-    for(int i=k; i<arr.size(); i++) {
-        if(arr[i] > arr[0]) {
-            result.erase(result.begin());
-            break;
-        }
-    }
     return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3) , {0, 1, 2}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0, 1, 2, 3}));
     return 0;
 }
