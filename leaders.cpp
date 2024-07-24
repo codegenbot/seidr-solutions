@@ -1,28 +1,21 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> leadersRes = leaders(arr);
+vector<int> leaders(vector<int>& v) {
+    vector<int> result;
+    int n = v.size();
     
-    for (int i: leadersRes) {
-        cout << i << " ";
-    }
+    // The rightmost element is always a leader.
+    result.push_back(v[n-1]);
     
-    return 0;
-}
-
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> res;
-    
-    int maxRight = arr[n-1];
-    for (int i = n-1; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
-            res.push_back(arr[i]);
-            maxRight = arr[i];
+    for(int i=n-2; i>=0; i--) {
+        if(v[i] >= v[i+1]) {
+            result.push_back(v[i]);
         }
     }
     
-    return res;
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
