@@ -8,4 +8,3 @@ long long minSubArraySum(vector<long long> nums) {
         if(sum > 0) sum = 0;
     }
     return min_sum;
-}
