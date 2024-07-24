@@ -1,8 +1,8 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <typeinfo>
 #include <cassert>
+#include <typeinfo>
 
 using namespace std;
 
