@@ -1,18 +1,16 @@
-Here is the completed code:
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char i : s) {
+    for (char ch : s) {
         bool flag = false;
-        for (char j : c) {
-            if (i == j) {
+        for (char cc : c) {
+            if (ch == cc) {
                 flag = true;
                 break;
             }
         }
         if (!flag) {
-            temp += i;
+            temp += ch;
         }
     }
     result.push_back(temp);
