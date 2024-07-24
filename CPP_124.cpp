@@ -6,18 +6,19 @@ using namespace std;
 bool valid_date(string date) {
     int month, day, year;
     string temp;
-
+    
     stringstream ss(date);
-
-    // Read month
+    char c;
+    
+    // Extract the month
     getline(ss, temp, '-');
     month = stoi(temp);
-
-    // Read day
+    
+    // Extract the day
     getline(ss, temp, '-');
     day = stoi(temp);
-
-    // Read year
+    
+    // Extract the year
     getline(ss, temp);
     year = stoi(temp);
 
