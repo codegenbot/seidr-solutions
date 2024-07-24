@@ -1,7 +1,6 @@
-```
 def smallest_change(arr):
     n = len(arr)
-    arr = ['0' if x == 0 else '1' for x in arr]
+    arr = ['1' if x else '0' for x in arr]
     arr = ''.join(arr)
     rev_arr = arr[::-1]
     diff_count = 0
