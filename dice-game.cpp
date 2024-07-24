@@ -1,17 +1,16 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
+#include <iomanip>
+
 double solve(int n, int m) {
-    double total = 0;
+    double total = 0.0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j < i; j++) {
-            if(j <= m) continue;
-            total += 1.0 / (n * m);
+            total += 1.0 / n / m;
         }
     }
-    return total;
+    return 1 - total;
 }
 
 int main() {
