@@ -1,3 +1,4 @@
+```
 # Here is the solution:
 
 def square_digits(n):
