@@ -9,7 +9,7 @@ int match_parens(std::vector<std::string> lst) {
     for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') countOpen++;
-            else if (c == ')') countClose++;
+            else countClose++;
         }
     }
 
@@ -27,7 +27,10 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec)) std::cout << "Yes";
-    else std::cout << "No";
+    if (match_parens(vec)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
