@@ -1,7 +1,6 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double diceGame(int n, int m) {
     double p = 0.0;
@@ -21,3 +20,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
+}
