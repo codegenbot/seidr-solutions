@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -42,9 +43,12 @@ int main() {
     }
 
     string text, target;
-    getline(cin >> ws, text);
+    if (!getline(cin >> ws, text) || !getline(cin >> ws, target)) {
+        cerr << "Invalid input for strings." << endl;
+        return 1;
+    }
 
-    vector<int> result = indicesOfSubstring(text, to_string(a));
+    vector<int> result = indicesOfSubstring(text, target);
 
     for (int idx : result) {
         cout << idx << " ";
