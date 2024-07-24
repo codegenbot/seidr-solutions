@@ -10,10 +10,7 @@ bool evalBoolean(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr;
-    for (int i = 0; i < j; i++) {
-        opStr += s[i];
-    }
+    string opStr = string(s.begin(), s.begin() + j);
     bool result = false;
     if (opStr[0] == '|') {
         for (int i = 0; i < j; i++) {
@@ -47,10 +44,7 @@ bool evalOp(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr;
-    for (int i = 0; i < j; i++) {
-        opStr += s[i];
-    }
+    string opStr = string(s.begin(), s.begin() + j);
     bool left = false;
     if (opStr[0] == '|') {
         for (int i = 0; i < j; i++) {
