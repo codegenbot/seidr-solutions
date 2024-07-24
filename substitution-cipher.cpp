@@ -4,11 +4,11 @@
 
 int main() {
     std::string cipher2;
-    std::cin >> cipher2;
+    cin >> cipher2;
     std::string cipher1;
-    std::cin >> cipher1;
+    cin >> cipher1;
     std::string message;
-    std::getline(std::cin, message);
+    getline(cin, message);
 
     std::map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
@@ -25,6 +25,6 @@ int main() {
             result.push_back(c);
         }
     }
-    std::cout << result.c_str() << std::endl;
+    cout << result << endl;
     return 0;
 }
