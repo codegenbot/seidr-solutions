@@ -1,30 +1,16 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            leftSum += vec[j];
-        }
-        
-        for (int j = i + 1; j < vec.size(); j++) {
-            rightSum += vec[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+    pair<vector<int>, vector<int>> result;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
             minDiff = diff;
-            cutIndex = i;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
-    
-    vector<int> leftVec(vec.begin(), vec.begin() + cutIndex + 1);
-    vector<int> rightVec(vec.begin() + cutIndex + 1, vec.end());
-    
-    return {leftVec, rightVec};
+    return result;
 }
