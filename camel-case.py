@@ -1,10 +1,12 @@
-```
-def convert_to_camel_case(input_str):
-    return ''.join(word.capitalize() for word in input_str.split('-')) if '-' in input_str else input_str
+def camel_case(s):
+    result = ""
+    for word in s.split():
+        if not result or "-" not in word:
+            result += word.capitalize()
+        else:
+            result += word[0].upper() + word[1:].lower()
+    return result
 
-while True:
-    try:
-        user_input = input()
-        print(convert_to_camel_case(user_input))
-    except KeyboardInterrupt:
-        break
+
+s = input()
+print(camel_case(s))
