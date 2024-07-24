@@ -20,27 +20,18 @@ def check(area):
 while True:
     while True:
         try:
-            n = float(input("Enter a positive integer: "))
-            if n > 0:
-                break
-            else:
-                print("Please enter a positive integer.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-    base = int(n)
-    
-while True:
-    while True:
-        try:
+            base = float(input("Enter the base of the triangle: "))
             height = float(input("Enter the height of the triangle: "))
-            if height > 0:
+
+            if base > 0 and height > 0:
                 break
             else:
-                print("Please enter a positive value for the height.")
+                print("Please enter positive values for both base and height.")
         except ValueError:
-            print("Invalid input. Please enter a number.")
-    base_height = (base * height) / 2
+            print("Invalid input. Please enter numbers.")
+    break
 
-check(base_height)
-print("The area of the triangle is: ", base_height)
-sum_of_squares(int(base_height))
+area = (base * height) / 2
+print("The area of the triangle is: ", area)
+check(area)
+sum_of_squares(int(area))
