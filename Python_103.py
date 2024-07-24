@@ -2,7 +2,7 @@
 import statistics
 
 def check(rounded_avg):
-    if str(rounded_avg).endswith('0') or str(rounded_avg).endswith('5'):
+    if str(rounded Avg).endswith('0') or str(rounded_avg).endswith('5'):
         print(f"{rounded_avg} is an odd number.")
     else:
         print(f"{rounded_avg} is an even number.")
