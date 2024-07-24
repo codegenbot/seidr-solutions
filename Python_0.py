@@ -31,8 +31,8 @@ def main():
                 else:
                     input_numbers = [num for num in numbers.split() if num]
                     while len(input_numbers) < 2:
-                        if any(
-                            not char.isdigit() and char != "." for num in input_numbers
+                        if not any(
+                            char.isdigit() or char == "." for num in input_numbers
                         ):
                             print("Please enter at least two valid float numbers.")
                             numbers = " ".join(input().split(","))
@@ -66,10 +66,8 @@ def main():
                     else "The list does not contain close elements"
                 )
                 break
-        else:
+        elif response in ["n", "no"]:
             print("Exiting the program.")
             exit(0)
-
-
-if __name__ == "__main__":
-    main()
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
