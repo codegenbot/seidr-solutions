@@ -1,11 +1,16 @@
-int is_bored(string S){
+#include <string>
+#include <algorithm>
+
+bool is_bored(std::string S) {
     int count = 0;
+    std::string boredom = "I";
     size_t pos = 0;
-    while ((pos = S.find("I", pos)) != string::npos) {
-        if (S[pos] == ' ' || S[pos+1] == '.' || S[pos+1] == '?' || S[pos+1] == '!') {
+    while ((pos = S.find(" ", pos)) != std::string::npos) {
+        if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
+            break;
         }
-        pos += 2; // skip the "I" and any leading space
+        pos++;
     }
-    return count;
+    return count > 0;
 }
