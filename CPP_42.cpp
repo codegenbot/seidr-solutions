@@ -1,8 +1,16 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> incr_list(std::vector<int> l) {
@@ -13,12 +21,12 @@ std::vector<int> incr_list(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> l = {1, 2, 3, 4, 5};
-    assert(issame(incr_list(l)[0], 2));
-    assert(issame(incr_list(l)[1], 3));
-    assert(issame(incr_list(l)[2], 4));
-    assert(issame(incr_list(l)[3], 5));
-    assert(issame(incr_list(l)[4], 6));
-
+    std::vector<int> test_input = {1, 2, 3, 4};
+    std::vector<int> expected_output = {2, 3, 4, 5};
+    
+    std::vector<int> result = incr_list(test_input);
+    
+    assert(issame(result, expected_output));
+    
     return 0;
 }
