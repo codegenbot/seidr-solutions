@@ -1,49 +1,34 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int currentRolls = 0;
-    int currentFrame = 1;
+    int roll = 0;
+    bool firstRollInFrame = true;
 
-    for (char c : s) {
-        if (c == '/') {
-            if (currentRolls == 2) {
-                score += 10 + getPreviousFrames();
-                currentRolls = 0;
-                currentFrame++;
-            }
-        } else if (isdigit(c)) {
-            int roll = c - '0';
-            if (currentRolls < 2) {
-                if (roll == 10) {
-                    score += 10 + getPreviousFrames();
-                    currentRolls = 2;
+    for (char c : input) {
+        if (c == 'X') { // strike: 10 points
+            score += 10;
+            roll++;
+            continue;
+        }
+        if (isdigit(c)) { // spare or regular roll
+            int points = c - '0';
+            if (!firstRollInFrame) {
+                if (roll + 1 < 2) { // second roll in the same frame
+                    score += points * 2; // double for a spare
+                    roll++;
                 } else {
-                    score += roll;
-                    currentRolls++;
+                    score += points; // add to total score
                 }
             } else {
-                int previousRolls = currentFrame - 1 ? min(roll, 2) : 0;
-                score += previousRolls * 10 + getPreviousFrames() + roll;
-                currentRolls = 0;
-                currentFrame++;
+                firstRollInFrame = false;
+                if (points == 10) { // strike: 10 points
+                    score += 10;
+                    roll++;
+                } else {
+                    score += points; // add to total score
+                }
             }
         }
     }
 
     return score;
-
 }
-
-int getPreviousFrames() {
-    int sum = 0;
-    for (int i = currentFrame - 1; i > 0; i--) {
-        if (i == 9) {
-            sum += min(10, frames[i]);
-        } else {
-            sum += frames[i];
-        }
-    }
-    return sum;
-}
-
-// Initialize the score array
-int frames[10] = {0};
