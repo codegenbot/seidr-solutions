@@ -1,3 +1,4 @@
+```
 import math
 
 def factorial(x):
@@ -15,5 +16,10 @@ def f(n):
             result.append(sum(range(1, i+1)))
     return result
 
-num = int(input("Enter a number: "))
-print(f(num))
+while True:
+    try:
+        num = int(input("Enter a number: "))
+        print(f(num))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
