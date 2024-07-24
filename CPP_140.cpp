@@ -1,28 +1,13 @@
-#include <iostream>
-#include <string>
-using namespace std;
+Here is the solution:
 
 string fix_spaces(string text){
-    string new_text = "";
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(new_text.length() > 2 || i != 0) new_text += "-";
-                else new_text += "_";
-            }else{
-                new_text += "_";
-            }
-        }else{
-            new_text += text[i];
+    string result = "";
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' ' && (result.empty() || (result.back() != ' ' && result.back() != '-'))){
+            result += (result.empty()) ? "" : "_";
+        } else {
+            result += text[i];
         }
     }
-    return new_text;
-}
-
-int main(){
-    string text;
-    cout << "Enter the string: ";
-    cin >> text;
-    cout << fix_spaces(text) << endl;
-    return 0;
+    return result;
 }
