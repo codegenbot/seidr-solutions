@@ -12,7 +12,7 @@ def match_parens(p):
     return len(stack) == 0
 
 def check():
-    s = input('"Enter a string of parentheses: "')
-    print(match_parens(s))
+    s = input("Enter a string of parentheses: ")
+    print((match_parens(s)))
 
 check()
