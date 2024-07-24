@@ -1,9 +1,11 @@
-n, *coefficients = map(int, input().split())
+print("Enter the number of coefficients followed by the coefficients separated by spaces:")
+n = int(input())
+coefficients = list(map(int, input().split()))
 
-def find_zero(coefficients: list, n: int):
-    if len(coefficients) != n:
-        raise ValueError("Incorrect number of coefficients provided")
-    return sum(coefficients)
+def find_zero(xs: list):
+    if len(xs) % 2 != 0:
+        raise ValueError("Number of coefficients should be even")
+    return sum(xs)
 
-result = find_zero(coefficients, n)
+result = find_zero(coefficients)
 print(result)
