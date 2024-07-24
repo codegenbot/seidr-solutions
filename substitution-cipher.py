@@ -1,14 +1,14 @@
-def substitution_cipher(cipher, message):
-    return "".join(
-        [
-            cipher[i % len(cipher)] if i < len(cipher) else ""
-            for i in range(len(message))
-        ]
-    )
-
-
-cipher1 = input()
-cipher2 = input()
-message = input()
-
-print(substitution_cipher(cipher1 + cipher2, message))
+```
+def substitution_cipher(cipher_key1, cipher_key2, message):
+    result = ""
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                index = ord(char) - 65
+                result += chr((ord(cipher_key2[index]) - 65))
+            else:
+                index = ord(char) - 97
+                result += chr((ord(cipher_key2[index]) - 97))
+        else:
+            result += char
+    return result
