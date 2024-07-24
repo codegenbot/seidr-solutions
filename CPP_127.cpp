@@ -1,4 +1,7 @@
+#include <vector>
 #include <string>
+
+using namespace std;
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
@@ -17,4 +20,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     }
 
     return isPrime ? "YES" : "NO";
+}
+
+int main() {
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
