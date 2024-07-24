@@ -1,10 +1,6 @@
-def main():
-    a, b, c = map(int, input().split())
+a, b, c = map(int, input().strip().split())
 
-    def is_pythagorean_triplet(a, b, c):
-        return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
+def is_pythagorean_triplet(a, b, c):
+    return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
 
-    print(is_pythagorean_triplet(a, b, c))
-
-if __name__ == "__main__":
-    main()
+print(is_pythagorean_triplet(a, b, c))
