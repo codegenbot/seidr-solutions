@@ -7,5 +7,5 @@ def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
 strings = input("Enter strings (comma-separated): ").split(",")
 prefix = input("Enter prefix: ")
 
-print(filter_by_prefix(map(str, map(int, strings)), prefix))
-print(filter_by_prefix(map(str, map(int, strings)), prefix))
+print(filter_by_prefix([string.strip() for string in strings], prefix))
+print(filter_by_prefix([string.strip() for string in strings], prefix))
