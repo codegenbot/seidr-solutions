@@ -6,12 +6,10 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
-
     int temp;
-    while (true) {
-        cin >> temp;
-        if (cin.fail()) break;
+
+    cout << "Enter positive integers separated by spaces (terminate input with Ctrl+D):" << endl;
+    while (cin >> temp) {
         nums.push_back(temp);
     }
 
