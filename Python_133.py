@@ -6,7 +6,7 @@ while True:
     choice = input("Do you want to calculate sum of squares (yes/no)? ")
     if choice.lower() != 'yes':
         print("Program terminated.")
-        continue
+        break
     while True:
         numbers = input("Enter numbers separated by space: ").split()
         if not numbers:
@@ -18,6 +18,8 @@ while True:
         
         total_sum_of_squares = sum_squares(list(map(int, numbers)))
         print(f"The sum of squares is {total_sum_of_squares}")
-        break
-
-    break
+        
+        choice = input("Do you want to continue (yes/no)? ")
+        if choice.lower() != 'yes':
+            print("Program terminated.")
+            break
