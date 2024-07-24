@@ -1,31 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> lst;
-    for(int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        lst.push_back(val);
-    }
-
-    std::vector<int> result = strange_sort_list(lst);
-
-    std::cout << "Sorted list: ";
-    for(int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
+#include <initializer_list>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
@@ -55,3 +28,21 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     return result;
 }
+
+int main() {
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++) {
+        int val;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> val;
+        input.push_back(val);
+    }
+    std::vector<int> output = strange_sort_list(input);
+    std::cout << "Sorted list: ";
+    for(int i : output) {
+        std::cout << i << " ";
+    }
+    return 0;
