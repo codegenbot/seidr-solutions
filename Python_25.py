@@ -1,7 +1,10 @@
 def factorize(n: int) -> List[int]:
     factors = []
-    for i in range(2, n + 1):
-        while n % i == 0:
-            factors.append(i)
-            n //= i
+    divisor = 2
+    while n > 1:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n //= divisor
+        else:
+            divisor += 1
     return factors
