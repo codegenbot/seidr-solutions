@@ -1,33 +1,26 @@
-```
-def bowling_score(frames):
-    score = 0
-    for i, frame in enumerate(frames.split('/')):
-        if len(frame) == 1:
-            score += 10 + (10 - int(frame)) * 2 if i > 0 else 30
-        elif len(frame) == 2:
-            a, b = map(int, frame)
-            if a == 10:  # strike
-                score += 10 + (b + next_frames.get(i+1, 0)[0] or 0) * 2
-            else:  # spare
-                score += 10 + b
-        else:
-            a, b = map(int, frame)
-            if i == 9 and a != 10:
-                score += a + b + next_frames.get(i+1, [0])[0]
+def bowling(score):
+    score = score.replace("/", "")
+    total_score = 0
+    for i in range(0, len(score), 1):
+        if score[i].isdigit():
+            temp_score = int(score[i])
+            if i < len(score) - 1 and score[i + 1] == "X":
+                total_score += 30
+            elif (
+                i < len(score) - 1
+                and score[i + 1].isdigit()
+                and str(temp_score) + score[i + 1] <= "10"
+            ):
+                total_score += temp_score + int(score[i + 1])
             else:
-                score += a + b
-    return score
-
-next_frames = collections.defaultdict(list)
-
-def get_input():
-    while True:
-        try:
-            frames = input("Enter the bowling frames (e.g., 10/10/.../): ")
-            if len(frames) > 20: 
-                break
-        except ValueError:
-            print("Invalid input. Please enter a valid sequence of numbers and '/'.")
-
-frames = get_input()
-print(bowling_score(frames))
+                if i < len(score) - 2 and score[i + 2] == "X" and temp_score == 10:
+                    total_score += 30
+                elif (
+                    i < len(score) - 2
+                    and score[i + 2].isdigit()
+                    and str(temp_score) + score[i + 1] + score[i + 2] <= "20"
+                ):
+                    total_score += temp_score + int(score[i + 1]) + int(score[i + 2])
+                else:
+                    total_score += temp_score
+    return total_score
