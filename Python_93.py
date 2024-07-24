@@ -1,9 +1,10 @@
+```
 def encode(message):
     encoded_message = ""
 
     for char in message:
         if char.isalpha():
-            if char.lower() in "aeiou":
+            if char.lower() in 'aeiou':
                 index = ord(char.lower()) - 97
                 encoded_char = chr((index + 2) % 26 + 97)
                 if char.isupper():
