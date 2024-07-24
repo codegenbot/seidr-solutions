@@ -1,48 +1,25 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
+bool solveBoolean(string expression) {
+    stack<char> operators;
+    stack<bool> operands;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == 'T' || expression[i] == 't') {
+            operands.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            operands.push(false);
+        } else if (expression[i] == '|') {
+            while (!operators.empty() && operators.top() != '&') {
+                bool right = operands.top();
+                operands.pop();
+                bool left = operands.top();
+                operands.pop();
+                operands.push(left || right);
             }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
-            st.push('|');
-        } else if (s[i] == 'T' || s[i] == 't') {
-            while (!st.empty() && st.top() != '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            while (!st.empty() && st.top() != '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = false;
-            } else {
-                result = true;
-            }
+            operators.push('|');
+        } else if (expression[i] == '&') {
+            operators.push('&');
         }
     }
 
-    return result;
+    return operands.top();
 }
