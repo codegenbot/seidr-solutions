@@ -1,10 +1,6 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 bool solveBoolean(string expression) {
+    bool result = false; 
     stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
@@ -23,7 +19,8 @@ bool solveBoolean(string expression) {
         }
     }
     
-    return s.top() == 'T';
+    result = s.top() == 'T'; 
+    return result;
 }
 
 int main() {
