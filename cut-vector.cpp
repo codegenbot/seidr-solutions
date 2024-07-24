@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
@@ -34,6 +33,6 @@ int main() {
     for (int num : subvector2) {
         cout << num << endl;
     }
-    
+
     return 0;
 }
