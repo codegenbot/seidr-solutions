@@ -1,4 +1,6 @@
 #include <vector>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
