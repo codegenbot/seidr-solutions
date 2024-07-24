@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -15,7 +14,13 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s; // Read input from user
-    bool result = solveBoolean(s); // Call your existing code
+    string input;
+    cout << "Enter the Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    if (result)
+        cout << "The resulting Boolean is true." << endl;
+    else
+        cout << "The resulting Boolean is false." << endl;
     return 0;
 }
