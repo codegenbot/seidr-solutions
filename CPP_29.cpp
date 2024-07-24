@@ -1,11 +1,10 @@
-#include <vector>
-#include <string>
-#include <initializer_list>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(const vector<string>& a, const vector<string>& b);
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
