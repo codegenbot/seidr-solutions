@@ -1,4 +1,4 @@
-def solve_boolean(expression=""):
+def solve_boolean(expression=''):
     result = True
     user_input = input("Enter Boolean expression: ")
     
