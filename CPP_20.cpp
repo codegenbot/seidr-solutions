@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool sameVectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,8 +24,8 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); 
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { 
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec1.clear();
@@ -46,8 +46,8 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); 
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { 
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec2.clear();
@@ -64,7 +64,7 @@ int main() {
         std::cout << "Enter next number (or press Enter to finish): ";
     }
 
-    if(isSame(vec1, vec2)) {
+    if(sameVectors(vec1, vec2)) {
         std::cout << "The two vectors are same.\n";
     } else {
         std::cout << "The two vectors are not same.\n";
