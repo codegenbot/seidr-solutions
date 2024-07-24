@@ -1,5 +1,5 @@
 result = []
-for n in numbers:
-    result.extend([n, delimeter])
-result.pop()
+for num in numbers:
+    result.extend([num, delimeter])
+result.pop()  # Remove the last delimeter
 return result
