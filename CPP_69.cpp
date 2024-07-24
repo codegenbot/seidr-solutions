@@ -1,3 +1,8 @@
+#include <vector>
+#include <map>
+
+using namespace std;
+
 int search(vector<int> lst) {
     map<int, int> freq;
     for (int num : lst) {
