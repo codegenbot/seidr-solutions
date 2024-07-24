@@ -1,9 +1,8 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 
 float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float total = 0.0;
+    float total = 0.0f;
     for (int i = 0; i < prices.size(); ++i) {
         total += prices[i] * (1.0f - discounts[i] / 100.0f);
     }
@@ -13,7 +12,7 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
 int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
-
+    
     int n;
     std::cout << "Enter the number of shopping goods: ";
     std::cin >> n;
@@ -29,7 +28,7 @@ int main() {
     }
 
     float total = calculateTotalPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(2) << "Total price after discount: " << total << std::endl;
+    std::cout << "Total price after discount: " << total << std::endl;
 
     return 0;
 }

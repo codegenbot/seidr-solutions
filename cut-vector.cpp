@@ -12,6 +12,7 @@ int main() {
     }
     
     int n = nums.size();
+    
     if (n == 0) {
         cout << "Input vector is empty." << endl;
         return 0;
