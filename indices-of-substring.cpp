@@ -4,12 +4,12 @@
 
 int main() {
     std::string text, target;
-    if (!std::getline(std::cin >> std::ws, text) || text.empty()) return 1;
-    if (!std::getline(std::cin >> std::ws, target) || target.empty()) return 1;
+    std::getline(std::cin >> std::ws, text);
+    std::getline(std::cin >> std::ws, target);
     
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
+    while (pos < text.length() - target.length() + 1) {
         indices.push_back(pos);
         pos = text.find(target, pos + (target.length() > 1 ? 1 : 0));
     }
