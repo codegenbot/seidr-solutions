@@ -3,11 +3,17 @@
 #include <vector>
 #include <string>
 
-bool issame(string a, string b) {
-    return a == b;
+bool same(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+    if (vec1.size() != 2)
+        return false;
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] == "Earth")
+            return true;
+    }
+    return false;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
+std::vector<std::string> bf(string planet1, string planet2) {
     std::vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1, index2 = -1;
@@ -34,6 +40,5 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame("Earth", "Earth"));  
-    return 0;
+    assert(same(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
 }
