@@ -1,5 +1,9 @@
 ```
 """
+if __name__ == "__main__":
+    print(valid_date())
+"""
+
 def valid_date():
     date = input("Enter a date in the format YYYY-MM-DD: ")
     if not date.replace('-', '').isdigit():
@@ -16,7 +20,3 @@ def valid_date():
     if int(day) < 1 or int(day) > 31:
         return "Invalid day."
     return "Valid date."
-
-if __name__ == "__main__":
-    print(valid_date())
-"""
