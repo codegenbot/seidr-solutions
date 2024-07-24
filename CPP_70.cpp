@@ -32,17 +32,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({1, 4, 2, 5}), {1, 2, 4, 5}));
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-    std::cout << "[";
-    for (int i = 0; i < input.size() - 1; ++i)
-        std::cout << input[i] << ", ";
-    if (!input.empty())
-        std::cout << input.back();
-    std::cout << "]\n";
+    assert(issame(strange_sort_list({1,2,3}), {1,3,2}));
+    //std::vector<int> input = {};
+    //std::cout << "Enter numbers separated by space: ";
+    //std::cin >> std::ws;
+    //for (int i=0; i < 10; i++) {
+    //    int temp;
+    //    std::cin >> temp;
+    //    input.push_back(temp);
+    //}
     return 0;
 }
