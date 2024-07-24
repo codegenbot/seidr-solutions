@@ -7,7 +7,7 @@ int main() {
     int n;
 
     while (std::cin >> n) {
-        if (n == -1) break; 
+        if (n == -1) break;
         nums.push_back(n);
     }
 
