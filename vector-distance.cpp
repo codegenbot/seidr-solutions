@@ -8,6 +8,7 @@ double vectorDistance(int n) {
     float vec1[n];
     float vec2[n];
 
+    // Read input vectors
     for (int i = 0; i < n; i++) {
         cin >> vec1[i] >> vec2[i];
     }
