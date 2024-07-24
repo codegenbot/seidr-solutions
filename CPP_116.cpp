@@ -1,12 +1,15 @@
 #include <vector>
 #include <algorithm>
+#include <bitset>
 
 using namespace std;
 
 vector<int> sort_array(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(binary(a).begin(), binary(a).end(), '1') != count(binary(b).begin(), binary(b).end(), '1')) {
-            return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
+        bitset<16> binary_a(a);
+        bitset<16> binary_b(b);
+        if (binary_a.count() != binary_b.count()) {
+            return binary_a.count() < binary_b.count();
         }
         return a < b;
     });
