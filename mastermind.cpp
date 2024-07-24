@@ -1,37 +1,40 @@
-int countBlackPegs(string &code, string &guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++blackPegs;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    // Count correct colors but wrong places (white pegs)
+    for(int i=0; i<4; i++) {
+        bool present = false;
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                present = true;
+                code[j] = '#'; // mark as used
+                break;
+            }
+        }
+        if(!present) continue;
+
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                white++;
+                code[j] = '#'; // mark as used
+                break;
+            }
         }
     }
-    return blackPegs;
-}
 
-int countWhitePegs(string &code, string &guess) {
-    int whitePegs = 0;
-    map<char, int> codeCount;
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (codeCount[guess[i]] > 0) {
-            --codeCount[guess[i]];
-            whitePegs++;
+    // Count correct colors and places (black pegs)
+    for(int i=0; i<4; i++) {
+        bool present = false;
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                present = true;
+                code[j] = '#'; // mark as used
+                break;
+            }
         }
+        if(present) black++;
     }
-    return whitePegs;
-}
 
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter a guess: ";
-    cin >> guess;
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = countWhitePegs(code, guess);
-    cout << blackPegs << endl;
-    cout << whitePegs << endl;
-    return 0;
+    return white + black;
 }
