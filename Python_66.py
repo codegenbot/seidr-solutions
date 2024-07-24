@@ -1,3 +1,3 @@
+```
 def digitSum(n):
-    n = ''.join(filter(str.isdigit, str(n).lower().replace(" ", "").replace(",", "").replace(".", "")))
-    return sum(int(digit) for digit in n)
+    return sum(ord(c) - 48 for c in str(n) if '0' <= c <= '9')

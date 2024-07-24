@@ -1,4 +1,7 @@
-def fruit_distribution(s, n):
+def fruit_distribution():
+    s = input("Enter the string: ")
+    n = int(input("Enter the number of boxes: "))
+
     s = s.replace("apples", "apple").replace("oranges", "orange")
     total_fruit = 0
     for word in s.split():
@@ -8,4 +11,4 @@ def fruit_distribution(s, n):
     max_per_box = min(total_fruit // (n + 1), n)
     remaining_fruits = total_fruit - (max_per_box * (n + 1))
 
-    return int(((total_fruit - 1) / max_per_box) + 0.5)
+    return int(-(-total_fruit / float(max_per_box)) + 0.5) if max_per_box != 0 else 0
