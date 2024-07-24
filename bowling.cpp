@@ -1,30 +1,18 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
-    vector<int> rolls(2, 0);
-
+    int rolls = 0;
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + rolls[0];
-            rolls.clear();
-            currentRolls = 0;
+            score += 30;
+            rolls++;
         } else if (c == '/') {
-            int roll1 = rolls[0], roll2 = rolls[1];
-            rolls.clear();
-            score += roll1 + roll2;
-            currentRolls = 0;
+            score += 10 - ('5' - c);
+            rolls++;
         } else {
-            if (currentRolls < 2) {
-                rolls[currentRolls++] = c - '0';
-            }
+            int roll = c - '0';
+            score += roll;
+            rolls++;
         }
     }
-
-    int lastTwoRolls = 0;
-    for (int i = 0; i < 2; i++) {
-        lastTwoRolls += rolls[i];
-    }
-    score += lastTwoRolls;
-
     return score;
 }
