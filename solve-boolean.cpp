@@ -8,11 +8,16 @@ bool solveBoolean(string expression) {
         if (c == 't') {
             result = true;
         } else if (c == 'f') {
-            return !result;
+            return false;
         } else if (c == '|') {
-            result = true; 
+            bool temp = result;
+            result = true;
+            while(expression.find('&') != string::npos) {
+                expression.replace(expression.find('&'), 1, "");
+            }
+            result &= temp;
         } else if (c == '&') {
-            if (!result) return false;
+            result &= true;
         }
     }
     return result;
@@ -23,4 +28,3 @@ int main() {
     cin >> expression;
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
-}
