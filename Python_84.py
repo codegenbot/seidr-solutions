@@ -1,2 +1,3 @@
 ```
-return bin(sum(int(b) for b in bin(N)[2:].replace(" ","").replace("-", "")))[2:]
+def solve(N):
+    return bin(sum(int(i) for i in str(N)))[2:]
