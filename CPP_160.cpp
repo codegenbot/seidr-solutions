@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -40,7 +40,9 @@ int main() {
         int arg;
         std::cout << "Enter the argument: ";
         std::cin >> arg;
-        
+
+        std::cin.ignore();
+
         ops.push_back(op);
         args.push_back(arg);
     }
