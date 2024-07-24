@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -23,11 +22,17 @@ int luhn(std::vector<int> &digits) {
 
 int main() {
     std::vector<int> digits;
+    
     int num;
-    for(int i=0; i<16; ++i){
+    for(int i=0; i<16; ++i) {
+        std::cout << "Enter the " << (i+1) << "th digit: ";
         std::cin >> num;
         digits.push_back(num);
     }
-    std::cout << luhn(digits) << std::endl;
+    
+    int result = luhn(digits);
+
+    std::cout << "The Luhn check result is: " << result << std::endl;
+
     return 0;
 }
