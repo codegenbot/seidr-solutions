@@ -16,13 +16,25 @@ def check(area):
 
 while True:
     try:
-        n = int(input("Enter the sum of squares: "))
+        base = float(input("Enter the base of the triangle: "))
+        height = float(input("Enter the height of the triangle: "))
 
-        if n > 0:
+        if base > 0 and height > 0:
             break
         else:
-            print("Please enter positive value.")
+            print("Please enter positive values for both base and height.")
     except ValueError:
-        print("Invalid input. Please enter a number.")
+        print("Invalid input. Please enter numbers.")
 
-check(sum_of_squares(n))
+while True:
+    try:
+        area = (base*height)/2
+
+        sqrt = int(math.sqrt(area))
+        if sqrt*sqrt == area:
+            print("The area of the triangle is a perfect square.")
+        else:
+            print("The area of the triangle is not a perfect square.")
+        break
+    except ValueError:
+        print("Invalid input. Please enter numbers.")
