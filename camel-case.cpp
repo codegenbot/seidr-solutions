@@ -1,30 +1,42 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool capitalizeNext = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+string camelCase(string s) {
+    vector<string> words = split(s, ' ');
+    string result = "";
+    
+    for (int i = 0; i < words.size(); i++) {
+        if (!result.empty()) {
+            result[0] = toupper(words[i][0]);
         } else {
-            result += tolower(c);
+            result += words[i];
+        }
+        
+        for (int j = 1; j < words[i].size(); j++) {
+            result += tolower(words[i][j]);
+        }
+        
+        if (i < words.size() - 1) {
+            result += " ";
         }
     }
-
+    
     return result;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "Resulting camelCase string: " << kebabToCamel(input) << std::endl;
-
-    return 0;
+vector<string> split(string s, char c) {
+    vector<string> res;
+    string temp = "";
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == c) {
+            res.push_back(temp);
+            temp = "";
+        } else {
+            temp += s[i];
+        }
+    }
+    
+    res.push_back(temp);
+    
+    return res;
 }
