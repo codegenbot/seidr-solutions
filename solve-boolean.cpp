@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
 bool evalBoolean(string s) {
     if (s.empty())
@@ -16,8 +16,9 @@ bool evalBoolean(string s) {
         for (int i = 0; i < j; i++) {
             if (s[i] == 'T')
                 result = true;
-            else if (s[i] == 'F')
-                return false;
+            else if (s[i] == 'F') {
+                result = false;
+            }
         }
     } else {
         for (int i = 0; i < j; i++) {
@@ -49,8 +50,9 @@ bool evalOp(string s) {
         for (int i = 0; i < j; i++) {
             if (s[i] == 'T')
                 left = true;
-            else if (s[i] == 'F')
-                return false;
+            else if (s[i] == 'F') {
+                left = false;
+            }
         }
     } else {
         for (int i = 0; i < j; i++) {
@@ -64,25 +66,17 @@ bool evalOp(string s) {
     if (!left)
         return false;
 
-    bool finalResult = false;
-    while (s.length()) {
-        if (*s.rbegin() == 'T') 
-            finalResult = true;
-        else if (*s.rbegin() == 'F')
-            break;
-        s.pop_back(); 
-    }
-    return result || finalResult; 
+    return evalBoolean(s.substr(j));
 }
 
 int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
     bool result = evalOp(s);
     if (result)
-        cout << "True";
+        std::cout << "True";
     else
-        cout << "False";
+        std::cout << "False";
     return 0;
 }
