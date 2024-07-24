@@ -1,18 +1,22 @@
 #include <string>
 #include <iostream>
-#include <cctype>
+#include <algorithm>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr = expr;
-    for (char& c : lowercaseExpr) {
-        c = std::tolower(c);
-    }
-    // Rest of the evaluation logic
+    // Existing code remains the same
+}
+
+void convertToLowerToUpper(std::string& str) {
+    std::transform(str.begin(), str.end(), str.begin(), ::toupper);
 }
 
 int main() {
     std::string expression;
     std::cin >> expression;
+    
+    convertToLowerToUpper(expression);
+
     std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
+    
     return 0;
 }
