@@ -14,9 +14,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (int)b > a.convert_to<double>() ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2)
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if(strA.compare(strB) > 0)
             return a;
         else
             return b;
