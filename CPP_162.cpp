@@ -1,13 +1,11 @@
-if (text.empty()) {
+if(text.empty())
     return "None";
-}
 
-unsigned char digest[MD5_DIGEST_LENGTH];
-MD5((unsigned char*)text.c_str(), text.length(), digest);
+unsigned char digest[16];
+MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
-char mdString[33];
+char md5_hash[32];
 for(int i = 0; i < 16; i++)
-    sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+    sprintf(&md5_hash[i*2], "%02x", (unsigned int)digest[i]);
 
-return string(mdString);
-}
+return string(md5_hash);
