@@ -1,11 +1,12 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    string text, target;
+    cin >> text >> target;
     
-    std::vector<int> indices;
+    vector<int> indices;
     
     for (int i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
@@ -14,7 +15,7 @@ int main() {
     }
     
     for (int idx : indices) {
-        std::cout << idx << " ";
+        cout << idx << " ";
     }
     
     return 0;
