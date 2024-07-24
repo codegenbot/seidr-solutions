@@ -26,7 +26,6 @@ def minPath(grid, k):
 
     return path
 
-
 grid = []
 k = 0
     
