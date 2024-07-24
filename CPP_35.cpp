@@ -1,6 +1,8 @@
-#include <initializer_list>
 #include <algorithm>
-#include <cmath>
+#include <vector>
 
-int max_val = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
-int abs(int x) { return std::abs(x); }
+int calculateMax() {
+    std::vector<int> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    int max_val = *std::max_element(numbers.begin(), numbers.end());
+    return max_val;
+}
