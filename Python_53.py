@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     print("Enter first number: ")
     x = int(input())
