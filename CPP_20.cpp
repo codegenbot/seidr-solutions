@@ -23,8 +23,8 @@ int main() {
     std::cout << "Enter the elements of vector 1 (separated by space): ";
     while(true) {
         if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear();
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             break;
         }
         vec1.push_back(num);
@@ -34,9 +34,8 @@ int main() {
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
     while(true) {
         if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear();
-            vec2.clear(); // Reset vectors
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             break;
         }
         vec2.push_back(num);
