@@ -8,13 +8,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (double)b > a.convert_to<int>() ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (int)a > b.convert_to<int>() ? a : b;
+        return (int)a > b.convert_to<int>() ? a : boost::any(b);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (int)b > a.convert_to<double>() ? b : a;
+        return (int)b > a.convert_to<double>() ? b : boost::any(b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) > boost::any_cast<string>(a) ? b : a;
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return str1 > str2 ? a : b;
     }
     else if ((a.type() == typeid(int) || a.type() == typeid(double)) &&
              (b.type() == typeid(string))) {
