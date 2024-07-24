@@ -20,7 +20,7 @@ bool file_name_check(std::string file_name) {
         }
     }
 
-    if (dotCount != 1 || file_name.empty()) {
+    if (dotCount != 1 || !file_name.empty()) {
         return false;
     }
 
