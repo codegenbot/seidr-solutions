@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
 namespace my_namespace {
     std::vector<int> incr_list(const std::vector<int>& input) {
-        std::vector<int> result;
+        std::vector<int> output;
         for (int num : input) {
-            result.push_back(num + 1);
+            output.push_back(num + 1);
         }
-        return result;
+        return output;
     }
 
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
