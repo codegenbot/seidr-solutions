@@ -1,18 +1,19 @@
+```
+import math
+
 def sum_of_squares(n):
     result = 0
     while True:
         try:
             n = float(input("Enter a positive integer: "))
             if n > 0:
-                for i in range(1, n + 1):
+                for i in range(1, int(n) + 1):
                     result += i**2
                 return result
             else:
                 print("Please enter a positive number.")
         except ValueError:
             print("Invalid input. Please enter numbers.")
-
-import math
 
 def check(area):
     sqrt = int(math.sqrt(area))
@@ -35,5 +36,5 @@ while True:
             print("Invalid input. Please enter numbers.")
 
     triangle_area = (base * height) / 2
-    print("The sum of squares for the area is: ", triangle_area)
+    sum_of_squares(triangle_area)
     check(triangle_area)
