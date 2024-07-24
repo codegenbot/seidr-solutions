@@ -5,6 +5,7 @@
 
 std::pair<std::string, std::string> bf(std::pair<std::string, std::string> p) {
     // your implementation of bf function here
+    return p;
 }
 
 bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
@@ -17,35 +18,30 @@ bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std:
 }
 
 void start() {
-    std::pair<std::string, std::string> planets;
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
     
     std::vector<std::pair<std::string, std::string>> a;
-    a.push_back({planet1, planet2});
+    a.push_back(std::make_pair(planet1, planet2));
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
-    a.push_back(planets);
+    a.push_back(std::make_pair(planet1, planet2));
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
-    a.push_back(planets);
+    a.push_back(std::make_pair(planet1, planet2));
     
     std::vector<std::pair<std::string, std::string>> b;
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    b.push_back({planet1, planet2});
+    b.push_back(std::make_pair(planet1, planet2));
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    b.push_back({planet1, planet2});
+    b.push_back(std::make_pair(planet1, planet2));
     
-    std::pair<std::string, std::string> result = bf(planets);
     if (issame(a, b)) {
         std::cout << "same";
     } else {
