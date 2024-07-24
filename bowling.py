@@ -30,6 +30,6 @@ def calculate_bowling_score(bowls):
             score += int(bowls[index + 1]) if bowls[index + 1] != "-" else 0
             index += 2
 
-    score = handle_bonus(bowls, score)
+    handle_bonus(bowls, score)
 
     return score
