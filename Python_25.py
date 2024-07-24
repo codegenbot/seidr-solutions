@@ -8,6 +8,7 @@ def factorize(n: int) -> List[List[int]]:
         if n % i:
             i += 1
         else:
+            n //= i
             count = 0
             while n % i == 0:
                 n //= i
@@ -15,5 +16,11 @@ def factorize(n: int) -> List[List[int]]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return sorted(set(tuple(sorted(f)) for f in set(map(tuple, (factor_list for factor_list in factors)))))
-```
+    return sorted(
+        [
+            list(factor)
+            for factor in set(
+                tuple(sorted(factor)) for factor in set(map(tuple, factors))
+            )
+        ]
+    )
