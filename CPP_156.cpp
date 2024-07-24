@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,10 +23,6 @@ string intToRoman(int number) {
         }
     }
     
-    if(number > 0) {
-        cout << "Error: Number is too large to be converted to Roman numeral." << endl;
-    }
-    
     return roman;
 }
 
@@ -36,4 +31,3 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
     cout << "The Roman numeral is: " << intToRoman(num) << endl;
-}
