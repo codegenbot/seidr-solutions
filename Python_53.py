@@ -1,13 +1,6 @@
-def add(x: int, y: int) -> int:
-    return x + y
+# Modify the input method to use raw_input() for Python 2 compatibility
+x, y = map(int, raw_input("Enter two numbers separated by space: ").split())
 
-while True:
-    try:
-        x, y = map(int, input("Enter two numbers separated by space: ").split())
-        break
-    except ValueError:
-        print("Please enter two integers separated by a space.")
-        continue
+# Handle input from user using raw_input for Python 2 compatibility
 
-result = add(x, y)
-print("The sum is:", result)
+# Print the sum of the two numbers by calling the add function
