@@ -1,5 +1,5 @@
 #include <vector>
-#include <string> 
+#include <string>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -21,9 +21,6 @@ int gcd(int a, int b) {
         int temp = b;
         b = a % b;
         a = temp;
-    }
-    if(a > 1 || b > 1) {
-        cout << "Invalid input. GCD of two numbers should be less than or equal to 1." << endl;
     }
     return a;
 }
