@@ -1,11 +1,10 @@
-```
 def fizz_buzz(n: int):
-    count = 0
     for i in range(1, n + 1):
         if i % 15 == 0:
-            count += 1
+            print("FizzBuzz")
         elif i % 5 == 0:
-            count += (i // 5) / 3
+            print("Buzz")
         elif i % 3 == 0:
-            count += 1/3
-    return int(count)
+            print("Fizz")
+        else:
+            print(i)
