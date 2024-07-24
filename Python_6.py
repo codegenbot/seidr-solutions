@@ -1,16 +1,25 @@
-def main():
-    def parse_nested_parens(paren_string: str) -> List[int]:
-        result = []
-        for group in paren_string.split():
-            depth = 0
-            max_depth = 0
-            for char in group:
-                if char == "(":
-                    depth += 1
-                elif char == ")":
-                    depth -= 1
-                max_depth = max(max_depth, depth)
-            result.append(max_depth)
-        return result
+from typing import List
 
-    print(parse_nested_parens(input("Enter a string with nested parentheses: ")))
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    result = []
+    for group in paren_string.split():
+        depth = 0
+        max_depth = 0
+        for char in group:
+            if char == "(":
+                depth += 1
+            elif char == ")":
+                depth -= 1
+            max_depth = max(max_depth, depth)
+        result.append(max_depth)
+    return result
+
+
+def main():
+    paren_string = input("Enter a string with nested parentheses: ")
+    print(parse_nested_parens(paren_string))
+
+
+if __name__ == "__main__":
+    main()
