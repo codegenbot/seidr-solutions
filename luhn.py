@@ -1,10 +1,6 @@
-def luhn(card):
-    card = [int(x) for x in str(card)]
-    total = 0
-    for i, num in enumerate(reversed(card)):
-        if i % 2 == 1:
-            num *= 2
-            if num > 9:
-                num -= 9
-        total += num
-    return total
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number)]
+    checksum = sum(sum(divmod(d * 2, 10)) + d for d in card_number[1::2]) + sum(
+        divmod(d, 10) for d in card_number[::2]
+    )
+    return checksum
