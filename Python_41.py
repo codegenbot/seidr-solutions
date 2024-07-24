@@ -3,8 +3,8 @@ def car_race_collision(n: int):
         return False
     first_car = 0
     second_car = 1
-    while second_car <= n:
-        if first_car == second_car:
-            return True
+    while True:
         first_car += 1
         second_car += 1
+        if first_car == second_car:
+            return True
