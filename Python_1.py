@@ -1,33 +1,28 @@
-if paren_string.startswith("(") and paren_string.endswith(")"):
-    stack = []
+from typing import List
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    if not all(c.isalnum() or c in "()[]" for c in paren_string):
+        return []
+
+    result = []
+    stack = [""]
+    current_group = ""
+
     for char in paren_string:
-        if char == "(":
-            stack.append("(")
-        elif char == ")" and stack:
+        if char == "(" or char == "[":
+            if current_group:
+                result.append(current_group)
+            current_group = ""
+            stack.append(char)
+        elif (char == ")" and stack[-1] == "(") or (char == "]" and stack[-1] == "["):
             stack.pop()
-        else:
-            return []
-
-    if not stack:
-        result = []
-        current_group = ""
-
-        for char in paren_string[1:-1]:  
-            if char == "(":
-                if current_group:
-                    result.append(current_group)
-                current_group = ""
-            elif char == ")":
+            if not stack:
                 result.append(current_group)
                 current_group = ""
-            else:
-                current_group += char
+        else:
+            current_group += char
 
-        if current_group:
-            result.append(current_group)
+    if current_group:
+        result.append(current_group)
 
-        return result
-
-    return []
-
-return []
+    return result
