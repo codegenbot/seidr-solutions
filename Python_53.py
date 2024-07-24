@@ -1,7 +1,8 @@
-def add(x: int, y: int):
+def add():
     while True:
         try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
             return x + y
-        except TypeError:
-            x = float(input("Enter a number for x: "))
-            y = float(input("Enter a number for y: "))
+        except ValueError:
+            print("Invalid input. Please enter integers.")
