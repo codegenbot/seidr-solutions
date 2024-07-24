@@ -11,6 +11,6 @@ string squareDigits(string input) {
 }
 
 int main() {
-    cout << squareDigits("34") << endl; 
+    cout << squareDigits("34") << endl;
     return 0;
 }
