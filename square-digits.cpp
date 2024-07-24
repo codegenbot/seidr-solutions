@@ -1,11 +1,11 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-string squareDigits(string input) {
-    string result = "";
-    for (char c : input) {
+int squareDigits(int n) {
+    string str = to_string(n);
+    for (char &c : str) {
+        c -= '0';
         int digit = c - '0';
-        result += to_string(digit * digit);
+        c = (char)(digit * digit + '0');
     }
-    return result;
+    return stoi(str);
 }
