@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cstdlib>
 
 using namespace std;
 
@@ -28,7 +27,7 @@ int main() {
     for (int i = 1; i < n; ++i) {
         int leftSum = prefixSum[i];
         int rightSum = totalSum - leftSum;
-        int diff = abs(leftSum - rightSum);
+        int diff = std::abs(leftSum - rightSum);
         
         if (diff < minDiff) {
             minDiff = diff;
