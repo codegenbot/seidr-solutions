@@ -18,9 +18,9 @@ vector<int> strange_sort_vector(vector<int> lst) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
 
-        auto it_min = std::find_if(lst.begin(), lst.end(),
+        auto it_min = find_if(lst.begin(), lst.end(),
             [&](int x) { return x == min_val; });
-        auto it_max = std::find_if(lst.begin(), lst.end(),
+        auto it_max = find_if(lst.begin(), lst.end(),
             [&](int x) { return x == max_val; });
 
         result.push_back(*it_min);
@@ -30,9 +30,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(strange_sort_vector({111}), std::vector<int>{111}));
-    return 0;
 }
