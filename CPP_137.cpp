@@ -1,8 +1,6 @@
-```
-#include <stdio.h>
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
 
 using namespace std;
 
