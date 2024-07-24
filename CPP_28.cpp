@@ -8,7 +8,3 @@ std::string concatenate(std::vector<std::string> strings){
     }
     return result;
 }
-
-int main() {
-    // your code here
-}
