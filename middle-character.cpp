@@ -1,10 +1,16 @@
-#include <string>
-
-std::string middleCharacter(std::string s) {
-    int length = s.length();
+#include <sstream>
+char* middleCharacter(char *s) {
+    int length = 0;
+    for(int i=0; s[i]; i++) {
+        length++;
+    }
     if (length % 2 == 0) {
-        return s.substr(length / 2 - 1, 2);
+        ostringstream os;
+        os << s[length/2-1] << s[length/2];
+        return strdup(os.str().c_str());
     } else {
-        return s.substr(length / 2, 1);
+        ostringstream os;
+        os << s[length/2];
+        return strdup(os.str().c_str());
     }
 }
