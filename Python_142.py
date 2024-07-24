@@ -1,1 +1,6 @@
-print(check(sum_squares([1, 2, 3, 11, 12])))
+```
+def check(lst):
+    return "yes" if sum(i**2 for i in lst) > 10 else "no"
+
+
+print(check([1, 2, 3, 11, 12]))
