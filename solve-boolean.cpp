@@ -1,12 +1,7 @@
-int main() {
-    string expr;
-    cin >> expr;
-    
-    if (expr == "t") {
-        cout << "True" << endl;
+bool evaluateBoolean(string exp) {
+    if (exp == "t") {
+        return true;
     } else {
-        cout << "False" << endl;
+        return false;
     }
-    
-    return 0;
 }
