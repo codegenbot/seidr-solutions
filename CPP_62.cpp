@@ -6,6 +6,10 @@ bool issame(std::vector<float> a, std::vector<float> b){
 }
 
 std::vector<float> derivative(std::vector<float> xs){
+    if (xs.size() < 2) {
+        return {};
+    }
+    
     std::vector<float> result;
     for(int i=1; i<xs.size(); i++){
         result.push_back(xs[i] * i);
