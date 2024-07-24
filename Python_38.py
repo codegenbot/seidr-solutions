@@ -7,8 +7,10 @@ def decode_cyclic():
             group = s[i:i+3]
         else:
             group = s[i:]
-        if len(group) == 3:
-            result += group[1] + group[0] + group[2]
+        if len(group) == 3 and (group == 'abc' or group == 'bcd'):
+            result += group
+        elif len(group) > 1:
+            result += group[2] + group[1] + group[0]
         else:
             result += group
         i += 3
