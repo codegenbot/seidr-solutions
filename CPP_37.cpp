@@ -1,8 +1,9 @@
 ```
+#include <iostream>
 #include <algorithm>
 #include <vector>
 
-bool std::issame(std::vector<float> a, std::vector<float> b) {
+bool areEqualVectors(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +15,7 @@ bool std::issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
+std::vector<float> sortEven(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -24,10 +25,11 @@ std::vector<float> sort_even(std::vector<float> l) {
                     even.push_back(l[j]);
                 }
             }
-            sort(even.begin(), even.end());
+            std::sort(even.begin(), even.end());
             result.push_back(even[0]);
         } else {
             result.push_back(l[i]);
         }
     }
     return result;
+}
