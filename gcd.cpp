@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -28,19 +28,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text = "Hello";
-    string target = "o";
-    vector<int> indices = indicesOfSubstring(text, target);
-    cout << "Indices: ";
-    for (int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    int a = 24;
-    int b = 12;
-    int res = gcd(a, b);
-    cout << "GCD of " << a << " and " << b << " is: " << res << endl;
+    int a = 12;
+    int b = 15;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
 
     return 0;
 }
