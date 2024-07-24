@@ -21,11 +21,13 @@ int main() {
     std::string tempLine;
 
     // Input for vector 1
-    while(std::cout << "Enter the elements of vector 1 (separated by space): ") {
-        if (!(std::cin >> std::ws >> float num)) {
+    std::cout << "Enter the elements of vector 1 (separated by space): ";
+    float num;
+    while(true) {
+        if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); // Reset error state
-            while(std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec1.clear();
@@ -35,11 +37,12 @@ int main() {
     }
 
     // Input for vector 2
-    while(std::cout << "\nEnter the elements of vector 2 (separated by space): ") {
-        if (!(std::cin >> std::ws >> float num)) {
+    std::cout << "\nEnter the elements of vector 2 (separated by space): ";
+    while(true) {
+        if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); // Reset error state
-            while(std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec2.clear();
