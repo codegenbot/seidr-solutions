@@ -4,13 +4,18 @@
 int main() {
     std::vector<int> nums;
     int n;
-    int sum = 0;
-    while (!std::cin.eof()) {
-        std::cin >> n;
+    while (std::cin >> n) {
+        if (std::cin.fail()) {
+            break;
+        }
         nums.push_back(n);
-        sum += n;
     }
 
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
