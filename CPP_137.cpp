@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <variant>
 #include <string>
 
@@ -37,3 +37,5 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
         }
     }, a, b);
 }
+
+assert(std::any_cast<std::string>(compare_one("1", 1)) == "Non");
