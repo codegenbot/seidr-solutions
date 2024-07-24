@@ -7,7 +7,7 @@ using namespace std;
 vector<int> findLeaders(vector<int> nums);
 
 #endif
-```
+``` 
 
 leaders.cpp
 ```cpp
