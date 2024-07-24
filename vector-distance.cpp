@@ -15,3 +15,10 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
     }
     return sqrt(sum);
 }
+
+int main() {
+    std::vector<float> v1 = {1.0, 2.0, 3.0};
+    std::vector<float> v2 = {4.0, 5.0, 6.0};
+    double distance = euclideanDistance(v1, v2);
+    // use the returned distance
+}
