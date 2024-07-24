@@ -1,3 +1,5 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
@@ -6,29 +8,24 @@ pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.count(complement)) {
-            return make_pair(complement, nums[i]);
+            return {complement, nums[i]};
         }
         numMap[nums[i]] = i;
     }
-    throw invalid_argument("No such pair found");
+    return {-1, -1}; // return dummy pair in case no solution found
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
+        cin >> nums[i];
     }
     int target;
     cin >> target;
-
-    try {
-        auto result = findPair(numbers, target);
-        cout << result.first << "\n" << result.second << "\n";
-    } catch (invalid_argument& e) {
-        cout << "No such pair found\n";
-    }
-
+    pair<int, int> result = findPair(nums, target);
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
