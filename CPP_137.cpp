@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -14,7 +13,7 @@ bool compare_one(boost::any a, boost::any b) {
             else if(a_int < b_int)
                 return false;
             else
-                return a_int == 0;
+                return a_int == 0; 
         } else {
             std::string a_s = boost::any_cast<std::string>(a);
             double b_d = boost::any_cast<double>(b);
@@ -30,6 +29,6 @@ bool compare_one(boost::any a, boost::any b) {
         else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
             return false;
         else
-            return true; // Changed this line to compare the integers only.
+            return a_int == 0; 
     }
 }
