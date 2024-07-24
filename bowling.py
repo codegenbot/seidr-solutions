@@ -1,39 +1,26 @@
-```
-def bowling_score(frames):
+def bowling_score(bowling):
     score = 0
-    frame = 0
-    while frame < len(frames):
-        if frames[frame] == 'X':  # strike
-            score += 10 + (10 if frame+1 < len(frames) and frames[frame+1].isdigit() else 0)
-            frame += 2
-        elif frames[frame:frame+2] in ['--', '-X', 'XX']:
-            score += 10
-            frame += 3
-        elif frames[frame].isdigit():
-            strike = False
-            for i in range(1, 4):
-                if frame+i >= len(frames) or not frames[frame+i].isdigit():
-                    break
-            if i == 1:
-                score += int(frames[frame])
-                frame += 1
-            else:
-                score += int(frames[frame:frame+i])
-                strike = True
-            if strike:
-                while frame < len(frames) and (frames[frame] != '/' or not frames[frame+1].isdigit()):
-                    frame += 1
+    roll = 0
+    for i in range(1, 11):
+        if "/" in str(i) + bowling[i - 1 : i + 1]:
+            f = list(map(int, re.findall("\d", str(i) + bowling[i - 1 : i + 1])))
+            score += sum(f)
+            if len(f) == 2:
+                roll += 10
         else:
-            if frame < len(frames) - 2 and frames[frame:frame+3] == '/0':
-                score += 10
-                frame += 3
-            elif frame < len(frames) - 1 and frames[frame:frame+2] == '//':
-                score += 10
-                frame += 2
-            else:
-                for i in range(1, 4):
-                    if frame+i >= len(frames) or not frames[frame+i].isdigit():
-                        break
-                score += int(frames[frame:frame+i])
-                frame += i
+            f = int(bowling[i - 1])
+            score += f
+            if f == 10:
+                roll += 10
+    while roll < 10:
+        if "/" in bowling[roll : roll + 3]:
+            f = list(map(int, re.findall("\d", bowling[roll : roll + 3])))
+            score += sum(f)
+            if len(f) == 2:
+                roll += 2
+        else:
+            f = int(bowling[roll])
+            score += f
+            if f == 10:
+                roll += 1
     return score
