@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <boost/variant2/variant.hpp>
+#include <boost/variant.hpp>
 
 using namespace boost;
 
