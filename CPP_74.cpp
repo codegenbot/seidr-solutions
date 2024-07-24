@@ -29,28 +29,16 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 
 int main() {
     std::vector<std::string> lst1 = {"a", "b", "c"};
-    std::vector<std::string> lst2;
+    std::vector<std::string> lst2 = {"d", "e", "f"};
 
     if (issame(lst1, lst2)) {
         std::cout << "The lists are the same.\n";
     } else {
-        if (!lst1.empty() && !lst2.empty()) {
-            std::vector<std::string> result = total_match(lst1, lst2);
-            if (std::equal(result.begin(), result.end(), lst1.begin())) {
-                std::cout << "List 1 is the match of list 2.\n";
-            } else {
-                std::cout << "List 2 is the match of list 1.\n";
-            }
+        std::vector<std::string> result = total_match(lst1, lst2);
+        if (std::equal(result.begin(), result.end(), lst1.begin())) {
+            std::cout << "List 1 is the match of list 2.\n";
         } else {
-            if (lst1.empty()) {
-                if (lst2.empty()) {
-                    std::cout << "Both lists are empty.\n";
-                } else {
-                    std::cout << "List 2 is the match of an empty list.\n";
-                }
-            } else {
-                std::cout << "List 1 is the match of an empty list.\n";
-            }
+            std::cout << "List 2 is the match of list 1.\n";
         }
     }
 
