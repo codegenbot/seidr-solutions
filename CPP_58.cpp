@@ -1,8 +1,21 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+
+using namespace std;
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-assert(issame(std::vector<int>{4, 3, 2, 8}, std::vector<int>{}));
+int main() {
+    vector<int> vec1 = {1, 2, 3};
+    vector<int> vec2 = {1, 2, 3};
+
+    if (issame(vec1, vec2)) {
+        cout << "Vectors are the same." << endl;
+    } else {
+        cout << "Vectors are different." << endl;
+    }
+
+    return 0;
+}
