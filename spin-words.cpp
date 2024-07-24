@@ -1,18 +1,43 @@
-Here's the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string spinWords(string s) {
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
-    int wordLength;
-    char* word = strtok(const_cast<char*>(s.c_str()), " ");
-    while(word != NULL) {
-        wordLength = strlen(word);
-        if(wordLength >= 5) {
-            for(int i = wordLength - 1; i >= 0; --i)
-                result += word[i];
-        } else
-            result += word;
-        result += " ";
-        word = strtok(NULL, " ");
+    string word = "";
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                for (int i = word.length() - 1; i >= 0; --i) {
+                    result += word[i];
+                }
+            } else {
+                result += word;
+            }
+            word = "";
+        } else {
+            word += c;
+        }
     }
-    return result.substr(0, result.size() - 1);
+    
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; --i) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+    
+    return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << spinWords(str) << endl;
+    return 0;
 }
