@@ -10,12 +10,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             while stack and stack[-1] != '(':
                 stack.pop()
             if not stack:
-                result.append(0)
+                result.append(len(result) + 1)
             else:
-                result.append(len(stack) + 1) 
-            stack.pop()
-    if stack:
-        while stack:
-            result.append(len(stack))
+                result.append(len(stack))
             stack.pop()
     return result
