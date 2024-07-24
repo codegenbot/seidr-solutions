@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,7 +26,9 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec)) std::cout << "Yes";
-    else std::cout << "No";
+    if (match_parens(vec) == 1) 
+        std::cout << "Yes" << std::endl;
+    else
+        std::cout << "No" << std::endl;
     return 0;
 }
