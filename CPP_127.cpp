@@ -1,5 +1,5 @@
 #include <vector>
-#include <string> 
+#include <string>
 using namespace std;
 
 int intersection(vector<int> interval1, vector<int> interval2) {
