@@ -27,28 +27,3 @@ vector<int> getOddCollatz(int n) {
     }
     return res;
 }
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    if (n <= 0) {
-        cerr << "Error: Please enter a positive integer." << endl;
-        return 1;
-    }
-    vector<int> res = getOddCollatz(n);
-    for (int i : res) {
-        cout << i << " ";
-    }
-    cout << endl;
-    if (!res.empty()) {
-        if (isSame(res, getOddCollatz(1))) {
-            cout << "The sequence is the same as Collatz Conjecture." << endl;
-        } else {
-            cout << "The sequence does not match Collatz Conjecture." << endl;
-        }
-    } else {
-        cout << "The sequence does not match Collatz Conjecture." << endl;
-    }
-    return 0;
-}
