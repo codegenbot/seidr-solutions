@@ -1,41 +1,44 @@
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool solveBoolean(string expression) {
-    int pos = 0;
+    if (expression.size() > 0) {
+        if (expression[0] == 'T' || expression[0] == 't')
+            return true;
+        else if (expression[0] == 'F' || expression[0] == 'f')
+            return false;
+    }
+
+    int pos = 0, i = 0;
 
     while (pos < expression.size()) {
         size_t start = pos;
         if (expression[pos] == '|') {
             pos++;
-            bool left = solveBoolean(string(1, expression[pos]));
-            bool right = true;
-            for (++pos; pos < expression.size() && expression[pos] != '&'; ++pos)
-                ;
-            if (pos < expression.size())
-                right = solveBoolean(string(&expression[pos], 1));
-            return left || right;
+            continue;
         } else if (expression[pos] == '&') {
             pos += 2;
-            bool left = true, right = true;
-            for (; pos < expression.size() && expression[pos] != '|';) {
-                if (expression[pos] == 'F' || expression[pos] == 'f')
-                    left = false;
-                else
-                    break;
-                ++pos;
-            }
-            for (++pos; pos < expression.size() && expression[pos] != '|'; ++pos)
-                ;
-            if (pos < expression.size())
-                right = solveBoolean(string(&expression[pos], 1));
-            return left && right;
-        } else {
-            if (expression[start] == 'T' || expression[start] == 't')
-                return true;
-            else if (expression[start] == 'F' || expression[start] == 'f')
-                return false;
-            pos++;
+            continue;
         }
+        size_t end = pos + 1;
+        while (end < expression.size() && (expression[end] == 'T' || expression[end] == 't' ||
+                                            expression[end] == 'F' || expression[end] == 'f' ||
+                                            expression[end] == '|' || expression[end] == '&')) {
+            end++;
+        }
+        string part = expression.substr(start, end - start);
+        
+        if (expression[start] == 'T' || expression[start] == 't')
+            i = true;
+        else if (expression[start] == 'F' || expression[start] == 'f')
+            i = false;
+
+        pos = end;
     }
-    return true;
+
+    return i;
 }
 
 int main() {
