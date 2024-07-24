@@ -2,24 +2,16 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.size();
-    int m = target.size();
-
-    for (int i = 0; i <= n - m; i++) {
-        bool isMatch = true;
-        for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
-                isMatch = false;
-                break;
-            }
-        }
-        if (isMatch) {
-            result.push_back(i);
-        }
+    vector<int> res;
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i=0; i<=n-m; i++) {
+        if(text.substr(i,m) == target)
+            res.push_back(i);
     }
-
-    return result;
+    
+    return res;
 }
 
 int gcd(int a, int b) {
