@@ -2,7 +2,7 @@
 #include <initializer_list>
 #include <cassert>
 
-bool ismatch(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,10 +15,16 @@ bool ismatch(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> get_positive(std::initializer_list<float> values) {
-    return std::vector<float>(values);
+    std::vector<float> result;
+    for (const auto& val : values) {
+        if (val > 0) {
+            result.push_back(val);
+        }
+    }
+    return result;
 }
 
 int main() {
-    assert(ismatch(get_positive({}), std::vector<float>{}));
+    assert(issame(get_positive({}), std::vector<float>{}));
     return 0;
 }
