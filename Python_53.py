@@ -1,5 +1,10 @@
+```
 def add(x: int, y: int):
-    print("Please enter two numbers.")
-    x = int(input("Enter first number: "))
-    y = int(int(input("Enter second number: ")))
+    print("Enter first number: ")
+    x = int(input())
+    print("Enter second number: ")
+    y = int(input())
     return x + y
+
+result = add(0, 0)
+print(result)
