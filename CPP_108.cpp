@@ -1,7 +1,7 @@
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num >= 0) {
@@ -32,4 +32,22 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    int n, temp;
+    vector<int> nums;
+    cout << "Enter the number of integers: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; ++i){
+        cout << "Enter integer #"<<(i+1<<": ");
+        cin >> temp;
+        nums.push_back(temp);
+    }
+    
+    int res = count_nums(nums);
+    cout << "Number of integers whose absolute value is a sum of its digits: " << res << endl;
+    
+    return 0;
 }
