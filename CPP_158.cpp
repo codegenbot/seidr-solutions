@@ -1,33 +1,23 @@
-```c
+```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
-#include <iostream>
 
-using namespace std;
-
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() > b.length();
-        });
-    for (string word : words) {
-        if (word.length() == max_word.length() && 
-            count(word.begin(), word.end(), '#') > 0) {
-            max_word = word;
-            break;
+std::string find_max(const std::vector<std::string>& words) {
+    if (words.empty()) {
+        return "";
+    }
+    string max = words[0];
+    for (const auto& word : words) {
+        if (word.size() > max.size()) {
+            max = word;
         }
     }
-    return max_word;
-
+    return max;
 }
 
-int main() { // added parentheses
-    vector<string> words = {"play", "play", "play"};
-    string result = find_max(words);
-    cout << result << endl;
+int main() {
+    std::vector<std::string> words = {"play", "play", "play"};
+    std::string result = find_max(words);
+    std::cout << result << std::endl;
     return 0;
 }
