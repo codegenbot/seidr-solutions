@@ -39,20 +39,36 @@ int main() {
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
     vector<string> lst1;
-    cout << "Please enter a string for list 1: ";
+    cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
         string s;
-        cin >> s;
+        while (true) {
+            cin >> s;
+            if (!s.empty()) break;
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cout << "Please try again: ";
+            getline(cin, s);
+        }
         lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
     vector<string> lst2;
-    cout << "Please enter a string for list 2: ";
+    cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
         string s;
-        cin >> s;
+        while (true) {
+            cin >> s;
+            if (!s.empty()) break;
+            cin.clear();
+            while (cin.peek() == '\n') cin.ignore();
+            cout << "Invalid input. Please enter a non-empty string.\n";
+            cout << "Please try again: ";
+            getline(cin, s);
+        }
         lst2.push_back(s);
     }
 
