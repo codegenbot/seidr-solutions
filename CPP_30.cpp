@@ -1,15 +1,8 @@
 #include <vector>
+#include <initializer_list>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
 std::vector<float> get_positive(std::initializer_list<float> values) {
@@ -17,6 +10,6 @@ std::vector<float> get_positive(std::initializer_list<float> values) {
 }
 
 int main() {
-    issame(get_positive({}), get_positive({}));
+    issame(get_positive({3.14, 2.71}), get_positive({3.14, 2.71}));
     return 0;
 }
