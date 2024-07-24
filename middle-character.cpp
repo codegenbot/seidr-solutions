@@ -4,10 +4,14 @@
 int main() {
     std::string s;
     std::cin >> s;
-    if (s.size() % 2 == 0) {
-        std::cout << s.substr(s.size() / 2 - 1, 2);
+    
+    int n = s.size();
+    
+    if (n % 2 == 0) {
+        std::cout << s.substr(n/2 - 1, 2);
     } else {
-        std::cout << s[s.size() / 2];
+        std::cout << s[n/2];
     }
+    
     return 0;
 }
