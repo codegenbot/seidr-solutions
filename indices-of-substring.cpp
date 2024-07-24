@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,7 +6,7 @@
 auto findIndices(string text, string target) -> vector<int> {
     vector<int> indices;
     int prevLast = 0;
-    while ((int last = text.find(target, prevLast)) != string::npos) {
+    while (last = text.find(target, prevLast)) != string::npos) {
         indices.push_back(last);
         prevLast = last + 1;
     }
