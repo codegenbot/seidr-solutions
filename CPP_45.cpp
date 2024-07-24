@@ -3,14 +3,17 @@
 #include <cmath>
 
 double triangle_area(double a, double h) {
+    assert(a > 0 && h > 0);
     return 0.5 * a * h;
 }
 
 int main() {
-    double a, h;
-    std::cin >> a >> h;
-    assert(a > 0 && h > 0);
-    double area = triangle_area(a, h);
-    std::cout << area << std::endl;
+    double base, height;
+    std::cout << "Enter the base and height of the triangle: ";
+    std::cin >> base >> height;
+
+    double area = triangle_area(base, height);
+    std::cout << "Area of the triangle: " << area << std::endl;
+
     return 0;
 }
