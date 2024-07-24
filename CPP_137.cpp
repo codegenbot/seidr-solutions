@@ -1,19 +1,22 @@
-```
 #include <string>
 #include <algorithm>
-#include <variant>
-#include <any>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
-    return visit([](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
-        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
-            return std::any_cast<std::string>(a);
-        } else if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
-            return std::to_string(std::max(std::any_cast<int>(a), std::any_cast<int>(b)));
-        } else if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
-            return std::to_string(std::max(std::any_cast<float>(a), std::any_cast<float>(b)));
-        } else {
-            return "0";
+    using namespace std;
+    return visit([](auto&& a, auto&& b) -> variant<string, int, float> {
+        if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
+            if (get<string>(a) > get<string>(b)) {
+                return get<string>(a);
+            } else {
+                return "0";
+            }
+        } else if (holds_alternative<int>(a) && holds_alternation<int>(b)) {
+            int x = get<int>(a), y = get<int>(b);
+            return to_string(max(x, y));
+        } else if (holds_alternative<float>(a) && holds_alternation<float>(b)) {
+            float x = get<float>(a), y = get<float>(b);
+            return to_string(max(x, y));
         }
+        return "0";
     }, a, b);
 }
