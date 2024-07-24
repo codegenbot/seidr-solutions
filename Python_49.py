@@ -1,21 +1,16 @@
 ```
 def modp(n: int, p: int):
-    def egcd(a, b):
+    def extended_gcd(a, b):
         if a == 0:
             return (b, 0)
         else:
-            g, y = egcd(b % a, a)
-            return (g, y - (b // a) * y)
+            g, y = extended_gcd(b % a, a)
+            return (g, b // a - y * (b // a))
 
-    def modinv(a, m):
-        g, y = egcd(a, m)
-        if g != 1:
-            return None
-        else:
-            return y % m
-
-    inv = modinv(n, p)
-    if inv is not None:
-        return pow(n, p - 2, p) * n * inv % p
-    else:
+    g, x = extended_gcd(p, n)
+    if p == 1:
+        return n
+    elif g != 1:
         return None
+    else:
+        return pow(n, p-2, p) * n % p
