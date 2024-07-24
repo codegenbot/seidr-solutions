@@ -1,3 +1,5 @@
+Problem description: Determine whether a set of weights can be balanced by a quadcopter with a maximum weight capacity w.
+
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
