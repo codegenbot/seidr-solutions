@@ -1,6 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
+
+using namespace std;
 
 std::string decimal_to_binary(int decimal) {
     std::string binary = "";
@@ -16,6 +17,6 @@ std::string decimal_to_binary(int decimal) {
 
 int main() {
     assert(decimal_to_binary(15) == "db1111db");
-    std::cout << "Test passed." << std::endl;
+    cout << "Test passed." << endl;
     return 0;
 }
