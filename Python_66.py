@@ -1,3 +1,3 @@
 ```
 def digitSum(s):
-    return sum(ord(c.lower()) - 96 for c in s)
+    return sum(int(c.lower()) - int('a') + 1 for c in s if c.isalnum() and c.isalpha())
