@@ -1,12 +1,14 @@
-```
-def car_race_collision(s1: int, s2: int):
+def car_race_collision(speed1: int, speed2: int):
+    pos1 = 0
+    pos2 = 0
     while True:
-        p1 = 0
-        p2 = 0
-        while p1 < p2:
-            p1 += s1
-            p2 += s2
-        if p1 == p2:
+        pos1 += speed1
+        pos2 += speed2
+        if pos1 == pos2:
             return True
+        elif pos2 > pos1:
+            speed1 = max(speed1, speed2)
+            speed2 -= speed2 - (pos2 - pos1)
         else:
-            return False
+            speed2 = max(speed2, speed1)
+            speed1 -= speed1 - (pos2 - pos1)
