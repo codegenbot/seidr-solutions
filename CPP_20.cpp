@@ -4,7 +4,7 @@
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = std::numeric_limits<float>::max();
-    std::vector<float> closest_pair;
+    std::vector<float> closest_pair; // Declare and initialize
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
@@ -17,4 +17,9 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     }
 
     return {closest_pair[0], closest_pair[1]};
+}
+
+int main() {
+    assert(std::equal(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , std::pair<float, float>{{2.2, 3.1}}));
+    return 0;
 }
