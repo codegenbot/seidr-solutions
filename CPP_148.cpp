@@ -4,17 +4,16 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
+    return v1 == v2;
 }
 
-std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) {
-    std::vector<std::string> result;
+std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
-        result = {planets.first, planets.second};
+        return {planets.first, "to", planets.second};
     } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
-        result = {planets.second, planets.first};
+        return {"to", planets.second, planets.first};
     }
-    return result;
+    return {};
 }
 
 int main() {
