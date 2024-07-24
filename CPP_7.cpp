@@ -19,6 +19,11 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    assert(containSameStrings(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> expected = {"grunt", "prune"};
+
+    assert(containSameStrings(filter_by_substring(strings, substring), expected));
+
     return 0;
 }
