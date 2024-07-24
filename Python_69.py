@@ -5,21 +5,23 @@ def is_prime(n):
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
-    while n > 1:
-        if n % 2 == 0:
-            n //= 2
-        elif n % 3 == 0:
-            n //= 3
-        else:
-            for i in range(5, int(n**0.5) + 1, 6):
-                if n % i == 0 or n % (i+2) == 0:
-                    n = n // i
-                    break
+    if n > 1:
+        while n > 1:
+            if n % 2 == 0:
+                n //= 2
+            elif n % 3 == 0:
+                n //= 3
             else:
-                for i in range(7, int(n**0.5) + 1, 8):
-                    if n % i == 0 or n % (i+4) == 0:
-                        n //= i
+                for i in range(5, int(n**0.5) + 1, 6):
+                    if n % i == 0 or n % (i+2) == 0:
+                        n = n // i
                         break
+                else:
+                    for i in range(7, int(n**0.5) + 1, 8):
+                        if n % i == 0 or n % (i+4) == 0:
+                            n //= i
+                            break
+        return n
     return n
 
 def search(lst):
