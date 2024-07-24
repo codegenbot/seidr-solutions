@@ -1,4 +1,5 @@
-def probability(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = min(n, m)
-    return favorable_outcomes / total_outcomes
+n = int(input())
+m = int(input())
+
+probability = 0 if m > n else (sum(range(m + 1, n + 1)) / (n * m))
+print(probability)
