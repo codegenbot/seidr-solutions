@@ -1,12 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-
-bool issame(float a, float b) {
-    if(abs(a - b) > 1e-5) {
-        return false;
-    }
-    return true;
-}
 
 std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result;
@@ -19,9 +12,25 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    // Example usage
-    std::vector<float> input = {-1.5, 2.5, -3.5, 4.5};
-    auto positive_input = get_positive(input);
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<float> v;
+    for (int i = 0; i < n; ++i) {
+        float x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        v.push_back(x);
+    }
+
+    std::vector<float> positive_elements = get_positive(v);
+
+    std::cout << "Positive elements: ";
+    for (float x : positive_elements) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
 
     return 0;
 }
