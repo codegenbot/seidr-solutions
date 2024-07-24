@@ -15,11 +15,10 @@ int main() {
     std::vector<float> lst;
     int n;
     cin >> n;
-
     for(int i = 0; i < n; i++) {
-        float val;
-        cin >> val;
-        lst.push_back(val);
+        float x;
+        cin >> x;
+        lst.push_back(x);
     }
 
     long long odd_sum = 0;
@@ -28,7 +27,6 @@ int main() {
             odd_sum += pow(num, 2);
         }
     }
-
     assert(double_the_difference(lst) == odd_sum);
 
     return 0;
