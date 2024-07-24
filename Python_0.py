@@ -3,7 +3,7 @@ from typing import List
 
 
 def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
-    if len(numbers_list) < 2:
+    if len(numbers_list) < 2 or (len(set(map(round, numbers_list))) == 1):
         return False
     for i in range(len(numbers_list) - 1):
         for j in range(i + 1, len(numbers_list)):
@@ -62,23 +62,12 @@ def main():
 
                 result = has_close_elements(numbers_list, threshold)
 
-                while True:
-                    response_again = input("Do you want to run the program again? (y/n): ")
-                    while response_again not in ["y", "yes", "n", "no"]:
-                        print("Invalid input. Please enter 'y', 'yes', 'n', or 'no'.")
-                        response_again = input().lower()
-
-                    if response_again in ["y", "yes"]:
-                        break
-                    else:
-                        print("Exiting the program.")
-                        exit(0)
-
                 print(
                     "The list contains close elements"
                     if result
                     else "The list does not contain close elements"
                 )
+                break
         else:
             print("Exiting the program.")
             exit(0)
