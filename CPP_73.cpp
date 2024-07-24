@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -24,12 +23,13 @@ int smallest_change(vector<int> arr) {
 int main() {
     vector<int> arr;
     int n;
+    cout << "Enter the number of elements: ";
     cin >> n;
     for (int i = 0; i < n; i++) {
         int temp;
         cin >> temp;
         arr.push_back(temp);
     }
-    cout << smallest_change(arr) << endl;
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
     return 0;
 }
