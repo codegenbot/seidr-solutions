@@ -1,2 +1,2 @@
 def is_simple_power(x, n):
-    return round(n ** (int(math.log(x, n)))) == x
+    return int(n**0.5) ** n == x
