@@ -1,11 +1,17 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
+    for(auto &s : a) {
+        bool found = false;
+        for(auto &t : b) {
+            if(s == t)
+                found = true;
+        }
+        if(!found)
             return false;
     }
     return true;
@@ -13,5 +19,4 @@ bool issame(vector<string> a, vector<string>b) {
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAZA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    // ...
 }
