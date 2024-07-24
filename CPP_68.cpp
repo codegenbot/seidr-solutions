@@ -25,7 +25,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main() {
+int main_function() {
     vector<pair<int, int>> output = pluck({7, 9, 7, 1});
     
     for (const auto& pair : output) {
