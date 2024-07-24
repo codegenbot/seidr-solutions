@@ -9,12 +9,17 @@ def encode(message):
                     result += chr((ord(char) - ascii_offset + 25) % 26 + ascii_offset)
                 else:
                     result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-            else: 
-                result += char.lower()
-        elif char == " ": # handle spaces correctly
+            elif char.isdigit():
+                ascii_offset = 97 if int(char) <= 9 else 65
+                result += chr((int(char) - 48) % 10 + 55 + (ascii_offset if ord('a') < ord('A') else 0))
+        elif char == " ": 
             result += "+"
-        elif char in "!?,.:; '": 
-            if char == '"':
+        elif char in "!\"',.:;":
+            result += "/" + "".join(f"{ord(c)-44:.2X}" for c in char)
+        else: 
+            if char == "!":
+                result += ">"
+            elif char == "\"":
                 result += "%"
             elif char == "'":
                 result += "!)"
@@ -22,24 +27,6 @@ def encode(message):
                 result += "*"
             elif char == ",":
                 result += "-"
-            elif char == "!":
-                result += ">"
             else: 
-                result += "" # or any other logic you want for unknown special characters
-        else:
-            if char.isdigit():
-                result += chr((int(char) - 48) % 10 + 55)
-            else: 
-                if char == '"':
-                    result += "%"
-                elif char == "'":
-                    result += "!)"
-                elif char == ".":
-                    result += "*"
-                elif char == ",":
-                    result += "-"
-                elif char == "!":
-                    result += ">"
-                else: 
-                    result += ""
+                result += ""
     return result
