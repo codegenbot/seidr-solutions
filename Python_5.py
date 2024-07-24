@@ -1,4 +1,3 @@
-
 def complete_code(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
