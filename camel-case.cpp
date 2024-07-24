@@ -1,19 +1,24 @@
+```cpp
 #include <string>
+#include <cctype>
 
-std::string camelCase(const std::string& str) {
+int main() {
+    std::string str = "camel-case example-test-string";
     std::string result;
-    bool capitalize = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+    for (int i = 0; i <= str.length(); i++) {
+        if (str[i] == '-') {
+            result += toupper(str[i + 1]);
+            i++;
+        } else if (i > 0) {
+            if (i == str.length() || str[i + 1] == '-') {
+                result += toupper(str[i]);
+            } else {
+                result += tolower(str[i]);
+            }
         } else {
-            result += tolower(c);
+            result += tolower(str[i]);
         }
     }
-
-    return result;
+    std::cout << result << std::endl;
+    return 0;
 }
