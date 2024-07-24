@@ -1,3 +1,5 @@
+#include <string>
+#include <sstream>
 #include <digest>
 
 using namespace std;
