@@ -17,8 +17,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return result
 
 def main():
-    user_input = input("Enter a string of parentheses: ")
-    print(parse_nested_parens(user_input))
+    input_str = input("Enter a string of parentheses (e.g., '(()())'): ")
+    print(parse_nested_parens(input_str))
 
 if __name__ == "__main__":
     main()
