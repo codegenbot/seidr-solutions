@@ -1,16 +1,8 @@
-bool issame(const vector<int>& a, const vector<int>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-void sort_third(vector<int>& l){
+void sort_third(vector<int>& l) {
     for(int i = 0; i < l.size(); i++){
         if(i % 3 == 0){
             vector<int> temp;
