@@ -1,23 +1,11 @@
-def coin_sums(cents):
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
+    counts = [0, 0, 0, 0]
 
-    while cents > 0:
-        if cents >= 25:
-            cents -= 25
-            result[0] += 1
-        elif cents >= 10:
-            cents -= 10
-            result[1] += 1
-        elif cents >= 5:
-            cents -= 5
-            result[2] += 1
-        else:
-            cents -= 1
-            result[3] += 1
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            counts[i] += 1
+            cents -= coins[i]
 
-    return tuple(result)
-
-
-cents = int(input())
-print(*coin_sums(cents))
+    return counts[3], counts[2], counts[1], counts[0]
