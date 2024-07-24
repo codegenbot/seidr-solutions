@@ -1,10 +1,14 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
-int sum_squares(vector<int> lst) {
+int sum_squares(initializer_list<int> lst) {
     int total = 0;
     for (int i : lst) {
         if ((i + 1) % 3 == 0 && (i + 1) % 4 != 0)
