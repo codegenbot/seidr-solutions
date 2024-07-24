@@ -1,5 +1,3 @@
-from typing import Optional
-
 def longest() -> Optional[str]:
     max_length = 0
     result = ''
