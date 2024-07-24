@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -13,12 +18,13 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> rolling_max(vector<int> numbers);
 
 int main(){
-    vector<int> input = {1, 3, 5, 2, 6, 4};
-    vector<int> result = rolling_max(input);
+    vector<int> numbers = {1, 3, 5, 2, 7, 4};
+    vector<int> result = rolling_max(numbers);
     for(int i=0; i<result.size(); i++){
         cout << result[i] << " ";
     }
     cout << endl;
+
     return 0;
 }
 
