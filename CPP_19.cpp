@@ -1,5 +1,4 @@
-string sort_numbers(string numbers){
-    map<string, int> numeralToNumber = {
+map<string, int> number_mapping = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -12,24 +11,21 @@ string sort_numbers(string numbers){
         {"nine", 9}
     };
 
-    map<int, string> numberToNumeral;
-    for (const auto& it : numeralToNumber) {
-        numberToNumeral[it.second] = it.first;
+    string result = "";
+    string current_number = "";
+    
+    for (const char &c : numbers) {
+        if (c != ' ') {
+            current_number += c;
+        } else {
+            int value = number_mapping[current_number];
+            result += current_number + " ";
+            current_number = "";
+        }
     }
 
-    vector<int> numOrder;
-    stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        numOrder.push_back(numeralToNumber[num]);
-    }
+    int value = number_mapping[current_number];
+    result += current_number;
 
-    sort(numOrder.begin(), numOrder.end());
-
-    string sortedNumbers;
-    for (const int& n : numOrder) {
-        sortedNumbers += numberToNumeral[n] + " ";
-    }
-
-    return sortedNumbers.substr(0, sortedNumbers.size() - 1);
+    return result;
 }
