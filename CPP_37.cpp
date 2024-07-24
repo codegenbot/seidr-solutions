@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool isSameVector(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,6 +34,6 @@ std::vector<float> sort_even(std::vector<float> vec) {
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(isSameVector(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-(long long)12, 4.0, 3, 2.0, 5, -(long long)10, 8, 11, 2, 23});
     return 0;
 }
