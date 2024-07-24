@@ -12,13 +12,10 @@ int main() {
         cin >> v1[i];
     }
     
-    string temp;
-    getline(cin, temp); // read the newline
-    
+    double temp;
     for (int i = 0; i < n; ++i) {
-        double x, y;
-        cin >> x >> y;
-        v2[i] = sqrt(x*x + y*y);
+        cin >> temp;
+        cin >> v2[i];
     }
 
     double sum = 0;
