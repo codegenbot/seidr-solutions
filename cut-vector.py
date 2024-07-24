@@ -1,22 +1,20 @@
 n = int(input())
-A = []
-for i in range(n):
-    A.append(int(input()))
+a = [int(input()) for _ in range(n)]
 
-total_sum = sum(A)
-half_sum = total_sum // 2
+total_sum = sum(a)
 left_sum = 0
+right_sum = total_sum
+
+min_diff = total_sum
+cut_index = 0
+
 for i in range(n):
-    left_sum += A[i]
-    if left_sum >= half_sum:
-        break
+    left_sum += a[i]
+    right_sum -= a[i]
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
 
-if abs(total_sum - 2 * left_sum) < abs(total_sum - 2 * (left_sum - A[i])):
-    left_subvector = A[: i + 1]
-    right_subvector = A[i + 1 :]
-else:
-    left_subvector = A[:i]
-    right_subvector = A[i:]
-
-print(*left_subvector)
-print(*right_subvector)
+print(*a[: cut_index + 1])
+print(*a[cut_index + 1 :])
