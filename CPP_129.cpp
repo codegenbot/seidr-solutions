@@ -1,48 +1,49 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+
 using namespace std;
 
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 1e9));
-    vector<vector<char>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
+    vector<vector<int>> visited(n, vector<int>(n));
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                for (auto dir : directions) {
-                    int ni = i + dir[0], nj = j + dir[1];
-                    if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                        dp[i][j] = min(dp[i][j], grid[ni][nj]);
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    pq.push({0, {0, 0}});
+    visited[0][0] = 1;
+    
+    vector<int> res;
+    while (!pq.empty()) {
+        int val = -pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+        
+        if (k > 0) {
+            for (int i = -1; i <= 1; i++) {
+                for (int j = -1; j <= 1; j++) {
+                    int nx = x + i, ny = y + j;
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                        visited[nx][ny] = 1;
+                        pq.push({-grid[nx][ny], {nx, ny}});
+                        res.push_back(grid[nx][ny]);
                     }
                 }
             }
-        }
-    }
-    
-    vector<int> res;
-    int i = 0, j = 0;
-    for (int _ = 0; _ < k; _++) {
-        res.push_back(grid[i][j]);
-        if (_ == k - 1) break;
+        } else break;
         
-        vector<pair<int, int>> nextPoses;
-        for (auto dir : directions) {
-            int ni = i + dir[0], nj = j + dir[1];
-            if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                nextPoses.push_back({dp[ni][nj], ni, nj});
-            }
-        }
-        
-        sort(nextPoses.begin(), nextPoses.end());
-        int ni = nextPoses[0].second;
-        int nj = nextPoses[0].third;
-        
-        i = ni;
-        j = nj;
+        k--;
     }
     
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    return 0;
 }
