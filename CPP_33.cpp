@@ -9,23 +9,23 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> sorted_l = l;
-    std::vector<int> third_elements;
-    
+    std::vector<int> third_elems;
+
     for (int i = 2; i < l.size(); i += 3) {
-        third_elements.push_back(l[i]);
+        third_elems.push_back(l[i]);
     }
     
-    std::sort(third_elements.begin(), third_elements.end());
+    std::sort(third_elems.begin(), third_elems.end());
     
-    int index = 0;
+    int idx = 0;
     for (int i = 2; i < l.size(); i += 3) {
-        sorted_l[i] = third_elements[index];
-        index++;
+        sorted_l[i] = third_elems[idx];
+        idx++;
     }
     
     return sorted_l;
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 4, 8, 9, 3, 1}));
 }
