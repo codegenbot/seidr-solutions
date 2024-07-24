@@ -1,23 +1,26 @@
+```c++
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
+    vector<int> leaders;
+    int maxRight = arr[n-1];
     for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+        if(arr[i] >= maxRight) {
+            leaders.push_back(arr[i]);
+            maxRight = arr[i];
         }
-        
-        if(leader) result.push_back(arr[i]);
     }
-    
-    reverse(result.begin(), result.end());
-    return result;
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 3, 2};
+    vector<int> leadersResult = leaders(arr);
+    for (int leader : leadersResult) {
+        cout << leader << " ";
+    }
+    return 0;
 }
