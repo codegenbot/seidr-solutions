@@ -1,6 +1,14 @@
+#include <sstream>
 #include <string>
 
-std::string string_to_md5(std::string text) {
+void main() {
+    string text;
+    cout << "Enter a string: ";
+    cin >> text;
+    cout << "MD5 of the input string: " << string_to_md5(text) << endl;
+}
+
+string string_to_md5(string text) {
     if (text.empty()) return "";
     
     MD5_CTX md5ctx;
@@ -9,9 +17,9 @@ std::string string_to_md5(std::string text) {
     MD5_Update(&md5ctx, text.c_str(), text.size());
     MD5_Final(result, &md5ctx);
 
-    std::stringstream ss;
+    stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::setfill(2) << std::setw(2) << std::hex << static_cast<int>(result[i]);
+        ss << setfill(2) << setw(2) << hex << static_cast<int>(result[i]);
     }
     
     return ss.str();
