@@ -1,56 +1,37 @@
-#include <vector>
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
-        } else {
-            if (word.length() > 0) {
-                bool hasConsonants = false;
-                for (char c : word) {
-                    if (!isalpha(c) || !islower(c)) {
-                        hasConsonants = true;
-                        break;
-                    }
-                }
-                if (hasConsonants && count(word.begin(), word.end(), ' ') == 0) {
-                    int consonantCount = 0;
-                    for (char c : word) {
-                        if (!isalpha(c) || !islower(c)) {
-                            consonantCount++;
-                        }
-                    }
-                    if (consonantCount == n) {
-                        result.push_back(word);
-                    }
+    int consonants = 0;
+    
+    for (char c : s) {
+        if (isalpha(c)) {
+            word += tolower(c);
+            if (!ispunct(c) && !isspace(c) && !isvowel(to lowercase(c))) {
+                consonants++;
+            } else {
+                if (consonants == n) {
+                    result.push_back(word);
                 }
                 word = "";
+                consonants = 0;
             }
         }
     }
-    // handle the last word
-    bool hasConsonants = false;
-    for (char c : word) {
-        if (!isalpha(c) || !islower(c)) {
-            hasConsonants = true;
-            break;
-        }
-    }
-    if (hasConsonants && count(word.begin(), word.end(), ' ') == 0) {
-        int consonantCount = 0;
-        for (char c : word) {
-            if (!isalpha(c) || !islower(c)) {
-                consonantCount++;
-            }
-        }
-        if (consonantCount == n) {
-            result.push_back(word);
-        }
-    }
+    
     return result;
+}
+
+bool isalpha(int c) {
+    return ('a' <= tolower(c) && tolower(c) <= 'z') || ('A' <= tolower(c) && tolower(c) <= 'Z');
+}
+
+bool isvowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+            || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
