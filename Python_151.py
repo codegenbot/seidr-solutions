@@ -1,10 +1,4 @@
-def double_the_difference(arr):
-    arr.sort()
-    diff = (arr[-1] - arr[0]) // 2
-    result = [x for x in arr if abs(x - diff) <= 1]
-    return len(result)
+def check(func, *args):
+    return func(*args)
 
-def check(func, arr):
-    return func(arr)
-
-print(check(double_the_difference, [1, 5, 3, 19, 18, 25]))
+print(check(lambda x: abs(x[0] - x[-1]), [1, 5, 3, 19, 18, 25]))
