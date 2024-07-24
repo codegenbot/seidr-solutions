@@ -1,14 +1,26 @@
+#include <vector>
+#include <string>
+using namespace std;
+
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) return "NO";
+        if (num % 2 == 0)
+            evenCount++;
+    }
+    for (int num : lst1) {
         bool found = false;
-        for (int num2 : lst2) {
-            if (num2 == num) {
+        for (int &otherNum : lst2) {
+            if (num % 2 != otherNum % 2) {
+                swap(num, otherNum);
                 found = true;
                 break;
             }
         }
-        if (!found) return "NO";
+        if (!found)
+            return "NO";
     }
-    return "YES";
+    if (evenCount == lst1.size())
+        return "YES";
+    return "NO";
 }
