@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -37,7 +38,7 @@ int main() {
         cout << "Enter element " << i+1 << ": ";
         int x; 
         cin >> x; 
-        lst.push_back(to_string(x));
+        lst.push_back(x);
     }
     int maxPrimeNum = maxPrime(lst);
     if(maxPrimeNum > 0)
@@ -45,3 +46,4 @@ int main() {
     else
         cout << "No primes found in the list." << endl;
     return 0;
+}
