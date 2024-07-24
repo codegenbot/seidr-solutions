@@ -27,5 +27,4 @@ int main() {
     std::vector<std::string> lst = {")", "("};
     std::cout << match_parens(lst) << std::endl;
     
-    return 0;
 }
