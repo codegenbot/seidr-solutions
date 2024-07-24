@@ -30,14 +30,6 @@ int main() {
             break;
         }
         vec1.push_back(num);
-        // Read the next line for the next number
-        tempLine = "";
-        while(std::getline(std::cin, tempLine) && !tempLine.empty()) {
-            if (std::cin.peek() == '\n') {
-                break;
-            }
-            std::cin.ignore();
-        }
     }
 
     // Input for vector 2
@@ -45,18 +37,11 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec2.clear(); 
+            vec2.clear();
+            tempLine.clear();
             break;
         }
         vec2.push_back(num);
-        // Read the next line for the next number
-        tempLine = "";
-        while(std::getline(std::cin, tempLine) && !tempLine.empty()) {
-            if (std::cin.peek() == '\n') {
-                break;
-            }
-            std::cin.ignore();
-        }
     }
 
     if(isSame(vec1, vec2)) {
