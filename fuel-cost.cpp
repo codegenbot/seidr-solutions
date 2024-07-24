@@ -1,21 +1,13 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int solve(vector<int> &v) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int i : v) {
-        int val = (i / 3) - 2;
-        sum += val;
+    for (int num : vec) {
+        int new_num = (num / 3);
+        new_num = min(new_num, 1); // Rounding down to the nearest integer
+        new_num -= 2;
+        sum += new_num;
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int &x : v) {
-        cin >> x;
-    }
-    cout << solve(v) << endl;
-    return 0;
 }
