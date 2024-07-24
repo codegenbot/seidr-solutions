@@ -25,11 +25,11 @@ int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    arr.resize(n);
-    cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        int temp;
+        cin >> temp;
+        arr.push_back(temp);
     }
-    cout << "Smallest change is " << smallest_change(arr) << endl;
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
     return 0;
 }
