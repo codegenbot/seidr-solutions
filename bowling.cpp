@@ -1,36 +1,45 @@
-int scoreBowl(string bowls) {
-    int score = 0, frame = 1, ball = 0;
+int calculateBowlingScore(const string& bowls) {
+    int totalScore = 0;
+    int frame = 0;
+    int ball = 0;
+    vector<int> scores(21, 0);
+
     for (char c : bowls) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball+1] == 'X') ? 10 + ((bowls[ball+2] == 'X') ? 10 : bowls[ball+2] - '0') : 
-                    (bowls[ball+2] == '/') ? 10 : (bowls[ball+1] - '0') + (bowls[ball+2] - '0');
-            }
-            if (frame == 10) ball++;
-            frame++;
+            scores[frame] = 10;
+            scores[frame + 1] = 10;
+            scores[frame + 2] = 10;
+            frame += 2;
         } else if (c == '/') {
-            score += 10 - (bowls[ball-1] - '0');
-            score += (frame == 10) ? 0 : (bowls[ball+1] == 'X') ? 10 : bowls[ball+1] - '0';
-            if (frame == 10) ball++;
+            scores[frame] = 10 - scores[frame - 1];
             frame++;
         } else if (c == '-') {
-            score += 0;
+            scores[frame] = 0;
         } else {
-            score += c - '0';
-            if (frame < 10 && ball % 2 == 1 && bowls[ball-1] == '/') {
-                score += c - '0';
-            }
-            if (frame == 10) ball++;
+            scores[frame] = c - '0';
         }
-        ball++;
+        frame++;
     }
-    return score;
+
+    for (int i = 0; i < 10; i++) {
+        if (scores[ball] == 10) {
+            totalScore += 10 + scores[ball + 1] + scores[ball + 2];
+            ball++;
+        } else if (scores[ball] + scores[ball + 1] == 10) {
+            totalScore += 10 + scores[ball + 2];
+            ball += 2;
+        } else {
+            totalScore += scores[ball] + scores[ball + 1];
+            ball += 2;
+        }
+    }
+
+    return totalScore;
 }
 
 int main() {
     string bowls;
     cin >> bowls;
-    cout << scoreBowl(bowls) << endl;
+    cout << calculateBowlingScore(bowls) << endl;
     return 0;
 }
