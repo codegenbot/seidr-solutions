@@ -1,12 +1,14 @@
-```cpp
-vector<int> removeDuplicates(vector<int> l){
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool sameSets(vector<int> a,vector<int>b){
-    set<int> s1(a.begin(), a.end());
-    set<int> s2(b.begin(), b.end());
-    return s1 == s2;
+vector<int> unique(vector<int> l){
+    sort(l.begin(), l.end());
+    auto it = unique(l.begin(), l.end());
+    l.erase(it, l.end());
+    return l;
 }
