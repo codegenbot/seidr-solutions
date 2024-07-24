@@ -1,14 +1,23 @@
+```
+while True:
+    try:
+        a = int(input())
+        b = int(input())
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers.")
+
 def gcd(a, b):
-    if not (isinstance(a, int) and isinstance(b, int)):
-        return "Invalid input for GCD. Please enter integers."
     while b:
         a, b = b, a % b
     return abs(a)
 
-def indices_of_substring(text, target):
-    if not (isinstance(text, str) and isinstance(target, str)):
-        return "Invalid input for indices of substring. Please enter strings."
+print(gcd(a, b))
 
+text = input()
+target = input()
+
+def indices_of_substring(text, target):
     result = []
     for i in range(len(text)):
         if text[i:].startswith(target):
@@ -19,13 +28,5 @@ def indices_of_substring(text, target):
                 if text[start:] != target:
                     break
     return result
-
-a = input("Enter the first number: ")
-b = input("Enter the second number: ")
-
-print(gcd(int(a), int(b)))
-
-text = input("Enter a text: ")
-target = input("Enter a target string: ")
 
 print(indices_of_substring(text, target))
