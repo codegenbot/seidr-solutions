@@ -1,12 +1,21 @@
 ```
-def powermod(base: int, exponent: int, modulus: int):
+def powermod(base, exponent, modulus):
     result = 1
     while exponent > 0:
         if exponent % 2 == 1:
             result = (result * base) % modulus
+        base = (base * base) % modulus
         exponent = exponent // 2
-        if exponent > 0:
-            base = (base * base) % modulus
+    return result
+
+def __truediv__(self, other):
+    result = 1
+    while other > 0:
+        if other % 2 == 1:
+            result = (result * self) % modulus
+        other = other // 2
+        if other > 0:
+            self = (self * self) % modulus
     return result
 
 while True:
