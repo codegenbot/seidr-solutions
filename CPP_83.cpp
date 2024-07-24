@@ -1,21 +1,21 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int starts_one_ends(int n) {
-    int count = 0;
+    int res = 0;
     for (int i = 1; i <= 9; i++) {
-        if ((i == 1 || i % 10 == 1) && (n > 1 || (i != 1 && to_string(i).size() >= n))) {
-            count++;
+        if (i == 1 || i == n) {
+            res++;
         }
     }
-    return count;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    cout << "Count of numbers that start or end with 1: " << starts_one_ends(n) << endl;
-    return 0;
+    for (int i = 10; i < pow(10, n); i++) {
+        int temp = i;
+        while (temp != 0) {
+            if (temp % 10 == 1 || temp / pow(10, floor(log10(temp))) == 1)
+                res++;
+            temp /= 10;
+        }
+    }
+    return res;
 }
