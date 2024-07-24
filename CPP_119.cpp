@@ -27,8 +27,8 @@ int main() {
     }
     
     if (match_parens(vec) == 1) 
-        std::cout << "Yes" << std::endl;
+        std::cout << "Yes";
     else
-        std::cout << "No" << std::endl;
+        std::cout << "No";
     return 0;
 }
