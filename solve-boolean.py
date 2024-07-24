@@ -1,18 +1,11 @@
-def solve_boolean(input_str):
-    if input_str == "T":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input_str == "F":
+    elif expression == "F":
         return False
-    elif "&" in input_str and "|" in input_str:
-        return eval(" ".join(map(str, input_str.split("&|"))))
-    else:
-        ops = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
-        stack = []
-        for char in reversed(input_str):
-            if char in ops:
-                right = stack.pop()
-                left = stack.pop()
-                stack.append(ops[char](left, right))
-            else:
-                stack.append(char == "T")
-        return stack[0]
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid operation")
+    elif "&" in expression:
+        return all(char == "T" for char in expression)
+    elif "|" in expression:
+        return any(char == "T" for char in expression)
