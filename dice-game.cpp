@@ -1,6 +1,5 @@
-```c
 int main() {
-    double result = getProbability(6, 6); 
+    double result = getProbability(6, 6); // example inputs
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
