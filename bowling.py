@@ -1,21 +1,21 @@
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for i in range(1, 11):
-        if "/" in game[i - 1 :]:
-            x = int(game[: game.index("/")].count("X"))
-            z = len(game) - game.index("/")
-            if z < 2:
-                score += 10 + (x * 2)
-                break
-            elif i == 10:
-                score += 10 + (z - 2) * 10 + x * 2
+    roll_count = 1
+    for frame in frames:
+        if frame == "X":
+            score += 30
+            roll_count = 1
+        elif frame == "/":
+            score += 10 + int(list(frame)[0])
+            roll_count = 1
         else:
-            y = sum(1 for char in game[:i] if char.isdigit())
-            z = len(game) - game.index("/")
-            if i < 10 and "/" not in game[i:]:
-                score += min(y, 3) * 10
-            elif i == 10:
-                score += min(y + int(z > i - 1), 10) * 10
-        roll += 1
+            if len(frame) > 1 and frame[0] == "/":
+                score += 10 + int(list(frame)[0]) - 5
+                roll_count = 1
+            elif len(frame) > 1:
+                score += sum(map(int, frame))
+                roll_count = 2
+            else:
+                score += int(frame)
+                roll_count = 1
     return score
