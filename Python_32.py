@@ -1,10 +1,19 @@
-assert len(xs) % 2 == 0
-    largest_non_zero_coeff = max(xs)
-    zero_point_candidates = [-largest_non_zero_coeff - 1, largest_non_zero_coeff + 1]
-    
-    def f(x):
-        return poly(xs, x)
+import math
 
-    for candidate in zero_point_candidates:
-        if abs(f(candidate)) < 1e-6:
-            return candidate
+def find_zero():
+    xs = list(map(int, input().split()))
+
+    a, b, c, d = xs
+
+    if a == 0:
+        return 0.0
+
+    discriminant = b**2 - 3 * a * c
+    if discriminant < 0:
+        return (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
+    else:
+        return (-b + math.sqrt(discriminant)) / (3 * a)
+
+# Test the function
+result = find_zero()
+print(result)
