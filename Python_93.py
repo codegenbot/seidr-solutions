@@ -19,17 +19,10 @@ def encode(message):
         elif char == " ": 
             result += "+"
         elif char in "!\"',.:;":
-            if char == "!": 
-                result += "!"
-            elif char == "\"": 
-                result += "\""
-            elif char == "'": 
-                result += "'"
-            elif char == ".": 
-                result += "."
-            elif char == ",":
-                result += ","
-        else: 
+            if "/" not in result:
+                result += "/"
+            result += "/+" + "".join(f"{ord(c)-44:.2X}" for c in char)
+        elif char in "`~^*{}[]|<>+-_=$%#&@ \t\n\f\v": 
             if char == "!":
                 result += ">"
             elif char == "\"":
@@ -38,8 +31,8 @@ def encode(message):
                 result += "!)"
             elif char == ".":
                 result += "*"
-            elif char == ",":
-                result += "-"
             else: 
-                result += ""
+                if "/" not in result:
+                    result += "/"
+                result += "++" + "".join(f"{ord(c)-44:.2X}" for c in char)
     return result
