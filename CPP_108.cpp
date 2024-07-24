@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
+#include <iostream>
 
-int count_nums(vector<int> v) {
+int count_nums(std::vector<int> v) {
     int count = 0;
     for (int num : v) {
         if (num > 0) {
@@ -25,4 +25,11 @@ int count_nums(vector<int> v) {
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3};
+    int result = count_nums(nums);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
