@@ -7,6 +7,8 @@ bool issame(vector<string> a,vector<string> b){
 }
 
 int main(){
-    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
+    string prefix = "xxx";
+    assert (issame(filter_by_prefix(strings, prefix) , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
