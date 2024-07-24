@@ -1,3 +1,2 @@
 def luhn(card):
-    card = str(card)
-    return sum(int(digit) * (2 <= i % 2 < 2.5) * (int(digit) * 2 > 9) - 9 + int(digit) for i, digit in enumerate(card))
+    return sum(int(digit) if (i % 2 != 0 or int(digit) * 2 > 9) else int(digit) * 2 - 9 for i, digit in enumerate(str(card)))
