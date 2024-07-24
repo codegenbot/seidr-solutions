@@ -1,4 +1,4 @@
-Here is the Python code for the problem:
+Here is the solution:
 
 def gcd(a, b):
     while b != 0:
@@ -7,11 +7,11 @@ def gcd(a, b):
 
 def find_indices(text, target):
     indices = []
-    index = 0
-    while index < len(text):
-        pos = text.find(target)
+    start = 0
+    while True:
+        pos = text.find(target, start)
         if pos == -1:
             break
-        indices.append(index + pos)
-        index += pos + 1
+        indices.append(pos)
+        start = pos + 1
     return indices
