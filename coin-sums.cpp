@@ -13,7 +13,7 @@ int main() {
         int pennies = cents;
     } else {
         // No need to calculate pennies if there's no remainder.
-        int pennies = 0;
+        pennies = 0;
     }
     
     int dimes = cents / 10;
