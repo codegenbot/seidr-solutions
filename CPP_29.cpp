@@ -1,11 +1,12 @@
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<vector<string>> filter_by_prefix(vector<vector<string>> strings, string prefix){
-    vector<vector<string>> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(auto s : strings){
-        if(issame(s, filter_by_prefix({s}, prefix)))
+        if(s.find(prefix) != string::npos)
             result.push_back(s);
     }
     return result;
