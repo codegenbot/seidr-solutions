@@ -18,7 +18,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-#include <initializer_list>
 int main() {
     string text, target;
     cin >> text >> target;
