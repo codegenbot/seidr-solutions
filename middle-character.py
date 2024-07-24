@@ -1,3 +1,2 @@
-Here is the modified code that raises a SyntaxError:
-
-`"SyntaxError!"`
+def middle_character(s): 
+    length = len(s)
