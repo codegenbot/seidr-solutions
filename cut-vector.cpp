@@ -1,51 +1,48 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
-    
-    for(int i=1; i<vec.size(); i++){
-        int sumLeft = 0, sumRight = 0;
-        
-        for(int j=0; j<i; j++){
-            sumLeft += vec[j];
-        }
-        
-        for(int k=i; k<vec.size(); k++){
-            sumRight += vec[k];
-        }
-        
-        int diff = abs(sumLeft - sumRight);
-        
-        if(diff < minDiff){
-            minDiff = diff;
-            splitIndex = i;
+pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+    int min_diff = INT_MAX;
+    pair<int, int> idx;
+
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            idx.first = i;
+            idx.second = i + 1;
         }
     }
-    
-    vector<int> left(vec.begin(), vec.begin() + splitIndex);
-    vector<int> right(vec.begin() + splitIndex, vec.end());
-    
+
+    vector<int> left(v.begin(), v.begin() + idx.first);
+    vector<int> right(v.begin() + idx.second, v.end());
+
     return {left, right};
 }
 
-int main(){
+int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for(int i=0; i<n; i++){
-        cin >> vec[i];
-    }
-    auto res = cutVector(vec);
-    cout << res[0].size() << endl;
-    for(int num : res[0]){
-        cout << num << " ";
+    vector<int> v(n);
+    for (auto& x : v) cin >> x;
+
+    pair<vector<int>, vector<int>> res = cutVector(v);
+
+    cout << "Cut at index: ";
+    for (int i = 0; i < res.first.size(); i++) {
+        cout << res.first[i] << " ";
     }
     cout << endl;
-    cout << res[1].size() << endl;
-    for(int num : res[1]){
-        cout << num << " ";
+    cout << "First part: ";
+    for (auto x : res.first) {
+        cout << x << " ";
     }
+    cout << endl;
+    cout << "Second part: ";
+    for (int i = 0; i < res.second.size(); i++) {
+        cout << res.second[i] << " ";
+    }
+    cout << endl;
+
     return 0;
 }
