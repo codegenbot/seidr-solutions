@@ -1,8 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int prod_signs(std::vector<int> arr) {
+using namespace std;
+
+int prod_signs(vector<int> arr) {
     int product = 1;
     long sum = 0;
     for (int x : arr) {
@@ -12,12 +13,16 @@ int prod_signs(std::vector<int> arr) {
         product *= abs(x);
         sum += abs(x);
     }
-    return (product * sum > INT_MAX ? -32768 : product * sum);
+    return product * sum > INT_MAX ? -32768 : product * sum;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3};
-    int result = prod_signs(arr);
-    std::cout << "Result: " << result << std::endl;
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    cout << prod_signs(arr) << endl;
     return 0;
 }
