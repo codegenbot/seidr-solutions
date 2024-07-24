@@ -26,12 +26,27 @@ int mastermind(const std::string& code, const std::string& guess) {
                 std::string codeCopy = code;
                 std::string guessCopy = guess;
                 codeCopy.erase(j, 1);
-                j--;
+                --j;
                 break;
             }
             j++;
         }
     }
 
-    return blackPegs;
+    // Count white pegs
+    for (int i = 0; i < 4; ++i) {
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                std::string codeCopy = code;
+                std::string guessCopy = guess;
+                codeCopy.erase(j, 1);
+                --j;
+                break;
+            }
+            j++;
+        }
+    }
+
+    return blackPegs + whitePegs;
 }
