@@ -22,6 +22,7 @@ int main() {
     cout << "Sum: " << result << endl;
 
     return 0;
+
 }
 
 int add_elements(vector<int> arr, int k) {
