@@ -1,19 +1,6 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-namespace std {
-    struct rolling_max {
-       std::vector<int> data;
-       
-       rolling_max(std::vector<int> v) : data(v) {}
-    };
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(std::vector<int>({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    return 0;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
