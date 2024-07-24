@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <tuple>
 
-std::tuple<int, int> mastermind(string code, string guess) {
+std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
