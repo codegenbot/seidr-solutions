@@ -37,4 +37,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     return 0;
-}
