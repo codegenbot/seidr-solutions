@@ -14,10 +14,14 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         if (diff1 <= diff2) {
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
             nums.erase(nums.begin());
-        } else {
-            result.push_back({nums[0]});
-            for(int j=i; j<n; j++){
+            while (!nums.empty() && abs(nums[0] - nums.back()) == diff1) {
                 nums.erase(nums.begin());
+            }
+            break;
+        } else {
+            result.push_back(vector<int>(nums.begin() + i, nums.end()));
+            while (!nums.empty() && abs(nums[0] - nums.back()) == diff2) {
+                nums.pop_back();
             }
             break;
         }
