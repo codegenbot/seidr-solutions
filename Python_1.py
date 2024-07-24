@@ -8,13 +8,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == "(":
             stack.append("(")
-        elif char == ")":
-            if stack:
-                stack.pop()
-            else:
-                result.append(current_group)
-                current_group = ""
-                continue
+        elif char == ")" and stack:
+            stack.pop()
         
         current_group += char
         
