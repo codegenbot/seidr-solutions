@@ -1,11 +1,4 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
+```c++
 string camelCase(string s) {
     string result = "";
     bool nextWordIsUpper = false;
@@ -24,13 +17,12 @@ string camelCase(string s) {
             nextWordIsUpper = false;
         }
     }
+    // Check for the last word
+    if (nextWordIsUpper) {
+        while(i < s.length()) {
+            result += tolower(s[i]);
+            i++;
+        }
+    } 
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "The camelCase version is: " << camelCase(input) << endl;
-    return 0;
 }
