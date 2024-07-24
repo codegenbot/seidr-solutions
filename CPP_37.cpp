@@ -19,20 +19,19 @@ std::vector<float> sort_even(std::vector<float> vec) {
     std::vector<float> result;
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
+            // Create a temporary vector to store the even elements.
             std::vector<float> temp;
             int j = i;
             while (j < vec.size() && j % 2 == 0) {
                 temp.push_back(vec[j++]);
             }
-            // Sort the temporary vector.
-            std::sort(temp.begin(), temp.end());
-            // Replace even elements in result with the sorted ones.
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
-                j++;
+            if (temp.size() > 1) {
+                std::sort(temp.begin(), temp.end());
             }
-            while (j < vec.size()) {
-                result.push_back(vec[j++]);
+            // Replace even elements in result with the sorted ones.
+            int k = 0;
+            for (int j = i; j < vec.size() && j % 2 == 0; j++) {
+                result.push_back(temp[k++]);
             }
         } else {
             result.push_back(vec[i]);
@@ -45,20 +44,18 @@ std::vector<float> sort_even(std::vector<float> vec) {
     std::vector<float> result;
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
+            // Create a temporary vector to store the even elements.
             std::vector<float> temp;
-            int j = i;
-            while (j < vec.size() && j % 2 == 0) {
-                temp.push_back(vec[j++]);
+            for (int j = i; j < vec.size() && j % 2 == 0; j++) {
+                temp.push_back(vec[j]);
             }
-            // Sort the temporary vector.
-            std::sort(temp.begin(), temp.end());
+            if (temp.size() > 1) {
+                std::sort(temp.begin(), temp.end());
+            }
             // Replace even elements in result with the sorted ones.
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
-                j++;
-            }
-            while (j < vec.size()) {
-                result.push_back(vec[j++]);
+            int k = 0;
+            for (int j = i; j < vec.size() && j % 2 == 0; j++) {
+                result.push_back(temp[k++]);
             }
         } else {
             result.push_back(vec[i]);
@@ -67,20 +64,4 @@ std::vector<float> sort_even(std::vector<float> vec) {
     return result;
 }
 
-int main() {
-    std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::cout << "Original vector: ";
-    for (float f : vec) {
-        std::cout << f << " ";
-    }
-    std::cout << std::endl;
-    
-    std::vector<float> result = sort_even(vec);
-    std::cout << "Sorted even elements: ";
-    for (float f : result) {
-        std::cout << f << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
+assert(checkVectors(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
