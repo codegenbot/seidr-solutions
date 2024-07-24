@@ -1,2 +1,1 @@
-def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit())
+sum(int(digit) for digit in str(input("Enter a string: ")).replace("-", "").replace("+", ""))
