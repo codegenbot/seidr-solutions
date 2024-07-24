@@ -1,5 +1,18 @@
-```
 def sort_numbers(numbers: str) -> str:
-    num_dict = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9}
-    sorted_numbers = sorted([int(num.replace(" ", "")) for num in numbers.split() if num.replace(" ", "") in num_dict])
-    return " ".join(map(str, filter(None, sorted_numbers)))
+    numbers = " ".join(
+        num_dict.get(
+            re.sub("[^zerooneonetwothreefourfivesixsevenyeightnine]+", "", num).lower()
+        )
+        for num in numbers.split()
+    )
+    return " ".join(
+        map(
+            str,
+            sorted(
+                [
+                    int(num_dict[num]) if num.isdigit() else int(num)
+                    for num in numbers.split()
+                ]
+            ),
+        )
+    )
