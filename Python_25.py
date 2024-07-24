@@ -1,9 +1,19 @@
+```
 from typing import List
 
-def find_max_average_grade(grades: List[List[float]]) -> float:
-    max_average = float('-inf')
-    for student in grades:
-        average = sum(student) / len(student)
-        if average > max_average:
-            max_average = average
-    return max_average
+def factorize(n: int) -> List[int]:
+    if n <= 0:
+        raise ValueError("Expected positive integer")
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            while n % i == 0:
+                n //= i
+                factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
