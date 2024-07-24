@@ -1,14 +1,14 @@
 #include <vector>
-#include <climits>
+#include <limits>
 
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     
     if(arr.empty()) return result;
     
-    int smallestEven = INT_MAX;
+    int smallestEven = numeric_limits<int>::max();
     int smallestIndex = -1;
     
     for(int i=0; i<arr.size(); i++){
@@ -18,7 +18,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if(smallestEven != INT_MAX) result.push_back({smallestEven, smallestIndex});
+    if(smallestEven != numeric_limits<int>::max()) result.push_back(smallestEven);
     
     return result;
 }
