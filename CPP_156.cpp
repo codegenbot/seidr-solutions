@@ -1,99 +1,65 @@
-```cpp
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::vector<std::string> int_to_mini_roman(int n) {
-    std::vector<std::string> roman;
-    if(n >= 1000) {
-        while (n >= 1000) {
-            roman.push_back("M");
-            n -= 1000;
+struct Roman {
+    std::string value;
+};
+
+std::string int_to_mini_romank(int number) {
+    if (number >= 1000) {
+        return "M";
+    } else if (number >= 900) {
+        return "CM";
+    } else if (number >= 500) {
+        return "D";
+    } else if (number >= 400) {
+        return "CD";
+    } else if (number >= 100) {
+        if (number % 100 == 0) {
+            return std::to_string(number / 100) + "C";
+        } else {
+            return std::to_string(number / 100) + "C" + int_to_mini_romank(number % 100);
         }
-    }
-    if(n >= 900) {
-        while (n >= 900) {
-            roman.push_back("CM");
-            n -= 900;
+    } else if (number >= 90) {
+        return "XC";
+    } else if (number >= 50) {
+        if (number % 50 == 0) {
+            return std::to_string(number / 50) + "L";
+        } else {
+            return std::to_string(number / 50) + "L" + int_to_mini_romank(number % 50);
         }
-    }
-    if(n >= 500) {
-        while (n >= 500) {
-            roman.push_back("D");
-            n -= 500;
+    } else if (number >= 40) {
+        return "XL";
+    } else if (number >= 10) {
+        if (number % 10 == 0) {
+            return std::to_string(number / 10) + "X";
+        } else {
+            return std::to_string(number / 10) + "X" + int_to_mini_romank(number % 10);
         }
-    }
-    if(n >= 400) {
-        while (n >= 400) {
-            roman.push_back("CD");
-            n -= 400;
+    } else if (number >= 9) {
+        return "IX";
+    } else if (number >= 5) {
+        if (number % 5 == 0) {
+            return std::to_string(number / 5) + "V";
+        } else {
+            return std::to_string(number / 5) + "V" + int_to_mini_romank(number % 5);
         }
-    }
-    if(n >= 100) {
-        while (n >= 100) {
-            if(n >= 900) {
-                roman.push_back("CM");
-                n -= 900;
-            } else if(n >= 400) {
-                roman.push_back("CD");
-                n -= 400;
-            } else {
-                roman.push_back("C");
-                n -= 100;
-            }
+    } else if (number >= 4) {
+        return "IV";
+    } else if (number >= 1) {
+        if (number % 1 == 0) {
+            return std::to_string(number / 1) + "I";
+        } else {
+            return std::to_string(number / 1) + "I" + int_to_mini_romank(number % 1);
         }
+    } else {
+        return "";
     }
-    if(n >= 90) {
-        while (n >= 90) {
-            roman.push_back("XC");
-            n -= 90;
-        }
-    }
-    if(n >= 50) {
-        while (n >= 50) {
-            roman.push_back("L");
-            n -= 50;
-        }
-    }
-    if(n >= 40) {
-        while (n >= 40) {
-            roman.push_back("XL");
-            n -= 40;
-        }
-    }
-    if(n >= 10) {
-        while (n >= 10) {
-            if(n >= 90) {
-                roman.push_back("XC");
-                n -= 90;
-            } else if(n >= 40) {
-                roman.push_back("XL");
-                n -= 40;
-            } else {
-                roman.push_back("X");
-                n -= 10;
-            }
-        }
-    }
-    if(n >= 9) {
-        while (n >= 9) {
-            roman.push_back("IX");
-            n -= 9;
-        }
-    }
-    if(n >= 5) {
-        while (n >= 5) {
-            roman.push_back("V");
-            n -= 5;
-        }
-    }
-    if(n >= 4) {
-        while (n >= 4) {
-            roman.push_back("IV");
-            n -= 4;
-        }
-    }
-    if(n > 0) {
-        roman.push_back(std::to_string(n));
-    }
-    return roman;
+}
+
+int main() {
+    std::vector<int> romanMap(std::vector<int>::allocator_type{}); 
+    assert(int_to_mini_romank(1000) == "M"); 
+    return 0;
 }
