@@ -5,5 +5,6 @@ def check_numbers_within_threshold(numbers, threshold):
             return True
     return False
 
-# Call the function with correct arguments
-check_numbers_within_threshold([1, 5, 3, 9, 7], 2)
+# Call the function with the correct arguments
+result = check_numbers_within_threshold([1, 4, 7, 10, 13], 3)
+print(result)
