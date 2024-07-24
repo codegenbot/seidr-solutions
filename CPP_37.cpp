@@ -1,38 +1,10 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-#include <cassert>
-
-using namespace std;
-
-vector<float> sort_even(vector<float> l);
-bool issame(vector<float> a, vector<float> b);
-
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_values;
-    vector<float> result;
+int main() {
+    vector<float> input = {3.5, 2.0, 1.2, 4.8, 5.3};
+    vector<float> sorted_even = sort_even(input);
     
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-        }
-    }
+    assert(issame(sorted_even, vector<float>{1.2, 2.0, 3.5, 4.8, 5.3}));
     
-    sort(even_values.begin(), even_values.end());
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     
-    int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            result.push_back(even_values[even_index]);
-            even_index++;
-        } else {
-            result.push_back(l[i]);
-        }
-    }
-    
-    return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+    return 0;
 }
