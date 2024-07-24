@@ -4,16 +4,14 @@ using namespace std;
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int index = 0;
-    
-    while (index < text.size()) {
-        index = text.find(target, index);
-        
-        if (index == string::npos) break; // no more targets to find
-        
-        indices.push_back(index);
-        index += target.size();
+    while (index <= text.size() - target.size()) {
+        if (text.substr(index, target.size()).compare(target) == 0) {
+            indices.push_back(index);
+            index += target.size();
+        } else {
+            index++;
+        }
     }
-    
     return indices;
 }
 
@@ -21,10 +19,11 @@ int main() {
     int n;
     cin >> n;
     string text;
-    getline(cin, text);
-    vector<int> result = findIndices(text, text.substr(0, n));
+    cin >> text;
+    vector<int> result = findIndices(text, n + "");
     for (int i : result) {
-        cout << i << endl;
+        cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
