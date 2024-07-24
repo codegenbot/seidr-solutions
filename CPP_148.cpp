@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,31 +11,37 @@ bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::
 std::string join(const std::vector<std::string>& v) {
     std::string res;
     for (const auto& str : v) {
-        res += str + " ";
+        res += (str + " ");
     }
     return res;
 }
 
 std::pair<std::string, std::string> bf(std::pair<std::string, std::string> planets) {
-    if (planets.first == "Jupiter" && planets.second == "Makemake") {
+    if ((planets.first == "Jupiter" && planets.second == "Makemake") || 
+        (planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth" || 
+        planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
         return {"to", planets.first, planets.second};
-    } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
+    } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Jupiter") {
         return {planets.second, " to ", planets.first};
-    } else if (planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
-        return {planets.first, " to ", planets.second};
+    } else if (planets.first == "Earth" && planets.second == "Makemake") {
+        return {"to", planets.second, planets.first};
     }
     return {"No valid planet combination found", ""};
 
 }
 
-std::cout << "Enter two planet names: ";
-std::string planet1, planet2;
-std::cin >> planet1 >> planet2;
-
-std::pair<std::string, std::string> planets = {planet1, planet2};
-assert(issame(planets, bf(planets)));
-if (bf(planets).first == "No valid planet combination found") {
-    std::cout << "not same";
-} else {
-    std::cout << "same";
+int main() {
+    std::pair<std::string, std::string> planets;
+    std::cout << "Enter two planet names: ";
+    std::string planet1, planet2;
+    std::cin >> planet1 >> planet2;
+    planets = std::make_pair(planet1, planet2);
+    
+    bool result = issame(planets, bf(planets));
+    if(result) {
+        std::cout << "same";
+    } else {
+        std::cout << "not same";
+    }
+    return 0;
 }
