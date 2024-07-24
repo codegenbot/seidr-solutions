@@ -1,12 +1,12 @@
 int main() {
     string input;
     cin >> input;
-
-    if (input == "t") {
-        cout << "True";
+    
+    if (input == "T") {
+        cout << "True" << endl;
     } else {
-        cout << "False";
+        cout << "False" << endl;
     }
-
+    
     return 0;
 }
