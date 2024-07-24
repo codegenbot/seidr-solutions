@@ -10,13 +10,9 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-    if (cin.bad()) {
-        cout << "Invalid input. Program terminated." << endl;
-        return 1;
-    }
-
-    if(nums.empty()) {
-        cout << "Input vector is empty." << endl;
+    
+    if (nums.empty()) {
+        cout << "Empty vector." << endl;
         return 0;
     }
     
