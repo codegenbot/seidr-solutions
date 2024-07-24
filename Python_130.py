@@ -1,12 +1,15 @@
+```
 def tri(n):
     if n == 0:
         return [3]
     elif n == 1:
-        return [3]
-    elif n == 2:
-        return [3, 2]
+        return [1, 3]
     else:
-        trib = [3, 2]
-        for _ in range(2, n):
-            trib.append(sum(trib[-2:] + [int(1 + (_ / 2))]))
-        return trib
+        sequence = [1, 3]
+        while len(sequence) <= n:
+            if len(sequence) % 2 == 1:
+                next_num = sequence[-1] + sequence[-2] + sequence[-3]
+            else:
+                next_num = 1 + (len(sequence) // 2)
+            sequence.append(next_num)
+        return sequence
