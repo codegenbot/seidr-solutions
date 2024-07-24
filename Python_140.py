@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def fix_spaces(text):
     if text.strip().startswith(" "):
