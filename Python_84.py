@@ -1,8 +1,12 @@
-```
-def solve(K):
-    if K == "1":
-        return "0"
-    elif K == "0":
-        return "1"
+K = input("Enter a number (0 or 1): ")
+if K.isdigit() and (int(K) == 0 or int(K) == 1):
+    if int(K) == 1:
+        print("0")
     else:
-        return "Invalid input"
+        print("1")
+else:
+    try:
+        int(K)
+        print("Invalid input")
+    except ValueError:
+        print("Program did not receive expected input")
