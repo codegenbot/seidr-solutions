@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,7 +12,6 @@ int main() {
     } else if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
     } else {
-        tweet.erase(tweet.find_last_not_of("\n") + 1); 
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
 }
