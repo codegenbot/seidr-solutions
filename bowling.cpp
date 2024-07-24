@@ -9,9 +9,14 @@ int bowlingScore(string s) {
             score += 10 + (roll - 1);
             roll = 0;
         } else {
-            int temp = c - '0';
-            score += temp;
-            roll--;
+            int points = c - '0';
+            if (roll < 2) {
+                score += points;
+                roll++;
+            } else {
+                score += min(points, 10) * 2;
+                roll = 0;
+            }
         }
     }
     return score;
