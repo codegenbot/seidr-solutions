@@ -1,11 +1,9 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool found_dot = false;
-    string before_dot;
+    std::string before_dot;
 
     for(int i=0; i<file_name.size(); i++){
         if(isdigit(file_name[i])){
@@ -19,9 +17,9 @@ std::string file_name_check(std::string file_name){
     }
 
     if(before_dot.empty()) return "No";
-    if(found_dot && (file_name.find("txt") == string::npos &&
-                     file_name.find("exe") == string::npos &&
-                     file_name.find("dll") == string::npos)) 
+    if(found_dot && (file_name.find("txt") == std::string::npos &&
+                     file_name.find("exe") == std::string::npos &&
+                     file_name.find("dll") == std::string::npos)) 
         return "No";
 
     return "Yes";
