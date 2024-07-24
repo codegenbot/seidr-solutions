@@ -1,7 +1,8 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compare(const boost::any& a, const boost::any& b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if(a.type() == boost::any::typeless_type || b.type() == boost::any::typeless_type) {
         if(a.type() == boost::any::typeless_type && b.type() == boost::any::typeless_type) {
             string a_s = any_cast<string>(a);
