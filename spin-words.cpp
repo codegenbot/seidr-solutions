@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -15,8 +14,8 @@ std::string spinWords(std::string str) {
             } else {
                 result += c;
             }
-            result += c; // append the original character
             wordLength = 0;
+            result += c;
         } else {
             result += c;
             ++wordLength;
