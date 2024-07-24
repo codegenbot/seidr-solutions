@@ -1,6 +1,5 @@
-#include <vector>
-#include <unordered_map>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
@@ -33,4 +32,3 @@ int main() {
         cout << "No such pair found" << endl;
     }
     return 0;
-}
