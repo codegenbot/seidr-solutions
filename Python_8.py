@@ -1,19 +1,16 @@
-```
-def calculate_average_and_variance(numbers: List[int]) -> Tuple[float, float]:
+from typing import List, Tuple
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not isinstance(numbers, list):
         raise ValueError("Input must be a list")
     for num in numbers:
         if not isinstance(num, int):
             raise ValueError("List elements must be integers")
 
-    total_sum = sum(numbers)
-    average = total_sum / len(numbers)
-
-    total_square_diff = 0
+    total_sum = 0
+    product = 1
     for num in numbers:
-        square_diff = (num - average) ** 2
-        total_square_diff += square_diff
+        total_sum += num
+        product *= num
 
-    variance = total_square_diff / len(numbers)
-
-    return average, variance
+    return total_sum, product
