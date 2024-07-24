@@ -1,14 +1,6 @@
 #include <iostream>
 #include <cmath>
-
-bool iscuber(int n) {
-    int c = 0;
-    while (n > 0) {
-        c = c * 10 + n % 10;
-        n /= 10;
-    }
-    return pow(c, 1.0/3.0) == round(pow(c, 1.0/3.0));
-}
+#include <cassert>
 
 int main() {
     assert(iscuber(0) == false);
@@ -21,4 +13,9 @@ int main() {
         std::cout << num << " is not a perfect cube.\n";
     }
     return 0;
+}
+
+bool iscuber(int num) {
+    int c = round(cbrt(num));
+    return (c * c * c == num);
 }
