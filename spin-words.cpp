@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -39,7 +38,7 @@ int main() {
     while (true) {
         std::cout << "Enter a string: ";
         std::cin >> str;
-        std::cin.ignore(); // Add this to consume the newline character
+        std::cin.ignore(); // Consume the newline character
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
