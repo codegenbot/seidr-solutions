@@ -1,5 +1,2 @@
 def cycpattern_check(a, b):
-    for i in range(len(a) // len(b)):
-        if a[i * len(b) : (i + 1) * len(b)] == b:
-            return True
-    return False
+    return str(b) * (len(str(a)) // len(str(b))) + str(b)[:len(str(a)) % len(str(b))] == str(a)
