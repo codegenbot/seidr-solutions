@@ -3,16 +3,14 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    std::vector<std::string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != string::npos) {
+        if (str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
@@ -20,16 +18,28 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> input;
-    string sub;
+    int n;
+    std::cin >> n;
 
-    cin >> sub; // read substring from user
+    std::vector<std::string> inputStrings(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> inputStrings[i];
+    }
 
-    // filter input based on the given substring
-    vector<string> output = filter_by_substring(input, sub);
+    int m;
+    std::cin >> m;
 
-    for (const auto& str : output) {
-        cout << str << endl;
+    std::vector<std::string> substrings(m);
+    for (int i = 0; i < m; i++) {
+        std::cin >> substrings[i];
+    }
+
+    for (const auto& substring : substrings) {
+        std::cout << "Substrings: ";
+        for (const auto& str : filter_by_substring(inputStrings, substring)) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     }
 
     return 0;
