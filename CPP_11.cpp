@@ -1,6 +1,9 @@
 ```cpp
-string string_xor(string a, string b) {
-    string result;
+#include <iostream>
+#include <string>
+
+std::string string_xor(std::string a, std::string b) {
+    std::string result;
     for(int i=0; i<a.length(); i++) {
         if(a[i] == '0' && b[i] == '0')
             result += '0';
@@ -13,8 +16,11 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-    string a, b;
-    cin >> a >> b;
-    cout << string_xor(a, b) << endl;
+    std::string a, b;
+    std::cout << "Enter the first string: ";
+    std::cin >> a;
+    std::cout << "Enter the second string: ";
+    std::cin >> b;
+    std::cout << "The XOR of the two strings is: " << string_xor(a, b) << std::endl;
     return 0;
 }
