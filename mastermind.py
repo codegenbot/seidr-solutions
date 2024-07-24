@@ -1,6 +1,6 @@
-code = input("Enter the Mastermind code: ")
-guess = input("Enter your guess: ")
-
+```
+code = str(input("Enter Mastermind code: "))
+guess = str(input("Enter your guess: "))
 black_pegs = 0
 white_pegs = 0
 for i in range(len(code)):
@@ -8,5 +8,4 @@ for i in range(len(code)):
         black_pegs += 1
     elif guess[i] in code:
         white_pegs += 1
-
 print(str(black_pegs) + " " + str(white_pegs))
