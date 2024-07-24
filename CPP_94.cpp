@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,11 +12,12 @@ bool isPrime(int n){
     return true;
 }
 
-int maxPrime(vector<int> lst){
+int maxPrime(vector<string> lst){
     int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime)
-            maxPrime = i;
+    for(string s : lst){
+        int x = stoi(s);
+        if(isPrime(x) && x > maxPrime)
+            maxPrime = x;
     }
     return maxPrime;
 
@@ -30,14 +30,14 @@ int sumOfDigits(int n){
     return sum;
 
 int main() {
-    vector<int> lst;
+    vector<string> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
     cin >> num;
     for(i = 0; i < num; i++){
         cout << "Enter element " << i+1 << ": ";
-        int x; cin >> x; 
-        lst.push_back(std::to_string(x));
+        string x; cin >> x; 
+        lst.push_back(x);
     }
     int maxPrimeNum = maxPrime(lst);
     if(maxPrimeNum > 0)
@@ -45,4 +45,3 @@ int main() {
     else
         cout << "No primes found in the list." << endl;
     return 0;
-}
