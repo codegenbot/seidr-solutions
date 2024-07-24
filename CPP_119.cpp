@@ -1,3 +1,4 @@
+```
 string match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
@@ -7,4 +8,9 @@ string match_parens(vector<string> lst) {
         }
     }
     return (open == close) ? "Yes" : "No";
+}
+
+int main() {
+    // assert(match_parens({"(a", "(b")) == "Yes");
+    return 0;
 }
