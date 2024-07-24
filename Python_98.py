@@ -1,3 +1,3 @@
-def solution(s):
-    s = input()
-    print(sum(1 for c in s if c.isupper()))
+```
+s = input()
+print(sum(1 for c in s if c.isupper()))
