@@ -11,11 +11,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0;
-    for (const std::string& s : lst1) {
+    for (const auto& s : lst1) {
         sum1 += s.length();
     }
     int sum2 = 0;
-    for (const std::string& s : lst2) {
+    for (const auto& s : lst2) {
         sum2 += s.length();
     }
     if (sum1 < sum2) return lst1;
@@ -24,3 +24,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         if (issame(lst1, lst2)) return lst1;
         else return lst2;
     }
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
+}
