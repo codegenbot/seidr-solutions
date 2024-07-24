@@ -1,9 +1,13 @@
 #include <iostream>
 #include <cmath>
 
-bool iscuber(int num) {
-    int c = round(cbrt(num));
-    return (c * c * c == num);
+bool iscuber(int n) {
+    int c = 0;
+    while (n > 0) {
+        c = c * 10 + n % 10;
+        n /= 10;
+    }
+    return pow(c, 1.0/3.0) == round(pow(c, 1.0/3.0));
 }
 
 int main() {
