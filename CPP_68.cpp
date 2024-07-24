@@ -2,7 +2,7 @@
 #include <vector>
 
 std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+    vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
