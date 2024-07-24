@@ -1,34 +1,43 @@
-using namespace std;
+#include <vector>
+#include <algorithm>
+#include <string>
 
 string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
+    vector<int> wordLengths;
+    string result = "";
     
-    for (auto word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    for (const auto& word : split(sentence, ' ')) {
+        int length = word.length();
+        bool isPrime = true;
+        
+        if (length > 1) {
+            for (int i = 2; i * i <= length; ++i) {
+                if (length % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            
+            if (isPrime) {
+                result += word + " ";
+                wordLengths.push_back(length);
+            }
         }
     }
     
     return result.substr(0, result.size() - 1);
 }
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-vector<string> split(const string& str, char delim) {
+vector<string> split(const string& str, char ch) {
     vector<string> tokens;
-    size_t prev = 0, pos = 0;
-    do {
-        pos = str.find(delim, prev);
-        if (pos == string::npos) pos = str.length();
-        string token = str.substr(prev, pos - prev);
-        tokens.push_back(token);
-        prev = pos + 1;
-    } while (pos != string::npos);
+    size_t pos = 0;
+    while ((pos = str.find(ch)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
     return tokens;
+
+int main() {
+    cout << words_in_sentence("here is") << endl;
+}
