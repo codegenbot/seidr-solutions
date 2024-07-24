@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -43,9 +42,9 @@ int main_func() {
     bool same = issame(words, filter_by_prefix(words, prefix));
 
     if(same)
-        cout << "Same" << endl;
+        std::cout << "Same" << std::endl;
     else
-        cout << "Not Same" << endl;
+        std::cout << "Not Same" << std::endl;
 
     return 0;
 }
