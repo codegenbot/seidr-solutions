@@ -1,8 +1,8 @@
 ```cpp
 #include <vector>
-using namespace std;
-
 #include <string>
+
+using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
