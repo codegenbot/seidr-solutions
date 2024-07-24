@@ -5,11 +5,11 @@
 
 bool check_if_last_char_is_a_letter(const std::string& str) {
     if (str.empty()) return false;
-    char lastChar = str.back();
+    char lastChar = str[str.size() - 1];
     return std::isalpha(lastChar);
 }
 
-int main() {
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a string: ";
     std::string line; 
     std::getline(std::cin, line); 
@@ -20,7 +20,7 @@ int main() {
     }
     
     if (pos == line.size())
-        line = ""; // Instead of line.clear(), make a copy
+        line.clear();
     else
         line.erase(pos, 1);
     
