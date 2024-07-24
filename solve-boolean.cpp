@@ -1,23 +1,23 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return false;
-            }
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return true;
-            }
-        } else {
-            s.push(expression[i]);
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool res = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            res &= (s[i+1] == 'T');
+            i++;
+        } else if (s[i] == '|') {
+            res |= (s[i+1] == 'T');
+            i++;
         }
     }
-    return s.top() == 'T';
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
+    return 0;
 }
