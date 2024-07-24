@@ -1,31 +1,35 @@
+#include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(float a, float b) {
-    if ((a - b >= -0.0001f && a - b <= 0.0001f) || (b - a >= -0.0001f && b - a <= 0.0001f))
-        return true;
-    else
-        return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
-    for (float g : grades) {
-        std::string letter;
-        if (g > 4.0f) g = 4.0f; // cap at 4.0
-        if (g >= 3.7f) { letter = "A"; g -= 3.7f; }
-        else if (g >= 3.3f) { letter = "A-"; g -= 3.3f; }
-        else if (g >= 3.0f) { letter = "B+"; g -= 3.0f; }
-        else if (g >= 2.7f) { letter = "B"; g -= 2.7f; }
-        else if (g >= 2.3f) { letter = "B-"; g -= 2.3f; }
-        else if (g >= 2.0f) { letter = "C+"; g -= 2.0f; }
-        else if (g >= 1.7f) { letter = "C"; g -= 1.7f; }
-        else if (g >= 1.3f) { letter = "C-"; g -= 1.3f; }
-        else if (g >= 1.0f) { letter = "D+"; g -= 1.0f; }
-        else if (g >= 0.7f) { letter = "D"; g -= 0.7f; }
-        else letter = "F";
-        if (!issame(g, 0.0f)) letter += "+";
+std::vector<string> numerical_letter_grade(vector<float> grades){
+    vector<string> letter_grades;
+    for(float g: grades){
+        string letter;
+        if(g > 4.0) g = 4.0; // cap at 4.0
+        if(g >= 3.7) {letter = "A"; g -= 3.7;}
+        else if(g >= 3.3) {letter = "A-"; g -= 3.3;}
+        else if(g >= 3.0) {letter = "B+"; g -= 3.0;}
+        else if(g >= 2.7) {letter = "B"; g -= 2.7;}
+        else if(g >= 2.3) {letter = "B-"; g -= 2.3;}
+        else if(g >= 2.0) {letter = "C+"; g -= 2.0;}
+        else if(g >= 1.7) {letter = "C"; g -= 1.7;}
+        else if(g >= 1.3) {letter = "C-"; g -= 1.3;}
+        else if(g >= 1.0) {letter = "D+"; g -= 1.0;}
+        else if(g >= 0.7) {letter = "D"; g -= 0.7;}
+        else letter = "E";
+        if(g > 0.0) letter += "+";
         letter_grades.push_back(letter);
     }
     return letter_grades;
+}
+
+int main() {
+    std::vector<float> grades = {0, 0.7};
+    assert(issame(numerical_letter_grade(grades), {"E", "D-" }));
+    return 0;
 }
