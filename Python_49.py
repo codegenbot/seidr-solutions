@@ -1,15 +1,19 @@
-def main():
-    # Ask user for inputs
-    base = int(input("Enter the base: "))
-    exponent = int(input("Enter the exponent: "))
-    modulus = int(input("Enter the modulus: "))
+```
+def powermod(base: int, exponent: int, modulus: int):
+    result = 1
+    base = base % modulus
+    while exponent > 0:
+        if exponent % 2 == 1:
+            result = (result * base) % modulus
+        exponent = exponent // 2
+        base = (base * base) % modulus
+    return result
 
-    # Call your functions with user inputs
-    result = modp(base, exponent)
-    print(
-        f"The modular multiplicative inverse of {base} raised to the power of {exponent} (modulus {modulus}) is: {result}"
-    )
-
-
-if __name__ == "__main__":
-    main()
+def modp(n: int, p: int):
+    if p <= 1:
+        return n
+    elif p % 2 == 0:
+        half_mod = modp(-n if n < 0 else n, p // 2)
+        return powermod(-n if n < 0 else n, half_mod, p)
+    else:
+        return powermod(-n if n < 0 else n, p, p)
