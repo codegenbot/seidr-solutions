@@ -8,19 +8,15 @@ int main() {
     while (std::cin >> n) {
         nums.push_back(n);
     }
-    
-    if (std::cin.fail() && !std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::cin >> dummy;
-    }
 
-    int sum = 0;
-    for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
-    }
+    if (std::cin.eof()) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += static_cast<int>(std::floor(static_cast<float>(num) / 3.0)) - 2;
+        }
 
-    std::cout << sum << std::endl;
+        std::cout << sum << std::endl;
+    }
 
     return 0;
 }
