@@ -1,4 +1,4 @@
-```Python
+```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -46,7 +46,9 @@ def main():
             try:
                 row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
                 if len(row) != n:
-                    print("Number of elements must match the number of columns. Please enter a valid input.")
+                    print(
+                        "Number of elements must match the number of columns. Please enter a valid input."
+                    )
                     continue
                 grid.append(row)
                 break
