@@ -1,11 +1,12 @@
-```
 import math
 
-n = float(input("Enter first number: "))
-m = float(input("Enter second number: "))
+n = int(input("Enter first number: "))
+m = int(input("Enter second number: "))
+
 
 def rounded_avg(n, m):
-    avg = (n + m) / 2
-    return str(math.ceil(avg))
+    avg = (math.ceil(n) + math.ceil(m)) / 2
+    return str(avg)
+
 
 print(rounded_avg(n, m))
