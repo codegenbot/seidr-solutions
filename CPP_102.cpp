@@ -1,8 +1,6 @@
-int choose_num(int x, int int) {
+int choose_num(int x, int y) {
     if (x > y) {
-        int temp = x;
-        x = y;
-        y = temp;
+        std::swap(x, y);
     }
     for (; x <= y; ++x) {
         if (x % 2 == 0) {
