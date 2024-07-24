@@ -1,17 +1,13 @@
-string result = s;
-    int n = s.size();
-    bool hasLetter = false;
-    
-    for(int i = 0; i < n; i++) {
-        if(isalpha(s[i])) {
-            result[i] = isupper(s[i]) ? tolower(s[i]) : toupper(s[i]);
-            hasLetter = true;
+for(char &c : s){
+        if(isalpha(c)){
+            c = isupper(c) ? tolower(c) : toupper(c);
         }
     }
     
-    if(!hasLetter) {
-        reverse(result.begin(), result.end());
+    size_t n = s.size();
+    if(n == 0){
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+
+    return s;
 }
