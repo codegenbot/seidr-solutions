@@ -1,38 +1,34 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-string spinWords(string s) {
-    string result = "";
+string spinWords(string input) {
+    string output = "";
     int wordLength;
-    string word;
-
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            if ((word.length()) >= 5) {
-                for (int j = word.length(); j >= 0; j--)
-                    result += word[j];
+    
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            wordLength = i - output.length();
+            if (wordLength >= 5) {
+                for (int j = wordLength - 1; j >= 0; j--) 
+                    output += input[output.length() + j]; 
             } else
-                result += word;
-            word = "";
-        } else
-            word += s[i];
+                output += input.substr(output.length(), wordLength);
+            output += ' ';
+        }
     }
-    return result;
+    
+    return output.substr(0, output.length() - 1); // Remove trailing space
 }
 
 int main() {
-    string str1 = "a";
-    cout << spinWords(str1) << endl;
-
-    str1 = "this is a test";
-    cout << spinWords(str1) << endl;
-
-    str1 = "this is another test";
-    cout << spinWords(str1) << endl;
-
-    str1 = "hi";
-    cout << spinWords(str1) << endl;
-    
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << spinWords(input) << endl;
     return 0;
 }
