@@ -13,13 +13,16 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst;
-    float num;
-    cout << "Enter numbers separated by spaces: ";
-    while (cin >> num) {
-        lst.push_back(num);
+    float temp;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        cin >> temp;
+        lst.push_back(temp);
     }
-
-    long long odd_sum = double_the_difference(lst);
+    float odd_sum = double_the_difference(lst);
 
     return 0;
 }
