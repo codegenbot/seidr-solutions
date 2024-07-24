@@ -1,14 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
-
 using namespace std;
 
-vector<string> findIndices(string text, string target) {
-    vector<string> indices;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int prevLast = 0;
     while ((int last = text.find(target, prevLast)) != string::npos) {
-        indices.push_back(to_string(last + 1));
+        indices.push_back((last - prevLast) + 1);
         prevLast = last + 1;
     }
     return indices;
@@ -21,8 +20,8 @@ int main() {
     string target;
     cin >> target;
 
-    vector<string> indices = findIndices(text, target);
-    for (string i : indices) {
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
