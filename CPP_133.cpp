@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -8,4 +7,3 @@ int sum_squares(std::vector<float> lst){
         result += std::ceil(x)*std::ceil(x);
     }
     return result;
-}
