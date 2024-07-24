@@ -17,7 +17,7 @@ int main() {
     int min_diff = INT_MAX;
     int cut_idx = -1;
 
-    for (int i = 1; i < n-1; ++i) {
+    for (int i = 1; i <= n; ++i) {
         left_sum += nums[i-1];
         int right_sum = sum - left_sum;
         int diff = std::abs(left_sum - right_sum);
