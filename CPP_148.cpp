@@ -9,11 +9,9 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
 
 std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
-        return {"to", planets.first, planets.second};
-    } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
-        return {planets.second, " to ", planets.first};
-    } else if (planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
-        return {planets.first, " to ", planets.second};
+        return {planet1 + " to " + planet2};
+    } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
+        return {planet2 + " to " + planet1};
     }
     return {"No valid planet combination found"};
 }
