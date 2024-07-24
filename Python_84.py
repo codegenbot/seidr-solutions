@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return bin(N ^ ((1 << (N.bit_length() + 1)) - 1))[2:]
+    return bin(sum(int(i) for i in str(bin(N)[2:]))) if N else "0"
