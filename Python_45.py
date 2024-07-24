@@ -6,4 +6,4 @@ try:
     h = float(input("Enter the height of the triangle: "))
     print(triangle_area(a, h))
 except ValueError:
-    print("Please enter valid numeric input for side length and height.")
+    print("Invalid input. Please enter a valid number.")
