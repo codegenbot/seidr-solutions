@@ -14,6 +14,7 @@ string decimal_to_binary(int decimal){
 
 int main(){
     assert(decimal_to_binary(15) == "db1111db");
+    // Add more test cases here
     assert(decimal_to_binary(8) == "db1000db");
     assert(decimal_to_binary(5) == "db101db");
 
