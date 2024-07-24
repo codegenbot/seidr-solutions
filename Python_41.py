@@ -1,5 +1,10 @@
-```
-def car_race_collision(distance, speed):
+def car_race_collision():
+    try:
+        distance = int(input("Enter the distance in kilometers: "))
+        speed = int(input("Enter the average speed of all cars in km/h: "))
+    except ValueError:
+        return "Error: Invalid input. Please enter a numeric value."
+
     if speed == 0 or distance == 0:
         return "Error: Speed and distance cannot be zero."
 
@@ -9,4 +14,4 @@ def car_race_collision(distance, speed):
 
     return f"The estimated time of the car race collision is {time_taken_hours} hours, {time_taken_minutes} minutes and {time_taken_seconds} seconds."
 
-print(car_race_collision(int(input("Enter the distance in kilometers: ")), int(input("Enter the average speed of all cars in km/h: "))))
+print(car_race_collision())
