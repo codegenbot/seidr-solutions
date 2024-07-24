@@ -12,6 +12,7 @@ std::string spinWords(std::string str) {
                 result += c;
             }
             wordLength = 0;
+            result += c; // append the original character
         } else {
             result += c;
             ++wordLength;
