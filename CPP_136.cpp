@@ -7,7 +7,7 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     vector<int> result;
     
     int max_negative = 0;
-    int min_positive = INT_MAX;
+    int min_positive = numeric_limits<int>::max();
     
     for (int num : lst) {
         if (num < 0 && num > max_negative) {
@@ -22,4 +22,3 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     result.push_back(min_positive);
     
     return result;
-}
