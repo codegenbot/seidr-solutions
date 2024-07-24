@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,4 +31,3 @@ int main() {
     }
     cout << endl;
     return 0;
-}
