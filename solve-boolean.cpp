@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 using namespace std;
@@ -11,17 +12,9 @@ bool solveBoolean(string expression) {
             return !result;
         } else if (c == '|') {
             bool temp = result;
-            result = false; // | has higher precedence than &
-            for (char d : expression) {
-                if (d == '&') {
-                    result = temp;
-                    break;
-                }
-                if (d == 'f') return false;
-                if (d == 't') result = true;
-            }
+            result = true;
         } else if (c == '&') {
-            continue; // & has lower precedence than |
+            result &= false;
         }
     }
     return result;
