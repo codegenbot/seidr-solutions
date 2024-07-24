@@ -1,5 +1,3 @@
-```cpp
-#include <string>
 using namespace std;
 
 string string_xor(string a, string b) {
@@ -22,7 +20,6 @@ int main() {
     cin >> a;
     cout << "Enter the second string: ";
     cin >> b;
-    string output = string_xor(a, b);
-    cout << "The XOR of two strings is: " << output << endl;
+    cout << "The XOR of the two strings is: " << string_xor(a, b);
     return 0;
 }
