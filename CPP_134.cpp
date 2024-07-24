@@ -10,12 +10,13 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
     return std::isalpha(lastChar);
 }
 
+std::string line; 
+size_t pos = 0;
+
 int main() {
     std::cout << "Enter a string: ";
-    std::string line; 
     std::getline(std::cin, line); 
 
-    size_t pos = 0;
     while (pos < line.size() && std::isspace(line[pos])) {
         ++pos;
     }
