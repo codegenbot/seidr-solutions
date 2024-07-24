@@ -1,25 +1,8 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> parse_music(string music_string);
-
-int main() {
-    string input_music;
-    cout << "Enter music string: ";
-    cin >> input_music;
-    
-    vector<int> beats = parse_music(input_music);
-    
-    for (int beat : beats) {
-        cout << beat << " ";
-    }
-    
-    return 0;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
@@ -41,4 +24,9 @@ vector<int> parse_music(string music_string){
     beats.push_back(note_duration + 1);
     
     return beats;
+}
+
+int main() {
+    // Your code for testing the parse_music function can go here
+    return 0;
 }
