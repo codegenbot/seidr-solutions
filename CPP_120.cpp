@@ -1,8 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-// Function to compare two vectors for equality
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a,vector<int> b){
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -13,7 +12,7 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
+    vector<int> result(arr.begin(), min(arr.begin() + k, arr.end()));
     sort(result.begin(), result.end());
     return result;
 }
