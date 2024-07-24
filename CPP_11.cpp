@@ -1,4 +1,4 @@
-```cpp
+````
 #include <string>
 using namespace std;
 
@@ -17,11 +17,13 @@ string string_xor(string a, string b) {
 
 int main() {
     assert(string_xor("0101", "0000") == "0101");
-    string a, b;
+    string str1, str2;
     cout << "Enter the first string: ";
-    cin >> a;
+    cin >> str1;
     cout << "Enter the second string: ";
-    cin >> b;
-    cout << "The XOR of the two strings is: " << string_xor(a, b) << endl;
+    cin >> str2;
+    string output = string_xor(str1, str2);
+    cout << "The XOR of the two strings is: " << output << endl;
     return 0;
 }
+```
