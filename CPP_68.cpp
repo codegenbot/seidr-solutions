@@ -25,7 +25,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int getAndProcessInput() {
+int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
@@ -37,8 +37,6 @@ int getAndProcessInput() {
     }
 
     vector<pair<int, int>> output = pluck(arr);
-
-    assert(output.empty());
 
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
