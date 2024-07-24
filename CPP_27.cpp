@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -14,9 +13,9 @@ namespace Solution {
         }
         return str;
     }
+}
 
-    int main() {
-        assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-        return 0;
-    }
+int main() {
+    assert (Solution::flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
