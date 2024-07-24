@@ -1,18 +1,17 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <cstdio>
 
 double euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
+    int minSize = (v1.size() < v2.size()) ? v1.size() : v2.size();
     double sum = 0;
-    for (int i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < minSize; i++) {
         sum += pow(v2[i] - v1[i], 2);
     }
     return sqrt(sum); 
 }
 
 int main() {
-    // example vectors
     std::vector<float> v1;
     v1.push_back(17);
     v1.push_back(-87.7063676044703);
