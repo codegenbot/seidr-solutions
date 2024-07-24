@@ -3,7 +3,7 @@ def add(x: int, y: int) -> int:
 
 while True:
     try:
-        x, y = map(int, input("Enter two numbers separated by space:").split())
+        x, y = map(int, input("Enter two numbers separated by space: ").split())
         break
     except ValueError:
         print("Please enter two integers separated by a space.")
