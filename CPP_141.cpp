@@ -1,18 +1,33 @@
-using namespace std;
+#include <string>
+#include <cctype>
+#include <vector>
 
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool found_dot = false;
-    for (int i = 0; i < file_name.length(); i++) {
-        if (!found_dot && file_name[i] == '.') {
-            found_dot = true;
-        } else if (isdigit(file_name[i])) {
-            digit_count++;
-            if (digit_count > 3) return "No";
+int count_digits(const std::string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (std::isdigit(c)) {
+            count++;
         }
     }
-    if (!found_dot || !isalpha(file_name[0])) return "No";
-    string ext = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_exts = {"txt", "exe", "dll"};
-    if (find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) return "No";
+    return count;
+}
+
+std::string file_name_check(std::string file_name) {
+    if (count_digits(file_name) > 3) {
+        return "No";
+    }
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == std::string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+    std::string before_dot = file_name.substr(0, dot_pos);
+    std::string after_dot = file_name.substr(dot_pos + 1);
+    if (!before_dot.empty() && !std::isalpha(before_dot[0])) {
+        return "No";
+    }
+    std::vector<std::string> allowed_extensions = {"txt", "exe", "dll"};
+    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
+        return "No";
+    }
     return "Yes";
+}
