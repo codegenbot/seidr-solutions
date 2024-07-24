@@ -1,16 +1,11 @@
-```
 def split_words(txt):
-    words = txt.split()
-    if len(words) > 0:
-        return words
+    if any(char.isalnum() for char in txt) and any(char.isspace() for char in txt):
+        return txt.split()
+    elif all(not char.isspace() for char in txt):
+        return sum(
+            ord(char) - 96
+            for char in txt.lower().replace(",", "")
+            if ord("a") <= ord(char) - 96 <= ord("z")
+        )
     else:
-        txt = txt.replace(",", " ")
-        words = txt.split()
-        if len(words) > 0:
-            return words
-        else:
-            result = 0
-            for char in txt.lower():
-                if ord(char) - ord('a') % 2 == 1 and 'z' >= char >= 'a':
-                    result += 1
-            return result
+        return sum(1 for char in txt.lower().replace(",", "").replace(" ", "."))
