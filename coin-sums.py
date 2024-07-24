@@ -9,6 +9,14 @@ def coin_sums():
             result[coins.index(coin)] += count
             cents -= count * coin
 
-    print("{} quarters, {} dimes, {} nickels, {} pennies".format(result[0], result[1], result[2], result[3]))
+    print(
+        "{}. quarters, {} dimes, {} nickels, {} pennies".format(
+            result[0],
+            result[1] + (result[2] + (cents % 25) // 10),
+            (result[2] + (cents % 25) // 10) // 2,
+            cents % 5,
+        )
+    )
+
 
 coin_sums()
