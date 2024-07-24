@@ -1,33 +1,26 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            count++;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
         }
     }
-    return count;
-}
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for(int i = 0; i < 4; i++) {
-        bool found = false;
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == guess[i]) {
-                found = true;
-                break;
+    for (char c : guess) {
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
             }
         }
-        if(found) {
-            count++;
-            code[i] = ' '; // mark as used
+        if (count > 1 && code.find(c) != string::npos) {
+            white += count - 1;
+        } else if (count == 1) {
+            white++;
         }
     }
-    return count;
-}
 
-int mastermind(string code, string guess) {
-    int blackPegsCount = blackPegs(code, guess);
-    int whitePegsCount = 4 - blackPegsCount;
-    return make_pair(whitePegsCount, blackPegsCount).second;
+    return black + white;
 }
