@@ -11,10 +11,11 @@ std::string camelCase(std::string s) {
                 ++i;
             }
             if (!result.empty()) {
-                result += char(toupper(s[i-1]));
-            } else {
-                result += s[i-1];
+                result += " ";
             }
+            char c = toupper(s[i]);
+            result += c;
+            i--;
         } else if (!result.empty() && !std::isalpha(s[i])) {
             result += s[i];
         } else if (std::isalpha(s[i])) {
