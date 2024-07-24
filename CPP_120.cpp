@@ -1,7 +1,5 @@
-Here is the completed code:
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> res(k);
+    copy_n(rbegin(arr), k, rbegin(res));
+    return res;
 }
