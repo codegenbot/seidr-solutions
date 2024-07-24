@@ -1,15 +1,19 @@
-bool issame (float a, float b) {
-    return fabs(a - b) < 1e-9;
+bool issame(float a, float b) {
+    return abs(a - b) < 0.0001;
 }
 
-void sort_even(vector<float>& l) {
+bool sort_even(float a, float b) {
+    return (int(a) % 2) < (int(b) % 2);
+}
+
+vector<float> main(vector<float>& l, bool (*issame)(float, float), bool (*sort_even)(float, float)) {
     vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_indices.push_back(l[i]);
         }
     }
-    sort(even_indices.begin(), even_indices.end());
+    sort(even_indices.begin(), even_indices.end(), sort_even);
 
     vector<float> result;
     int even_index = 0;
@@ -22,10 +26,5 @@ void sort_even(vector<float>& l) {
         }
     }
 
-    l = result;
-}
-
-int main() {
-    // Main function code
-    return 0;
+    return result;
 }
