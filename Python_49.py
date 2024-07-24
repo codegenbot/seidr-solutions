@@ -20,12 +20,17 @@ def modp(n: int, p: int):
 
 
 def main():
-    base = int(input("Enter the base: "))
-    exponent = int(input("Enter the exponent: "))
-    modulus = int(input("Enter the modulus: "))
+    while True:
+        try:
+            base = int(input("Enter the base: "))
+            exponent = int(input("Enter the exponent: "))
+            modulus = int(input("Enter the modulus: "))
 
-    result = modp(base, modulus)
-    print(f"The result is {result}")
+            result = modp(base, modulus)
+            print(f"The result is {result}")
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers.")
 
 
 if __name__ == "__main__":
