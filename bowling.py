@@ -1,22 +1,39 @@
-def bowling_score(rolls):
+```
+def bowling_score(frames):
     score = 0
-    roll_index = 0
-    for frame in range(10):
-        if rolls[roll_index] == "/":
-            non_strike_roll = int(rolls[roll_index + 1])
-            strike_roll = int(rolls[roll_index - 1])
-            score += strike_roll + non_strike_roll
-            roll_index += 2
-        elif rolls[roll_index] == "X":
+    frame = 0
+    while frame < len(frames):
+        if frames[frame] == 'X':  # strike
+            score += 10 + (10 if frame+1 < len(frames) and frames[frame+1].isdigit() else 0)
+            frame += 2
+        elif frames[frame:frame+2] in ['--', '-X', 'XX']:
             score += 10
-            roll_index += 1
-        else:
-            first_roll = int(rolls[roll_index])
-            if first_roll < 5:
-                score += first_roll
-                roll_index += 1
+            frame += 3
+        elif frames[frame].isdigit():
+            strike = False
+            for i in range(1, 4):
+                if frame+i >= len(frames) or not frames[frame+i].isdigit():
+                    break
+            if i == 1:
+                score += int(frames[frame])
+                frame += 1
             else:
-                second_roll = int(rolls[roll_index + 1])
-                score += first_roll + second_roll
-                roll_index += 2
+                score += int(frames[frame:frame+i])
+                strike = True
+            if strike:
+                while frame < len(frames) and (frames[frame] != '/' or not frames[frame+1].isdigit()):
+                    frame += 1
+        else:
+            if frame < len(frames) - 2 and frames[frame:frame+3] == '/0':
+                score += 10
+                frame += 3
+            elif frame < len(frames) - 1 and frames[frame:frame+2] == '//':
+                score += 10
+                frame += 2
+            else:
+                for i in range(1, 4):
+                    if frame+i >= len(frames) or not frames[frame+i].isdigit():
+                        break
+                score += int(frames[frame:frame+i])
+                frame += i
     return score
