@@ -1,31 +1,36 @@
-Here is the Python solution for the given problem:
-
-```
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False]*n for _ in range(n)]
-    path = []
-    directions = [(0,1), (0,-1), (1,0), (-1,0)]
-
-    def dfs(i, j, current_path):
-        nonlocal path
-        if len(current_path) == k:
-            path = current_path
-            return True
-        visited[i][j] = True
-        for direction in directions:
-            ni, nj = i + direction[0], j + direction[1]
-            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                dfs(ni, nj, current_path + [grid[ni][nj]])
-        visited[i][j] = False
-        return False
+    m = [[0] * n for _ in range(n)]
 
     for i in range(n):
         for j in range(n):
-            if dfs(i, j, [grid[i][j]]):
-                break
-        else:
-            continue
-        break
+            if grid[i][j] == 1:
+                m[i][j] = [i, j]
 
-    return path
+    visited = set()
+    path = []
+
+    def dfs(i, j, k):
+        nonlocal path
+        if k < 0:
+            return False
+        if (i, j) in visited or (i, j) not in [
+            (x, y) for x in range(n) for y in range(n)
+        ]:
+            return False
+
+        if k > 0:
+            visited.add((i, j))
+
+            path.append(grid[i][j])
+            dfs(i - 1, j, k - 1)
+            dfs(i + 1, j, k - 1)
+            dfs(i, j - 1, k - 1)
+            dfs(i, j + 1, k - 1)
+            visited.remove((i, j))
+        return True
+
+    for i in range(n):
+        for j in range(n):
+            if dfs(i, j, k):
+                return path
