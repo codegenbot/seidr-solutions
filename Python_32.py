@@ -1,9 +1,6 @@
-Here is the completed code:
-
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        return None
-    a = xs[n//2]
-    b = -xs[0] / a
-    return round(b, 2)
+def find_zero(xs):
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    a = xs[::2]
+    b = xs[1::2]
+    return -b[0] / (2 * max(a))
