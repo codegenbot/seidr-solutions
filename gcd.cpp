@@ -22,8 +22,8 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    if(a == 0 || b == 0) {
-        throw runtime_error("Error: Input values must be non-zero integers.");
+    if (a < 0 || b < 0) {
+        throw runtime_error("GCD of two negative numbers is undefined");
     }
-    return a;
+    return abs(a);
 }
