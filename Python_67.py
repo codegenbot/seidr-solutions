@@ -1,4 +1,3 @@
-```
 n = int(input())
 def fruit_distribution(s,n):
     words = s.split()
