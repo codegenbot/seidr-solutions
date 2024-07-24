@@ -1,10 +1,9 @@
+def check(x):
+    return "yes" if x > 10 else "no"
+
+
 def sum_squares(lst):
-    total_sum = 0
-    for i in range(len(lst)):
-        if (i % 3) + (i % 4) in [1, 2]:
-            total_sum += lst[i] ** 2
-    return total_sum
+    return sum(i**2 for i in lst)
 
 
-n = int(input("Enter the number of elements in the list: "))
-lst = [int(input(f"Enter element {i+1}: ")) for i in range(n)]
+print(check(sum_squares([1, 2, 3])))
