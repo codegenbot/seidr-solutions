@@ -6,6 +6,4 @@ def fizz_buzz(n: int):
             str_i = str(i)
             if '7' in str_i:
                 count += 1
-            else:
-                print(i)
-    return count
+        return count
