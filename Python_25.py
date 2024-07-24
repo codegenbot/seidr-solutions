@@ -17,4 +17,4 @@ while True:
         print(factorize(n))
         break
     except ValueError:
-        print("Please enter a valid integer input.")
+        print("Invalid input. Please enter a valid integer.")
