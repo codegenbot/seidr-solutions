@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,7 +12,7 @@ int sum_of_squares(int n) {
     return total;
 }
 
-int sumOfSquaresMain() {
+int main() {
     int sum, num;
     std::cout << "Enter a number: ";
     std::cin >> num;
