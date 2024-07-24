@@ -1,8 +1,9 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <stack>
+#include <sstream>
 
 double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
     std::stack<double> numStack;
@@ -46,14 +47,19 @@ int main() {
     while(count < 5) { 
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string line;
-        std::cin >> line;
+        std::getline(std::cin, line);
 
         if(line == "q") break;
 
-        line.erase(0, line.find(' '));
-        ops.push_back(line.substr(0));
-
-        args.push_back(stoi(line.substr(line.find(' ') + 1)));
+        size_t pos = line.find(' ');
+        std::string op = line.substr(0, pos);
+        int arg;
+        std::stringstream converter(line);
+        converter >> op;
+        converter >> arg;
+        
+        ops.push_back(op);
+        args.push_back(arg);
         count++;
     }
 
