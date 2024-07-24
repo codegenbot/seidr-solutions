@@ -1,3 +1,4 @@
+```
 def smallest_change(arr):
     if isinstance(arr[0], list):  
         n = len(arr[0])
