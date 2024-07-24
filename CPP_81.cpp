@@ -3,12 +3,7 @@
 #include <vector>
 #include <string>
 
-struct Result {
-    int total;
-    double average;
-};
-
-Result numerical_letter_grade(std::vector<std::string> input) {
+std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
     int total = 0;
     for (const auto& grade : input) {
         if (grade == "A+") total += 4.3;
@@ -36,7 +31,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input = {"E", "D-"};
-    assert(issame(input, {input[0], input[1]}));
+    assert(std::vector<std::string>({"E", "D-"}) == std::vector<std::string>());
     return 0;
 }
