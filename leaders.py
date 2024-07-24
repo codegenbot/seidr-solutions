@@ -1,9 +1,10 @@
-Here is the solution:
+def leaders(arr):
+    leader = []
+    max_right = arr[-1]
 
-def leaders(a):
-    n = len(a)
-    result = [a[n-1]]
-    for i in range(n-2, -1, -1):
-        if a[i] >= a[i+1]:
-            result.append(a[i])
-    return result[::-1]
+    for i in range(len(arr) - 1, -1, -1):
+        if arr[i] >= max_right:
+            leader.append(arr[i])
+            max_right = arr[i]
+
+    return list(reversed(leader))
