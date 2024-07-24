@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 
 std::string romanToInt(std::int32_t num) {
     if (num <= 0)
-        return "";
+        return "0";
 
     std::string roman = "";
     int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
