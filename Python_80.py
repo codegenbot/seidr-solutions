@@ -1,5 +1,15 @@
 ```
-def is_happy_number(n):
+def is_happy_number():
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            if n < 10:
+                print("Number should be 10 or greater. Please enter again.")
+            else:
+                break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
     seen = set()
     while True:
         if str(n) in seen:
@@ -9,4 +19,4 @@ def is_happy_number(n):
 
     return True
 
-print(is_happy_number(int(input("Enter a number: "))))
+print(is_happy_number())
