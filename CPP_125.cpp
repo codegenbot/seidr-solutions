@@ -1,20 +1,24 @@
 vector<string> split_words(string txt) {
-    vector<string> words;
+    vector<string> result;
     size_t pos = 0;
     while ((pos = txt.find(' ')) != string::npos) {
-        words.push_back(txt.substr(0, pos));
+        result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.size() > 0) {
-        words.push_back(txt);
-    } else {
+    if (txt.empty()) return result;
+    if (result.empty()) {
         int count = 0;
         for (char c : txt) {
-            if ((int)c - (int)'a' % 2 == 0 && (int)c >= (int)'a' && (int)c <= (int)'z') {
+            if (c >= 'a' && c <= 'z') {
+                if ((count & 1)) {
+                    result.push_back(to_string(count));
+                    break;
+                }
                 count++;
             }
         }
-        words.push_back(to_string(count));
+    } else {
+        result.push_back(txt);
     }
-    return words;
+    return result;
 }
