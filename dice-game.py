@@ -1,6 +1,8 @@
 n = int(input())
 m = int(input())
-if n >= m:
+if n > m:
     print(round((n - 1) / n, 2))
+elif n < m:
+    print(round((n) / m, 2))
 else:
-    print(round(n / (2 * m), 2))
+    print(0.5)
