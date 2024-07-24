@@ -1,4 +1,4 @@
-from typing import List
+n = int(input().strip())
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -11,7 +11,5 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(input().strip())
 result = factorize(n)
-
 print(result)
