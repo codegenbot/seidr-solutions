@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -13,10 +12,22 @@ def encode(message):
                 result += char.lower()
         elif char == " ": # handle spaces correctly
             result += "+"
-        elif char in "!?,.:; '": # handle special characters
-            result += "/".join([f"{ord(c)-44:.2X}" for c in char])
+        elif char in "!\"',.:;":
+            result += "/" + "".join(f"{ord(c)-44:.2X}" for c in char)
         elif char.isdigit():
-            result += chr((int(char) - 48) % 10 + 55)
+            ascii_offset = 97 if int(char) <= 9 else 65
+            result += chr((int(char) - 48) % 10 + 55 + (ascii_offset if ord('a') < ord('A') else 0))
         else: 
-            result += ""
+            if char == "!":
+                result += ">"
+            elif char == "\"":
+                result += "%"
+            elif char == "'":
+                result += "!)"
+            elif char == ".":
+                result += "*"
+            elif char == ",":
+                result += "-"
+            else: 
+                result += ""
     return result
