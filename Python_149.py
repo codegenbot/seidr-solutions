@@ -1,3 +1,4 @@
 def sorted_list_sum(lst):
-    lst = [item for sublist in lst for item in sublist]
-    return [''.join(sorted(set(map(str, lst))))]
+    return sum(
+        int(i) for i in sorted(str(sum(map(ord, filter(str.isalpha, map(str, lst))))))
+    )
