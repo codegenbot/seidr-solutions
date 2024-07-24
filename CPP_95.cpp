@@ -1,14 +1,14 @@
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
-    bool all_lower = true;
-    bool all_upper = true;
+    bool allLower = true;
+    bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (!all_lower && !all_upper) break;
-        if (all_lower && !islower(pair.first.begin(), pair.first.end())) all_lower = false;
-        if (all_upper && !isupper(pair.first.begin(), pair.first.end())) all_upper = false;
+        if (!allLower && !allUpper) break;
+        if (!allLower) allLower = islower(pair.first[0]);
+        if (!allUpper) allUpper = isupper(pair.first[0]);
     }
 
-    return all_lower || all_upper;
+    return allLower || allUpper;
 }
