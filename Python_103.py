@@ -1,4 +1,3 @@
-```
 import math
 
 n = float(input("Enter first number: "))
