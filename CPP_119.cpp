@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,7 +9,7 @@ int match_parens(std::vector<std::string> lst) {
     for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') countOpen++;
-            else countClose++;
+            else if (c == ')') countClose++;
         }
     }
 
@@ -26,9 +27,7 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec) == 1) 
-        std::cout << "Yes";
-    else
-        std::cout << "No";
+    if (match_parens(vec)) std::cout << "Yes";
+    else std::cout << "No";
     return 0;
 }
