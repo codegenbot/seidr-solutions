@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -18,18 +17,14 @@ unordered_map<char, int> histogram(string test) {
         }
     }
 
-    int maxCount = 0;
     unordered_map<char, int> maxCountMap;
 
-    for (const auto& [ch, count] : result) {
-        if (count > maxCount) {
-            maxCount = count;
+    for (auto& pair : result) {
+        if (pair.second > maxCountMap.size()) {
             maxCountMap.clear();
-            maxCountMap[ch] = count;
-        } else if (count == maxCount) {
-            if (maxCount > 0) {
-                maxCountMap[ch] = count;
-            }
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCountMap.size()) {
+            maxCountMap[pair.first] = pair.second;
         }
     }
 
@@ -42,7 +37,7 @@ int main() {
     getline(cin, input);
 
     unordered_map<char, int> hist = histogram(input);
-    for (const auto& [ch, count] : hist) {
+    for (auto& [ch, count] : hist) {
         cout << ch << ": " << count << endl;
     }
 
