@@ -1,3 +1,4 @@
+```
 def is_happy_number(n):
     seen = set()
     while True:
@@ -5,8 +6,10 @@ def is_happy_number(n):
             return False
         seen.add(str(n))
         n = sum(int(digit) ** 2 for digit in str(n))
-        if n == 1 or n in {str(i) for i in seen}:
-            break
-    return True
+        if n == 1 or n in [4, 16, 20, 21, 22, 26]:
+            return True
 
-print(is_happy_number(int(input("Enter a number: "))))
+try:
+    print(is_happy_number(int(input("Enter a number: "))))
+except ValueError as e:
+    print(f"Invalid input. {e}")
