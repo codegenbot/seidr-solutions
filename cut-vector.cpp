@@ -8,8 +8,10 @@ int main() {
     vector<int> vec;
     int num;
 
-    while (cin >> num && num != -1) {
+    while (cin >> num) {
         vec.push_back(num);
+        if (cin.peek() == '\n')  // Additional condition for input termination
+            break;
     }
 
     int n = vec.size();
