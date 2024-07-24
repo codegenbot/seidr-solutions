@@ -1,7 +1,7 @@
 ```
 import re
 
-def fix_spaces(text):
+def check(text):
     if not text:
         return ""
 
@@ -11,3 +11,5 @@ def fix_spaces(text):
     while "__" in text:
         text = text.replace("__", "_-")
     return text
+
+check(input("Your input here: "))
