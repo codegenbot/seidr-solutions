@@ -1,3 +1,3 @@
 def find_zero(xs: list):
-    m = max(xs, key=abs)
-    return -m / xs[-2]
+    a, b = xs[-1], xs[-2]
+    return -a / b
