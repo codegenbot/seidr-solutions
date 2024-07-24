@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
     double y = pow(n, log(x) / log(n));
