@@ -31,4 +31,3 @@ int main() {
         cout << "No such pair found." << endl;
     }
     return 0;
-}
