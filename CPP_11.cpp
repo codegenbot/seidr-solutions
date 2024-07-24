@@ -17,10 +17,10 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() {
     std::string a, b;
-    std::cout << "Enter first string: ";
+    std::cout << "Enter the first binary string: ";
     std::cin >> a;
-    std::cout << "Enter second string: ";
+    std::cout << "Enter the second binary string: ";
     std::cin >> b;
-    std::cout << "XOR of the two strings is: " << string_xor(a, b) << std::endl;
+    std::cout << "The XOR of two strings is: " << string_xor(a, b) << std::endl;
     return 0;
 }
