@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <vector>
 
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
@@ -21,10 +25,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     }
 
     return result;
-}
-
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int mainFunction() {
