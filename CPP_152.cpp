@@ -1,31 +1,20 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-bool issame(std::vector<int> b, std::vector<int> c) {
-    for (int i = 0; i < b.size(); i++) {
-        if (b[i] != c[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
     std::vector<int> result;
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            result.push_back(game[i]);
-        }
+    for (size_t i = 0; i < game.size(); i++) {
+        result.push_back(std::abs(game[i] - guess[i]));
     }
     return result;
 }
 
 int main() {
-    std::vector<int> test1 = {1, 2, 3};
-    std::vector<int> test2 = {1, 4, 3};
-    std::vector<int> result = compare(test1, test2);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
