@@ -1,42 +1,41 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
 #include <stack>
-#include <sstream>
 
 double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
-    std::stack<double> numStack;
+    std::stack<int> numStack;
     for(int i = 0; i < ops.size(); ++i) {
         if(ops[i] == "+") {
-            double b = numStack.top();
+            int b = numStack.top();
             numStack.pop();
-            double a = numStack.top();
+            int a = numStack.top();
             numStack.pop();
             numStack.push(a + b);
         } else if(ops[i] == "-") {
-            double b = numStack.top();
+            int b = numStack.top();
             numStack.pop();
-            double a = numStack.top();
+            int a = numStack.top();
             numStack.pop();
             numStack.push(a - b);
         } else if(ops[i] == "*") {
-            double b = numStack.top();
+            int b = numStack.top();
             numStack.pop();
-            double a = numStack.top();
+            int a = numStack.top();
             numStack.pop();
             numStack.push(a * b);
         } else if(ops[i] == "/") {
-            double b = numStack.top();
+            int b = numStack.top();
             numStack.pop();
-            double a = numStack.top();
+            int a = numStack.top();
             numStack.pop();
             numStack.push(a / b);
         } else {
-            numStack.push((double)args[i]);
+            numStack.push(args[i]);
         }
     }
-    return numStack.top();
+    return (double)numStack.top();
 }
 
 int main() {
@@ -47,19 +46,14 @@ int main() {
     while(count < 5) { 
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string line;
-        std::getline(std::cin, line);
+        std::cin >> line;
 
         if(line == "q") break;
 
-        size_t pos = line.find(' ');
-        std::string op = line.substr(0, pos);
-        int arg;
-        std::stringstream converter(line);
-        converter >> op;
-        converter >> arg;
-        
-        ops.push_back(op);
-        args.push_back(arg);
+        line.erase(0, line.find(' '));
+        ops.push_back(line.substr(0));
+
+        args.push_back(stoi(line.substr(line.find(' ') + 1)));
         count++;
     }
 
