@@ -17,16 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    string input;
-    getline(cin, input);
-
-    vector<int> result = parse_nested_parens(input);
-
-    for (int depth : result) {
-        cout << depth << " ";
-    }
-
-    return 0;
+    // Main function implementation (if any)
 }
 
 vector<int> parse_nested_parens(string paren_string) {
