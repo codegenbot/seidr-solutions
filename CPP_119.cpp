@@ -5,7 +5,7 @@
 std::string match_parens(std::vector<std::string> lst) {
     int count_open = 0, count_close = 0;
 
-    for (const string& s : lst) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 count_open++;
@@ -27,6 +27,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {");", "("};  
-    cout << match_parens(input);
+    std::vector<std::string> input = {"())(", "(a)"};
+    std::cout << match_parens(input) << std::endl;
 }
