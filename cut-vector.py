@@ -1,22 +1,13 @@
 n = int(input())
-data = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(data)
-half_sum = total_sum // 2
+diff = float("inf")
+cut_idx = 0
+for i in range(1, n):
+    current_diff = abs(sum(nums[:i]) - sum(nums[i:]))
+    if current_diff < diff:
+        diff = current_diff
+        cut_idx = i
 
-current_sum = 0
-for i, num in enumerate(data):
-    current_sum += num
-    if current_sum >= half_sum:
-        break
-
-if current_sum == half_sum:
-    print(data[: i + 1])
-    print(data[i + 1 :])
-else:
-    if current_sum - half_sum < total_sum - current_sum:
-        print(data[: i + 1])
-        print(data[i + 1 :])
-    else:
-        print(data[:i])
-        print(data[i:])
+print(*nums[:cut_idx])
+print(*nums[cut_idx:])
