@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <sstream>
+#include <string>
 
 int sum_squares(int n) {
     int total = 0;
@@ -14,9 +15,10 @@ int main2() {
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
     if (n > 0) {
-        std::cout << "Sum of squares is: " << sum_squares(n) << std::endl;
+        std::string output = "Sum of squares is: " + std::to_string(sum_squares(n));
+        std::cout << output << std::endl;
     } else {
-        std::cout << "Please enter a positive integer." << std::endl; 
+        std::cout << "Please enter a positive integer.\n";
     }
     return 0;
 }
