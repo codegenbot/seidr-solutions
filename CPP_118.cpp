@@ -1,20 +1,30 @@
-string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; --i) {
-        if (!isvowel(word[i])) {
-            left = i + 1;
-            break;
+#include <string>
+#include <cctype>
+
+std::string get_closest_vowel(std::string word) {
+    std::string result = "";
+    for (int i = 0; i < word.size(); ++i) {
+        if (isVowel(word[i])) {
+            if (!result.empty()) {
+                return result;
+            }
+            for (int j = i + 1; j < word.size(); ++j) {
+                if (!isVowel(word[j])) {
+                    result = std::string(1, word[i]);
+                    return result;
+                }
+            }
         }
     }
-    for (int i = left; i < word.size(); ++i) {
-        if (isvowel(word[i])) {
-            return string(1, tolower(word[i]));
-        }
-    }
-    return "";
+    return result;
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+bool isVowel(char c) {
+    c = std::tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
