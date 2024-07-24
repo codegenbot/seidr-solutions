@@ -1,8 +1,9 @@
+#include <map>
 #include <string>
-#include <unordered_map>
+#include <cctype>
 
-int check_dict_case(std::unordered_map<std::string, std::string> dict) {
-    if (dict.empty()) return 0;
+bool check_dict_case(std::map<std::string, std::string> dict) {
+    if (dict.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
@@ -20,8 +21,4 @@ int check_dict_case(std::unordered_map<std::string, std::string> dict) {
     }
 
     return allLower || allUpper;
-}
-
-int main() {
-    assert(check_dict_case({}) == 0);
 }
