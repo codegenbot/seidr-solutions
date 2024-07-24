@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,10 +8,6 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-
-    if (tweet.find_last_of('\n') != string::npos) {
-        tweet.erase(tweet.find_last_of('\n'));
-    }
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
