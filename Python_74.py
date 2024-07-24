@@ -1,4 +1,4 @@
-```Python
+```
 def total_match(lst1, lst2):
     sum1 = sum(len(s) for s in lst1)
     sum2 = sum(len(s) for s in lst2)
@@ -8,3 +8,6 @@ def total_match(lst1, lst2):
         return lst2
     else:
         return lst1
+
+print(total_match(["hello", "world"], ["goodbye", "cruel"]))
+print(total_match(["abc"], ["def", "ghi"]))
