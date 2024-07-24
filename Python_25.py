@@ -13,9 +13,7 @@ def factorize(n: int) -> List[int]:
 
 try:
     n = int(input("Enter a single integer: "))
+    result = factorize(n)
+    print(result)
 except ValueError:
-    print("Please enter a valid integer.")
-    quit()
-
-result = factorize(n)
-print(result)
+    print("Invalid input. Please enter a single integer.")
