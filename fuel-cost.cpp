@@ -1,9 +1,12 @@
-int fuelCost(vector<int> v) {
+#include <vector>
+using namespace std;
+
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int x : v) {
-        int y = (x / 3);
-        y = (y > 0) ? y - 2 : 0;
-        sum += y;
+    for (int i : vec) {
+        int result = (i / 3);
+        result = (result > 0 ? result - 2 : 0);
+        sum += result;
     }
     return sum;
 }
