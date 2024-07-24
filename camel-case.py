@@ -1,10 +1,9 @@
-def kebab_to_camel(s):
-    return "".join(word.capitalize() for word in s.split("-"))
+Here is the Python solution for the problem:
 
+def camel_case(string):
+    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(string.split('-')))
 
-while True:
-    try:
-        s = input()
-        print(kebab_to_camel(s))
-    except EOFError:
-        break
+print(camel_case("nospaceordash")) 
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
