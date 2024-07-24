@@ -1,6 +1,6 @@
 ```
-from typing import List
-def rolling_max(numbers: list) -> list:
+from typing import list
+def rolling_max(numbers: list[int]) -> list[int]:
     max_seen_so_far = float("-inf")
     result = []
     for num in numbers:
