@@ -12,7 +12,7 @@ int do_algebra(vector<string> operators, vector<int> operand){
             result *= operand[i + 1];
         } else if (operators[i] == "//") {
             result /= operand[i + 1];
-        } else if (operators[i] == "**") {
+        } else if (operators[i] == "pow") {
             result = pow(result, operand[i + 1]);
         }
     }
