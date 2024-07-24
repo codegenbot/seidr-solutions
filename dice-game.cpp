@@ -1,12 +1,20 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
-    double totalPossibilities = 1e6; // assume both dice have 1e6 sides (it's enough for this problem)
-    int peterWins = 0;
+    double total = (double)n * m;
+    double higher = 0;
     
-    for (int i = n + 1; i <= m; i++) {
-        peterWins += i - n;
+    for (int i = n; i <= m; i++) {
+        higher += (double)(m - i + 1) / total;
     }
     
-    return (double) peterWins / totalPossibilities;
+    return higher;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(1) << probability(n, m) << endl;
+    return 0;
 }
