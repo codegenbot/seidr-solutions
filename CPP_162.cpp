@@ -1,12 +1,14 @@
-#include <string>
+```cpp
+#include <openssl/ssl.h>
+#include <openssl/errqueue.h>
 #include <sstream>
-#include <openssl/evp.h>
+#include <iomanip>
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
-    std::stringstream ss;
+    stringstream ss;
 
     EVP_MD_CTX* md_ctx = EVP_MD_CTX_new();
     EVP_MD *md_algorithm = EVP_md5();
@@ -21,8 +23,4 @@ std::string string_to_md5(std::string text) {
     OPENSSL_free(digest);
     EVP_MD_CTX_free(md_ctx);
     return ss.str();
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
 }
