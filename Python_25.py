@@ -1,25 +1,18 @@
-```
 from typing import List
 import math
 
 
-def factorize() -> List[int]:
-    num = None
-    while True:
-        try:
-            num = int(input("Enter a number: "))
-            break
-        except ValueError:
-            print("That's not a valid integer! Try again.")
-
+def factorize(n: int) -> List[int]:
     factors = []
-    for i in range(2, math.isqrt(num) + 1):
-        if num % i == 0:
+    if n <= 1:
+        return [n]
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
             count = 0
-            while num % i == 0:
-                num //= i
+            while n % i == 0:
+                n //= i
                 count += 1
             factors.extend([i] * count)
-    if num > 1:
-        factors.append(num)
+    if n > 1:
+        factors.append(n)
     return factors
