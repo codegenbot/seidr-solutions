@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b) {
-    return a.size() == b.size() && a == b;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
 std::pair<int, int> make_a_pile(int n) {
