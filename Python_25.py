@@ -1,13 +1,6 @@
-def find_prime_factors(n: int) -> List[int]:
-    factors = []
-    for i in range(2, n + 1):
-        while n % i == 0:
-            if math.isqrt(i) ** 2 == i:
-                factors.append(i)
-            else:
-                for j in range(2, math.isqrt(i) + 1):
-                    if i % j == 0:
-                        factors.extend([j] * (i // j))
-                        break
-            n //= i
-    return factors
+def find_max_value(lst: List[int]) -> int:
+    max_val = float("-inf")
+    for num in lst:
+        if num > max_val:
+            max_val = num
+    return max_val
