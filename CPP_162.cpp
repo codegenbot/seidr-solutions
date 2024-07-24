@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <string>
+#include "md5.h"
+
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
