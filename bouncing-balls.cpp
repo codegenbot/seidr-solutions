@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -18,7 +19,8 @@ int main() {
         totalDistance += 2 * startHeight;
     }
 
-    cout << fixed << setprecision(std::numeric_limits<std::streamsize>::max()) << totalDistance << endl;
+    cout << fixed << setprecision(6) << showpoint;
+    cout << totalDistance << endl;
 
     return 0;
 }
