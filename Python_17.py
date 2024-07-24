@@ -3,6 +3,5 @@ def parse_music() -> List[int]:
     music_string = input().strip()
     return [notes[note] for note in music_string.split()]
 
-
 result = parse_music()
 print(result)
