@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
@@ -10,15 +11,17 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
                 dfs(grid, visited, i, j, k, res);
+                res.clear();
                 break;
             }
         }
-        if (res.size() == k) break;
     }
+    
     return res;
 }
 
