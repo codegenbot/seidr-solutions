@@ -1,3 +1,10 @@
+#include <variant>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+using namespace boost;
+
 std::variant<std::string, int, float> compare_one(std::variant<any> a, std::variant<any> b) {
     if (holds_alternative<int>(a) && holds_alternative<float>(b)) {
         return to_string(max(get<int>(a), get<float>(b)));
@@ -12,7 +19,8 @@ std::variant<std::string, int, float> compare_one(std::variant<any> a, std::vari
         int aInt = get<int>(a);
         int bInt = get<int>(b);
         return to_string((aInt > bInt) ? aInt : bInt);
+    } else {
+        // Handle all other cases or unexpected inputs
+        return 0;
     }
-    // Handle all other cases or unexpected inputs
-    return 0;
 }
