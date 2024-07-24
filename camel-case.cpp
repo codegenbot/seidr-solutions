@@ -1,23 +1,27 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (const auto& word : str.split("-")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool first = true;
+
+    for (const auto& word : input.split("-")) {
+        if (!first) {
+            output += std::char_traits<char>::toctype(std::toupper(word[0]));
+        } else {
+            first = false;
         }
-        result += word;
+        output += word;
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
+    }
     return 0;
 }
