@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
 string words_in_sentence(string sentence) {
     string result = "";
@@ -7,7 +7,7 @@ string words_in_sentence(string sentence) {
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
             if (is_prime(len)) {
-                result += sentence.substr(i - len, len) + " ";
+                result += sentence.substr(len - i, i - len + 1) + " ";
             }
             len = 0;
         } else {
@@ -15,7 +15,7 @@ string words_in_sentence(string sentence) {
         }
     }
     if (is_prime(len)) {
-        result += sentence.substr(0, len);
+        result += sentence.substr(len);
     }
     return result;
 }
