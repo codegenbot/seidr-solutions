@@ -14,6 +14,7 @@ int mastermind(const std::string& code, const std::string& guess) {
             std::string guessCopy = guess;
             codeCopy.erase(i, 1);
             guessCopy.erase(i, 1);
+            --i;
         }
     }
 
@@ -30,17 +31,6 @@ int mastermind(const std::string& code, const std::string& guess) {
             }
             j++;
         }
-    }
-
-    // Count white pegs
-    for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i]) {
-                count++;
-            }
-        }
-        whitePegs += count - 1;
     }
 
     return blackPegs;
