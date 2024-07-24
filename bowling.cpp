@@ -1,26 +1,26 @@
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (input[i] == '/') {
-            string firstRoll = input.substr(0, i);
-            string secondRoll = input.substr(i + 1);
-            int firstRollScore = (firstRoll[0] - '0') * 10 + (firstRoll[1] - '0');
-            int secondRollScore = (secondRoll[0] - '0') * 10 + (secondRoll[1] - '0');
-            if (secondRollScore == 10) {
-                score += firstRollScore + 10;
-            } else {
-                score += max(firstRollScore, min(10, firstRollScore / 2)) + secondRollScore;
-            }
-            input = "";
+    int rolls = 0;
+
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            rolls++;
+        } else if (c == '/') {
+            continue;
         } else {
-            int rollScore = (input[i] - '0') * 10 + (input[i+1] - '0');
-            if (rollScore == 10) {
-                score += rollScore;
-                i++;
-            } else {
-                score += rollScore;
+            int currentRoll = c - '0';
+            score += currentRoll;
+            rolls++;
+
+            if (rolls < 10) {
+                if (s[4] != '/' && s[5] != '/') {
+                    score += currentRoll;
+                    rolls++;
+                }
             }
         }
     }
+
     return score;
 }
