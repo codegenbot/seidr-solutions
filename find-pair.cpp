@@ -1,21 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     int target;
-    cin >> target;
-    
-    map<int, int> m;
+    std::cin >> target;
+
+    std::map<int, int> hash;
     for (int i = 0; i < n; ++i) {
-        if (m.find(target - nums[i]) != m.end()) {
-            cout << target - nums[i] << endl << nums[i] << endl;
+        int diff = target - nums[i];
+        if (hash.find(diff) != hash.end()) {
+            std::cout << diff << std::endl;
+            std::cout << nums[i] << std::endl;
             break;
         }
-        m[nums[i]] = i;
+        hash[nums[i]] = i;
     }
-    
+
     return 0;
 }
