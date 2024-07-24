@@ -1,11 +1,4 @@
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <openssl/err.h>
-#include <openssl/evp.h>
-
-using namespace std;
-
+```cpp
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
@@ -23,6 +16,6 @@ string string_to_md5(string text) {
         }
     }
     OPENSSL_free(digest);
-    OPENSSL_free(md_algorithm); // Corrected line
+    ss.seekp(0); // Fix the issue
     return ss.str();
 }
