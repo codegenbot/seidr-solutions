@@ -11,22 +11,16 @@ int add_elements(vector<int> arr, int k){
 
 int main() {
     assert (add_elements({1}, 1) == 1);
-    vector<int> input;
-    int numElements, k;
-    
-    cout << "Enter the number of elements: ";
-    cin >> numElements;
-    cout << "Enter the value of k: ";
-    cin >> k;
-
-    for(int i=0; i<numElements; i++){
-        int element;
-        cout << "Enter element "<<i+1<<": ";
-        cin >> element;
-        input.push_back(element);
+    vector<int> userInput;
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for(int i=0; i<n; i++){
+        int temp;
+        cin >> temp;
+        userInput.push_back(temp);
     }
-    
-    cout << "Sum of elements that have a logarithm in base 10 less than or equal to 2 is: " << add_elements(input, k) << endl;
-
+    cout << "The sum of all numbers less than or equal to 100 is: " << add_elements(userInput, n) << endl;
     return 0;
 }
