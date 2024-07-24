@@ -2,7 +2,7 @@
 #include <unordered_map>
 
 int check_dict_case(std::unordered_map<std::string, std::string> dict) {
-    if (dict.empty()) return false;
+    if (dict.empty()) return 0;
 
     bool allLower = true;
     bool allUpper = true;
