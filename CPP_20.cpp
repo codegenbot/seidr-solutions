@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -17,50 +18,30 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> vec1, vec2;
+    std::string tempLine;
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
-    int num;
     while(true) {
-        if (!(std::cin >> num)) {
+        if (!(std::cin >> tempLine)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
             break;
         }
-        try {
-            vec1.push_back((float)num);
-        } catch(...) {
-            std::cout << "Invalid float value entered. Please enter a valid floating point number.\n";
-            vec1.clear();
-            vec2.assign(0, 0.0f); // Reset vectors
-            break;
-        }
-        if (!(std::cin >> ws).good()) {
-            break; // No more numbers in the stream
-        }
+        float num = stof(tempLine);
+        vec1.push_back(num);
     }
 
     // Input for vector 2
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
-    vec1.clear();
     while(true) {
-        if (!(std::cin >> num)) {
+        if (!(std::cin >> tempLine)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear(); 
-            vec2.assign(0, 0.0f); // Reset vectors
+            vec2.clear();
             break;
         }
-        try {
-            vec2.push_back((float)num);
-        } catch(...) {
-            std::cout << "Invalid float value entered. Please enter a valid floating point number.\n";
-            vec1.clear();
-            vec2.assign(0, 0.0f); // Reset vectors
-            break;
-        }
-        if (!(std::cin >> ws).good()) {
-            break; // No more numbers in the stream
-        }
+        float num = stof(tempLine);
+        vec2.push_back(num);
     }
 
     if(isSame(vec1, vec2)) {
