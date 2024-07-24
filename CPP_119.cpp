@@ -26,11 +26,10 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec) == 1) {
+    if (match_parens(vec) == 1) 
         std::cout << "Yes" << std::endl;
-    } else {
+    else
         std::cout << "No" << std::endl;
-    }
     
     return 0;
 }
