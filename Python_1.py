@@ -3,9 +3,6 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    
-    paren_string = input()
-    
     for char in paren_string:
         if char in "()":
             temp += char
@@ -15,3 +12,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
     return result
+
+paren_string = input()
