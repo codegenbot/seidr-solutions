@@ -1,28 +1,36 @@
-Here is the solution:
-
-bool evaluateBooleanExpression(string expression) {
-    stack<char> ops;
-    stack<bool> vals;
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
 
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 && b2);
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " & (" + temp2 + ")");
+            }
+            opStack.push('&');
         } else if (expression[i] == '|') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 || b2);
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            vals.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            vals.push(false);
+            while (!opStack.empty()) {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " | (" + temp2 + ")");
+            }
+            opStack.push('|');
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            string str;
+            while (i < expression.size() && (expression[i] == 't' || expression[i] == 'f')) {
+                str += expression[i++];
+            }
+            valStack.push(str);
         }
     }
 
-    return vals.top();
+    return (valStack.top() == "t");
 }
