@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -14,20 +15,8 @@ def encode(message):
             result += "+"
         elif char in "!?,.:; '": # handle special characters
             result += "/".join([f"{ord(c)-44:.2X}" for c in char])
-        else:
-            if char.isdigit():
-                result += chr((int(char) - 48) % 10 + 55)
-            else: 
-                if char == '"':
-                    result += "%"
-                elif char == "'":
-                    result += "!)"
-                elif char == ".":
-                    result += "*"
-                elif char == ",":
-                    result += "-"
-                elif char == "!":
-                    result += ">"
-                else: 
-                    result += ""
+        elif char.isdigit():
+            result += chr((int(char) - 48) % 10 + 55)
+        else: 
+            result += ""
     return result
