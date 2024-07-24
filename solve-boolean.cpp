@@ -1,4 +1,4 @@
-```
+```cpp
 #include <stack>
 #include <string>
 using namespace std;
@@ -33,4 +33,10 @@ bool solveBoolean(string booleanExpression) {
     return (operandStack.top() == "T");
 }
 
-int main() { return solveBoolean("T|F&F"); }
+int main() {
+    string booleanExpression;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
+    cin >> booleanExpression;
+    cout << "Result: " << solveBoolean(booleanExpression) << endl;
+    return 0;
+}
