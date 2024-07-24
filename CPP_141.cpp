@@ -1,24 +1,30 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    string before_dot;
+bool hasDigit = false;
+int dotCount = 0;
 
-    for(int i=0; i<file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(file_name[i] == '.'){
-            found_dot = true;
-        } else {
-            if(!found_dot) before_dot += file_name[i];
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!hasDigit) {
+            hasDigit = true;
+        }
+        else {
+            return "No";
         }
     }
-
-    if(before_dot.empty()) return "No";
-    if(found_dot && (file_name.find("txt") == string::npos &&
-                     file_name.find("exe") == string::npos &&
-                     file_name.find("dll") == string::npos)) 
-        return "No";
-
-    return "Yes";
+    else if (c == '.') {
+        dotCount++;
+    }
 }
+
+if (dotCount != 1 || !file_name.empty()) {
+    return "No";
+}
+
+size_t pos = file_name.find('.');
+string beforeDot = file_name.substr(0, pos);
+string afterDot = file_name.substr(pos + 1);
+
+if (!isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    return "No";
+}
+
+return "Yes";
