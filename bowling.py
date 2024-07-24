@@ -1,32 +1,26 @@
 ```
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    frame = 0
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            if len(frames[i]) == 1:
-                score += int(frames[i])
-            else:
-                score += int(frames[i][0])
-                if frames[i][1] == '/':
-                    score += 10 - int(frames[i][0])
-                elif frames[i][1] == 'X':
-                    score += 10
-        elif frames[i] == 'X':
-            score += 10
-            frame += 1
+    roll = 0
+    for i in range(10):
+        if s[i] == 'X':
+            score += 30
+            roll = 2
+        elif s[i].isdigit():
+            strike = False
+            frame_score = int(s[i])
+            if i < 8 and s[i+1].isdigit() and s[i+2].isdigit():
+                if int(s[i+1]) + int(s[i+2]) >= 10:
+                    roll += 2
+                else:
+                    roll += 1
+            for j in range(roll):
+                if j == 0 or (j > 0 and not strike):
+                    score += frame_score
+                elif strike:
+                    score += 10 + frame_score
+                strike = False
         else:
-            strike = True
-            for j in range(i+1, len(frames)):
-                if not frames[j].isdigit():
-                    break
-                if frames[j][0].isdigit() and frames[j][1] == '/':
-                    continue
-                if frames[j][0].isdigit() and frames[j][1] == 'X':
-                    strike = False
-                    break
-            if strike:
-                score += 10 + int(frames[i][0]) * 2
-            else:
-                score += 10 + int(frames[i][0])
+            if s[i] == '/':
+                strike = True
     return score
