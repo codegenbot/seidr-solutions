@@ -2,8 +2,8 @@
 #include <vector>
 
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
-    int start = std::max(interval1[0], interval2[0]);
-    int end = std::min(interval1[1], interval2[1]);
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
 
     if (start > end) return "NO";
 
@@ -16,6 +16,6 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
     // ... 
 }
