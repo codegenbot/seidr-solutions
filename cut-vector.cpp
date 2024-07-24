@@ -14,26 +14,12 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (getline(iss, line, ' ')) {
-        num = stoi(line);
+    while (iss >> num) {
         nums.push_back(num);
     }
     
-    if (nums.size() <= 1) {
-        for (int i = 0; i < nums.size(); i++) {
-            cout << nums[i] << ' ';
-        }
-        cout << '\n';
-        for (int i = 0; i < nums.size(); i++) {
-            cout << nums[i] << ' ';
-        }
-        cout << '\n';
-        return 0;
-    }
-    
-    sort(nums.begin(), nums.end());
-    
     int n = nums.size();
+    
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -45,25 +31,25 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int suffixSum = sum - prefixSum - nums[i];
+        int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
+        
+        if (diff == 0) {
+            break; // found equal split
+        }
     }
     
-    if (prefixSum == sum - prefixSum || abs(prefixSum - suffixSum) <= minDiff) {
-        cutIndex++;
-    }
-    
-    for (int i = 0; i < cutIndex; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
     
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
