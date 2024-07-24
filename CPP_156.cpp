@@ -1,7 +1,6 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <cassert>
 
 struct Roman {
@@ -50,12 +49,12 @@ std::string int_to_roman(int number) {
     } else if (number >= 4) {
         return "IV";
     } else if (number >= 1) {
-        if (number % 1 == 0) {
-            return std::to_string(number / 1) + "I";
-        } else {
-            return std::to_string(number / 1) + "I" + int_to_roman(number % 1);
-        }
+        return std::to_string(number) + "I";
     } else {
         return "";
     }
+}
+
+int main() {
+    assert(int_to_roman(1000) == "M");
 }
