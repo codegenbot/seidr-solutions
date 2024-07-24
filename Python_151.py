@@ -1,9 +1,4 @@
-```
-def check(function):
-    lst = input("Enter a list of numbers (space separated): ").split()
-    try:
-        print("Double the difference is:", function([int(x) for x in lst]))
-    except Exception as e:
-        print("An error occurred: ", str(e))
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
 
-check(double_the_difference)
+print(double_the_difference([1, 2, 3]))
