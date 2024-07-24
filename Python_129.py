@@ -1,33 +1,38 @@
+```
 def minPath(grid, k):
-    n = len(grid)
-    m = len(grid[0])
+    N = len(grid)
+    values = [[i * j for j in range(1, N + 1)] for i in range(1, N + 1)]
+    current_position = (0, 0)
+    visited = set()
+    path = [values[current_position[0]][current_position[1]]]
 
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
+    while len(path) < k:
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        for direction in directions:
+            new_position = (
+                current_position[0] + direction[0],
+                current_position[1] + direction[1],
+            )
+            if (
+                0 <= new_position[0] < N
+                and 0 <= new_position[1] < N
+                and new_position not in visited
+            ):
+                if values[new_position[0]][new_position[1]] not in path:
+                    current_position = new_position
+                    visited.add(current_position)
+                    path.append(values[current_position[0]][current_position[1]])
+                    break
 
-        seen = set()
-        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    return path
 
-        for dx, dy in directions:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < n and 0 <= nj < m:
-                val = grid[ni][nj]
-                path.append(val)
-                seen.add((ni, nj))
 
-                res = dfs(ni, nj, path[:])
-                if res:
-                    return res
+grid = []
+k = 0
+    
+for _ in range(int(input("Enter number of rows: "))): 
+    grid.append(list(map(int, input("Enter row: ").split())))
 
-                path.pop()
-                seen.remove((ni, nj))
+k = int(input("Enter the value of k: "))
 
-        return None
-
-    for i in range(n):
-        for j in range(m):
-            path = []
-            res = dfs(i, j, path)
-            if res and len(res) == k:
-                return res
+minPath(grid, k)
