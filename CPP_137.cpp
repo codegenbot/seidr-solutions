@@ -1,4 +1,6 @@
-#include <boost/variant/variant.hpp>
+```cpp
+#include <boost/variant.hpp>
+#include <string>
 
 std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, std::variant<boost::any> b) {
     if (auto *int_a = boost::get<int>(a); auto *int_b = boost::get<int>(b)) {
