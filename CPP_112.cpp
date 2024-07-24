@@ -33,4 +33,3 @@ vector<string> reverse_delete(string s, string c) {
     }
     
     return result;
-}
