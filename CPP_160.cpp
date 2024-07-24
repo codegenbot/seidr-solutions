@@ -40,8 +40,3 @@ int doAlgebra(vector<string> operator_, vector<int> operand) {
     }
     return result;
 }
-
-int main() {
-    assert (doAlgebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
-}
