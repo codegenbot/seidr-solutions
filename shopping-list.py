@@ -9,4 +9,5 @@ def shopping_list():
             total_price += (1 - discounts[i] / 100) * prices[i]
     return format(total_price, ".6f")
 
+
 print(shopping_list())
