@@ -1,12 +1,22 @@
+import math
+
 def is_prime(num: int) -> bool:
-    if num < 2:
+    if num <= 1:
         return False
-    for i in range(2, int(num ** 0.5) + 1):
+    for i in range(2, int(math.sqrt(num)) + 1):
         if num % i == 0:
             return False
     return True
 
-def prime_fib(n: int) -> int:
+def prime_fib(n: int) -> Optional[int]:
+    def is_prime(num: int) -> bool:
+        if num <= 1:
+            return False
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                return False
+        return True
+
     fib = [0, 1]
     while len(fib) <= n:
         fib.append(fib[-1] + fib[-2])
