@@ -1,7 +1,10 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
 #include <cctype>
+#include <unordered_map>
+#include <cassert>
 
 using namespace std;
 
@@ -26,24 +29,26 @@ unordered_multimap<char, int> histogram(string test) {
             maxCountMap.clear();
             maxCountMap.insert(p);
         } else if (p.second == maxCount) {
-            if (maxCount > 0) {
-                maxCountMap.insert(p);
-            }
+            maxCountMap.insert(p);
         }
     }
 
     return maxCountMap;
 }
 
-unordered_multimap<char, int> hist;
-
-int main() {
+int main1() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
 
-    hist = histogram(input);
+    unordered_multimap<char, int> hist = histogram(input);
     for (auto& p : hist) {
         cout << p.first << ": " << p.second << endl;
     }
+    return 0;
+}
+
+int main2() {
+    assert(histogram("a") == {{'a', 1}});
+    return 0;
 }
