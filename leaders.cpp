@@ -16,11 +16,11 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    int max_right = arr[n-1];
+    int leader = -1;
     for (int i = n-1; i >= 0; i--) {
-        if (arr[i] >= max_right) {
+        if (arr[i] >= leader) {
             res.push_back(arr[i]);
-            max_right = arr[i];
+            leader = arr[i];
         }
     }
     
