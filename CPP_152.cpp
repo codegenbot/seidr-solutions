@@ -12,21 +12,15 @@ bool issame(std::vector<int> b, std::vector<int> c) {
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
-    int bulls = 0, cows = 0;
-    std::vector<int> numCount(10, 0);
-
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            bulls++;
+            result.push_back(1);
+        } else if (std::find(guess.begin(), guess.end(), game[i]) != guess.end()) {
+            result.push_back(0);
         } else {
-            if (numCount[game[i]]++ < 0) cows++;
-            if (numCount[guess[i]]-- > 0) cows++;
+            result.push_back(-1);
         }
     }
-    
-    result.push_back(bulls);
-    result.push_back(cows);
-
     return result;
 }
 
