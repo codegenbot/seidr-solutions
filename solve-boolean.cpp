@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <stack>
@@ -55,4 +54,3 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
-}
