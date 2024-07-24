@@ -1,7 +1,7 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool file_name_check(string file_name) {
+bool file_name_check(std::string file_name) {
     bool has_digits = false;
     int dot_count = 0;
 
@@ -27,7 +27,7 @@ bool file_name_check(string file_name) {
         return false;
     }
 
-    string ext = "";
+    std::string ext = "";
     int i = file_name.find('.');
     for (; i < file_name.size(); i++) {
         ext += file_name[i];
@@ -37,5 +37,18 @@ bool file_name_check(string file_name) {
         i++;
     }
 
-    return i > 0 || ext == "txt" || ext == "exe" || ext == "dll";
+    if (i > 0) {
+        return true;
+    } else if (ext == "txt" || ext == "exe" || ext == "dll") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    std::string file_name = "test.txt";
+    bool result = file_name_check(file_name);
+    std::cout << (result ? "Yes" : "No") << std::endl;
+    return 0;
 }
