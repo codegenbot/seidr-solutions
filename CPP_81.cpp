@@ -25,7 +25,10 @@ std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i].size() != b[i].size()) return false;
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) return false;
+        }
     }
     return true;
 }
@@ -34,10 +37,11 @@ int main() {
     int numGrades;
     std::cout << "Enter the number of grades: ";
     std::cin >> numGrades;
+    std::cin.ignore();  // ignore newline character left after numGrades input
     std::vector<std::string> input;
     for (int i = 0; i < numGrades; i++) {
         std::cout << "Enter grade " << i + 1 << ": ";
-        std::cin >> input.push_back(std::string());
+        std::cin >> std::ws >> input[i];
     }
     int total = 0;
     for (const auto& grade : input) {
