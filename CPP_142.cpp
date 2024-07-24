@@ -10,7 +10,8 @@ int sum_squares(int n) {
 }
 
 int main() {
-    int numbers[] = {1*1 + 3*3 + 17*17 + 1*1 + 15*15 + 13*13 + 1*1 + 14*14 + 14*14 + 12*12 + 5*5};
-    std::cout << "Sum of squares is: " << sum_squares(*numbers) << std::endl;
+    int numbers[] = {(-1)*(-1) + (-3)*(-3) + 17*17 + (-1)*(-1) + (-15)*(-15) + 13*13 + (-1)*(-1) + 14*14 + (-14)*(-14) + (-12)*(-12) + 5*5};
+    int result = sum_squares(numbers[0]);
+    std::cout << "Sum of squares is: " << result << std::endl;
     return 0;
 }
