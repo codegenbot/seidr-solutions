@@ -42,11 +42,12 @@ int main() {
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
-        if(vec1.size() >= 5) break; 
     }
 
     int maxInputCount = 5; 
     int inputCount = 0;
+    float num;
+
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -68,6 +69,11 @@ int main() {
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
         inputCount++;
+        
+        // Check if the maximum count is reached, break the loop if yes
+        if(inputCount >= maxInputCount) {
+            break;
+        }
     }
 
     if(vec1.size() > 0 && vec2.size() > 0) {
