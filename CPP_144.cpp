@@ -1,10 +1,20 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_denom = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_denom = stoi(n.substr(n.find('/') + 1));
+int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
 
-    int result_num = x_num * n_num;
-    int result_denom = x_denom * n_denom;
+    bool simplify(string x, string n) {
+        int num1 = stoi(x.substr(0, x.find('/')));
+        int den1 = stoi(x.substr(x.find('/') + 1));
+        int num2 = stoi(n.substr(0, n.find('/')));
+        int den2 = stoi(n.substr(n.find('/') + 1));
 
-    return result_num % result_denom == 0;
-}
+        int num = num1 * num2;
+        int den = den1 * den2;
+
+        int common = gcd(num, den);
+
+        return den / common == 1;
+    }
