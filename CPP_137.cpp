@@ -4,8 +4,8 @@
 #include <string>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
-    return std::visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
-        if (std::holds_alternative<std::any>(a) && std::holds_alternative<std::any>(b)) {
+    return std::visit([&](const auto& a, const auto& b) -> std::variant<std::string, int, float> {
+        if (std::holds_alternative<std::string>(a) && std::holds_alternative<std::string>(b)) {
             if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
                 return "Greater";
             } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
@@ -13,7 +13,7 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
             } else {
                 return "Equal";
             }
-        } else if (std::holds_alternative<std::any>(a) && std::holds_alternative<int>(b)) {
+        } else if (std::holds_alternative<int>(a) && std::holds_alternative<int>(b)) {
             int aInt = std::any_cast<int>(a);
             int bInt = std::any_cast<int>(b);
             if (aInt > bInt) {
@@ -36,7 +36,7 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
         } else {
             return "Non";
         }
-    }, std::get<std::any>(a), std::get<std::any>(b));
+    }, a, b);
 }
 
 int main() {
