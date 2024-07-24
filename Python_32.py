@@ -1,4 +1,3 @@
-```
 import math
 
 def find_zero():
@@ -23,4 +22,4 @@ def find_zero():
     else:
         return "No real roots found"
 
-print(find_zero().strip())
+print(find_zero())
