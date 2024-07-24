@@ -1,17 +1,16 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
-int sum_squares(initializer_list<int> lst) {
+int sum_squares(vector<int> lst) {
     int total = 0;
-    for (int i = 0; i < lst.size(); i++) {
+    for (int i : lst) {
         if ((i + 1) % 3 == 0 && (i + 1) % 4 != 0)
-            total += pow(lst.begin()[i], 2);
+            total += pow(i, 2);
         else if ((i + 1) % 4 == 0 && (i + 1) % 3 != 0)
-            total += pow(lst.begin()[i], 3);
+            total += pow(i, 3);
     }
     return total;
 
