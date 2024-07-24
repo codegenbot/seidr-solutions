@@ -1,10 +1,4 @@
-Here is the solution:
+Here is the Python solution:
 
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        num = int(input())
-        result = math.floor(num / 3) - 2
-        total += result
-    print(total)
+def fuel_cost(vector):
+    return sum((i // 3) - 2 for i in vector)
