@@ -7,5 +7,4 @@ def find_pair(n, nums, target):
 n = int(input())
 nums = [int(x) for x in input().split()]
 target = int(input())
-
 print(find_pair(n, nums, target))
