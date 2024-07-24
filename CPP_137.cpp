@@ -1,6 +1,4 @@
-```cpp
-#include <boost/variant.hpp>
-#include <boost/any.hpp>
+#include <boost/variant/variant.hpp>
 
 std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, std::variant<boost::any> b) {
     if (auto *int_a = boost::get<int>(a); auto *int_b = boost::get<int>(b)) {
@@ -9,8 +7,6 @@ std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, st
         return std::to_string(std::max(*float_a, *float_b));
     } else if (auto *str_a = boost::get<std::string>(a); auto *str_b = boost::get<std::string>(b)) {
         return (*str_a > *str_b) ? *str_a : *str_b;
-    } else if (auto *str_a = boost::get<std::string>(a); auto *str_b = boost::get<std::string>(b), bool result = *str_a > *str_b) {
-        return result ? *str_a : *str_b;
     } else {
         return 0;
     }
