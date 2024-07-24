@@ -1,6 +1,6 @@
 #include <vector>
 
-int fuelCost(std::vector<int> numbers) {
+int fuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
         int newNum = (num / 3);
