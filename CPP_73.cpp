@@ -18,17 +18,14 @@ int smallest_change(vector<int> arr) {
                 int mid = (left + right) / 2;
                 if (mid >= left && arr[mid] <= maxLeft) {
                     right = mid;
-                } 
-                else if (mid < right && arr[mid] >= minRight) {
+                } else if (mid < right && arr[mid] >= minRight) {
                     left = mid + 1;
-                }
-                else {
+                } else {
                     left++;
                     right--;
                 }
             }
-        } 
-        else {
+        } else {
             left++;
             right--;
         }
