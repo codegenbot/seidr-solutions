@@ -1,4 +1,3 @@
-```
 def match_parens(s):
     stack = []
     for char in str(s):
@@ -10,6 +9,7 @@ def match_parens(s):
             else:
                 return "No" if stack else "Yes"
     return "Yes" if not stack else "No"
+
 
 def check():
     while True:
