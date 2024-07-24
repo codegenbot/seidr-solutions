@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -30,8 +31,8 @@ def main():
                 break
             else:
                 print("Invalid input. Please enter an integer.")
-        except ValueError as e:
-            print("Invalid input. Please enter a positive integer.")
+        except (ValueError, Exception) as e:
+            print("Program did not receive expected input")
 
 
 if __name__ == "__main__":
