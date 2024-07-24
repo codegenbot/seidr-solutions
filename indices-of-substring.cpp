@@ -15,14 +15,28 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     return result;
 }
-
 int main() {
-    string text = "abcdef";
-    string target = "def";
-    vector<int> indices = indicesOfSubstring(text, target);
+    string text;
+    string target;
+    
+    cout << "Enter the text: ";
+    getline(cin, text);
+    
+    cout << "Enter the target substring: ";
+    getline(cin, target);
 
-    for(int index : indices) {
-        cout << "Index: " << index << endl;
+    vector<int> indices = indicesOfSubstring(text, target);
+    
+    if(indices.size() > 0) {
+        cout << "The target appears at the following indices: ";
+        
+        for(int i : indices) {
+            cout << i << " ";
+        }
+        
+        cout << endl;
+    } else {
+        cout << "Target not found." << endl;
     }
 
     return 0;
