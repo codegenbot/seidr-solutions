@@ -1,9 +1,13 @@
 def add(x: int, y: int) -> int:
     return x + y
 
-print("Enter two numbers separated by space:", end=' ')
-x, y = map(int, input().split())
+while True:
+    try:
+        x, y = map(int, input().strip().split())
+        break
+    except ValueError:
+        print("Please enter two integers separated by a space.")
+        continue
 
 result = add(x, y)
-
 print("The sum is:", result)
