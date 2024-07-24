@@ -20,8 +20,8 @@ int luhn(std::vector<int> &digits) {
 }
 
 int main() {
-    std::vector<int> digits = {1, 2, 3, 4, 5};
+    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 0, 2, 0, 8};
     int result = luhn(digits);
-    std::cout << "Luhn verification result: " << result << std::endl;
+    std::cout << "Luhn verification result: " << result << std::endl; 
     return 0;
 }
