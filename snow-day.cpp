@@ -8,8 +8,8 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
 int main() {
     int h;
     cin >> h;
-    float gs, r, m;
-    cin >> gs >> r >> m;
-    cout << fixed << setprecision(10) << snowDay(h, gs, r, m) << endl;
+    float g, r, m;
+    cin >> g >> r >> m;
+    cout << fixed << setprecision(10) << snowDay(h, g, r, m) << endl;
     return 0;
 }
