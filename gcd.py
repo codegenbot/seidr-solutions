@@ -1,1 +1,1 @@
-num1, num2 = map(int, input("You need to provide two integers separated by a space in the input. For example, enter \"10 15\" and then press Enter. This will fix the issue: ").split())
+num1, num2 = map(int, input("Enter two integers separated by a space: ").split())
