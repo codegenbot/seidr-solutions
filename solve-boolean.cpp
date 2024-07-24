@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
 bool solveBoolean(std::string expression) {
     if (expression.size() > 0) {
         if (expression[0] == 'T' || expression[0] == 't')
