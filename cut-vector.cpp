@@ -1,34 +1,33 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
 #include <cmath>
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    
-    while(std::cin >> num) {
-        nums.push_back(num);
-    }
-    
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7}; // Input vector initialization for demonstration
     int n = nums.size();
+    
+    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
+    int halfSum = totalSum / 2;
+    
+    int prefixSum = 0, minDiff = totalSum;
     int cutIndex = 0;
-    int minDiff = INT_MAX;
-
-    for (int i = 1; i < n; i++) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        
-        if (diff < minDiff) {
-            minDiff = diff;
+    
+    for (int i = 0; i < n; i++) {
+        prefixSum += nums[i];
+        int currentDiff = std::abs(halfSum - prefixSum);
+        if (currentDiff < minDiff) {
+            minDiff = currentDiff;
             cutIndex = i;
         }
     }
-
-    for (int i = 0; i < cutIndex; i++) {
+    
+    for (int i = 0; i <= cutIndex; i++) {
         std::cout << nums[i] << ' ';
     }
     std::cout << '\n';
 
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         std::cout << nums[i] << ' ';
     }
 
