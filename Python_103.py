@@ -1,4 +1,3 @@
-```
 n = float(input("Enter first number: "))
 m = float(input("Enter second number: "))
 
