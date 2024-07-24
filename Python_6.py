@@ -1,3 +1,6 @@
+from typing import List
+
+
 def main():
     def parse_nested_parens(paren_string: str) -> List[int]:
         result = []
@@ -13,5 +16,5 @@ def main():
             result.append(max_depth)
         return result
 
-    user_input = input("Enter a string of parentheses: ")
-    print(parse_nested_parens(user_input))
+    paren_string = input("Enter a string with nested parentheses: ")
+    print(parse_nested_parens(paren_string))
