@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <string>
 using namespace std;
 
 string sort_numbers(string numbers) {
