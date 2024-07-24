@@ -1,12 +1,12 @@
-```cpp
 int main() {
+    cout << fixed << setprecision(6) << getProbability(6, 6) << endl;
     return 0;
 }
 
 double getProbability(int n, int m) {
-    double probability = 0;
-    for (int i = 1; i < m; ++i) {
-        probability += (double)1 / (m * (n - m));
+    double num = 0.0;
+    for(int i=m+1; i<=n; ++i){
+        num += (double)i/(n*m);
     }
-    return probability;
+    return num;
 }
