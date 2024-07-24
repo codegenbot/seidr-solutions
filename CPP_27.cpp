@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cctype>
+#include <stdexcept>
 
 std::string flip_case(std::string str){
     for(int i=0; i<str.length(); i++){
