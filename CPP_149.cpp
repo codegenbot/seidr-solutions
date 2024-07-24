@@ -1,20 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(vector<string>, vector<string>);
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -39,14 +26,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-int main() {
-    vector<string> lst = {"test", "abc", "abcd", "xyz"};
-    vector<string> result = sorted_list_sum(lst);
-    
-    // Use the function
-    for (const string& str : result) {
-        cout << str << endl;
+int main(){
+    vector<string> list={"cat", "banana","apple", "fig"};
+    vector<string> sorted=sorted_list_sum(list);
+    cout<<"Sorted List: "<<endl;
+    for(string s : sorted){
+        cout<<s<<" ";
     }
-    
     return 0;
 }
