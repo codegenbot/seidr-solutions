@@ -1,7 +1,7 @@
 ```
-def match_parens(p):
+def match_parens(s):
     stack = []
-    for char in p:
+    for char in str(s):
         if char == "(":
             stack.append(char)
         elif char == ")":
@@ -11,13 +11,12 @@ def match_parens(p):
                 return "No"
     return "Yes" if len(stack) == 0 else "No"
 
-
 def check():
     while True:
         s = input("Enter a string of parentheses (or type 'q' to quit): ")
         if s.lower() == "q":
             break
         elif not s.isalpha():
-            print(match_parens(s))
+            print(match_parens(s.replace("[", "")))
         else:
             print("Invalid input. Please enter a string or type 'q' to quit.")
