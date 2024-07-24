@@ -8,7 +8,7 @@ double triangle_area(double a, double h)
     return 0.5 * a * h;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     double base, height;
     std::cout << "Enter the base and height of the triangle: ";
