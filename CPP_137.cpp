@@ -11,7 +11,7 @@ boost::any compareOne(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return a;
+            return a; // Changed to return a instead of "None"
     } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double x = boost::any_cast<double>(a);
         double y = boost::any_cast<double>(b);
@@ -20,17 +20,17 @@ boost::any compareOne(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return a;
+            return a; // Changed to return a instead of "None"
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
-        if (std::stod(x) > std::stod(y))
+        if (stod(x) > stod(y))
             return a;
-        else if (std::stod(y) > std::stod(x))
+        else if (stod(y) > stod(x))
             return b;
         else
-            return a;
+            return a; // Changed to return a instead of "None"
     } else {
-        return a;
+        return a; // Changed to return a instead of "None"
     }
 }
