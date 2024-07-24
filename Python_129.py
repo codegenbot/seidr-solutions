@@ -6,4 +6,4 @@ def minPath(grid, k):
         temp = sum(grid[i][j] for j in range(k))
         if temp < res:
             res = temp
-    return [str(res)]
+    return [f"{grid[0][0]} {grid[0][1]} ..."] if res == sum(grid[0]) else []
