@@ -7,12 +7,12 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
+    std::cout << substitutionCipher(cipher1, cipher2, message) + std::string() << std::endl;
     return 0;
 }
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result = "";
+    std::string result;
     for (char c : message) {
         int offset = isupper(c) ? 0 : tolower(c) - 'a';
         if(isalpha(c)) {
