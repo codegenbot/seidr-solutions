@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -32,6 +33,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text, target;
     int a, b;
+
     std::cout << "Enter number 1: ";
     std::cin >> a;
     std::cout << "Enter number 2: ";
@@ -61,3 +63,4 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
+}
