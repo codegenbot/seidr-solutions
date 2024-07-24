@@ -1,99 +1,47 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <variant>
+#include <any>
+#include <string>
 
-std::variant<std::string, int, float> compare_one(std::variant<int, std::string, float> a, std::variant<int, std::string, float> b) {
-    if (a.index() == 0 && b.index() == 0) {
-        int aInt = std::get<int>(a);
-        int bInt = std::get<int>(b);
-        if (aInt > bInt) {
-            return "Greater";
-        } else if (aInt < bInt) {
-            return "Less";
+std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
+    return std::visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
+        if (std::holds_alternative<std::any>(a) && std::holds_alternative<std::any>(b)) {
+            if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
+                return "Greater";
+            } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
+                return "Less";
+            } else {
+                return "Equal";
+            }
+        } else if (std::holds_alternative<std::any>(a) && std::holds_alternative<int>(b)) {
+            int aInt = std::any_cast<int>(a);
+            int bInt = std::any_cast<int>(b);
+            if (aInt > bInt) {
+                return "Greater";
+            } else if (aInt < bInt) {
+                return "Less";
+            } else {
+                return "Equal";
+            }
+        } else if (std::holds_alternative<float>(a) && std::holds_alternative<float>(b)) {
+            float aFloat = std::any_cast<float>(a);
+            float bFloat = std::any_cast<float>(b);
+            if (aFloat > bFloat) {
+                return "Greater";
+            } else if (aFloat < bFloat) {
+                return "Less";
+            } else {
+                return "Equal";
+            }
         } else {
-            return "Equal";
+            return "Non";
         }
-    } else if (a.index() == 0 && b.index() != 0) {
-        int aInt = std::get<int>(a);
-        if (std::holds_alternative<std::string>(b)) {
-            return "Greater";
-        } else if (std::holds_alternative<float>(b)) {
-            float bFloat = std::get<float>(b);
-            if (aInt > bFloat) {
-                return "Greater";
-            } else if (aInt < bFloat) {
-                return "Less";
-            } else {
-                return "Equal";
-            }
-        }
-    } else if (a.index() != 0 && b.index() == 0) {
-        int bInt = std::get<int>(b);
-        if (std::holds_alternative<std::string>(a)) {
-            return "Greater";
-        } else if (std::holds_alternative<float>(a)) {
-            float aFloat = std::get<float>(a);
-            if (aFloat > bInt) {
-                return "Greater";
-            } else if (aFloat < bInt) {
-                return "Less";
-            } else {
-                return "Equal";
-            }
-        }
-    } else {
-        if (std::holds_alternative<std::string>(a)) {
-            std::string aStr = std::get<std::string>(a);
-            if (std::holds_alternative<std::string>(b)) {
-                std::string bStr = std::get<std::string>(b);
-                if (aStr > bStr) {
-                    return "Greater";
-                } else if (aStr < bStr) {
-                    return "Less";
-                } else {
-                    return "Equal";
-                }
-            } else if (std::holds_alternative<float>(b)) {
-                float bFloat = std::get<float>(b);
-                if (aStr > std::to_string(bFloat)) {
-                    return "Greater";
-                } else if (aStr < std::to_string(bFloat)) {
-                    return "Less";
-                } else {
-                    return "Equal";
-                }
-            }
-        } else if (std::holds_alternative<float>(a)) {
-            float aFloat = std::get<float>(a);
-            if (std::holds_alternative<std::string>(b)) {
-                std::string bStr = std::get<std::string>(b);
-                if (std::to_string(aFloat) > bStr) {
-                    return "Greater";
-                } else if (std::to_string(aFloat) < bStr) {
-                    return "Less";
-                } else {
-                    return "Equal";
-                }
-            } else if (std::holds_alternative<float>(b)) {
-                float bFloat = std::get<float>(b);
-                if (aFloat > bFloat) {
-                    return "Greater";
-                } else if (aFloat < bFloat) {
-                    return "Less";
-                } else {
-                    return "Equal";
-                }
-            }
-        }
-    }
-
-    return "Non";
+    }, std::get<std::any>(a), std::get<std::any>(b));
 }
 
 int main() {
-    int input1;
-    std::string input2;
+    std::string input1;
+    int input2;
 
     std::cout << "Enter the first value: ";
     std::cin >> input1;
@@ -101,7 +49,7 @@ int main() {
     std::cout << "Enter the second value: ";
     std::cin >> input2;
 
-    auto result = compare_one(input1, input2);
+    auto result = compare_one(std::any(input1), std::any(input2));
 
     if (std::holds_alternative<std::string>(result)) {
         std::cout << "The comparison is: " << std::any_cast<std::string>(result) << std::endl;
