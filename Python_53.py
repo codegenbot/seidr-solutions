@@ -1,3 +1,3 @@
-def calculate_sum_and_display(x: int, y: int):
+def add(x: int, y: int) -> None:
     result = x + y
     print(f"The sum of {x} and {y} is {result}.")
