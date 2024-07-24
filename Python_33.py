@@ -1,3 +1,4 @@
+```python
 def sort_third(lst):
     return tuple(sorted((x for x in lst), key=lambda x: str(x[2] or 0) if len(x)>2 else str(0)))
 
