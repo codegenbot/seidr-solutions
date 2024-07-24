@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(const std::std::vector<float>& a, const std::std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
