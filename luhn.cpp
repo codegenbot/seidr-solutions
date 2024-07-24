@@ -1,9 +1,21 @@
+#include <vector>
+
 int main() {
-    using namespace std;
+    int sum = 0;
+    bool alternate = false;
 
-    vector<int> cardNumber = {insert your 16-digit card number};
-    int result = luhnCheck(cardNumber);
+    std::vector<int> digits = {4,2,8,6,2,1,1,7,1,8,0,2,9,5,5,3};
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        sum += digit;
+        alternate = !alternate;
+    }
 
-    cout << "The result is: " << result << endl;
-    return 0;
+    return sum;
 }
