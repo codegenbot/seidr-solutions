@@ -1,17 +1,7 @@
 ```
-import math
-
-
-def solve(K):
-    if K < 2:
-        return "1"
-    if K == 2:
-        return "10"
-    result = ""
-    while K > 0:
-        if (K & 1) == 1:
-            result = "1" + result
-        else:
-            result = "0" + result
-        K >>= 1
-    return result
+if K < 1:
+    return "1"
+elif math.log2(K) % 1 == 0:
+    return bin(int(math.pow(2, math.ceil(math.log2(K)))) - 1)[2:]
+else:
+    return bin(K + 1)[2:]
