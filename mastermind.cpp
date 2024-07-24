@@ -2,24 +2,28 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++black;
+        }
+    }
+
     map<char, int> code_map;
-    for (char c : code) {
-        code_map[c]++;
+    map<char, int> guess_map;
+
+    for (int i = 0; i < 4; ++i) {
+        ++code_map[code[i]];
+        ++guess_map[guess[i]];
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            code_map[guess[i]]--;
-            black++;
+    for (auto p : code_map) {
+        if (p.second > 0 && guess_map[p.first] > 0) {
+            --black;
+            --guess_map[p.first];
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (code_map[guess[i]] > 0) {
-            white++;
-            code_map[guess[i]]--;
-        }
-    }
+    white = guess_map.size() - black;
 
-    return white, black;
+    return {white, black};
 }
