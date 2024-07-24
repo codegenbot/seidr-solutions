@@ -1,5 +1,4 @@
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    largest_coeff = max(abs(x) for x in xs)
-    return -xs[1] / (2 * largest_coeff)
+    n = len(xs) // 2
+    zero_point = -xs[n] if len(xs) % 2 else (-xs[n - 1] + -xs[n]) / 2
+    return zero_point
