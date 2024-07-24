@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def eval_expression(expression):
         while "&" in expression or "|" in expression:
@@ -11,12 +12,12 @@ def solve_boolean(expression):
 
     if "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-
+    
     if expression == "T":
         return True
     elif expression == "F":
         return False
-
+    
     try:
         return eval_expression(expression)
     except Exception as e:
