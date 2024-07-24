@@ -1,3 +1,11 @@
+```
 def luhn(card):
-    card = str(card)
-    return sum(int(digit) * 2 if i % 2 == 0 else int(digit) for i, digit in enumerate(card)) - sum(int(digit) // 10 + int(digit) % 9 for digit in (int(digit) // 10 + int(digit) % 9 if i % 2 == 0 else int(digit) for i, digit in enumerate(str(sum(int(digit) * 2 if i % 2 == 0 else int(digit) for i, digit in enumerate(card)))))
+    card = [int(x) for x in str(card)]
+    checksum = 0
+    for i in range(len(card)):
+        if i % 2 == 1:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+        checksum += card[i]
+    return checksum
