@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 #include <boost/any.hpp>
 #include <boost/variant.hpp>
 
