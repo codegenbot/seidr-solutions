@@ -3,19 +3,19 @@
 #include <vector>
 #include <string>
 
-bool issame(string a, string b) {
-    return a == b;
+bool issame(std::pair<std::string, std::string> a) {
+    return a.first == a.second;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    std::vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
+    std::vector<std::string> planetsList = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1, index2 = -1;
     
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+    for (int i = 0; i < planetsList.size(); i++) {
+        if (planetsList[i] == planets.first) {
             index1 = i;
-        } else if (planets[i] == planet2) {
+        } else if (planetsList[i] == planets.second) {
             index2 = i;
         }
     }
@@ -23,10 +23,10 @@ std::vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return {};
     
-    vector<string> result;
-    for (int i = 0; i < planets.size(); i++) {
+    std::vector<std::string> result;
+    for (int i = 0; i < planetsList.size(); i++) {
         if ((i > index1 && i < index2) || (i > index2 && i < index1)) {
-            result.push_back(planets[i]);
+            result.push_back(planetsList[i]);
         }
     }
     
@@ -34,15 +34,8 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame("Earth", "Earth"));  
-    string planet1, planet2;
-    cout << "Enter the first planet: ";
-    cin >> planet1;
-    cout << "Enter the second planet: ";
-    cin >> planet2;
-    vector<string> result = bf(planet1, planet2);
-    for (string s : result) {
-        cout << s << endl;
-    }
+    assert(issame(std::make_pair("Earth", "Earth")));  
+    std::pair<std::string, std::string> planets = {"Jupiter", "Makemake"};
+    assert(bf(planets) == {});  // Check if the result is an empty vector
     return 0;
 }
