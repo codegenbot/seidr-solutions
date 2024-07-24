@@ -19,5 +19,6 @@ def smallest_change(arr):
     
     return changes
 
+# Example usage:
 arr = [1, 2, 3, 4, 5]
 print(smallest_change(arr))
