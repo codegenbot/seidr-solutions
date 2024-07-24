@@ -21,10 +21,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> arr = {17, 11, 13, 2, 3, 5, 7};
     vector<int> result = leaders(arr);
-    for (auto x : result) {
-        cout << x << " ";
+    for (int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
