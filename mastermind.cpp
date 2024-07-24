@@ -2,14 +2,6 @@
 #include <string>
 #include <algorithm>
 
-int main() {
-    std::string code = "abcD";
-    std::string guess = "abcd";
-    auto [black, white] = mastermind(code, guess);
-    std::cout << "Black pegs: " << black << ", White pegs: " << white << "\n";
-    return 0;
-}
-
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -23,4 +15,13 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_tuple(black, white);
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "XXXX";
+
+    auto [black, white] = mastermind(code, guess);
+
+    return 0;
 }
