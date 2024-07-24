@@ -1,6 +1,7 @@
-from typing import List
-import math
+Here's your solution:
 
+```python
+from typing import List
 
 def factorize(n: int) -> List[int]:
     factors = []
