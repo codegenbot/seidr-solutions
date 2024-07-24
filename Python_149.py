@@ -1,7 +1,6 @@
-```
 def sorted_list_sum(words=None):
     if words is None:
         lst = [word.strip().lower() for word in input("Enter words separated by spaces: ").split()]
     else:
         lst = [word.strip().lower() for word in words]
-    return "".join(sorted([word for word in lst if len(word) % 2 == 0], key=len, reverse=True))
+    return sum(int(word) if word.isdigit() else 0 for word in sorted([word for word in lst if len(word) % 2 == 0]))
