@@ -1,9 +1,8 @@
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
-    result = ""
+```
+def concatenate_strings():
+    strings = input("Enter strings separated by space: ").split()
+    result = ''
     for string in strings:
-        if len(result) > 0 and not string.startswith("http"):
-            result += ", "
-        result += string
-    return result
+        if len(string) > 5:
+            result += string + ' '
+    return result.strip()
