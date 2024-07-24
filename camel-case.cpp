@@ -2,32 +2,33 @@
 #include <string>
 #include <cctype>
 
-int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << camelCase(str) << std::endl;
-
-    return 0;
-}
-
 std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
     for (char c : str) {
-        if (c == '-' || c == ' ') {
-            if (capitalizeNext) {
+        if (!isalnum(c)) { 
+            capitalizeNext = true; 
+            result += toupper(c); 
+        } else {
+            if(capitalizeNext) {
                 result += toupper(c);
                 capitalizeNext = false;
             } else {
-                result += c;
+                result += tolower(c);
+                capitalizeNext = true;
             }
-        } else {
-            result += (capitalizeNext ? toupper : tolower)(c);
-            capitalizeNext = true;
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str);
+    std::cout << camelCase(str) << std::endl;
+
+    return 0;
 }
