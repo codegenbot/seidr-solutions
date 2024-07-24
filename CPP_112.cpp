@@ -2,19 +2,19 @@
 #include <string>
 #include <vector>
 
-bool std_vector_issame(const std::vector<std::string>& std_vector_a, const std::vector<std::string>& std_vector_b) {
-    if (std_vector_a.size() != std_vector_b.size()) {
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < std_vector_a.size(); i++) {
-        if (std_vector_a[i] != std_vector_b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::string reverse_delete(std::string s, const std::string& c) {
+std::string reverse_delete(std::string s, std::string c) {
     std::string temp = "";
     for (char& ch : s) {
         bool found = false;
@@ -33,11 +33,6 @@ std::string reverse_delete(std::string s, const std::string& c) {
 }
 
 int main() {
-    if(std_vector_issame({reverse_delete("mamma", "mia"), reverse_delete("mammamia", "")}, {std::string("true")}) != 1) {
-        std::cout << "Test Failed." << std::endl;
-    }
-    else
-        std::cout << "Test Passed." << std::endl;
-    
+    assert(std::issame({reverse_delete("mamma", "mia")}, {{"True"}}));
     return 0;
 }
