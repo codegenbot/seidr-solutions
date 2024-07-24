@@ -1,5 +1,5 @@
+```
 import math
-
 
 def triangle_area():
     a = float(input("Enter side A of triangle: "))
@@ -11,6 +11,5 @@ def triangle_area():
         return round((math.sqrt(s * (s - a) * (s - b) * (s - c))), 2)
     else:
         return -1
-
 
 print(triangle_area())
