@@ -1,16 +1,21 @@
 int main() {
-    string input;
-    getline(cin, input);
+    string str;
+    getline(cin, str);
+
     bool capitalize = false;
-    for (char c : input) {
-        if (c == '-') {
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == '-') {
             capitalize = true;
-        } else if (capitalize) {
-            cout << (char)toupper(c);
+        } else if (str[i] == ' ') {
             capitalize = false;
         } else {
-            cout << c;
+            if (capitalize && isalpha(str[i])) {
+                str[i] = toupper(str[i]);
+            }
         }
     }
+
+    cout << str << endl;
+
     return 0;
 }
