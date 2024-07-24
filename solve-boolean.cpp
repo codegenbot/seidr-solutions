@@ -1,43 +1,41 @@
-bool evaluateBooleanExpression(string expression) {
-    stack<bool> operands;
-    stack<char> operators;
-
+int solve_boolean(string expression) {
+    stack<char> s;
     for (char c : expression) {
-        if (c == 't' || c == 'f') {
-            operands.push(c == 't' ? true : false);
-        } else if (c == '&' || c == '|') {
-            operators.push(c);
-        }
-    }
-
-    while (!operators.empty()) {
-        char op = operators.top();
-        operators.pop();
-
-        bool operand2 = operands.top();
-        operands.pop();
-        bool operand1 = operands.top();
-        operands.pop();
-
-        if (op == '&') {
-            operands.push(operand1 && operand2);
+        if (c == '|') {
+            char op1 = s.top();
+            s.pop();
+            char op2 = s.top();
+            s.pop();
+            if (op1 == 'T' || op2 == 'T') {
+                s.push('T');
+            } else {
+                s.push('F');
+            }
+        } else if (c == '&') {
+            char op1 = s.top();
+            s.pop();
+            char op2 = s.top();
+            s.pop();
+            if (op1 == 'T' && op2 == 'T') {
+                s.push('T');
+            } else {
+                s.push('F');
+            }
         } else {
-            operands.push(operand1 || operand2);
+            s.push(c);
         }
     }
-
-    return operands.top();
+    return s.top() == 'T' ? 1 : 0;
 }
 
 int main() {
     string expression;
     cin >> expression;
-
-    if (evaluateBooleanExpression(expression)) {
+    int result = solve_boolean(expression);
+    if (result == 1) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-
     return 0;
 }
