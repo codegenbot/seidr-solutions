@@ -1,24 +1,20 @@
-#include <vector>
-#include <string>
+#include <vector> // Include the vector header
+#include <string> // Include the string header
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
+    if (b == 0) return a;
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-    int m = text.length();
-    int n = target.length();
-    for (int i = 0; i <= m - n; ++i) {
-        int j;
-        for (j = 0; j < n; ++j) {
-            if (text[i + j] != target[j])
-                break;
-        }
-        if (j == n)
+std::vector<int> findSubstringIndices(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    if (target.empty()) return indices;
+    
+    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
+        }
     }
+    
     return indices;
 }
