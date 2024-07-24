@@ -2,7 +2,12 @@ cipher = input()
 plain = input()
 message = input()
 
-cipher_mapping = dict(zip(cipher, plain))
-deciphered_message = "".join(cipher_mapping.get(char, char) for char in message)
+deciphered_message = ""
+for char in message:
+    if char in cipher:
+        index = cipher.index(char)
+        deciphered_message += plain[index]
+    else:
+        deciphered_message += char
 
 print(deciphered_message)
