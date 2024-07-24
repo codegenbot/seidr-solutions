@@ -1,6 +1,6 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / (double)total;
+double getProbability(int n, int m) {
+    return (m - 1.0) / (n * m);
 }
