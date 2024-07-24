@@ -1,9 +1,5 @@
-#include <string>
-
-using namespace std;
-
-string fizzBuzz(int x) {
-    string res;
+std::string fizzBuzz(int x) {
+    std::string res;
     if (x % 3 == 0 && x % 5 == 0)
         res = "FizzBuzz";
     else if (x % 3 == 0)
@@ -11,5 +7,6 @@ string fizzBuzz(int x) {
     else if (x % 5 == 0)
         res = "Buzz";
     else
-        res = to_string(x);
+        res = std::to_string(x);
     return res;
+}
