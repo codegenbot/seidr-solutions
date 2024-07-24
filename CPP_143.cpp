@@ -1,9 +1,10 @@
+```cpp
 #include <string>
 #include <vector>
 
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
+std::string words_in_sentence(std::string sentence) {
+    std::vector<std::string> words = split(sentence, ' ');
+    std::string result;
     
     for (auto word : words) {
         if (is_prime(word.length())) {
@@ -22,15 +23,15 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(const string& str, char delim) {
-    vector<string> tokens;
+std::vector<std::string> split(const std::string& str, char delim) {
+    std::vector<std::string> tokens;
     size_t prev = 0, pos = 0;
     do {
         pos = str.find(delim, prev);
-        if (pos == string::npos) pos = str.length();
-        string token = str.substr(prev, pos - prev);
+        if (pos == std::string::npos) pos = str.length();
+        std::string token = str.substr(prev, pos - prev);
         tokens.push_back(token);
         prev = pos + 1;
-    } while (pos != string::npos);
+    } while (pos != std::string::npos);
     return tokens;
 }
