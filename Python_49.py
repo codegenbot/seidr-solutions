@@ -1,12 +1,19 @@
-````
-"""
-Problem: Modulo Power Operation
-Function: modp(n: int, p: int)
-This function implements the modulo power operation according to the Miller-Rabin primality test.
-It calculates (n^(p-2)) % p * n % p where n and p are integers.
-The Miller-Rabin primality test is used to check whether a number is prime or composite.
+```"""
+The modulo power (modp) function calculates the modular exponentiation of n raised to the power p-2 in modulo p.
 
-Task: Complete the code to implement the modulo power operation as described above.
+Task: Implement a function modp(n, p) that returns the result of (n^(p-2)) % p.
+
+Example:
+
+Input: modp(5, 11)
+Output: 5
+
+Parameters:
+n - an integer
+p - an integer
+
+Return type: int
 """
+
 def modp(n: int, p: int):
     return pow(n, (p-2)%p, p) * n % p
