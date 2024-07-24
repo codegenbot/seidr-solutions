@@ -1,9 +1,6 @@
 n = int(input())
 m = int(input())
-if n > m:
-    probability = sum((i / n) * ((m - i) / m) for i in range(1, n))
-    print(round(probability, 8))
-elif m > n:
-    print(round(n / m, 8))
-else:
-    print(0.5)
+total_outcomes = n * m
+successful_outcomes = sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j)
+probability = successful_outcomes / float(total_outcomes)
+print("{:.8f}".format(probability))
