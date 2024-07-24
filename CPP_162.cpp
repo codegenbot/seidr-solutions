@@ -1,3 +1,4 @@
+```cpp
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
 #include <string>
@@ -7,7 +8,7 @@ using namespace std;
 std::string string_to_md5(std::string text) {
     MD5_CTX md5ctx;
     unsigned char md5sum[16];
-    std::string output;
+    string output;
 
     if (text.empty()) {
         return "";
