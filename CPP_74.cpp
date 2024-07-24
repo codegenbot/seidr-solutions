@@ -2,10 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int total_chars(vector<string> lst) {
     int total = 0;
     for (string s : lst) {
@@ -19,4 +15,13 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         return lst1;
     }
     return lst2;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    // Your main function logic goes here
+    return 0;
 }
