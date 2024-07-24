@@ -1,4 +1,4 @@
-def max_nested_paren_count(paren_string):
+def max_nested_parentheses(paren_string):
     return [
         max(
             [
@@ -9,7 +9,6 @@ def max_nested_paren_count(paren_string):
         for paren_string in paren_string.split()
     ]
 
-# Call the function with the input
-input_string = input("Enter the paren_string: ")
-result = max_nested_paren_count(input_string)
-print(result)
+input_string = "(()) ((())()"
+output = max_nested_parentheses(input_string)
+print(output)
