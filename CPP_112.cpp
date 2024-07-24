@@ -1,9 +1,11 @@
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
+    if (a.size() != b.size()) {
+        throw runtime_error("The sizes of the two vectors are not equal.");
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            throw runtime_error("The elements at each position do not match.");
+        }
     }
     return true;
 }
