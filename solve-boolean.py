@@ -11,5 +11,3 @@ def solve_boolean(expression):
             left += c
         right = expression[i+1:]
         return solve_boolean(left) and (solve_boolean(right) or True)
-    else:
-        return None
