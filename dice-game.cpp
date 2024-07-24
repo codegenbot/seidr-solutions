@@ -1,6 +1,6 @@
 ```c++
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 double getProbability(int n, int m) {
     double num = 0;
@@ -11,9 +11,9 @@ double getProbability(int n, int m) {
 }
 
 int main() {
-    int n = 6; 
-    int m = 6; 
+    int n = 6; // Number of sides on Peter's die
+    int m = 6; // Number of sides on Colin's die
     double probability = getProbability(n, m);
-    cout << "The probability is: " << probability << endl;
+    std::cout << "The probability is: " << probability << std::endl;
     return 0;
 }
