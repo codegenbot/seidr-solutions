@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -26,7 +27,7 @@ vector<string> split_words(string txt) {
 
     if (prev_pos < txt.size()) {
         size_t start = prev_pos;
-        while (start < txt.size() && !std::isalnum(txt[start])) {
+        while (start < txt.size() && !isalnum(txt[start])) {
             start++;
         }
         string word = txt.substr(start);
