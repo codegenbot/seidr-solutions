@@ -3,19 +3,17 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordCount = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            if (wordCount >= 5) {
-                for (int j = i-1; j >= wordCount-1; j--) {
-                    result += str[j];
-                }
-            } else {
-                result += str.substr(wordCount, i-wordCount);
-            }
-            wordCount = 0;
-        } else {
-            wordCount++;
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length())
+            result += str.substr(i);
+        else {
+            string word = str.substr(i, str.find(" ", i) - i);
+            if (word.length() >= 5)
+                result += string(word.rbegin(), word.rend()) + " ";
+            else
+                result += word + " ";
+            i = str.find(" ", i) + 1;
         }
     }
     return result;
