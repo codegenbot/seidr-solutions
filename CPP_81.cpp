@@ -1,30 +1,25 @@
-```cpp
 #include <vector>
 #include <string>
-
-std::string numerical_letter_grade(std::vector<int> grades) {
-    std::string letter_grade;
-    int sum = 0;
-
-    for (int grade : grades) {
-        sum += grade;
-    }
-
-    if (sum >= 90) {
-        letter_grade = "A";
-    } else if (sum >= 80) {
-        letter_grade = "B";
-    } else if (sum >= 70) {
-        letter_grade = "C";
-    } else if (sum >= 60) {
-        letter_grade = "D";
-    } else {
-        letter_grade = "F";
-    }
-
-    return letter_grade;
-}
 
 bool issame(const std::vector<std::string>& a) {
     return a == std::vector<std::string>({"D-", "F"});
 }
+
+int main() {
+    bool numerical_letter_grade(int score) {
+        if (score >= 90)
+            return {"A+", "A", "A-"};
+        else if (score >= 80)
+            return {"B+", "B", "B-"};
+        else if (score >= 70)
+            return {"C+", "C", "C-"};
+        else if (score >= 60)
+            return {"D+", "D", "D-"};
+        else
+            return {"F"};
+    }
+
+    int main() {
+        assert(issame(numerical_letter_grade({0, 0.7}) == std::vector<std::string>({"E", "D-"})));
+        return 0;
+    }
