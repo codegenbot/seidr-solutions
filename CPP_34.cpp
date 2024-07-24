@@ -1,16 +1,13 @@
+```cpp
 #include <iostream>
+#include <set>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result;
-    for (int x : l) {
-        if (find(result.begin(), result.end(), x) == result.end())
-            result.push_back(x);
-    }
-    return result;
+    set<int> s(l.begin(), l.end());
+    return vector<int>(s.begin(), s.end());
 }
 
 int main() {
