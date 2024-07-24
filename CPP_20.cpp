@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,8 +24,8 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+            std::cin.clear(); 
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { 
                 std::cin.ignore();
             }
             vec1.clear();
@@ -45,8 +46,8 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+            std::cin.clear(); 
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { 
                 std::cin.ignore();
             }
             vec2.clear();
