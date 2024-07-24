@@ -1,3 +1,4 @@
+```
 def decode_shift(encoded_string):
     parts = encoded_string.split(":")
     if len(parts) != 2:
