@@ -1,2 +1,9 @@
 def leaders(a):
-    return [a[i] for i in reversed(range(len(a))) if all(a[i] >= a[j] for j in range(i+1, len(a)))]
+    n = len(a)
+    result = [a[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if a[i] >= max(a[i + 1:]):
+            result.insert(0, a[i])
+
+    return result
