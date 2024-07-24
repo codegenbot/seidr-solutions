@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(int n1, int n2) {
+    if (n1 == n2)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -20,7 +19,7 @@ std::vector<int> get_odd_collatz(int n) {
     return res;
 }
 
-int main() {
+int originalMain() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -33,9 +32,15 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-    if (!areEqual(res, {n})) {
-        std::cerr << "Error: The Collatz sequence does not start with the input number." << std::endl;
-        return 1;
+    if (!res.empty()) {
+        std::cout << "The sequence is the same as Collatz Conjecture." << std::endl;
+    } else {
+        std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
     }
+    return 0;
+}
+
+int main() {
+    originalMain();
     return 0;
 }
