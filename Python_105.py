@@ -1,4 +1,3 @@
-```
 def check_sum_in_range():
     while True:
         try:
