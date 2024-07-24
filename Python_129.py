@@ -24,5 +24,5 @@ def minPath(grid, k):
             res = dfs(i, j, set(), [], 1)
             if res is not None:
                 return res
-    
+
     return None
