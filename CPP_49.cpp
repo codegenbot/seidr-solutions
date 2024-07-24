@@ -6,7 +6,7 @@ int modp(int n, int p) {
         if (n % 2 == 1) {
             result = (result * n) % p;
         }
-        n = n * n % p;
+        n = (n * n) % p;
     }
     return result;
 }
