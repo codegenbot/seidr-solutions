@@ -1,4 +1,3 @@
-#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -20,3 +19,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
+}
