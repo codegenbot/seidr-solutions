@@ -1,10 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     size_t start = 0;
@@ -23,21 +16,7 @@ string spinWords(string str) {
         result += word + " ";
         
         start = end + 1;
-        
-        // Check if we have reached the end of the string
-        if (start >= str.length())
-            break; 
     }
     
-    return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a string: ";
-        getline(cin, str);
-        if(str == "quit" || str == "exit") break; 
-        cout << spinWords(str) << endl;
-    }
+    return result;
 }
