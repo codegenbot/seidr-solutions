@@ -1,34 +1,37 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    vector<vector<int>> res;
     
-    for (int i = 0; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j)
-            left_sum += v[j];
-        
-        for (int j = i; j < n; ++j)
-            right_sum += v[j];
-        
-        if (left_sum == right_sum) {
-            return {{}, {v.begin(), v.end()}};
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < n; i++) {
+        if (v[i] - v[0] <= v[n-1] - v[i]) {
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
+            return res;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
+    res.push_back(v);
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n+1);
+    for (int i = 0; i <= n; i++) {
+        cin >> v[i];
+    }
     
-    return {left, right};
+    vector<vector<int>> result = cutVector(v);
+    for (auto &v : result) {
+        for (int num : v) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
 }
