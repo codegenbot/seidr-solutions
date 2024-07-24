@@ -1,3 +1,4 @@
+```
 def calculate_area_and_perimeter():
     def check(length: int, width: int):
         if length < 0 or width < 0:
@@ -16,3 +17,6 @@ def calculate_area_and_perimeter():
     else:
         area, perimeter = result
         print(f"Area: {area}, Perimeter: {perimeter}")
+
+if __name__ == "__main__":
+    calculate_area_and_perimeter()
