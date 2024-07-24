@@ -18,4 +18,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 groups.append(current_group)
                 current_group = ""
-    return groups
+    while stack:
+        for _ in range(len(stack)):
+            current_group += ")"
+        groups.append(current_group)
+        current_group = ""
+        stack = []
+    return [g.lstrip("(").rstrip(")") for g in groups]
