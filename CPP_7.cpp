@@ -3,38 +3,43 @@
 #include <vector>
 #include <string>
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    std::vector<std::string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != string::npos) {
+        if (str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    int num_strings;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> num_strings;
+    int n;
+    std::cin >> n;
 
-    std::vector<std::string> strings(num_strings);
-    for (int i = 0; i < num_strings; ++i) {
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> strings[i];
+    std::vector<std::string> input;
+    for(int i = 0; i < n; i++) {
+        std::string s;
+        std::cin >> s;
+        input.push_back(s);
     }
 
     std::string substring;
-    std::cout << "Enter the substring: ";
     std::cin >> substring;
 
-    auto filtered = filter_by_substring(strings, substring);
-    for (const auto& str : filtered) {
-        std::cout << str << "\n";
+    std::vector<std::string> filtered = filter_by_substring(input, substring);
+
+    if (issame(input, filtered)) {
+        std::cout << "No strings contain the given substring." << std::endl;
+    } else {
+        for (const auto& str : filtered) {
+            std::cout << str << std::endl;
+        }
     }
+
     return 0;
 }
