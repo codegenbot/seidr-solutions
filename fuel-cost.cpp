@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int fuelCost(vector<int> v) {
