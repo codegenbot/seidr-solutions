@@ -13,14 +13,13 @@ def find_zero(xs):
         return "a cannot be zero"
     if b_sum == 0:
         b_sum = -sum(x*y for x, y in zip(xs[:-1], range(len(xs)-1)))
-    if c_sum == 0:
-        c_sum = d_sum / a
-    else:
-        x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
+    x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
     return round(x, 2)
 
 try:
     xs = [float(x) for x in input("Enter coefficients separated by space: ").split()]
+    if len(xs) < 3:
+        raise ValueError("xs must have at least three coefficients")
 except ValueError as e:
     print(f"Invalid input: {e}")
 else:
