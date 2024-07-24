@@ -1,6 +1,7 @@
-```
+```cpp
 #include <vector>
 #include <string>
+using namespace std;
 
 bool is_palindrome(string s) {
     string t = s;
