@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -44,4 +45,3 @@ vector<string> select_words(string s, int n) {
         }
     }
     return result;
-}
