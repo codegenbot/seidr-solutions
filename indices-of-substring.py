@@ -3,12 +3,12 @@ def indices_of_substring():
     target = input().strip()
 
     if len(target) == 0:
-        return [0]
+        return list(range(len(text) + 1))
 
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if (len(target) == 0) or (text[i : i + len(target)] == target)
+        if text[i: i + len(target)] == target or len(target) == 1
     ]
 
     return indices
