@@ -1,8 +1,6 @@
-```cpp
-#include <string>
 #include <iostream>
-#include <algorithm>
 #include <sstream>
+#include <algorithm>
 
 int main() {
     std::string input;
@@ -16,20 +14,25 @@ int main() {
             i -= 1;
         }
     }
+    for(int i = 0; i < input.size(); ++i) {
+        if(input[i] >= 'A' && input[i] <= 'Z') {
+            std::string temp = "";
+            temp += (input[i]);
+            input.insert(i++, " ");
+            input.insert((i-1), temp);
+            i--;
+        }
+    }
     std::string result = "";
     bool isUpper = false;
-    for(int i = 0; i < input.size(); ++i) {
+    for (int i = 0; i < input.size(); ++i) {
         char c = input[i];
         if (c >= 'A' && c <= 'Z') {
             result += (isUpper ? "" : "") + tolower(c);
             isUpper = true;
         } else if (c >= 'a' && c <= 'z') {
-            if (!isUpper) {
-                result += " ";
-            }
             result += c;
             isUpper = false;
         }
     }
     std::cout << result;
-}
