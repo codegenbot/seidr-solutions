@@ -15,10 +15,10 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1 || count == 1 && code.find(d) != string::npos) {
+        if (count > 1 || count == 1 && black > 0) {
             continue;
         }
-        white += count - black;
+        white += count - 1;
     }
 
     return white + black;
