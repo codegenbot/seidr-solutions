@@ -1,5 +1,6 @@
 #include <vector>
 #include <climits>
+#include <ostream>
 
 using namespace std;
 
@@ -31,6 +32,5 @@ int main() {
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
-    
     return 0;
 }
