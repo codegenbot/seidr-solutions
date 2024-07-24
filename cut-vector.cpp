@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
-#include <limits> 
+#include <limits>
+
 using namespace std;
 
-int INT_MAX = numeric_limits<int>::max(); 
+int INT_MAX = numeric_limits<int>::max();
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
@@ -11,19 +13,16 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     for (int i = 1; i < n; i++) {
         int diff1 = abs(nums[i] - nums[0]);
         int diff2 = abs(nums[n-1] - nums[i-1]);
+        
         if (diff1 <= diff2) {
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
-            nums.erase(nums.begin());
-            while (!nums.empty() && abs(nums[0] - nums.back()) == diff1) {
-                nums.erase(nums.begin());
-            }
+            vector<int> firstPart(nums.begin(), nums.begin() + i);
+            nums.erase(nums.begin(), nums.begin() + i);
+            result.push_back(firstPart);
             break;
         } else {
-            result.push_back(vector<int>(nums.begin() + i, nums.end()));
-            while (!nums.empty() && abs(nums[0] - nums.back()) == diff2) {
-                nums.pop_back();
-            }
-            break;
+            result.push_back(vector<int>(nums.begin(), nums.begin() + i));
+            nums.erase(nums.begin(), nums.begin() + i);
         }
     }
     
