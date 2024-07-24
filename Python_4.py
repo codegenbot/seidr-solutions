@@ -1,4 +1,4 @@
-from typing import List, float
+from typing import List
 
 def mean_absolute_deviation(numbers: list[float]) -> float:
     mean = sum(numbers) / len(numbers)
