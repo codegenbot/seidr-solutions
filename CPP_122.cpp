@@ -8,3 +8,4 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+}
