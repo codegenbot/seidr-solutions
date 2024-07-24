@@ -1,4 +1,5 @@
-Here is the completed code:
+from typing import List
+
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    return [(n - min(numbers)) / (max(numbers) - min(numbers)) for n in numbers]
+    return [(num - min(numbers)) / (max(numbers) - min(numbers)) for num in numbers]
