@@ -14,12 +14,8 @@ def mastermind(code, guess):
             white_pegs += 1
             code_count[ord(guess[i]) - ord("A")] -= 1
 
-    for c in guess:
-        if ord(c) - ord("A") < 6 and code_count[ord(c) - ord("A")] > 0:
-            guess_count[ord(c) - ord("A")] += 1
-            code_count[ord(c) - ord("A")] -= 1
-
-    for i in range(6):
-        white_pegs += min(guess_count[i], code_count[i])
+    for c in range(6):
+        if code_count[c] < guess_count[c]:
+            return str(black_pegs) + "\n" + str(white_pegs)
 
     return str(black_pegs) + "\n" + str(white_pegs)
