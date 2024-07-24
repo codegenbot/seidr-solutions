@@ -17,9 +17,9 @@ int main() {
     vector<int> leaders;
 
     for (int i = n-2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] > maxRight) {
+            leaders.insert(leaders.begin(), nums[i]);
             maxRight = nums[i];
-            leaders.push_back(maxRight);
         }
     }
 
