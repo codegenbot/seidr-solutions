@@ -1,9 +1,12 @@
-int getFuelCost(vector<int> costs) {
+Here is the solution:
+
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int cost : costs) {
-        int new_cost = (cost / 3 - 2);
-        if (new_cost < 0) continue;
-        sum += new_cost;
+    for (int i : v) {
+        int x = i / 3;
+        x = std::floor(x);
+        x -= 2;
+        sum += x;
     }
     return sum;
 }
