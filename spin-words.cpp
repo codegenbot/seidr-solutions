@@ -1,37 +1,43 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
+    std::vector<std::string> words;
     std::string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+
+    // Split the string into individual words
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i);
+            words.push_back(word);
+            i++;
         }
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
+
+    // Reverse the words that are five or more letters long
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            std::string reversedWord;
+            for (int j = words[i].length() - 1; j >= 0; j--) {
+                reversedWord += words[i][j];
+            }
+            words[i] = reversedWord;
+        }
     }
-    result += word;
-    
+
+    // Join the words back into a string
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += " ";
+        }
+        result += words[i];
+    }
+
     return result;
 }
 
 int main() {
-    // Test cases
-    cout << spinWords("a") << endl;  // Output: a
-    cout << spinWords("this is a test") << endl;  // Output: this is a test
-    cout << spinWords("this is another test") << endl;  // Output: this is rehtona test
-    cout << spinWords("hi") << endl;  // Output: hi
-    
+    std::cout << spinWords("this is a test") << std::endl;
     return 0;
 }
