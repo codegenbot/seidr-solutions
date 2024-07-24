@@ -1,3 +1,5 @@
+```c++
+#include <vector>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -24,7 +26,7 @@ string spinWords(string str) {
         start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
