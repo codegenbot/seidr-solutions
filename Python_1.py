@@ -19,7 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 groups.append(current_group)
                 current_group = ""
-    if stack:  
+    if stack:  # Handle the last group when there are no more parentheses left to pop
         while stack:
             current_group += "("
             stack.pop()
