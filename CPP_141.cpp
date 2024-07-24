@@ -1,19 +1,25 @@
-int countDigits(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
+string file_name_check(string file_name){
+    int dot_count = 0;
+    int digit_count = 0;
+    bool valid = true;
 
-string file_name_check(string file_name) {
-    int digitCount = countDigits(file_name);
-    if (digitCount > 3 || file_name.find('.') == string::npos || 
-        file_name.substr(0, file_name.find('.')).empty() || !isalpha(file_name[0]) || 
-        (file_name.find(".txt") == string::npos && file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos)) {
-        return "No";
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+
+        if(c == '.')
+            dot_count++;
+        else if(c >= '0' && c <= '9')
+            digit_count++;
+
+        if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
+            valid = false;
     }
-    return "Yes";
+
+    if(digit_count > 3)
+        valid = false;
+
+    if(dot_count != 1)
+        valid = false;
+
+    return valid ? "Yes" : "No";
 }
