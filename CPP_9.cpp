@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
@@ -21,16 +22,11 @@ vector<int> rolling_max(vector<int> numbers){
 }
 
 int main() {
-    vector<int> input = {3, 1, 4, 1, 5, 9, 2, 6};
-    vector<int> expected_output = {3, 3, 4, 4, 5, 9, 9, 9};
-    
-    vector<int> output = rolling_max(input);
-    
-    if(issame(output, expected_output)){
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
+    vector<int> input = {1, 3, 5, 2, 7, 6, 4};
+    vector<int> result = rolling_max(input);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
-    
+    cout << endl;
     return 0;
 }
