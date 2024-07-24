@@ -1,17 +1,23 @@
-Here is the completed code:
+#include <map>
 
-```cpp
-string int_to_mini_roman(int number) {
-    const vector<pair<int, string>> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"}, {90, "xc"},
-                                             {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+using namespace std;
+
+string int_to_mini_roman(int num) {
+    map<int, string> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+                               {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+                               {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"},
+                               {1, "i"}};
     string result;
-
-    for (const auto& pair : roman) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            result += pair.second;
+    
+    for (auto& p : roman) {
+        while (num >= p.first) {
+            num -= p.first;
+            result += p.second;
+        }
+        if (num > 0) {
+            result += "i";
+            num--;
         }
     }
-
-    return result;
+    return to_string(num) + result;
 }
