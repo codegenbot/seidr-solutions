@@ -5,5 +5,4 @@ def shopping_list(n):
     total_price = sum((price - (price * discount) / 100) for price, discount in zip(prices, discounts))
     print("{:.1f}".format(total_price))
 
-if __name__ == "__main__":
-    shopping_list(int(input()))
+shopping_list(int(input()))
