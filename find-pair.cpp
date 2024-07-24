@@ -1,3 +1,5 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
@@ -16,18 +18,19 @@ pair<int, int> findPair(vector<int>& nums, int target) {
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
+    vector<int> nums(n);
+    for (int& num : nums) {
+        cin >> num;
     }
     int target;
     cin >> target;
-    pair<int, int> result = findPair(numbers, target);
+    
+    pair<int, int> result = findPair(nums, target);
     if (!result.empty()) {
-        cout << result.first << endl;
-        cout << result.second << endl;
+        cout << result.first << endl << result.second << endl;
     } else {
         cout << "No such pair exists." << endl;
     }
+
     return 0;
 }
