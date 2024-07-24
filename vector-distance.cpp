@@ -13,7 +13,7 @@ int main() {
         cin >> v1[i];
     }
     
-    cin.ignore(); // Skip the comma and whitespace between the two float values
+    cin.ignore(); // Skip any leading whitespace before reading the second vector
     
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
