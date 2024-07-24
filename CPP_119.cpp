@@ -26,6 +26,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {"())"};
-    assert(match_parens(input) == "No");
+    std::vector<std::string> input = {"())("};
+    assert(match_parens(input) == "Yes");
 }
