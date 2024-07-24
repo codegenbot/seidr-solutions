@@ -7,16 +7,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        bool exists = false;
-        for(int j = 0; j < result.size(); j++){
-            if(result[j] == numbers[i]){
-                exists = true;
-                break;
-            }
-        }
-        if(!exists){
-            result.push_back(numbers[i]);
+    for(int num : numbers){
+        if(find(result.begin(), result.end(), num) == result.end()){
+            result.push_back(num);
         }
     }
     return result;
