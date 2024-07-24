@@ -3,10 +3,12 @@
 #include <climits>
 #include <cmath>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
 
@@ -22,7 +24,7 @@ int main() {
     int cut_index = 0;
     for (int i = 0; i < n; ++i) {
         prefix_sum += nums[i];
-        int diff = std::abs(prefix_sum - half_sum);
+        int diff = abs(prefix_sum - half_sum);
         if (diff < best_diff) {
             best_diff = diff;
             cut_index = i;
@@ -30,9 +32,12 @@ int main() {
     }
 
     for (int i = 0; i <= cut_index; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl; // Output subvector before cut_index
     }
-    std::cout << 0 << std::endl;
+    cout << 0 << endl; // Output delimiter
+    for (int i = cut_index + 1; i < n; ++i) {
+        cout << nums[i] << endl; // Output subvector after cut_index
+    }
 
     return 0;
 }
