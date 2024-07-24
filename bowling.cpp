@@ -1,56 +1,28 @@
-int score(string input) {
-    int totalScore = 0;
+int bowlingScore(string s) {
+    int score = 0;
     int frame = 1;
-    int ball = 0;
-    int rolls = 0;
-    vector<int> scores(22, 0);
-
-    for (char c : input) {
-        if (c == 'X') {
-            scores[rolls++] = 10;
-            if (frame < 10) {
-                scores[rolls++] = 0;
-            }
-            frame++;
-        } else if (c == '/') {
-            scores[rolls - 1] = 10 - scores[rolls - 2];
-            if (frame < 10) {
-                scores[rolls++] = 0;
-            }
-            frame++;
-        } else if (c == '-') {
-            scores[rolls++] = 0;
-            if (frame < 10) {
-                scores[rolls++] = 0;
-            }
-            frame++;
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            score += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 1] - '0' + s[i + 2] - '0'));
+            i++;
+        } else if (s[i + 1] == '/') {
+            score += 10;
+            score += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+            i += 2;
         } else {
-            scores[rolls++] = c - '0';
-            if (ball % 2 == 1 || c == '9') {
-                frame++;
-            }
+            score += (s[i] == '-' ? 0 : s[i] - '0') + (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+            i += 2;
         }
-        ball++;
+        frame++;
     }
-
-    for (int i = 0; i < 20; i += 2) {
-        totalScore += scores[i] + scores[i + 1];
-        if (scores[i] == 10) {
-            totalScore += scores[i + 2] + scores[i + 3];
-            if (scores[i + 2] == 10) {
-                totalScore += scores[i + 4];
-            }
-        } else if (scores[i] + scores[i + 1] == 10) {
-            totalScore += scores[i + 2];
-        }
-    }
-
-    return totalScore;
+    return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
