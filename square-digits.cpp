@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -10,6 +9,8 @@ string squareDigits(string input) {
         if (isdigit(c)) { 
             int digit = c - '0';
             result += to_string(digit * digit);
+        } else {
+            result += c;
         }
     }
     return result;
