@@ -1,4 +1,4 @@
-{
+main() {
     vector<int> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
@@ -19,3 +19,4 @@
     else
         cout << "No primes found in the list." << endl;
     return 0;
+}
