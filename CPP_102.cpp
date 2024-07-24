@@ -1,6 +1,9 @@
+#include<stdio.h>
+using namespace std;
+
 int choose_num(int x, int y) {
     if (x > y) {
-        swap(x, y);
+        return -1;
     }
     for (int i = x; i <= y; i++) {
         if (i % 2 == 0) {
