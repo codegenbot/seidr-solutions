@@ -3,38 +3,48 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
+    pair<vector<int>, vector<int>> result;
     
-    for (int i = 1; i <= v.size(); i++) {
+    for (int i = 1; i <= v.size() - 1; i++) {
         int left_sum = 0, right_sum = 0;
         
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++)
-                left_sum += v[j];
-            for (int j = i; j < v.size(); j++)
-                right_sum += v[j];
-        } else {
-            left_sum = accumulate(v.begin(), v.end(), 0);
-            right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
         }
         
         int diff = abs(left_sum - right_sum);
         
         if (diff <= min_diff) {
             min_diff = diff;
-            cut_index = i;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     
-    vector<int> left, right;
-    
-    for (int i = 0; i < cut_index; i++) {
-        left.push_back(v[i]);
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    
-    for (int i = cut_index; i < v.size(); i++) {
-        right.push_back(v[i]);
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "Left: ";
+    for (int x : res.first) {
+        cout << x << " ";
     }
-    
-    return {left, right};
+    cout << endl;
+    cout << "Right: ";
+    for (int x : res.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
 }
