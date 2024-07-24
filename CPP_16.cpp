@@ -1,9 +1,17 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> chars;
-    for (char c : str) {
-        if (find(chars.begin(), chars.end(), c) == chars.end()) {
-            chars.push_back(c);
-        }
-    }
-    return chars.size();
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <cassert>
+
+int count_distinct_characters(const std::string& str) {
+    std::string temp = str;
+    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    sort(temp.begin(), temp.end());
+    temp.erase(std::unique(temp.begin(), temp.end()), temp.end());
+    return temp.length();
+}
+
+int main() {
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    return 0;
 }
