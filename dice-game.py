@@ -1,8 +1,4 @@
 n = int(input())
 m = int(input())
-
-total_outcomes = n * m
-higher_outcomes = (n - 1) * m
-probability = higher_outcomes / total_outcomes
-
-print(round(probability, 2))
+prob = sum([(n-i)/n * i/m for i in range(1, n)])
+print(round(prob, 2))
