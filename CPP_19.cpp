@@ -17,7 +17,7 @@ string sort_numbers(string numbers){
     for (const auto& pair : num_map) {
         rev_map[pair.second] = pair.first;
     }
-    
+
     vector<int> sorted_nums;
     stringstream ss(numbers);
     string token;
@@ -25,11 +25,11 @@ string sort_numbers(string numbers){
         sorted_nums.push_back(num_map[token]);
     }
     sort(sorted_nums.begin(), sorted_nums.end());
-    
+
     for (int num : sorted_nums) {
         result += rev_map[num] + " ";
     }
-    
+
     result.pop_back(); // Remove the extra space at the end
     return result;
 }
