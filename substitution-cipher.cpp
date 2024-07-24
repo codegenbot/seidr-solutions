@@ -1,26 +1,26 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-string decipher(string cipher1, string cipher2, string message) {
+using namespace std;
+
+string substitutionCipher(string key1, string key2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
-        if (i < cipher1.length()) {
-            int idx = cipher1.find(message[i]);
-            if (idx != string::npos)
-                result += cipher2[idx];
-            else
-                result += message[i]; // if not found in cipher1, just add the original char
+        if (i < key1.length()) {
+            if (key1[i] == message[i]) {
+                result += key2[i];
+            } else {
+                result += message[i];
+            }
         } else {
-            result += message[i]; // if out of range, just add the original char
+            result += message[i];
         }
     }
     return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    string key1, key2, message;
+    cin >> key1 >> key2 >> message;
+    cout << substitutionCipher(key1, key2, message) << endl;
     return 0;
-}
