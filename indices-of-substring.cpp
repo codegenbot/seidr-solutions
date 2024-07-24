@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +9,7 @@ int main() {
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
-    while (pos != std::string::npos && pos <= text.size()) {
+    while (pos != std::string::npos && pos + 1 <= text.size()) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
