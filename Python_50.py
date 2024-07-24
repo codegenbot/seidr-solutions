@@ -7,4 +7,4 @@ def decode_shift(s: str):
     )
 
 s = input()
-print(decode_shift(s.lower()))
+print(decode_shift(s))
