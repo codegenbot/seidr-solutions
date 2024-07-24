@@ -17,8 +17,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-string text, target;
-cin >> text >> target;
-vector<int> res = indicesOfSubstring(text, target);
-for (int i : res) cout << i << " ";
-return 0;
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> res = indicesOfSubstring(text, target);
+    for (int i : res) cout << i << " ";
+    return 0;
+}
