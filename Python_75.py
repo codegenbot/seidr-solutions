@@ -1,5 +1,5 @@
 ```
-def is_multiply_prime(a):
+def find_prime_factors(a):
     def is_prime(n):
         if n < 2:
             return False
@@ -8,13 +8,13 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    def find_prime_factors(a):
-        factors = []
+    factors = []
+    while a > 1:
         for i in range(2, a+1):
-            while a % i == 0:
-                factors.append(i)
-                a //= i
-        return list(set(factors))
-
-    prime_factors = find_prime_factors(a)
-    return len([f for f in prime_factors if is_prime(f)]) == 3
+            if a % i == 0:
+                is_i_prime = is_prime(i)
+                if is_i_prime:
+                    a //= i
+                    factors.append(i)
+                    break
+    return factors
