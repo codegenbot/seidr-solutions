@@ -1,4 +1,6 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> counts(std::vector<int> b, int num) {
+using namespace std;
+
+vector<int> counts(vector<int> b, int num) {
