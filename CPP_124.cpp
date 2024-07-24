@@ -3,29 +3,47 @@ using namespace std;
 
 bool valid_date(string date) {
     int day, month, year;
-    char divider;
-    sscanf(date.c_str(), "%02d-%02d-%04d", &month, &day, &year);
+    char separator = '-';
     
-    if (date.empty()) return false;
-    
-    if ((month < 1 || month > 12) 
-        || (year < 1)) return false;
+    if (date.length() != 10)
+        return false;
         
-    if (month == 2) {
-        if (year % 4 != 0 && year % 100 == 0) return false;
-        else if (year % 400 != 0) return day <= 28;
-        else return day <= 29;
-    } 
-    else if ((month < 1 || month > 12) || (day < 1)) return false;
-    
-    switch(month) {
-        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-            if(day > 31) return false;
-            break;
-        case 4: case 6: case 9: case 11:
-            if(day > 30) return false;
-            break;
+    string dayStr, monthStr, yearStr;
+    for (int i = 0; i < 2; i++) {
+        dayStr += date[i];
     }
+    for (int i = 3; i < 5; i++) {
+        monthStr += date[i];
+    }
+    for (int i = 6; i < 10; i++) {
+        yearStr += date[i];
+    }
+
+    try {
+        day = stoi(dayStr);
+        month = stoi(monthStr);
+        year = stoi(yearStr);
+    } catch (...) {
+        return false;
+    }
+
+    if (day < 1 || day > 31)
+        return false;
+
+    if (month < 1 || month > 12)
+        return false;
+
+    if ((month == 2 && day > 29) ||
+        (month == 4 || month == 6 || month == 9 || month == 11) &&
+         (day > 30))
+        return false;
     
+    if (month < 3)
+        return (day <= 31);
+    else if (month < 8)
+        return (day <= 31) || (day <= 30 && month % 2 != 0) || (day <= 29 && month == 7);
+    else
+        return (day <= 31) || (day <= 30 && (month % 2 != 0 || month > 7)) || (day <= 28 && month == 8);
+
     return true;
 }
