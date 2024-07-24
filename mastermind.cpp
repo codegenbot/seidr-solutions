@@ -1,22 +1,19 @@
-int getHint(string s, string b) {
-    int white = 0;
-    int black = 0;
+int mastermind(const string& code, const string& guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    vector<int> sCount(6, 0);
-    vector<int> bCount(6, 0);
-
-    for (int i = 0; i < 4; i++) {
-        if (s[i] == b[i]) {
-            black++;
-            continue;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            for (int j = 0; j < 4; ++j) {
+                if (i != j && code[j] == guess[i]) {
+                    whitePegs++;
+                    break;
+                }
+            }
         }
-        sCount[s[i] - 'A']++;
-        bCount[b[i] - 'A']++;
     }
 
-    for (int i = 0; i < 6; i++) {
-        white += min(sCount[i], bCount[i]);
-    }
-
-    return to_string(white) + "\n" + to_string(black);
+    return make_pair(whitePegs, blackPegs).second - blackPegs;
 }
