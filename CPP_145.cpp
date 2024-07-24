@@ -1,4 +1,7 @@
-```cpp
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
@@ -15,7 +18,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a.first > b.first; });
+    std::sort(pairs.begin(), pairs.end());
 
     std::vector<int> result;
     for (const auto& pair : pairs) {
