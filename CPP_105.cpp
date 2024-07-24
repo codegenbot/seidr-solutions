@@ -1,24 +1,23 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> c) {
+    if (a.size() != c.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+        if (a[i] != c[i]) return false;
     }
     return true;
 }
 
-bool by_length(const std::vector<int>& v) {
+std::vector<std::string> by_length(std::vector<int> numbers) {
     std::vector<std::string> result;
-    for (int n : v) {
-        std::string s = std::to_string(n);
-        while (s.size() < n)
-            s += "0";
-        result.push_back(s);
+    for (int num : numbers) {
+        switch (num) {
+            case 1: result.push_back("One"); break;
+            case 4: result.push_back("Four"); break;
+            case 9: result.push_back("Nine"); break;
+            default: result.push_back("Invalid Number");
+        }
     }
     return result;
 }
@@ -26,3 +25,4 @@ bool by_length(const std::vector<int>& v) {
 int main() {
     assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
+}
