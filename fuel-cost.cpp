@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
@@ -13,7 +15,7 @@ int main() {
         sum += (nums[i] / 3 - 2);
     }
     
-    std::cout << sum << std::endl;
+    cout << sum << endl;
     
     return 0;
 }
