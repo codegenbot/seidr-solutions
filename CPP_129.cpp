@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>>& grid, int k) {
@@ -29,9 +28,18 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         res.push_back(grid[i][j]);
         if (_ == k - 1) break;
         
-        const auto& nextPoses = sort((vector<pair<int, int>>()){{dp[i][j], i, j}});
+        vector<pair<int, int>> nextPoses;
+        for (auto dir : directions) {
+            int ni = i + dir[0], nj = j + dir[1];
+            if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                nextPoses.push_back({dp[ni][nj], ni, nj});
+            }
+        }
+        
+        sort(nextPoses.begin(), nextPoses.end());
         int ni = nextPoses[0].second;
         int nj = nextPoses[0].third;
+        
         i = ni;
         j = nj;
     }
