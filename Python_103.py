@@ -1,10 +1,6 @@
 ```
 import math
 
-def rounded_avg(n, m):
-    avg = (n + m) / 2
-    return str(math.ceil(avg))
-
 n = None
 while n is None:
     try:
@@ -19,4 +15,8 @@ while m is None:
     except ValueError:
         print("Invalid input. Please enter a number.")
 
-print(rounded_avg(n, m))
+def rounded_avg(n, m):
+    avg = (n + m) / 2
+    return str(math.ceil(avg))
+
+print("""{}""".format(rounded_avg(n, m)))
