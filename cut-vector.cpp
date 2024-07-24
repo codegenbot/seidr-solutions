@@ -6,15 +6,16 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    char c;
 
-    char temp;
-    while (cin.get(temp) && temp != '\n') {
-        if (temp != ' ') {
-            cin.putback(temp);
-            cin >> num;
-            nums.push_back(num);
+    int temp;
+    while (cin >> std::noskipws >> c) {
+        if (c == '\n') {
+            break;
         }
+        cin.putback(c);
+        cin >> temp;
+        nums.push_back(temp);
     }
 
     if (nums.empty()) {
