@@ -1,5 +1,5 @@
 #include <boost/any.hpp>
-#include <boost/variant.hpp>
+#include <string>
 
 using namespace std;
 
@@ -16,9 +16,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (numB > numA) {
             return b;
         } else {
-            return boost::any((string)"None");
+            return "None";
         }
     } else {
-        return boost::any((string)"None");
+        return "None";
     }
 }
