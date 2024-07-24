@@ -1,16 +1,15 @@
+#include <variant>
+#include <any>
 #include <string>
-#include <algorithm>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
-    return std::visit([](auto&& a, auto&& b) {
-        if (auto str_a = std::any_cast<std::string>(a); auto str_b = std::any_cast<std::string>(b)) {
-            return (str_a > str_b) ? str_a : str_b;
-        } else if (auto int_a = std::any_cast<int>(a); auto int_b = std::any_cast<int>(b)) {
-            return std::to_string(std::max(int_a, int_b));
-        } else if (auto float_a = std::any_cast<float>(a); auto float_b = std::any_cast<float>(b)) {
-            return std::to_string(std::max(float_a, float_b));
+    return visit([](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
+        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+            return "None";
+        } else if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+            return "None";
         } else {
-            return "Non-e";
+            return "0";
         }
     }, a, b);
 }
