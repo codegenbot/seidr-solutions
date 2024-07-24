@@ -12,9 +12,5 @@ def check(text):
         text = text.replace("__", "_-")
     return text
 
-filename = input("Please enter the filename: ")
-try:
-    with open(filename, 'r') as file:
-        print(check(file.read()))
-except FileNotFoundError:
-    print("File not found. Please check the filename and try again.")
+result = input("Your input here: ")
+print(check(result))
