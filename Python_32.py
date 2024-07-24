@@ -4,4 +4,4 @@ def find_zero(xs: list):
     b = xs[n]
     if n % 2 == 0 and b != 0:
         return -a / b
-    return None
+    return 0
