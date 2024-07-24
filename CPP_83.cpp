@@ -1,6 +1,4 @@
-```cpp
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int starts_one_ends(int n) {
