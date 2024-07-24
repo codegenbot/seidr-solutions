@@ -11,3 +11,4 @@ string rounded_avg(int n, int m) {
     double avg = floor((sum + 0.5) / (m - n + 1));
     string res = to_string(avg);
     return res.substr(0, res.length() - 2) + "b";
+}
