@@ -1,3 +1,6 @@
+#include <vector>
+#include <initializer_list>
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
