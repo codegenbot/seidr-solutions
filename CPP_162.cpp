@@ -1,22 +1,15 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <sstream>
-#include <iomanip>
-
-std::string md5(const std::string& str) {
-    std::vector<char> data(str.begin(), str.end());
-    
-    // Implement your MD5 hash calculation here, for example:
-    return "Your_md5_hash_function_call";
-}
+#include <boost/uuid/uuid.hpp>
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
-    std::cout << "MD5 hash: " << md5(input) << std::endl;
-    
+    boost::uuids::detail::sha1_hash hash;
+    for (char c : input) {
+        hash.process_byte((unsigned char)c);
+    }
+    std::cout << "MD5 hash: " << std::hex << hash.hexdigest() << std::endl;
     return 0;
 }
