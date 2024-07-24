@@ -1,10 +1,6 @@
-```
-n = int(input())
-def fruit_distribution(s,n):
-    words = s.split()
-    for i in range(len(words)):
-        if 'apples' in words[i] and int(words[i-1]) > 0:
-            apples = int(words[i-1])
-        elif 'oranges' in words[i]:
-            oranges = int(words[i-1])
-    return n - apples - oranges
+import re
+
+def fruit_distribution(s, n):
+    s = s.replace("apples and", "apples").replace("oranges", "oranges apples")
+    n -= sum(int(num) for num in re.findall(r"\d+", s)) + int(re.search(r"\d+", s).group())
+    return n
