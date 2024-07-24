@@ -1,4 +1,4 @@
-```
+```python
 def sum_squares(n):
     return sum(i**2 for i in range(1, n+1))
 
@@ -17,6 +17,4 @@ while True:
         else:
             print("Please enter a positive integer.")
     except (ValueError, TypeError):
-        print(
-            "Invalid input. Please try again. Use only numbers (e.g., 123) or leave the field blank to exit."
-        )
+        print("Invalid input. Please try again. Use only numbers (e.g., 123) or leave the field blank to exit.")
