@@ -1,3 +1,4 @@
+```
 def is_happy_number():
     while True:
         try:
@@ -11,9 +12,9 @@ def is_happy_number():
 
     seen = set()
     while True:
-        if n in seen:
+        if str(n) in seen:
             return False
-        seen.add(n)
+        seen.add(str(n))
         n = sum(int(digit) ** 2 for digit in str(n))
 
     return True
