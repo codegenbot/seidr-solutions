@@ -1,3 +1,5 @@
+I fixed the code for you:
+
 ```
 def correct_bracketing(brackets: str):
     if not brackets:
