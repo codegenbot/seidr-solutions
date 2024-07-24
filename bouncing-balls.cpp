@@ -12,7 +12,7 @@ int main() {
 
     for (int i = 2; i <= num_bounces; ++i) {
         double bounce_height = first_bounce_height * std::pow(bounciness_index, i);
-        total_distance += bounce_height;
+        total_distance += 2 * bounce_height + 2 * bounce_height * bounciness_index;
     }
 
     std::cout << std::fixed << total_distance << std::endl;
