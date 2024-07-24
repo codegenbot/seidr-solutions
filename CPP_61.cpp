@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <string>
 
 bool correct_bracketing(string brackets) {
     int count = 0;
@@ -13,10 +12,3 @@ bool correct_bracketing(string brackets) {
         }
     }
     return count == 0;
-}
-
-int main() {
-    string s = "()()(()())()))";
-    assert(not correct_bracketing(s));
-    return 0;
-}
