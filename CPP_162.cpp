@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <boost/uuids/uuid.hpp>
+#include <boost/uuids.hpp>
 
 int main() {
     std::string input;
@@ -10,6 +10,6 @@ int main() {
     for (char c : input) {
         hash.process_byte((unsigned char)c);
     }
-    std::cout << "SHA-1 hash: " << std::hex << hash.hexdigest() << std::endl;
+    std::cout << "SHA-1 hash: " << std::hex << hash.hexdigest() << std::endl; 
     return 0;
 }
