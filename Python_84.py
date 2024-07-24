@@ -5,7 +5,4 @@ def solve(K):
     while K > 0:
         binary = str(K % 2) + binary
         K //= 2
-    if int(binary, 2) != K: 
-        return str(int(binary, 2)) 
-    else:
-        return binary
+    return binary
