@@ -2,21 +2,20 @@
 #include <vector>
 #include <list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<boost::any> values) {
+    vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type()) {
-            bool same = true;
-            // your code here
-            // ...
+            bool same = issame(vector<int>{}, boost::any_cast<vector<int>>(value));
             if (!same) {
-                continue;
+                result.push_back(boost::any_cast<int>(value));
             }
-            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
