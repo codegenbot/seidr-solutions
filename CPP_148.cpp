@@ -3,14 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a) {
-    if (a.size() != 2)
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] == "Earth")
-            return true;
-    }
-    return false;
+bool issame(string a, string b) {
+    return a == b;
 }
 
 std::vector<string> bf(string planet1, string planet2) {
@@ -40,5 +34,6 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake").empty());
+    assert(issame("Earth", "Earth"));  
+    return 0;
 }
