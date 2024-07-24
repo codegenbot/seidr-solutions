@@ -1,4 +1,7 @@
+Here is the solution:
+
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    water_per_cycle = min(capacity, math.gcd(*[sum(row) for row in grid]))
-    return -(-total_water // water_per_cycle)
+    if total_water % capacity != 0:
+        return -1
+    return math.ceil(total_water / capacity)
