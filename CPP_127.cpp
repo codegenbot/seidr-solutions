@@ -1,14 +1,20 @@
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+```
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-    if (start > end) return "NO";
-    
-    int len = end - start + 1;
+std::string intersection(int start1, int end1, int start2, int end2) {
+    int commonStart = max(start1, start2);
+    int commonEnd = min(end1, end2);
+
+    if (commonStart > commonEnd)
+        return "NO";
+
+    int length = commonEnd - commonStart + 1;
+
     bool isPrime = true;
-
-    for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0) {
+    for (int i = 2; i * i <= length; i++) {
+        if (length % i == 0) {
             isPrime = false;
             break;
         }
