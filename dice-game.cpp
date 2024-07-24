@@ -1,10 +1,15 @@
 ```cpp
 double getProbability(int n, int m) {
-    double total = 0.0;
-    for (int i = 1; i <= m; ++i) {
-        for (int j = i + 1; j <= n; ++j) {
-            total += (double)1 / (n * m);
+    int totalOutcomes = n*m;
+    int favorableOutcomes = 0;
+    
+    for (int i = 1; i <= min(n,m); i++) {
+        if (n - i > m) {
+            favorableOutcomes += m;
+        } else {
+            favorableOutcomes += n - i;
         }
     }
-    return total;
+    
+    return (double)favorableOutcomes / totalOutcomes;
 }
