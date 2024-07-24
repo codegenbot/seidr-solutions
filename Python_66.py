@@ -1,3 +1,3 @@
+```
 def digitSum(n):
-    n = str(n)
-    return sum(int(digit) for digit in n)
+    return sum(int(char) for char in n if char.isdigit())
