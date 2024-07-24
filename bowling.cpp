@@ -1,21 +1,24 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    int currentFrame = 1;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
-            frame++;
+            currentFrame++;
         } else if (c == '/') {
-            score += 10;
-            frame++;
+            score += 10 - (currentFrame < 10 ? stoi(string(1, c)) : 0);
+            currentFrame++;
         } else {
-            int points = c - '0';
-            if (points == 1 || points == 2 || points == 3) {
-                score += points * 10 + 10;
-                frame++;
-            } else {
-                score += points * 10;
-                frame++;
+            int strike = 0;
+            for (; c != 'X' && c != '/'; c) {
+                strike++;
+            }
+            if (c == 'X') {
+                score += 10 + strike * 10;
+                currentFrame++;
+            } else if (c == '/') {
+                score += 10 - strike;
+                currentFrame++;
             }
         }
     }
