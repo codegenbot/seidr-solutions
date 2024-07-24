@@ -1,30 +1,44 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stack>
 
-double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double result = args[0];
+double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
+    std::stack<double> numStack;
     for(int i = 0; i < ops.size(); ++i) {
         if(ops[i] == "+") {
-            result += args[i+1];
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a + b);
         } else if(ops[i] == "-") {
-            result -= args[i+1];
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a - b);
         } else if(ops[i] == "*") {
-            result *= args[i+1];
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a * b);
         } else if(ops[i] == "/") {
-            if(args[i+1] != 0) {
-                result /= args[i+1];
-            } else {
-                std::cout << "Error: Division by zero." << std::endl;
-                return -1.0; // Return error value
-            }
+            double b = numStack.top();
+            numStack.pop();
+            double a = numStack.top();
+            numStack.pop();
+            numStack.push(a / b);
+        } else {
+            numStack.push((double)args[i]);
         }
     }
-    return result;
+    return numStack.top();
 }
 
 int main() {
-    std::vector<std::string> ops; 
+    std::vector<std::string> ops;
     std::vector<int> args;
 
     int count = 0;
@@ -39,7 +53,7 @@ int main() {
         ops.push_back(op);
         args.push_back(arg);
         count++;
-    }
+   
     
     double output = do_algebra(ops, args);
 
