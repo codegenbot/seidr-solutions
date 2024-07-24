@@ -1,12 +1,7 @@
-print("Enter the number of coefficients:")
-n = int(input())
-print("Enter the coefficients separated by space:")
-coefficients = list(map(int, input().split()))
+n, *coefficients = map(int, input("Enter the number of coefficients followed by the coefficients separated by spaces: ").split())
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("Number of coefficients should be even")
-    return sum(xs)
+    return sum(xs[1::2])
 
 result = find_zero(coefficients)
 print(result)
