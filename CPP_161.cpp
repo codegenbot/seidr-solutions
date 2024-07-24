@@ -1,7 +1,7 @@
 #include <string>
 
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
     bool hasLetter = false;
     
     for (char c : s) {
@@ -13,5 +13,5 @@ std::string solve(std::string s) {
         }
     }
     
-    return hasLetter ? result : std::string(s.rbegin(), s.rend()); 
+    return hasLetter ? result : string(rbegin(s), rend(s)); 
 }
