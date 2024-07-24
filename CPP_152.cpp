@@ -19,8 +19,8 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
-    while (!(std::cin >> n) || n < 0) {
-        std::cout << "Invalid input. Please enter a positive integer: ";
+    while (!(std::cin >> n)) {
+        std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
@@ -29,32 +29,40 @@ int main() {
     int size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() != '\n') {
-                std::cin.ignore(); 
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
+                }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else {
+                vec1.push_back(x); 
+                size++;
+                if(size >= n) break;  
             }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
         }
-        vec1.push_back(x); 
-        size++;
     }
 
     std::vector<int> vec2;
     size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() != '\n') {
-                std::cin.ignore(); 
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
+                }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else {
+                vec2.push_back(x); 
+                size++;
+                if(size >= n) break;  
             }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
         }
-        vec2.push_back(x); 
-        size++;
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
