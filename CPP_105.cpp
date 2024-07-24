@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -43,8 +44,9 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<string> output = by_length({1, 2, 3});
-    for (string s : output) {
-        cout << s << endl;
+    vector<int> arr = {9, 4, 8};
+    vector<string> result = by_length(arr);
+    for (string s : result) {
+        cout << s << "\n";
     }
 }
