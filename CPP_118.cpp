@@ -1,18 +1,19 @@
 Here is the completed code:
 
-string get_closest_vowel(string word) {
-    int left = 0;
-    for (int right = word.length() - 1; right >= 0; --right) {
-        if (!isvowel(word[right])) {
-            ++left;
-        } else if (left > 0) {
-            return string(1, word[right]);
-        }
+```cpp
+string get_closest_vowel(string word){
+    int i = word.size() - 1;
+    while (i > 0 && !isVowel(word[i])){
+        i--;
     }
-    return "";
+    if(i == 0) return "";
+    for(int j = i-1; j >= 0 ;j--){
+        if(!isVowel(word[j])) break;
+        i = j;
+    }
+    return word.substr(i, 1);
 }
-
-bool isvowel(char c) {
+bool isVowel(char c){
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }

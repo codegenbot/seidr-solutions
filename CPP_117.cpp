@@ -1,37 +1,56 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
 
-```cpp
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    int consonants = 0;
-
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty() && consonants == n) {
-                result.push_back(word);
-                word = "";
-                consonants = 0;
-            }
-            continue;
-        }
-
-        bool isConsonant = !isalpha(c) || !ispunct(c) || (tolower(c) >= 'b' && tolower(c) <= 'z');
-        if (isConsonant) {
-            consonants++;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] != ' ') {
+            word += s[i];
         } else {
-            if (consonants == n) {
-                result.push_back(word);
+            if (word.length() > 0) {
+                bool hasConsonants = false;
+                for (char c : word) {
+                    if (!isalpha(c) || !islower(c)) {
+                        hasConsonants = true;
+                        break;
+                    }
+                }
+                if (hasConsonants && count(word.begin(), word.end(), ' ') == 0) {
+                    int consonantCount = 0;
+                    for (char c : word) {
+                        if (!isalpha(c) || !islower(c)) {
+                            consonantCount++;
+                        }
+                    }
+                    if (consonantCount == n) {
+                        result.push_back(word);
+                    }
+                }
                 word = "";
-                consonants = 0;
             }
-            word += c;
         }
     }
-
-    if (!word.empty() && consonants == n) {
-        result.push_back(word);
+    // handle the last word
+    bool hasConsonants = false;
+    for (char c : word) {
+        if (!isalpha(c) || !islower(c)) {
+            hasConsonants = true;
+            break;
+        }
     }
-
+    if (hasConsonants && count(word.begin(), word.end(), ' ') == 0) {
+        int consonantCount = 0;
+        for (char c : word) {
+            if (!isalpha(c) || !islower(c)) {
+                consonantCount++;
+            }
+        }
+        if (consonantCount == n) {
+            result.push_back(word);
+        }
+    }
     return result;
 }
