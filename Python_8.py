@@ -3,8 +3,5 @@ from typing import List, Tuple
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (sum(numbers), 0 if 0 in numbers else 1) if numbers else (0, 1)
 
-# Read input from the user
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-
-# Call the function with user input and print the result
+numbers = list(map(int, input().split()))
 print(sum_product(numbers))
