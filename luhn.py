@@ -1,5 +1,12 @@
+Here is the Python solution:
+
 def luhn(card):
-    card = list(map(int, card[1:]))
-    doubled = [i * 2 if i % 2 else i for i in card]
-    summed = sum([d - 9 if d > 9 else d for d in doubled])
-    return str(summed)
+    card = [int(x) for x in str(card)]
+    total = 0
+    for i, num in enumerate(reversed(card)):
+        if i % 2 == 1:
+            num *= 2
+            if num > 9:
+                num -= 9
+        total += num
+    return total
