@@ -1,4 +1,4 @@
-#include <string>
+#include<string>
 
 string string_xor(string a, string b) {
     string result = "";
