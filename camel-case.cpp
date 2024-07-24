@@ -1,7 +1,7 @@
 std::string camelCase(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
-
+    
     for (char c : str + " ") {  
         if (c == ' ') {
             continue;  
@@ -17,6 +17,6 @@ std::string camelCase(const std::string& str) {
             result += c;
         }
     }
-
+    
     return result;
 }
