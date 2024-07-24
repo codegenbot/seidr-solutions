@@ -13,7 +13,7 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    int n; // number of elements in the list
+    int n; 
     std::cin >> n;
 
     std::vector<float> lst(n);
