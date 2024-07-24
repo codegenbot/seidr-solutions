@@ -16,7 +16,7 @@ int main2() {
     if (n > 0) {
         std::cout << "Sum of squares is: " << sum_squares(n) << std::endl;
     } else {
-        std::cout << "Please enter a positive integer." << std::endl;
+        std::cout << "Please enter a positive integer." << std::endl << std::endl; 
     }
     return 0;
 }
