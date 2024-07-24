@@ -1,35 +1,42 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int wordLen;
-    bool isWordStarted = false;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::size_t pos = 0;
+    
+    while ((pos = str.find(" ")) != std::string::npos) {
+        size_t start = 0;
+        size_t end = pos;
 
-    for(int i = 0; i <= str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            wordLen = i - (isWordStarted ? 1 : 0);
-            if(wordLen > 4) {
-                for(int j = wordLen-1; j >= 0; j--) {
-                    result += str[i-j-1];
-                }
-            } else {
-                result += str.substr(isWordStarted ? 1 : 0, wordLen);
+        if (end - start >= 5) {
+            for (int i = end; i > start; --i) {
+                result += str[i];
             }
-            isWordStarted = false;
+            result += " ";
         } else {
-            if(!isWordStarted) {
-                isWordStarted = true;
-            }
+            result += str.substr(start, end - start) + " ";
         }
+
+        str.erase(0, pos + 1);
     }
+
+    if (str.length() >= 5) {
+        for (int i = str.length() - 1; i >= 0; --i) {
+            result += str[i];
+        }
+    } else {
+        result += str;
+    }
+
     return result;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    cout << spinWords(str) << endl;
+    std::cout << spinWords("a") << std::endl; // output: a
+    std::cout << spinWords("this is a test") << std::endl; // output: this is a test
+    std::cout << spinWords("this is another test") << std::endl; // output: this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // output: hi
+
     return 0;
 }
