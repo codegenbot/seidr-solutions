@@ -1,4 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cctype>
+
+using namespace std;
 
 string flip_case(string str){
     string result = "";
@@ -11,4 +15,12 @@ string flip_case(string str){
         }
     }
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << flip_case(str) << endl;
+    return 0;
 }
