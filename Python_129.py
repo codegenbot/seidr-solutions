@@ -13,7 +13,6 @@ def minPath(grid, k):
             ):
                 res.append((i, j))
     return dfs(0, 0, k, [], grid)
-
 def dfs(i, j, k, path, grid):
     if k == 0:
         return [path]
