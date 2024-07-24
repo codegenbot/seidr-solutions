@@ -1,11 +1,11 @@
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None as per problem description
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=0; i<sorted.size()-1; i++){
-        if(sorted[i] != sorted[i+1]){
-            return sorted[i+1];
+    if (lst.size() < 2) return -1; // None is represented as -1
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++) {
+        if (v[i] != v[0]) {
+            return v[i];
         }
     }
-    return -1; // Return None as per problem description
+    return -1;
 }
