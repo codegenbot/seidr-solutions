@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -7,7 +6,7 @@ def factorize(n: str) -> List[List[int]]:
         n = int(n)
     except ValueError:
         return "Invalid input. Please enter an integer."
-    
+
     factors = []
     i = 2
     while i * i <= n:
