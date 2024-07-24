@@ -22,20 +22,9 @@ int main() {
 
     // Input for vector 1
     float num;
-    while(true) {
-        if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); 
-            while(std::cin.fail()) std::cin.clear(); 
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            if(vec1.size() >= 5) break; 
-            break;
-        }
+    for(int i = 0; i < 5 && (std::cin >> num); i++) {
         if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            if(vec1.size() >= 5) break; 
             break;
         }
         vec1.push_back(num);
@@ -46,16 +35,7 @@ int main() {
 
     int maxInputCount = 5; 
     int inputCount = 0;
-    while(inputCount < maxInputCount) {
-        if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); 
-            while(std::cin.fail()) std::cin.clear(); 
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            break;
-        }
+    for(int i = 0; i < maxInputCount && (std::cin >> num); i++) {
         if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             break;
