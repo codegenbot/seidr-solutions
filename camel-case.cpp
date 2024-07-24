@@ -12,7 +12,7 @@ std::string camelCase(const std::string& str) {
         }
         for (char c : group.substr(1)) { 
             if (c != '-') {
-                result += toupper(c);
+                result += ::toupper(c);
             }
         }
     }
