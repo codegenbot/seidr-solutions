@@ -7,45 +7,39 @@ bool issame(float a, float b) {
 }
 
 std::vector<float> sort_even(std::vector<float> vec) {
+    if (vec.empty()) {
+        return vec;
+    }
+
     std::vector<float> result;
+
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            // Create a temporary vector to store the even elements.
             std::vector<float> temp;
-            float prev = vec[i];
-            bool first = true;
-            for (int j = i; j < vec.size() && j % 2 == 0; j++) {
-                if (!first || issame(vec[j], prev)) {
-                    temp.push_back(prev);
-                    prev = vec[j];
-                    first = false;
-                } else {
-                    prev = vec[j];
-                }
+            int j = i;
+            while (j < vec.size() && j % 2 == 0) {
+                temp.push_back(vec[j]);
+                j++;
             }
-            // Sort the temporary vector.
             std::sort(temp.begin(), temp.end());
-            // Replace even elements in result with the sorted ones.
-            for (int j = i; j < vec.size() && j % 2 == 0; j++) {
-                if (!first || issame(vec[j], prev)) {
-                    result.push_back(prev);
-                    prev = vec[j];
-                    first = false;
-                } else {
-                    prev = vec[j];
+            for (int k = 0; k < temp.size(); k++) {
+                result.push_back(temp[k]);
+                if (k < i - j + 1) {
+                    result.push_back(vec[j + k]);
                 }
             }
         } else {
             result.push_back(vec[i]);
         }
     }
+
     return result;
 }
 
 int main() {
-    std::vector<float> vec = {1.5, 2.0, 2.0, 3.0, 3.5, 4.0};
-    std::vector<float> res = sort_even(vec);
-    for (float f : res) {
+    std::vector<float> vec = {5.0, 3.0, 7.0, 2.0, 8.0, 6.0};
+    std::vector<float> sorted_even = sort_even(vec);
+    for (float f : sorted_even) {
         std::cout << f << " ";
     }
     return 0;
