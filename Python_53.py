@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 ```Python
 def add(x: int, y: int):
     return x + y
