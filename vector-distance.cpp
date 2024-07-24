@@ -15,7 +15,7 @@ double vector_distance() {
         cin >> v2[i];
     }
     
-    double sum = 0.0;
+    double sum = 0;
     for (int i = 0; i < n; ++i) {
         sum += pow(v1[i] - v2[i], 2);
     }
@@ -24,6 +24,6 @@ double vector_distance() {
 }
 
 int main() {
-    cout << fixed << setprecision(10) << vector_distance();
+    cout << vector_distance();
     return 0;
 }
