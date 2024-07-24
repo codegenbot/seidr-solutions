@@ -1,3 +1,4 @@
+```
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
