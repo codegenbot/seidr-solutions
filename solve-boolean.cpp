@@ -1,42 +1,31 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string expression) {
-    if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
+    int pos = expression.find('|');
+    while (pos != string::npos) {
+        string left = expression.substr(0, pos);
+        string right = expression.substr(pos + 1);
+
+        if (solveBoolean(left) || solveBoolean(right))
             return true;
-        else if (expression[0] == 'F' || expression[0] == 'f')
-            return false;
+        
+        pos = expression.find('|', pos);
     }
 
-    int pos = 0;
-    while (pos < expression.size()) {
-        std::string::size_type start = pos;
-        if (expression[pos] == '|') {
-            pos++;
-            continue;
-        } else if (expression[pos] == '&') {
-            pos += 2;
-            continue;
-        }
-        std::string::size_type end = pos + 1;
-        while (end < expression.size() && (expression[end] == 'T' || expression[end] == 't' ||
-                                            expression[end] == 'F' || expression[end] == 'f' ||
-                                            expression[end] == '|' || expression[end] == '&')) {
-            end++;
-        }
-        std::string::size_type len = end - start;
-        string part = expression.substr(start, len);
-        if (part == "T" || part == "t")
-            return true;
-        else if (part == "F" || part == "f")
-            return false;
+    pos = expression.find('&');
+    while (pos != string::npos) {
+        string left = expression.substr(0, pos);
+        string right = expression.substr(pos + 1);
 
-        pos = end;
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
+        
+        pos = expression.find('&', pos);
     }
-    return true;
+
+    return !expression.empty() && tolower(expression[0]) == 't';
 }
 
 int main() {
