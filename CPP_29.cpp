@@ -1,12 +1,21 @@
-```c++
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size()) {
+        return false;
+    }
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+        if(a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
 int main() {
-    // your implementation here
+    vector<string> strings = {"apple", "banana", "orange", "apricot"};
+    string prefix = "a";
+    vector<string> result = filter_by_prefix(strings, prefix);
+    
+    assert(issame(result, {"apple", "apricot"}));
+    
+    return 0;
 }
