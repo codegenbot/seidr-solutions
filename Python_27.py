@@ -8,6 +8,6 @@ def modify_string(string):
     )
 
 
-flip_case = input("Enter a string: ").strip()
+flip_case = input().strip()
 output = check(flip_case)
 print(output)
