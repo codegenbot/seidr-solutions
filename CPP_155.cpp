@@ -4,8 +4,8 @@
 std::vector<int> counts(std::vector<int> b, int num) {
     std::vector<int> result;
     int count = 0;
-    for(int i = 0; i < b.size(); i++){
-        if(b[i] == num){
+    for (int i : b) {
+        if (i == num) {
             count++;
         }
     }
@@ -14,13 +14,12 @@ std::vector<int> counts(std::vector<int> b, int num) {
 }
 
 int main(){
-    std::vector<int> input = {1, 2, 3, 3, 4, 3, 5};
-    int number = 3;
-    
-    std::vector<int> result = counts(input, number);
-    
-    for(int i = 0; i < result.size(); i++){
-        std::cout << result[i] << " ";
+    std::vector<int> b = {1, 2, 3, 2, 2, 4};
+    int num = 2;
+
+    std::vector<int> result = counts(b, num);
+
+    for (int i : result) {
+        std::cout << i << " ";
     }
-    std::cout << std::endl;
 }
