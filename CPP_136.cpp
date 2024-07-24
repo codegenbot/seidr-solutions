@@ -1,11 +1,8 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> find_max_neg_min_pos(std::vector<int> lst) {
+vector<int> find_max_neg_min_pos(vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
 

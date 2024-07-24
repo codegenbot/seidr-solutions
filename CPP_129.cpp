@@ -1,40 +1,34 @@
 ```cpp
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+vector<int> minPath(vector<vector<int>>& grid, int k) {
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == 0 || j == 0) dp[i][j] = grid[i][j];
+            else{
+                int minVal = INT_MAX;
+                if(i > 0) minVal = min(minVal, dp[i-1][j]);
+                if(j > 0) minVal = min(minVal, dp[i][j-1]);
+                dp[i][j] = grid[i][j] + minVal;
+            }
+        }
+    }
+    
+    int minVal = INT_MAX;
+    for(int i = 0; i < n; i++){
+        if(i > 0) minVal = min(minVal, dp[n-1][i]);
+    }
+    
+    vector<int> path;
+    int x = n - 1, y = minVal == dp[n-1][minVal] ? 0 : minVal;
+    for(int i = 0; i < k; i++){
+        path.push_back(grid[x][y]);
+        if(y > 0) x--;
+        else y--;
+    }
+    
+    return path;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
-            } else {
-                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
-            }
-        }
-    }
-    
-    vector<int> res;
-    int i = n - 1, j = n - 1;
-    for (int l = 0; l < k; l++) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && j > 0) {
-            if (dp[i-1][j] == dp[i][j-1]) {
-                i--;
-            } else {
-                j--;
-            }
-        } else if (i > 0) {
-            i--;
-        } else {
-            j--;
-        }
-    }
-    
-    return res;
-}
+assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
