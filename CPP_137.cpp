@@ -1,20 +1,18 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().length() - 1)));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return max(a, b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a == b ? boost::any("None") : (boost::any)max((int)a.convert_to<int>(), (int)b.convert_to<int>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return a > b ? a : b;
+std::variant<std::string, int, float> compare_one(std::variant<any> a, std::variant<any> b) {
+    if (holds_alternative<int>(a) && holds_alternative<float>(b)) {
+        return to_string(max(get<int>(a), get<float>(b)));
+    } else if (holds_alternative<float>(a) && holds_alternative<std::string>(b)) {
+        std::string s = get<std::string>(b);
+        return to_string(max(get<float>(a), stof(s.erase(0, 1).erase(s.length() - 1))));
+    } 
+    else if (holds_alternative<std::string>(a) && holds_alternative<std::string>(b)) {
+        return max(a, b).template get<std::string>();
+    } 
+    else if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
+        int aInt = get<int>(a);
+        int bInt = get<int>(b);
+        return to_string((aInt > bInt) ? aInt : bInt);
     }
-    return "None";
+    // Handle all other cases or unexpected inputs
+    return 0;
 }
