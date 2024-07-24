@@ -1,2 +1,2 @@
-def roll_higher(n, m):
-    return (n - 1) / (n + m - 1)
+def dice_game(n, m):
+    return sum(1 for i in range(m) for j in range(i + 1, n + 1)) / (n * m)
