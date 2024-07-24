@@ -17,29 +17,14 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     return result;
 }
 
-bool issame(const std::vector<int>& a,const std::vector<int>& b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size();i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
-    int n,m;
-    std::cin >> n >> m;
-    std::vector<int> l1(n);
-    std::vector<int> l2(m);
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
 
-    for(int i = 0; i < n;i++) std::cin >> l1[i];
-    for(int i = 0; i < m;i++) std::cin >> l2[i];
+    std::vector<int> common_elements = common(l1, l2);
 
-    if(issame(l1,l2)){
-        std::cout << "The lists are same." << std::endl;
-    }else{
-        std::vector<int> common_list = common(l1, l2);
-        for(int i = 0; i < common_list.size();i++) std::cout << common_list[i] << " ";
-        std::cout << std::endl;
+    for (int element : common_elements) {
+        std::cout << element << " ";
     }
     return 0;
 }
