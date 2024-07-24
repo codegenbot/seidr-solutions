@@ -1,56 +1,37 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> expressionStack;
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> s;
     
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        char currentChar = booleanExpression[i];
-        
-        if (currentChar == '&' || currentChar == '|') {
-            while (!expressionStack.empty() && expressionStack.top() != '(') {
-                int prevOp = expressionStack.top();
-                expressionStack.pop();
-                
-                if (prevOp == '&') {
-                    currentChar = '&';
-                } else {
-                    currentChar = '|';
-                }
+    for (int i = 0; i < expression.length(); ++i) {
+        if(expression[i] == '|') {
+            while(!s.empty() && s.top() != '&') {
+                s.pop();
             }
-            
-            if (!expressionStack.empty() && expressionStack.top() == '(') {
-                expressionStack.pop(); // remove the left parenthesis
-            }
-        } else if (currentChar == '(') {
-            expressionStack.push('(');
-        } else if (currentChar == ')') {
-            while (!expressionStack.empty() && expressionStack.top() != '(') {
-                int prevOp = expressionStack.top();
-                expressionStack.pop();
-                
-                if (prevOp == '&') {
-                    currentChar = '&';
-                } else {
-                    currentChar = '|';
-                }
-            }
-            
-            if (!expressionStack.empty() && expressionStack.top() == '(') {
-                expressionStack.pop(); // remove the left parenthesis
-            }
-        } else {
-            expressionStack.push(currentChar);
+            if(s.empty()) return true;
+            s.push('&');
+        } else if(expression[i] == '&') {
+            s.push('&');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            while(!s.empty() && s.top() != '&') s.pop();
+            if(s.empty()) return true;
+            s.push('F');
+        } else if(expression[i] == 'F' || expression[i] == 'f') {
+            while(!s.empty() && s.top() != '&') s.pop();
+            if(s.empty()) return false;
+            s.push('T');
         }
     }
     
-    while (!expressionStack.empty()) {
-        int prevOp = expressionStack.top();
-        expressionStack.pop();
-        
-        if (prevOp == '&') {
-            currentChar = '&';
-        } else {
-            currentChar = '|';
-        }
-    }
+    while(!s.empty()) s.pop();
     
-    return currentChar == 't' ? true : false;
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter the Boolean expression: ";
+    cin >> input;
+    cout << solveBoolean(input) << endl;
 }
