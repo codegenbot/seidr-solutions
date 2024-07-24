@@ -1,7 +1,9 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size())
+        return false;
+    for(int i=0; i<vec1.size(); i++) {
+        if (vec1[i] != vec2[i])
+            return false;
     }
     return true;
 }
