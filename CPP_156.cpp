@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
+namespace std {
 using namespace std;
 
 struct Roman {
@@ -25,7 +22,7 @@ vector<Roman> romanMap = {
     {1, "I"}
 };
 
-string romanize(int number) {
+string intToRoman(int number) {
     string roman = "";
     
     for (const auto& pair : romanMap) {
@@ -42,6 +39,6 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The Roman numeral is: " << romanize(num) << endl;
+    cout << "The Roman numeral is: " << intToRoman(num) << endl;
     return 0;
 }
