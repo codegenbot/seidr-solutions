@@ -4,19 +4,20 @@
 
 using namespace std;
 
+vector<string> separate_paren_groups(string paren_string);
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string);
-
 int main() {
     string input;
+    cout << "Enter a string with parentheses: ";
     cin >> input;
 
     vector<string> result = separate_paren_groups(input);
 
-    for (const string &group : result) {
+    for (const auto& group : result) {
         cout << group << endl;
     }
 
