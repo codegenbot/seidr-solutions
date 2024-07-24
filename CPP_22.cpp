@@ -2,18 +2,16 @@
 #include <vector>
 #include <list>
 
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type()) {
-            bool same = issame(vector<int>{}, boost::any_cast<vector<int>>(value));
-            if (!same) {
+            vector<int> temp = {boost::any_cast<int>(value)};
+            if (!issame(result, temp)) {
                 result.push_back(boost::any_cast<int>(value));
             }
         }
