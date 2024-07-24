@@ -1,4 +1,6 @@
-#include <digest>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
