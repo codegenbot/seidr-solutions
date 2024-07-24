@@ -1,12 +1,12 @@
 int main() {
-    string expr;
-    cin >> expr;
-    
-    if (expr == "t") {
+    string exp;
+    cin >> exp;
+
+    if (exp == "t") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-    
+
     return 0;
 }
