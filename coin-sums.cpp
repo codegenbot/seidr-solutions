@@ -7,13 +7,13 @@ int main() {
     
     int quarters = cents / 25;
     cents %= 25;
-
+    
     if (cents > 0) {
         // Now calculate pennies based on remaining cents.
         int pennies = cents;
     } else {
         // No need to calculate pennies if there's no remainder.
-        pennies = 0;
+        int pennies = 0;
     }
     
     int dimes = cents / 10;
