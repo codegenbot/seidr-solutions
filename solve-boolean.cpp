@@ -2,16 +2,16 @@
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    if (expression.size() > 0) {
-        if (expression[0] == 'T' || expression[0] == 't')
-            return true;
-        else if (expression[0] == 'F' || expression[0] == 'f')
-            return false;
-    }
+    if (expression.size() == 0)
+        return true;
 
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
-        if (c == '|') {
+        if (c == 'T' || c == 't')
+            return true;
+        else if (c == 'F' || c == 'f')
+            return false;
+        else if (c == '|') {
             size_t start = 0;
             for (int j = 0; j < i; j++) {
                 if (expression[j] == '|') {
@@ -61,5 +61,4 @@ int main() {
     else
         std::cout << "False";
     return 0;
-
 }
