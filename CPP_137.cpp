@@ -26,9 +26,9 @@ int main() {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
-        if (std::stod(x) > std::stod(y))
+        if (stod(x) > stod(y))
             return a;
-        else if (std::stod(y) > std::stod(x))
+        else if (stod(y) > stod(x))
             return b;
         else
             return "None";
@@ -59,9 +59,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
-        if (std::stod(x) > std::stod(y))
+        if (stod(x) > stod(y))
             return a;
-        else if (std::stod(y) > std::stod(x))
+        else if (stod(y) > stod(x))
             return b;
         else
             return "None";
