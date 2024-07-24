@@ -1,18 +1,25 @@
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int main(){
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
-
-    if(issame(vec1, vec2)){
-        std::cout << "Vectors are the same" << std::endl;
-    } else {
-        std::cout << "Vectors are different" << std::endl;
+int main() {
+    std::vector<int> a, b;
+    int n;
+    std::cin >> n;
+    a.resize(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> a[i];
     }
+    std::cin >> n;
+    b.resize(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> b[i];
+    }
+
+    bool result = issame(a, b);
+    std::cout << (result ? "true" : "false") << std::endl;
 
     return 0;
 }
