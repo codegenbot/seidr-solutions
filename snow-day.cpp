@@ -8,7 +8,7 @@ int main() {
     
     std::cin >> hours >> snow >> rate >> melt;
     
-    std::cout << std::fixed << std::setprecision(10);
+    std::cout << std::fixed << std::setprecision(15);
     
     for (int i = 0; i < hours; ++i) {
         snow = snow + rate - (snow * melt);
@@ -16,7 +16,7 @@ int main() {
     
     snow = std::max(0.0f, snow);
     
-    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
+    std::cout << snow << std::endl;
     
     return 0;
 }
