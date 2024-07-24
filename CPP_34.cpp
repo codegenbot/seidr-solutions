@@ -5,9 +5,9 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), l.end()); 
+    vector<int> result(l.begin(), l.end());
     sort(result.begin(), result.end());
-    result.erase(unique_copy(result.begin(), result.end(), back_inserter(result)), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
 
@@ -17,5 +17,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    return 0;
 }
