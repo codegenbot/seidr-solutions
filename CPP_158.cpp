@@ -4,8 +4,8 @@
 std::string find_max(std::vector<std::string> words){
     std::string result = *minmax_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
-            return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) <
-                   count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
+            return std::count(a.begin(), a.end(), std::unique_copy(a.begin(), a.end())) <
+                   std::count(b.begin(), b.end(), std::unique_copy(b.begin(), b.end()));
         }
     )->first;
     return result;
