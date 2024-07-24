@@ -15,3 +15,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 std::vector<float> get_positive(std::initializer_list<float> values) {
     return std::vector<float>(values);
 }
+
+int main() {
+    issame(get_positive({}), get_positive({}));
+    return 0;
+}
