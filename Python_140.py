@@ -11,7 +11,6 @@ def fix_spaces(text):
                 add_hyphen = True
             else:
                 new_text += " "
-                add_hyphen = False
         else:
-            new_text += char
+            add_hyphen = False  
     return new_text
