@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 int fuelCost(const std::vector<int>& v) {
     int sum = 0;
