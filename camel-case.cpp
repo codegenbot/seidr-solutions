@@ -1,25 +1,18 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> parts;
-    size_t start = 0;
-
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            parts.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
-    }
-
+std::string camelCase(const std::string& str) {
     std::string result;
+    bool capitalize = true;
 
-    for (const auto& part : parts) {
-        if (!result.empty()) {
-            result += std::toupper(part[0]);
-            result.erase(1, 1);
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            result += part;
+            result += tolower(c);
         }
     }
 
