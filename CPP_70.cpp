@@ -1,7 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> sortList(std::vector<int> input) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> strange_sort_list(std::vector<int> input) {
     for(int i = 0; i < input.size(); i++) {
         for(int j = i + 1; j < input.size(); j++) {
             if(input[i] > input[j]) {
@@ -23,7 +27,7 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
-    std::vector<int> output = sortList(input);
+    std::vector<int> output = strange_sort_list(input);
     std::cout << "Sorted list: ";
     for(int i : output) {
         std::cout << i << " ";
