@@ -20,7 +20,6 @@ void solve_problem() {
     assert(smallest_change({1, 2, 3, 2, 1, 0}) == 1);
 }
 
-int main(){
+int main() {
     solve_problem();
-    return 0;
 }
