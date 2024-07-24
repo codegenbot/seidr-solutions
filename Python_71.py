@@ -1,4 +1,3 @@
-```
 def sum_of_squares(n):
     result = 0
     for i in range(1, n + 1):
@@ -25,10 +24,10 @@ while True:
 
     while True:
         choice = input("Do you want to calculate another triangle? (yes/no): ")
-        if choice.lower() == 'yes':
+        if choice.lower() == "yes":
             continue
-        elif choice.lower() == 'no':
+        elif choice.lower() == "no":
             print("Thank you for using this program!")
             break
         else:
-            print("Invalid input. Please enter 'yes' or 'no'."
+            print("Invalid input. Please enter 'yes' or 'no'.")
