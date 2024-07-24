@@ -1,4 +1,5 @@
-```cpp
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -18,4 +19,13 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<int> numbers = {4, 2, 9, 6};
+    std::vector<int> sortedNumbers = strange_sort_vector(numbers);
+    for (int num : sortedNumbers) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
