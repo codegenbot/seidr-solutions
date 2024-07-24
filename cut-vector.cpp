@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
 #include <cmath>
 
 using namespace std;
@@ -21,7 +20,7 @@ int main() {
     
     for (int i = 0; i < nums.size(); ++i) {
         prefix_sum += nums[i];
-        int diff = std::abs(total - 2 * prefix_sum);
+        int diff = abs(total - 2 * prefix_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
@@ -33,10 +32,6 @@ int main() {
     }
     
     cout << 0 << endl;
-    
-    for (int i = cut_index + 1; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
-    }
     
     return 0;
 }
