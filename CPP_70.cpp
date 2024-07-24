@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -29,4 +29,4 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
-};
+}
