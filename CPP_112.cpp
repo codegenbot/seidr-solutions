@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-bool stdsame(std::vector<std::string> std_vector_a, std::vector<std::string> std_vector_b) {
+bool std_vector_issame(const std::vector<std::string>& std_vector_a, const std::vector<std::string>& std_vector_b) {
     if (std_vector_a.size() != std_vector_b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool stdsame(std::vector<std::string> std_vector_a, std::vector<std::string> std
     return true;
 }
 
-std::string reverse_delete(std::string s, std::string c) {
+std::string reverse_delete(std::string s, const std::string& c) {
     std::string temp = "";
     for (char& ch : s) {
         bool found = false;
@@ -33,7 +33,11 @@ std::string reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> v1 = {reverse_delete("mamma", "mia")};
-    bool result = issame(v1, {"tamam"});
+    if(std_vector_issame({reverse_delete("mamma", "mia"), reverse_delete("mammamia", "")}, {std::string("true")}) != 1) {
+        std::cout << "Test Failed." << std::endl;
+    }
+    else
+        std::cout << "Test Passed." << std::endl;
+    
     return 0;
 }
