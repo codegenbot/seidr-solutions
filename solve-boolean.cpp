@@ -11,20 +11,30 @@ bool solveBoolean(string expression) {
     }
 
     int pos = expression.find('|');
-    string op;
     while (pos != string::npos) {
-        op = (pos > 0 && expression[pos - 1] == '|') ? "|" : "&";
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if ((op == "|" && solveBoolean(left)) || (op == "&" && solveBoolean(left)))
+        if ((solveBoolean(left)) || (solveBoolean(right)))
             return true;
 
         expression = right;
-        pos = expression.find(op);
+        pos = expression.find('|');
     }
 
-    if (!expression.empty() && (expression[0] == 'T' || expression[0] == 't'))
+    pos = expression.find('&');
+    while (pos != string::npos) {
+        string left = expression.substr(0, pos);
+        string right = expression.substr(pos + 1);
+
+        if ((solveBoolean(left)) && (solveBoolean(right)))
+            return true;
+
+        expression = right;
+        pos = expression.find('&');
+    }
+
+    if (expression.size() > 0 && (expression[0] == 'T' || expression[0] == 't'))
         return true;
 
     return false;
