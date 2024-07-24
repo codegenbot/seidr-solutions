@@ -7,5 +7,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-input_list = list(map(int, input().split()))
-print(below_zero(input_list))
+operations = list(map(int, input().split()))
+print(below_zero(operations))
