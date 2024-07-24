@@ -1,9 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
-std::vector<std::string> expressions;
-
+std::vector<std::string> expressions = {"", ""};
 double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
     double result = args[0];
     
@@ -19,21 +18,9 @@ double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& a
 }
 
 int main() {
-    std::string op, op2;
-    int arg;
-
-    std::cout << "Enter the first operator and argument: ";
-    std::getline(std::cin, op);
-    std::cin >> arg;
-    expressions.push_back(op);
-
-    std::cout << "Enter the second operator and argument: ";
-    std::getline(std::cin, op2);
-    std::cin >> arg;
-    expressions.push_back(op2);
-
-    int args[] = {arg};
-    double output = do_algebra(expressions, {{args[0]}});
+    std::string op1 = expressions[0], op2 = expressions[1];
+    int args[] = {42};
+    double output = do_algebra({op1, op2}, {args[0]});
     std::cout << "Output: " << output << std::endl;
     return 0;
 }
