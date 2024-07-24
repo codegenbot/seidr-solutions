@@ -1,6 +1,6 @@
 #include <vector>
 #include <climits>
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -25,13 +25,12 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main() {
+int main_function() {
     vector<int> input = {2, 4, 6, 8};
     vector<pair<int, int>> output = pluck(input);
     
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
-    
     return 0;
 }
