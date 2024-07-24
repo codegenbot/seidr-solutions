@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
 bool evalBoolean(string s) {
     if (s.empty())
@@ -10,73 +10,42 @@ bool evalBoolean(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr = s.substr(0, j);
+    string opStr;
+    for (int i = 0; i < j; i++) {
+        opStr += s[i];
+    }
     bool result = false;
     if (opStr[0] == '|') {
-        for (int i = 0; i < j; i++) {
+        for (int i = j; i < s.length(); i++) {
             if (s[i] == 'T')
                 result = true;
             else if (s[i] == 'F') {
                 result = false;
+                return result;
             }
         }
     } else {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
-                result = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
-                return false;
-        }
-    }
-
-    if (!result)
-        return false;
-
-    string rest = s.substr(j);
-    if (rest.empty())
-        return !result; 
-    else
-        return evalBoolean(rest); 
-}
-
-bool evalOp(string s) {
-    int j = 0;
-    while (j < s.length() && (s[j] == '|' || s[j] == '&'))
-        j++;
-
-    string opStr = s.substr(0, j);
-    bool left = false;
-    if (opStr[0] == '|') {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T')
-                left = true;
-            else if (s[i] == 'F') {
-                left = false;
-            }
-        }
-    } else {
+        bool left = false;
         for (int i = 0; i < j; i++) {
             if (s[i] == 'T' && opStr[1] != '|')
                 left = true;
             else if (s[i] == 'F' && opStr[1] != '&')
                 return false;
         }
+        result = left;
     }
 
-    if (!left)
-        return false;
-
-    return evalBoolean(s.substr(j));
+    return result;
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> s;
-    bool result = evalOp(s);
+    string s;
+    cout << "Enter a Boolean expression: ";
+    cin >> s;
+    bool result = evalBoolean(s);
     if (result)
-        std::cout << "True";
+        cout << "True";
     else
-        std::cout << "False";
+        cout << "False";
     return 0;
 }
