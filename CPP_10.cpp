@@ -1,20 +1,23 @@
-#include <algorithm>
+#include <string>
 using namespace std;
 
+bool is_palindrome(string str) {
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
+
 string make_palindrome(string str) {
-    string prefix = str;
-    string suffix = str;
-    
-    // reverse the suffix to find the longest palindromic postfix
-    reverse(suffix.begin(), suffix.end());
-    
-    while (!prefix.empty() && !suffix.empty() && prefix.back() == suffix.front()) {
-        prefix.pop_back();
-        suffix.erase(0, 1);
+    int i = 0, j = str.size() - 1;
+    while (i <= j && str[i] == str[j]) {
+        i++;
+        j--;
     }
-    
-    string result = prefix;
-    result += suffix;
-    
-    return result;
+    string palindrome;
+    for (int k = j; k >= i; k--) {
+        palindrome += str[k];
+    }
+    for (int k = 0; k < i; k++) {
+        palindrome += str[k];
+    }
+    return palindrome + string(1, str[0]);
 }
