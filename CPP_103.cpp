@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 using namespace std;
 
@@ -19,5 +20,5 @@ string rounded_avg(int n, int m) {
             binary += '0';
         }
     }
-    return std::string(binary.begin(), binary.end());
+    return std::string(binary.rbegin(), binary.rend());
 }
