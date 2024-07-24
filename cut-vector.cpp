@@ -23,4 +23,3 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
 
     return result;
-}
