@@ -1,5 +1,6 @@
-```
-def calculate_area_and_perimeter() -> tuple(float, float):
+from typing import Tuple
+
+def calculate_area_and_perimeter() -> Tuple[float, float] or None:
     def check(length: int, width: int):
         if length < 0 or width < 0:
             return None
