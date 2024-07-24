@@ -1,3 +1,8 @@
+```cpp
+bool issame(vector<string> a, vector<string> b) {
+    return (a.size() == 1 && a[0] == b[0]);
+}
+
 int sorted_list_sum(std::vector<std::vector<std::string>> lst) {
     int sum = 0;
     for (auto& inner : lst) {
@@ -9,7 +14,7 @@ int sorted_list_sum(std::vector<std::vector<std::string>> lst) {
 }
 
 int main() {
-    std::vector<std::vector<std::string>> lst = {{{"aaaa", "bbbb"}}, {{"dd"}}, {{"cc"}}};
-    int result = sorted_list_sum(lst);
+    std::vector<std::vector<std::string>> lst = {{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}};
+    assert(sorted_list_sum({{{"cc", "dd", "aaaa", "bbbb"}}}) == 1);
     return 0;
 }
