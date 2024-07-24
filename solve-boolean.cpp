@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return true;
@@ -19,7 +18,7 @@ bool solveBoolean(const std::string& s) {
         i++;
     }
 
-    size_t left_end = std::count(s.begin(), s.end(), '|');
+    size_t left_end = std::distance(s.begin(), std::__find_first_of(s.begin(), s.end(), '|'));
     std::string left = s.substr(0, left_end);
     std::string right = s.substr(left_end + 1);
 
