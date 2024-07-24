@@ -1,27 +1,23 @@
 Here is the completed code:
 
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False]*N for _ in range(N)]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-
-    def dfs(i, j, path, k):
-        if k == 0:
-            return path
-        visited[i][j] = True
-        for direction in directions:
-            new_i, new_j = i + direction[0], j + direction[1]
-            if 0 <= new_i < N and 0 <= new_j < N and not visited[new_i][new_j]:
-                new_path = dfs(new_i, new_j, path + [grid[i][j]], k - 1)
-                if new_path:
-                    return new_path
-        visited[i][j] = False
-        return None
-
-    min_path = []
-    for i in range(N):
-        for j in range(N):
-            path = dfs(i, j, [], k)
-            if path and (not min_path or path < min_path):
-                min_path = path
-    return min_path
+    n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+    dp = [[[] for _ in range(n)] for _ in range(n)]
+    dp[0][0] = [m[0][0]]
+    
+    for i in range(1, n):
+        dp[i][0] = dp[i-1][0] + [m[i][0]]
+    for j in range(1, n):
+        dp[0][j] = dp[0][j-1] + [m[0][j]]
+    
+    for i in range(1, n):
+        for j in range(1, n):
+            if m[i][j] < min(m[i-1][j], m[i][j-1]):
+                dp[i][j] = dp[i-1][j] + [m[i][j]] if dp[i-1][j][-1] > m[i][j] else dp[i][j-1] + [m[i][j]]
+            elif m[i][j] == m[i-1][j]:
+                dp[i][j] = dp[i-1][j] + [m[i][j]]
+            else:
+                dp[i][j] = dp[i][j-1] + [m[i][j]]
+    
+    return dp[-1][-1][:k]
