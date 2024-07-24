@@ -1,41 +1,51 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+vector<int> cutVector(vector<int>& nums) {
+    int n = nums.size();
     int minDiff = INT_MAX;
-    int splitIndex = 0;
-
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff <= minDiff) {
+    int cutIndex = 0;
+    
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(nums[i] - nums[0]);
+        if (diff < minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            cutIndex = i;
         }
     }
-
-    return {{v[0]}, {v[0]}};
+    
+    return {nums.begin(), nums.begin() + cutIndex} | {nums.begin() + cutIndex, nums.end()};
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
+    // Example inputs
+    vector<int> nums1 = {1};
+    vector<int> result1 = cutVector(nums1);
+    cout << "Input: ";
+    for (int num : nums1) {
+        cout << num << " ";
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
-
-    for (int num : result.first) {
-        std::cout << num << " ";
+    cout << endl;
+    cout << "Output: ";
+    for (int num : result1) {
+        cout << num << " ";
     }
-    std::cout << "\n";
+    cout << endl;
 
-    for (int num : result.second) {
-        std::cout << num << " ";
+    vector<int> nums2 = {1, 10};
+    vector<int> result2 = cutVector(nums2);
+    cout << "Input: ";
+    for (int num : nums2) {
+        cout << num << " ";
     }
-    std::cout << "\n";
+    cout << endl;
+    cout << "Output: ";
+    for (int num : result2) {
+        cout << num << " ";
+    }
+    cout << endl;
 
+    // Add more inputs here...
+    
     return 0;
 }
