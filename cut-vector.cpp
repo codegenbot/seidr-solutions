@@ -8,8 +8,7 @@ int main() {
     vector<int> vec;
     int num;
 
-    while (!cin.eof()) {
-        cin >> num;
+    while (cin >> num || !cin.eof()) {
         vec.push_back(num);
     }
 
