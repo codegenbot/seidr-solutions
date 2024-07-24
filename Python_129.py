@@ -1,19 +1,23 @@
-Here is the solution:
-
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
-    queue = [(0, 0, [grid[0][0]])]
-    min_path = []
-    while queue:
-        x, y, path = queue.pop(0)
-        if len(path) == k + 1:
-            if not min_path or tuple(path) < tuple(min_path):
-                min_path = list(path)
-            continue
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
-                visited[nx][ny] = True
-                queue.append((nx, ny, path + [grid[nx][ny]]))
-    return min_path
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    def dfs(i, j, path):
+        if len(path) == k:
+            return path
+        visited[i][j] = True
+        min_path = None
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
+                new_path = dfs(ni, nj, path + [grid[i][j]])
+                if min_path is None or new_path < min_path:
+                    min_path = new_path
+        visited[i][j] = False
+        return min_path
+
+    for i in range(N):
+        for j in range(N):
+            if len(dfs(i, j, [])) == k:
+                return dfs(i, j, [])
