@@ -7,6 +7,9 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
+    if (target.empty()) {
+        return indices;
+    }
     int n = text.size();
     int m = target.size();
     for (int i = 0; i <= n - m; ++i) {
