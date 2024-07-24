@@ -1,33 +1,42 @@
-int getScore(string bowls) {
-    int score = 0;
+int score(string input) {
+    int total_score = 0;
     int frame = 1;
-    int ball = 0;
-    for (int i = 0; i < bowls.size(); ++i) {
+    int rolls = 0;
+    for (int i = 0; i < input.size(); i++) {
         if (frame > 10) break;
-        if (bowls[i] == 'X') {
-            score += 10;
+        if (input[i] == 'X') {
+            total_score += 10;
             if (frame < 10) {
-                score += (bowls[i + 1] == 'X') ? 10 : (isdigit(bowls[i + 1]) ? bowls[i + 1] - '0' : 10);
-                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] == '/' ? 10 - (bowls[i + 1] == 'X' ? 0 : bowls[i + 1] - '0') : (isdigit(bowls[i + 2]) ? bowls[i + 2] - '0' : 10));
+                total_score += (input[i+2] == 'X') ? 10 : (input[i+2] == '/') ? 10 - (input[i+1]-'0') : input[i+1] - '0';
+                total_score += (input[i+4] == 'X') ? 10 : (input[i+4] == '/') ? 10 - (input[i+3]-'0') : input[i+3] - '0';
+                i++;
+            } else if (frame == 10) {
+                total_score += (input[i+2] == 'X') ? 10 : (input[i+2] == '/') ? 10 - (input[i+1]-'0') : input[i+1] - '0';
+                total_score += (input[i+4] == 'X') ? 10 : (input[i+4] == '/') ? 10 - (input[i+3]-'0') : input[i+3] - '0';
+                total_score += (input[i+6] == 'X') ? 10 : (input[i+6] == '/') ? 10 - (input[i+5]-'0') : input[i+5] - '0';
             }
-            ball = 0;
+            rolls = 0;
             frame++;
-        } else if (isdigit(bowls[i])) {
-            score += bowls[i] - '0';
-            ball = (ball + 1) % 2;
-            if (ball == 0) frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (bowls[i - 1] - '0');
-            ball = (ball + 1) % 2;
-            if (ball == 0) frame++;
+        } else if (input[i] == '/') {
+            total_score += 10 - (input[i-1] - '0');
+            total_score += (input[i+1] == 'X') ? 10 : input[i+1] - '0';
+            rolls = 0;
+            frame++;
+        } else {
+            total_score += input[i] - '0';
+            rolls++;
+            if (rolls == 2) {
+                rolls = 0;
+                frame++;
+            }
         }
     }
-    return score;
+    return total_score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << getScore(bowls) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
