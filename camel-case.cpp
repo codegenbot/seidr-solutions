@@ -1,36 +1,29 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++; // skip the '-'
-            while (i < str.length() && str[i] == '-') {
-                i++;
-            }
-            if (i < str.length()) {
-                result += std::string(1, toupper(str[i])).substr(0, 1);
-                i--; // back to the last letter of the word
-            } else break;
-        } else if (str[i] != ' ') {
-            if (!result.empty() && isalpha(result.back())) {
-                result.push_back(tolower(str[i]));
-            } else {
-                result += std::string(1, tolower(str[i])).substr(0, 1);
-            }
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
+
     return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        string str;
-        cin >> str;
-        cout << camelCase(str) << endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "CamelCase: " << camelCase(input) << std::endl;
+
     return 0;
 }
