@@ -1,11 +1,12 @@
-using namespace std;
+```cpp
+#include <string>
 
-string middleCharacter(string str) {
+std::string middleCharacter(std::string str) {
     int len = str.length();
-    string result;
+    std::string result;
 
     if (len % 2 != 0) { 
-        result = str.substr(len / 2 - 1, 1);
+        result = str.substr(len / 2, 1);
     } else { 
         result = str.substr((len / 2) - 1, 2);
     }
