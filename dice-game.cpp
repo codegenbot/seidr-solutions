@@ -1,6 +1,16 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / total;
+double probability(int n, int m) {
+    if (n <= m)
+        return 1.0 - (m + 1.0) / n;
+    else
+        return (n - m) * 1.0 / n;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(10) << probability(n, m);
+    return 0;
 }
