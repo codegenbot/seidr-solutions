@@ -1,13 +1,11 @@
-#include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
 
 bool cycpattern_check(const std::string& a, const std::string& b) {
-    return (a + a).find(b) != std::string::npos;
+    return a.size() == b.size() && (a + a).find(b) != std::string::npos;
 }
 
 int main() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-    
+    assert(cycpattern_check("winemtt","tinem"));
     return 0;
 }
