@@ -1,4 +1,7 @@
-n = int(input().strip())
+from typing import List
+
+n = int(input())
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -10,6 +13,7 @@ def factorize(n: int) -> List[int]:
         else:
             divisor += 1
     return factors
+
 
 result = factorize(n)
 print(result)
