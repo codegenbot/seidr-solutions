@@ -27,12 +27,16 @@ std::vector<float> read_input_numbers() {
     return numbers;
 }
 
-std::vector<float> numbers = read_input_numbers();
+int main() {
+    std::vector<float> numbers = read_input_numbers();
 
-if (numbers.empty()) {
-    std::cout << "No numbers provided. Exiting." << std::endl;
-    return 1;
+    if (numbers.empty()) {
+        std::cout << "No numbers provided. Exiting." << std::endl;
+        return 1;
+    }
+
+    float mad = mean_absolute_deviation(numbers);
+    std::cout << "Mean Absolute Deviation: " << mad << std::endl;
+
+    return 0;
 }
-
-float mad = mean_absolute_deviation(numbers);
-std::cout << "Mean Absolute Deviation: " << mad << std::endl;
