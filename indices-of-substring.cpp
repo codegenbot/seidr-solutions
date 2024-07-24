@@ -5,7 +5,9 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
-    std::getline(std::cin >> std::ws, target);
+
+    std::cin.ignore();
+    std::getline(std::cin, target);
 
     std::vector<int> indices;
 
@@ -15,7 +17,7 @@ int main() {
         pos = text.find(target, pos + 1);
     }
 
-    for(int index : indices) {
+    for (int index : indices) {
         std::cout << index << " ";
     }
 
