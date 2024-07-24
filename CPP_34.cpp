@@ -16,14 +16,12 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    cout << "Original Vector: ";
+    vector<int> result(l.size()); 
     for (int i : l) {
-        cout << i << " ";
+        auto it = std::find(result.begin(), result.end(), i);
+        if (it == result.end())
+            result.push_back(i);
     }
-    cout << endl;
-    
-    vector<int> result = unique(l);
-    cout << "Unique Elements: ";
     for (int i : result) {
         cout << i << " ";
     }
