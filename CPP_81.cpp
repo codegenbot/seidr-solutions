@@ -1,20 +1,16 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& expected, const vector<string>& actual) {
-    if (expected.size() != actual.size()) {
-        return false;
-    }
-    for (int i = 0; i < expected.size(); i++) {
-        if (expected[i] != actual[i]) {
-            return false;
-        }
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
     }
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0) {
             letter_grades.push_back("A+");
@@ -48,10 +44,10 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> input = {0, 0.7};
-    vector<string> expectedOutput = {"E", "D-"};
+    std::vector<float> input = {0, 0.7};
+    std::vector<std::string> expectedOutput = {"E", "D-"};
 
-    if (!issame(expectedOutput, numerical_letter_grade(input))) {
+    if (!issame(numerical_letter_grade(input), expectedOutput)) {
         std::cout << "Error: Expected output is not matching with the actual one." << std::endl;
         return 1;
     }
