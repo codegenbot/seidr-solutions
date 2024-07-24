@@ -36,7 +36,7 @@ int main() {
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "Enter a text string: ";
     if (!getline(cin >> ws, text)) {
@@ -44,13 +44,13 @@ int main() {
         return 1;
     }
 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     cout << "Enter a target string: ";
     if (!getline(cin >> ws, target)) {
         cerr << "Error reading target string" << endl;
         return 1;
     }
-
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
 
     vector<int> result = findSubstringIndices(text, target);
 
