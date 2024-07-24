@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -31,9 +30,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
-    return 0;
 }
