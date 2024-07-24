@@ -27,11 +27,9 @@ int main() {
         vec.push_back(temp);
     }
     
-    if (match_parens(vec)) {
-        std::cout << "Yes" << std::endl;
-    } else {
-        std::cout << "No" << std::endl;
-    }
-    
+    if(match_parens(vec) == 1)
+        std::cout << "Yes";
+    else
+        std::cout << "No";
     return 0;
 }
