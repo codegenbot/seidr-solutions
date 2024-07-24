@@ -1,43 +1,35 @@
-```cpp
-#include <cctype>
 #include <vector>
 #include <string>
 
-using namespace std;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    size_t pos = 0, prev_pos = 0;
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string currentWord = "";
-    
-    for (char c : txt) {
-        if (isspace(c)) {
-            if (!currentWord.empty()) {
-                result.push_back(currentWord);
-                currentWord = "";
-            }
-        } else if (c == ',') {
-            if (!currentWord.empty()) {
-                result.push_back(currentWord);
-                currentWord = "";
-            }
-        } else {
-            currentWord += c;
+    while (pos != std::string::npos) {
+        pos = txt.find(' ', prev_pos);
+        if (pos == std::string::npos) {
+            result.push_back(txt.substr(prev_pos));
+            break;
         }
+        if (txt.find(',', pos) != std::string::npos) {
+            size_t comma_pos = txt.find(',', pos);
+            if (comma_pos < pos) {
+                pos = comma_pos;
+            }
+        }
+        result.push_back(txt.substr(prev_pos, pos - prev_pos));
+        prev_pos = pos + 1;
     }
-    
-    if (!currentWord.empty()) {
-        result.push_back(currentWord);
-    } 
 
-    if (result.size() > 0) {
+    if (result.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c)) {
-                count++;
+            if ((int)c >= 97 && (int)c <= 122 && (count & 1)) {
+                result.push_back(std::to_string(count));
             }
+            count++;
         }
-        result.push_back(to_string(count));
     }
-    
+
     return result;
 }
