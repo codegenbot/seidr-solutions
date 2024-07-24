@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
