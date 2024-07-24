@@ -1,5 +1,4 @@
-Here is the solution:
-
+```Python
 def find_factorization(n):
     i = 2
     factors = []
