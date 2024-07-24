@@ -1,12 +1,10 @@
+def modify_string(string: str) -> str:
+    return string.swapcase()
+
+
 def check():
-    string = input().strip()
+    string = input("Enter a string containing both upper and lower case letters: ")
     return modify_string(string)
 
-def modify_string(string):
-    string = string.strip()
-    return "".join(
-        [char.lower() if char.isupper() else char.upper() for char in string]
-    )
 
-output = check()
-print(output)
+print(check())
