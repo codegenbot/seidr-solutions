@@ -5,12 +5,14 @@ def triangle_area(a, h):
 
 while True:
     try:
-        a = int(input("Enter the length of a side: "))
-        h = int(input("Enter the height of the triangle: "))
+        a = float(input("Enter the length of a side: "))
+        h = float(input("Enter the height of the triangle: "))
+        if a <= 0 or h <= 0:
+            raise ValueError("Invalid input. Please enter positive numeric values.")
         result = triangle_area(a, h)
         print(result)
         break
-    except ValueError:
-        print("Invalid input. Please enter numeric values.")
+    except ValueError as e:
+        print(e)
     except Exception:
         print("An error occurred. Please try again.")
