@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
-#include <vector>
 
-int sum_squares(const std::vector<int>& arr) {
+int sum_squares(int arr[]) {
     int sum = 0;
     for (int i : arr) {
         sum += i * i;
@@ -10,7 +10,7 @@ int sum_squares(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    int result = sum_squares(arr);
+    int numbers[] = {1, 2, 3, 4, 5};
+    int result = sum_squares(numbers);
     std::cout << "The sum of squares is: " << result << std::endl;
 }
