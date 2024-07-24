@@ -14,6 +14,6 @@ def minPath(grid, k):
                 paths.extend(dfs(ni, nj, path + [m[ni][nj]], visited))
                 visited.remove(m[ni][nj])
 
-        return sorted(set([path + p for p in paths]))
+        return [p for p in paths]
 
     return [p for p in dfs(0, 0, [], set()) if len(p) == k]
