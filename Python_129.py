@@ -12,11 +12,11 @@ def minPath(grid, k):
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 new_sum = curr_sum + m[ni][nj]
-                new_path = dfs(
-                    ni, nj, path + [m[ni][nj]], visited.add((ni, nj)), new_sum
-                )
+                new_path = dfs(ni, nj, path + [m[ni][nj]], visited.add((ni, nj)), new_sum)
                 if min_path is None or sum(new_path) < sum(min_path):
                     min_path = new_path
-        return min_path
+                if curr_sum == k:
+                    return path
+        return min_path if min_path else None
 
     return dfs(0, 0, [], set(), grid[0][0])
