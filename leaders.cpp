@@ -5,12 +5,15 @@ using namespace std;
 
 vector<int> leaders(vector<int>& v) {
     vector<int> res(v.size(), 0); 
-    for (int i = 0; i < v.size(); ++i) {
-        int rightmost = v.back();
-        res[i] = rightmost;
-        while (v[--i] >= rightmost) {
-            rightmost = v[i];
+    int rightmost = v.back();
+    for (int i = v.size() - 1; i >= 0; --i) {
+        rightmost = v[i];
+        for (int j = i + 1; j < v.size(); ++j) {
+            if (v[j] >= rightmost) {
+                rightmost = v[j];
+            }
         }
+        res[i] = rightmost;
     }
     return res;
 }

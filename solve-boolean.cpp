@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,48 +12,42 @@ bool solveBoolean(std::string expression) {
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
         if (c == '|') {
-            size_t start_index = 0;
-            std::size_t string_left_length = 0;
-            for (int j = 0; j < i; j++) {
-                if (expression[j] == '|') {
-                    start_index = j + 1;
+            size_t left_end = 0;
+            size_t right_start = i + 1;
+
+            for (; left_end < i; left_end++) {
+                if (expression[left_end] == '|') {
                     break;
                 }
             }
-            start_index += expression.find_first_of("|&", start_index) + 1;
 
-            std::string left = expression.substr(start_index, string_left_length);
-            size_t end_index = expression.size() - 1;
-            for (; end_index > i; end_index--) {
-                if (expression[end_index] == '|') {
+            for (; right_start <= expression.size(); right_start++) {
+                if (expression[right_start] == '|') {
                     break;
                 }
             }
-            end_index -= expression.find_last_of("|&", end_index) + 1;
 
-            std::string right = expression.substr(end_index + 1);
+            std::string left = expression.substr(0, left_end);
+            std::string right = expression.substr(right_start, expression.size() - right_start);
             return solveBoolean(left) || solveBoolean(right);
         } else if (c == '&') {
-            size_t start_index = 0;
-            std::size_t string_left_length = 0;
-            for (int j = i; j < expression.size(); j++) {
-                if (expression[j] == '|' || expression[j] == '&') {
-                    start_index = j + 1;
+            size_t left_end = 0;
+            size_t right_start = i + 1;
+
+            for (; left_end < i; left_end++) {
+                if (expression[left_end] == '&' || expression[left_end] == '|') {
                     break;
                 }
             }
-            start_index += expression.find_first_of("|&", start_index) + 1;
 
-            std::string left = expression.substr(0, string_left_length);
-            size_t end_index = i + 1;
-            for (; end_index < expression.size(); end_index++) {
-                if (expression[end_index] == '|' || expression[end_index] == '&') {
+            for (; right_start <= expression.size(); right_start++) {
+                if (expression[right_start] == '&' || expression[right_start] == '|') {
                     break;
                 }
             }
-            end_index -= expression.find_last_of("|&", end_index) - start_index;
 
-            std::string right = expression.substr(end_index);
+            std::string left = expression.substr(0, left_end);
+            std::string right = expression.substr(right_start, expression.size() - right_start);
             return solveBoolean(left) && solveBoolean(right);
         }
     }

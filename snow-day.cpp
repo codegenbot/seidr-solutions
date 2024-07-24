@@ -17,15 +17,16 @@ int main() {
 
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     
-    std::cout << "Enter initial snow: " << std::fixed;
-    std::cin >> std::fixed >> initialSnow;
+    std::cout << "Enter initial snow: " << std::fixed << std::setprecision(6);
+    std::cin >> initialSnow;
     
-    std::cout << "Enter rate of snow fall: " << std::fixed;
+    std::cout << "Enter rate of snow fall: " << std::fixed << std::setprecision(6);
     std::cin >> rateOfSnowFall;
 
-    std::cout << "Enter proportion of snow melting per hour: " << std::fixed;
+    std::cout << "Enter proportion of snow melting per hour: " << std::fixed << std::setprecision(6);
     std::cin >> proportionOfSnowMeltingPerHour;
 
-    std::cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
+    float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    std::cout << fixed << setprecision(10) << result << std::endl;
     return 0;
 }
