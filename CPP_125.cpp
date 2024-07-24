@@ -1,35 +1,33 @@
+```cpp
 #include <vector>
-#include <algorithm>
-#include <cctype>
+#include <string>
 
-using namespace std;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    
     size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
+    while ((pos = txt.find(' ')) != std::string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    
+
     if (txt.empty()) {
         return result;
     }
-    
+
     pos = txt.find(',');
-    if (pos == string::npos) {
+    if (pos == std::string::npos) {
         int oddCount = 0;
         for (char c : txt) {
-            if (isalpha(c)) {
-                if (tolower(c) - 'a' % 2 != 0) {
+            if (c >= 'a' && c <= 'z') {
+                if ((static_cast<int>(c) - static_cast<int>('a')) % 2 != 0) {
                     oddCount++;
                 }
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(std::to_string(oddCount));
     } else {
-        while ((pos = txt.find(',')) != string::npos) {
+        while ((pos = txt.find(',')) != std::string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
         }
@@ -37,6 +35,6 @@ vector<string> split_words(string txt) {
             result.push_back(txt);
         }
     }
-    
+
     return result;
 }
