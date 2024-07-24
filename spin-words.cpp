@@ -5,17 +5,23 @@
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
+    std::string reversed = "";
     
     for (int i = 0; i < str.length(); i++) {
         if (i == str.length() - 1 || str[i + 1] == ' ') {
-            word = (i == 0 || str[i - 1] != ' ') ? str.substr(i) : " ";
+            word = str.substr(i);
             
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
             
-            word = result.empty() ? word : " " + word;
-            result += word;
+            reversed += word;
+            if (!result.empty()) {
+                result += " ";
+            } else {
+                result = reversed;
+            }
+            reversed = "";
         }
     }
     
