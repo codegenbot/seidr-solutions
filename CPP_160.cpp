@@ -1,3 +1,5 @@
-if (stoi(operators[1]) == 0) {
-    result = pow(stod(expressions[0]), stod(expressions[1]));
-} else {
+```cpp
+if (operators[0] == "**") {
+    int result = pow(stoi(num1), stoi(num2));
+    cout << "Result: " << result << endl;
+}
