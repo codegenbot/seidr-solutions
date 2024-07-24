@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <cassert>
@@ -12,3 +13,4 @@ bool same_chars(string s0, string s1) {
 int main() {
     assert (same_chars("aabb", "aaccc") == false);
     return 0;
+}
