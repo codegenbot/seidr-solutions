@@ -3,6 +3,7 @@ def find_pair(n, nums, target):
     for num in nums:
         if target - num in seen:
             return str(target - num) + "\n" + str(num)
+        seen.add(num)
 
 n = int(input())
 nums = [int(x) for x in input().split()]
