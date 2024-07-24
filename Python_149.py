@@ -1,2 +1,3 @@
 def sorted_list_sum(lst):
-    return sum(map(ord, "".join(sorted(str(i) for i in set(lst)))))
+    alpha_sum = sum(ord(i) for i in "".join(filter(str.isalpha, map(str, lst))))
+    return sum(int(i) for i in str(alpha_sum))
