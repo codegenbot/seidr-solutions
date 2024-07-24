@@ -1,14 +1,17 @@
+```
+#include <stack>
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string booleanExpression) {
-    std::stack<char> operatorStack;
-    std::stack<std::string> operandStack;
+bool solveBoolean(string booleanExpression) {
+    stack<char> operatorStack;
+    stack<string> operandStack;
 
     for (int i = 0; i < booleanExpression.length(); i++) {
         if (booleanExpression[i] == '|' || booleanExpression[i] == '&') {
-            std::string rightOperand = operandStack.top();
+            string rightOperand = operandStack.top();
             operandStack.pop();
-            std::string leftOperand = operandStack.top();
+            string leftOperand = operandStack.top();
             operandStack.pop();
 
             if (booleanExpression[i] == '|') {
@@ -17,7 +20,7 @@ bool solveBoolean(std::string booleanExpression) {
                 operandStack.push((leftOperand == "T" && rightOperand == "T") ? "T" : "F");
             }
         } else if (booleanExpression[i] != ' ') {
-            std::string operand;
+            string operand;
             while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
                 operand += booleanExpression[i];
                 i++;
@@ -29,3 +32,5 @@ bool solveBoolean(std::string booleanExpression) {
 
     return (operandStack.top() == "T");
 }
+
+int main() { return solveBoolean("T|F&F"); }
