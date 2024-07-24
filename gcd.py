@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     if not (isinstance(a, int) and isinstance(b, int)):
         return "Invalid input for GCD. Please enter integers."
