@@ -1,13 +1,9 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
         reverse(s.begin(), s.end());
     }
     return s;
