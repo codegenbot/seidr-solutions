@@ -33,7 +33,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
                 if (operator_[j] == "**") {
                     temp = pow(temp, operand[j + 1]);
                 } else if (operator_[j] == "+") {
-                    result += pow(temp, operand[j + 1]);
+                    result += temp;
                     break;
                 }
             }
