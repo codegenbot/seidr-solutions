@@ -2,6 +2,7 @@
 #include <cmath>
 #include <vector>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -69,7 +70,7 @@ int main() {
     getline(cin, input);
     expressions = split(input);
 
-    double output = do_algebra({expressions[0], expressions[1], expressions[2]});
+    double output = do_algebra(expressions);
     cout << "Result: " << output << endl;
     return 0;
 }
