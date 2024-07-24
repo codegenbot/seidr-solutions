@@ -1,16 +1,18 @@
 n = int(input())
-vec = []
-for _ in range(n):
-    vec.append(int(input()))
+arr = [int(input()) for _ in range(n)]
 
-diff = float("inf")
+total_sum = sum(arr)
+half_sum = total_sum // 2
+current_sum = 0
 idx = 0
 
-for i in range(1, n):
-    curr_diff = abs(sum(vec[:i]) - sum(vec[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        idx = i
+while current_sum <= half_sum:
+    current_sum += arr[idx]
+    idx += 1
 
-print(*vec[:idx])
-print(*vec[idx:])
+if current_sum == half_sum or current_sum - arr[idx - 1] == half_sum:
+    print(*arr[:idx])
+    print(*arr[idx:])
+else:
+    print(*arr)
+    print(0)
