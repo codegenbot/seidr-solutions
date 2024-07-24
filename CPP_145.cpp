@@ -1,6 +1,7 @@
+```cpp
 #include <algorithm>
+#include <assert.h>
 #include <vector>
-#include <iostream>
 
 bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -19,7 +20,26 @@ bool order_by_points(std::vector<int> arr) {
 }
 
 int mainFunction() {
-    std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    std::vector<std::vector<int>> arr = {{0}, {6}, {6}, {-76}, {-21}, {23}, {4}};
+    std::vector<int> result = {};
+    for (const auto& v : arr) {
+        if (result.empty()) {
+            result = v;
+        } else {
+            while (!order_by_points({result.back(), v.back()})) {
+                if (v.back() > result.back()) {
+                    result.push_back(v.back());
+                    v.pop_back();
+                } else {
+                    result.push_back(result.back());
+                    result.pop_back();
+                }
+            }
+            for (int i : v) {
+                result.push_back(i);
+            }
+        }
+    }
     assert(areEqual(result, {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
     return 0;
 }
