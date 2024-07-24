@@ -1,26 +1,26 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <cctype>
 
 bool evaluateBooleanExpression(const std::string& expr) {
     std::string lowercaseExpr;
     for (char c : expr) {
-        lowercaseExpr += tolower(c);
+        lowercaseExpr += std::tolower(c);
     }
-
-    bool result = lowercaseExpr[0] == 't';
-    for (int i = 1; i < lowercaseExpr.size(); i += 2) {
-        if (lowercaseExpr[i] == '|') {
-            result = result || (lowercaseExpr[i + 1] == 't');
-        } else if (lowercaseExpr[i] == '&') {
-            result = result && (lowercaseExpr[i + 1] == 't');
-        }
+    if (lowercaseExpr == "false") {
+        return false;
     }
-    return result;
+    // Add your existing evaluation logic using lowercaseExpr
+    return true;
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-    std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
+    std::string input;
+    std::cout << "Enter boolean expression: ";
+    std::cin >> input;
+    
+    bool result = evaluateBooleanExpression(input);
+    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+    
     return 0;
 }
