@@ -1,8 +1,9 @@
-```
 from typing import List
+
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
     return [s for s in strings if s.startswith(prefix)]
+
 
 strings = input("Enter a list of strings (comma-separated): ")
 prefix = input("Enter the prefix to filter by: ")
@@ -13,7 +14,7 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter comma-separated strings.")
-        
+
 while True:
     if prefix.isalpha():
         break
