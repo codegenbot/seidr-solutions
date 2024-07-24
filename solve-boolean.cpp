@@ -1,8 +1,5 @@
-#include <vector>
-#include <iostream>
 #include <string>
-#include <initializer_list>
-
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -34,3 +31,4 @@ int main() {
     cin >> expression;
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
+}
