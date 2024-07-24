@@ -1,11 +1,13 @@
 ```
-string remove_vowels(string text){
-    string result = "";
-    for(int i=0; i < text.length(); i++){
-        char c = tolower(text[i]);
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-            result += text[i];
-        }
+string str = "";
+for (char c : text) {
+    if (!isvowel(c)) {
+        str += c;
     }
-    return result;
+}
+return str;
+
+bool isvowel(char c) {
+    char small = tolower(c);
+    return (small == 'a' || small == 'e' || small == 'i' || small == 'o' || small == 'u');
 }
