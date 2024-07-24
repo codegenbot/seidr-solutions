@@ -14,4 +14,4 @@ def make_palindrome(string: str) -> str:
     right_half = string[half:][::-1]
     if len(left_half) < len(right_half):
         return left_half + left_half[::-1] + right_half
-    return left_half + right_half + ""
+    return left_half + "" + right_half
