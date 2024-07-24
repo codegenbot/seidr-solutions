@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -37,9 +36,9 @@ int main() {
     vector<int> input;
     cout << "Enter numbers separated by space: ";
     int temp;
-    while (cin >> temp) {
+    while(cin >> temp) {
         input.push_back(temp);
-        if (cin.peek() == '\n') break;
+        if(cin.peek() == '\n') break;
     }
     if(input.empty()) return 0;
     vector<int> output = strange_sort_list(input);
