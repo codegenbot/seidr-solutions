@@ -1,20 +1,43 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str.find(" ", i) == -1 || i + 1 >= str.length())
-            result += str.substr(i);
-        else {
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5)
-                result += std::string(word.rbegin(), word.rend());
-            else
-                result += word;
-            i = j + 1;
+std::string spinWords(std::string str) {
+    std::vector<std::string> words;
+    std::string word;
+
+    // Split the string into individual words
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i);
+            words.push_back(word);
+            i++;
         }
     }
+
+    // Reverse the words that are five or more letters long
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            std::string reversedWord;
+            for (int j = words[i].length() - 1; j >= 0; j--) {
+                reversedWord += words[i][j];
+            }
+            words[i] = reversedWord;
+        }
+    }
+
+    // Join the words back into a string
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += " ";
+        }
+        result += words[i];
+    }
+
     return result;
+}
+
+int main() {
+    std::cout << spinWords("this is a test") << std::endl;
+    return 0;
 }
