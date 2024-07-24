@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -7,15 +7,12 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    if(is_palindrome(str)) return str; // base case: if input is already palindrome
+    if(is_palindrome(str))
+        return str;
     
-    int i = 0, j = str.size() - 1; // initialize pointers for finding palindromic suffix
-    while(i < j && str[i] == str[j]) {
-        i++; j--;
+    for(int i=str.length()-1; i>=0; i--){
+        if(!is_palindrome(str + string(1, str[i])))
+            break;
     }
-    
-    string prefix = str.substr(0, i); // get the prefix of non-palindromic part
-    string postfix = str.substr(j+1); // get the postfix of palindromic part
-    
-    return prefix + str.substr(i) + reverse(postfix);
+    return str + string(str.rbegin(),str.rend());
 }
