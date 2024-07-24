@@ -1,6 +1,8 @@
 #include <iostream>
 #include <unordered_set>
+#include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
