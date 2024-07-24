@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return v1 == v2;
 }
 
-std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) {
+std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
         return {planets.first, "to", planets.second};
     } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
