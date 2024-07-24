@@ -1,6 +1,8 @@
 def encode(message):
     result = ""
-    for char in message:
+    if message:
+        result += " "
+    for char in message[1:]:
         if char.isalpha():
             if char.isupper():
                 result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
