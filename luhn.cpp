@@ -1,17 +1,19 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgo(vector<int> cardNum) {
+int luhn(vector<int> numbers) {
     int sum = 0;
-    bool alternate = false;
-    for (int i = cardNum.size() - 1; i >= 0; --i) {
-        int digit = cardNum[i];
-        if (alternate) {
+    bool doubleNext = false;
+    for (int i = numbers.size() - 1; i >= 0; --i) {
+        int digit = numbers[i];
+        if (doubleNext) {
             digit *= 2;
-            if (digit > 9) digit -= 9;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
         sum += digit;
-        alternate = !alternate;
+        doubleNext = !doubleNext;
     }
     return sum;
 }
