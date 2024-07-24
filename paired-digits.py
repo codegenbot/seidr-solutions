@@ -1,10 +1,9 @@
-Here's a Python solution for the problem:
-
+```
 def paired_digits(s):
-    return sum(int(d) for d in s if s[s.index(d)+1] == d)
-
-print(paired_digits("99"))  # Output: 9
-print(paired_digits("88"))  # Output: 8
-print(paired_digits("77"))  # Output: 7
-print(paired_digits("55"))  # Output: 5
-print(paired_digits("44"))  # Output: 4
+    total = 0
+    i = 0
+    while i < len(s) - 1:
+        if s[i] == s[i+1]:
+            total += int(s[i])
+        i += 1
+    return total
