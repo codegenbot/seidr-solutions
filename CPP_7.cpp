@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-namespace problem7 {
+namespace ProblemSolver {
     std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
         std::vector<std::string> result;
         for(string s : strings){
