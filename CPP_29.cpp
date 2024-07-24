@@ -2,7 +2,15 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -16,15 +24,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> input = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
-    string prefix = "xxx";
-    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
-    
-    vector<string> output = filter_by_prefix(input, prefix);
-    if (!issame(output, expected)) {
-        cout << "Test failed" << endl;
-        return 1;
-    }
-    cout << "Test passed" << endl;
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
