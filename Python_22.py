@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def filter_integers() -> List[int]:
     user_input = input("Enter a list of comma-separated numbers (space for separation): ")
