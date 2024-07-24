@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(string cipher1, string cipher2, string message);
+std::string substitutionCipher(string& cipher1, string& cipher2, string& message);
 
 int main() {
     std::string cipher1, cipher2, message;
@@ -13,7 +13,7 @@ int main() {
     return 0;
 }
 
-std::string substitutionCipher(string cipher1, string cipher2, string message) {
+std::string substitutionCipher(string& cipher1, string& cipher2, string& message) {
     std::string result = "";
     for (char c : message) {
         int offset = isupper(c) ? 0 : tolower(c) - 'a';
