@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 std::string flip_case(std::string str){
