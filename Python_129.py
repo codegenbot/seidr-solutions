@@ -18,11 +18,14 @@ def minPath(grid, k):
             res = dfs(x, y, set(visited), list(path), steps + 1)
             if res is not None:
                 return res
+        
+        visited.remove((i, j))
+        path.pop()
+
+        return None
 
     for i in range(N):
         for j in range(N):
             res = dfs(i, j, set(), [], 1)
             if res is not None:
                 return res
-
-    return None
