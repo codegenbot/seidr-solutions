@@ -24,4 +24,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         groups.append(current_group)
         current_group = ""
         stack = []
-    return [g.lstrip("(").rstrip(")") for g in groups]
+    return [group.lstrip("()") for group in groups]
