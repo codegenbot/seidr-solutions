@@ -20,9 +20,8 @@ int main() {
         for (int i : result) {
             cout << i << " ";
         }
-    } catch (exception& e) {
-        cerr << "Error: " << e.what() << endl;
-        return 1; 
+    } catch (...) {
+        cerr << "An error occurred. Please check the input." << endl;
     }
     return 0;
 }
