@@ -1,4 +1,6 @@
+Here is the completed code:
+
 bool iscuber(int a){
-    int root = cbrt(a);
-    return (a >= 0 && root == static_cast<int>(root));
+    int c = round(cbrt(a));
+    return (c*c*c == a);
 }
