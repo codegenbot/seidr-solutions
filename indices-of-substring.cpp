@@ -3,14 +3,17 @@ int main() {
     cin >> text >> target;
     
     vector<int> indices;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        if (text.substr(i, target.size()) == target) {
+    int len_text = text.length();
+    int len_target = target.length();
+    
+    for (int i = 0; i <= len_text - len_target; ++i) {
+        if (text.substr(i, len_target) == target) {
             indices.push_back(i);
         }
     }
     
-    for (int idx : indices) {
-        cout << idx << " ";
+    for (int i : indices) {
+        cout << i << " ";
     }
     
     return 0;
