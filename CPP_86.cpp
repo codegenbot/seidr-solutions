@@ -1,18 +1,17 @@
+```cpp
 string anti_shuffle(string s) {
+    string reversed = s;
+    reverse(reversed.begin(), reversed.end());
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        char temp = s[i];
-        int count = 1;
-        for (int j = i + 1; j <= s.length() - 1; j++) {
-            if (s[j] <= temp) {
-                temp = s[j];
-                count++;
-            } else {
-                break;
-            }
+    int pos = 0;
+    for (char c : reversed) {
+        if (c == ' ') {
+            result += " ";
+            continue;
         }
-        for (int k = 0; k < count; k++) {
-            result += temp;
+        while (pos < s.length() && s[pos] != c) pos++;
+        for (; pos > 0; pos--) {
+            result += s[--pos];
         }
     }
     return result;
