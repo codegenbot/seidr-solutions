@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
+#include <iomanip> // Include for setprecision
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
-        discounts[i] /= 100.0;
+        discounts[i] /= 100.0; // Convert percentage to decimal
     }
 
     float total = 0.0;
@@ -23,7 +23,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i]);
     }
 
-    cout << fixed << setprecision(2) << total << endl;
+    cout << fixed << setprecision(2) << total << endl; // Set precision to 2 decimal places
 
     return 0;
 }
