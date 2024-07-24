@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     for (size_t i = 0; i < n; ++i) {
         bool found = true;
         for (size_t j = 0; j < m; ++j) {
-            if (i + j >= n || target[j] != text[i + j]) {
+            if (i + j >= n || text[i + j] != target[j]) {
                 found = false;
                 break;
             }
@@ -35,17 +36,16 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string input_a, input_b;
-    if (!getline(cin, input_a) || !getline(cin, input_b)) {
+    int a, b;
+    cin >> a >> b;
+    if (cin.fail()) {
         cerr << "Invalid input for integers." << endl;
         return 1;
     }
 
-    int a = stoi(input_a);
-    int b = stoi(input_b);
-
     string text, target;
-    if (!getline(cin, text) || !getline(cin, target)) {
+    cin >> ws >> text >> ws >> target;
+    if (cin.fail()) {
         cerr << "Invalid input for strings." << endl;
         return 1;
     }
