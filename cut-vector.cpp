@@ -12,7 +12,7 @@ int main() {
     for (int num : nums) {
         sum += num;
     }
-
+    
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
@@ -23,7 +23,7 @@ int main() {
             break;
         }
     }
-
+    
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
     std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
 
@@ -33,6 +33,6 @@ int main() {
     for (int num : subvec2) {
         std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
