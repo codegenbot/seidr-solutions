@@ -15,7 +15,7 @@ vector<int> order_by_points(vector<int> nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+            return a < b;
         }
         return sum_a < sum_b;
     });
