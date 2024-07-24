@@ -21,9 +21,9 @@ std::string numerical_letter_grade(const std::vector<int>& grades) {
 }
 
 bool issame(const std::vector<std::string>& a) {
-    return (a.size() == 2 && a[0] == "D-" && a[1] == "F");
+    return (a.size() == 2 && a[0] == "E" && a[1] == "D-");
 }
 
 int main() {
-    assert(issame({"E", "D-" }));
+    assert(issame({{"E"}, {"D-"}}));
 }
