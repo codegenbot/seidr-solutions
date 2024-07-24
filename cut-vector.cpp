@@ -9,9 +9,8 @@ int main() {
     int num;
 
     int temp;
-    while (cin >> temp) {
+    while (cin >> temp || !cin.eof()) {
         nums.push_back(temp);
-        if (cin.get() == '\n') break;
     }
 
     if (nums.empty()) {
