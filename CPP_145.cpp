@@ -28,4 +28,6 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-assert(issame({-76, -21, 0, 4, 23, 6, 6}, order_by_points({0, 6, 6, -76, -21, 23, 4}));
+int main() {
+    assert(issame({-76, -21, 0, 4, 23, 6, 6}, order_by_points({0, 6, 6, -76, -21, 23, 4})));
+}
