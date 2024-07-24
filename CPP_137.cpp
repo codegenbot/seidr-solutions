@@ -1,51 +1,36 @@
-#include <iostream>
+```
+#include <boost/any.hpp>
 #include <string>
-#include <algorithm>
-#include <any>
 
-using namespace std;
-
-any compare_one(any a, any b) {
-    if (holds_alternative<int, float>(a) && holds_alternative<float, int>(b)) {
-        return b;
-    }
-    else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-        string sa = get<string>(a);
-        string sb = get<string>(b);
-        if (stod(sa) > stod(sb))
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y)
             return a;
-        else if (stod(sa) < stod(sb))
+        else if (y > x)
             return b;
         else
-            return "None";
-    }
-    else if (holds_alternative<string>(a) && holds_alternative<int, float>(b)) {
-        string sa = get<string>(a);
-        double sb = get<double>(b);
-        if (stod(sa) > sb)
             return a;
-        else if (stod(sa) < sb)
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        if (x > y)
+            return a;
+        else if (y > x)
             return b;
         else
-            return "None";
-    }
-    else if (holds_alternative<int, float>(a) && holds_alternative<string>(b)) {
-        double sa = get<double>(a);
-        string sb = get<string>(b);
-        if (sa > stod(sb))
             return a;
-        else if (sa < stod(sb))
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string x = boost::any_cast<std::string>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        if (std::stod(x) > std::stod(y))
+            return a;
+        else if (std::stod(y) > std::stod(x))
             return b;
         else
-            return "None";
-    }
-    
-    // If none of the above conditions are met, it means both variables are of same type.
-    // In this case, we can compare them directly.
-    if (a > b)
+            return a;
+    } else {
         return a;
-    else if (a < b)
-        return b;
-    else
-        return "None";
+    }
 }
