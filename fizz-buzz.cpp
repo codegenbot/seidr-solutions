@@ -1,12 +1,21 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-int fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
-        return std::to_string(x);
-    else if (x % 3 == 0)
+string fizzBuzz(int x) {
+    if(x % 3 == 0 && x % 5 == 0)
+        return "FizzBuzz";
+    else if(x % 3 == 0)
         return "Fizz";
-    else if (x % 5 == 0)
+    else if(x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x);
+        return to_string(x);
+}
+
+int main() {
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << fizzBuzz(n) << endl;
+    return 0;
 }
