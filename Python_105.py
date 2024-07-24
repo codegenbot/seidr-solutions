@@ -16,5 +16,3 @@ def check_sum_in_range():
         return "Correct"
     else:
         return "Incorrect"
-
-print(check_sum_in_range())
