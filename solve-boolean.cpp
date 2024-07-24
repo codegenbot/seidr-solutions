@@ -1,15 +1,26 @@
-bool solve_boolean(const string& expression) {
-    if (expression == "t") {
+bool evaluateBoolExpression(const string& s) {
+    if (s == "t") {
         return true;
-    }
-    if (expression == "f") {
+    } else if (s == "f") {
         return false;
-    }
-    char op = expression[1];
-    if (op == '&') {
-        return expression[0] == 't' && expression[2] == 't';
-    } else if (op == '|') {
-        return expression[0] == 't' || expression[2] == 't';
+    } else {
+        char op = s.back();
+        if (op == '|') {
+            return s[0] == 't' || s[1] == 't';
+        } else if (op == '&') {
+            return s[0] == 't' && s[1] == 't';
+        }
     }
     return false;
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+    if (evaluateBoolExpression(expression)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
