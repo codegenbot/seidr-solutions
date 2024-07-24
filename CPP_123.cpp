@@ -2,8 +2,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -24,5 +22,6 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     assert(issame(get_odd_collatz(1), std::vector<int>{1}));
+
     return 0;
 }
