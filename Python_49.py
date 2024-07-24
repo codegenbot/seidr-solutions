@@ -1,7 +1,19 @@
-def find_prime(n: int):
-    if n < 2:
-        return None
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return None
-    return n
+```
+def powermod(base: int, exponent: int, modulus: int):
+    result = 1
+    base = base % modulus
+    while exponent > 0:
+        if exponent % 2 == 1:
+            result = (result * base) % modulus
+        exponent = exponent // 2
+        base = (base * base) % modulus
+    return result
+
+def modp(n: int, p: int):
+    if p <= 1:
+        return n
+    elif p % 2 == 0:
+        half_mod = modp(-n if n < 0 else n, p // 2)
+        return powermod(-n if n < 0 else n, half_mod, p)
+    else:
+        return powermod(-n if n < 0 else n, p, p)
