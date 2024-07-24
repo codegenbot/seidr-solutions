@@ -1,14 +1,5 @@
+```
 def camel_case(s):
-    return (
-        "".join(word.capitalize() for word in s.split())
-        if " " in s
-        else s.replace("-", "")
-    )
+    return ''.join(word.capitalize() for word in s.split() if word).replace('-', '')
 
-
-while True:
-    try:
-        s = input()
-        print(camel_case(s))
-    except EOFError:
-        break
+print(camel_case(input()))
