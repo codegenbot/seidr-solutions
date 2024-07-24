@@ -1,7 +1,10 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -87,3 +90,11 @@ int main() {
 
     return 0;
 }
+
+vector<vector<string>> test = {{"aaaa","bbbb","dd","cc"}};
+vector<string> output = sorted_list_sum(test);
+cout << "The result is: ";
+for (const auto& str : output) {
+    cout << str << " ";
+}
+cout << endl;
