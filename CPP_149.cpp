@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -25,25 +24,13 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(sum);
-    }
-    
-    std::vector<int> sorted_sums(sums.begin(), sums.end()); 
+        sums.push_back(std::to_string(sum)); 
+    } 
+
+    std::vector<std::string> sorted_sums(sums.begin(), sums.end());
     std::sort(sorted_sums.begin(), sorted_sums.end()); 
 
-    std::vector<int> sorted_ints; 
-    for (int sum : sorted_sums) { 
-        sorted_ints.push_back(sum); 
-    }
-
-    std::sort(sorted_ints.begin(), sorted_ints.end()); 
-
-    std::vector<std::string> result;
-    for (int num : sorted_ints) {
-        result.push_back(std::to_string(num));
-    }
-    
-    return result;
+    return sorted_sums;
 }
 
 int main() {
