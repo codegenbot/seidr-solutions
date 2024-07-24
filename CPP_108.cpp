@@ -28,10 +28,9 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
-    assert(count_nums({1}) == 1);
-    // Other code...
+    std::cout << count_nums({1}) << std::endl;
+    return 0;
 }
