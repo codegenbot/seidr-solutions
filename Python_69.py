@@ -16,8 +16,7 @@ def is_prime(n):
     return True
 
 
-input_str = input("Enter a series of space-separated integers: ")
-nums = list(map(int, input_str.split()))
+nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
 if not all(isinstance(num, int) for num in nums):
     print("Invalid input! Please enter only integers.")
 else:
