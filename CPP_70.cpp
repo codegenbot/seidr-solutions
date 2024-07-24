@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -6,19 +7,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
-std::vector<int> sortList(std::vector<int> input) {
-    for(int i = 0; i < input.size(); i++) {
-        for(int j = i + 1; j < input.size(); j++) {
-            if(input[i] > input[j]) {
-                std::swap(input[i], input[j]);
-            }
-        }
-    }
-    return input;
+std::vector<int> sortList(const std::vector<int>& input) {
+    std::vector<int> output = input;
+    std::sort(output.begin(), output.end());
+    return output;
 }
 
-int main 
-{ 
+int main() {
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
@@ -34,4 +29,4 @@ int main
     for(int i : output) {
         std::cout << i << " ";
     }
-}
+};
