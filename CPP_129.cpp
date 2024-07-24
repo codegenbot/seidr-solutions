@@ -37,7 +37,7 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         }
         
         sort(nextPoses.begin(), nextPoses.end());
-        tie(i, j) = make_pair(nextPoses[0].second, nextPoses[0].first);
+        tie(i, j) = make_pair(nextPoses[0].second, nextPoses[0].third);
     }
     
     return res;
