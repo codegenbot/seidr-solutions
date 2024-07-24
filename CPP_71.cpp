@@ -4,3 +4,4 @@ float triangle_area(float a, float b, float c) {
     }
     float s = (a + b + c) / 2.0;
     return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
+}
