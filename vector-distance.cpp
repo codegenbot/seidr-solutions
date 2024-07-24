@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 
 using namespace std;
 
@@ -14,7 +13,7 @@ int main() {
         cin >> v1[i];
     }
     
-    cin.ignore(numeric_limits<streamsize>::max(), ' '); // Skip spaces and comma
+    cin.ignore(1); // Skip the comma between the two float values
     
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
