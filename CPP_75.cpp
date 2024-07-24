@@ -1,44 +1,42 @@
+#include <cmath>
+
 bool is_multiply_prime(int a) {
-    bool flag = true;
-    for (int i = 2; i <= 100; i++) {
-        if (a % i == 0) {
-            int temp = i;
-            for (; temp * temp <= a; temp++) {
-                if (temp % i != 0) {
-                    break;
-                }
+    for (int i = 2; i <= sqrt(a); i++) {
+        int temp = a;
+        bool prime = true;
+        while (temp > 1) {
+            if (temp % i != 0) {
+                break;
             }
-            if (temp * temp > a) {
-                int j = i + 1;
-                while (j <= 100) {
-                    if (a % j == 0) {
-                        int k = j;
-                        for (; k * k <= a; k++) {
-                            if (k % j != 0) {
+            temp /= i;
+        }
+        if (temp == 1) {
+            for (int j = 2; j <= sqrt(a); j++) {
+                int temp2 = a;
+                bool prime2 = true;
+                while (temp2 > 1) {
+                    if (temp2 % j != 0) {
+                        break;
+                    }
+                    temp2 /= j;
+                }
+                if (temp2 == 1) {
+                    for (int k = 2; k <= sqrt(a); k++) {
+                        int temp3 = a;
+                        bool prime3 = true;
+                        while (temp3 > 1) {
+                            if (temp3 % k != 0) {
                                 break;
                             }
+                            temp3 /= k;
                         }
-                        if (k * k > a) {
-                            int l = j + 1;
-                            while (l <= 100) {
-                                if (a % l == 0) {
-                                    flag = false;
-                                    return flag;
-                                }
-                                l++;
-                            }
-                        } else {
-                            flag = false;
-                            return flag;
+                        if (temp3 == 1) {
+                            return true;
                         }
                     }
-                    j++;
                 }
-            } else {
-                flag = false;
-                return flag;
             }
         }
     }
-    return flag;
+    return false;
 }
