@@ -1,26 +1,12 @@
-const string vowels = "AEIOUaeiou";
-
-    int closestDistance = INT_MAX;
-    char closestVowel = ' ';
-
-    for (int i = word.length() - 2; i > 0; i--) {
-        if (word[i] != ' ' && vowels.find(word[i]) != string::npos) {
-            for (int j = i - 1; j > 0; j--) {
-                if (word[j] != ' ' && vowels.find(word[j]) == string::npos) {
-                    int distance = i - j;
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        closestVowel = word[i];
-                    }
-                    break;
-                }
-            }
+string vowels = "aeiouAEIOU";
+    int n = word.length();
+    for (int i = n - 2; i > 0; --i) {
+        if (vowels.find(word[i]) != string::npos && 
+            !isupper(word[i]) && 
+            !isupper(word[i - 1]) && 
+            isupper(word[i - 2])) {
+            return string(1, word[i]);
         }
     }
-
-    if (closestVowel != ' ') {
-        return string(1, closestVowel);
-    } else {
-        return "";
-    }
+    return "";
 }
