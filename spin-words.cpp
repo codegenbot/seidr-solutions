@@ -2,6 +2,11 @@
 #include <string>
 #include <algorithm>
 
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
+    return 0;
+}
+
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
@@ -9,11 +14,10 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                std::string reversedWord(word);
-                std::reverse(reversedWord.begin(), reversedWord.end());
-                result += (reversedWord + " ");
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
             } else {
-                result += (word + " ");
+                result += word + " ";
             }
             word.clear();
         } else {
@@ -22,9 +26,8 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        std::string tempWord = word;
-        std::reverse(tempWord.begin(), tempWord.end());
-        result += (tempWord);
+        std::reverse(word.begin(), word.end());
+        result += word;
     } else {
         result += word;
     }
