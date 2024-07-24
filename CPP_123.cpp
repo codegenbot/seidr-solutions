@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -15,13 +16,13 @@ bool isSame(vector<int> a, vector<int> b) {
 }
 
 vector<int> getOddCollatz(int n) {
-    vector<int> res; 
+    std::vector<int> res; 
     res.push_back(n); 
     while (n > 1) {
         if (n % 2 == 0 && n != 1) {
             n = n / 2;
         } else {
-            res.push_back(n);
+            res.push_back(std::move(n));
             n = (n * 3 + 1);
         }
     }
@@ -30,29 +31,25 @@ vector<int> getOddCollatz(int n) {
 
 void startProgram() {
     int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
     if (n <= 0) {
         cerr << "Error: Please enter a positive integer." << endl;
         return;
     }
-    if (n > std::numeric_limits<int>::max() / 2) {
-        cerr << "Error: The number exceeds the maximum value for an integer." << endl;
-        return;
-    }
-    vector<int> res = getOddCollatz(n);
+    std::vector<int> res = getOddCollatz(n);
     for (int i : res) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << endl;
     if (!res.empty()) {
         if (isSame(res, getOddCollatz(1))) {
-            cout << "The sequence is the same as Collatz Conjecture." << endl;
+            std::cout << "The sequence is the same as Collatz Conjecture." << endl;
         } else {
-            cout << "The sequence does not match Collatz Conjecture." << endl;
+            std::cout << "The sequence does not match Collatz Conjecture." << endl;
         }
     } else {
-        cout << "The sequence does not match Collatz Conjecture." << endl;
+        std::cout << "The sequence does not match Collatz Conjecture." << endl;
     }
 }
 
