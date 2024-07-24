@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool std::issame(std::vector<float> a, std::vector<float> b) {
+bool same(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
