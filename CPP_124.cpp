@@ -2,37 +2,29 @@
 using namespace std;
 
 bool valid_date(string date) {
-    int day, month, year;
-    string temp = "";
-    for (int i = 0; i < date.length(); i++) {
-        if (isdigit(date[i])) {
-            temp += date[i];
-        } else if (temp != "") {
-            if (i == 2) {
-                year = stoi(temp);
-                temp = "";
-            } else if (i == 5) {
-                month = stoi(temp);
-                temp = "";
-            } else if (i == date.length() - 4) {
-                day = stoi(temp);
-                break;
-            }
+    string month, day, year;
+    int mon, dy, yr;
+    
+    // Split the input into month, day and year
+    size_t pos = 0;
+    while ((pos = date.find('-')) != string::npos) {
+        if (month.empty()) {
+            month = date.substr(0, pos);
+        } else if (day.empty()) {
+            day = date.substr(pos + 1);
         }
+        date.erase(0, pos + 1);
     }
+    
+    // Convert the month, day and year to integers
+    mon = stoi(month);
+    dy = stoi(day);
+    yr = stoi(date);
 
-    if (temp != "") {
-        return false;
-    }
-
-    if (month < 1 || month > 12)
-        return false;
-
-    if ((month == 2 && day > 29) || (month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-        return false;
-
-    if (month in {1,3,5,7,8,10,12} && day > 31)
-        return false;
+    // Check if the date is valid according to the rules
+    if (mon < 1 || mon > 12) return false;
+    if ((mon == 2 && dy > 29) || (mon == 4 || mon == 6 || mon == 9 || mon == 11) && dy > 30) return false;
+    if (mon % 2 != 0 && dy > 31) return false;
 
     return true;
 }
