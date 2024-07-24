@@ -8,30 +8,45 @@ int bowlingScore(string s) {
         if (c == 'X') {
             score += 30;
             roll++;
-        } else if (c == '/') {
-            if (s.find('/') != s.rfind('/')) {
-                string temp = s.substr(s.find('/'), s.rfind('/') - s.find('/') + 1);
-                int count = stoi(temp) * 2;
-                if (stoi(temp) < 5) {
-                    count += 10;
-                } else {
-                    score += 20;
+        }
+        else if (c == '/') {
+            temp = "";
+            continue;
+        }
+        else {
+            temp += c;
+        }
+        if (temp.length() >= 2 && c != 'X') {
+            int first, second;
+            string t = temp;
+            temp = "";
+            sscanf(t.c_str(), "%d%d", &first, &second);
+            score += first + second;
+            roll++;
+            while (roll < 10) {
+                if (temp.length() >= 2 && c != 'X') {
+                    int first1, second1;
+                    string t1 = temp;
+                    temp = "";
+                    sscanf(t1.c_str(), "%d%d", &first1, &second1);
+                    score += first1 + second1;
                     roll++;
                 }
-                score += count;
-            } else {
-                string temp = s.substr(s.find('/'));
-                int count = stoi(temp);
-                score += 10 + count * 2;
-            }
-        } else {
-            int count = (s[s.length() - 1] - '0') * 10 + (s[s.length() - 2] - '0');
-            if (count < 10) {
-                score += count;
-            } else {
-                score += 10 + (count - 10) * 2;
+                else if (c == 'X' || c == '/') {
+                    if (temp.length() >= 2) {
+                        int first, second;
+                        string t = temp;
+                        temp = "";
+                        sscanf(t.c_str(), "%d%d", &first, &second);
+                        score += first + second;
+                        roll++;
+                    }
+                    else {
+                        score += 10;
+                        roll++;
+                    }
+                }
             }
         }
     }
     return score;
-}
