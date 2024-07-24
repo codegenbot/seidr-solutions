@@ -8,9 +8,7 @@ int main() {
     float prob = 0.0f;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                prob += static_cast<float>(n - i) / n * j / m / (n * m);
-            }
+            prob += static_cast<float>(n - i) / n * j / m / (n * m);
         }
     }
     
