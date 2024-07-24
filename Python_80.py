@@ -1,4 +1,5 @@
 ```
+num = int(input("Enter a number: "))
 def next_digit_sum(n):
     total = 0
     while n:
@@ -16,5 +17,4 @@ def is_happy(n):
         n = next_digit_sum(n)
     return True
 
-num = int(input("Enter a number: "))
 print(is_happy(num))
