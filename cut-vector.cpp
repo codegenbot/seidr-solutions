@@ -14,7 +14,8 @@ int main() {
     istringstream iss(line);
     
     int num;
-    while (iss >> num) {
+    while (getline(iss, line, ',')) {
+        num = stoi(line);
         nums.push_back(num);
     }
     
