@@ -22,44 +22,36 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
-        if (!(std::cin >> std::skipws).good()) {
-            // If after skipping, the stream is still bad, then it's because we're reading
-            // a new line character at the end of file or some other kind of error.
-            std::cout << "Invalid input. Please enter an integer: ";
-        }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
     }
 
     std::vector<int> vec1;
-    for(int i = 0; i < n; i++) {
+    int size = 0;
+    while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            if (!(std::cin >> std::skipws).good()) {
-                // If after skipping, the stream is still bad, then it's because we're reading
-                // a new line character at the end of file or some other kind of error.
-                std::cout << "Invalid input. Please enter an integer: ";
-            }
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.clear();
         }
         vec1.push_back(x); 
+        size++;
     }
 
     std::vector<int> vec2;
-    for(int i = 0; i < n; i++) {
+    size = 0;
+    while (size < n) {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            if (!(std::cin >> std::skipws).good()) {
-                // If after skipping, the stream is still bad, then it's because we're reading
-                // a new line character at the end of file or some other kind of error.
-                std::cout << "Invalid input. Please enter an integer: ";
-            }
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.clear();
         }
         vec2.push_back(x); 
+        size++;
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
