@@ -3,12 +3,12 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    group = ""
+    curr_group = ""
     for char in paren_string:
         if char == "(":
-            group += char
+            curr_group += char
         elif char == ")":
-            group += char
-            result.append(group)
-            group = ""
+            curr_group += char
+            result.append(curr_group)
+            curr_group = ""
     return result
