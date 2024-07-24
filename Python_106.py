@@ -1,4 +1,6 @@
-```
+Here's the modified code:
+
+```python
 import math
 
 def factorial(x):
@@ -14,10 +16,5 @@ if __name__ == '__main__':
                 result.append(sum(range(1, i+1)))
         return result
 
-    while True:
-        try:
-            num = int(input("Enter a number: "))
-            break
-        except ValueError:
-            print("Invalid input! Please enter an integer.")
-    print(f(num))
+    num = int(input("Enter a number: "))
+    print(f(num)[0])
