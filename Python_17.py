@@ -7,9 +7,11 @@ def parse_music(music_string: str) -> list:
         if music_string[i] == '|':
             i += 1
             beat = []
-            while i < len(music_string) and music_string[i] != '|':
-                i += 1
-            beats.extend(beat)
+            j = i
+            while j < len(music_string) and music_string[j] != '|':
+                j += 1
+            beats.extend(notes.get(music_string[i:j], [0]))
+            i = j
         elif music_string[i:i+2] in notes:
             beat = notes[music_string[i:i+2]]
             i += 2
