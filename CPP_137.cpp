@@ -1,5 +1,6 @@
-```cpp
+#include <iostream>
 #include <variant>
+#include <any>
 #include <string>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
@@ -36,4 +37,29 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
             return "Non";
         }
     }, a, b);
+}
+
+int main() {
+    std::string input1;
+    int input2;
+
+    std::cout << "Enter the first value: ";
+    std::cin >> input1;
+
+    std::cout << "Enter the second value: ";
+    std::cin >> input2;
+
+    auto result = compare_one(std::any(input1), std::any(input2));
+
+    if (std::holds_alternative<std::string>(result)) {
+        std::cout << "The comparison is: " << std::any_cast<std::string>(result) << std::endl;
+    } else if (std::holds_alternative<int>(result)) {
+        int value = std::any_cast<int>(result);
+        std::cout << "The comparison is: " << value << std::endl;
+    } else {
+        float value = std::any_cast<float>(result);
+        std::cout << "The comparison is: " << value << std::endl;
+    }
+
+    return 0;
 }
