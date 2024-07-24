@@ -1,14 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <climits>
-
-using namespace std;
-
-vector<int> rolling_max(vector<int> numbers);
 
 bool issame(vector<int> a, vector<int> b){
     return a == b;
+}
+
+vector<int> rolling_max(vector<int> numbers);
+
+int main() {
+    vector<int> numbers = {1, 3, 5, 2, 6, 4};
+    vector<int> result = rolling_max(numbers);
+    
+    for(int num : result){
+        std::cout << num << " ";
+    }
+    
+    return 0;
 }
 
 vector<int> rolling_max(vector<int> numbers){
@@ -19,14 +27,4 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
-}
-
-int main() {
-    vector<int> input = {1, 3, 5, 2, 7, 6, 4};
-    vector<int> result = rolling_max(input);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
-    }
-    cout << endl;
-    return 0;
 }
