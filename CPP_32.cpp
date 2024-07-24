@@ -1,10 +1,20 @@
 #include <vector>
 #include <cmath>
 
-double find_zero(vector<double> xs);
-double poly(vector<double> coeffs, double x);
+double poly(std::vector<double> coeffs, double x);
+double find_zero(std::vector<double> xs);
 
-double find_zero(vector<double> xs){
+// Function to calculate the value of a polynomial at a given point
+double poly(std::vector<double> coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
+// Function to find the zero of a polynomial
+double find_zero(std::vector<double> xs){
     double x = 1;
     for (int i = 2; i < xs.size(); i += 2) {
         while (poly(xs, x) > 0) {
@@ -15,12 +25,4 @@ double find_zero(vector<double> xs){
         }
     }
     return round(x, 2);
-}
-
-double poly(vector<double> coeffs, double x){
-    double result = 0;
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
 }
