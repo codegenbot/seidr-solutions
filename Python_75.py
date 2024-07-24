@@ -12,8 +12,8 @@ def find_prime_factors(a):
     while a > 1:
         for i in range(2, a+1):
             if a % i == 0:
-                is_i_prime = is_prime(i)
-                if is_i_prime:
+                is_prime_i = is_prime(i)
+                if is_prime_i:
                     a //= i
                     factors.append(i)
                     break
