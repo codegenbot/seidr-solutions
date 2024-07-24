@@ -43,9 +43,9 @@ int main_func() {
     bool same = issame(words, filter_by_prefix(words, prefix));
 
     if(same)
-        std::cout << "Same" << std::endl;
+        cout << "Same" << endl;
     else
-        std::cout << "Not Same" << std::endl;
+        cout << "Not Same" << endl;
 
     return 0;
 }
