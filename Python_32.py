@@ -1,30 +1,32 @@
 ```
-import math
-
-
 def find_zero():
-    while True:
-        try:
-            a = float(input("Enter coefficient 'a': "))
-            b = float(input("Enter coefficient 'b': "))
-            c = float(input("Enter coefficient 'c': "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter numeric values.")
+    a = float(input("Enter coefficient a: "))
+    b = float(input("Enter coefficient b: "))
+    c = float(input("Enter constant term c: "))
 
-    discriminant = b**2 - 4 * a * c
-
+    discriminant = (b**2) - (4*a*c)
+    
     if discriminant > 0:
-        x1 = (b + math.sqrt(discriminant)) / (2 * a)
-        x2 = (b - math.sqrt(discriminant)) / (2 * a)
-        return f"Root 1: {round(x1, 2)}, Root 2: {round(x2, 2)}"
+        root1 = (-b + (discriminant ** 0.5)) / (2 * a)
+        root2 = (-b - (discriminant ** 0.5)) / (2 * a)
+        
+        return f"Roots: {root1} and {root2}"
     elif discriminant == 0:
-        x = -b / (2 * a)
-        return f"Root: {round(x, 2)}"
+        root = -b / (2 * a)
+        
+        return f"Root: {root}"
     else:
-        return "No real roots found"
-
+        return "No real roots"
 
 while True:
     print("Find roots of quadratic equation ax^2 + bx + c = 0: ")
-    print(find_zero())
+    result = find_zero()
+    while True:
+        response = input(f"Roots found: {result}. Do you want to solve another equation? (yes/no): ")
+        if response.lower() == 'yes':
+            break
+        elif response.lower() == 'no':
+            print("Program terminated.")
+            exit(0)
+        else:
+            print("Invalid response. Please enter yes or no.")
