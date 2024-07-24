@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include<iostream>
 #include<vector>
 
@@ -17,17 +14,17 @@ int specialFilter(std::vector<int> nums) {
 int judgeMain() {
     std::vector<int> input;
     int n;
-    while (!(std::cin >> n)) {
-        std::cerr << "Invalid input for number of elements. Please try again: ";
-        std::cin.clear();  
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+    std::cout << "Enter the number of elements: ";
+    if (!(std::cin >> n) || n <= 0) {
+        std::cerr << "Invalid input for number of elements." << std::endl;
+        return 1; 
     }
     for (int i = 0; i < n; i++) {
         int num;
-        while (!(std::cin >> num)) {
-            std::cerr << "Invalid input for element. Please try again: ";
-            std::cin.clear();  
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+        std::cout << "Enter element " << i + 1 << ": ";
+        if (!(std::cin >> num)) {
+            std::cerr << "Invalid input for element." << std::endl;
+            return 1; 
         }
         input.push_back(num);
     }
@@ -35,7 +32,6 @@ int judgeMain() {
     return 0;
 }
 
-int main() {
-    judgeMain();
-    return 0;
+int judgeMain() {
+    return judgeMain();
 }
