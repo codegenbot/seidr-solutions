@@ -1,7 +1,6 @@
-```cpp
+```c
 #include <iostream>
 #include <string>
-#include <vector>
 #include <unordered_map>
 
 int main() {
@@ -21,10 +20,14 @@ int main() {
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
-            result += cipherMap[c];
+            result += cipherMap.at(c);
         } else {
-            // Handle characters not in the cipher map by keeping them unchanged
-            result += c;
+            // Check for non-alphanumeric characters (spaces, punctuation)
+            if (!isalnum(c)) {
+                result += c;
+            } else {
+                result += cipherMap.at(c);
+            }
         }
     }
     std::cout << result.c_str() << std::endl;
