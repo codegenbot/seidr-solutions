@@ -12,18 +12,17 @@ int count_nums(std::vector<int> n) {
                 count++;
             }
         } else {
+            bool is_negative = true;
+            int temp_num = num;
             int sum = 0;
-            int i = 1;
-            int abs_num = num;
-            while (abs_num != 0) {
-                int digit = abs_num / i % 10;
-                if (num < 0) {
+            while (temp_num != 0) {
+                int digit = temp_num % 10;
+                if (is_negative)
                     sum -= digit;
-                } else {
+                else
                     sum += digit;
-                }
-                i *= 10;
-                abs_num /= i;
+                temp_num /= 10;
+                is_negative = !is_negative; // toggle the sign of addition
             }
             if (sum > 0) {
                 count++;
