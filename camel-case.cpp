@@ -1,15 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    std::string str = "camel-case example-test-string";
+    const char* str = "camel-case example-test-string";
     std::string result;
     bool capitalizeNext = true;
 
-    for (char* p = str.c_str(); *p; p++) {
+    for (const char* p = str; *p; p++) {
         if (*p == '-') {
+            p++; // Skip the '-'
+        } else if (!strchr(str, '-')) { 
             capitalizeNext = true;
-            p++;
         } else if (capitalizeNext) {
             result += toupper(*p);
             capitalizeNext = false;
@@ -18,7 +20,7 @@ int main() {
         }
     }
 
-    std::cout << result << std::endl;
+    std::cout << result.c_str() << std::endl;
 
     return 0;
 }
