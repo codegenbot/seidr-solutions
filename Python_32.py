@@ -6,19 +6,28 @@ def find_zero():
 
     if a == 0:
         if b == 0 and c != 0:
-            return f"Root: {-c / b}"
+            print(f"Root: {-c / b}")
+        elif b == 0 and c == 0:
+            print("All real roots")
         else:
-            return "No real roots"
+            print("No real roots")
     discriminant = (b**2) - (4 * a * c)
 
     if a == 0:
-        return f"Root: {-c / b}"
+        if b == 0 and c != 0:
+            print(f"Root: {-c / b}")
+        elif b == 0 and c == 0:
+            print("All real roots")
+        else:
+            print("No real roots")
     elif discriminant > 0:
         root1 = (-b + discriminant**0.5) / (2 * a)
         root2 = (-b - discriminant**0.5) / (2 * a)
-        return f"Roots: {root1} and {root2}"
+        print(f"Roots: {root1} and {root2}")
     elif discriminant == 0:
         root = -b / (2 * a)
-        return f"Root: {root}"
+        print(f"Root: {root}")
     else:
-        return "No real roots"
+        print("No real roots")
+
+find_zero()
