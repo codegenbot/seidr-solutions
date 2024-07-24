@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 bool will_it_fly(vector<int> q, int w) {
