@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
