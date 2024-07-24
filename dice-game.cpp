@@ -3,5 +3,5 @@ double diceGame(int n, int m) {
     for (int i = 1; i < n; ++i) {
         total += 1.0 / m;
     }
-    return total / (n * m);
+    return 1.0 - total;
 }
