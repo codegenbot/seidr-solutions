@@ -1,11 +1,12 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include "md5.h"
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "MD5 hash: " << md5(input) << std::endl;
+    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
     return 0;
 }
