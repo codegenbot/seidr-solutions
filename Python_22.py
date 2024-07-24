@@ -1,6 +1,20 @@
-from typing import List, Any
+```
+import sys
 
-def filter_integers(values: List[Any]) -> None:
-    for value in values:
-        if not isinstance(value, int):
-            raise ValueError(f"Expected integer but received {value}")
+def main():
+    values = []
+    while True:
+        value = input("Enter an integer (or 'stop' to finish): ")
+        if value.lower() == 'stop':
+            break
+        values.append(int(value))
+
+    filtered_values = filter_integers(values)
+
+    print(filtered_values)
+
+def filter_integers(values: List[Any]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
+
+if __name__ == "__main__":
+    main()
