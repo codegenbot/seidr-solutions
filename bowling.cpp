@@ -1,34 +1,24 @@
-int bowlingScore(const string& input) {
+int bowling(string s) {
     int score = 0;
-    int roll = 0;
-    bool firstRollInFrame = true;
-
-    for (char c : input) {
-        if (c == 'X') { // strike: 10 points
-            score += 10;
-            roll++;
-            continue;
-        }
-        if (isdigit(c)) { // spare or regular roll
-            int points = c - '0';
-            if (!firstRollInFrame) {
-                if (roll + 1 < 2) { // second roll in the same frame
-                    score += points * 2; // double for a spare
-                    roll++;
-                } else {
-                    score += points; // add to total score
-                }
+    int current_frame = 1;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            current_frame--;
+        } else if (c == '/') {
+            score += 10 + (10 - (current_frame == 9 ? 2 : 1));
+            current_frame = min(current_frame, 9);
+        } else {
+            int pins = c - '0';
+            if (current_frame == 10) {
+                score += pins;
             } else {
-                firstRollInFrame = false;
-                if (points == 10) { // strike: 10 points
-                    score += 10;
-                    roll++;
-                } else {
-                    score += points; // add to total score
+                score += pins;
+                if (pins < 10) {
+                    current_frame++;
                 }
             }
         }
     }
-
     return score;
 }
