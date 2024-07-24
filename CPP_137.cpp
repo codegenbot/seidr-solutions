@@ -1,15 +1,15 @@
-#include <variant>
 #include <string>
+#include <variant>
 #include <any>
 
 using std::any;
 
-variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
-    return visit([&](auto&& a, auto&& b) -> variant<string, int, float> {
-        if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-            if (get<string>(a) > get<string>(b)) {
+variant<std::string, int, float> compare_one(variant<any> a, variant<any> b) {
+    return visit([&](auto&& a, auto&& b) -> variant<std::string, int, float> {
+        if (holds_alternative<std::string>(a) && holds_alternative<std::string>(b)) {
+            if (get<std::string>(a) > get<std::string>(b)) {
                 return "Greater";
-            } else if (get<string>(a) < get<string>(b)) {
+            } else if (get<std::string>(a) < get<std::string>(b)) {
                 return "Less";
             } else {
                 return "Equal";
