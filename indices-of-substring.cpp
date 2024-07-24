@@ -4,14 +4,7 @@ using namespace std;
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
+        if (text.substr(i, target.size()) == target) {
             result.push_back(i);
         }
     }
@@ -19,12 +12,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector<int> res = indicesOfSubstring(s, n > 0 ? s.substr(0, n) : "");
+    for (int i: res)
         cout << i << " ";
-    }
-    cout << endl;
     return 0;
 }
