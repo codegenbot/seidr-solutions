@@ -16,9 +16,14 @@ def minPath(grid, k):
                     min_path = new_path
         return min_path
     
+    grid = []
+    for _ in range(int(input("Enter the number of rows: "))):
+        row = list(map(int, input("Enter the row values (space separated): ").split()))
+        grid.append(row)
+    
     min_path = None
-    for i in range(n):
-        for j in range(n):
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
             path = dfs(i, j, [], set())
             if min_path is None or path < min_path:
                 min_path = path
