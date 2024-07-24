@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <unordered_map>
 
@@ -24,5 +23,5 @@ int check_dict_case(std::unordered_map<std::string, std::string> dict) {
 }
 
 int main() {
-    std::cout << check_dict_case({{"hello", "world"}, {"HELLO", "WORLD"}}) << std::endl;
+    assert(check_dict_case({}) == 0);
 }
