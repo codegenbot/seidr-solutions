@@ -25,7 +25,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
+        std::cin >> std::ws >> x; 
         vec1.push_back(x); 
     }
 
@@ -33,7 +33,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
+        std::cin >> std::ws >> x; 
         vec2.push_back(x); 
     }
 
