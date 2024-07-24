@@ -1,7 +1,7 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<string> bf(string planet1, string planet2) {
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -24,4 +24,8 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Makemake").empty());
 }
