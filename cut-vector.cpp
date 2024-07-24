@@ -16,10 +16,11 @@ int main() {
     int cut_index = 0;
 
     for (int i = 0; i < n; i++) {
-        right_sum += vec[i];
+        right_sum = std::accumulate(vec.begin() + i + 1, vec.end(), 0);
         left_sum += vec[i];
 
-        if (std::abs(2*left_sum - right_sum) < std::abs(2*right_sum - left_sum)) {
+        if (std::abs(left_sum - right_sum) <= min_diff) {
+            min_diff = std::abs(left_sum - right_sum);
             cut_index = i;
         }
     }
