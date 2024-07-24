@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -14,11 +13,12 @@ int main() {
         return 0;
     }
 
-    if (tweet.length() > 140) {
+    int length = (int)tweet.erase(0, tweet.find_last_of(' ') + 1);
+    
+    if (length > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.erase(0, std::find_if(tweet.begin(), tweet.end(),
-            [](char c) { return !std::isspace(c); }).base() - tweet.begin()) << " characters" << endl;
+        cout << "Your tweet has " << length << " characters" << endl;
     }
     return 0;
 }
