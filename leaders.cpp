@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -7,14 +6,14 @@ using namespace std;
 vector<int> leaders(vector<int>& v) {
     vector<int> res;
     for (int i = v.size() - 1; i >= 0; --i) {
-        bool leader = true;
+        bool isLeader = true;
         for (int j = i + 1; j < v.size(); ++j) {
-            if (v[j] >= v[i]) {
-                leader = false;
+            if (v[i] <= v[j]) {
+                isLeader = false;
                 break;
             }
         }
-        if (leader) res.push_back(v[i]);
+        if (isLeader) res.push_back(v[i]);
     }
     return res;
 }
