@@ -1,3 +1,3 @@
-```Python
+```
 def modp(n: int, p: int):
-    return (n**((p-2)%p)) % p
+    return pow(n, (p - 1) // p + 1, p) * n % p
