@@ -1,4 +1,3 @@
-print("Enter three integers:")
 a, b, c = map(int, input().split())
 
 def is_pythagorean_triplet(a, b, c):
