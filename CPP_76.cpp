@@ -1,6 +1,6 @@
-Here is the completed code:
+Here's the solution:
 
 bool is_simple_power(int x, int n) {
-    double log_value = log((double)x) / log(n);
-    return floor(log_value + 0.5) == log_value;
+    double y = pow(n, 1.0);
+    return (int)y == x;
 }
