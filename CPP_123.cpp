@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -6,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> res(1); // Initialize with a size of 1
+    std::vector<int> res; // Initialize without specifying the size 'n'
     while (n > 1) {
         if (n % 2 != 0) {
             res.push_back(n);
@@ -39,3 +40,4 @@ int main() {
         std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
     }
     return 0;
+}
