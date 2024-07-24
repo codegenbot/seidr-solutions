@@ -1,4 +1,6 @@
-std::pair<int, int> mastermind(string code, string guess) {
+using namespace std;
+
+pair<int, int> mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -10,5 +12,5 @@ std::pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return std::make_pair(black, white);
+    return make_pair(black, white);
 }
