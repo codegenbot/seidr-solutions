@@ -8,27 +8,12 @@
 using namespace std;
 
 vector<string> split(string str) {
-    vector<string> result;
+    istringstream iss(str);
     string temp;
+    vector<string> result;
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (!temp.empty()) {
-                result.push_back(temp);
-                temp = "";
-            }
-        } else {
-            temp += str[i];
-        }
-    }
-    if (!temp.empty()) {
+    while (getline(iss, temp, ' ')) {
         result.push_back(temp);
-    }
-    for (int i = 0; i < result.size(); i++) {
-        if (result[i].empty()) {
-            result.erase(result.begin() + i);
-            i--; 
-        }
     }
     return result;
 }
