@@ -1,7 +1,7 @@
-```cpp
-#include <algorithm>
+```
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
 bool issame(int a, int b) {
     return a == b;
@@ -34,10 +34,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 int main() {
     std::vector<int> test = {1, 2, 3};
-    for (int i : strange_sort_list(test)) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    assert(issame(strange_sort_list({5, 5}).size(), 1));
+    assert(strange_sort_list(test) == (std::vector<int>{1, 1, 1}));
+    
     return 0;
 }
