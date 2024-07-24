@@ -1,47 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    bool in_word = false;
-
+    string word = "";
     for (char c : s) {
         if (isalpha(c)) {
-            if (!in_word) {
-                word += c;
-                in_word = true;
-            } else {
-                word += c;
-            }
-        } else {
-            if (in_word) {
-                int consonants = 0;
-                for (char d : word) {
-                    if (!isvowel(d)) {
-                        consonants++;
-                    }
+            word += tolower(c);
+        } else if (!word.empty()) {
+            bool has_n_consonants = false;
+            int consonant_count = 0;
+            for (char ch : word) {
+                if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                    consonant_count++;
                 }
-                if (consonants == n) {
-                    result.push_back(word);
-                }
-                word.clear();
-                in_word = false;
             }
+            if (consonant_count == n) {
+                has_n_consonants = true;
+            }
+            if (has_n_consonants) {
+                result.push_back(word);
+            }
+            word = "";
         }
     }
-
-    int consonants = 0;
-    for (char d : word) {
-        if (!isvowel(d)) {
-            consonants++;
-        }
-    }
-    if (consonants == n) {
-        result.push_back(word);
-    }
-
     return result;
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> result = select_words(s, n);
+    for (string str : result) {
+        cout << str << endl;
+    }
+    return 0;
 }
