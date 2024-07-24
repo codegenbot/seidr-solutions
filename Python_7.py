@@ -1,3 +1,4 @@
+````
 from typing import List
 
 
@@ -6,14 +7,7 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    filename = "input.txt"
-    try:
-        with open(filename, "r") as f:
-            input_data = f.read().splitlines()
-            strings = [line.split()[0] for line in input_data]
-            substring = input_data[1].strip()
-            print(filter_by_substring(strings, substring))
-    except FileNotFoundError:
-        print(
-            "File not found. Please run this script from the same directory as the file."
-        )
+    strings = input("Enter a list of strings (comma-separated): ").split(",")
+    substring = input("Enter a substring: ")
+    print(filter_by_substring(strings, substring))
+```
