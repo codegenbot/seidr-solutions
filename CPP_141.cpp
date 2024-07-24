@@ -1,26 +1,19 @@
-Here is the solution:
-
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
+int countDigits(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (isdigit(c)) {
+            count++;
         }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
+    return count;
+}
 
-    if(found_dot){
-        string extension = file_name.substr(file_name.find('.')+1);
-        if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    }else{
+string file_name_check(string file_name) {
+    int digitCount = countDigits(file_name);
+    if (digitCount > 3 || file_name.find('.') == string::npos || 
+        file_name.substr(0, file_name.find('.')).empty() || !isalpha(file_name[0]) || 
+        (file_name.find(".txt") == string::npos && file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos)) {
         return "No";
     }
-    
     return "Yes";
 }
