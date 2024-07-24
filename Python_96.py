@@ -8,8 +8,5 @@ def count_up_to(n):
                 return False
         return True
 
-    result = []
-    for i in range(2, n):
-        if is_prime(i):
-            result.append(i)
+    result = [i for i in range(2, n) if is_prime(i)]
     return result
