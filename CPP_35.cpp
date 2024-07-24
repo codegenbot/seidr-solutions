@@ -1,7 +1,13 @@
-```c++
 #include <algorithm>
 #include <cmath>
 
-double maximum_value(const vector<int>& numbers) {
-    return *std::max_element(numbers.begin(), numbers.end());
+int main() {
+    long int maximum_value;
+    vector<long int> l;
+
+    cin >> maximum_value;
+    for(long int i = 0; i<maximum_value; ++i)
+        cin>>l[i];
+
+    return *std::max_element(l.begin(), l.end());
 }
