@@ -50,6 +50,5 @@ int main() {
         std::cout << result.second[i] << " ";
     }
     std::cout << "\n";
-    
     return 0;
 }
