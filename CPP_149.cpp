@@ -1,32 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-bool issame(const std::string& s1, const std::string& s2) {
-    if(s1.length() != s2.length()) return false;
-    for(int i = 0; i < s1.length(); i++) {
-        if(s1[i] != s2[i]) return false;
+int issame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) return 0;
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) return 0;
     }
-    return true;
+    return 1;
 }
 
-int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
+int sorted_list_sum(vector<vector<string>> lst) {
     int sum = 0;
-    for(const auto& list : lst) {
-        bool found = false;
-        for(int i = 0; i < list.size(); i++) {
-            if(i > 0 && issame(list[i], list[0])) {
-                found = true;
-                break;
-            }
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (!issame(lst[i], lst[i + 1])) {
+            sum++;
         }
-        if(!found) sum++;
     }
     return sum;
 }
 
 int main() {
-    std::vector<std::vector<std::string>> lst = {{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}};
+    vector<vector<string>> lst = {{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}};
     assert(sorted_list_sum(lst) == 2);
     return 0;
 }
