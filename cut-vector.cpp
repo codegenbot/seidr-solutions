@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (true) {
+        std::cin.clear();
+        std::cin >> n;
+        if (std::cin.fail()) {
+            break;
+        }
         nums.push_back(n);
     }
 
@@ -13,11 +17,11 @@ int main() {
     for (int num : nums) {
         sum += num;
     }
-
+    
     int closestSum = 0;
     int minDiff = INT_MAX;
     int idx = 0;
-
+    
     for (int i = 0; i < nums.size(); ++i) {
         closestSum += nums[i];
         int diff = std::abs(sum - 2 * closestSum);
@@ -26,7 +30,7 @@ int main() {
             idx = i;
         }
     }
-
+    
     std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
     std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
 
@@ -36,6 +40,6 @@ int main() {
     for (int num : subvec2) {
         std::cout << num << std::endl;
     }
-
+    
     return 0;
 }
