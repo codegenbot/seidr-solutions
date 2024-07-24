@@ -1,5 +1,5 @@
-#include <boost/variant.hpp>
 #include <vector>
+#include <boost/variant.hpp>
 
 std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     std::vector<int> result;
