@@ -7,26 +7,25 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool isFirstWord = true;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                if (!isFirstWord) {
+                if (result.length() > 0) {
                     result += toupper(s[i]);
                 } else {
-                    isFirstWord = false;
                     result += tolower(s[i]);
                 }
                 i++;
             }
         } else {
-            if (!isFirstWord) {
-                result += toupper(s[i]);
-            } else {
+            if (result.length() == 0) {
                 result += tolower(s[i]);
-                isFirstWord = false;
+            } else {
+                result += toupper(s[i]);
             }
+            i++;
         }
     }
     return result;
