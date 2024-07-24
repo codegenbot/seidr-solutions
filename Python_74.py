@@ -8,3 +8,6 @@ def total_match(lst1, lst2):
         return lst2
     else:
         return lst1
+
+print(total_match(["hello", "world"], ["goodbye", "cruel"]))
+print(total_match(["abc"], ["def", "ghi"]))
