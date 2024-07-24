@@ -1,11 +1,10 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
 #include <stack>
 
 double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
-    std::stack<int> numStack(args.size()); // Initialize the stack with the size of args
+    std::stack<int, std::deque<int>> numStack;
     for(int i = 0; i < ops.size(); ++i) {
         if(ops[i] == "+") {
             int b = numStack.top();
