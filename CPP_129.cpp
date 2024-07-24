@@ -1,43 +1,35 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (res.empty()) {
-                res.push_back(grid[i][j]);
-                for (int l = 1; l <= k; l++) {
-                    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-                    random_shuffle(directions.begin(), directions.end());
-                    bool found = false;
-                    for (auto dir : directions) {
-                        int ni = i + dir.first;
-                        int nj = j + dir.second;
-                        if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size()) {
-                            res.push_back(grid[ni][nj]);
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) break;
-                }
+vector<int> minPath(vector<vector<int>>& grid, int k) {
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i > 0) {
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
             } else {
-                int lastVal = res.back();
-                for (int l = 1; l <= k; l++) {
-                    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-                    random_shuffle(directions.begin(), directions.end());
-                    bool found = false;
-                    for (auto dir : directions) {
-                        int ni = i + dir.first;
-                        int nj = j + dir.second;
-                        if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size()) {
-                            res.push_back(grid[ni][nj]);
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) break;
-                }
+                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
             }
         }
     }
+    
+    vector<int> res;
+    int x = n - 1, y = n - 1;
+    for (int i = 0; i < k; i++) {
+        res.push_back(grid[x][y]);
+        if (x > 0 && y > 0) {
+            if (dp[x-1][y] == dp[x][y-1]) {
+                x--;
+            } else {
+                y--;
+            }
+        } else if (x > 0) {
+            x--;
+        } else {
+            y--;
+        }
+    }
+    
     return res;
 }
