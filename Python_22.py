@@ -1,10 +1,10 @@
 ```
+from typing import List, Any
 import sys
 
-while True:
-    line = sys.stdin.readline().strip()
-    if line == 'q':  
-        break
-    values = list(map(int, line.split()))
-    result = [value for value in values if isinstance(value, int)]
-    print(result)
+values = list(map(int, sys.stdin.read().strip().split()))
+
+def filter_integers(values: List[Any]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
+
+print(filter_integers(values))
