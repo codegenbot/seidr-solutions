@@ -22,7 +22,7 @@ bool solveBoolean(string expression) {
         } else {
             s.push(expression[i]);
         }
-    }
+   }
     
     result = s.top() == 'T'; 
     return result;
