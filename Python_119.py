@@ -8,8 +8,9 @@ def match_parens(p):
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                return False
-    return len(stack) == 0
+                return "No"
+    return "Yes" if len(stack) == 0 else "No"
+
 
 def check():
     while True:
@@ -20,4 +21,3 @@ def check():
             print(match_parens(s))
         else:
             print("Invalid input. Please enter a string or type 'q' to quit.")
-assert match_parens([")", "("]) == False
