@@ -1,12 +1,13 @@
-#include <cmath>
+#include <iostream>
+#include <vector>
 
 int gcd(int a, int b) {
     if ((a == 0 || b == 0) || (a == 1 || b == 1)) {
-        return abs(a + b);
+        return std::abs(a + b);
     }
     
-    a = abs(a);
-    b = abs(b);
+    a = std::abs(a);
+    b = std::abs(b);
     
     while (b != 0) {
         int temp = b;
@@ -15,4 +16,13 @@ int gcd(int a, int b) {
     }
     
     return a;
+}
+
+int main() {
+    int a, b;
+    std::cin >> a >> b;
+    
+    std::cout << gcd(a, b) << std::endl;
+    
+    return 0;
 }
