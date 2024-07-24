@@ -1,16 +1,18 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
@@ -18,14 +20,17 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> strings = {"hello", "world", "hell", "goodbye"};
-    std::string substring = "ell";
-    
-    std::vector<std::string> output = filter_by_substring(strings, substring);
-    
+    vector<string> input;
+    string sub;
+
+    cin >> sub; // read substring from user
+
+    // filter input based on the given substring
+    vector<string> output = filter_by_substring(input, sub);
+
     for (const auto& str : output) {
-        std::cout << str << std::endl;
+        cout << str << endl;
     }
-    
+
     return 0;
 }
