@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -44,9 +43,8 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {9, 4, 8};
-    vector<string> result = by_length(arr);
-    for (string s : result) {
+    vector<string> output = by_length({1, 2, 3});
+    for (string s : output) {
         cout << s << endl;
     }
 }
