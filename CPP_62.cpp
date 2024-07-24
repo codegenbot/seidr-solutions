@@ -3,9 +3,10 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i]-b[i])>1e-4) return false;
+vector<float> derivative(vector<float> xs) {
+    vector<float> result(xs.size() - 1);
+    for (int i = 1; i < xs.size(); ++i) {
+        result[i-1] = (xs[i] - xs[i-1]) / static_cast<float>(i);
     }
-    return true;
+    return result;
+}
