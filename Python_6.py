@@ -8,10 +8,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == '(':
             stack.append(char)
         elif char == ')':
+            while stack[-1] != '(':
+                stack.pop()
+            stack.pop()
             result.append(len(stack))
-            while stack and stack.pop() != '(':
-                pass
-    while stack: 
-        result.append(len(stack))
-        stack.pop()
     return result
