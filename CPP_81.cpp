@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-// Function to calculate numerical letter grade based on parameters
 std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
     int total = 0;
     for (const auto& grade : input) {
@@ -23,7 +21,6 @@ std::pair<int, double> numerical_letter_grade(std::vector<std::string> input) {
     return {static_cast<int>(total), static_cast<double>(total)};
 }
 
-// Function to compare two vectors of strings
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -33,7 +30,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input = {"E", "D-"};
-    assert(issame(input, numerical_letter_grade(input)));
+    std::vector<std::string> input = {"A+", "B+"};
+    assert(issame(numerical_letter_grade(input), {"A+", "B+"}));
     return 0;
 }
