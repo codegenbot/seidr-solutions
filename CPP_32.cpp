@@ -3,10 +3,7 @@
 
 using namespace std;
 
-double find_zero(vector<double> xs);
 double poly(vector<double> coeffs, double x);
-
-// Your code here
 
 double find_zero(vector<double> xs){
     double x = 1;
@@ -23,7 +20,7 @@ double find_zero(vector<double> xs){
 
 double poly(vector<double> coeffs, double x){
     double result = 0;
-    for(int i=0; i<coeffs.size(); i++){
+    for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
