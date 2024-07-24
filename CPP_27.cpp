@@ -1,5 +1,7 @@
-std::string filp_case(std::string str) {
-    std::string result = "";
+#include <string>
+
+string filp_case(string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z')
             result += toupper(str[i]);
