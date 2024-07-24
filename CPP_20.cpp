@@ -27,14 +27,8 @@ int main() {
             vec1.clear();
             break;
         }
-        try {
-            vec1.push_back((float)num);
-        } catch(...) {
-            std::cout << "Invalid float value entered. Please enter a valid floating point number.\n";
-            vec1.clear();
-            vec2.assign(0, 0.0f); // Reset vectors
-            break;
-        }
+        vec1.push_back((float)num);
+        // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
             break; // No more numbers in the stream
         }
@@ -42,22 +36,14 @@ int main() {
 
     // Input for vector 2
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
-    vec1.clear();
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear(); 
-            vec2.assign(0, 0.0f); // Reset vectors
+            vec2.clear(); 
             break;
         }
-        try {
-            vec2.push_back((float)num);
-        } catch(...) {
-            std::cout << "Invalid float value entered. Please enter a valid floating point number.\n";
-            vec1.clear();
-            vec2.assign(0, 0.0f); // Reset vectors
-            break;
-        }
+        vec2.push_back((float)num);
+        // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
             break; // No more numbers in the stream
         }
