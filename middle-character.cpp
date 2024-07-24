@@ -1,14 +1,10 @@
-#include <sstream>
+#include <string>
 
-char* middleCharacter(char* s) {
-    int length = strlen(s);
+std::string middleCharacter(std::string s) {
+    int length = s.length();
     if (length % 2 == 0) {
-        ostringstream oss;
-        oss << s[(length/2)-1] << s[length/2];
-        return strdup(oss.str().c_str());
+        return s.substr(length / 2 - 1, 2);
     } else {
-        ostringstream oss;
-        oss << s[length/2];
-        return strdup(oss.str().c_str());
+        return s.substr(length / 2, 1);
     }
 }
