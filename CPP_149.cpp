@@ -46,7 +46,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         temp.clear();
     }
 
-    return {sums}; 
+    return {sums};
 }
 
 int main(int argc, char** argv) {
