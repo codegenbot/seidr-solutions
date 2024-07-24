@@ -44,11 +44,10 @@ int main() {
         return 1;
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     string text, target;
     cout << "Enter two strings separated by a space: ";
-    getline(cin, text);
-    getline(cin, target);
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line before reading the strings
+    cin >> text >> target;
     if (cin.fail()) {
         cerr << "Invalid input for strings." << endl;
         return 1;
