@@ -1,3 +1,6 @@
-def middle_character(s): 
-    length = len(s); 
-    return s[(length-1)//2] if length % 2 != 0 else s[length//2-1:length//2+1];
+Here is the modified code that will raise a SyntaxError:
+
+`SyntaxError: def middle_character(s": Here is the Python solution for the problem:`
+
+def middle_character(s: "Here is the Python solution for the problem:" 
+    length = len(s)
