@@ -3,34 +3,34 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip '-'
-            while (i < s.size() && s[i] == ' ') {
-                i++; // skip spaces
-            }
-            if (result != "") {
-                result += char(toupper(s[i])); // capitalize the first letter of each new word
+    bool first = true;
+    
+    for (char c : s) {
+        if (c == '-') {
+            if (!first) {
+                result += char toupper(c);
             } else {
-                result = char(toupper(s[i]));
+                first = false;
             }
-        } else if (s[i] == ' ') {
-            continue; // skip spaces
+        } else if (c == ' ') {
+            continue;
         } else {
-            if (result != "") {
-                result += s[i]; // add lowercase letters to the result
+            if (!first) {
+                result += char tolower(c);
             } else {
-                result += char(tolower(s[i])); // add lowercase letters to the result
+                result += c;
+                first = false;
             }
         }
     }
+    
     return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Camel case conversion: " << camelCase(input) << endl;
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
+    }
     return 0;
 }
