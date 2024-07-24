@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool same_chars(std::string s0, std::string s1) {
