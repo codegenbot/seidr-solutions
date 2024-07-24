@@ -4,11 +4,10 @@ string intersection(vector<int> interval1, vector<int> interval2){
 
     if(start > end) return "NO";
 
-    int length = end - start + 1;
-
-    for(int i = 2; i*i <= length; i++){
-        if(length % i == 0) return "NO";
+    bool isPrime = true;
+    for(int i=2; i*i<=end-start+1 && isPrime; ++i){
+        if((end-start+1)%i==0 || (start+1)%i==0) isPrime=false;
     }
 
-    return "YES";
+    return isPrime ? "YES" : "NO";
 }
