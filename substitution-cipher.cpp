@@ -1,14 +1,17 @@
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
-    for (char &ch : c) {
-        for (int i = 0; i < a.size(); ++i) {
-            if (c == a[i]) {
-                ch = b[i];
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+    
+    for (char &c : s3) {
+        for (size_t i = 0; i < s1.size(); ++i) {
+            if (s3[i] == s1[i]) {
+                c = s2[i];
                 break;
             }
         }
     }
-    cout << c << endl;
+    
+    cout << s3 << endl;
+    
     return 0;
 }
