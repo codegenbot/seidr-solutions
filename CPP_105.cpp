@@ -26,4 +26,3 @@ int main() {
     assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"})); 
     return 0;
-}
