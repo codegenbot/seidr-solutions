@@ -27,8 +27,4 @@ std::vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
-int main() {
-    assert(is_same(get_odd_collatz(1), std::vector<int>{1}));
-    
-    return 0;
-}
+assert(is_same(get_odd_collatz(1), std::vector<int>{1}));
