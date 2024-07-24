@@ -1,5 +1,15 @@
+```cpp
 #include <string>
 #include <cctype>
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str);
+    std::cout << camelCase(str) << std::endl;
+
+    return 0;
+}
 
 std::string camelCase(std::string str) {
     std::string result = "";
