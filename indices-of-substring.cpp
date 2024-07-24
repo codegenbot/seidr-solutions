@@ -15,3 +15,15 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     return result;
 }
+
+int main() {
+    string text = "abcdef";
+    string target = "def";
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for(int index : indices) {
+        cout << "Index: " << index << endl;
+    }
+
+    return 0;
+}
