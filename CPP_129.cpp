@@ -1,30 +1,40 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<pair<int, pair<int, int>>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+    vector<vector<int>> dp(n, vector<int>(n));
+    vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
-                visited[i][j] = true;
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i > 0) {
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
+            } else {
+                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
             }
         }
     }
-    vector<int> path;
-    while (!pq.empty() && k--) {
-        int val = pq.top().first;
-        pair<int, int> pos = pq.top().second;
-        pq.pop();
-        path.push_back(val);
-        for (auto& dir : directions) {
-            int ni = pos.first + dir.first;
-            int nj = pos.second + dir.second;
-            if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                pq.push({grid[ni][nj], {ni, nj}});
-                visited[ni][nj] = true;
+    
+    int i = n - 1, j = n - 1;
+    while (k > 0) {
+        res.push_back(grid[i][j]);
+        if (i > 0 && j > 0) {
+            if (dp[i-1][j] < dp[i][j-1]) {
+                i -= 1;
+            } else {
+                j -= 1;
             }
+        } else if (i > 0) {
+            i -= 1;
+        } else {
+            j -= 1;
         }
+        k--;
     }
-    return path;
+    
+    reverse(res.begin(), res.end());
+    return res;
 }
