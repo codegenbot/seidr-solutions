@@ -1,3 +1,5 @@
-def sumOfDigits(num):
-    return sum(int(digit) for digit in str(abs(num)))
-```
+def sumOfDivided(n):
+    for i in range(1, n + 1):
+        if n % i == 0:
+            return i
+    return None
