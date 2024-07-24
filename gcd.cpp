@@ -1,19 +1,15 @@
+```c++
 #include <vector>
 #include <string>
 using namespace std;
 
 int main() {
-    int a = 12; 
-    int b = 15;
-    cout << "GCD: " << gcd(a, b) << endl;
-
-    string text = "abcdef";  
-    string target = "def";
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    int a, b;
+    cout << "Enter the first integer: ";
+    cin >> a;
+    cout << "Enter the second integer: ";
+    cin >> b;
+    cout << "GCD of two integers = " << gcd(a, b);
     return 0;
 }
 
