@@ -1,5 +1,3 @@
-Here is the solution to the problem:
-
 def fizz_buzz(x):
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
