@@ -8,7 +8,7 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-
+    
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
@@ -18,7 +18,7 @@ int main() {
     if (last_newline != string::npos) {
         tweet.erase(last_newline);
     }
-
+    
     if (tweet.size() > 140) {
         cout << "Too many characters" << endl;
     } else {
