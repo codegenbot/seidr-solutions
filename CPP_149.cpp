@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -14,12 +15,27 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int sorted_list_sum(const vector<vector<string>>& lst) {
-    int sum = 0;
-    for (const auto& sublst : lst) {
-        std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}}, sublst)) {
-            sum += std::stoi(sublst[1].substr(7));
-        }
+    int total = 0;
+    for (const auto& row : lst) {
+        std::sort(row.begin(), row.end());
+        total += std::stoi(row[0].substr(6));
     }
-    return sum;
+    return total;
+}
+
+vector<vector<string>> split_list(vector<string> lst) {
+    vector<vector<string>> result;
+    
+    int start = 0;
+    for (int end = 0; end < lst.size(); ) {
+        while(end + 1 < lst.size() && issame({lst.begin(), lst.begin()+end+1}, {"hello", "world"})) {
+            end++;
+        }
+        if(start != end) {
+            result.push_back(vector<string>(lst.begin()+start, lst.begin()+end));
+        }
+        start = end + 1;
+    }
+    
+    return result;
 }
