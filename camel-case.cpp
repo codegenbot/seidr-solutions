@@ -5,7 +5,7 @@ std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalizeNext = true;
 
-    if (!str.empty() && str[0] == '-') {
+    if (!str.empty() && str[0] == '-') { 
         result.push_back(toupper(str[0]));
         str.erase(0, 1); 
     }
