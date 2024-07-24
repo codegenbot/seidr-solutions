@@ -1,13 +1,5 @@
-def get_probability(n, m):
-    if n == 1 or m == 1:
-        return 0.0
-    elif n > m:
-        return (m - 1) / (n * m - 1)
-    else:
-        return (n - 1) / (n * m - 1)
-
-
-n = int(input())
-m = int(input())
-
-print(get_probability(n, m))
+```
+def dice_game(n, m):
+    total_outcomes = n * m
+    peters_wins = sum(1 for i in range(m) for j in range(i+1, n))
+    return peters_wins / total_outcomes if total_outcomes > 0 else 0.0
