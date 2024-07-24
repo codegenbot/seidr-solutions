@@ -1,4 +1,5 @@
-def check(string):
+def check():
+    string = input("Enter a string: ").strip()
     return modify_string(string)
 
 
@@ -8,6 +9,5 @@ def modify_string(string):
     )
 
 
-flip_case = input("Enter a string: ").strip()
-output = check(flip_case)
+output = check()
 print(output)
