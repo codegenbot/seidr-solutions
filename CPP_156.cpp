@@ -1,12 +1,12 @@
-#include <iostream>
-#include <vector>
+namespace std {
+using namespace std;
 
 struct Roman {
     int value;
-    std::string roman;
+    string roman;
 };
 
-std::vector<Roman> romanMap = {
+vector<Roman> romanMap = {
     {1000, "M"},
     {900, "CM"},
     {500, "D"},
@@ -22,8 +22,8 @@ std::vector<Roman> romanMap = {
     {1, "I"}
 };
 
-std::string intToRoman(int number) {
-    std::string roman = "";
+string intToRoman(int number) {
+    string roman = "";
     
     for (const auto& pair : romanMap) {
         while (number >= pair.value) {
@@ -37,7 +37,8 @@ std::string intToRoman(int number) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "The Roman numeral is: " << intToRoman(num) << std::endl;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "The Roman numeral is: " << intToRoman(num) << endl;
     return 0;
+}
