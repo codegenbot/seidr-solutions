@@ -1,11 +1,11 @@
+```
 import math
 
 
 def solve(K):
     if K < 1:
-        return "0"
-    binary = "1"
-    while K > 1:
-        binary = str(K % 2) + binary
-        K //= 2
-    return binary
+        return '0'
+    if math.log2(K) % 1 == 0:
+        return bin(int(math.pow(2, math.ceil(math.log2(K)))) - 1)[2:]
+    else:
+        return bin(K + 1)[2:]
