@@ -1,7 +1,8 @@
 double find_zero(vector<double> coefficients) {
-    vector<double> coeffs = {coefficients[2], -coefficients[1], coefficients[0]};
-    double x = -coefficients[1] / (2 * coefficients[0]);
-    return x;
+    double a = coefficients[0];
+    double b = coefficients[1];
+    double c = -coefficients[2] / (2 * a);
+    return -b / (2 * a);
 }
 
 int main() {
@@ -10,6 +11,7 @@ int main() {
     
     double solution = find_zero(coefficients);
     
-    assert (abs(poly(coeffs, solution))< 1e-3); 
+    assert (abs(poly(coefficients, solution)) < 1e-3); 
+
     return 0;
 }
