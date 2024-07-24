@@ -1,4 +1,3 @@
-#include <string>
 #include <vector>
 #include <cassert>
 
@@ -10,7 +9,7 @@ std::vector<int> parse_nested_parens(std::string s) {
             count++;
         } else if (c == ')') {
             result.push_back(count);
-            count = 0;
+            count--;
         }
     }
     return result;
