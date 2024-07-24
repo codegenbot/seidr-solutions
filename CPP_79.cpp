@@ -2,14 +2,13 @@ Here is the completed code:
 
 string decimal_to_binary(int decimal){
     string binary = "";
-    while(decimal > 0) {
+    while(decimal > 0){
         int remainder = decimal % 2;
-        if(remainder == 1) {
-            binary.insert(binary.begin(), '1');
-        } else {
-            binary.insert(binary.begin(), '0');
-        }
+        if(remainder == 0) binary.push_back('0');
+        else binary.push_back('1');
         decimal /= 2;
     }
-    return "db" + binary + "db";
-}
+    string result = "db";
+    result += binary;
+    result += "db";
+    return result;
