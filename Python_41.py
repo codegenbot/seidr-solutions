@@ -1,3 +1,4 @@
+```
 def car_race_collision(speed1: int, speed2: int):
     pos1 = 0
     pos2 = 0
