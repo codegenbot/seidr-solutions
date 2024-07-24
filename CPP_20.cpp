@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool areVectorsSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -31,7 +30,7 @@ int main() {
         vec2.push_back(num);
     }
 
-    if(isSame(vec1, vec2)) {
+    if(areVectorsSame(vec1, vec2)) {
         std::cout << "The two vectors are same.\n";
     } else {
         std::cout << "The two vectors are not same.\n";
