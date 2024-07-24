@@ -1,25 +1,32 @@
-std::string camelCase(std::string str) {
+#include <iostream>
+#include <string>
+
+std::string camelCase(std::string input) {
     std::string result = "";
     bool firstWord = true;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            // Skip the dash and proceed with the next character
-            i++;
-        } else if (str[i] == ' ') {
-            // A new word starts here, mark it as firstWord
-            firstWord = true;
+    
+    for (char c : input) {
+        if (c == ' ') {
+            // Skip space
+        } else if (c == '-') {
+            // Skip dash
         } else {
-            if (!firstWord) {
-                result += char(tolower(str[i])); // Convert to lower case
+            if (firstWord) {
+                result += tolower(c);
             } else {
-                if (!result.empty()) {
-                    result.back() = toupper(result.back()); // First letter of each word should be in upper case
-                }
-                result += str[i]; // Add the first character of the new word
-                firstWord = false;
+                result += toupper(c);
             }
+            firstWord = false;
         }
     }
     
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;
+    std::cout << "The camelCase version is: " << camelCase(input) << std::endl;
+    return 0;
 }
