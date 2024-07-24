@@ -1,33 +1,22 @@
-```cpp
 #include <vector>
-#include <iostream>
-
-int prod_signs(std::vector<int> arr) {
-    int product = 1;
-    long sum = 0;
-    for (int x : arr) {
-        if (x == 0) {
-            return 0;
-        }
-        product *= abs(x);
-        sum += abs(x);
-    }
-    std::cout << "product * sum: " << product * sum << std::endl;
-    return product * sum > INT_MAX ? -32768 : product * sum;
-}
+#include <limits>
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
+    int prod_signs(vector<int> arr) {
+        int product = 1;
+        long sum = 0;
+        for (int x : arr) {
+            if (x == 0) {
+                return 0;
+            }
+            product *= abs(x);
+            sum += abs(x);
+        }
+        return (product * sum > INT_MAX) ? -32768 : product * sum;
     }
-
-    int result = prod_signs(arr);
-
-    return 0;
-}
+    
+    int main() {
+        vector<int> arr = {1,2,3,4,5};
+        cout << prod_signs(arr) << endl;
+        return 0;
+    }
