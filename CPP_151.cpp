@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 #include <vector>
 
@@ -16,17 +15,13 @@ int main() {
     std::vector<float> lst;
     int n;
     cin >> n;
-
-    for(int i=0; i<n; i++) {
-        float temp;
-        cin >> temp;
-        lst.push_back(temp);
+    for(int i = 0; i < n; i++) {
+        float val;
+        cin >> val;
+        lst.push_back(val);
     }
 
-    float odd_sum = 0;
-    long long result = double_the_difference(lst);
-
-    cout << "The sum of squares of even numbers is: " << result << endl;
+    float odd_sum = double_the_difference(lst);
 
     return 0;
 }
