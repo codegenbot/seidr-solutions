@@ -29,4 +29,3 @@ vector<string> split_words(string txt) {
     }
     
     return result;
-}
