@@ -5,6 +5,7 @@
 bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::string, std::string>& p2) {
     if (p1.first != p2.first || p1.second != p2.second) return false;
     return true;
+
 }
 
 std::string join(const std::vector<std::string>& v) {
@@ -34,11 +35,9 @@ int main() {
     std::cin >> planet1 >> planet2;
     planets = {planet1, planet2};
     
-    bool result = issame(planets, bf(planets));
-    if(result) {
-        std::cout << "same";
-    } else {
-        std::cout << "not same";
+    std::cout << bf(planets).first << " ";
+    if (!bf(planets).second.empty()) {
+        std::cout << bf(planets).second;
     }
     return 0;
 }
