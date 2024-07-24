@@ -1,8 +1,5 @@
 import hashlib
 
-def string_to_md5(text):
+def string_to_md5():
+    text = input("Enter a string: ")
     return hashlib.md5(text.encode()).hexdigest() if text else None
-
-text = input()
-result = string_to_md5(text)
-print(result)
