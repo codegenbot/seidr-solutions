@@ -1,22 +1,31 @@
-int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        }
-    }
+int mastermind(string code, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
 
     for (char c : code) {
-        bool found = false;
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i] && !found) {
-                whitePegs++;
-                found = true;
-            }
+        codeCount[c - '0']++;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        char c = guess[i];
+        if (c == code[i]) {
+            blackPegs++;
+        } else {
+            codeCount[c - '0]--;
+            guessCount[c - '0']++;
         }
     }
 
-    return blackPegs << 2 | whitePegs;
+    for (int i = 0; i < 6; i++) {
+        whitePegs += min(codeCount[i], guessCount[i]);
+    }
+
+    return blackPegs;
 }
