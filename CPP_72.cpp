@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != reverse(str).s) {
+    if (str != string(reverse(str).begin(), reverse(str).end())) {
         return false;
     }
     int sum = 0;
