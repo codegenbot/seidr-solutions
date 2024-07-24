@@ -37,12 +37,22 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
+    cout << "Enter two integers separated by a space: ";
     cin >> a >> b;
+    if (cin.fail()) {
+        cerr << "Invalid input for integers." << endl;
+        return 1;
+    }
 
-    string text, target;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    string text, target;
+    cout << "Enter two strings separated by a space: ";
     getline(cin, text);
     getline(cin, target);
+    if (cin.fail()) {
+        cerr << "Invalid input for strings." << endl;
+        return 1;
+    }
 
     vector<int> result = indicesOfSubstring(text, target);
 
