@@ -1,8 +1,7 @@
-vector<string> separate_paren_groups(string paren_string);
+#include <vector>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your previous implementation here (if needed)
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
