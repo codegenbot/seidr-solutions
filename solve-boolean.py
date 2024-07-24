@@ -1,16 +1,13 @@
-def solve_boolean(expression):
-    stack = []
-    for char in expression[::-1]:
-        if char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        elif char == "&":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-        elif char == "|":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-    return stack[0]
+def solveBoolean(expression):
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (bool(left) and bool(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
