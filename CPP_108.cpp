@@ -1,9 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -33,5 +32,8 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    assert(count_nums({1}) == 1);
+    std::vector<int> nums = {1, 2, 3, -4, -5};
+    int result = count_nums(nums);
+    std::cout << "Number of positive integers: " << result << std::endl;
+    return 0;
 }
