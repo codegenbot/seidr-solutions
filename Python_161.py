@@ -1,6 +1,4 @@
 ```
- 
-
 def solve(s):
     result = ""
     is_upper = False
