@@ -2,13 +2,15 @@
 def encode(message):
     result = ""
     for char in message:
-        if char.isalpha():
-            if 'aeiou'.find(char.lower()) != -1:  
-                result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))  
-            elif char.isupper():  
-                result += chr((ord(char) - ord('A') + 13) % 26 + ord('A'))  
-            else:
-                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+        if char.isalnum():
+            if char.isalpha():
+                ascii_offset = 97 if char.islower() else 65
+                if ord(char) - ascii_offset < 3:
+                    result += chr((ord(char) - ascii_offset + 25) % 26 + ascii_offset)
+                else: 
+                    result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+            else: 
+                result += char.lower()
         else:
             result += char
     return result

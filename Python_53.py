@@ -17,3 +17,6 @@ def calculate_area_and_perimeter():
     else:
         area, perimeter = result
         print(f"Area: {area}, Perimeter: {perimeter}")
+
+if __name__ == "__main__":
+    calculate_area_and_perimeter()
