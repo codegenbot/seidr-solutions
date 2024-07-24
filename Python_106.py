@@ -8,6 +8,8 @@ def f(n):
             result.append(sum(range(1, i+1)))
     return result
 
-import math
-def factorial(n):
-    return math.factorial(n)
+def factorial(k):
+    if k == 0 or k == 1:
+        return 1
+    else:
+        return k * factorial(k-1)
