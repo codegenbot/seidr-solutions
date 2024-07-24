@@ -1,13 +1,5 @@
 ```
-def check(result):
-    if result == "Correct":
-        return 1
-    else:
-        return 0
-
-
-if __name__ == "__main__":
-    input_list = list(range(1, 19))
+def check_sum_in_range():
     while True:
         try:
             num1, num2, num3 = [int(input(f"Enter {i+1} number: ")) for i in range(3)]
@@ -20,9 +12,11 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    total_sum = num1 + num2 + num3
-    if total_sum in input_list:
-        result = "Correct"
+    total_sum = sum([num1, num2, num3])
+    if 17 < total_sum < 55:
+        return "Correct"
     else:
-        result = "Incorrect"
-    print(check(result))
+        return "Incorrect"
+
+
+print(check_sum_in_range())
