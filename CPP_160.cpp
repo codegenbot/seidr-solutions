@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,7 +31,9 @@ double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
             double a = numStack.top();
             numStack.pop();
             numStack.push(a / b);
-        } 
+        } else {
+            numStack.push((double)args[i]);
+        }
     }
     return numStack.top();
 }
@@ -42,22 +44,20 @@ int main() {
 
     int count = 0;
     while(count < 5) { 
-        std::cout << "Enter an operator (+, -, * or /): ";
-        char op;
-        std::cin >> op;
+        std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
+        std::string line;
+        std::cin >> line;
 
-        if(op == 'q') break;
+        if(line == "q") break;
+
+        size_t pos = line.find(' ');
+        std::string op = line.substr(0, pos);
+        int arg;
+        cin >> arg;
         
-        ops.push_back(std::string(1, op));
+        ops.push_back(op);
+        args.push_back(arg);
         count++;
-
-        if(count < 5) {
-            std::cout << "Enter an operand: ";
-            int arg;
-            std::cin >> arg;
-            args.push_back(arg);
-            count++;
-        }
     }
 
     double output = do_algebra(ops, args);
