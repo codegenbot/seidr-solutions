@@ -17,9 +17,8 @@ int main() {
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        auto it = std::find_if(tweet.begin(), tweet.end(),
-            [](char c) { return !std::isspace(c); });
-        cout << "Your tweet has " << distance(tweet.begin(), it) << " characters" << endl;
+        cout << "Your tweet has " << tweet.erase(0, std::find_if(tweet.begin(), tweet.end(),
+            [](char c) { return !std::isspace(c); }).base() - tweet.begin()) << " characters" << endl;
     }
     return 0;
 }
