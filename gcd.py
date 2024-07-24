@@ -15,7 +15,6 @@ def indices_of_substring(text, target):
         pos += len(target)
     return result
 
-# Test cases
 print(gcd(1, 1))  
 print(gcd(4, 400000))  
 print(gcd(54, 24))  
