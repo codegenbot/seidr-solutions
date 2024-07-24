@@ -12,7 +12,8 @@ int main() {
 
     std::map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1[i]] = cipher2[i];
+        std::pair<char, char> p(cipher1[i], cipher2[i]);
+        cipherMap.insert(p);
     }
 
     std::string result = "";
