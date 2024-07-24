@@ -4,12 +4,12 @@
 #include <set>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        throw runtime_error("Vectors are not the same size");
+    if(a.size() != b.size()) {
+        throw std::runtime_error("Vectors are not the same");
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            throw runtime_error("Vectors are not the same");
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            throw std::runtime_error("Vectors are not the same");
         }
     }
     return true;
@@ -26,5 +26,5 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // ...
+    
 }
