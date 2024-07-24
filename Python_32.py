@@ -1,8 +1,10 @@
+print("Enter the number of coefficients:")
 n = int(input())
+print("Enter the coefficients separated by space:")
 coefficients = list(map(int, input().split()))
 
 def find_zero(xs: list):
-    if len(xs) != 2 * n:
+    if len(xs) % 2 != 0:
         raise ValueError("Number of coefficients should be even")
     return sum(xs)
 
