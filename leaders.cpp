@@ -1,4 +1,14 @@
+```c++
 #include <vector>
+
+int main() {
+    std::vector<int> vec = {1, 3, 4, 2};
+    std::vector<int> leadersResult = leaders(vec);
+    for (int leader : leadersResult) {
+        std::cout << leader << " ";
+    }
+    return 0;
+}
 
 std::vector<int> leaders(const std::vector<int>& vec) {
     int rightmost = vec.back();
@@ -10,13 +20,4 @@ std::vector<int> leaders(const std::vector<int>& vec) {
         }
     }
     return leaders;
-}
-
-int main() {
-    std::vector<int> vec = {16, 17, 4, 3, 5, 2};
-    std::vector<int> leadersResult = leaders(vec);
-    for (int leader : leadersResult) {
-        std::cout << leader << " ";
-    }
-    return 0;
 }
