@@ -16,6 +16,6 @@ int main() {
         return result;
     }
 
-    assert(issame(get_positive({}), {}));
+    assert (issame(get_positive({}) , {}));
     return 0;
 }
