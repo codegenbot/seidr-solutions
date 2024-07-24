@@ -1,21 +1,20 @@
-input_list = list(map(int, input().split()))
+n = int(input())
+vector = [int(input()) for _ in range(n)]
 
-total_sum = sum(input_list)
-half_sum = total_sum // 2
+total_sum = sum(vector)
+current_sum = 0
+min_diff = float("inf")
+cut_idx = 0
 
-prefix_sum = 0
-min_diff = total_sum
-cut_index = 0
-
-for i in range(len(input_list)):
-    prefix_sum += input_list[i]
-    diff = abs(prefix_sum - (total_sum - prefix_sum))
+for i in range(n):
+    current_sum += vector[i]
+    diff = abs(current_sum - (total_sum - current_sum))
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_idx = i
 
-subvector1 = input_list[: cut_index + 1]
-subvector2 = input_list[cut_index + 1 :]
+subvector1 = vector[: cut_idx + 1]
+subvector2 = vector[cut_idx + 1 :]
 
 print(*subvector1)
 print(*subvector2)
