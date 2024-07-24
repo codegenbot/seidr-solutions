@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -43,8 +43,4 @@ int getAndProcessInput() {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
     return 0;
-}
-
-int main() {
-    return getAndProcessInput();
 }
