@@ -40,4 +40,3 @@ int main() {
     double output = do_algebra(ops, args);
     std::cout << "Output: " << output << std::endl;
     return 0;
-}
