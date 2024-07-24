@@ -1,9 +1,19 @@
-string squareDigits(long int n) {
-    string s = to_string(n);
-    string result = "";
-    for (char c : s) {
+#include <vector>
+#include <iostream>
+#include <string>
+#include <sstream>
+
+std::string squareDigits(std::string input) {
+    std::string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        result += to_string(digit * digit);
+        int squared = digit * digit;
+        output += std::to_string(squared);
     }
-    return result;
+    return output;
+}
+
+int main() {
+    // Your test code here
+    return 0;
 }
