@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,6 +9,8 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
+    tweet.erase(tweet.find_last_of('\n') == std::string::npos ? 0 : tweet.find_last_of('\n'), 1);
+    
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
         return 0;
