@@ -1,8 +1,8 @@
-Here is the modified code:
-
-```cpp
+#include <iostream>
 #include <variant>
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
 std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, std::variant<boost::any> b) {
     if (auto *str_a = boost::get<std::string>(a); auto *str_b = boost::get<std::string>(b)) {
@@ -14,4 +14,26 @@ std::variant<std::string, int, float> compare_one(std::variant<boost::any> a, st
     } else {
         return 0;
     }
+}
+
+int main() {
+    int num1, num2;
+    char op;
+
+    std::cout << "Enter the first number: ";
+    std::cin >> num1;
+
+    std::cout << "Enter the operator (+ or -): ";
+    std::cin >> op;
+
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+
+    if (op == '+') {
+        return std::variant<std::string, int, float>(num1 + num2);
+    } else if (op == '-') {
+        return std::variant<std::string, int, float>(num1 - num2);
+    }
+
+    return 0;
 }
