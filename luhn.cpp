@@ -1,16 +1,14 @@
-#include <vector>
-using namespace std;
-
-int luhn(vector<int> cardNumber) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    for (int i = cardNumber.size() - 1; i >= 0; i--) {
-        if ((cardNumber[i] * 2) > 9) {
-            sum += (cardNumber[i] * 2) - 9;
+    for(int i = 0; i < digits.size(); i++) {
+        if(i % 2 == 1) {
+            int temp = digits[i] * 2;
+            if(temp > 9)
+                sum += temp - 9;
+            else
+                sum += temp;
         } else {
-            sum += cardNumber[i] * 2;
-        }
-        if (i % 2 != 0) {
-            sum += cardNumber[i];
+            sum += digits[i];
         }
     }
     return sum;
