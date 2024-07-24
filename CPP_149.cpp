@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 
+// Define issame function
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -13,6 +14,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+// Define sorted_list_sum function
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
     
