@@ -10,6 +10,7 @@ int main() {
         cin >> num;
         numbers.push_back(num);
     }
+    
     int sum = 0;
     for (int num : numbers) {
         int result = (num / 3) - 2;
