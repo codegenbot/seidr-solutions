@@ -10,8 +10,8 @@ int main() {
 
     int temp;
     while (true) {
-        if (cin.fail()) break;
         cin >> temp;
+        if (cin.fail()) break;
         nums.push_back(temp);
     }
 
