@@ -1,14 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    if (a > b)
+bool issame(int x, int y) {
+    if (x > y)
         return false;
-    else if (b > a)
-        return true;
+    else if (x < y)
+        return false;
     else
-        return true; // For equality or the same value
+        return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -18,10 +17,10 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     
     while (!lst.empty()) {
-        int min = *std::min_element(lst.begin(), lst.end());
-        int max = *std::max_element(lst.begin(), lst.end());
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
         
-        if (issame(min, max)) {
+        if (issame(*min_element(lst.begin(), lst.end()), *max_element(lst.begin(), lst.end()))) {
             result.insert(result.begin(), min);
             lst.clear();
         } else {
@@ -37,11 +36,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {2, 6, 4, 7, 1};
-    for (auto i : strange_sort_list(lst)) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    
+    std::vector<int> vec = {5, 2, 3, 4};
+    assert(std::equal(strange_sort_list(vec).begin(), strange_sort_list(vec).end(), vec.begin()));
     return 0;
 }
