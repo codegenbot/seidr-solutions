@@ -6,7 +6,8 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
+    vector<int> result;
+    auto result = unique_copy(l.begin(), l.end(), back_inserter(result));
     sort(result.begin(), result.end());
     return result;
 }
