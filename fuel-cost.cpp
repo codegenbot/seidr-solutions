@@ -4,8 +4,7 @@
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int result = (i / 3);
-        result = std::floor(result);
+        int result = std::floor((double)i / 3);
         result -= 2;
         sum += result;
     }
