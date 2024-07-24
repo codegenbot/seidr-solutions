@@ -1,22 +1,16 @@
-```
-def cut_vector(vector):
-    min_diff = float('inf')
-    split_idx = 0
-    
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        
-        if left_sum == right_sum:
-            return vector[:i], vector[i:]
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
-            split_idx = i
-    
-    left_sum = sum(vector[:split_idx])
-    right_sum = sum(vector[split_idx:])
-    
+def cut_vector(lst):
+    if len(lst) == 1:
+        return lst[0], []
+    left_sum = sum(lst[: len(lst) // 2])
+    right_sum = sum(lst[len(lst) // 2 :])
     if left_sum == right_sum:
-        return vector[:split_idx], vector[split_idx:]
-    else:
-        return vector[:split_idx], vector[split_idx:]
+        return tuple([lst[: len(lst) // 2]]), tuple([lst[len(lst) // 2 :]])
+    min_diff = abs(left_sum - right_sum)
+    for i in range(1, len(lst)):
+        new_left_sum = sum(lst[:i])
+        new_right_sum = sum(lst[i:])
+        diff = abs(new_left_sum - new_right_sum)
+        if diff < min_diff:
+            min_diff = diff
+            cut_point = i
+    return tuple([lst[:cut_point]]), tuple([lst[cut_point:]])
