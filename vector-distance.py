@@ -3,5 +3,5 @@ vector1 = list(map(float, input().split()))
 m = int(input())
 vector2 = list(map(float, input().split()))
 
-result = math.sqrt(sum((x - y) ** 2 for x, y in zip(vector1, vector2)))
-print(result)
+distance = math.sqrt(sum((x - y) ** 2 for x, y in zip(vector1, vector2)))
+print(distance)
