@@ -1,10 +1,8 @@
-string vowels = "aeiouAEIOU";
-    int n = word.length();
-    for (int i = n - 2; i > 0; --i) {
-        if (vowels.find(word[i]) != string::npos && 
-            !isupper(word[i]) && 
-            !isupper(word[i - 1]) && 
-            isupper(word[i - 2])) {
+string vowels = "AEIOUaeiou";
+    for(int i = word.length() - 2; i > 0; i--){
+        if(word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u' &&
+           word[i-1] != 'a' && word[i-1] != 'e' && word[i-1] != 'i' && word[i-1] != 'o' && word[i-1] != 'u' &&
+           vowels.find(word[i]) != string::npos){
             return string(1, word[i]);
         }
     }
