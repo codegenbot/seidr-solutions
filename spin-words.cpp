@@ -1,11 +1,7 @@
-```c++
-#include <string>
+```cpp
+#include <iostream>
 #include <algorithm>
-
-int main() {
-    std::cout << spinWords("Hello World") << std::endl;
-    return 0;
-}
+#include <string>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -36,4 +32,9 @@ std::string spinWords(std::string str) {
     }
 
     return result;
+}
+
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
+    return 0;
 }
