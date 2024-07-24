@@ -1,27 +1,33 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int min_diff = INT_MAX;
-    int split_idx = -1;
-
-    for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_idx = i;
+vector<int> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int index = 0;
+    
+    for(int i=1; i<nums.size(); i++) {
+        int diff = abs(nums[i-1] - nums[i]);
+        if(diff <= minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
+    
+    vector<int> left = vector<int>(nums.begin(), nums.begin() + index);
+    vector<int> right = vector<int>(nums.begin() + index, nums.end());
+    
+    return {left, right};
+}
 
-    vector<vector<int>> result(2);
-    result[0].resize(split_idx + 1);
-    for (int i = 0; i <= split_idx; i++) {
-        result[0].push_back(nums[i]);
-    }
-    result[1].resize(nums.size() - split_idx - 1);
-    for (int i = 0; i < nums.size() - split_idx - 1; i++) {
-        result[1].push_back(nums[split_idx + i + 1]);
-    }
-
-    return result;
+int main() {
+    // Example usage
+    vector<int> nums1 = {1, 0};
+    pair<vector<int>, vector<int>> result1 = cutVector(nums1);
+    for(int num : result1.first) cout << num << " ";
+    cout << endl;
+    for(int num : result1.second) cout << num << " ";
+    cout << endl;
+    
+    // Add more examples as needed
+    return 0;
 }
