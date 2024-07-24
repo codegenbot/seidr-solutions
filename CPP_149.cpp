@@ -35,7 +35,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
     for (int sum : sorted_sums) {
         for (const auto& str : lst[0]) {
             if (stoi(str) == sum) {
-                result.push_back(str);
+                result.push_back(std::to_string(sum));
                 break;
             }
         }
