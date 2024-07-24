@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -36,32 +36,30 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main_test() {
-    std::vector<float> grades = {0.0, 0.7};
+    std::vector<float> grades = {4.0, 2.7};
     std::vector<std::string> a = numerical_letter_grade(grades);
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] == "A+")
-            a[i] = "A+";
-        else if(a[i] == "A")
-            a[i] = "A";
-        else if(a[i] == "A-")
-            a[i] = "A-";
-        else if(a[i] == "B+")
-            a[i] = "B+";
-        else if(a[i] == "B")
-            a[i] = "B";
-        else if(a[i] == "B-")
-            a[i] = "B-";
-        else if(a[i] == "C+")
-            a[i] = "C+";
-        else if(a[i] == "C")
-            a[i] = "C";
-        else if(a[i] == "C-")
-            a[i] = "C-";
-        else if(a[i] == "D+")
-            a[i] = "D+";
-        else
-            a[i] = "F";
-    }
+    if (a[0] >= "A+")
+        a[0] = "A+";
+    else if (a[0] > "A")
+        a[0] = "A";
+    else if (a[0] > "A-")
+        a[0] = "A-";
+    else if (a[0] > "B+")
+        a[0] = "B+";
+    else if (a[0] > "B")
+        a[0] = "B";
+    else if (a[0] > "B-")
+        a[0] = "B-";
+    else if (a[0] > "C+")
+        a[0] = "C+";
+    else if (a[0] > "C")
+        a[0] = "C";
+    else if (a[0] > "C-")
+        a[0] = "C-";
+    else if (a[0] > "D+")
+        a[0] = "D+";
+    else
+        a[0] = "F";
     std::vector<std::string> b(a);
     bool same = issame({a}, {b});
     return 0;
