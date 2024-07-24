@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -16,6 +15,7 @@ int main() {
     
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
+        if (cin.peek() == ',') cin.ignore();
     }
     
     double sum = 0;
@@ -23,7 +23,7 @@ int main() {
         sum += pow(v1[i] - v2[i], 2);
     }
 
-    cout << fixed << setprecision(15) << sqrt(sum) << endl;
+    cout << fixed << sqrt(sum) << endl;
     
     return 0;
 }
