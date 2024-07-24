@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -9,17 +10,11 @@ bool solveBoolean(string s) {
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            while (s.find('&') != string::npos) {
-                size_t pos = s.find('&');
-                s.replace(pos, 1, "false");
-            }
-            result &= (s == "true" || s == "True" || s == "TRUE") ? true : false;
+            result &= true;
         } else if (c == '|') {
-            while (s.find('|') != string::npos) {
-                size_t pos = s.find('|');
-                s.replace(pos, 1, "false");
-            }
-            result |= (s == "true" || s == "True" || s == "TRUE") ? true : false;
+            bool temp = result;
+            result = false;
+            result |= temp;
         }
     }
     return result;
