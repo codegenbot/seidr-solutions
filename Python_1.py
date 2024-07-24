@@ -1,21 +1,20 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
+    stack = []
     current_group = ""
-    balance = 0
-
+    
     for char in paren_string:
         if char == "(":
-            balance += 1
+            stack.append("(")
         elif char == ")":
-            balance -= 1
-
+            stack.pop()
+        
         current_group += char
-
-        if balance == 0:
+        
+        if not stack:
             result.append(current_group)
             current_group = ""
-
+    
     return result
