@@ -1,7 +1,7 @@
-```c
+```c++
 void solve(vector<int>& v, vector<int>& res) {
     for (int i = v.size() - 1; i >= 0; --i) { 
-        bool leader=true; 
+        bool leader = true; 
         for(int j=i+1; j<v.size(); ++j){ 
             if(v[j]>=v[i]){ 
                 leader=false; 
@@ -9,4 +9,5 @@ void solve(vector<int>& v, vector<int>& res) {
             } 
         } 
         if(leader) res.push_back(v[i]); 
-    }
+    } 
+}
