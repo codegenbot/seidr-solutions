@@ -2,9 +2,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <memory>
 
 int maxPrimeNum = 0;
-std::vector<int> lst(std::allocator<int>());
+std::vector<int> lst;
 
 bool isPrime(int x) {
     for (int i = 2; i <= std::sqrt(x); i++) {
@@ -22,7 +23,7 @@ int sumOfDigits(int x) {
     return sum;
 }
 
-int originalMain() {
+void originalMain() { 
     int num, i;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> num;
@@ -40,7 +41,6 @@ int originalMain() {
         std::cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << std::endl;
     else
         std::cout << "No primes found in the list." << std::endl;
-    return 0;
 }
 
 int main() {
