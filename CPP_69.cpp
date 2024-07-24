@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <assert>
+#include <algorithm>
 
 int search(std::vector<int> lst) { 
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && i >= std::count(i, lst.begin(), lst.end())) { 
+        if (i > 0 && std::count(std::begin(lst), std::end(lst), i) >= 1) { 
             max = i;
         }
     }
