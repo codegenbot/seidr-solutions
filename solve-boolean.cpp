@@ -1,6 +1,8 @@
-```cpp
+```
+#include <vector>
 #include <stack>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -37,13 +39,13 @@ bool solveBoolean(string booleanExpression) {
 
 int main() {
     string booleanExpression;
-    cout << "Enter Boolean expression: ";
+    std::cout << "Enter Boolean expression: ";
     cin >> booleanExpression;
     bool result = solveBoolean(booleanExpression);
     if (result) {
-        cout << "True" << endl;
+        std::cout << ("True\n") << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << ("False\n") << std::endl;
     }
     return 0;
 }
