@@ -1,4 +1,3 @@
-```
 import math
 
 def triangle_area(a, b, c):
