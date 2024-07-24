@@ -18,10 +18,10 @@ int mastermind(std::string code, std::string guess) {
         int countGuess = 0;
 
         for (int j = 0; j < 4; ++j) {
-            if (code[j] == 'A' + i) {
+            if (code[j] == static_cast<char>('A' + i)) {
                 countCode++;
             }
-            if (guess[j] == 'A' + i) {
+            if (guess[j] == static_cast<char>('A' + i)) {
                 countGuess++;
             }
         }
