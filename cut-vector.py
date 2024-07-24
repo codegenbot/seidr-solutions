@@ -2,8 +2,8 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = abs(sum(arr[:1]) - sum(arr[1:]))
-cut_index = 1
+min_diff = abs(sum(arr[:2]) - sum(arr[2:]))
+cut_index = 2
 
 for i in range(2, n):
     left_sum = sum(arr[:i])
