@@ -2,7 +2,7 @@
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compare(const boost::any& a, const boost::any& b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
