@@ -1,14 +1,15 @@
 n = int(input())
 vec = [int(input()) for _ in range(n)]
 
-diff = float("inf")
-cut_index = 0
-
-for i in range(1, n):
-    curr_diff = abs(sum(vec[:i]) - sum(vec[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        cut_index = i
-
-print(*vec[:cut_index])
-print(*vec[cut_index:])
+total_sum = sum(vec)
+half_sum = total_sum // 2
+curr_sum = 0
+for i, num in enumerate(vec):
+    curr_sum += num
+    if curr_sum >= half_sum:
+        if curr_sum == half_sum or abs(curr_sum - half_sum) < abs(
+            curr_sum - num - half_sum
+        ):
+            print(vec[: i + 1])
+            print(vec[i + 1 :])
+            break
