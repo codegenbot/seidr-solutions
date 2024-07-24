@@ -20,7 +20,7 @@ std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     } else if (planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
         return {planets.first, " to ", planets.second};
     }
-    return {"No valid planet combination found"};
+    return std::vector<std::string>{{"No", "valid", "planet", "combination", "found"}};
 
 }
 
@@ -28,7 +28,7 @@ int main() {
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    std::pair<std::string, std::string> planets({planet1, planet2});
+    std::pair<std::string, std::string> planets = {planet1, planet2};
     std::vector<std::string> output = bf(planets);
     for (const auto& s : output) {
         std::cout << s << " ";
