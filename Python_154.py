@@ -1,9 +1,5 @@
-```
 def cycpattern_check(a, b):
-    for i in range(len(b) - len(a) + 1):
-        if a == (b[i:] + b[:i]):
-            return True
-    for j in range(1, len(a)):
-        if a[j:] + a[:j] == b:
+    for i in range(len(b) - min(len(a), len(b)) + 1):
+        if a.casefold() == (b[i:].casefold() + b[:i].casefold()):
             return True
     return False
