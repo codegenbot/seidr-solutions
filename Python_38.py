@@ -1,4 +1,10 @@
-def decode_cyclic(s):
+def decode_cyclic():
+    while True:
+        s = input("Enter a string: ")
+        if isinstance(s, str):
+            break
+        print("Invalid input. Please enter a string.")
+
     n = len(s)
 
     if n < 2:
@@ -13,4 +19,6 @@ def decode_cyclic(s):
             result.add(rotated)
 
     rotations = {s[i:] + s[:i] for i in range(n)}
-    return min({k for k in rotations if k in result}, key=len) if len(result) > 0 else s
+    return min({k for k in rotations if k in result}, key=len)
+
+print(decode_cyclic())
