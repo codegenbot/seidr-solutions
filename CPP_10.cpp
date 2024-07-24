@@ -8,7 +8,13 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    if(is_palindrome(str)) return str; // If the input string is already a palindrome, just return it
-    for(int i=str.size()-1;i>=0&&is_palindrome(str.substr(0,i+1));i--); 
-    return str.substr(0,i+1) + str.substr(i+1).reverse();
+    int i = 0, j = str.length() - 1;
+    while(i <= j && str[i] == str[j]){
+        i++;
+        j--;
+    }
+    string rev = str.substr(0, i);
+    string pal = str.substr(i);
+    reverse(pal.begin(), pal.end());
+    return rev + pal + rev;
 }
