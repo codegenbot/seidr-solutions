@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,7 +31,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input = {"A+", "B+"};
-    assert(issame(numerical_letter_grade(input), {"A+", "B+"}));
+    std::vector<std::string> input = {"E", "D-"};
+    assert(issame(input, numerical_letter_grade({input.begin(), input.end()})));
     return 0;
 }
