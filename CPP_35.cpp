@@ -1,25 +1,26 @@
-```
+```cpp
 #include <iostream>
 #include <algorithm>
-#include <cmath>
 
-#include <vector>
+int main() {
+    int nums[100]; 
+    int n; 
+    int max_val = INT_MIN; 
+    int sum = 0;
 
-int nums[100]; // declare array to store numbers
-int n; // variable to store number of elements in the array
-    
-std::cout << "Enter the number of elements: ";
-std::cin >> n;
-    
-for (int i = 0; i < n; ++i) {
-    std::cout << "Enter element " << i + 1 << ": ";
-    std::cin >> nums[i]; 
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        char str[100]; 
+        std::cin >> str;
+        nums[i] = atoi(str); 
+    }
+
+    max_val = *std::max_element(nums, nums+n);
+
+    std::cout << "The absolute maximum value is: " << std::abs(max_val) << std::endl;
+
+    return 0;
 }
-    
-int max_val = *std::max_element(nums, nums + n); // find maximum value
-int abs_max_val = std::abs(max_val); // calculate absolute maximum
-
-std::cout << "Maximum value is: " << max_val << std::endl;
-std::cout << "Absolute maximum value is: " << abs_max_val << std::endl;
-
-return 0;
