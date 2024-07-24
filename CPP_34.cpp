@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_set>
 #include <cassert>
-#include <algorithm> // include this line for assert
+#include <algorithm>
 
 using namespace std;
 
