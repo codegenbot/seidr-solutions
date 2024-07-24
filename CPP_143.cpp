@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -13,15 +12,15 @@ bool is_prime(int n) {
 }
 
 vector<string> split(const string& str, char delimiter) {
-    vector<std::string> tokens;
+    vector<string> tokens;
     size_t prev = 0, pos = 0;
     do {
         pos = str.find(delimiter, prev);
-        if (pos == std::string::npos) pos = str.length();
+        if (pos == string::npos) pos = str.length();
         string token = str.substr(prev, pos - prev);
         if (!token.empty()) tokens.push_back(token);
         prev = pos + 1;
-    } while (pos != std::string::npos);
+    } while (pos != string::npos);
     return tokens;
 }
 
