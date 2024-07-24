@@ -15,7 +15,7 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s; // Read input from user
-    bool result = solveBoolean(s); // Call your existing code
+    string s; 
+    bool result = solveBoolean(s); 
     return 0;
 }
