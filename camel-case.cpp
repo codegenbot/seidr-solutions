@@ -24,13 +24,15 @@ int main() {
     std::string input;
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
-        std::cout << camelCase(iss.str());
+        std::cout << camelCase(input);
         while (std::getline(iss, input, '-')) {
             if (!input.empty()) {
+                if (!camelCase(input).empty())
+                    std::cout << " ";
                 std::cout << camelCase(input);
             }
         }
-        std::cout << "\n";
+        std::cout << '\n';
     }
     return 0;
 }
