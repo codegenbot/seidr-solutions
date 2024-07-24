@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -28,7 +29,9 @@ while True:
         break
     try:
         n = int(n)
-        if n <= 0: 
+        if n > 0: 
+            print(*factorize(n), sep=', ')
+        else: 
             print("Please enter a positive integer.")
-            continue
-        print(*factorize(n), sep=', ')
+    except ValueError:
+        print("Invalid input. Please enter an integer or 'q' to quit.")
