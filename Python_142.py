@@ -5,13 +5,14 @@ def sum_squares(n):
     except TypeError:
         return "Invalid input. Please enter a positive integer."
 
-try:
-    while True:
+while n > 0:
+    try:
         n = int(input("Enter a positive integer: "))
         if n > 0:
-            print(sum_squares(n))
             break
         else:
             print("Please enter a positive integer.")
-except ValueError:
-    print("Invalid input. Please try again.")
+    except ValueError:
+        print("Invalid input. Please try again.")
+
+print(sum_squares(n))
