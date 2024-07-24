@@ -1,13 +1,22 @@
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        std::cerr << "Error: Vectors of different sizes.\n";
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(find(b.begin(), b.end(), a[i]) == b.end()) {
+            std::cerr << "Error: Elements are not the same.\n";
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
-bool issame(vector<string> a,vector<string>b){
-    return a == b;
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
