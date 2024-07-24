@@ -1,8 +1,8 @@
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size();
-}
+using namespace std;
 
 int total_chars(const vector<string>& lst) {
     int total = 0;
