@@ -1,5 +1,7 @@
+```
 def solve_boolean(expression):
     result = True if expression == "T" else False  
+
     for i in range(len(expression)):
         char = expression[i]
         if char == "&":
