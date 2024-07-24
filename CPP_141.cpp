@@ -1,6 +1,6 @@
 #include <string>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int count = 0;
     bool dotFound = false;
     for(int i=0; i<file_name.length(); i++){
@@ -15,7 +15,7 @@ string file_name_check(string file_name){
         }
     }
     if(count > 3) return "No";
-    string extension = "";
+    std::string extension = "";
     for(int i=file_name.length()-1; i>=0; i--){
         if(file_name[i] == '.'){
             break;
