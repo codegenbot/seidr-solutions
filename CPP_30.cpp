@@ -7,13 +7,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> get_positive(std::initializer_list<float> values) {
-    std::vector<float> result;
-    for (auto val : values) {
-        if (val > 0) {
-            result.push_back(val);
-        }
-    }
-    return result;
+    return std::vector<float>(values);
 }
 
 int main() {
