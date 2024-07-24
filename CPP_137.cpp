@@ -1,43 +1,48 @@
-#include <string>
-#include <typeinfo>
-#include <boost/any.hpp>
+#include <iostream>
+#include<string>
+#include<algorithm>
+#include<variant>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+variant<int, string> compare_one(variant<any> a, variant<any> b) {
+    if (a.index() == 0 && b.index() == 1) {
+        int da = get<int>(a);
+        string db = get<string>(b);
+        return da > stod(db) ? a : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = (string)b;
-        size_t pos = str.find(',');
-        int num = stoi(str.substr(0, pos));
-        return (int)a > num ? a : b;
+    else if (a.index() == 1 && b.index() == 0) {
+        int da = get<int>(b);
+        string db = get<string>(a);
+        return stod(db) > da ? a : b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
+    else if (a.index() == 1 && b.index() == 1) {
+        string da = get<string>(a);
+        string db = get<string>(b);
+        if (da > db)
+            return a;
+        else if (db > da)
+            return b;
+        else
+            return std::monostate{};
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        size_t posA = (string)a.find(',');
-        size_t posB = (string)b.find(',');
-        int numA = stoi(((string)a).substr(0, posA));
-        int numB = stoi(((string)b).substr(0, posB));
-        return numA > numB ? a : b;
+    else if (a.index() == 0 && b.index() == 0) {
+        int da = get<int>(a);
+        int db = get<int>(b);
+        if (da > db)
+            return a;
+        else if (db > da)
+            return b;
+        else
+            return std::monostate{};
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        size_t pos = ((string)a).find(',');
-        int num = (int)b;
-        string str = (string)a;
-        size_t pos2 = str.find(',');
-        return stoi(str.substr(0, pos2)) > num ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        int num = (int)b;
-        string str = (string)a;
-        size_t pos = str.find(',');
-        return (float)a > stoi(str.substr(0, pos)) ? a : b;
-    }
-    else {
-        return boost::any("None");
-    }
+    return std::monostate{};
+}
+
+int main() {
+    cout << get<variant<int, string>>(compare_one(1, 2.5)) << endl;
+    cout << get<variant<int, string>>(compare_one(1, "2,3")) << endl;
+    cout << get<variant<int, string>>(compare_one("5,1", "6")) << endl;
+    cout << get<variant<int, string>>(compare_one("1", 1)) << endl;
+    return 0;
 }
