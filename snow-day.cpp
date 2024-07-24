@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 int main() {
     int hours;
@@ -10,7 +9,7 @@ int main() {
     float snowOnGround = snow;
 
     for (int i = 0; i < hours; ++i) {
-        snowOnGround = std::round((snowOnGround + rate - (snowOnGround * melt)) * 100000000) / 100000000;
+        snowOnGround = snowOnGround + rate - (snowOnGround * melt);
     }
 
     std::cout << snowOnGround << std::endl;
