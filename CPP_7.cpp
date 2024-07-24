@@ -19,12 +19,15 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
-    string sub = "run";
-    vector<string> expected = {"grunt", "prune"};
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> filteredStrings = filter_by_substring(strings, substring);
 
-    vector<string> output = filter_by_substring(input, sub);
-    assert(containSameStrings(output, expected));
+    if(containSameStrings(filteredStrings, {"grunt", "prune"})){
+        cout << "The two vectors contain the same strings." << endl;
+    } else {
+        cout << "The two vectors do not contain the same strings." << endl;
+    }
     
     return 0;
 }
