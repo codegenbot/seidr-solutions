@@ -7,14 +7,15 @@ int main() {
     }
     cin >> target;
 
-    map<int, int> mp;
+    map<int, int> seen;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
+        int complement = target - nums[i];
+        if (seen.find(complement) != seen.end()) {
+            cout << complement << endl;
             cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        seen[nums[i]] = i;
     }
 
     return 0;
