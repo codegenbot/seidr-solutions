@@ -1,2 +1,6 @@
 def sum_of_odd_numbers(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+    odd_sum = 0
+    for num in lst:
+        if num % 2 != 0:
+            odd_sum += num
+    return odd_sum
