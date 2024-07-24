@@ -4,24 +4,24 @@ def bowling_score(game):
     roll = 0
     for frame in game.split('/'):
         if len(frame) == 1:
-            score += int(frame)
-            roll += 1
-        elif len(frame) == 2:
-            score += int(frame[0]) + int(frame[1])
-            roll += 1
+            score += 10
+        elif len(frame) > 1 and int(frame[0]) + int(frame[1]) == 10:
+            score += 10 + int(frame[-1])
         else:
-            strike = True
-            while strike:
-                if frame[0] == 'X':
-                    score += 10 + (10 - int(frame[-1]))
-                    roll += 1
-                    break
-                elif frame[0] in ['7', '8', '9']:
-                    score += 10 + int(frame[0]) + int(frame[-1])
+            first_roll = int(frame[0])
+            second_roll = 10 - first_roll if len(frame) > 1 else int(frame[1])
+            if roll < 9 and first_roll == 10:
+                next_frame = game.split('/')[roll+1]
+                if len(next_frame) > 1:
+                    score += 20
                     roll += 2
-                    break
                 else:
-                    score += 10 + int(frame[0]) + int(frame[1])
-                    roll += 2
-                    break
+                    score += 10 + second_roll
+                    roll += 1
+            elif roll < 9 and first_roll + second_roll == 10:
+                score += 10 + second_roll
+                roll += 1
+            else:
+                score += first_roll + second_roll
+                roll += 1
     return score
