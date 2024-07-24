@@ -1,39 +1,39 @@
-int bowlingScore(string bowls) {
-    int score = 0, frame = 0, ball = 0;
-    for (char c : bowls) {
-        if (c == 'X') {
+int calculateBowlingScore(string bowls) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (bowls[i] == 'X') {
             score += 10;
-            if (frame < 9) {
-                if (bowls[ball + 1] == 'X') {
-                    score += 10 + ((frame == 8) ? 10 : (bowls[ball + 2] == 'X') ? 10 : bowls[ball + 2] - '0');
-                } else {
-                    score += (bowls[ball + 2] == '/') ? 10 : bowls[ball + 1] - '0' + bowls[ball + 2] - '0';
-                }
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X' ? 10 : (bowls[i + 1] == '/' ? 10 - (bowls[i - 1] - '0') : bowls[i + 1] - '0') +
+                                                           (bowls[i + 2] == 'X' ? 10 : (bowls[i + 2] == '/' ? 10 - (bowls[i + 1] - '0') : bowls[i + 2] - '0')));
             }
-            ball++;
+            ball = 0;
             frame++;
-        } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
-            score += (frame == 9) ? 0 : bowls[ball + 1] - '0';
-            ball++;
-            frame++;
-        } else if (c == '-') {
-            ball++;
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (frame < 10) {
+                score += (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0');
+            }
+            ball = 0;
             frame++;
         } else {
-            score += c - '0';
-            if (frame < 9 && c != '0' && bowls[ball + 1] == '/') {
-                score += 10 - (c - '0');
+            score += bowls[i] - '0';
+            if (ball == 0) {
+                ball = 1;
+            } else {
+                ball = 0;
+                frame++;
             }
-            ball++;
-            frame++;
         }
     }
     return score;
 }
+
 int main() {
     string bowls;
     cin >> bowls;
-    cout << bowlingScore(bowls) << endl;
+    cout << calculateBowlingScore(bowls) << endl;
     return 0;
 }
