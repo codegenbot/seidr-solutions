@@ -1,3 +1,4 @@
+```
 def decode_shift(encoded_string):
     for i in range(len(encoded_string)):
         if not encoded_string[i].isalpha():
