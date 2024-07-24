@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 std::string intersection(int start1, int end1, int start2, int end2) {
-    int commonStart = max(start1, start2);
-    int commonEnd = min(end1, end2);
+    int commonStart = std::max(start1, start2);
+    int commonEnd = std::min(end1, end2);
 
     if (commonStart > commonEnd)
         return "NO";
