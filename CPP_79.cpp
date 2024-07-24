@@ -11,9 +11,6 @@ string decimal_to_binary(int decimal){
 }
 
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "Binary representation: " << decimal_to_binary(num) << endl;
+    cout << decimal_to_binary(15) << endl;
     return 0;
 }
