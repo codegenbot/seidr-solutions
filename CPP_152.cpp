@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -23,10 +22,12 @@ int main() {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin >> std::skipws; // skip any remaining characters
+        std::cin.clear();
     }
 
     std::vector<int> vec1;
+    vec1.resize(n);
+
     int size = 0;
     while (size < n) {
         int x;
@@ -34,13 +35,15 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> std::skipws; // skip any remaining characters
+            std::cin.clear();
         }
-        vec1.push_back(x); 
+        vec1[size] = x; 
         size++;
     }
 
     std::vector<int> vec2;
+    vec2.resize(n);
+
     size = 0;
     while (size < n) {
         int x;
@@ -48,9 +51,9 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> std::skipws; // skip any remaining characters
+            std::cin.clear();
         }
-        vec2.push_back(x); 
+        vec2[size] = x; 
         size++;
     }
 
