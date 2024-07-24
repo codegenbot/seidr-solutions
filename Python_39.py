@@ -1,4 +1,5 @@
-````
+```
+"""
 def prime_fib(n: int):
     a, b = 0, 1
     count = 0
@@ -16,3 +17,4 @@ def is_prime(num: int):
         if num % i == 0:
             return False
     return True
+"""
