@@ -15,4 +15,4 @@ def make_palindrome(s):
     right_half = s[half:][::-1]
     if len(left_half) < len(right_half):
         return "".join([left_half + left_half[::-1], right_half[1:]])
-    return "".join([left_half, right_half[1:]])
+    return "".join([left_half, right_half[1:]]);
