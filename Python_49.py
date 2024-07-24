@@ -15,6 +15,5 @@ while True:
         exponent = int(input("Enter the exponent: "))
         modulus = int(input("Enter the modulus: "))
         print(powermod(base, exponent, modulus))
-        break
     except ValueError:
         print("Invalid input. Please enter integers.")
