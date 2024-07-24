@@ -8,16 +8,17 @@ int main() {
     int n;
     cin >> n;
     vector<double> v1(n), v2(n);
-    
-    double val;
     for (int i = 0; i < n; ++i) {
-        cin >> val;
-        v1[i] = val;
+        cin >> v1[i];
     }
-
+    
+    string temp;
+    getline(cin, temp); // read the newline
+    
     for (int i = 0; i < n; ++i) {
-        cin >> val;
-        v2[i] = val;
+        double x, y;
+        cin >> x >> y;
+        v2[i] = sqrt(x*x + y*y);
     }
 
     double sum = 0;
