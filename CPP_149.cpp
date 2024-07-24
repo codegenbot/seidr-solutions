@@ -35,7 +35,6 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
 }
 
 int main() {
-    std::vector<std::string> lst = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
-    assert(issame(sorted_list_sum({{ "aaaa" }, { "bbbb" }, { "dd" }, { "cc" }}), { "cc", "dd", "aaaa", "bbbb" }));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}));
     return 0;
 }
