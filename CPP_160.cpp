@@ -9,7 +9,7 @@ int doAlgebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "-") {
             result -= operand[i];
         } else if (operator_[i] == "*") {
-            int temp = 1;
+            int temp = 0;
             for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "*") {
                     temp *= operand[j + 1];
@@ -42,6 +42,6 @@ int doAlgebra(vector<string> operator_, vector<int> operand) {
 }
 
 int main() {
-    assert(doAlgebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert (doAlgebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
