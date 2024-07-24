@@ -4,3 +4,5 @@ def double_the_difference(lst):
     avg = sum(lst) / len(lst)
     diff = abs(max(lst) - min(lst)) - abs(avg - min(lst))
     return 2 * diff
+
+print(double_the_difference([1, 5, 3, 19, 18, 25]))
