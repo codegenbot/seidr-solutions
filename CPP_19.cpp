@@ -1,19 +1,35 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_map;
-for(auto pair : num_map){
-    rev_map[pair.second] = pair.first;
-}
+string sort_numbers(string numbers){
+    map<string, int> numeralToNumber = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
 
-vector<int> sorted_nums;
-string word;
-istringstream iss(numbers);
-while(iss >> word){
-    sorted_nums.push_back(num_map[word]);
-}
-sort(sorted_nums.begin(), sorted_nums.end());
+    map<int, string> numberToNumeral;
+    for (const auto& it : numeralToNumber) {
+        numberToNumeral[it.second] = it.first;
+    }
 
-string result;
-for(auto num : sorted_nums){
-    result += rev_map[num] + " ";
+    vector<int> numOrder;
+    stringstream ss(numbers);
+    string num;
+    while (ss >> num) {
+        numOrder.push_back(numeralToNumber[num]);
+    }
+
+    sort(numOrder.begin(), numOrder.end());
+
+    string sortedNumbers;
+    for (const int& n : numOrder) {
+        sortedNumbers += numberToNumeral[n] + " ";
+    }
+
+    return sortedNumbers.substr(0, sortedNumbers.size() - 1);
 }
-return result;
