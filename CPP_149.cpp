@@ -24,11 +24,14 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 break;
             }
         }
-        sums.push_back(std::to_string(sum)); // change this line
-
+        sums.push_back(sum); 
     } 
 
-    std::vector<std::string> sorted_sums(sums.begin(), sums.end());
+    std::vector<std::string> sorted_sums;
+    for (int sum : sums) {
+        sorted_sums.push_back(std::to_string(sum));
+    }
+
     std::sort(sorted_sums.begin(), sorted_sums.end()); 
 
     return sorted_sums;
