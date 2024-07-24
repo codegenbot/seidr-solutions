@@ -1,9 +1,4 @@
-import math
+from math import fsum
 
-
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    return (
-        initial_snow
-        + math.fsum([rate_of_snowfall] * hours)
-        - math.fsum([melting_rate] * hours)
-    )
+def snow_day(hours, initial_snow, snow_rate, melting_rate):
+    return fsum([initial_snow, (hours * snow_rate)]) - (hours * initial_snow * melting_rate)
