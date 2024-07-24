@@ -7,19 +7,11 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos != -1:
-            result.append(pos)
-            start = pos + 1
+    i = 0
+    while i < len(text) - len(target) + 1:
+        if text[i:i+len(target)] == target:
+            result.append(i)
+            i += 1
         else:
-            break
+            i += 1
     return result
-
-# Test cases
-print(gcd(1, 1))  # 1
-print(gcd(4, 400000))  # 4
-print(gcd(54, 24))   # 6
-print(gcd(4200, 3528))  # 168
-print(gcd(820000, 63550))  # 2050
