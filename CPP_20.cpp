@@ -18,12 +18,12 @@ bool sameVectors(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> vec1, vec2;
+    std::vector<float>(5), vec2(5);
 
     int maxInputCount = 5; 
     int inputCount = 0;
     
-    float num;
+    int num;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -35,7 +35,12 @@ int main() {
             if(inputCount >= maxInputCount) break; 
             break;
         }
-        vec1.push_back(num);
+        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
+            std::cout << "Invalid input. Please enter a number within the range of int.\n";
+            if(inputCount >= maxInputCount) break; 
+            break;
+        }
+        vec1.push_back((float)num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
@@ -54,7 +59,11 @@ int main() {
             }
             break;
         }
-        vec2.push_back(num);
+        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
+            std::cout << "Invalid input. Please enter a number within the range of int.\n";
+            break;
+        }
+        vec2.push_back((float)num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
