@@ -2,14 +2,11 @@
 #include <map>
 #include <string>
 #include <cctype>
-#include <unordered_map>
-#include <assert>
-#include <ext/hashtable.h>
 
 using namespace std;
 
-multimap<char, int> histogram(string test) {
-    multimap<char, int> result;
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -21,27 +18,27 @@ multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    multimap<char, int> maxCountMap;
+    unordered_map<char, int> maxCountMap;
 
     for (auto& p : result) {
         if (p.second > maxCount) {
             maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap.insert(p);
+            maxCountMap[p.first] = p.second;
         } else if (p.second == maxCount) {
-            maxCountMap.insert(p);
+            maxCountMap[p.first] = p.second;
         }
     }
 
     return maxCountMap;
 }
 
-int main1() {
+int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
 
-    multimap<char, int> hist = histogram(input);
+    unordered_map<char, int> hist = histogram(input);
     for (auto& p : hist) {
         cout << p.first << ": " << p.second << endl;
     }
