@@ -38,28 +38,39 @@ int main() {
     int n1, n2;
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
-    std::vector<std::string> lst1;
-    cout << "Enter string " << n1 << " for list 1:\n";
+    vector<string> lst1;
+    int maxAttempts = 5;
     for (int i = 0; i < n1; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
+        for(int attempt = 0; attempt < maxAttempts; attempt++) {
+            cin >> s;
+            if (!s.empty()) break;
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if(s.empty()) {
+            cout << "Too many invalid attempts. Stopping here.\n";
+            return 0; 
         }
         lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
-    std::vector<std::string> lst2;
-    cout << "Enter string " << n2 << " for list 2:\n";
+    vector<string> lst2;
     for (int i = 0; i < n2; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
+        for(int attempt = 0; attempt < maxAttempts; attempt++) {
+            cin >> s;
+            if (!s.empty()) break;
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if(s.empty()) {
+            cout << "Too many invalid attempts. Stopping here.\n";
+            return 0; 
         }
         lst2.push_back(s);
     }
@@ -67,7 +78,7 @@ int main() {
     if (same(lst1, lst2)) {
         cout << "The lists are the same.\n";
     } else {
-        std::vector<std::string> result = match(lst1, lst2);
+        vector<string> result = match(lst1, lst2);
         if (equal(result.begin(), result.end(), lst1.begin())) {
             cout << "List 1 is the match of list 2.\n";
         } else {
