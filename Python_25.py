@@ -16,5 +16,5 @@ def factorize(n: int) -> List[List[int]]:
                 count += 1
             factors.append([i] * count)
     if n > 1:
-        factors.append([[n]])
-    return [list(factor) for factor in set(map(tuple, factors))]
+        factors.append([n])
+    return [factor_list for factor_list in set(map(tuple, factors))]
