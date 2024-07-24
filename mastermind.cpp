@@ -1,26 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-using namespace std;
-
-void calculatePegs(string code, string guess);
-
-int main() {
-    string code, guess;
-    cout << "Enter code: ";
-    cin >> code;
-    cout << "Enter guess: ";
-    cin >> guess;
-
-    calculatePegs(code, guess);
-
-    return 0;
-}
-
-void calculatePegs(string code, string guess) {
+void calculatePegs(std::string code, std::string guess) {
     int blackPegs = 0, whitePegs = 0;
-    vector<int> codeFreqCode(6, 0), codeFreqGuess(6, 0);
+    std::vector<int> codeFreqCode(6, 0), codeFreqGuess(6, 0);
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -44,5 +28,5 @@ void calculatePegs(string code, string guess) {
         }
     }
 
-    cout << "Black Pegs: " << blackPegs << ", White Pegs: " << whitePegs << endl;
+    std::cout << "Black Pegs: " << blackPegs << ", White Pegs: " << whitePegs << std::endl;
 }
