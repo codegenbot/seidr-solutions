@@ -9,13 +9,16 @@ string camelCase(string s) {
                 i++;
             }
             if (!result.empty())
-                result += toupper(s[i]);
+                result.push_back(toupper(s[i]));
             else
-                result = tolower(s.substr(i, s.find(' ', i) - i));
+                result += s.substr(i, 1);
+            while (i < s.length() && s[i] != ' ') {
+                i++;
+            }
         } else if (!result.empty()) {
             if (s[i] == ' ')
                 continue;
-            result += toupper(s[i]);
+            result.push_back(toupper(s[i]));
         } else {
             result += tolower(s[i]);
         }
