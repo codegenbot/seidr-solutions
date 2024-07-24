@@ -8,10 +8,9 @@ def minPath(grid, k):
         if len(path) == k:
             res = tuple(path)
         else:
-            for nr in range(N):
-                for nc in range(N):
-                    if (nr, nc) not in path and grid[nr][nc]:
-                        queue.append((nr, nc, path + [f"{grid[row][col]}{grid[nr][nc]}"]))
+            for cell in set([grid[i][j] for i in range(N) for j in range(N)]):
+                if grid[row][col] == cell and len(path)+1 <= k:
+                    queue.append((row, col, path + [cell]))
     return res
 
 grid = [["1", "0", "1"], ["0", "0", "0"], ["1", "0", "1"]]
