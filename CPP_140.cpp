@@ -1,19 +1,23 @@
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 0 || i>0) result += '-';
-                else continue;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (result.length() >= 2 && result.back() == ' ' && result[rindex(result, ' ', i - 1)] == ' ') {
+                result += '-';
+            } else {
+                result += '_';
             }
-            else{
-                if(result.length() > 0) result += '_';
-                else result += ' ';
-            }
-        }
-        else{
+        } else {
             result += text[i];
         }
     }
     return result;
+}
+
+int rindex(string s, char c, int from) {
+    for (int i = from; i >= 0; i--) {
+        if (s[i] == c)
+            return i;
+    }
+    return -1;
 }
