@@ -17,7 +17,7 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     int n;
-    std::cout << "Enter the number of elements in the list: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
         float num;
@@ -26,6 +26,6 @@ int main() {
         lst.push_back(num);
     }
     long long result = double_the_difference(lst); 
-    std::cout << "The sum of squares of odd integers is: " << result << std::endl;
+    std::cout << "Sum of squares of odd integers: " << result << std::endl;
     return 0;
 }
