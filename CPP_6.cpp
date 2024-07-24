@@ -2,22 +2,20 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
+vector<int> parse_nested_parens(string paren_string);
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
+        }
     }
 
     return true;
-}
-
-vector<int> parse_nested_parens(string paren_string);
-
-int main() {
-    // Your main function code, if any.
 }
 
 vector<int> parse_nested_parens(string paren_string) {
@@ -28,7 +26,7 @@ vector<int> parse_nested_parens(string paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
-            max_depth = max(max_depth, current_depth);
+            max_depth = std::max(max_depth, current_depth);
         } else if (c == ')') {
             current_depth--;
         } else if (c == ' ') {
@@ -41,4 +39,9 @@ vector<int> parse_nested_parens(string paren_string) {
     depths.push_back(max_depth);
 
     return depths;
+}
+
+int main() {
+    // Add your testing code here
+    return 0;
 }
