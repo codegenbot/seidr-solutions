@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 
@@ -17,16 +16,14 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != "(":
                 group += stack.pop()
             if stack:
-                while stack[-1] != "(":
-                    group += stack.pop()
-                stack.pop()  # Process the matching opening parenthesis
+                group += stack.pop()
             else:
-                groups.append(group)
+                groups.append(group + ")")
                 group = ""
 
     if stack:
-        for _ in range(len(stack)):
-            group += ")"  # Add remaining opening parentheses to the last group
-        groups.append(group)
+        for _ in range(stack.pop()):
+            group += ")"
+        groups.append(group + ")")
 
     return [group + ")" for group in groups]
