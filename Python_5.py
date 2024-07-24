@@ -5,9 +5,8 @@ def intersperse(numbers: List[int], delimeter: int) -> List[str]:
     result = [str(numbers[0])]
     for i in range(1, len(numbers)):
         result.append(str(delimeter))
-        if i < len(numbers) - 1:
-            result.append(str(numbers[i]))
-    return [result[0]] + result[2:]
+        result.append(str(numbers[i]))
+    return result
 
 if __name__ == "__main__":
     while True:
