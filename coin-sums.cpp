@@ -6,21 +6,21 @@ using namespace std;
 vector<int> coinSums(int cents) {
     vector<int> coins = {0, 0, 0, 0};
     
-    while (cents > 0) {
-        if (cents >= 25) {
-            cents -= 25;
-            coins[3]++;
-        } else if (cents >= 10) {
-            cents -= 10;
-            coins[2]++;
-        } else if (cents >= 5) {
-            cents -= 5;
-            coins[1]++;
-        } else {
-            cents--;
-            coins[0]++;
-        }
-    }
+    int quarters = cents / 25;
+    cents %= 25;
+    
+    int dimes = cents / 10;
+    cents %= 10;
+    
+    int nickels = cents / 5;
+    cents %= 5;
+    
+    int pennies = cents;
+    
+    coins[3] = quarters;
+    coins[2] = dimes;
+    coins[1] = nickels;
+    coins[0] = pennies;
     
     return coins;
 }
