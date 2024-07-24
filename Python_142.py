@@ -1,10 +1,4 @@
-```
 def sum_squares(n):
-    if not isinstance(n, int):
-        return "Input is not an integer."
-    if n < 1:
-        return "Please enter a positive integer."
-
     try:
         return sum(i**2 for i in range(1, n+1))
     except TypeError:
