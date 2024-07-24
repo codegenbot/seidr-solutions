@@ -1,27 +1,46 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
-        int count = 0;
-        for (char letter : letters) {
-            if (letter == c) count++;
+    for (char c : test) {
+        char ch = tolower(c);
+        if (ch != ' ') { 
+            if (!result.count(ch)) result.insert({ch, 0});
+            result.find(ch)->second++;
         }
-        if (count > 0) result[c] = count;
     }
 
-    map<char, int> maxCountMap;
     int maxCount = 0;
-    for (auto& pair : result) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
+    map<char, int> maxCountMap;
+
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap[pair.first] = pair.second;
-        } else if (pair.second == maxCount) {
-            maxCountMap[pair.first] = pair.second;
+            maxCountMap.insert({p.first, p.second});
+        } else if (p.second == maxCount) {
+            maxCountMap.insert({p.first, p.second});
         }
     }
 
     return maxCountMap;
+}
+
+int main_function() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    map<char, int> hist = histogram(input);
+    for (auto& p : hist) {
+        cout << p.first << ": " << p.second << endl;
+    }
+    return 0;
 }
