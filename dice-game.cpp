@@ -1,15 +1,7 @@
-```cpp
-#include <iostream>
-#include <cmath>
-
 double getProbability(int n, int m) {
-    double num = 0;
-    for(int i=m+1; i<=n; ++i){
-        num += (double)1/(m*i);
+    double num = 0.0;
+    for(int i=1; i<m; ++i){
+        num += (double)1/(n*m);
     }
-    return num;
-}
-
-int main() {
-    return 0;
+    return 1 - num;
 }
