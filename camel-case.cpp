@@ -1,42 +1,30 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    vector<string> words = split(s, ' ');
-    string result = "";
-    
-    for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result[0] = toupper(words[i][0]);
+std::string camelCase(std::string input) {
+    std::string output;
+    bool firstWord = true;
+
+    for (char c : input) {
+        if (c == '-') {
+            if (!firstWord) {
+                output.push_back(char(toupper(c)));
+            }
+            firstWord = false;
+        } else if (c == ' ') {
+            output += char(toupper(c));
+            firstWord = true;
         } else {
-            result += words[i];
-        }
-        
-        for (int j = 1; j < words[i].size(); j++) {
-            result += tolower(words[i][j]);
-        }
-        
-        if (i < words.size() - 1) {
-            result += " ";
+            output += c;
         }
     }
-    
-    return result;
+
+    return output;
 }
 
-vector<string> split(string s, char c) {
-    vector<string> res;
-    string temp = "";
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == c) {
-            res.push_back(temp);
-            temp = "";
-        } else {
-            temp += s[i];
-        }
-    }
-    
-    res.push_back(temp);
-    
-    return res;
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
