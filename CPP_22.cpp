@@ -22,6 +22,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
         }
     }
     return result;
+
 }
 
 int main() {
