@@ -17,36 +17,17 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Count black pegs (correct color, correct place)
-    int i = 0;
-    while (i < 4) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code_count[guess[i]]--;
-            guess_count[guess[i]]--;
-            i++;
-        } else {
-            i++;
-        }
-    }
-
-    // Count remaining characters in the code that are not in the guess
-    for (auto& pair : code_count) {
-        while (pair.second > 0 && !contains(guess, pair.first)) {
-            pair.second--;
         }
     }
 
     // Count white pegs (correct color, wrong place)
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i]) {
-            for (int j = 0; j < 6; j++) {
-                char c = 'A' + j;
-                if (guess[j] == c && code_count[c] > 0) {
-                    white++;
-                    code_count[c]--;
-                    break;
-                }
-            }
+    for (int c : code) {
+        if (guess_count[c] > 0) {
+            white++;
+            guess_count[c]--;
         }
     }
 
