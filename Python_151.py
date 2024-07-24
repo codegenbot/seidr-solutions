@@ -1,4 +1,3 @@
-```
 def double_the_difference(lst):
     if len(lst) < 2:
         return 0
@@ -6,4 +5,5 @@ def double_the_difference(lst):
     diff = abs(max(lst) - min(lst)) - abs(avg - min(lst))
     return 2 * diff
 
-print(double_the_difference([1, 5, 3, 19, 18, 25]))
+
+print(check(double_the_difference([1, 5, 3, 19, 18, 25])))
