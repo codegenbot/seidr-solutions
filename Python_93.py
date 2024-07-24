@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     result += " "
@@ -10,7 +9,6 @@ def encode(message):
                 result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
             else:
                 result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
-        else:
-            elif not char.isalpha():
-                result += char
+        elif not char.isalpha():
+            result += char
     return result
