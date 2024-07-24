@@ -1,2 +1,7 @@
-def dice_game(n, m):
-    return sum(1 for i in range(m) for j in range(i + 1, n + 1)) / (n * m)
+Here is the Python solution:
+
+def roll_higher(n, m):
+    if n > m:
+        return 1 - (m / (n + m))
+    else:
+        return 1 - (n / (n + m))
