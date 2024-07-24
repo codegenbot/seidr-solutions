@@ -1,20 +1,39 @@
 ```
 def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in frames.split('/'):
-        if '-' in frame:
-            bonus_roll = int(frame.split('-')[1])
-            if bonus_roll == 10:
-                score += 30
+    frame = 0
+    while frame < len(frames):
+        if frames[frame] == 'X':  # strike
+            score += 10 + (10 if frame+1 < len(frames) and frames[frame+1].isdigit() else 0)
+            frame += 2
+        elif frames[frame:frame+2] in ['--', '-X', 'XX']:
+            score += 10
+            frame += 3
+        elif frames[frame].isdigit():
+            strike = False
+            for i in range(1, 4):
+                if frame+i >= len(frames) or not frames[frame+i].isdigit():
+                    break
+            if i == 1:
+                score += int(frames[frame])
+                frame += 1
             else:
-                score += 20 + bonus_roll
-            roll += 2
-        elif len(frame) > 1:
-            first, second = map(int, frame)
-            score += first + second
-            roll += 2
+                score += int(frames[frame:frame+i])
+                strike = True
+            if strike:
+                while frame < len(frames) and (frames[frame] != '/' or not frames[frame+1].isdigit()):
+                    frame += 1
         else:
-            score += int(frame)
-            roll += 1
+            if frame < len(frames) - 2 and frames[frame:frame+3] == '/0':
+                score += 10
+                frame += 3
+            elif frame < len(frames) - 1 and frames[frame:frame+2] == '//':
+                score += 10
+                frame += 2
+            else:
+                for i in range(1, 4):
+                    if frame+i >= len(frames) or not frames[frame+i].isdigit():
+                        break
+                score += int(frames[frame:frame+i])
+                frame += i
     return score
