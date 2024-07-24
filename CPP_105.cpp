@@ -10,8 +10,7 @@ std::vector<std::string> by_length(const std::vector<int>& lengths) {
             result.push_back("Four");
         else if (length == 9)
             result.push_back("Nine");
-        else
-            result.push_back(std::to_string(length) + "teen");
+        // Add more cases as needed
     }
     return result;
 }
