@@ -1,50 +1,31 @@
 #include <string>
-#include <sstream>
-
 using namespace std;
 
 bool valid_date(string date) {
-    int month, day, year;
-    string temp;
-
-    // Convert the date string to mm-dd-yyyy format
-    for (int i = 0; i < 10; i++) {
-        if (date[i] == '-') break;
-        temp += date[i];
-    }
-    month = stoi(temp);
-    for (int i = 10; i < 16; i++) {
-        if (date[i] == '-') break;
-        temp = "";
-        while (i < 16 && date[i] != '-') {
-            temp += date[i];
-            i++;
-        }
-        day = stoi(temp);
-        year = stoi(date.substr(i));
-    }
-
-    // Validate the date
-    if (month < 1 || month > 12) return false;
-    if ((month == 2 && day > 29) ||
-        (month == 4 || month == 6 || month == 9 || month == 11) &&
-            (day > 30)) return false;
-
-    // Check for valid number of days in February
+    int day, month, year;
+    char divider;
+    sscanf(date.c_str(), "%02d-%02d-%04d", &month, &day, &year);
+    
+    if (date.empty()) return false;
+    
+    if ((month < 1 || month > 12) 
+        || (year < 1)) return false;
+        
     if (month == 2) {
-        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
-            if (day > 29) return false;
-        else if (day > 28) return false;
+        if (year % 4 != 0 && year % 100 == 0) return false;
+        else if (year % 400 != 0) return day <= 28;
+        else return day <= 29;
+    } 
+    else if ((month < 1 || month > 12) || (day < 1)) return false;
+    
+    switch(month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            if(day > 31) return false;
+            break;
+        case 4: case 6: case 9: case 11:
+            if(day > 30) return false;
+            break;
     }
-
-    // Check for valid number of days in months with 31 days
-    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
-            month == 10 || month == 12) &&
-        (day > 31)) return false;
-
-    // Check for valid number of days in months with 30 days
-    if ((month == 4 || month == 6 || month == 9 || month == 11) &&
-        (day > 30)) return false;
-
+    
     return true;
 }
