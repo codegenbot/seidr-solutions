@@ -12,11 +12,16 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     string input;
+    cout << "Enter a string with parenthesis groups: ";
     cin >> input;
+
     vector<string> result = separate_paren_groups(input);
-    for (string group : result) {
-        cout << group << " ";
+
+    cout << "Separated groups:" << endl;
+    for (const auto& group : result) {
+        cout << group << endl;
     }
+
     return 0;
 }
 
