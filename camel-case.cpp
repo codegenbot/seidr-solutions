@@ -9,9 +9,9 @@ string camelCase(string s) {
                 i++;
             }
             if (!result.empty())
-                result += toupper(s.substr(i, s.find(' ', i) - i));
+                result += toupper(s[i]);
             else
-                result = s.substr(i, s.find(' ', i) - i);
+                result = tolower(s.substr(i, s.find(' ', i) - i));
         } else if (!result.empty()) {
             if (s[i] == ' ')
                 continue;
