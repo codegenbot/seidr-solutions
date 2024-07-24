@@ -1,2 +1,2 @@
 def sorted_list_sum(lst):
-    return int("".join(sorted(map(str, [i for i in lst if isinstance(i, str)]))))
+    return sum(map(ord, "".join(sorted(str(i) for i in set(lst)))))
