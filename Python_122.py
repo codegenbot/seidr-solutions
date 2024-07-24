@@ -1,3 +1,2 @@
 def add_elements(arr, k):
-    result = [num for num in arr if 10 <= num <= 99]
-    return result if len(result) >= k else result[:]
+    return [num for num in arr if num > 10 and num < 100][:k]
