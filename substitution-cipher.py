@@ -1,6 +1,14 @@
-Here is the solution:
+def substitution_cipher(cipher, message):
+    return "".join(
+        [
+            cipher[i % len(cipher)] if i < len(cipher) else ""
+            for i in range(len(message))
+        ]
+    )
 
-def substitution_cipher(cipher1, cipher2, message):
-    mapping = {cipher1[i]: cipher2[i] for i in range(len(cipher1))}
-    deciphered_message = "".join(mapping.get(char, char) for char in message)
-    return deciphered_message
+
+cipher1 = input()
+cipher2 = input()
+message = input()
+
+print(substitution_cipher(cipher1 + cipher2, message))
