@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
@@ -27,6 +27,6 @@ int sorted_list_sum(const vector<vector<string>>& lst) {
 
 int main() {
     vector<vector<string>> lst = {{"aaaa", "bbbb"}, {"dd"}, {"cc"}};
-    assert(sorted_list_sum({{"aaaa", "bbbb"}, {"dd"}, {"cc"}}) == 2);
+    assert(sorted_list_sum({{string("aaaa"), string("bbbb")}, {string("dd")} , {string("cc")}}) == 2);
     return 0;
 }
