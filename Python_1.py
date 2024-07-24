@@ -1,6 +1,24 @@
+```
 from typing import List
-import re
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    groups = re.split('(?<=\\))|(?<=\\(')', paren_string)
-    return [g for g in groups if g]
+    result = []
+    stack = []
+    temp = ''
+    
+    for char in paren_string:
+        if char == ' ':
+            continue
+        if char == '(':
+            stack.append(char)
+            temp += char
+        elif char == ')':
+            if stack:
+                stack.pop()
+                temp += char
+                result.append(temp)
+                temp = ''
+            else:
+                temp += char
+    
+    return result
