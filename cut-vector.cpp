@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int pos = -1;
     for(int i = 0; i < v.size() - 1; i++) {
@@ -11,7 +11,7 @@ vector<int> cutVector(vector<int> v) {
             pos = i;
         }
     }
-    vector<int> left = vector<int>(v.begin(), v.begin()+pos);
+    vector<int> left = vector<int>(v.begin(), v.begin()+pos+1);
     vector<int> right = vector<int>(v.begin()+pos, v.end());
     return {left, right};
 }
@@ -30,8 +30,8 @@ int main() {
     }
     cout << endl;
     cout << "Right: ";
-    for(int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+    for(auto x : std::vector<int>(res[1]).begin(), e = std::vector<int>(res[1]).end(); x != e; ++x) {
+        cout << *x << " ";
     }
     cout << endl;
     return 0;
