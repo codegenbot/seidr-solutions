@@ -7,16 +7,13 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     
     for (int i = 1; i < v.size(); i++) {
         int diff = abs(v[i] - v[0]);
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
 }
 
 int main() {
@@ -26,12 +23,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
+    
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (int num : result.first) {
-        cout << num << " ";
+    
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << endl;
-    cout << "0" << endl;
+    cout << "] [" << "[";
+    for (int i = 0; i < result.second.size() - 1; i++) {
+        cout << result.second[i] << " ";
+    }
+    cout << "0]" << endl;
+    
     return 0;
 }
