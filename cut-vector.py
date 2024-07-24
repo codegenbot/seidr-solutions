@@ -1,20 +1,22 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
+data = [int(input()) for _ in range(n)]
 
-total_sum = sum(vector)
+total_sum = sum(data)
+half_sum = total_sum // 2
+
 current_sum = 0
-min_diff = total_sum
-cut_index = 0
+for i, num in enumerate(data):
+    current_sum += num
+    if current_sum >= half_sum:
+        break
 
-for i in range(n):
-    current_sum += vector[i]
-    diff = abs(total_sum - 2 * current_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = vector[: cut_index + 1]
-subvector2 = vector[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+if current_sum == half_sum:
+    print(data[: i + 1])
+    print(data[i + 1 :])
+else:
+    if current_sum - half_sum < total_sum - current_sum:
+        print(data[: i + 1])
+        print(data[i + 1 :])
+    else:
+        print(data[:i])
+        print(data[i:])
