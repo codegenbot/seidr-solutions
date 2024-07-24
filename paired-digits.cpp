@@ -8,3 +8,4 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
+}
