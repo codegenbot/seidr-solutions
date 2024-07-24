@@ -1,15 +1,19 @@
-```cpp
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    double probability = getProbability(n, m);
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    return 0;
+}
+
 double getProbability(int n, int m) {
-    int totalOutcomes = n*m;
-    int favorableOutcomes = 0;
-    
-    for (int i = 1; i <= min(n,m); i++) {
-        if (n - i > m) {
-            favorableOutcomes += m;
-        } else {
-            favorableOutcomes += n - i;
-        }
+    double num = 0;
+    for(int i=m+1; i<=n; ++i){
+        num += (double)1/(n*m);
     }
-    
-    return (double)favorableOutcomes / totalOutcomes;
+    return num;
 }
