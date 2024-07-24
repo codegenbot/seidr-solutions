@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string input;
-    cin >> input;
+    std::string input;
+    std::cin >> input;
     
-    if (input == "t") {
-        cout << "True" << endl;
+    if (input == "T") {
+        std::cout << "True" << std::endl;
+    } else if (input == "F") {
+        std::cout << "False" << std::endl;
     } else {
-        cout << "False" << endl;
+        // Handle evaluation of Boolean expression here
     }
     
     return 0;
