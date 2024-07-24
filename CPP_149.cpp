@@ -35,10 +35,9 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
     return {sums}; 
 }
 
-int cpp149_main(int argc, char** argv) {
-    std::vector<std::string> lst = {{"aaaa"} , {"bbbb"}, {"dd"}, {"cc"}};
-    std::vector<std::vector<std::string>> input;
-    input.push_back(lst);
+int main(int argc, char** argv) {
+    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::vector<std::string>> input({lst});
     assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
