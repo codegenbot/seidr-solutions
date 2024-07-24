@@ -1,25 +1,21 @@
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> vec) {
+int solve(vector<int> v) {
     int sum = 0;
-    for (int i : vec) {
-        int temp = i / 3;
-        temp = temp > 0 ? temp - 2 : 0; // subtract 2 only if the result is positive
-        sum += temp;
+    for (int i : v) {
+        int x = i / 3;
+        x = floor(x);
+        x -= 2;
+        sum += x;
     }
     return sum;
 }
 
 int main() {
-    vector<int> vec;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        vec.push_back(x);
+    vector<int> v(n);
+    for (int& i : v) {
+        cin >> i;
     }
-    cout << fuelCost(vec) << endl;
+    cout << solve(v) << endl;
     return 0;
 }
