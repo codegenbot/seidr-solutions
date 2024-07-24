@@ -3,7 +3,8 @@
 #include <map>
 
 int main() {
-    std::string cipher2;
+    std::string cipher2;  
+    std::string result;   
     std::cin >> cipher2;
     std::string cipher1;
     std::cin >> cipher1;
@@ -17,7 +18,7 @@ int main() {
         cipherMap[cipher1[i]] = cipher2[i];
     }
     
-    std::string result = "";
+    result = "";
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
