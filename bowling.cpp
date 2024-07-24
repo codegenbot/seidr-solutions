@@ -1,30 +1,34 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    bool spare = false;
-
-    for (char c : str) {
-        if (c == 'X') {
-            score += 10 + (roll > 0 ? 10 : 0);
-            roll = 0;
-            spare = true;
-        } else if (c == '/') {
-            score += 10 - roll;
-            roll = 0;
-            spare = false;
-        } else if (isdigit(c)) {
-            int points = c - '0';
-            if (!spare) {
-                score += points;
-                roll++;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += min(10, roll * 10);
             } else {
-                score += points;
-                if (roll == 2) {
-                    spare = false;
-                }
+                score += sum(roll + 1, 10 - roll);
+            }
+            roll = 0;
+        } else if (c == 'X') {
+            score += 30;
+            roll = 0;
+        } else {
+            int val = c - '0';
+            roll++;
+            if (roll < 2) {
+                score += val * 10;
+            } else {
+                score += sum(1, val);
             }
         }
     }
-
     return score;
+}
+
+int sum(int start, int end) {
+    int total = 0;
+    for (int i = start; i <= end; i++) {
+        total += i;
+    }
+    return total;
 }
