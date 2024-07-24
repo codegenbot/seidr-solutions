@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <set>
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     set<string> setA(a.begin(), a.end());
@@ -13,26 +11,31 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<string> strings;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+
+    vector<string> strings(n);
     for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        strings.push_back(s);
+        std::cout << "Enter string " << (i+1) << ": ";
+        cin >> strings[i];
     }
-    
-    string substring;
-    cin >> substring;
 
-    vector<string> result = filter_by_substring(strings, substring);
+    int m;
+    std::cout << "Enter the number of substrings: ";
+    std::cin >> m;
 
-    if(issame({}, strings) && issame({}, {substring})) {
-        cout << "All substrings are present in the main string." << endl;
-    } else if(issame(result, strings)) {
-        cout << "The filtered vector contains all the original strings." << endl;
+    vector<string> sub(m);
+    for(int i = 0; i < m; i++) {
+        std::cout << "Enter substring " << (i+1) << ": ";
+        cin >> sub[i];
+    }
+
+    vector<string> filtered_strings = filter_by_substring(strings, sub[0]);
+
+    if(issame(filtered_strings, strings)) {
+        cout << "The filtered strings are the same as the original strings." << endl;
     } else {
-        cout << "The filtered vector does not contain all the original strings." << endl;
+        cout << "The filtered strings are different from the original strings." << endl;
     }
 
     return 0;
