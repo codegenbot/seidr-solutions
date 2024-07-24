@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +7,7 @@
 using namespace std;
 
 vector<string> split_words(string txt) {
-    vector<string> result = {"default"};
+    vector<string> result;
     size_t pos = 0, prev_pos = 0;
     
     while (pos != string::npos) {
@@ -25,6 +26,10 @@ vector<string> split_words(string txt) {
             result.push_back(txt.substr(prev_pos, comma_pos - prev_pos));
             prev_pos = comma_pos + 1;
         }
+    }
+    
+    if (result.empty()) {
+        result = {"default"};
     }
     
     return result;
