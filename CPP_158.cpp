@@ -1,5 +1,4 @@
 ```cpp
-#pragma GCC diagnostic push
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -25,9 +24,11 @@ string find_max(vector<string> words){
 }
 
 int main() {
-    vector<string> words = {"play", "play", "play"};
+    vector<string> words;
+    words.push_back("play");
+    words.push_back("play");
+    words.push_back("play");
     string result = find_max(words);
     cout << result << endl;
     return 0;
 }
-#pragma GCC diagnostic pop
