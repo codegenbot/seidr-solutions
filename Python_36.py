@@ -10,4 +10,4 @@ def fizz_buzz(n: int):
             result.append("Fizz")
         else:
             result.append(str(i))
-    return len([i for i in result if i != ""])
+    return len(result)
