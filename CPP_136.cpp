@@ -1,8 +1,21 @@
-vector<int> largest_smallest_integers(vector<int> lst) {
-    int a = 0, b = INT_MAX;
-    for (int x : lst) {
-        if (x < 0 && x > a) a = x;
-        else if (x > 0 && x < b) b = x;
+vector<int> largest_smallest_integers(vector<int> lst){
+    vector<int> result(2);
+    int neg = INT_MAX, pos = INT_MIN;
+
+    for(int i : lst) {
+        if(i < 0 && i > neg)
+            neg = i;
+        else if(i < 0)
+            continue;
+
+        if(i > 0 && i < pos)
+            pos = i;
+        else if(i > 0)
+            continue;
     }
-    return {(a >= 0) ? 0 : a, (b <= 0) ? 0 : b};
+
+    result[0] = neg == INT_MAX ? 0 : neg;
+    result[1] = pos == INT_MIN ? 0 : pos;
+
+    return result;
 }
