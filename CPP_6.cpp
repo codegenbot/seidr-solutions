@@ -20,13 +20,3 @@ std::vector<int> parse_nested_parens(std::string s) {
     }
     return result;
 }
-
-int solveProblem() {
-    assert(issame(parse_nested_parens("(()(())(()))"), std::vector<int>{4, 2, 1}));
-    return 0;
-}
-
-int main() {
-    solveProblem();
-    return 0;
-}
