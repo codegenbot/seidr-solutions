@@ -1,4 +1,4 @@
-#include <algorithm>
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -17,5 +17,6 @@ vector<int> leaders(vector<int>& arr) {
         if(leader) result.push_back(arr[i]);
     }
     
-    return vector<int>(result.rbegin(), result.rend());
+    reverse(result.begin(), result.end());
+    return result;
 }
