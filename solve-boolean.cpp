@@ -6,21 +6,16 @@ bool evaluateBooleanExpression(const std::string& expr) {
     for (char c : expr) {
         lowercaseExpr += tolower(c);
     }
-
-    while (lowercaseExpr.find("&") != std::string::npos || lowercaseExpr.find("|") != std::string::npos) {
-        size_t andPos = lowercaseExpr.find("&");
-        size_t orPos = lowercaseExpr.find("|");
-        if (andPos < orPos) {
-            lowercaseExpr.replace(andPos - 1, 3, (lowercaseExpr[andPos - 1] == 't' && lowercaseExpr[andPos + 1] == 't') ? "t" : "f");
-        } else {
-            lowercaseExpr.replace(orPos - 1, 3, (lowercaseExpr[orPos - 1] == 't' || lowercaseExpr[orPos + 1] == 't') ? "t" : "f");
+    
+    bool result = lowercaseExpr[0] == 't';
+    for (int i = 1; i < lowercaseExpr.size(); i += 2) {
+        if (lowercaseExpr[i] == '|') {
+            result = result || (lowercaseExpr[i + 1] == 't');
+        } else if (lowercaseExpr[i] == '&') {
+            result = result && (lowercaseExpr[i + 1] == 't');
         }
     }
-
-    if (lowercaseExpr == "false") {
-        return false;
-    }
-    return true;
+    return result;
 }
 
 int main() {
