@@ -1,5 +1,4 @@
-std::pair<int, int> make_a_pile(int n) {
-    for (int i = 1; i <= n; i++) {
-        return {2*i - 1, 2*i};
-    }
+```cpp
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+    // implement your comparison logic here
 }
