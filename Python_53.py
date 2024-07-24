@@ -1,5 +1,5 @@
 ```
-def calculate_area_and_perimeter() -> (float, float) or None:
+def calculate_area_and_perimeter() -> tuple(float, float):
     def check(length: int, width: int):
         if length < 0 or width < 0:
             return None
