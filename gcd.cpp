@@ -6,12 +6,15 @@
 using namespace std;
 
 int main() {
-    int num1, num2;
+    string text, target;
     
     cout << "Enter two integers separated by a space: ";
-    cin >> num1 >> num2;
+    cin >> text >> target;
     
-    int gcd = __gcd(num1, num2);
+    long long num1 = stoll(text);
+    long long num2 = stoll(target);
+    
+    long long gcd = __gcd(num1, num2);
     
     cout << gcd << endl;
     
