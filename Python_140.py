@@ -1,10 +1,11 @@
 def fix_spaces(text):
     new_text = ""
+    char = ""
     if len(new_text) == 0:
-        new_text = text[0]
+        new_text = char
     else:
-        if text[0] == " " and not ((new_text[-1].isalnum() or new_text[-1] in ["-", "_"]) 
-                                    or (len(new_text) == 1 and new_text[0].isalnum()) ):
+        if char == " " and not ((new_text[-1].isalnum() or new_text[-1] in ["-", "_"]) 
+                                or (len(new_text) == 1 and new_text[0].isalnum()) ):
             new_text += "-"
         else:
             new_text += " "
