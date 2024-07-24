@@ -1,12 +1,9 @@
 int fib4(int n) {
-    if (n < 0) return -1; // invalid input
-    int a = 0, b = 2, c = 0, d = 2;
-    for (int i = 4; i <= n; i++) {
-        int temp = a + b + c + d;
-        a = b;
-        b = c;
-        c = d;
-        d = temp;
+    if (n < 0 || n > 10) return -1; // error handling
+    int fib[5] = {0, 0, 2, 0, 2}; // base cases
+    for (int i = 5; i <= n; i++) {
+        int sum = fib[i-1] + fib[i-2] + fib[i-3] + fib[i-4];
+        fib[i%4] = sum;
     }
-    return d;
+    return fib[n % 4];
 }
