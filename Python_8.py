@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not numbers:
-        return (0, 1)  
+        return (0, 0)
     total_sum = 0
     product = 1
 
@@ -13,8 +13,14 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
     return (total_sum, product)
 
-numbers_input = input("Enter a list of integers separated by spaces: ")
-numbers_list = [int(num) for num in numbers_input.split()]
 
-result = sum_product(numbers_list)
-print(f"The sum is {result[0]} and the product is {result[1]}.")
+def main():
+    input_numbers = input("Enter a list of integers separated by space: ")
+    numbers = [int(num) for num in input_numbers.split()]
+
+    result = sum_product(numbers)
+    print(f"Sum is {result[0]} and Product is {result[1]}")
+
+
+if __name__ == "__main__":
+    main()
