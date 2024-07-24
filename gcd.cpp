@@ -5,7 +5,9 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int n = text.size(), m = target.size();
+    int n = text.size();
+    int m = target.size();
+    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -18,21 +20,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             indices.push_back(i);
         }
     }
+    
     return indices;
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int idx : result) {
-        cout << idx << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
