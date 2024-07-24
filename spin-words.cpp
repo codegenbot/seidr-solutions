@@ -1,32 +1,22 @@
 #include <string>
 using namespace std;
 
-string spinWords(string sentence) {
+string spinWords(string str) {
     string result = "";
-    string word = "";
-
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
+    int wordCount = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            if (wordCount >= 5) {
+                for (int j = i-1; j >= wordCount-1; j--) {
+                    result += str[j];
                 }
             } else {
-                result += word;
+                result += str.substr(wordCount, i-wordCount);
             }
-            word = "";
+            wordCount = 0;
         } else {
-            word += sentence[i];
+            wordCount++;
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
-        }
-    } else {
-        result += word;
-    }
-
     return result;
 }
