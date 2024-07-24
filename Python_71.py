@@ -13,8 +13,4 @@ def triangle_area():
         return -1
 
 
-def check():
-    print(triangle_area())
-
-
-check()
+print(triangle_area())
