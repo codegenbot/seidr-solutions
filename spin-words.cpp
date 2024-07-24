@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```c++
 #include <string>
 #include <algorithm>
 using namespace std;
