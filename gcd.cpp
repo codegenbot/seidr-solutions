@@ -4,6 +4,15 @@
 
 using namespace std;
 
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -18,15 +27,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
 int main() {
     int a = 0;
     int b = 0;
@@ -36,5 +36,11 @@ int main() {
 
     cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
 
+    vector<int> indices = indicesOfSubstring("Hello world", "ll");
+    for (int i : indices) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
