@@ -1,9 +1,14 @@
-def solveBoolean(expression):
-    if expression == 'T':
+def solveBoolean(input_string):
+    if input_string == "T":
         return True
-    elif expression == 'F':
+    elif input_string == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        return eval('and' + expression.replace('&', ' and').replace('|', ' or'))
     else:
-        return eval(expression.replace('&', ' and').replace('|', ' or'))
+        for i in range(len(input_string)):
+            if input_string[i] == "&":
+                return (
+                    input_string[:i].lower() == "t"
+                    and input_string[i + 1 :].lower() == "t"
+                )
+            elif input_string[i] == "|":
+                return input_string.lower().index("t") < input_string.lower().index("|")
