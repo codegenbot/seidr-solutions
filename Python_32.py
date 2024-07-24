@@ -1,4 +1,7 @@
-Here is the completed code:
-
 def find_zero(xs: list):
-    return -xs[0] / xs[-1] if len(xs) > 1 else float('nan')
+    n = len(xs)
+    if n % 2 != 0:
+        return None
+    a = xs[0]
+    b = xs[-1]
+    return -b / a
