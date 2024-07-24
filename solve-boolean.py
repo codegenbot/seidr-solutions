@@ -4,12 +4,13 @@ def solveBoolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        return eval(' '.join(map(lambda x: f'({x})', expression.split('&|'))))
     elif '&' in expression:
-        a, b = expression.split('&')
-        return bool(a) and bool(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return bool(a) or bool(b)
+        result = True
+        for term in expression.split '&':
+            if 'T' not in term or 'F' in term:
+                result &= False
+                break
+        return result
     else:
-        raise ValueError("Invalid expression")
+        return eval(expression.replace('|', ' or ').replace('&', ' and '))
