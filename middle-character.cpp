@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 string middleCharacter(string s) {
     int length = s.length();
