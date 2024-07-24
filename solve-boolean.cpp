@@ -1,11 +1,14 @@
+#include <algorithm>
+#include <string>
+
 bool solveBoolean(std::string s) {
-    size_t left_end = std::distance(s.begin(), std::find_first_of(s, "TF"));
+    size_t left_end = s.find_first_of("|", 0, s.length());
     if (left_end == s.length()) {
         return s[0] == 'T';
     } else {
         bool left = s.substr(0, left_end).back() == 'T';
         size_t right_start = left_end;
-        size_t right_end = std::distance(s.begin(), std::find_first_of(s, "TF"));
+        size_t right_end = s.find_first_of("&", 0, s.length());
         if (right_end == s.length()) {
             return s[0] == 'T' ? !left : left;
         } else {
