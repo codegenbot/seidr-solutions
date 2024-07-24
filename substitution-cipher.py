@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher, message):
     deciphered = ""
     for char in message:
@@ -7,3 +8,8 @@ def substitution_cipher(cipher, message):
         else:
             deciphered += char
     return deciphered
+
+
+cipher = input().split()
+message = input()
+print(substitution_cipher(cipher, message))
