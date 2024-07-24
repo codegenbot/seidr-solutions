@@ -1,7 +1,4 @@
-def dice_game(n, m):
-    if n < m:
-        return 0.0
-    elif n == m:
-        return 0.5
-    else:
-        return (m - 1) / (n + m - 2)
+def roll_probability(n, m):
+    return sum(
+        1 / i / math.comb(m + i - 1, i) for i in range(1, min(n, m) + 1)
+    ) / math.comb(n + m - 2, n - 1)
