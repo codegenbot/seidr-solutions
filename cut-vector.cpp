@@ -3,52 +3,31 @@
 #include <climits>
 using namespace std;
 
-void cutVector(vector<int>& nums) {
-    int n = nums.size();
-    
-    for (int i = 1; i < n; i++) {
-        if (nums[i] == nums[0]) {
-            vector<int> left(nums.begin(), nums.begin() + i);
-            vector<int> right(nums.begin() + i, nums.end());
-            cout << "Left: ";
-            for (int num : left) {
-                cout << num << " ";
-            }
-            cout << endl;
-            cout << "Right: ";
-            for (int num : right) {
-                cout << num << " ";
-            }
-            cout << endl;
-            return;
-        }
-    }
-
-    int min_diff = INT_MAX, min_left = 0, min_right = 0;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[0]) + abs(nums[n-1] - nums[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            min_left = nums.begin() + i;
-            min_right = nums.end();
-        }
-    }
-
-    vector<int> left(nums.begin(), min_left);
-    vector<int> right(min_right, nums.end());
-    cout << "Left: ";
-    for (int num : left) {
-        cout << num << " ";
-    }
-    cout << endl;
-    cout << "Right: ";
-    for (int num : right) {
-        cout << num << " ";
-    }
-    cout << endl;
+int main() {
+    vector<int> nums = {1, 3, 5, 7, 9};
+    cutVector(nums);
+    return 0;
 }
 
-int main() {
-    cutVector({1, 2, 3, 4});
-    return 0;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> result;
+    
+    int min_diff = INT_MAX;
+    for (int i = 1; i < n; i++) {
+        int diff1 = nums[i] - nums[0];
+        int diff2 = nums[n-1] - nums[i-1];
+        if (abs(diff1-diff2) < abs(min_diff)) {
+            min_diff = diff1 - diff2;
+            result.push_back(vector<int>(nums.begin(), nums.begin() + i));
+            vector<int> temp(nums.begin() + i, nums.end());
+            nums = temp;
+        }
+    }
+    
+    if (!nums.empty()) {
+        result.push_back(vector<int>(nums.begin(), nums.end()));
+    }
+
+    return result;
 }
