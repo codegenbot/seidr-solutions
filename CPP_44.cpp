@@ -19,7 +19,7 @@ int main() {
     
     // Additional test case mentioned in the error
     int x = 42;
-    assert (change_base(x, x + 1) == std::to_string(x));
+    assert(change_base(x, x + 1) == std::__cxx11::to_string(x));
     
     return 0;
 }
