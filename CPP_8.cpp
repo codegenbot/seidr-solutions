@@ -1,15 +1,15 @@
-Here is the completed code:
-
-```cpp
 #include <vector>
-#include <numeric>
+
+using namespace std;
 
 vector<int> sum_product(vector<int> numbers) {
-    if (numbers.empty()) {
-        return {0, 1};
+    int sum = 0;
+    long long product = 1;
+    
+    for (int num : numbers) {
+        sum += num;
+        product *= num;
     }
-    int sum = std::accumulate(numbers.begin(), numbers.end(), 0);
-    int product = std::accumulate(numbers.begin(), numbers.end(), 1,
-                                  [](int a, int b) { return a * b; });
-    return {(int)sum, (int)product};
+    
+    return {sum, product};
 }
