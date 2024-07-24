@@ -31,6 +31,7 @@ int main() {
     int min_diff = INT_MAX;
     int cut_index = -1;
 
+
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
         int suffix_sum = sum - prefix_sum;
