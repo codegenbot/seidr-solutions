@@ -1,4 +1,4 @@
-map<string, int> numberMap = {
+map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -12,21 +12,21 @@ map<string, int> numberMap = {
 };
 
 string sort_numbers(string numbers){
-    string result = "";
-    map<int, string> sortedNumbers;
+    map<int, string> reverse_map;
+    string result;
 
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string token = numbers.substr(0, pos);
-        sortedNumbers[numberMap[token]] = token;
-        numbers.erase(0, pos + 1);
+    int start_pos = 0;
+    for (int i = 0; i <= numbers.size(); ++i) {
+        if (i == numbers.size() || numbers[i] == ' ') {
+            string num_str = numbers.substr(start_pos, i - start_pos);
+            reverse_map[number_map[num_str]] = num_str;
+            start_pos = i + 1;
+        }
     }
-    sortedNumbers[numberMap[numbers]] = numbers;
 
-    for (const auto& pair : sortedNumbers) {
+    for (const auto& pair : reverse_map) {
         result += pair.second + " ";
     }
-    
-    result.pop_back(); // Remove extra space at the end
-    return result;
+
+    return result.substr(0, result.size() - 1);
 }
