@@ -1,10 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-// Function declaration
-std::vector<double> poly(vector<double> coeffs, double x);
+// Function to calculate the polynomial value for a given coefficient and x
+double poly(std::vector<double> coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
 
-double find_zero(vector<double> xs){
+// Function to find the zero of a polynomial
+double find_zero(std::vector<double> xs){
     double x = 1;
     for (int i = 2; i < xs.size(); i += 2) {
         while (poly(xs, x) > 0) {
@@ -17,10 +25,9 @@ double find_zero(vector<double> xs){
     return round(x, 2);
 }
 
-double poly(vector<double> coeffs, double x){
-    double result = 0.0;
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x,i);
-    }
-    return result;
+int main() {
+    std::vector<double> xs; // Your code here
+    double result = find_zero(xs); // Your code here
+    std::cout << "The zero of the polynomial is: " << result << std::endl;
+    return 0;
 }
