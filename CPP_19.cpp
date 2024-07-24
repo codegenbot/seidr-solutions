@@ -1,4 +1,4 @@
-map<string, int> number_map = {
+map<string, int> numberMap = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,22 +11,25 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
+string sort_numbers(string numbers) {
+    map<int, string> reverseMap;
     string result;
-
-    int start_pos = 0;
-    for (int i = 0; i <= numbers.size(); ++i) {
-        if (i == numbers.size() || numbers[i] == ' ') {
-            string num_str = numbers.substr(start_pos, i - start_pos);
-            reverse_map[number_map[num_str]] = num_str;
-            start_pos = i + 1;
+    string currentNumber;
+    
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (numbers[i] != ' ') {
+            currentNumber += numbers[i];
+        } else {
+            reverseMap[numberMap[currentNumber]] = currentNumber;
+            currentNumber = "";
         }
     }
-
-    for (const auto& pair : reverse_map) {
-        result += pair.second + " ";
+    
+    reverseMap[numberMap[currentNumber]] = currentNumber;
+    
+    for (const auto& entry : reverseMap) {
+        result += entry.second + " ";
     }
-
-    return result.substr(0, result.size() - 1);
+    
+    return result;
 }
