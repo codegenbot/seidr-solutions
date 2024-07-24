@@ -1,5 +1,6 @@
+```python
 def sort_third(l: list):
     return [
-        sum(sorted([x for x in l[i - 1:i + 2] if 0 <= i < len(l)])) if i+1 < len(l) else x
+        sum(sorted([x for x in l[max(0, i - 1):min(i + 3, len(l))]])) if len(l) > i+1 else x
         for i, x in enumerate(l)
     ]
