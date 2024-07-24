@@ -1,25 +1,10 @@
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (char& ch : s) {
-        bool found = false;
-        for (char& cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
-        }
-    }
-    result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
-    return result;
+```
+void issame(int n1, int n2, string s1, string s2) {
+    if (n1 == n2 && s1 == s2)
+        cout << "issame is true" << endl;
+    else
+        cout << "issame is false" << endl;
+}
+int main() {
+    issame(3, 3, "Hello", "Hello");
 }
