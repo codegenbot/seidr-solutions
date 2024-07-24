@@ -1,7 +1,7 @@
-``` 
-"""The issue is that there are no opening triple quotes (`"""`) at the beginning of your code and closing triple quotes (`"""`) at the end. Python requires this for multi-line strings. Simply add them to the beginning and end of your code, like this:
-
+```''
 def encode(message):
+    """Encode message by shifting vowels two positions forward in the alphabet.
+    If char is uppercase, shift and convert to lowercase. Keep non-alphabetic characters unchanged."""
     encoded_message = ""
     for char in message:
         if char.isalpha():
@@ -19,4 +19,4 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
-"""
+''
