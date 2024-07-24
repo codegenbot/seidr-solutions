@@ -1,5 +1,3 @@
-#include <vector>
-#include <algorithm>
 #include <string>
 
 string intersection(vector<int> interval1, vector<int> interval2) {
