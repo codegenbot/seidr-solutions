@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <bitset>
@@ -11,7 +12,7 @@ int main() {
     const char* md[] = {"your_md_values"};
     std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::setfill('0') << std::setw(2) << std::hex << (int)md[i];
+        ss << setfill('0') << setw(2) << hex << (int)md[i];
     }
     return 0;
 }
