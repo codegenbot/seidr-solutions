@@ -31,13 +31,17 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         std::sort(vec.begin(), vec.end());
     }
 
-    return {sums}; 
+    std::vector<std::string> result;
+    for (int i = 0; i < lst[0].size(); i++) {
+        result.push_back(lst[0][i]);
+    }
+    return result; 
 }
 
 int main(int argc, char** argv) {
     std::vector<std::string> lst = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
     std::vector<std::vector<std::string>> input;
     input.push_back(lst);
-    assert(issame(sorted_list_sum(input), { "cc", "dd", "aaaa", "bbbb" }));
+    assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
