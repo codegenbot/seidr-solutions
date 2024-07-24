@@ -6,26 +6,22 @@ using namespace std;
 
 string fix_spaces(const string& text) {
     int count = 0;
-    string modified_text = text;
-    
-    for (int i = 0; i < modified_text.size(); ++i) {
-        if (modified_text[i] == ' ') {
+    for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
             count++;
             if (count > 2) {
-                modified_text[i] = '-';
+                text[i] = '-';
             }
         } else {
             count = 0;
         }
     }
-    
-    for (int i = 0; i < modified_text.size(); ++i) {
-        if (modified_text[i] == ' ') {
-            modified_text[i] = '_';
+    for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
         }
     }
-    
-    return modified_text;
+    return text;
 }
 
 int main() {
