@@ -1,22 +1,44 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    for (int i = 0; i < n; ++i)
-        dp[i][0] = grid[i][0];
-    for (int i = 0; i < n; ++i)
-        dp[0][i] = grid[0][i];
-    for (int i = 1; i < n; ++i) {
-        for (int j = 1; j < n; ++j) {
-            dp[i][j] = min({grid[i-1][j], grid[i][j-1], grid[i-1][j-1]});
+    vector<vector<int>> visited(n, vector<int>(n));
+    queue<pair<pair<int, int>, vector<int>>> q;
+    vector<int> res;
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                visited[i][j] = true;
+                res.push_back(grid[i][j]);
+                q.push({{i, j}, res});
+                
+                while (!q.empty()) {
+                    auto [pos, path] = q.front();
+                    q.pop();
+                    
+                    for (int dir = 0; dir < 4; dir++) {
+                        int x = pos.first + (dir % 2 ? -1 : 1);
+                        int y = pos.second + (dir == 0 ? -1 : 1);
+                        
+                        if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
+                            visited[x][y] = true;
+                            res.push_back(grid[x][y]);
+                            q.push({{x, y}, path});
+                            
+                            if ((int)res.size() == k) {
+                                return res;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    vector<int> res;
-    int i = n - 1, j = n - 1;
-    while (k--) {
-        res.push_back(grid[i][j]);
-        if (i == j) --i;
-        else if (i < j) --j;
-        else --i;
-    }
-    return res;
+    
+    return {};
 }
