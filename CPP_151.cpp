@@ -17,11 +17,11 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     int n;
+    float num;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        float num;
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         lst.push_back(num);
     }
