@@ -28,6 +28,7 @@ int main() {
 
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
+    cin.ignore(); // Clear input buffer
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
