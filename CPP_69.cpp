@@ -7,11 +7,13 @@ int search(std::vector<int> lst) {
             freqMap[num]++;
         }
     }
-    int maxFreq = 0;
-    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first) {
-            maxFreq = it->first;
-        }
-    }
-    return maxFreq;
+    int maxVal = -1; 
+    for(auto p:freqMap){ 
+        if(p.second>=p.first&&p.first>0)
+        { 
+            if(maxVal < p.second)
+                maxVal=p.second;
+        } 
+    } 
+    return maxVal;
 }
