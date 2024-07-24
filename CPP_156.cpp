@@ -54,7 +54,7 @@ std::string int_to_roman(int number) {
     }
 }
 
-int main() {
+int testMain() {
     assert(int_to_roman(1000) == "M");
     return 0;
 }
