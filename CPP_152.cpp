@@ -2,16 +2,14 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool checkVectorEquality(vector<int> a, vector<int> b) {
+bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
-        cout << "Error: The two vectors must be the same size." << endl;
+        std::cout << "Error: The two vectors must be the same size." << std::endl;
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
-            cout << "Error: The two vectors are not the same." << endl;
+            std::cout << "Error: The two vectors are not the same." << std::endl;
             return false;
         }
     }
@@ -19,29 +17,30 @@ bool checkVectorEquality(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> vec1;
     int n;
-    cout << "Enter the number of elements for both vectors: ";
-    cin >> n;
+    std::cout << "Enter the number of elements for both vectors: ";
+    std::cin >> n;
+
+    std::vector<int> vec1(n);
     for(int i = 0; i < n; i++) {
-        int x = 0; // Initialize integer
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        vec1.push_back(x);
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        vec1[i] = x;
     }
 
-    vector<int> vec2;
+    std::vector<int> vec2(n);
     for(int i = 0; i < n; i++) {
-        int x = 0; // Initialize integer
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        vec2.push_back(x);
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        vec2[i] = x;
     }
 
     if(checkVectorEquality(vec1,vec2)) {
-        cout << "The two vectors are the same." << endl;
+        std::cout << "The two vectors are the same." << std::endl;
     } else {
-        cout << "The two vectors are not the same." << endl;
+        std::cout << "The two vectors are not the same." << std::endl;
     }
 
     return 0;
