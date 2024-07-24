@@ -1,9 +1,16 @@
 #include <algorithm>
 #include <string>
-using namespace std;
+
+std::string min_element(const std::string& word) {
+    auto it = std::min_element(word.begin(), word.end());
+    return *it;
+}
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    if (s.empty()) {
+        return s;
+    }
+    string result = "";
     int i = 0;
     while (i <= s.length()) {
         if (s[i] == ' ') {
@@ -16,10 +23,12 @@ std::string anti_shuffle(std::string s) {
                 i++;
             }
             for (char c : word) {
-                result += *min_element(word.begin(), word.end());
+                result += min_element(word);
             }
-            result += " ";
+            if (!result.empty()) {
+                result += " ";
+            }
         }
     }
-    return result.substr(0, result.length() - 1);
+    return result;
 }
