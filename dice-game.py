@@ -1,8 +1,3 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(round((n - 1) / n, 2))
-elif n < m:
-    print(round(n / m, 2))
-else:
-    print(0.5)
+print(round(sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m), 2)
