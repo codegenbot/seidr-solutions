@@ -6,5 +6,5 @@ def split_words(txt):
     elif ',' in txt:
         return txt.split(',')
     else:
-        result = sum(1 for c in txt.lower() if ord(c) - ord('a') % 2 == 0)
-        return result
+        odd_count = sum(1 for c in txt.lower() if ord(c) % 2 == 1)
+        return odd_count
