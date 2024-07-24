@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -14,18 +13,10 @@ int main() {
         return 0;
     }
 
-    int count = 0;
-    for (char c : tweet) {
-        if (!isspace(c)) {
-            count++;
-        }
-    }
-
-    if (count > 140) {
+    if (tweet.size() > 140) {
         cout << "Too many characters" << endl;
-        return 0;
+    } else {
+        cout << "Your tweet has " << tweet.size() << " characters" << endl;
     }
-
-    cout << "Your tweet has " << count << " characters" << endl;
     return 0;
 }
