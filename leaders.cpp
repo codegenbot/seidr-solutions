@@ -23,8 +23,6 @@ int main() {
         }
     }
 
-    leaders.insert(leaders.begin(), maxRight); // Include last element
-    
     for (int leader : leaders) {
         cout << leader << " ";
     }
