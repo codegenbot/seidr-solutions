@@ -13,11 +13,8 @@ int sum_squares(vector<int> lst) {
 }
 
 int main() {
-    int n; 
-    cin >> n;
-    vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
-        cin >> lst[i];
-    }
-    cout << sum_squares(lst) << endl;
+    vector<int> lst = {1, 2, 3, 4, 5};
+    int result = sum_squares(lst);
+    cout << "The result is: " << result << endl;
+    return 0;
 }
