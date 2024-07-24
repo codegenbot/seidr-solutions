@@ -1,8 +1,12 @@
+```
+from typing import List
+
+
 def below_zero(operations: List[int]) -> bool:
-    if not operations:
-        return False
     balance = 0
     for operation in operations:
+        if not isinstance(operation, int):
+            raise TypeError("Invalid input. All elements of the list must be integers.")
         balance += operation
         if balance < 0:
             return True
