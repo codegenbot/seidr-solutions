@@ -1,24 +1,25 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
+
     int white_pegs = 0, black_pegs = 0;
-    vector<int> code_freq(6), guess_freq(6);
-    
-    for (int i = 0; i < 4; ++i) {
+    map<char, int> code_count, guess_count;
+
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++black_pegs;
+            black_pegs++;
         } else {
-            ++code_freq[code[i] - 'A'];
-            ++guess_freq[guess[i] - 'A'];
+            code_count[code[i]]++;
+            guess_count[guess[i]]++;
         }
     }
-    
-    for (int i = 0; i < 6; ++i) {
-        white_pegs += min(code_freq[i], guess_freq[i]);
+
+    for (auto &p : guess_count) {
+        white_pegs += min(p.second, code_count[p.first]);
     }
-    
-    cout << white_pegs << "\n" << black_pegs << endl;
-    
+
+    cout << white_pegs << endl;
+    cout << black_pegs << endl;
+
     return 0;
 }
