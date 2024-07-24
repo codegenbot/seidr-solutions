@@ -1,6 +1,10 @@
-from typing import List, Any
+```
+from typing import List
+import sys
 
-def filter_integers(values: List[Any]) -> None:
-    for value in values:
-        if not isinstance(value, int):
-            raise ValueError(f"Expected integer but received {value}")
+values = list(map(int, sys.stdin.read().strip().split()))
+
+def filter_integers(values: List[int]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
+
+print(filter_integers(values))
