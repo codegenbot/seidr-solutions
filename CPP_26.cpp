@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 #include <initializer_list>
@@ -12,6 +13,6 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
