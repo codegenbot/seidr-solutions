@@ -1,30 +1,29 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-    bool lastFrame = false;
+    int roll = 0;
+    bool firstRollInFrame = true;
 
-    for (int i = 0; i < 10; ++i) {
-        if (input[i] == '-') {
-            lastFrame = true;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + ((firstRollInFrame) ? 10 : 20);
+            roll++;
+            firstRollInFrame = false;
+        } else if (c == '/') {
+            int nextRoll = s.find('/');
+            string leftSide = s.substr(0, nextRoll);
+            string rightSide = s.substr(nextRoll + 1);
+
+            score += ((firstRollInFrame) ? stof(leftSide) : stof(leftSide) + stof(rightSide));
+            roll++;
+            firstRollInFrame = (leftSide.length() == 2);
         } else {
-            if (lastFrame) {
-                score += (input[i] - '0') * 2;
+            if (firstRollInFrame) {
+                score += c - '0';
+                firstRollInFrame = false;
             } else {
-                roll1 = input[i] - '0';
-                if (i < 8 && input[i+1] != '/') {
-                    roll2 = input[i + 1] - '0';
-                    if (roll1 + roll2 >= 10) {
-                        score += 10 + input[i + 2] - '0';
-                    } else {
-                        score += roll1 + roll2;
-                    }
-                } else {
-                    score += roll1 + (input[i+1] == '/' ? 0 : input[i+1] - '0');
-                }
+                score += c - '0' + ((roll < 9) ? stof(to_string(c - '0')) : 10);
             }
+            roll++;
         }
     }
 
