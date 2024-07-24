@@ -1,28 +1,33 @@
-string file_name_check(string file_name){
-    int count = 0;
-    bool dotFound = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            count++;
-        }
-        else if(file_name[i] == '.'){
-            dotFound = true;
-        }
-        else if(!dotFound && (file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
-            return "No";
-        }
+bool hasDigits = false;
+int dotCount = 0;
+
+for(char c : file_name) {
+    if(isdigit(c)) {
+        if(hasDigits) return "No";
+        hasDigits = true;
+    } else if(c == '.') {
+        dotCount++;
     }
-    if(count > 3) return "No";
-    string extension = "";
-    for(int i=file_name.length()-1; i>=0; i--){
-        if(file_name[i] == '.'){
-            break;
-        }
-        else{
-            extension = file_name[i]+extension;
-        }
+}
+
+if(dotCount != 1) return "No";
+
+string suffix = "";
+for(int i = file_name.find('.') + 1; i < file_name.length(); i++) {
+    suffix += file_name[i];
+}
+
+string validSuffixes[] = {"txt", "exe", "dll"};
+bool isValidSuffix = false;
+for(string s : validSuffixes) {
+    if(suffix == s) {
+        isValidSuffix = true;
+        break;
     }
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    if(!dotFound) return "No";
+}
+
+if(!hasDigits && dotCount == 1 && (file_name[0] >= 'a' && file_name[0] <= 'z') || (file_name[0] >= 'A' && file_name[0] <= 'Z') && isValidSuffix) {
     return "Yes";
+} else {
+    return "No";
 }
