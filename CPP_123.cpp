@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -66,7 +67,7 @@ void startProgram() {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     startProgram();
     return 0;
 }
