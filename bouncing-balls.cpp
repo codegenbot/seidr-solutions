@@ -15,7 +15,7 @@ int main() {
         totalDistance += pow(0.5, i) * bounciness;
     }
 
-    cout << ios::fixed << setprecision(5);
+    cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
