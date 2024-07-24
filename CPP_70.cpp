@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -32,22 +32,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
+    assert(issame(strange_sort_list({1,2,3}), {1,3,2}));
+    std::vector<int> input = {};
     std::cout << "Enter numbers separated by space: ";
-    int temp;
-    while (std::cin >> temp) {
+    std::cin >> std::ws;
+    for (int i=0; i < 10; i++) {
+        int temp;
+        std::cin >> temp;
         input.push_back(temp);
     }
-    
-    if (!input.empty()) {
-        std::vector<int> sorted = strange_sort_list(input);
-        std::cout << "Sorted list is: ";
-        for (int i : sorted)
-            std::cout << i << " ";
-        std::cout << "\n";
-    } else {
-        std::cout << "No numbers entered. Exiting.\n";
-    }
-
     return 0;
 }
