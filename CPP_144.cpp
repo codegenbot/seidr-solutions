@@ -1,22 +1,27 @@
-#include<string>
+#include <string>
+#include <sstream>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 1, b = 1, c = 1, d = 1;
-    stringstream s(x);
-    s >> a >> char('/'); s >> c;
-    stringstream t(n);
-    t >> b >> char('/'); t >> d;
+    int a = 0, b = 0, c = 0, d = 0;
+    
+    // Split numerator and denominator of both fractions
+    size_t pos1 = x.find('/');
+    size_t pos2 = n.find('/');
+    string num1 = x.substr(0, pos1);
+    string denom1 = x.substr(pos1 + 1);
+    string num2 = n.substr(0, pos2);
+    string denom2 = n.substr(pos2 + 1);
 
-    if (c % d != 0) return false; // check if both fractions have the same denominator
-    int numerator = a * d / gcd(c, d); // calculate the numerator of the simplified fraction
-    int denominator = c / gcd(c, d);   // calculate the denominator of the simplified fraction
+    // Convert strings to integers
+    a = stoi(num1) * stoi(denom2);
+    b = stoi(denom1) * stoi(num2);
+    c = stoi(num1) * stoi(num2);
+    d = stoi(denom1) * stoi(denom2);
 
-    string result = to_string(numerator) + "/" + to_string(denominator);
-    return true;
-}
-
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    else return gcd(b, a % b);
+    if (a == c && b == d)
+        return true;
+    else
+        return false;
 }
