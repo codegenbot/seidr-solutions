@@ -1,7 +1,10 @@
 import re
 
+
 def fix_spaces(text):
-    text = re.sub(r'[^a-zA-Z0-9]+', ' ', text).strip().replace(" ", "_")
+    if not text:
+        return "Invalid input"
+    text = text.strip().replace(" ", "_").replace("\n", "")
     while "__" in text:
         text = text.replace("__", "_-")
     return text
