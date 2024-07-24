@@ -32,3 +32,7 @@ def main():
                 print("Invalid input. Please enter an integer.")
         except ValueError as e:
             print("Invalid input. Please enter a positive integer.")
+
+
+if __name__ == "__main__":
+    main()
