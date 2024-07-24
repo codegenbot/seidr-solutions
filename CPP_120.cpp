@@ -6,11 +6,13 @@ using namespace std;
 
 void issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
-        cout << "false";
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            cout << "false";
-    cout << endl;
+        cout << "False";
+    else {
+        for (int i = 0; i < a.size(); i++)
+            if (a[i] != b[i])
+                cout << "False";
+        cout << endl;
+    }
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -20,6 +22,6 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame({1, 2, 3, -23, 243, -400, 0}, {1, 2, 3}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7), {0, 1, 2}));
     return 0;
 }
