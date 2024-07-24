@@ -1,9 +1,9 @@
 #include <string>
 #include <algorithm>
 
-int mastermind(string code, string guess) {
-    int white = 0;
+tuple<int, int> mastermind(string code, string guess) {
     int black = 0;
+    int white = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
