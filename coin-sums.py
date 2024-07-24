@@ -10,5 +10,6 @@ def coin_sums(cents):
 
     return tuple(count)
 
+
 cents = int(input())
 print(*coin_sums(cents))
