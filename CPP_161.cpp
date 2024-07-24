@@ -1,7 +1,11 @@
+```cpp
+#include <iostream>
 #include <string>
 
-string solve(string s) {
-    string result = "";
+using namespace std;
+
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? tolower(c) : toupper(c);
@@ -13,3 +17,9 @@ string solve(string s) {
         reverse(result.begin(), result.end());
     }
     return result;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
+}
