@@ -35,10 +35,7 @@ std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
 
 int main() {
     assert(issame(std::make_pair("Earth", "Earth")));  
-    std::cout << "Enter two planet names: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    std::pair<std::string, std::string> planets = {planet1, planet2};
+    std::pair<std::string, std::string> planets = std::make_pair("Jupiter", "Makemake");
     assert(bf(planets) == {});  // Check if the result is an empty vector
     return 0;
 }
