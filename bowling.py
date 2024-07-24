@@ -1,14 +1,33 @@
-def bowling_score(s):
+```
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i] == "X":
-            score += 10 + (
-                10 - int(s[i + 1]) if frame < 9 and s[i + 3].isdigit() else 0
-            )
-        elif s[i] == "/":
-            score += 10 - int(s[i - 1])
+    for i, frame in enumerate(frames.split('/')):
+        if len(frame) == 1:
+            score += 10 + (10 - int(frame)) * 2 if i > 0 else 30
+        elif len(frame) == 2:
+            a, b = map(int, frame)
+            if a == 10:  # strike
+                score += 10 + (b + next_frames.get(i+1, 0)[0] or 0) * 2
+            else:  # spare
+                score += 10 + b
         else:
-            score += sum([int(x) for x in s[i : i + 2]])
-        frame += (s[i] == "X") or (s[i] == "/" and s[i - 1] != "X")
+            a, b = map(int, frame)
+            if i == 9 and a != 10:
+                score += a + b + next_frames.get(i+1, [0])[0]
+            else:
+                score += a + b
     return score
+
+next_frames = collections.defaultdict(list)
+
+def get_input():
+    while True:
+        try:
+            frames = input("Enter the bowling frames (e.g., 10/10/.../): ")
+            if len(frames) > 20: 
+                break
+        except ValueError:
+            print("Invalid input. Please enter a valid sequence of numbers and '/'.")
+
+frames = get_input()
+print(bowling_score(frames))
