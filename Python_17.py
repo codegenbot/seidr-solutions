@@ -1,3 +1,4 @@
+```Python
 def parse_music(music_string: str) -> list:
     result = []
     i = 0
