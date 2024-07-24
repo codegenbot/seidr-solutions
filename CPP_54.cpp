@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 bool same_chars(std::string s0, std::string s1) {
     sort(s0.begin(), s0.end());
