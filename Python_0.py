@@ -5,6 +5,6 @@ def check_numbers(numbers, threshold):
             count += 1
     return count
 
-numbers = list(map(int, input().rstrip().split()))
-threshold = int(input("Enter threshold value: "))
+numbers = [int(x) for x in input().rstrip().split()]
+threshold = int(input().rstrip())
 result = check_numbers(numbers, threshold)
