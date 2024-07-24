@@ -1,12 +1,5 @@
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <openssl/ssl.h>
-#include <openssl/crypto.h>
-
-using namespace std;
-
-string string_to_md5(string text) {
+```cpp
+string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
