@@ -1,9 +1,8 @@
-```
+Here is the complete Python function:
+
+```python
 def minPath(grid, k):
     N = len(grid)
-    total_elements = sum(1 for row in grid for cell in row if cell != '0')
-    if k > total_elements:
-        return tuple(sorted({cell for row in grid for cell in row if cell != '0'})) * k
     queue = [(0, 0, [])]
     res = None
     while queue:
