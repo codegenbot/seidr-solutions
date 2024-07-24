@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include <sstream>
 
 string middleCharacter(string s) {
     int length = s.length();
