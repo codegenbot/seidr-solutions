@@ -17,6 +17,5 @@ int main() {
         if (result < 0) result = 0;
         sum += result;
     }
-    
     return sum;
 }
