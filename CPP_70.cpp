@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -6,15 +7,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
-std::vector<int> sortList(std::vector<int> input) {
-    for(int i = 0; i < input.size(); i++) {
-        for(int j = i + 1; j < input.size(); j++) {
-            if(input[i] > input[j]) {
-                std::swap(input[i], input[j]);
-            }
-        }
-    }
-    return input;
+std::vector<int> sortList(const std::vector<int>& input) {
+    std::vector<int> output = input;
+    std::sort(output.begin(), output.end());
+    return output;
 }
 
 int main() {
@@ -28,10 +24,9 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
-    // #pragma GCC enable initializer_lists
     std::vector<int> output = sortList(input);
     std::cout << "Sorted list: ";
     for(int i : output) {
         std::cout << i << " ";
     }
-    return 0;
+};
