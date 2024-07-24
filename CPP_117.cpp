@@ -1,6 +1,6 @@
-#include <vector>
-#include <string>
-#include <algorithm>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> select_words(string s, int n) {
