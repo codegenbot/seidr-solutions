@@ -9,6 +9,3 @@ def search(lst):
         if k >= v and k > max_num:
             max_num = k
     return max_num if max_num != -1 else -1
-
-lst = list(map(int, input("Enter numbers separated by space: ").split()))
-print(search(lst))
