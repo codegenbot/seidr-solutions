@@ -1,4 +1,5 @@
 def sort_even(l: list):
-    even_numbers = sorted([x for x in l if 0 <= x % 2], key=abs)
-    odd_numbers = sorted([x for x in l if 0 > x % 2], reverse=True, key=abs)
-    return tuple(even_numbers) + tuple(odd_numbers)
+    even_numbers = [x for x in l if 0 <= x % 2]
+    odd_numbers = [x for x in l if 0 > x % 2]
+
+    return tuple(sorted([abs(x) for x in even_numbers], key=abs)) + tuple(sorted(odd_numbers, reverse=True))
