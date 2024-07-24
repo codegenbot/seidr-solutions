@@ -11,7 +11,17 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-int main() {
-    assert(fabs(triangle_area(2, 2, 10) + 1) < 0.01);
+int32_t main() {
+    float a, b, c;
+    std::cin >> a >> b >> c;
+    
+    float result = triangle_area(a, b, c);
+
+    if (result == -1) {
+        std::cout << "Invalid triangle sides";
+    } else {
+        std::cout << "Triangle area: " << result;
+    }
+
     return 0;
 }
