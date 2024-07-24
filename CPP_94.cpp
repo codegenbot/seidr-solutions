@@ -1,54 +1,43 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-// Function to check if a number is prime
-bool isPrime(int x) {
-    // Check divisibility from 2 to sqrt(x)
-    for (int i = 2; i <= sqrt(x); i++) {
-        if (x % i == 0) return false;
-    }
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0)
+            return false;
     return true;
 }
 
-// Function to calculate the sum of digits
-int sumOfDigits(int x) {
+int sumOfDigits(int n) {
     int sum = 0;
-    while (x > 0) {
-        sum += x % 10;
-        x /= 10;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
     return sum;
 }
 
-int maxPrimeNum = 0;
-vector<int> lst;
-
-int originalMain() {
-    vector<int> lst;
+int main() {
+    std::vector<int> lst;
     int num, i;
-    cout << "Enter the number of elements in the list: ";
-    cin >> num;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> num;
     for(i = 0; i < num; i++){
-        cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << i+1 << ": ";
         int x; 
-        cin >> x; 
+        std::cin >> x; 
         lst.push_back(x);
     }
+    int maxPrimeNum = 0;
     for(int j : lst){
         if(isPrime(j) && j > maxPrimeNum)
             maxPrimeNum = j;
     }
     if(maxPrimeNum > 0)
-        cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
+        std::cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << std::endl;
     else
-        cout << "No primes found in the list." << endl;
-    return 0;
-}
-
-int main() {
-    originalMain();
+        std::cout << "No primes found in the list." << std::endl;
     return 0;
 }
