@@ -1,11 +1,26 @@
-string solve(string s) {
+#include<stdio.h>
+#include<string>
+using namespace std;
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
+    bool foundLetter = false;
+
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        
+        if(!isalpha(c)){
             result += c;
+            foundLetter = false;
+        }
+        else{
+            if(foundLetter){
+                result += tolower(c);
+            }else{
+                result += toupper(c);
+                foundLetter = true;
+            }
         }
     }
-    return result.empty() ? string(1, result.back()) : result;
+
+    return result;
 }
