@@ -1,6 +1,6 @@
+````
 #include <iostream>
 #include <iomanip>
-#include <vector>
 using namespace std;
 
 double vectorDistance() {
@@ -30,3 +30,4 @@ int main() {
     cout << vectorDistance() << endl;
     return 0;
 }
+```
