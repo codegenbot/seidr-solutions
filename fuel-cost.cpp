@@ -1,9 +1,9 @@
 #include <vector>
 using namespace std;
 
-int fuelCost(vector<int> vec) {
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int i : vec) {
+    for (int i : v) {
         int temp = (i / 3);
         temp = temp - 2;
         sum += temp;
@@ -14,10 +14,10 @@ int fuelCost(vector<int> vec) {
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    cout << fuelCost(vec) << endl;
+    cout << fuelCost(v) << endl;
     return 0;
 }
