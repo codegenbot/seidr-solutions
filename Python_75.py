@@ -9,19 +9,9 @@ def is_multiply_prime(a):
         return True
 
     factors = []
-    divisor = 2
-    while a > 1:
-        if a % divisor == 0:
-            factors.append(divisor)
-            a //= divisor
-        else:
-            divisor += 1
-
-    if len(factors) != 3:
-        return False
-
-    for factor in factors:
-        if not is_prime(factor):
-            return False
-
-    return True
+    for i in range(2, a+1):
+        while a % i == 0:
+            factors.append(i)
+            a //= i
+    prime_factors = [f for f in set(factors) if is_prime(f)]
+    return len(prime_factors) == 3
