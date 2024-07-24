@@ -1,4 +1,3 @@
-```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -16,13 +15,53 @@ def minPathSum(grid):
 
 
 def main():
-    m = int(input("Enter number of rows: "))
-    n = int(input("Enter number of columns: "))
+    while True:
+        try:
+            m = int(input("Enter number of rows: "))
+            if m <= 0:
+                print(
+                    "Number of rows must be greater than zero. Please enter a valid input."
+                )
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
+    while True:
+        try:
+            n = int(input("Enter number of columns: "))
+            if n <= 0:
+                print(
+                    "Number of columns must be greater than zero. Please enter a valid input."
+                )
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
     grid = []
     for i in range(m):
-        row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
-        grid.append(row)
+        while True:
+            try:
+                row = list(
+                    map(
+                        int,
+                        input(
+                            f"Enter the numbers in a row separated by space: "
+                        ).split(),
+                    )
+                )
+                if len(row) != n:
+                    print(
+                        "Number of elements must match the number of columns. Please enter a valid input."
+                    )
+                    continue
+                grid.append(row)
+                break
+            except ValueError:
+                print("Invalid input. Please enter integers separated by spaces.")
 
     print(minPathSum(grid))
+
+
 main()
