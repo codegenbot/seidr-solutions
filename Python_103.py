@@ -1,4 +1,3 @@
-```
 import math
 
 n = None
