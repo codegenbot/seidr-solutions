@@ -15,8 +15,8 @@ def average_rounded():
             m = int(input("Enter second number: "))
             if n > m:
                 return -1
-            avg = (n + m) / 2
-            rounded_avg = str(int(avg))
+            avg = round((n + m) / 2)
+            rounded_avg = str(bin(avg)[2:])
             check(rounded_avg)
         except ValueError:
             print("Invalid input. Please enter integers.")
