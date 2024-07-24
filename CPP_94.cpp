@@ -30,16 +30,17 @@ int sumOfDigits(int n){
     return sum;
 
 int main() {
-    vector<int> lst;
+    vector<string> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
     cin >> num;
-    for(i = 0; i < num; i++){
+    for(i = 0; i < stoi(num); i++){
         cout << "Enter element " << i+1 << ": ";
-        int x; cin >> x; 
-        lst.push_back(std::to_string(x));
+        string x; 
+        cin >> x; 
+        lst.push_back(x);
     }
-    int maxPrimeNum = maxPrime(lst);
+    int maxPrimeNum = maxPrime(stoi(lst[0]));
     if(maxPrimeNum > 0)
         cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
     else
