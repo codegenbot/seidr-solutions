@@ -3,6 +3,8 @@
 
 using namespace std;
 
+typedef string string; // renamed to avoid conflict with the standard library's `std::string`
+
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -11,7 +13,7 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> match(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -38,7 +40,7 @@ int main() {
     if (same(lst1, lst2)) {
         cout << "The lists are the same.\n";
     } else {
-        vector<string> result = match(lst1, lst2);
+        vector<string> result = total_match(lst1, lst2);
         if (equal(result.begin(), result.end(), lst1.begin())) {
             cout << "List 1 is the match of list 2.\n";
         } else {
