@@ -1,19 +1,18 @@
-```cpp
 #include <string>
 #include <cctype>
+#include <memory>
 
 int main() {
     std::string str;
-    std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    str = input;
-    std::cout << camelCase(str) << std::endl;
+    std::getline(std::cin, str);
+    auto camelCase = std::make_unique<std::string>(camelCase(str));
+    std::cout << *camelCase << std::endl;
 
     return 0;
 }
 
-std::string camelCase(std::string str) {
+std::string camelCase(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
 
