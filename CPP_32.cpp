@@ -1,20 +1,28 @@
-double find_zero(vector<double> coefficients) {
-    double a = coefficients[0];
-    double b = coefficients[1];
-    double c = -coefficients[2];
-    if(a == 0)
-        return -c/b;
-    else
-        return (-b + sqrt(b*b-4*a*c)) / (2 * a);
+```cpp
+#include <vector>
+#include <cmath>
+
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i <= coeffs.size() - 1; ++i) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
+double find_zero(std::vector<double> coefficients) {
+    double x = -coefficients[1] / (2 * coefficients[0]);
+    return x;
 }
 
 int main() {
-    vector<double> coefficients;
+    std::vector<double> coefficients;
     // read input from user and store in coefficients
     
     double solution = find_zero(coefficients);
     
-    vector<double> coeffs = {coefficients[0], coefficients[1]} ;  // declare and initialize coeffs
+    std::vector<double> coeffs = {coefficients[0], coefficients[1]} ;  // declare and initialize coeffs
     assert (abs(poly(coeffs, solution))< 1e-3);  
+
     return 0;
 }
