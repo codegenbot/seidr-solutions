@@ -1,10 +1,2 @@
-def kebab_to_camel(s):
-    return "".join(word.capitalize() for word in s.split("-"))
-
-
-while True:
-    try:
-        s = input()
-        print(kebab_to_camel(s))
-    except EOFError:
-        break
+def camel_case(input_str):
+    return ' '.join(word.capitalize() for word in input_str.split()) if '-' not in input_str else input_str.replace('-', ' ').title().replace(' ', '')
