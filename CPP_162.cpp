@@ -11,7 +11,7 @@ std::string string_to_md5(const std::string& text) {
     MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++){
+    for(size_t i = 0; i < MD5_DIGEST_LENGTH; i++){
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
