@@ -1,14 +1,11 @@
 def add_numbers():
-    def check(func):
-        num1 = input("Enter first number: ")
-        num2 = input("Enter second number: ")
+    while True:
+        print("Please enter two numbers.")
         try:
-            return func(int(num1), int(num2))
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            print(x + y)
+            break
         except ValueError:
             print("Invalid input. Please enter a number.")
-
-    result = check(lambda x, y: x + y)
-    print(result)
-
-
 add_numbers()
