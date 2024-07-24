@@ -1,19 +1,16 @@
-bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-    return lst1 == lst2;
-}
+#include <vector>
+#include <string>
 
-int totalChars(const vector<string>& lst) {
-    int total = 0;
-    for (const string& str : lst) {
-        total += str.size();
-    }
-    return total;
-}
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int total_chars_lst1 = totalChars(lst1);
-    int total_chars_lst2 = totalChars(lst2);
-
+    int total_chars_lst1 = 0, total_chars_lst2 = 0;
+    for (const string& str : lst1) {
+        total_chars_lst1 += str.size();
+    }
+    for (const string& str : lst2) {
+        total_chars_lst2 += str.size();
+    }
     if (total_chars_lst1 < total_chars_lst2) {
         return lst1;
     } else {
