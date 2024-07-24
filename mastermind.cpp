@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```cpp
 #include <iostream>
 #include <string>
@@ -19,8 +17,8 @@ int countWhitePegs(const string& code, const string& guess) {
     int whitePegs = 0;
     vector<char> codeCopy(code.begin(), code.end());
     for (char c : guess) {
-        if (find(codeCopy.begin(), codeCopy.end(), c) != codeCopy.end()) {
-            codeCopy.erase(remove(codeCopy.begin(), codeCopy.end(), c), codeCopy.end());
+        if (codeCopy.count(c)) {
+            --codeCopy.erase(std::remove(codeCopy.begin(), codeCopy.end(), c), codeCopy.end()).size();
             ++whitePegs;
         }
     }
