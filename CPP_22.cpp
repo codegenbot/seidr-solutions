@@ -2,16 +2,15 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <cassert>
+#include <typeinfo>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
 vector<int> filter_integers(list<any> values);
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+vector<int> filter_integers(list<any> values);
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> filter_integers(list<any> values){
     vector<int> result;
@@ -21,6 +20,10 @@ vector<int> filter_integers(list<any> values){
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main() {
