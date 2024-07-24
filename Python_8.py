@@ -1,8 +1,11 @@
 from typing import List, Tuple
 
-
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    return (
-        sum(numbers),
-        0 if 0 in numbers else eval("*".join(map(str, numbers))),
-    )
+    product = 1
+    is_zero_present = False
+    for num in numbers:
+        product *= num
+        if num == 0:
+            is_zero_present = True
+    
+    return sum(numbers), product if not is_zero_present else 0
