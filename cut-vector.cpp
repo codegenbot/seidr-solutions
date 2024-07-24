@@ -1,21 +1,16 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for(int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i+1]);
-        
-        if(diff <= minDiff) {
+    pair<vector<int>, vector<int>> result;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
             minDiff = diff;
-            cutIndex = i;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
-    
-    vector<int> left(nums.begin(), nums.begin()+cutIndex+1);
-    vector<int> right(nums.begin()+cutIndex, nums.end());
-    
-    return {left, right};
+    return result;
 }
