@@ -1,9 +1,7 @@
 ```
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-
 def check():
-    odd_sum = double_the_difference([1,3,5])
+    lst = [int(i) for i in input("Enter the list of numbers (space-separated): ").split()]
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
     print(odd_sum)
 
 check()
