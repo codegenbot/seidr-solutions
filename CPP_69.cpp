@@ -1,18 +1,18 @@
-```
 #include <iostream>
 #include <vector>
+#include <cassert>
 
-int search(std::vector<int> lst) { 
-    int max = -1;
+int search(std::vector<int> lst) {
+    int max = 0;
     for (int i : lst) {
-        if (i > 0 && std::count(lst.begin(), lst.end(), i) >= 2) { 
+        if (i > 0 && std::count(std::begin(lst), std::end(lst), i) >= 1) { 
             max = i;
         }
     }
-    return max;
+    return max == 0 ? -1 : max;
 }
 
 int main() {
-    std::cout << search({3, 10, 10, 9, 2}) << std::endl;
+    assert(search({3, 10, 10, 9, 2}) == -1);
     return 0;
 }
