@@ -15,11 +15,10 @@ int main() {
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         startHeight *= bouncinessIndex;
-        totalDistance += startHeight * (i == 1 ? 3 : 2);
+        totalDistance += 2 * startHeight;
     }
 
-    cout << fixed << setprecision(10);
-    cout << totalDistance << endl;
+    cout << fixed << setprecision(std::numeric_limits<std::streamsize>::max()) << totalDistance << endl;
 
     return 0;
 }
