@@ -9,3 +9,7 @@ double find_zero(vector<double> xs){
     double x = -coeffs[1] / (2*coeffs[0]);
     return poly(xs,x) == 0 ? x : 0;
 }
+
+double poly(vector<double> x, double c){
+    return coeffs[0]*pow(c,2)+coeffs[1]*c;
+}
