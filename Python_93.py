@@ -1,5 +1,5 @@
 ```
-def caesar_cipher(message):
+def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
@@ -7,9 +7,8 @@ def caesar_cipher(message):
                 result += chr((ord(char) - 65 + 3) % 26 + 65)
             else:
                 result += chr((ord(char) - 97 + 3) % 26 + 97)
+        elif char.isspace():  
+            result += ' '
         else:
             result += char
     return result
-
-message = input("Enter message: ")
-print(caesar_cipher(message))
