@@ -12,20 +12,28 @@ int main() {
         std::cin >> nums[i];
     }
     
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int left_sum = 0;
     int min_diff = INT_MAX;
     int cut_idx = -1;
-    for (int i = 1; i < n; ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+
+    for (int i = 1; i < n-1; ++i) {
+        left_sum += nums[i-1];
+        int right_sum = sum - left_sum;
+        int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
+        if (min_diff == 0) break;
     }
     
     for (int i = 0; i < cut_idx; ++i) {
         std::cout << nums[i] << std::endl;
     }
+    
     std::cout << std::endl;
+    
     for (int i = cut_idx; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
