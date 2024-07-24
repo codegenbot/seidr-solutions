@@ -1,6 +1,5 @@
-#include <string>
-#include <cmath> 
-string rounded_avg(int n,int m);
+#include<string>
+
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
