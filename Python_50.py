@@ -6,5 +6,8 @@ def decode_shift(s: str):
         ]
     )
 
-s = input()
-print(decode_shift(s))
+s = input("Enter the string to decode:")
+if s:
+    print(decode_shift(s))
+else:
+    print("Input string is empty. Please provide a valid string.")
