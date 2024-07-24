@@ -1,24 +1,11 @@
-#include <algorithm>
-#include <cctype>
-
-using namespace std;
-
 string solve(string s) {
     string result = "";
-    bool hasLetter = false;
-    
     for (char c : s) {
         if (isalpha(c)) {
-            hasLetter = true;
-            c = toupper(c);
-            result += c;
+            result += (c >= 'a' && c <= 'z') ? char(c - 32) : char(c + 32);
         } else {
             result += c;
         }
     }
-    
-    if (!hasLetter)
-        reverse(result.begin(), result.end());
-    
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }
