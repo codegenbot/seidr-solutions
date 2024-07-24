@@ -1,21 +1,39 @@
-Here is the solution:
-
-def bowling_score(bowling):
+```
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(len(bowling)):
-        if bowling[i] == 'X':
-            score += 30
-            frame += 1
-        elif bowling[i].isdigit() and (i + 3 < len(bowling) and bowling[i+3].isdigit()):
-            strike_count = 2
-            while i + strike_count <= len(bowling):
-                if bowling[i + strike_count] == '/':
-                    score += int(bowling[i]) + 10 - int(bowling[i + strike_count][1])
-                    frame += 1
+    frame = 0
+    while frame < len(frames):
+        if frames[frame] == 'X':  # strike
+            score += 10 + (10 if frame+1 < len(frames) and frames[frame+1].isdigit() else 0)
+            frame += 2
+        elif frames[frame:frame+2] in ['--', '-X', 'XX']:
+            score += 10
+            frame += 3
+        elif frames[frame].isdigit():
+            strike = False
+            for i in range(1, 4):
+                if frame+i >= len(frames) or not frames[frame+i].isdigit():
                     break
-                strike_count += 1
+            if i == 1:
+                score += int(frames[frame])
+                frame += 1
+            else:
+                score += int(frames[frame:frame+i])
+                strike = True
+            if strike:
+                while frame < len(frames) and (frames[frame] != '/' or not frames[frame+1].isdigit()):
+                    frame += 1
         else:
-            score += int(bowling[i]) + (10 if bowling[i+1] == '/' else int(bowling[i+1][1]))
-            frame = min(frame, 10)
+            if frame < len(frames) - 2 and frames[frame:frame+3] == '/0':
+                score += 10
+                frame += 3
+            elif frame < len(frames) - 1 and frames[frame:frame+2] == '//':
+                score += 10
+                frame += 2
+            else:
+                for i in range(1, 4):
+                    if frame+i >= len(frames) or not frames[frame+i].isdigit():
+                        break
+                score += int(frames[frame:frame+i])
+                frame += i
     return score
