@@ -1,7 +1,12 @@
+```
 def sorted_list_sum(input_data):
-    input_string = ' '.join(map(str, input_data))
-    nums = sorted([int(num) for num in input_string.split() if num.isdigit()])
-    
+    try:
+        input_string = ' '.join(map(str, input_data))
+        nums = sorted([int(num) for num in input_string.split() if num.isdigit()])
+    except ValueError as e:
+        print("Invalid input. Please enter a valid integer or digits separated by spaces.")
+        return -1
+
     while True:
         target = input("Enter a number (or 'q' to quit): ")
         if target == 'q':
