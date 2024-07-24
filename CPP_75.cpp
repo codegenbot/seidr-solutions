@@ -1,7 +1,10 @@
 #include <cassert>
 
+bool is_multiply_prime(int n);
+
 bool is_multiply_prime(int n) {
-    return true; // placeholder return value
+    // Add your implementation here
+    return true;
 }
 
 int main() {
