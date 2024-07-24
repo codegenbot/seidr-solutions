@@ -1,11 +1,4 @@
-#include <string>
+int my_strlen(const stdstring& str){
+    return str.length();
+}
 #include <cstring>
-
-int my_strlen(const char* str){
-    return std::strlen(str);
-}
-
-int main(){
-    assert(my_strlen("asdasnakj") == 13); 
-    return 0;
-}
