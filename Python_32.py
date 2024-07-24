@@ -1,6 +1,3 @@
-print("Enter a list of integers separated by spaces:")
-input_list = list(map(int, input().split()))
-
 def find_zero(xs: list):
     n = len(xs)
     if n >= 2:
@@ -8,5 +5,7 @@ def find_zero(xs: list):
     else:
         return 1.0
 
+
+input_list = list(map(int, input("Enter space-separated integers: ").split()))
 result = find_zero(input_list)
 print(result)
