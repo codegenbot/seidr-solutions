@@ -7,7 +7,7 @@ def prime_fib(n: int) -> int:
 
     if n == 1:
         return 2
-    elif n > 1 and n <= len(prime_fib_nums):
+    elif n > 0 and n <= len(prime_fib_nums):
         return prime_fib_nums[n - 1]
     else:
-        return prime_fib_nums[n - 2]
+        return None
