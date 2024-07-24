@@ -25,7 +25,7 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int n = 5; 
+    int n = 5; // test the function with n = 5
     vector<int> result = get_odd_collatz(n);
     for (int i : result) {
         cout << i << " ";
