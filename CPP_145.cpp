@@ -10,9 +10,9 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<vector<int>> order_by_points(vector<int> nums) {
+vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> numSumIndex;
-
+    
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int n = nums[i];
@@ -25,10 +25,21 @@ vector<vector<int>> order_by_points(vector<int> nums) {
 
     sort(numSumIndex.begin(), numSumIndex.end());
     
-    vector<vector<int>> result;
+    vector<int> result;
     for (auto& p : numSumIndex) {
-        result.push_back({nums[p.second]});
+        result.push_back(nums[p.second]);
     }
     
     return result;
+}
+
+int main() {
+    // You can now call the order_by_points function here
+    // For example:
+    vector<int> nums = {123, 456, 789};
+    vector<int> result = order_by_points(nums);
+    for(int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
