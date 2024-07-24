@@ -9,3 +9,4 @@ std::string fizzBuzz(int x) {
     else
         res = std::to_string(x);
     return res;
+}
