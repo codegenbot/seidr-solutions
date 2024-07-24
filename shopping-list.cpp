@@ -14,14 +14,14 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     std::vector<float> prices(n);
     for (float &price : prices) {
-        std::cin >> price;
+        cin >> price;
     }
     std::vector<float> discounts(n);
     for (float &discount : discounts) {
-        std::cin >> discount;
+        cin >> discount;
     }
-    std::cout << std::fixed << std::setprecision(1) << shoppingList(prices, discounts) << std::endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
