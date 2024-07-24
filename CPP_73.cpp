@@ -1,34 +1,19 @@
+Here is the solution:
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n, false));
+    vector<vector<int>> dp(n, vector<int>(n));
     
     for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
-    }
-    
-    for (int length = 2; length <= n; length++) {
-        for (int start = 0; start < n - length + 1; start++) {
-            int end = start + length - 1;
-            if (arr[start] == arr[end]) {
-                dp[start][end] = true;
-            } else {
-                dp[start][end] = false;
-                for (int i = start; i <= end; i++) {
-                    if (!dp[start][i-1] || !dp[i+1][end]) {
-                        dp[start][end] = true;
-                        break;
-                    }
-                }
-            }
+        for (int j = i; j >= 0; j--) {
+            if (i == j)
+                dp[i][j] = 0;
+            else if (arr[j] == arr[i])
+                dp[i][j] = dp[i + 1][j - 1];
+            else
+                dp[i][j] = 1 + min({dp[i + 1][j], dp[i][j - 1]});
         }
     }
     
-    int changes = 0;
-    for (int i = 0; i < n - 1; i++) {
-        if (!dp[i][i+1]) {
-            changes++;
-        }
-    }
-    
-    return changes;
+    return dp[0][n - 1];
 }
