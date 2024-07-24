@@ -2,13 +2,14 @@ text = input()
 target = input()
 
 indices = []
-index = -1
+idx = 0
 
-while True:
-    index = text.find(target, index + 1)
-    if index == -1:
+while idx < len(text):
+    if text.find(target, idx) != -1:
+        indices.append(text.find(target, idx))
+        idx = text.find(target, idx) + 1
+    else:
         break
-    indices.append(index)
 
-for index in indices:
-    print(index)
+for idx in indices:
+    print(idx)
