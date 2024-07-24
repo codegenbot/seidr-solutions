@@ -20,7 +20,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-void filter_by_substring(std::vector<std::string>& vec, const std::string& substr) {
+void filter_by_substring(std::vector<std::string> vec, const std::string& substr) {
     vec.erase(std::remove_if(vec.begin(), vec.end(), [substr](const std::string& s) {
         return s.find(substr) != std::string::npos;
     }), vec.end());
