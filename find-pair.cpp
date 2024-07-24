@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <unordered_map>
 #include <iostream>
@@ -29,7 +28,8 @@ int main() {
         int a, b;
         cin >> a >> b;
         vector<int> nums = {a, b};
-        cout << findPair(nums, a + b)[0] << " " << findPair(nums, a + b)[1] << endl;
+        vector<int> pair = findPair(nums, a + b);
+        cout << pair[0] << " " << pair[1] << endl;
     }
     return 0;
 }
