@@ -30,6 +30,8 @@ int main() {
         vec1.push_back((float)num);
         // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
             break; // No more numbers in the stream
         }
     }
@@ -39,12 +41,14 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec2.clear(); 
+            vec2.clear();
             break;
         }
         vec2.push_back((float)num);
         // Read the space to process the next number
         if (!(std::cin >> ws).good()) {
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
             break; // No more numbers in the stream
         }
     }
