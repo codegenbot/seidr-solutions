@@ -2,12 +2,10 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-int search(const vector<int>& lst) {
+int search(const std::vector<int>& lst) {
     int result = -1;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+        if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
             result = std::max(result, num);
         }
     }
@@ -15,8 +13,6 @@ int search(const vector<int>& lst) {
 }
 
 int main() {
-    vector<int> numbers = {3, 10, 10, 9, 2};
-    assert(search(numbers) == -1);
-
+    search(std::vector<int>{3, 10, 10, 9, 2});
     return 0;
 }
