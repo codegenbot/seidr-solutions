@@ -1,18 +1,16 @@
-int luhn(const vector<int>& card_number) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    bool double_next = false;
-
-    for (int i = card_number.size() - 1; i >= 0; --i) {
-        int digit = card_number[i];
-        if (double_next) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2) == 1) { // double every other digit starting with the second digit
+            int doubled = digits[i] * 2;
+            if (doubled > 9) { // if any of the results are over 9, subtract 9 from them
+                sum += doubled - 9;
+            } else {
+                sum += doubled;
             }
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
-        double_next = !double_next;
     }
-
     return sum;
 }
