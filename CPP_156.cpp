@@ -1,43 +1,50 @@
 #include <cassert>
 #include <string>
 
-std::string int_to_roman(int num) {
-    if (num <= 0)
-        return "Input is invalid";
-
+std::string int_to_roman(int number) {
+    if (number <= 0)
+        return "";
+    
     std::string roman = "";
-    int thousands = num / 1000;
+    
+    int thousands = number / 1000;
     for (int i = 0; i < thousands; i++)
         roman += "M";
-    num %= 1000;
-
-    int hundreds = num / 100;
+    
+    number %= 1000;
+    
+    int hundreds = number / 100;
     if (hundreds > 0) {
         for (int i = 0; i < hundreds; i++)
             roman += "C";
-        num %= 100;
+        
+        if (hundreds == 4)
+            roman += "CD";
+        else if (hundreds == 9)
+            roman += "CM";
     }
-
-    int tens = num / 10;
-    if (tens > 3)
-        roman += "CM";
-    else if (tens == 4)
-        roman += "CD";
-    else {
-        for (int i = 0; i < tens; i++)
-            roman += "X";
-        num %= 10;
-    }
-
-    int ones = num;
+    
+    number %= 100;
+    
+    int tens = number / 10;
+    for (int i = 0; i < tens; i++)
+        roman += "X";
+    
+    number %= 10;
+    
+    int ones = number;
     if (ones > 3)
-        roman += "IX";
-    else if (ones == 4)
-        roman += "IV";
+        roman += "IV" + std::string(ones - 4, 'I');
     else {
         for (int i = 0; i < ones; i++)
             roman += "I";
+        
+        if (ones == 4)
+            roman += "IV";
+        else if (ones == 9)
+            roman += "IX";
     }
+    
     return roman;
 }
 
