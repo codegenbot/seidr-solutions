@@ -3,11 +3,10 @@ def add(x: int, y: int):
         try:
             x = float(input("Enter a number for x: "))
             y = float(input("Enter a number for y: "))
+            break
         except ValueError:
             print("Both inputs must be numbers")
-            continue
-        result = x + y
-        while True:
-            user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
-            if user_input.lower() == 'no':
-                return result
+    result = x + y
+    user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
+    if user_input.lower() == 'no':
+        return result
