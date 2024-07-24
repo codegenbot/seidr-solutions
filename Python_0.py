@@ -1,6 +1,6 @@
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
+def is_within_threshold(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
-        if numbers[i+1] - numbers[i] < threshold:
+        if abs(numbers[i] - numbers[i+1]) < threshold:
             return True
     return False
