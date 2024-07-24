@@ -13,7 +13,7 @@ std::string camelCase(std::string str) {
                 result += char(toupper(str[i])); 
             } else {
                 firstWord = false;
-                result += toupper(str[i]); 
+                result += toupper(str[i]); // First letter, convert to upper case
             }
         } else if (str[i] == ' ') {
             continue; // Just skip the space
