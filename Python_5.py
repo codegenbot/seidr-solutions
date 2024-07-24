@@ -1,13 +1,9 @@
-def intersperse(numbers, delimiter):
+def intersperse(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     result.pop()
     return result
 
-input_numbers = list(map(int, input().split()))
-delimiter = input()
-
-output = intersperse(input_numbers, delimiter)
-
-print(output)
+def process_numbers(numbers, delimeter):
+    return intersperse(numbers, delimeter)
