@@ -1,18 +1,17 @@
-```
-def sum_squares(n):
-    try:
-        return sum(i**2 for i in range(1, n+1))
-    except TypeError:
-        return "Invalid input. Please enter a positive integer."
-
-while True:
+try:
     while True:
+        n = input("Enter a positive integer: ")
+        if n == "":
+            print("Please provide a valid input.")
+            continue
         try:
-            n = int(input("Enter a positive integer: "))
+            n = int(n)
             if n > 0:
                 print(sum_squares(n))
                 break
             else:
                 print("Please enter a positive integer.")
         except ValueError:
-            print("Invalid input. Please try again.")
+            print("Invalid input. Please try again. Use only numbers (e.g., 123) or leave the field blank to exit.")
+except Exception as e:
+    print(f"An error occurred: {e}")
