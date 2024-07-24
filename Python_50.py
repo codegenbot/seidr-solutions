@@ -8,9 +8,7 @@ def decode_shift():
             for char in message:
                 if char.isalpha():
                     ascii_offset = 65 if char.isupper() else 97
-                    decoded_char = chr(
-                        (ord(char) - ascii_offset - shift) % 26 + ascii_offset
-                    )
+                    decoded_char = chr((ord(char) - ascii_offset - shift) % 26 + ascii_offset)
                     decoded_message += decoded_char
                 else:
                     decoded_message += char
