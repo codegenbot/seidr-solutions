@@ -14,13 +14,16 @@ def minPath(grid, k):
         neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
         for x, y in neighbors:
             res = dfs(x, y, set(visited))
-            if res:
+            if res is not None:
                 return [grid[i][j]] + res
-        return []
+        
+        return None
 
     for i in range(N):
         for j in range(N):
             res = dfs(i, j, set())
-            if res:
+            if res is not None:
                 return [grid[i][j]] + res
-    return []
+
+# Test the fixed code
+print(minPath([[1, 3], [3, 2]], 10))  # Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
