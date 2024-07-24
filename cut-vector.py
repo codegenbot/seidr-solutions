@@ -1,19 +1,25 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
-total_sum = sum(a)
+vector = [int(input()) for _ in range(n)]
+
+total_sum = sum(vector)
+half_sum = total_sum // 2
 prefix_sum = 0
-min_diff = total_sum
-cut_index = -1
+idx = 0
 
-for i in range(n):
-    prefix_sum += a[i]
-    diff = abs(total_sum - 2 * prefix_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+while prefix_sum <= half_sum:
+    prefix_sum += vector[idx]
+    idx += 1
 
-subvector1 = a[: cut_index + 1]
-subvector2 = a[cut_index + 1 :]
+if prefix_sum == half_sum:
+    print(vector[:idx])
+    print(vector[idx:])
+else:
+    diff1 = abs(prefix_sum - half_sum)
+    diff2 = abs(prefix_sum - vector[idx - 1] - half_sum)
 
-print(*subvector1)
-print(*subvector2)
+    if diff1 <= diff2:
+        print(vector[:idx])
+        print(vector[idx:])
+    else:
+        print(vector[: idx - 1])
+        print([vector[idx - 1]] + vector[idx:])
