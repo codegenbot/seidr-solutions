@@ -1,2 +1,2 @@
-def sum_odd_indices(lst):
-    return sum(lst[i] for i in range(1, len(lst), 2))
+def sum_even_index(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
