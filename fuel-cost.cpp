@@ -1,21 +1,12 @@
-int solve(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        int x = i / 3;
-        x = floor(x);
-        x -= 2;
-        sum += x;
-    }
-    return sum;
-}
+#include <vector>
+using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int& i : v) {
-        cin >> i;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int result = static_cast<int>(num / 3.0);
+        result -= 2;
+        total += result;
     }
-    cout << solve(v) << endl;
-    return 0;
+    return total;
 }
