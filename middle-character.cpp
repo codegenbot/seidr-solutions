@@ -1,10 +1,8 @@
-#include <string>
-
-std::string middleCharacter(std::string str) {
-    int len = str.length();
-    if (len % 2 == 0) {
-        return std::string(1, str[len/2 - 1]) + std::string(1, str[len/2]);
-    } else {
-        return std::string(1, str[len/2]);
+string middleCharacter(string s) {
+    int len = s.length();
+    if(len%2 == 0){
+        return s.substr(len/2-1,len/2);
+    }else{
+        return s.substr(len/2,1);
     }
 }
