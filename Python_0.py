@@ -4,6 +4,4 @@ def check_numbers_within_threshold(numbers, threshold):
         if abs(numbers[i] - numbers[i+1]) < threshold:
             return True
     return False
-
-result = check_numbers_within_threshold([3, 6, 9, 12, 15], 3)
-print(result)
+```
