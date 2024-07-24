@@ -3,20 +3,24 @@
 using namespace std;
 
 int modp(int n, int p) {
-    if (n == 0)
-        return 1;
+    if (p == 1)
+        return 0;
     long long res = 1;
-    for (int i = 1; i <= n; i++) {
-        res = (res * p) % p;
+    while (n > 0) {
+        if (n % 2)
+            res = (long long)res * p % p;
+        p = (long long)p * p % p;
+        n /= 2;
     }
     return res;
 }
 
 int main() {
-    cout << modp(3, 5) << endl;
-    cout << modp(1101, 101) << endl;
-    cout << modp(0, 101) << endl;
-    cout << modp(3, 11) << endl;
-    cout << modp(100, 101) << endl;
+    int n, p;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    cout << "Enter the value of p: ";
+    cin >> p;
+    cout << "The result is: " << modp(n, p) << endl;
     return 0;
 }
