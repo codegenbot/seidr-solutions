@@ -1,16 +1,21 @@
 vector<float> even_indices;
+    vector<float> result = l;
+
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_indices.push_back(l[i]);
         }
     }
+
     sort(even_indices.begin(), even_indices.end());
-    int j = 0;
+
+    int even_indices_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_indices[j];
-            j++;
+            result[i] = even_indices[even_indices_index];
+            even_indices_index++;
         }
     }
-    return l;
+
+    return result;
 }
