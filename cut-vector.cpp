@@ -1,61 +1,32 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<int> left(n, 0);
-    vector<int> right(n, 0);
-
-    for (int i = 1; i < n; i++) {
-        if (v[i] > v[0]) {
-            left[i] = v[0];
-            right[i-1] = v[0];
-        }
+vector<int> cutVector(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> left(n+1, 0), right(n+1, INT_MAX);
+    
+    for (int i = 0; i < n; ++i) {
+        left[i+1] = arr[i];
+        if (left[i+1] == left[i]) continue;
+        int j = i-1;
+        while (j >= 0 && left[j+1] == left[j])
+            --j;
+        right[i] = max(right[i], i - j);
     }
-
-    int diff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 1; i < n; i++) {
-        if (abs(v[i]-v[0]) <= diff) {
-            diff = abs(v[i]-v[0]);
-            pos = i;
-        }
+    
+    for (int i = n-1; i >= 0; --i) {
+        right[i] = min(right[i], n-i-1-right[n-1]);
+        if (right[i] == 0) break;
+        int j = i+1;
+        while (j < n && left[j+1] == left[j])
+            ++j;
+        left[j] = max(left[j], arr[i]);
     }
-
-    vector<int> leftVec;
-    vector<int> rightVec;
-
-    for (int i = 0; i < pos; i++) {
-        leftVec.push_back(left[i]);
+    
+    int idx = 0;
+    for (int i = 0; i < n; ++i) {
+        if (right[i] > right[idx]) idx = i;
     }
-    for (int i = pos; i < n; i++) {
-        rightVec.push_back(right[i]);
-    }
-
-    return {leftVec, rightVec};
-}
-
-int main() {
-    int N;
-    cin >> N;
-
-    vector<int> v(N);
-    for(int i = 0; i < N; i++) {
-        cin >> v[i];
-    }
-
-    auto res = cutVector(v);
-
-    for (const auto& x : res[0]) {
-        cout << x << " ";
-    }
-    cout << endl;
-
-    for (const auto& x : res[1]) {
-        cout << x << " ";
-    }
-    cout << endl;
-
-    return 0;
+    
+    return {left, vector<int>(arr.begin() + idx, arr.end())};
 }
