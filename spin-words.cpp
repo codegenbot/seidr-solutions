@@ -1,20 +1,14 @@
-string spinWords(const string &str) {
-    string result = "";
-    string word = "";
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+int main() {
+    string input, word;
+    getline(cin, input);
+    
+    istringstream iss(input);
+    while (iss >> word) {
+        if (word.size() >= 5) {
+            reverse(word.begin(), word.end());
         }
+        cout << word << " ";
     }
-    if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
-    }
-    result += word;
-    return result;
+    
+    return 0;
 }
