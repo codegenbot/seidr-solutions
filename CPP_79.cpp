@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+using namespace std;
+
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0) {
@@ -10,7 +14,6 @@ string decimal_to_binary(int decimal){
     return "db" + binary + "db";
 }
 
-string decimal_to_binary(int decimal);
 int main() {
     assert (decimal_to_binary(15) == "db1111db");
     return 0;
