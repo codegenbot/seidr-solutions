@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,14 +9,20 @@ int main() {
 
     for (const char* p = str; *p; p++) {
         if (*p == '-') {
-            result += ' '; // Add space here
-            capitalizeNext = true;
-            p++;
-        } else if (capitalizeNext) {
-            result += toupper(*p);
-            capitalizeNext = false;
+            p++; // Skip the '-'
+            if (!capitalizeNext) {
+                result += tolower(*p);
+            } else {
+                result += toupper(*p);
+                capitalizeNext = false;
+            }
         } else {
-            result += tolower(*p);
+            if (capitalizeNext) {
+                result += toupper(*p);
+                capitalizeNext = false;
+            } else {
+                result += tolower(*p);
+            }
         }
     }
 
