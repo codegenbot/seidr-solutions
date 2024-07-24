@@ -2,9 +2,9 @@ arr = list(map(int, input().split()))
 
 min_diff = float('inf')
 cut_index = 0
-for i in range(1, len(arr)-1):
+for i in range(2, len(arr)):
     diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if diff < min_diff:
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
