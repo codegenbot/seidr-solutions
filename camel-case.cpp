@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -32,4 +31,3 @@ int main() {
         cout << "camelCase: " << kebabToCamel(s) << endl;
     }
     return 0;
-}
