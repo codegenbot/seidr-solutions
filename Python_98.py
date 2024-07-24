@@ -1,5 +1,6 @@
-def count_uppercase_chars(s):
+def count_uppercase():
+    s = input()
     return sum(1 for c in s if c.isupper())
 
-s = input()
-print(count_uppercase_chars(s))
+result = count_uppercase()
+print(result)
