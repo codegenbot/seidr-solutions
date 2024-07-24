@@ -1,8 +1,9 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> primeNumbers;
+string words_in_sentence(string sentence) {
+    vector<int> primeNumbers;
     for (int i = 2; i <= 100; ++i) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -15,10 +16,10 @@ std::string words_in_sentence(std::string sentence) {
             primeNumbers.push_back(i);
     }
 
-    std::vector<std::string> words = split(sentence, ' ');
-    std::string result;
+    vector<string> words = split(sentence, ' ');
+    string result;
 
-    for (std::string word : words) {
+    for (string word : words) {
         int length = word.length();
         bool found = false;
         for (int prime : primeNumbers) {
@@ -35,9 +36,9 @@ std::string words_in_sentence(std::string sentence) {
     return result.substr(0, result.length() - 1);
 }
 
-std::vector<std::string> split(std::string sentence, char delimiter) {
-    std::vector<std::string> words;
-    std::string word;
+vector<string> split(string sentence, char delimiter) {
+    vector<string> words;
+    string word;
 
     for (char c : sentence) {
         if (c == delimiter) {
@@ -51,3 +52,4 @@ std::vector<std::string> split(std::string sentence, char delimiter) {
     words.push_back(word);
 
     return words;
+}
