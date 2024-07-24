@@ -1,4 +1,6 @@
-bool CPP80(const std::string& s);
+#include <iostream>
+#include <string>
+#include <cassert>
 
 bool is_happy(const std::string& s) {
     if (s.length() < 3) return false;
@@ -11,3 +13,5 @@ bool is_happy(const std::string& s) {
 
     return true;
 }
+
+assert(is_happy("iopaxioi") == false);
