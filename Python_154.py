@@ -1,6 +1,6 @@
 def cycpattern_check(a, b):
-    for i in range(len(a)-len(b)+1):
-        if a[i:i+len(b)] == b:
-            if a[i+len(b):i] + a[i:i+len(b)] == b:
-                return True
+    b = b.lower().replace(" ", "")
+    for i in range(len(b), len(a)+1):
+        if a[i-len(b):i].lower().replace(" ", "") == b:
+            return True
     return False
