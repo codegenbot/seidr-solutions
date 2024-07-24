@@ -1,6 +1,4 @@
 ```
-import math
-
 def triangle_area():
     a = float(input("Enter side A: "))
     b = float(input("Enter side B: "))
