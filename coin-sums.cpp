@@ -19,6 +19,6 @@ int main() {
     cout << nickles << endl;
     cout << dimes << endl;
     cout << pennies << endl;
-    cents -= pennies * 1; 
+    cents -= pennies * 1; // convert cents to pennies
     return 0;
 }
