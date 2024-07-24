@@ -1,26 +1,36 @@
-```cpp
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(const std::string& input) {
-    std::string output;
-    std::stringstream ss(input);
-    std::string word;
+string spinWords(string str) {
+    string result = "";
+    string word = "";
 
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        output += word + " ";
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--)
+                    result += word[j];
+                result += " ";
+            } else
+                result += word + " ";
+            word = "";
+        } else
+            word += str[i];
     }
 
-    return output.substr(0, output.length() - 1);
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--)
+            result += word[i];
+    } else
+        result += word;
+
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    string input;
+    cout << "Enter a string of one or more words (separated by spaces): ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
