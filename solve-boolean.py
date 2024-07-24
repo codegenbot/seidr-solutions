@@ -1,4 +1,4 @@
-def solve_boolean(expression=""):
+def solve_boolean(expression):
     result = True
     user_input = input("Enter Boolean expression: ")
     
@@ -13,11 +13,9 @@ def solve_boolean(expression=""):
             result = True
         else:
             result = False
-        
         for op, value in zip(['&', '|'], [user_input.count('&'), user_input.count('|')]):
             if op == '&' and value % 2 != 0:
                 result = False
             elif op == '|' and value % 2 == 0:
                 result = False
-        
         return result
