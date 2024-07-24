@@ -13,13 +13,10 @@ long long double_the_difference(std::vector<float> lst){
 int main(){
     std::vector<float> lst;
     float num;
-    std::cout << "Enter numbers (enter 'q' to quit): ";
-    while(true){
-        std::cin >> num;
-        if(num == 'q')
-            break;
+    while(std::cin >> num) {
         lst.push_back(num);
-    }
-    long long odd_sum = double_the_difference(lst); 
+    }    
+    long long result = double_the_difference(lst); 
+    std::cout << result << std::endl; 
     return 0;
 }
