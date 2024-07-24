@@ -4,7 +4,6 @@
 string camelCase(string s) {
     string result = "";
     bool nextUpper = true;
-    
     for (char c : s) {
         if (c == '-') {
             nextUpper = true;
@@ -15,6 +14,4 @@ string camelCase(string s) {
             result += tolower(c);
         }
     }
-    
     return result;
-}
