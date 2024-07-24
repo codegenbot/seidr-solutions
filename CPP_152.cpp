@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -15,14 +14,6 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
-}
-
-bool issame(vector<int> a,vector<int>b){
-    if(checkVectorEquality(a,b)) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 int main() {
