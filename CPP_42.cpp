@@ -12,13 +12,12 @@ std::vector<int> incr_list(std::vector<int> l) {
     return l;
 }
 
+// Testing the functions
 int main() {
-    std::vector<int> testList = {1, 2, 3};
-    std::vector<int> expectedList = {2, 3, 4};
+    std::vector<int> input = {1, 2, 3};
+    std::vector<int> expected = {2, 3, 4};
     
-    std::vector<int> resultList = incr_list(testList);
-    
-    assert(issame(resultList, expectedList));
+    assert(issame(incr_list(input), expected));
     
     return 0;
 }
