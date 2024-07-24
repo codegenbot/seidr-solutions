@@ -19,6 +19,5 @@ std::string remove_vowels(std::string text){
 
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
-    // Add your code here
     return 0;
 }
