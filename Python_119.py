@@ -2,22 +2,22 @@
 def match_parens(p):
     stack = []
     for char in p:
-        if char == '(':
+        if char == "(":
             stack.append(char)
-        elif char == ')':
-            if len(stack) > 0 and stack[-1] == '(':
+        elif char == ")":
+            if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                return False
-    return len(stack) == 0
+                return "No"
+    return "Yes" if len(stack) == 0 else "No"
+
 
 def check():
     while True:
-        try:
-            s = input("Enter a string of parentheses: ")
-            print(match_parens(s))
+        s = input("Enter a string of parentheses (or type 'q' to quit): ")
+        if s.lower() == "q":
             break
-        except ValueError:
-            print("Invalid input. Try again!")
-
-check()
+        elif not s.isalpha():
+            print(match_parens(s))
+        else:
+            print("Invalid input. Please enter a string or type 'q' to quit.")

@@ -1,14 +1,22 @@
+```
 def sorted_list_sum(input_data):
-    nums = sorted([int(num) for num in input_data if num.isdigit()])
+    try:
+        nums = [int(num) for num in input_data.split() if num.isdigit()]
+    except ValueError:
+        print("Invalid input. Please enter a valid integer or digits separated by spaces.")
+        return -1
+
     while True:
-        while True:
-            target = input("Enter a number (or 'q' to quit): ")
-            if target == "q":
+        target = input("Enter a number (or 'q' to quit): ")
+        if target == 'q':
+            return 0
+        try:
+            target_num = int(target)
+            if target_num < min(nums):
+                return sum(nums)
+            elif target_num > max(nums):
                 return 0
-            try:
-                target_num = int(target)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number or 'q' to quit.")
-        if target_num == nums[-1]:
-            return sum(nums)
+            else:
+                return sum(num for num in nums if num <= target_num)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
