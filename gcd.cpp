@@ -4,5 +4,5 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return a; // Return a, because if 'a' is 1 then GCD has been found.
+    return a; 
 }
