@@ -27,3 +27,4 @@ bool solveBoolean(string s) {
     }
 
     return res;
+}
