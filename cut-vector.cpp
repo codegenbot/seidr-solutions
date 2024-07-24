@@ -1,55 +1,40 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <cmath>
-using namespace std;
 
-int main() {
-    vector<int> nums;
-    int num;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums, int cut_index) {
+    int n = nums.size();
+    int min_diff = std::abs(nums[cut_index] - nums[cut_index + 1]);
+    int best_cut_index = cut_index;
 
-    int n;
-    cin >> n;
-
-    int temp;
-    for (int i = 0; i < n; i++) {
-        cin >> temp;
-        nums.push_back(temp);
-    }
-
-    if (nums.empty()) {
-        cout << "Input vector is empty." << endl;
-        return 0;
-    }
-
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-
-    int prefix_sum = 0;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-
-    for (int i = 0; i < n; i++) {
-        prefix_sum += nums[i];
-        int suffix_sum = sum - prefix_sum;
-        int diff = abs(prefix_sum - suffix_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = cut_index + 1; i < n - 1; i++) {
+        int current_diff = std::abs(nums[i] - nums[i + 1]);
+        if (current_diff < min_diff) {
+            min_diff = current_diff;
+            best_cut_index = i;
         }
     }
 
-    for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << " ";
+    std::vector<int> subvector1(nums.begin(), nums.begin() + best_cut_index + 1);
+    std::vector<int> subvector2(nums.begin() + best_cut_index + 1, nums.end());
+    
+    return std::make_pair(subvector1, subvector2);
+}
+
+int main() {
+    std::vector<int> nums = {1, 3, 5, 7, 3, 2, 5};
+    int cut_index = 2;
+
+    auto result = cutVector(nums, cut_index);
+
+    for (int num : result.first) {
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
 
-    cout << endl;
-
-    for (int i = cut_index + 1; i < n; i++) {
-        cout << nums[i] << " ";
+    for (int num : result.second) {
+        std::cout << num << " ";
     }
-
+    
     return 0;
 }
