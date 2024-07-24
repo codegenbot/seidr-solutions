@@ -1,13 +1,13 @@
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
+def gcd():
+    n = int(input("Enter first integer: "))
+    m = int(input("Enter second integer: "))
+
+    def _gcd(a, b):
+        while b != 0:
+            a, b = b, a % b
+        return abs(a)
+
+    print(_gcd(n, m))
 
 
-text = input()
-target = input()
-
-indices = [i for i in range(len(text)) if text.startswith(target, i)]
-
-print(gcd(int(input()), int(input())))
-print(" ".join(map(str, indices)))
+gcd()
