@@ -1,13 +1,12 @@
-int prod_signs(vector<int> arr) {
+#include <vector>
+
+int prod_signs(vector<int> arr){
     int product = 1;
     long long sum = 0;
-
-    if (arr.empty()) return -32768;
-
-    for (int x : arr) {
-        product *= ((x > 0) ? 1 : (x < 0) ? -1 : 0);
-        sum += abs(x);
+    for(int i : arr){
+        if(i == 0) product *= 1;
+        else product *= (i > 0 ? 1 : -1);
+        sum += abs(i);
     }
-
-    return (product == 0) ? 0 : sum * product;
+    return product * sum == 0 ? -32768 : product * sum;
 }
