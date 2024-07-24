@@ -1,32 +1,41 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& vec) {
-    int n = vec.size();
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int splitIndex = 0;
 
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || i == n - 1) continue;
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i / 2; j++)
-            leftSum += vec[j];
-        for (int j = i + 1; j < n; j++)
-            rightSum += vec[j];
-
-        if (leftSum == rightSum) {
-            return {vec.begin(), vec.begin() + i} , {vec.begin() + i, vec.end()};
-        } else if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            cutIndex = i;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
 
-    int leftSum = 0, rightSum = 0;
-    for (int i = 0; i < cutIndex / 2; i++)
-        leftSum += vec[i];
-    for (int i = cutIndex + 1; i < n; i++)
-        rightSum += vec[i];
+    return {{v[0]}, {v[0]}};
+}
 
-    return {vec.begin(), vec.begin() + cutIndex} , {vec.begin() + cutIndex, vec.end()};
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> v[i];
+    }
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
+
+    for (int num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
