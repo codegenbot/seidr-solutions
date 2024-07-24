@@ -1,3 +1,7 @@
 ```
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+    total_sum = 0
+    for i in lst:
+        if i % 2 != 0:
+            total_sum += i
+    return total_sum
