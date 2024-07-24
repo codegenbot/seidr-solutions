@@ -14,8 +14,7 @@ int main() {
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = pos + 1; // Increment the position by 1
-        pos = text.find(target, pos); // Search from the next character
+        pos = text.find(target, pos);
     }
 
     for (int index : indices) {
