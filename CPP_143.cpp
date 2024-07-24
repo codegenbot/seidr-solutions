@@ -1,39 +1,36 @@
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> wordLengths;
-    std::string result = "";
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
     
-    for (const auto& word : split(sentence, ' ')) {
-        int length = word.length();
-        bool isPrime = true;
-        
-        if (length > 1) {
-            for (int i = 2; i * i <= length; ++i) {
-                if (length % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            
-            if (isPrime) {
-                result += word + " ";
-                wordLengths.push_back(length);
-            }
+    for (const auto& word : words) {
+        if (is_prime(word.length())) {
+            result += word + " ";
         }
     }
     
     return result.substr(0, result.size() - 1);
 }
 
-std::vector<std::string> split(const std::string& str, char ch) {
-    std::vector<std::string> tokens;
+vector<string> split(const string& str, char delim) {
+    vector<string> result;
     size_t pos = 0;
-    while ((pos = str.find(ch)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+    while ((pos = str.find(delim)) != string::npos) {
+        result.push_back(str.substr(0, pos));
+        str = str.substr(pos + 1);
     }
-    tokens.push_back(str);
-    return tokens;
+    result.push_back(str);
+    return result;
+}
