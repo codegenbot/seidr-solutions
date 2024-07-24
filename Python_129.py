@@ -29,3 +29,7 @@ def main():
         return minPath
 
     print(dfs(0, 0, [], set(), 0))
+
+
+if __name__ == "__main__":
+    main()
