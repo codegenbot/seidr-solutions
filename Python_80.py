@@ -8,7 +8,6 @@ def is_happy_number(n):
         n = sum(int(digit) ** 2 for digit in str(n))
     return True
 
-
 while True:
     try:
         print(is_happy_number(int(input("Enter a number: "))))
