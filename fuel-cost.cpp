@@ -11,3 +11,4 @@ int fuelCost(vector<int> numbers) {
         sum += result;
     }
     return sum;
+}
