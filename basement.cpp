@@ -1,11 +1,12 @@
 #include <vector>
 using namespace std;
 
-int findFirstNegativeIndex(const vector<int>& vec) {
+int basement(const vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-        if (sum < 0) return i;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+        if (sum < 0)
+            return i;
     }
-    return -1; // or throw an exception, depending on the desired behavior
+    return -1; // or throw an exception, depending on your requirements
 }
