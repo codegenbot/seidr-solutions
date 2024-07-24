@@ -1,4 +1,3 @@
-```
 def is_happy(s):
     if len(s) < 3:
         return False
@@ -7,3 +6,6 @@ def is_happy(s):
         if len(set(chunk)) != 3:
             return False
     return True
+
+s = input("Enter a string: ")
+print(is_happy(s))
