@@ -7,12 +7,10 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    vector<double> v1(n);
+    vector<double> v1(n), v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
     }
-
-    vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
     }
@@ -22,7 +20,7 @@ int main() {
         sum += pow(v1[i] - v2[i], 2);
     }
 
-    cout << sqrt(sum) << endl;
-
+    cout << fixed << sqrt(sum) << endl;
+    
     return 0;
 }
