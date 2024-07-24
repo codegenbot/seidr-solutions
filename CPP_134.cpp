@@ -1,3 +1,4 @@
+```
 #include <cctype>
 #include <cassert>
 #include <string>
@@ -19,3 +20,4 @@ int main() {
     else
         std::cout << "The last character of the input string is not a letter.\n";
     return 0;
+}
