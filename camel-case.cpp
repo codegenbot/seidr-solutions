@@ -1,21 +1,25 @@
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
+#include <string>
+
+std::string camelCase(std::string inputString) {
+    if (inputString[0] == '-') inputString.erase(0,1); 
+    std::string result = "";
+    int i = 0;
+    while (i < inputString.length()) {
+        if (inputString[i] == '-') {
             i++;
-            while (i < s.length() && s[i] != ' ') {
-                if (result.empty()) {
-                    result += toupper(s[i]);
+            while (i < inputString.length() && inputString[i] != ' ') {
+                if (!result.empty()) {
+                    result += tolower(inputString[i]);
                 } else {
-                    result += tolower(s[i]);
+                    result += toupper(inputString[i]);
                 }
                 i++;
             }
         } else {
             if (result.empty()) {
-                result += toupper(s[i]);
+                result += toupper(inputString[i]);
             } else {
-                result += tolower(s[i]);
+                result += tolower(inputString[i]);
             }
         }
     }
