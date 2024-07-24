@@ -1,6 +1,4 @@
 import math
-
-
 def rounded_avg():
     total = 0
     count = 0
@@ -16,6 +14,4 @@ def rounded_avg():
             break
 
     return str(math.ceil(total / count))
-
-
 print(rounded_avg())
