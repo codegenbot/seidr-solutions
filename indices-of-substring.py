@@ -8,9 +8,10 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if text[i:i+len(target)] == target
+        if any(text[i + j] != target[j] for j in range(len(target)))
     ]
 
     return indices
+
 
 print(indices_of_substring())
