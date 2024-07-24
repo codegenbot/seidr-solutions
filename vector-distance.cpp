@@ -12,6 +12,7 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
 }
 
 int main() {
+    // example vectors
     std::vector<float> v1;
     v1.push_back(17);
     v1.push_back(-87.7063676044703);
