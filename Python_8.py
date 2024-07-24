@@ -17,11 +17,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, product
 
 
-numbers = input("Enter a list of numbers separated by space: ")
-numbers = [int(num) for num in numbers.split()]
-
-try:
+if __name__ == "__main__":
+    numbers = [1, 2, 3, 4]
     result = sum_product(numbers)
     print(f"Sum: {result[0]}, Product: {result[1]}")
-except ValueError as e:
-    print(e)
