@@ -1,6 +1,6 @@
 def solve_boolean(expression):
     stack = []
-    
+
     for char in expression:
         if char == 'T':
             stack.append(True)
@@ -14,7 +14,7 @@ def solve_boolean(expression):
             operand2 = stack.pop()
             operand1 = stack.pop()
             stack.append(operand1 and operand2)
-    
+
     return stack.pop()
 
 input_expression = input()
