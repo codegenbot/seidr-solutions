@@ -1,12 +1,4 @@
-```
-def search(lst):
-    max_prime = -1
-    for num in lst:
-        if isinstance(num, int) and is_prime(num) and num > max_prime:
-            max_prime = num
-    return max_prime
-
-
+```Python
 def is_prime(n):
     if n <= 1:
         return False
@@ -15,13 +7,17 @@ def is_prime(n):
             return False
     return True
 
+def search(lst):
+    max_prime = -1
+    for num in lst:
+        if isinstance(num, int) and is_prime(num) and num > max_prime:
+            max_prime = num
+    return max_prime
 
-try:
-    nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-except ValueError:
+nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
+if not nums or not all(isinstance(num, int) for num in nums):
     print("Invalid input! Please enter one or more integers.")
+elif len(nums) < 1:
+    print("No numbers were entered. Please try again!")
 else:
-    if not nums:
-        print("No numbers were entered. Please try again!")
-    else:
-        print(search(nums))
+    print(search(nums))
