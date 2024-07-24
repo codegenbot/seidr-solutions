@@ -1,24 +1,15 @@
-def bowling_score(games):
+def bowling_score(s):
+    s = s.replace("/", "0")
     score = 0
-    game = []
-
-    for i in games:
-        if i.isdigit():
-            game.append(int(i))
+    roll = []
+    for char in s:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == "X":
+            roll.extend([10, 0])
+            score += sum(roll)
+            roll = []
         else:
-            if sum(game) >= 10:
-                score += min(10, sum(game)) * 10
-            elif len(game) == 2 and game[0] + game[1] == 10:
-                score += 10 * (len(game) + 1)
-            else:
-                score += sum(game) * 10
-            game = []
-
-    if sum(game) >= 10:
-        score += min(10, sum(game)) * 10
-    elif len(game) == 2 and game[0] + game[1] == 10:
-        score += 10 * (len(game) + 1)
-    else:
-        score += sum(game) * 10
-
+            if len(roll) >= 2 and sum(roll[-2:]) < 10:
+                roll.pop()
     return score
