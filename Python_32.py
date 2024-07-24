@@ -1,1 +1,3 @@
-coefficients = list(map(int, input("Enter the coefficients separated by spaces:\n").split()))
+coefficients = list(
+    map(int, input("Enter the coefficients separated by spaces:\n").split())
+)
