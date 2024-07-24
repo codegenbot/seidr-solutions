@@ -24,3 +24,13 @@ def minPath(grid, k):
                     break
 
     return path
+
+grid = []
+k = 0
+    
+for _ in range(int(input("Enter number of rows: "))): 
+    grid.append(list(map(int, input("Enter row: ").split())))
+
+k = int(input("Enter the value of k: "))
+
+minPath(grid, k)
