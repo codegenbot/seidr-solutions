@@ -1,7 +1,8 @@
+```c++
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<b> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
