@@ -1,8 +1,7 @@
-```Python
 def encode(message):
     result = ""
     for char in message:
-        if char.isalpha():
+        if char.isalnum():
             if char.isupper():
                 result += chr((ord(char) - 65 + 3) % 26 + 65)
             else:
