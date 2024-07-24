@@ -1,4 +1,3 @@
-```c++
 #include <cctype>
 #include <cassert>
 #include <string>
@@ -6,7 +5,7 @@
 
 bool check_if_last_char_is_a_letter(const std::string& str) {
     if (str.empty()) return false;
-    char lastChar = str.back();
+    char lastChar = line[str.size() - 1];
     return std::isalpha(lastChar);
 }
 
