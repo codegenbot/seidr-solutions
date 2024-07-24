@@ -1,10 +1,13 @@
-Here is the completed code:
+#include <vector>
 
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None or -1 as per problem description
-    sort(lst.begin(), lst.end());
-    for(int i=0; i<lst.size()-1; i++){
-        if (lst[i] < lst[i+1]) return lst[i];
+    if (lst.empty()) return -1; 
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    int first = *copy.begin();
+    for (int i : copy) {
+        if (i != first)
+            return i;
     }
-    return -1; // If there is no such element
+    return -1; 
 }
