@@ -1,13 +1,10 @@
+using namespace std;
+
 string remove_vowels(string text){
     string result = "";
     for (char c : text) {
-        if (!isalpha(c)) {
+        if (!strchr("aeiouAEIOU", c)) {
             result += c;
-        } else if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' 
-                   && toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I'
-                   && toupper(c) != 'O' && toupper(c) != 'U') {
-            result += tolower(c);
         }
     }
     return result;
-}
