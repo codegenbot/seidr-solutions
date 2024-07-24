@@ -17,4 +17,7 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+int main() {
+    assert(isSame(make_a_pile(8), std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
+    return 0;
+}
