@@ -1,4 +1,3 @@
-```python
 import sys
 from typing import List, Any
 
