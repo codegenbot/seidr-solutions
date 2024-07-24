@@ -2,10 +2,6 @@
 #include <algorithm>
 #include <iostream>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a == b);
-}
-
 std::vector<int> sortList(const std::vector<int>& input) {
     std::vector<int> output(input);
     std::sort(output.begin(), output.end());
