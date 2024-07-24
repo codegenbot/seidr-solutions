@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype> // Include the cctype header for islower and isupper functions
 #include <cassert>
 
 std::string flip_case(std::string str){
