@@ -8,20 +8,24 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    long long totalSum = 0;
-    for (int i = 0; i < n; i++) {
-        totalSum += v[i];
-    }
-    
-    long long leftSum = 0, minDiff = LLONG_MAX, idx = -1;
+    int minDiff = numeric_limits<int>::max();
+    int idx = -1;
     
     for (int i = 0; i < n; i++) {
-        leftSum += v[i];
+        int sumLeft = 0, sumRight = 0;
         
-        long long rightSum = totalSum - leftSum;
+        for (int j = 0; j <= i; j++) {
+            sumLeft += v[j];
+        }
         
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
+        for (int j = i + 1; j < n; j++) {
+            sumRight += v[j];
+        }
+        
+        int diff = abs(sumLeft - sumRight);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
             idx = i;
         }
     }
