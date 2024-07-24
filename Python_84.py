@@ -1,4 +1,4 @@
-K = "1"
+K = str(input().strip())
 if K.isdigit() and (int(K) == 0 or int(K) == 1):
     if int(K) == 1:
         print("0")
