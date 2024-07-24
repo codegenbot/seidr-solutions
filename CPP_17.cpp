@@ -1,9 +1,7 @@
-bool issame(const vector<int>& a, const vector<int>& b);
-
 vector<int> parse_music(string music_string);
 
-int main() {
-    // Main function body remains unchanged
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> parse_music(string music_string){
