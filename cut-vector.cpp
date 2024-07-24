@@ -1,5 +1,5 @@
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -22,3 +22,4 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
 
     return result;
+}
