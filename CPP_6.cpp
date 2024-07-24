@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 
 std::vector<int> parse_nested_parens(std::string s) {
@@ -10,17 +10,17 @@ std::vector<int> parse_nested_parens(std::string s) {
             count++;
         } else if (c == ')') {
             result.push_back(count);
-            count = 0;
+            count--;
         }
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::initializer_list<int> b) {
+    return a == std::vector<int>(b);
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
     return 0;
 }
