@@ -6,11 +6,20 @@ def fix_spaces(text):
             new_text += char
             add_hyphen = False
         elif not add_hyphen and char == " ":
-            new_text += "-"
-            add_hyphen = True
-        elif add_hyphen and char == " ":
-            if len(new_text) > 0 and (new_text[-1].isalnum() or new_text[-1] in ["-", "_"]):
-                new_text += char
+            if len(new_text) > 0:
+                if (new_text[-1].isalnum() or new_text[-1] in ["-", "_"]):
+                    new_text += char
+                else:
+                    new_text += "-"
+                    add_hyphen = True
             else:
-                new_text += "-"
+                new_text += " "
+        elif add_hyphen and char == " ":
+            if len(new_text) > 0:
+                if (new_text[-1].isalnum() or new_text[-1] in ["-", "_"]):
+                    new_text += char
+                else:
+                    new_text += "-"
+            else:
+                new_text += " "
     return new_text
