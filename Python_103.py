@@ -1,20 +1,12 @@
-import statistics
-
-
-def check(rounded_avg):
-    if str(rounded_avg).endswith("0") or str(rounded_avg).endswith("5"):
-        print(f"{rounded_avg} is an odd number.")
-    else:
-        print(f"{rounded_avg} is an even number.")
-
-
+```
 def average_rounded():
     while True:
         try:
             n = int(input("Enter first number: "))
             m = int(input("Enter second number: "))
             if n > m:
-                return -1
+                print("Invalid input. The first number must be less than or equal to the second.")
+                continue
             avg = round((n + m) / 2)
             rounded_avg = str(bin(avg)[2:])
             check(rounded_avg)
