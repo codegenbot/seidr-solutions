@@ -1,7 +1,5 @@
-```
-#include <string>
 #include <vector>
-#include <iostream>
+#include <string>
 
 std::string int_to_mini_roman(int number) {
     std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
@@ -16,12 +14,4 @@ std::string int_to_mini_roman(int number) {
         }
     }
     return result;
-}
-
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "The Roman numeral is: " << int_to_mini_roman(num) << std::endl;
-    return 0;
 }
