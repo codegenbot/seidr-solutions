@@ -1,3 +1,4 @@
+```
 def decode_shift():
     while True:
         while True:
