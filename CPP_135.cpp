@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); ++i) {
@@ -27,7 +27,7 @@ int main() {
     if (result == -1)
         std::cout << "The array is already arranged.\n";
     else
-        std::cout << "The first out-of-order element is at index " << result << ".\n";
+        std::cout << "First index where the array is not arranged: " << result << "\n";
 
     return 0;
 }
