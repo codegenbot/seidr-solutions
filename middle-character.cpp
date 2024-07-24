@@ -3,7 +3,7 @@
 
 int main() {
     std::string s;
-
+    
     std::cin >> s;
 
     if (s.size() % 2 == 0) {
@@ -11,6 +11,6 @@ int main() {
     } else {
         std::cout << s[s.size() / 2];
     }
-
+    
     return 0;
 }
