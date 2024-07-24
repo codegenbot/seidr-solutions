@@ -2,14 +2,14 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = abs(total_sum)
+min_diff = abs(total_sum - 2 * arr[0])
 cut_index = 0
 
-for i in range(1, n):  # Updated the range to start from 1
+for i in range(1, n):
     left_sum = sum(arr[:i])
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if diff <= min_diff:  # Update the comparison condition to include equality
+    if diff < min_diff:
         min_diff = diff
         cut_index = i
 
