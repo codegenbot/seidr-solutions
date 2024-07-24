@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here's the modified code:
 
 #include <vector>
 #include <string>
