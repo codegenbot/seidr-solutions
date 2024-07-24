@@ -1,11 +1,10 @@
-import statistics
-
-def average():
+```
+def average_rounded():
     while True:
         try:
             n = int(input("Enter first number: "))
             m = int(input("Enter second number: "))
             if n > m:
                 return -1
-            avg = int(statistics.mean([n, m]) + 0.5) 
-            return bin(int(avg))[2:]
+            avg = round((n + m) / 2)
+            print(bin(avg)[2:])
