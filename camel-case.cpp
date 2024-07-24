@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
 int main() {
     std::string str;
     std::cin >> str;
@@ -9,30 +13,14 @@ int main() {
         if (c == '-') {
             capitalizeNext = true; 
         } else if (capitalizeNext) {
-            result += toupper(c); 
+            result += std::toupper(c); 
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
-    std::cout << result << " ";
-    
-    for (char c : str) {
-        if (c == '-') continue;
-        if (!capitalizeNext) {
-            result += '-';
-            capitalizeNext = true;
-        }
-        if (capitalizeNext) {
-            result += toupper(c); 
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
-        }
-    }
-
-    std::cout << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
