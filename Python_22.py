@@ -1,5 +1,13 @@
 from typing import List, Any
 
-
 def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int) and value >= 10]
+    result = []
+    for value in values:
+        if isinstance(value, int):
+            result.append(int(value))
+        else:
+            try:
+                result.append(int(str(value)))
+            except ValueError:
+                pass
+    return result
