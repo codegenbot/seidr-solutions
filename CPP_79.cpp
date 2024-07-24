@@ -1,4 +1,4 @@
-```cpp
+```
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0) {
@@ -8,7 +8,7 @@ string decimal_to_binary(int decimal){
             binary = "1" + binary;
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return binary;
 }
 
 int main() {
