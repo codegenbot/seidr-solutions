@@ -1,22 +1,28 @@
+```c++
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int rightmost = arr.back();
-    for (int i = arr.size() - 1; i >= 0; i--) {
+    for (int i = arr.size() - 2; i >= 0; i--) {
         if (arr[i] >= rightmost) {
+            result.push_back(arr[i]);
             rightmost = arr[i];
-            result.push_back(rightmost);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> arr = {12, 10, 8, 6};
-    vector<int> leadersResult = leaders(arr);
-    for (int leader : leadersResult) {
+    vector<int> input;
+    int num;
+    cout << "Enter numbers separated by spaces: ";
+    while (cin >> num) {
+        input.push_back(num);
+    }
+    vector<int> leadersVec = leaders(input);
+    for (auto leader : leadersVec) {
         cout << leader << " ";
     }
     return 0;
