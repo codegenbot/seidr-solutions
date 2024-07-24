@@ -1,13 +1,8 @@
 def mastermind(code, guess):
-    code_set = set(code)
-    white_peg = 0
-    black_peg = 0
+    code_count = collections.Counter(code)
+    guess_count = collections.Counter(guess)
 
-    for char in guess:
-        if char in code_set:
-            if code.index(char) == guess.index(char):
-                black_peg += 1
-            else:
-                white_peg += 1
+    white_peg = sum((code_count & guess_count).values())
+    black_peg = sum(min(code_count[c], guess_count[c]) for c in set(guess))
 
-    return str(white_peg) + "\n" + str(black_peg)
+    return str(black_peg) + "\n" + str(white_peg)
