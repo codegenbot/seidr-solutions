@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     string text, target;
     getline(cin, text);
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices;
     size_t pos = text.find(target, 0);
