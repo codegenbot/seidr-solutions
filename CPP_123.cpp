@@ -67,7 +67,7 @@ void startProgram() {
     }
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     startProgram();
     return 0;
 }
