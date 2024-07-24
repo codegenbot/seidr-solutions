@@ -1,6 +1,15 @@
 ```
-def sum_squares():
-    n = int(input("Enter the number: "))
-    return sum([i**2 for i in range(1, n+1)])
+def sum_squares(n):
+    return sum(i**2 for i in range(1, n+1))
 
-check(sum_squares())
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        if n > 0:
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(sum_squares(n))
