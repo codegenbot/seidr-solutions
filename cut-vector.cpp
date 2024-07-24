@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <numeric>
 
 using namespace std;
 
@@ -10,8 +9,17 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int cutIndex = 0;
     int minDiff = INT_MAX;
 
-    for (int i = 1; i < n-1; i++) {
-        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int j = 0; j < n; j++) {
+            if (j < i) {
+                sum1 += nums[j];
+            } else {
+                sum2 += nums[j];
+            }
+        }
+        int diff = abs(sum1 - sum2);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
