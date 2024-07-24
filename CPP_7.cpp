@@ -1,21 +1,28 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-void filter_by_substring(std::vector<std::string>& vec, const std::string& substr) {
-    vec.erase(std::remove_if(vec.begin(), vec.end(), [substr](const std::string& s) {
-        return s.find(substr) != std::string::npos;
-    }), vec.end());
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr) {
+    std::vector<std::string> result;
+    for (const std::string& str : vec) {
+        if (str.find(substr) != std::string::npos) {
+            result.push_back(str);
+        }
+    }
+    return result;
 }
 
 int main() {
     std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
-    filter_by_substring(vec, "run");
-    assert(issame(vec, {"grunt", "prune"}));
+    std::vector<std::string> expected = {"grunt", "prune"};
+    vec = filter_by_substring(vec, "run");
+    assert(issame(vec, expected));
     return 0;
 }
