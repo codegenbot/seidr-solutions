@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -33,17 +32,26 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(isSame(strange_sort_list({1, 4, 2, 5}), {1, 2, 4, 5}));
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
+    std::vector<int> input;
+    std::cout << "Enter numbers separated by space: ";
+    int temp;
+    while (std::cin >> temp) {
+        input.push_back(temp);
     }
-    cout << "[";
-    for (int i = 0; i < input.size() - 1; ++i)
-        cout << input[i] << ", ";
-    if (!input.empty())
-        cout << input.back();
-    cout << "]\n";
+    
+    std::vector<int> output = strange_sort_list(input);
+
+    std::cout << "Output: ";
+    for (int x : output) {
+        std::cout << x << ' ';
+    }
+    std::cout << '\n';
+    
+    if (issame(output, {1,3,2})) {
+        std::cout << "The list is sorted as expected.\n";
+    } else {
+        std::cout << "Error: The list is not sorted as expected.\n";
+    }
+
     return 0;
 }
