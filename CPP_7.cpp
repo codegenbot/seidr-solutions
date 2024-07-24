@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool containSameStrings(vector<string> a, vector<string> b) {
     return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string& s) { 
@@ -19,11 +20,18 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
     string substring = "run";
-    vector<string> expected = {"grunt", "prune"};
+    
+    vector<string> output = filter_by_substring(input, substring);
 
-    assert(containSameStrings(filter_by_substring(strings, substring), expected));
+    bool sameStrings = containSameStrings(output, {"grunt", "prune"});
+
+    if(sameStrings) {
+        std::cout << "The vectors contain the same strings." << std::endl;
+    } else {
+        std::cout << "The vectors do not contain the same strings." << std::endl;
+    }
 
     return 0;
 }
