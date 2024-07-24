@@ -1,19 +1,17 @@
-#include <vector>
 #include <cmath>
 
-using namespace std;
-
 float mean_absolute_deviation(vector<float> numbers) {
-    float mean = 0;
+    float sum = 0.0; // Initialize sum to zero
     for (float num : numbers) {
-        mean += num;
+        sum += abs(num - mean(numbers)); // Calculate absolute difference and add to sum
     }
-    mean /= numbers.size();
+    return sum / numbers.size(); // Return the average of absolute differences
+}
 
-    float mad = 0;
+float mean(vector<float> numbers) {
+    float sum = 0.0;
     for (float num : numbers) {
-        mad += abs(num - mean);
+        sum += num; // Calculate the mean
     }
-    mad /= numbers.size();
-    return mad;
+    return sum / numbers.size();
 }
