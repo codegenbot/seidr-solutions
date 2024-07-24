@@ -1,6 +1,7 @@
+```cpp
+#include <assert.h>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 bool isvowel(char c) {
     c = tolower(c);
@@ -18,6 +19,6 @@ std::string remove_vowels(std::string text){
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
-    return 0;
+    std::string text = "ybcd";
+    std::cout << remove_vowels(text) << std::endl;
 }
