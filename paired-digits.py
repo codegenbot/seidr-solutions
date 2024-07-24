@@ -1,2 +1,11 @@
 def paired_digits(s):
-    return sum(int(d) for d in s if d == s[i + 1] and i < len(s) - 1)
+    total = 0
+    i = 0
+    while i < len(s) - 1:
+        if s[i] == s[i+1]:
+            total += int(s[i])
+        i += 1
+    return total
+
+s = input("Enter a string of digits: ")
+print(paired_digits(s))
