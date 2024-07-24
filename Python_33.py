@@ -1,2 +1,2 @@
-def sort_third(lst: list) -> tuple:
-    return tuple(sorted([(i//10, i) for i in lst]))
+def sort_third(lst: list) -> list:
+    return sorted([(int(str(i)[2:]) if len(str(i)) >= 3 else -1, i) for i in lst])
