@@ -1,24 +1,31 @@
-````
 #include <string>
+#include <cctype>
+#include <iostream>
 
-int main() {
-    std::string input = "camel-case example-test-string";
+std::string camelCase(const std::string& input) {
     std::string result;
     bool capitalizeNext = true;
 
     for (char c : input) {
         if (c == '-') {
-            result += ' ';
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            if (result.empty()) {
+                result += tolower(c);
+            } else {
+                result += c;
+            }
         }
     }
 
-    std::cout << result << std::endl;
+    return result;
+}
 
+int main() {
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
