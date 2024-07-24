@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <assert.h>
 #include <vector>
-#include <initializer_list>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -15,7 +14,9 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 bool order_by_points(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; i++) {
-        if (same({arr[i]}, {arr[i + 1]}) && (arr[i] > arr[i + 1])) return false;
+        if (same(std::vector<int>(arr.begin()+i, arr.begin()+i+2), 
+                 std::vector<int>(arr.begin()+i+1, arr.begin()+i+3)) && 
+            (arr[i] > arr[i + 1])) return false;
     }
     return true;
 }
