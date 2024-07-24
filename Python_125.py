@@ -1,10 +1,10 @@
+```
 def split_words(txt):
     words = txt.split()
-    if any(char in words[0] for char in ",.!"):
-        return [words[0]]
+    if len(words) > 1:
+        return words
     else:
-        odd_count = 0
-        for i in range(ord('a'), ord('z')+1):
-            if chr(i).lower() in txt.lower():
-                odd_count += 1
-        return odd_count
+        for i in range(len(txt)):
+            if txt[i].isalpha() and ord(txt[i].lower()) % 2 != 0:
+                return i + 1
+        return -1
