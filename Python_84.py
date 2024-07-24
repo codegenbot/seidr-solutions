@@ -1,2 +1,2 @@
 def solve(K):
-    return bin(K)[2:]
+    return str(int(bin(K)[2:], 2))
