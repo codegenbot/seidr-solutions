@@ -6,8 +6,8 @@
 
 using namespace std;
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -19,7 +19,7 @@ map<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    map<char, int> maxCountMap;
+    unordered_map<char, int> maxCountMap;
 
     for (auto& pair : result) {
         if (pair.second > maxCount) {
@@ -41,7 +41,7 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    map<char, int> hist = histogram(input);
+    unordered_map<char, int> hist = histogram(input);
     for (auto& pair : hist) {
         cout << pair.first << ": " << pair.second << endl;
     }
