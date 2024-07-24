@@ -1,7 +1,4 @@
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <numeric>
 
 string find_max(vector<string> words){
     string result = *minmax_element(words.begin(), words.end(),
