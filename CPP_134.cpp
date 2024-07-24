@@ -11,9 +11,8 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true); 
-    std::cout << "Check if the last character of a string is a letter: ";
-    std::string line; getline(std::cin, line;
+    std::cout << "Enter a string: ";
+    std::string line; getline(std::cin, line); 
     size_t pos = std::distance(line.begin(), std::find_if_not(line.begin(), line.end(), [](char c){return std::isspace(c);}));
     if (pos == line.size())
         line.clear();
