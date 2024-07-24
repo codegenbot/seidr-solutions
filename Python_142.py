@@ -11,4 +11,6 @@ def check(x):
         return "Less than or equal to 99"
 
 n = int(input("Enter a number: "))
-print(check(sum_of_squares(n)))
+result = sum_of_squares(n)
+x = int(input("Enter another number: "))
+print(check(result))
