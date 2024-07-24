@@ -1,8 +1,5 @@
 def main():
     while True:
         response = input("Decode again? (y/n): ")
-        if response.lower() != "y":
+        if response.lower() == "n":
             break
-
-if __name__ == "__main__":
-    main()
