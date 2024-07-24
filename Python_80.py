@@ -1,3 +1,4 @@
+```
 def is_happy(n):
     seen = set()
     while n != 1:
@@ -6,9 +7,7 @@ def is_happy(n):
         if str(n) in seen:
             return False
         seen.add(str(n))
-        n = 0
-        for digit in str(n):
-            n += int(digit) ** 2
+        n = sum(int(digit) ** 2 for digit in str(n))
     return True
 
 num = int(input("Enter a number: "))
