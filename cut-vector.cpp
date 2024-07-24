@@ -1,53 +1,51 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n; ++i) {
+        if (v[i] == 0) {
+            res[0].push_back(v[i]);
+            res[1].clear();
+            break;
+        } else {
+            res[0].push_back(v[i]);
         }
     }
-    
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    for (int i = n - 1; i >= 0; --i) {
+        if (v[i] == 0) {
+            res[1].push_back(v[i]);
+            res[0].clear();
+            break;
+        } else {
+            res[1].push_back(v[i]);
+        }
+    }
+    return res;
 }
 
 int main() {
-    int n;
+    int n, num;
+    vector<int> v;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    for (int i = 0; i < n; ++i) {
+        cin >> num;
+        v.push_back(num);
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
+    vector<vector<int>> result = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < result[0].size(); ++i) {
+        cout << result[0][i];
+        if (i != result[0].size() - 1)
+            cout << " ";
     }
-    cout << endl;
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "] [";
+    for (int i = 0; i < result[1].size(); ++i) {
+        cout << result[1][i];
+        if (i != result[1].size() - 1)
+            cout << " ";
     }
-    cout << endl;
-    
+    cout << "]" << endl;
     return 0;
 }
