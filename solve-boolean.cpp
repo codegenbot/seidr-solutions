@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -30,10 +31,11 @@ bool solveBoolean(std::string expression) {
 
 int main() {
     std::string expression;
-    if (!(std::cin >> expression)) {
-        std::cerr << "Invalid input. Please enter a valid Boolean expression." << std::endl;
-        return 1;
+    try {
+        std::cin >> expression; 
+        cout << (solveBoolean(expression) ? "True" : "False");
+    } catch(const std::invalid_argument& e) {
+        std::cerr << "Error: Invalid input. Please enter a string." << std::endl;
     }
-    std::cout << (solveBoolean(expression) ? "True" : "False") << std::endl;
     return 0;
 }
