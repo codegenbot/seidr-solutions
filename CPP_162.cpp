@@ -6,12 +6,13 @@ void main() {
     cout << "Enter a string: ";
     cin >> text;
 
-    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
+    string result = string_to_md5(text);
+    cout << "MD5 sum: " << result << endl;
 }
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     MD5_CTX md5ctx;
     unsigned char result[16];
     MD5_Init(&md5ctx);
