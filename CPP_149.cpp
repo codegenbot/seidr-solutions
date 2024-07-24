@@ -1,7 +1,8 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
