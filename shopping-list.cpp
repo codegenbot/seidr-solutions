@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
@@ -9,6 +10,12 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
 }
 
 int main() {
-    // Here you can test your calculateTotalPrice function
+    std::vector<float> prices = {10.0, 20.0, 30.0};
+    std::vector<float> discounts = {5.0, 10.0, 15.0};
+    
+    float total = calculateTotalPrice(prices, discounts);
+    // Display the total price after applying discounts
+    std::cout << "Total price after discounts: $" << total << std::endl;
+    
     return 0;
 }
