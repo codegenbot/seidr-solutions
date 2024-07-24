@@ -6,7 +6,7 @@ def handle_bonus(bowls, score):
             score += 10
             if bowls[i+1] == "X":
                 score += 10
-                if i < 8 and bowls[i+2] == "/":
+                if i < 9 and bowls[i+2] == "/":
                     score += 10
                 else:
                     score += int(bowls[i+2]) if bowls[i+2].isdigit() else 0
