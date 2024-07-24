@@ -1,5 +1,4 @@
-```
-def encode(message):
+def caesar_cipher(message):
     result = ""
     for char in message:
         if char.isalpha():
