@@ -7,11 +7,9 @@ using namespace std;
 int main() {
     vector<int> vec;
     int num;
-
-    while (cin >> num) {
+    
+    while (cin >> num && num != 0) {
         vec.push_back(num);
-        if(cin.peek() == '\n')
-            break;
     }
 
     int n = vec.size();
