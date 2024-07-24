@@ -1,7 +1,7 @@
-```python
-from typing import List
+from typing import list
 
-def rolling_max(numbers: List[int]) -> List[int]:
+
+def rolling_max(numbers: list[int]) -> list[int]:
     result = []
     max_so_far = numbers[0]
     for num in numbers:
