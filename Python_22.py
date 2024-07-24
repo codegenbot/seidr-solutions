@@ -1,8 +1,5 @@
-```
 from typing import List, Any
-
 import sys
-
 
 def main():
     values = []
@@ -10,18 +7,13 @@ def main():
         value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == "stop":
             break
-        try:
-            values.append(int(value))
-        except ValueError:
-            print(f"Invalid input: {value}. Please enter an integer.")
+        values.append(int(value))
 
-    filtered_values = filter_integers(values)
-
+    filtered_values = [value for value in values if isinstance(value, int)]
     print(filtered_values)
 
-
 def filter_integers(values: List[Any]) -> List[int]:
-    return [int(value) for value in values if isinstance(value, int)]
+    return [value for value in values if isinstance(value, int)]
 
 
 if __name__ == "__main__":
