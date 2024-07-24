@@ -1,6 +1,10 @@
+```python
+def double_the_difference(lst):
+    if len(lst) < 2:
+        return "List should have at least two elements"
+    min_val = min(lst)
+    max_val = max(lst)
+    return (max_val - min_val) * 2
+
 lst = [1, 3, 5]
-def double_the_difference(numbers):
-    total = sum(i**2 for i in numbers if isinstance(i, int) and i >= 0)
-    half_diff = (min(numbers) + max(numbers)) / 2
-    return abs(total - half_diff * len([i for i in numbers if i >= 0]))
 print(double_the_difference(lst))
