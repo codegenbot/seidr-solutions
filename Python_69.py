@@ -1,3 +1,4 @@
+```python
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -10,4 +11,4 @@ def search(lst):
     for num, freq in freq_dict.items():
         if num >= freq and num > max_num:
             max_num = num
-    return max(max_num, 0)
+    return max_num
