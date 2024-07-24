@@ -1,2 +1,2 @@
 n, m = map(int, input().split())
-print(sum([(n - i) * i / (n * m) for i in range(1, n)]).__round__(5))
+print(sum([(n - i) / n * i / m for i in range(1, m)]).__round__(9))
