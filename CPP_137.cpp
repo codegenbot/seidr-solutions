@@ -1,7 +1,7 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <typeinfo>
+#include <limits>
 
 using namespace std;
 
@@ -27,13 +27,13 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         size_t pos = boost::any_cast<string>(a).find(',');
-        int num = (int)b;
+        int num = (int)b.convert_to<int>();
         string str = boost::any_cast<string>(a);
         size_t pos2 = str.find(',');
         return stoi(str.substr(0, pos2)) > num ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        int num = (int)b;
+        int num = (int)b.convert_to<int>();
         string str = boost::any_cast<string>(a);
         size_t pos = str.find(',');
         return (float)a > stoi(str.substr(0, pos)) ? a : b;
