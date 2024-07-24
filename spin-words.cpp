@@ -25,7 +25,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string input;
-    while (std::cin >> input) {
+    while (std::getline(std::cin, input)) {
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
