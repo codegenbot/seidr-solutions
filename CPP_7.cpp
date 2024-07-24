@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,33 +18,31 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> strings;
-    std::cout << "Enter the number of strings: ";
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
-    
-    for(int i=0; i<n; i++) {
-        std::string str;
-        std::cout << "Enter string #"<<i+1<<": ";
-        std::getline(std::cin, str);
-        strings.push_back(str);
+
+    std::vector<std::string> strings(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, strings[i]);
     }
-    
-    std::string substring;
-    std::cout << "Enter the substring: ";
-    std::cin >> substring;
-    
-    std::vector<std::string> filtered = filter_by_substring(strings, substring);
-    
-    if(filtered.empty()) {
+
+    std::string sub;
+    std::cout << "Enter the substring to search: ";
+    std::cin >> sub;
+
+    std::vector<std::string> filtered = filter_by_substring(strings, sub);
+
+    if (issame(strings, filtered)) {
         std::cout << "No strings contain the given substring." << std::endl;
     } else {
-        std::cout << "Strings that contain the given substring: ";
-        for(const auto& str : filtered) {
+        std::cout << "Filtered strings: ";
+        for (const auto& str : filtered) {
             std::cout << str << " ";
         }
         std::cout << std::endl;
     }
-    
+
     return 0;
 }
