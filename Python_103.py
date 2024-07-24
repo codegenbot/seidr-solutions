@@ -1,8 +1,7 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
-    total = sum(i for i in range(n, m + 1))
-    count = m - n + 1
-    avg = round(total / count)
-    binary = bin(avg).lstrip("0").lstrip("-") or "0"
-    return binary.zfill(6)
+    total = sum(range(n, m+1))
+    length = len(range(n, m+1))
+    avg = round(total / length)
+    return bin(avg)[2:] or "0"
