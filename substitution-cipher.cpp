@@ -1,16 +1,18 @@
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-
-    for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
-        } else if (c == cipher2[0]) {
-            c = cipher1[0];
+    string cipher1, cipher2, encrypted;
+    cin >> cipher1 >> cipher2 >> encrypted;
+    string decrypted = encrypted;
+    
+    for (int i = 0; i < encrypted.length(); ++i) {
+        for (int j = 0; j < cipher1.length(); ++j) {
+            if (encrypted[i] == cipher1[j]) {
+                decrypted[i] = cipher2[j];
+                break;
+            }
         }
     }
 
-    cout << message << endl;
+    cout << decrypted << endl;
 
     return 0;
 }
