@@ -42,7 +42,7 @@ std::string words_in_sentence(std::string sentence) {
     if (is_prime) {
         result += word;
     }
-    return result;
+    return result; 
 }
 
 int main() {
