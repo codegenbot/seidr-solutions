@@ -1,4 +1,4 @@
-```Python
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
@@ -11,7 +11,5 @@ def coin_sums(cents):
 
     return result
 
-
 cents = int(input())
-print(*['{} quarters, {} dimes, {} nickels, {} pennies'.format(
-    result[0]//25, (result[0]%25)//10, (result[0]%10)//5, result[0]%5) for x in coin_sums(cents)])
+print(*[str(x) for x in coin_sums(cents)])
