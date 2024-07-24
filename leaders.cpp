@@ -1,16 +1,14 @@
-#include <vector>
 #include <algorithm>
-
+#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
     if (n == 0) return result; 
-
     int lastLeader = arr[n-1];
     result.push_back(lastLeader);
-
+    
     for(int i = n-2; i >= 0; --i) {
         if(arr[i] >= lastLeader) {
             lastLeader = arr[i];
@@ -23,21 +21,8 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements in the array: ";
-    cin >> n;
-    for(int i = 0; i < n; ++i) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        arr.push_back(x);
-    }
-    vector<int> result = leaders(arr);
-    cout << "The leaders in the array are: ";
-    for(int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
+    vector<int> input = {1, 3, 4, 1, 5, 9};
+    vector<int> result = leaders(input);
+    for(int i : result) cout << i << " ";
     return 0;
 }
