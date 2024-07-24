@@ -5,7 +5,6 @@
 #include <limits>
 
 using namespace std;
-using namespace std::allocator; // add this line
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -15,7 +14,7 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string, allocator<string>> match(vector<string, allocator<string>> lst1, vector<string, allocator<string>> lst2) {
+vector<string> match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -39,7 +38,7 @@ int main() {
     int n1, n2;
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
-    vector<string, allocator<string>> lst1;
+    vector<string> lst1;
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
         string s;
@@ -53,7 +52,7 @@ int main() {
 
     cout << "Enter the number of strings for list 2: ";
     cin >> n2;
-    vector<string, allocator<string>> lst2;
+    vector<string> lst2;
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
         string s;
@@ -68,7 +67,7 @@ int main() {
     if (same(lst1, lst2)) {
         cout << "The lists are the same.\n";
     } else {
-        vector<string, allocator<string>> result = match(lst1, lst2);
+        vector<string> result = match(lst1, lst2);
         if (equal(result.begin(), result.end(), lst1.begin())) {
             cout << "List 1 is the match of list 2.\n";
         } else {
