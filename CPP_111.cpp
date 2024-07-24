@@ -5,8 +5,8 @@
 
 using namespace std;
 
-unordered_map<char, int> histogram(string test) {
-    unordered_map<char, int> result;
+unordered_multimap<char, int> histogram(string test) {
+    unordered_multimap<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -17,14 +17,18 @@ unordered_map<char, int> histogram(string test) {
         }
     }
 
-    unordered_map<char, int> maxCountMap;
+    int maxCount = 0;
+    unordered_multimap<char, int> maxCountMap;
 
-    for (auto& pair : result) {
-        if (pair.second > maxCountMap.size()) {
+    for (auto& p : result) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap[pair.first] = pair.second;
-        } else if (pair.second == maxCountMap.size()) {
-            maxCountMap[pair.first] = pair.second;
+            maxCountMap.insert(p);
+        } else if (p.second == maxCount) {
+            if (maxCount > 0) {
+                maxCountMap.insert(p);
+            }
         }
     }
 
@@ -36,9 +40,9 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    unordered_map<char, int> hist = histogram(input);
-    for (auto& [ch, count] : hist) {
-        cout << ch << ": " << count << endl;
+    unordered_multimap<char, int> hist = histogram(input);
+    for (auto& p : hist) {
+        cout << p.first << ": " << p.second << endl;
     }
 
     return 0;
