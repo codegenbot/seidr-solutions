@@ -24,4 +24,4 @@ int main() {
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
-}
+}  
