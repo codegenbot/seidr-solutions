@@ -1,27 +1,41 @@
+#include <iostream>
 #include <vector>
-using namespace std;
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
-    }
-    for (int len = 2; len <= n; len++) {
-        for (int i = 0; i <= n - len; i++) {
-            int j = i + len - 1;
-            if (arr[i] == arr[j]) {
-                dp[i][j] = dp[i + 1][j - 1];
-            } else {
-                dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j - 1]);
+    int left = 0, right = n - 1;
+    int changes = 0;
+
+    while (left < right) {
+        if (arr[left] != arr[right]) {
+            changes++;
+            int maxLeft = arr[left], minRight = arr[right];
+            for (int i = left + 1; i <= right; i++) {
+                if (arr[i] > maxLeft) maxLeft = arr[i];
+                if (arr[i] < minRight) minRight = arr[i];
             }
+            if (maxLeft == minRight) changes++;
+            else {
+                int mid = (left + right) / 2;
+                if (mid >= left && arr[mid] <= maxLeft) {
+                    right = mid;
+                } else if (mid < right && arr[mid] >= minRight) {
+                    left = mid + 1;
+                } else {
+                    left++;
+                    right--;
+                }
+            }
+        } else {
+            left++;
+            right--;
         }
     }
-    return dp[0][n - 1];
+
+    return changes;
 }
 
 int main() {
-    vector<int> input = {0, 1};
-    int output = smallest_change(input);
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
