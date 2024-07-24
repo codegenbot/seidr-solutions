@@ -13,6 +13,6 @@ def match_parens(p):
 
 def check():
     s = input("Enter a string of parentheses: ")
-    print((match_parens(s)))
+    print(match_parens(s))
 
 check()
