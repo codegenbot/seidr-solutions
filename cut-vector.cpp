@@ -1,27 +1,32 @@
 int main() {
-    vector<int> numbers;
+    vector<int> input;
     int num;
     while (cin >> num) {
-        numbers.push_back(num);
+        input.push_back(num);
     }
-    
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 1; i < numbers.size(); ++i) {
-        int diff = abs(accumulate(numbers.begin(), numbers.begin() + i, 0) - accumulate(numbers.begin() + i, numbers.end(), 0));
-        if (diff < min_diff || (diff == min_diff && abs(cut_index - numbers.size() / 2) > abs(i - numbers.size() / 2))) {
-            min_diff = diff;
-            cut_index = i;
+
+    int n = input.size();
+    int total = accumulate(input.begin(), input.end(), 0);
+    int sum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+
+    for (int i = 0; i < n; ++i) {
+        sum += input[i];
+        int diff = abs(total - 2 * sum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    for (int i = 0; i < cut_index; ++i) {
-        cout << numbers[i] << endl;
+
+    for (int i = 0; i <= cutIndex; ++i) {
+        cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = cut_index; i < numbers.size(); ++i) {
-        cout << numbers[i] << endl;
+    for (int i = cutIndex + 1; i < n; ++i) {
+        cout << input[i] << endl;
     }
-    
+
     return 0;
 }
