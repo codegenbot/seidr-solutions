@@ -1,14 +1,12 @@
-Here is the solution:
-
 def luhn(card):
-    card = [int(i) for i in str(card)]
-    double_even = False
+    card = list(map(int, str(card)))
+    double = False
     result = 0
-    for digit in reversed(card):
-        if double_even:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        result += digit
-        double_even = not double_even
+    for i in card:
+        if double:
+            i *= 2
+            if i > 9:
+                i -= 9
+        double = not double
+        result += i
     return result
