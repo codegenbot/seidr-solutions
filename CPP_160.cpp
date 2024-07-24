@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cmath>
 
 int do_algebra(const vector<string>& operato, const vector<int>& operand){
     int result = operand[0];
@@ -10,7 +11,7 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand){
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
