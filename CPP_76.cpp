@@ -8,8 +8,10 @@ bool is_simple_power(int x, int n) {
     return (y == x);
 }
 
-assert(is_simple_power(1, 12) == true);
-assert(is_simple_power(4, 2) == false);
-assert(is_simple_power(8, 3) == true);
-std::cout << "Program execution completed successfully." << std::endl;
-return 0;
+int main() {
+    assert(is_simple_power(1, 12) == true);
+    assert(is_simple_power(4, 2) == false);
+    assert(is_simple_power(8, 3) == true);
+    std::cout << "Program execution completed successfully." << std::endl;
+    return 0;
+}
