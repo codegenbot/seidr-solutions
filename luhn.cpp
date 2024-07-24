@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
+#include <iostream>
 
-int main() {
+int luhn(std::vector<int> &digits) {
     int sum = 0;
     bool alternate = false;
 
-    std::vector<int> digits = {4,2,8,6,2,1,1,7,1,8,0,2,9,5,5,3};
     for (int i = digits.size() - 1; i >= 0; --i) {
         int digit = digits[i];
         if (alternate) {
@@ -18,4 +19,10 @@ int main() {
     }
 
     return sum;
+}
+
+int main() {
+    std::vector<int> digits = {4,3,2,1,8,7,6,5};
+    std::cout << luhn(digits) << std::endl;
+    return 0;
 }
