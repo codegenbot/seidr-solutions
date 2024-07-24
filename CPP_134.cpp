@@ -1,12 +1,12 @@
-#include <iostream>
-#include <string>
 #include <cctype>
 #include <cassert>
+#include <string>
+#include <iostream>
 
-bool check_if_last_char_is_a_letter(std::string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    return isalpha(lastChar);
+bool check_if_last_char_is_a_letter(const std::string& str) {
+    if (str.empty()) return false;
+    char lastChar = str.back();
+    return std::isalpha(lastChar);
 }
 
 int main() {
