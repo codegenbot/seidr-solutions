@@ -1,3 +1,4 @@
+```python
 from typing import List
 
 
@@ -22,13 +23,14 @@ def factorize(n: int) -> List[int]:
 def main():
     while True:
         num = input("Enter a positive integer (e.g., 10): ")
-        if not num.strip():
-            print("Invalid input. Please enter an integer.")
-        elif num.isdigit() and int(num) > 0:
+        if num.strip() and num.isdigit():
             n = int(num)
-            factors = factorize(n)
-            print(factors)
-            break
+            if n > 0:
+                factors = factorize(n)
+                print(factors)
+                break
+            else:
+                print("Invalid input. Please enter a positive integer.")
         else:
             print("Invalid input. Please enter an integer.")
 
