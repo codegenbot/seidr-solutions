@@ -17,10 +17,6 @@ void solve() {
 }
 
 int main() {
-    return 0;
-}
-
-int main(){
     solve();
     return 0;
 }
