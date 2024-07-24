@@ -8,7 +8,7 @@ using namespace std;
 bool issame(vector<int> a, vector<int> b){
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main(){
