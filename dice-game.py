@@ -1,7 +1,2 @@
-def roll_game(n, m):
-    if n < m:
-        return 0.0
-    elif n == m:
-        return 0.5
-    else:
-        return (m - 1) / (n + m - 2)
+def roll_probability(n, m):
+    return (m - 1) / n if n > m else (n - 1) / m
