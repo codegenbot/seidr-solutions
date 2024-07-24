@@ -2,38 +2,34 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    
-    while (i < str.length()) {
-        if (str.find(" ", i) == -1) {
-            result += str.substr(i);
-            break;
-        } else {
-            int j = str.find(" ", i);
-            if (j + 1 <= str.length() && str[j + 1].isupper()) {
-                for(int k = 0; k < j/2; k++) {
-                    swap(str[k], str[j - k - 1]);
-                }
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    int wordLength = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (wordLength >= 5) {
+                result += reverseWord(sentence.substr(i - wordLength, wordLength)) + " ";
+                wordLength = 0;
+            } else {
+                result += sentence.substr(i - wordLength, wordLength) + " ";
+                wordLength = 0;
             }
-            result += str.substr(i, j - i);
-            i = j + 1;
+        } else {
+            wordLength++;
         }
     }
-    
+    if (wordLength >= 5) {
+        result += reverseWord(sentence.substr(sentence.length() - wordLength, wordLength));
+    } else {
+        result += sentence;
+    }
     return result;
 }
 
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a sentence ('quit' to stop): ";
-        cin >> str;
-        if (str == "quit") break;
-        cout << spinWords(str) << endl;
+std::string reverseWord(std::string str) {
+    std::string reversed = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        reversed += str[i];
     }
-    return 0;
+    return reversed;
 }
