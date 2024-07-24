@@ -21,14 +21,14 @@ unordered_map<char, int> histogram(string test) {
     int maxCount = 0;
     unordered_map<char, int> maxCountMap;
 
-    for (const auto& [ch, count] : result) {
-        if (count > maxCount) {
-            maxCount = count;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
             maxCountMap.clear();
-            maxCountMap[ch] = count;
-        } else if (count == maxCount) {
+            maxCountMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
             if (maxCount > 0) {
-                maxCountMap[ch] = count;
+                maxCountMap[it->first] = it->second;
             }
         }
     }
@@ -42,8 +42,8 @@ int main() {
     getline(cin, input);
 
     unordered_map<char, int> hist = histogram(input);
-    for (const auto& [ch, count] : hist) {
-        cout << ch << ": " << count << endl;
+    for (auto it = hist.begin(); it != hist.end(); ++it) {
+        cout << it->first << ": " << it->second << endl;
     }
 
     return 0;
