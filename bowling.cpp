@@ -2,24 +2,22 @@ int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            roll++;
-        } else if (c == '/') {
-            score += 10 + (roll - 1);
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (5 - (roll == 1 ? stoi(s.substr(0, s.find('/'))) : stoi(s.substr(s.find('/') + 1, s.find('/', s.find('/') + 1) - s.find('/') - 1))));
+            }
             roll = 0;
         } else {
-            int points = c - '0';
-            if (roll < 2) {
-                score += points;
+            if (c == 'X') {
+                score += 10;
                 roll++;
-            } else {
-                if (points == 10) {
-                    score += 10;
-                    roll = 0;
-                } else {
+            } else if (isdigit(c)) {
+                int points = stoi(string(1, c));
+                if (roll < 2) {
                     score += points;
-                    roll--;
+                    roll++;
+                } else {
+                    score += min(points, 10 - score % 10);
                 }
             }
         }
