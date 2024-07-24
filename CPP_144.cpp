@@ -1,31 +1,22 @@
-#include <string>
-#include <vector>
+#include<string>
+using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 0, c = 0, d = 0;
-    
-    // Convert fractions to integers
-    size_t pos = x.find('/');
-    a = stoi(x.substr(0, pos));
-    b = stoi(x.substr(pos + 1));
-    
-    pos = n.find('/');
-    c = stoi(n.substr(0, pos));
-    d = stoi(n.substr(pos + 1));
-    
-    // Calculate the greatest common divisor (GCD) of numerator and denominator
-    int g = gcd(b, d);
-    
-    // Check if GCD is equal to 1 or not
-    return (a * c / g == a * d / b);
-}
+    int numerator1 = 0, denominator1 = 0;
+    int numerator2 = 0, denominator2 = 0;
 
-// Function to calculate GCD using Euclidean Algorithm
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    // Convert strings to integers
+    size_t pos = x.find('/');
+    numerator1 = stoi(x.substr(0, pos));
+    denominator1 = stoi(x.substr(pos + 1));
+
+    pos = n.find('/');
+    numerator2 = stoi(n.substr(0, pos));
+    denominator2 = stoi(n.substr(pos + 1));
+
+    // Check if the product is a whole number
+    int productNumerator = numerator1 * numerator2;
+    int productDenominator = denominator1 * denominator2;
+
+    return (productNumerator == productDenominator);
 }
