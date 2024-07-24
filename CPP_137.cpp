@@ -43,7 +43,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (x > convert_to_string(y)) ? a : ((x < convert_to_string(y)) ? b : boost::any("None"));
     }
 
-    return "Invalid input";
+    return boost::any("Invalid input");
 }
 
 int convert_to_int(const std::string& s) {
