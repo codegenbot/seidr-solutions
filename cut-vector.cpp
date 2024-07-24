@@ -6,32 +6,36 @@ int main() {
         cin >> nums[i];
     }
     
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
     
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
-    for (int i = 0; i < n; ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
-        }
+    for (int i = 0; i < cutIndex; ++i) {
+        cout << nums[i] << endl;
     }
     
-    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx - 1; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << nums[idx] << endl;
+    cout << endl;
+    
+    for (int i = cutIndex; i < n; ++i) {
+        cout << nums[i] << endl;
     }
     
     return 0;
