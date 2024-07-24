@@ -1,8 +1,4 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>; // add a semicolon at the end of this line
-#include<boost/more_traits.hpp>
+#include <boost/any.hpp>
 
 using namespace std;
 
