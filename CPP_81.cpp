@@ -22,5 +22,5 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Function implementation goes here
+    // Function content not provided as it is beyond the scope of the task description
 }
