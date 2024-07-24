@@ -3,6 +3,30 @@
 
 using namespace std;
 
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    string text, target;
+    cout << "Enter the text: ";
+    cin >> text;
+    cout << "Enter the target substring: ";
+    cin >> target;
+
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Indices of substring at which it appears: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
+}
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -15,25 +39,4 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
-}
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
-int main() {
-    int a = 0;
-    int b = 0;
-
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
-
-    return 0;
 }
