@@ -5,22 +5,24 @@
 int main() {
     std::string input;
     std::getline(std::cin, input);
+
     std::stringstream ss(input);
     std::string word;
+
     bool capitalize = true;
-    
+    result = "";
+
     while (std::getline(ss, word, '-')) {
         if (capitalize) {
-            result += (word.size() > 0 ? toupper(word[0]) : '') + tolower(std::string(word.begin()+1, word.end()));
+            result += std::string(word).substr(0, 1).toupper() + word.substr(1).tolower();
             capitalize = false;
         } else {
             result += word;
         }
-        if (std::getline(ss, word)) {
+        if (ss.peek() != -1) {
             result += ' ';
-            capitalize = true;
         }
     }
-    
-    std::cout << result;
+
+    return 0;
 }
