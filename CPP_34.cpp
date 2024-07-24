@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,8 +7,7 @@ using namespace std;
 vector<int> unique(vector<int> l) {
     vector<int> result(l.begin(), l.end()); 
     sort(result.begin(), result.end());
-    auto it = remove_if(result.begin(), result.end(), [i](int x) { return count(result.begin(), result.end(), x) > 1; });
-    result.erase(it, result.end());
+    result.erase(unique_copy(result.begin(), result.end(), back_inserter(result)), result.end());
     return result;
 }
 
