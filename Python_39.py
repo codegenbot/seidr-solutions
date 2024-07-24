@@ -1,11 +1,10 @@
 def is_prime(num):
     if num < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
     return True
-
 
 def prime_fib(n: int):
     fib = [0, 1]
@@ -14,4 +13,4 @@ def prime_fib(n: int):
     prime_fib_nums = [num for num in fib if is_prime(num)]
     if n > len(prime_fib_nums):
         return None
-    return prime_fib_nums[n - 1]
+    return prime_fib_nums[n-1]
