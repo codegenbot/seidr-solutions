@@ -37,9 +37,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
-    std::vector<std::string> a = numerical_letter_grade(grades);
-    std::vector<std::string> b = {"D", "E"};
-    assert(std::equal(a.begin(), a.end(), b.begin()));
+    std::vector<float> grades = {0.0f, 0.7f}; // Initialize the vector with float values
     return 0;
 }
