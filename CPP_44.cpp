@@ -4,14 +4,15 @@
 
 std::string change_base(int x, int base) {
     std::string result = "";
+    if (x == 0) return "0"; // Handle base case
     while (x > 0) {
-        result = std::to_string(x % base) + result;
+        result = char('0' + x % base) + result;
         x /= base;
     }
     return result;
 }
 
-int main_test() {
+int main() {
     int x = 10;
     assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
