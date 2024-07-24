@@ -9,7 +9,7 @@ def calculate_area_and_perimeter():
     length = float(input("Enter the length of the rectangle: "))
     width = float(input("Enter the width of the rectangle: "))
 
-    result = check(length, width)[0]
+    result = check(length, width)()
 
     if result[0] == 0:
         print("Invalid input. Please enter positive values.")
