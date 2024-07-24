@@ -1,13 +1,9 @@
-from typing import List
+result = lambda operations: any(
+    (sum(operations[: i + 1]) < 0) for i in range(len(operations))
+)
 
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
-
+# Read input from the user
 operations = list(map(int, input().split()))
-result = below_zero(operations)
-print(result)
+
+# Call the function with the input list
+print(result(operations))
