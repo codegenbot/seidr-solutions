@@ -20,22 +20,12 @@ def main():
             if (
                 0 <= ni < len(grid)
                 and 0 <= nj < len(grid[0])
-                and ((ni, nj) not in visited or not visited.get((ni, nj), False))
+                and ((ni, nj) not in visited or not visited)
             ):
                 new_sum = curr_sum + grid[ni][nj]
-                new_path = dfs(
-                    ni,
-                    nj,
-                    path + [grid[ni][nj]],
-                    set((ni, nj)) | (visited if visited else set()),
-                    new_sum,
-                )
+                new_path = dfs(ni, nj, path + [grid[ni][nj]], set((ni, nj)), new_sum)
                 if new_sum < minPath:
                     minPath = new_sum
         return minPath
 
-    print(dfs(0, 0, [], set(), grid[0][0]))
-
-
-if __name__ == "__main__":
-    main()
+    print(dfs(0, 0, [], set(), 0))
