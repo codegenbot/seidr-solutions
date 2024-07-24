@@ -13,10 +13,10 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string s;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> s;
-    int result = count_upper(s);
-    std::cout << "Number of vowels at odd positions is: " << result << std::endl;
+    std::getline(std::cin, input);
+    int result = count_upper(input);
+    std::cout << "Number of vowels in the string is: " << result << std::endl;
     return 0;
 }
