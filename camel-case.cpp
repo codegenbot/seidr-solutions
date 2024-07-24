@@ -1,26 +1,38 @@
 ```cpp
-#include <cctype>
-#include <iostream>
-#include <sstream>
-
 int main() {
     std::string str;
     std::cin >> str;
-    std::stringstream resultStream;
+    bool capitalizeNext = true;
     std::string result;
 
-    for (const char* p = str.c_str(); *p; p++) {
-        if (*p == '-') {
-            p++; // Skip the '-'
-            temp += (capitalizeNext) ? std::toupper(*p) : std::tolower(*p);
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true; 
+        } else if (capitalizeNext) {
+            result += toupper(c); 
             capitalizeNext = false;
         } else {
-            temp += (capitalizeNext) ? std::toupper(*p) : std::tolower(*p);
-            capitalizeNext = (*p != ' ');
+            result += tolower(c);
         }
     }
-    result = temp;
 
-    std::cout << result << std::endl;
+    std::cout << result << " ";
+    
+    for (char c : str) {
+        if (c == '-') continue;
+        if (!capitalizeNext) {
+            result += '-';
+            capitalizeNext = true;
+        }
+        if (capitalizeNext) {
+            result += toupper(c); 
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
+        }
+    }
+
+    std::cout << std::endl;
+
     return 0;
 }
