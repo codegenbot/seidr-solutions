@@ -12,7 +12,10 @@ int main() {
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + target.size());
+        pos = text.find(target, pos);
+        if(pos != std::string::npos) {
+            pos += 1;
+        }
     }
     
     for(int index : indices) {
