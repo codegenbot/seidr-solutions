@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
+    while(getline(cin, tweet) && tweet.length() == 0);
+    tweet = tweet.substr(0, tweet.find_last_not_of("\n\r")); 
 
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;

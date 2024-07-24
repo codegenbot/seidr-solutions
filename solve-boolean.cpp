@@ -11,25 +11,25 @@ bool evalBoolean(string s) {
         j++;
 
     string opStr;
-    for (int i = 0; i < j; i++) {
-        opStr += s[i];
+    for (char c : s.substr(0, j)) {
+        opStr += c;
     }
     bool result = false;
     if (opStr[0] == '|') {
-        for (int i = j; i < s.length(); i++) {
-            if (s[i] == 'T')
+        for (char c : s.substr(j)) {
+            if (c == 'T')
                 result = true;
-            else if (s[i] == 'F') {
+            else if (c == 'F') {
                 result = false;
                 return result;
             }
         }
     } else {
         bool left = false;
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
+        for (char c : s.substr(0, j)) {
+            if (c == 'T' && opStr[1] != '|')
                 left = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
+            else if (c == 'F' && opStr[1] != '&')
                 return false;
         }
         result = left;
