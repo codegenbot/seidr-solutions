@@ -1,7 +1,5 @@
-```python
 def modp(a: int, n: int):
-    """
-    Calculate a^(p-1) % p * a % p using exponentiation by squaring.
+    """Calculate a^(p-1) % p * a % p using exponentiation by squaring.
     
     Args:
         a (int): Base number for exponentiation.
