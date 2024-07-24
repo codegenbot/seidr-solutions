@@ -17,6 +17,9 @@ def decode_shift():
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-        response = input("Decode again? (y/n): ")
-        if response.lower() == "y":
-            decode_shift()
+        while True:
+            response = input("Decode again? (y/n): ")
+            if response.lower() != "y":
+                break
+            else:
+                decode_shift()
