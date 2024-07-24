@@ -1,8 +1,4 @@
-bool issame(const float& a, const float& b) {
-    return fabs(a - b) < 0.00001;
-}
-
-void sort_even(vector<float>& l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -15,12 +11,21 @@ void sort_even(vector<float>& l) {
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_indices[even_index];
+            result.push_back(even_indices[even_index]);
             even_index++;
+        } else {
+            result.push_back(l[i]);
         }
     }
+
+    return result;
+}
+
+bool issame(float a, float b) {
+    return fabs(a - b) < 1e-9; // tolerance for float comparison
 }
 
 int main() {
-    // Function implementation here
+    // Code utilizing the sort_even and issame functions
+    return 0;
 }
