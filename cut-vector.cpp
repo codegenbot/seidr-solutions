@@ -6,31 +6,37 @@ int main() {
         nums.push_back(num);
     }
     
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0;
-    int rightSum = totalSum;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int n = nums.size();
+    int diff = INT_MAX;
+    int idx = -1;
     
-    for (int i = 0; i < nums.size(); ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
+    for (int i = 1; i < n; ++i) {
+        int left_sum = 0;
+        int right_sum = 0;
         
-        int diff = abs(leftSum - rightSum);
+        for (int j = 0; j < i; ++j) {
+            left_sum += nums[j];
+        }
         
-        if (diff < minDiff || (diff == minDiff && cutIndex == -1)) {
-            minDiff = diff;
-            cutIndex = i;
+        for (int j = i; j < n; ++j) {
+            right_sum += nums[j];
+        }
+        
+        int current_diff = abs(left_sum - right_sum);
+        
+        if (current_diff < diff) {
+            diff = current_diff;
+            idx = i;
         }
     }
     
-    for (int i = 0; i <= cutIndex; ++i) {
+    for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
     
     cout << 0 << endl;
     
-    for (int i = cutIndex + 1; i < nums.size(); ++i) {
+    for (int i = idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
     
