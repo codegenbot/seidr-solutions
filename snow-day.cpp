@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -20,8 +21,7 @@ int main() {
         groundSnow += round(snowFallRate - (groundSnow * snowMeltingRate));
     }
 
-    cout << "The amount of snow on the ground after " << hours << " hours is: " 
-         << setprecision(2) << fixed << groundSnow;
+    cout << fixed << setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow;
 
     return 0;
 }
