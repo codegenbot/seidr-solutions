@@ -6,7 +6,7 @@ int main() {
     std::cout << "Enter an integer: ";
     std::cin >> x;
 
-    std::string result = std::string(""); 
+    std::string result;
 
     if (x % 3 == 0 && x % 5 == 0) 
         result = "FizzBuzz";
