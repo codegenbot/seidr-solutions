@@ -4,9 +4,6 @@
 
 using namespace std;
 
-int maxPrimeNum = 0;
-vector<int> lst;
-
 // Function to check if a number is prime
 bool isPrime(int x) {
     // Check divisibility from 2 to sqrt(x)
@@ -27,6 +24,8 @@ int sumOfDigits(int x) {
 }
 
 int originalMain() {
+    maxPrimeNum = 0;
+    lst.clear();
     int num, i;
     cout << "Enter the number of elements in the list: ";
     cin >> num;
