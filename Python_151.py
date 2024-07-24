@@ -1,4 +1,3 @@
-```
 def double_the_difference(input_list):
     diff = sum(input_list) - len(input_list)
     return 2 * diff
