@@ -11,15 +11,10 @@ std::string change_base(int x, int base) {
     return result;
 }
 
-int main() {
-    assert(change_base(10, 2) == "1010");
-    assert(change_base(16, 16) == "10");
-    assert(change_base(255, 8) == "377");
-    assert(change_base(100, 10) == "100");
-    
-    // Additional test case mentioned in the error
-    int x = 42;
-    assert(change_base(x, x + 1) == std::__cxx11::to_string(x));
-    
-    return 0;
-}
+assert(change_base(10, 2) == "1010");
+assert(change_base(16, 16) == "10");
+assert(change_base(255, 8) == "377");
+assert(change_base(100, 10) == "100");
+
+int x = 42;
+assert(change_base(x, x + 1) == std::to_string(x));
