@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -10,7 +13,7 @@ int main() {
         int pennies = cents;
     } else {
         // No need to calculate pennies if there's no remainder.
-        int pennies = 0;
+        pennies = 0;
     }
     
     int dimes = cents / 10;
@@ -18,7 +21,7 @@ int main() {
     
     int nickles = cents / 5;
     cents %= 5;
-    
+
     cout << quarters << endl;
     cout << nickles << endl;
     cout << dimes << endl;
