@@ -1,4 +1,8 @@
-```
+```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
 int main() {
     std::string str;
     std::cin >> str;
