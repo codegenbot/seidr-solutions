@@ -1,27 +1,20 @@
-#include <string>
+#include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 0, c = 0, d = 0;
-    int gcd = 1;
-    
-    // Convert the fractions to integers
-    sscanf(x.substr(1).c_str(), "%d/%d", &a, &b);
-    sscanf(n.substr(1).c_str(), "%d/%d", &c, &d);
+    int numerator1 = 0, denominator1 = 0;
+    int numerator2 = 0, denominator2 = 0;
 
-    // Calculate the greatest common divisor of the numerators and denominators
-    for (int i = min(b, d); i > 0; --i) {
-        if ((a / i) * i == a && (c / i) * i == c) {
-            gcd = i;
-            break;
-        }
-    }
+    size_t pos = x.find('/');
+    numerator1 = stoi(x.substr(0, pos));
+    denominator1 = stoi(x.substr(pos + 1));
 
-    // Check if the simplified fractions are equal
-    int numerator1 = a / gcd;
-    int denominator1 = b / gcd;
-    int numerator2 = c / gcd;
-    int denominator2 = d / gcd;
+    pos = n.find('/');
+    numerator2 = stoi(n.substr(0, pos));
+    denominator2 = stoi(n.substr(pos + 1));
 
-    return (numerator1 * denominator2) == (numerator2 * denominator1);
+    if (denominator1 * numerator2 == denominator2 * numerator1)
+        return true;
+    else
+        return false;
 }
