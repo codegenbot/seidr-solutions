@@ -1,8 +1,6 @@
-#include <string>
-
-int pairedDigitsSum(const std::string& str) {
+int pairedDigits(const string& str) {
     int sum = 0;
-    for (size_t i = 0; i < str.length() - 1; ++i) {
+    for (int i = 0; i < str.length() - 1; i++) {
         if (str[i] == str[i + 1]) {
             sum += str[i] - '0';
         }
