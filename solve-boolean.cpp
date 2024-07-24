@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -44,9 +45,6 @@ int main() {
     cout << "Enter a Boolean expression: ";
     cin >> s;
     bool result = solveBoolean(s);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
+    cout << "Result: " << (result ? "True" : "False") << endl;
     return 0;
 }
