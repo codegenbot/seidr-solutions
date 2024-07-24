@@ -1,6 +1,7 @@
 ```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -16,11 +17,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
     std::vector<int> sums;
-    for (int i = 0; i < lst[0].size(); i++) {
-        const std::string& str = lst[0][i];
+    for (const auto& str : lst[0]) {
         int sum = 0;
-        for (int j = 1; j < lst.size(); j++) {
-            if (find(lst[j].begin(), lst[j].end(), str) != lst[j].end()) {
+        for (int i = 1; i < lst.size(); i++) {
+            if (find(lst[i].begin(), lst[i].end(), str) != lst[i].end()) {
                 sum += stoi(str);
                 break;
             }
@@ -33,7 +33,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         std::sort(vec.begin(), vec.end());
     }
 
-    return {lst[0][i]}; 
+    return {lst[0][0], std::to_string(std::accumulate(sums.begin(), sums.end(), 0))};
 }
 
 int main(int argc, char** argv) {
