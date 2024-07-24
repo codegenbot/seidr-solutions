@@ -11,7 +11,7 @@ std::string string_to_md5(std::string text) {
 
     std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::setfill(2) << std::setw(2) << std::hex << static_cast<int>(result[i]);
+        ss << setfill(2) << setw(2) << hex << static_cast<int>(result[i]);
     }
     
     return ss.str();
