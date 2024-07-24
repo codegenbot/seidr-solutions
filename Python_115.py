@@ -24,7 +24,7 @@ def max_fill(grid, capacity):
         min_height = min(left_height, right_height)
         
         if min(left_height, right_height) <= capacity:
-            total_water += (min(left_height, right_height) - 1) // capacity
+            total_water += (min_height - 1) // capacity
         elif left_height < right_height:
             height_to_fill = capacity - (width * (left_height - 1) + 1)
             total_water += min(min_height, height_to_fill) // capacity
