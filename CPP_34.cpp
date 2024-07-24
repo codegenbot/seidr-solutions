@@ -7,8 +7,9 @@ using namespace std;
 
 vector<int> unique(vector<int> l) {
     vector<int> result;
-    auto resultEnd = unique_copy(l.begin(), l.end(), back_inserter(result));
-    return vector<int>(result.begin(), resultEnd);
+    auto result_it = back_inserter(result);
+    auto it = unique_copy(l.begin(), l.end(), result_it);
+    return result;
 }
 
 int main() {
