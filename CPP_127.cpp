@@ -2,10 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using std::vector;
-using std::cout;
 
-string intersection(int start1, int end1, int start2, int end2) {
+std::string intersection(int start1, int end1, int start2, int end2) {
     int commonStart = max(start1, start2);
     int commonEnd = min(end1, end2);
 
