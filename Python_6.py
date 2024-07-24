@@ -15,10 +15,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         result.append(-len(stack))
         stack.pop()
     return result
-
-def main():
-    input_str = input("Enter a string of parentheses (e.g., '(()())'): ")
-    print(parse_nested_parens(input_str))
-
-if __name__ == "__main__":
-    main()
