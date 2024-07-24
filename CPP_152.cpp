@@ -4,12 +4,10 @@
 
 bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
-        std::cout << "Error: The two vectors must be the same size." << std::endl;
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
-            std::cout << "Error: The two vectors are not the same." << std::endl;
             return false;
         }
     }
@@ -31,14 +29,10 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                while(std::cin.peek() != '\n') {
-                    std::cin.ignore(); 
+                char ch;
+                while((ch = std::getchar()) != '\n' && ch != EOF) {
+                    if(ch == '-') continue; // Ignore negative sign
                 }
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
-            } else if (x < INT_MIN || x > INT_MAX) {
-                std::cout << "Error: The integer must be within the range of int." << std::endl;
-                return -1; 
             } else {
                 vec1.push_back(x); 
                 size++;
@@ -54,14 +48,10 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                while(std::cin.peek() != '\n') {
-                    std::cin.ignore(); 
+                char ch;
+                while((ch = std::getchar()) != '\n' && ch != EOF) {
+                    if(ch == '-') continue; // Ignore negative sign
                 }
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
-            } else if (x < INT_MIN || x > INT_MAX) {
-                std::cout << "Error: The integer must be within the range of int." << std::endl;
-                return -1; 
             } else {
                 vec2.push_back(x); 
                 size++;
