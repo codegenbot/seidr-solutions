@@ -1,16 +1,10 @@
-Here is the Python solution for the problem:
+Here is the Python function that solves the problem:
 
-def solve(input_str):
-    def evaluate(expression):
-        if expression == 'T':
-            return True
-        elif expression == 'F':
-            return False
-        elif len(expression) > 1:
-            if '&' in expression:
-                left, right = expression.split('&')
-                return evaluate(left) and evaluate(right)
-            else:
-                return evaluate(left) or evaluate(right)
-
-    return evaluate(input_str)
+def solve.Boolean(expression):
+    result = True if expression == 't' else False
+    for i in range(len(expression) - 1):
+        if expression[i] in ['|', '&']:
+            left = True if expression[:i].endswith('t') else False
+            right = True if expression[i+1:].lstrip().startswith('t') else False
+            result = (True, False)[expression[i] == '&'] or (result, left)[expression[i] == '|']
+    return result
