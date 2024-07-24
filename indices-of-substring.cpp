@@ -19,10 +19,11 @@ auto main() -> int {
     string target;
     cin >> target;
 
-    vector<size_t> indices = findIndices(text, target);
-    for (size_t i : indices) {
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 
     return 0;
+}
