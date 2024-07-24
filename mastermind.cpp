@@ -3,20 +3,22 @@ int main() {
     cin >> code >> guess;
     
     int black = 0, white = 0;
-    unordered_map<char, int> codeFreq, guessFreq;
+    vector<int> c(6), g(6);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++black;
         } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+            ++c[code[i] - 'A'];
+            ++g[guess[i] - 'A'];
         }
     }
     
-    for (auto& elem : codeFreq) {
-        white += min(elem.second, guessFreq[elem.first]);
+    for (int i = 0; i < 6; ++i) {
+        white += min(c[i], g[i]);
     }
+    
+    white -= black;
     
     cout << white << endl;
     cout << black << endl;
