@@ -28,7 +28,7 @@ vector<vector<string>> split_list(vector<string> lst) {
     
     int start = 0;
     for (int end = 0; end < lst.size(); ) {
-        while(end + 1 < lst.size() && issame({lst.begin()+start, lst.begin()+end+1}, {"hello", "world"})) {
+        while(end + 1 < lst.size() && issame({lst.begin(), lst.begin()+end+1}, {"hello", "world"})) {
             end++;
         }
         if(start != end) {
