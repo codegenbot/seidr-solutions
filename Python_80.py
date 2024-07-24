@@ -1,4 +1,6 @@
+```
 def is_happy_number():
+    seen = set()
     while True:
         try:
             n = int(input("Enter a number: "))
@@ -15,6 +17,9 @@ def is_happy_number():
         sum_of_digits = sum(int(digit) ** 2 for digit in str(n))
         n = sum_of_digits
 
-    return n == 1
+    if n == 1:
+        print("This is a Happy Number!")
+    else:
+        print("Not a Happy Number!")
 
-print(is_happy_number())
+is_happy_number()
