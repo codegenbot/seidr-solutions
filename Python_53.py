@@ -1,3 +1,4 @@
+```
 def add_numbers():
     print("Please enter two numbers.")
     while True:
@@ -7,6 +8,7 @@ def add_numbers():
             break
         except ValueError:
             print("Invalid input. Please enter a number.")
+
     return x + y
 
 result = add_numbers()
