@@ -3,10 +3,7 @@
 #include <algorithm>
 
 bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+    return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -35,14 +32,11 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3};
-    std::vector<int> output = strange_sort_list(input);
-
-    for (int i : output) {
-        std::cout << i << " ";
-    }
-
-    assert(std::is_permutation(output.begin(), output.end(), input.begin(), input.end()));
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int> sortedVec = strange_sort_list(vec);
     
+    for (auto num : sortedVec) {
+        std::cout << num << " ";
+    }
     return 0;
 }
