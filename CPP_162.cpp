@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -11,20 +10,19 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
-    stringstream ss(text); // Initialize the stringstream with the input string.
+    stringstream ss;
 
     EVP_MD_CTX ctx;
     EVP_MD *md_algorithm = EVP_md5();
     EVP_DigestInit(&ctx, md_algorithm);
     EVP_DigestUpdate(&ctx, text.c_str(), text.size());
     unsigned char *digest = EVP_DigestFinal(&ctx, NULL, NULL);
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)digest[i];
+    if (digest != NULL) {
+        for (int i = 0; i < 16; ++i) {
+            ss << setfill('0') << setw(2) << hex << (int)digest[i];
+        }
     }
-    if (ss.str().empty()) {
-        return "";
-    }
-    string result = ss.str();
     OPENSSL_free(digest);
-    return result;
+    OPENSSL_free(md_algorithm); // Corrected line
+    return ss.str();
 }
