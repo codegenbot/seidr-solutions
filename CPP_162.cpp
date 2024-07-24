@@ -1,5 +1,14 @@
-#include <sstream>
+```
 #include <string>
+#include <sstream>
+
+void main() {
+    string text;
+    cout << "Enter your string: ";
+    cin >> text;
+    string result = string_to_md5(text);
+    cout << "MD5 of the string: " << result << endl;
+}
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -16,12 +25,4 @@ string string_to_md5(string text) {
     }
     
     return ss.str();
-}
-
-int main() {
-    string text;
-    cout << "Enter a string: ";
-    cin >> text;
-    cout << "MD5 of the entered string is: " << string_to_md5(text);
-    return 0;
 }
