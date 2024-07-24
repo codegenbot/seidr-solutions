@@ -1,5 +1,4 @@
-n = int(input())
-coefficients = list(map(int, input().split()))
+n, *coefficients = map(int, input().split())
 
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
