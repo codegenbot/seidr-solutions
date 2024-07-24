@@ -11,23 +11,22 @@ std::string kebabToCamel(const std::string& str) {
         if (c == '-') {
             if(capitalizeNext) {
                 result += toupper(currentWord[0]);
-                currentWord.erase(0, 1);
-                capitalizeNext = false;
-            } else {
-                result += currentWord + " ";
+                result += tolower(&currentWord[1]);
                 currentWord.clear();
-                capitalizeNext = true;
+            } else {
+                result += currentWord;
+                currentWord.clear();
             }
+            capitalizeNext = true;
         } else {
             currentWord += c;
             capitalizeNext = false;
         }
     }
 
-    // Add the last word
     if(capitalizeNext) {
         result += toupper(currentWord[0]);
-        currentWord.erase(0, 1);
+        result += tolower(&currentWord[1]);
     } else {
         result += currentWord;
     }
