@@ -10,4 +10,4 @@ target = input()
 indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
 print(gcd(int(input()), int(input())))
-print(" ".join(map(str, indices)))
+print(*map(str, indices))
