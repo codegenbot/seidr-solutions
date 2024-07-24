@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void fizz_buzz(int n) {
+int fizz_buzz(int n) {
     for (int i = 1; i <= n; i++) {
         string s = to_string(i);
         if ((i % 3 == 0 && i % 5 != 0)) s = "fizz";
