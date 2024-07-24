@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,16 +6,13 @@ int main() {
     std::cout << "Enter an integer: ";
     std::cin >> x;
 
-    std::string result = "";
+    std::string result = " "; // Initialize with a space character
     
     if (x % 15 == 0) 
         result = "FizzBuzz";
-    else if (x % 3 == 0) {
-        if (x % 5 == 0)
-            result = "FizzBuzz";
-        else
-            result = "Fizz";
-    } else if (x % 5 == 0)
+    else if (x % 3 == 0)
+        result = x % 5 == 0 ? "Fizz" : "Fizz";
+    else if (x % 5 == 0)
         result = "Buzz";
     else
         result = std::to_string(x);
