@@ -1,10 +1,12 @@
 ```
-def encode_cyclic(s: str, n: int):
-    groups = [s[i : i + n] for i in range(0, len(s), n)]
-    groups = [(group[1:] + group[0]) if len(group) == n else group for group in groups]
-    return "".join(groups)
+def decode_cyclic(s: str):
+    result = []
+    i = 0
+    while i < len(s):
+        if i + 2 < len(s):  
+            result.append((s[i+2] + s[i:i+2]))
+        else:
+            result.append(s[i:])  
+        i += 3
 
-def decode_cyclic(s: str, n: int):
-    groups = [s[i : i + n] for i in range(0, len(s), n)]
-    groups = [(groups[-1] + groups[0][:-n+1]) if len(group) == n else group for group in groups]
-    return "".join(groups)
+    return "".join(result)
