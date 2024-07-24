@@ -1,12 +1,14 @@
-if(numbers.empty()){
-    return {0, 1};
-}
+#include <vector>
+#include <utility>
 
-int sum = 0;
-int product = 1;
-for(int num : numbers){
-    sum += num;
-    product *= num;
+vector<int> sum_product(vector<int> numbers){
+    int sum = 0;
+    int product = 1;
+    
+    for (int num : numbers){
+        sum += num;
+        product *= num;
+    }
+    
+    return {sum, product};
 }
-
-return {sum, product};
