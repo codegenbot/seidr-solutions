@@ -17,6 +17,6 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst = {1, 3, 4};
     long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
+    std::cout << "The output is: " << odd_sum << std::endl;
     return 0;
 }
