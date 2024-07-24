@@ -3,7 +3,7 @@ def handle_bonus(bowls, score):
         bonus = 0
         if bowls[frame] == "X":
             bonus += 10
-            if bowls[frame + 1] == "X" or bowls[frame + 1] == "/":
+            if bowls[frame + 1] == "X":
                 bonus += 10
                 if bowls[frame + 2] == "X":
                     bonus += 10
@@ -13,7 +13,7 @@ def handle_bonus(bowls, score):
                 bonus += int(bowls[frame + 1])
         return bonus
 
-    bonus = sum(map(lambda x: 10 if x == "X" else 0, bowls[:-4]))
+    bonus = sum(map(lambda x: 10 if x == "X" else 0, bowls))
 
     if bowls[9] == "X":
         bonus += get_strike_bonus(bowls, 9)
