@@ -4,13 +4,15 @@ def solve_boolean(expression):
         return True
     elif expression == 'f':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
+    result = True
+    operator = ''
+    for char in expression:
+        if char in '&|':
+            operator = char
+        elif char == 't' or char == 'f':
+            if operator == '&':
                 result &= (char == 't')
-            elif char == '|':
+            elif operator == '|':
                 result |= (char == 't')
-        return result
+            operator = ''
+    return result
