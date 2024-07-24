@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <boost/variant/variant.hpp>
+#include <boost/variant.hpp>
+#include <boost/variant/recursive_wrapper.hpp>
 
 std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     std::vector<int> result;
