@@ -1,4 +1,3 @@
-```
 def sort_third(lst):
     n = len(lst)
     sorted_lst = sorted((x for x in lst), key=lambda x: str(x)[:3])
