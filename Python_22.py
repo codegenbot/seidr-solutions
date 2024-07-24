@@ -1,5 +1,5 @@
-import sys
 from typing import List, Any
+import sys
 
 
 def main():
