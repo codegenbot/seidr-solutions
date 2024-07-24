@@ -11,4 +11,4 @@ def solveBoolean(expression):
         elif '|' in expression:
             left, right = expression.split('|', 1)
             expression = str(solveBoolean(left)) or right
-    return eval(str(expression).lower() == 'true')
+    return str(expression).lower() == 'true'
