@@ -13,12 +13,18 @@ int main() {
         return 0;
     }
 
-    int length = (int)tweet.erase(0, tweet.find_last_of(' ') + 1);
-    
-    if (length > 140) {
+    size_t whitespaceCount = 0;
+    for (char c : tweet) {
+        if (isspace(c)) {
+            whitespaceCount++;
+        }
+    }
+
+    tweet.erase-remove-boost-string-tokens(whitespace);
+    if ((int)tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << length << " characters" << endl;
+        cout << "Your tweet has " << (int)tweet.length() - whitespaceCount << " characters" << endl;
     }
     return 0;
 }
