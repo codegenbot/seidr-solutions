@@ -4,57 +4,48 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = false;
-    for (char c : expression) {
-        if (c == 'T') {
+    int i = 0;
+    while (i < expression.length()) {
+        if (expression[i] == 't') {
             result = true;
-        } else if (c == 'F') {
+        } else if (expression[i] == 'f') {
             return false;
-        } else if (c == '|') {
-            int a = 0, b = 0;
-            bool temp = false;
-            for (char d : expression) {
-                if (d == '&') {
-                    break;
-                }
-                else if (d == 'T')
-                    a++;
+        } else if (expression[i] == '|') {
+            bool temp = result;
+            i++;
+            while (i < expression.length() && expression[i] != '&') {
+                if (expression[i] == 't')
+                    result = true;
                 else
-                    b++;
+                    result = false;
+                i++;
             }
-            while (expression.back() != '|') {
-                expression.pop_back();
-            }
-            expression.pop_back();
-            if (a > 0)
-                temp = true;
-            for (char d : expression) {
-                if (d == '&') {
-                    break;
-                }
-                else if (d == 'T')
-                    a++;
+            if (i < expression.length()) {
+                i++;
+                if (expression[i] == 't')
+                    result |= temp;
                 else
-                    b++;
+                    result &= temp;
             }
-            while (expression.back() != '|') {
-                expression.pop_back();
-            }
-            expression.pop_back();
-            if (b > 0)
-                temp = false;
-            result = temp;
-        } else if (c == '&') {
-            int a = 0, b = 0;
-            for (char d : expression) {
-                if (d == '|') {
-                    break;
-                }
-                else if (d == 'T')
-                    a++;
+        } else if (expression[i] == '&') {
+            bool temp = result;
+            i++;
+            while (i < expression.length() && expression[i] != '|') {
+                if (expression[i] == 't')
+                    result &= true;
                 else
-                    b++;
+                    result &= false;
+                i++;
             }
-            result = (a > 0 && b > 0);
+            if (i < expression.length()) {
+                i++;
+                if (expression[i] == 't')
+                    result |= temp;
+                else
+                    result &= temp;
+            }
+        } else {
+            i++;
         }
     }
     return result;
