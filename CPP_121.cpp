@@ -1,20 +1,9 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-int solution(vector<int> lst) {
+int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
+        if (i % 2 == 0 && lst[i] % 2 != 0) {
             sum += lst[i];
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> lst = {3, 13, 2, 9};
-    int result = solution(lst);
-    cout << "The sum of the odd numbers in the list is: " << result << endl;
-    return 0;
 }
