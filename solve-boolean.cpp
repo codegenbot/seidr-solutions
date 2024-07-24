@@ -1,5 +1,5 @@
 #include <string>
-#include <algorithm>
+#include <cctype>
 
 bool evalBoolOr(std::string left, std::string right) {
     bool subResult1 = evalBool(left);
