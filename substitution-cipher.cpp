@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -26,7 +25,7 @@ int main() {
             if (!isalnum(c)) {
                 result += c;
             } else {
-                result += cipherMap.at(c);
+                result += c; // Keep the original character
             }
         }
     }
