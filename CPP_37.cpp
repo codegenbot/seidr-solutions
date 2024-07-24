@@ -6,7 +6,15 @@
 std::vector<float> sort_even(const std::vector<float>& input) {
     std::vector<float> result = input;
     std::sort(result.begin(), result.end(), [](float a, float b) {
-        return (int)a % 2 == 0 ? ((int)b % 2 == 0 ? a < b : true) : false;
+        if ((int)a % 2 == 0 && (int)b % 2 == 0) {
+            return a < b;
+        } else if ((int)a % 2 == 0) {
+            return true;
+        } else if ((int)b % 2 == 0) {
+            return false;
+        } else {
+            return false;
+        }
     });
     return result;
 }
