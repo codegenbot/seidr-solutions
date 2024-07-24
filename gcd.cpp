@@ -46,9 +46,9 @@ int main() {
     std::cout << "GCD is: " << gcdVal << std::endl;
 
     std::cout << "Enter the text: ";
-    std::cin >> text;
+    std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
-    std::cin >> target;
+    std::getline(std::cin, target);
 
     if (text.empty() || target.empty()) {
         std::cout << "Invalid input! Please try again." << std::endl;
@@ -61,3 +61,4 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
+}
