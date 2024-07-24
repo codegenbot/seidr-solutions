@@ -1,5 +1,5 @@
-bool issame(float a, float b) {
-    return abs(a - b) < 1e-9;
+bool issame(const float& a, const float& b) {
+    return fabs(a - b) < 0.00001;
 }
 
 void sort_even(vector<float>& l) {
@@ -15,17 +15,12 @@ void sort_even(vector<float>& l) {
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_indices[even_index]);
+            l[i] = even_indices[even_index];
             even_index++;
-        } else {
-            result.push_back(l[i]);
         }
     }
-
-    l = result;
 }
 
 int main() {
-    // Main function code here
-    return 0;
+    // Function implementation here
 }
