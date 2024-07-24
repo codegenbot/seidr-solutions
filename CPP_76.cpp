@@ -1,7 +1,8 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
-bool is_simple_power(int x, int int) {
+bool is_simple_power(int x, int y) {
     if (y == 1)
         return true;
     while (y > 1) {
@@ -24,8 +25,8 @@ int main() {
         std::cout << (x == 1 ? "True" : "False") << std::endl;
     else {
         double y = pow(n, log(x) / log(n));
-        std::cout << (y == x) << std::endl;
-        if (is_simple_power(x, n))
+        std::cout << (y == static_cast<double>(x)) << std::endl;
+        if (is_simple_power(static_cast<int>(x), n))
             std::cout << "True" << std::endl; 
         else
             std::cout << "False" << std::endl; 
