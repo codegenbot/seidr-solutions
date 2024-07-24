@@ -1,8 +1,11 @@
 def leaders(a):
     n = len(a)
-    result = [a[n - 1]]
+    max_right = a[n - 1]
+    result = [max_right]
 
-    for i in range(n - 2, -1, -1):
-        if a[i] >= max(a[i + 1:]):
-            result.append(a[i])
+    for i in range(n-2, -1, -1):
+        if a[i] >= max_right:
+            max_right = a[i]
+            result.append(max_right)
+
     return result[::-1]
