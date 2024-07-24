@@ -1,20 +1,19 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not all(c.isalnum() or c in "()[]" for c in paren_string):
-        return []
-
+    assert isinstance(paren_string, str), "Input must be a string"
+    
     result = []
     stack = [""]
     current_group = ""
 
     for char in paren_string:
-        if char == "(" or char == "[":
+        if char == "(":
             if current_group:
                 result.append(current_group)
             current_group = ""
-            stack.append(char)
-        elif (char == ")" and stack[-1] == "(") or (char == "]" and stack[-1] == "["):
+            stack.append("(")
+        elif char == ")" and stack:
             stack.pop()
             if not stack:
                 result.append(current_group)
