@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -10,7 +11,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, const std::string& prefix){
-    std::vector<std::string> result({{"xxx", "xxxAAA", "xxx"}});
+    std::vector<std::string> result({}); // Use initializer list
     for(auto str : strings) {
         if(str.find(prefix) == 0)
             result.push_back(str);
