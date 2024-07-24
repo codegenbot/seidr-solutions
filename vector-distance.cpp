@@ -14,8 +14,6 @@ int main() {
     }
 
     for (int i = 0; i < n; ++i) {
-        char comma;
-        cin >> comma;
         cin >> v2[i];
     }
 
