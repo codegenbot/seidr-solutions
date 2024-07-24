@@ -1,19 +1,39 @@
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 vector<string> sorted_list_sum(vector<string> lst) {
-    int total = 0;
-    
+    vector<string> result;
+    int sum = 0;
+
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
-            total += str.length();
+            sum += str.length();
+            result.push_back(str);
         }
     }
-    
-    vector<string> result;
-    
-    if (total > 0) {
-        result.push_back(to_string(total));
-    } else {
-        result.push_back("0");
+
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
+             }
+         });
+
+    vector<int> sums;
+    for (const string& str : result) {
+        sums.push_back(str.length());
     }
-    
-    return {result};
+
+    sort(sums.begin(), sums.end());
+
+    int total_sum = 0;
+    for (int sum : sums) {
+        total_sum += sum;
+    }
+
+    return result; // Return the original list
 }
