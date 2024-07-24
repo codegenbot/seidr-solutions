@@ -18,5 +18,5 @@ bool match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst = {")", "("}; 
-    assert(match_parens(lst)); // use match_parens function
+    assert(match_parens(lst)); 
 }
