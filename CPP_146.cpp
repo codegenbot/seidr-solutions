@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,7 +12,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int judgeMain() {
-    std::vector<int> input;
+    std::vector<int> input(100); // Initialize the vector with 100 elements
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -21,7 +20,6 @@ int judgeMain() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        input.reserve(n);  
         input.push_back(num);
     }
     int result = specialFilter(input);
