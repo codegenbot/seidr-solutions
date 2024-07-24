@@ -1,37 +1,40 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <cstdlib>
 using namespace std;
 
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
-    int sum = 0, halfSum = 0;
-    for (int num : nums) {
-        sum += num;
+    int diff = INT_MAX;
+    int cutIndex = 0;
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < n; ++i) {
+        rightSum += nums[i];
     }
-    halfSum = sum / 2;
     
-    int currSum = 0, idx = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        currSum += nums[i];
-        if (currSum >= halfSum) {
-            idx = i;
-            break;
+    for (int i = 0; i < n-1; ++i) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff <= diff) {
+            diff = currentDiff;
+            cutIndex = i + 1;
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-    
-    for (int num : subvector1) {
-        cout << num << endl;
-    }
-    for (int num : subvector2) {
-        cout << num << endl;
+    for (int i = 0; i < n; ++i) {
+        if (i < cutIndex) {
+            cout << nums[i] << endl;
+        } else {
+            cout << nums[i] << endl;
+        }
     }
     
     return 0;
