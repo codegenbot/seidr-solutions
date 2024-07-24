@@ -6,9 +6,10 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 
 int main() {
     std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    const auto result = substitutionCipher(cipher1, cipher2, message);
-    std::cout << std::move(result) << std::endl; // Use std::move if you want to avoid unnecessary copy
+    std::getline(std::cin, cipher1); 
+    std::getline(std::cin, cipher2);
+    std::getline(std::cin, message);
+    std::cout << substitutionCipher(cipher1, cipher2, message).c_str() << std::endl; 
     return 0;
 }
 
