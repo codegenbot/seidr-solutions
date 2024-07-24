@@ -14,11 +14,27 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
         int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
         int diff = abs(leftSum - rightSum);
-        if (diff < minDiff || (diff == minDiff && std::max(leftSum, rightSum) < std::max(std::accumulate(nums.begin(), nums.begin() + cutIndex, 0), std::accumulate(nums.begin() + cutIndex, nums.end(), 0)))) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    return {vector<int>(nums.begin(), nums.begin() + cutIndex), vector<int>(nums.begin() + cutIndex, nums.end())};
+    return {vector<int>(nums.begin(), nums.begin() + cutIndex),
+            vector<int>(nums.begin() + cutIndex, nums.end())};
+}
+
+int main() {
+    vector<int> nums = {1103, 4056, 5573, 2048, 5391, 5328, 7793, 340, 141, 4084, 7418, 4438, 1508, 140, 1780, 2647, 5360, 7719, 3517, 4427};
+    auto result = cutVector(nums);
+
+    for (int num : result.first) {
+        cout << num << ' ';
+    }
+    cout << endl;
+    for (int num : result.second) {
+        cout << num << ' ';
+    }
+
+    return 0;
 }
