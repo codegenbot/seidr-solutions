@@ -1,16 +1,15 @@
-vector<int> sorted_indices;
+vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            sorted_indices.push_back(l[i]);
+            indices.push_back(i);
         }
     }
-    sort(sorted_indices.begin(), sorted_indices.end());
-    
-    for (int i = 0, j = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            l[i] = sorted_indices[j++];
-        }
+    vector<int> sorted_indices = indices;
+    sort(sorted_indices.begin(), sorted_indices.end(), [&l](int a, int b) {
+        return l[a] < l[b];
+    });
+    for (int i = 0; i < indices.size(); ++i) {
+        l[indices[i]] = l[sorted_indices[i]];
     }
-    
     return l;
 }
