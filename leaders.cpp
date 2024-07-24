@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
+    vector<int> arr = {17, 28, 4, 27, 29, 31};
     vector<int> leadersRes = leaders(arr);
     
     for (int i: leadersRes) {
@@ -16,11 +16,13 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    int leader = -1;
-    for (int i = n-1; i >= 0; i--) {
-        if (arr[i] >= leader) {
-            res.push_back(arr[i]);
-            leader = arr[i];
+    int maxright = arr[n-1];
+    res.push_back(maxright);
+    
+    for (int i = n-2; i >= 0; i--) {
+        if (arr[i] >= maxright) {
+            maxright = arr[i];
+            res.push_back(maxright);
         }
     }
     
