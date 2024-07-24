@@ -1,27 +1,17 @@
 ```
-import re
+while True:
+    s = input()
+    n = int(input())
+    pattern = r"(\d+)\s*(apples|oranges)"
 
-def print_result():
-    while True:
-        s = input()
-        n = int(input())
-        pattern = r"(\d+)\s*(apples|oranges)"
+    if not re.search(pattern, s.lower()):
+        continue
 
-        if not re.search(pattern, s.lower()):
-            continue
+    break
 
-        break
-    count_apples = 0
-    count_oranges = 0
-    for match in re.finditer(pattern, s):
-        quantity = int(match.group(1))
-        fruit = match.group(2)
-        if fruit == "apples":
-            count_apples += quantity
-        else:
-            count_oranges += quantity
+total_apples_oranges = 0
+for _ in range(n):
+    quantity = int(input())
+    total_apples_oranges += quantity
 
-    print(f"Apples: {count_apples}")
-    print(f"Oranges: {count_oranges}")
-
-print_result()
+print(total_apples_oranges)
