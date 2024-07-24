@@ -1,4 +1,3 @@
-```
 def check_sum_in_range():
     while True:
         try:
@@ -14,8 +13,8 @@ def check_sum_in_range():
 
     total_sum = sum([num1, num2, num3])
     if 17 < total_sum < 55:
-        return """Correct"""
+        return "Correct"
     else:
-        return """Incorrect""""
+        return "Incorrect"
 
 print(check_sum_in_range())
