@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include<string>
 #include<algorithm>
@@ -31,7 +30,7 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return any("None");
+            return a; // Returning the first element if they are equal
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double da = std::any_cast<double>(a);
@@ -41,15 +40,15 @@ std::any compare_one(std::any a, std::any b) {
         else if (db > da)
             return b;
         else
-            return any("None");
+            return a; // Returning the first element if they are equal
     }
     return any("None");
 }
 
 int main() {
-    cout << std::any_cast<string>(compare_one(1.0, 2.5)) << endl;
-    cout << std::any_cast<string>(compare_one(1.0, "2.3")) << endl;
+    cout << std::any_cast<string>(compare_one(1, 2.5)) << endl;
+    cout << std::any_cast<string>(compare_one(1, "2.3")) << endl;
     cout << std::any_cast<string>(compare_one("5.1", "6.0")) << endl;
-    cout << std::any_cast<string>(compare_one("1.0", 1.0)) << endl;
+    cout << std::any_cast<string>(compare_one("1.0", 1)) << endl;
     return 0;
 }
