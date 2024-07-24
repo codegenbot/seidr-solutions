@@ -1,5 +1,10 @@
-def add_numbers():
+def add_numbers(x=None, y=None):
     print("Please enter two numbers.")
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    print(f"The sum is {x + y}")
+    if x is None:
+        x = int(input("Enter first number: "))
+    if y is None:
+        y = int(input("Enter second number: "))
+    return x + y
+
+result = add_numbers()
+print(result)
