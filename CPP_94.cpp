@@ -1,13 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
+using namespace std;
+
 int maxPrimeNum = 0;
-std::vector<int> lst;
+vector<int> lst;
 
 bool isPrime(int x) {
-    for (int i = 2; i <= std::sqrt(x); i++) {
+    for (int i = 2; i <= sqrt(x); i++) {
         if (x % i == 0) return false;
     }
     return true;
@@ -24,22 +25,23 @@ int sumOfDigits(int x) {
 
 int originalMain() {
     int num, i;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> num;
+    cout << "Enter the number of elements in the list: ";
+    cin >> num;
+    vector<int> lst(num); // Initialize the vector with 'num' elements.
     for(i = 0; i < num; i++){
-        std::cout << "Enter element " << i+1 << ": ";
+        cout << "Enter element " << i+1 << ": ";
         int x; 
-        std::cin >> x; 
-        lst.push_back(x);
+        cin >> x; 
+        lst[i] = x; // Assign values to the initialized vector
     }
     for(int j : lst){
         if(isPrime(j) && j > maxPrimeNum)
             maxPrimeNum = j;
     }
     if(maxPrimeNum > 0)
-        std::cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << std::endl;
+        cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
     else
-        std::cout << "No primes found in the list." << std::endl;
+        cout << "No primes found in the list." << endl;
     return 0;
 }
 
