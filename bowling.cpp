@@ -1,36 +1,39 @@
-int main() {
-    string input;
-    cin >> input;
-
+int calculateBowlingScore(string s) {
     int score = 0;
     int frame = 0;
-    int rolls = 0;
-    for(char c : input) {
-        rolls++;
-        if(c == 'X') {
-            score += 10;
-            if(frame < 9) {
-                score += (input[rolls] == 'X') ? 10 + ((input[rolls+1] == 'X') ? 10 : (input[rolls+1] - '0')) : ((input[rolls+1] == '/') ? 10 : (input[rolls] - '0' + input[rolls+1] - '0'));
-            }
+    int frameScore[10];
+    memset(frameScore, 0, sizeof(frameScore));
+    
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            frameScore[frame] = 10;
             frame++;
-        } else if(c == '/') {
-            score += 10 - (input[rolls-2] - '0');
-            if(frame < 9) {
-                score += (input[rolls] == 'X') ? 10 : (input[rolls] - '0');
-            }
+        } else if (s[i] == '/') {
+            frameScore[frame] = 10 - (s[i - 1] - '0');
             frame++;
-        } else if(c >= '1' && c <= '9') {
-            score += c - '0';
-            if(frame < 9 && rolls % 2 == 0) {
-                if(input[rolls+1] == '/') {
-                    score += 10 - (c - '0');
-                }
+        } else if (s[i] == '-') {
+            frame++;
+        } else {
+            frameScore[frame] += (s[i] - '0');
+            if (s[i+1] == '/') {
+                frameScore[frame] = 10;
+                frame++;
+            } else if (frameScore[frame] == 10) {
                 frame++;
             }
         }
     }
+    
+    for (int i = 0; i < 10; i++) {
+        score += frameScore[i];
+    }
+    
+    return score;
+}
 
-    cout << score;
-
+int main() {
+    string s;
+    cin >> s;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
