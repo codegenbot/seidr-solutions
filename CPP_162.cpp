@@ -1,5 +1,9 @@
-```cpp
-string string_to_md5(std::string text) {
+#include <openssl/ssl.h>
+#include <openssl/engine.h>
+
+using namespace std;
+
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
@@ -18,4 +22,11 @@ string string_to_md5(std::string text) {
     OPENSSL_free(digest);
     EVP_MD_CTX_free(md_ctx);
     return ss.str();
+}
+
+int main() {
+    using namespace std;
+    cout << string_to_md5("password") << endl;
+    assert(string_to_md5("password") == "5d41402abc4ec9a8fc1c771f8de5ade");
+    return 0;
 }
