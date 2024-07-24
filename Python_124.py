@@ -1,7 +1,8 @@
+```
 def valid_date():
     date = input("Enter a date in the format YYYY-MM-DD: ")
-    if not date:
-        return "Date is empty."
+    if not date.replace('-', '').isdigit():
+        return "Invalid date."
     month, day, year = date.split('-')
     if len(month) == 1:
         month = '0' + month
