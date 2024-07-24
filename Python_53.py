@@ -1,3 +1,6 @@
+def add(x: int, y: int) -> int:
+    return x + y
+
 while True:
     try:
         x = int(input("Enter first number: "))
@@ -5,3 +8,6 @@ while True:
         break
     except ValueError:
         print("Please enter valid integer inputs.")
+
+result = add(x, y)
+print("The sum is:", result)
