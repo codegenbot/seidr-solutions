@@ -1,15 +1,15 @@
-```
+````
 def match_parens(lst):
+    """Your code here"""
     s1 = lst[0]
     s2 = lst[1]
     stack = []
-    for c in s1 + s2:
-        if c == '(':
-            stack.append(c)
-        elif c == ')':
-            if not stack:
+    
+    for char in s1 + s2:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if not stack or stack.pop() != '(':
                 return 'No'
-            stack.pop()
-    if stack:
-        return 'No'
-    return 'Yes'
+    
+    return 'Yes' if not stack else 'No'
