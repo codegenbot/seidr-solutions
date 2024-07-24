@@ -22,25 +22,32 @@ int main() {
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
+    float num;
     while(true) {
-        if (!(std::cin >> tempLine)) {
+        if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
+            }
             vec1.clear();
             break;
         }
-        float num = stof(tempLine);
         vec1.push_back(num);
     }
 
     // Input for vector 2
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
     while(true) {
-        if (!(std::cin >> tempLine)) {
+        if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
+            }
             vec2.clear();
             break;
         }
-        float num = stof(tempLine);
         vec2.push_back(num);
     }
 
