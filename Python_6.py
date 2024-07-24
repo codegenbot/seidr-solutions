@@ -1,5 +1,3 @@
-import sys
-
 def max_nested_paren_count(paren_strings):
     return [
         max(
@@ -11,6 +9,6 @@ def max_nested_paren_count(paren_strings):
         for paren_string in paren_strings
     ]
 
-input_strings = sys.stdin.read().strip().splitlines()
+input_strings = input().strip().split(' ')
 result = max_nested_paren_count(input_strings)
 print(result)
