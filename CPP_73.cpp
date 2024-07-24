@@ -21,15 +21,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        arr.push_back(temp);
-    }
-    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    vector<int> input = {0, 1};
+    int output = smallest_change(input);
     return 0;
 }
