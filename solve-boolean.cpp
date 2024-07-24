@@ -1,37 +1,45 @@
-#include <string>
-using namespace std;
+bool solveBoolean(string boolExp) {
+    stack<char> operators;
+    stack<bool> operands;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    
-    for (int i = 0; i < expression.length(); ++i) {
-        if(expression[i] == '|') {
-            while(!s.empty() && s.top() != '&') {
-                s.pop();
+    for (int i = 0; i < boolExp.length(); i++) {
+        if (boolExp[i] == 'T' || boolExp[i] == 't')
+            operands.push(true);
+        else if (boolExp[i] == 'F' || boolExp[i] == 'f')
+            operands.push(false);
+
+        else if (boolExp[i] == '&' && operators.empty())
+            operators.push('&');
+        else if (boolExp[i] == '|' && operators.empty())
+            operators.push('|');
+
+        else {
+            while (!operators.empty()) {
+                char op = operators.top();
+                operators.pop();
+
+                bool rightOp = operands.top();
+                operands.pop();
+
+                bool leftOp;
+                if (!operators.empty())
+                    leftOp = operands.top();
+                else
+                    leftOp = rightOp;
+
+                operands.push(evalBoolean(leftOp, rightOp, op));
             }
-            if(s.empty()) return true;
-            s.push('&');
-        } else if(expression[i] == '&') {
-            s.push('&');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            while(!s.empty() && s.top() != '&') s.pop();
-            if(s.empty()) return true;
-            s.push('F');
-        } else if(expression[i] == 'F' || expression[i] == 'f') {
-            while(!s.empty() && s.top() != '&') s.pop();
-            if(s.empty()) return false;
-            s.push('T');
         }
     }
-    
-    while(!s.empty()) s.pop();
-    
-    return true;
+
+    return operands.top();
 }
 
-int main() {
-    string input;
-    cout << "Enter the Boolean expression: ";
-    cin >> input;
-    cout << solveBoolean(input) << endl;
+bool evalBoolean(bool left, bool right, char op) {
+    switch (op) {
+        case '&':
+            return left && right;
+        case '|':
+            return left || right;
+    }
 }
