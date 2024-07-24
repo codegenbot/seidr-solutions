@@ -1,17 +1,20 @@
-int i = 0;
+#include <string>
+
 string camelCase(string s) {
-    int i = 0;
     string result = "";
-    for (i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '-') {
-            i++; 
+            i++;
+            result += toupper(s[i]);
+            i++;
             while (i < s.length() && s[i] != ' ') {
-                result += toupper(s[i]);
+                result += tolower(s[i]);
                 i++;
             }
-            result += " ";
         } else {
             result += tolower(s[i]);
+            i++;
         }
     }
     return result;
