@@ -1,20 +1,22 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(vec)
-left_sum = 0
-min_diff = total_sum
+total_sum = sum(numbers)
+half_sum = total_sum // 2
 
-for i in range(n):
-    left_sum += vec[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff <= min_diff:
-        min_diff = diff
-        cut_index = i
+subarray_sum = 0
+idx = 0
+for i, num in enumerate(numbers):
+    subarray_sum += num
+    if subarray_sum >= half_sum:
+        idx = i
+        break
 
-output1 = vec[: cut_index + 1]
-output2 = vec[cut_index + 1 :]
-
-print(*output1)
-print(*output2)
+if subarray_sum == half_sum or subarray_sum - half_sum < half_sum - (
+    subarray_sum - num
+):
+    print(*numbers[: idx + 1])
+    print(*numbers[idx + 1 :])
+else:
+    print(*numbers[:idx])
+    print(*numbers[idx:])
