@@ -3,11 +3,11 @@
 #include <vector>
 #include <limits>
 
-bool issame(vector<int> a, vector<vector<int>> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (!issame(a[i], b[i]))
+        if (a[i] != b[i])
             return false;
     return true;
 }
@@ -32,5 +32,5 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    assert(issame({11111}, {{11111}}));
+    assert(issame(strange_sort_list({111111}) , {111111}));
 }
