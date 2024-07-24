@@ -1,15 +1,18 @@
 ```
 def match_parens(s):
     stack = []
-    for char in str(s):
+    for char in s:
         if char == "(":
             stack.append(char)
         elif char == ")":
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                return "No" if stack else "Yes"
-    return "Yes" if not stack else "No"
+                return "No"
+    if not stack:
+        return "Yes"
+    else:
+        return "No"
 
 def check():
     while True:
@@ -17,6 +20,6 @@ def check():
         if s.lower() == "q":
             break
         elif not s.isalpha():
-            print(match_parens(s.replace("[", "")))
+            print(match_parens(s))
         else:
             print("Invalid input. Please enter a string or type 'q' to quit.")
