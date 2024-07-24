@@ -6,12 +6,12 @@ def solve_boolean(expression):
             return False
         elif "&" in expression and "|" in expression:
             left, right = expression.split("&")
-            return (evaluate(left) and evaluate(right)) 
+            return (evaluate(left) and evaluate(right))
         elif "&" in expression:
             left, right = expression.split("&")
             return evaluate(left) and evaluate(right)
         elif "|" in expression:
             left, right = expression.split("|")
-            return (evaluate(left) or evaluate(right)) 
+            return (evaluate(left) or evaluate(right))
 
     return evaluate(expression)
