@@ -1,14 +1,35 @@
-vector<int> strange_sort_list(vector<int> lst) {
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
-        if (!lst.empty()) {
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
-        }
+
+    if (lst.empty()) {
+        return result;
     }
+
+    int minVal = *min_element(lst.begin(), lst.end());
+    int maxVal = *max_element(lst.begin(), lst.end());
+
+    while (!lst.empty()) {
+        if (result.empty() || result.back() == minVal) {
+            for (auto i : lst) {
+                if (i == minVal) {
+                    result.push_back(i);
+                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
+                    break;
+                }
+            }
+        } else {
+            for (auto i : lst) {
+                if (i == maxVal) {
+                    result.push_back(i);
+                    lst.erase(std::remove(lst.end() - 1, lst.begin() - 1, i), lst.end());
+                    break;
+                }
+            }
+        }
+
+        minVal = *min_element(lst.begin(), lst.end());
+        maxVal = *max_element(lst.begin(), lst.end());
+    }
+
     return result;
 }
