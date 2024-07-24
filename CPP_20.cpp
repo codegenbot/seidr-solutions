@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <limits>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool sameVectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,7 +32,7 @@ int main() {
             vec1.clear();
             break;
         }
-        if (num > 3.4e38) {
+        if(std::abs(num) > 1e30) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec1.clear();
             break;
@@ -41,8 +43,9 @@ int main() {
         std::cout << "Enter next number (or press Enter to finish): ";
     }
 
-    // Input for vector 2
-    while(true) {
+    int maxInputCount = 5; 
+    int inputCount = 0;
+    while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); // Reset error state
@@ -52,7 +55,7 @@ int main() {
             vec2.clear();
             break;
         }
-        if (num > 3.4e38) {
+        if(std::abs(num) > 1e30) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec2.clear();
             break;
@@ -61,9 +64,10 @@ int main() {
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
+        inputCount++;
     }
 
-    if(isSame(vec1, vec2)) {
+    if(sameVectors(vec1, vec2)) {
         std::cout << "The two vectors are same.\n";
     } else {
         std::cout << "The two vectors are not same.\n";
