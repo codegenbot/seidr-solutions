@@ -1,11 +1,9 @@
 #include <string>
 #include <sstream>
-#include <iomanip>
-#include <md5.h>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) {
-        return "";
+        return "Invalid Input"; 
     }
 
     MD5_CTX ctx;
@@ -15,9 +13,9 @@ string string_to_md5(string text) {
     MD5_Update(&ctx, text.c_str(), text.size());
     MD5_Final(md, &ctx);
 
-    stringstream ss;
+    std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)md[i];
+        ss << setfill(2) << setw(2) << hex << (int)md[i];
     }
 
     return ss.str();
