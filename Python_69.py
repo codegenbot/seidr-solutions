@@ -1,4 +1,4 @@
-```Python
+```
 def search(lst):
     max_prime = -1
     for num in lst:
@@ -16,5 +16,8 @@ def is_prime(n):
     return True
 
 
-nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-print(search(nums))
+try:
+    nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
+    print(search(nums))
+except ValueError:
+    print("Invalid input. Please enter valid numbers.")
