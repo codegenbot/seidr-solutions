@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <climits>
 
 long long minSubArraySum(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
@@ -10,4 +8,3 @@ long long minSubArraySum(vector<long long> nums) {
         if(sum > 0) sum = 0;
     }
     return min_sum;
-}
