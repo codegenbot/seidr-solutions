@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int prod_signs(vector<int> arr){
@@ -10,4 +9,3 @@ int prod_signs(vector<int> arr){
         sum += abs(i);
     }
     return product * sum;
-}
