@@ -4,15 +4,27 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+    
+    if (n == 0) return leaders;
+    
+    leaders.push_back(arr[n - 1]);
+    
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= arr[i + 1]) {
+            leaders.push_back(arr[i]);
         }
-        if(isLeader) leaders.push_back(arr[i]);
     }
+    
+    reverse(leaders.begin(), leaders.end());
+    
     return leaders;
+}
+
+int main() {
+    vector<int> arr = {5, 2, 3, 4}; // test input
+    vector<int> leadersResult = leaders(arr);
+    for (int leader : leadersResult) {
+        cout << leader << endl; // print the leaders
+    }
+    return 0;
 }
