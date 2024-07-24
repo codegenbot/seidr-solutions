@@ -1,7 +1,6 @@
-```
 def rounded_avg(n, m):
     if n > m:
         return -1
-    total = sum(range(n, m+1))
-    average = round(total / (m - n + 1))
-    return format(average, 'b')
+    avg = (n + m) / 2
+    avg = round(avg)
+    return bin(avg)[2:]
