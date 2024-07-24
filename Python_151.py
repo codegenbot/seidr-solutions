@@ -6,5 +6,4 @@ def double_the_difference(lst):
                 total += num**2
     return total
 
-
 print("{} is the result".format(double_the_difference([1, 3, 5])))
