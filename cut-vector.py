@@ -1,10 +1,8 @@
 n = int(input())
 arr = [int(input()) for _ in range(n)]
-
 total_sum = sum(arr)
 left_sum = 0
 right_sum = total_sum
-
 min_diff = float("inf")
 cut_index = -1
 
