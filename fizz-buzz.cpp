@@ -11,3 +11,4 @@ string fizzBuzz(int x) {
     else
         res = to_string(x);
     return res;
+}
