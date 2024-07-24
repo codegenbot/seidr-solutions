@@ -1,12 +1,12 @@
 int main() {
-    vector<int> nums;
+    vector<int> numbers;
     int n;
     while (cin >> n) {
-        nums.push_back(n);
+        numbers.push_back(n);
     }
     
     int sum = 0;
-    for (int num : nums) {
+    for (int num : numbers) {
         sum += max(0, num / 3 - 2);
     }
     
