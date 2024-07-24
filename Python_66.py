@@ -1,7 +1,11 @@
-```Python
+```
 def digitSum(s):
-    total_sum = sum(int(c) for c in s if c.isdigit())
-    return total_sum
+    return sum(int(c) for c in s if c.isdigit()) or -1
 
-input_s = str(input("Enter a string containing at least one digit (like '123abc'): "))
-print(digitSum(input_s))
+while True:
+    try:
+        input_s = str(input("Enter an integer: "))
+        print(digitSum(input_s))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
