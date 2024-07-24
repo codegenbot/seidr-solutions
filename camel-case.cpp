@@ -20,7 +20,8 @@ int main() {
             }
         } else {
             if (capitalizeNext) {
-                result += toupper(*p);
+                result += toupper(*p); 
+                capitalizeNext = false;
             } else {
                 result += tolower(*p);
             }
@@ -28,8 +29,7 @@ int main() {
         }
     }
 
-    std::string temp = result; 
-    std::cout << temp << std::endl; 
+    std::cout << result.c_str() << std::endl;
 
     return 0;
 }
