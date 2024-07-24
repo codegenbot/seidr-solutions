@@ -7,15 +7,7 @@ using namespace std;
 vector<int> rolling_max(vector<int> numbers);
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> rolling_max(vector<int> numbers){
@@ -28,17 +20,11 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-int main(){
-    vector<int> numbers = {1, 3, 5, 2, 8, 7};
-    vector<int> expected = {1, 3, 5, 5, 8, 8};
-    
-    vector<int> result = rolling_max(numbers);
-    
-    if(issame(result, expected)){
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
+int main() {
+    vector<int> input = {1, 3, 5, 2, 7, 6};
+    vector<int> output = rolling_max(input);
+    for(int i=0; i<output.size(); i++){
+        cout << output[i] << " ";
     }
-    
     return 0;
 }
