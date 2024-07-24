@@ -1,3 +1,4 @@
+```
 # This problem requires writing a function that calculates the sum and product of all numbers in a given list.
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = 0
