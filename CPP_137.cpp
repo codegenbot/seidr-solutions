@@ -1,37 +1,41 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
+#include <variant>
+#include <any>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+any compare_one(any a, any b) {
+    if (get<int>(a) > get<int>(b)) {
         return a;
-    } else if (boost::any_cast<int>(b) > boost::any_cast<int>(a)) {
+    } else if (get<int>(b) > get<int>(a)) {
         return b;
-    } else if ((boost::any_cast<string>(a) != "") && (boost::any_cast<string>(b) != "")) {
-        double numA = stod(boost::any_cast<string>(a));
-        double numB = stod(boost::any_cast<string>(b));
+    } else if (get<string>(a) != "" && get<string>(b) != "") {
+        double numA = stod(get<string>(a));
+        double numB = stod(get<string>(b));
         if (numA > numB) {
             return a;
         } else if (numB > numA) {
             return b;
         } else {
-            return boost::any("None");
+            return "None";
         }
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
 
 int main() {
-    boost::any a = 5; 
-    boost::any b = 7;
-    cout << "The maximum value is: " << boost::any_cast<int>(compare_one(a, b)) << endl;
+    any a = 10; // Example input
+    any b = 5;   // Example input
 
-    a = "3.5";
-    b = "2.8";
-    cout << "The maximum value is: " << boost::any_cast<string>(compare_one(a, b)) << endl;
+    any result = compare_one(a, b);
+
+    if (holds_alternative<string, int>(result)) {
+        cout << get<int>(result) << endl;
+    } else {
+        cout << "None" << endl;
+    }
 
     return 0;
 }
