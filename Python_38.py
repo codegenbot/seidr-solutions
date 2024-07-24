@@ -9,3 +9,4 @@ def decode_cyclic(s: str):
             result += group[0] + group
         else:
             result += group[2] + group[:2]
+    return result
