@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <algorithm> // for find()
 
 int Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = -1;
