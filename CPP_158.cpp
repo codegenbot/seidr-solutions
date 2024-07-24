@@ -1,8 +1,7 @@
-```cpp
+```c
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 #include <iostream>
 
 using namespace std;
@@ -26,9 +25,9 @@ string find_max(vector<string> words){
 
 }
 
-int main() {
+int main() { // added parentheses
     vector<string> words = {"play", "play", "play"};
     string result = find_max(words);
-    cout << result << std::endl;
+    cout << result << endl;
     return 0;
 }
