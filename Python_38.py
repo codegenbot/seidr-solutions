@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = len(s)
