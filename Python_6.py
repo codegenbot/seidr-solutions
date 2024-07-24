@@ -9,6 +9,7 @@ def max_nested_paren_count(paren_strings):
         for paren_string in paren_strings
     ]
 
-input_strings = input().strip().split()
-result = max_nested_paren_count(input_strings)
+# Call the function with the input
+input_string = input().strip()  # Input format: "(()) ()"
+result = max_nested_paren_count([input_string])
 print(result)
