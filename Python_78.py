@@ -1,17 +1,10 @@
 ```
 def hex_key(num):
-    def is_hex(digit):
-        if '0' <= digit <= '9':
-            return True
-        elif 'A' <= digit <= 'F':
-            return True
-        elif 'a' <= digit <= 'f':
-            return True
-        else:
-            return False
+    def is_hex(c):
+        return c in '0123456789ABCDEFabcdef'
 
     count = 0
-    for char in num.upper():
-        if is_hex(char):
+    for c in num:
+        if is_hex(c):
             count += 1
     return count
