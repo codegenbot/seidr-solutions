@@ -1,48 +1,50 @@
-#include <vector>
-#include <iostream>
-#include <string>
+string solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    stack<string> expressionStack;
 
-using namespace std;
-
-bool solveBoolean(string expression) {
-    stack<char> opstack;
-    stack<string> valstack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '(') {
-            opstack.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (opstack.top() != '(') {
-                valstack.push(getValue(&expression[i+1]));
-                opstack.pop();
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            expressionStack.push(operationStack.pop() + "&");
+            operationStack.push('&');
+        } else if (booleanExpression[i] == '|') {
+            expressionStack.push(operationStack.pop() + "|");
+            operationStack.push('|');
+        } else {
+            string currentExpression = "";
+            while (!operationStack.empty() && precedence(operationStack.top()) >= precedence(booleanExpression[i])) {
+                currentExpression += operationStack.pop();
             }
-            opstack.pop();  // Remove the '('
-        } else if ((expression[i] >= 'a' && expression[i] <= 'f') || 
-                   (expression[i] >= 'A' && expression[i] <= 'F')) {
-            string temp = "";
-            while (i < expression.length() && ((expression[i] >= 'a' && expression[i] <= 'f') || 
-                                               (expression[i] >= 'A' && expression[i] <= 'F'))) {
-                temp += expression[i];
-                i++;
+            if (!expressionStack.empty()) {
+                expressionStack.top() += currentExpression;
+                operationStack.push(')');
+            } else {
+                expressionStack.push(currentExpression);
             }
-            valstack.push(temp);
-        } else if (expression[i] == '&' || expression[i] == '|') {
-            while (!opstack.empty() && opstack.top() != '(') {
-                valstack.push(getValue(&expression[i]));
-                opstack.pop();
+            if (booleanExpression[i] == 'T') {
+                expressionStack.push("True");
+            } else {
+                expressionStack.push("False");
             }
         }
     }
 
-    return getValue(NULL);
+    string finalExpression = "";
+    while (!expressionStack.empty()) {
+        finalExpression = expressionStack.top() + finalExpression;
+        expressionStack.pop();
+    }
+
+    if (finalExpression.length() > 1) {
+        return "Invalid Boolean Expression";
+    } else {
+        return finalExpression;
+    }
 }
 
-string getValue(char **exp) {
-    if (*exp != NULL) {
-        return *exp;
+int precedence(char operation) {
+    if (operation == '|') {
+        return 1;
     } else {
-        string temp = valstack.top();
-        valstack.pop();
-        return temp;
+        return 2;
     }
 }
