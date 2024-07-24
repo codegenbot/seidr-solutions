@@ -11,7 +11,7 @@ bool is_multiply_prime(int num){
     return true;
 }
 
-int main(){
+int main() {
     int num;
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
