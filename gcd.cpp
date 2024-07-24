@@ -1,10 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
 
 using namespace std;
 
