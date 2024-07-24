@@ -1,3 +1,4 @@
+```
 import math
 n = None
 while n is None:
@@ -17,4 +18,5 @@ def rounded_avg(n, m):
     avg = (n + m) / 2
     return str(math.ceil(avg))
 
-print(rounded_avg(n, m))
+avg_value = rounded_avg(n, m)
+print(avg_value)
