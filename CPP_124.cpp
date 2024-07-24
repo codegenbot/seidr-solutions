@@ -1,11 +1,4 @@
-```cpp
-#include <string>
-#include <sstream>
-
-using namespace std;
-
-bool valid_date(string date) {
-    int day, month, year;
+int day, month, year;
     string token[3];
 
     // Split the input string into mm-dd-yyyy format
