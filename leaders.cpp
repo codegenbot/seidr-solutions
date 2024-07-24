@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,9 +18,10 @@ vector<int> leaders(vector<int>& v) {
 }
 
 int main() {
-    int n;
+    int n = 0;
+    vector<int> v;
     cin >> n;
-    vector<int> v(n, 0); // specify size and default value
+    v.resize(n);
     for (int i = 0; i < n; ++i) {
         cin >> v[i];
     }
