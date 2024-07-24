@@ -13,6 +13,6 @@ std::string remove_vowels(std::string text){
 
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
-    std::cout << remove_vowels("Hello World"); // Test the function
+    std::cout << remove_vowels("Hello World"); 
     return 0;
 }
