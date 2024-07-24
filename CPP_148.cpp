@@ -37,10 +37,8 @@ int main() {
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
-    
-    std::cout << output.first << " ";
-    if (!output.second.empty()) {
-        std::cout << output.second;
+    for (const auto& s : {output.first, output.second}) {
+        std::cout << std::string(s) << " "; // Add std:: prefix to string conversions
     }
     return 0;
 }
