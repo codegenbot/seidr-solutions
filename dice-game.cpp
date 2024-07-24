@@ -1,4 +1,3 @@
-double probability(int n, int m) {
-    double total = (double)(n + m - 1);
-    return (double)n / total;
+double diceGame(int n, int m) {
+    return (double)(n - 1) / (n * m);
 }
