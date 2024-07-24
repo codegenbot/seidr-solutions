@@ -19,10 +19,8 @@ string spinWords(string str) {
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
         
-        result += (end == str.length()) ? word + "\n" : word + " ";
+        result += word + (end == str.length() ? "\n" : " ");
         
-        result += word;
-        str.clear();  // Add this line here
         start = end + 1;
     }
     
@@ -31,10 +29,9 @@ string spinWords(string str) {
 
 int main() {
     string str;
-    while (true) {
-        cout << "Enter a string: ";
-        getline(cin, str);
-        if(str == "quit" || str == "exit") break; 
-        cout << spinWords(str);
-    }
+    cout << "Enter a string: ";
+    cin >> str; 
+    if(str == "quit" || str == "exit") return 0; 
+    cout << spinWords(str);
+    str.clear(); 
 }
