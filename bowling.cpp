@@ -8,16 +8,45 @@ int bowlingScore(string s) {
         if (c == 'X') {
             score += 30;
             roll++;
-        } else if (c == '/') {
-            if (s[s.find('/')-1] != 'X') {
-                score += 10 - (roll % 2);
-                roll++;
-            }
-        } else {
-            int count = s.find('/') - s.find('0');
-            score += count;
+        }
+        else if (c == '/') {
+            temp = "";
+            continue;
+        }
+        else {
+            temp += c;
+        }
+        if (temp.length() >= 2 && c != 'X') {
+            int first, second;
+            string t = temp;
+            temp = "";
+            sscanf(t.c_str(), "%d%d", &first, &second);
+            score += first + second;
             roll++;
+            while (roll < 10) {
+                if (temp.length() >= 2 && c != 'X') {
+                    int first1, second1;
+                    string t1 = temp;
+                    temp = "";
+                    sscanf(t1.c_str(), "%d%d", &first1, &second1);
+                    score += first1 + second1;
+                    roll++;
+                }
+                else if (c == 'X' || c == '/') {
+                    if (temp.length() >= 2) {
+                        int first, second;
+                        string t = temp;
+                        temp = "";
+                        sscanf(t.c_str(), "%d%d", &first, &second);
+                        score += first + second;
+                        roll++;
+                    }
+                    else {
+                        score += 10;
+                        roll++;
+                    }
+                }
+            }
         }
     }
     return score;
-}
