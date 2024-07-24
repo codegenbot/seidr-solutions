@@ -1,22 +1,21 @@
-if(dict.empty()) return false;
+if (dict.empty()) {
+    return false;
+}
 
-bool all_lower = true;
-bool all_upper = true;
+bool isLower = true;
+bool isUpper = true;
 
-for(auto const& kv : dict){
-    for(auto const& c : kv.first){
-        if(!islower(c)){
-            all_lower = false;
-            break;
-        }
+for (const auto& pair : dict) {
+    if (!isLower && !isUpper) {
+        return false;
     }
-    for(auto const& c : kv.first){
-        if(!isupper(c)){
-            all_upper = false;
-            break;
-        }
+    if (!islower(pair.first[0])) {
+        isLower = false;
+    }
+    if (!isupper(pair.first[0])) {
+        isUpper = false;
     }
 }
 
-return all_lower || all_upper;
+return isLower || isUpper;
 }
