@@ -1,12 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::floor(num) == num) {
-            sum += std::pow(num, 2);
+        if (num > 0 && floor(num) == num) {
+            sum += pow(num, 2);
         }
     }
     return sum;
+}
+
+int main() {
+    int n; // number of elements in the list
+    std::cin >> n;
+
+    std::vector<float> lst(n);
+    for (float& num : lst) {
+        std::cin >> num;
+    }
+
+    long long result = double_the_difference(lst);
+
+    return 0;
 }
