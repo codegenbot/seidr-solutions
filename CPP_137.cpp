@@ -1,41 +1,26 @@
 #include <iostream>
 #include <string>
-#include <variant>
-#include <any>
+#include <boost/any.hpp>
+#include <boost/variant.hpp>
 
 using namespace std;
 
-any compare_one(any a, any b) {
-    if (get<int>(a) > get<int>(b)) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
         return a;
-    } else if (get<int>(b) > get<int>(a)) {
+    } else if (boost::any_cast<int>(b) > boost::any_cast<int>(a)) {
         return b;
-    } else if (get<string>(a) != "" && get<string>(b) != "") {
-        double numA = stod(get<string>(a));
-        double numB = stod(get<string>(b));
+    } else if ((boost::any_cast<string>(a) != "") && (boost::any_cast<string>(b) != "")) {
+        double numA = stod(boost::any_cast<string>(a));
+        double numB = stod(boost::any_cast<string>(b));
         if (numA > numB) {
             return a;
         } else if (numB > numA) {
             return b;
         } else {
-            return "None";
+            return boost::any("None");
         }
     } else {
-        return "None";
+        return boost::any("None");
     }
-}
-
-int main() {
-    any a = 10; // Example input
-    any b = 5;   // Example input
-
-    any result = compare_one(a, b);
-
-    if (holds_alternative<string, int>(result)) {
-        cout << get<int>(result) << endl;
-    } else {
-        cout << "None" << endl;
-    }
-
-    return 0;
 }
