@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <cassert>
 
 using namespace std;
 
@@ -22,17 +21,23 @@ vector<int> getOddCollatz(int n) {
     while (n > 1) {
         if (n % 2 == 0 && n != 1) {
             if (n / 2 > std::numeric_limits<int>::max() / 2) {
-                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
-                return res; 
+                return res;
             }
-            n = n / 2;
+            if ((n / 2) <= std::numeric_limits<int>::max()) {
+                n = n / 2;
+            } else {
+                return res;
+            }
         } else {
-            if ((n * 3 + 1) > std::numeric_limits<int>::max()) {
-                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
+            if (n * 3 + 1 > std::numeric_limits<int>::max()) {
                 return res;
             }
             res.push_back(n);
-            n = (n * 3 + 1);
+            if ((n * 3 + 1) <= std::numeric_limits<int>::max()) {
+                n = (n * 3 + 1);
+            } else {
+                return res;
+            }
         }
     }
     return res;
@@ -44,10 +49,6 @@ void startProgram() {
     cin >> n;
     if (n <= 0) {
         cerr << "Error: Please enter a positive integer." << endl;
-        return;
-    }
-    if (n > std::numeric_limits<int>::max() / 2) {
-        cerr << "Error: The number exceeds the maximum value for an integer." << endl;
         return;
     }
     vector<int> res = getOddCollatz(n);
