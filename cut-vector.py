@@ -11,10 +11,9 @@ cut_index = 0
 
 for i in range(1, n):
     diff = abs(cumulative_sum[i] - (total_sum - cumulative_sum[i]))
-    if diff <= min_diff:
-        if diff < min_diff or (diff == min_diff and i < cut_index):
-            min_diff = diff
-            cut_index = i
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
 
 subvector1 = arr[:cut_index+1]
 subvector2 = arr[cut_index+1:]
