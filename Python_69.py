@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def search(lst):
     max_prime = -1
     for num in lst:
