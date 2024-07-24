@@ -16,7 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 group += stack.pop()
             if not stack or stack.pop() != '(':
-                return []  # invalid parentheses
+                return []
             group += char
     
     while stack:
@@ -34,9 +34,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             current_group += char
         else:
-            current_group += char
-    
-    if current_group:
+            if current_group and current_group[0] == '(':
+                current_group += char
+            else:
+                while current_group and current_group[-1] != '(':
+                    current_group = current_group[:-1]
+                current_group += char
         result.append(current_group)
-    
     return result
