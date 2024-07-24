@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <climits>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -18,21 +17,12 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> rolling_max(vector<int> numbers);
 
 int main() {
-    vector<int> numbers = {1, 3, 5, 2, 8, 4, 10};
-    vector<int> result = rolling_max(numbers);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+    vector<int> input = {1, 3, 5, 2, 7, 4, 8};
+    vector<int> result = rolling_max(input);
+    for(int i=0; i<result.size(); i++) {
+        std::cout << result[i] << " ";
     }
-    cout << endl;
-
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    if(issame(a, b)){
-        cout << "Vectors a and b are the same" << endl;
-    } else {
-        cout << "Vectors a and b are different" << endl;
-    }
-
+    std::cout << std::endl;
     return 0;
 }
 
