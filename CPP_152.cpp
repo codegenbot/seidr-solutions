@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 
-bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
         std::cout << "Error: The two vectors must be the same size." << std::endl;
         return false;
@@ -46,7 +46,7 @@ int main() {
         vec2.push_back(x); 
     }
 
-    bool checkEquality = checkVectorEquality(vec1, vec2);
+    bool checkEquality = issame(vec1, vec2);
 
     if(checkEquality) {
         std::cout << "The two vectors are the same." << std::endl;
