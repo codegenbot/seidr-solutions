@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -7,7 +6,7 @@ bool solveBoolean(std::string expression);
 
 bool solveBoolean(std::string expression) {
     bool result = false; 
-    stack<char> s;
+    std::stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
@@ -31,11 +30,11 @@ bool solveBoolean(std::string expression) {
 
 int main() {
     std::string expression;
-    try {
-        std::cin >> expression; 
-        cout << (solveBoolean(expression) ? "True" : "False");
-    } catch(const std::invalid_argument& e) {
-        std::cerr << "Error: Invalid input. Please enter a string." << std::endl;
+    std::cin >> expression; // Use qualified cin
+    if (expression.length() > 3 || expression.find('|') == std::string::npos || expression.find('&') == std::string::npos) {
+        std::cout << "Invalid input. Please enter a string with T, F, |, and &." << std::endl;
+    } else {
+        std::cout << (solveBoolean(expression) ? "True" : "False"); // Use qualified cout
     }
     return 0;
 }
