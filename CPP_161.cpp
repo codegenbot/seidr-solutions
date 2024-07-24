@@ -1,16 +1,12 @@
 string solve(string s){
     string result = "";
-    for(int i=0; i<s.length();i++){
-        if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
+    for(char c : s){
+        if(isalpha(c)){
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        } else {
+            result += c;
         }
-        else
-            result += s[i];
     }
-    if(result.empty())
-        return string(result.rbegin(),result.rend());
+    reverse(result.begin(), result.end());
     return result;
 }
