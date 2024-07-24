@@ -1,6 +1,6 @@
-def double_the_difference(numbers):
+def double_the_difference(lst):
     total = 0
-    for num in numbers:
+    for num in lst:
         if isinstance(num, int) and num >= 0:
             if num % 2 != 0:
                 total += num**2
