@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <cassert>
 
 int specialFilter(vector<int> nums) {
     int count = 0;
