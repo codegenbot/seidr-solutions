@@ -1,18 +1,13 @@
-int main() {
-    string txt;
-    cin >> txt;
-    cout << (check_if_last_char_is_a_letter(txt) ? "true" : "false");
-    return 0;
-}
+Here is the completed code:
 
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0)
-        return false;
+```cpp
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
     char lastChar = txt.back();
-    bool isLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z');
+    bool isLetter = isalpha(lastChar);
     bool isPartOfWord = false;
-    for(int i = 0; i < txt.length() - 1; i++){
-        if(txt[i] != ' '){
+    for (int i = 0; i < txt.length(); ++i) {
+        if (txt[i] == ' ') {
             isPartOfWord = true;
             break;
         }
