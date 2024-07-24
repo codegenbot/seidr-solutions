@@ -1,21 +1,32 @@
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False]*n for _ in range(n)]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    queue = [(grid[0][0], [grid[0][0]])
-    result = []
-    
+    m = [[i + j * n for j in range(n)] for i in range(n)]
+    max_val = n * n
+    res = []
+    for x in range(n):
+        for y in range(n):
+            if grid[x][y] <= k:
+                res.append(str(grid[x][y]))
+                k -= 1
+                if k == 0:
+                    return [int(i) for i in res]
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    queue = [(m[0][0], m[0][0])]
+    visited = set((0, 0))
     while queue:
-        val, path = queue.pop(0)
-        if len(path) == k+1:
-            return path
-        
+        cell_value, path = heapq.heappop(queue)
+        if len(path) == k:
+            return [int(i) for i in path]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                visited[nx][ny] = True
-                queue.append((grid[nx][ny], path + [grid[nx][ny]]))
-                
-        visited[x][y] = False
-        
+            if (
+                1 <= nx < n
+                and 1 <= ny < n
+                and (nx, ny) not in visited
+                and cell_value + m[nx][ny] - 2 * m[x][y] <= max_val
+            ):
+                heapq.heappush(
+                    queue, ((cell_value + m[nx][ny] - 2 * m[x][y]), path + [m[nx][ny]])
+                )
+                visited.add((nx, ny))
     return []
