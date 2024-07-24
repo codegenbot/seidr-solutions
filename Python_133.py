@@ -4,15 +4,17 @@ def sum_squares(lst):
 
 while True:
     numbers = input("Enter numbers separated by space: ").split()
+    valid_input = True
     for i in range(len(numbers)):
         try:
             int(numbers[i])
         except ValueError:
             print("Invalid input. Please enter valid numbers separated by space:")
-            numbers = []
+            valid_input = False
             break
-    else:
-        total_sum_of_squares = sum_squares(map(int, numbers))
+
+    if valid_input:
+        total_sum_of_squares = sum_squares(list(map(int, numbers)))
         break
 
 print(f"The sum of squares is {total_sum_of_squares}")
