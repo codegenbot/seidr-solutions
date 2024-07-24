@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <cctype>
 
 int main() {
     std::string cipher2;
@@ -11,22 +10,23 @@ int main() {
     std::string message;
     std::getline(std::cin, message);
 
-    std::unordered_map<char, std::string> cipherMap;
+    std::unordered_map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1[i]] = cipher2.substr(i, 1);
+        cipherMap[cipher1[i]] = cipher2[i];
     }
 
     std::string result;
     for(int i = 0; i < message.length(); i++) {
-        if(std::isalnum(message[i])) {
-            char c = std::tolower(message[i]);
-            if(cipherMap.find(c) != cipherMap.end()) {
+        char c = message[i]; 
+        if(isalpha(c)) { // Check if the character is alphabetic
+            c = std::tolower(c); // Convert to lowercase
+            if(cipherMap.find(c) != cipherMap.end()) { // Find in map and substitute
                 result += cipherMap.at(c);
             } else {
-                result += c;
+                result += c; // If not found, add original char
             }
-        } else {
-            result += message[i];
+        } else { // Non-alphabet characters remain unchanged
+            result += c;
         }
     }
     std::cout << result.c_str() << std::endl;
