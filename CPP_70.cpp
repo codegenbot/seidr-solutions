@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -34,3 +35,4 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
+}
