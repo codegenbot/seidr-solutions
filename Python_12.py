@@ -1,6 +1,6 @@
 from typing import list, Optional
 
-def longest(strings: list) -> Optional[str]:
+def longest(strings: list) -> Optional:
     if not strings:
         return None
     max_len = 0
