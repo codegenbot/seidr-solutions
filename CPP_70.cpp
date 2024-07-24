@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -34,4 +34,3 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
-}
