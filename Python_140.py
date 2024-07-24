@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def fix_spaces(text):
     if not text:
@@ -10,5 +12,4 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-def check(func):
-    print(func("Hello World!"))
+check(fix_spaces)
