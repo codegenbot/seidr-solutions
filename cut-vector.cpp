@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     vector<int> vec;
     int num;
-    
+
     while (cin >> num && num != 0) {
         vec.push_back(num);
     }
