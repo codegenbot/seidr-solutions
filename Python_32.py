@@ -21,4 +21,4 @@ if __name__ == "__main__":
         xs = [float(x) for x in xs]
         print(find_zero(xs))
     except ValueError as e:
-        print(str(e))
+        print(str(e)).
