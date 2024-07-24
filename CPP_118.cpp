@@ -1,7 +1,3 @@
-#include<string>
-#include<algorithm>
-using namespace std;
-
 string get_closest_vowel(string word) {
     string vowels = "aeiouAEIOU";
     for(int i = word.size() - 1; i >= 0; i--) {
