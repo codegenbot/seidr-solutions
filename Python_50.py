@@ -13,12 +13,12 @@ def decode_shift():
                     decoded_message += decoded_char
                 else:
                     decoded_message += char
-            print("Decoded message:", decoded_message)
-
-            while True:
-                response = input("Decode again? (y/n): ")
-                if response.lower() == "n":
-                    return
+            print("Decoded message: ", decoded_message)
 
         except ValueError:
             print("Invalid input. Please enter an integer.")
+
+        while True:
+            response = input("Decode again? (y/n): ")
+            if response.lower() == "n":
+                break
