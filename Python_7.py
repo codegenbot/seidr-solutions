@@ -3,7 +3,7 @@ from typing import List
 
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring in s]
+    return [s.lower() for s in strings if substring.lower() in s.lower()]
 
 
 user_strings = input("Enter a list of strings (space separated): ").split()
