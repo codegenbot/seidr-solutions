@@ -51,7 +51,7 @@ int main() {
     }
     cout << '\n';
     
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
