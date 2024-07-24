@@ -1,20 +1,34 @@
+```cpp
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <cmath>
 
 int main() {
-    int num;
-    std::cout << "Enter a set of numbers (separated by spaces): ";
-    std::vector<int> numbers;
-    while(std::cin >> num) {
-        numbers.push_back(num);
+    int nums[100]; // array to store numbers
+    int n; // number of elements in the array
+    int max_val = INT_MIN; // initialize maximum value as negative infinity
+    std::string str;
+
+    // ask for number of elements in the array
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // read and store numbers from user
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> nums[i];
     }
-    if (!numbers.empty()) {
-        int max_val = *std::max_element(numbers.begin(), numbers.end());
-        int abs_max_val = std::abs(*std::max_element(numbers.begin(), numbers.end()));
-        std::cout << "Max value is: " << max_val << std::endl;
-        std::cout << "Absolute Max value is: " << abs_max_val << std::endl;
+
+    // print all elements as a string
+    str = "The elements are: ";
+    for (int i = 0; i < n; i++) {
+        str += std::to_string(nums[i]);
+        if(i < n-1) {
+            str +=" ";
+        }
     }
+
+    // print result
+    std::cout << str << std::endl;
+
     return 0;
 }
