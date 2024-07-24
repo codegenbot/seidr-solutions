@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,11 +7,11 @@ std::pair<std::string, std::string> bf(std::pair<std::string, std::string> p) {
     // your implementation of bf function here
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
+        if (!(issame({{a[i].first,a[i].second}},{{b[i].first,b[i].second}})))
             return false;
     return true;
 }
@@ -31,7 +32,7 @@ void start() {
     return;
 }
 
-int main() {
+int start() { 
     start();
     return 0;
 }
