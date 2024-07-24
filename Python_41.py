@@ -1,3 +1,4 @@
+```
 def car_race_collision():
     s1 = int(input("Enter speed of first car: "))
     s2 = int(input("Enter speed of second car: "))
@@ -13,3 +14,5 @@ def car_race_collision():
             return False
         else:
             return True
+
+car_race_collision()
