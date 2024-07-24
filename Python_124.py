@@ -1,3 +1,4 @@
+```
 def valid_date(date):
     if '-' not in date:
         return False
