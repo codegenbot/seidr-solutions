@@ -13,8 +13,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& l1, const std::vector<int>& l2) {
+    return l1 == l2;
 }
 
 int main() {
