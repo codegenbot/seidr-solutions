@@ -1,40 +1,36 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& s) {
-    std::string result;
-    bool first = true;
+using namespace std;
 
-    for (char c : s) {
-        if (c == '-') {
-            if (!first) {
-                result[0] = toupper(result[0]);
-            }
-            result += " ";
-            first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result[0] = toupper(result[0]);
-            }
-            result += " ";
-            first = true;
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.size() && s[i] == '-') i++;
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            if (!first) {
-                result[0] = tolower(c);
-            } else {
-                result += c;
+            if (!result.empty()) {
+                result[0] = tolower(result[0]);
             }
-            first = false;
+            result += tolower(s[i]);
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << kebabToCamel(s) << std::endl;
+    string s;
+    while (true) {
+        cout << "input: ";
+        cin >> s;
+        cout << "output: " << camelCase(s) << endl;
     }
     return 0;
 }
