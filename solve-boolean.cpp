@@ -42,6 +42,8 @@ int main() {
     string s;
     cout << "Enter a Boolean expression: ";
     cin >> s;
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
     bool result = evalBoolean(s);
     if (result)
         cout << "True";
