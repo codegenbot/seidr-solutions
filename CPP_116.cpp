@@ -3,13 +3,13 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr) {
+vector<int> sort_vector(vector<int> arr) {
     sort(arr.begin(), arr.end(), 
-         [](int a, int b) {
-             int ones_a = __builtin_popcount(a);
-             int ones_b = __builtin_popcount(b);
-             if (ones_a != ones_b) return ones_a < ones_b;
-             return a < b;
+         [&] (int a, int b) {
+             if (bitset<32>(a).count() != bitset<32>(b).count())
+                 return bitset<32>(a).count() < bitset<32>(b).count();
+             else
+                 return a < b;
          });
     return arr;
 }
