@@ -1,16 +1,17 @@
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
     
-    for (char &ch : message) {
-        if (ch == cipher1[0]) {
-            ch = cipher2[0];
-        } else if (ch == cipher2[0]) {
-            ch = cipher1[0];
+    for (char &c : s3) {
+        for (int i = 0; i < s1.size(); ++i) {
+            if (s3[i] == s1[i]) {
+                c = s2[i];
+                break;
+            }
         }
     }
     
-    cout << message << endl;
+    cout << s3 << endl;
     
     return 0;
 }
