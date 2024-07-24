@@ -1,3 +1,4 @@
+```cpp
 float calculateEuclideanDistance(int n, const std::vector<float>& v1, const std::vector<float>& v2) {
     if (v1.size() != n || v2.size() != n) {
         throw std::runtime_error("Vectors must have the same size.");
@@ -8,3 +9,4 @@ float calculateEuclideanDistance(int n, const std::vector<float>& v1, const std:
         sumOfSquares += diff;
     }
     return sqrt(sumOfSquares);
+}
