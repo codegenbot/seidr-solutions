@@ -1,4 +1,3 @@
-```
 def sorted_list_sum(input_data):
     try:
         input_string = ' '.join(map(str, input_data))
