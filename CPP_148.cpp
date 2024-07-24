@@ -1,14 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
-    std::string s1 = join(v1);
-    std::string s2 = join(v2);
-    return s1 == s2;
-
+bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::string, std::string>& p2) {
+    if (p1.first != p2.first || p1.second != p2.second) return false;
+    return true;
 }
 
 std::string join(const std::vector<std::string>& v) {
@@ -38,10 +34,11 @@ int main() {
     std::cin >> planet1 >> planet2;
     planets = {planet1, planet2};
     
-    std::pair<std::string, std::string> output = bf(planets);
-    std::cout << output.first << " ";
-    if (!output.second.empty()) {
-        std::cout << output.second;
+    bool result = issame(planets, bf(planets));
+    if(result) {
+        std::cout << "same";
+    } else {
+        std::cout << "not same";
     }
     return 0;
 }
