@@ -1,2 +1,2 @@
 def roll_dice(n, m):
-    return (n - 1) / (n * m - 1)
+    return (n - m) / (n + m - 1)
