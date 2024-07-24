@@ -28,7 +28,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     if(std::cin >> std::ws && std::cin.getline(input.data(), input.max_size())) {
-        input = input.substr(0, 1).toupper() + input.substr(1);
         std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     } else {
         std::cout << "Invalid input. Please try again." << std::endl;
