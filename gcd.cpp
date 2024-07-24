@@ -42,6 +42,8 @@ int main() {
         return 1;
     }
 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     string text, target;
     if (!getline(cin, text) || !getline(cin, target)) {
         cerr << "Invalid input for strings." << endl;
