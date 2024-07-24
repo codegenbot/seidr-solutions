@@ -47,7 +47,6 @@ int main() {
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
-
     if(checkEquality) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
