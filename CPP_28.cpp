@@ -8,7 +8,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
         result += str;
     }
     return result;
-
 }
 
 int main() {
