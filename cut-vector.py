@@ -2,7 +2,7 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-right_sum = total_sum
+right_sum = total_sum - arr[0]
 min_diff = abs(arr[0] - sum(arr[1:]))
 cut_index = 0
 
