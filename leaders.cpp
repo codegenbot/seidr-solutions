@@ -1,17 +1,19 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
+vector<int> leaders(vector<int>& arr) {
     vector<int> res;
-    int rightmost = nums.back();
-    for (int i = nums.size() - 2; i >= 0; --i) {
-        if (nums[i] >= rightmost) {
-            res.push_back(nums[i]);
-            rightmost = nums[i];
+    int n = arr.size();
+    for (int i = n - 1; i >= 0; i--) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        if (isLeader) res.push_back(arr[i]);
     }
-    res.push_back(rightmost);
+    reverse(res.begin(), res.end());
     return res;
 }
