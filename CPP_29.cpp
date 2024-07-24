@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<std::string> a, vector<std::string> b,);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix);
 
-bool issame(vector<std::string> a, vector<std::string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+    return (a == b && b == c);
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
