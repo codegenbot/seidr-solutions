@@ -8,6 +8,11 @@ int main() {
         nums.push_back(n);
     }
 
+    if (nums.empty()) {
+        std::cout << "No input to process." << std::endl;
+        return 0;
+    }
+
     int sum = 0;
     for (int num : nums) {
         sum += num;
