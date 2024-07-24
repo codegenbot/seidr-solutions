@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <vector>
 
@@ -12,3 +13,4 @@ int fuelCost(vector<int> v) {
         sum += temp;
     }
     return sum;
+}
