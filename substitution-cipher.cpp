@@ -2,7 +2,7 @@
 
 int main() {
     using namespace std;
-    
+
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
 
