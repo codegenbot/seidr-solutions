@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 using namespace std;
+
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
@@ -19,8 +21,12 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
     vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        cout << num << " ";
+
+    cout << "Leaders are: ";
+    for (int leader : result) {
+        cout << leader << " ";
     }
+    cout << endl;
+
     return 0;
 }
