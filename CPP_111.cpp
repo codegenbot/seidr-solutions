@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -36,7 +35,7 @@ unordered_multimap<char, int> histogram(string test) {
     return maxCountMap;
 }
 
-int main1() {
+int main2() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
@@ -45,10 +44,7 @@ int main1() {
     for (auto& p : hist) {
         cout << p.first << ": " << p.second << endl;
     }
-    return 0;
-}
 
-int main2() {
     assert(histogram("a") == {{'a', 1}});
     return 0;
 }
