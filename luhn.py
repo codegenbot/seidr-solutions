@@ -1,3 +1,4 @@
+```
 def luhn(card):
     card = [int(d) for d in str(card)]
     total_sum = sum(card)
