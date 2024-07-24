@@ -17,3 +17,4 @@ string rounded_avg(int n, int m) {
     }
     reverse(bin.begin(), bin.end());
     return bin;
+}
