@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 't':
         return True
@@ -8,11 +7,12 @@ def solve_boolean(expression):
         raise ValueError("Invalid operation")
     else:
         result = True
-        while '&' in expression or '|' in expression:
-            for char in expression:
-                if char == '&':
-                    result &= (expression[0] == 't')
-                elif char == '|':
-                    result |= (expression[0] == 't')
-            expression = expression[1:]
+        i = 0
+        while i < len(expression):
+            if expression[i] == '&':
+                result &= (expression[:i].endswith('t') or expression[i+1:].startswith('f'))
+                i += 2
+            elif expression[i] == '|':
+                result |= (expression[:i].endswith('t') or expression[i+1:].startswith('f'))
+                i += 2
         return result
