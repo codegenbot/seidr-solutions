@@ -1,3 +1,4 @@
+```
 import math
 
 def factorial(x):
@@ -14,4 +15,4 @@ if __name__ == '__main__':
         return result
 
     num = int(input("Enter a number: "))
-    print(f(num))
+    print(f(num)[0])
