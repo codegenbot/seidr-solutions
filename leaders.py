@@ -1,4 +1,13 @@
-def leaders(input):
-    return [
-        x for x in reversed(input) if all(x >= y for y in input[input.index(x) + 1 :])
-    ]
+def leaders(arr):
+    n = len(arr)
+    result = [arr[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            result.append(arr[i])
+            arr.pop()
+            n -= 1
+        else:
+            break
+
+    return result[::-1]
