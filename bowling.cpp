@@ -1,26 +1,35 @@
 int score(string s) {
-    int total = 0;
+    int totalScore = 0;
     int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; ++i) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (s[i + 2] == 'X') {
-                total += 10 + (s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
-            } else {
-                total += (s[i + 2] == '/' ? 10 : s[i + 2] - '0') + (s[i + 3] == '/' ? 10 : s[i + 3] - '0');
-            }
-            ++frame;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
-            ++frame;
+    int rolls[21] = {0};
+
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[frame] = 10;
+            frame++;
+        } else if (c == '/') {
+            rolls[frame] = 10 - rolls[frame-1];
+            frame++;
+        } else if (c == '-') {
+            rolls[frame] = 0;
+            frame++;
         } else {
-            total += s[i] - '0';
-            if (s[i + 1] == '/') {
-                total += 10 - (s[i] - '0');
-            }
+            rolls[frame] = c - '0';
+            frame++;
         }
     }
-    return total;
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i*2] == 10) {
+            totalScore += 10 + rolls[i*2+1] + rolls[i*2+2];
+        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
+            totalScore += 10 + rolls[i*2+2];
+        } else {
+            totalScore += rolls[i*2] + rolls[i*2+1];
+        }
+    }
+
+    return totalScore;
 }
 
 int main() {
