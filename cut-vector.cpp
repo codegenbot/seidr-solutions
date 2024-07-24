@@ -2,7 +2,6 @@
 #include <vector>
 #include <climits>
 #include <cmath>
-
 using namespace std;
 
 int main() {
@@ -42,13 +41,13 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= cut_index; i++) {
+    for (int i = 0; i < cut_index + 1; i++) {
         cout << nums[i] << " ";
     }
 
     cout << endl;
 
-    for (int i = cut_index; i < n; i++) {
+    for (int i = cut_index + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
 
