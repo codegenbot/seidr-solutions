@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 bool monotonic(const std::vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
@@ -9,5 +12,5 @@ bool monotonic(const std::vector<int>& l) {
             decreasing = false;
         }
     }
-    return increasing || decreasing;
+    return (increasing || decreasing);
 }
