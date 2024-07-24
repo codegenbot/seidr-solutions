@@ -1,41 +1,34 @@
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    vector<int> vec;
+    while (cin >> n) {
+        vec.push_back(n);
     }
     
-    int n = nums.size();
-    int diff = INT_MAX;
-    int idx = -1;
+    int sum = 0;
+    for (int num : vec) {
+        sum += num;
+    }
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0;
-        int right_sum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
-            idx = i;
+    int target = sum / 2;
+    int prefixSum = 0;
+    int index = 0;
+    for (int i = 0; i < vec.size(); ++i) {
+        prefixSum += vec[i];
+        if (prefixSum >= target) {
+            index = i;
+            break;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subVec1(vec.begin(), vec.begin() + index + 1);
+    vector<int> subVec2(vec.begin() + index + 1, vec.end());
+    
+    for (int num : subVec1) {
+        cout << num << endl;
     }
-    
-    cout << endl;
-    
-    for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int num : subVec2) {
+        cout << num << endl;
     }
     
     return 0;
