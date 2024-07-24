@@ -9,6 +9,9 @@ any compare_one(any a, any b) {
     if (holds_alternative<int, float>(a) && holds_alternative<float, int>(b)) {
         return b;
     }
+    else if (holds_alternative<float, int>(a) && holds_alternative<int, float>(b)) {
+        return max(a, b);
+    }
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
         string sa = get<string>(a);
         string sb = get<string>(b);
@@ -19,7 +22,7 @@ any compare_one(any a, any b) {
         else
             return "None";
     }
-    else if (holds_alternative<string>(a) && holds_alternative<int, float>(b)) {
+    else if (holds_alternative<string>(a) && (holds_alternative<int>(b) || holds_alternative<float>(b))) {
         string sa = get<string>(a);
         double sb = get<double>(b);
         if (stod(sa) > sb)
@@ -29,7 +32,7 @@ any compare_one(any a, any b) {
         else
             return "None";
     }
-    else if (holds_alternative<int, float>(a) && holds_alternative<string>(b)) {
+    else if ((holds_alternative<int>(a) || holds_alternative<float>(a)) && holds_alternative<string>(b)) {
         double sa = get<double>(a);
         string sb = get<string>(b);
         if (sa > stod(sb))
