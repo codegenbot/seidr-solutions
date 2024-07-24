@@ -1,9 +1,7 @@
-Here is the complete Python function:
-
-```python
 def minPath(grid, k):
     N = len(grid)
     queue = [(0, 0, [])]
+    visited = [[False] * N for _ in range(N)]
     res = None
     while queue:
         row, col, path = queue.pop(0)
@@ -12,8 +10,9 @@ def minPath(grid, k):
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
-                if 0 <= nr < N and 0 <= nc < N and grid[nr][nc] != '0':
+                if 0 <= nr < N and 0 <= nc < N and grid[nr][nc] != '0' and not visited[nr][nc]:
                     queue.append((nr, nc, path + [grid[nr][nc]]))
+                    visited[nr][nc] = True
     return res
 
 grid = [["1", "0", "1"], ["0", "0", "0"], ["1", "0", "1"]]
