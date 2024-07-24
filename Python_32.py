@@ -5,4 +5,4 @@ def find_zero(xs: list):
     else:
         mid1 = xs[(n - 1) // 2]
         mid2 = xs[n // 2]
-        return -(mid1 + mid2) / (xs[-1])
+        return -(mid1 + mid2) / 2 / xs[-1]
