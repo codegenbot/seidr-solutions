@@ -1,13 +1,17 @@
-def sum_product():
-    numbers = []
-    while True:
-        try:
-            num = int(input("Enter a number (or 'stop' to finish): "))
-            if num == 'stop':
-                break
-            numbers.append(num)
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return sum(numbers), eval('*'.join(map(str, numbers)))
+```
+from typing import List, Tuple
 
-print(sum_product())
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not isinstance(numbers, list):
+        raise ValueError("Input must be a list")
+    if not numbers:
+        raise ValueError("List must be non-empty")
+    for num in numbers:
+        if not isinstance(num, int):
+            raise ValueError("List elements must be integers")
+    total_sum = 0
+    product = 1
+    for num in numbers:
+        total_sum += num
+        product *= num
+    return total_sum, product
