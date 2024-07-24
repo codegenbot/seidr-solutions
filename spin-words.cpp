@@ -1,4 +1,4 @@
-```c
+```c++
 #include <string>
 #include <algorithm>
 
@@ -14,9 +14,14 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                std::string reversedWord(word);
-                std::reverse(reversedWord.begin(), reversedWord.end());
-                result += (reversedWord + " ");
+                char* revStr = new char[word.length() + 1];
+                strcpy(revStr, word.c_str());
+                for (int j = word.length(); j >= 0; --j) {
+                    result += revStr[j];
+                }
+                delete[] revStr;
+                result += " ";
+                word.clear();
             } else {
                 result += (word + " ");
             }
@@ -27,11 +32,14 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        std::string reversedWord(word);
-        std::reverse(reversedWord.begin(), reversedWord.end());
-        result += (reversedWord);
+        char* tempRevStr = new char[word.length() + 1];
+        strcpy(tempRevStr, word.c_str());
+        for (int j = word.length(); j >= 0; --j) {
+            result += tempRevStr[j];
+        }
+        delete[] tempRevStr;
     } else {
-        result += (std::move(word)); 
+        result += (word);
     }
 
     return result;
