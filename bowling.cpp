@@ -1,21 +1,45 @@
 int score(string s) {
-    int res = 0, frame = 0, i = 0;
-    while (frame < 10) {
+    int total = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
-            res += 10;
-            res += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 1] - '0' + s[i + 2] - '0'));
-            i++;
-        } else if (s[i + 1] == '/') {
-            res += 10;
-            res += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
-            i += 2;
+            total += 10;
+            if (s[i+2] == 'X') {
+                total += 10;
+                if (s[i+4] == 'X') {
+                    total += 10;
+                } else if (s[i+4] == '-') {
+                    total += 0;
+                } else {
+                    total += s[i+4] - '0';
+                }
+            } else if (s[i+2] == '/') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0';
+                total += s[i+4] - '0';
+            }
+            frame++;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i-1] - '0');
+            if (s[i+2] == 'X') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0';
+            }
+            frame++;
+        } else if (s[i] == '-') {
+            total += 0;
+            frame++;
         } else {
-            res += (s[i] == '-' ? 0 : s[i] - '0') + (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            total += s[i] - '0';
+            frame++;
         }
-        frame++;
+        if (frame == 10) {
+            break;
+        }
     }
-    return res;
+    return total;
 }
 
 int main() {
