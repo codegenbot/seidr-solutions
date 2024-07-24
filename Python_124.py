@@ -1,3 +1,4 @@
+```
 def valid_date():
     while True:
         date = input("Enter a date in the format YYYY-MM-DD: ")
@@ -21,10 +22,10 @@ def valid_date():
                 elif month == 2:
                     break
                 if month in months_with_31_days:
-                    if day > days_in_months[month]:
+                    if days_in_months[month-1] < month_day:
                         return
 
-        if int(month_day / 100) != int(year/100): 
+        if int(month_day // 100) != year//100: 
             if len(str(int(month_day/100)))>3: 
                 return
             return 
