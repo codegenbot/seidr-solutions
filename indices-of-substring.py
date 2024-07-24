@@ -10,10 +10,8 @@ def indices_of_substring(text, target):
     return indices
 
 
-# Read input
-text = input()
-target = input()
-
-# Output
-for idx in indices_of_substring(text, target):
+text = input().strip()
+target = input().strip()
+result = indices_of_substring(text, target)
+for idx in result:
     print(idx, end=" ")
