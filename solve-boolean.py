@@ -1,13 +1,9 @@
-Here is the solution:
-
-def solve_boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        a, b = map(bool, input_str.split('&'))
-        return a and b
-    elif '|' in input_str:
-        a, b = map(bool, input_str.split('|'))
-        return a or b
+```
+def solve_boolean(expression):
+    result = True if expression == 't' else False
+    for i in range(len(expression)):
+        if expression[i] == '&':
+            result = result and (expression[i+1] == 't')
+        elif expression[i] == '|':
+            result = result or (expression[i+1] == 't')
+    return result
