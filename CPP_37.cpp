@@ -1,12 +1,5 @@
-bool issame(vector<float> a,vector<float> b) {
-    if (a.size() != b.size()) return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    
-    return true;
-}
+#include <vector>
+#include <cassert>
 
 vector<float> sort_even(vector<float> l) {
     vector<float> even_values;
@@ -33,8 +26,15 @@ vector<float> sort_even(vector<float> l) {
     return result;
 }
 
-int main(){
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    vector<float> input = {3.5, 2.0, 1.2, 4.8, 5.3};
+    vector<float> sorted_even = sort_even(input);
+    
+    assert(issame(sorted_even, {1.2, 2.0, 3.5, 4.8, 5.3}));
     
     return 0;
 }
