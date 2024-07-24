@@ -1,25 +1,15 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    int currentRoll = 0;
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + 10; // strike, add 10 and next roll's value
-            frame++;
+            score += 30;
+            currentRoll = 0;
         } else if (c == '/') {
-            score += 10; // spare, add 10 and current roll's value
-            frame++;
+            score += currentRoll + 10;
+            currentRoll = 0;
         } else {
-            int val = c - '0'; // convert char to integer
-            score += val;
-            frame++;
-            if (frame < 10) { // check for next roll in the same frame
-                if (s[frame * 2] == 'X' || s[frame * 2] == '/') {
-                    score += 10; // add 10 for strike or spare
-                } else {
-                    int nextVal = s[frame * 2] - '0';
-                    score += nextVal;
-                }
-            }
+            currentRoll = currentRoll * 10 + (c - '0') * 10;
         }
     }
     return score;
