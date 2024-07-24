@@ -1,4 +1,4 @@
-```' 
+````
 def is_prime(n):
     if n <= 1:
         return False
@@ -21,4 +21,4 @@ if not nums or not all(isinstance(num, int) for num in nums):
 elif len(nums) < 1:
     print("No numbers were entered. Please try again!")
 else:
-    print(search(nums))'
+    print(search(nums))
