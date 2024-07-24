@@ -1,3 +1,7 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <cctype>
 #include <cassert>
 
 using namespace std;
@@ -9,8 +13,8 @@ multimap<char, int> histogram(string test) {
     for (char c : test) {
         char ch = tolower(c);
         if (ch != ' ') { 
-            if (!result.count(ch)) result[ch] = 0;
-            result[ch]++;
+            if (!result.count(ch)) result.insert({ch, 0});
+            result.find(ch)->second++;
         }
     }
 
@@ -21,9 +25,9 @@ multimap<char, int> histogram(string test) {
         if (p.second > maxCount) {
             maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap.insert(p);
+            maxCountMap.insert({p.first, p.second});
         } else if (p.second == maxCount) {
-            maxCountMap.insert(p);
+            maxCountMap.insert({p.first, p.second});
         }
     }
 
@@ -43,6 +47,6 @@ int main1() {
 }
 
 int main2() {
-    assert(std::make_pair('a', 1) == *histogram("a").begin());
+    assert(histogram("a") == multimap<char, int>{{'a', 1}});
     return 0;
 }
