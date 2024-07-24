@@ -27,9 +27,17 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
+            std::cin.clear(); 
+            while(std::cin.get() != '\n') {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
             break;
         }
         vec1.push_back(num);
+        // Read the next line for the next number
+        if (!std::getline(std::cin, tempLine).good()) {
+            break; 
+        }
     }
 
     // Input for vector 2
@@ -38,10 +46,17 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec2.clear();
-            tempLine.clear();
+            std::cin.clear(); 
+            while(std::cin.get() != '\n') {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
             break;
         }
         vec2.push_back(num);
+        // Read the next line for the next number
+        if (!std::getline(std::cin, tempLine).good()) {
+            break; 
+        }
     }
 
     if(isSame(vec1, vec2)) {
