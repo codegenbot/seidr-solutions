@@ -9,18 +9,28 @@ struct Roman {
     string roman;
 };
 
-vector<Roman> romanMap({Roman{1000, "M"}, Roman{900, "CM"}, Roman{500, "D"},
-                         Roman{400, "CD"}, Roman{100, "C"}, Roman{90, "XC"},
-                         Roman{50, "L"}, Roman{40, "XL"}, Roman{10, "X"},
-                         Roman{9, "IX"}, Roman{5, "V"}, Roman{4, "IV"}, Roman{1, "I"}});
+vector<pair<int, string>> romanMap;
+romanMap.push_back({1000, "M"});
+romanMap.push_back({900, "CM"});
+romanMap.push_back({500, "D"});
+romanMap.push_back({400, "CD"});
+romanMap.push_back({100, "C"});
+romanMap.push_back({90, "XC"});
+romanMap.push_back({50, "L"});
+romanMap.push_back({40, "XL"});
+romanMap.push_back({10, "X"});
+romanMap.push_back({9, "IX"});
+romanMap.push_back({5, "V"});
+romanMap.push_back({4, "IV"});
+romanMap.push_back({1, "I"});
 
 string intToRoman(int number) {
     string roman = "";
     
     for (const auto& pair : romanMap) {
-        while (number >= pair.value) {
-            number -= pair.value;
-            roman += pair.roman;
+        while (number >= pair.first) {
+            number -= pair.first;
+            roman += pair.second;
         }
     }
     
