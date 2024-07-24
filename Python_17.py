@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def parse_music(music_string: str) -> list:
     notes = {'o': [4], 'o|': [2, 1], '.|': [1]}
