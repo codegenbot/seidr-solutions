@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cctype>
+```
 #include <string>
-
 bool hasDigit = false;
 int dotCount = 0;
 
