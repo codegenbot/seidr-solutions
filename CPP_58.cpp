@@ -15,21 +15,17 @@ vector<int> common(const vector<int>& a, const vector<int>& b) {
     return result;
 }
 
-bool areSame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 int main() {
     vector<int> vec1 = {1, 2, 3};
     vector<int> vec2 = {1, 2, 3};
 
-    if (areSame(vec1, vec2)) {
-        cout << "Vectors are the same." << endl;
-    } else {
+    if (common(vec1, vec2).empty()) {
         cout << "Vectors are different." << endl;
+    } else {
+        cout << "Vectors are the same." << endl;
     }
 
-    assert(areSame(common({4, 3, 2, 8}, {}) , {}));
+    assert(common({4, 3, 2, 8}, {}).empty());
 
     return 0;
 }
