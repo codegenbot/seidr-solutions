@@ -1,12 +1,15 @@
 string filp_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
-        if(str[i] >= 'a' && str[i] <= 'z')
-            result += toupper(str[i]);
-        else if(str[i] >= 'A' && str[i] <= 'Z')
-            result += tolower(str[i]);
-        else
-            result += str[i];
+        char c = str[i];
+        if(c>=97 && c<=122){ // lowercase letters (a-z)
+            result += toupper(c);
+        }
+        else if(c>=65 && c<=90){ // uppercase letters (A-Z)
+            result += tolower(c);
+        }else{
+            result+=c;
+        }
     }
     return result;
 }
