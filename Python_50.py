@@ -1,18 +1,15 @@
-```python
-def decode_shift():
+def decode_shift(): 
     while True:
         try:
             shift = int(input("Enter the shift amount: "))
             print(f"The decoded message will have a shift of {shift}.")
-            message = input("Enter the encoded message: ")
+            encoded_message = input("Enter the encoded message: ")
             decoded_message = ""
-            for char in message:
+            for char in encoded_message:
                 if char.isalpha():
                     ascii_offset = 65 if char.isupper() else 97
-                    decoded_char = chr((ord(char) - ascii_offset - shift) % 26 + ascii_offset)
-                    decoded_message += decoded_char
+                    decoded_message += chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
                 else:
                     decoded_message += char
-            return decoded_message
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Decoded message:", decoded_message)
+            return shift
