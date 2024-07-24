@@ -3,12 +3,15 @@
 
 string get_closest_vowel(string word) {
     int n = word.length();
+    string closest_vowel = "";
     for (int i = n - 1; i > 0 && !isVowel(word[i]); i--) {
         if (isConsonant(word[i-1]) && isVowel(word[i])) {
-            return string(1, tolower(word[i]));
+            closest_vowel = tolower(string(1, word[i]));
+            break;
         }
     }
-    return "";
+    return closest_vowel;
+
 }
 
 bool isVowel(char c) {
