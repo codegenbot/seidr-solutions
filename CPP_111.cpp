@@ -1,21 +1,21 @@
+```c
+#include <iostream>
 #include <map>
 #include <string>
+#include <cctype>
 
-bool issame(map<char, int> m1, map<char, int> m2) {
-    return m1 == m2;
-}
+using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
-        int count = 0;
-        for (char letter : letters) {
-            if (letter == c) count++;
+    for (char c : test) {
+        char ch = tolower(c);
+        if (ch != ' ') { 
+            if (!result.count(ch)) result[ch] = 0;
+            result[ch]++;
         }
-        if (count > 0) result[c] = count;
     }
 
     map<char, int> maxCountMap;
@@ -31,4 +31,17 @@ map<char, int> histogram(string test) {
     }
 
     return maxCountMap;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    map<char, int> hist = histogram(input);
+    for (auto& pair : hist) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+
+    return 0;
 }
