@@ -1,21 +1,6 @@
-```
-from typing import List, Any
-
-def main():
-    values = []
-    while True:
-        value = input("Enter an integer (or 'stop' to finish): ")
-        if value.lower() == "stop":
-            break
-        try:
-            values.append(int(value))
-        except ValueError:
-            print("Invalid input. Please enter a valid integer or type 'stop' to finish.")
-    filtered_values = filter_integers(values)
-    print(filtered_values)
-
-def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int) and value % 2 == 0]
-
-if __name__ == "__main__":
-    main()
+def filter_integers(values: List[Any]) -> str:
+    integers = [value for value in values if isinstance(value, int)]
+    if len(integers) == len(values):
+        return str(integers)
+    else:
+        return "Not all inputs were valid integers."
