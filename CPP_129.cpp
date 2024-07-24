@@ -1,49 +1,55 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> visited(n, vector<int>(n));
-    
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    pq.push({0, {0, 0}});
-    visited[0][0] = 1;
-    
+    vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
-    while (!pq.empty()) {
-        int val = -pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        pq.pop();
-        
-        if (k > 0) {
-            for (int i = -1; i <= 1; i++) {
-                for (int j = -1; j <= 1; j++) {
-                    int nx = x + i, ny = y + j;
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                        visited[nx][ny] = 1;
-                        pq.push({-grid[nx][ny], {nx, ny}});
-                        res.push_back(grid[nx][ny]);
-                    }
-                }
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                vector<int> path;
+                dfs(grid, visited, i, j, k, path);
+                res = minPath(res, path);
             }
-        } else break;
-        
-        k--;
+        }
     }
     
     return res;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    for (int i : res) {
-        cout << i << " ";
+vector<int> minPath(vector<int> path1, vector<int> path2) {
+    for (int i = 0; i < path1.size(); i++) {
+        if (path1[i] > path2[i]) {
+            return path1;
+        } else if (path1[i] < path2[i]) {
+            return path2;
+        }
     }
-    return 0;
+    return path1;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
+    if (k == 0) {
+        return;
+    }
+    
+    visited[i][j] = true;
+    path.push_back(grid[i][j]);
+    
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            if (x == 0 && y == 0) continue;
+            int ni = i + x, nj = j + y;
+            
+            if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size() && !visited[ni][nj]) {
+                dfs(grid, visited, ni, nj, k - 1, path);
+                return;
+            }
+        }
+    }
+    
+    visited[i][j] = false;
 }
