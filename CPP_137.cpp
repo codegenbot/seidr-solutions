@@ -1,41 +1,48 @@
 #include <iostream>
 #include<string>
 #include<algorithm>
-#include <boost/any.hpp>
+#include<boost/any.hpp>
+#include<boost/convert.hpp>
 
 using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(double) && b.type() == typeid(string)) {
         double da = boost::any_cast<double>(a);
         string db = boost::any_cast<string>(b);
-        return da > stod(db) ? a : b;
+        if (da > stod(db))
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         double da = boost::any_cast<double>(b);
         string db = boost::any_cast<string>(a);
-        return stod(db) > da ? a : b;
+        if (stod(db) > da)
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string da = boost::any_cast<string>(a);
         string db = boost::any_cast<string>(b);
-        if(da > db)
+        if (da > db)
             return a;
-        else if(db > da)
+        else if (db > da)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double da = boost::any_cast<double>(a);
         double db = boost::any_cast<double>(b);
-        if(da > db)
+        if (da > db)
             return a;
-        else if(db > da)
+        else if (db > da)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
-    return "None";
+    return boost::any("None");
 }
 
 int main() {
