@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
-#include <iomanip> 
+#include <iomanip> // for setfill, setw, hex
+
 #include <openssl/md5.h>
 #include <openssl/ssl.h>
 
