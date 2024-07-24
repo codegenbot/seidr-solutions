@@ -1,26 +1,33 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string camelCase(std::string str) {
     std::string result = "";
-    for (char c : s) {
-        if (c == '-') {
-            result += c + ((result.length() > 0) ? "" : " ");
-        } else if (c == ' ') {
-            continue;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            i++; // skip the '-'
+            while (i < str.length() && str[i] == '-') i++;
+            if (i < str.length()) {
+                result += toupper(str[i]);
+                i++; // skip the first char of the next word
+            }
+        } else if (!result.empty() && isalpha(str[i])) {
+            result += tolower(str[i]);
         } else {
-            result += toupper(c);
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += str[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
     }
     return 0;
 }
