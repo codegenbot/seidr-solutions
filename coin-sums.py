@@ -1,11 +1,14 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    for i, coin in enumerate(sorted(coins, reverse=True)):
+    for coin in coins:
         while cents >= coin:
+            if coin == 25 and cents < 25: 
+                break
             cents -= coin
-            result[i] += 1
+            result[coins.index(coin)] += 1
 
     return result
 
