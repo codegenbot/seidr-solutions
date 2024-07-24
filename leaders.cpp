@@ -21,25 +21,15 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    bool hasInput = false;
-
     while (cin >> num) {
-        if (cin.fail()) {
-            break;
-        }
         if (num == 0) {
             break;
         }
-        hasInput = true;
         nums.push_back(num);
     }
-
-    if (hasInput) {
-        vector<int> result = findLeaders(nums);
-        for (int leader : result) {
-            cout << leader << " ";
-        }
+    vector<int> result = findLeaders(nums);
+    for (int leader : result) {
+        cout << leader << " ";
     }
-    
     return 0;
 }
