@@ -26,3 +26,4 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
+}
