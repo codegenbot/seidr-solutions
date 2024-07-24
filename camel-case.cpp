@@ -17,7 +17,7 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
-    std::string temp = capitalizeNext ? toupper(currentWord[0]) + std::string(1, tolower(currentWord[1])) : currentWord;
+    std::string temp = capitalizeNext ? toupper(currentWord[0]) + std::string(1, currentWord[1]) : currentWord;
     result += temp;
     currentWord.clear();
     capitalizeNext = true;
