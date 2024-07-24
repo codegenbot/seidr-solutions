@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     res = float("inf")
@@ -14,4 +15,4 @@ def minPath(grid, k):
                 dfs(ni, nj, path + [(ni, nj)])
 
     dfs(0, 0, [])
-    return [x for x in res]
+    return res
