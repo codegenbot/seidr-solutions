@@ -23,4 +23,4 @@ def find_zero():
     else:
         return "No real roots found"
 
-print(find_zero())
+print(find_zero().strip())
