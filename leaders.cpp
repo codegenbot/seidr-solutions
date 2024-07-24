@@ -1,19 +1,20 @@
+```c++
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
-    vector<int> res(v.size(), 0); 
-    int rightmost = v.back();
+    vector<int> res;
     for (int i = v.size() - 1; i >= 0; --i) {
-        rightmost = v[i];
+        bool leader = true;
         for (int j = i + 1; j < v.size(); ++j) {
-            if (v[j] >= rightmost) {
-                rightmost = v[j];
+            if (v[j] >= v[i]) {
+                leader = false;
+                break;
             }
         }
-        res[i] = rightmost;
+        if (leader) res.push_back(v[i]);
     }
     return res;
 }
