@@ -1,3 +1,8 @@
+#include <string>
+#include <sstream>
+
+using namespace std;
+
 bool valid_date(string date) {
     int day, month, year;
     string token[3];
@@ -24,7 +29,6 @@ bool valid_date(string date) {
     else if (month == 2 && day > 29)
         return false;
 
-    // Check for invalid days
     if (day < 1 || day > 30)
         return false;
 
