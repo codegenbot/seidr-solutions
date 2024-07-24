@@ -1,7 +1,6 @@
 #include <vector>
 #include <climits>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -26,7 +25,23 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<pair<int, int>>());
+int getAndProcessInput() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    vector<pair<int, int>> output = pluck(arr);
+
+    assert(output.empty());
+
+    for (const auto& pair : output) {
+        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
+    }
     return 0;
 }
