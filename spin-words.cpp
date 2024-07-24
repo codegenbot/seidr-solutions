@@ -23,13 +23,29 @@ string spinWords(string sentence) {
     return result;
 }
 
-int main() {
-    string input;
-    while (true) {
-        cout << "Enter a string: ";
-        cin >> input;
-        if (input == "exit") break;
-        cout << spinWords(input) << endl;
+string spinWords(string sentence) {
+    string reverseSentence = "";
+    string word = "";
+    
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (word.length() >= 5)
+                for (int j = word.length()-1; j >= 0; j--)
+                    reverseSentence += word[j];
+            else
+                reverseSentence += word;
+            
+            word = "";
+            reverseSentence += " ";
+        } 
+        else 
+            word += sentence[i];
     }
-    return 0;
-}
+    
+    if (word.length() >= 5)
+        for (int j = word.length()-1; j >= 0; j--)
+            reverseSentence += word[j];
+    else
+        reverseSentence += word;
+    
+    return reverseSentence;
