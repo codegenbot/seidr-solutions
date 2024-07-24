@@ -12,14 +12,18 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
+    vector<int> numbers;
     int n;
+    
     cin >> n;
+    
     for(int i=0; i<n; i++){
-        int temp;
-        cin >> temp;
-        input.push_back(temp);
+        int num;
+        cin >> num;
+        numbers.push_back(num);
     }
-    cout << solution(input) << endl;
+
+    cout << solution(numbers) << endl;
+    
     return 0;
 }
