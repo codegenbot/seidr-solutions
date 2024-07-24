@@ -17,7 +17,7 @@ try:
     elif not isinstance(user_substring, str):
         print("Error: Substring must be a string.")
     else:
-        result = filter_by_substring([str(s) for s in user_strings], user_substring)
+        result = filter_by_substring([str(s) for s in user_strings], str(user_substring))
         print(result)
 except ValueError as e:
     print(f"Error: {e}")
