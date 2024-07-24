@@ -1,17 +1,7 @@
+#include <vector>
 #include <iostream>
 
 using namespace std;
-
-int prime_fib(int n) {
-    int fib = 0, a = 1, b = 1;
-    for (int i = 2; ; i++) {
-        if (i == n) return b;
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (!isPrime(fib)) continue;
-    }
-}
 
 bool isPrime(int num) {
     if (num <= 1) return false;
@@ -21,9 +11,22 @@ bool isPrime(int num) {
     return true;
 }
 
+int prime_fib(int n) {
+    int fib_num = 2, prev_prev = 1, prev = 1;
+    for (int i = 1; ; i++) {
+        int temp = prev_prev + prev;
+        if (isPrime(temp)) {
+            fib_num = temp;
+            if (++i == n) return fib_num;
+        }
+        prev_prev = prev;
+        prev = temp;
+    }
+}
+
 int main() {
-    int n;
-    cin >> n;
-    cout << prime_fib(n) << endl;
+    for (int i = 1; i <= 5; i++) {
+        cout << prime_fib(i) << endl;
+    }
     return 0;
 }
