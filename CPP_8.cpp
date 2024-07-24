@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-#include <utility>
 #include <vector>
 
 bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
