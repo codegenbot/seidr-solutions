@@ -1,33 +1,37 @@
 #include <string>
-using namespace std;
 
-bool solveBoolean(string booleanExpression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
+bool solveBoolean(std::string booleanExpression) {
+    int i = 0;
+    bool result = false;
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '|') {
-            string rightOperand = operandStack.top();
-            operandStack.pop();
-            string leftOperand = operandStack.top();
-            operandStack.pop();
-            operandStack.push(to_string((leftOperand == "T") | (rightOperand == "T")) + "T");
-        } else if (booleanExpression[i] == '&') {
-            string rightOperand = operandStack.top();
-            operandStack.pop();
-            string leftOperand = operandStack.top();
-            operandStack.pop();
-            operandStack.push(to_string((leftOperand == "T") && (rightOperand == "T")) + "T");
-        } else if (booleanExpression[i] != ' ') {
-            string operand;
-            while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
-                operand += booleanExpression[i];
-                i++;
+    while (i < booleanExpression.length()) {
+        if (booleanExpression[i] == 'T') {
+            result = true;
+        } else if (booleanExpression[i] == 'F') {
+            result = false;
+        } else if (booleanExpression[i] == '|') {
+            i++;
+            bool left = (i < booleanExpression.length() && (booleanExpression[i] == 'T' || booleanExpression[i] == 'F')) ? true : false;
+            bool right = (i < booleanExpression.length() && (booleanExpression[i] == 'T' || booleanExpression[i] == 'F')) ? true : false;
+
+            if (left && right) {
+                result = true;
+            } else {
+                result = false;
             }
-            i--;
-            operandStack.push(operand);
+        } else if (booleanExpression[i] == '&') {
+            i++;
+            bool left = (i < booleanExpression.length() && (booleanExpression[i] == 'T' || booleanExpression[i] == 'F')) ? true : false;
+            bool right = (i < booleanExpression.length() && (booleanExpression[i] == 'T' || booleanExpression[i] == 'F')) ? true : false;
+
+            if (!left || !right) {
+                result = false;
+            } else {
+                result = true;
+            }
         }
+        i++;
     }
 
-    return (operandStack.top() == "T");
+    return result;
 }
