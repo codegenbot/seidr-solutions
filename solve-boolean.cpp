@@ -1,26 +1,38 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string expression) {
+bool solveBoolean(string booleanExp) {
+    stack<char> stack;
     bool result = false;
-    for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == 'T') return true;
-        else if (expression[i] == 'F') return false;
-        else if (expression[i] == '|') break;
-        else if (expression[i] == '&') break;
-    }
-    if (expression[0] == 'F' || expression[1] == 'f') result = false;
-    if (result) {
-        for (int i = 2; i < expression.length(); ++i) {
-            if (expression[i] == '|') return true;
-            else if (expression[i] == '&') return false;
+    
+    for (int i = 0; i < booleanExp.length(); i++) {
+        if (booleanExp[i] == '&') {
+            while (!stack.empty() && stack.top() == '&') {
+                stack.pop();
+            }
+            if (!stack.empty() && stack.top() == '|') {
+                result = false;
+                stack.pop();
+            } else if (stack.empty()) {
+                result = true;
+            } else if (stack.top() == 'F') {
+                result = false;
+                stack.pop();
+            }
+        } else if (booleanExp[i] != '&') {
+            stack.push(boolStringToChar(booleanExp[i]));
         }
-    } else {
-        for (int i = 2; i < expression.length(); ++i) {
-            if (expression[i] == '|') return true;
-            else if (expression[i] == '&') return false;
-        }
     }
-    if (result) return true;
-    return false;
+    
+    return result;
+}
+
+char boolStringToChar(char c) {
+    if (c == 't' || c == 'T')
+        return 'T';
+    else if (c == 'f' || c == 'F')
+        return 'F';
+    else if (c == '|') 
+        return '|';
+    else if (c == '&') 
+        return '&';
+    
+    return '0';
 }
