@@ -11,12 +11,12 @@ int main() {
         nums.push_back(num);
     }
     
-    if (nums.empty()) {
-        cout << "Empty vector." << endl;
+    int n = nums.size();
+    if (n == 0) {
+        cout << "Input vector is empty." << endl;
         return 0;
     }
     
-    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
