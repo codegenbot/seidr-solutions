@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <vector>
-
 using namespace std;
 
 bool has_close_elements(const vector<float>& numbers, float threshold) {
@@ -14,14 +13,8 @@ bool has_close_elements(const vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    vector<float> numbers = {1.5, 2.7, 3.3, 4.1, 5.8};
+    vector<float> numbers = {1.2, 3.4, 2.6, 5.1};
     float threshold = 0.5;
-
-    if (has_close_elements(numbers, threshold)) {
-        cout << "Close elements found within the threshold." << endl;
-    } else {
-        cout << "No close elements found within the threshold." << endl;
-    }
-
+    bool result = has_close_elements(numbers, threshold);
     return 0;
 }
