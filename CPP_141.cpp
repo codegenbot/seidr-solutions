@@ -1,10 +1,11 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <string>
 
-bool file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int digit_count = 0;
     bool has_dot = false;
-    string before_dot;
+    std::string before_dot;
 
     for(int i = 0; i < file_name.length(); i++){
         if(file_name[i] >= '0' && file_name[i] <= '9'){
@@ -19,24 +20,22 @@ bool file_name_check(string file_name){
     }
 
     if(digit_count > 3 || !has_dot || before_dot.empty() || !isalpha(before_dot[0])){
-        return false;
+        return "No";
     }
 
-    string after_dot = file_name.substr(file_name.find('.')+1);
+    std::string after_dot = file_name.substr(file_name.find('.')+1);
 
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
 
     for(auto ext : valid_extensions){
         if(after_dot == ext){
-            return true;
+            return "Yes";
         }
     }
 
-    return false;
+    return "No";
 }
 
 int main(){
-    string file_name; 
-    cin >> file_name; 
-    cout << file_name_check(file_name); 
+    std::cout << file_name_check("test.txt") << std::endl;
 }
