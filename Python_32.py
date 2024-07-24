@@ -8,7 +8,7 @@ def find_zero(xs):
     b_sum = sum(x for x in xs[:-1] if isinstance(x, (int, float)))
     c_sum = sum(x*y for x, y in zip(xs[:-1], range(len(xs)-1)) if isinstance(x, (int, float)) and isinstance(y, int))
     d_sum = sum(x*math.pow(y, 2) for x, y in zip(xs[:-1], range(len(xs)-1)) if isinstance(x, (int, float)) and isinstance(y, int))
-    
+
     if a == 0:
         return "a cannot be zero"
     if b_sum == 0:
@@ -18,8 +18,6 @@ def find_zero(xs):
 
 try:
     xs = [float(x) for x in input("Enter coefficients separated by space: ").split()]
-    if len(xs) < 3:
-        raise ValueError("xs must have at least three coefficients")
 except ValueError as e:
     print(f"Invalid input: {e}")
 else:
