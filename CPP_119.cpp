@@ -1,13 +1,15 @@
+```c++
 #include <string>
 #include <vector>
 
 int main() {
     assert (match_parens({std::string(")"), std::string("(")}) == "Yes" );
+    assert (match_parens({std::string("("), std::string(")")}) == "No");
 }
 
 std::string match_parens(std::vector<std::string> lst){
-    std::string s1 = lst[0];
-    std::string s2 = lst[1];
+    string s1 = lst[0];
+    string s2 = lst[1];
 
     int openCount = 0;
     int closeCount = 0;
@@ -28,6 +30,7 @@ std::string match_parens(std::vector<std::string> lst){
         }
     }
 
-    if(openCount == closeCount) return "Yes";
-    return "No";
+    if(openCount > closeCount) return "No";
+    else if(closeCount > openCount) return "No";
+    else return "Yes";
 }
