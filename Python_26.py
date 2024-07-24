@@ -1,8 +1,10 @@
+```python
 from collections import OrderedDict
 
 def remove_duplicates(input_list=None):
     if input_list is None:
-        input_list = list(map(int, input("Enter numbers separated by space: ").split()))
+        values = input("Enter numbers separated by space: ").strip()
+        input_list = [int(value) for value in values.split()]
     if not input_list:  
         return []  
     return list(OrderedDict.fromkeys(input_list))

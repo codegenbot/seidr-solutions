@@ -7,25 +7,24 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     result = []
     temp = ""
-    count = 0
+    in_group = False
 
     for char in paren_string:
-        if char == " " and count == 0:
+        if char.isspace():
             if temp:
                 result.append(temp)
                 temp = ""
-        elif char in ["(", ")"]:
-            if char == "(":
-                count += 1
-                temp += char
-            else:
-                count -= 1
-                temp += char
-            if count == 0 and temp.count("(") == temp.count(")"):
+        elif char == "(":
+            temp += char
+            in_group = True
+        elif char == ")":
+            temp += char
+            in_group = not in_group
+            if not in_group and temp.count("(") == temp.count(")"):
                 result.append(temp)
                 temp = ""
         else:
-            if count != 0:
+            if in_group:
                 temp += char
             else:
                 if temp:
