@@ -1,32 +1,25 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            if (i != j && code[i] == guess[j]) {
-                count++;
-                break;
-            }
-        }
-    }
-    return count;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-
+    
+    int black = 0, white = 0;
+    unordered_map<char, int> codeFreq, guessFreq;
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
+        }
+    }
+    
+    for (auto& elem : codeFreq) {
+        white += min(elem.second, guessFreq[elem.first]);
+    }
+    
+    cout << white << endl;
+    cout << black << endl;
+    
     return 0;
 }
