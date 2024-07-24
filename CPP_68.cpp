@@ -4,9 +4,9 @@
 
 using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
-    if (arr.empty()) return vector<std::pair<int, int>>();
+std::pair<int, int> pluck(std::vector<int> arr) {
+    pair<int, int> result;
+    if (arr.empty()) return result;
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -19,7 +19,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     if (minIndex != -1) {
-        result.push_back({minEven, minIndex});
+        result = {minEven, minIndex};
     }
 
     return result;
@@ -30,15 +30,17 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    std::vector<int> arr(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
-    std::vector<std::pair<int, int>> output = pluck(arr);
+    pair<int, int> output = pluck(arr);
 
-    for (const auto& pair : output) {
-        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
+    if(output.first != INT_MAX) {
+        cout << "Pair: (" << output.first << ", " << output.second << ")" << endl;
+    } else {
+        cout << "No even number found." << endl;
     }
 }
