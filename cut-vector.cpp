@@ -1,32 +1,39 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& arr) {
+vector<int> cutVector(vector<int> arr) {
     int n = arr.size();
-    vector<int> left(n+1, 0), right(n+1, INT_MAX);
-    
-    for (int i = 0; i < n; ++i) {
-        left[i+1] = arr[i];
-        if (left[i+1] == left[i]) continue;
-        int j = i-1;
-        while (j >= 0 && left[j+1] == left[j])
-            --j;
-        right[i] = max(right[i], i - j);
+    int minDiff = INT_MAX;
+    int index = 0;
+
+    for (int i = 1; i <= n/2; ++i) {
+        int diff = abs(arr[i] - arr[0]);
+        if (diff < minDiff)
+            minDiff = diff, index = i;
     }
-    
-    for (int i = n-1; i >= 0; --i) {
-        right[i] = min(right[i], n-i-1-right[n-1]);
-        if (right[i] == 0) break;
-        int j = i+1;
-        while (j < n && left[j+1] == left[j])
-            ++j;
-        left[j] = max(left[j], arr[i]);
-    }
-    
-    int idx = 0;
-    for (int i = 0; i < n; ++i) {
-        if (right[i] > right[idx]) idx = i;
-    }
-    
-    return {left, vector<int>(arr.begin() + idx, arr.end())};
+
+    return {vector<int>(arr.begin(), arr.begin() + index), vector<int>(arr.begin() + index, arr.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    vector<int> res = cutVector(arr);
+
+    cout << "Left Vector: ";
+    for (int num : res[0])
+        cout << num << " ";
+    cout << endl;
+
+    cout << "Right Vector: ";
+    for (int num : res[1])
+        cout << num << " ";
+    cout << endl;
+
+    return 0;
 }
