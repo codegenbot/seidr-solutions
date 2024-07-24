@@ -1,48 +1,27 @@
 #include <vector>
-#include <iostream>
-#include <string>
+using namespace std;
 
-bool solveBoolean(string expression) {
-    if(expression == "T") return true;
-    if(expression == "F") return false;
-
-    for(int i = 0; i < expression.length(); i++) {
-        if(expression[i] == '|') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-
-            bool leftResult = solveBoolean(left);
-            bool rightResult = solveBoolean(right);
-
-            return leftResult || rightResult;
+bool solveBoolean(string s) {
+    if(s[0] == 'T' || s[0] == 't') return true;
+    else if(s[0] == 'F' || s[0] == 'f') return false;
+    
+    for(int i = 1; i < s.length(); i++) {
+        if(s[i] == '&') {
+            return (solveBoolean(string(1, s[0])) && solveBoolean(string(i+1)));
+        } else if(s[i] == '|') {
+            return (solveBoolean(string(1, s[0])) || solveBoolean(string(i+1)));
         }
     }
-
-    for(int i = 0; i < expression.length(); i++) {
-        if(expression[i] == '&') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-
-            bool leftResult = solveBoolean(left);
-            bool rightResult = solveBoolean(right);
-
-            return leftResult && rightResult;
-        }
-    }
-
-    return false; // default to False if no operator found
+    
+    return false;
 }
 
 int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
-
-    if(solveBoolean(expression)) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-
+    string s;
+    cout << "Enter a Boolean expression: ";
+    cin >> s;
+    bool result = solveBoolean(s);
+    if(result) cout << "True" << endl;
+    else cout << "False" << endl;
     return 0;
 }
