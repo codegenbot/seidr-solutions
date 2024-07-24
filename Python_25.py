@@ -17,6 +17,4 @@ while True:
         print(factorize(n))
         break
     except ValueError:
-        print("Please enter a valid integer number.")
-    except KeyboardInterrupt:
-        break
+        print("Please provide an integer input.")
