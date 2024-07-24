@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <iostream>
 #include <iomanip>
 
@@ -27,6 +27,6 @@ int main() {
     std::cout << "Enter proportion of snow melting per hour: ";
     std::cin >> std::fixed >> std::setprecision(6) >> proportionOfSnowMeltingPerHour;
 
-    std::cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
+    std::cout << std::fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
 }
