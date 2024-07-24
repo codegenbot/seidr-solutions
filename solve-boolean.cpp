@@ -1,14 +1,39 @@
 #include <string>
+using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
+    stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'f') {
-            res = false;
-            break;
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            } else {
+                st.pop();
+            }
         } else if (s[i] == '|') {
-            if (i > 0 && s[i - 1] == '&') return true;
+            while (!st.empty()) {
+                st.pop();
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return res;
+    return !st.empty();
+}
+
+int main() {
+    string s;
+    cout << "Enter a Boolean expression: ";
+    cin >> s;
+    if (s == "t") {
+        cout << "True" << endl;
+    } else if (s == "f") {
+        cout << "False" << endl;
+    } else {
+        cout << (solveBoolean(s) ? "True" : "False") << endl;
+    }
+    return 0;
 }
