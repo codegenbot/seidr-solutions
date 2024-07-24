@@ -16,7 +16,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b){ // Added a space and included `b`
     if (a.size() != b.size()) {
         return false;
     }
