@@ -13,10 +13,8 @@ vector<string> split(string str) {
 
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (!temp.empty()) {
-                result.push_back(temp);
-                temp = "";
-            }
+            result.push_back(temp);
+            temp = "";
         } else {
             temp += str[i];
         }
@@ -77,6 +75,8 @@ int main() {
 
     cout << "Enter the expressions (space separated): ";
     getline(cin, input);
+    input.erase(0, input.find_first_not_of(' ')); // Remove leading spaces
+    input.erase(input.find_last_not_not_of(' ') + 1, input.size()); // Remove trailing spaces
     expressions = split(input);
 
     double output = do_algebra({expressions[0], expressions[1], expressions[2]});
