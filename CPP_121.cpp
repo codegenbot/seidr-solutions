@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,12 +13,13 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    assert(solution({3, 13, 2, 9}) == 16);
-    std::vector<int> vec;
-    int num;
-    while(std::cin >> num){
-        vec.push_back(num);
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        cout << "Enter element "<<i+1<<": ";
+        cin >>lst.push_back();
     }
-    std::cout << solution(vec) << std::endl;
-    return 0;
+    cout << "Sum of odd numbers: " << solution(lst) << endl;
 }
