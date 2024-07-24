@@ -1,3 +1,3 @@
-int temp = x;
-x = y;
-y = temp;
+int temp = y;
+y = x;
+x = temp;
