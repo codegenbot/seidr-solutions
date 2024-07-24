@@ -1,39 +1,53 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> result;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<int, int> split_index;
     
-    for(int i=0; i<n-1; i++){
-        int sumLeft = 0, sumRight = 0;
+    for (int i = 1; i < vec.size(); ++i) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; ++j) {
+            sum1 += vec[j];
+        }
+        for (int j = i; j < vec.size(); ++j) {
+            sum2 += vec[j];
+        }
         
-        for(int j=0; j<i; j++) sumLeft += v[j];
-        for(int j=i+1; j<n; j++) sumRight += v[j];
-
-        if(abs(sumLeft - sumRight) <= abs(v[i] - sumLeft)){
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
-            break;
+        int diff = abs(sum1 - sum2);
+        if (diff < min_diff) {
+            min_diff = diff;
+            split_index = {i, i};
+        } else if (diff == min_diff) {
+            split_index.first = i;
         }
     }
-
-    return result;
+    
+    vector<int> left(vec.begin(), vec.begin() + split_index.first);
+    vector<int> right(vec.begin() + split_index.second, vec.end());
+    
+    return {left, right};
 }
 
-int main(){
+int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++) cin >> v[i];
+    vector<int> vec(n+1);
+    for (int i = 0; i <= n; ++i) {
+        cin >> vec[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "[";
+    for (int num : result.first) {
+        cout << num << " ";
+    }
+    cout << "] [" << endl;
+    cout << "[";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
+    cout << "] 0" << endl;
 
-    pair<vector<int>, vector<int>> res = cutVector(v);
-
-    cout << "First half: ";
-    for(int x : res.first) cout << x << " ";
-    cout << endl;
-
-    cout << "Second half: ";
-    for(int x : res.second) cout << x << " ";
-    cout << endl;
+    return 0;
 }
