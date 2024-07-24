@@ -1,4 +1,4 @@
-def fizz_buzz(x):
+def convert_to_fizz_buzz(x):
     if x % 15 == 0:
         return "FizzBuzz"
     elif x % 3 == 0:
