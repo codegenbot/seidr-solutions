@@ -1,10 +1,14 @@
-Here is the solution:
+using namespace std;
 
-string middleCharacter(string s) {
-    int length = s.length();
-    if (length % 2 == 0) {
-        return s.substr(length / 2 - 1, 2);
-    } else {
-        return s.substr(length / 2, 1);
+string middleCharacter(string str) {
+    int len = str.length();
+    string result;
+
+    if (len % 2 != 0) { 
+        result = str.substr(len / 2 - 1, 1);
+    } else { 
+        result = str.substr((len / 2) - 1, 2);
     }
+
+    return result;
 }

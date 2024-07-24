@@ -1,3 +1,3 @@
 ```
-def fuel_cost(fuel):
-    return sum((i//3)-2 for i in fuel)
+def fuel_cost(vector):
+    return sum((num // 3) - 2 for num in vector)
