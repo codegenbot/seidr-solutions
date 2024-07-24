@@ -1,22 +1,22 @@
 #include <string>
 #include <iostream>
-#include <algorithm>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    // Existing code remains the same
-}
+    std::string lowercaseExpr;
+    for (char c : expr) {
+        lowercaseExpr += tolower(c);
+    }
+    // Your existing evaluation logic using lowercaseExpr
 
-void convertToLowerToUpper(std::string& str) {
-    std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+    if (lowercaseExpr == "false") {
+        return false;
+    }
+    return true;
 }
 
 int main() {
     std::string expression;
     std::cin >> expression;
-    
-    convertToLowerToUpper(expression);
-
     std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
-    
     return 0;
 }
