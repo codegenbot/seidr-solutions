@@ -1,9 +1,12 @@
+```
 from typing import List
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    if strings is None or not strings:
-        return []
-    if substring is None or not substring:
-        return strings  # Return all strings if substring is empty
 
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring in s]
+
+
+if __name__ == "__main__":
+    strings = ["apple", "banana", "apricot"]
+    substring = "ap"
+    print(filter_by_substring(strings, substring))
