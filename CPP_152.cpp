@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,7 +20,7 @@ int main() {
     std::cout << "Enter the number of elements for both vectors: ";
     std::cin >> n;
 
-    std::vector<int> vec1(n, 0); // Initialize with size 'n' and default value 0
+    std::vector<int> vec1(n); // Initialize with size 'n' and default value 0
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
@@ -29,7 +28,7 @@ int main() {
         vec1[i] = x; 
     }
 
-    std::vector<int> vec2(n, 0); // Initialize with size 'n' and default value 0
+    std::vector<int> vec2(n); // Initialize with size 'n' and default value 0
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
