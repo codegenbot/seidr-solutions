@@ -16,7 +16,7 @@ for i in range(1, n):
         cut_index = i
 
 subvector1 = arr[:cut_index+1]
-subvector2 = arr[cut_index+1:]
+subvector2 = arr[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
