@@ -6,5 +6,5 @@ float max_element(vector<float> l){
         if(l[i] > max)
             max = l[i];
     }
-    return static_cast<float>(max);
+    return max;
 }
