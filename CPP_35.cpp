@@ -1,11 +1,13 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 
+int max_val = INT_MIN; 
+int sum = 0;
+
 int main() {
     int nums[100]; 
-    int n; 
-    int max_val = INT_MIN; 
-    int sum = 0;
+    int n;
 
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
