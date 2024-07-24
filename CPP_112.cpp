@@ -1,9 +1,8 @@
-```
 #include <algorithm>
 #include <string>
 #include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,6 +33,6 @@ std::string reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame({reverse_delete("mamma", "mia")}, {{"True"}}));
+    assert(issame(std::vector<std::string>(1, reverse_delete("mamma", "mia")), std::vector<std::string>(1, {"true"})));
     return 0;
 }
