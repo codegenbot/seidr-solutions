@@ -1,25 +1,27 @@
 ```
 import math
 
+
 def factorial(x):
     if x == 0:
         return 1
     else:
-        return x * factorial(x-1)
+        return x * factorial(x - 1)
+
 
 def f(n):
     result = 1
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         if i % 2 == 0:
             result *= math.factorial(i)
         else:
             result *= i
     return result
 
+
 while True:
     try:
         num = int(input("Enter a number: "))
         print(f(num))
-        break
     except ValueError:
-        print("Invalid input. Please enter an integer." "524f592d-7369-4781-b0fe-528c486dba42")
+        print("Invalid input. Please enter an integer.")
