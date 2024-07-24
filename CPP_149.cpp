@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -10,7 +11,7 @@ bool issame(vector<string> vec1, vector<string> vec2) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+std::vector<std::string> sorted_list_sum(std::initializer_list<std::string> lst) {
     vector<string> result;
 
     // Remove strings with odd lengths from the input list
@@ -30,4 +31,5 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
                   }
               });
 
-    return result;
+    return vector<string>(result);
+}
