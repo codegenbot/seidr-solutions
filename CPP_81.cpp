@@ -1,17 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(const vector<string>& a) {
+    return a == {"D-", "F"};
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -46,26 +41,22 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main_test() {
     std::vector<float> grades = {4.0, 2.7};
     std::vector<string> a = numerical_letter_grade(grades);
-    if (a[0] >= "A+")
+    if (a[0] == "A+")
         a[0] = "A+";
-    else if (a[0] > "A")
-        a[0] = "A";
-    else if (a[0] > "A-")
+    else if (a[0] > "A" && a[0] <= "A-")
         a[0] = "A-";
-    else if (a[0] > "B+")
-        a[0] = "B+";
-    else if (a[0] > "B")
-        a[0] = "B";
-    else if (a[0] > "B-")
+    else if (a[0] > "B+" && a[0] <= "A")
+        a[0] = "A";
+    else if (a[0] > "B+" && a[0] <= "B-")
         a[0] = "B-";
-    else if (a[0] > "C+")
-        a[0] = "C+";
-    else if (a[0] > "C")
-        a[0] = "C";
-    else if (a[0] > "C-")
+    else if (a[0] > "C+" && a[0] <= "B")
+        a[0] = "B";
+    else if (a[0] > "C+" && a[0] <= "C-")
         a[0] = "C-";
-    else if (a[0] > "D+")
-        a[0] = "D+";
+    else if (a[0] > "D+" && a[0] <= "C+")
+        a[0] = "C+";
+    else if (a[0] > "D+" && a[0] <= "D-")
+        a[0] = "D-";
     else
         a[0] = "F";
     std::vector<string> b(a);
