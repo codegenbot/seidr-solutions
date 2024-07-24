@@ -2,23 +2,20 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> res;
-    int n = text.length();
-    int m = target.length();
+    vector<int> result;
+    int pos = 0;
     
-    for(int i=0; i<=n-m; i++) {
-        if(text.substr(i,m) == target)
-            res.push_back(i);
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += 1; // to avoid duplicate entries
     }
     
-    return res;
+    return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
