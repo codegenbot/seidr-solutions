@@ -1,4 +1,3 @@
-```Python
 while True:
     numbers = input("Enter numbers separated by space: ").split()
     if not numbers:
