@@ -15,12 +15,10 @@ int main() {
     cents %= 5;
     
     int pennies = min(cents, 4);
-    cout << pennies << endl;
-    cents -= pennies * 1; 
-    
+    cout << quarters << endl;
     cout << nickles << endl;
     cout << dimes << endl;
-    cout << quarters << endl;
-    
+    cout << pennies << endl;
+    cents -= pennies * 1; 
     return 0;
 }
