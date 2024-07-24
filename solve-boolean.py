@@ -1,13 +1,16 @@
-Here is the solution to the problem:
-
-def solve.Boolean(expression):
+def solveBoolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        return eval(' '.join(map(lambda x: f'({x})', expression.split('&|'))))
     elif '&' in expression:
-        a, b = expression.split('&')
-        return solve.Boolean(a) and solve.Boolean(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve.Boolean(a) or solve.Boolean(b)
+        result = True
+        for term in expression.split '&':
+            if 'T' not in term or 'F' in term:
+                result &= False
+                break
+        return result
+    else:
+        return eval(expression.replace('|', ' or ').replace('&', ' and '))
