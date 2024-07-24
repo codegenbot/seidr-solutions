@@ -1,23 +1,22 @@
 #include <iostream>
-using namespace std;
 #include <iomanip>
 
-double diceGame(int n, int m) {
-    double p = 0.0;
-    for (int i = 1; i <= min(n, m); i++) {
-        p += (n - i) / (double)n * (m - i) / (double)m;
+using namespace std;
+
+double solve(int n, int m) {
+    double total = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < i; j++) {
+            if(j <= m)
+                total += 1.0 / n / m;
+        }
     }
-    if (n > m) {
-        p += 1.0 - (m + 1) / (double)n;
-    } else if (n < m) {
-        p += 1.0 - (n + 1) / (double)m;
-    }
-    return p;
+    return 1 - total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(5) << solve(n, m) << endl;
     return 0;
 }
