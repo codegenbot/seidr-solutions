@@ -1,3 +1,1 @@
-def modp(n: int, p: int):
-    inv = pow(n, p - 2, p)
-    return (inv * n) % p
+`def modp(n: int, p: int): return pow(n, -1, p)`
