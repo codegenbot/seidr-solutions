@@ -20,12 +20,11 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
+    vector<string> input_strings = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
     string prefix = "xxx";
     
-    vector<string> expected = filter_by_prefix(strings, prefix);
-    expected = {"xxx", "xxxAaa", "xxx"}; // This should be calculated based on some logic
-    
+    vector<string> expected = filter_by_prefix(input_strings, prefix);
+    expected = {prefix, prefix + "AAA", prefix};
     assert (issame(expected , filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx")));
     return 0;
 }
