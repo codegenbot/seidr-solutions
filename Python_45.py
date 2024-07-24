@@ -1,4 +1,2 @@
-```
-import math
 def triangle_area(a, h):
-    return (a * h) / 2
+    return (1 / 2) * a * h
