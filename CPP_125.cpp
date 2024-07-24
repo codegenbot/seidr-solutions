@@ -1,7 +1,6 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 vector<string> split_words(string txt) {
@@ -11,11 +10,9 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.empty()) {
-        return result;
-    }
-    result.push_back(txt);
-    else {
+    if (txt.empty()) return result;
+
+    if (txt.find(',') == string::npos) {
         int count = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z' && (count & 1)) {
@@ -23,6 +20,9 @@ vector<string> split_words(string txt) {
             }
         }
         result.push_back(to_string(count));
+    } else {
+        result.push_back(txt);
     }
+
     return result;
 }
