@@ -1,6 +1,3 @@
-from typing import List
-
-
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -13,5 +10,5 @@ def factorize(n: int) -> List[int]:
                 count += 1
             for _ in range(count):
                 factors.append(i)
-            n //= (i ** count)
+            n //= i**count
     return factors
