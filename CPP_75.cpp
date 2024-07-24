@@ -26,6 +26,5 @@ bool is_multiply_prime(int a) {
 
 int main() {
     assert(is_multiply_prime(11 * 13 * 7) == true);
-    // Add more test cases if needed
     return 0;
 }
