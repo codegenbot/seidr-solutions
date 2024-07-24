@@ -4,14 +4,12 @@ using namespace std;
 
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int max = INT_MIN;
-
+    int maxSoFar = numbers[0];
     for (int num : numbers) {
-        if (num > max) {
-            max = num;
+        if (num > maxSoFar) {
+            maxSoFar = num;
         }
-        result.push_back(max);
+        result.push_back(maxSoFar);
     }
-
     return result;
 }
