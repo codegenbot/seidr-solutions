@@ -20,13 +20,11 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     return changes;
-
 }
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    std::vector<int> arr = {1, 2};
-    int result = smallest_change(arr);
-    std::cout << "The smallest change is: " << result << std::endl;
+    assert(smallest_change({2, 4, 6, 8, 10, 9, 7, 5, 3, 1}) == 9);
+    // Add more test cases here
     return 0;
 }
