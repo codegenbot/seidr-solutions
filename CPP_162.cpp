@@ -1,9 +1,9 @@
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
-#include <openssl/md5.h>
 #include <sstream>
-#include <iomanip>
+#include <iomanip> // for setfill, setw, hex
+
+#include <openssl/md5.h>
+#include <openssl/ssl.h>
 
 using namespace std;
 
