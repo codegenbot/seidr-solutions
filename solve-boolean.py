@@ -1,17 +1,26 @@
-Here is the completed code:
+Here is a Python solution for this problem:
 
+```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid input')
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return not (solve_boolean(left) and solve_boolean(right))
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-    else:
-        raise ValueError('Invalid input')
+    def boolean_operation(a, b, op):
+        if op == '&':
+            return a and b
+        elif op == '|':
+            return a or b
+        else:
+            raise ValueError('Invalid operator')
+
+    tokens = expression.split()
+    result = True
+
+    for token in tokens:
+        if token == 'T':
+            result = boolean_operation(result, True, '&')
+        elif token == 'F':
+            result = boolean_operation(result, False, '&')
+        elif token == '&' or token == '|':
+            pass
+        else:
+            raise ValueError('Invalid expression')
+
+    return result
