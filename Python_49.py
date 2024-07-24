@@ -1,22 +1,21 @@
 ```
-def powermod(base: int, exponent: int, modulus: int):
+def __truediv__(self, other):
     result = 1
-    while exponent > 0:
-        if exponent % 2 == 1:
-            result = (result * base) % modulus
-        exponent = exponent // 2
-        if exponent > 0:
-            base = (base * base) % modulus
+    while other > 0:
+        if other % 2 == 1:
+            result = (result * self) % modulus
+        other = other // 2
+        if other > 0:
+            self = (self * self) % modulus
     return result
 
 while True:
     try:
-        base = int(input("Enter the base: "))
-        exponent = int(input("Enter the exponent: "))
-        modulus = int(input("Enter the modulus: "))
-        print(powermod(base, exponent, modulus))
-        cont = input("Run again? (y/n): ")
-        if cont.lower() != 'y':
+        while True:
+            base = int(input("Enter the base: "))
+            exponent = int(input("Enter the exponent: "))
+            modulus = int(input("Enter the modulus: "))
+            print(powermod(base, exponent, modulus))
             break
     except ValueError:
         print("Invalid input. Please enter integers.")
