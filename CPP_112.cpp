@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -5,7 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-std::vector<std::string> delete_reverse(string s, string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
