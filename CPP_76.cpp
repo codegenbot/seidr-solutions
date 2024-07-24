@@ -1,14 +1,15 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
-bool is_simple_power(int x, int n) {
-    if (n == 1)
+bool is_simple_power(int x, int y) {
+    if (y == 1)
         return true;
-    while (n > 1) {
-        if (x % n != 0)
+    while (y > 1) {
+        if (x % y != 0)
             return false;
-        x /= n;
-        n--;
+        x /= y;
+        y--;
     }
     return true;
 }
@@ -24,7 +25,7 @@ int main() {
         std::cout << (x == 1 ? "True" : "False") << std::endl;
     else {
         double y = pow(n, log(x) / log(n));
-        std::cout << (y == x ? "True" : "False") << std::endl;
+        std::cout << ((y == x) ? "True" : "False") << std::endl;
         if (is_simple_power(x, n))
             std::cout << "True" << std::endl;
         else
