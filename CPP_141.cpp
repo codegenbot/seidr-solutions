@@ -1,6 +1,6 @@
-int count_digits(string s) {
+int count_digits(const string& str) {
     int count = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (isdigit(c)) {
             count++;
         }
@@ -9,54 +9,27 @@ int count_digits(string s) {
 }
 
 string file_name_check(string file_name) {
-    bool valid = true;
-
-    // Check if there are more than three digits
     int digit_count = count_digits(file_name);
     if (digit_count > 3) {
-        valid = false;
+        return "No";
     }
 
-    // Check for exactly one dot
-    int dot_count = 0;
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-        }
-    }
-    if (dot_count != 1) {
-        valid = false;
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos < 1) {
+        return "No";
     }
 
-    // Check the substring before the dot
-    string before_dot = "";
-    int i = 0;
-    while (i < file_name.size() && file_name[i] != '.') {
-        before_dot += file_name[i];
-        i++;
-    }
-    if (before_dot.empty()) {
-        valid = false;
-    } else {
-        for (char c : before_dot) {
-            if (!isalpha(c)) {
-                valid = false;
-                break;
-            }
-        }
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!before_dot.empty() && !isalpha(before_dot[0])) {
+        return "No";
     }
 
-    // Check the substring after the dot
-    string after_dot = "";
-    i++;
-    while (i < file_name.size()) {
-        after_dot += file_name[i];
-        i++;
-    }
-    vector<string> allowed_extensions = {"txt", "exe", "dll"};
-    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
-        valid = false;
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) {
+        return "No";
     }
 
-    return valid ? "Yes" : "No";
+    return "Yes";
 }
