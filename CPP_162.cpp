@@ -5,8 +5,7 @@ void main() {
     string text;
     cout << "Enter a string: ";
     cin >> text;
-
-    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
+    cout << "MD5: " << string_to_md5(text) << endl;
 }
 
 string string_to_md5(string text) {
