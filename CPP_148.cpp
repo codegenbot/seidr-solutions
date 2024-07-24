@@ -1,18 +1,22 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
-    }
+bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::string, std::string>& p2) {
+    if (p1.first != p2.first || p1.second != p2.second) return false;
     return true;
 
 }
 
-std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) {
+std::string join(const std::vector<std::string>& v) {
+    std::string res;
+    for (const auto& str : v) {
+        res += str + " ";
+    }
+    return res;
+}
+
+std::pair<std::string, std::string> bf(std::pair<std::string, std::string> planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
         return {"to", planets.first, planets.second};
     } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
@@ -20,17 +24,20 @@ std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) 
     } else if (planets.first == "Earth" && (planets.second == "Mars" || planets.second == "Neptune")) {
         return {planets.first, " to ", planets.second};
     }
-    return {"No valid planet combination found"};
+    return {"No valid planet combination found", ""};
 
 }
 
 int main() {
+    std::pair<std::string, std::string> planets;
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    std::vector<std::string> output = bf({planet1, planet2});
-    for (const auto& s : output) {
-        std::cout << s << " ";
+    planets = {planet1, planet2};
+    
+    std::cout << bf(planets).first << " ";
+    if (!bf(planets).second.empty()) {
+        std::cout << bf(planets).second;
     }
     return 0;
 }
