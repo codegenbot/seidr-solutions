@@ -14,8 +14,3 @@ vector<string> all_prefixes(string str) {
 bool issame(vector<string> a, vector<string> b) {
     // Function implementation
 }
-
-int main() {
-    // Main function implementation
-    return 0;
-}
