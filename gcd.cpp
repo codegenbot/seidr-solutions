@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -23,19 +24,29 @@ vector<int> findSubstringIndices(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
+    int a = 0, b = 0;
     string text, target;
 
     cout << "Enter two integers a and b: ";
-    cin >> a >> b;
+    if (!(cin >> a >> b)) {
+        cerr << "Invalid input for integers" << endl;
+        return 1;
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    getline(cin, text);
+    if (!getline(cin, text)) {
+        cerr << "Error reading text string" << endl;
+        return 1;
+    }
 
     cout << "Enter a target string: ";
-    getline(cin, target);
+    if (!getline(cin, target)) {
+        cerr << "Error reading target string" << endl;
+        return 1;
+    }
 
     vector<int> result = findSubstringIndices(text, target);
 
