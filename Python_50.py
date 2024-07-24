@@ -1,2 +1,10 @@
-def decode_shift(s: str):
-    return "".join([chr(((ord(ch.lower()) - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch for ch in s])
+```
+def decode_shift(s):
+    result = ""
+    for char in s:
+        if char.isalpha():
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(char) - ascii_offset) % 26 + ascii_offset)
+        else:
+            result += char
+    return result
