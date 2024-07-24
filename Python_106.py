@@ -17,4 +17,4 @@ def f(n):
     return result
 
 num = int(input("Enter a number: "))
-print(f(num)[0])
+print(f(num))
