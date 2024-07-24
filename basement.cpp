@@ -1,4 +1,3 @@
-```cpp
 int basement(vector<int>& arr) {
     int sum = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -6,5 +5,5 @@ int basement(vector<int>& arr) {
         if (sum < 0)
             return i;
     }
-    return arr.size();
+    return -1;
 }
