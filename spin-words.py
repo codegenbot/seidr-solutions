@@ -1,2 +1,5 @@
+```
 def spin_words(s):
-    return ' '.join((word[::-1] if len(word) >= 5 else word for word in s.split()))
+    words = s.split()
+    new_words = [word[::-1] if len(word) >= 5 else word for word in words]
+    return ' '.join(new_words)
