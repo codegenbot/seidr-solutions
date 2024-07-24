@@ -1,28 +1,24 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (s.empty()) {
-                return false;
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
             }
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return true;
-            }
-        } else if (expression[i] != 'T' && expression[i] != 'F') {
-            return false;
+            st.push('|');
         } else {
-            s.push(expression[i]);
+            st.push(s[i]);
         }
     }
-    while (!s.empty()) {
-        s.pop();
+    string res = "";
+    while (!st.empty()) {
+        res = (char)st.top() + res;
+        st.pop();
     }
-    return true;
+    return (res == "TF" || res == "tF") ? "False" : "True";
 }
