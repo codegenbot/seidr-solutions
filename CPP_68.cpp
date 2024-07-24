@@ -1,5 +1,6 @@
 #include <vector>
 #include <climits>
+#include <ostream>
 
 using namespace std;
 
