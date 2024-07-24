@@ -1,9 +1,13 @@
 ```
 def split_words(txt):
+    if not txt:  
+        return 0
     words = txt.split()
-    if any(char.isalpha() for char in words[0]):
-        return [' '.join(words)]
-    elif any(char == ',' for char in txt):
-        return txt.replace(',', ' ').split()
+    if any(char.isalnum() for char in words[0]):
+        return len(words)
     else:
-        return sum(1 for c in txt.lower() if ord(c) % 2 != 0)
+        return sum(
+            1
+            for i in range(ord("a"), ord("z") + 1)
+            if txt.lower().count(chr(i)) % 2 == 1
+        )
