@@ -1,15 +1,19 @@
 ```cpp
-#include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <functional>
+#include <vector>
 
-std::string find_max(std::vector<std::string> words) {
-    std::string result = *std::minmax_element(words.begin(), words.end(),
-        [](const std::string& a, const std::string& b) {
-            return (a.size() << 8) + std::count(a.begin(), a.end(), std::unique_copy(a.begin(), a.end())) <
-                   (b.size() << 8) + std::count(b.begin(), b.end(), std::unique_copy(b.begin(), b.end()));
-        }).first;
-    return result;
+int find_max(std::vector<std::string> words){
+    int max_length = -1;
+    string max_word;
+
+    for(const auto &word : words){
+        if(word[0] == ' ') continue; // Ignore spaces at the beginning of a word
+        
+        if(count(word.begin(), word.end(), word[0]) > max_length){
+            max_length = count(word.begin(), word.end(), word[0]);
+            max_word = word;
+        }
+    }
+
+    return max_length;
 }
