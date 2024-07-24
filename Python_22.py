@@ -1,4 +1,4 @@
-```python
+```
 import sys
 
 while True:
