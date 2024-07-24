@@ -22,4 +22,4 @@ string solveBoolean(string s) {
         res += st.top();
         st.pop();
     }
-    return (res == "T") ? "True" : (res == "F") ? "False" : "";
+    return (res == "T") ? "True" : (res == "F") ? "False" : "Invalid";
