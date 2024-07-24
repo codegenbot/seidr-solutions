@@ -12,11 +12,9 @@ int main() {
                     result += s.substr(i, s.find(' ', i) - i);
                 else
                     result += s.substr(i, s.find(' ', i) - i).substr(1);
-            } 
-            else if (!result.length()) {
+            } else if (!result.length()) {
                 result = s.substr(i, 1);
-            } 
-            else {
+            } else {
                 if (s[i] == ' ')
                     continue;
                 result += toupper(s[i]);
@@ -26,8 +24,8 @@ int main() {
         return result;
     }
     string input;
-    cout << "Enter a sentence in kebab-case: ";
+    cout << "Enter a kebab-case string: ";
     cin >> input;
-    cout << "Camel case conversion: " << camelCase(input) << endl;
+    cout << "CamelCase: " << camelCase(input) << endl;
     return 0;
 }
