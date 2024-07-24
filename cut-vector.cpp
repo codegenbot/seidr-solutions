@@ -14,7 +14,7 @@ int main() {
     int min_diff = std::abs(left_sum - right_sum);
     int cut_index = -1;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 1; i++) {
         right_sum = left_sum;
         left_sum += vec[i];
         
