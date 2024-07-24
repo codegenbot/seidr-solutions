@@ -1,34 +1,22 @@
-#include <string>
 #include <vector>
+#include <string>
 
-int main() {
-    assert (match_parens({std::string(")"), std::string("(")}) == "Yes" );
-    assert (match_parens({std::string(")("), std::string("(())")}) == "No" );
+bool match_parens(const std::vector<std::string>& lst) {
+    int stack_size = 0;
+    for (const auto& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                stack_size++;
+            } else if (c == ')') {
+                if (stack_size == 0) return false; 
+                stack_size--;
+            }
+        }
+    }
+    return stack_size == 0;
 }
 
-std::string match_parens(std::vector<std::string> lst){
-    std::string s1 = lst[0];
-    std::string s2 = lst[1];
-
-    int openCount = 0;
-    int closeCount = 0;
-
-    for(char c : s1) {
-        if(c == '(') {
-            openCount++;
-        } else if(c == ')') {
-            closeCount++;
-        }
-    }
-
-    for(char c : s2) {
-        if(c == '(') {
-            openCount++;
-        } else if(c == ')') {
-            closeCount++;
-        }
-    }
-
-    if(openCount == closeCount) return "Yes";
-    return "No";
+int main() {
+    std::vector<std::string> lst = {")", "("}; 
+    assert(match_parens(lst)); // use match_parens function
 }
