@@ -15,32 +15,32 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string sa = boost::any_cast<string>(a);
         string sb = boost::any_cast<string>(b);
-        if (stof(sa) > stof(sb))
+        if (stod(sa) > stod(sb))
             return a;
-        else if (stof(sa) < stof(sb))
+        else if (stod(sa) < stod(sb))
             return b;
         else
-            return any("None");
+            return boost::any("None");
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string sa = boost::any_cast<string>(a);
         double sb = boost::any_cast<double>(b);
-        if (stof(sa) > sb)
+        if (stod(sa) > sb)
             return a;
-        else if (stof(sa) < sb)
+        else if (stod(sa) < sb)
             return b;
         else
-            return any("None");
+            return boost::any("None");
     }
     else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
         double sa = boost::any_cast<double>(a);
         string sb = boost::any_cast<string>(b);
-        if (sa > stof(sb))
+        if (sa > stod(sb))
             return a;
-        else if (sa < stof(sb))
+        else if (sa < stod(sb))
             return b;
         else
-            return any("None");
+            return boost::any("None");
     }
     
     // If none of the above conditions are met, it means both variables are of same type.
@@ -50,5 +50,5 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a < b)
         return b;
     else
-        return any("None");
+        return boost::any("None");
 }
