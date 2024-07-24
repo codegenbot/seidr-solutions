@@ -5,7 +5,7 @@ int main() {
     if (len % 2 == 0) {
         cout << s.substr(len/2 - 1, 2);
     } else {
-        cout << s[len/2];
+        cout << s.substr(len/2, 1);
     }
     return 0;
 }
