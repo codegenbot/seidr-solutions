@@ -1,12 +1,11 @@
-```
 from typing import List
+
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
     return [s for s in strings if s.startswith(prefix)]
 
-strings = input("Enter a list of strings (comma-separated): ")
+
+strings = input("Enter the list of strings (comma-separated): ").split(",")
 prefix = input("Enter the prefix to filter by: ")
 
-strings_list = [string.strip() for string in strings.split(",")]
-
-print(filter_by_prefix(strings_list, prefix))
+print(filter_by_prefix(strings, prefix))
