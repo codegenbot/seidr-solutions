@@ -1,31 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-
-    int i = 0;
-    while (i < txt.length()) {
-        if (!isalnum(txt[i])) {
-            string word = txt.substr(i);
-            while (word.length() > 0 && !isalnum(word[0])) {
-                word.erase(0, 1);
-            }
-            result.push_back(word);
-            i += word.length();
-        } else {
-            int j = i;
-            while (j < txt.length() && isalnum(txt[j])) {
-                j++;
-            }
-            string word = txt.substr(i, j - i);
-            if (word.find(',') != string::npos) {
-                result.push_back(word.substr(0, word.find(',')));
-                i = j + 1;
-                break;
+    size_t pos = 0;
+    while (pos < txt.size()) {
+        if (ispunct(txt[pos])) {
+            string temp = txt.substr(0, pos);
+            if (!temp.empty() && temp.find_first_of(" ,") == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (islower(c)) {
+                        count += (c - 'a');
+                    }
+                }
+                result.push_back(to_string(count));
             } else {
-                result.push_back(word);
-                i = j;
+                result.push_back(temp);
             }
+            pos++;
+            while (pos < txt.size() && ispunct(txt[pos])) {
+                pos++;
+            }
+        } else if (isspace(txt[pos]) || txt[pos] == ',') {
+            string temp = txt.substr(0, pos);
+            if (!temp.empty()) {
+                result.push_back(temp);
+            }
+            pos++;
+            while (pos < txt.size() && (ispunct(txt[pos]) || txt[pos] == ',')) {
+                pos++;
+            }
+        } else {
+            pos++;
         }
     }
+    string temp = txt.substr(0, pos);
+    if (!temp.empty()) {
+        result.push_back(temp);
+    }
+    return result;
+}
 
-    return result.empty() ? vector<string>({"" + to_string(txt.length() - txt.find_first_not_of("abcdefghijklmnopqrstuvwxyz"))}) : result;
+int main() {
+    // Test cases
+    cout << "[{\"Hello\", \"world!\"}, {\"Hello\", \"world!\"}, {\"3\"}]" << endl;
+    for (const auto& word : split_words("Hello world!")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << endl;
+
+    cout << "[{\"Hello\", \"world!\"}, {\"Hello\", \"world!\"}, {\"3\"}]" << endl;
+    for (const auto& word : split_words("Hello,world!")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << endl;
+
+    cout << "{\"3\"}" << endl;
+    for (const auto& word : split_words("abcdef")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << endl;
+
+    return 0;
 }
