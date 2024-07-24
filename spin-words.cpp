@@ -10,7 +10,12 @@ string spinWords(string str) {
     
     while (i < str.length()) {
         if (str.find(" ", i) == -1) {
-            result += str.substr(i);
+            if(str.length() >= 5){
+                for(int j = 0; j < str.length()/2; j++) {
+                    swap(str[j], str[str.length()-j-1]);
+                }
+            }
+            result += str;
             break;
         } else {
             int j = str.find(" ", i);
