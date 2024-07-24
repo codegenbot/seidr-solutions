@@ -1,8 +1,12 @@
 from typing import List
 
+
+def main():
+    num = int(input("Enter a number: "))
+    print(factorize(num))
+
+
 def factorize(n: int) -> List[int]:
-    if n <= 0:
-        return ["Invalid input"]
     factors = []
     i = 2
     while i * i <= n:
@@ -16,3 +20,6 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+
+main()
