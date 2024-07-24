@@ -11,11 +11,10 @@ int main() {
         nums.push_back(n);
     }
     
-    int sum = 0, halfSum = 0;
+    int sum = 0;
     for (int num : nums) {
         sum += num;
     }
-    halfSum = sum / 2;
     
     int currSum = 0, start = 0, end = 0;
     int minDiff = INT_MAX, totalSum = sum;
