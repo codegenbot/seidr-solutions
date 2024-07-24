@@ -16,9 +16,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         distance += pow(vec1[i] - vec2[i], 2);
     }
-    distance = sqrt(distance);
 
-    cout << distance << endl;
-
+    cout << sqrt(distance) << endl;
+    
     return 0;
 }
