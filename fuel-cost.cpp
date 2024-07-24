@@ -1,13 +1,16 @@
 #include <vector>
 using namespace std;
 
-int fuelCost(vector<int> vec) {
+int fuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int num : vec) {
-        int new_num = (num / 3);
-        new_num = min(new_num, 1); // Rounding down to the nearest integer
-        new_num -= 2;
-        sum += new_num;
+    for (int num : numbers) {
+        int newNum = (num / 3);
+        if (newNum < 1) {
+            newNum = 0;
+        } else {
+            newNum--;
+        }
+        sum += newNum;
     }
     return sum;
 }
