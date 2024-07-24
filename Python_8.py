@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -17,8 +18,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, product
 
 
-input_str = input("Enter a list of numbers separated by spaces: ")
-numbers = [int(num) for num in input_str.split()]
+while True:
+    numbers = input("Enter a list of numbers separated by space: ")
+    try:
+        numbers = [int(num) for num in numbers.split()]
+        break
+    except ValueError as e:
+        print(f"Invalid input: {e}. Please enter valid integers separated by spaces.")
 
 try:
     result = sum_product(numbers)
