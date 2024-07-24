@@ -6,5 +6,4 @@ def sum_of_odd_squares(lst):
     return total_sum
 
 input_list = [1, 2, 3, 4, 5]
-result = sum_of_odd_squares(input_list)
-print(result)
+print(sum_of_odd_squares(input_list))
