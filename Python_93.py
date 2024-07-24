@@ -1,3 +1,4 @@
+```Python
 def encode(message):
     result = ""
     for char in message:
@@ -7,10 +8,14 @@ def encode(message):
                 if ord(char) - ascii_offset < 3:
                     result += chr((ord(char) - ascii_offset + 25) % 26 + ascii_offset)
                 else:
+                    if char.isupper():
+                        ascii_offset = 65
+                    else: 
+                        ascii_offset = 97
                     result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
             elif char.isdigit():
-                ascii_offset = 97 if int(char) <= 9 else 65
-                result += chr((int(char) - 48) % 10 + 55 + (ascii_offset if ord('a') < ord('A') else 0))
+                ascii_offset = 48 if int(char) <= 9 else 55
+                result += chr((int(char) - ascii_offset) % 10 + ascii_offset)
         elif char == " ": 
             result += "+"
         elif char in "!\"',.:;":
