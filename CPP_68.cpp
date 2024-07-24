@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -25,18 +26,18 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     return result;
 }
 
-int cppMain() {
+int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    std::vector<int> arr(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
-    std::vector<std::pair<int, int>> output = pluck(arr);
+    vector<pair<int, int>> output = pluck(arr);
 
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
