@@ -28,11 +28,12 @@ int main() {
 
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
-
+    
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    
+    cin.ignore();
 
     cout << "Enter a text string: ";
-    cin.ignore();
     getline(cin, text);
 
     cout << "Enter a target string: ";
