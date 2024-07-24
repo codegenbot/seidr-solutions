@@ -11,8 +11,7 @@ bool correct_bracketing(const std::string &brackets) {
         }
         if (count < 0) {
             return false;
-            break;
         }
     }
-    return count == 0;
+    return count == 0 || brackets.back() == '<';  // Ensure count is 0 if last character is '<'
 }
