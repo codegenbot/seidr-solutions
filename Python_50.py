@@ -1,1 +1,10 @@
-The "decode_shift" function is intended to decode a given string by shifting each letter by one position backwards in the alphabet. For example, if the input is "hello", the output should be "eddk".
+```
+def decode_shift(s: str):
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            shift = ord("a") - 97
+            result += chr((ord(ch.lower()) - 97 - shift) % 26 + 97)
+        else:
+            result += ch
+    return result
