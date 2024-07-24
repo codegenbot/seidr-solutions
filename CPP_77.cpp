@@ -1,9 +1,11 @@
 ```cpp
 #include <cmath>
 #include <cassert>
-#include <cstddef>
+#include <cstddef> 
+#include <iostream>
+using namespace std;
 
-bool iscuber(int a){
+bool isCube(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
         if (pow(i, 3) == a)
@@ -15,6 +17,13 @@ bool iscuber(int a){
 }
 
 int main() { 
-   assert(iscuber(0) == false);
+   assert(isCube(0) == false);
+   cout << "Enter an integer: ";
+   int num;
+   cin >> num;
+   if(isCube(num))
+       cout << num << " is a cube number." << endl;
+   else
+       cout << num << " is not a cube number." << endl;
    return 0; 
 }
