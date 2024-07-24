@@ -1,6 +1,7 @@
-```
-#include <iostream>
-#include <vector>
+Here is the modified code:
+
+#include<iostream>
+#include<vector>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -36,4 +37,3 @@ int judgeMain() {
 int main() {
     judgeMain();
     return 0;
-}
