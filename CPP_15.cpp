@@ -1,5 +1,5 @@
-#include <cassert>
 #include <string>
+#include <cassert>
 
 string string_sequence(int n){
     string result;
