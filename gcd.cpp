@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -37,9 +38,10 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore(); // ignore the newline character
+    cin.ignore();
 
     string text, target;
+    
     getline(cin, text);
     getline(cin, target);
 
