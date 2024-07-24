@@ -1,15 +1,16 @@
 ```
-def bowling_score(roll):
+def bowling_score(bowling_game):
     score = 0
-    roll = roll.replace('/', '')
-    for i in range(len(roll)):
-        if roll[i].isdigit():
-            if i < 2:
-                score += int(roll[i]) * 10 + int(roll[i+1])
-            else:
-                score += int(roll[i])
-        elif roll[i] == 'X':
-            score += 30
-        elif roll[i] == '-':
-            continue
+    frame = 1
+    roll = [int(x) for x in re.sub('[X-]', '10', bowling_game).split('/')]
+    for i in range(0, len(roll), 2):
+        if roll[i] == 10:
+            score += roll[i]
+            frame += 1
+        elif roll[i] + roll[i+1] == 10:
+            score += roll[i] + 10
+            frame += 1
+        else:
+            score += sum(roll[i:i+2])
+            frame += 1
     return score
