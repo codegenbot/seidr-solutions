@@ -31,10 +31,10 @@ std::string reverse_delete(std::string s, std::string c) {
         }
     }
     std::reverse(temp.begin(), temp.end());
-    return temp + " True";
+    return temp;
 }
 
 int main() {
-    assert(issame(std::vector<std::string>({"", reverse_delete("mamma", "mia")}), {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
