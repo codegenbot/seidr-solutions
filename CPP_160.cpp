@@ -22,44 +22,38 @@ vector<string> split(string str) {
     return result;
 }
 
-double do_algebra(vector<string> expressions) {
+double do_algebra(string expression1, string expression2, string operators) {
     double result = 0;
-    string operators = expressions[2];
-
     if (stoi(operators[1]) == 0) {
-        if (expressions[2][0] == '+') {
-            result = pow(stod(expressions[0]), stod(expressions[1]));
-        } else if (expressions[2][0] == '-') {
-            result = pow(stod(expressions[0]), -stod(expressions[1]));
-        }
+        result = pow(stod(expression1), stod(expression2));
     } else if (stoi(operators[1]) == 42) { 
-        if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
-                result = -stod(expressions[0]);
+        if (expression2 == "0") {
+            if (operators[0] == '+') {
+                result = stod(expression1);
+            } else if (operators[0] == '-') {
+                result = -stod(expression1);
             }
-        } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]) + stod(expressions[1]);
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]) - stod(expressions[1]);
-            } else if (expressions[2][0] == '*') {
-                result = stod(expressions[0]) * stod(expressions[1]);
+        } else if (expression2 != "0") {
+            if (operators[0] == '+') {
+                result = stod(expression1) + stod(expression2);
+            } else if (operators[0] == '-') {
+                result = stod(expression1) - stod(expression2);
+            } else if (operators[0] == '*') {
+                result = stod(expression1) * stod(expression2);
             }
         }
     } else if (stoi(operators[1]) == 47) { 
-        if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
-                result = -stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]);
+        if (expression2 == "0") {
+            if (operators[0] == '+') {
+                result = -stod(expression1);
+            } else if (operators[0] == '-') {
+                result = stod(expression1);
             }
-        } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]) + (-stod(expressions[1]));
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]) - stod(expressions[1]);
+        } else if (expression2 != "0") {
+            if (operators[0] == '+') {
+                result = stod(expression1) + (-stod(expression2));
+            } else if (operators[0] == '-') {
+                result = stod(expression1) - stod(expression2);
             }
         }
     }
@@ -74,7 +68,7 @@ int main() {
     getline(cin, input);
     expressions = split(input);
 
-    double output = do_algebra(expressions);
+    double output = do_algebra(expressions[0], expressions[1], expressions[2]);
     cout << "Result: " << output << endl;
     return 0;
 }
