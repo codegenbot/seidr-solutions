@@ -1,9 +1,9 @@
-#include <vector>
 #include <unordered_map>
+#include <vector>
 #include <initializer_list>
 
 int search(std::vector<int> lst) {
-    std::unordered_map<int, int> freq;
+    unordered_map<int, int> freq;
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
