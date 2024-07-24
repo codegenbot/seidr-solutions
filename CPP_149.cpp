@@ -38,4 +38,3 @@ std::vector<string> main::sorted_list_sum(std::vector<string> lst) {
               });
 
     return result;
-}
