@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int smallest_change(vector<int> arr) {
@@ -32,6 +32,6 @@ int main() {
         cin >> x;
         arr.push_back(x);
     }
-    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    cout << "Smallest change to make all elements equal is: " << smallest_change(arr) << endl;
     return 0;
 }
