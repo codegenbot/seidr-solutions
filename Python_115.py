@@ -1,4 +1,3 @@
-```
 def check(max_fill):
     remaining = 10 - max_fill
     if remaining > 0:
