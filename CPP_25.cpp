@@ -1,12 +1,23 @@
-vector<int> factors;
-    for(int i=2; i*i<=n; i++){
-        while(n%i == 0){
-            factors.push_back(i);
-            n /= i;
-        }
-    }
-    if(n > 1){
-        factors.push_back(n);
-    }
-    return factors;
-}
+Enter a number: 
+-> 12
+
+Enter a number:
+-> 50
+
+Enter a number:
+-> 70
+
+Enter a number:
+-> 100
+
+Enter a number:
+-> 140
+
+Enter a number:
+-> 180
+
+Enter a number:
+-> 200
+
+Enter a number:
+TE
