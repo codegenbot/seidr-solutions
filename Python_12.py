@@ -1,4 +1,4 @@
-input_strings = input("Enter a list of strings separated by space: ").split() 
+input_strings = input("Enter a list of strings separated by space: ").split()
 
 def longest(strings):
     max_length = 0
