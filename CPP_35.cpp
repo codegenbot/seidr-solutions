@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 
 int main() {
-    int nums[100]; // array to store numbers
-    int n; // number of elements in the array
-    int max_val = INT_MIN; // initialize maximum value as negative infinity
-    int sum = 0; // initialize sum as zero
+    int nums[100]; 
+    int n; 
+    int max_val = INT_MIN; 
+    int sum = 0; 
 
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -15,9 +16,9 @@ int main() {
         std::cin >> nums[i];
     }
 
-    max_val = *std::max_element(nums, nums+n); // corrected declaration
+    int max = *std::max_element(nums, nums+n);
 
-    std::cout << "The absolute maximum value is: " << std::abs(max_val) << std::endl;
+    std::cout << "The absolute maximum value is: " << std::abs(max) << std::endl;
 
     return 0;
 }
