@@ -10,9 +10,14 @@ bool iscuber(int num) {
 
 int main() {
     assert(iscuber(0) == false);
-    std::cout << "Enter a number: ";
     int num;
-    std::cin >> num;
+    std::cout << " Enter a number: ";
+    while (!(std::cin >> num)) {
+        std::cout << "Invalid input. Please enter an integer: ";
+        std::cin.clear();
+        std::cin.ignore(123, '\n');
+        std::cin >> num;
+    }
     if (iscuber(num)) {
         std::cout << num << " is a perfect cube.\n";
     } else {
