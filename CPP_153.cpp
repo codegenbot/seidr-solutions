@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-#include <vector>
-#include <cctype>
+#include <cassert>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
@@ -14,7 +11,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             else if(islower(c)) sm++;
         }
         int strength = cap - sm;
-        if(strength > max_strength || (strength == max_strength && strongest_extension.compare(extension) <= 0)){
+        if(strength > max_strength || (strength == max_strength && extension.length() <= strongest_extension.length())){
             max_strength = strength;
             strongest_extension = extension;
         }
