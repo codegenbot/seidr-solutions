@@ -1,12 +1,12 @@
 #include <vector>
 using namespace std;
 
-int solve(const vector<int>& v) {
+int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int x : v) {
-        if (x >= 3) {
-            sum += ((x/3)-2);
-        }
+    for (int num : numbers) {
+        int temp = (num / 3);
+        temp = (temp > 0 ? temp - 1 : 0); // round down to nearest integer
+        sum += temp;
     }
     return sum;
 }
@@ -14,10 +14,12 @@ int solve(const vector<int>& v) {
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    vector<int> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> numbers[i];
     }
-    cout << solve(v) << endl;
+    
+    cout << calculateFuelCost(numbers) << endl;
+
     return 0;
 }
