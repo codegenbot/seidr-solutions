@@ -1,7 +1,5 @@
-def file_length(filename: str) -> int:
-    try:
-        with open(filename, 'r') as f:
-            length = len(f.read())
-            return length
-    except FileNotFoundError:
+def strlen(string: str) -> int:
+    if string == "":
         return 0
+    else:
+        return len(string)
