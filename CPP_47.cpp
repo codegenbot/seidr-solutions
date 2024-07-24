@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 double median(vector<int>& l) {
     sort(l.begin(), l.end());
