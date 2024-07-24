@@ -15,14 +15,8 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         }
     }
 
-    for(int i = length; i > 1; i--) {
-        for(int j = 2; j * j <= i; j++) {
-            if(i % j == 0) {
-                isPrime = false;
-                return "NO";
-            }
-        }
-    }
-
-    return isPrime ? "YES" : "NO";
+    if(isPrime || length == 1)
+        return "YES";
+    else
+        return "NO";
 }
