@@ -1,18 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> vec;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
     int num;
 
-    while (iss >> num) {
+    while (cin >> num) {
         vec.push_back(num);
     }
 
@@ -43,10 +39,7 @@ int main() {
     std::cout << std::endl;
 
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << vec[i];
-        if(i != n - 1) {
-            std::cout << " ";
-        }
+        std::cout << vec[i] << " ";
     }
 
     return 0;
