@@ -1,4 +1,3 @@
-```c
 #include <cmath>
 #include <vector>
 
@@ -12,28 +11,25 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
 }
 
 int main() {
-    std::vector<float> vec1;
-    std::cout << "Enter dimensions of the first vector: ";
+    std::vector<float> v1;
     int n;
+    std::cout << "Enter the number of dimensions: ";
     std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        float temp;
-        std::cin >> temp;
-        vec1.push_back(temp);
+    
+    std::cout << "Enter " << n << " values for vector 1: ";
+    v1.resize(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> v1[i];
     }
 
-    std::vector<float> vec2;
-    std::cout << "Enter dimensions of the second vector: ";
-    int m;
-    std::cin >> m;
-    for(int i = 0; i < m; i++) {
-        float temp;
-        std::cin >> temp;
-        vec2.push_back(temp);
+    std::vector<float> v2;
+    std::cout << "Enter " << n << " values for vector 2: ";
+    v2.resize(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> v2[i];
     }
-
-    double result = euclideanDistance(vec1, vec2);
-    std::cout << "Euclidean distance between the two vectors: " << result << std::endl;
-
+    
+    double distance = euclideanDistance(v1, v2);
+    std::cout << "Euclidean Distance: " << distance << std::endl;
     return 0;
 }

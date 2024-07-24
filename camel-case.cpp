@@ -1,8 +1,5 @@
-```cpp
-#include <string>
 #include <iostream>
-#include <algorithm>
-#include <sstream>
+#include <string>
 
 int main() {
     std::string input;
@@ -14,22 +11,25 @@ int main() {
         } else if (input[i] == ' ') {
             input.replace(i, 1, "");
             i -= 1;
+        } 
+    }
+    for(int i = 0; i < input.size(); ++i) {
+        if(input[i] >= 'A' && input[i] <= 'Z') {
+            input.insert(i++, " ");
         }
     }
     std::string result = "";
     bool isUpper = false;
-    for(int i = 0; i < input.size(); ++i) {
+    for (int i = 0; i < input.size(); ++i) {
         char c = input[i];
         if (c >= 'A' && c <= 'Z') {
-            result += (isUpper ? "" : "") + tolower(c);
+            result += (isUpper ? " " : "").append(1, tolower(c));
             isUpper = true;
         } else if (c >= 'a' && c <= 'z') {
-            if (!isUpper) {
-                result += " ";
-            }
-            result += c;
+            result.append(1, c);
             isUpper = false;
         }
     }
     std::cout << result;
+    return 0;
 }
