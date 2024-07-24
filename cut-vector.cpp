@@ -2,6 +2,7 @@
 #include <vector>
 #include <climits>
 #include <numeric>
+#include <utility>
 
 using namespace std;
 
@@ -18,12 +19,15 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
         }
     }
 
-    return {vector<int>(nums.begin(), nums.begin() + cutIndex), vector<int>(nums.begin() + cutIndex, nums.end())};
+    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex);
+    vector<int> subvector2(nums.begin() + cutIndex, nums.end());
+
+    return make_pair(subvector1, subvector2);
 }
 
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
-    auto result = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
 
     for (int num : result.first) {
         cout << num << ' ';
