@@ -3,30 +3,26 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    bool result = true; 
-    int T_count = 0, F_count = 0;
+    bool result = false; 
+    stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == '|') {
-            if (T_count > F_count)
-                result = false;
-            else
-                result = true;
-            T_count = 0; 
-            F_count = 0;
-        } else if (expression[i] == '&') {
-            T_count++;
-            F_count = 0;
-        } else if (expression[i] == 'T')
-            T_count++;
-        else 
-            F_count++;
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
+        } else {
+            s.push(expression[i]);
+        }
     }
     
-    if (T_count > F_count)
-        result = true; 
-    else
-        result = false; 
+    result = s.top() == 'T'; 
     return result;
 }
 
