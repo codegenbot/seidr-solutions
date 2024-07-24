@@ -1,3 +1,2 @@
-```
-def roll_dice(n, m):
-    return 1 - n/m if n > m else 1 - m/n if n < m else 0.5
+def game(n, m):
+    return (n - 1) / n * (m - 1) / (m + n - 2)

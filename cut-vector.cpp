@@ -1,60 +1,39 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> result;
+    pair<vector<int>, vector<int>> result;
     
-    for(int i = 1; i <= n; ++i) {
-        vector<int> left, right;
-        if(i == 1) {
-            left.push_back(v[0]);
-            right = v.substr(1);
-        } else if(i == n) {
-            left = v.substr(0, n - 1);
-            right.push_back(v[n - 1]);
-        } else {
-            left = v.substr(0, i - 1);
-            right = v.substr(i, n - i);
-        }
+    for(int i=0; i<n-1; i++){
+        int sumLeft = 0, sumRight = 0;
         
-        int diffLeft = 0, sumLeft = 0;
-        for(int j = 0; j < left.size(); ++j) {
-            sumLeft += left[j];
-            if(sumLeft != diffLeft) break;
-            diffLeft++;
+        for(int j=0; j<i; j++) sumLeft += v[j];
+        for(int j=i+1; j<n; j++) sumRight += v[j];
+
+        if(abs(sumLeft - sumRight) <= abs(v[i] - sumLeft)){
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
+            break;
         }
-        
-        int diffRight = 0, sumRight = 0;
-        for(int j = 0; j < right.size(); ++j) {
-            sumRight += right[j];
-            if(sumRight != diffRight) break;
-            diffRight++;
-        }
-        
-        result.push_back(left);
-        result.push_back(right);
     }
-    
+
     return result;
 }
 
-int main() {
+int main(){
     int n;
     cin >> n;
     vector<int> v(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
-    
-    vector<vector<int>> res = cutVector(v);
-    for(auto &v : res) {
-        cout << "[";
-        for(int i = 0; i < v.size(); ++i) {
-            cout << v[i] << " ";
-        }
-        cout << "]" << endl;
-    }
-    
-    return 0;
+    for(int i=0; i<n; i++) cin >> v[i];
+
+    pair<vector<int>, vector<int>> res = cutVector(v);
+
+    cout << "First half: ";
+    for(int x : res.first) cout << x << " ";
+    cout << endl;
+
+    cout << "Second half: ";
+    for(int x : res.second) cout << x << " ";
+    cout << endl;
 }
