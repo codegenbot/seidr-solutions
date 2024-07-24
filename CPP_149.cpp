@@ -5,7 +5,9 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return are_permutations(a.begin(), a.end(), b.begin(), b.end());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
