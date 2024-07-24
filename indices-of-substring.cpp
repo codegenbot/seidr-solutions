@@ -5,21 +5,19 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
-
-    std::cin.ignore();
-    std::getline(std::cin, target);
+    std::getline(std::cin >> std::ws, target);
 
     std::vector<int> indices;
-
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
+    
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+        pos += 1;
     }
-
+    
     for (int index : indices) {
         std::cout << index << " ";
     }
-
+    
     return 0;
 }
