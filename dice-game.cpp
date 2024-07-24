@@ -1,23 +1,7 @@
-#include <iostream>
-#include <vector>
-using std::cin;
-using std::cout;
-using std::fixed;
-using std::setprecision;
-
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-
-    for (int i = 1; i <= min(n, m); i++) {
-        p += (n - i) / total;
+double getProbability(int n, int m) {
+    double num = 0;
+    for(int i=m+1; i<=n; ++i){
+        num += (double)1/(n*m);
     }
-
-    return p;
+    return num;
 }
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(5) << diceGame(n, m);
-    return 0;
