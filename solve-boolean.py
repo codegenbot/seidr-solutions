@@ -9,9 +9,9 @@ def solve_boolean(expression=""):
     elif '&' in user_input and '|' in user_input:
         raise ValueError('Invalid expression')
     else:
-        for i in range(len(user_input)):
-            if user_input[i] == '&':
-                result = result and (user_input[i+1] == 'T')
-            elif user_input[i] == '|':
-                result = result or (user_input[i+1] == 'T')
+        for i, c in enumerate(user_input):
+            if c == '&':
+                result = result and (user_input[i+1:] == 'T')
+            elif c == '|':
+                result = result or (user_input[i+1:] == 'T')
         return result
