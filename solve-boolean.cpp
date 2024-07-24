@@ -1,4 +1,5 @@
 #include <string>
+
 bool solveBoolean(std::string s) {
     while (s.find("++") != std::string::npos) s.replace(s.find("++"), 2, "+");
     size_t left_end = s.find_first_of("TF");
