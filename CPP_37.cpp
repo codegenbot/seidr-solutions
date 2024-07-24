@@ -5,10 +5,10 @@
 
 using namespace std;
 
-vector<float> sort_even(vector<float> l);
-bool issame(vector<float> a, vector<float> b);
+vector<float> sort_even(const vector<float>& l);
+bool issame(const vector<float>& a, const vector<float>& b);
 
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(const vector<float>& l) {
     vector<float> even_values;
     vector<float> result;
     
@@ -33,6 +33,21 @@ vector<float> sort_even(vector<float> l) {
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+bool issame(const vector<float>& a, const vector<float>& b) {
+    vector<float> a_copy = a;
+    vector<float> b_copy = b;
+    
+    sort(a_copy.begin(), a_copy.end());
+    sort(b_copy.begin(), b_copy.end());
+    
+    return a_copy == b_copy;
+}
+
+int main() {
+    vector<float> input = {3.5, 2.0, 1.2, 4.8, 5.3};
+    vector<float> sorted_even = sort_even(input);
+    
+    assert(issame(sorted_even, {1.2, 2.0, 3.5, 4.8, 5.3}));
+    
+    return 0;
 }
