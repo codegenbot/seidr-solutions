@@ -1,11 +1,11 @@
 ```
-from itertools import cycle
-
 def cycpattern_check(a, b):
     if len(b) > len(a):
         return False
-    for _ in range(len(a)):
-        a = a[1:] + a[0]
+    for i in range(len(a)):
+        if a[i:] + a[:i] == b:
+            return True
+    for i in range(len(a)):
         if a[i:i+len(b)] == b:
             return True
     return False
