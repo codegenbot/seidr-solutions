@@ -1,3 +1,2 @@
-```
 def fuel_cost(lst):
-    return sum(max(0, i // 3 - 2) for i in lst)
+    return sum((i // 1 if i % 3 == 0 else (i - 1) // 3) - 2 for i in lst)
