@@ -1,40 +1,24 @@
+#include <string>
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    // Count correct colors but wrong places (white pegs)
-    for(int i=0; i<4; i++) {
-        bool present = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                present = true;
-                code[j] = '#'; // mark as used
-                break;
-            }
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
         }
-        if(!present) continue;
-
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
+    }
+    for (int i = 0; i < 4; i++) {
+        string tempCode = code.substr(0, i) + code.substr(i+1);
+        int j = 0;
+        while (j < 4) {
+            if (tempCode.find(guess[i]) != string::npos) {
                 white++;
-                code[j] = '#'; // mark as used
                 break;
             }
+            j++;
         }
     }
-
-    // Count correct colors and places (black pegs)
-    for(int i=0; i<4; i++) {
-        bool present = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                present = true;
-                code[j] = '#'; // mark as used
-                break;
-            }
-        }
-        if(present) black++;
-    }
-
-    return white + black;
+    return make_pair(white - black, black).second;
 }
