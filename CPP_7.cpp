@@ -16,6 +16,6 @@ void filter_by_substring(std::vector<std::string>& vec, const std::string& subst
 int main() {
     std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
     filter_by_substring(vec, "run");
-    assert(issame(vec, {"grunt", "prune"}));
+    assert(vec == std::vector<std::string>{"grunt", "prune"});
     return 0;
 }
