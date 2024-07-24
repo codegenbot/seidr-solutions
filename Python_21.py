@@ -1,4 +1,3 @@
-
 from typing import List
 
 numbers = list(map(float, input().split()))
