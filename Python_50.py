@@ -1,4 +1,3 @@
-```
 def main():
     while True:
         response = input("Decode again? (y/n): ")
