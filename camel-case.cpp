@@ -7,20 +7,15 @@ std::string camelCase(std::string input) {
     
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = false;
+            // Skip dash
         } else if (c == ' ') {
             // Skip space
-        } else if (c == '-') {
-            // Skip dash
         } else {
             if (firstWord) {
-                result += c;
+                result += char(tolower(c));
                 firstWord = false;
             } else {
-                result += char(tolower(c));
+                result += char(toupper(c));
             }
         }
     }
