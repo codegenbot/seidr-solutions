@@ -1,10 +1,13 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::getline(std::cin >> std::ws, text);
+    std::getline(std::cin >> std::ws, target);
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
