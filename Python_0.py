@@ -1,23 +1,85 @@
 from typing import List
 
 
-def has_close_elements():
-    numbers = list(map(float, input("Enter space-separated float numbers: ").split()))
-    threshold = float(input("Enter a threshold value: "))
-
-    result = has_close_elements(numbers, threshold)
-
-    print(
-        "The list contains close elements" if result else "The list does not contain close elements"
-    )
-
-
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) <= threshold:
+def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
+    if len(numbers_list) < 2:
+        return False
+    for i in range(len(numbers_list) - 1):
+        for j in range(i + 1, len(numbers_list)):
+            if abs(numbers_list[i] - numbers_list[j]) <= threshold:
                 return True
     return False
 
 
-has_close_elements()
+def main():
+    while True:
+        print("Do you want to run the program? (yes/no): ")
+        response = input().lower()
+        while response not in ["y", "yes", "n", "no"]:
+            print("Invalid input. Please enter 'y', 'yes', 'n', or 'no'.")
+            response = input().lower()
+
+        if response in ["y", "yes"]:
+            numbers_list = []
+            while True:
+                numbers = " ".join(
+                    input("Enter comma-separated float numbers: ").split(",")
+                )
+                if not numbers.strip():
+                    print("Please enter some numbers.")
+                elif len(numbers.split()) < 2:
+                    print("Please enter at least two numbers.")
+                else:
+                    input_numbers = [num for num in numbers.split() if num]
+                    while len(input_numbers) < 2:
+                        if any(
+                            not char.isdigit() and char != "." for num in input_numbers
+                        ):
+                            print("Please enter at least two valid float numbers.")
+                            numbers = " ".join(input().split(","))
+                            input_numbers = [num for num in numbers.split() if num]
+
+                    try:
+                        numbers_list = list(map(float, input_numbers))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter valid float numbers.")
+
+            while True:
+                while True:
+                    threshold_str = input("Enter a threshold value: ")
+                    if not threshold_str.strip():
+                        print("Please enter a threshold value.")
+                    else:
+                        try:
+                            threshold = float(threshold_str)
+                            break
+                        except ValueError:
+                            print(
+                                "Invalid input. Please enter a valid number for the threshold."
+                            )
+
+                result = has_close_elements(numbers_list, threshold)
+
+                while True:
+                    response_again = input(
+                        "Do you want to run the program again? (y/n): "
+                    )
+                    while response_again not in ["y", "yes", "n", "no"]:
+                        print("Invalid input. Please enter 'y', 'yes', 'n', or 'no'.")
+                        response_again = input().lower()
+
+                    if response_again in ["y", "yes"]:
+                        break
+                    else:
+                        print("Exiting the program.")
+                        exit(0)
+
+                print(
+                    "The list contains close elements"
+                    if result
+                    else "The list does not contain close elements"
+                )
+        else:
+            print("Exiting the program.")
+            exit(0)
