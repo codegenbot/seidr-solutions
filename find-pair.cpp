@@ -12,18 +12,3 @@ vector<int> findPair(vector<int>& nums, int target) {
     }
     return {};
 }
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    int target;
-    cin >> target;
-    auto result = findPair(numbers, target);
-    cout << result[0] << endl;
-    cout << result[1] << endl;
-    return 0;
-}
