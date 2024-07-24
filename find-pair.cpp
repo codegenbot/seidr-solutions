@@ -8,14 +8,14 @@ int main() {
     int target;
     cin >> target;
     
-    map<int, int> mp;
+    map<int, int> numIdx;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << nums[i] << endl;
+        if (numIdx.find(target - nums[i]) != numIdx.end()) {
             cout << target - nums[i] << endl;
+            cout << nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIdx[nums[i]] = i;
     }
     
     return 0;
