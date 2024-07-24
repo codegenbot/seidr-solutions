@@ -12,6 +12,6 @@ int smallest_change(const vector<int>& arr) {
 }
 
 int main() {
-    smallest_change({0, 1});
+    smallest_change(vector<int>{0, 1});
     return 0;
 }
