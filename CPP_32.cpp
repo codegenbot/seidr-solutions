@@ -1,4 +1,4 @@
 double find_zero(vector<double> xs){
-    double a = xs[0], b = xs[1];
-    return -a / b;
+    double x = -xs[0] / xs[1];
+    return x;
 }
