@@ -2,13 +2,20 @@
 #include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    int textSize = text.length();
+    int targetSize = target.length();
 
-    for(int i=0; i<=n-m; i++){
-        if(text.substr(i,m) == target){
+    for (int i = 0; i <= textSize - targetSize; i++) {
+        bool match = true;
+        for (int j = 0; j < targetSize; j++) {
+            if (text[i + j] != target[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
             result.push_back(i);
         }
     }
