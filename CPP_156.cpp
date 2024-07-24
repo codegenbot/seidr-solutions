@@ -1,4 +1,3 @@
-```cpp
 namespace std {
 using namespace std;
 
