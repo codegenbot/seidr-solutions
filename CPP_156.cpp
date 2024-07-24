@@ -1,5 +1,7 @@
-```cpp
+```
+#include <vector>
 #include <string>
+#include <cassert>
 
 struct Roman {
     std::string value;
@@ -53,6 +55,7 @@ std::string int_to_roman(int number) {
     }
 }
 
-int main() {
+int testMain() {
     assert(int_to_roman(1000) == "M");
+    return 0;
 }
