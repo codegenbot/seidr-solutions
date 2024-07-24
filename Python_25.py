@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 from typing import List
 
@@ -32,5 +30,3 @@ while True:
             print("Please enter a positive integer.")
             continue
         print(*factorize(n), sep=', ')
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
