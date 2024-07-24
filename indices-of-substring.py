@@ -1,3 +1,2 @@
-```
 def indices_of_substring(text):
-    return [i for i, char in enumerate(text) if text[i:].find(input()) != -1]
+    return [i for i in range(len(text)) if text.find(input()) == i]
