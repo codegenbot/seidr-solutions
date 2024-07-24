@@ -10,10 +10,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
             has_zero = True
         else:
             product_value *= number
+    
+    return sum_value, 0 if has_zero else product_value
 
-    return sum_value, product_value if not has_zero else 0
-
-user_input = input("Enter a list of integers separated by commas: ")
-numbers = [int(num) for num in user_input.split(',')]
+numbers = list(map(int, input().split()))
 result = sum_product(numbers)
 print(result)
