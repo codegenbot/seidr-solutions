@@ -10,7 +10,7 @@ double find_zero(std::vector<double> xs){
 double poly(std::vector<double> coeffs, double x){
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
+        result += coeffs[i] * std::pow(x, i);
     }
     return result;
 }
@@ -20,8 +20,6 @@ int main(){
     double solution;
 
     solution = find_zero(coeffs);
-
-    // Assertion to check if the zero found is correct
     assert (std::abs(poly(coeffs, solution)) < 1e-3);
 
     return 0;
