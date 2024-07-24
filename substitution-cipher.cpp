@@ -1,17 +1,19 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
 
     for (char& c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+        size_t index = cipher1.find(c);
+        if (index != string::npos) {
+            c = cipher2[index];
         }
     }
 
-    std::cout << message;
+    cout << message;
 
     return 0;
 }
