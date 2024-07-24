@@ -1,27 +1,25 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int start = 0;
-    for (int i = 0; i <= input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
-            string word = input.substr(start, i - start);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            start = i + 1;
-        }
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::stringstream ss(sentence);
+    std::string word;
+    
+    while (ss >> word) {
+        if(word.length() >= 5)
+            word = std::string(word.rbegin(), word.rend());
+        result += word + " ";
     }
-    return output;
+    
+    return result.substr(0, result.size()-1);
 }
 
-int main() {
-    // test your function
-    cout << spinWords("this is a test") << endl; 
+int main(){
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
