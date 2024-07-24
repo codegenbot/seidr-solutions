@@ -1,7 +1,13 @@
-bool is_divisor = false;
-for (long long i = 2; i * i <= n && !is_divisor; ++i) {
-    if (n % i == 0) {
-        is_divisor = true;
-    }
+bool is_divisor(long long i) {
+    return (n % i == 0);
 }
-return !is_divisor;
+
+bool is_prime(long long n) {
+    if(n <= 1)
+        return false;
+    for(long long i = 2; i*i <= n; i++) {
+        if(is_divisor(i))
+            return false;
+    }
+    return true;
+}
