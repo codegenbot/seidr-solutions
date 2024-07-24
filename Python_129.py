@@ -1,19 +1,23 @@
 def minPath(grid, k):
     N = len(grid)
-    res = []
-    for i in range(N):
-        for j in range(N):
-            if grid[i][j] == 1:
-                stack = [(i, j, [grid[i][j]])]
-                visited = {(i, j)}
-                while stack and len(stack[0][2]) < k + 1:
-                    x, y, path = stack.pop(0)
-                    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                        nx, ny = x + dx, y + dy
-                        if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in visited:
-                            stack.append(((nx, ny), path + [grid[nx][ny]]))
-                            visited.add((nx, ny))
-                if len(stack[0][2]) == k + 1:
-                    res = stack[0][2]
-                    break
-    return res
+    visited = [[False]*N for _ in range(N)]
+    path = []
+    dfs(0, 0, grid[0][0], [], k, path)
+    return path
+
+
+def dfs(x, y, target, current, left, path):
+    if left == 0:
+        return
+    N = len(current)
+    if len(path) > left and current[N-1] < target:
+        return
+    if visited[x][y]:
+        return
+    visited[x][y] = True
+    path.append(target)
+    dfs(x-1, y, current[0], current[1:], left-1, path[:])
+    dfs(x+1, y, current[0], current[1:], left-1, path[:])
+    dfs(x, y-1, current[0], current[1:], left-1, path[:])
+    dfs(x, y+1, current[0], current[1:], left-1, path[:])
+    visited[x][y] = False
