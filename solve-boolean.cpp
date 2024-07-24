@@ -13,7 +13,7 @@ bool evalBool(std::string s) {
                     int pos = s.find('|');
                     std::string left = s.substr(0, pos);
                     std::string right = s.substr(pos + 1);
-                    return evalBoolOr(left, right);
+                    return evalBool(left) || evalBool(right);
                 }
                 break;
             case '&':
@@ -21,7 +21,7 @@ bool evalBool(std::string s) {
                     int pos = s.find('&');
                     std::string left = s.substr(0, pos + 1);
                     std::string right = s.substr(pos + 1);
-                    return evalBoolAnd(left, right);
+                    return evalBool(left) && evalBool(right);
                 }
                 break;
         }
