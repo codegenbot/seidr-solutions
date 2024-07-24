@@ -1,6 +1,5 @@
-#include <vector>
 #include <climits>
-#include <cmath>
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -11,7 +10,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     for (int i = 1; i < n; i++) {
         int diff1 = nums[i] - nums[0];
         int diff2 = nums[n-1] - nums[i-1];
-        if (abs(diff1-diff2) < abs(min_diff)) {
+        if (std::abs(diff1-diff2) < std::abs(min_diff)) {
             min_diff = diff1 - diff2;
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
             nums.erase(nums.begin());
