@@ -1,5 +1,10 @@
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT_MAX;
+    long long min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); ++i) {
         long long sum = 0;
         for (int j = i; j < nums.size(); ++j) {
@@ -9,4 +14,11 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    vector<long long> nums = {2,3,-1,-5};
+    cout << "Minimum Sum of Subarray: " << minSubArraySum(nums) << endl;
+    
+    return 0;
 }
