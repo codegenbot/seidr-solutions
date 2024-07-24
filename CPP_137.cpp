@@ -1,41 +1,54 @@
-variant<int, string> compare_one(variant<int|string> a, variant<int|string> b) {
-    if (a.index() == 0 && b.index() == 1) {
-        int da = get<int>(a);
-        string db = get<string>(b);
-        return da > stod(db) ? a : b;
+#include <iostream>
+#include<string>
+#include<algorithm>
+#include<stdexcept>
+
+using namespace std;
+
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double da = std::any_cast<double>(a);
+        string db = std::any_cast<string>(b);
+        if (da > stod(db))
+            return a;
+        else
+            return b;
     }
-    else if (a.index() == 1 && b.index() == 0) {
-        int da = get<int>(b);
-        string db = get<string>(a);
-        return stod(db) > da ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double da = std::any_cast<double>(b);
+        string db = std::any_cast<string>(a);
+        if (stod(db) > da)
+            return a;
+        else
+            return b;
     }
-    else if (a.index() == 1 && b.index() == 1) {
-        string da = get<string>(a);
-        string db = get<string>(b);
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string da = std::any_cast<string>(a);
+        string db = std::any_cast<string>(b);
         if (da > db)
             return a;
         else if (db > da)
             return b;
         else
-            return std::monostate{};
+            return "None";
     }
-    else if (a.index() == 0 && b.index() == 0) {
-        int da = get<int>(a);
-        int db = get<int>(b);
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double da = std::any_cast<double>(a);
+        double db = std::any_cast<double>(b);
         if (da > db)
             return a;
         else if (db > da)
             return b;
         else
-            return std::monostate{};
+            return "None";
     }
-    return std::monostate{};
+    return "None";
 }
 
 int main() {
-    cout << get<variant<int, string>>(compare_one(1, 2.5)) << endl;
-    cout << get<variant<int, string>>(compare_one(1, "2,3")) << endl;
-    cout << get<variant<int, string>>(compare_one("5,1", "6")) << endl;
-    cout << get<variant<int, string>>(compare_one("1", 1)) << endl;
+    cout << std::any_cast<string>(compare_one(1, 2.5)) << endl;
+    cout << std::any_cast<string>(compare_one(1, "2.5")) << endl;
+    cout << std::any_cast<string>(compare_one("5", "6")) << endl;
+    cout << std::any_cast<string>(compare_one("1", 1)) << endl;
     return 0;
 }
