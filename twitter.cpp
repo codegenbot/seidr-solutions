@@ -1,3 +1,6 @@
+```cpp
+#include <initializer_list>
+#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -6,7 +9,7 @@ using namespace std;
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin >> tweet; 
+    getline(cin, tweet);
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else if(tweet.empty()) {
