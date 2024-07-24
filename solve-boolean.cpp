@@ -1,27 +1,28 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool res = false;
+bool solveBoolean(string expression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
 
-    for(int i=s.length()-1; i>=0; i--) {
-        if(s[i] == '&') {
-            res = (st.top() == 'T');
-            st.pop();
-        } else if(s[i] == '|') {
-            while(!st.empty() && st.top() == 'F') {
-                st.pop();
-            }
-            if(st.empty()) {
-                res = true;
-            } else {
-                res = (st.top() == 'T');
-            }
-            st.pop();
-        } else if(s[i] == 't' || s[i] == 'T') {
-            st.push('T');
-        } else if(s[i] == 'f' || s[i] == 'F') {
-            st.push('F');
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+
+            valueStack.push(b1 || b2);
+        } else if (expression[i] == '&') {
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+
+            valueStack.push(b1 && b2);
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            valueStack.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            valueStack.push(false);
         }
     }
 
-    return res;
+    return valueStack.top();
 }
