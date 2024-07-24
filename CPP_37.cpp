@@ -1,26 +1,30 @@
-bool issame(const float& a, const float& b) {
-    return fabs(a - b) < 0.00001;
+bool issame(float a, float b) {
+    return abs(a - b) < numeric_limits<float>::epsilon();
 }
 
-void sort_even(vector<float>& l) {
+bool sort_even(float a, float b) {
+    return a < b;
+}
+
+vector<float> main(vector<float>& l) {
     vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_indices.push_back(l[i]);
         }
     }
-    sort(even_indices.begin(), even_indices.end());
+    sort(even_indices.begin(), even_indices.end(), sort_even);
 
     vector<float> result;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_indices[even_index];
+            result.push_back(even_indices[even_index]);
             even_index++;
+        } else {
+            result.push_back(l[i]);
         }
     }
-}
 
-int main() {
-    // Function implementation here
+    return result;
 }
