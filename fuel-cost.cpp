@@ -1,24 +1,13 @@
-int calculateFuelCost(vector<int>& prices) {
+int calculateFuelCost(vector<int> &numbers) {
     int total = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3);
-        if (newPrice < 1) {
-            newPrice = 0;
+    for (int num : numbers) {
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
         } else {
-            newPrice--;
+            result--;
         }
-        total += newPrice;
+        total += result;
     }
     return total;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> prices(n);
-    for (int i = 0; i < n; i++) {
-        cin >> prices[i];
-    }
-    cout << calculateFuelCost(prices) << endl;
-    return 0;
 }
