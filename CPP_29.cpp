@@ -1,17 +1,17 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, const std::string& prefix);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    bool result = true;
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!(a[i] == b[i])) result = false;
-    }
-    return result;
+    return a == b;
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, const std::string& prefix){
-    std::vector<std::string> result;
+    std::vector<std::string> result {{}};  // use initializer list
     for(auto str : strings) {
         if(str.find(prefix) == 0)
             result.push_back(str);
@@ -20,8 +20,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, cons
 }
 
 int main() {
-    std::vector<std::string> a = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaA", "xxx"}, "xxx");
-    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-    assert (issame(a, b));
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
