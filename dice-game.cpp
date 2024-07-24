@@ -1,5 +1,17 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    return (n-1.0)/(n+m-2.0);
+    double p = 0;
+    if (n > m) {
+        p += ((double)n - (double)m) / (n * m);
+    }
+    return p;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(1) << diceGame(n, m) << endl;
+    return 0;
 }
