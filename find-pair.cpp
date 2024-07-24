@@ -7,17 +7,16 @@ int main() {
     }
     int target;
     cin >> target;
-
-    map<int, int> hash;
+    
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        int diff = target - nums[i];
-        if (hash.find(diff) != hash.end()) {
-            cout << diff << endl;
+        int complement = target - nums[i];
+        if (mp.find(complement) != mp.end()) {
+            cout << complement << endl;
             cout << nums[i] << endl;
             break;
         }
-        hash[nums[i]] = i;
+        mp[nums[i]] = i;
     }
-
     return 0;
 }
