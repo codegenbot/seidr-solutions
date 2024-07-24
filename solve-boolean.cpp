@@ -3,37 +3,11 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool res = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') {
-            i++;
-        } else if (s[i] == 'F') {
-            res = false;
-            break;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            res &= (i + 1 < s.length() && s[i + 1] == 'T');
         } else if (s[i] == '|') {
-            res |= true;
-            i++;
-            while (i < s.length() && s[i] != '&') {
-                if (s[i] == 'T') {
-                    i++;
-                } else if (s[i] == 'F') {
-                    res = false;
-                    break;
-                }
-                i++;
-            }
-        } else if (s[i] == '&') {
-            res &= true;
-            i++;
-            while (i < s.length() && s[i] != '|') {
-                if (s[i] == 'T') {
-                    i++;
-                } else if (s[i] == 'F') {
-                    res = false;
-                    break;
-                }
-                i++;
-            }
+            res |= (i + 1 < s.length() && s[i + 1] == 'T');
         }
     }
     return res;
