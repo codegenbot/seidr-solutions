@@ -1,21 +1,31 @@
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> letter_grades;
-    for(float g: grades){
-        string grade;
-        if(g >= 4.0) grade = "A+";
-        else if(g > 3.7) grade = "A";
-        else if(g > 3.3) grade = "A-";
-        else if(g > 3.0) grade = "B+";
-        else if(g > 2.7) grade = "B";
-        else if(g > 2.3) grade = "B-";
-        else if(g > 2.0) grade = "C+";
-        else if(g > 1.7) grade = "C";
-        else if(g > 1.3) grade = "C-";
-        else if(g > 1.0) grade = "D+";
-        else if(g > 0.7) grade = "D";
-        else if(g > 0.0) grade = "D-";
-        else grade = "E";
-        letter_grades.push_back(grade);
+#include <vector>
+#include <string>
+
+bool issame(float a, float b) {
+    if (a - b > 0.0001 || b - a > 0.0001)
+        return false;
+    else
+        return true;
+}
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (float g : grades) {
+        std::string letter;
+        if (g > 4.0) g = 4.0; // cap at 4.0
+        if (g >= 3.7) { letter = "A"; g -= 3.7; }
+        else if (g >= 3.3) { letter = "A-"; g -= 3.3; }
+        else if (g >= 3.0) { letter = "B+"; g -= 3.0; }
+        else if (g >= 2.7) { letter = "B"; g -= 2.7; }
+        else if (g >= 2.3) { letter = "B-"; g -= 2.3; }
+        else if (g >= 2.0) { letter = "C+"; g -= 2.0; }
+        else if (g >= 1.7) { letter = "C"; g -= 1.7; }
+        else if (g >= 1.3) { letter = "C-"; g -= 1.3; }
+        else if (g >= 1.0) { letter = "D+"; g -= 1.0; }
+        else if (g >= 0.7) { letter = "D"; g -= 0.7; }
+        else letter = "E";
+        if (g > 0.0) letter += "+";
+        letter_grades.push_back(letter);
     }
     return letter_grades;
 }
