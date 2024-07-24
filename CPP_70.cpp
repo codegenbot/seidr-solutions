@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -29,10 +28,10 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
-    #pragma GCC enable initializer_lists
     std::vector<int> output = sortList(input);
     std::cout << "Sorted list: ";
     for(int i : output) {
         std::cout << i << " ";
     }
     return 0;
+}
