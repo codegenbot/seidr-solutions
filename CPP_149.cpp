@@ -1,20 +1,27 @@
+#include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> a_sorted = a;
-    std::vector<std::string> b_sorted = b;
-    
-    std::sort(a_sorted.begin(), a_sorted.end());
-    std::sort(b_sorted.begin(), b_sorted.end());
-    
-    return a_sorted == b_sorted;
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> sorted_list_sum(vector<string> lst) {
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string &s) { return s.length() % 2 != 0; }), lst.end());
+    sort(lst.begin(), lst.end(), [](const string &a, const string &b) {
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
+    });
+    return lst;
 }
 
 int main() {
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
-    
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+
     return 0;
 }
