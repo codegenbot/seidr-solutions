@@ -1,10 +1,19 @@
-for (char &c : s) {
+string solve(string s){
+    bool hasLetter = false;
+    for (char &c : s) {
         if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+            hasLetter = true;
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+
+    if (!hasLetter) {
         reverse(s.begin(), s.end());
     }
+
     return s;
 }
