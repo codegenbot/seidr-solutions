@@ -26,6 +26,17 @@ vector<string> split_words(string txt) {
     
     if (!currentWord.empty()) {
         result.push_back(currentWord);
+    } else {
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c)) {
+                count++;
+            }
+        }
+        if (!result.empty()) {
+            result.push_back(to_string(count));
+        }
     }
     
     return result;
+}
