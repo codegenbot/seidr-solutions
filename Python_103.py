@@ -1,5 +1,6 @@
 import statistics
 
+
 def rounded_avg(n, m):
     if type(n) != int or type(m) != int:
         return "Error: Input must be integers"
