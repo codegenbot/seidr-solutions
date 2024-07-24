@@ -1,33 +1,38 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 string spinWords(string str) {
-    vector<string> words;
-    string word;
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            words.push_back(word);
-            word.clear();
+    string result = "";
+    int i = 0;
+    
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += str.substr(i,1) + " ";
+            i++;
+        } else if(i >= 4) {
+            for(int j = i; j >= i-4 && j >= 0; j--) {
+                result += str[j];
+            }
+            i++;
+            while(i < str.length() && str[i] != ' ') {
+                i++;
+            }
         } else {
-            word += str[i];
+            result += str.substr(i,1);
+            i++;
         }
     }
-
-    words.push_back(word);
-
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            reverse(words[i].begin(), words[i].end());
-        }
-    }
-
-    string result;
-    for (int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if (i < words.size() - 1) {
-            result += ' ';
-        }
-    }
-
+    
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
+    return 0;
 }
