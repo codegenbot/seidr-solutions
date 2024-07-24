@@ -20,10 +20,11 @@ std::string spinWords(std::string str) {
     }
     
     // Check the last word
-    result += word;
     if (word.length() >= 5) {
         std::reverse(word.begin(), word.end());
     }
+    
+    result += word;
     
     return result;
 }
