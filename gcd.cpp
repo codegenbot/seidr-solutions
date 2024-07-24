@@ -1,4 +1,6 @@
+```c++
 #include <vector>
+#include <string> 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -6,8 +8,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
     
-    for(int i=0; i<=n-m; i++){
-        if(text.substr(i,m) == target){
+    for(int i = 0; i <= n - m; i++) {
+        if(text.substr(i, m) == target) {
             result.push_back(i);
         }
     }
@@ -16,10 +18,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
+    while(b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
+    if(a == 0 || b == 0)
+        throw runtime_error("Error: Both input values cannot be zero.");
     return a;
 }
