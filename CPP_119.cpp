@@ -3,31 +3,29 @@
 #include <string>
 
 std::string match_parens(const std::vector<std::string>& lst) {
-    int count_open = 0, count_close = 0;
+    int stack_size = 0;
+    bool is_good = true;
 
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
-                count_open++;
+                stack_size++;
             } else if (c == ')') {
-                if (count_open > 0) {
-                    count_open--;
-                } else {
-                    count_close++;
+                if (stack_size <= 0) {
+                    is_good = false;
+                    break;
                 }
+                stack_size--;
             }
         }
     }
 
-    if (count_open == 0 && count_close == 0) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+    return is_good ? "Yes" : "No";
 }
 
 int main() {
     std::vector<std::string> lst = {")", "("};
-    assert(match_parens(lst) == "Yes");
-    return 0;
+    std::cout << match_parens(lst) << std::endl;
+    
+    // Your code goes here
 }
