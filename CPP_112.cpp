@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -11,7 +10,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-bool reverse_delete(string s, string c) {
+bool reverse_delete(const string& s, const string& c) {
     string temp = "";
     for (char& ch : s) {
         bool found = false;
@@ -27,17 +26,17 @@ bool reverse_delete(string s, string c) {
     }
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    return rev == s;
+    return temp == rev;
 }
 
 int main() {
     vector<string> a = {"apple", "banana", "cherry"};
-    vector<string> b = {"banana", "cherry", "date"};
-    assert(issame(a, b) == false);
+    vector<string> b = {"banana", "cherry", "apple"};
+    assert(issame(a, b));
     
-    string str = "hello";
-    string chars = "aeiou";
-    cout << (reverse_delete(str, chars) ? "True" : "False") << endl;
+    string s = "abcde";
+    string c = "cd";
+    cout << (reverse_delete(s, c) ? "True" : "False") << endl;
     
     return 0;
 }
