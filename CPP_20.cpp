@@ -15,29 +15,12 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-void inputVectors(std::vector<float>& vec1, std::vector<float>& vec2) {
-    float num;
+int main() {
+    std::vector<float> vec1, vec2;
 
     // Input for vector 1
+    float num;
     while(true) {
-        if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            vec1.clear();
-            break;
-        }
-        if (num > 3.4e38) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec1.clear();
-            break;
-        }
-        vec1.push_back(num);
-        
-        // Ask for next number
-        std::cout << "Enter next number (or press Enter to finish): ";
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); // Reset error state
@@ -78,24 +61,6 @@ void inputVectors(std::vector<float>& vec1, std::vector<float>& vec2) {
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
-        if (!(std::cin >> num)) {
-            std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            vec2.clear();
-            break;
-        }
-        if (num > 3.4e38) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec2.clear();
-            break;
-        }
-        vec2.push_back(num);
-        
-        // Ask for next number
-        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     if(isSame(vec1, vec2)) {
@@ -103,10 +68,4 @@ void inputVectors(std::vector<float>& vec1, std::vector<float>& vec2) {
     } else {
         std::cout << "The two vectors are not same.\n";
     }
-}
-
-int main() {
-    std::vector<float> vec1, vec2;
-    inputVectors(vec1, vec2);
-    return 0;
 }
