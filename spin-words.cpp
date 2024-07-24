@@ -36,3 +36,12 @@ std::string concatenate(const std::vector<std::string> &words) {
     }
     return result.substr(0, result.length() - 1);
 }
+
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
+}
