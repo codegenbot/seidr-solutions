@@ -13,7 +13,7 @@ bool is_simple_power(int x, int y) {
     return true;
 }
 
-int originalMain() {
+int main() {
     int x, n;
     std::cout << "Enter a number: ";
     std::cin >> x;
@@ -29,10 +29,5 @@ int originalMain() {
         else
             std::cout << "False" << std::endl; 
     }
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
