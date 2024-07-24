@@ -4,9 +4,10 @@ using namespace std;
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = i / 3;
-        temp = temp > 0 ? temp - 2 : 0;
-        sum += temp;
+        int x = i / 3;
+        x = floor(x);
+        x -= 2;
+        sum += x;
     }
     return sum;
 }
