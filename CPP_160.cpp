@@ -19,20 +19,24 @@ double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& a
 }
 
 int main() {
-    std::string op, op2;
-    int arg;
+    std::vector<std::string> ops;
+    std::vector<int> args;
 
-    std::cout << "Enter the first operator and argument: ";
-    std::getline(std::cin, op);
-    std::cin >> arg;
-    expressions.push_back(op);
-
-    std::cout << "Enter the second operator and argument: ";
-    std::getline(std::cin, op2);
-    std::cin >> arg;
-    expressions.push_back(op2);
-
-    int args[] = {arg};
-    double output = do_algebra(expressions, {{args[0]}});
+    while(true) {
+        std::cout << "Enter an operator (+, -, *, / or 'q' to quit): ";
+        std::string op;
+        std::cin >> op;
+        
+        if(op == "q") break;
+        
+        int arg;
+        std::cout << "Enter the argument: ";
+        std::cin >> arg;
+        
+        ops.push_back(op);
+        args.push_back(arg);
+    }
+    
+    double output = do_algebra(ops, args);
     std::cout << "Output: " << output << std::endl;
-}
+    return 0;
