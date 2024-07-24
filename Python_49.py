@@ -1,15 +1,14 @@
+```
 def modp(n: int, p: int):
-    def extended_gcd(a, b):
+    def egcd(a: int, b: int) -> tuple:
         if a == 0:
-            return b, 0, 1
+            return b, 0
         else:
-            gcd, y, x = extended_gcd(b % a, a)
-            return gcd, x - (b // a) * y, y
+            g, y = egcd(b % a, a)
+            return g, y - (b // a) * y
 
-    g, x, y = extended_gcd(p, n)
+    g, x = egcd(p, n)
     if p == 1:
-        return 1
-    elif g != 1:
-        return None
+        return 0
     else:
         return x % p
