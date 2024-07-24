@@ -6,6 +6,6 @@ def luhn(card):
         if i % 2 == 1:
             card[i] *= 2
             if card[i] > 9:
-                card[i] -= 9
+                card[i]-= 9
         checksum += card[i]
     return checksum
