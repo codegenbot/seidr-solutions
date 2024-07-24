@@ -1,2 +1,14 @@
-def substitution_cipher(cipher_text1, cipher_text2, message):
-    return "".join([cipher_text2[cipher_text1.index(char)] if char in cipher_text1 else char for char in message])
+def substitution_cipher(cipher, message):
+    result = ""
+    for char in message:
+        if char in cipher[0]:
+            index = cipher[0].index(char)
+            result += cipher[1][index]
+        else:
+            result += char
+    return result
+
+
+cipher_map = (input().strip(), input().strip())
+message = input().strip()
+print(substitution_cipher(cipher_map, message))
