@@ -1,31 +1,32 @@
 vector<string> split_words(string txt) {
     vector<string> result;
 
-    int i = 0;
-    while (i < txt.length()) {
-        if (!isalnum(txt[i])) {
-            string word = txt.substr(i);
-            while (word.length() > 0 && !isalnum(word[0])) {
-                word.erase(0, 1);
-            }
-            result.push_back(word);
-            i += word.length();
+    size_t pos = 0, prevPos = 0;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos)
+                return {to_string(count_lower(txt))};
+            else
+                result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
+            prevPos = pos;
         } else {
-            int j = i;
-            while (j < txt.length() && isalnum(txt[j])) {
-                j++;
-            }
-            string word = txt.substr(i, j - i);
-            if (word.find(',') != string::npos) {
-                result.push_back(word.substr(0, word.find(',')));
-                i = j + 1;
-                break;
-            } else {
-                result.push_back(word);
-                i = j;
-            }
+            result.push_back(txt.substr(prevPos, pos - prevPos));
+            txt.erase(0, pos);
+            prevPos = pos;
         }
     }
+    if (txt.length() > 0)
+        result.push_back(txt);
 
-    return result.empty() ? vector<string>({"" + to_string(txt.length() - txt.find_first_not_of("abcdefghijklmnopqrstuvwxyz"))}) : result;
+    return result;
+}
+
+int count_lower(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z')
+            count++;
+    }
+    return count;
 }
