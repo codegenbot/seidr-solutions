@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -52,6 +51,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << "\n";
-
+    
     return 0;
 }
