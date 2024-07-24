@@ -1,26 +1,26 @@
-```
 def minPath(grid, k):
     n = len(grid)
-    m = len(grid[0])
-    visited = [[False]*m for _ in range(n)]
-    queue = [(i, j, [grid[i][j]]) for i in range(n) for j in range(m)]
-    res = []
-    
-    while queue:
-        x, y, path = queue.pop(0)
-        
-        if len(path) > k:
-            continue
-        
+    m = [[cell for cell in row] for row in grid]
+
+    def dfs(i, j, path, visited):
         if len(path) == k:
-            res = path
-            break
-        
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x+dx, y+dy
-            
-            if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
-                queue.append((nx, ny, path+[grid[nx][ny]]))
-                visited[nx][ny] = True
-                
-    return res
+            return path
+        if (i, j) in visited:
+            return None
+        visited.add((i, j))
+        min_path = None
+        for x, y in [(0, 1), (1, 0), (-1, 0), (0, -1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                new_path = dfs(ni, nj, path + [m[ni][nj]], visited.copy())
+                if new_path is not None and (min_path is None or new_path < min_path):
+                    min_path = new_path
+        return min_path
+
+    min_path = None
+    for i in range(n):
+        for j in range(n):
+            path = dfs(i, j, [m[i][j]], set())
+            if path is not None and (min_path is None or path < min_path):
+                min_path = path
+    return min_path
