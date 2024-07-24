@@ -1,2 +1,1 @@
-```cpp
 string_to_md5(text.to_string());
