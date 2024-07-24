@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -12,5 +11,5 @@ double find_zero(vector<double> xs){
 }
 
 double poly(vector<double> x, double c){
-    return coeffs[0]*c+c*c*x[1];
+    return coeffs[0]*pow(c,2) + coeffs[1]*c;
 }
