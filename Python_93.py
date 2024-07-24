@@ -1,6 +1,6 @@
-``` 
-"""Encode a message by shifting vowels two positions forward in the alphabet."""
+```python
 def encode(message):
+    """Encodes a message by shifting vowels two positions forward in the alphabet."""
     encoded_message = ""
     for char in message:
         if char.isalpha():
