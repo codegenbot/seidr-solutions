@@ -1,27 +1,38 @@
-string solveBoolean(string input) {
-    stack<char> s;
-    string output;
-
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == '&') {
-            while(!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if(input[i] == '|') {
-            while(!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
-        } else {
-            s.push(input[i]);
+bool solveBoolean(string s) {
+    bool t = true;
+    bool f = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            return t && eval(s.substr(i+1));
+        }
+        else if (s[i] == '|') {
+            return t || eval(s.substr(i+1));
+        }
+        else if (s[i] == 'T') {
+            t = true;
+        }
+        else if (s[i] == 'F') {
+            t = false;
         }
     }
+    return t;
+}
 
-    while(!s.empty()) {
-        output += s.top();
-        s.pop();
+bool eval(string s) {
+    bool res = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T') {
+            res = true;
+        }
+        else if (s[i] == 'F') {
+            res = false;
+        }
+        else if (s[i] == '&') {
+            return res && eval(s.substr(i+1));
+        }
+        else if (s[i] == '|') {
+            return res || eval(s.substr(i+1));
+        }
     }
-
-    return (output == "TF") ? "False" : (output == "T|F") ? "True" : "Error";
+    return res;
 }
