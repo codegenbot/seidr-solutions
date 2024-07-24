@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <string>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> wordLengths;
-    std::string result = "";
+string words_in_sentence(string sentence) {
+    vector<int> wordLengths;
+    string result = "";
     
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -28,10 +28,10 @@ std::string words_in_sentence(std::string sentence) {
     return result.substr(0, result.size() - 1);
 }
 
-std::vector<std::string> split(const std::string& str, char ch) {
-    std::vector<std::string> tokens;
+vector<string> split(const string& str, char ch) {
+    vector<string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(ch)) != std::string::npos) {
+    while ((pos = str.find(ch)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + 1);
     }
@@ -39,5 +39,5 @@ std::vector<std::string> split(const std::string& str, char ch) {
     return tokens;
 
 int main() {
-    std::cout << words_in_sentence("here is") << std::endl;
+    cout << words_in_sentence("here is") << endl;
 }
