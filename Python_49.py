@@ -1,35 +1,34 @@
 ```
-class PowerMod:
+class Number:
     def __init__(self, modulus):
         self.modulus = modulus
 
-    def powermod(self, base, exponent):
+    def __truediv__(self, other):
         result = 1
-        while exponent > 0:
-            if exponent % 2 == 1:
-                result = (result * base) % self.modulus
-            base = (base * base) % self.modulus
-            exponent = exponent // 2
+        while other > 0:
+            if other % 2 == 1:
+                result = (result * self) % self.modulus
+            other = other // 2
+            if other > 0:
+                self = Number((self.modulus * (self.modulus)) % self.modulus)
         return result
 
-def __truediv__(self, other):
+def powermod(base, exponent, modulus):
     result = 1
-    while other > 0:
-        if other % 2 == 1:
-            result = (result * self) % self.modulus
-        other = other // 2
-        if other > 0:
-            self = (self * self) % self.modulus
+    while exponent > 0:
+        if exponent % 2 == 1:
+            result = (result * base) % modulus
+        base = (base * base) % modulus
+        exponent = exponent // 2
     return result
 
 while True:
     try:
         while True:
-            modulus = int(input("Enter the modulus: "))
-            pm = PowerMod(modulus)
             base = int(input("Enter the base: "))
             exponent = int(input("Enter the exponent: "))
-            print(pm.powermod(base, exponent))
+            modulus = int(input("Enter the modulus: "))
+            print(powermod(base, exponent, modulus))
             break
     except ValueError:
         print("Invalid input. Please enter integers.")
