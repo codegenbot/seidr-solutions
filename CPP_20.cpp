@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <limits>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -18,21 +19,16 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> vec1, vec2;
+    std::string tempLine;
 
     // Input for vector 1
+    std::cout << "Enter the elements of vector 1 (separated by space): ";
     float num;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            vec1.clear();
-            break;
-        }
-        if (num > 3.4e38) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             vec1.clear();
             break;
         }
@@ -40,18 +36,12 @@ int main() {
     }
 
     // Input for vector 2
+    std::cout << "\nEnter the elements of vector 2 (separated by space): ";
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
-            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
-                std::cin.ignore();
-            }
-            vec2.clear();
-            break;
-        }
-        if (num > 3.4e38) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             vec2.clear();
             break;
         }
