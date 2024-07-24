@@ -1,10 +1,12 @@
+```cpp
 #include <iostream>
+#include <cctype>
 #include <string>
 
 int count_upper(std::string s) {
     int count = 0;
     for(int i = 1; i < s.length(); i += 2) {
-        if(toupper(s[i-1]) == 'A' || toupper(s[i-1]) == 'E' || toupper(s[i-1]) == 'I' || toupper(s[i-1]) == 'O' || toupper(s[i-1]) == 'U') {
+        if(std::toupper(s[i-1]) == 'A' || std::toupper(s[i-1]) == 'E' || std::toupper(s[i-1]) == 'I' || std::toupper(s[i-1]) == 'O' || std::toupper(s[i-1]) == 'U') {
             count++;
         }
     }
@@ -16,6 +18,6 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     int result = count_upper(s);
-    std::cout << "Number of vowels (ignoring case): " << result << std::endl;
+    std::cout << "Number of vowels: " << result << std::endl;
     return 0;
 }
