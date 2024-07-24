@@ -1,5 +1,4 @@
-```
-from typing import List
+```from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
@@ -8,4 +7,4 @@ def rolling_max(numbers: List[int]) -> List[int]:
         if num > max_so_far:
             max_so_far = num
         result.append(max_so_far)
-    return result
+    return result```
