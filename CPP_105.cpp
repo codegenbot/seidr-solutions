@@ -6,6 +6,10 @@
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int num : arr) {
@@ -46,5 +50,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Four", "Eight"}));
+    assert(by_length({1, 4, 8}) == vector<string>({"One", "Four", "Eight"}));
+    assert(by_length({2, 5, 9}) == vector<string>({"Two", "Five", "Nine"}));
 }
