@@ -4,7 +4,6 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-
 def indices_of_substring(text, target):
     result = []
     index = 0
@@ -15,7 +14,6 @@ def indices_of_substring(text, target):
         result.append(pos + 1)
         index += pos + 1
     return result
-
 
 a = int(input())
 b = int(input())
