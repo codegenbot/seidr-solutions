@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
         snow *= (1 - melt);
     }
     
-    cout << snow << endl;
+    cout << snow << "\n";
     
-    return 0;
+    return 0; 
 }
