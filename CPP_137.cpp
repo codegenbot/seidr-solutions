@@ -20,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (stof(sa) < stof(sb))
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string sa = boost::any_cast<string>(a);
@@ -30,7 +30,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (stof(sa) < sb)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
         double sa = boost::any_cast<double>(a);
@@ -40,7 +40,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (sa < stof(sb))
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     
     // If none of the above conditions are met, it means both variables are of same type.
@@ -50,5 +50,5 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a < b)
         return b;
     else
-        return "None";
+        return boost::any("None");
 }
