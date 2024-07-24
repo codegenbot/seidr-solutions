@@ -1,5 +1,5 @@
 #include <string>
-#include <algorithm>
+#include <vector>
 
 std::string words_in_sentence(std::string sentence) {
     std::string result = "";
@@ -18,7 +18,6 @@ std::string words_in_sentence(std::string sentence) {
         result += sentence.substr(len);
     }
     return result;
-
 }
 
 bool is_prime(int n) {
@@ -29,11 +28,3 @@ bool is_prime(int n) {
             return false;
     }
     return true;
-
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    // Add more test cases as needed
-    return 0;
-}
