@@ -1,5 +1,4 @@
 ```
 def modp(n: int, p: int):
-    """"
-    pass
-"""
+    """""" 
+    return pow(n, 1, p)
