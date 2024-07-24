@@ -19,7 +19,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
     
     if (!nums.empty()) {
-        result.push_back(nums);
+        result.push_back(vector<int>(nums.begin(), nums.end()));
     }
 
     return result;
