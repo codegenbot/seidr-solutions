@@ -1,11 +1,7 @@
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents "None"
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
-        }
-    }
-    return -1; // or any other value that represents "None"
+    if (lst.size() < 2) return -1; // None
+    vector<int>::iterator it = min_element(lst.begin(), lst.end());
+    vector<int>::iterator it2 = find(it, lst.end(), *it);
+    if (it2 == lst.end()) return *it; // Return the smallest element as there is no second smallest
+    return *(it2 + 1); 
 }
