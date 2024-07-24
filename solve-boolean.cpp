@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,8 +11,7 @@ bool solveBoolean(const std::string& s) {
         if (s[i] == '|') {
             if (s[i+1] == '&') i++;
             else break;
-        } 
-        else if (s[i] == '&') {
+        } else if (s[i] == '&') {
             while (i + 1 < s.length() && s[i+1] == '&') i++;
             break;
         }
@@ -26,13 +26,12 @@ bool solveBoolean(const std::string& s) {
     else if (left == "f") result = false;
 
     if (right == "t" || right == "") return result;
-    else if (right == "f") return !result && solveBoolean(right.c_str());
+    else if (right == "f") return !result && solveBoolean(right);
 
     if (s[i] == '|') {
-        return solveBoolean(left.c_str()) || solveBoolean(right.c_str());
-    } 
-    else {
-        return solveBoolean(left.c_str()) && solveBoolean(right.c_str());
+        return solveBoolean(left) || solveBoolean(right.c_str());
+    } else {
+        return solveBoolean(left) && solveBoolean(right.c_str());
     }
 }
 
