@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -23,28 +24,28 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         string str = boost::any_cast<string>(b);
         int num = boost::any_cast<int>(a);
-        return num >= stoi(str)
-               ? boost::any(a)
-               : b;
+        return (num >= stoi(str))
+               ? boost::any("None")
+               : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = boost::any_cast<string>(a);
         int num = boost::any_cast<int>(b);
-        return stoi(str) >= num
+        return (stoi(str) >= num)
                ? a
                : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         string str = boost::any_cast<string>(b);
         float num = boost::any_cast<float>(a);
-        return num >= stof(str)
+        return (num >= stof(str))
                ? a
                : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string str = boost::any_cast<string>(b);
         float num = boost::any_cast<float>(a);
-        return stof(str) >= num
+        return (stof(str) >= num)
                ? a
                : b;
     }
@@ -54,6 +55,6 @@ boost::any compare_one(boost::any a, boost::any b) {
                : b;
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
