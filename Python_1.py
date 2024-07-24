@@ -1,10 +1,11 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     temp = ''
-
+    
     for char in paren_string:
         if char == ' ':
             continue
@@ -14,8 +15,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             stack.pop()
             temp += char
-            if not stack and temp:  
+            if not stack:
                 result.append(temp)
                 temp = ''
+
+    if stack:
+        raise ValueError("Unmatched open parentheses")
 
     return result
