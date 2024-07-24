@@ -1,9 +1,10 @@
 ```
-import statistics
-
-def rounded_avg():
-    n, m = map(int, input("Enter two numbers: ").split())
-    if n > m:
-        return -1
-    avg = int(statistics.mean([n, m]) + 0.5) 
-    return bin(int(avg))[2:]
+def average_rounded():
+    while True:
+        try:
+            n = int(input("Enter first number: "))
+            m = int(input("Enter second number: "))
+            if n > m:
+                return -1
+            avg = round((n + m) / 2)
+            print(bin(avg)[2:])

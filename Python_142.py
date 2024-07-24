@@ -1,3 +1,3 @@
 ```
-numbers = list(map(int, '''{}'''.format(input()).split()))
-print(sum_squares(numbers))
+numbers = [int(x) for x in input().split(',')]
+print(sum(map(lambda x: x ** 2, numbers)))
