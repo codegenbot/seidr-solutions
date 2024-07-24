@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> counts(2, 0);
-
-vector<int> count_even_and_odd_digits(int num){
+vector<int> countEvenOddDigits(int num){
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
     
