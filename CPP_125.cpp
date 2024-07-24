@@ -1,27 +1,21 @@
-Here is the completed code:
-
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(" ")) != string::npos || (pos = txt.find(",")) != string::npos) {
+    size_t pos = 0, prev_pos = 0;
+
+    while (true) {
+        pos = txt.find(' ', pos);
         if (pos == string::npos) {
-            size_t nextSpace = txt.find(" ");
-            if (nextSpace == string::npos) {
-                result.push_back(txt.substr(0));
-                break;
-            } else {
-                pos = nextSpace;
+            if (prev_pos >= txt.size()) {
+                return vector<string>(1, to_string(txt.count(',')));
             }
+            pos = txt.find(',', pos);
+            if (pos == string::npos) break;
         }
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    size_t sum = 0;
-    for (char c : txt) {
-        if (c >= 'a' && c <= 'z') {
-            sum += (c - 'a');
+
+        if (prev_pos < pos) {
+            result.push_back(txt.substr(prev_pos, pos - prev_pos));
         }
+        prev_pos = pos + 1;
     }
-    result.push_back(to_string(sum));
     return result;
 }
