@@ -1,26 +1,20 @@
-def bowling_score(bowling):
+def bowling_game(s):
     score = 0
     roll = 0
-    for i in range(1, 11):
-        if "/" in str(i) + bowling[i - 1 : i + 1]:
-            f = list(map(int, re.findall("\d", str(i) + bowling[i - 1 : i + 1])))
-            score += sum(f)
-            if len(f) == 2:
-                roll += 10
-        else:
-            f = int(bowling[i - 1])
-            score += f
-            if f == 10:
-                roll += 10
-    while roll < 10:
-        if "/" in bowling[roll : roll + 3]:
-            f = list(map(int, re.findall("\d", bowling[roll : roll + 3])))
-            score += sum(f)
-            if len(f) == 2:
-                roll += 2
-        else:
-            f = int(bowling[roll])
-            score += f
-            if f == 10:
-                roll += 1
+    frame = 1
+    for i in range(len(s)):
+        if s[i] == "X":
+            score += 10 + (10 - int(s[roll - 1 : roll])) * 2
+            roll = i + 1
+            frame += 1
+        elif s[i].isdigit():
+            if s[i : i + 2].isdigit() and int(s[i : i + 2]) <= 10:
+                score += int(s[i : i + 2]) + (10 - int(s[roll - 1 : roll])) * 2
+                roll = i + 2
+                frame += 1
+            else:
+                score += int(s[i])
+                if s[i] == "5":
+                    roll = i + 1
+                    frame += 1
     return score
