@@ -1,12 +1,11 @@
-```
 from typing import List
 
 def factorize(n: int) -> List[int]:
     if n <= 0:
-        raise ValueError("Expected positive integer")
+        return ["Invalid input"]
     factors = []
     i = 2
-    while i * i <= n:
+    while i * i <= abs(n):  
         if n % i:
             i += 1
         else:
