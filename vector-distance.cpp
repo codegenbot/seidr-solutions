@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -30,4 +29,3 @@ int main() {
     cout << vectorDistance() << endl;
     return 0;
 }
-```
