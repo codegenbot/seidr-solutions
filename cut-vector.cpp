@@ -2,39 +2,31 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
     for (int i = 0; i < v.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
+        int left_sum = 0, right_sum = 0;
         
         for (int j = 0; j <= i; j++) {
-            leftSum += v[j];
+            left_sum += v[j];
         }
         
         for (int j = i + 1; j < v.size(); j++) {
-            rightSum += v[j];
+            right_sum += v[j];
         }
         
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    vector<int> leftVec, rightVec;
+    vector<int> left(v.begin(), v.begin() + cut_index + 1);
+    vector<int> right(v.begin() + cut_index, v.end());
     
-    for (int i = 0; i <= cutIndex; i++) {
-        leftVec.push_back(v[i]);
-    }
-    
-    for (int i = cutIndex + 1; i < v.size(); i++) {
-        rightVec.push_back(v[i]);
-    }
-    
-    return {leftVec, rightVec};
+    return {left, right};
 }
 
 int main() {
@@ -44,6 +36,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
+    
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "Left: ";
     for (int num : result.first) {
@@ -55,5 +48,6 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
+    
     return 0;
 }
