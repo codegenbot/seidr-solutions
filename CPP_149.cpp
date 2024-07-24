@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -16,14 +17,15 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
     std::vector<int> sums;
     for (int i = 0; i < lst[0].size(); i++) {
+        const std::string& str = lst[0][i];
         int sum = 0;
         for (int j = 1; j < lst.size(); j++) {
-            if (find(lst[j].begin(), lst[j].end(), lst[0][i]) != lst[j].end()) {
-                sum += stoi(lst[0][i]);
+            if (find(lst[j].begin(), lst[j].end(), str) != lst[j].end()) {
+                sum += stoi(str);
                 break;
             }
         }
-        sums.push_back(std::to_string(sum)); 
+        sums.push_back(sum); 
     } 
 
     // Sort each inner vector
@@ -31,7 +33,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         std::sort(vec.begin(), vec.end());
     }
 
-    return {lst[0][i]}; 
+    return lst[0]; 
 }
 
 int main(int argc, char** argv) {
