@@ -1,13 +1,12 @@
 int score(string input) {
-    int total = 0;
+    int totalScore = 0;
     int frame = 0;
-    int rolls[22]; // 21 rolls and 1 extra for a possible last roll
-    int i = 0;
-    while (i < input.size()) {
+    int rolls[21] = {0};
+    
+    for (int i = 0; i < input.size(); i++) {
         if (input[i] == 'X') {
             rolls[frame] = 10;
-            rolls[frame + 1] = 0;
-            frame += 2;
+            frame++;
         } else if (input[i] == '/') {
             rolls[frame] = 10 - rolls[frame - 1];
             frame++;
@@ -18,26 +17,30 @@ int score(string input) {
             rolls[frame] = input[i] - '0';
             frame++;
         }
-        i++;
     }
-    for (int f = 0; f < 10; f++) {
-        if (rolls[f * 2] == 10) {
-            total += 10 + rolls[f * 2 + 2] + rolls[f * 2 + 3];
-            if (rolls[f * 2 + 2] == 10) {
-                total += rolls[f * 2 + 4];
-            }
-        } else if (rolls[f * 2] + rolls[f * 2 + 1] == 10) {
-            total += 10 + rolls[f * 2 + 2];
+    
+    frame = 0;
+    for (int i = 0; i < 10; i++) {
+        if (rolls[frame] == 10) {
+            totalScore += 10 + rolls[frame + 1] + rolls[frame + 2];
+            frame++;
+        } else if (rolls[frame] + rolls[frame + 1] == 10) {
+            totalScore += 10 + rolls[frame + 2];
+            frame += 2;
         } else {
-            total += rolls[f * 2] + rolls[f * 2 + 1];
+            totalScore += rolls[frame] + rolls[frame + 1];
+            frame += 2;
         }
     }
-    return total;
+    
+    return totalScore;
 }
 
 int main() {
     string input;
     cin >> input;
+    
     cout << score(input) << endl;
+    
     return 0;
 }
