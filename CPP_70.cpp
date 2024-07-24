@@ -1,10 +1,12 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
+#include <pmr>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b);
 }
 
 std::vector<int> sortList(const std::vector<int>& input) {
