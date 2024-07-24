@@ -1,3 +1,5 @@
+#define main main2
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -27,7 +29,7 @@ std::vector<float> read_input_numbers() {
     return numbers;
 }
 
-int main() {
+int main2() {
     std::vector<float> numbers = read_input_numbers();
 
     if (numbers.empty()) {
