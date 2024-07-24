@@ -9,14 +9,8 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if(capitalizeNext) {
-                result += toupper(currentWord[0]);
-                result += tolower(&currentWord[1]);
-                currentWord.clear();
-            } else {
-                result += currentWord;
-                currentWord.clear();
-            }
+            result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord + " ";
+            currentWord.clear();
             capitalizeNext = true;
         } else {
             currentWord += c;
@@ -24,12 +18,7 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
-    if(capitalizeNext) {
-        result += toupper(currentWord[0]);
-        result += tolower(&currentWord[1]);
-    } else {
-        result += currentWord;
-    }
+    result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord;
 
     return result;
 }
