@@ -1,45 +1,48 @@
-bool solveBoolean(string boolExp) {
-    stack<char> operators;
-    stack<bool> operands;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < boolExp.length(); i++) {
-        if (boolExp[i] == 'T' || boolExp[i] == 't')
-            operands.push(true);
-        else if (boolExp[i] == 'F' || boolExp[i] == 'f')
-            operands.push(false);
+using namespace std;
 
-        else if (boolExp[i] == '&' && operators.empty())
-            operators.push('&');
-        else if (boolExp[i] == '|' && operators.empty())
-            operators.push('|');
+bool solveBoolean(string expression) {
+    stack<char> opstack;
+    stack<string> valstack;
 
-        else {
-            while (!operators.empty()) {
-                char op = operators.top();
-                operators.pop();
-
-                bool rightOp = operands.top();
-                operands.pop();
-
-                bool leftOp;
-                if (!operators.empty())
-                    leftOp = operands.top();
-                else
-                    leftOp = rightOp;
-
-                operands.push(evalBoolean(leftOp, rightOp, op));
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '(') {
+            opstack.push(expression[i]);
+        } else if (expression[i] == ')') {
+            while (opstack.top() != '(') {
+                valstack.push(getValue(&expression[i+1]));
+                opstack.pop();
+            }
+            opstack.pop();  // Remove the '('
+        } else if ((expression[i] >= 'a' && expression[i] <= 'f') || 
+                   (expression[i] >= 'A' && expression[i] <= 'F')) {
+            string temp = "";
+            while (i < expression.length() && ((expression[i] >= 'a' && expression[i] <= 'f') || 
+                                               (expression[i] >= 'A' && expression[i] <= 'F'))) {
+                temp += expression[i];
+                i++;
+            }
+            valstack.push(temp);
+        } else if (expression[i] == '&' || expression[i] == '|') {
+            while (!opstack.empty() && opstack.top() != '(') {
+                valstack.push(getValue(&expression[i]));
+                opstack.pop();
             }
         }
     }
 
-    return operands.top();
+    return getValue(NULL);
 }
 
-bool evalBoolean(bool left, bool right, char op) {
-    switch (op) {
-        case '&':
-            return left && right;
-        case '|':
-            return left || right;
+string getValue(char **exp) {
+    if (*exp != NULL) {
+        return *exp;
+    } else {
+        string temp = valstack.top();
+        valstack.pop();
+        return temp;
     }
 }
