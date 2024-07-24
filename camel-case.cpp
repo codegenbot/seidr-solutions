@@ -13,22 +13,23 @@ int main() {
         if (*p == '-') {
             p++; // Skip the '-'
             if (!capitalizeNext) {
-                result.push_back(tolower(*p));
+                result += tolower(*p);
             } else {
-                result.push_back(toupper(*p));
+                result += toupper(*p);
                 capitalizeNext = false;
             }
         } else {
             if (capitalizeNext) {
-                result.push_back(toupper(*p)); // Use push_back instead of +=
+                result += toupper(*p);
             } else {
-                result.push_back(tolower(*p));
+                result += tolower(*p);
             }
             capitalizeNext = true;
         }
     }
 
-    std::cout << result.c_str() << std::endl;
+    std::string temp = result; 
+    std::cout << temp << std::endl; 
 
     return 0;
 }
