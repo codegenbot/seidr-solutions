@@ -1,12 +1,12 @@
 int main() {
     int n, m;
     cin >> n >> m;
-    double total_outcomes = n * m;
-    double favorable_outcomes = 0;
+    double result = 0.0;
     for (int i = 1; i <= n; ++i) {
-        favorable_outcomes += ((i - 1) * m);
+        for (int j = 1; j < i && j <= m; ++j) {
+            result += 1.0 / (n * m);
+        }
     }
-    double probability = favorable_outcomes / total_outcomes;
-    cout << probability << endl;
+    cout << result << endl;
     return 0;
 }
