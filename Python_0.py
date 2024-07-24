@@ -5,8 +5,6 @@ def check_numbers_within_threshold(numbers, threshold):
             return True
     return False
 
-if __name__ == "__main__":
-    numbers = [3, 5, 8, 2, 7]
-    threshold = 2
-    result = check_numbers_within_threshold(numbers, threshold)
-    print(result)
+numbers = [1, 5, 8, 11]
+threshold = 4
+print(check_numbers_within_threshold(numbers, threshold))
