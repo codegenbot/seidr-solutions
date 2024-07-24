@@ -5,24 +5,56 @@ using namespace std;
 bool solveBoolean(string expression) {
     bool result = false;
     for (char c : expression) {
-        if (c == 't') {
+        if (c == 'T') {
             result = true;
-        } else if (c == 'f') {
+        } else if (c == 'F') {
             return false;
         } else if (c == '|') {
-            bool temp = result;
-            result = false;
-            for (;expression.find('&') != string::npos; expression.erase(expression.find('&'), 1)) {
-                result |= !result & (expression[0] == 't');
+            int a = 0, b = 0;
+            bool temp = false;
+            for (char d : expression) {
+                if (d == '&') {
+                    break;
+                }
+                else if (d == 'T')
+                    a++;
+                else
+                    b++;
             }
-            result = temp | result;
+            while (expression.back() != '|') {
+                expression.pop_back();
+            }
+            expression.pop_back();
+            if (a > 0)
+                temp = true;
+            for (char d : expression) {
+                if (d == '&') {
+                    break;
+                }
+                else if (d == 'T')
+                    a++;
+                else
+                    b++;
+            }
+            while (expression.back() != '|') {
+                expression.pop_back();
+            }
+            expression.pop_back();
+            if (b > 0)
+                temp = false;
+            result = temp;
         } else if (c == '&') {
-            bool temp = result;
-            result = true;
-            for (;expression.find('|') != string::npos; expression.erase(expression.find('|'), 1)) {
-                result &= !result || (expression[0] == 't');
+            int a = 0, b = 0;
+            for (char d : expression) {
+                if (d == '|') {
+                    break;
+                }
+                else if (d == 'T')
+                    a++;
+                else
+                    b++;
             }
-            result = temp & result;
+            result = (a > 0 && b > 0);
         }
     }
     return result;
