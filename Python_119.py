@@ -1,4 +1,4 @@
-```python
+```
 import re
 
 def match_parens(lst):
