@@ -1,3 +1,3 @@
-def calculate_sum(x: float, y: float) -> float:
-    result = x + y
-    print(f"The sum of {x} and {y} is {result}.")
+def calculate_sum(a: float, b: float) -> float:
+    result = a + b
+    print(f"The sum of {a} and {b} is {result}.")
