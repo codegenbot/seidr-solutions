@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -41,29 +40,33 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main_test() {
     std::vector<float> grades = {0, 0.7};
     std::vector<std::string> a = numerical_letter_grade(grades);
-    if (a[0] >= 4.0)
-        a[0] = "A+";
-    else if (a[0] > 3.7)
-        a[0] = "A";
-    else if (a[0] > 3.3)
-        a[0] = "A-";
-    else if (a[0] > 3.0)
-        a[0] = "B+";
-    else if (a[0] > 2.7)
-        a[0] = "B";
-    else if (a[0] > 2.3)
-        a[0] = "B-";
-    else if (a[0] > 2.0)
-        a[0] = "C+";
-    else if (a[0] > 1.7)
-        a[0] = "C";
-    else if (a[0] > 1.3)
-        a[0] = "C-";
-    else if (a[0] > 1.0)
-        a[0] = "D+";
-    else
-        a[0] = "D";
-    std::vector<std::string> b = {a[0]};
-    bool same = issame({a}, b);
+    std::vector<std::string> b;
+    for (float g : grades) {
+        if (g >= 4.0)
+            b.push_back("A+");
+        else if (g > 3.7)
+            b.push_back("A");
+        else if (g > 3.3)
+            b.push_back("A-");
+        else if (g > 3.0)
+            b.push_back("B+");
+        else if (g > 2.7)
+            b.push_back("B");
+        else if (g > 2.3)
+            b.push_back("B-");
+        else if (g > 2.0)
+            b.push_back("C+");
+        else if (g > 1.7)
+            b.push_back("C");
+        else if (g > 1.3)
+            b.push_back("C-");
+        else if (g > 1.0)
+            b.push_back("D+");
+        else if (g > 0.7)
+            b.push_back("D");
+        else
+            b.push_back("E");
+    }
+    bool same = issame(a, b);
     return 0;
 }
