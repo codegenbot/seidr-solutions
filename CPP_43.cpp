@@ -1,9 +1,19 @@
-for (int i = 0; i < l.size(); ++i) {
-        for (int j = i + 1; j < l.size(); ++j) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
+#include <vector>
+#include <unordered_set>
+#include <cassert>
+
+bool pairs_sum_to_zero(const std::vector<int>& l) {
+    std::unordered_set<int> nums;
+    for (int num : l) {
+        if (nums.count(-num) > 0) {
+            return true;
         }
+        nums.insert(num);
     }
     return false;
+}
+
+int main() {
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    return 0;
 }
