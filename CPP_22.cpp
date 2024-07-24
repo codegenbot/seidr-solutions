@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
-#include <boost/variant.hpp>
+#include <boost/any.hpp>
 
-std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
+std::vector<int> filter_integers(std::vector<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::holds_alternative<int>(value)) {
-            result.push_back(boost::get<int>(value));
+        if (value.type() == typeid(int)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
