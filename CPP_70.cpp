@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return (a == b);
 }
 
 std::vector<int> sortList(std::vector<int> input) {
@@ -34,4 +34,3 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
-}
