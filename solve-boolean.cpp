@@ -11,8 +11,6 @@ int evalBool(std::string s) {
                     int subResult = evalBool(s.substr(1));
                     if (subResult == 1)
                         return 1; 
-                    else
-                        return subResult;
                 }
                 break;
             }
@@ -21,7 +19,7 @@ int evalBool(std::string s) {
                     int subResult = evalBool(s.substr(1));
                     if (subResult != 0) 
                         return 1;
-                    else 
+                    else
                         return 0;
                 }
                 break;
