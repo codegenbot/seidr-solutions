@@ -1,23 +1,37 @@
+```
 def minPath(grid, k):
     N = len(grid)
-    total_cells = N * N
-    for i in range(total_cells + 1):
-        if grid[i // N][i % N] == 0:
-            break
-    path_values = []
-    current_value = grid[0][0]
-    visited = set((0, 0))
-    queue = [(0, 0, [current_value])]
+    values = [[i * j for j in range(1, N + 1)] for i in range(1, N + 1)]
+    current_position = (0, 0)
+    visited = set()
+    path = [values[current_position[0]][current_position[1]]]
 
-    while queue and len(queue[0][2]) <= k:
-        x, y, path = queue.pop(0)
-        if len(path) == k:
-            return path
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in visited:
-                if grid[nx][ny] != current_value:
-                    continue
-                queue.append(((nx, ny), path + [current_value]))
-                visited.add((nx, ny))
-    return []
+    while len(path) < k:
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        for direction in directions:
+            new_position = (
+                current_position[0] + direction[0],
+                current_position[1] + direction[1],
+            )
+            if (
+                0 <= new_position[0] < N
+                and 0 <= new_position[1] < N
+                and new_position not in visited
+            ):
+                if values[new_position[0]][new_position[1]] not in path:
+                    current_position = new_position
+                    visited.add(current_position)
+                    path.append(values[current_position[0]][current_position[1]])
+                    break
+
+    return path
+
+grid = []
+k = 0
+    
+for _ in range(int(input("Enter number of rows: "))): 
+    grid.append(list(map(int, input("Enter row: ").split())))
+
+k = int(input("Enter the value of k: "))
+
+minPath(grid, k)
