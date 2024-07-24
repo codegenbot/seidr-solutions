@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -29,11 +28,10 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 }
             }
             if (!found) {
-                sums.push_back(std::to_string(sum));
+                sums.push_back(sum);
                 sum = 0;
             } else {
                 sum = 0;
-                sums.push_back(std::to_string(sum));
             }
         }
     }
@@ -46,15 +44,17 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         vec.insert(vec.end(), temp.begin(), temp.end());
         temp.clear();
     }
+    
+    std::vector<std::string> result;
+    for (int i = 0; i < sums.size(); i++) {
+        result.push_back(std::to_string(sums[i]));
+    }
 
-    return {{}, {}, {"aaaa"}, {"bbbb"}}; 
+    return result;
 }
 
 int main() {
-    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::vector<std::string>> input;
-    input.push_back(lst);
-    assert(issame(sorted_list_sum({{lst}}), {{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}));
-    
+    std::vector<std::vector<std::string>> input = {{{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}};
+    assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
