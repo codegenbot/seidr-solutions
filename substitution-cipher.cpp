@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
-
-std::string cipher2;
-std::string result;
+#include <map>
 
 int main() {
     std::cin >> cipher2;
@@ -11,12 +9,21 @@ int main() {
     std::cin.ignore();
     std::string message;
     std::getline(std::cin, message);
+    
+    // Store the cipher mapping in a map
+    std::map<char, char> cipherMap;
+    for(int i = 0; i < cipher1.length(); i++) {
+        cipherMap[cipher1[i]] = cipher2[i];
+    }
+    
     result = "";
     for(int i = 0; i < message.length(); i++) {
-        int index = cipher1.find(message[i]);
-        if(index != std::string::npos) {
-            c = cipher2[index];
-            result.push_back(c); 
+        char c = message[i];
+        if(cipherMap.find(c) != cipherMap.end()) {
+            result.push_back(cipherMap.at(c));
+        } else {
+            // Handle characters not in the cipher map
+            result.push_back(c);
         }
     }
     std::cout << result << std::endl;
