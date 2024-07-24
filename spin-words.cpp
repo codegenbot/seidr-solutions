@@ -1,41 +1,35 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(wordLength, i - wordLength);
-            wordLength = i + 1;
-        }
-    }
-    result += str.substr(wordLength);
-
-    string temp = "";
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            temp += " ";
-            continue;
-        }
-        if (result[i + 1] != ' ' && strlen(&result[i]) >= 5) {
-            temp += result.substr(i, 1);
-            i++;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
         } else {
-            temp += result.substr(i, 1);
+            word += c;
         }
     }
-
-    return temp;
+    
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
