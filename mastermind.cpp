@@ -29,4 +29,3 @@ int main() {
     cout << countWhitePegs(code, guess) << endl;
     cout << countBlackPegs(code, guess) << endl;
     return 0;
-}
