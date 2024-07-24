@@ -1,7 +1,10 @@
-from typing import List
+```
+from typing import List, Any
 
 
-def filter_integers() -> List[int]:
-    user_input = input("Enter a list of comma-separated numbers (space for separation): ")
-    numbers = [int(num) for num in user_input.replace(",", " ").split() if num]
-    return [num for num in numbers if isinstance(num, int)]
+def filter_integers(values: List[Any]) -> List[int]:
+    if all(isinstance(value, int) for value in values):
+        return [value for value in values if isinstance(value, int)]
+    else:
+        print("Program did not receive expected input")
+        return []
