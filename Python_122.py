@@ -1,2 +1,2 @@
 def add_elements(arr, k):
-    return sorted([num for num in arr if 10 <= num <= 99])[:k]
+    return [num for num in arr if num > 10 and num < 100][:k]
