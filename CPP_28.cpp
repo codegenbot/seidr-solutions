@@ -1,14 +1,13 @@
-#include <vector>
+```
 #include <string>
+#include <vector>
 
-void testConcatenate() {
-    vector<string> strings = {"Hello", " ", "World!"};
-    string result = concatenate(strings);
-    assert(result == "Hello World!");
+bool assert(const std::vector<std::string>& strings) {
+    return concatenate(strings) == "hellohello";
 }
 
-string concatenate(vector<string> strings){
-    string result = "";
+std::string concatenate(const std::vector<std::string>& strings) {
+    std::string result = "";
     for (const auto& str : strings) {
         result += str;
     }
