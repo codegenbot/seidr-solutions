@@ -1,10 +1,16 @@
-```
-bool isSame(std::vector<float> a, std::vector<float> b) {
+Here is the modified code with the inclusion of `<initializer_list>` header:
+
+```cpp
+#include <algorithm>
+#include <vector>
+#include <initializer_list>
+
+bool std::issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-5) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
