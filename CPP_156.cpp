@@ -1,4 +1,3 @@
-```cpp
 namespace std {
 using namespace std;
 
@@ -36,7 +35,7 @@ string intToRoman(int number) {
     return roman;
 }
 
-int main() {
+int std::main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
