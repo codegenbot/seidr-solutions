@@ -1,16 +1,16 @@
-```c++
 #include <iostream>
-
-int sum_of_squares(int n) {
-    int total = 0;
-    for (int i = 1; i * i <= n; ++i) {
-        total += i * i;
-    }
-    return total;
-}
+#include <string>
 
 int main() {
-    int sum = sum_of_squares(100);
-    std::cout << "The sum of squares is: " << sum << std::endl;
+    std::string s;
+    int sum = 0;
+
+    for (int i = 0; i < 11; ++i) {
+        std::cout << "Enter a number: ";
+        std::cin >> s;
+        int num = stoi(s);
+        sum += num * num;
+    }
+
     return 0;
 }
