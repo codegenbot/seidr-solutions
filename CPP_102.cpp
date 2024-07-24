@@ -10,4 +10,3 @@ int choose_num(int x, int y){
         }
     }
     return -1;
-}
