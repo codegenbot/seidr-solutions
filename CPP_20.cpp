@@ -16,7 +16,7 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> vec1, vec2;
+    std::vector<float> vec1, vec2 = {};
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
@@ -35,12 +35,11 @@ int main() {
 
     // Input for vector 2
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
-    vec1.clear();
     while(true) {
         if (!(std::cin >> float(num))) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear(); 
-            vec2.assign(0, float{}); // Reset vectors
+            vec2 = {};
             break;
         }
         vec2.push_back(num);
