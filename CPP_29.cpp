@@ -1,14 +1,10 @@
-vector<bool> issame(vector<string> a, vector<string> b) {
+vector<bool> issame(vector<string> a,vector<string>b){
     vector<bool> result;
-    for(int i = 0; i < a.size(); i++) {
-        bool same = false;
-        for(int j = 0; j < b.size(); j++) {
-            if(a[i] == b[j]) {
-                same = true;
-                break;
-            }
-        }
-        result.push_back(same);
+    for(auto s : a){
+        if(find(b.begin(),b.end(),s) != b.end())
+            result.push_back(true);
+        else
+            result.push_back(false);
     }
     return result;
 }
