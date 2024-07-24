@@ -1,15 +1,14 @@
 double find_zero(vector<double> coefficients) {
-    vector<double> coeffs = {coefficients[2], -coefficients[1], coefficients[0]};
-    double x = -coefficients[1] / (2 * coefficients[0]);
-    return x;
+    double a = coefficients[0];
+    double b = coefficients[1];
+    double c = -coefficients[2] / (2 * a);
+    return (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
 }
 
-int main() {
-    vector<double> coefficients;
-    // read input from user and store in coefficients
-    
-    double solution = find_zero(coefficients);
-    
-    assert (abs(poly(coeffs, solution))< 1e-3);  
-    return 0;
+double poly(vector<double> coeffs, double x){
+    double result = 0;
+    for(int i=0; i<coeffs.size(); i++){
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
 }
