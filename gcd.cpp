@@ -26,9 +26,8 @@ int main() {
     int a, b;
     string text, target;
 
-    cout << "Enter two integers a and b separated by a space: ";
+    cout << "Enter two integers a and b: ";
     cin >> a >> b;
-    cin.ignore();
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
