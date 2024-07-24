@@ -1,17 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-
-std::vector<std::string> split(const std::string& str, char ch) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(ch)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return tokens;
-}
 
 std::string kebabToCamel(const std::string& s) {
     std::vector<std::string> words = split(s, '-');
@@ -27,6 +17,17 @@ std::string kebabToCamel(const std::string& s) {
     }
     
     return result;
+}
+
+std::vector<std::string> split(const std::string& str, char ch) {
+    std::vector<std::string> tokens;
+    std::string::size_type pos = 0;
+    while ((pos = str.find(ch)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
 }
 
 int main() {
