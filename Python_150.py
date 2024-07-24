@@ -1,6 +1,5 @@
-```
-def x_or_y(n):
+def x_or_y(n, x, y):
     if n % 2 == 0:
-        return "Y"
+        return y
     else:
-        return "X"
+        return x
