@@ -28,8 +28,11 @@ int prime_fib(int n) {
     }
 }
 
-cout << prime_fib(1) << endl; // prints 2
-cout << prime_fib(2) << endl; // prints 3
-cout << prime_fib(3) << endl; // prints 5
-cout << prime_fib(4) << endl; // prints 13
-cout << prime_fib(5) << endl; // prints 89
+int main() {
+    cout << prime_fib(1) << endl; 
+    cout << prime_fib(2) << endl; 
+    cout << prime_fib(3) << endl; 
+    cout << prime_fib(4) << endl; 
+    cout << prime_fib(5) << endl; 
+    return 0;
+}
