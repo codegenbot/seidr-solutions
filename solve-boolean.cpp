@@ -1,15 +1,27 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int main() {
-    std::string input;
-    std::cin >> input;
-    
+    string input;
+    cin >> input;
+
     if (input == "t") {
-        std::cout << "True" << std::endl;
+        cout << "True" << '\n';
+    } else if (input == "f") {
+        cout << "False" << '\n';
     } else {
-        std::cout << "False" << std::endl;
+        char op = input[1];
+        bool operand1 = (input[0] == 't');
+        bool operand2 = (input[2] == 't');
+        
+        if (op == '&') {
+            cout << (operand1 && operand2 ? "True" : "False") << '\n';
+        } else if (op == '|') {
+            cout << (operand1 || operand2 ? "True" : "False") << '\n';
+        }
     }
-    
+
     return 0;
 }
