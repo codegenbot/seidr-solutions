@@ -1,10 +1,12 @@
-Here is the solution:
-
+```c++
 bool iscuber(int a){
     int i = 1;
-    while (pow(i,3) <= a){
-        if(pow(i,3) == a)
+    while (true) {
+        int b = pow(i,3);
+        if (b == a)
             return true;
+        else if (b > a)
+            return false;
         i++;
     }
-    return false;
+}
