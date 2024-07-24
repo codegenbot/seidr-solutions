@@ -1,16 +1,18 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 int main() {
     int hours;
-    float groundSnow, snowFallRate, meltPerHour;
-    
-    cin >> hours >> groundSnow >> snowFallRate >> meltPerHour;
-    
-    float newGroundSnow = groundSnow + (snowFallRate * hours) - (meltPerHour * hours);
-    
-    cout << "The amount of snow on the ground after " << hours << " hours is: ";
-    cout << fixed << setprecision(2) << newGroundSnow << endl;
-    
+    float groundSnow, snowFallRate, snowMeltingRate;
+
+    std::cin >> hours >> groundSnow >> snowFallRate >> snowMeltingRate;
+
+    for(int i = 0; i < hours; i++) {
+        groundSnow += snowFallRate - snowMeltingRate;
+    }
+
+    cout << std::fixed << std::setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow << std::endl;
+
     return 0;
 }
