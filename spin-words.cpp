@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -18,13 +17,9 @@ string spinWords(string str) {
         string word = str.substr(start, end - start);
         
         if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        
-        result += word;
-        
-        if (start < end) {
-            result += " ";
-        }
+            result += (word.rbegin(), word.rend(), 1) + " ";
+        else
+            result += word + " ";
         
         start = end + 1;
     }
