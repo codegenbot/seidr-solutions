@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 def sum_product(numbers: list) -> Tuple[int, int]:
     total_sum = 0
