@@ -1,14 +1,15 @@
 def bowling_score(frames):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
-            score += 30
-        elif frames[i] == "/":
-            score += 10 + int(frames[i + 1])
-        else:
-            frame_points = sum(int(x) for x in frames[i : i + 2])
-            if frame_points < 10:
-                score += frame_points
+    frame_scores = [int(x) for x in frames]
+    for i in range(10):
+        if frame_scores[i] == 10:
+            if i < 9 and frame_scores[i + 1] == 10:
+                score += 30
             else:
-                score += 10 + (10 - int(frames[i]))
+                score += 20 + frame_scores[i + 1]
+        elif frame_scores[i] > 0:
+            if i < 8 and frame_scores[i + 1] + frame_scores[i] > 10:
+                score += 20
+            else:
+                score += frame_scores[i] + frame_scores[i + 1]
     return score
