@@ -26,14 +26,14 @@ int main() {
     int a, b;
     string text, target;
 
-    cin.ignore();
+    cin.ignore(); // Clear input buffer
 
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
-    cin.ignore();
+    cin.ignore(); // Clear input buffer
 
     cout << "Enter a text string: ";
     getline(cin, text);
