@@ -1,3 +1,4 @@
+```""" 
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
@@ -20,12 +21,14 @@ def modp(n: int, p: int):
 
 
 def main():
-    n = int(input("Enter the value of n: "))
-    p = int(input("Enter the value of p: "))
+    base = int(input("Enter the base: "))
+    exponent = int(input("Enter the exponent: "))
+    p = int(input("Enter the prime p: "))
 
-    result = modp(n, p)
+    result = modp(base, p)
     print(f"The result is {result}")
 
 
 if __name__ == "__main__":
     main()
+""""
