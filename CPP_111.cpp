@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -18,15 +18,18 @@ map<char, int> histogram(string test) {
         }
     }
 
-    map<char, int> maxCountMap;
     int maxCount = 0;
+    map<char, int> maxCountMap;
+
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
             maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount) {
-            maxCountMap[pair.first] = pair.second;
+            if (maxCount > 0) {
+                maxCountMap[pair.first] = pair.second;
+            }
         }
     }
 
