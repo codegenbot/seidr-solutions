@@ -11,4 +11,3 @@ string string_xor(string a, string b) {
             result += '1';
     }
     return result;
-}
