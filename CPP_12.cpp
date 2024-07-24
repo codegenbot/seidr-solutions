@@ -1,14 +1,13 @@
+#include <vector>
+#include <string>
+
 string longest(vector<string> strings){
-    if(strings.empty()) {
-        return "";
-    }
-    string result = strings[0];
-    for(const auto& s : strings) {
-        if(s.length() > result.length()) {
-            result = s;
-        } else if(s.length() == result.length()) {
-            result = s;
+    if(strings.empty()) return "";
+    string longest_str = strings[0];
+    for(auto str : strings){
+        if(str.length() > longest_str.length()){
+            longest_str = str;
         }
     }
-    return result;
+    return longest_str;
 }
