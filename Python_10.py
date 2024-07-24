@@ -1,3 +1,4 @@
+```Python
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
@@ -8,6 +9,6 @@ def make_palindrome(string: str) -> str:
     for char in string:
         if string == string[::-1]:
             return string + char + string[0] + string[::-1][1:]
-        new_string = string.replace(char, "")
+        new_string = string.replace(char, '')
         if is_palindrome(new_string):
             return char + char + string + char + char
