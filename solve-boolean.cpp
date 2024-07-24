@@ -1,27 +1,45 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr;
+    bool result = false;
+    bool first = true;
+    char op = '|';
+
     for (char c : expr) {
-        lowercaseExpr += std::tolower(c);
-    }
-    
-    bool result = true;
-    bool andFlag = true;
-    
-    for (char c : lowercaseExpr) {
-        if (c == 'f') {
-            result = false;
-        } else if (c == 't') {
-            if (andFlag) {
+        if (c == 't') {
+            if (op == '|') {
+                result = true;
+                break;
+            } else if (op == '&') {
                 result = result && true;
-            } else {
-                result = result || true;
             }
-        } else if (c == '&') {
-            andFlag = true;
-        } else if (c == '|') {
-            andFlag = false;
+            first = false;
+        } else if (c == 'f') {
+            if (op == '&') {
+                result = false;
+                break;
+            } else if (op == '|') {
+                result = result || false;
+            }
+            first = false;
+        } else if (c == '&' || c == '|') {
+            op = c;
+            first = true;
         }
     }
-    
+
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter boolean expression: ";
+    std::cin >> input;
+    
+    bool result = evaluateBooleanExpression(input);
+    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+    
+    return 0;
 }
