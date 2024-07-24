@@ -1,7 +1,9 @@
+```
 def add(x: int, y: int):
     return x + y
 
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
+x = int(input("Enter the first number: "))
+y = int(input("Enter the second number: "))
 
-print(f"The result is {add(x, y)}")
+result = add(x, y)
+print(f"The result is {result}.")
