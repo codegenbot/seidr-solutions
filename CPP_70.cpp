@@ -28,6 +28,7 @@ int main() {
         std::cin >> val;
         input.push_back(val);
     }
+    // #pragma GCC enable initializer_lists
     std::vector<int> output = sortList(input);
     std::cout << "Sorted list: ";
     for(int i : output) {
