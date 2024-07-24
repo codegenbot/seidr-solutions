@@ -1,8 +1,12 @@
-bool simplify(string x, string n){
-    int numerator_x = stoi(x.substr(0, x.find("/")));
-    int denominator_x = stoi(x.substr(x.find("/")+1));
-    int numerator_n = stoi(n.substr(0, n.find("/")));
-    int denominator_n = stoi(n.substr(n.find("/")+1));
-    
-    return (numerator_x * denominator_n == numerator_n * denominator_x);
+int slashIndexX = x.find('/');
+    int numeratorX = stoi(x.substr(0, slashIndexX));
+    int denominatorX = stoi(x.substr(slashIndexX + 1));
+
+    int slashIndexN = n.find('/');
+    int numeratorN = stoi(n.substr(0, slashIndexN));
+    int denominatorN = stoi(n.substr(slashIndexN + 1));
+
+    double result = (double)numeratorX / denominatorX * numeratorN / denominatorN;
+
+    return result == (int)result;
 }
