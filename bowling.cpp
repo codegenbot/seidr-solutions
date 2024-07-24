@@ -1,41 +1,36 @@
-int score(string input) {
-    int frame = 0, totalScore = 0;
-    vector<int> scores(12);
-    for (char bowl : input) {
-        if (bowl == 'X') {
-            scores[frame] = 10;
-            frame++;
-        } else if (bowl == '/') {
-            scores[frame] = 10 - scores[frame - 1];
-            frame++;
-        } else if (bowl == '-') {
-            scores[frame] = 0;
-            frame++;
-        } else {
-            scores[frame] = bowl - '0';
-            if (frame % 2 == 1 && bowl != '-') {
-                if (scores[frame - 1] + scores[frame] > 10) return -1;
-            }
-            if (frame % 2 == 1) frame++;
-        }
-    }
-    for (int i = 0; i < 10; i++) {
-        if (scores[i] == 10) {
-            totalScore += 10 + scores[i + 1] + scores[i + 2];
-        } else if (scores[i] + scores[i + 1] == 10) {
-            totalScore += 10 + scores[i + 2];
-            i++;
-        } else {
-            totalScore += scores[i] + scores[i + 1];
-            i++;
-        }
-    }
-    return totalScore;
-}
-
 int main() {
     string input;
     cin >> input;
-    cout << score(input) << endl;
+
+    int score = 0;
+    int frame = 0;
+    int rolls = 0;
+    for(char c : input) {
+        rolls++;
+        if(c == 'X') {
+            score += 10;
+            if(frame < 9) {
+                score += (input[rolls] == 'X') ? 10 + ((input[rolls+1] == 'X') ? 10 : (input[rolls+1] - '0')) : ((input[rolls+1] == '/') ? 10 : (input[rolls] - '0' + input[rolls+1] - '0'));
+            }
+            frame++;
+        } else if(c == '/') {
+            score += 10 - (input[rolls-2] - '0');
+            if(frame < 9) {
+                score += (input[rolls] == 'X') ? 10 : (input[rolls] - '0');
+            }
+            frame++;
+        } else if(c >= '1' && c <= '9') {
+            score += c - '0';
+            if(frame < 9 && rolls % 2 == 0) {
+                if(input[rolls+1] == '/') {
+                    score += 10 - (c - '0');
+                }
+                frame++;
+            }
+        }
+    }
+
+    cout << score;
+
     return 0;
 }
