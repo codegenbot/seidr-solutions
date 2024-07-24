@@ -1,5 +1,5 @@
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -10,13 +10,14 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         int diff1 = nums[i] - nums[0];
         int diff2 = nums[n-1] - nums[i-1];
         if (std::abs(diff1-diff2) < std::abs(INT_MAX)) {
+            std::abs(INT_MAX) = diff1 - diff2;
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
             nums.erase(nums.begin());
         }
     }
     
     if (!nums.empty()) {
-        result.push_back(vector<int>(nums.begin(), nums.end()));
+        result.push_back(nums);
     }
 
     return result;
