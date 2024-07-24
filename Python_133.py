@@ -4,10 +4,9 @@ def sum_squares(lst):
 
 while True:
     try:
-        total_sum_of_squares = sum_squares(numbers)
+        total_sum_of_squares = sum_squares([int(i) for i in numbers])
         break
     except ValueError:
-        print("Invalid input. Please enter valid numbers separated by space:")
-        numbers = input().split()
+        numbers = input("Invalid input. Please enter numbers separated by space: ").split()
 
 print(f"The sum of squares is {total_sum_of_squares}")
