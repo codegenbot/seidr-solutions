@@ -28,14 +28,25 @@ int main() {
     string text, target;
 
     cout << "Enter two integers a and b: ";
-    cin >> a >> b;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    if (!(cin >> a >> b)) {
+        cerr << "Invalid input for integers" << endl;
+        return 1;
+    }
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    getline(cin >> ws, text);
+    if (!getline(cin >> ws, text)) {
+        cerr << "Error reading text string" << endl;
+        return 1;
+    }
 
     cout << "Enter a target string: ";
-    getline(cin >> ws, target);
+    if (!getline(cin >> ws, target)) {
+        cerr << "Error reading target string" << endl;
+        return 1;
+    }
 
     vector<int> result = findSubstringIndices(text, target);
 
