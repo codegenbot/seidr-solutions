@@ -1,12 +1,13 @@
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += (nums[i] / 3) - 2;
     }
     
