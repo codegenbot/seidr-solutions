@@ -1,8 +1,9 @@
 float max_element(vector<float> l){
-    float maxi = l[0];
-    for(int i = 1; i < l.size(); i++){
-        if(l[i] > maxi)
-            maxi = l[i];
+    float maximum = l[0];
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > maximum) {
+            maximum = l[i];
+        }
     }
-    return maxi;
+    return maximum;
 }
