@@ -1,24 +1,36 @@
-#include <vector>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+int main() {
+    std::string cipher1;
+    std::getline(std::cin, cipher1);
+    std::string cipher2;
+    std::getline(std::cin, cipher2);
+    std::string message;
+    std::getline(std::cin, message);
+
+    std::unordered_map<char, char> cipherMap;
+    for(int i = 0; i < cipher1.length(); i++) {
+        if(cipher1[i] != ' ' && cipher2[i] != ' ') { // Check if the character is alphabetic
+            cipherMap[cipher1[i]] = cipher2[i];
+        }
+    }
+
     std::string result;
-    for (char c : message) {
-        if (c == '\0') break; // Assuming the input strings are null-terminated
-        int index = c - 'a'; // Assuming lowercase letters only
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
-        } else {
+    for(int i = 0; i < message.length(); i++) {
+        char c = message[i]; 
+        if(isalpha(c)) { // Check if the character is alphabetic
+            c = std::tolower(c); // Convert to lowercase
+            if(cipherMap.find(c) != cipherMap.end()) { // Find in map and substitute
+                result += cipherMap.at(c);
+            } else {
+                result += c; // If not found, add original char
+            }
+        } else { // Non-alphabet characters remain unchanged
             result += c;
         }
     }
-    return result;
-}
-
-int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
+    std::cout << result.c_str() << std::endl;
     return 0;
 }
