@@ -1,4 +1,3 @@
-```
 def match_parens(lst):
     for s in lst:
         open_count = 0
@@ -11,3 +10,6 @@ def match_parens(lst):
         if open_count != close_count:
             return "No"
     return "Yes"
+
+user_input = input("Enter a list of strings: ")
+print(match_parens(user_input.split()))
