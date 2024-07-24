@@ -1,4 +1,3 @@
-```
 def closest_integer(value):
     num = float(value)
     if abs(num) % 1 < 0.5:
@@ -7,7 +6,3 @@ def closest_integer(value):
         return int(num) + 1
     else:
         return int(num) - 1
-
-value = float(input("Enter a number: "))
-
-print(closest_integer(value))
