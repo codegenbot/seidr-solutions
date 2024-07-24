@@ -1,7 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <vector>
+namespace std {
 using namespace std;
 
 struct Roman {
@@ -9,14 +6,21 @@ struct Roman {
     string roman;
 };
 
-vector<Roman> romanMap;
-
-int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The Roman numeral is: " << intToRoman(num) << endl;
-}
+vector<Roman> romanMap = {
+    {1000, "M"},
+    {900, "CM"},
+    {500, "D"},
+    {400, "CD"},
+    {100, "C"},
+    {90, "XC"},
+    {50, "L"},
+    {40, "XL"},
+    {10, "X"},
+    {9, "IX"},
+    {5, "V"},
+    {4, "IV"},
+    {1, "I"}
+};
 
 string intToRoman(int number) {
     string roman = "";
@@ -31,24 +35,7 @@ string intToRoman(int number) {
     return roman;
 }
 
-void initializeMap() {
-    romanMap.push_back({1000, "M"});
-    romanMap.push_back({900, "CM"});
-    romanMap.push_back({500, "D"});
-    romanMap.push_back({400, "CD"});
-    romanMap.push_back({100, "C"});
-    romanMap.push_back({90, "XC"});
-    romanMap.push_back({50, "L"});
-    romanMap.push_back({40, "XL"});
-    romanMap.push_back({10, "X"});
-    romanMap.push_back({9, "IX"});
-    romanMap.push_back({5, "V"});
-    romanMap.push_back({4, "IV"});
-    romanMap.push_back({1, "I"});
-}
-
 int main() {
-    initializeMap();
     int num;
     cout << "Enter a number: ";
     cin >> num;
