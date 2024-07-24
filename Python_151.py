@@ -1,3 +1,4 @@
+```
 def double_the_difference():
     lst = [1, 3, 5]
     total = 0
@@ -7,4 +8,4 @@ def double_the_difference():
                 total += num**2
     return total
 
-print("{} is the result".format(double_the_difference()))
+print("The result is the {}".format(double_the_difference()))
