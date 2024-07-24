@@ -17,3 +17,4 @@ int main() {
     long long odd_sum = double_the_difference(myVector); 
     assert(double_the_difference(myVector) == odd_sum);
     return 0;
+}
