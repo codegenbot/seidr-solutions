@@ -25,7 +25,7 @@ string spinWords(string str) {
         start = end + 1;
     }
     
-    return result;
+    return result.substr(0, (result.size() > 0 && result.back() == ' ') ? result.size() - 1 : result.size());
 }
 
 int main() {
