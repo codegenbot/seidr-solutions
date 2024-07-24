@@ -1,4 +1,3 @@
-```
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -7,11 +6,13 @@ def factorize(n: int) -> List[int]:
             i += 1
         else:
             count = 0
-            temp = i
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append([temp] * count)
+            factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return [factor_list for factor_list in set(tuple(factor) for factor in factors)]
+    return [
+        factor_list
+        for factor_list in set(tuple(factor) for factor in set(map(tuple, factors)))
+    ]
