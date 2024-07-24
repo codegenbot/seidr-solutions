@@ -1,40 +1,50 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
 bool valid_date(string date) {
-    size_t pos = 0;
-    string month, day, year;
-
-    // Extract month and day from the input string
-    for (int i = 0; i < 2; ++i) {
-        if ((pos = date.find('-')) == string::npos)
+    vector<string> tokens = split(date, '-');
+    
+    if (tokens.size() != 3)
+        return false;
+    
+    int month = stoi(tokens[0]);
+    int day = stoi(tokens[1]);
+    int year = stoi(tokens[2]);
+    
+    if (month < 1 || month > 12)
+        return false;
+    
+    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
+        return false;
+    
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+        return false;
+    
+    if (month == 2) {
+        if (day > 29)
             return false;
-        month = date.substr(0, pos);
-        date.erase(0, pos + 1);
+        else if (year % 4 != 0)
+            return day > 28;
+        else if (year % 100 != 0 || year % 400 == 0)
+            return day > 29;
+    }
+    
+    return true;
+}
 
-        if ((pos = date.find('-')) == string::npos)
-            day = date;
-        else {
-            day = date.substr(0, pos);
-            date.erase(0, pos + 1);
+vector<string> split(const string& str, char c) {
+    vector<string> tokens;
+    string token;
+    for (char ch : str) {
+        if (ch == c) {
+            tokens.push_back(token);
+            token = "";
+        } else {
+            token += ch;
         }
     }
-
-    year = date;
-
-    // Check for valid month
-    int m = stoi(month);
-    if (m < 1 || m > 12)
-        return false;
-
-    // Check for valid day
-    int d = stoi(day);
-    if ((m == 2 && d > 29) ||
-        (m == 4 || m == 6 || m == 9 || m == 11) &&
-            (d < 1 || d > 30))
-        return false;
-
-    // Check for valid day for months with 31 days
-    if ((m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) &&
-            (d < 1 || d > 31))
-        return false;
-
-    return true;
+    tokens.push_back(token);
+    return tokens;
 }
