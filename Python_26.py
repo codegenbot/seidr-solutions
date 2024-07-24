@@ -6,4 +6,17 @@ def remove_duplicates(input_list=None):
         input_list = [int(value) for value in values.split()]
     if not input_list:  
         return []  
-    return list(OrderedDict.fromkeys(input_list))
+    result = []
+    for num in set(input_list):
+        count = 0
+        for n in input_list:
+            if n == num:
+                count += 1
+        if count > 1:
+            result.append((num, count))
+        else:
+            result.append(num)
+    return result
+
+if __name__ == "__main__":
+    print(remove_duplicates())
