@@ -1,33 +1,26 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    if (txt.find(',') == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count % 2 != 0)) {
-                    result.push_back(to_string(count));
-                    break;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (c >= 'a' && c <= 'z' && (count & 1)) {
+                        count++;
+                    }
                 }
-                count++;
+                result.push_back(to_string(count));
             } else {
-                return {txt};
+                result.push_back(txt.substr(0, pos));
+                txt.erase(0, pos + 1);
             }
+        } else {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos);
         }
-    } else {
+    }
+    if (!txt.empty()) {
         result.push_back(txt);
     }
     return result;
