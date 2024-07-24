@@ -19,16 +19,8 @@ vector<int> getOddCollatz(int n) {
     res.push_back(n); 
     while (n > 1) {
         if (n % 2 == 0 && n != 1) {
-            if (n / 2 > std::numeric_limits<int>::max() / 2) {
-                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
-                return res; 
-            }
             n = n / 2;
         } else {
-            if ((n * 3 + 1) > std::numeric_limits<int>::max()) {
-                cerr << "Error: The number exceeds the maximum value for an integer." << endl;
-                return res;
-            }
             res.push_back(n);
             n = (n * 3 + 1);
         }
@@ -44,7 +36,7 @@ void startProgram() {
         cerr << "Error: Please enter a positive integer." << endl;
         return;
     }
-    if (n > std::numeric_limits<int>::max() / 2) {
+    if (n > std::numeric_limits<long long>::max() / 2LL) {
         cerr << "Error: The number exceeds the maximum value for an integer." << endl;
         return;
     }
