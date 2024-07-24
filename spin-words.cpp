@@ -24,7 +24,7 @@ string spinWords(string str) {
         start = end + 1;
     }
     
-    return result.substr(0, (result.size() > 0 && result.back() == ' ') ? result.size() - 1 : result.size());
+    return result;
 }
 
 int main() {
@@ -33,6 +33,6 @@ int main() {
         cout << "Enter a string: ";
         getline(cin, str);
         if(str == "quit" || str == "exit") break; 
-        cout << spinWords(str) << endl;
+        cout << spinWords(str);
     }
 }
