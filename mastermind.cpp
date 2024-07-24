@@ -1,27 +1,40 @@
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-    
-    map<char, int> code_map;
-    map<char, int> guess_map;
-    
-    for (char c : code) {
-        code_map[c]++;
-    }
-    for (char c : guess) {
-        guess_map[c]++;
-    }
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            int code_count = code_map[guess[i]];
-            int guess_count = guess_map[guess[i]];
-            
-            white += min(code_count, guess_count);
+
+    // Count correct colors but wrong places (white pegs)
+    for(int i=0; i<4; i++) {
+        bool present = false;
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                present = true;
+                code[j] = '#'; // mark as used
+                break;
+            }
+        }
+        if(!present) continue;
+
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                white++;
+                code[j] = '#'; // mark as used
+                break;
+            }
         }
     }
-    
-    return make_pair(4 - black, black).second;
+
+    // Count correct colors and places (black pegs)
+    for(int i=0; i<4; i++) {
+        bool present = false;
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i]) {
+                present = true;
+                code[j] = '#'; // mark as used
+                break;
+            }
+        }
+        if(present) black++;
+    }
+
+    return white + black;
 }
