@@ -1,7 +1,3 @@
-```cpp
-#include <algorithm>
-#include <vector>
-
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
