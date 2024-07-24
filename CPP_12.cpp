@@ -1,8 +1,7 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string result = strings[0];
-    for(auto s : strings){
-        if(s.length() > result.length()) result = s;
+vector<string>::iterator it = strings.end();
+for(auto s : strings) {
+    if(s.length() > it->length()) {
+        it = &s;
     }
-    return result;
 }
+return *it == strings.end() ? "" : *it;
