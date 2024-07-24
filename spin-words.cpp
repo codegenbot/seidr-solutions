@@ -26,27 +26,19 @@ string spinWords(string sentence) {
 
 string spinWords(string sentence) {
     string reversed = "";
-    int wordStart = 0;
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            string word = sentence.substr(wordStart, i - wordStart);
+    int start = 0;
+    for (int end = 0; end <= sentence.length(); end++) {
+        if ((end == sentence.length()) || (sentence[end] == ' ')) {
+            string word = sentence.substr(start, end - start);
             if (word.length() >= 5) {
-                reversed += std::string(word.rbegin(), word.rend()) + " ";
+                reversed += string(word.rbegin(), word.rend());
             } else {
-                reversed += word + " ";
+                reversed += word;
             }
-            wordStart = i + 1;
+            if (end < sentence.length()) {
+                reversed += " ";
+            }
+            start = end + 1;
         }
     }
-    return reversed.substr(0, reversed.length() - 1);
-}
-
-int main() {
-    string input;
-    while (true) {
-        cout << "Enter a string: ";
-        cin >> input;
-        if (input == "exit") break;
-        cout << spinWords(input) << endl;
-    }
-    return 0;
+    return reversed;
