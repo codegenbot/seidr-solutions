@@ -8,7 +8,8 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += capitalizeNext ? std::string(1, tolower(c)) + currentWord.substr(1) : " " + currentWord;
+            std::string newWord = capitalizeNext ? (toupper(currentWord[0]) + tolower(currentWord.substr(1))) : currentWord;
+            result += newWord;
             currentWord.clear();
             capitalizeNext = true;
         } else {
@@ -18,7 +19,8 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     // Add the last word
-    result += capitalizeNext ? std::string(1, tolower(c)) + currentWord.substr(1) : " " + currentWord;
+    std::string newWord = capitalizeNext ? (toupper(currentWord[0]) + tolower(currentWord.substr(1))) : currentWord;
+    result += newWord;
 
     return result;
 }
