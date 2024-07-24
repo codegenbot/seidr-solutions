@@ -1,7 +1,6 @@
 def triangle_area(a, h):
     return 0.5 * a * h
 
-
 while True:
     try:
         a = float(input("Enter the length of a side: "))
