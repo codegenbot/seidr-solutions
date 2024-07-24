@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -13,6 +13,6 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // Add your test cases here
+    std::cout << specialFilter({12, -1, 1234, 11, -1213}) << '\n';
     return 0;
 }
