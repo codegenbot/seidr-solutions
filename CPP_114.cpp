@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
@@ -12,4 +13,10 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    vector<long long> nums = {2,3,1};
+    cout << "The minimum subarray sum is: " << minSubArraySum(nums) << endl;
+    return 0;
 }
