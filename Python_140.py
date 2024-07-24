@@ -15,4 +15,4 @@ def fix_spaces(text):
             if add_hyphen:
                 new_text += "-"
                 add_hyphen = False
-    return new_text.strip().replace("--", "-")
+    return new_text
