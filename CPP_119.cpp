@@ -1,22 +1,21 @@
-bool check(string s) {
-    int count = 0;
+int countOpen = 0, countClose = 0;
+
+for (const string& s : lst) {
     for (char c : s) {
         if (c == '(') {
-            count++;
+            countOpen++;
         } else if (c == ')') {
-            if (count <= 0) return false;
-            count--;
+            if (countOpen > 0) {
+                countOpen--;
+            } else {
+                countClose++;
+            }
         }
     }
-    return count == 0;
 }
 
-string match_parens(vector<string> lst) {
-    string s1 = lst[0];
-    string s2 = lst[1];
-    if (check(s1 + s2)) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+if (countOpen == countClose) {
+    return "Yes";
+} else {
+    return "No";
 }
