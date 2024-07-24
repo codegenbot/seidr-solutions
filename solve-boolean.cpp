@@ -1,21 +1,36 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " & (" + temp2 + ")");
             }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            opStack.push('&');
+        } else if (expression[i] == '|') {
+            while (!opStack.empty()) {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " | (" + temp2 + ")");
             }
-            if (st.empty()) return true;
-            st.push('|');
-        } else {
-            st.push(s[i]);
+            opStack.push('|');
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            string str;
+            while (i < expression.size() && (expression[i] == 't' || expression[i] == 'f')) {
+                str += expression[i++];
+            }
+            valStack.push(str);
         }
     }
-    return !st.empty();
+
+    return (valStack.top() == "t");
 }
