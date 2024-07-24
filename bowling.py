@@ -1,39 +1,22 @@
 ```
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    frame = 0
-    while frame < len(frames):
-        if frames[frame] == 'X':  # strike
-            score += 10 + (10 if frame+1 < len(frames) and frames[frame+1].isdigit() else 0)
-            frame += 2
-        elif frames[frame:frame+2] in ['--', '-X', 'XX']:
-            score += 10
-            frame += 3
-        elif frames[frame].isdigit():
-            strike = False
-            for i in range(1, 4):
-                if frame+i >= len(frames) or not frames[frame+i].isdigit():
-                    break
-            if i == 1:
-                score += int(frames[frame])
-                frame += 1
+    rolls = [int(x) for x in re.sub('[^0-9]', '/', s).split('/')]
+    roll_index = 0
+    for frame in range(1, 11):
+        if frame == 10:
+            if len(rolls) < 2 or len(rolls) > 3:
+                return -1
+            elif rolls[roll_index] + rolls[roll_index+1] == 10:
+                score += 10 + (10 - rolls[roll_index] - rolls[roll_index+1]) * 2 if len(rolls) == 3 else 0
             else:
-                score += int(frames[frame:frame+i])
-                strike = True
-            if strike:
-                while frame < len(frames) and (frames[frame] != '/' or not frames[frame+1].isdigit()):
-                    frame += 1
-        else:
-            if frame < len(frames) - 2 and frames[frame:frame+3] == '/0':
-                score += 10
-                frame += 3
-            elif frame < len(frames) - 1 and frames[frame:frame+2] == '//':
-                score += 10
-                frame += 2
+                score += 10 + (10 - rolls[roll_index] - rolls[roll_index+1]) * 2 if len(rolls) == 3 else 10
+        elif frame < 10:
+            if len(rolls) < 2 or len(rolls) > 2:
+                return -1
+            elif rolls[roll_index] + rolls[roll_index+1] == 10:
+                score += 10 + (10 - rolls[roll_index] - rolls[roll_index+1]) * 2 if len(rolls) == 3 else 0
             else:
-                for i in range(1, 4):
-                    if frame+i >= len(frames) or not frames[frame+i].isdigit():
-                        break
-                score += int(frames[frame:frame+i])
-                frame += i
+                score += rolls[roll_index] + rolls[roll_index+1]
+        roll_index += 2
     return score
