@@ -22,7 +22,7 @@ def main():
                     minPath = new_sum
         return minPath
 
-    print(dfs(0, 0, [], set(), grid[0][0]))
+    print(dfs(0, 0, [], set(), 0))
 
 if __name__ == "__main__":
     main()
