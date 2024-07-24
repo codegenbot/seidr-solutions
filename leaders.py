@@ -1,2 +1,8 @@
-def leaders(arr):
-    return [x for i, x in enumerate(reversed(arr)) if all(x >= y for y in arr[i + 1 :])]
+Here is the Python solution:
+
+def leaders(a):
+    leader = a[-1]
+    for i in range(len(a)-2, -1, -1):
+        if a[i] >= leader:
+            leader = a[i]
+    return [leader] + a[:-1][::-1]
