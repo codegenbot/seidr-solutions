@@ -7,17 +7,17 @@ int main() {
     }
     int target;
     cin >> target;
-    
-    map<int, int> mp;
+
+    map<int, int> numIndex;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (mp.find(complement) != mp.end()) {
-            cout << complement << endl;
+        if (numIndex.find(complement) != numIndex.end()) {
             cout << nums[i] << endl;
+            cout << complement << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIndex[nums[i]] = i;
     }
-    
+
     return 0;
 }
