@@ -22,14 +22,10 @@ int main() {
     int n, x, y;
     cout << "Enter a number: ";
     cin >> n;
-    cout << "Enter x: ";
+    cout << "Enter value for x: ";
     cin >> x;
-    cout << "Enter y: ";
+    cout << "Enter value for y: ";
     cin >> y;
-    
-    int result = x_or_y(n, x, y);
-    
-    cout << "The output is: " << result << endl;
-    
+    cout << "The result is: " << x_or_y(n, x, y) << endl;
     return 0;
 }
