@@ -5,7 +5,6 @@ def scale_numbers(numbers):
     return scaled
 
 
-# Call the function with input from the user
 numbers = list(map(int, input().split()))
 result = scale_numbers(numbers)
 print(result)
