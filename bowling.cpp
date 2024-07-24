@@ -1,29 +1,39 @@
-int scoreBowlingRound(const string& bowls) {
+int calculateBowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    int i = 0;
+    int frame = 0;
+    int frameScore[10];
+    memset(frameScore, 0, sizeof(frameScore));
     
-    while (frame <= 10) {
-        if (bowls[i] == 'X') {
-            score += 10 + ((bowls[i+1] == 'X') ? 10 + ((bowls[i+2] == 'X') ? 10 : (bowls[i+2] - '0')) : (bowls[i+2] == '/' ? 10 : (bowls[i+2] - '0' + bowls[i+3] - '0')));
-            i++;
-        } else if (bowls[i+2] == '/') {
-            score += 10 + (bowls[i+4] == 'X' ? 10 : (bowls[i+4] - '0'));
-            i += 3;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            frameScore[frame] = 10;
+            frame++;
+        } else if (s[i] == '/') {
+            frameScore[frame] = 10 - (s[i - 1] - '0');
+            frame++;
+        } else if (s[i] == '-') {
+            frame++;
         } else {
-            score += bowls[i] - '0' + bowls[i+1] - '0';
-            i += 2;
+            frameScore[frame] += (s[i] - '0');
+            if (s[i+1] == '/') {
+                frameScore[frame] = 10;
+                frame++;
+            } else if (frameScore[frame] == 10) {
+                frame++;
+            }
         }
-        frame++;
     }
+    
+    for (int i = 0; i < 10; i++) {
+        score += frameScore[i];
+    }
+    
     return score;
 }
 
 int main() {
-    string bowls;
-    getline(cin, bowls);
-
-    cout << scoreBowlingRound(bowls) << endl;
-
+    string s;
+    cin >> s;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
