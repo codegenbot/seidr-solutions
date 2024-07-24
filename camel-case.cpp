@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -9,13 +8,7 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!currentWord.empty()) {
-                if (capitalizeNext) {
-                    result += toupper(currentWord[0]);
-                    currentWord.erase(0, 1);
-                }
-                result += tolower((char*)&currentWord[0]);
-            }
+            result += capitalizeNext ? std::string(toupper(currentWord.substr(0, 1))) + std::string(currentWord.substr(1)) : currentWord + " ";
             currentWord.clear();
             capitalizeNext = true;
         } else {
@@ -24,15 +17,8 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
-    if (!currentWord.empty()) {
-        if (capitalizeNext) {
-            result += toupper(currentWord[0]);
-            currentWord.erase(0, 1);
-        }
-        result += tolower((char*)&currentWord[0]);
-    } else {
-        result = "Invalid input. Please enter a string in kebab-case.";
-    }
+    // Add the last word
+    result += capitalizeNext ? std::string(toupper(currentWord.substr(0, 1))) + std::string(currentWord.substr(1)) : currentWord;
 
     return result;
 }
@@ -41,10 +27,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    if (input.empty()) {
-        std::cout << "The camelCase equivalent is: Invalid input. Please enter a string in kebab-case." << std::endl;
-    } else {
-        std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
-    }
+    std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     return 0;
 }
