@@ -1,16 +1,5 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-string reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     string temp = "";
     for (char& ch : s) {
         bool found = false;
@@ -24,8 +13,13 @@ string reverse_delete(string s, string c) {
             temp += ch;
         }
     }
+    result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (temp == rev) return "True";
-    else return "False";
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
