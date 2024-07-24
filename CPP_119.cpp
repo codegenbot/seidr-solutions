@@ -1,31 +1,35 @@
+#include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
-bool match_parens(vector<string> lst) {
-    int stack_size = 0;
-    bool is_good = true;
+int match_parens(std::vector<std::string> lst) {
+    int countOpen = 0, countClose = 0;
 
-    for (const string& s : lst) {
+    for (const auto& s : lst) {
         for (char c : s) {
-            if (c == '(') {
-                stack_size++;
-            } else if (c == ')') {
-                if (stack_size <= 0) {
-                    is_good = false;
-                    break;
-                }
-                stack_size--;
-            }
+            if (c == '(') countOpen++;
+            else countClose++;
         }
     }
 
-    return is_good ? "Yes" : "No";
+    if (countOpen == countClose) return 1;
+    else return 0;
 }
 
 int main() {
-    vector<string> lst = {"(hello)","(world)"};
-    string result = match_parens(lst);
-    cout << result << endl;
+    int n;
+    std::cin >> n;
+    std::vector<std::string> vec;
+    for(int i = 0; i < n; i++) {
+        std::string temp;
+        std::cin >> temp;
+        vec.push_back(temp);
+    }
+    
+    if (match_parens(vec) == 1) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
