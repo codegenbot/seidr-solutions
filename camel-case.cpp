@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -12,9 +9,9 @@ std::string camelCase(std::string str) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            if (isupper(c)) {
+            if (c >= 'A' && c <= 'Z') {
                 result += c;
-                capitalizeNext = true;
+                capitalizeNext = false;
             } else {
                 result += tolower(c);
             }
