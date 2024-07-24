@@ -2,10 +2,13 @@ Here is the solution:
 
 string squareDigits(long int n) {
     string s = to_string(n);
-    string result = "";
+    string result;
+    
     for (char c : s) {
         int digit = c - '0';
-        result += to_string(digit * digit);
+        long long square = pow(digit, 2);
+        result += to_string(square);
     }
+    
     return result;
 }
