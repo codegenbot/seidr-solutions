@@ -1,48 +1,27 @@
 #include <vector>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
-// Function to calculate the GCD of two numbers
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
-// Function to find all indices where target string appears in text
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int lastFoundIndex = -1; // keep track of the last found index
     
-    while ((start += target.length()) <= text.length()) {
-        if (text.substr(start - target.length(), target.length()).compare(target) == 0) {
-            indices.push_back(start);
-            start += target.length();
-        } else {
-            start++;
+    for (int i = 0; i <= text.size() - target.size(); i++) { // iterate through the text
+        if (text.substr(i, target.size()) == target) {
+            // if we find a match, add it to our result and update the lastFoundIndex
+            if (lastFoundIndex < 0)
+                lastFoundIndex = i;
+            result.push_back(i);
         }
     }
     
-    return indices;
+    return result;
 }
 
-int main() {
-    int a, b;
-    cin >> a >> b;
-    
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> result = findIndices(text, target);
-
-    for (int i : result)
-        cout << i << " ";
-    cout << endl;
-
-    return 0;
+int gcd(int a, int b) {
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
