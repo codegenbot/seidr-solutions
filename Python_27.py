@@ -1,13 +1,11 @@
-def check(string):
+def check():
+    string = raw_input("Enter a string: ").strip()
     return modify_string(string)
-
 
 def modify_string(string):
     return "".join(
         [char.lower() if char.isupper() else char.upper() for char in string]
     )
 
-
-flip_case = input().strip()
-output = check(flip_case)
+output = check()
 print(output)
