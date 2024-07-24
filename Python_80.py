@@ -1,15 +1,7 @@
-def is_happy_number():
-    seen = set()
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            if n < 10:
-                print("Number should be 10 or greater. Please enter again.")
-            else:
-                break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
+```
+def is_happy_number(n):
+    if n < 1:
+        return False
     seen = set()
     while n != 1 and n not in seen:
         seen.add(n)
@@ -17,4 +9,14 @@ def is_happy_number():
         n = sum_of_digits
     return n == 1
 
-print(is_happy_number())
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        if n < 10:
+            print("Number should be 10 or greater. Please enter again.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(is_happy_number(n))
