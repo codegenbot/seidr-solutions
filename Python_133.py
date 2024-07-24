@@ -1,17 +1,12 @@
-```
 def sum_squares(lst):
     return round(sum([round(int(x))**2 for x in lst]))
 
 while True:
     numbers = input("Enter numbers separated by space: ").split()
-    for i in range(len(numbers)):
-        try:
-            int(numbers[i])
-        except ValueError:
-            print("Invalid input. Please enter valid numbers separated by space:")
-            break
-    else:
-        total_sum_of_squares = sum_squares(map(int, numbers))
+    try:
+        total_sum_of_squares = sum_squares([float(x) for x in numbers])
         break
+    except ValueError:
+        print("Invalid input. Please enter valid numbers separated by space:")
 
 print(f"The sum of squares is {total_sum_of_squares}")
