@@ -1,1 +1,3 @@
-ss << std::setfill('0') << std::setw(2) << std::hex << (int)digest[i];
+```cpp
+ss.clear();
+return ss.str();
