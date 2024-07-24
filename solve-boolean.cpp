@@ -1,22 +1,22 @@
-Here is the solution:
-
 string solveBoolean(string s) {
-    stack<char> st;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if(st.empty()) return "False";
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if(st.empty()) return "False";
-        } else {
-            st.push(s[i]);
+    stack<char> ops;
+    stack<bool> values;
+
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == 'T' || s[i] == 't') {
+            values.push(true);
+        } else if(s[i] == 'F' || s[i] == 'f') {
+            values.push(false);
+        } else if(s[i] == '&') {
+            bool b = values.top(); values.pop();
+            bool a = values.top(); values.pop();
+            values.push(a && b);
+        } else if(s[i] == '|') {
+            bool b = values.top(); values.pop();
+            bool a = values.top(); values.pop();
+            values.push(a || b);
         }
     }
-    if(st.empty()) return "True";
-    return (st.top() == 'T') ? "True" : "False";
+
+    return (values.top() ? "True" : "False");
 }
