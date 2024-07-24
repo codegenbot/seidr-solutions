@@ -15,7 +15,7 @@ std::vector<std::string> by_length(const std::vector<int>& lengths) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
