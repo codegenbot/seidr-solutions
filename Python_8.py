@@ -14,5 +14,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_value, 0 if has_zero else product_value
 
 numbers = list(map(int, input().split()))
-result = sum_product(numbers)
-print(result)
+print(sum_product(numbers))
