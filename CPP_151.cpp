@@ -22,7 +22,7 @@ int main() {
 
     long long odd_sum = double_the_difference(lst);
 
-    assert(odd_sum >= 0);
-
+    assert(double_the_difference(lst) == odd_sum);
+    
     return 0;
 }
