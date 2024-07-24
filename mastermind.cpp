@@ -1,6 +1,5 @@
 using namespace std;
-
-pair<int, int> mastermind(string code, string guess) {
+tuple<int, int> mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -12,5 +11,5 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return make_pair(black, white);
+    return make_tuple(black, white);
 }
