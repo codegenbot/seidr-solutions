@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <vector>
-#include <iostream>
+#include <limits>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
@@ -11,23 +11,21 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
-
+    
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
-
-        auto it_min = std::find_if(lst.begin(), lst.end(),
-            [&](int x) { return x == min_val; });
-        auto it_max = std::find_if(lst.begin(), lst.end(),
-            [&](int x) { return x == max_val; });
-
+        
+        auto it_min = std::find_if(lst.begin(), lst.end(), [&](int x){ return x == min_val; });
+        auto it_max = std::find_if(lst.begin(), lst.end(), [&](int x){ return x == max_val; });
+        
         result.push_back(*it_min);
         lst.erase(it_min);
         result.push_back(*it_max);
         lst.erase(it_max);
     }
-
+    
     return result;
 }
