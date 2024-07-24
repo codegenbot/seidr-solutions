@@ -25,3 +25,4 @@ int main() {
         std::cout << num << " is not a perfect cube.\n";
     }
     return 0;
+}
