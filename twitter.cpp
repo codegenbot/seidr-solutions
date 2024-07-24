@@ -13,10 +13,12 @@ int main() {
         return 0;
     }
 
-    if (tweet.size() > 140) {
+    int length = (int)tweet.erase(0, tweet.find_last_of(' ') + 1);
+    
+    if (length > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.size() << " characters" << endl;
+        cout << "Your tweet has " << length << " characters" << endl;
     }
     return 0;
 }

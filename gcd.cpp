@@ -28,8 +28,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     return result;
 }
 
-#include <iostream>
-
 int main() {
     std::string text, target;
     std::cout << "Enter the text: ";
