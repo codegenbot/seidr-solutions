@@ -27,4 +27,3 @@ std::string reverseDelete(const std::string& s, const std::string& c) {
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
     return rev.empty() ? "True" : "False";
-}
