@@ -1,7 +1,5 @@
-#include <string>
-#include <iostream>
-
 bool solveBoolean(std::string s) {
+    while (s.find("++") != std::string::npos) s.replace(s.find("++"), 2, "+");
     size_t left_end = s.find_first_of("TF");
     if (left_end == std::string::npos) {
         return s[0] == 'T';
@@ -13,14 +11,7 @@ bool solveBoolean(std::string s) {
             return s[0] == 'T' ? !left : left;
         } else {
             bool right = s.substr(right_start, right_end - right_start).back() == 'T';
-            return (s[left_end-1] == '&') ? (left && right) : (left || right);
+            return ((s[left_end-1] == '|') ? (left || right) : (left && right));
         }
     }
-}
-
-int main() {
-    std::string s = "T&F|T";
-    bool result = solveBoolean(s);
-    std::cout << result << std::endl;
-    return 0;
 }
