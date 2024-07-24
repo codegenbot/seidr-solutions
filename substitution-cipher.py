@@ -2,9 +2,6 @@ cipher = input()
 mapping = input()
 message = input()
 
-deciphered_message = ''
-for char in message:
-    index = cipher.index(char)
-    deciphered_message += mapping[index]
+deciphered_message = ''.join(mapping[cipher.index(char)] for char in message)
 
 print(deciphered_message)
