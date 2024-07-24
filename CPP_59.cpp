@@ -1,14 +1,10 @@
 int largest_prime_factor(int n) {
-    int max = 1;
+    int factor = 0;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
+            factor = i;
             n /= i;
-            if (i > max)
-                max = i;
         }
     }
-    if (n > 1)
-        return n;
-    else
-        return max;
+    return factor;
 }
