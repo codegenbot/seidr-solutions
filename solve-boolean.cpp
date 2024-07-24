@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <stack>
 #include <string>
@@ -32,4 +31,3 @@ int main() {
     cin >> expression;
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
-}
