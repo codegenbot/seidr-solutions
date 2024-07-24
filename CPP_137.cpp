@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include<string>
 #include<algorithm>
@@ -47,8 +46,9 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    cout << compare_one(1, 2.5) << endl;
-    cout << compare_one(1, "2,3") << endl;
-    cout << compare_one("5,1", "6") << endl;
-    cout << compare_one("1", 1) << endl;
+    cout << "Result: " << std::any_cast<string>(compare_one(1, 2.5)) << endl;
+    cout << "Result: " << std::any_cast<string>(compare_one(1, "2,3")) << endl;
+    cout << "Result: " << std::any_cast<string>(compare_one("5,1", "6")) << endl;
+    cout << "Result: " << std::any_cast<string>(compare_one("1", 1)) << endl;
+    return 0;
 }
