@@ -1,18 +1,12 @@
+#include <vector>
+using namespace std;
+
 int search(vector<int> lst) {
-    map<int, int> freq;
+    int max = 0;
     for (int num : lst) {
-        if (freq.find(num) == freq.end()) {
-            freq[num] = 1;
-        } else {
-            freq[num]++;
+        if (num > max && count(lst.begin(), lst.end(), num) >= num) {
+            max = num;
         }
     }
-
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first;
-        }
-    }
-
-    return -1;
+    return max == 0 ? -1 : max;
 }
