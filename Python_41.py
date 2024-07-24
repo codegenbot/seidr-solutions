@@ -7,6 +7,6 @@ def car_race_collision():
     time_taken_minutes = int(((distance * 60) % (speed * 3600)) // 60000)
     time_taken_seconds = int((((distance * 60) % (speed * 3600)) % 60000) // 100)
 
-    return f"{time_taken_hours} hours, {time_taken_minutes} minutes and {time_taken_seconds} seconds."
+    return f"The estimated time of the car race collision is {time_taken_hours} hours, {time_taken_minutes} minutes and {time_taken_seconds} seconds."
 
 print(car_race_collision())
