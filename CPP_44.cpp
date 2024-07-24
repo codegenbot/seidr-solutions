@@ -1,8 +1,9 @@
-string result = "";
-    while (x > 0) {
+string change_base(int x, int base){
+    string new_base_num;
+    while (x > 0){
         int remainder = x % base;
-        result = to_string(remainder) + result;
+        new_base_num = to_string(remainder) + new_base_num;
         x = x / base;
     }
-    return result;
+    return new_base_num.empty() ? "0" : new_base_num;
 }
