@@ -1,17 +1,17 @@
 ```
-def find_prime_factors(n: int) -> List[int]:
-    factors = []
-    for i in range(2, n + 1):
-        while n % i == 0:
-            if is_prime(i):
-                factors.append(i)
-            n //= i
-    return factors
+from typing import List
+import math
 
-def is_prime(num: int) -> bool:
-    if num < 2:
-        return False
-    for i in range(2, math.isqrt(num) + 1):
-        if num % i == 0:
-            return False
-    return True
+
+def factorize(n: int) -> List[int]:
+    factors = []
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
