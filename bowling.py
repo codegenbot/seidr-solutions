@@ -1,23 +1,31 @@
-def bowling_score(rolls):
-    score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == "X":
-            score += (
-                10 + (10 - int(rolls[roll_index + 1].split("/")[0]))
-                if roll_index < 8
-                else 10
-            )
-            roll_index += 2
-        elif "/" not in rolls[roll_index]:
-            score += min(int(rolls[roll_index]), 10) * 2
-            roll_index += 1
-        else:
-            first_roll, second_roll = map(int, rolls[roll_index].split("/"))
-            if first_roll + second_roll == 10:
-                score += first_roll + 10
-                roll_index += 1
+```
+def bowling_score(score):
+    score = score.replace('/', '')
+    total = 0
+    frame = 0
+    for char in score:
+        if char.isdigit():
+            if frame < 9 and int(char) == 10:
+                total += 10 + (10 - len(str(int(char)))) * 1
+                frame += 1
+            elif frame < 9 and int(char) <= 10:
+                total += int(char)
+                frame += 1
             else:
-                score += first_roll + second_roll
-                roll_index += 1
-    return score
+                if char == 'X':
+                    total += 10
+                    frame += 1
+                else:
+                    total += int(char) + 10 - len(str(int(char))) * 1
+                    frame += 1
+        else:
+            if frame < 9 and char == 'X':
+                total += 10
+                frame += 1
+            elif frame < 9 and (char == '-' or char == '/'):
+                if frame < 8:
+                    total += 10 - len(str(int(char))) * 1
+                else:
+                    total += int(char)
+                frame += 1
+    return total
