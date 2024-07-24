@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool sameVectors(std::vector<float> a, std::vector<float> b) {
+bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -64,7 +64,7 @@ int main() {
         std::cout << "Enter next number (or press Enter to finish): ";
     }
 
-    if(sameVectors(vec1, vec2)) {
+    if(isSame(vec1, vec2)) {
         std::cout << "The two vectors are same.\n";
     } else {
         std::cout << "The two vectors are not same.\n";
