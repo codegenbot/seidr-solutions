@@ -1,6 +1,6 @@
-def smallest_change(arr):
-    n = len(arr)
-    arr = [str(x) for x in arr]
+def smallest_change(coins):
+    n = len(coins)
+    arr = [str(x) for x in coins]
     arr = ''.join(arr)
     rev_arr = arr[::-1]
     diff_count = 0
