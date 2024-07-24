@@ -1,8 +1,12 @@
 def longest(*strings):
-    result_strings = [] 
+    result_strings = []
     while True:
         s = input("Enter a string (or 'stop' to finish): ")
         if s.lower() == 'stop':
             break
+        if not isinstance(s, str):
+            print("Invalid input. Please enter a string.")
+            continue
         result_strings.append(s)
-    return len(max(result_strings, key=len)) if result_strings else None
+    result = max(result_strings, key=len) if result_strings else None
+    print(result)
