@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <sstream>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -17,41 +17,37 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> vec1, vec2;
-    std::string line;
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
     while(true) {
-        std::getline(std::cin, line);
-        if (line.empty()) {
-            break; 
-        }
-        std::stringstream ss(line);
-        float num;
-        if (!(ss >> num)) {
+        if (!(std::cin >> float(num))) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
             break;
         }
         vec1.push_back(num);
+        // Read the space to process the next number
+        if (!(std::cin >> ws).good()) {
+            break; // No more numbers in the stream
+        }
     }
 
     // Input for vector 2
     std::cout << "\nEnter the elements of vector 2 (separated by space): ";
+    vec1.clear();
     while(true) {
-        std::getline(std::cin, line);
-        if (line.empty()) {
-            break; 
-        }
-        std::stringstream ss(line);
-        float num;
-        if (!(ss >> num)) {
+        if (!(std::cin >> float(num))) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear();
-            vec2.clear(); 
+            vec1.clear(); 
+            vec2.assign(0, float{}); // Reset vectors
             break;
         }
         vec2.push_back(num);
+        // Read the space to process the next number
+        if (!(std::cin >> ws).good()) {
+            break; // No more numbers in the stream
+        }
     }
 
     if(isSame(vec1, vec2)) {
