@@ -3,19 +3,20 @@ int main() {
     cin >> code >> guess;
 
     int black = 0, white = 0;
-    map<char, int> codeFreq, guessFreq;
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeFreq[code[i]];
-            ++guessFreq[guess[i]];
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
 
-    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        white += min(it->second, guessFreq[it->first]);
+    for (int i = 0; i < 6; ++i) {
+        white += min(codeCount[i], guessCount[i]);
     }
 
     cout << white << endl;
