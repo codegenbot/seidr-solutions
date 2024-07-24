@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -18,7 +17,7 @@ int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}}, vector<string>(sublst.begin() + 1, sublst.end()))) {
+        if (issame({{"hello", "world"}}, std::vector<std::string>(sublst.begin() + 1, sublst.end()))) {
             sum += std::stoi(sublst[0].substr(6));
         }
     }
@@ -26,7 +25,6 @@ int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
 }
 
 int main() {
-    std::vector<std::string> test = {"cc", "dd", "aaaa", "bbbb"};
     assert(sorted_list_sum({{"aaaa", "bbbb"}, {"dd"}, {"cc"}}) == 0);
     return 0;
 }
