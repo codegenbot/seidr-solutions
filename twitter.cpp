@@ -6,6 +6,7 @@ using namespace std;
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
+    cin.get(); // Consume the leading space
     getline(cin, tweet);
 
     if (tweet.length() > 140) {
