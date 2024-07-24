@@ -1,7 +1,4 @@
-```
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s.split('-')))
+Here's the Python solution:
 
-while True:
-    s = input()
-    print(kebab_to_camel(s))
+def kebab_to_camel(s):
+    return ''.join(word.capitalize() for word in s.split('-')) if '-' in s else s
