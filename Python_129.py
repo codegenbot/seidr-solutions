@@ -8,7 +8,7 @@ def main():
         row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
         grid.append(row)
 
-    minPath = float("inf")
+    minPath = float('inf')
     def dfs(i, j, path, visited=None, curr_sum=0):
         nonlocal minPath
         if i == len(grid) - 1 and j == len(grid[0]) - 1:
