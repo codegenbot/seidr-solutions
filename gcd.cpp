@@ -1,5 +1,5 @@
-#include <vector> // Include the vector header
-#include <string> // Include the string header
+#include <vector>
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
