@@ -9,6 +9,7 @@ def powermod(base: int, exponent: int, modulus: int):
         base = (base * base) % modulus
     return result
 
+
 def modp(n: int, p: int):
     if p <= 1:
         return n
@@ -18,6 +19,7 @@ def modp(n: int, p: int):
     else:
         return powermod(-n if n < 0 else n, p, p)
 
+
 def main():
     base = int(input("Enter the base: "))
     exponent = int(input("Enter the exponent: "))
@@ -25,6 +27,7 @@ def main():
 
     result = modp(base, p)
     print(f"The result is {result}")
+
 
 if __name__ == "__main__":
     main()
