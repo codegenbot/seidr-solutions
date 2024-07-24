@@ -1,8 +1,9 @@
-Here is the completed code:
-
 def max_fill(grid, capacity):
-    rows = len(grid)
-    cols = len(grid[0])
-    total_water = sum(sum(row) for row in grid)
-    buckets_needed = math.ceil(total_water / float(capacity))
-    return buckets_needed
+    n = len(grid)
+    res = 0
+    for i in range(n):
+        while sum(grid[i]) > 0:
+            bucket_space = min(capacity, sum([grid[i][j] for j in range(len(grid[i]))]))
+            grid[i] = [k - bucket_space if k > 0 else 0 for k in grid[i]]
+            res += 1
+    return res
