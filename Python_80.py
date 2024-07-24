@@ -1,3 +1,4 @@
+```
 def is_happy_number(n):
     seen = set()
     while True:
@@ -8,7 +9,13 @@ def is_happy_number(n):
         if n == 1 or n in [4, 16, 20, 21, 22, 26]:
             return True
 
-try:
-    print(is_happy_number(int(input("Enter a number: "))))
-except ValueError as e:
-    print(f"Invalid input. {e}")
+while True:
+    try:
+        num = int(input("Enter a positive number: "))
+        if num > 0:
+            print(is_happy_number(num))
+            break
+        else:
+            print("Error: Please enter a positive number.")
+    except ValueError as e:
+        print(f"Invalid input. {e}")
