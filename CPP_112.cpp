@@ -1,8 +1,11 @@
-```
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        throw runtime_error("Error: Vectors are not the same size.");
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            throw runtime_error("Error: Vectors contain different elements.");
+        }
     }
     return true;
 }
