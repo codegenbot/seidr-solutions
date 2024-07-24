@@ -13,7 +13,7 @@ int main() {
     }
     
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
-    int left_sum = nums[0];
+    int left_sum = 0;
     int min_diff = INT_MAX;
     int cut_idx = -1;
 
@@ -21,7 +21,7 @@ int main() {
         left_sum += nums[i-1];
         int right_sum = sum - left_sum;
         int diff = std::abs(left_sum - right_sum);
-        if (diff < min_diff) {
+        if (diff <= min_diff) { 
             min_diff = diff;
             cut_idx = i;
         }
