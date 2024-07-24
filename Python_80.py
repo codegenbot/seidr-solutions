@@ -1,6 +1,8 @@
 def is_happy(n):
     seen = set()
     while n != 1 and n not in seen:
+        if '0' in str(n):  
+            return False
         if str(n) in seen:
             return False
         seen.add(str(n))
