@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -17,8 +17,4 @@ def factorize(n: int) -> List[int]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return [factor_list for factor_list in set(tuple(factor) for factor in factors)]
-
-
-num = int(input("Enter an integer: "))
-print(factorize(num))
+    return [list(factors) for factors in set(tuple(sorted(factor)) for factor in set(tuple(factor) for factor in factors))]
