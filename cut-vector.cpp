@@ -1,70 +1,64 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<int> res[2];
+vector<vector<int>> cutVector(vector<int> vec) {
+    vector<vector<int>> result;
+    int minDiff = INT_MAX;
+    int index = -1;
     
-    if (n == 1) {
-        res[0] = v;
-        return res;
-    }
-    
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
+    for(int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
         
-        for (int j = 0; j <= i; j++)
-            sumLeft += v[j];
-        for (int j = i + 1; j < n; j++)
-            sumRight += v[j];
-        
-        if (sumLeft == sumRight) {
-            res[0] = vector<int>(v.begin(), v.begin() + i + 1);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
+        for(int j = 0; j <= i; j++) {
+            leftSum += vec[j];
         }
-    }
-    
-    int minDiff = INT_MAX, idx = -1;
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
         
-        for (int j = 0; j <= i; j++)
-            sumLeft += v[j];
-        for (int j = i + 1; j < n; j++)
-            sumRight += v[j];
+        for(int k = i + 1; k < vec.size(); k++) {
+            rightSum += vec[k];
+        }
         
-        int diff = abs(sumLeft - sumRight);
-        if (diff < minDiff) {
+        int diff = abs(leftSum - rightSum);
+        
+        if(diff == minDiff) {
+            index = i;
+        } else if(diff < minDiff) {
             minDiff = diff;
-            idx = i;
+            index = i;
         }
     }
     
-    res[0] = vector<int>(v.begin(), v.begin() + idx + 1);
-    res[1] = vector<int>(v.begin() + idx, v.end());
-    return res;
+    vector<int> leftVec;
+    for(int i = 0; i <= index; i++) {
+        leftVec.push_back(vec[i]);
+    }
+    result.push_back(leftVec);
+    
+    vector<int> rightVec;
+    for(int i = index + 1; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
+    }
+    result.push_back(rightVec);
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
     
-    for (auto& x : v) {
-        cin >> x;
+    vector<int> vec(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
     
-    auto result = cutVector(v);
-    cout << "[";
-    for (const auto& x : result[0]) {
-        cout << x << " ";
+    vector<vector<int>> res = cutVector(vec);
+    
+    for(auto v : res) {
+        for(auto num : v) {
+            cout << num;
+        }
+        cout << endl;
     }
-    cout << "]\n[";
-    for (const auto& x : result[1]) {
-        cout << x << " ";
-    }
-    cout << "] 0\n";
     
     return 0;
 }
