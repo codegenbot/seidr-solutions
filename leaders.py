@@ -1,6 +1,3 @@
-def leaders(arr):
-    return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x <= arr[i] for x in arr[i + 1 :])
-    ]
+def leaders(input):
+    max_right = max(input)
+    return [x for x in input if x >= max_right]
