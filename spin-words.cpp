@@ -13,8 +13,7 @@ std::string spinWords(std::string str) {
             }
             wordLength = 0;
             result += ' ';
-        } 
-        else {
+        } else {
             result += c;
             ++wordLength;
         }
@@ -24,9 +23,8 @@ std::string spinWords(std::string str) {
         for (int i = wordLength - 1; i >= 0; --i) {
             result += str[wordLength - i - 1];
         }
-    } 
-    else {
-        result += str.substr(wordLength);
+    } else {
+        result = str;
     }
 
     return result;
