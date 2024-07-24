@@ -1,9 +1,12 @@
+```
 def decode_shift():
     while True:
         try:
             shift = int(input("Enter the shift amount: "))
             print(f"The decoded message will have a shift of {shift}.")
-            message = input("Enter the encoded message: ")
+            message = input("Enter the encoded message (or 'stop' to finish): ")
+            if message.lower() == 'stop':
+                break
             decoded_message = ""
             for char in message:
                 if char.isalpha():
@@ -12,13 +15,7 @@ def decode_shift():
                     decoded_message += decoded_char
                 else:
                     decoded_message += char
-            return decoded_message
-
+            print(f"Decoded message: {decoded_message}")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-        exit_loop = False
-        while not exit_loop:
-            response = input("Decode again? (y/n): ")
-            if response.lower() != "y":
-                exit_loop = True
+    print("Decoding complete.")
