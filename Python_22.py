@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 
@@ -27,4 +26,8 @@ def filter_integers() -> List[int]:
                 [value for value in num_list if not isinstance(value, int)]
             ):
                 print(f"{value}")
-            return []
+            print("Please retry.")
+            input("Press Enter when ready.")
+
+
+filter_integers()
