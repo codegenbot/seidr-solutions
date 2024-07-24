@@ -1,12 +1,13 @@
-vector<bool> issame(vector<string> a, vector<string> b) {
-    vector<bool> result;
-    for(auto s1 : a){
-        for(auto s2 : b){
-            if(s1 == s2)
-                result.push_back(true);
-            else
-                result.push_back(false);
-        }
+```cpp
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for(auto s : strings){
+        if(s.find(prefix) == 0)
+            result.push_back(s);
     }
     return result;
 }
