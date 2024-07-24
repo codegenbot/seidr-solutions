@@ -1,5 +1,8 @@
 #include <string>
+#include <iostream>
+#include <sstream>
 #include <iomanip>
+#include <digest.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
