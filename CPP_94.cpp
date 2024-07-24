@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -42,4 +41,3 @@ int main() {
     else
         cout << "No primes found in the list." << endl;
     return 0;
-}
