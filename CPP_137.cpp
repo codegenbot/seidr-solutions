@@ -1,22 +1,17 @@
 #include <string>
 #include <algorithm>
+#include <variant>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
-    using namespace std;
-    return visit([](auto&& a, auto&& b) -> variant<string, int, float> {
-        if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-            if (get<string>(a) > get<string>(b)) {
-                return get<string>(a);
-            } else {
-                return "0";
-            }
-        } else if (holds_alternative<int>(a) && holds_alternation<int>(b)) {
-            int x = get<int>(a), y = get<int>(b);
-            return to_string(max(x, y));
-        } else if (holds_alternative<float>(a) && holds_alternation<float>(b)) {
-            float x = get<float>(a), y = get<float>(b);
-            return to_string(max(x, y));
+    return std::visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
+        if (std::get<std::string>(a) > std::get<std::string>(b)) {
+            return std::get<std::string>(a);
+        } else if (std::get<int>(a) > std::get<int>(b)) {
+            return std::to_string(std::max(std::get<int>(a), std::get<int>(b)));
+        } else if (std::get<float>(a) > std::get<float>(b)) {
+            return std::to_string(std::max(std::get<float>(a), std::get<float>(b)));
+        } else {
+            return "0";
         }
-        return "0";
     }, a, b);
 }
