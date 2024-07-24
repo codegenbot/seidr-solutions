@@ -1,8 +1,8 @@
-```
+Here is the Python solution for the problem:
+
 def middle_character(s):
     length = len(s)
-    mid = length // 2
-    if length % 2 == 0:
-        return s[mid-1:mid+1]
+    if length % 2 != 0:
+        return s[length//2]
     else:
-        return s[mid]
+        return s[(length-1)//2] + s[(length+1)//2]
