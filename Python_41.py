@@ -1,9 +1,10 @@
+```
 def car_race_collision():
     distance = int(input("Enter the distance in kilometers: "))
     speed = int(input("Enter the average speed of all cars in km/h: "))
 
-    if speed == 0 or distance == 0:
-        return "Error: Speed and distance cannot be zero."
+    if speed <= 0:
+        return f"Error: Speed cannot be zero or negative."
 
     time_taken_hours = int(distance / (speed / 3600)) 
     time_taken_minutes = int(((distance * 60) % (speed * 3600)) // 60000)
