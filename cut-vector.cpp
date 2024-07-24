@@ -4,16 +4,20 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin.good()) {
-        std::cin >> n;
+    while (std::cin >> n) {
         nums.push_back(n);
+    }
+
+    if (std::cin.fail() && !std::cin.eof()) {
+        std::cerr << "Invalid input" << std::endl;
+        return 1;
     }
 
     int sum = 0;
     for (int num : nums) {
         sum += num;
     }
-    
+
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
