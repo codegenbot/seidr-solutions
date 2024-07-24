@@ -1,13 +1,20 @@
-```Python
-def is_happy(s):
-    for i in range(0, len(s), 3):
-        chunk = s[i:i+3]
-        has_lower = any(c.islower() for c in chunk)
-        has_upper = any(c.isupper() for c in chunk)
-        has_digit = any(c.isdigit() for c in chunk)
-        if not (has_lower and has_upper and has_digit):
-            return False
-    return True
+```
+def is_happy_number(n):
+    if n < 1:
+        return False
+    while n != 1 and n != 4:
+        sum_of_digits = sum(int(digit) ** 2 for digit in str(n))
+        n = sum_of_digits
+    return n == 1 or n == 4
 
-s = input("Enter a string: ")
-print(is_happy(s))
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        if n < 10:
+            print("Number should be 10 or greater. Please enter again.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(is_happy_number(n))
