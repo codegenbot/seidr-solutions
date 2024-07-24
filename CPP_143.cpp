@@ -1,12 +1,22 @@
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
+#include <string>
+
+using namespace std;
+
+bool is_prime(int n); // declare the function
+
+vector<string> split(const string& str, char c);
 
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
     string result;
     
     for (const auto& word : words) {
-        if (is_prime(word.length())) {
+        if (is_prime(word.length())) { 
             result += word + " ";
         }
     }
@@ -27,7 +37,7 @@ vector<string> split(const string& str, char c) {
     size_t pos = 0;
     while ((pos = str.find(c)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+        str.erase(0, pos + 1); 
     }
     tokens.push_back(str);
     return tokens;
