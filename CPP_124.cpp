@@ -1,55 +1,47 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
 bool valid_date(string date) {
-    string temp;
-    vector<string> tokens;
-    
-    for(int i = 0; i < date.length(); i++){
-        if(date[i] == '-'){
-            continue;
-        }
-        if(date[i] != '-'){
-            temp += date[i];
-        }else{
-            tokens.push_back(temp);
-            temp = "";
+    int day = 0;
+    int month = 0;
+    int year = 0;
+
+    if (date.size() != 10) return false; // check the size of string
+
+    for (int i = 0; i < 4; ++i) {
+        if (isdigit(date[i])) {
+            year = stoi(date.substr(i, 4));
+            break;
         }
     }
-    tokens.push_back(temp);
-    
-    int day, month, year;
-    
-    day = stoi(tokens[1]);
-    month = stoi(tokens[0]);
-    year = stoi(tokens[2]);
-    
-    if(month < 1 || month > 12)
-        return false;
-    
-    if((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-        return false;
-    if(month == 2){
-        if(day > 29)
-            return false;
-        if(year % 4 != 0)
-            return false;
-        if((year % 100 == 0) && (year % 400 != 0))
-            return false;
+
+    for (int i = 5; i < 7; ++i) {
+        if (isdigit(date[i])) {
+            month = stoi(date.substr(5, 2));
+            break;
+        }
     }
-    
-    if((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
-        return false;
-    
+
+    day = stoi(date.substr(8, 2));
+
+    // Check the month and days
+    if (month < 1 || month > 12) return false; // months should not be less than 1 or higher than 12.
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) return false; // number of days is not less than 1 or higher than 30 for months 4,6,9,11.
+    if (month == 2 && (day < 1 || day > 29)) return false; // number of days is not less than 1 or higher than 29 for the month 2.
+    if ((month % 2 != 0) && (day > 31)) return false; // number of days is not less than 1 or higher than 31 days for months 1,3,5,7,8,10,12.
+
     return true;
 }
 
-int main(){
-    cout << valid_date("03-11-2000") << endl; //true
-    cout << valid_date("15-01-2012") << endl; //false
-    cout << valid_date("04-0-2040") << endl; //false
-    cout << valid_date("06-04-2020") << endl; //true
+int main() {
+    string date = "03-11-2000";
+    if (valid_date(date))
+        cout << "Date is valid." << endl;
+    else
+        cout << "Date is invalid." << endl;
+
     return 0;
 }
