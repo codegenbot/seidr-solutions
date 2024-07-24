@@ -10,12 +10,15 @@ string camelCase(string s) {
     bool convert = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
+            if(i > 0) {
+                result += toupper(s[i-1]);
+            }
             convert = true;
         } else if (convert) {
             result += toupper(s[i]);
             convert = false;
         } else {
-            result += (i == 0) ? tolower(s[i]) : (convert ? toupper(s[i]) : tolower(s[i]));
+            result += tolower(s[i]);
         }
     }
     return result;
