@@ -8,19 +8,14 @@ int main() {
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
-        if (i < n - 1) {
-            char comma;
-            std::cin >> comma; // Read and discard the comma between vector elements
-        }
     }
+
+    char comma;
+    std::cin >> comma; // Read and discard the comma between vector elements
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        if (i < n - 1) {
-            char comma;
-            std::cin >> comma; // Read and discard the comma between vector elements
-        }
     }
 
     double sum = 0.0;
