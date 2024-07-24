@@ -24,7 +24,7 @@ std::vector<float> derivative(const std::vector<float>& input) {
     return result;
 }
 
-int main() {
+void main() {
     std::vector<float> input = {1.0, 2.0, 4.0, 7.0};
     std::vector<float> expected_output = {1.0, 2.0, 3.0};
     
@@ -35,6 +35,4 @@ int main() {
     } else {
         // Output does not match expected result
     }
-    
-    return 0;
 }
