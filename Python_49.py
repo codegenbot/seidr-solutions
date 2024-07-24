@@ -1,6 +1,8 @@
-```
 def modp(n: int, p: int):
-    if p == 2 or p == 3:
-        return pow(n, p - 1, p)
+    if p == 1:
+        return 0
+    elif p % 2 == 0:
+        half_power = modp(n, p // 2)
+        return (n * half_power * half_power) % p
     else:
-        return pow(n, (p - 2) * (p - 1), p) * n % p
+        return (n * modp(n, p - 1)) % p
