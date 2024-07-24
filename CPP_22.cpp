@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
+std::vector<int> filter_integers(std::vector<variant<int>> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (holds_alternative<int>(value)) {
