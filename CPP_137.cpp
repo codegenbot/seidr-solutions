@@ -1,6 +1,8 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+#include<boost/more_traits.hpp>
 
 using namespace std;
 
