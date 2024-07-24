@@ -17,6 +17,10 @@ def calculate_bowling_score(bowls):
         index += 2
 
     if bowls[-3:] == "XXX":
-        score += get_strike_bonus(bowls, -3)
+        score += 30
+    elif bowls[-2:] == "XX":
+        score += 20
+    elif bowls[-1] == "X":
+        score += 10
 
     return score
