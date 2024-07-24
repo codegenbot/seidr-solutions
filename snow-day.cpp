@@ -6,13 +6,11 @@ int main() {
 
     std::cin >> hours >> snow >> rate >> melt;
 
-    float snowOnGround = snow;
-
-    for (int i = 0; i < hours; ++i) {
-        snowOnGround += rate - (snowOnGround * melt);
+    while (hours--) {
+        snow += rate - (snow * melt);
     }
 
-    std::cout << snowOnGround << std::endl;
+    std::cout << snow;
 
     return 0;
 }
