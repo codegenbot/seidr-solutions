@@ -1,18 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
-    }
-    return true;
-
+bool issame(const std::vector<const char*>& v1, const std::vector<const char*>& v2) {
+    return v1 == v2;
 }
 
-std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
+std::vector<const char*> bf(std::pair<const char*, const char*>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
         return {"to", planets.first, planets.second};
     } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
@@ -27,8 +21,8 @@ int main() {
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    std::pair<std::string, std::string> planets = {planet1, planet2};
-    std::vector<std::string> output = bf(planets);
+    std::pair<const char*, const char*> planets = {planet1.c_str(), planet2.c_str()};
+    std::vector<const char*> output = bf(planets);
     for (const auto& s : output) {
         std::cout << s << " ";
     }
