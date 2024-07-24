@@ -1,32 +1,27 @@
-#include<string>
+#include <string>
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = 0, b = 0, c = 0, d = 0;
+    int gcd = 1;
     
-    // Convert numerator and denominator of both fractions to integers
-    sscanf(x.c_str(), "%d/%d", &a, &b);
-    sscanf(n.c_str(), "%d/%d", &c, &d);
+    // Convert the fractions to integers
+    sscanf(x.substr(1).c_str(), "%d/%d", &a, &b);
+    sscanf(n.substr(1).c_str(), "%d/%d", &c, &d);
 
-    // Calculate the greatest common divisor (GCD) for both fractions
-    int GCD = gcd(b, d);
-
-    // Simplify the fractions by dividing numerator and denominator by their GCD
-    a /= GCD;
-    b /= GCD;
-    c /= GCD;
-    d /= GCD;
+    // Calculate the greatest common divisor of the numerators and denominators
+    for (int i = min(b, d); i > 0; --i) {
+        if ((a / i) * i == a && (c / i) * i == c) {
+            gcd = i;
+            break;
+        }
+    }
 
     // Check if the simplified fractions are equal
-    return (a == c) && (b == d);
-}
+    int numerator1 = a / gcd;
+    int denominator1 = b / gcd;
+    int numerator2 = c / gcd;
+    int denominator2 = d / gcd;
 
-// Function to calculate the greatest common divisor (GCD)
-int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    return (numerator1 * denominator2) == (numerator2 * denominator1);
 }
