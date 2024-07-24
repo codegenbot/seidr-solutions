@@ -7,9 +7,9 @@ std::string concatenate(std::vector<std::string> strings) {
         result += str;
     }
     return result;
-
 }
 
 int main() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    // rest of your code
 }
