@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher, message):
     result = ""
     for char in message:
