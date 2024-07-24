@@ -37,13 +37,13 @@ int main() {
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    if (!(cin >> text)) {
+    if (!getline(cin, text)) {
         cerr << "Error reading text string" << endl;
         return 1;
     }
 
     cout << "Enter a target string: ";
-    if (!(cin >> target)) {
+    if (!getline(cin, target)) {
         cerr << "Error reading target string" << endl;
         return 1;
     }
