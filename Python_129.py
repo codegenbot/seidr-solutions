@@ -7,8 +7,8 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            if not res or sorted(path) < sorted(res):
-                res = list(sorted(set(path)))
+            if not res or sorted([cell for cell in path]) < sorted([cell for cell in res]):
+                res = list(sorted([cell for cell in path]))
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
