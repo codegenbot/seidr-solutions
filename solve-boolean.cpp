@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-
+```cpp
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return true;
 
@@ -8,18 +6,18 @@ bool solveBoolean(const std::string& s) {
     int i = 0;
     while (i < s.length()) {
         if (s[i] == '|') {
-            if (s[i+1] == '&') i++;
+            if (i+1 >= s.length() || s[i+1] == '&') i++;
             else break;
-        } else if (s[i] == '&') {
+        } 
+        else if (s[i] == '&') {
             while (i + 1 < s.length() && s[i+1] == '&') i++;
             break;
         }
         i++;
     }
 
-    size_t left_end = std::count(s.begin(), s.end(), '|');
-    std::string left = s.substr(0, left_end);
-    std::string right = s.substr(left_end + 1);
+    std::string left = s.substr(0, i);
+    std::string right = s.substr(i);
 
     if (left == "t") result = true;
     else if (left == "f") result = false;
@@ -29,7 +27,8 @@ bool solveBoolean(const std::string& s) {
 
     if (s[i] == '|') {
         return solveBoolean(left.c_str()) || solveBoolean(right.c_str());
-    } else {
+    } 
+    else {
         return solveBoolean(left.c_str()) && solveBoolean(right.c_str());
     }
 }
