@@ -1,3 +1,5 @@
-```
 def car_race_collision(n: int):
-    return sum(i for i in range(2, n+1))
+    collisions = 0
+    for i in range(1, n):
+        collisions += i
+    return collisions
