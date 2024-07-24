@@ -6,33 +6,32 @@ int main() {
     }
     
     int n = nums.size();
-    int left_sum = 0, right_sum = 0;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
+    int sum = 0;
     for (int i = 0; i < n; ++i) {
-        right_sum += nums[i];
+        sum += nums[i];
     }
     
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_index = -1;
     for (int i = 0; i < n; ++i) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
             cut_index = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cut_index; ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << 0 << endl;
-    
-    for (int i = cut_index + 1; i < n; ++i) {
-        cout << nums[i] << endl;
+    if (abs(sum - 2 * prefix_sum) < abs(sum - 2 * (prefix_sum - nums[cut_index]))) {
+        for (int i = 0; i <= cut_index; ++i) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
+    } else {
+        for (int i = 0; i < cut_index; ++i) {
+            cout << nums[i] << endl;
+        }
+        cout << nums[cut_index] << endl;
     }
     
     return 0;
