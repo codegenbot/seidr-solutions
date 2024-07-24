@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     size_t left_end = s.find_first_of("TF");
@@ -15,4 +17,11 @@ bool solveBoolean(std::string s) {
             return (s[left_end-1] == '&') ? (left && right) : (left || right);
         }
     }
+}
+
+int main() {
+    std::string s = "T&F|T";
+    bool result = solveBoolean(s);
+    std::cout << result << std::endl;
+    return 0;
 }
