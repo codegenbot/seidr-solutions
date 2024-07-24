@@ -3,16 +3,22 @@ def add(x: int, y: int):
         try:
             x = float(input("Enter a number for x: "))
             y = float(input("Enter a number for y: "))
-            break
         except ValueError:
             print("Both inputs must be numbers")
-    
+        else:
+            break
     result = x + y
     user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
-    if user_input.lower() == 'no':
-        return None
-    
-    while True:
-        choice = input("Enter 'y' to add again, or any other key to stop: ")
-        if choice.lower() != 'y':
+    while user_input.lower() != "no":
+        if user_input.lower() == "yes":
+            try:
+                num1 = float(input("Enter a number for x: "))
+                num2 = float(input("Enter a number for y: "))
+                result = num1 + num2
+                print(f"Result: {result}")
+            except ValueError:
+                print("Both inputs must be numbers")
+        elif user_input.lower() == "no":
             return result
+        else:
+            user_input = input("Invalid input. Please enter yes or no: ")
