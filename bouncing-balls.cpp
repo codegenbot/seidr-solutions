@@ -3,21 +3,19 @@ using namespace std;
 
 int main() {
     double startHeight;
-    cin >> startHeight;
     double firstBounceHeight;
-    cin >> firstBounceHeight;
-    double bouncinessIndex = firstBounceHeight / startHeight;
-    
     int numBounces;
-    cin >> numBounces;
-    
+
+    cin >> startHeight >> firstBounceHeight >> numBounces;
+
+    double bouncinessIndex = firstBounceHeight / startHeight;
+
     double totalDistance = 0.0;
-    for(int i=1; i<=numBounces; i++) {
-        totalDistance += pow(2, i) * (bouncinessIndex - 1);
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistance += pow(bouncinessIndex, i);
     }
-    
-    cout << fixed << setprecision(6);
-    cout << totalDistance << endl;
+
+    cout << fixed << setprecision(6) << totalDistance << endl;
 
     return 0;
 }
