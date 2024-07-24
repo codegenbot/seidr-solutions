@@ -27,12 +27,12 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
-
 }
 
 int main() {
     string code, guess;
-    std::cin >> code >> guess;
-    std::cout << mastermind(code, guess) << std::endl;
+    cin >> code >> guess;
+    using namespace std; 
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
