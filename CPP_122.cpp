@@ -11,15 +11,14 @@ int add_elements(vector<int> arr, int k){
 
 int main() {
     assert (add_elements({1}, 1) == 1);
-    vector<int> inputArray;
-    int n, k;
-    cout << "Enter the size of array: ";
-    cin >> n;
-    cout << "Enter elements of array: ";
-    for(int i=0; i<n; i++){
-        cin >> k;
-        inputArray.push_back(k);
+    vector<int> numbers;
+    int num;
+    cout << "Enter the number of elements: ";
+    cin >> num;
+    for(int i=0; i<num; i++){
+        cout << "Enter element " << i+1 << ": ";
+        cin >> numbers.push_back(i);
     }
-    cout << "Sum of the elements is: " << add_elements(inputArray, n) << endl;
+    cout << "Sum of the first 2 elements is: " << add_elements(numbers, min(num, 2)) << endl;
     return 0;
 }
