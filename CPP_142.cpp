@@ -1,17 +1,17 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
 int sum_squares(initializer_list<int> lst) {
     int total = 0;
-    for (int i : lst) {
+    for (int i = 0; i < lst.size(); i++) {
         if ((i + 1) % 3 == 0 && (i + 1) % 4 != 0)
-            total += pow(i, 2);
+            total += pow(lst.begin()[i], 2);
         else if ((i + 1) % 4 == 0 && (i + 1) % 3 != 0)
-            total += pow(i, 3);
+            total += pow(lst.begin()[i], 3);
     }
     return total;
 
