@@ -2,24 +2,6 @@
 #include <vector>
 #include <string>
 
-double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double output = 0.0;
-
-    for(int i = 0; i < ops.size(); i++) {
-        if(ops[i] == "+") {
-            output += static_cast<double>(args[i]);
-        } else if(ops[i] == "-") {
-            output -= static_cast<double>(args[i]);
-        } else if(ops[i] == "*") {
-            output *= static_cast<double>(args[i]);
-        } else if(ops[i] == "/") {
-            output /= static_cast<double>(args[i]);
-        }
-    }
-
-    return output;
-}
-
 int main() {
     std::vector<std::string> ops; 
     std::vector<int> args;
@@ -39,9 +21,20 @@ int main() {
         args.push_back(arg);
     }
     
-    double output = do_algebra(ops, args);
+    double output = 0.0;
 
+    for(int i = 0; i < ops.size(); i++) {
+        if(ops[i] == "+") {
+            output += static_cast<double>(args[i]);
+        } else if(ops[i] == "-") {
+            output -= static_cast<double>(args[i]);
+        } else if(ops[i] == "*") {
+            output *= static_cast<double>(args[i]);
+        } else if(ops[i] == "/") {
+            assert(args[i] != 0);
+            output /= static_cast<double>(args[i]);
+        }
+    }
+    
     std::cout << "Output: " << output << std::endl;
-
-    return 0;
 }
