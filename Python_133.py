@@ -1,4 +1,5 @@
 ```
+"""
 while True:
     numbers = input("Enter numbers separated by space: ").split()
     if not numbers:
@@ -13,3 +14,4 @@ while True:
 
 def sum_squares(numbers):
     return sum([n ** 2 for n in numbers])
+"""
