@@ -1,4 +1,3 @@
-```cpp
 float max_element(std::vector<float> l){
     if(l.empty()) return 0.0; 
     float max = l[0];
