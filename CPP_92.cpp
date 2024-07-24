@@ -1,13 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (floor(a) + floor(b) == floor(c)) {
-        return true;
-    }
-    if (floor(a) + floor(c) == floor(b)) {
-        return true;
-    }
-    if (floor(b) + floor(c) == floor(a)) {
+    if (abs(a - b - c) < 1e-9 && a == static_cast<int>(a) &&
+        b == static_cast<int>(b) && c == static_cast<int>(c)) {
         return true;
     }
     return false;
