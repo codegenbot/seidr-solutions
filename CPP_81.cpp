@@ -1,12 +1,15 @@
-bool issame(float a, float b) {
-    if (abs(a - b) < 0.01)
+#include <vector>
+#include <string>
+
+bool issame(float grade1, float grade2) {
+    if (abs(grade1 - grade2) <= 0.01)
         return true;
     else
         return false;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0) {
             letter_grades.push_back("A+");
