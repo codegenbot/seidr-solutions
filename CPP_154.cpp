@@ -1,3 +1,4 @@
-bool cycpattern_check(string a, string b) {
-    return (a + a).find(b) != string::npos;
+bool cycpattern_check(const string& a, const string& b) {
+    string concat = a + a;
+    return concat.find(b) != string::npos;
 }
