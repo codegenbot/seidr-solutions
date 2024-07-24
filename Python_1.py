@@ -19,5 +19,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     result.append(current_group)
     return result
 
-# Call the function with the input string for testing
-print(separate_paren_groups("abc(def)ghi(jkl)mno"))
+# Call the function with input string for testing
+input_string = "abc(de)fg(hi(jk)lm)n"
+print(separate_paren_groups(input_string))
