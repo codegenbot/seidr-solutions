@@ -1,4 +1,3 @@
-```
 def encode_cyclic(s: str, n: int):
     if n <= 0:
         return "Invalid input for 'n'. Please enter a positive integer."
@@ -13,7 +12,6 @@ def encode_cyclic(s: str, n: int):
         for group in groups
     ]
     return "".join(groups)
-
 
 def decode_cyclic(s: str, n: int):
     if n <= 0:
