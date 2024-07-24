@@ -1,19 +1,8 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-
-    n = len(xs)
-    a = xs[0]
-    b = xs[1]
-
-    if abs(a) > abs(b):
-        return -b / (2 * b)
-
-    for i in range(3, n + 1, 2):
-        c = (-1) ** ((i - 1) // 2) * xs[i] / (2 * a)
-        a = b
-        b += c * b
-
+        raise ValueError("xs must have even number of coefficients")
+    a = xs[-1]
+    b = -sum(x for x in xs[:-1])
     return -b / a
