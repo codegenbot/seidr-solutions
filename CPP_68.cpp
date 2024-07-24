@@ -38,8 +38,12 @@ int main() {
 
     vector<pair<int, int>> output = pluck(arr);
 
-    for (const auto& pair : output) {
-        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
+    if (!output.empty()) {
+        for (const auto& pair : output) {
+            cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
+        }
+    } else {
+        cout << "No even elements found." << endl;
     }
     return 0;
 }
