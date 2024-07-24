@@ -1,6 +1,5 @@
-Here is the completed code:
-
-```cpp
+#include <stdio.h>
+#include <string>
 #include <algorithm>
 using namespace std;
 
