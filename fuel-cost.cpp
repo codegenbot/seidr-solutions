@@ -1,5 +1,5 @@
-int sum = 0;
-for (int num : nums) {
-    sum += (num / 3) - 2;
+int sum = 0; 
+vector<int> nums;
+for (int i = 0; i < nums.size(); i++) {
+    sum += (nums[i] / 3) - 2;
 }
-return sum;
