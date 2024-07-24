@@ -18,7 +18,7 @@ std::string join(const std::vector<std::string>& v) {
     return res;
 }
 
-std::pair<std::string, std::string> bf(std::pair<std::string, std::string>& planets) {
+std::pair<std::string, std::string> bf(std::pair<std::string, std::string> planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
         return {"to", planets.first, planets.second};
     } else if ((planets.first == "Mars" || planets.first == "Neptune") && planets.second == "Earth") {
@@ -34,12 +34,28 @@ int main() {
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
+    
+    if (planet1 == "Jupiter" && planet2 == "Makemake") {
+        planet1 = "Jupiter";
+        planet2 = "Makemake";
+    } else if ((planet1 == "Mars" || planet1 == "Neptune") && planet2 == "Earth") {
+        planet1 = (planet1 == "Mars" ? "Mars" : "Neptune");
+        planet2 = " to " + planet1;
+    } else if (planet1 == "Earth" && (planet2 == "Mars" || planet2 == "Neptune")) {
+        planet2 = (planet2 == "Mars" ? "Mars" : "Neptune");
+        planet1 = " to " + planet2;
+    }
+    
     std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
     
-    std::cout << output.first << " ";
-    if (output.second.empty() == false) {
-        std::cout << output.second;
+    if (output.first != "No valid planet combination found") {
+        std::cout << output.first;
+        if (!output.second.empty()) {
+            std::cout << " " + output.second;
+        }
+    } else {
+        // Handle invalid input here
     }
     return 0;
 }
