@@ -1,51 +1,56 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> result;
     
-    for (int i = 1; i < n; ++i) {
-        int diff = abs(nums[i] - nums[0]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    for (int i = 0; i < n - 1; i++) {
+        if (v[i] == v[i + 1]) {
+            result.push_back({v[i]});
+            return {{}, {v[i], v[i + 1]}};
         }
     }
     
-    return {nums.begin(), nums.begin() + cutIndex} | {nums.begin() + cutIndex, nums.end()};
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
+    
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            splitIndex = i;
+        }
+    }
+    
+    result.push_back({v[0]});
+    result.push_back({v.begin() + 1, v.end()});
+    
+    return result;
 }
 
 int main() {
-    // Example inputs
-    vector<int> nums1 = {1};
-    vector<int> result1 = cutVector(nums1);
-    cout << "Input: ";
-    for (int num : nums1) {
-        cout << num << " ";
+    int n;
+    cin >> n;
+    
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    cout << endl;
-    cout << "Output: ";
-    for (int num : result1) {
-        cout << num << " ";
+    
+    vector<vector<int>> res = cutVector(v);
+    
+    cout << "[";
+    for (auto x : res[0]) {
+        cout << x << " ";
     }
-    cout << endl;
-
-    vector<int> nums2 = {1, 10};
-    vector<int> result2 = cutVector(nums2);
-    cout << "Input: ";
-    for (int num : nums2) {
-        cout << num << " ";
+    cout << "]" << endl;
+    
+    cout << "[";
+    for (auto x : res[1]) {
+        cout << x << " ";
     }
-    cout << endl;
-    cout << "Output: ";
-    for (int num : result2) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    // Add more inputs here...
+    cout << "]" << endl;
     
     return 0;
 }
