@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -12,7 +13,12 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> numbers = {1001, -2003, 3004, -4005};
-    cout << "The number of special numbers is: " << specialFilter(numbers) << endl;
+    vector<int> input;
+    cout << "Enter numbers separated by spaces: ";
+    int num;
+    while ((cin >> num) && (input.size() < 100)) {
+        input.push_back(num);
+    }
+    cout << "Count of special numbers: " << specialFilter(input) << endl;
     return 0;
 }
