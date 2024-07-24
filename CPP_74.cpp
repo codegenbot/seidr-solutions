@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -41,7 +41,6 @@ int main() {
     vector<string> lst1;
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
-        cout << "Enter string " << i+1 << " for list 1:\n";
         string s;
         while (!(cin >> s) || s.empty()) {
             cout << "Invalid input. Please enter a non-empty string.\n";
@@ -56,7 +55,6 @@ int main() {
     vector<string> lst2;
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
-        cout << "Enter string " << i+1 << " for list 2:\n";
         string s;
         while (!(cin >> s) || s.empty()) {
             cout << "Invalid input. Please enter a non-empty string.\n";
