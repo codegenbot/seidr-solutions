@@ -4,42 +4,37 @@
 using namespace std;
 
 bool valid_date(string date) {
-    int month, day, year;
-    string temp;
-
-    stringstream ss(date);
-    string part;
-
-    getline(ss, part, '-');
-    month = stoi(part);
-
-    getline(ss, part, '-');
-    day = stoi(part);
-
-    getline(ss, part);
-    year = stoi(part);
-
-    // Validate the date
-    if (month < 1 || month > 12) return false;
-    if ((month == 2 && day > 29) ||
-        (month == 4 || month == 6 || month == 9 || month == 11) &&
-            (day > 30)) return false;
+    istringstream iss(date);
+    string month, day, year;
+    
+    getline(iss, month, '-');
+    getline(iss, day, '-');
+    iss >> year;
+    
+    int m = stoi(month);
+    int d = stoi(day);
+    int y = stoi(year);
+    
+    if (m < 1 || m > 12) return false;
+    if ((m == 2 && d > 29) ||
+        (m == 4 || m == 6 || m == 9 || m == 11) &&
+            (d > 30)) return false;
 
     // Check for valid number of days in February
-    if (month == 2) {
-        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
-            if (day > 29) return false;
-        else if (day > 28) return false;
+    if (m == 2) {
+        if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)
+            if (d > 29) return false;
+        else if (d > 28) return false;
     }
 
     // Check for valid number of days in months with 31 days
-    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
-            month == 10 || month == 12) &&
-        (day > 31)) return false;
+    if ((m == 1 || m == 3 || m == 5 || m == 7 || m == 8 ||
+            m == 10 || m == 12) &&
+        (d > 31)) return false;
 
     // Check for valid number of days in months with 30 days
-    if ((month == 4 || month == 6 || month == 9 || month == 11) &&
-        (day > 30)) return false;
+    if ((m == 4 || m == 6 || m == 9 || m == 11) &&
+        (d > 30)) return false;
 
     return true;
 }
