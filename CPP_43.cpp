@@ -1,13 +1,22 @@
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < l.size(); i++) {
-        int complement = -l[i];
-        if (s.find(complement) != s.end() && l[i] != complement) {
+    vector<int> v(l);
+    sort(v.begin(), v.end());
+    
+    int i = 0, j = v.size() - 1;
+    
+    while (i < j) {
+        if (v[i] + v[j] == 0)
             return true;
-        }
+        else if (v[i] + v[j] < 0)
+            i++;
+        else
+            j--;
     }
+    
     return false;
 }
