@@ -39,7 +39,7 @@ int main() {
     while (true) {
         std::cout << "Enter a string: ";
         std::cin >> str;
-        std::cin.ignore(); 
+        std::cin.ignore(); // Add this to consume the newline character
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
