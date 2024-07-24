@@ -2,14 +2,18 @@
 #include <string>
 using namespace std;
 
-int main() {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int a = 12; 
-    int b = 15; 
+    int n = text.length();
+    int m = target.length();
 
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+        }
+    }
 
-    return 0;
+    return result;
 }
 
 int gcd(int a, int b) {
