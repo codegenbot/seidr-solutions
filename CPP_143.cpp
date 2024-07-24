@@ -1,23 +1,23 @@
+#include <stdio.h>
+#include <string>
+#include <cmath>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
 string words_in_sentence(string sentence){
     string result = "";
     string word = "";
-    bool is_prime[101] = {false}; // to store prime numbers up to length 100
-
-    // precompute prime numbers up to 100
-    for (int i = 2; i <= 100; i++) {
-        bool prime = true;
-        for (int j = 2; j * j <= i; j++) {
-            if (i % j == 0) {
-                prime = false;
-                break;
-            }
-        }
-        is_prime[i] = prime;
-    }
-
+    
     for (char c : sentence) {
         if (c == ' ') {
-            if (is_prime[word.size()]) {
+            if (isPrime(word.size())) {
                 result += word + " ";
             }
             word = "";
@@ -25,10 +25,10 @@ string words_in_sentence(string sentence){
             word += c;
         }
     }
-
-    if (!word.empty() && is_prime[word.size()]) {
+    
+    if (!word.empty() && isPrime(word.size())) {
         result += word;
     }
-
+    
     return result;
 }
