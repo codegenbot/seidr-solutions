@@ -1,5 +1,5 @@
-```
 import math
+
 
 def sum_of_squares(n):
     result = 0
@@ -7,12 +7,14 @@ def sum_of_squares(n):
         result += i**2
     return result
 
+
 def check(area):
     sqrt = int(math.sqrt(area))
-    if sqrt*sqrt == area:
+    if sqrt * sqrt == area:
         print("The area of the triangle is a perfect square.")
     else:
         print("The area of the triangle is not a perfect square.")
+
 
 while True:
     try:
@@ -26,15 +28,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter numbers.")
 
-while True:
-    try:
-        area = (base*height)/2
+triangle_area = (base * height) / 2
 
-        sqrt = int(math.sqrt(area))
-        if sqrt*sqrt == area:
-            print("The area of the triangle is a perfect square.")
-        else:
-            print("The area of the triangle is not a perfect square.")
-        break
-    except ValueError:
-        print("Invalid input. Please enter numbers.")
+# Convert area to integer before calling the check function
+check(int(triangle_area))
