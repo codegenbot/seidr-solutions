@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int compare_one(const boost::any& a, const boost::any& b) {
+int compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int int_a = boost::any_cast<int>(a);
         int int_b = boost::any_cast<int>(b);
@@ -36,5 +36,5 @@ int compare_one(const boost::any& a, const boost::any& b) {
             return stof(str_b);
         }
     }
-    return 0;
+    return -1; // Adjust as per specific requirements
 }
