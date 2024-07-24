@@ -1,20 +1,17 @@
 #include <vector>
 using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (long long)n * m;
-    double probability = 0.0;
-
-    for (int i = 1; i <= m; i++) {
-        probability += (double)(n - i + 1) / total;
+double game(int n, int m) {
+    double sum = 0.0;
+    for (int i = 1; i <= n; i++) {
+        sum += (n - i + 1) / static_cast<double>(n * m);
     }
-
-    return probability;
+    return sum;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(5) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(4) << game(n, m) << endl;
     return 0;
 }
