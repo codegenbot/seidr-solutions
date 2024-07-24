@@ -1,14 +1,21 @@
+#include <vector>
+using namespace std;
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int len = text.length();
-    int targ_len = target.length();
-
-    for(int i = 0; i <= len - targ_len; i++) {
-        if(text.substr(i,targ_len) == target) {
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
+        if (text.substr(i, targetLen) == target) {
             result.push_back(i);
+            // Check for overlap
+            while (i + targetLen < text.length()) {
+                if (text.substr(i, targetLen) == target)
+                    result.push_back(i + 1);
+                else break;
+                i++;
+            }
         }
     }
-
     return result;
 }
 
@@ -17,19 +24,4 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a,b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> v = indicesOfSubstring(text, target);
-
-    for(int i: v) 
-        cout << i << endl;
-
-    return 0;
 }
