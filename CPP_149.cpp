@@ -14,7 +14,15 @@ int sorted_list_sum(std::vector<std::vector<std::string>> lst) {
 }
 
 int main() {
-    std::vector<std::vector<std::string>> lst = {{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}};
-    assert(sorted_list_sum(lst) == 2);
+    assert(sorted_list_sum({{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}}) == 2);
+    int result = sorted_list_sum({{"aaaa", "bbbb"}, {"dd"}, {"cc"}});
+    if (result != 1) {
+        return 1;
+    }
+    bool checkResult = issame({"cc","dd","aaaa","bbbb"}, {"cc", "dd", "aaaa", "bbbb"});
+    if (!checkResult) {
+        return 2;
+    }
+    std::cout << result << std::endl;
     return 0;
 }
