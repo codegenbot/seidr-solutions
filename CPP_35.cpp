@@ -1,2 +1,2 @@
-```
+```cpp
 return *std::max_element(l.begin(), l.end());
