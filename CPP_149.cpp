@@ -1,13 +1,14 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(const vector<string>& a) {
-    if (a.empty()) {
-        return true;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    string target = a[0];
-    for(int i=1; i<a.size(); i++) {
-        if(a[i] != target) {
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -18,9 +19,8 @@ int sorted_list_sum(const vector<vector<string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}})) {
+        if (issame({{"hello", "world"}}, sublst)) {
             sum += std::stoi(sublst[1].substr(7));
         }
     }
     return sum;
-}
