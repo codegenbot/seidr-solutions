@@ -1,22 +1,22 @@
-```cpp
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true; // assume the expression is true initially
+    bool result = true;
+    int op = -1;
     for (char c : s) {
         if (c == 'T' || c == 't') {
             return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            result = false; // when we encounter &, the result becomes false
+            op = 0;
         } else if (c == '|') {
-            bool temp = result; // store the current value of result
-            result = false; // reset the result to false for |
-            result |= temp; // then, or the stored value with the new result
+            op = 1;
+        }
+        if (op != -1) {
+            result = (op == 0) ? (result && true) : (result || true);
         }
     }
     return result;
