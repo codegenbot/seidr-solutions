@@ -4,29 +4,31 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
+    
     int n = nums.size();
-    int leftSum = 0, rightSum = 0;
-    for (int i = 0; i < n; ++i) {
-        rightSum += nums[i];
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
-
+    
+    int prefixSum = 0;
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    for (int i = 0; i < n; ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
+    int cutIndex = -1;
+    
+    for (int i = 0; i < n; i++) {
+        prefixSum += nums[i];
+        int suffixSum = sum - prefixSum;
+        int diff = abs(prefixSum - suffixSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-
-    for (int i = 0; i <= cutIndex; ++i) {
+    
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << endl;
     }
     cout << 0 << endl;
-
+    
     return 0;
 }
