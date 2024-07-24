@@ -1,38 +1,56 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int pos = -1;
-    for(int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i+1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            pos = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> vec) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
+
+    for (int i = 1; i < vec.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += vec[j];
+        }
+        for (int j = i; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+
+        if (left_sum == right_sum) {
+            return {{}, vec};
+        }
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    vector<int> left = vector<int>(v.begin(), v.begin()+pos);
-    vector<int> right = vector<int>(v.begin()+pos, v.end());
-    return {left, right};
+
+    std::vector<int> left_vec(vec.begin(), vec.begin() + cut_index);
+    std::vector<int> right_vec(vec.begin() + cut_index, vec.end());
+    return {left_vec, right_vec};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+
+    for (int i = 0; i < n; i++) {
+        std::cin >> vec[i];
     }
-    auto res = cutVector(v);
-    cout << "Left: ";
-    for(auto x : res[0]) {
-        cout << x << " ";
+
+    auto result = cutVector(vec);
+    std::cout << "Left side: ";
+    for (int num : result.first) {
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Right: ";
-    for(auto x : std::vector<int>(res[1]).begin(), e = std::vector<int>(res[1]).end(); x != e; ++x) {
-        cout << *x << " ";
+    std::cout << "\n";
+    std::cout << "Right side: ";
+    for (int num : result.second) {
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << "\n";
+    
     return 0;
 }
