@@ -7,5 +7,4 @@ def below_zero() -> bool:
             return True
     return False
 
-
 print(below_zero())
