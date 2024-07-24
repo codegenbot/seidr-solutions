@@ -1,4 +1,5 @@
 def main():
-    response = input("Decode again? (y/n): ")
-    while response.lower() != "y":
+    while True:
         response = input("Decode again? (y/n): ")
+        if response.lower() == "n":
+            break
