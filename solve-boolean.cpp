@@ -7,17 +7,42 @@ bool evaluateBooleanExpression(const std::string& expr) {
     for (char c : expr) {
         lowercaseExpr += std::tolower(c);
     }
-    if (lowercaseExpr == "false") {
-        return false;
+    
+    bool result = true;
+    bool operand = true;
+    char operation = ' ';
+    
+    for (char c : lowercaseExpr) {
+        if (c == '|' || c == '&') {
+            operation = c;
+        } else if (c == 't' || c == 'f') {
+            if (c == 't') {
+                operand = true;
+            } else {
+                operand = false;
+            }
+            
+            if (operation == '|') {
+                result = result || operand;
+            } else if (operation == '&') {
+                result = result && operand;
+            } else {
+                result = operand;
+            }
+        }
     }
-    // Add your existing evaluation logic using lowercaseExpr
-    return true;
+    
+    return result;
 }
 
 int main() {
-    std::string expr;
-    std::cin >> expr;
-    bool result = evaluateBooleanExpression(expr);
-    std::cout << std::boolalpha << result << std::endl;
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+    
+    bool result = evaluateBooleanExpression(expression);
+    
+    std::cout << "Result: " << std::boolalpha << result << std::endl;
+    
     return 0;
 }
