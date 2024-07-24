@@ -1,6 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
