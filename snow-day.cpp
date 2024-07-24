@@ -19,3 +19,4 @@ int main() {
     cout << fixed << setprecision(10);
     cout << snowDay(hours, groundSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
+}
