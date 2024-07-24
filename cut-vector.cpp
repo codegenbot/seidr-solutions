@@ -1,47 +1,31 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+vector<vector<int>> cutVector(vector<int> nums) {
+    int n = nums.size();
+    vector<vector<int>> res(2);
     
-    for(int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        for(int j = 0; j < i; j++) {
-            left_sum += v[j];
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(nums[i] - nums[i + 1]) <= abs(nums[0] - nums[n - 1])) {
+            res[0].insert(res[0].end(), nums.begin(), nums.begin() + (i + 1));
+            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
+            break;
         }
-        for(int j = i+1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        if(left_sum == right_sum) {
-            return {{v[0], v[0]}, {v[1], v.back()}};
-        } else {
-            int diff = abs(left_sum - right_sum);
-            if(diff < min_diff) {
-                min_diff = diff;
-                result.first = vector<int>(v.begin(), v.begin()+i+1);
-                result.second = vector<int>(v.begin()+i, v.end());
+    }
+    
+    if (res[0].size() == 0) {
+        res[0] = nums;
+        res[1].clear();
+    } else {
+        int diff = abs(nums[0] - nums[n - 1]);
+        for (int i = 0; i < n - 1; i++) {
+            if (abs(nums[i] - nums[i + 1]) <= diff) {
+                res[0].insert(res[0].end(), nums.begin(), nums.begin() + (i + 1));
+                res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
+                break;
             }
         }
     }
     
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    for(auto x : res.first) cout << x << " ";
-    cout << endl;
-    for(auto x : res.second) cout << x << " ";
-    cout << endl;
-    
-    return 0;
+    return res;
 }
