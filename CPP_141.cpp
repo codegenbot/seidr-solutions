@@ -2,7 +2,11 @@
 #include <string>
 #include <cctype>
 
-bool file_name_check(std::string file_name) {
+bool isAlpha(char c) {
+    return std::isalpha(c);
+}
+
+std::string file_name_check(std::string file_name) {
     bool hasDigit = false;
     int dotCount = 0;
 
@@ -12,7 +16,7 @@ bool file_name_check(std::string file_name) {
                 hasDigit = true;
             }
             else {
-                return false;
+                return "No";
             }
         }
         else if (c == '.') {
@@ -21,16 +25,16 @@ bool file_name_check(std::string file_name) {
     }
 
     if (dotCount != 1 || !file_name.empty()) {
-        return false;
+        return "No";
     }
 
     size_t pos = file_name.find('.');
     std::string beforeDot = file_name.substr(0, pos);
     std::string afterDot = file_name.substr(pos + 1);
 
-    if (!std::isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-        return false;
+    if (!isAlpha(beforeDot[0]) || (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")) {
+        return "No";
     }
 
-    return true;
+    return "Yes";
 }
