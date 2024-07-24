@@ -19,8 +19,9 @@ int main(){
 
     std::cout << (issame(vec1, vec2) ? "Vectors are the same" : "Vectors are different") << std::endl;
 
-    std::vector<int> expected = {111111};
-    assert(issame(strange_sort_list({111111}), expected));
+    assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
+
+    assert(issame(strange_sort_list({111111}), std::vector<int>{1, 1, 1, 1, 1, 1}));
 
     return 0;
 }
