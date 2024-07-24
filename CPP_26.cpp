@@ -1,22 +1,21 @@
-#include <iostream>
+#include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int* remove_duplicates(int numbers[], int n){
+std::vector<int> remove_duplicates(std::vector<int> numbers){
     std::vector<int> result;
-    for(int num : {numbers[0], numbers[1], numbers[2]}){
+    for(int num : numbers){
         if(find(result.begin(), result.end(), num) == result.end()){
             result.push_back(num);
         }
     }
-    return &result[0];
+    return result;
 }
 
 int main() {
-    int numbers[] = {1, 2, 3, 2, 4, 3, 5};
-    assert(issame({*(numbers+0), *(numbers+1), *(numbers+2)}, {1, 4, 5}));
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>({1, 4, 5}));
     return 0;
 }
