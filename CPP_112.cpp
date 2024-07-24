@@ -1,23 +1,37 @@
-```cpp
-#include <vector>
-#include <string>
-#include <algorithm>
-
 bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+    if (a.size() != b.size()) {
+        throw runtime_error("Error: Vectors are not the same size");
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            throw runtime_error("Error: Vectors are not the same");
+        }
+    }
+    return true;
 }
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
-            temp += s[i];
+    for (char ch : s) {
+        bool found = false;
+        for (char cc : c) {
+            if (ch == cc) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            temp += ch;
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    result.push_back((temp == rev) ? "True" : "False");
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    if (temp == revTemp) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
 }
