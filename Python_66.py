@@ -1,9 +1,4 @@
+```
 def digitSum(n):
-    return sum(
-        int(digit)
-        for digit in str(abs(int(n)))
-        .replace(" ", "")
-        .lower()
-        .replace(",", "")
-        .replace(".", "")
-    )
+    n = str(n).lower()
+    return sum(1 for char in n)
