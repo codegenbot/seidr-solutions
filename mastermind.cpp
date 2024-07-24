@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -27,6 +28,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+
 }
 
 int main() {
