@@ -15,7 +15,8 @@ bool solveBoolean(string expression) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
         expression = right; 
-        if (solveBoolean(left) || solveBoolean(right))
+
+        if (solveBoolean(left) && solveBoolean(right))
             return true;
 
         pos = expression.find('|');
@@ -26,8 +27,9 @@ bool solveBoolean(string expression) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
         expression = right; 
-        if (!solveBoolean(left) || !solveBoolean(right))
-            return false;
+
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
 
         pos = expression.find('&');
     }
