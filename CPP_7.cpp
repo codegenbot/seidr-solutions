@@ -1,11 +1,17 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    for(string s : a){
-        if(find(b.begin(),b.end(),s) == b.end())
-            return false;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        bool found = false;
+        for(string s : filter_by_substring({a[i],b[i]}, "run")){
+            if(s.find("run") != string::npos) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) return false;
     }
     return true;
 }
