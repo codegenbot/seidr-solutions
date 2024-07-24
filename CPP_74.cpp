@@ -44,7 +44,6 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             if (!s.empty()) break;
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
@@ -62,7 +61,6 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             if (!s.empty()) break;
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
