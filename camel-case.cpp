@@ -1,24 +1,33 @@
+Here is the completed code:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (char c : str + " ") {
-        if (c == '-') {
-            result += static_cast<char>(result[0] - ' ');
-        } else if (c == ' ') {
-            result += ' ';
+using namespace std;
+
+string camelCase(string s) {
+    string result = "";
+    int spaceCount = 0;
+    for (char c : s) {
+        if (c == ' ') {
+            spaceCount++;
         } else {
-            result += c;
+            if (spaceCount > 0) {
+                result += char(toupper(c));
+                spaceCount = 0;
+            } else {
+                result += tolower(c);
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
