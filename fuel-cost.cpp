@@ -9,18 +9,14 @@ int main() {
         nums.push_back(n);
     }
     
-    if (std::cin.fail() && !std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::cin >> dummy;
+    if (std::cin.eof()) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num / 3 - 2;
+        }
+        
+        std::cout << sum << std::endl;
     }
-
-    int sum = 0;
-    for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
-    }
-
-    std::cout << sum << std::endl;
 
     return 0;
 }
