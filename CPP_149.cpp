@@ -58,10 +58,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
 }
 
 int main() {
-    std::vector<std::vector<std::string>> input = {{{"1"}, {"2"}, {"3"}, {"4"}}};
-    std::cout << "Sorted List Sum: ";
-    for (const auto& str : sorted_list_sum(input)) {
-        std::cout << str << " ";
+    if (!issame(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}), {"even", "even", "odd", "even"})) {
+        return 1;
     }
-    std::cout << std::endl;
-}
+    return 0;
