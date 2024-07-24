@@ -3,18 +3,25 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res;
-    
-    for (int i = 1; i < n; i++) {
-        if (v[i] - v[0] <= v[n-1] - v[i]) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
-            return res;
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n; ++i) {
+        if (i == 0 || v[i] != v[0]) {
+            res[0].push_back(v[i]);
+        } else {
+            res[0].clear();
+            res[0].push_back(v[0]);
+            break;
         }
     }
-    
-    res.push_back({v.begin(), v.end()});
-    res.push_back({{0}});
+    for (int i = n - 1; i >= 0; --i) {
+        if (i == n - 1 || v[i] != v[n - 1]) {
+            res[1].push_back(v[i]);
+        } else {
+            res[1].clear();
+            res[1].push_back(v[n - 1]);
+            break;
+        }
+    }
     return res;
 }
 
@@ -22,17 +29,15 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> v[i];
     }
-    
-    vector<vector<int>> result = cutVector(v);
-    for (auto &vec : result) {
-        for (int num : vec) {
-            cout << num << " ";
+    vector<vector<int>> res = cutVector(v);
+    for (auto &v : res) {
+        for (int x : v) {
+            cout << x << " ";
         }
         cout << endl;
     }
-    
     return 0;
 }
