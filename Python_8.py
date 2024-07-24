@@ -1,7 +1,7 @@
 ```
 from typing import List, Tuple
 
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
+def sum_product_and_average(numbers: List[int]) -> Tuple[int, int, float]:
     if not isinstance(numbers, list):
         raise ValueError("Input must be a list")
     for num in numbers:
@@ -13,4 +13,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         product *= num
 
-    return total_sum, product
+    average = total_sum / len(numbers)
+
+    return total_sum, product, average
