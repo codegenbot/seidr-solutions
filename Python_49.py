@@ -1,21 +1,13 @@
-```
 def modp(n: int, p: int):
-    def egcd(a, b):
+    if gcd(n, p) != 1:
+        raise ValueError("No modular inverse exists")
+
+    def extended_gcd(a, b):
         if a == 0:
-            return (b, 0)
+            return b, 0, 1
         else:
-            g, y = egcd(b % a, a)
-            return (g, y - (b // a) * y)
+            gcd, x, y = extended_gcd(b % a, a)
+            return gcd, y - (b // a) * x, x
 
-    def modinv(a, m):
-        g, y = egcd(a, m)
-        if g != 1:
-            return None
-        else:
-            return y % m
-
-    inv = modinv(n, p)
-    if inv is not None:
-        return pow(n, p - 2, p) * n * inv % p
-    else:
-        return None
+    gcd, x, _ = extended_gcd(p, n)
+    return pow(n, p - 2, p) * n % p
