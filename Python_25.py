@@ -1,16 +1,14 @@
-```
-from typing import List
-import math
-
+Here is the solution:
 
 def factorize(n: int) -> List[int]:
+    i = 2
     factors = []
-    for i in range(2, n + 1):
+    while n > 1:
+        count = 0
         while n % i == 0:
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            if count > 0:
-                factors.append(i * count)
+            n //= i
+            count += 1
+        if count > 0:
+            factors.extend([i] * count)
+        i += 1
     return factors
