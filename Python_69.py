@@ -1,12 +1,4 @@
 ```
-def search(lst):
-    max_prime = -1
-    for num in lst:
-        if isinstance(num, int) and is_prime(num) and num > max_prime:
-            max_prime = num
-    return max_prime
-
-
 def is_prime(n):
     if n <= 1:
         return False
@@ -14,6 +6,15 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+
+def search(lst):
+    max_prime = -1
+    for num in lst:
+        if isinstance(num, int) and is_prime(num) and num > max_prime:
+            max_prime = num
+    return max_prime
+
 
 nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
 if not nums or not all(isinstance(num, int) for num in nums):
