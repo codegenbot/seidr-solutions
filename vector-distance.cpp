@@ -4,26 +4,18 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    float vec1[n];
-    float vec2[n];
-
-    // Read input vectors
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> vec1[i] >> vec2[i];
+        double x1, x2;
+        cin >> x1 >> x2;
+        sum += pow(x2 - x1, 2);
     }
-
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += pow(vec1[i] - vec2[i], 2);
-    }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
     int n;
     cin >> n;
-
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
-
     return 0;
 }
