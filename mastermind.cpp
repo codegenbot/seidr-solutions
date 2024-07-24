@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
 void calculatePegs(std::string code, std::string guess) {
