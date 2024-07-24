@@ -1,4 +1,4 @@
 bool is_simple_power(int x, int n) {
-    double y = pow(n, 1.0);
-    return (int)y == x;
+    double log_val = log((double)x) / log((double)n);
+    return (int)log_val == log_val;
 }
