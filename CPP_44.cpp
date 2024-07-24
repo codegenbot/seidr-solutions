@@ -11,9 +11,10 @@ std::string change_base(int x, int base) {
     return result;
 }
 
-int main() {
-    int x = 42;
-    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x)));
+assert(change_base(10, 2) == "1010");
+assert(change_base(16, 16) == "10");
+assert(change_base(255, 8) == "377");
+assert(change_base(100, 10) == "100");
 
-    return 0;
-}
+int x = 42;
+assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x)));
