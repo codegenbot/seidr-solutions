@@ -9,4 +9,6 @@ def fix_spaces(text):
 
 def check(input_text):
     assert fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple"
-check(fix_spaces("   Exa 1 2 2 mple"))
+    return fix_spaces("   Exa 1 2 2 mple")
+
+print(check(input_text))
