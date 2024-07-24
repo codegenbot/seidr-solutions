@@ -1,8 +1,4 @@
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(), 
-        [&] (const string& a, const string& b) {
-            return count(a.begin(), a.end(), [](char c){return std::find(c, c+1, ' ') - c;}) <
-                   count(b.begin(), b.end(), [](char c){return std::find(c, c+1, ' ') - c;});
-        });
-    return max_word;
+    string res = *min_element(words.begin(),words.end(),[&](const string &a,const string &b){return count(a.begin(),a.end(),unique_copy(a.begin(),a.end()))<count(b.begin(),b.end(),unique_copy(b.begin(),b.end()));});
+    return res;
 }
