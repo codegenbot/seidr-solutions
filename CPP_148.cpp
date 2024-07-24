@@ -1,11 +1,22 @@
 ```cpp
 #include <iostream>
+#include <vector>
 #include <string>
 
-bool issame(const std::string& v1, const std::string& v2) {
-    if (v1 != v2) return false;
-    return true;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) return false;
+    std::string s1 = join(v1);
+    std::string s2 = join(v2);
+    return s1 == s2;
 
+}
+
+std::string join(const std::vector<std::string>& v) {
+    std::string res;
+    for (const auto& str : v) {
+        res += str + " ";
+    }
+    return res;
 }
 
 std::pair<std::string, std::string> bf(std::pair<std::string, std::string>& planets) {
