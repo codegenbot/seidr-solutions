@@ -17,5 +17,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    return 0;
 }
