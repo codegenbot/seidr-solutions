@@ -1,5 +1,5 @@
-```
 import sys
+
 
 def decode_cyclic():
     while True:
