@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```
 def max_fill(grid, capacity):
     total_water = 0
