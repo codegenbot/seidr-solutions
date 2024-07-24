@@ -1,3 +1,6 @@
 n = int(input())
 m = int(input())
-print(round(sum((n - i) / n * i / m for i in range(1, m)), 2))
+if n > m:
+    print(0.5)
+else:
+    print((m - n) / (2 * m))
