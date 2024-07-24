@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-float calculate_mean_absolute_deviation(std::vector<float> numbers) {
+float mean_absolute_deviation(std::vector<float> numbers) {
     float sum = 0;
     for (float num : numbers) {
         sum += num;
@@ -25,7 +25,12 @@ int main() {
         numbers.push_back(input);
     }
 
-    float mad = calculate_mean_absolute_deviation(numbers);
+    if (numbers.empty()) {
+        std::cout << "No numbers provided. Exiting." << std::endl;
+        return 1;
+    }
+
+    float mad = mean_absolute_deviation(numbers);
     std::cout << "Mean Absolute Deviation: " << mad << std::endl;
 
     return 0;
