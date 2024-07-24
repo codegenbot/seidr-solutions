@@ -12,9 +12,6 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
-    std::string s;
-    std::cin >> s;
-    std::cout << "Number of uppercase characters is: " << count_upper(s) << "\n";
+    std::cout << count_upper("EEEE") << std::endl;
     return 0;
 }
