@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
