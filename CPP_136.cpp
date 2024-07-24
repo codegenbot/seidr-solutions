@@ -19,6 +19,6 @@ vector<int> find_max_neg_min_pos(vector<int> lst) {
 }
 
 int main() {
-    assert(issame(find_max_neg_min_pos({-6, -4, -4, -3, -100, 1}), vector<int>({{-3}, {1}})));
+    assert(issame(find_max_neg_min_pos({-6, -4, -4, -3, -100, 1}), vector<int> {-3, 1}));
     return 0;
 }
