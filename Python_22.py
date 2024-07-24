@@ -1,9 +1,22 @@
-from typing import List, Any
+import sys
 
-def filter_integers():
-    values = input("Enter values separated by comma (example: 1,2,3): ")
-    values = [value.strip() for value in values.split(',')]
-    
-    return [int(value) for value in values if value.isdigit()]
 
-print(filter_integers())
+def main():
+    values = []
+    while True:
+        value = input("Enter an integer (or 'stop' to finish): ")
+        if value.lower() == "stop":
+            break
+        values.append(int(value))
+
+    filtered_values = filter_integers(values)
+
+    print(filtered_values)
+
+
+def filter_integers(values: List[Any]) -> List[int]:
+    return [value for value in values if isinstance(value, int)]
+
+
+if __name__ == "__main__":
+    main()
