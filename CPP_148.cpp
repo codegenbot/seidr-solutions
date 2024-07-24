@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,7 +10,7 @@ bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std:
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (!(issame({{a[i].first,a[i].second}},{{b[i].first,b[i].second}})))
+        if (!issame({{a[i].first, a[i].second}}, {{b[i].first, b[i].second}}))
             return false;
     return true;
 }
@@ -23,16 +22,15 @@ void start() {
     std::cin >> planet1 >> planet2;
     planets = std::make_pair(planet1, planet2);
     
-    std::pair<std::string, std::string> result = bf(planets);
-    if (issame({{planet1}}, {{result.first}})) {
+    std::pair<std::string, std::string> result = bf({{planet1, planet2}});
+    if (issame({{{planet1}}}, {{result}})) {
         std::cout << "same";
     } else {
         std::cout << "not same";
     }
-    return;
 }
 
-int start() { 
+int main() {
     start();
     return 0;
 }
