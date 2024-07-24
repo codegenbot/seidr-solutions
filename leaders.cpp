@@ -1,21 +1,8 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int n = arr.size();
-    if (n == 0) return result; 
-    int lastLeader = arr[n-1];
-    result.push_back(lastLeader);
-    
-    for(int i = n-2; i >= 0; --i) {
-        if(arr[i] >= lastLeader) {
-            lastLeader = arr[i];
-            result.push_back(lastLeader);
-        }
+int main() {
+    std::vector<int> vec = {16,17,4,3,5,2};
+    std::vector<int> leaders = leaders(vec);
+    for(int i=0;i<leaders.size();i++) {
+        std::cout << leaders[i] << " ";
     }
-    
-    reverse(result.begin(), result.end());
-    return result;
+    return 0;
 }
