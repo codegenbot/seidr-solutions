@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -20,8 +21,8 @@ int main() {
     
     vector<int> result = eat(number, need, remaining);
     
-    cout << "Total number of eaten carrots after your meals: " << result[0] << std::endl;
-    cout << "Number of carrots left after your meals: " << result[1] << std::endl;
+    cout << "Total number of eaten carrots after your meals: " << result[0] << endl;
+    cout << "Number of carrots left after your meals: " << result[1] << endl;
     
     return 0;
 }
