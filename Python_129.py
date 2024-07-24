@@ -1,18 +1,25 @@
-def findMinStep(s1, s2):
-    m = len(s1)
-    n = len(s2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-    
-    for i in range(m + 1):
-        dp[i][0] = i
-    for j in range(n + 1):
-        dp[0][j] = j
-    
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if s1[i - 1] == s2[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1]
-            else:
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1
-    
-    return dp[m][n]
+def minPath(grid, k):
+    n = len(grid)
+    m = len(grid[0])
+    visited = [[False] * m for _ in range(n)]
+    queue = [(i, j, [grid[i][j]]) for i in range(n) for j in range(m)]
+    res = []
+
+    while queue:
+        x, y, path = queue.pop(0)
+
+        if len(path) > k:
+            continue
+
+        if len(path) == k:
+            res = path
+            break
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+
+            if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
+                queue.append((nx, ny, path + [grid[nx][ny]]))
+                visited[nx][ny] = True
+
+    return res
