@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,23 +17,32 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements for both vectors: ";
-    std::cin >> n;
-
-    std::vector<int> vec1(n);  // Initialize with 'n' size
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
-        vec1[i] = x; 
+    while (!(std::cin >> n)) {
+        std::cout << "Invalid input. Please enter an integer: ";
+        std::cin.clear();  // clear the error flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore the bad input
     }
 
-    std::vector<int> vec2(n);  // Initialize with 'n' size
+    std::vector<int> vec1;
     for(int i = 0; i < n; i++) {
         int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
-        vec2[i] = x; 
+        while (!(std::cin >> x)) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();  // clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore the bad input
+        }
+        vec1.push_back(x); 
+    }
+
+    std::vector<int> vec2;
+    for(int i = 0; i < n; i++) {
+        int x;
+        while (!(std::cin >> x)) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();  // clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // ignore the bad input
+        }
+        vec2.push_back(x); 
     }
 
     bool checkEquality = true;
