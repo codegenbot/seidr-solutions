@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2, 3}; // Example input
+    vector<int> arr = {1, 3, 4, 2, 3}; 
     vector<int> result = leaders(arr);
     for (int leader : result) {
         cout << leader << " ";
@@ -20,6 +20,5 @@ vector<int> leaders(vector<int>& arr) {
             rightmost = arr[i];
         }
     }
-    result.push_back(arr.back());
     return result;
 }
