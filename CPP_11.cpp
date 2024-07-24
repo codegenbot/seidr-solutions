@@ -1,4 +1,5 @@
 #include <string>
+
 #include <assert.h>
 
 string string_xor(string a, string b) {
