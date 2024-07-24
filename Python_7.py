@@ -6,12 +6,20 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 user_strings = input("Enter a list of strings (space separated): ").split()
-user_substring = input("Enter the substring to search for: ")
+user_substrings = []
 
-try:
-    result = filter_by_substring(user_strings, user_substring)
+while True:
+    user_substring = input("Enter the substring to search for ('q' to quit): ")
+
+    if user_substring.lower() == "q":
+        break
+    if not isinstance(user_substring, str):
+        print("Please enter a string.")
+        continue
+    user_substrings.append(user_substring)
+
+if not user_substrings:
+    print("No substrings entered. Quitting.")
+else:
+    result = filter_by_substring(user_strings, user_substrings[0])
     print(result)
-except ValueError as e:
-    print(f"Error: {e}")
-except AttributeError as e:
-    print(f"Error: {e}")
