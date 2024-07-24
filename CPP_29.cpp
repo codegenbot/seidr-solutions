@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -5,7 +6,15 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -15,4 +24,27 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    vector<string> words(n);
+
+    for (auto &word : words) {
+        std::cin >> word;
+    }
+
+    string prefix;
+    std::cin >> prefix;
+
+    bool same = issame(words, filter_by_prefix(words, prefix));
+
+    if(same)
+        cout << "Same" << endl;
+    else
+        cout << "Not Same" << endl;
+
+    return 0;
 }
