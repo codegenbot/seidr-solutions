@@ -1,4 +1,5 @@
-if (s.empty())
+bool evalBoolean(string s) {
+    if (s.empty())
         return false;
 
     int j = 0;
@@ -15,8 +16,7 @@ if (s.empty())
             if (c == 'T')
                 result = true;
             else if (c == 'F') {
-                result = false;
-                return result;
+                return false;  // F must be the last character
             }
         }
     } else {
@@ -33,11 +33,10 @@ if (s.empty())
             if (c == 'T' && opStr[1] == '|')
                 right = true;
             else if (c == 'F' && opStr[1] == '&') {
-                right = false;
-                return right;  // F must be the last character
-            }
+                return false;  // F must be the last character
+                }
         }
-        result = (opStr[0] == '|' ? left || right : left && right);
+        result = left && right;
     }
 
     return result;
