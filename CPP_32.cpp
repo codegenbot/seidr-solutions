@@ -1,11 +1,15 @@
-#include <vector>
-using namespace std;
+double find_zero(vector<double> coefficients) {
+    vector<double> coeffs = {coefficients[2], -coefficients[1], coefficients[0]};
+    double x = -coefficients[1] / (2 * coefficients[0]);
+    return x;
+}
 
-vector<double> coeffs;
-double poly(vector<double> x, double c);
-
-double find_zero(vector<double> x){
-    coeffs = x;
-    double x = -coeffs[1] / (2*coeffs[0]);
-    return poly(coeffs,x) == 0 ? x : 0;
+int main() {
+    vector<double> coefficients;
+    // read input from user and store in coefficients
+    
+    double solution = find_zero(coefficients);
+    
+    assert (abs(poly(coeffs, solution))< 1e-3);  
+    return 0;
 }
