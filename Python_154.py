@@ -1,7 +1,3 @@
-```python
 def cycpattern_check(a, b):
-    n = len(b)
-    for j in range(n - len(a) + 1):
-        if a == b[j:j+len(a)]:
-            return True
-    return False
+    a_rotations = (a[i:] + a[:i] for i in range(len(a)))
+    return any(rotate == b for rotate in a_rotations)
