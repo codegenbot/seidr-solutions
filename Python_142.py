@@ -4,3 +4,4 @@ def sum_squares(lst):
         if (i % 3) + (i % 4) in [1, 2]:
             total_sum += lst[i] ** ((i % 3 == 0) * 2 or 1)
     return total_sum
+"""
