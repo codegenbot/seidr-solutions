@@ -2,19 +2,20 @@
 def modp(n: int, p: int):
     def egcd(a, b):
         if a == 0:
-            return b, 0, 1
+            return (b, 0)
         else:
-            g, y, x = egcd(b % a, a)
-            return g, x - (b // a) * y, y
+            g, y = egcd(b % a, a)
+            return (g, y - (b // a) * y)
 
-    g, x, y = egcd(p, n)
-    if p != 1:
+    def modinv(a, m):
+        g, y = egcd(a, m)
         if g != 1:
             return None
         else:
-            return x % p
+            return y % m
+
+    inv = modinv(n, p)
+    if inv is not None:
+        return pow(n, p - 2, p) * n * inv % p
     else:
-        if n == 0:
-            return 0
-        else:
-            return 1
+        return None
