@@ -6,5 +6,5 @@ int basement(vector<int>& arr) {
         if (sum < 0)
             return i;
     }
-    return arr.size();
+    return -1;
 }
