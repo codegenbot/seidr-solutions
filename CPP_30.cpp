@@ -1,14 +1,11 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
+using namespace std;
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return std::all_of(a.begin(), a.end(),
-                       [b](float x){ return std::find(b.begin(), b.end(), x) != b.end(); });
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
     for (float x : l) {
         if (x > 0) {
             result.push_back(x);
