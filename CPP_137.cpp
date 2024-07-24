@@ -2,22 +2,7 @@
 #include <string>
 using namespace std;
 
-// Function declaration
-boost::any compare_one(const boost::any &a, const boost::any &b);
-
-int main() {
-    // Sample input - Modify based on the problem requirement
-    boost::any a = 10;
-    boost::any b = 20;
-
-    // Assert statement
-    assert(compare_one(a, b).type() == typeid(int));
-
-    return 0;
-}
-
-// Function definition
-boost::any compare_one(const boost::any &a, const boost::any &b) {
+int compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int int_a = boost::any_cast<int>(a);
         int int_b = boost::any_cast<int>(b);
@@ -46,11 +31,10 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
             str_b.replace(str_b.find('.'), 1, ",");
         }
         if (stof(str_a) > stof(str_b)) {
-            return str_a;
+            return stof(str_a);
         } else if (stof(str_b) > stof(str_a)) {
-            return str_b;
+            return stof(str_b);
         }
     }
-    
-    return "None"; // Return appropriate value based on the comparison result
+    return 0;
 }
