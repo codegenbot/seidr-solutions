@@ -32,11 +32,11 @@ int main() {
     }
 
     for (int i = 0; i <= cut_index; ++i) {
-        cout << nums[i] << endl; 
+        cout << nums[i] << endl; // Output subvector before cut_index
     }
-    cout << 0 << endl; 
+    cout << 0 << endl; // Output delimiter
     for (int i = cut_index + 1; i < n; ++i) {
-        cout << nums[i] << endl; 
+        cout << nums[i] << endl; // Output subvector after cut_index
     }
 
     return 0;
