@@ -1,13 +1,25 @@
+```
 #include <iostream>
 #include <vector>
 
-double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& values) {
-    // implement your algebra operations here
-    return 0;  // or some other default value if the operation is not implemented yet
+std::vector<std::string> expressions;
+double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
+    double result = args[2];
+    
+    for(int i = 0; i < ops.size(); i++) {
+        if(ops[i] == "//") {
+            result /= args[i+1];
+        } else if(ops[i] == "*") {
+            result *= args[i+1];
+        }
+    }
+    
+    return result;
 }
 
 int main() {
-    std::vector<std::string> expressions = {"+", "42"};  
-    double output = do_algebra({expressions[0], expressions[1], "42"});
+    std::vector<std::string> expressions = {"//", "*"};
+    double output = do_algebra({expressions[0], expressions[1], 42});
+    std::cout << "Output: " << output << std::endl;
     return 0;
 }
