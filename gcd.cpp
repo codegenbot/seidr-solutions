@@ -14,7 +14,7 @@ int gcd(int a, int b) {
 vector<int> findSubstringIndices(const string& text, const string& target) {
     vector<int> indices;
     int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; ++i) {
+    for (int i = 0; i <= text.length() - targetLen + 1; ++i) {
         if (text.substr(i, targetLen) == target) {
             indices.push_back(i);
         }
@@ -26,12 +26,14 @@ int main() {
     int a, b;
     string text, target;
 
+    cin.ignore();
+
     cout << "Enter two integers a and b: ";
     cin >> a >> b;
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
-    cin.ignore(); // Clear input buffer
+    cin.ignore();
 
     cout << "Enter a text string: ";
     getline(cin, text);
