@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include<string>
 #include<algorithm>
@@ -6,7 +5,7 @@
 
 using namespace std;
 
-variant<int, string> compare_one(variant<int|string> a, variant<int|string> b) {
+variant<int, string> compare_one(variant<any> a, variant<any> b) {
     if (a.index() == 0 && b.index() == 1) {
         int da = get<int>(a);
         string db = get<string>(b);
@@ -25,7 +24,7 @@ variant<int, string> compare_one(variant<int|string> a, variant<int|string> b) {
         else if (db > da)
             return b;
         else
-            return std::monostate{};
+            return variant<string>(string("")); // return an empty string
     }
     else if (a.index() == 0 && b.index() == 0) {
         int da = get<int>(a);
@@ -35,9 +34,9 @@ variant<int, string> compare_one(variant<int|string> a, variant<int|string> b) {
         else if (db > da)
             return b;
         else
-            return std::monostate{};
+            return variant<string>(string("")); // return an empty string
     }
-    return std::monostate{};
+    return variant<string>(string("")); // return an empty string
 }
 
 int main() {
