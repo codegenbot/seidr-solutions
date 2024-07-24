@@ -1,28 +1,26 @@
-def bowling_score(game):
-    score = 0
-    frames = game.split("/")
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            strike = False
-            spare = False
-            if (
-                len(frames) - i > 1
-                and frames[i + 1].isdigit()
-                and frames[i + 2].isdigit()
+def bowling(score):
+    score = score.replace("/", "")
+    total_score = 0
+    for i in range(0, len(score), 1):
+        if score[i].isdigit():
+            temp_score = int(score[i])
+            if i < len(score) - 1 and score[i + 1] == "X":
+                total_score += 30
+            elif (
+                i < len(score) - 1
+                and score[i + 1].isdigit()
+                and str(temp_score) + score[i + 1] <= "10"
             ):
-                spare = True
-                score += int(frames[i]) + int(frames[i + 1])
-                i += 1
+                total_score += temp_score + int(score[i + 1])
             else:
-                if i < len(frames) - 1 and frames[i + 1].isdigit():
-                    strike = True
-                score += int(frames[i])
-        elif frames[i] == "X":
-            score += 10
-            if not spare and not strike:
-                score += int(frames[i - 1])
-        else:
-            first_roll = int(frames[i][:-1])
-            second_roll = int(frames[i][-1])
-            score += first_roll + second_roll
-    return score
+                if i < len(score) - 2 and score[i + 2] == "X" and temp_score == 10:
+                    total_score += 30
+                elif (
+                    i < len(score) - 2
+                    and score[i + 2].isdigit()
+                    and str(temp_score) + score[i + 1] + score[i + 2] <= "20"
+                ):
+                    total_score += temp_score + int(score[i + 1]) + int(score[i + 2])
+                else:
+                    total_score += temp_score
+    return total_score
