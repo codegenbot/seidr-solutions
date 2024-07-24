@@ -1,8 +1,8 @@
 arr = list(map(int, input().split()))
 
-min_diff = 0
+min_diff = float('inf')
 cut_index = 0
-for i in range(2, len(arr)):
+for i in range(1, len(arr)-1):
     diff = abs(sum(arr[:i]) - sum(arr[i:]))
     if diff < min_diff:
         min_diff = diff
