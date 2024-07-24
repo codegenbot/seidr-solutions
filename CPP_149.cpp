@@ -28,13 +28,9 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         sums.push_back(sum); 
     } 
 
-    std::vector<std::string> sorted_sums = sums; // initialize with ints
-    for (int i = 0; i < sorted_sums.size(); i++) {
-        sorted_sums[i] = std::to_string(sorted_sums[i]);
-    }
-
+    std::vector<int> sorted_sums = sums; 
     std::sort(sorted_sums.begin(), sorted_sums.end());
-    return sorted_sums;
+    return vector<string>(begin(), end(), [this](int i) { return to_string(sorted_sums[i]); });
 }
 
 int main(int argc, char** argv) {
