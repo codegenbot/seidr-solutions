@@ -6,6 +6,5 @@ def decode_cyclic():
     ]
     return "".join(groups)
 
-
 result = decode_cyclic()
 print(result)
