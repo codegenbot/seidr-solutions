@@ -8,5 +8,5 @@ def longest(*strings):
         result_strings.append(s)
     result = max(result_strings, key=len) if result_strings else None
     print(result)
-    
+
 longest()
