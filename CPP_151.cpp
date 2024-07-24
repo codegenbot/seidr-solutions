@@ -1,5 +1,7 @@
-#include <cmath>
+```cpp
+#include <iostream>
 #include <vector>
+#include <cmath>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
@@ -13,16 +15,17 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst;
-    float temp;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        cin >> temp;
-        lst.push_back(temp);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i=0; i<n; i++){
+        float num;
+        std::cout << "Enter element "<<i+1<<": ";
+        std::cin >> num;
+        lst.push_back(num);
     }
-    float odd_sum = double_the_difference(lst);
-
+    
+    float odd_sum = 0;
+    long long result = double_the_difference(lst);
     return 0;
 }
