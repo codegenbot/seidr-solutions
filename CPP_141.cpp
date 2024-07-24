@@ -27,4 +27,3 @@ string file_name_check(string file_name){
     if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
     if(!dotFound) return "No";
     return "Yes";
-}
