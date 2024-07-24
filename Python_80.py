@@ -1,11 +1,10 @@
-def is_happy(s):
-    if len(s) < 3:
+def is_happy_number(n):
+    if n < 1:
         return False
-    for i in range(0, len(s), 3):
-        chunk = s[i:i+3]
-        if not all(c.isalpha() or c.isspace() for c in chunk):
-            return False
-    return True
+    while n != 1 and n != 4:
+        sum_of_digits = sum(int(digit) ** 2 for digit in str(n))
+        n = sum_of_digits
+    return n == 1 or n == 4
 
-s = input("Enter a string: ")
-print(is_happy(s))
+n = int(input("Enter a number: "))
+print(is_happy_number(n))
