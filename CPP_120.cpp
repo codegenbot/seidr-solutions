@@ -7,10 +7,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     sort(arr.begin(), arr.end());
-    return vector<int>(arr.rbegin(), arr.rbegin() + k);
+    return std::vector<int>(arr.rbegin(), arr.rbegin() + k);
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
     return 0;
 }
