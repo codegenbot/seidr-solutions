@@ -1,13 +1,12 @@
 ```cpp
 #include <iostream>
+#include <cctype>
 #include <string>
 
 int main() {
-    std::string str;
+    std::string str = "camel-case example-test-string";
     bool capitalizeNext = true;
     std::string result;
-
-    std::cin >> str;
 
     for (const char* p = str.c_str(); *p; p++) {
         if (*p == '-') {
