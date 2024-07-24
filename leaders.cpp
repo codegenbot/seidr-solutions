@@ -1,12 +1,11 @@
 #include <vector>
-#include <climits>
 #include <algorithm>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     int n = nums.size();
     vector<int> leaders;
-    int maxRight = INT_MIN;
+    int maxRight = numeric_limits<int>::min();
     
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
