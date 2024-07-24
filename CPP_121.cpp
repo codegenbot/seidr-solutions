@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int solution(vector<int> lst) {
@@ -12,7 +14,19 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> testCases = {3, 13, 2, 9};
-    assert(solution(testCases) == 3);
+    vector<int> testCases;
+    cout << "Enter the numbers separated by space: ";
+    int num;
+    while (cin >> num) {
+        testCases.push_back(num);
+    }
+    
+    if (testCases.size() < 1) {
+        cerr << "Error: No input provided." << endl;
+        return 1;
+    }
+
+    cout << "Sum of odd numbers at even positions is: " << solution(testCases) << endl;
+
     return 0;
 }
