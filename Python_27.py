@@ -1,13 +1,11 @@
 def flip_case(char):
-    if char.islower():
-        return char.upper()
-    else:
-        return char.lower()
+    return char.upper() if char.islower() else char.lower()
 
+def modify_string(string):
+    return ''.join(flip_case(char) for char in string)
 
 def check():
     string = input("Enter a string containing both upper and lower case letters: ")
-    return "".join([flip_case(char) for char in string])
+    return modify_string(string)
 
-
-check()
+print(check())
