@@ -1,3 +1,5 @@
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -9,9 +11,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(current_group)
             current_group = ""
             stack.append("(")
-        elif char == ")" and stack:
-            stack.pop()
-            if not stack:
+        elif char == ")":
+            if stack:
+                stack.pop()
                 result.append(current_group)
                 current_group = ""
         else:
@@ -19,5 +21,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if current_group:
         result.append(current_group)
-
+        
     return result
+
+print(separate_paren_groups("abc(def)ghi(jkl)mno"))
