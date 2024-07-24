@@ -1,8 +1,14 @@
+```cpp
 #include <cctype>
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
 
 string remove_vowels(string text){
     string result = "";
@@ -12,11 +18,6 @@ string remove_vowels(string text){
         }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 int main() {
