@@ -6,5 +6,8 @@ def decode_shift(s: str):
         ]
     )
 
-s = input()
-print(decode_shift(s))
+s = input("Enter a string: ").lower()  # Convert the input string to lowercase
+if s.islower():  # Check if the input string only contains lowercase alphabets
+    print(decode_shift(s))
+else:
+    print("Input should only contain lowercase alphabets.")
