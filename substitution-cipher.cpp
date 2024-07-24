@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <map>
 
 int main() {
     std::string cipher2;
@@ -10,10 +11,9 @@ int main() {
     std::string message;
     std::getline(std::cin, message);
 
-    std::map<char, char> cipherMap;
+    std::map<char, std::string> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        std::pair<char, char> p(cipher1[i], cipher2[i]);
-        cipherMap.insert(p);
+        cipherMap[cipher1[i]] = cipher2.substr(i, 1);
     }
 
     std::string result = "";
