@@ -1,43 +1,46 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    int pos = 0;
     
-    for (int i = 0; i < n - 1; i++) {
-        if (v[i] == v[i + 1]) {
-            res.push_back({v[i]});
-            return {{}, {v[i], v[i + 1]}};
+    for(int i=1; i<vec.size(); i++) {
+        int diff = abs(vec[i] - vec[0]);
+        if(diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-    
-    int min_diff = INT_MAX, mid;
-    for (int i = 0; i < n - 1; i++) {
-        if (abs(v[i] - v[i + 1]) < min_diff) {
-            min_diff = abs(v[i] - v[i + 1]);
-            mid = i;
-        }
+
+    vector<int> leftVec = {vec[0]};
+    vector<int> rightVec = vec;
+
+    for(int i=1; i<pos; i++) {
+        leftVec.push_back(vec[i]);
     }
-    
-    res.push_back({v[0], v[mid]});
-    res.push_back({v[mid + 1], v.back()});
-    
-    return res;
+    rightVec.erase(rightVec.begin() + pos, rightVec.end());
+
+    return make_pair(leftVec, rightVec);
 }
 
 int main() {
-    int n; cin >> n;
-    vector<int> v(n);
-    for (int &i : v) cin >> i;
-    
-    vector<vector<int>> result = cutVector(v);
-    cout << "Subvector 1: ";
-    for (int &i : result[0]) cout << i << ' ';
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for(int i=0; i<n; i++) {
+        cin >> vec[i];
+    }
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "Left Vec: ";
+    for(int x : result.first) {
+        cout << x << " ";
+    }
     cout << endl;
-    cout << "Subvector 2: ";
-    for (int &i : result[1]) cout << i << ' ';
+    cout << "Right Vec: ";
+    for(int x : result.second) {
+        cout << x << " ";
+    }
     cout << endl;
-    
     return 0;
 }
