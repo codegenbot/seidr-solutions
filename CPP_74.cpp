@@ -42,11 +42,13 @@ int main() {
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
+        do {
+            if (!(cin >> s)) {
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cin.clear();
+                cin.ignore(1024, '\n');
+            }
+        } while (s.empty());
         lst1.push_back(s);
     }
 
@@ -56,11 +58,13 @@ int main() {
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
-            cout << "Invalid input. Please enter a non-empty string.\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
+        do {
+            if (!(cin >> s)) {
+                cout << "Invalid input. Please enter a non-empty string.\n";
+                cin.clear();
+                cin.ignore(1024, '\n');
+            }
+        } while (s.empty());
         lst2.push_back(s);
     }
 
