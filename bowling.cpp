@@ -1,54 +1,52 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
-    bool firstRollInFrame = true;
-    vector<int> frameScores;
+    int roll = 0;
+    vector<int> rolls(21);
 
-    for (char bowl : bowls) {
-        if (bowl == '/') {
-            if (firstRollInFrame) {
-                frameScores.push_back(10);
-                firstRollInFrame = false;
-            } else {
-                int roll1 = stoi(string() + rolls.back());
-                rolls.pop_back();
-                int roll2 = stoi(string() + bowl);
-                if (roll2 == 0) {
-                    frameScores.back() += 10;
-                } else {
-                    frameScores.back() += roll1 + roll2;
-                }
-            }
+    for (char c : s) {
+        if (c == '/') {
+            score += getScore(roll);
+            roll = 0;
         } else {
-            int roll = stoi(string() + bowl);
-            rolls.push_back(roll);
-            if (rolls.size() == 2) {
-                int roll1 = stoi(string() + rolls.front());
-                rolls.pop_front();
-                int roll2 = stoi(string() + bowl);
-                if (roll2 == 0) {
-                    frameScores.push_back(10 + roll1);
-                } else {
-                    frameScores.push_back(roll1 + roll2);
-                }
-            }
+            roll++;
+            rolls[20 - s.length() + 1] = c - 'X';
         }
     }
 
-    for (int i = 0; i < frameScores.size(); i++) {
-        score += frameScores[i];
-    }
+    score += getScore(roll);
 
     return score;
 }
 
-int main() {
-    string bowls;
-    cout << "Enter the bowling strings separated by spaces: ";
-    cin >> bowls;
-    int score = bowlingScore(bows);
-    cout << "The bowling score is: " << score << endl;
-    return 0;
+int getScore(int numRolls) {
+    int score = 0;
+
+    for (int i = 0; i < numRolls; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + getScore(i + 1);
+            break;
+        } else if (rolls[i] >= 5) {
+            int spare = rolls[i];
+            for (int j = i + 1; j < numRolls && j - i <= 2; j++) {
+                spare += rolls[j];
+                if (spare == 10) {
+                    score += 10;
+                    break;
+                }
+            }
+            if (spare > 10) {
+                score += 10 + spare - 10;
+            } else {
+                score += spare;
+            }
+        } else {
+            int num = rolls[i];
+            for (int j = i + 1; j < numRolls && j - i <= 2; j++) {
+                num += rolls[j];
+            }
+            score += num;
+        }
+    }
+
+    return score;
 }
