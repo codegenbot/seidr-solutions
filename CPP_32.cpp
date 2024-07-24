@@ -12,5 +12,5 @@ double find_zero(vector<double> xs){
 }
 
 double poly(vector<double> x, double c){
-    return c + x[0]*c + x[1]*pow(x[0],2);
+    return coeffs[0]*c+c*c*x[1];
 }
