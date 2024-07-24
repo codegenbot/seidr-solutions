@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
@@ -7,10 +8,12 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    if(is_simple_power(1, 12)) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
+    std::cout << "Program execution completed successfully: ";
+    if (is_simple_power(1, 12))
+        std::cout << "true";
+    else
+        std::cout << "false";
+
+    std::cout << std::endl;
     return 0;
 }
