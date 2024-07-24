@@ -1,5 +1,5 @@
+#include <string>
 #include <stack>
-
 using namespace std;
 
 bool solveBoolean(string booleanExpression) {
@@ -12,13 +12,13 @@ bool solveBoolean(string booleanExpression) {
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push(to_string((leftOperand == "T") || (rightOperand == "T")) + "T");
+            operandStack.push((leftOperand == "T" || rightOperand == "T") ? "T" : "F");
         } else if (booleanExpression[i] == '&') {
             string rightOperand = operandStack.top();
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push(to_string((leftOperand == "T") && (rightOperand == "T")) + "T");
+            operandStack.push((leftOperand == "T" && rightOperand == "T") ? "T" : "F");
         } else if (booleanExpression[i] != ' ') {
             string operand;
             while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
