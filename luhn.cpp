@@ -1,5 +1,8 @@
 #include <vector>
-int luhn(std::vector<int> digits) {
+
+using namespace std;
+
+int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
         if (i % 2 == 1) {

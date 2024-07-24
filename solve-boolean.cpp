@@ -1,10 +1,11 @@
 #include <stack>
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-stack<char> s;
+std::stack<char> s;
 bool solveBoolean(string expression) {
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
