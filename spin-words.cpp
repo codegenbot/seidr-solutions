@@ -6,20 +6,23 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
     
-    for (int i = 0; i <= str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            if(str.find(' ', i+1) != std::string::npos)
-                word = str.substr(i-str.find(' ', i+1)+i, i- (i-str.find(' ', i+1)+i));
-            else
-                word = i > 0 ? str.substr(i-1, i-i+1) : str.substr(0, i);
-            
-            if(word.length() >= 5)
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
+            }
             
-            if(!result.empty())
-                result += " ";
             result += word;
+            word.clear();
+        } else {
+            word += str[i];
         }
+    }
+    
+    // Check the last word
+    result += word;
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
     
     return result;
