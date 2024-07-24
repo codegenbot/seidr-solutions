@@ -1,7 +1,7 @@
-#include <vector>
+```cpp
 #include <string>
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+std::string exchange(vector<int> lst1, vector<int> lst2) {
     int evenCount = 0;
     for (int num : lst1) {
         if (num % 2 == 0) {
