@@ -6,7 +6,3 @@ def fib(n: int):
     for _ in range(2, n + 1):
         a, b = b, a + b
     return b
-
-if __name__ == "__main__":
-    n = int(input("Enter the number: "))
-    print(fib(n))
