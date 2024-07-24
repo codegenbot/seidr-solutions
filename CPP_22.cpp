@@ -3,7 +3,7 @@
 #include <boost/any.hpp>
 #include <typeinfo>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
