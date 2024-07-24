@@ -6,18 +6,17 @@ def handle_bonus(bowls, score):
             return int(bowls[frame])
         return 0
 
-    bonus = sum(map(lambda x: 10 if x == "X" else 0, bowls[:-2]))
-    if bowls[9] == "X" or bowls[9] == "10":
+    bonus = sum(map(lambda x: 10 if x == "X" or x.isdigit() else 0, bowls[11:]))
+    if bowls[9] == "X" or bowls[9] == "10" or bowls[9:11] == "10":
         bonus += get_strike_bonus(bowls, 10)
 
     score += bonus
 
     for i in range(9):
         if bowls[i] == "/":
-            score += 10 - int(bowls[i - 1])
+            score += 10 - int(bowls[i - 1]) if bowls[i - 1].isdigit() else 10
 
     return score
-
 
 input_bowls = input("Enter the bowling sequence: ")
 result = handle_bonus(input_bowls, 0)
