@@ -1,8 +1,8 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(float a, float b) {
-    return (a == b);
+bool issame(float a, float b, float epsilon = 0.0001) {
+    return fabs(a - b) < epsilon;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades);
