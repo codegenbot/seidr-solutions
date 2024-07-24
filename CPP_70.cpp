@@ -1,8 +1,4 @@
 ```cpp
-#ifndef __GXX_EXPERIMENTAL_CXX0XX__
-#define __GXX_EXPERIMENTAL_CXX0XX__
-#endif
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
