@@ -1,15 +1,11 @@
-
-std::vector<int> counts(std::vector<int> b, int num) {
-    std::vector<int> result;
-    int count = 0;
-    
-    for (int i = 0; i < b.size(); ++i) {
-        if (b[i] == num) {
-            ++count;
+for (int i = 0; i < b.size(); ++i) {
+        int count = 0;
+        int curr = b[i];
+        while (curr > 0) {
+            if (curr % 10 == num) {
+                count++;
+            }
+            curr /= 10;
         }
+        result.push_back(count);
     }
-    
-    result.push_back(count);
-    
-    return result;
-}
