@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,6 +28,6 @@ std::string match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst = {")", "("};
-    std::cout << match_parens(lst) << std::endl;
+    std::cout << match_parens(lst);
     return 0;
 }
