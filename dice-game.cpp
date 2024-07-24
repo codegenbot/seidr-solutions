@@ -1,10 +1,2 @@
-#include <iostream>
-
-int main() {
-    double prob = 0.0;
-    int n, m;
-    std::cin >> n >> m;
-    prob += 1.0 / (n * m * 1.0);
-
-    return 0;
-}
+double prob = 0.0;
+prob += 1.0 / (n * m * 1.0);
