@@ -1,5 +1,6 @@
+```Python
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = sum(range(n, m+1)) / len(range(n, m+1))
-    return bin(int(round(avg))).lstrip("0").lstrip("-") or "0b"
+    avg = (n + m) / 2.0  # Ensure decimal division
+    return bin(int(round(avg)))[2:].zfill(9)  # Fill with leading zeros to get the desired output.
