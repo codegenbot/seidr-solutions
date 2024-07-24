@@ -7,7 +7,10 @@
 
 std::string string_to_md5(const std::string& str) {
     unsigned char buffer[16];
-    MD5((const unsigned char*)str.c_str(), str.size(), buffer);
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, (const unsigned char*)str.c_str(), str.size());
+    MD5_Final(buffer, &ctx);
     std::stringstream ss;
     for (int i = 0; i < 16; i++) {
         ss << std::setfill('0') << std::setw(2) << std::hex << (int)buffer[i];
