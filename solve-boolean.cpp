@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stack>
 #include <string>
-
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -22,7 +21,7 @@ bool solveBoolean(string expression) {
         } else {
             s.push(expression[i]);
         }
-   }
+    }
     
     result = s.top() == 'T'; 
     return result;
@@ -30,7 +29,7 @@ bool solveBoolean(string expression) {
 
 int main() {
     string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression; // Declare and initialize before using
-    cout << (solveBoolean(expression) ? "True" : "False");
+    cin >> expression;
+    cout << (solveBoolean(expression) ? "True" : "False") << endl;
     return 0;
+}
