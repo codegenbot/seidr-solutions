@@ -1,13 +1,10 @@
-```Python
-def decode_shift(encoded_string):
-    decoded_string = ""
-    for char in encoded_string:
+```
+def decode_shift(s):
+    result = ""
+    for char in s:
         if char.isalpha():
-            if char.isupper():
-                decoded_char = chr((ord(char) - 65 + int(input("Enter the shift value:"))) % 26 + 65)
-            else:
-                decoded_char = chr((ord(char) - 97 + int(input("Enter the shift value:"))) % 26 + 97)
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(char) - ascii_offset) % 26 + ascii_offset)
         else:
-            decoded_char = char
-        decoded_string += decoded_char
-    return decoded_string
+            result += char
+    return result
