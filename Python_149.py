@@ -1,3 +1,4 @@
+```
 def sorted_list_sum(input_data):
     word_dict = {
         "zero": 0,
@@ -13,10 +14,9 @@ def sorted_list_sum(input_data):
     }
     nums = sorted(
         [
-            (word_dict[word], index)
+            (str(word_dict[word]) if word in word_dict else word, index)
             for index, word in enumerate(input_data)
-            if word in word_dict
         ]
     )
 
-    return [num[1] for num in nums]
+    return [num for num, _ in nums]
