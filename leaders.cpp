@@ -2,13 +2,13 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
+    vector<int> leaders;
     int rightmost = arr.back();
-    for (int i = arr.size() - 2; i >= 0; i--) {
+    for (int i = arr.size() - 2; i >= 0; --i) {
         if (arr[i] >= rightmost) {
-            result.push_back(arr[i]);
+            leaders.push_back(arr[i]);
             rightmost = arr[i];
         }
     }
-    return result;
+    return leaders;
 }
