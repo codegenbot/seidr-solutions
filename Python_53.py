@@ -8,3 +8,4 @@ def add_numbers():
             print(x + y)
         except ValueError:
             print("Invalid input. Please enter a number.")
+check(add_numbers())
