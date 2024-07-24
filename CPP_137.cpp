@@ -1,6 +1,8 @@
-#include <boost/variant.hpp>
+#include <variant>
 #include <string>
+#include <boost/variant.hpp>
 
+using namespace std;
 using namespace boost;
 
 variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
