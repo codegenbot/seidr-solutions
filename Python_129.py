@@ -7,7 +7,7 @@ def minPath(grid, k):
         visited.add((i, j))
         path.append(grid[i][j])
 
-        if sum(path) > k:  # Update condition to check path sum
+        if sum(path) > k:
             return
 
         if steps == N * N:
