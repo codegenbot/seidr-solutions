@@ -6,4 +6,4 @@ def check_numbers(numbers, threshold):
     return False
 
 # Call the function with appropriate arguments here
-check_numbers([1, 5, 8, 3, 11], 3)
+check_numbers([1, 5, 8, 10], 3)
