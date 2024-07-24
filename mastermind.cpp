@@ -16,18 +16,20 @@ int mastermind(string code, string guess) {
         guess_count[c]++;
     }
 
-    // Count black pegs (correct color, correct place)
+    // Count white pegs (correct color, wrong place)
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+        } else if (guess_count[code[i]] > 0) {
+            guess_count[code[i]]--;
+            white++;
         }
     }
 
-    // Count white pegs (correct color, wrong place)
-    for (char c : guess) {
-        code_count[c]--;
-        if (code_count[c] >= 0 && code.find(c) != string::npos) {
-            white++;
+    // Count remaining characters in the code that are not in the guess
+    for (auto& pair : code_count) {
+        while (pair.second > 0 && !contains(guess, pair.first)) {
+            pair.second--;
         }
     }
 
