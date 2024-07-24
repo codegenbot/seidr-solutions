@@ -26,4 +26,3 @@ int main() {
     cout << "Number of carrots left after your meals: " << result[1] << endl;
     
     return 0;
-}
