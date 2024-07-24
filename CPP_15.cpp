@@ -1,4 +1,6 @@
-Here is the completed code:
+#include <bits/stdc++.h>
+
+using namespace std;
 
 string string_sequence(int n) {
     ostringstream oss;
