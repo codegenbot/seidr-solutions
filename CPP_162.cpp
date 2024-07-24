@@ -1,13 +1,12 @@
-```
-#include <string>
 #include <sstream>
+#include <string>
 
 void main() {
     string text;
-    cout << "Enter your string: ";
+    cout << "Enter a string: ";
     cin >> text;
-    string result = string_to_md5(text);
-    cout << "MD5 of the string: " << result << endl;
+
+    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
 }
 
 string string_to_md5(string text) {
