@@ -1,7 +1,12 @@
-def luhn(card_num):
-    card_num = list(map(int, card_num))
-    for i in range(1, len(card_num), 2):
-        card_num[i] *= 2
-        if card_num[i] > 9:
-            card_num[i] -= 9
-    return sum(card_num)
+Here is the solution:
+
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number)[1:]]
+    total_sum = 0
+    for i in range(len(card_number)):
+        if i % 2 == 0:
+            card_number[i] *= 2
+            if card_number[i] > 9:
+                card_number[i] -= 9
+        total_sum += card_number[i]
+    return total_sum
