@@ -2,10 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix);
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -13,8 +10,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(auto s : strings) {
         if(s.find(prefix) == 0) {
             result.push_back(s);
@@ -24,9 +21,13 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
-    std::string prefix = "xxx";
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
-    assert (issame(filter_by_prefix(strings, prefix) , expected));
+    vector<string> str1 = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
+    string prefix1 = "xxx";
+    
+    vector<string> expected = filter_by_prefix(str1, prefix1);
+    vector<string> str2 = {"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"};
+    string prefix2 = "xxx";
+
+    assert (issame(filter_by_prefix(str2, prefix2), expected));
     return 0;
 }
