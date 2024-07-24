@@ -1,34 +1,32 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    if (txt.find(',') == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count % 2 != 0)) {
-                    result.push_back(to_string(count));
-                    break;
-                }
-                count++;
-            } else {
-                return {txt};
-            }
+    int start = 0;
+    
+    for(int i=0; i<txt.size(); i++){
+        if(iscntrl(txt[i]) || isspace(txt[i])){
+            if(start != i)
+                result.push_back(txt.substr(start, i-start));
+            start = i+1;
         }
-    } else {
-        result.push_back(txt);
+        else if(txt[i] == ','){
+            result.push_back(txt.substr(start, i-start));
+            start = i+1;
+        }
     }
+    
+    if(start != txt.size())
+        result.push_back(txt.substr(start));
+    else
+        for(int i='a';i<='z';i++){
+            if((txt[0]-i)%2==0) 
+                result.push_back(to_string((int)i-'a'));
+        }
+        
     return result;
 }
