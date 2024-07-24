@@ -1,30 +1,25 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int index = 0;
-    
-    while (index < text.size()) {
-        index = text.find(target, index);
-        
-        if (index == string::npos) break; // no more targets to find
-        
-        indices.push_back(index);
-        index += target.size();
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+    for(int i=0; i<=n-m; i++) {
+        if(text.substr(i,m) == target)
+            result.push_back(i);
     }
-    
-    return indices;
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    string text;
+    string text, target;
+    cout << "Enter the text: ";
     getline(cin, text);
-    vector<int> result = findIndices(text, text.substr(0, n));
-    for (int i : result) {
-        cout << i << endl;
-    }
+    cout << "Enter the target: ";
+    getline(cin, target);
+    vector<int> indices = indicesOfSubstring(text, target);
+    for(int i=0; i<indices.size(); i++)
+        cout << indices[i] << " ";
     return 0;
 }

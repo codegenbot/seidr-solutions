@@ -2,21 +2,35 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    map<char, int> codeCount;
+    map<char, int> guessCount;
+
+    // Counting the frequency of each character in the code and the guess
+    for (char c : code) {
+        codeCount[c]++;
+    }
+    for (char c : guess) {
+        guessCount[c]++;
+    }
+
+    // Calculate white pegs
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            black++;
+        } else if (codeCount[guess[i]] > 0) {
+            white++;
+            codeCount[guess[i]]--;
+        }
+    }
+
+    // Calculate black pegs
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            continue;
+        } else if (code.find(guess[i]) != string::npos) {
             black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i] && c != guess[i]) {
-                white++;
-                break;
-            }
-        }
-    }
-
-    return black + white;
+    return make_pair(white, black).second;
 }
