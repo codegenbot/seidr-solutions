@@ -1,24 +1,15 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <md5.h>
-#include <iomanip>
-#include <sstream>
+#include <boost/uuids/uuid.hpp>
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "MD5 hash: " << md5(input) << std::endl;
-    return 0;
-}
-
-std::string md5(const std::string& str) {
-    std::stringstream ss;
-    ss << std::hex << std::setw(8);
-    for (char c : str) {
-        ss << std::setfill('0') << std::right << std::setw(2)
-           << std::hex << static_cast<int>(c);
+    boost::uuids::detail::sha1_hash hash;
+    for (char c : input) {
+        hash.process_byte((unsigned char)c);
     }
-    return ss.str();
+    std::cout << "SHA-1 hash: " << std::hex << hash.hexdigest() << std::endl;
+    return 0;
 }
