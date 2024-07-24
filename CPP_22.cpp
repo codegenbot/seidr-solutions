@@ -1,5 +1,5 @@
-#include <vector>
 #include <boost/variant.hpp>
+#include <boost/variant/variant.hpp>
 
 std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     std::vector<int> result;
@@ -11,6 +11,6 @@ std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     return result;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
