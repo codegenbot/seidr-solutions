@@ -24,11 +24,25 @@ def main():
                 numbers = " ".join(
                     input("Enter comma-separated float numbers: ").split(",")
                 )
-                try:
-                    numbers_list = list(map(float, numbers.split()))
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter valid float numbers.")
+                if not numbers.strip():
+                    print("Please enter some numbers.")
+                elif len(numbers.split()) < 2:
+                    print("Please enter at least two numbers.")
+                else:
+                    input_numbers = [num for num in numbers.split() if num]
+                    while len(input_numbers) < 2:
+                        if any(
+                            not char.isdigit() and char != "." for num in input_numbers
+                        ):
+                            print("Please enter at least two valid float numbers.")
+                            numbers = " ".join(input().split(","))
+                            input_numbers = [num for num in numbers.split() if num]
+
+                    try:
+                        numbers_list = list(map(float, input_numbers))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter valid float numbers.")
 
             while True:
                 while True:
