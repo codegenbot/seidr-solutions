@@ -1,5 +1,5 @@
 def check():
-    string = raw_input("Enter a string: ").strip()
+    string = input().strip()
     return modify_string(string)
 
 def modify_string(string):
