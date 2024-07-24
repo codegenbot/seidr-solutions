@@ -15,12 +15,9 @@ bool evaluateBooleanExpression(const std::string& expr) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter boolean expression: ";
-    std::cin >> input;
-    
-    bool result = evaluateBooleanExpression(input);
-    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
-    
+    std::string expr;
+    std::cin >> expr;
+    bool result = evaluateBooleanExpression(expr);
+    std::cout << std::boolalpha << result << std::endl;
     return 0;
 }
