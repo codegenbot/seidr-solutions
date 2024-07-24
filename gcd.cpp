@@ -2,25 +2,20 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
     if (a == 0 || b == 0) {
-        return abs(a + b);
+        return a + b;
     }
-    
-    a = abs(a);
-    b = abs(b);
     
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    
-    return abs(a);
+    return a;
 }
 
 int main() {
