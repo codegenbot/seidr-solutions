@@ -1,4 +1,3 @@
-```
 def double_the_difference(numbers):
     total = 0
     average = sum(num for num in numbers if isinstance(num, int) and num >= 0) / len([num for num in numbers if isinstance(num, int) and num >= 0])
