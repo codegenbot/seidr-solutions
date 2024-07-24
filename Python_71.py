@@ -6,6 +6,7 @@ def sum_of_squares(n):
 
 
 while True:
+    print("Enter the base and height of a triangle.")
     while True:
         try:
             base = float(input("Enter the base of the triangle: "))
@@ -21,13 +22,3 @@ while True:
     triangle_area = (base * height) / 2
     sum_of_squares_value = sum_of_squares(int(triangle_area))
     check(triangle_area)
-
-    while True:
-        choice = input("Do you want to calculate another triangle? (yes/no): ")
-        if choice.lower() == "yes":
-            continue
-        elif choice.lower() == "no":
-            print("Thank you for using this program!")
-            break
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
