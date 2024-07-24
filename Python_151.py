@@ -1,11 +1,6 @@
 def double_the_difference(lst):
-    return sum(x ** 2 for x in lst if x > 0 and x % 2 != 0)
+    return sum(x ** 2 for x in lst if x > 0 and isinstance(x, int) and x % 2 != 0) * 2
 
-# Define the input list
-lst = [1, 2, 3, 4, 5]
-
-# Call the function with the defined list
-output = double_the_difference(lst)
-
-# Print the output
-print(output)
+lst = [1, 3, 5, 2, 4, 6]
+result = double_the_difference(lst)
+print(result)
