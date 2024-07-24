@@ -8,12 +8,15 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int length = end - start + 1;
 
     bool isPrime = true;
-    for(int i = 2; i * i <= length; i++) {
-        if(length % i == 0) {
-            isPrime = false;
+    for(int i=2; i*i<=length; i++) {
+        if(length%i==0) {
+            isPrime=false;
             break;
         }
     }
 
-    return isPrime ? "YES" : (length == 1 ? "YES" : "NO");
+    if(isPrime || length == 1)
+        return "YES";
+    else
+        return "NO";
 }
