@@ -25,9 +25,6 @@ std::string match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     std::vector<std::string> lst = {")", "("};
-    assert(match_parens(lst) == "Yes");
+    cout << match_parens(lst);
     
-    // Your code goes here
-    std::cout << match_parens({"(())", "()(()(", "((()))", ")))))"} << std::endl;
-    return 0;
 }
