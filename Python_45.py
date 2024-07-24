@@ -10,4 +10,4 @@ try:
 except ValueError as e:
     print(e)
 except Exception:
-    print("An error occurred. Please try again.") 
+    print("An error occurred. Please try again.")
