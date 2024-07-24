@@ -1,3 +1,4 @@
+````
 #include <string>
 using namespace std;
 
@@ -14,8 +15,6 @@ bool correct_bracketing(string brackets) {
     }
     return count == 0;
 
-}
-
 int main() {
     string brackets;
     cout << "Enter a string of brackets: ";
@@ -25,3 +24,4 @@ int main() {
     else
         cout << "Incorrect bracketing!" << endl;
 }
+```
