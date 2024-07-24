@@ -1,8 +1,4 @@
-#include <iostream>
-using namespace std;
-
-bool evalBoolean(string s) {
-    if (s.empty())
+if (s.empty())
         return false;
 
     int j = 0;
@@ -25,28 +21,24 @@ bool evalBoolean(string s) {
         }
     } else {
         bool left = false;
+        bool right = false;
         for (char c : s.substr(0, j)) {
             if (c == 'T' && opStr[1] != '|')
                 left = true;
-            else if (c == 'F' && opStr[1] != '&')
-                return false;
-            else if (c == 'F' && opStr[1] == '&') 
-                return false; 
+            else if (c == 'F' && opStr[1] != '&') {
+                return false;  // F must be the last character
+            }
         }
-        result = left;
+        for (char c : s.substr(j)) {
+            if (c == 'T' && opStr[1] == '|')
+                right = true;
+            else if (c == 'F' && opStr[1] == '&') {
+                right = false;
+                return right;  // F must be the last character
+            }
+        }
+        result = (opStr[0] == '|' ? left || right : left && right);
     }
 
     return result;
-}
-
-int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
-    bool result = evalBoolean(s);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
 }
