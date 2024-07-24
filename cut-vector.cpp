@@ -8,11 +8,9 @@ int main() {
     vector<int> nums;
     int num;
 
-    int n;
-    cin >> n;
-
     int temp;
-    for (int i = 0; i < n; i++) {
+    while (true) {
+        if (cin.fail()) break;
         cin >> temp;
         nums.push_back(temp);
     }
@@ -22,6 +20,7 @@ int main() {
         return 0;
     }
 
+    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
