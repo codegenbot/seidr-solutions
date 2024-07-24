@@ -1,58 +1,30 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    stack<string> valueStack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                char op = operatorStack.top();
-                operatorStack.pop();
-                string right = valueStack.top();
-                valueStack.pop();
-                string left = valueStack.top();
-                valueStack.pop();
-
-                if (op == '&') {
-                    valueStack.push(to_string((left == "True" && right == "True") ? "True" : "False"));
-                } else {
-                    valueStack.push(to_string((left == "True" || right == "True") ? "True" : "False"));
-                }
+string solveBoolean(string s) {
+    stack<char> st;
+    string res = "";
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&' || s[i] == '|') {
+            while(st.size() > 1 && (st.top() == '&' || st.top() == '|')) {
+                res += st.top();
+                st.pop();
             }
-            operatorStack.pop(); // pop the '('
-        } else if (expression[i] == '(') {
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string value = "";
-            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
-                value += expression[i];
-                i++;
-            }
-            i--; // backtrack
-            valueStack.push(value);
+            st.push(s[i]);
+        } else {
+            st.push(s[i]);
         }
     }
-
-    return valueStack.top() == "True";
-}
-
-int main() {
-    string input;
-    cout << "Enter a Boolean expression: ";
-    cin >> input;
-
-    bool result = evaluateBooleanExpression(input);
-
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    
+    while(st.size() > 0) {
+        res += st.top();
+        st.pop();
     }
-
-    return 0;
+    
+    string result = "True";
+    if(res == "F") {
+        result = "False";
+    } else if(res.length() > 1 && (res.find("T&") != string::npos || res.find("F|") != string::npos)) {
+        result = "False";
+    }
+    
+    return result;
 }
