@@ -37,4 +37,4 @@ int main() {
     std::cin >> expression;
     std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
     return 0;
-}
+}  
