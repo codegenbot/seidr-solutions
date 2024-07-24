@@ -4,6 +4,7 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = 0
 min_diff = total_sum
+cut_index = -1
 
 for i in range(n):
     left_sum += arr[i]
@@ -12,8 +13,6 @@ for i in range(n):
     if diff < min_diff:
         min_diff = diff
         cut_index = i
-        if min_diff == 0:
-            break
 
 subvector1 = arr[:cut_index + 1]
 subvector2 = arr[cut_index + 1:]
