@@ -1,6 +1,7 @@
-Here's the completed code:
+#include <cmath>
+
+using namespace std;
 
 bool is_simple_power(int x, int n) {
-    double log_val = log(x) / log(n);
-    return (log_val == round(log_val));
+    return round(pow(n, 1.0 / log2(x))) == n;
 }
