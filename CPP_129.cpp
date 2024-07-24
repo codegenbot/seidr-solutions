@@ -1,31 +1,63 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<int> res;
+    vector<vector<int>> dp(n, vector<int>(n, 1e9));
+    vector<vector<pair<int, int>>> adj(n, vector<pair<int, int>>(n));
+
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j) {
+            if (i > 0)
+                adj[i][j].push_back({dp[i - 1][j], 1});
+            if (i < n - 1)
+                adj[i][j].push_back({dp[i + 1][j], 2});
+            if (j > 0)
+                adj[i][j].push_back({dp[i][j - 1], 3});
+            if (j < n - 1)
+                adj[i][j].push_back({dp[i][j + 1], 4});
+        }
+
+    priority_queue<pair<int, int>> pq;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                dfs(grid, visited, i, j, k, res);
-                break;
+            if (grid[i][j] == 1) {
+                pq.push({-grid[i][j], i * n + j});
+                dp[i][j] = 0;
             }
         }
-        if (res.size() == k) break;
     }
+
+    vector<int> res(k);
+    for (int i = 0; i < k; ++i) {
+        int val, x, y;
+        pq.pop();
+        val = -pq.top().first;
+        tie(x, y) = make_pair(pq.top().second / n, pq.top().second % n);
+
+        res[i] = val;
+
+        for (auto &p : adj[x][y]) {
+            int nx = p.first == 1 ? x - 1 : (p.first == 2 ? x + 1 : x);
+            int ny = p.second == 3 ? y - 1 : (p.second == 4 ? y + 1 : y);
+
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
+                dp[nx][ny] = min(dp[nx][ny], dp[x][y] + val);
+                pq.push({-dp[nx][ny], nx * n + ny});
+            }
+        }
+    }
+
     return res;
 }
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
-    res.push_back(grid[x][y]);
-    visited[x][y] = true;
-    if (res.size() == k) return;
-    for (int dx : {-1, 0, 1}) {
-        for (int dy : {-1, 0, 1}) {
-            int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size() && !visited[nx][ny]) {
-                dfs(grid, visited, nx, ny, k, res);
-                if (res.size() == k) return;
-            }
-        }
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto &x : result) {
+        cout << x << " ";
     }
-    visited[x][y] = false;
+    return 0;
 }
