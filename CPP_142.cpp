@@ -1,3 +1,5 @@
+#include <iostream>
+
 int sum_squares(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) {
@@ -6,7 +8,7 @@ int sum_squares(int n) {
     return sum;
 }
 
-int main() {
+int main2() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -16,3 +18,4 @@ int main() {
         std::cout << "Please enter a positive integer." << std::endl;
     }
     return 0;
+}
