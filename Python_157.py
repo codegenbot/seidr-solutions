@@ -5,4 +5,5 @@ a = int(input("Enter the value of a: "))
 b = int(input("Enter the value of b: "))
 c = int(input("Enter the value of c: "))
 
-print(is_pythagorean_triplet(a, b, c))
+result = is_pythagorean_triplet(a, b, c)
+print(result)
