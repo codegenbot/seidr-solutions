@@ -4,14 +4,20 @@ std::vector<int> leaders(std::vector<int>& v) {
     int n = v.size();
     std::vector<int> leaders;
     
-    if(n == 0) return leaders;
+    if(n == 0)
+        return leaders;
     
     leaders.push_back(v[n-1]);
     
     for(int i=n-2; i>=0; i--){
-        if(v[i] >= v[i+1]){
-            leaders.push_back(v[i]);
+        bool leader = true;
+        for(int j=i+1; j<=n-1; j++){
+            if(v[j] >= v[i]){
+                leader = false;
+                break;
+            }
         }
+        if(leader) leaders.push_back(v[i]);
     }
     
     return leaders;
