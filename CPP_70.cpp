@@ -1,15 +1,14 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 
-bool std::operator!=(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
-        return true;
+        return false;
     for (int i = 0; i < a.size(); i++)
         if (a[i] != b[i])
-            return true;
-    return false;
+            return false;
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
