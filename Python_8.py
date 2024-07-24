@@ -11,4 +11,4 @@ def sum_product() -> Tuple[int, int]:
             product *= num
         return total_sum, product
     except ValueError:
-        return
+        return "Invalid input. Please enter valid integers."
