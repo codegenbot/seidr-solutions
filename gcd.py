@@ -1,11 +1,6 @@
 import math
 
-while True:
-    try:
-        num1, num2 = map(int, input("Please enter two integers separated by a space: ").split())
-        break
-    except ValueError:
-        print("Please enter two integers separated by a space.")
-
+user_input = input("Please enter two integers separated by a space: ")
+num1, num2 = map(int, user_input.split())
 result = math.gcd(num1, num2)
 print(result)
