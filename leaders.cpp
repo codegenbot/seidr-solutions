@@ -4,16 +4,16 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& v) {
-    vector<int> res(v.size(), 0); 
-    int rightmost = v.back();
+    vector<int> res;
     for (int i = v.size() - 1; i >= 0; --i) {
-        rightmost = v[i];
+        bool isLeader = true;
         for (int j = i + 1; j < v.size(); ++j) {
-            if (v[j] >= rightmost) {
-                rightmost = v[j];
+            if (v[i] <= v[j]) {
+                isLeader = false;
+                break;
             }
         }
-        res[i] = rightmost;
+        if (isLeader) res.push_back(v[i]);
     }
     return res;
 }
