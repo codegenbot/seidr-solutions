@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -12,12 +13,12 @@ int main() {
 
     std::unordered_map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[std::tolower(cipher1[i])] = std::tolower(cipher2[i]);
+        cipherMap[cipher1[i]] = cipher2[i];
     }
 
     std::string result;
     for(int i = 0; i < message.length(); i++) {
-        char c = tolower(message[i]);
+        char c = std::tolower(message[i]); // Convert to lowercase
         if(cipherMap.find(c) != cipherMap.end()) {
             result += cipherMap.at(c);
         } else {
