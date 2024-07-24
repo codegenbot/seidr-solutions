@@ -3,13 +3,10 @@
 using namespace std;
 
 string solve(int N) {
-    string binary = "";
+    int sum = 0;
     while (N > 0) {
-        if (N % 2 == 0)
-            binary.insert(0, "0");
-        else
-            binary.insert(0, "1");
+        sum += N % 2;
         N /= 2;
     }
-    return binary;
+    return to_string(sum);
 }
