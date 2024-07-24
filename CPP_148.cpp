@@ -29,12 +29,12 @@ void start() {
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
     planets = std::make_pair(planet1, planet2);
-    a.push_back({planet1, planet2});
+    a.push_back(planets);
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
     planets = std::make_pair(planet1, planet2);
-    a.push_back({planet1, planet2});
+    a.push_back(planets);
     
     std::vector<std::pair<std::string, std::string>> b;
     std::cout << "Enter two more planet names: ";
