@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -8,6 +7,7 @@ using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
+    
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -18,18 +18,15 @@ map<char, int> histogram(string test) {
         }
     }
 
-    int maxCount = 0;
     map<char, int> maxCountMap;
-
+    int maxCount = 0;
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
             maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount) {
-            if (maxCount > 0) {
-                maxCountMap[pair.first] = pair.second;
-            }
+            maxCountMap[pair.first] = pair.second;
         }
     }
 
@@ -41,7 +38,11 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    map<char, int> hist = histogram(input);
+    map<char, int> hist;
+    for (auto& pair : histogram(input)) {
+        hist[pair.first] = pair.second;  
+    }
+    
     for (auto& pair : hist) {
         cout << pair.first << ": " << pair.second << endl;
     }
