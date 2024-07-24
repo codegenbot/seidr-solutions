@@ -1,27 +1,31 @@
 vector<string> split_words(string txt) {
-    vector<string> words;
+    vector<string> result;
     size_t pos = 0;
-
-    while ((pos = txt.find(' ')) != string::npos) {
-        words.push_back(txt.substr(0, pos));
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.size() > 1 && isalpha(txt[1])) {
+                int count = 0;
+                for (char c : txt) {
+                    if (isalpha(c)) {
+                        if (c >= 'a' && c <= 'z') {
+                            count++;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                result.push_back(to_string(count));
+                return result;
+            }
+        }
+        string word = txt.substr(0, pos);
         txt.erase(0, pos + 1);
-    }
-
-    if (txt.empty()) {
-        return words;
-    }
-
-    words.push_back(txt);
-
-    return words.size() ? words : vector<string>({"" + to_string(count_lowercase_odd_order(txt))});
-}
-
-int count_lowercase_odd_order(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            count += (int)c - 97; // convert lowercase letter to its position in alphabet
+        if (!word.empty()) {
+            result.push_back(word);
         }
     }
-    return count;
+    if (!txt.empty()) {
+        result.push_back(txt);
+    }
+    return result;
 }
