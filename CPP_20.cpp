@@ -25,7 +25,8 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
+            while(std::cin.fail()) std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
@@ -33,11 +34,6 @@ int main() {
             break;
         }
         if(num > std::numeric_limits<float>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec1.clear();
-            break;
-        }
-        if(std::abs(num) > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec1.clear();
             break;
@@ -46,6 +42,7 @@ int main() {
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
+        if(vec1.size() >= 5) break; 
     }
 
     int maxInputCount = 5; 
@@ -53,7 +50,8 @@ int main() {
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
+            while(std::cin.fail()) std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
@@ -61,11 +59,6 @@ int main() {
             break;
         }
         if(num > std::numeric_limits<float>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec2.clear();
-            break;
-        }
-        if(std::abs(num) > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec2.clear();
             break;
