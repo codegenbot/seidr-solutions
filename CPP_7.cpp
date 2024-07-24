@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,27 +19,44 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main() {
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    std::vector<std::string> input;
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cin >> s;
-        input.push_back(s);
+    
+    std::vector<std::string> str_vector;
+    for (int i = 0; i < n; ++i) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, str);
+        str_vector.push_back(str);
     }
-
-    std::string substring;
-    std::cin >> substring;
-
-    std::vector<std::string> filtered = filter_by_substring(input, substring);
-
-    if (issame(input, filtered)) {
-        std::cout << "No strings contain the given substring." << std::endl;
-    } else {
-        for (const auto& str : filtered) {
-            std::cout << str << std::endl;
+    
+    std::vector<std::string> substrings;
+    std::cout << "Enter the number of substrings: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        std::string sub;
+        std::cout << "Enter substring " << i + 1 << ": ";
+        std::getline(std::cin, sub);
+        substrings.push_back(sub);
+    }
+    
+    if (!issame(str_vector, filter_by_substring(str_vector, substrings[0]))) {
+        for (const auto& str : str_vector) {
+            bool found = false;
+            for (const auto& sub : substrings) {
+                if (str.find(sub) != std::string::npos) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                std::cout << "String: " << str << std::endl;
+            }
         }
+    } else {
+        std::cout << "All strings contain the first substring." << std::endl;
     }
-
+    
     return 0;
 }
