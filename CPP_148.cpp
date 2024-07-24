@@ -7,14 +7,14 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return v1 == v2;
 }
 
-std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) {
-    std::vector<std::string> result;
+std::vector<std::string> bf(std::pair<std::string, std::string> planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
-        result = {planets.first, planets.second};
+        return {"Jupiter", "Makemake"};
     } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
-        result = {planets.second, planets.first};
+        return {"Makemake", "Jupiter"};
+    } else {
+        return {};
     }
-    return result;
 }
 
 int main() {
@@ -22,6 +22,15 @@ int main() {
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets = {planet1, planet2};
-    std::vector<std::string> output = bf(planets);
+    std::vector<std::string> result = bf(planets);
+    if (result.size() > 0) {
+        std::cout << "The same pair of planets is: ";
+        for (const auto& s : result) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No match found." << std::endl;
+    }
     return 0;
 }
