@@ -1,8 +1,7 @@
 string string_sequence(int n){
     string result;
     for(int i = 0; i <= n; i++){
-        result += to_string(i) + " ";
+        result += to_string(i) + (i < n ? " " : "");
     }
-    result.pop_back(); // Remove the last extra space
     return result;
 }
