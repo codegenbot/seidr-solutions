@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); ++i) {
@@ -15,18 +15,18 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> arr(n);
+    std::vector<int> vec(n);
+
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
+        std::cin >> vec[i];
     }
 
-    int result = can_arrange(arr);
-
-    if (result == -1)
-        std::cout << "The array is already arranged.\n";
+    int result = can_arrange(vec);
+    if(result == -1)
+        std::cout << "The array can be arranged in increasing order.\n";
     else
-        std::cout << "The first index where the array is not arranged is: " << result << "\n";
+        std::cout << "The first " << result << " elements are not in increasing order.\n";
 
     return 0;
 }
