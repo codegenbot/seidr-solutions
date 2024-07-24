@@ -2,10 +2,10 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = abs(sum(arr[:1]) - sum(arr[1:]))
-cut_index = 1
+min_diff = float('inf')
+cut_index = 0
 
-for i in range(1, n):
+for i in range(n-1):
     left_sum = sum(arr[:i])
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
