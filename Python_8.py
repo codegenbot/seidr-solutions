@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -17,15 +17,3 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         total_sum = 0
         product = 1
     return total_sum, product
-
-def main():
-    user_input = input("Enter a list of space-separated integers: ")
-    numbers = [int(num) for num in user_input.split()]
-    try:
-        result = sum_product(numbers)
-        print(f"Sum is {result[0]} and product is {result[1]}")
-    except ValueError as e:
-        print(f"Error: {e}")
-
-if __name__ == "__main__":
-    main()
