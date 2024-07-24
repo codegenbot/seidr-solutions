@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <boost/variant.hpp>
-#include <boost/mpl/int.hpp>
 
 using namespace boost;
 
