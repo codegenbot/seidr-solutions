@@ -1,5 +1,4 @@
 #include <vector>
-
 long long minSubArraySum(vector<long long> nums) {
     long long sum = 0;
     long long min_sum = LLONG_MAX;
