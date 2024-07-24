@@ -1,4 +1,7 @@
 ```
+def sum_squares(numbers):
+    return sum([n ** 2 for n in numbers])
+
 while True:
     choice = input("Do you want to calculate sum of squares (yes/no)? ")
     if choice.lower() != 'yes':
@@ -17,6 +20,3 @@ while True:
         print(f"The sum of squares is {total_sum_of_squares}")
 
     break
-
-def sum_squares(numbers):
-    return sum([n ** 2 for n in numbers])
