@@ -1,5 +1,5 @@
-```
-from typing import List
+from typing import list
 
-def below_zero(operations: List[str]) -> bool:
-    return any(int(op) < 0 for op in operations)
+def below_zero() -> bool:
+    operations = [int(i) for i in input("Enter some numbers separated by spaces: ").split()]
+    return any(op < 0 for op in operations)
