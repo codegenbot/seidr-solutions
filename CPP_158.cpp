@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -21,11 +23,12 @@ string find_max(vector<string> words){
         }
     }
     return max_word;
+
 }
 
 int main() {
     vector<string> words = {"play", "play", "play"};
     string result = find_max(words);
-    cout << result << endl;
+    cout << result << std::endl;
     return 0;
 }
