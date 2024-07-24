@@ -1,9 +1,8 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not isinstance(paren_string, str):
-        return []
-
+    assert isinstance(paren_string, str), "Input must be a string"
+    
     result = []
     stack = [""]
     current_group = ""
