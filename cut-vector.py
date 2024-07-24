@@ -2,7 +2,7 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = float('inf')
+min_diff = float('inf)
 cut_index = 0
 
 for i in range(1, n-1):
