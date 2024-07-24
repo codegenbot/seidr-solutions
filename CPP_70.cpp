@@ -1,10 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -33,10 +35,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<int> input = {1, 2, 3};
     std::vector<int> output = strange_sort_list(input);
+
     for (int i : output) {
         std::cout << i << " ";
     }
+
+    assert(std::is_permutation(output.begin(), output.end(), input.begin(), input.end()));
+    
     return 0;
 }
