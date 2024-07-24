@@ -1,10 +1,44 @@
+```c++
+#include <algorithm>
+#include <vector>
+#include <string>
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        bool found = true;
+        for (int j = 0; j < target.size(); ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+            i++; // start looking for the next match from where the last one ended
+        }
+    }
+    return result;
+}
+
+#include <iostream>
+
 int main() {
     std::string text, target;
-    int a, b;
+
     std::cout << "Enter number 1: ";
-    std::cin >> a;
+    int a; std::cin >> a;
     std::cout << "Enter number 2: ";
-    std::cin >> b;
+    int b; std::cin >> b;
 
     if (a == 0 || b == 0) {
         std::cout << "Invalid input! Please try again." << std::endl;
@@ -29,4 +63,5 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-    return 0}
+    return 0;
+}
