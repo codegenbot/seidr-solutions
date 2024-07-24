@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 bool issame(const vector<string>& lst1, const vector<string>& lst2) {
     return lst1 == lst2;
 }
@@ -14,7 +10,7 @@ int totalChars(const vector<string>& lst) {
     return total;
 }
 
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars_lst1 = totalChars(lst1);
     int total_chars_lst2 = totalChars(lst2);
 
