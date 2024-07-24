@@ -29,9 +29,6 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
             result.push_back(str);
         }
     }
-    result = std::vector<std::string>(std::make_move_iterator(result.begin()), 
-                                    std::make_move_iterator(result.end()));
-    std::sort(result.begin(), result.end());
     return result;
 }
 
