@@ -6,16 +6,12 @@ def decode_cyclic():
         print("Invalid input. Please enter a string.")
 
     n = len(s)
+    
+    if n < 2:
+        return s
 
-    result = set()
-    for i in range(n):
+    for i in range(1, n // 2 + 1):
         rotated = s[i:] + s[:i]
-        while i < n and (rotated in result or s in result):
-            i += 1
-        if i < n:
-            result.add(rotated)
-
-    return min(result, key=len)
-
-
-print(decode_cyclic())
+        while s in [rotated[j:] + rotated[:j] for j in range(len(rotated))]:
+            s = rotated
+    return s
