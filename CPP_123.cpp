@@ -1,15 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(int n1, int n2) {
-    if (n1 == n2)
-        return true;
-    else
-        return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> res;
+    std::vector<int> res(100); // Initialize with an initial capacity of 100
     while (n > 1) {
         if (n % 2 != 0) {
             res.push_back(n);
@@ -19,7 +17,7 @@ std::vector<int> get_odd_collatz(int n) {
     return res;
 }
 
-int originalMain() {
+int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -33,14 +31,13 @@ int originalMain() {
     }
     std::cout << std::endl;
     if (!res.empty()) {
-        std::cout << "The sequence is the same as Collatz Conjecture." << std::endl;
+        if (issame(res, get_odd_collatz(1))) {
+            std::cout << "The sequence is the same as Collatz Conjecture." << std::endl;
+        } else {
+            std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
+        }
     } else {
         std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
     }
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
