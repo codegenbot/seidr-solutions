@@ -2,6 +2,7 @@
 #include <vector>
 #include <climits>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main() {
+int getAndProcessInput() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
@@ -43,4 +44,8 @@ int main() {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
     return 0;
+}
+
+int main() {
+    return getAndProcessInput();
 }
