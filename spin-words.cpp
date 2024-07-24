@@ -12,7 +12,6 @@ std::string spinWords(std::string str) {
                 result += c;
             }
             wordLength = 0;
-            result += ' ';
         } else {
             result += c;
             ++wordLength;
