@@ -8,7 +8,7 @@ def factorize(n: int) -> List[int]:
         while n % i == 0:
             n //= i
         if n > 1:
-            break
+            return [i] + factorize(n)
     if n > 1:
-        factors.append(n)
+        return [n]
     return factors
