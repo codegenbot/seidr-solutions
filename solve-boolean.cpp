@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -12,7 +11,7 @@ bool evalBoolean(string s) {
 
     string opStr;
     for (char c : s.substr(0, j)) {
-        opStr += c;
+        opStr.push_back(c);
     }
     bool result = false;
     if (opStr[0] == '|') {
@@ -42,8 +41,6 @@ int main() {
     string s;
     cout << "Enter a Boolean expression: ";
     cin >> s;
-    s.erase(remove(s.begin(), s.end(), ' '), s.end());
-    transform(s.begin(), s.end(), s.begin(), ::toupper);
     bool result = evalBoolean(s);
     if (result)
         cout << "True";
