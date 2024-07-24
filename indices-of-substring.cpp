@@ -1,12 +1,13 @@
-```c++
-#include <iostream>
-#include <vector>
-using namespace std;
+Here is the modified code:
 
-auto findIndices(string text, string target) -> vector<int> {
-    vector<int> indices;
+```cpp
+#include <iostream>
+#include <string>
+
+auto findIndices(std::string text, std::string target) -> std::vector<int> {
+    std::vector<int> indices;
     int prevLast = 0;
-    while ((int last = text.find(target, prevLast)) != string::npos) {
+    while ((int last = text.find(target, prevLast)) != std::string::npos) {
         indices.push_back(last + 1);
         prevLast = last + 1;
     }
@@ -14,17 +15,17 @@ auto findIndices(string text, string target) -> vector<int> {
 }
 
 int main() {
-    string text;
-    cin >> text;
+    std::string text;
+    std::cin >> text;
 
-    string target;
-    cin >> target;
+    std::string target;
+    std::cin >> target;
 
     auto indices = findIndices(text, target);
     for (int i : indices) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
