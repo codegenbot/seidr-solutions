@@ -9,7 +9,7 @@ std::string fizzBuzz(int x) {
         return "Fizz";
     else if (x % 5 == 0)
         return "Buzz";
-    else
+    else if (x != 0)
         return std::to_string(x);
 }
 
