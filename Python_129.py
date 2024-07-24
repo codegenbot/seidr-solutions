@@ -7,7 +7,7 @@ def minPath(grid, k):
         visited.add((i, j))
         path.append(grid[i][j])
 
-        if sum(path) >= k:  # Update condition to check path sum
+        if sum(path) > k:
             return
 
         if steps == N * N:
@@ -30,3 +30,5 @@ def minPath(grid, k):
             dfs(i, j, set(), [], 1)
 
     return min_path if min_path else None
+
+assert minPath([[1, 3], [3, 2]], 10) == [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
