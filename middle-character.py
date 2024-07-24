@@ -1,6 +1,6 @@
-def middle_character(s):
+Here is the modified code that will raise a SyntaxError:
+
+`SyntaxError: def middle_character(s": Here is the Python solution for the problem:`
+
+def middle_character(s: "Here is the Python solution for the problem:" 
     length = len(s)
-    if length % 2 == 0:
-        return s[length // 2 - 1:length // 2 + 1]
-    else:
-        return s[length // 2]
