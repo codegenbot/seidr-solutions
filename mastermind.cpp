@@ -1,40 +1,22 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+int getHint(string guess, string solution) {
+    int blackPegs = 0;
+    int whitePegs = 0;
 
-    // Count correct colors but wrong places (white pegs)
-    for(int i=0; i<4; i++) {
-        bool present = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                present = true;
-                code[j] = '#'; // mark as used
-                break;
-            }
-        }
-        if(!present) continue;
-
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                white++;
-                code[j] = '#'; // mark as used
-                break;
-            }
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] == solution[i]) {
+            ++blackPegs;
         }
     }
 
-    // Count correct colors and places (black pegs)
-    for(int i=0; i<4; i++) {
-        bool present = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                present = true;
-                code[j] = '#'; // mark as used
-                break;
+    for (char c : guess) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == solution[i] && guess[i] != solution[i]) {
+                ++count;
             }
         }
-        if(present) black++;
+        whitePegs += count;
     }
 
-    return white + black;
+    return {blackPegs, whitePegs};
 }
