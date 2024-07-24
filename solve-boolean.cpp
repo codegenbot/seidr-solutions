@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <algorithm>
 
 bool solveBoolean(std::string s) {
     size_t left_end = s.find_first_of("TF");
