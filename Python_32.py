@@ -1,4 +1,5 @@
 ```
+import math
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -10,7 +11,6 @@ def find_zero(xs: list):
     if a == 0:
         return "a cannot be zero"
     if b_sum == 0:
-        return str((-c_sum) / a)
+        b_sum = -sum((x * y for x, y in zip(xs[:-1], range(len(xs)-1))))
     x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
-    y = (-b_sum - math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
-    return f"Roots: {round(x, 2)}, {round(y, 2)}"
+    return round(x, 2)
