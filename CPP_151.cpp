@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -13,8 +12,15 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1, 2.5, 3};
-    long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 14); 
+    std::vector<float> lst; 
+    int odd_sum = 0; 
+
+    for(float num : cin >> num) {
+        if(int(num) > 0 && int(num) == (int)num){
+            odd_sum += pow(int(num), 2);
+        }
+    }
+    
+    assert (double_the_difference(lst) == odd_sum ); 
     return 0;
 }
