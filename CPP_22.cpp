@@ -11,11 +11,10 @@ std::vector<int> filter_integers(const boost::any& values) {
     for (const auto& value : boost::any_cast<std::list<boost::any>>(values)) {
         if (boost::any_cast<bool>(value)) {
             try {
-                int integer = boost::any_cast<int>(value);
-                result.push_back(integer);
+                result.push_back(boost::any_cast<int>(value));
             } catch (...) {
-                // handle the case where boost::any_cast<int>(value) fails
-                continue;
+                // handle the exception
+                return result;
             }
         }
     }
