@@ -12,13 +12,12 @@ def max_fill(grid, capacity):
             else:
                 total_water += capacity
                 right -= 1
-            if right > 0 and min_height_left <= min_height_right:
+            if right > left and min_height_left <= min_height_right:
                 min_height_left = grid[i][left]
                 min_height_right = grid[i][right]
-            elif left < len(grid[0]) - 1 and min_height_left >= min_height_right:
+            elif min_height_left < min_height_right:
                 min_height_left = grid[i][left + 1]
-                min_height_right = grid[i][right]
-            else:
-                min_height_left = grid[i][left]
                 min_height_right = grid[i][right - 1]
+        if right > left and min_height_left <= min_height_right:
+            total_water += capacity * (right - left)
     return total_water
