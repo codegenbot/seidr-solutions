@@ -11,7 +11,7 @@ std::string solve(std::string s) {
         }
     }
     if (!any(isalpha, s.begin(), s.end())) {
-        reverse(result.begin(), result.end());
+        std::reverse(result.begin(), result.end());
     }
     return result;
 }
