@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <iostream>
 
@@ -24,7 +23,7 @@ int main() {
         if (x != 1)
             std::cerr << "Error: Division by zero is not allowed." << std::endl;
         else
-            std::cout << "True" << std::endl;
+            std::cout << x << std::endl; 
     } 
     else {
         double y = pow(n, log(x) / log(n));
