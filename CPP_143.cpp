@@ -1,5 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
 std::string words_in_sentence(std::string sentence){
     std::vector<std::string> words = split(sentence, ' ');
@@ -37,3 +38,4 @@ std::vector<std::string> split(std::string sentence, char c) {
         words.push_back(word);
     }
     return words;
+}
