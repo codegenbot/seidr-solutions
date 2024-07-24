@@ -1,56 +1,37 @@
-Here is the completed code:
+```cpp
+#include <vector>
+using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n, false));
-    
+    vector<vector<int>> dp(n, vector<int>(n));
     for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
+        dp[i][i] = 0;
     }
-    
     for (int len = 2; len <= n; len++) {
-        for (int i = 0; i < n - len + 1; i++) {
+        for (int i = 0; i <= n - len; i++) {
             int j = i + len - 1;
-            
             if (arr[i] == arr[j]) {
-                dp[i][j] = true;
+                dp[i][j] = dp[i + 1][j - 1];
             } else {
-                dp[i][j] = false;
-                
-                for (int k = i; k < j; k++) {
-                    if (dp[i][k] && dp[k + 1][j]) {
-                        dp[i][j] = true;
-                        break;
-                    }
-                }
+                dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j - 1]);
             }
         }
     }
-    
-    int count = 0;
-    bool is_palindrome = false;
-    
-    for (int i = 0; i < n - 1; i++) {
-        if (!dp[0][i]) {
-            is_palindrome = true;
-            break;
-        }
+    return dp[0][n - 1];
+}
+
+int main() {
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> num;
+        arr.push_back(num);
     }
-    
-    if (!is_palindrome) {
-        int left = 0, right = n - 1;
-        
-        while (left < right) {
-            if (arr[left] != arr[right]) {
-                count++;
-                left++;
-                right--;
-            } else {
-                left++;
-                right--;
-            }
-        }
-    }
-    
-    return is_palindrome ? 0 : count;
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    return 0;
 }
