@@ -10,7 +10,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
             has_zero = True
         else:
             product_value *= number
-
+    
     return sum_value, 0 if has_zero else product_value
 
 numbers = list(map(int, input().split()))
