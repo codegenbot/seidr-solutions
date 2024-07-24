@@ -1,3 +1,10 @@
+```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     size_t start = 0;
@@ -12,14 +19,17 @@ string spinWords(string str) {
         
         if (word.length() >= 5)
             reverse(word.begin(), word.end());
-        else
-            result += word + " "; // keep the space if word length is less than 5
-
-        result += word + " ";
+        
+        result += word;
+        
+        if (start < end) {
+            result += " ";
+        }
+        
         start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1); // remove trailing space
+    return result;
 }
 
 int main() {
