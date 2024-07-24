@@ -1,20 +1,20 @@
-Here is the solution:
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
-    result = []
+    indices = []
     i = 0
-    while i <= len(text) - len(target):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-            i += 1
-        else:
-            i += 1
-    return result
+    while True:
+        pos = text.find(target, i)
+        if pos == -1:
+            break
+        indices.append(pos + 1)
+        i = pos + 1
+    return indices
+
 
 a = int(input())
 b = int(input())
