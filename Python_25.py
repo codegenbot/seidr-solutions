@@ -33,7 +33,6 @@ def main():
                 print("Invalid input. Please enter an integer.")
         except (ValueError, Exception) as e:
             print("Program did not receive expected input")
-
-
+        
 if __name__ == "__main__":
     main()
