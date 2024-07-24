@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -18,4 +17,3 @@ int main() {
     float odd_sum = double_the_difference(myVector); 
     assert(odd_sum == double_the_difference(myVector)); 
     return 0;
-}
