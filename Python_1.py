@@ -1,19 +1,16 @@
+Here is the solution:
+
 ```
+from typing import List
+import re
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    stack = []
-    groups = ""
-    
-    for c in paren_string:
-        if c == " ":
-            continue
-        if c == "(":
-            stack.append(c)
-            groups += c
-        elif c == ")":
-            stack.pop()
-            if not stack:
-                result.append(groups + c)
-                groups = ""
-
+    while len(paren_string) > 0:
+        match = re.match(r'\(([^()]+)\)', paren_string)
+        if match:
+            result.append(match.group(1))
+            paren_string = paren_string[match.end():]
+        else:
+            break
     return result
