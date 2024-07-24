@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -13,21 +14,10 @@ long long double_the_difference(std::vector<float> lst){
     return sum;
 }
 
-int main() {
-    std::vector<float> myVector; // input vector
-    float odd_sum = 0.0f;
-
-    int size;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> size;
-
-    myVector.resize(size);
-
-    for (int i = 0; i < size; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> myVector[i];
-    }
-
+int mainFunction() {
+    std::vector<float> myVector; 
+    float odd_sum; // declare and define here
+    myVector = {1.5f, 2.7f, 3.8f}; // your vector here
     odd_sum = double_the_difference(myVector); 
     assert(double_the_difference(myVector) == odd_sum);
     return 0;
