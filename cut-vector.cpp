@@ -4,7 +4,12 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (true) {
+        std::cin.clear();
+        std::cin >> n;
+        if (std::cin.eof()) {
+            break;
+        }
         nums.push_back(n);
     }
 
