@@ -8,9 +8,13 @@ int main() {
     vector<int> nums;
     int num;
 
-    int temp;
-    while (cin >> temp) {
-        nums.push_back(temp);
+    char temp;
+    while (cin.get(temp) && temp != '\n') {
+        if (temp != ' ') {
+            cin.putback(temp);
+            cin >> num;
+            nums.push_back(num);
+        }
     }
 
     if (nums.empty()) {
