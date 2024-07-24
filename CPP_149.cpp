@@ -33,7 +33,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         std::sort(vec.begin(), vec.end());
     }
 
-    return {lst[0][i]}; 
+    return lst[0]; 
 }
 
 int main(int argc, char** argv) {

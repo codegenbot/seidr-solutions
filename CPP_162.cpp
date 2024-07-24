@@ -1,27 +1,21 @@
 ```cpp
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <openssl/err.h>
-#include <openssl/md5.h>
-#pragma comment(lib, "libcrypto.lib")
-
-using namespace std;
-
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md[16];
     stringstream ss;
 
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(md, &ctx);
-
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)md[i];
+    EVP_MD_CTX ctx;
+    EVP_MD *md_algorithm = EVP_md5();
+    EVP_DigestInit(&ctx, md_algorithm);
+    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
+    unsigned char *digest = EVP_DigestFinal(&ctx, NULL, NULL);
+    if (digest != NULL) {
+        for (int i = 0; i < 16; ++i) {
+            ss << setfill('0') << setw(2) << hex << (int)digest[i];
+        }
     }
-
+    OPENSSL_free(digest);
+    ss.seekp(0); // Fix the issue
     return ss.str();
 }
