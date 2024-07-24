@@ -39,6 +39,6 @@ int main() {
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets = {planet1, planet2};
-    assert(bf(planets).size() == 0);  
+    assert(bf(std::make_pair("Jupiter", "Makemake")).size() == 0);
     return 0;
 }
