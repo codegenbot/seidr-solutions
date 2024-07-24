@@ -2,5 +2,8 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    unique_numbers = [i for i in set(numbers)]
-    return sorted([i for i in unique_numbers if numbers.count(i) > 0])
+    counts = {}
+    for num in set(numbers):
+        counts[num] = 1 if numbers.count(num) > 0 else 0
+
+    return [num for num, count in counts.items() if count > 0]
