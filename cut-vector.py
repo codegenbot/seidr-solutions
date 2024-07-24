@@ -1,15 +1,18 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
+total_sum = sum(v)
+half_sum = total_sum // 2
+curr_sum = 0
+idx = 0
 
-total_sum = sum(arr)
-left_sum = 0
-index = 0
-
-for i, num in enumerate(arr):
-    left_sum += num
-    if left_sum >= total_sum - left_sum:
-        index = i
+for i, num in enumerate(v):
+    curr_sum += num
+    if curr_sum >= half_sum:
+        idx = i
         break
 
-print(*arr[: index + 1])
-print(*arr[index + 1 :])
+if abs(curr_sum - half_sum) < abs(curr_sum - num - half_sum):
+    idx += 1
+
+print(*v[: idx + 1])
+print(*v[idx + 1 :])
