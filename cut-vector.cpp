@@ -1,64 +1,26 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    vector<vector<int>> result;
-    int minDiff = INT_MAX;
-    int index = -1;
-    
-    for(int i = 0; i < vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for(int j = 0; j <= i; j++) {
-            leftSum += vec[j];
-        }
-        
-        for(int k = i + 1; k < vec.size(); k++) {
-            rightSum += vec[k];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if(diff == minDiff) {
-            index = i;
-        } else if(diff < minDiff) {
-            minDiff = diff;
-            index = i;
-        }
-    }
-    
-    vector<int> leftVec;
-    for(int i = 0; i <= index; i++) {
-        leftVec.push_back(vec[i]);
-    }
-    result.push_back(leftVec);
-    
-    vector<int> rightVec;
-    for(int i = index + 1; i < vec.size(); i++) {
-        rightVec.push_back(vec[i]);
-    }
-    result.push_back(rightVec);
-    
-    return result;
-}
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
 
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
-    
-    vector<vector<int>> res = cutVector(vec);
-    
-    for(auto v : res) {
-        for(auto num : v) {
-            cout << num;
+    for (int i = 0; i < v.size(); ++i) {
+        int left_sum = accumulate(v.begin(), v.begin() + i, 0);
+        int right_sum = accumulate(v.begin() + i + 1, v.end(), 0);
+
+        if (left_sum == right_sum) {
+            return {{v[0], v[0]}, v.substr(1)};
         }
-        cout << endl;
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
+        }
     }
-    
-    return 0;
+
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
+    return {left, right};
 }
