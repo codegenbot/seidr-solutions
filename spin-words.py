@@ -3,7 +3,7 @@ def spin_words(input_string):
     result = []
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1])
+            result.append(word[::-1].capitalize())
         else:
             result.append(word)
-    return " ".join(result).strip() if result else input_string
+    return " ".join(result)
