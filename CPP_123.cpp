@@ -1,7 +1,15 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> get_odd_collatz(int n) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> getOddCollatz(int n) {
     std::vector<int> res;
     while (n > 1) {
         if (n % 2 != 0) {
@@ -16,7 +24,7 @@ int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
-    std::vector<int> res = get_odd_collatz(n);
+    std::vector<int> res = getOddCollatz(n);
     for (int i : res) {
         std::cout << i << " ";
     }
