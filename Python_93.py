@@ -1,7 +1,7 @@
-def encode(message):
+def caesar_cipher(message):
     result = ""
     for char in message:
-        if char.isalnum():
+        if char.isalpha():
             if char.isupper():
                 result += chr((ord(char) - 65 + 3) % 26 + 65)
             else:
@@ -9,3 +9,6 @@ def encode(message):
         else:
             result += char
     return result
+
+message = input("Enter your message: ")
+print(caesar_cipher(message))
