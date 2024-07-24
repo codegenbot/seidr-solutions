@@ -10,7 +10,7 @@ vector<int> eat(int number, int need, int remaining) {
     return result;
 }
 
-int main() 
+int mainFunction() 
 {
     int number, need, remaining;
     cout << "Enter the number of carrots you have eaten: ";
