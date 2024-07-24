@@ -5,14 +5,15 @@
 #include <numeric>
 
 int main() {
-    std::vector<int> nums;
-    int num;
+    int n;
+    std::cin >> n;
     
-    while(std::cin >> num && num != -1 && !std::cin.eof()) {
-        nums.push_back(num);
+    std::vector<int> nums(n);
+    
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
     
-    int n = nums.size();
     int cutIndex = 0;
     int minDiff = std::numeric_limits<int>::max();
 
