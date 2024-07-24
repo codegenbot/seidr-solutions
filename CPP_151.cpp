@@ -1,5 +1,6 @@
-#include <vector>
+#include <iostream>
 #include <cmath>
+#include <vector>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -14,21 +15,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; 
-    int n;
-    float val;
-
-    std::cout << "Enter the number of elements in the vector: ";
-    std::cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> val;
-        lst.push_back(val);
-    }
-
-    long long result = double_the_difference(lst); 
-    std::cout << "Sum of squares of odd integers is: " << result << std::endl;
-
+    std::vector<float> lst = {1, 3, 4};
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
