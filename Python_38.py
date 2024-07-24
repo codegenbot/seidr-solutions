@@ -7,9 +7,6 @@ def decode_cyclic():
 
     n = len(s)
 
-    if n < 2:
-        return s
-
     result = set()
     for i in range(n):
         rotated = s[i:] + s[:i]
@@ -18,6 +15,7 @@ def decode_cyclic():
         if i < n:
             result.add(rotated)
 
-    rotations = {s[i:] + s[:i] for i in range(n)}
-    min_len = min(len(k) for k in rotations if k in result)
-    return s[min_len:]
+    return min(result, key=len)
+
+
+print(decode_cyclic())
