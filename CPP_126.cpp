@@ -3,7 +3,7 @@ bool is_sorted(vector<int> lst) {
         if (lst[i] >= lst[i - 1]) {
             continue;
         } else {
-            cout << "The input list is not sorted." << endl;
+            cout << "Error: The list is not sorted." << endl;
             return false;
         }
     }
