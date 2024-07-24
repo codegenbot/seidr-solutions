@@ -3,10 +3,9 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i, coin in enumerate(sorted(coins, reverse=True)):
-        count = cents // coin
-        if count > 0:
-            result[i] += count
-            cents -= count * coin
+        count = min((cents + coin - 1) // coin, (result[i] + 1))
+        cents -= count * coin
+        result[i] += count
 
     return result
 
