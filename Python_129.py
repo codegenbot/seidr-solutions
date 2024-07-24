@@ -1,3 +1,4 @@
+````
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -46,9 +47,7 @@ def main():
                 row = list(
                     map(
                         int,
-                        input(
-                            f"Enter the numbers in a row separated by space: "
-                        ).split(),
+                        input(f"Enter the numbers in a row separated by space: ").split(),
                     )
                 )
                 if len(row) != n:
@@ -65,6 +64,3 @@ def main():
         print(minPathSum(grid))
     else:
         print("Program did not receive expected input")
-
-
-main()
