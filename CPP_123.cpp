@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -17,7 +19,7 @@ vector<int> get_odd_collatz(int n) {
     vector<int> res; 
     res.push_back(n); 
     while (n > 1 || n == 4) {
-        if (n % 2 != 0) {
+        if (n % 2 != 0 && n != 4) {
             res.push_back(n);
         }
         if (n == 4) {
