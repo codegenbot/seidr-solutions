@@ -2,11 +2,9 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-string words_in_sentence(string sentence){
-    vector<string> words = split(sentence, ' ');
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::vector<std::string> words = split(sentence, ' ');
+    std::string result = "";
     for (int i = 0; i < words.size(); i++) {
         if (is_prime(words[i].length())) {
             result += words[i] + " ";
@@ -23,9 +21,9 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(string sentence, char c) {
-    vector<string> words;
-    string word = "";
+std::vector<std::string> split(std::string sentence, char c) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (char ch : sentence) {
         if (ch != c) {
             word += ch;
@@ -40,3 +38,4 @@ vector<string> split(string sentence, char c) {
         words.push_back(word);
     }
     return words;
+}
