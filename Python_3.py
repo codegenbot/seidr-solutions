@@ -2,39 +2,28 @@ from typing import List
 
 
 def below_zero() -> None:
+    balance = 0
     while True:
-        operations = []
-        while True:
-            try:
-                ops = input(
-                    "Enter a list of integers (space separated) or 'end' to finish: "
-                )
-                if ops.lower() == "end":
-                    break
-                operations = [int(op) for op in ops.split()]
+        try:
+            ops = input(
+                "Enter a list of integers (space separated) or 'end' to finish: "
+            )
+            if ops.lower() == "end":
                 break
-            except ValueError:
-                print("Error: Invalid input. Please enter a list of integers.")
+            operations = [int(op) for op in ops.split()]
+        except ValueError:
+            print("Error: Invalid input. Please enter a list of integers.")
 
         if not all(isinstance(op, int) for op in operations):
             print("Error: Invalid input. Please enter a list of integers.")
-            continue
+            return
 
-        balance = 0
-        below_zero_found = False
         for operation in operations:
             balance += operation
             if balance < 0:
                 print(f"Below zero at {balance}.")
-                below_zero_found = True
-                break
+                return
 
-        if not below_zero_found:
-            print(f"No below zero at {balance}.")
+        print(f"No below zero at {balance}.")
 
-        cont = input("Continue? (yes/no): ")
-        if cont.lower() != "yes":
-            return
-
-
-below_zero()
+    below_zero()
