@@ -3,7 +3,6 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -20,7 +19,7 @@ multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    map<char, int> maxCountMap;
+    multimap<char, int> maxCountMap;
 
     for (auto& p : result) {
         if (p.second > maxCount) {
@@ -48,6 +47,6 @@ int main1() {
 }
 
 int main2() {
-    assert(histogram("a") == multimap<char,int>{{'a', 1}});
+    assert(histogram("a").size() == 1 && *histogram("a").begin()->second == 1);
     return 0;
 }
