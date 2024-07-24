@@ -4,9 +4,12 @@
 using namespace std;
 
 double solve(int n, int m) {
-    double total = 0.0;
+    double total = 0;
     for (int i = 1; i <= n; i++) {
-        total += 1.0 - (i * 1.0 / n);
+        for (int j = 1; j < i; j++) {
+            if(j <= m) continue;
+            total += 1.0 / (n * m);
+        }
     }
     return total;
 }
