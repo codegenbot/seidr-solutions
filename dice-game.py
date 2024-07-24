@@ -1,7 +1,2 @@
-Here is the solution:
-
-n = int(input())
-m = int(input())
-
-prob = (n - 1) / (n * m - n)
-print(prob)
+def roll_higher(n, m):
+    return 1 - (n + m - 2) / (n * m)
