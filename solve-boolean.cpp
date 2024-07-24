@@ -1,48 +1,34 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-bool solveBoolean(string expression) {
-    if(expression == "T") return true;
-    if(expression == "F") return false;
-
-    for(int i = 0; i < expression.length(); i++) {
-        if(expression[i] == '|') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-
-            bool leftResult = solveBoolean(left);
-            bool rightResult = solveBoolean(right);
-
-            return leftResult || rightResult;
+bool solveBoolean(string input) {
+    stack<char> s;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            if (s.empty()) {
+                return false;
+            }
+            s.pop();
+        } else if (input[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if (s.empty()) {
+                return true;
+            }
+            s.pop();
+        } else if (input[i] != ' ') {
+            s.push(input[i]);
         }
     }
-
-    for(int i = 0; i < expression.length(); i++) {
-        if(expression[i] == '&') {
-            string left = expression.substr(0, i);
-            string right = expression.substr(i + 1);
-
-            bool leftResult = solveBoolean(left);
-            bool rightResult = solveBoolean(right);
-
-            return leftResult && rightResult;
+    while (!s.empty()) {
+        if (s.top() == '&') {
+            return false;
         }
+        if (s.top() == '|') {
+            return true;
+        }
+        s.pop();
     }
-
-    return false; // default to False if no operator found
-}
-
-int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
-
-    if(solveBoolean(expression)) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-
-    return 0;
+    return s.size() > 0 && s.top() == 'T';
 }
