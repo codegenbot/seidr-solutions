@@ -1,28 +1,22 @@
-int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
+int getHint(string guess, string solution) {
+    int blackPegs = 0;
+    int whitePegs = 0;
 
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            code[i] = '-';
-            guess[i] = '-';
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] == solution[i]) {
+            ++blackPegs;
         }
     }
 
-    // Count remaining correct colors at wrong positions
-    map<char, int> codeCount;
-    for (int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] != '-' && codeCount[guess[i]] > 0) {
-            white++;
-            codeCount[guess[i]]--;
+    for (char c : guess) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == solution[i] && guess[i] != solution[i]) {
+                ++count;
+            }
         }
+        whitePegs += count;
     }
 
-    return black + white;
+    return {blackPegs, whitePegs};
 }
