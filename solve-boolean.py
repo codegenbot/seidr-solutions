@@ -1,20 +1,19 @@
-Here is the completed code:
-
-def solveBoolean(expression):
-    if expression == 'T':
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        operands = expression.split('&')
-        return all(solveBoolean(op) for op in operands)
-    elif '|' in expression:
-        operands = expression.split('|')
-        return any(solveBoolean(op) for op in operands)
-
-# test cases
-print(solveBoolean('t'))  # True
-print(solveBoolean('f'))  # False
-print(solveBoolean('f&f'))  # False
-print(solveBoolean('f&t'))  # False
-print(solveBoolean('t&f'))  # False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char == "&":
+                a, b = stack.pop(), stack.pop()
+                stack.append(a and b)
+            elif char == "|":
+                a, b = stack.pop(), stack.pop()
+                stack.append(a or b)
+            else:
+                stack.append(char == "T")
+        return stack[0]
