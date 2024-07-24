@@ -1,51 +1,38 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
-    int minDiff = INT_MAX;
-    int splitIndex = -1;
+    vector<vector<int>> result;
     
-    for (int i = 0; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; ++j)
-            leftSum += vec[j];
-        for (int j = i; j < n; ++j)
-            rightSum += vec[j];
-        
-        if (leftSum == rightSum) {
-            return {{vec[0], vec[1]}, vec.substr(2)};
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    for (int i = 1; i <= n; i++) {
+        if (vec[i-1] == vec[n-i]) {
+            result.push_back({vec.begin(), vec.end()});
+            return {{}, {}}; // or any other way you want to handle the case where both sides are equal
         }
     }
     
-    vector<int> left, right;
-    for (int i = 0; i < splitIndex; ++i)
-        left.push_back(vec[i]);
-    for (int i = splitIndex; i < n; ++i)
-        right.push_back(vec[i]);
+    int minDiff = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        int diff = abs(vec[i] - vec[n-i-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            result = {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
+        }
+    }
     
-    return {left, right};
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
-    for (int &x : vec) cin >> x;
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "{";
-    for (int i = 0; i < result.first.size(); ++i)
-        cout << result.first[i] << " ";
-    cout << "}, {";
-    for (int i = 0; i < result.second.size(); ++i)
-        cout << result.second[i] << " ";
-    cout << "0}" << endl;
+    for (auto& x : vec) cin >> x;
+    auto res = cutVector(vec);
+    for (const auto& v : res) {
+        for (auto x : v) cout << x << " ";
+        cout << endl;
+    }
     return 0;
 }
