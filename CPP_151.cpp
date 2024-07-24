@@ -21,12 +21,7 @@ int main() {
         lst.push_back(x);
     }
 
-    long long odd_sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) {
-            odd_sum += pow(num, 2);
-        }
-    }
+    long long odd_sum = 0; 
     assert(double_the_difference(lst) == odd_sum);
 
     return 0;
