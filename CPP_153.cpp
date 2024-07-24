@@ -1,21 +1,26 @@
-string Strongest_Extension(string class_name,vector<string> extensions){
-    int strongest = -1;
-    string strongest_ext;
+Here is the completed code:
 
-    for(auto ext : extensions){
-        int cap = 0;
-        int sm = 0;
+int Strongest_Extension(string class_name,vector<string> extensions){
+    int max_strength = -1e9;
+    string strongest_extension;
 
-        for(char c : ext){
-            if(isupper(c)) cap++;
-            else if(islower(c)) sm++;
+    for (const auto& extension : extensions) {
+        int upper_count = 0;
+        int lower_count = 0;
+        
+        for (char c : extension) {
+            if (::isupper(c)) {
+                upper_count++;
+            } else if (::islower(c)) {
+                lower_count++;
+            }
         }
 
-        if(cap - sm > strongest){
-            strongest = cap - sm;
-            strongest_ext = ext;
+        if ((int)(extension.size() - (long long)lower_count) > max_strength) {
+            max_strength = extension.size() - lower_count;
+            strongest_extension = extension;
         }
     }
 
-    return class_name + "." + strongest_ext;
+    return class_name + "." + strongest_extension;
 }
