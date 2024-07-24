@@ -1,14 +1,21 @@
-```cpp
+#include <string>
+#include <algorithm>
+#include <variant>
+#include <any>
+
+std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b);
+
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
-    return std::visit([](auto&& a, auto&& b) {
-        if (auto str_a = std::any_cast<std::string>(a); auto str_b = std::any_cast<std::string>(b)) {
-            return (str_a > str_b) ? str_a : str_b;
-        } else if (auto int_a = std::any_cast<int>(a); auto int_b = std::any_cast<int>(b)) {
-            return std::to_string(std::max(int_a, int_b));
-        } else if (auto float_a = std::any_cast<float>(a); auto float_b = std::any_cast<float>(b)) {
-            return std::to_string(std::max(float_a, float_b));
+    using namespace std;
+    return visit([](auto&& a, auto&& b) -> variant<string, int, float> {
+        if (any_cast<string>(a) > any_cast<string>(b)) {
+            return any_cast<string>(a);
+        } else if (any_cast<int>(a) > any_cast<int>(b)) {
+            return to_string(max(any_cast<int>(a), any_cast<int>(b)));
+        } else if (any_cast<float>(a) > any_cast<float>(b)) {
+            return to_string(max(any_cast<float>(a), any_cast<float>(b)));
         } else {
-            return 0;
+            return "0";
         }
     }, a, b);
 }
