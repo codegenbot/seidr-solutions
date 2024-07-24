@@ -1,42 +1,36 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
+Here is the solution:
 
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
+    vector<char> temp(s.begin(), s.end());
+    for (char& c1 : c) {
+        auto it = find(temp.begin(), temp.end(), c1);
+        while (it != temp.end()) {
+            temp.erase(it);
+            break;
         }
     }
-    result.push_back(temp);
-    
-    string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
-    
-    result.push_back((temp == revTemp) ? "True" : "False");
-    
-    return result;
+    string result = "";
+    for (char c1 : temp) {
+        result += c1;
+    }
+    vector<string> res;
+    res.push_back(result);
+    if (is_palindrome(result)) {
+        res.push_back("True");
+    } else {
+        res.push_back("False");
+    }
+    return res;
 }
 
-int main() {
-    string s, c;
-    cout << "Enter the first string: ";
-    cin >> s;
-    cout << "Enter the second string: ";
-    cin >> c;
-    vector<string> res = reverse_delete(s, c);
-    cout << "Result: " << res[0] << ", " << res[1] << endl;
-    return 0;
+bool is_palindrome(string s) {
+    int start = 0, end = s.length() - 1;
+    while (start < end) {
+        if (s[start] != s[end]) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
 }
