@@ -1,4 +1,7 @@
-```cpp
 double diceGame(int n, int m) {
-    return (double)(n - 1) / (n * m);
+    double total = 0.0;
+    for (int i = 1; i < n && i <= m; ++i) {
+        total += 1.0 / m;
+    }
+    return total;
 }
