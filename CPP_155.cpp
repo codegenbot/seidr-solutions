@@ -1,10 +1,10 @@
 #include <vector>
 #include <cassert>
 
-vector<int> countEvenOddDigits(int num){
+vector<int> count_even_odd_digits(int num){ 
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
-    
+
     for(char c : numStr){
         if((c - '0') % 2 == 0){
             counts[0]++;
@@ -12,6 +12,6 @@ vector<int> countEvenOddDigits(int num){
             counts[1]++;
         }
     }
-    
+
     return counts;
 }
