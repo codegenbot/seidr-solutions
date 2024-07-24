@@ -14,7 +14,7 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+int solve() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
