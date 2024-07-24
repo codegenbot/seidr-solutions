@@ -1,3 +1,4 @@
+```python
 def decode_cyclic(s: str):
     result = ''
     for i, char in enumerate(s):
