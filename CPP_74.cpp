@@ -10,15 +10,7 @@ int count_chars(const vector<string>& lst) {
 }
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return count_chars(a) == count_chars(b);
 }
 
 vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
