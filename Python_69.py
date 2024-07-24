@@ -1,12 +1,12 @@
 ```
 def search(lst):
-    freq = {}
+    frequency = {}
     for num in lst:
-        if num in freq:
-            freq[num] += 1
+        if num in frequency:
+            frequency[num] += 1
         else:
-            freq[num] = 1
-    for num, count in freq.items():
-        if num > 0 and count >= num:
-            return num
+            frequency[num] = 1
+    for key, value in frequency.items():
+        if value >= key and key > 0:
+            return key
     return -1
