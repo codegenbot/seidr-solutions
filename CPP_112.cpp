@@ -1,11 +1,21 @@
-```c++
+#include <vector>
 #include <algorithm>
 #include <cassert>
-#include <vector>
-#include <string>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string result = "";
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+vector<string> reverse_delete(string s, string c) {
+    string result = "";
     for (char c_s : s) {
         bool found = false;
         for (char c_c : c) {
@@ -18,24 +28,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             result += c_s;
         }
     }
-    std::string temp = result;
-    std::reverse(temp.begin(), temp.end());
-    std::vector<std::string> res;
+    string temp = result;
+    reverse(temp.begin(), temp.end());
+    vector<string> res;
     res.push_back(result);
-    if (result == temp) {
+    if (issame(initials(0), initials(1))) 
+    {
         res.push_back("True");
     } else {
         res.push_back("False");
     }
     return res;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
 }
