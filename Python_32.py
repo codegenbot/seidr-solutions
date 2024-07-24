@@ -6,5 +6,6 @@ def find_zero(xs: list):
 
 user_input = input("Enter a list of numbers separated by spaces: ")
 input_list = [float(x) for x in user_input.split()]
+
 result = find_zero(input_list)
 print(result)
