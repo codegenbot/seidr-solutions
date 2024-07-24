@@ -1,4 +1,8 @@
+#include <vector>
 #include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
