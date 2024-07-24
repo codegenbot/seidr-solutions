@@ -1,6 +1,8 @@
-def fruit_distribution(s, n):
-    s = s.replace("apples", "apple").replace("oranges", "orange")
-    words = s.split()
-    apples = int(words[2])
-    oranges = int(words[6])
-    return n - apples - oranges
+```
+total_apple = s.count("apple")
+total_orange = s.count("orange")
+total_fruit = (total_apple + total_orange) / 2
+if total_fruit < 1:
+    return max(total_apple, total_orange)
+else:
+    return n - total_fruit
