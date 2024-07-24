@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    string tweet = "";
+    string tweet = " ";
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     if (tweet.length() > 140) {
