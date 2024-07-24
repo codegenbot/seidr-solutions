@@ -1,41 +1,39 @@
-int score(string input) {
-    int total = 0;
+int calculateBowlingScore(const string& bowls) {
+    int score = 0;
     int frame = 1;
     int ball = 0;
-    int rolls[22];
+    vector<int> frames(10, 0);
 
-    for (char c : input) {
+    for (char c : bowls) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
+            frames[frame-1] = 10;
             frame++;
         } else if (c == '/') {
-            rolls[ball - 1] = 10 - rolls[ball - 2];
+            frames[frame-1] = 10 - frames[frame-2];
+            frame++;
+            ball = 0;
         } else if (c == '-') {
-            rolls[ball++] = 0;
+            ball++;
         } else {
-            rolls[ball++] = c - '0';
+            frames[frame-1] += c - '0';
+            ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+            }
         }
     }
 
-    for (int i = 0; i < 20; i += 2) {
-        if (rolls[i] == 10) {
-            total += 10 + rolls[i + 2] + rolls[i + 4];
-        } else if (rolls[i] + rolls[i + 1] == 10) {
-            total += 10 + rolls[i + 2];
-        } else {
-            total += rolls[i] + rolls[i + 1];
-        }
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
     }
 
-    return total;
+    return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
     return 0;
 }
