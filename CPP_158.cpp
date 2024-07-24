@@ -1,17 +1,17 @@
-```
-using namespace std;
+#include <vector>
+#include <string>
 
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
+std::string find_max(std::vector<std::string> words) {
+    std::string max_word = *max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
                 return a < b;
             }
             return a.length() > b.length();
         });
-    for (string word : words) {
+    for (std::string word : words) {
         if (word.length() == max_word.length() && 
-            count(word.begin(), word.end(), '#') > 0) {
+            std::count(word.begin(), word.end(), '#') > 0) {
             max_word = word;
             break;
         }
