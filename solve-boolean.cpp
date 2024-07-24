@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <stack>
 #include <string>
 
@@ -37,13 +37,12 @@ bool solveBoolean(string booleanExpression) {
 
 int main() {
     string booleanExpression;
-    cout << "Enter Boolean expression: ";
-    cin >> booleanExpression;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, booleanExpression);
     bool result = solveBoolean(booleanExpression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    if(result)
+        cout << "The result is TRUE." << endl;
+    else
+        cout << "The result is FALSE." << endl;
     return 0;
 }
