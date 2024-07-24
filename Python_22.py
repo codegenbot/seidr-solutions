@@ -9,13 +9,14 @@ def main():
         value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == "stop":
             break
-        try:
-            value = int(value)
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-            continue
-        values.append(int(value))
-
+        while True:
+            try:
+                values.append(int(input()))
+                break
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid integer or type 'stop' to finish."
+                )
     filtered_values = filter_integers(values)
 
     print(filtered_values)
