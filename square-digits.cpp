@@ -1,3 +1,4 @@
+```c
 string squareDigits(string input) {
     string result;
     for (char c : input) {
@@ -5,3 +6,4 @@ string squareDigits(string input) {
         result += to_string(digit * digit);
     }
     return result;
+}
