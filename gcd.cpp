@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -37,7 +38,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore(); 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // to consume the newline character
 
     string text, target;
     getline(cin, text);
