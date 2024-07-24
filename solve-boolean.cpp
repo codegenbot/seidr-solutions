@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
 bool evalBoolean(string s) {
     if (s.empty())
@@ -10,7 +10,10 @@ bool evalBoolean(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr = s.substr(0, j);
+    string opStr;
+    for (int i = 0; i < j; i++) {
+        opStr += s[i];
+    }
     bool result = false;
     if (opStr[0] == '|') {
         for (int i = 0; i < j; i++) {
@@ -44,7 +47,10 @@ bool evalOp(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr = s.substr(0, j);
+    string opStr;
+    for (int i = 0; i < j; i++) {
+        opStr += s[i];
+    }
     bool left = false;
     if (opStr[0] == '|') {
         for (int i = 0; i < j; i++) {
@@ -70,13 +76,13 @@ bool evalOp(string s) {
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> s;
+    string s;
+    cout << "Enter a Boolean expression: ";
+    cin >> s;
     bool result = evalOp(s);
     if (result)
-        std::cout << "True";
+        cout << "True";
     else
-        std::cout << "False";
+        cout << "False";
     return 0;
 }
