@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -23,13 +24,13 @@ bool solveBoolean(string expression) {
         }
     }
     
-    result = s.top() == 'T'; 
+    result = (s.top() == 'T'); 
     return result;
 }
 
 int main() {
     string expression;
     cin >> expression;
-    cout << (solveBoolean(expression) ? "True" : "False") << endl;
+    cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
 }
