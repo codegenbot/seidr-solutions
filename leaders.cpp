@@ -3,9 +3,9 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1};
-    vector<int> leadersVector = leaders(arr);
-    for(int leader : leadersVector) {
+    vector<int> arr = {1, 3, 4, 2, 3}; // Example input
+    vector<int> result = leaders(arr);
+    for (int leader : result) {
         cout << leader << " ";
     }
     return 0;
