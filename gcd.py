@@ -1,32 +1,24 @@
 ```
-while True:
-    try:
-        a = int(input())
-        b = int(input())
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers.")
-
+print("Here is the solution:")
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-print(gcd(a, b))
-
-text = input()
-target = input()
-
 def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            start = i
-            while True:
-                result.append(start)
-                start += len(target)
-                if text[start:] != target:
-                    break
-    return result
+    indices = []
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            indices.append(pos)
+            start = pos + 1
+        else:
+            break
+    return indices
 
-print(indices_of_substring(text, target))
+print(gcd(1, 1))
+print(gcd(4, 4000000))
+print(gcd(54, 24))
+print(gcd(4200, 3528))
+print(gcd(820000, 63550))
