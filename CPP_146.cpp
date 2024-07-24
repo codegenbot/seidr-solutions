@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -16,12 +16,17 @@ int judgeMain() {
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    input.resize(n);
+    if (!(std::cin >> n)) {
+        std::cerr << "Invalid input for number of elements." << std::endl;
+        return 1; 
+    }
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        std::cin >> num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        if (!(std::cin >> num)) {
+            std::cerr << "Invalid input for element." << std::endl;
+            return 1; 
+        }
         input.push_back(num);
     }
     int result = specialFilter(input);
