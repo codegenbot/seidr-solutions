@@ -5,7 +5,7 @@ def shopping_list():
     discounts = list(map(float, input().split()))
 
     total_price = sum(price * (1 - discount / 100.0) for price, discount in zip(prices, discounts))
-
+    
     return "{:.2f}".format(total_price)
 
 if __name__ == '__main__':
