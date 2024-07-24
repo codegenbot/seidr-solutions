@@ -14,11 +14,6 @@ vector<std::vector<int>> common(std::vector<int> l1, std::vector<int> l2) {
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
         inserter(intersection, intersection.begin()));
 
-    vector<std::vector<int>> result;
-    for (int i : intersection) {
-        if (issame({i}, l1) && issame({i}, l2)) {
-            result.push_back({i});
-        }
-    }
+    vector<std::vector<int>> result({intersection});
     return result;
 }
