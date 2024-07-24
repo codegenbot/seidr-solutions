@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <initializer_list>
 #include <iostream>
 
 using namespace std;
@@ -23,20 +24,16 @@ bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
     return true;
 }
 
-int main() {
+int main()
+{
     int n;
     cout << "Enter the number: ";
     cin >> n;
     vector<vector<int>> pile1 = make_a_pile(n);
-    
-    {  
-        for (const auto& row : pile1) {
-            for (int val : row) {
-                cout << val << " ";
-            }
-            cout << endl;
-        }  
-    }  
-
-    return 0;  
+    for (const auto& row : pile1) {
+        for (int val : row) {
+            cout << val << " ";
+        }
+        cout << endl;
+    }
 }
