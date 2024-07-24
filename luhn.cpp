@@ -1,10 +1,16 @@
+```c++
 #include <vector>
 using namespace std;
 
 int main() {
+    vector<int> cardNumber = { ... }; // replace with the card number you want to check
+    int sum = luhnCheck(cardNumber);
+    cout << "Luhn Check: " << (sum % 10 == 0 ? "Valid" : "Invalid") << endl;
+}
+
+int luhnCheck(vector<int> cardNumber) {
     int sum = 0;
     bool alternate = false;
-    vector<int> cardNumber = {4,3,2,1,2,1,3,4,2,8};
     for (int i = cardNumber.size() - 1; i >= 0; --i) {
         int digit = cardNumber[i];
         if (alternate) {
@@ -16,5 +22,5 @@ int main() {
         sum += digit;
         alternate = !alternate;
     }
-    return sum;
+    return sum % 10;
 }
