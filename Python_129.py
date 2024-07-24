@@ -6,6 +6,9 @@ def minPath(grid, k):
         path.append(grid[i][j])
         if steps == k:
             return path
+        
+        if steps > k:
+            return None
 
         neighbors = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
         neighbors = [
@@ -19,10 +22,13 @@ def minPath(grid, k):
             if res is not None:
                 return res
 
+        return None
+
     for i in range(N):
         for j in range(N):
             res = dfs(i, j, set(), [], 1)
             if res is not None:
                 return res
-    
     return None
+
+print(minPath([[1, 3], [3, 2]], 10))  # Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
