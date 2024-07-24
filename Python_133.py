@@ -1,6 +1,4 @@
-def sum_squares(numbers):
-    return sum([n**2 for n in numbers])
-
+```
 while True:
     numbers = input("Enter numbers separated by space: ").split()
     while not all(map(lambda x: isinstance(int(x), int), numbers)):
@@ -9,3 +7,6 @@ while True:
 
     total_sum_of_squares = sum_squares(list(map(int, numbers)))
     print(f"The sum of squares is {total_sum_of_squares}")
+
+def sum_squares(numbers):
+    return sum([n ** 2 for n in numbers])
