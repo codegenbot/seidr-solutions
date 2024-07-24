@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <iostream>
 
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long sum = 0;
     for (int x : arr) {
@@ -12,25 +11,12 @@ int prod_signs(vector<int> arr) {
         product *= abs(x);
         sum += abs(x);
     }
-    return (product * sum > INT_MAX) ? -32768 : product * sum;
+    return product * sum > INT_MAX ? -32768 : product * sum;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
-        cout << "Element " << i+1 << ": ";
-        cin >> arr[i];
-    }
-    
+    std::vector<int> arr = {1, 2, 3};
     int result = prod_signs(arr);
-    if(result == -32768)
-        cout << "The product is too large to be represented by an integer." << endl;
-    else
-        cout << "The product of all absolute values is: " << result << endl;
-
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
