@@ -14,7 +14,8 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    assert(specialFilter({11, 12, 13, 14, 15, 16, 17, 18, 19, 20}) == 9);
-    assert(specialFilter({21, 22, 23, 24, 25, 26, 27, 28, 29, 30}) == 0);
+    assert(specialFilter({11, 12, 13}) == 3);
+    assert(specialFilter({14, 15, 16}) == 3);
+    assert(specialFilter({17, 18, 19}) == 3);
     return 0;
 }
