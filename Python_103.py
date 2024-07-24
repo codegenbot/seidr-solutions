@@ -2,6 +2,6 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = (n + m) // 2
-    binary = bin(avg)
-    return binary[2:]
+    total = (n + m) * (m - n + 1) // 2
+    avg = round(total / (m - n + 1))
+    return bin(avg)[2:]
