@@ -1,3 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <limits>
+
+bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
+        std::cout << "Error: The two vectors must be the same size." << std::endl;
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            std::cout << "Error: The two vectors are not the same." << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     int n;
     while (!(std::cin >> n)) {
@@ -13,13 +31,16 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                if (std::cin.eof()) break; 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            } else break;
+                char ch;
+                while((ch = std::getchar()) != '\n' && ch != EOF) {
+                    if(ch == '-') continue; // Ignore negative sign
+                }
+            } else {
+                vec1.push_back(x); 
+                size++;
+                if(size >= n) break;  
+            }
         }
-        vec1.push_back(x); 
-        size++;
     }
 
     std::vector<int> vec2;
@@ -29,13 +50,16 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                if (std::cin.eof()) break; 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            } else break;
+                char ch;
+                while((ch = std::getchar()) != '\n' && ch != EOF) {
+                    if(ch == '-') continue; // Ignore negative sign
+                }
+            } else {
+                vec2.push_back(x); 
+                size++;
+                if(size >= n) break;  
+            }
         }
-        vec2.push_back(x); 
-        size++;
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
