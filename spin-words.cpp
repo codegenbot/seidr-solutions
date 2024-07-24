@@ -1,26 +1,28 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::vector<std::string> words;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
     
-    // split input string into words
-    char* token = strtok(const_cast<char*>(sentence.c_str()), " ");
-    while(token != NULL){
-        words.push_back(token);
-        token = strtok(NULL, " ");
-    }
-    
-    for(int i=0; i<words.size(); i++){
-        if(words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
-        }
-        result += words[i];
-        
-        // add space after each word except the last one
-        if(i < words.size()-1) {
-            result += " ";
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += str.substr(i,1) + " ";
+            i++;
+        } else if(i >= 4) {
+            for(int j = i; j >= i-4 && j >= 0; j--) {
+                result += str[j];
+            }
+            i++;
+            while(i < str.length() && str[i] != ' ') {
+                i++;
+            }
+        } else {
+            result += str.substr(i,1);
+            i++;
         }
     }
     
@@ -28,7 +30,9 @@ std::string spinWords(std::string sentence) {
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;  // should print: this is a tset
-    std::cout << spinWords("Hello World") << std::endl;  // should print: Hello dluorW
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
