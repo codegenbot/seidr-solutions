@@ -4,7 +4,7 @@ def calculate_score(bowls):
     for frame in range(10):
         if bowls[i] == "X":
             score += 10
-            if i + 1 < len(bowls) - 1:
+            if i + 1 < len(bowls):
                 if bowls[i + 1] == "X":
                     score += 10
                 else:
