@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     while True:
         try:
@@ -9,6 +10,18 @@ def add(x: int, y: int):
             break
     result = x + y
     user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
-    if user_input.lower() == "no":
-        return
-        print(result)
+    while True:
+        if user_input.lower() in ["yes", "no"]:
+            break
+        user_input = input("Invalid input. Please enter yes or no: ")
+
+    if user_input.lower() == "yes":
+        try:
+            num1 = float(input("Enter a number for x: "))
+            num2 = float(input("Enter a number for y: "))
+            result = num1 + num2
+            print(f"Result: {result}")
+        except ValueError:
+            print("Both inputs must be numbers")
+    elif user_input.lower() == "no":
+        return result
