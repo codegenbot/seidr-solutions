@@ -1,3 +1,3 @@
 def digitSum(n):
-    n = str(n).lower()
-    return sum(int(char) for char in str(n).lower() if char.isdigit())
+    n = str(n)
+    return sum(int(digit) for digit in n)
