@@ -2,16 +2,21 @@
 #include <cctype>
 
 string camelCase(string s) {
+    if (s.empty()) return s;
+
     string result = "";
-    bool capitalizeNextLetter = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            capitalizeNextLetter = true;
-        } else if (capitalizeNextLetter) {
-            result += toupper(s[i]);
-            capitalizeNextLetter = false;
+    bool nextIsCap = true;
+
+    for (char c : s) {
+        if (c == '-') {
+            nextIsCap = true;
+        } else if (nextIsCap) {
+            result += toupper(c);
+            nextIsCap = false;
         } else {
-            result += tolower(s[i]);
+            result += tolower(c);
         }
     }
+
     return result;
+}
