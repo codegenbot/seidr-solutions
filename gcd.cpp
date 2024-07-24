@@ -36,11 +36,5 @@ int main() {
 
     cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
 
-    vector<int> indices = indicesOfSubstring("Hello world", "ll");
-    for (int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
     return 0;
 }
