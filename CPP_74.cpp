@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,7 +33,7 @@ vector<string> match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int solutionMain() {
+int main() {
     int n1, n2;
     cout << "Enter the number of strings for list 1: ";
     cin >> n1;
