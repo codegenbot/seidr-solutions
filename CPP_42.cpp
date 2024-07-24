@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-std::vector<int> incr_list(std::vector<int> l) {
+std::vector<int> incr_list(const std::vector<int>& l) {
     for (int i = 0; i < l.size(); i++) {
         l[i]++;
     }
@@ -13,11 +13,13 @@ std::vector<int> incr_list(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> testList = {1, 2, 3};
-    std::vector<int> expectedList = {2, 3, 4};
-
-    std::vector<int> resultList = incr_list(testList);
-    assert(issame(resultList, expectedList));
-
+    std::vector<int> testList = {1, 2, 3, 4, 5};
+    
+    std::vector<int> result = incr_list(testList);
+    
+    for (int i = 0; i < testList.size(); i++) {
+        assert(issame(result[i], testList[i] + 1));
+    }
+    
     return 0;
 }
