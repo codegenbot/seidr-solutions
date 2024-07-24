@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,7 +23,7 @@ int sumOfDigits(int x) {
     return sum;
 }
 
-int originalMain() {
+void originalMain() { 
     int num, i;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> num;
@@ -41,7 +41,6 @@ int originalMain() {
         std::cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << std::endl;
     else
         std::cout << "No primes found in the list." << std::endl;
-    return 0;
 }
 
 int main() {
