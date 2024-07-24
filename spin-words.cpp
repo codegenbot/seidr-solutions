@@ -1,35 +1,34 @@
-Here's the solution:
+Here is the solution:
 
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-string spinWords(string input) {
-    string output = "";
-    int length = 0;
+string spinWords(string str) {
+    string result = "";
+    string temp = "";
     
-    for(int i = 0; i < input.length(); i++) {
-        if(input[i] == ' ') {
-            length = 0;
-            output += " ";
+    for (int i = 0; i < str.length(); i++) {
+        char c = str[i];
+        
+        if (c == ' ') {
+            if (temp.length() >= 5) {
+                for (int j = temp.length() - 1; j >= 0; j--) {
+                    result += temp[j];
+                }
+            } else {
+                result += temp;
+            }
+            
+            temp = "";
         } else {
-            length++;
-            if(length >= 5)
-                output += (input.substr(i-length+1, length)).reverse().append(input.substr(0, i-length)) + " ";
-            else
-                output += input[i] ;
+            temp += c;
         }
     }
     
-    return output;
-}
-
-int main() {
-    string input;
-    cout << "Enter your input: ";
-    getline(cin, input);
-    cout << "Output: " << spinWords(input) << endl;
-    return 0;
+    if (temp.length() >= 5) {
+        for (int i = temp.length() - 1; i >= 0; i--) {
+            result += temp[i];
+        }
+    } else {
+        result += temp;
+    }
+    
+    return result;
 }
