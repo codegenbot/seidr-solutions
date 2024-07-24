@@ -1,36 +1,19 @@
-#include <vector>
-#include <initializer_list>
 #include <iostream>
+#include <vector>
 
-using namespace std;
-
-vector<vector<int>> make_a_pile(int n) {
-    vector<vector<int>> pile(n);
+std::vector<std::pair<int, int>> make_a_pile(int n) {
+    std::vector<std::pair<int, int>> pile;
     for (int i = 1; i <= n; i++) {
-        pile[i-1].push_back(i*2);
+        pile.push_back({i * 2 - 1, i * 2});
     }
     return pile;
 }
 
-bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) return false;
-        for (int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::pair<int, int>>& a, const std::vector<std::pair<int, int>>& b) {
+    return (a == b);
 }
 
 int main() {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    vector<vector<int>> pile1 = make_a_pile(n);
-    for (const auto& row : pile1) {
-        for (int val : row) {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
+    assert(isSame(make_a_pile(8), {{1, 2}, {4, 5}, {8, 10}, {12, 14}, {16, 18}, {20, 22}}));
+    return 0;
+}
