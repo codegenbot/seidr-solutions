@@ -1,9 +1,5 @@
-```python
+```
 def search(lst):
-    """
-    This function takes a list of numbers as input and returns the largest number that occurs at least once in the list.
-    If no such number exists, it returns -1.
-    """
     freq_dict = {}
     for num in lst:
         if num > 0:
@@ -12,7 +8,7 @@ def search(lst):
             else:
                 freq_dict[num] = 1
     max_num = -1
-    for num, freq in freq_dict.items():
-        if num >= freq and num > max_num:
-            max_num = num
+    for key, value in freq_dict.items():
+        if key == value and key > max_num:
+            max_num = key
     return max_num
