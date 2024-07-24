@@ -1,5 +1,4 @@
 #include <cmath>
-
 double euclideanDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     double sum = 0;
     int min_len = std::min(v1.size(), v2.size());
