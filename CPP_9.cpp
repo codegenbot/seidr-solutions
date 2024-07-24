@@ -1,4 +1,7 @@
-vector<int> rolling_max(vector<int> numbers);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -12,6 +15,18 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
+vector<int> rolling_max(vector<int> numbers);
+
+int main() {
+    vector<int> numbers = {1, 3, 5, 2, 8, 7};
+    vector<int> result = rolling_max(numbers);
+    for(int num : result){
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int max_val = INT_MIN;
@@ -20,9 +35,4 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
-}
-
-int main(){
-    // Your main function code here
-    return 0;
 }
