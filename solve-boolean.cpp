@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 string solveBoolean(string s) {
     stack<char> st;
@@ -23,4 +23,3 @@ string solveBoolean(string s) {
         st.pop();
     }
     return (res == "T") ? "True" : (res == "F") ? "False" : "";
-}
