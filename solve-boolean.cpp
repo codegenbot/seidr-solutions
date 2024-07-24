@@ -1,47 +1,33 @@
-```cpp
-if (s.empty())
-    return false;
+#include <string>
+using namespace std;
 
-int j = 0;
-while (j < s.length() && (s[j] == '|' || s[j] == '&'))
-    j++;
+bool solveBoolean(string booleanExpression) {
+    stack<char> operatorStack;
+    stack<string> operandStack;
 
-string opStr;
-for (char c : s.substr(0, j)) {
-    if(c == '|')
-        opStr = "|";
-    else
-        opStr = "&";
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '|') {
+            string rightOperand = operandStack.top();
+            operandStack.pop();
+            string leftOperand = operandStack.top();
+            operandStack.pop();
+            operandStack.push(to_string((leftOperand == "T") | (rightOperand == "T")) + "T");
+        } else if (booleanExpression[i] == '&') {
+            string rightOperand = operandStack.top();
+            operandStack.pop();
+            string leftOperand = operandStack.top();
+            operandStack.pop();
+            operandStack.push(to_string((leftOperand == "T") && (rightOperand == "T")) + "T");
+        } else if (booleanExpression[i] != ' ') {
+            string operand;
+            while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
+                operand += booleanExpression[i];
+                i++;
+            }
+            i--;
+            operandStack.push(operand);
+        }
+    }
+
+    return (operandStack.top() == "T");
 }
-
-bool result = false;
-if (opStr[0] == '|') {
-    for (int k = j; k < s.length(); k++) {
-        if (s[k] == 'T')
-            result = true;
-        else if (s[k] == 'F') {
-            result = false;
-            return result;
-        }
-    }
-} else {
-    bool left = false, right = false;
-    for (int i = 0; i < j; i++) {
-        if (s[i] == 'T' && opStr[1] != '|')
-            left = true;
-        else if (s[i] == 'F' && opStr[1] != '&') {
-            return false;
-        }
-    }
-    for (int i = j; i < s.length(); i++) {
-        if (s[i] == 'T' && opStr[0] == '|')
-            right = true;
-        else if (s[i] == 'F' && opStr[0] == '&') {
-            right = false;
-            return right;
-        }
-    }
-    result = (opStr[0] == '|' ? left || right : left && right);
-}
-
-return result;
