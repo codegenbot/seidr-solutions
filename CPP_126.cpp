@@ -3,8 +3,6 @@ bool is_sorted(vector<int> lst) {
         if (lst[i] >= lst[i - 1]) {
             continue;
         } else {
-            vector<int>::iterator it = unique(lst.begin(), lst.end());
-            lst.erase(it, lst.end());
             cout << "Error: The list is not sorted." << endl;
             return false;
         }
