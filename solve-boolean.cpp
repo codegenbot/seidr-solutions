@@ -1,32 +1,37 @@
-string solveBoolean(string booleanExp) {
-    if (booleanExp == "T" || booleanExp == "t")
-        return "True";
-    else if (booleanExp == "F" || booleanExp == "f")
-        return "False";
-    else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "False";
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> s;
+    
+    for (int i = 0; i < expression.length(); ++i) {
+        if(expression[i] == '|') {
+            while(!s.empty() && s.top() != '&') {
+                s.pop();
+            }
+            if(s.empty()) return true;
+            s.push('&');
+        } else if(expression[i] == '&') {
+            s.push('&');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            while(!s.empty() && s.top() != '&') s.pop();
+            if(s.empty()) return true;
+            s.push('F');
+        } else if(expression[i] == 'F' || expression[i] == 'f') {
+            while(!s.empty() && s.top() != '&') s.pop();
+            if(s.empty()) return false;
+            s.push('T');
         }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "True";
-        }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "False";
-        }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "True";
-        }
-        return "True";
-    } else
-        return "Invalid expression";
+    }
+    
+    while(!s.empty()) s.pop();
+    
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter the Boolean expression: ";
+    cin >> input;
+    cout << solveBoolean(input) << endl;
 }
