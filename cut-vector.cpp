@@ -1,12 +1,13 @@
 #include <vector>
-#include <climits>
+#include <climits> 
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> result;
     
-    int min_diff = INT_MAX;
+    int min_diff = INT_MAX; 
     for (int i = 1; i < n; i++) {
         int diff1 = nums[i] - nums[0];
         int diff2 = nums[n-1] - nums[i-1];
