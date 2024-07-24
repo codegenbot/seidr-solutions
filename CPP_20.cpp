@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool sameVectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,6 +24,9 @@ int main() {
     int inputCount = 0;
     
     float num;
+    vec1.reserve(maxInputCount);
+    vec2.reserve(maxInputCount);
+
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -59,7 +63,7 @@ int main() {
     }
 
     if(vec1.size() > 0 && vec2.size() > 0) {
-        if(issame(vec1, vec2)) {
+        if(sameVectors(vec1, vec2)) {
             std::cout << "The two vectors are same.\n";
         } else {
             std::cout << "The two vectors are not same.\n";
