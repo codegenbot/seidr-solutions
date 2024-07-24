@@ -2,23 +2,26 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    int len = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            len = 0;
-            result += " ";
-        } else {
-            len++;
-            result += str[i];
-            if (len >= 5) {
-                for (int j = len - 1; j >= 0; j--) {
-                    result += str[i - j];
-                }
-                i -= len;
+    std::size_t prevPos = 0;
+    for (int i = 0; i <= sentence.size(); ++i) {
+        if (i == sentence.size() || ' ' == sentence[i]) {
+            std::size_t wordSize = i - prevPos;
+            if (wordSize >= 5) {
+                std::reverse(sentence.begin() + prevPos, sentence.begin() + i);
             }
+            result += sentence.substr(prevPos, wordSize);
+            prevPos = i + 1;
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    return 0;
 }
