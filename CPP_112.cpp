@@ -30,14 +30,11 @@ string reverse_delete(string s, string c) {
             temp += ch;
         }
     }
-    string result = "";
-    for(int i = temp.size() - 1; i >=0 ; i--) {
-        result += temp[i];
-    }
-    return result;
+    reverse(temp.begin(), temp.end());
+    return temp;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"})); 
     return 0;
 }
