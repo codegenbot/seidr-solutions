@@ -1,9 +1,9 @@
+```
 def check(result):
     if result == "Correct":
         return 1
     else:
         return 0
-
 
 if __name__ == "__main__":
     input_list = list(range(1, 19))
