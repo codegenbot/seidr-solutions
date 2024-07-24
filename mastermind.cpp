@@ -1,5 +1,9 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
 int countBlackPegs(const string& code, const string& guess) {
     int blackPegs = 0;
@@ -15,8 +19,8 @@ int countWhitePegs(const string& code, const string& guess) {
     int whitePegs = 0;
     vector<char> codeCopy(code.begin(), code.end());
     for (char c : guess) {
-        if (std::find(codeCopy.begin(), codeCopy.end(), c) != codeCopy.end()) {
-            codeCopy.erase(std::remove(codeCopy.begin(), codeCopy.end(), c), codeCopy.end()).size();
+        if (codeCopy.count(c)) {
+            --codeCopy.erase(std::remove(codeCopy.begin(), codeCopy.end(), c), codeCopy.end()).size();
             ++whitePegs;
         }
     }
@@ -28,5 +32,4 @@ int main() {
     cin >> code >> guess;
     cout << countWhitePegs(code, guess) << endl;
     cout << countBlackPegs(code, guess) << endl;
-    return 0;
 }
