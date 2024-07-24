@@ -1,17 +1,13 @@
-```
-from typing import List
-import math
-
-
-def factorize(n: int) -> List[int]:
+def find_prime_factors(n: int) -> List[int]:
     factors = []
-    for i in range(2, math.isqrt(n) + 1):
-        if n % i == 0:
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
+    for i in range(2, n + 1):
+        while n % i == 0:
+            if math.isqrt(i) ** 2 == i:
+                factors.append(i)
+            else:
+                for j in range(2, math.isqrt(i) + 1):
+                    if i % j == 0:
+                        factors.extend([j] * (i // j))
+                        break
+            n //= i
     return factors
