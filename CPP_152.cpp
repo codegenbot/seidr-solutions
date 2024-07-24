@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -14,7 +15,7 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int solve() {
+int main() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
