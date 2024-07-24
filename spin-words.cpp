@@ -1,18 +1,20 @@
-int main() {
-    string str;
-    getline(cin, str);
-    
-    string word, result;
-    stringstream ss(str);
-    while (ss >> word) {
-        if (word.size() >= 5) {
-            reverse(word.begin(), word.end());
+string spinWords(const string &sentence) {
+    string result = "";
+    string word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
-        result += word + " ";
     }
-    
-    result.pop_back(); // Remove the extra space at the end
-    cout << result << endl;
-    
-    return 0;
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+    return result;
 }
