@@ -1,3 +1,4 @@
+```
 int main() {
     vector<int> lst;
     int num, i;
@@ -10,9 +11,9 @@ int main() {
         lst.push_back(x);
     }
     int maxPrimeNum = 0;
-    for(int j : lst){
-        if(isPrime(j) && j > maxPrimeNum)
-            maxPrimeNum = j;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrimeNum)
+            maxPrimeNum = i;
     }
     if(maxPrimeNum > 0)
         cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
