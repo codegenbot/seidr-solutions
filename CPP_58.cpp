@@ -1,15 +1,14 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <set>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
-        throw runtime_error("Vectors are not the same size");
+        throw runtime_error("Vectors are not the same size.");
     }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
-            throw runtime_error("Vectors contain different elements");
+            throw runtime_error("Vectors are not the same.");
         }
     }
     return true;
