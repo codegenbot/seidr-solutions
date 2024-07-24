@@ -3,12 +3,12 @@
 
 std::string squareDigits(int n) {
     std::string result = "";
-    while (n > 0) {
+    while (n != 0) {
         int digit = n % 10;
         result = std::to_string(digit * digit) + result;
         n /= 10;
     }
-    return result;
+    return result; 
 }
 
 int main() {
