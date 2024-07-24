@@ -1,3 +1,7 @@
-n = int(input())
-m = int(input())
-print(max(0, (n - 1) / n * 1 / m))
+n, m = int(input()), int(input())
+if n > m:
+    print(1 - m / n)
+elif m > n:
+    print(1 - (m - 1) / n)
+else:
+    print(0)
