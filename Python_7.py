@@ -1,9 +1,8 @@
-```python
 from typing import List
 
 
 def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    return [s for s in strings if substring in s]
+    return [s for s in strings if substring.lower() in s.lower()]
 
 
 user_strings = input("Enter a list of strings (space separated): ").split()
@@ -15,7 +14,5 @@ try:
     else:
         result = filter_by_substring(user_strings, user_substring)
         print(result)
-except ValueError as e:
-    print(f"Error: {e}")
-except AttributeError as e:
+except Exception as e:
     print(f"Error: {e}")
