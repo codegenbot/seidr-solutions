@@ -1,5 +1,4 @@
+from math import fsum
+
 def snow_day(hours, initial_snow, snow_rate, melting_rate):
-    total_snow = initial_snow
-    for _ in range(hours):
-        total_snow += snow_rate - (total_snow * melting_rate)
-    return total_snow
+    return fsum([initial_snow, (hours * snow_rate)]) - (hours * initial_snow * melting_rate)
