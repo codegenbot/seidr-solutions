@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for i in range(n)] for j in range(n)]
