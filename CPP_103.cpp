@@ -1,36 +1,25 @@
-#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    double sum = 0;
-    for (int i = n; i <= m; ++i) {
+    if (n > m)
+        return "-1";
+    
+    long sum = 0;
+    for (int i = n; i <= m; ++i) 
         sum += i;
+    
+    double average = round((double)sum / (m - n + 1));
+    
+    string binary = "";
+    while (average > 0) {
+        if (average & 1)
+            binary.insert(0, "1");
+        else
+            binary.insert(0, "0");
+        average /= 2;
     }
-    double avg = round(sum / (m - n + 1));
-    string bin = "";
-    while (avg > 0) {
-        if (avg >= 2) {
-            avg /= 2;
-            bin.push_back('1');
-        } else if (avg == 1) {
-            avg = 0;
-            bin.push_back('1');
-        } else {
-            avg /= 2;
-            bin.push_back('0');
-        }
-    }
-    reverse(bin.begin(), bin.end());
-    return bin;
-}
-
-int main() {
-    int n, m;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "Enter the value of m: ";
-    cin >> m;
-    cout << rounded_avg(n, m) << endl;
-    return 0;
+    
+    return binary;
 }
