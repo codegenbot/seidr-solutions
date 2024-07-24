@@ -14,9 +14,14 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> derivative(const std::vector<float>& v) {
-    // Implementation of derivative function
-    return {}; // Placeholder return for now
+std::vector<float> derivative(const std::vector<float>& input) {
+    std::vector<float> result;
+    
+    for (size_t i = 1; i < input.size(); ++i) {
+        result.push_back(input[i] - input[i - 1]);
+    }
+    
+    return result;
 }
 
 int main() {
