@@ -1,6 +1,6 @@
-from typing import List, Any
-
+```python
 import sys
+from typing import List, Any
 
 
 def main():
