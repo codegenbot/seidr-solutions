@@ -1,23 +1,30 @@
+```cpp
 #include <algorithm>
+#include <tuple>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+    vector<pair<int, int>> numSumIndex;
+    
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
-        int num = abs(nums[i]);
-        while (num > 0) {
-            sum += num % 10;
-            num /= 10;
+        int n = nums[i];
+        while (n > 0) {
+            sum += n % 10;
+            n /= 10;
         }
-        pairs.push_back({sum, i});
+        numSumIndex.push_back({sum, i});
     }
 
-    sort(pairs.begin(), pairs.end());
-
+    sort(numSumIndex.begin(), numSumIndex.end());
+    
     vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+    for (auto& p : numSumIndex) {
+        result.push_back(nums[p.second]);
     }
-
+    
     return result;
 }
