@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
+using std::cin;
+using std::cout;
+using std::fixed;
+using std::setprecision;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
 
-    for (int i = 1; i <= std::min(n, m); i++) {
+    for (int i = 1; i <= min(n, m); i++) {
         p += (n - i) / total;
     }
 
@@ -14,6 +18,6 @@ double diceGame(int n, int m) {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(5) << diceGame(n, m);
+    cin >> n >> m;
+    cout << fixed << setprecision(5) << diceGame(n, m);
     return 0;
