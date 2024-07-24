@@ -15,6 +15,7 @@ def decode_cyclic():
 
     for i in range(1, n // 2 + 1):
         rotated = s[i:] + s[:i]
-        while s in [rotated[j:] + rotated[:j] for j in range(len(rotated))]:
+        while rotated != s:
             s = rotated
+            rotated = rotated[1:] + rotated[0] 
     return f"Cyclically decoded string: {s}"
