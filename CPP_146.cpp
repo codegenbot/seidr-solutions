@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && ((num / 10) % 2 == 1 || (num % 10) % 2 == 1)) {
@@ -10,21 +9,13 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements in the vector: ";
-    std::cin >> n;
-
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
-    }
-
+    assert(specialFilter({}) == 0);
+    vector<int> nums = {123, -456, 789};
     int result = specialFilter(nums);
-    std::cout << "The count of special numbers is: " << result << std::endl;
-
+    cout << "Result: " << result << endl;
     return 0;
 }
