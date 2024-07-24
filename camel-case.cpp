@@ -1,34 +1,18 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
+int i = 0;
 string camelCase(string s) {
-    int i = 0; // declare and initialize i
-    if (s[0] == '-') i++;
+    int i = 0;
     string result = "";
-    for (int j = 0; j < s.length(); j++) {
-        if (j == i) {
+    for (i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++; // Skip the '-'
             while (i < s.length() && s[i] != ' ') {
                 result += toupper(s[i]);
                 i++;
             }
-            if (i < s.length()) {
-                result += "";
-            }
+            result += " ";
         } else {
-            result += tolower(s[j]);
+            result += tolower(s[i]);
         }
     }
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "The camelCase version is: " << camelCase(input) << endl;
-    return 0;
 }
