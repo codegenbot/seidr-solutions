@@ -3,11 +3,12 @@
 #include <cmath>
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    while (!std::cin.eof()) {
-        std::cin >> n;
-        nums.push_back(n);
+    int size;
+    std::cin >> size;
+
+    std::vector<int> nums(size);
+    for (int i = 0; i < size; ++i) {
+        std::cin >> nums[i];
     }
 
     int sum = 0;
