@@ -1,3 +1,5 @@
+#include <vector>
+
 int sum_squares(vector<int> lst) {
     int total = 0;
     for (int i = 0; i < lst.size(); i++) {
@@ -7,4 +9,3 @@ int sum_squares(vector<int> lst) {
             total += lst[i] * lst[i] * lst[i];
     }
     return total;
-}
