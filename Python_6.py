@@ -1,17 +1,20 @@
+```
 from typing import List
+
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     stack = []
-    for char in paren_string:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                stack.pop()
+    for i, char in enumerate(paren_string):
+        if char == "(":
+            stack.append(i)
+        elif char == ")":
             if not stack:
-                result.append(len(result) + 1)
+                result.append(len(result))
             else:
-                result.append(len(stack))
-            stack.pop()
+                last_open = stack.pop()
+                if len(stack):
+                    result.append(i - last_open - 1)
+                else:
+                    result.append(-1)
     return result
