@@ -1,20 +1,44 @@
 #include <algorithm>
+#include <vector>
+#include <utility>
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> numDigits;
-    for (int i = 0; i < nums.size(); ++i) {
+    vector<pair<int, int>> numSumIndex;
+    
+    for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
-        int n = abs(nums[i]);
+        int n = nums[i];
         while (n > 0) {
             sum += n % 10;
             n /= 10;
         }
-        numDigits.emplace_back(sum, nums[i]);
+        numSumIndex.push_back({sum, i});
     }
-    sort(numDigits.begin(), numDigits.end());
+
+    sort(numSumIndex.begin(), numSumIndex.end());
+    
     vector<int> result;
-    for (const auto& p : numDigits) {
-        result.push_back(p.second);
+    for (auto& p : numSumIndex) {
+        result.push_back(nums[p.second]);
     }
+    
     return result;
+}
+
+int main() {
+    // You can call the function here
+    vector<int> nums = {1, 2, 3};
+    vector<int> result = order_by_points(nums);
+    for (auto i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
