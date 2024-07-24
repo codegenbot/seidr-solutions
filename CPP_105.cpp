@@ -26,4 +26,3 @@ bool by_length(const std::vector<int>& v) {
 int main() {
     assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
-}
