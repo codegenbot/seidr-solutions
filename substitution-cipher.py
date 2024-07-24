@@ -1,3 +1,2 @@
-def substitution_cipher(text1, text2, message):
-    cipher = str.maketrans(text1 + ' ', text2 + ' ')
-    return text2.join([c if c not in text1 else t for t, c in zip(map(str, cipher), message)])
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    return "".join([cipher_text2[cipher_text1.index(char)] if char in cipher_text1 else char for char in message])
