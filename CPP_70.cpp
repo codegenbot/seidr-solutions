@@ -3,11 +3,7 @@
 #include <algorithm>
 
 bool issame(int a, int b) {
-    if (a == b) {
-        return true;
-    } else {
-        return false;
-    }
+    return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -36,12 +32,11 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test = {1, 3, 2};
-    std::cout << "Sorted list: ";
-    for (int i : strange_sort_list(test)) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int> sortedVec = strange_sort_list(vec);
     
+    for (auto num : sortedVec) {
+        std::cout << num << " ";
+    }
     return 0;
 }
