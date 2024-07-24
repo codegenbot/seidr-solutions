@@ -1,18 +1,17 @@
+```cpp
 #include <string>
 #include <cctype>
 
 std::string get_closest_vowel(std::string word) {
+    int closest = -1;
     for (int i = word.size() - 1; i >= 0; --i) {
         if (isVowel(word[i])) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isVowel(word[j])) {
-                    return std::string(1, word[i]);
-                }
-            }
-            return std::string(1, word[i]);
+            if (closest == -1)
+                closest = i;
+            break;
         }
     }
-    return "";
+    return (word.empty() || closest == -1) ? "" : word.substr(closest, 1);
 }
 
 bool isVowel(char c) {
