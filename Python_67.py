@@ -1,4 +1,6 @@
 ```
+import re
+
 def fruit_distribution(s, n):
     pattern = r'(\d+)\s*(apples|oranges)'
     quantities = [int(x[0]) for x in re.findall(pattern, s.lower())]
