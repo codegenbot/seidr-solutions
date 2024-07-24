@@ -13,4 +13,3 @@ bool is_palindrome(string text) {
     }
 
     return true;
-}
