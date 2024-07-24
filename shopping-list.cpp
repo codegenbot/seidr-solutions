@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip> // Include for fixed precision
 #include <vector>
 
 using namespace std;
@@ -18,12 +17,12 @@ int main() {
         discounts[i] /= 100.0; // Convert percentage to decimal
     }
 
-    float total = 0.0;
+    double total = 0.0; // Change the data type from float to double for improved precision
     for (int i = 0; i < n; ++i) {
         total += prices[i] * (1.0 - discounts[i]);
     }
 
-    cout << fixed << setprecision(2) << total << endl; // Output with fixed precision
+    cout << fixed << total << endl; // Output with fixed precision
 
     return 0;
 }
