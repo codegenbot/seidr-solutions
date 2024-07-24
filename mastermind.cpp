@@ -1,7 +1,7 @@
-#include <string>
 #include <map>
+#include <string>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -16,27 +16,25 @@ int mastermind(string code, string guess) {
         guess_count[c]++;
     }
 
-    // Count white pegs (correct color, wrong place)
+    // Count black pegs (correct color, correct place)
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (guess_count[code[i]] > 0) {
-            guess_count[code[i]]--;
-            white++;
         }
     }
 
-    // Count remaining characters in the code that are not in the guess
-    for (auto& pair : code_count) {
-        while (pair.second > 0 && !contains(guess, pair.first)) {
-            pair.second--;
+    // Count white pegs (correct color, wrong place)
+    for (char c : code) {
+        if (guess_count[c] > 0) {
+            guess_count[c]--;
+            white++;
         }
     }
 
     return black * 4 + white;
 }
 
-bool contains(string s, char c) {
+bool contains(std::string s, char c) {
     for (char ch : s) {
         if (ch == c) {
             return true;
