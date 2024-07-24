@@ -1,54 +1,43 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> primeNumbers;
-    for (int i = 2; i <= 100; ++i) {
-        bool isPrime = true;
-        for (int j = 2; j * j <= i; ++j) {
-            if (i % j == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime)
-            primeNumbers.push_back(i);
-    }
-
-    std::vector<std::string> words = split(sentence, ' ');
-    std::string result;
-
-    for (std::string word : words) {
+string words_in_sentence(string sentence) {
+    vector<int> wordLengths;
+    string result = "";
+    
+    for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
-        bool found = false;
-        for (int prime : primeNumbers) {
-            if (length == prime) {
+        bool isPrime = true;
+        
+        if (length > 1) {
+            for (int i = 2; i * i <= length; ++i) {
+                if (length % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            
+            if (isPrime) {
                 result += word + " ";
-                found = true;
-                break;
+                wordLengths.push_back(length);
             }
         }
-        if (!found)
-            result += word + " ";
     }
-
-    return result.substr(0, result.length() - 1);
+    
+    return result.substr(0, result.size() - 1);
 }
 
-std::vector<std::string> split(std::string sentence, char delimiter) {
-    std::vector<std::string> words;
-    std::string word;
-
-    for (char c : sentence) {
-        if (c == delimiter) {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
+vector<string> split(const string& str, char ch) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(ch)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
+    tokens.push_back(str);
+    return tokens;
 
-    words.push_back(word);
-
-    return words;
+int main() {
+    cout << words_in_sentence("here is") << endl;
 }
