@@ -1,6 +1,5 @@
-#include <vector>
-#include <algorithm>
 #include <string>
+#include <vector>
 
 string words_in_sentence(string sentence) {
     vector<int> primeNumbers;
@@ -52,4 +51,3 @@ vector<string> split(string sentence, char delimiter) {
     words.push_back(word);
 
     return words;
-}
