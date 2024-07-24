@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -14,10 +15,7 @@ std::string validateTweet(std::string tweet) {
 int main() {
     std::string tweet;
     std::cout << "Enter a tweet: ";
-    char c;
-    while ((c = std::cin.get()) && c != '\n') {
-        tweet += c;
-    }
+    std::copy(std::istream_iterator<char>(std::cin), std::istream_iterator<char>(), std::back_inserter(tweet));
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
