@@ -1,31 +1,49 @@
-vector<int> minPath(vector<vector<int>>& grid, int k){
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<int>> visited(n, vector<int>(n));
     
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(i == 0 || j == 0) dp[i][j] = grid[i][j];
-            else{
-                int minVal = INT_MAX;
-                if(i > 0) minVal = min(minVal, dp[i-1][j]);
-                if(j > 0) minVal = min(minVal, dp[i][j-1]);
-                dp[i][j] = grid[i][j] + minVal;
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    pq.push({0, {0, 0}});
+    visited[0][0] = 1;
+    
+    vector<int> res;
+    while (!pq.empty()) {
+        int val = -pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+        
+        if (k > 0) {
+            for (int i = -1; i <= 1; i++) {
+                for (int j = -1; j <= 1; j++) {
+                    int nx = x + i, ny = y + j;
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                        visited[nx][ny] = 1;
+                        pq.push({-grid[nx][ny], {nx, ny}});
+                        res.push_back(grid[nx][ny]);
+                    }
+                }
             }
-        }
+        } else break;
+        
+        k--;
     }
     
-    int minVal = INT_MAX;
-    for(int i = 0; i < n; i++){
-        if(i > 0) minVal = min(minVal, dp[n-1][i]);
+    return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (int i : res) {
+        cout << i << " ";
     }
-    
-    vector<int> path;
-    int x = n - 1, y = minVal == dp[n-1][minVal] ? 0 : minVal;
-    for(int i = 0; i < k; i++){
-        path.push_back(grid[x][y]);
-        if(y > 0) x--;
-        else y--;
-    }
-    
-    return path;
+    return 0;
 }
