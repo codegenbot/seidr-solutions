@@ -24,5 +24,5 @@ vector<string> reverse_delete(string s, string c) {
     }
     string temp = result;
     reverse(temp.begin(), temp.end());
-    return {result, issame({s}, {temp}) ? "True" : "False"};
+    return {result, issame(vector<string>{s}, vector<string>({"", temp == s ? "True" : "False"})) ? "True" : "False"};
 }
