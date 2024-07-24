@@ -1,11 +1,11 @@
-for (int i = word.length() - 2; i >= 1; i--) {
-        if (word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u' &&
-            word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u' &&
-            word[i + 1] != 'a' && word[i + 1] != 'e' && word[i + 1] != 'i' && word[i + 1] != 'o' && word[i + 1] != 'u') {
-            if (isalpha(word[i])) {
-                return string(1, word[i]);
-            }
+string vowels = "AEIOUaeiou";
+    string filteredWord = word.substr(1, word.length() - 2);
+    
+    for (int i = filteredWord.length() - 1; i >= 0; i--) {
+        if (vowels.find(filteredWord[i]) != string::npos) {
+            return string(1, filteredWord[i]);
         }
     }
+    
     return "";
 }
