@@ -19,17 +19,28 @@ int main() {
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     
     std::cout << "Enter initial snow: ";
-    std::ws(std::cin);
-    std::getline(std::cin, std::to_string(initialSnow));
+    std::cin >> initialSnow;
     
     std::cout << "Enter rate of snow fall: ";
-    std::ws(std::cin);
-    std::getline(std::cin, std::to_string(rateOfSnowFall));
+    std::cin >> rateOfSnowFall;
 
     std::cout << "Enter proportion of snow melting per hour: ";
-    std::ws(standard::cin);
-    std::getline(std::cin, std::to_string(proportionOfSnowMeltingPerHour));
+    std::cin >> proportionOfSnowMeltingPerHour;
 
-    std::cout << fixed << setprecision(6) << "Result: " << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
+    if (!(std::cin >> hours) || !(std::cin >> initialSnow) || !(std::cin >> rateOfSnowFall) || !(std::cin >> proportionOfSnowMeltingPerHour)) {
+        std::cout << "Invalid input. Please enter valid numbers.\n";
+        return 1;
+    }
+
+    if (!(hours >= 0)) {
+        std::cout << "Hours must be a non-negative number.\n";
+        return 1;
+    }
+
+    if (rateOfSnowFall < 0 || proportionOfSnowMeltingPerHour < 0 || proportionOfSnowMeltingPerHour > 1) {
+        std::cout << "Rate of snow fall and proportion of snow melting per hour must be non-negative numbers less than or equal to 1.\n";
+        return 1;
+    }
+
+    std::cout << fixed << std::setprecision(6) << "Result: " << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << std::endl;
     return 0;
-}
