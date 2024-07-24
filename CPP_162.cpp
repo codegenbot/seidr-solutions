@@ -9,15 +9,13 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
+    unsigned char digest[MD5_DIGEST_LENGTH];
     EVP_MD_CTX *mdctx;
     const EVP_MD *md = EVP_md5();
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    unsigned int md_len;
-
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, &md_len);
+    EVP_DigestFinal_ex(mdctx, digest, NULL);
     EVP_MD_CTX_free(mdctx);
 
     char mdString[33];
