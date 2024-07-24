@@ -7,3 +7,4 @@ def make_palindrome(string: str) -> str:
         postfix = string[i:]
         if postfix == postfix[::-1]:
             return prefix + postfix + postfix[::-1]
+    return string + string[::-1] + string
