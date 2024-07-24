@@ -12,10 +12,12 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> uniqueInput(input.begin(), unique(input.begin(), input.end()));
+    vector<int> vec1 = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> vec2 = {0, 2, 3, 5, 9, 123};
     
-    assert(issame(uniqueInput, {0, 2, 3, 5, 9, 123}));
-    
+    vec1.erase(unique(vec1.begin(), vec1.end()), vec1.end());
+    vec2.erase(unique(vec2.begin(), vec2.end()), vec2.end());
+
+    assert(issame(vec1, vec2));
     return 0;
 }
