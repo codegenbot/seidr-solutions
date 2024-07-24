@@ -1,3 +1,3 @@
-```Python
-def digit_sum(s):
-    return sum(int(c) for c in str(s) if c.isdigit())
+```
+def digitSum(s):
+    return sum(int(c) if c.isupper() else 0 for c in s)
