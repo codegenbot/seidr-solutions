@@ -1,15 +1,8 @@
-if (x == 1) {
-        return true;
+if (x <= 0 || n <= 0) {
+        return false;
     }
-    for (int i = 2; i <= sqrt(x); i++) {
-        int p = i, power = n;
-        while (p < x) {
-            p *= i;
-            power *= n;
-        }
-        if (p == x && power == x) {
-            return true;
-        }
-    }
-    return false;
+    
+    double power = log(x) / log(n);
+    
+    return power == floor(power);
 }
