@@ -1,5 +1,5 @@
 ```
 def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit())
+    return int(''.join(c for c in s if c.isdigit()))
 
-print(digitSum("You are Very Smart"))
+print(digitSum("You arE Very Smart"))
