@@ -1,6 +1,16 @@
 def smallest_change(arr):
-    n = len(arr)
-    rev_arr = arr[::-1]
+    arr = str(arr)
+    front = arr[: len(arr) // 2]
+    back = (
+        arr[len(arr) - 1 : len(arr) // 2 - 1 : -1]
+        .lstrip("[")
+        .rstrip("]")
+        .replace(",", "")
+    )
 
-    changes = sum(c1 != c2 for c1, c2 in zip(arr, rev_arr))
+    changes = 0
+    for i in range(len(front)):
+        if front[i] != back[len(back) - i - 1]:
+            changes += 1
+
     return changes
