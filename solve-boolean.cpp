@@ -1,39 +1,42 @@
 #include <string>
 
-int evalBool(std::string s) {
-    int result = 1; // Initialize the result to true
+bool evalBool(std::string s) {
+    bool result = false;
     for (char c : s) {
         switch (std::tolower(c)) {
             case 't':
-                break;
+                return true;
             case 'f':
-                return 0;
+                return false;
             case '|': {
                 if (s.length() > 1) {
-                    int subResult = evalBool(s.substr(1));
-                    result = subResult; 
-                    break;
+                    int pos = s.find('|');
+                    std::string left = s.substr(0, pos);
+                    std::string right = s.substr(pos + 1);
+                    bool subResult1 = evalBool(left);
+                    bool subResult2 = evalBool(right);
+                    return subResult1 || subResult2;
                 }
                 break;
             }
             case '&': {
                 if (s.length() > 1) {
-                    int subResult = evalBool(s.substr(1));
-                    if (subResult == 0)
-                        return 0;
-                    else
-                        result = subResult;
-                    break;
+                    int pos = s.find('&');
+                    std::string left = s.substr(0, pos + 1);
+                    std::string right = s.substr(pos + 1);
+                    bool subResult1 = evalBool(left);
+                    bool subResult2 = evalBool(right);
+                    return subResult1 && subResult2;
                 }
                 break;
             }
         }
     }
-    return result; 
+    return false; 
 }
 
 int main() {
     std::string input = "t|t|f&f|t|t";
-    int result = evalBool(input);
-    return result;
+    bool result = evalBool(input);
+    return 0;
 }
