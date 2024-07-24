@@ -15,4 +15,4 @@ def prime_fib(n: int):
         i += 1
     return fibonacci(i - 1)
 
-prime_fib(n)
+prime_fib(n) 
