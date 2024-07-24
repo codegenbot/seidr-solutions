@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
 
-int fuelCost(std::vector<int> v) {
+int fuelCost(const std::vector<int>& v) {
     int sum = 0;
     for (int i : v) {
         double temp = static_cast<double>(i) / 3; 
@@ -27,4 +28,5 @@ int main() {
     }
     int output = fuelCost(input);
     std::cout << "The total fuel cost is: " << output << std::endl;
-    return 0;}
+    return 0;
+}
