@@ -1,7 +1,7 @@
-#include <vector> 
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){ 
-    return a == b; 
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 std::vector<int> pluck(const std::vector<int>& arr){
@@ -22,9 +22,4 @@ std::vector<int> pluck(const std::vector<int>& arr){
     }
     
     return result;
-}
-
-int main() {
-    // call to pluck function and issame here
-    return 0;
 }
