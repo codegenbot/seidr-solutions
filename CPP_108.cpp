@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
@@ -32,4 +32,21 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> numbers(n);
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> numbers[i];
+    }
+    
+    int result = count_nums(numbers);
+    std::cout << "The number of positive sum is: " << result;
+    
+    return 0;
 }

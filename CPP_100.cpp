@@ -11,19 +11,19 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile(n, 0);
+std::vector<std::vector<int>> make_a_pile(int n) {
+    std::vector<std::vector<int>> piles;
     for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-            pile[i] = i * 2 + 1;
-        } else {
-            pile[i] = i * 2;
-        }
+        int num = 1;
+        if (i % 2 == 0)
+            piles.push_back({num, num + 1});
+        else
+            piles.push_back({num, num + 1});
     }
-    return pile;
+    return piles;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), {{1, 2}, {3, 4}, {5, 6}, {7, 8}}));
     return 0;
 }

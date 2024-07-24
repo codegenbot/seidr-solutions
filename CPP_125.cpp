@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 #include <vector>
 #include <string>
@@ -26,6 +27,17 @@ vector<string> split_words(string txt) {
     
     if (!currentWord.empty()) {
         result.push_back(currentWord);
+    } 
+
+    if (result.size() > 0) {
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c)) {
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
     }
     
     return result;
+}
