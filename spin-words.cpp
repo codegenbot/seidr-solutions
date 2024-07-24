@@ -1,34 +1,32 @@
-Here is the solution:
+Here's the solution:
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    string temp = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        
-        if (c == ' ') {
-            if (temp.length() >= 5) {
-                for (int j = temp.length() - 1; j >= 0; j--) {
-                    result += temp[j];
+    string word = "";
+
+    for(int i = 0; i < sentence.length(); i++) {
+        char c = sentence[i];
+        if(c == ' ') {
+            if(word.length() >= 5) {
+                for(int j = word.length()-1; j>=0; j--) {
+                    result += word[j];
                 }
             } else {
-                result += temp;
+                result += word;
             }
-            
-            temp = "";
+            word = "";
         } else {
-            temp += c;
+            word += c;
         }
     }
-    
-    if (temp.length() >= 5) {
-        for (int i = temp.length() - 1; i >= 0; i--) {
-            result += temp[i];
+
+    if(word.length() >= 5) {
+        for(int i = word.length()-1; i>=0; i--) {
+            result += word[i];
         }
     } else {
-        result += temp;
+        result += word;
     }
-    
+
     return result;
 }
