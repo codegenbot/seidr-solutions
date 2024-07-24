@@ -1,3 +1,4 @@
+```
 def match_parens(p):
     stack = []
     for char in p:
@@ -10,7 +11,6 @@ def match_parens(p):
                 return False
     return len(stack) == 0
 
-
 def check():
     while True:
         s = input("Enter a string of parentheses (or type 'q' to quit): ")
@@ -20,3 +20,4 @@ def check():
             print(match_parens(s))
         else:
             print("Invalid input. Please enter a string or type 'q' to quit.")
+assert match_parens([")", "("]) == False
