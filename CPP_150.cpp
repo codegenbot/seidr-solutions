@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -20,13 +19,13 @@ int x_or_y(int n, int x, int y) {
 }
 
 int main() {
-    int num, x, y;
+    int n, x, y;
     cout << "Enter a number: ";
-    cin >> num;
+    cin >> n;
     cout << "Enter value of x: ";
     cin >> x;
     cout << "Enter value of y: ";
     cin >> y;
-    cout << "The result is: " << x_or_y(num, x, y) << endl;
+    cout << "The result is: " << x_or_y(n, x, y) << endl;
     return 0;
 }
