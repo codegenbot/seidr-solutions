@@ -3,12 +3,14 @@ def minPath(grid, k):
     N = len(grid)
     queue = [(0, 0, [])]
     res = None
+    min_len = float('inf')
     while queue:
         row, col, path = queue.pop(0)
-        if len(path) <= k:
-            for p in set(frozenset(path)):
-                if not res or not any(p < r for r in res[0]):
-                    res = (tuple(sorted(set([r for r in path]))),) or res
+        if len(path) == k:
+            new_path = tuple(sorted(set(path)))
+            if len(new_path) < min_len:
+                min_len = len(new_path)
+                res = new_path
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
