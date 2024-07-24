@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
