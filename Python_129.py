@@ -13,6 +13,7 @@ def main():
         nonlocal minPath
         if i == len(grid) - 1 and j == len(grid[0]) - 1:
             return curr_sum
+        minPath = float('inf')
         for x, y in [(0, 1), (1, 0)]:
             ni, nj = i + x, j + y
             if (0 <= ni < len(grid) and 0 <= nj < len(grid[0]) and ((ni, nj) not in visited or not visited)):
@@ -24,11 +25,5 @@ def main():
 
     print(dfs(0, 0, [], set(), grid[0][0]))
 
-    """
-    This program is designed to find the minimum path sum in a given grid.
-    The function dfs (depth-first search) is used to traverse the grid and 
-    calculate the total sum of each path. The nonlocal keyword is used 
-    to modify the minPath variable from within the nested dfs function.
-    """
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
