@@ -13,4 +13,4 @@ def sum_product(numbers: List[int]) -> int:
         total_sum += num
         product *= num
 
-    return total_sum
+    return total_sum, product
