@@ -3,10 +3,9 @@
 int fuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int newNum = static_cast<int>(floor((double)num / 3));
-        if(newNum > 0) newNum--;
-        else newNum = 0;
+        int newNum = (num / 3);
+        if(newNum < 1) newNum = 0;
+        else newNum--;
         sum += newNum;
     }
     return sum;
-}
