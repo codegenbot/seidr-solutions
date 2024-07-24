@@ -1,5 +1,9 @@
 ```
-def modp(base: int, exponent: int, modulus: int):
+base = int(input("Enter the base: "))
+exponent = int(input("Enter the exponent: "))
+modulus = int(input("Enter the modulus: "))
+
+def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
     while exponent > 0:
@@ -9,8 +13,4 @@ def modp(base: int, exponent: int, modulus: int):
         base = (base * base) % modulus
     return result
 
-base = int(input("Enter base: "))
-exponent = int(input("Enter exponent: "))
-modulus = int(input("Enter modulus: "))
-
-modp(base, exponent, modulus)
+print(powermod(base, exponent, modulus))

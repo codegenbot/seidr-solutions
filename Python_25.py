@@ -19,6 +19,9 @@ def factorize(n: int) -> List[int]:
     return factors
 
 
+print("Enter a number:")
+
+
 while True:
     n = input("Enter a positive integer (or 'q' to quit): ")
     if n.lower() == 'q':
