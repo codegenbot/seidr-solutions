@@ -8,5 +8,4 @@ def shopping_list():
     
     return round(total_price, 1)
 
-if __name__ == '__main__':
-    print(shopping_list())
+print(shopping_list())
