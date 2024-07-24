@@ -1,5 +1,7 @@
 #include <cmath>
 #include <cassert>
+#include <cstddef> // Include this for ptrdiff_t
+using namespace std;
 
 bool iscuber(int a){
     int i = 1;
@@ -12,6 +14,7 @@ bool iscuber(int a){
 
 }
 
-int main() {
+int main() { 
    assert(iscuber(1729) == false);
-   return 0;
+   return 0; 
+}
