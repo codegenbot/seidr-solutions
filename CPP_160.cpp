@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,7 +14,12 @@ double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& a
         } else if(ops[i] == "*") {
             output *= static_cast<double>(args[i]);
         } else if(ops[i] == "/") {
-            output /= static_cast<double>(args[i]);
+            if(args[i] != 0) {
+                output /= static_cast<double>(args[i]);
+            } else {
+                std::cout << "Error: Division by zero is not allowed." << std::endl;
+                return 0.0;
+            }
         }
     }
 
@@ -26,7 +31,7 @@ int main() {
     std::vector<int> args;
 
     while(true) {
-        std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
+        std::cout << "Enter an operator (+, -, *, / or 'q' to quit): ";
         std::string op;
         std::cin >> op;
         
