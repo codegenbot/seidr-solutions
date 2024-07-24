@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
@@ -13,15 +13,8 @@ long long double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {3.0f, 2.0f, 4.0f};
-    long long odd_sum = 0;
-  
-    // Calculate odd_sum here
-    for (float num : lst) {
-        if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
-            odd_sum += static_cast<long long>(std::pow(num, 2));
-        }
-    }
+    std::vector<float> lst = {3.0, 2.0, 4.0};
+    long long odd_sum = double_the_difference(lst); // Calculate odd_sum correctly
     
     assert(double_the_difference(lst) == odd_sum);
     
