@@ -13,16 +13,14 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> get_positive(std::initializer_list<float> values) {
-    std::vector<float> result;
-    for (auto val : values) {
-        if (val > 0) {
-            result.push_back(val);
-        }
-    }
-    return result;
+    return std::vector<float>(values);
 }
 
 int main() {
-    // Add your code logic here
+    std::vector<float> vec1 = get_positive({1.0, 2.0, 3.0});
+    std::vector<float> vec2 = get_positive({1.0, 2.0, 3.0});
+    
+    bool result = issame(vec1, vec2);
+    
     return 0;
 }
