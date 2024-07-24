@@ -1,4 +1,3 @@
-```
 #include<iostream>
 using namespace std;
 
@@ -13,8 +12,8 @@ float triangle_area(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    cout << "Enter the sides of the triangle: ";
+    cout << "Enter the sides of triangle (a, b, c): ";
     cin >> a >> b >> c;
-    cout << "The area of the triangle is: " << triangle_area(a, b, c) << endl;
+    cout << "Area: " << triangle_area(a, b, c) << endl;
     return 0;
 }
