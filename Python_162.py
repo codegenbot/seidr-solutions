@@ -8,7 +8,12 @@ def string_to_md5(text):
 
 
 if __name__ == "__main__":
-    text = input("Enter a string: ").lower()
-    if len(text) > 0:
-        result = string_to_md5(text)
-        print(result)
+    while True:
+        try:
+            text = input("Enter a string (or 'q' to quit): ").lower()
+            if text == "q":
+                break
+            result = string_to_md5(text)
+            print(result)
+        except Exception as e:
+            print(f"Error: {e}")
