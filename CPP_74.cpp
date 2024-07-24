@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -46,7 +45,7 @@ int main() {
             cin >> s;
             if (!s.empty()) break;
             cin.clear();
-            cin.ignore(100000, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a non-empty string.\n";
             cout << "Please try again: ";
             getline(cin, s);
@@ -64,7 +63,7 @@ int main() {
             cin >> s;
             if (!s.empty()) break;
             cin.clear();
-            while (cin.peek() == '\n') cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a non-empty string.\n";
             cout << "Please try again: ";
             getline(cin, s);
