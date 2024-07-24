@@ -1,27 +1,14 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string decipher(std::string cipher_text, std::string key) {
+string decipher(string cipher1, string cipher2, string message) {
     string result = "";
-    for (int i = 0; i < cipher_text.length(); i++) {
-        if (i < key.length()) {
-            result += key[i];
-        } else {
-            result += cipher_text[i];
+    for (int i = 0; i < message.length(); i++) {
+        int index = 0;
+        while (index < cipher1.length() && index < cipher2.length()) {
+            if (message[i] == cipher1[index]) {
+                result += cipher2[index];
+                break;
+            }
+            index++;
         }
     }
     return result;
-}
-
-int main() {
-    std::string cipher_text, key;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher_text;
-    std::cout << "Enter the second string: ";
-    std::cin >> key;
-    std::cout << "Enter the third string: ";
-    std::cin >> cipher_text;
-    std::cout << decipher(cipher_text, key) << std::endl;
-    return 0;
 }
