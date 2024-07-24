@@ -1,15 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
     for (int i = 0; i < k; i++) {
-        auto it = max_element(arr.begin(), arr.end());
+        auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
-        arr.erase(it - (i % (arr.size() - i)));
+        arr.erase(it);
     }
     return result;
 }
