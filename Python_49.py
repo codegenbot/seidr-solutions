@@ -1,14 +1,17 @@
-```
 def modp(n: int, p: int):
-    def extended_euclidean(a: int, b: int):
-        if a == 0:
-            return (b, 0)
-        else:
-            gcd, y = extended_euclidean(b % a, a)
-            return (gcd, b - y * (a // gcd))
-
-    gcd, x = extended_euclidean(n, p)
-    if p != 1 and gcd > 1:
-        return None
+    if gcd(n, p) != 1:
+        raise ValueError("No modular inverse")
     else:
-        return pow(n, x, p)
+
+        def extended_gcd(a, b):
+            if a == 0:
+                return b, 0, 1
+            else:
+                g, y, x = extended_gcd(b % a, a)
+                return g, x - (b // a) * y, y
+
+        g, x, _ = extended_gcd(p, n)
+        if g != 1:
+            raise ValueError("No modular inverse")
+        else:
+            return pow(n, p - 2, p) * n % p
