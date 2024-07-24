@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,19 +6,20 @@ using namespace std;
 
 int main() {
     string tweet;
-    string result;
-    
     cout << "Enter a tweet: ";
     getline(cin, tweet);
+
+    tweet.erase(tweet.find_last_of('\n'), 1);
     
     if (tweet.empty()) {
-        result = "You didn't type anything";
-    } else if (tweet.length() > 140) {
-        result = "Too many characters";
-    } else {
-        result = "Your tweet has " + to_string(tweet.length()) + " characters";
+        cout << "You didn't type anything" << endl;
+        return 0;
     }
-    
-    cout << result << endl;
+
+    if (tweet.size() > 140) {
+        cout << "Too many characters" << endl;
+    } else {
+        cout << "Your tweet has " << tweet.size() << " characters" << endl;
+    }
     return 0;
 }
