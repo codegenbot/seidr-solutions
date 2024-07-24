@@ -4,30 +4,28 @@
 std::vector<int> pluck(std::vector<int> arr);
 
 int main() {
+    vector<int> arr;
     int n;
-    std::cout << "Enter the size of array: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    std::cout << "Enter elements of array: ";
-
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i<n; i++) {
+        int x;
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> x;
+        arr.push_back(x);
     }
-
-    std::vector<int> result = pluck(arr);
-
-    if (!result.empty()) {
-        std::cout << "Minimum even element is " << result[0] << ", and its index is " << result[1] << "." << std::endl;
+    vector<int> result = pluck(arr);
+    if(result.size() > 0) {
+        cout << "The smallest even number is: " << result[0] << endl;
+        cout << "The index of the smallest even number is: " << result[1] << endl;
     } else {
-        std::cout << "Array does not contain any even elements." << std::endl;
+        cout << "No even numbers found." << endl;
     }
-
     return 0;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
