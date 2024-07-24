@@ -5,4 +5,4 @@ sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
     }
     return a.length() < b.length();
 });
-return issame(lst, lst);
+return lst;
