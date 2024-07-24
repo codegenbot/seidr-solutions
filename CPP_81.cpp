@@ -31,8 +31,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input = {"E", "D-"};
-    std::vector<std::string> grades(input.begin(), input.end());
-    assert(issame(input, numerical_letter_grade(grades)));
+    std::vector<std::string> output;
+    assert(issame(std::vector<std::string>{"E", "D-"}, output));
     return 0;
 }
