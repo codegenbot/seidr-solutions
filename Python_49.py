@@ -1,13 +1,13 @@
-```
 def modp(n: int, p: int):
-    def egcd(a: int, b: int) -> tuple:
+    def extended_euclidean(a, b):
         if a == 0:
             return b, 0, 1
         else:
-            g, y, x = egcd(b % a, a)
-            return g, x - (b // a) * y, y
+            gcd, x, y = extended_euclidean(b % a, a)
+            return gcd, y - (b // a) * x, x
 
-    g, x, _ = egcd(p, n)
-    if g != 1:
+    gcd, x, _ = extended_euclidean(p, n)
+    if gcd != 1:
         return None
-    return x % p
+    else:
+        return pow(n, p - 2, p) * n % p
