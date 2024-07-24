@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 std::vector<int> leaders(const std::vector<int>& vec) {
     int rightmost = vec.back();
@@ -14,7 +13,7 @@ std::vector<int> leaders(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> vec = {17, 28, 4, 27, 3, 23};
+    std::vector<int> vec = {16, 17, 4, 3, 5, 2};
     std::vector<int> leadersResult = leaders(vec);
     for (int leader : leadersResult) {
         std::cout << leader << " ";
