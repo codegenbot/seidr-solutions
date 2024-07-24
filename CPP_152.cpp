@@ -26,7 +26,7 @@ int main() {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> x;
-        vec1.push_back(x);
+        vec1[i] = x;
     }
 
     std::vector<int> vec2(n);
@@ -34,7 +34,7 @@ int main() {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> x;
-        vec2.push_back(x);
+        vec2[i] = x;
     }
 
     if(checkVectorEquality(vec1,vec2)) {
