@@ -28,6 +28,6 @@ int main() {
    
     
     cout << luhn(digits); 
-
+    
     return 0;
 }
