@@ -1,4 +1,3 @@
-#include <algorithm>
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -23,7 +22,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
         result.push_back(*it_min);
         lst.erase(it_min);
         result.push_back(*it_max);
-        lst.erase(distance(it_max, end(lst)), 1);
+        lst.erase(it_max);
     }
 
     return result;
