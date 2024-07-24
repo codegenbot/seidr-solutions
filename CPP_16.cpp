@@ -1,6 +1,9 @@
-int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    str.erase(unique(str.begin(), str.end()), str.end());
-    return str.size();
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<char> chars;
+    for (char c : str) {
+        if (find(chars.begin(), chars.end(), c) == chars.end()) {
+            chars.push_back(c);
+        }
+    }
+    return chars.size();
 }
