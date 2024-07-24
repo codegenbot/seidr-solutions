@@ -26,7 +26,7 @@ def main():
                 new_path = dfs(ni, nj, path + [grid[ni][nj]], set((ni, nj)), new_sum)
                 if new_sum < minPath:
                     minPath = new_sum
-        return minPath
+        return curr_sum
 
     print(dfs(0, 0, [], set(), grid[0][0]))
 
