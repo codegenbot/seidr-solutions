@@ -1,6 +1,3 @@
-Here's the completed code:
-
-````
 def sort_numbers(numbers: str) -> str:
     numbers = numbers.replace("-", " ")
     numbers = " ".join(filter(None, numbers.split()))
@@ -39,4 +36,3 @@ def sort_numbers(numbers: str) -> str:
     }
     sorted_numbers = sorted([num_dict.get(num, int(num)) for num in numbers.split()])
     return " ".join(map(str, sorted_numbers))
-```
