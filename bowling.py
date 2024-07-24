@@ -1,15 +1,22 @@
 def handle_bonus(bowls, score):
     def get_strike_bonus(bowls, frame):
+        bonus = 0
         if bowls[frame] == "X":
-            return 10
-        elif bowls[frame].isdigit():
-            return int(bowls[frame])
-        return 0
+            bonus += 10
+            if bowls[frame + 1] == "X" or bowls[frame + 1] == "/":
+                bonus += 10
+                if bowls[frame + 2] == "X":
+                    bonus += 10
+                elif bowls[frame + 2].isdigit():
+                    bonus += int(bowls[frame + 2])
+            elif bowls[frame + 1].isdigit():
+                bonus += int(bowls[frame + 1])
+        return bonus
 
-    bonus = sum(map(lambda x: 10 if x == "X" else 0, bowls[:-2]))
+    bonus = sum(map(lambda x: 10 if x == "X" else 0, bowls[:-4]))
 
-    if bowls[9] == "X" or bowls[9] == "/" or bowls[9] == "-":
-        bonus += get_strike_bonus(bowls, 10)
+    if bowls[9] == "X":
+        bonus += get_strike_bonus(bowls, 9)
 
     score += bonus
 
@@ -17,10 +24,7 @@ def handle_bonus(bowls, score):
         if bowls[i] == "/":
             score += 10 - int(bowls[i - 1])
         elif bowls[i] == "X":
-            if i+2 < len(bowls):
-                score += 10 + get_strike_bonus(bowls, i + 1) + get_strike_bonus(bowls, i + 2)
-            else:
-                score += 10
+            score += 10 + get_strike_bonus(bowls, i + 1) + get_strike_bonus(bowls, i + 2)
         elif bowls[i].isdigit():
             score += int(bowls[i])
 
