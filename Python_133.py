@@ -9,6 +9,7 @@ while True:
             int(numbers[i])
         except ValueError:
             print("Invalid input. Please enter valid numbers separated by space:")
+            numbers = []
             break
     else:
         total_sum_of_squares = sum_squares(map(int, numbers))
