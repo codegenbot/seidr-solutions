@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 int smallest_change(const std::vector<int>& arr) {
     int n = arr.size();
