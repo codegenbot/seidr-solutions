@@ -9,13 +9,14 @@ def x_or_y(n, x, y):
         return True
     
     count = 0
-    num = 2
-    while True:
-        if is_prime(num):
-            count += 1
-            if count >= n:
-                return x
-        else:
-            num += 1
-        if count >= n:
-            return y
+    while x_or_y_helper(n, count) <= n:
+        if is_prime(x_or_y_helper(n, count)):
+            return str(count)
+        count += 1
+
+def x_or_y_helper(n, count):
+    sum = 0
+    for i in range(2, count + 1):
+        if is_prime(i):
+            sum += i
+    return sum
