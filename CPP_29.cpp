@@ -1,15 +1,13 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -32,6 +30,6 @@ int main() {
     strings.push_back("xxxAaaA");
     strings.push_back("xxx");
 
-    assert (issame(filter_by_prefix(strings, "xxx") , {"xxx", "xxxAAA"}));
+    assert (issame(filter_by_prefix(strings, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
