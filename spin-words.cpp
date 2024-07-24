@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -9,7 +8,7 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i - start);
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end()); // Pass non-const iterators
+                reverse(word.begin(), word.end());
             }
             result += word + " ";
             start = i + 1;
