@@ -1,22 +1,18 @@
-#include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true;
-    int op = -1;
+    bool result = true; // Initialize to true for simplicity
+    int op = -1; // Operator tracking
     for (char c : s) {
         if (c == 'T' || c == 't') {
             return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            op = 0;
+            op = 0; // AND operator
         } else if (c == '|') {
-            op = 1;
-        }
-        if (op != -1) {
-            result = (op == 0) ? (result && true) : (result || true);
+            op = 1; // OR operator
         }
     }
     return result;
