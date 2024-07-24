@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -66,4 +65,3 @@ int main() {
             std::cout << "The two vectors are not same.\n";
         }
     }
-}
