@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 string solve(string s){
     string result = "";
