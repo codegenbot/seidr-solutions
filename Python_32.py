@@ -1,7 +1,5 @@
-print("Enter the number of coefficients:")
-n = int(input())
-print("Enter the coefficients separated by space:")
-coefficients = list(map(int, input().split()))
+n = int(input("Enter the number of coefficients: "))
+coefficients = list(map(int, input("Enter the coefficients separated by spaces: ").split()))
 
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
