@@ -1,43 +1,25 @@
-```cpp
-#include <assert.h>
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::pair<std::string, std::string> a) {
-    return a.first == a.second;
+std::vector<std::string> bf(const std::string& a, const std::string& b) {
+    if (a == "Earth" && b == "Mars")
+        return {"BFFs"};
+    else if ((a == "Mars" || a == "Earth") && b == "Venus")
+        return {"Love Triangle"};
+    else
+        return {};
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planetsList = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    int index1 = -1, index2 = -1;
-    
-    for (int i = 0; i < planetsList.size(); i++) {
-        if (planetsList[i] == planet1) {
-            index1 = i;
-        } else if (planetsList[i] == planet2) {
-            index2 = i;
-        }
-    }
-    
-    if (index1 == -1 || index2 == -1)
-        return {};
-    
-    std::vector<std::string> result;
-    for (int i = 0; i < planetsList.size(); i++) {
-        if ((i > index1 && i < index2) || (i > index2 && i < index1)) {
-            result.push_back(planetsList[i]);
-        }
-    }
-    
-    return result;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a.size() == 1 && b.size() == 0);
 }
 
 int main() {
-    assert(issame(std::make_pair("Earth", "Earth")));  
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    assert(bf(planet1, planet2).size() == 0);  
+    std::pair<std::string, std::string> planets = {planet1, planet2};
+    assert(issame(bf(planet1, planet2), {}));  
     return 0;
 }

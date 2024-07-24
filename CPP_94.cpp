@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <memory>
 
 int maxPrimeNum = 0;
-std::vector<int> lst(std::allocator<int>());
+std::vector<int> lst;
 
 bool isPrime(int x) {
     for (int i = 2; i <= std::sqrt(x); i++) {
@@ -22,7 +22,7 @@ int sumOfDigits(int x) {
     return sum;
 }
 
-int originalMain() {
+int calculateMaxPrime() {
     int num, i;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> num;
@@ -44,6 +44,6 @@ int originalMain() {
 }
 
 int main() {
-    originalMain();
+    calculateMaxPrime();
     return 0;
 }
