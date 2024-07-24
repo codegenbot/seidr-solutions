@@ -1,16 +1,16 @@
 ```
 def modp(n: int, p: int):
-    def extended_euclidean(a: int, b: int) -> tuple:
+    def extended_gcd(a, b):
         if a == 0:
-            return b, 0, 1
+            return (b, 0)
         else:
-            gcd, x, y = extended_euclidean(b % a, a)
-            return gcd, y - (b // a) * x, x
+            g, y = extended_gcd(b % a, a)
+            return (g, b // a - y * (b // a))
 
-    def mod_inverse(a: int, m: int) -> int:
-        gcd, x, _ = extended_euclidean(a, m)
-        if gcd != 1:
-            raise ValueError("Modular inverse does not exist")
-        return x % m
-
-    return pow(n, mod_inverse(p - 2, p), p) * n % p
+    g, x = extended_gcd(p, n)
+    if p == 1:
+        return n
+    elif g != 1:
+        return None
+    else:
+        return pow(n, p-2, p) * n % p
