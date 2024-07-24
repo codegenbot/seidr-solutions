@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
-#include <climits>
 #include <iostream>
 
 using namespace std;
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
-    if (arr.empty()) return vector<std::pair<int, int>>();
+    if (arr.empty()) return vector<stdpair<int, int>>();
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -25,7 +25,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     return result;
 }
 
-int cppMain() {
+int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
@@ -36,7 +36,7 @@ int cppMain() {
         cin >> arr[i];
     }
 
-    std::vector<std::pair<int, int>> output = pluck(arr);
+    std::vector<pair<int, int>> output = pluck(arr);
 
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
