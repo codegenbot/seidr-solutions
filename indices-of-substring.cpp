@@ -2,28 +2,23 @@
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int index = 0;
-    while (index <= text.size() - target.size()) {
-        if (text.substr(index, target.size()).compare(target) == 0) {
-            indices.push_back(index);
-            index += target.size();
-        } else {
-            index++;
-        }
+    vector<int> result;
+    int len = target.length();
+    for (int i = 0; i <= text.length() - len; i++) {
+        if (text.substr(i, len) == target)
+            result.push_back(i);
     }
-    return indices;
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
     string text;
     cin >> text;
-    vector<int> result = findIndices(text, n + "");
-    for (int i : result) {
-        cout << i << " ";
+    string target;
+    cin >> target;
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
+        cout << i << endl;
     }
-    cout << endl;
     return 0;
 }
