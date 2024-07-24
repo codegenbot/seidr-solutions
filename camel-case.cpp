@@ -1,24 +1,35 @@
-````
+```cpp
 #include <string>
+#include <iostream>
+#include <algorithm>
+#include <sstream>
 
 int main() {
-    std::string input = "camel-case example-test-string";
-    std::string result;
-    bool capitalizeNext = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            result += ' ';
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+    std::string input;
+    std::getline(std::cin, input);
+    for (int i = 0; i <= input.size(); ++i) {
+        if (input[i] == '-') {
+            input.replace(i, 1, "");
+            i -= 1;
+        } else if (input[i] == ' ') {
+            input.replace(i, 1, "");
+            i -= 1;
         }
     }
-
-    std::cout << result << std::endl;
-
-    return 0;
+    std::string result = "";
+    bool isUpper = false;
+    for(int i = 0; i < input.size(); ++i) {
+        char c = input[i];
+        if (c >= 'A' && c <= 'Z') {
+            result += (isUpper ? "" : "") + tolower(c);
+            isUpper = true;
+        } else if (c >= 'a' && c <= 'z') {
+            if (!isUpper) {
+                result += " ";
+            }
+            result += c;
+            isUpper = false;
+        }
+    }
+    std::cout << result;
 }

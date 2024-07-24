@@ -1,6 +1,5 @@
-#include <string>
-
-std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
+namespace {
+string cipherFunction(string cipher1, string cipher2, string input) {
     string result = "";
     for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
