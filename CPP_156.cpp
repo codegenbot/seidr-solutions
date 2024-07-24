@@ -6,7 +6,6 @@ using namespace std;
 struct Roman {
     int value;
     string roman;
-    Roman(int value, string roman) : value(value), roman(roman) {}
 };
 
 vector<Roman> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
