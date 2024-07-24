@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+using namespace std;
 
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
@@ -33,4 +32,3 @@ vector<string> split(const string& str, char delim) {
         prev = pos + 1;
     } while (pos != string::npos);
     return tokens;
-}
