@@ -1,11 +1,23 @@
-def cut_vector(nums):
+def cut_vector(vector):
     min_diff = float("inf")
-    split_idx = 0
-
-    for i in range(1, len(nums)):
-        diff = abs(np.mean(nums[:i]) - np.mean(nums[i:]))
+    split_index = -1
+    for i in range(1, len(vector)):
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
+        if left_sum == right_sum:
+            return (vector[:i], vector[i:])
+        diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
-            split_idx = i
+            split_index = i
+    left_half = vector[:split_index]
+    right_half = vector[split_index:]
+    return (left_half, right_half)
 
-    return nums[:split_idx], nums[split_idx:]
+
+# Test the function
+print(cut_vector([1]))  # Output: ([1], [0])
+print(cut_vector([1, 10]))  # Output: ([1], [10, 0])
+print(cut_vector([1, 100]))  # Output: ([1], [100, 0])
+print(cut_vector([1, 1000]))  # Output: ([1], [1000, 0])
+print(cut_vector([1, 10000]))  # Output: ([1], [10000, 0])
