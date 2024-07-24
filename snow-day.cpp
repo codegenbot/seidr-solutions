@@ -2,15 +2,14 @@
 
 int main() {
     int hours;
-    float snow, rate, melt;
+    double snow, rate, melt;
 
     std::cin >> hours >> snow >> rate >> melt;
 
-    float snowOnGround = snow;
+    double snowOnGround = snow;
 
     for (int i = 0; i < hours; ++i) {
-        float newSnow = snowOnGround + rate - (snowOnGround * melt);
-        snowOnGround = newSnow;
+        snowOnGround += rate - (snowOnGround * melt);
     }
 
     std::cout << snowOnGround << std::endl;
