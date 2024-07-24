@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> list[int]:
     beats = {'o': 4, 'o|': 2, '.|': 1}
     result = []
