@@ -1,18 +1,20 @@
+#include<string>
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char base = tolower(c);
-            if (base == 'a' || base == 'e' || base == 'i' || base == 'o' || base == 'u') {
-                base += 2;
-                if (base > 'z')
-                    base -= 26;
-            } else if (isupper(c)) {
-                base = toupper((base - 'a' + 2) % 26 + 'a');
+            char newChar;
+            if (isupper(c)) {
+                newChar = 'a' + (c - 'A');
             } else {
-                base = tolower((base - 'a' + 2) % 26 + 'a');
+                newChar = 'A' + (c - 'a');
             }
-            result += base;
+            if (newChar == 'a' || newChar == 'e' || newChar == 'i' || newChar == 'o' || newChar == 'u') {
+                newChar = 'w' + ((newChar - 'a') % 26);
+            }
+            result += newChar;
         } else {
             result += c;
         }
