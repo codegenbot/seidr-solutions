@@ -1,18 +1,20 @@
+```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true; // Initialize to true for simplicity
-    int op = -1; // Operator tracking
+    bool result = true;
     for (char c : s) {
         if (c == 'T' || c == 't') {
             return true;
         } else if (c == 'F' || c == 'f') {
             return false;
         } else if (c == '&') {
-            op = 0; // AND operator
+            result &= false;
         } else if (c == '|') {
-            op = 1; // OR operator
+            bool temp = result;
+            result = false;
+            result |= temp;
         }
     }
     return result;
