@@ -1,12 +1,9 @@
-def camel_case(s):
-    result = ""
-    for word in s.split():
-        if not result or "-" not in word:
-            result += word.capitalize()
-        else:
-            result += word[0].upper() + word[1:].lower()
-    return result
+Here is the Python solution for the problem:
 
+def camel_case(input_string):
+    return ' '.join(word.capitalize() for word in input_string.split())
 
-s = input()
-print(camel_case(s))
+print(camel_case("nospaceordash")) 
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
