@@ -1,4 +1,3 @@
-```
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
@@ -9,6 +8,7 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
         }
     }
     return true;
+
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
@@ -28,4 +28,3 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
