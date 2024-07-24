@@ -1,7 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
-
+```
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
