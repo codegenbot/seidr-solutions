@@ -1,9 +1,14 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -30,7 +35,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 1.0)
             result.push_back("D+");
         else
-            result.push_back("F");
+            result.push_back("E");
     }
     return result;
 }
@@ -38,25 +43,25 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main_test() {
     std::vector<float> grades = {0, 0.7};
     std::vector<std::string> a = numerical_letter_grade(grades);
-    if (a[0] >= "A+")
+    if (a[0] >= 4.0)
         a[0] = "A+";
-    else if (a[0] > "A")
+    else if (a[0] > 3.7)
         a[0] = "A";
-    else if (a[0] > "A-")
+    else if (a[0] > 3.3)
         a[0] = "A-";
-    else if (a[0] > "B+")
+    else if (a[0] > 3.0)
         a[0] = "B+";
-    else if (a[0] > "B")
+    else if (a[0] > 2.7)
         a[0] = "B";
-    else if (a[0] > "B-")
+    else if (a[0] > 2.3)
         a[0] = "B-";
-    else if (a[0] > "C+")
+    else if (a[0] > 2.0)
         a[0] = "C+";
-    else if (a[0] > "C")
+    else if (a[0] > 1.7)
         a[0] = "C";
-    else if (a[0] > "C-")
+    else if (a[0] > 1.3)
         a[0] = "C-";
-    else if (a[0] > "D+")
+    else if (a[0] > 1.0)
         a[0] = "D+";
     else
         a[0] = "F";
