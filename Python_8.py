@@ -1,24 +1,14 @@
-from typing import List, Tuple
+```
+def sum_product():
+    numbers = []
+    while True:
+        try:
+            num = input("Enter a number (or 'stop' to finish): ")
+            if num == 'stop':
+                break
+            numbers.append(int(num))
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    return sum(numbers), eval('*'.join(map(str, numbers)))
 
-
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not isinstance(numbers, list):
-        raise ValueError("Input must be a list")
-    for num in numbers:
-        if not isinstance(num, int):
-            raise ValueError("List elements must be integers")
-    if len(numbers) == 0:
-        raise ValueError(
-            "No input provided. Please provide a non-empty list of integers."
-        )
-    total_sum = 0
-    product = 1
-    for num in numbers:
-        total_sum += num
-        product *= num
-    return total_sum, product
-
-
-numbers = [int(x) for x in input("Enter some space-separated numbers: ").split()]
-result = sum_product(numbers)
-print(f"The sum of the numbers is {result[0]} and their product is {result[1]}.")
+print(sum_product())
