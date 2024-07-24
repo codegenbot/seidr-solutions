@@ -24,26 +24,27 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
+}
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector<string> words(n);
+    std::vector<std::string> words(n);
 
     for (auto &word : words) {
-        cin >> word;
+        std::cin >> word;
     }
 
-    string prefix;
-    cin >> prefix;
+    std::string prefix;
+    std::cin >> prefix;
 
     bool same = issame(words, filter_by_prefix(words, prefix));
 
     if(same)
-        cout << "Same" << endl;
+        std::cout << "Same" << std::endl;
     else
-        cout << "Not Same" << endl;
+        std::cout << "Not Same" << std::endl;
 
     return 0;
 }
