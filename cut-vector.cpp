@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
 
 using namespace std;
 
@@ -11,7 +10,6 @@ int main() {
 
     while (cin >> num) {
         vec.push_back(num);
-        if(cin.peek() == '\n') break; // Stop reading input if newline is detected
     }
 
     int n = vec.size();
@@ -19,8 +17,13 @@ int main() {
     int cutIndex = -1;
 
     for (int i = 1; i < n; ++i) {
-        int sum1 = accumulate(vec.begin(), vec.begin() + i, 0);
-        int sum2 = accumulate(vec.begin() + i, vec.end(), 0);
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; ++j) {
+            sum1 += vec[j];
+        }
+        for (int j = i; j < n; ++j) {
+            sum2 += vec[j];
+        }
 
         int currentDiff = abs(sum1 - sum2);
         if (currentDiff < diff) {
