@@ -7,6 +7,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == "(":
             current_group += char
         elif char == ")":
+            current_group += char
             result.append(current_group)
             current_group = ""
     return result
