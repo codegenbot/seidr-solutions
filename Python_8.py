@@ -9,4 +9,4 @@ def sum_product() -> Tuple[int, int]:
     return total_sum, total_product
 
 result = sum_product()
-print(result) 
+print(result)
