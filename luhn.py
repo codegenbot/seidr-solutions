@@ -1,1 +1,1 @@
-return sum(int(d) for d in str(sum(map(lambda x: (2*x) if len(card)-1-i%2 else x, range(len(card)))))) if int(d)>9 else int(d)-9)
+return sum(int(d) for d in str(sum(map(lambda x: (2*x) if i % 2 else x, card))) if int(d)>9 else int(d)-9)
