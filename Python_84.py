@@ -1,2 +1,5 @@
 def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:])))tring[2:]])
+    if N > 0:
+        return bin(sum(int(i) for i in str(bin(N)[2:])))[2:]
+    else:
+        return "0"
