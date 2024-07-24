@@ -1,25 +1,24 @@
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result += ch;
+    vector<string> result;
+    string temp = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+            temp += s[i];
         }
     }
-    string revResult = result;
-    reverse(revResult.begin(), revResult.end());
-    vector<string> res;
-    res.push_back(result);
-    if (result == revResult) {
-        res.push_back("True");
+    result.push_back(temp);
+    
+    string reverse = temp;
+    reverse.erase(0, reverse.length() - 1);
+    for(int i=reverse.length()-1; i>=0; i--) {
+        result.push_back(reverse.substr(i, 1));
+    }
+    
+    if (temp == reverse) {
+        result.push_back("True");
     } else {
-        res.push_back("False");
+        result.push_back("False");
     }
-    return res;
+    
+    return result;
 }
