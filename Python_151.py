@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     total = 0
     for num in lst:
@@ -5,3 +6,5 @@ def double_the_difference(lst):
             if num % 2 != 0:
                 total += num**2
     return total
+
+print(double_the_difference([1, 3, 5]))
