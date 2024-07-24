@@ -10,11 +10,13 @@ def average_rounded():
                 return -1
             avg = round((n + m) / 2)
             def check(rounded_avg):
-                if rounded_avg % 2 == 0:
-                    print(f"The average is even.")
+                if rounded_avg % 3 == 0:
+                    return "The average is divisible by 3."
+                elif rounded_avg % 5 == 0:
+                    return "The average is divisible by 5."
                 else:
-                    print(f"The average is odd.")
-            check(avg)
-            return bin(int(str(avg)))[2:]
+                    return "The average is neither divisible by 3 nor 5."
+            print(check(avg))
+            return bin(avg)[2:]
         except ValueError:
             print("Invalid input. Please enter integers.")
