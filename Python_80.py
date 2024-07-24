@@ -9,6 +9,7 @@ def is_happy_number(n):
             return True
 
 try:
-    print(is_happy_number(int(input("Enter a number: "))))
+    num = int(input("Enter a number: "))
+    print(is_happy_number(num))
 except ValueError as e:
     print(f"Invalid input. {e}")
