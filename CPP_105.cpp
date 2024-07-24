@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
+#include <pmr/string_buffer.h>
 
-std::vector<std::string> by_length(const std::vector<int>& lengths) {
+std::pmr::string by_length(const std::vector<int>& lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         switch (length) {
@@ -21,13 +23,18 @@ std::vector<std::string> by_length(const std::vector<int>& lengths) {
                 break;
         }
     }
-    return result;
+    return std::pmr::string(new std::pmr::monitored_string_buffer, new std::pmr::memory_resource);
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame(by_length({1, 4, 9}) , {"One", "Four", "Nine"}));
+    return 0;
 }
