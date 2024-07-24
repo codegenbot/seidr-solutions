@@ -6,7 +6,7 @@ int main() {
     std::vector<int> nums;
     int n;
     while (std::cin >> n) {
-        if (n == -1) break;
+        if (n == -1) break; // Or any suitable condition to indicate end of input
         nums.push_back(n);
     }
 
