@@ -37,8 +37,13 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         }
     }
 
+    std::vector<std::string> temp;
     for (auto& vec : lst) {
-        std::sort(vec.begin(), vec.end());
+        temp.insert(temp.end(), vec.begin(), vec.end());
+        std::sort(temp.begin(), temp.end());
+        vec.clear();
+        vec.insert(vec.end(), temp.begin(), temp.end());
+        temp.clear();
     }
 
     return {sums}; 
