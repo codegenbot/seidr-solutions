@@ -25,6 +25,10 @@ while True:
     if n.lower() == 'q':
         break
     try:
-        print(*factorize(int(n)), sep=', ')
+        n = int(n)
+        if n > 0: 
+            print(*factorize(n), sep=', ')
+        else: 
+            print("Please enter a positive integer.")
     except ValueError:
         print("Invalid input. Please enter an integer or 'q' to quit.")
