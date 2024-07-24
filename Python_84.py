@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:]))) if N else "0"
+    return bin(int(str(bin(N)[2:]), 2))
