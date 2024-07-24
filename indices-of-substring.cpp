@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,5 +26,3 @@ int main() {
     }
     cout << endl;
     return 0;
-}
-```
