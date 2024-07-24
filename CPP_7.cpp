@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <set>
-#include <string>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     set<string> setA(a.begin(), a.end());
@@ -12,54 +12,29 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    vector<string> strings(n);
+    cin >> n;
+    vector<string> strings;
     for(int i = 0; i < n; i++) {
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, strings[i]);
+        string s;
+        cin >> s;
+        strings.push_back(s);
     }
-
     int m;
-    std::cout << "Enter the number of substrings: ";
-    std::cin >> m;
-
-    vector<string> substrings(m);
+    cin >> m;
+    vector<string> substrings;
     for(int i = 0; i < m; i++) {
-        std::cout << "Enter substring " << (i+1) << ": ";
-        std::getline(std::cin, substrings[i]);
+        string s;
+        cin >> s;
+        substrings.push_back(s);
     }
 
     vector<string> filtered_strings = filter_by_substring(strings, substrings[0]);
-
-    if(issame({substrings[0]}, {substrings[1]})) {
-        for(string s : strings) {
-            bool found = false;
-            for(string sub : substrings) {
-                if(s.find(sub) != string::npos) {
-                    found = true;
-                    break;
-                }
-            }
-            if(found)
-                std::cout << s << " ";
-        }
+    if(issame(filtered_strings, strings)) {
+        cout << "Yes\n";
     } else {
-        vector<string> result = filter_by_substring(strings, substrings[0]);
-        for(string s : result) {
-            bool found = false;
-            for(string sub : substrings) {
-                if(s.find(sub) != string::npos) {
-                    found = true;
-                    break;
-                }
-            }
-            if(found)
-                std::cout << s << " ";
-        }
+        cout << "No\n";
     }
-
+    
     return 0;
 }
 
