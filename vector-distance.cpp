@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
+#include <iomanip>
 
 int main() {
     int n;
@@ -11,12 +11,11 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ','); // Clear the comma as delimiter from the input stream
+    std::cin.ignore(); 
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ',');
     }
 
     double sum = 0.0;
@@ -24,7 +23,7 @@ int main() {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << std::sqrt(sum) << "\n";
+    std::cout << std::fixed << std::setprecision(15) << std::sqrt(sum) << "\n";
 
     return 0;
 }
