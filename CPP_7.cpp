@@ -3,14 +3,16 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
@@ -18,16 +20,15 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> inputStrings = {"hello", "world", "hello"};
-    std::string subString = "ello";
-    
-    std::vector<std::string> filteredStrings = filter_by_substring(inputStrings, subString);
-    
-    if (issame(inputStrings, filteredStrings)) {
-        std::cout << "The strings are same." << std::endl;
+    vector<string> strings = {"apple", "banana", "orange", "grape"};
+    string substring = "ap";
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
+
+    if (issame(filtered_strings, {"apple"})) {
+        cout << "The filtered strings are the same as expected." << endl;
     } else {
-        std::cout << "The strings are not same." << std::endl;
+        cout << "The filtered strings are not the same as expected." << endl;
     }
-    
+
     return 0;
 }
