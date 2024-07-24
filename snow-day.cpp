@@ -8,9 +8,9 @@ int main() {
     
     std::cout << std::fixed << std::setprecision(15);
     
+    float original_snow = snow;
     for (int i = 0; i < hours; ++i) {
-        float snowfall = rate - (snow * melt);
-        snow = snow + snowfall;
+        snow = snow + rate - (original_snow * melt);
     }
     
     std::cout << snow << std::endl;
