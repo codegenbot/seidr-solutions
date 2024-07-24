@@ -1,15 +1,18 @@
 bool solveBoolean(string expression) {
-    if (expression.length() == 1) {
+    if (expression.size() == 1)
         return tolower(expression[0]) == 't';
-    }
     
     int pos = expression.find('|');
     while (pos != string::npos) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if (!left.empty()) 
-            return solveBoolean(left) || solveBoolean(right);
+        if (!left.empty()) {
+            if (solveBoolean(left))
+                return true;
+            else
+                solveBoolean(right);
+        }
         
         pos = expression.find('|', pos);
     }
@@ -19,8 +22,12 @@ bool solveBoolean(string expression) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if (!left.empty()) 
-            return solveBoolean(left) && solveBoolean(right);
+        if (!left.empty()) {
+            if (solveBoolean(left))
+                return solveBoolean(right);
+            else
+                return false;
+        }
         
         pos = expression.find('&', pos);
     }
