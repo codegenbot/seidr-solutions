@@ -2,9 +2,9 @@ Here is the solution:
 
 def find_zero(xs: list):
     n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
+    assert n % 2 == 0, "xs must have even number of coefficients"
     a = xs[0]
-    for i in range(1, n // 2 + 1):
-        a += xs[i] / (i * math.factorial(i))
-    return -a
+    b = xs[1]
+    c = xs[2] if n > 2 else 0
+    d = -a / (b + c * math.pow(2, (-1) * (n-4)/2))
+    return round(d, 2)
