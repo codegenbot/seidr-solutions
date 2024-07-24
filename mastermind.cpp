@@ -35,8 +35,10 @@ int main() {
     std::string code, guess;
     std::cout << "Enter the code: ";
     std::cin >> code;
-    std::cout << "Enter the guess: ";
+    std::cout << "Enter your guess: ";
     std::cin >> guess;
+
     calculatePegs(code, guess);
+
     return 0;
 }
