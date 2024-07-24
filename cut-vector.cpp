@@ -8,7 +8,7 @@ int main() {
     vector<int> nums;
     int num;
     
-    for (int i = 0; cin >> num; i++) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
@@ -38,11 +38,6 @@ int main() {
     }
     
     cout << 0 << '\n';
-    
-    cout << "Second subvector:\n";
-    for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << '\n';
-    }
     
     return 0;
 }
