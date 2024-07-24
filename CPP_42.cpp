@@ -11,14 +11,3 @@ std::vector<int> incr_list(std::vector<int> l) {
     }
     return l;
 }
-
-int main() {
-    std::vector<int> testList = {1, 2, 3};
-    std::vector<int> expectedList = {2, 3, 4};
-    
-    std::vector<int> resultList = incr_list(testList);
-    
-    assert(issame(resultList, expectedList));
-    
-    return 0;
-}
