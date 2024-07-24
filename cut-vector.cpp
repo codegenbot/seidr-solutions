@@ -28,13 +28,13 @@ int main() {
         if (min_diff == 0) break;
     }
     
-    for (int i = 0; i <= cut_idx; ++i) {
+    for (int i = 0; i < cut_idx; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
     std::cout << std::endl;
     
-    for (int i = cut_idx + 1; i < n; ++i) {
+    for (int i = cut_idx; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
