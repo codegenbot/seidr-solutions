@@ -1,2 +1,5 @@
 def modp(n: int, p: int):
-    return pow(n, -1, p) * n % p
+    if n % p == 0:
+        return n // p
+    else:
+        return pow(n, -1, p) * n % p
