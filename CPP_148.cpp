@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,7 +34,7 @@ int main() {
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
+    planets = {planet1, planet2};
     
     bool result = issame(planets, bf(planets));
     if(result) {
