@@ -1,2 +1,3 @@
-def sum_squares(lst):
-    return sum([i**2 for i in lst])
+```
+numbers = [int(x) for x in input().split(',')]
+print(sum(map(lambda x: x ** 2, numbers)))
