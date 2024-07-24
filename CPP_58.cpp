@@ -1,10 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+vector<int> common(const vector<int>& a, const vector<int>& b) {
+    vector<int> result;
+    for (int i : a) {
+        if (find(b.begin(), b.end(), i) != b.end()) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
 int main() {
@@ -16,6 +24,8 @@ int main() {
     } else {
         cout << "Vectors are different." << endl;
     }
+
+    assert(issame(common({4, 3, 2, 8}, {}) , {}));
 
     return 0;
 }
