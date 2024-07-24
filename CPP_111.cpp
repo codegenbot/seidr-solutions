@@ -4,33 +4,30 @@ using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
-    size_t pos = 0;
-    while ((pos = test.find(' ')) != string::npos) {
-        char c = test[0];
-        int count = 1;
-        for (size_t i = 1; i < pos; i++) {
-            if (test[i] == c) {
-                count++;
-            } else {
-                break;
+    string temp = "";
+    
+    for (int i = 0; i < test.length(); i++) {
+        if (test[i] == ' ') {
+            if (!temp.empty()) {
+                if (result.find(temp[0]) == result.end() || result[temp[0]] == 1) {
+                    result[temp[0]] = 2;
+                } else {
+                    result[temp[0]]++;
+                }
+                temp = "";
             }
-        }
-        result[c] = count;
-        test.erase(0, pos + 1);
-    }
-
-    char c = test[0];
-    int count = 1;
-    for (size_t i = 1; i < test.size(); i++) {
-        if (test[i] == c) {
-            count++;
         } else {
-            break;
+            temp += test[i];
         }
     }
-    result[c] = count;
-
+    
+    if (!temp.empty()) {
+        if (result.find(temp[0]) == result.end() || result[temp[0]] == 1) {
+            result[temp[0]] = 2;
+        } else {
+            result[temp[0]]++;
+        }
+    }
+    
     return result;
 }
