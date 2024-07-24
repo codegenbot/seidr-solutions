@@ -2,8 +2,8 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 cumulative_sum = [0]
-for i in range(n):
-    cumulative_sum.append(cumulative_sum[-1] + arr[i])
+for num in arr:
+    cumulative_sum.append(cumulative_sum[-1] + num)
 
 total_sum = cumulative_sum[-1]
 min_diff = abs(arr[0] - total_sum)
@@ -16,7 +16,7 @@ for i in range(1, n):
         cut_index = i
 
 subvector1 = arr[:cut_index+1]
-subvector2 = arr[cut_index:]
+subvector2 = arr[cut_index+1:]
 
 print(*subvector1)
 print(*subvector2)
