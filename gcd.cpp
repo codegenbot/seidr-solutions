@@ -1,6 +1,8 @@
-Here is the modified code:
+```
+#include <algorithm>
+#include <vector>
+#include <string>
 
-```cpp
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -57,5 +59,5 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-    return 0;
+    
 }
