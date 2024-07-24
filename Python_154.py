@@ -1,6 +1,7 @@
+```python
 def cycpattern_check(a, b):
     n = len(b)
-    for i in range(n):
-        if a == (b[i:] + b[:i]):
+    for j in range(n - len(a) + 1):
+        if a == b[j:j+len(a)]:
             return True
     return False
