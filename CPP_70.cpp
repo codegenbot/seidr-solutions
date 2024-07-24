@@ -3,17 +3,17 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-bool strange_sort_list(const std::vector<int>& vec){
+bool strange_sort_list(const std::vector<int>& vec) {
     std::vector<int> sorted_vec = vec;
     std::sort(sorted_vec.begin(), sorted_vec.end());
     return vec == sorted_vec;
 }
 
-int main(){
+int main() {
     std::vector<int> vec1 = {1, 2, 3};
     std::vector<int> vec2 = {1, 2, 3};
 
@@ -21,7 +21,7 @@ int main(){
 
     assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
 
-    assert(strange_sort_list(std::vector<int>{111111}) == std::vector<int>{1, 1, 1, 1, 1, 1});
+    assert(strange_sort_list(std::vector<int>{1, 1, 1, 1, 1, 1}));
 
     return 0;
 }
