@@ -1,13 +1,7 @@
-int basement(vector<int> &nums) {
-    int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) {
-            return i;
-        }
-    }
-    return -1;
-}
+#include <vector>
+#include <iostream>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -15,6 +9,17 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << basement(nums) << endl;
+    
+    int sum = 0, index = -1;
+    for (int i = 0; i < n; ++i) {
+        sum += nums[i];
+        if (sum < 0) {
+            index = i;
+            break;
+        }
+    }
+    
+    cout << index << endl;
+    
     return 0;
 }
