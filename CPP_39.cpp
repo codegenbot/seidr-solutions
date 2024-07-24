@@ -4,25 +4,20 @@
 using namespace std;
 
 int prime_fib(int n) {
-    vector<int> fib = {0, 1};
-    for (int i = 2; ; i++) {
-        int next = fib[i-1] + fib[i-2];
-        if (next > n) break;
-        fib.push_back(next);
-    }
-    
-    for (int f : fib) {
-        bool isPrime = true;
-        for (int p = 2; p*p <= f && isPrime; p++) {
-            if (f % p == 0) isPrime = false;
+    vector<int> fib(0);
+    int a = 0, b = 1;
+    while (true) {
+        if (n == 0)
+            return -1;
+        fib.push_back(a);
+        if (a == 2 || a == 3) {
+            if (b == 4)
+                return a;
+            else
+                n--;
         }
-        if (isPrime) return f;
+        int temp = a;
+        a = b;
+        b = temp + b;
     }
-    
-    return -1; // not found
-}
-
-int main() {
-    printf("%d\n", prime_fib(5));
-    return 0;
 }

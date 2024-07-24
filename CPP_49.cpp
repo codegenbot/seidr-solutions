@@ -1,24 +1,22 @@
-#include <stdio.h>
+#include <iostream>
+
 using namespace std;
 
 int modp(int n, int p) {
     if (n == 0)
         return 1;
     long long res = 1;
-    for (; n > 0; n >>= 1) {
-        if (n & 1)
-            res = (res * p) % p;
-        p = (p * p) % p;
+    for (int i = 1; i <= n; i++) {
+        res = (res * p) % p;
     }
     return res;
 }
 
 int main() {
-    int n, p;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("Enter the value of p: ");
-    scanf("%d", &p);
-    printf("2^n mod p = %d\n", modp(n,p));
+    cout << modp(3, 5) << endl;
+    cout << modp(1101, 101) << endl;
+    cout << modp(0, 101) << endl;
+    cout << modp(3, 11) << endl;
+    cout << modp(100, 101) << endl;
     return 0;
 }
