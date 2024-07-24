@@ -1,7 +1,5 @@
-import sys
-
 def check():
-    string = sys.stdin.readline().rstrip()
+    string = input("Enter a string: ").strip()
     return modify_string(string)
 
 def modify_string(string):
@@ -9,5 +7,4 @@ def modify_string(string):
         [char.lower() if char.isupper() else char.upper() for char in string]
     )
 
-output = check()
-print(output)
+return check()
