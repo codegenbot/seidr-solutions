@@ -1,15 +1,12 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double higher = 0.0;
-    
-    for(int i = 1; i <= m; i++) {
-        higher += (double)(n - i + 1) / total;
+    double p = 0.0;
+    for (int i = m + 1; i <= n; i++) {
+        p += (1.0 / n) * (1.0 / m);
     }
-    
-    return higher;
+    return p;
 }
 
 int main() {
