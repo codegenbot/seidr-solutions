@@ -1,40 +1,25 @@
-def findMinHeightTrees(n, edges):
-    if n == 1:
-        return [0]
-    
-    tree_dict = {i: i for i in range(n)}
-    height = [0] * n
-    children = [0] * n
-    
-    for edge in edges:
-        parent, child = edge
-        tree_dict[child] = parent
-        children[parent] += 1
-        
-    queue = collections.deque()
-    
-    for node in range(n):
-        if children[node] == 0:
-            queue.append(node)
-            
+def minPath(grid, k):
+    n = len(grid)
+    m = len(grid[0])
+    visited = [[False] * m for _ in range(n)]
+    queue = [(i, j, [grid[i][j]]) for i in range(n) for j in range(m)]
+    res = []
+
     while queue:
-        level_size = len(queue)
-        
-        for _ in range(level_size):
-            node = queue.popleft()
-            height[node] = max(height) + 1
-            
-            for child in tree_dict:
-                if tree_dict[child] == node:
-                    children[node] -= 1
-                    if children[node] == 0:
-                        queue.append(child)
-                        tree_dict[child] = None
-                        
-    min_height_tree = []
-    
-    while queue:
-        node = queue.popleft()
-        min_height_tree.append(node)
-        
-    return min_height_tree
+        x, y, path = queue.pop(0)
+
+        if len(path) > k:
+            continue
+
+        if len(path) == k:
+            res = path
+            break
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+
+            if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
+                queue.append((nx, ny, path + [grid[nx][ny]]))
+                visited[nx][ny] = True
+
+    return res
