@@ -1,10 +1,12 @@
+#include <iostream>
+#include <string>
+
 std::string camelCase(const std::string& input) {
     std::string result;
     bool capitalizeNext = true;
 
     for (char c : input) {
         if (c == '-') {
-            result += ' ';
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
@@ -15,4 +17,17 @@ std::string camelCase(const std::string& input) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+
+    while (true) {
+        std::cout << "Enter a string in kebab-case (or 'q' to quit): ";
+        std::cin >> input;
+        if(input == "q") break; 
+        std::cout << camelCase(input) << std::endl;
+    }
+
+    return 0;
 }
