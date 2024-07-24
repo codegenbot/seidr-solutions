@@ -8,12 +8,12 @@ bool issame(const std::pair<std::string, std::string>& p1, const std::pair<std::
     return true;
 }
 
-std::string join(const std::vector<std::string>& v) {
+const std::string& join(const std::vector<std::string>& v) {
     std::string res;
     for (const auto& str : v) {
         res += (str + " ");
     }
-    return res;
+    return res;  // Return a const reference to the string
 }
 
 std::pair<std::string, std::string> bf(std::pair<std::string, std::string> planets) {
