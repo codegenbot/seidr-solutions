@@ -1,17 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
+
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    vector<int> result;
-    
-    if (number + need > remaining) {
-        result.push_back(number);
-        result.push_back(remaining - number);
-    } else {
-        result.push_back(number + need);
-        result.push_back(0);
-    }
+    vector<int> result({number + remaining, remaining - need});
     
     return result;
 }
@@ -27,8 +21,8 @@ int main() {
     
     vector<int> result = eat(number, need, remaining);
     
-    cout << "Total number of eaten carrots after your meals: " << result[0] << endl;
-    cout << "Number of carrots left after your meals: " << result[1] << endl;
+    cout << "Total number of eaten carrots after your meals: " << result[0] << std::endl;
+    cout << "Number of carrots left after your meals: " << result[1] << std::endl;
     
     return 0;
 }
