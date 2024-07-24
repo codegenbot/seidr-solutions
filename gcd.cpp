@@ -26,7 +26,7 @@ int main() {
     int a, b;
     string text, target;
 
-    cout << "Enter two integers a and b: ";
+    cout << "Enter two integers a and b separated by a space: ";
     cin >> a >> b;
     cin.ignore();
 
