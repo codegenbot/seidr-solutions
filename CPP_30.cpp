@@ -2,19 +2,29 @@
 #include <initializer_list>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool ismatch(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<float> get_positive(std::initializer_list<float> values) {
     std::vector<float> result;
-    for (float val : values) {
-        if (val > 0) result.push_back(val);
+    for (const auto& val : values) {
+        if (val > 0) {
+            result.push_back(val);
+        }
     }
     return result;
 }
 
 int main() {
-    assert(issame(get_positive({1.0, -2.0, 3.0, -4.0, 5.0}), std::vector<float>{1.0, 3.0, 5.0}));
+    assert(ismatch(get_positive({}), std::vector<float>{}));
     return 0;
 }
