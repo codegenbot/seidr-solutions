@@ -1,7 +1,6 @@
 ```cpp
 #include <algorithm>
 #include <string>
-#include <cassert>
 #include <iostream>
 
 bool same_chars(string s0, string s1) {
@@ -12,6 +11,5 @@ bool same_chars(string s0, string s1) {
 
 int main() {
     assert (same_chars("aabb", "aaccc") == false);
-    std::cout << same_chars("abcde", "edcba") << std::endl;
-    return 0;
+    std::cout << (same_chars("abcde", "edcba") ? "true" : "false") << std::endl;
 }
