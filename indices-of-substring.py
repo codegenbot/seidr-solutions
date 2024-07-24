@@ -1,5 +1,5 @@
 text = input()
 target = input()
-indices = [i for i in range(len(text) - len(target) + 1) if text[i:].startswith(target)]
+indices = [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)] == target]
 for idx in indices:
-    print(idx + 1)
+    print(idx + 1)  # Adjust indices to start from 1 for the output
