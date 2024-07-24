@@ -1,5 +1,3 @@
-Problem description: Determine if a given set of quadcopter weights can be used to fly a drone.
-
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
