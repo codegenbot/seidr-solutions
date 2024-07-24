@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 #include <initializer_list> 
