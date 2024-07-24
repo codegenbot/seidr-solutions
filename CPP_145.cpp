@@ -1,31 +1,19 @@
-bool issame(vector<int> a, vector<int> b) {
-    int sum_a = 0, sum_b = 0;
-    for (int num : a) {
-        sum_a += abs(num);
-    }
-    for (int num : b) {
-        sum_b += abs(num);
-    }
-    return sum_a == sum_b;
+#include <vector>
+#include <algorithm>
+
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
 }
 
-bool order_by_points(vector<int> a, vector<int> b) {
-    int sum_a = 0, sum_b = 0;
-    for (int num : a) {
-        sum_a += abs(num);
-    }
-    for (int num : b) {
-        sum_b += abs(num);
-    }
-    if (sum_a == sum_b) {
-        for (int i = 0; i < a.size(); ++i) {
-            if (a[i] != b[i]) {
-                return a[i] < b[i];
-            }
-        }
-    }
-    return sum_a < sum_b;
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sumA = 0, sumB = 0;
+        int numA = (a < 0) ? -a : a;
+        int numB = (b < 0) ? -b : b;
+        while (numA) { sumA += numA % 10; numA /= 10; }
+        while (numB) { sumB += numB % 10; numB /= 10; }
+        if (sumA == sumB) return a < b;
+        return sumA < sumB;
+    });
+    return nums;
 }
-
-sort(nums.begin(), nums.end(), order_by_points);
-return nums;
