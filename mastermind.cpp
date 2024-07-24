@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -30,8 +30,8 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
     std::cout << mastermind(code, guess) << std::endl;
     return 0;
 }
