@@ -1,3 +1,4 @@
+```
 from typing import List, Any
 
 import sys
@@ -12,9 +13,9 @@ def main():
         try:
             values.append(int(value))
         except ValueError:
-            print(f"Invalid input '{value}'! Please enter a valid integer.")
+            print(f"Invalid input: {value}. Please enter an integer.")
 
-    filtered_values = [int(value) for value in values if isinstance(value, int)]
+    filtered_values = filter_integers(values)
 
     print(filtered_values)
 
