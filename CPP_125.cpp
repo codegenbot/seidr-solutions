@@ -1,31 +1,31 @@
 vector<string> split_words(string txt) {
     vector<string> result;
-
-    int i = 0;
-    while (i < txt.length()) {
-        if (!isalnum(txt[i])) {
-            string word = txt.substr(i);
-            while (word.length() > 0 && !isalnum(word[0])) {
-                word.erase(0, 1);
-            }
-            result.push_back(word);
-            i += word.length();
-        } else {
-            int j = i;
-            while (j < txt.length() && isalnum(txt[j])) {
-                j++;
-            }
-            string word = txt.substr(i, j - i);
-            if (word.find(',') != string::npos) {
-                result.push_back(word.substr(0, word.find(',')));
-                i = j + 1;
-                break;
-            } else {
+    string word = "";
+    
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 result.push_back(word);
-                i = j;
+                word = "";
+            }
+            if (c == ' ') continue;
+            else break;
+        }
+        word += c;
+    }
+    
+    if (!word.empty()) {
+        result.push_back(word);
+    } else {
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c)) {
+                count++;
+                if (count % 2 != 0) break;
             }
         }
+        result.push_back(to_string(count));
     }
-
-    return result.empty() ? vector<string>({"" + to_string(txt.length() - txt.find_first_not_of("abcdefghijklmnopqrstuvwxyz"))}) : result;
+    
+    return result;
 }
