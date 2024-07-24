@@ -1,11 +1,12 @@
-```c++
 #include <vector>
 #include <string>
 using namespace std;
 
 int main() {
     vector<int> result = indicesOfSubstring("Hello World", "World");
-    // Print or use the result as needed
+    for (auto i : result) {
+        cout << i << endl;
+    }
     return 0;
 }
 
