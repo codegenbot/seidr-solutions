@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -34,7 +35,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
     return {sums}; 
 }
 
-int main(int argc, char** argv) {
+int cpp149_main(int argc, char** argv) {
     std::vector<std::string> lst = {{"aaaa"} , {"bbbb"}, {"dd"}, {"cc"}};
     std::vector<std::vector<std::string>> input;
     input.push_back(lst);
