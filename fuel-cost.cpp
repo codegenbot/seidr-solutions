@@ -1,23 +1,23 @@
 Here is the solution:
 
-int calculateFuelCost(vector<int> numbers) {
-    int total = 0;
-    for (int num : numbers) {
-        int newNum = static_cast<int>(num / 3.0);
-        newNum = max(newNum - 2, 0); // round down and subtract 2
-        total += newNum;
+#include <vector>
+using namespace std;
+
+int fuelCost(vector<int>& nums) {
+    int sum = 0;
+    for (int num : nums) {
+        sum += (num / 3 - 2);
     }
-    return total;
+    return sum;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    
-    cout << calculateFuelCost(numbers) << endl;
+    cout << fuelCost(nums) << endl;
     return 0;
 }
