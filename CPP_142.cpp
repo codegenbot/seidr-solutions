@@ -11,15 +11,13 @@ int sum_squares(int n) {
 }
 
 int main2() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-    if (n > 0) {
-        char buff[50]; 
-        sprintf(buff, "Sum of squares is: %d", sum_squares(n)); 
-        std::cout << buff << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    if (!input.empty()) {
+        std::cout << "Sum of squares is: " << sum_squares(std::stoi(input)) << std::endl;
     } else {
-        std::cout << "Please enter a positive integer.\n";
+        std::cout << "Please enter a valid integer.\n";
     }
     return 0;
 }
