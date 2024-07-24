@@ -1,9 +1,9 @@
 ```
 def sum_squares(numbers):
-    for number in numbers:
-        if not isinstance(number, (int, float)):
-            return "Invalid input. Please enter a list of numbers."
     total_sum = 0
-    for number in numbers:
-        total_sum += number ** 2
+    for num in numbers:
+        total_sum += num ** 2
     return total_sum
+
+numbers = [int(x) for x in (input()).replace(" ", "").split(',')]
+print(sum_squares(list(map(int, numbers))))
