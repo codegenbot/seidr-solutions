@@ -9,4 +9,13 @@ def check(decode_shift):
             )
         else:
             decoded_text += char
-    print("Decoded Text: ", decoded_text)
+    print("Decoded text: ", decoded_text)
+
+
+def main():
+    while True:
+        response = input("Decode again? (y/n): ")
+        if response.lower() == "n":
+            break
+        decode_shift = int(input("Enter the shift: "))
+        check(decode_shift)
