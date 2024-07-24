@@ -1,4 +1,3 @@
-
 #include <any>
 #include <cassert>
 #include <string>
