@@ -1,4 +1,3 @@
-```Python
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
