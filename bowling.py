@@ -1,17 +1,13 @@
 ```
-def bowling_score(game):
-    score = 0
-    frame = 1
-    for i in range(0, len(game), 2):
-        if game[i] == 'X':
-            score += 10 + (10 - int(game[i+1])) * (frame < 10)
-        elif game[i:i+2] == 'XX':
-            score += 20 - int(game[i])
+def bowling_game(score):
+    total = 0
+    for frame in range(10):
+        if score[frame] == 'X':
+            total += 30
+        elif score[frame].startswith('\/'):
+            a, b = map(int, score[frame][1:].split('/'))
+            total += a + b
         else:
-            if frame < 10 and int(game[i]) + int(game[i+1]) >= 10:
-                score += 10
-                frame += 1
-            else:
-                score += int(game[i]) + int(game[i+1])
-        frame = min(frame + 1, 10)
-    return score
+            a = int(score[frame])
+            total += a
+    return total
