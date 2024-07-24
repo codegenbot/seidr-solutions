@@ -16,11 +16,16 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+vector<int> findIndices(string s, string t) {
+    vector<int> indices;
+    int len = s.length();
+    int tar_len = t.length();
+
+    for(int i=0; i <=len-tar_len;i++){
+        if(s.substr(i,tar_len)==t){
+            indices.push_back(i);
+        }
     }
-    return a;
+
+    return indices;
 }
