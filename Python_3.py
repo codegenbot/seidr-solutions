@@ -1,1 +1,3 @@
-below_zero([int(input("Enter operations: ")) for _ in range(5)])
+below_zero(
+    [int(x) for x in input("Enter a list of space-separated integers: ").split()]
+)
