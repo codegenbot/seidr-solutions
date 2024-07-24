@@ -1,31 +1,31 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; ++i) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    int start = 0, end = 0;
+    
+    while (end < text.size()) {
+        if (text.substr(start, target.size()).compare(target) == 0) {
+            result.push_back(start);
+            start += 1;
+        } else if (start < text.size() - target.size() + 1) {
+            start++;
+        } else {
+            end++;
+            start = end;
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    for (int i : indices) {
-        cout << i << endl;
+    std::string text, target;
+    cin >> text >> target;
+    for (int i: indicesOfSubstring(text, target)) {
+        cout << i << " ";
     }
-
+    cout << endl;
     return 0;
 }
