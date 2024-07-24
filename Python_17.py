@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -13,6 +12,6 @@ def parse_music(music_string: str) -> List[int]:
         if substring in notes:
             beats.append(notes[substring])
         else:
-            return [] 
+            return []  # or raise an exception, depending on the problem requirements
         i += 2
     return beats
