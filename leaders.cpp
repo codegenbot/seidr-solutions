@@ -1,8 +1,7 @@
 #include <vector>
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int leader = nums[n-1];
     leaders.push_back(leader);  
