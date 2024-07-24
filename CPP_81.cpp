@@ -1,26 +1,34 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> letter_grades;
-    for(float gpa : grades){
-        if(gpa == 4.0) letter_grades.push_back("A+");
-        else if(gpa > 3.7) letter_grades.push_back("A");
-        else if(gpa > 3.3) letter_grades.push_back("A-");
-        else if(gpa > 3.0) letter_grades.push_back("B+");
-        else if(gpa > 2.7) letter_grades.push_back("B");
-        else if(gpa > 2.3) letter_grades.push_back("B-");
-        else if(gpa > 2.0) letter_grades.push_back("C+");
-        else if(gpa > 1.7) letter_grades.push_back("C");
-        else if(gpa > 1.3) letter_grades.push_back("C-");
-        else if(gpa > 1.0) letter_grades.push_back("D+");
-        else if(gpa > 0.7) letter_grades.push_back("D");
-        else if(gpa >= 0.0) letter_grades.push_back("D-");
+bool issame(float a, float b) {
+    return a == b;
+}
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (float gpa : grades) {
+        if (issame(gpa, 4.0)) letter_grades.push_back("A+");
+        else if (gpa > 3.7) letter_grades.push_back("A");
+        else if (gpa > 3.3) letter_grades.push_back("A-");
+        else if (gpa > 3.0) letter_grades.push_back("B+");
+        else if (gpa > 2.7) letter_grades.push_back("B");
+        else if (gpa > 2.3) letter_grades.push_back("B-");
+        else if (gpa > 2.0) letter_grades.push_back("C+");
+        else if (gpa > 1.7) letter_grades.push_back("C");
+        else if (gpa > 1.3) letter_grades.push_back("C-");
+        else if (gpa > 1.0) letter_grades.push_back("D+");
+        else if (gpa > 0.7) letter_grades.push_back("D");
+        else if (gpa > 0.0) letter_grades.push_back("D-");
         else letter_grades.push_back("E");
     }
     return letter_grades;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // Function content not provided as it is beyond the scope of the task description
+int main() {
+    // Main function for testing the numerical_letter_grade function
+    return 0;
 }
