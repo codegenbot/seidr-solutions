@@ -22,10 +22,10 @@ std::pmr::string by_length(const std::vector<int>& lengths) {
                 break;
         }
     }
-    return "";
+    return result[0];
 }
 
-bool issame(vector<std::pmr::string> a, vector<std::pmr::string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
