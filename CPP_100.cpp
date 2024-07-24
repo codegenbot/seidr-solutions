@@ -12,18 +12,20 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile(n, 0);
+    std::vector<int> pile(0); // Initialize with a capacity of 0.
+    int num = 1;
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
-            pile[i] = i * 2 + 1;
+            pile.push_back(num);
+            num += 2;
         } else {
-            pile[i] = i * 2;
+            pile.push_back(num);
+            num++;
         }
     }
     return pile;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), {1, 2, 3, 4, 5, 6, 7, 8}));
     return 0;
-}
