@@ -1,3 +1,3 @@
-```
 def solve(N):
-    return bin((sum(int(b) for b in str(N))) << (N.bit_length() - 1))[2:]
+    total = sum(int(b) for b in bin(N)[2:].replace(" ", "").replace("-", ""))
+    return bin(total)[2:]
