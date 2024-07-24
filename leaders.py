@@ -1,6 +1,10 @@
-def leaders(input_list):
-    return [
-        x
-        for i, x in reversed(list(enumerate(input_list)))
-        if all(x >= input_list[j] for j in range(i + 1, len(input_list)))
-    ]
+def leaders(arr):
+    return [x for i, x in enumerate(reversed(arr)) if all(x >= y for y in arr[i + 1 :])]
+
+
+# Test cases
+print(leaders([0]))  # [0]
+print(leaders([1, 0]))  # [1, 0]
+print(leaders([1, 451]))  # [1, 451]
+print(leaders([2, 1000, 0]))  # [2, 1000, 0]
+print(leaders([2, 0, 1000]))  # [1, 1000]
