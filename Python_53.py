@@ -1,4 +1,3 @@
-```
 def calculate_area_and_perimeter():
     def check(length: int, width: int):
         if length < 0 or width < 0:
@@ -10,9 +9,10 @@ def calculate_area_and_perimeter():
     length = float(input("Enter the length of the rectangle: "))
     width = float(input("Enter the width of the rectangle: "))
 
-    area, perimeter = check(length, width)[0]
+    result = check(length, width)[0]
 
-    if area == 0:
+    if result[0] == 0:
         print("Invalid input. Please enter positive values.")
     else:
+        area, perimeter = result
         print(f"Area: {area}, Perimeter: {perimeter}")
