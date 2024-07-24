@@ -1,12 +1,7 @@
 def find_zero(xs: list):
-    """
-    Given a list of numbers, returns the value that is zero when divided 
-    equally between the first and last values in the list.
-    
-    Args:
-        xs (list): A list of numbers.
-    
-    Returns:
-        float: The value that makes the given expression zero.
-    """
-    return -xs[0] / xs[-1]
+    if len(xs) < 2:
+        raise ValueError("List should contain at least two elements.")
+    for i in range(len(xs) - 1):
+        if xs[i] == 0:
+            return -xs[0] / xs[-1]
+    return None
