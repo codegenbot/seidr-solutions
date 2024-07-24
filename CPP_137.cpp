@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -18,9 +17,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (numB > numA) {
             return b;
         } else {
-            return "None";
+            return boost::any("None");
         }
     } else {
-        return "None";
+        return boost::any("None");
     }
 }
