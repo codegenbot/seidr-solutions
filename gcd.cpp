@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list> // Include this header
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -28,8 +27,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
     return result;
 }
-
-#include <iostream>
 
 int main() {
     std::string text, target;
