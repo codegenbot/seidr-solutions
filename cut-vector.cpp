@@ -11,7 +11,7 @@ int main() {
 
     while (cin >> num) {
         vec.push_back(num);
-        if(cin.peek() == '\n') break; 
+        if(cin.peek() == '\n') break; // Stop reading input if newline is detected
     }
 
     int n = vec.size();
