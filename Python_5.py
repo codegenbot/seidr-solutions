@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
@@ -5,7 +6,7 @@ def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     for i in range(1, len(numbers)):
         result.extend([delimeter])
         result.extend([str(numbers[i])])
-    return result
+    return [int(x) if x.isdigit() else x for x in result]
 
 if __name__ == "__main__":
     try:
@@ -14,4 +15,4 @@ if __name__ == "__main__":
         print("Invalid input. Please enter integers.")
     else:
         delimeter = int(input("Enter the delimiter you want to use: "))
-        print(intersperse(input_numbers, str(delimeter)))
+        print(intersperse(input_numbers, delimeter))
