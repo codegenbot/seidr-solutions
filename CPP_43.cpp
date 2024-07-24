@@ -1,10 +1,19 @@
+#include <vector>
+#include <unordered_set>
+#include <cassert>
+
 bool pairs_sum_to_zero(const vector<int>& l) {
-    unordered_set<int> s;
+    unordered_set<int> nums;
     for (int num : l) {
-        if (s.count(-num) > 0) {
+        if (nums.count(-num) > 0) {
             return true;
         }
-        s.insert(num);
+        nums.insert(num);
     }
     return false;
+}
+
+int main() {
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    return 0;
 }
