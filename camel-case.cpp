@@ -15,7 +15,8 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (auto c : str) {
+    for (int i = 0; i < str.length(); ++i) {
+        char c = str[i];
         if (c == '-' || c == ' ') {
             if (capitalizeNext) {
                 result += toupper(c);
