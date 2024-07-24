@@ -1,33 +1,34 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string spinWords(string str) {
-    vector<string> words;
-    string word;
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            words.push_back(word);
-            word.clear();
-        } else {
-            word += str[i];
-        }
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::vector<std::string> words;
+    
+    // split input string into words
+    char* token = strtok(const_cast<char*>(sentence.c_str()), " ");
+    while(token != NULL){
+        words.push_back(token);
+        token = strtok(NULL, " ");
     }
-
-    words.push_back(word);
-
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            reverse(words[i].begin(), words[i].end());
+    
+    for(int i=0; i<words.size(); i++){
+        if(words[i].length() >= 5) {
+            std::reverse(words[i].begin(), words[i].end());
         }
-    }
-
-    string result;
-    for (int i = 0; i < words.size(); i++) {
         result += words[i];
-        if (i < words.size() - 1) {
-            result += ' ';
+        
+        // add space after each word except the last one
+        if(i < words.size()-1) {
+            result += " ";
         }
     }
-
+    
     return result;
+}
+
+int main() {
+    std::cout << spinWords("this is a test") << std::endl;  // should print: this is a tset
+    std::cout << spinWords("Hello World") << std::endl;  // should print: Hello dluorW
+    return 0;
 }
