@@ -1,9 +1,9 @@
 #include <vector>
 using namespace std;
 
-int gcd(const int a, const int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
+int gcd(const string a, const string b) {
+    if (b == "") return a;
+    return gcd(b, a.substr(0, a.size() % b.size()));
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
