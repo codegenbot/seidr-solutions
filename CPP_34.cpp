@@ -1,6 +1,5 @@
 #include <iostream>
 #include <set>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
