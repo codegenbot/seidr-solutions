@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-double vectorDistance() {
+double vector_distance() {
     int n;
     cin >> n;
     
@@ -15,16 +15,19 @@ double vectorDistance() {
         cin >> v2[i];
     }
     
-    double distance = 0.0;
+    double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        distance += pow(v1[i] - v2[i], 2);
+        sum += pow(v1[i] - v2[i], 2);
     }
     
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
-    cout << fixed << setprecision(10);
-    cout << vectorDistance() << endl;
+    int t;
+    cin >> t;
+    while(t--) {
+        cout << fixed << setprecision(10) << vector_distance() << endl;
+    }
     return 0;
 }
