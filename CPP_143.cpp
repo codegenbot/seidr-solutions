@@ -1,6 +1,6 @@
-#include <vector>
-#include <algorithm>
+#include <iostream>
 #include <string>
+#include <vector>
 
 std::string words_in_sentence(std::string sentence) {
     std::vector<int> primeNumbers;
