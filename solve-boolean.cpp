@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return true;
@@ -18,7 +19,7 @@ bool solveBoolean(const std::string& s) {
         i++;
     }
 
-    size_t left_end = std::distance(s.begin(), std::__find_first_of(s.begin(), s.end(), '|'));
+    size_t left_end = std::count(s.begin(), s.end(), '|');
     std::string left = s.substr(0, left_end);
     std::string right = s.substr(left_end + 1);
 
@@ -42,6 +43,13 @@ int main() {
         std::cout << "Enter a Boolean expression: ";
         std::getline(std::cin, input);
         if(input == "t" || input == "f") break;
+        for(char c : input) {
+            if(c != 'T' && c != 'F' && c != '|' && c != '&') {
+                std::cout << "Invalid input. Please enter a valid Boolean expression." << std::endl;
+                std::cout << "Enter a Boolean expression: ";
+                std::getline(std::cin, input);
+            }
+        }
         bool result = solveBoolean(input);
         if (result) std::cout << "True" << std::endl;
         else std::cout << "False" << std::endl;
