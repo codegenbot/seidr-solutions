@@ -2,23 +2,38 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    if(s[0] == 'T') return true;
-    if(s[0] == 'F') return false;
-    
-    bool a = (s[0] == 'T'), b = (s[2] == 'T');
-    if(s[1] == '&') return a && b;
-    if(s[1] == '|') return a || b;
-    
-    return 0; // should not be reached
+    bool res = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') {
+            res = true;
+            break;
+        } else if (s[i] == 'f') {
+            return false;
+        } else if (s[i] == '|') {
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == 't') {
+                    res = true;
+                    break;
+                } else if (s[j] == 'f') {
+                    return false;
+                }
+            }
+        } else if (s[i] == '&') {
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == 't' && res) {
+                    break;
+                } else if (s[j] == 'f') {
+                    return false;
+                }
+            }
+        }
+    }
+    return res;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
-        string s;
-        cin >> s;
-        cout << (solveBoolean(s) ? "True" : "False") << endl;
-    }
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
