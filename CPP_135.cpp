@@ -4,9 +4,3 @@ int can_arrange(vector<int> arr){
     }
     return -1;
 }
-
-int main(){
-    vector<int> arr = {1,2,3,4};
-    cout<<can_arrange(arr)<<endl;
-    return 0;
-}
