@@ -1,8 +1,12 @@
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<int> largestSmallestIntegers(vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
 
@@ -14,5 +18,10 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {(maxNeg > 0 ? 0 : maxNeg), (minPos < 1 ? 0 : minPos)};
+    return {std::abs(maxNeg), std::abs(minPos)};
+}
+
+int main() {
+    assert(issame(largestSmallestIntegers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    return 0;
 }
