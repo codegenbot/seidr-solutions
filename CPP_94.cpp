@@ -3,8 +3,7 @@
 #include <vector>
 #include <cmath>
 
-int maxPrimeNum = -1;
-std::vector<int> lst;
+int maxPrimeNum = 0;
 
 bool isPrime(int x) {
     for (int i = 2; i <= std::sqrt(x); i++) {
@@ -26,7 +25,7 @@ int main() {
     int num, i;
     std::cout << "Enter the number of elements in the list: ";
     std::cin >> num;
-    lst = std::vector<int>();
+    std::vector<int> lst; 
     for(i = 0; i < num; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int x; 
