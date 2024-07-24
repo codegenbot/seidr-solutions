@@ -6,12 +6,30 @@ bool evaluateBooleanExpression(const std::string& expr) {
     for (char c : expr) {
         lowercaseExpr += tolower(c);
     }
-    // Your existing evaluation logic using lowercaseExpr
-
-    if (lowercaseExpr == "false") {
-        return false;
+    
+    bool result = false;
+    bool temp = false;
+    bool isAnd = true;
+    
+    for (char c : lowercaseExpr) {
+        if (c == 't') {
+            temp = true;
+        } else if (c == 'f') {
+            temp = false;
+        } else if (c == '|') {
+            isAnd = false;
+        } else if (c == '&') {
+            isAnd = true;
+        }
+        
+        if (isAnd) {
+            result = result && temp;
+        } else {
+            result = result || temp;
+        }
     }
-    return true;
+
+    return result;
 }
 
 int main() {
@@ -19,4 +37,4 @@ int main() {
     std::cin >> expression;
     std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
     return 0;
-}
+}  

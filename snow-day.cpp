@@ -6,9 +6,13 @@ int main() {
 
     std::cin >> hours >> snow >> rate >> melt;
 
-    float snowfall = rate - (snow * melt);
+    float snowOnGround = snow;
 
-    // Calculate amount of snow on the ground after 'hours' hours
+    for (int i = 0; i < hours; ++i) {
+        snowOnGround += rate - (snowOnGround * melt);
+    }
+
+    std::cout << snowOnGround << std::endl;
 
     return 0;
 }
