@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,7 +11,6 @@ vector<int> unique(vector<int> l) {
 
     result.erase(std::unique(result.begin(), result.end()),
                   result.end());
-
     return result;
 }
 
