@@ -1,4 +1,2 @@
-if (n < 8)
-        return false;
-    return (n - 4) % 8 == 0;
+return n % 8 == 0;
 }
