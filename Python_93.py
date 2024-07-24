@@ -6,6 +6,8 @@ def encode(message):
                 result += chr((ord(char) - 65 + 3) % 26 + 65)
             else:
                 result += chr((ord(char) - 97 + 3) % 26 + 97)
+        elif char.isspace():  
+            result += ' '
         else:
             result += char
     return result

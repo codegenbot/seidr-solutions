@@ -1,4 +1,2 @@
-'''
 def add_elements(arr, k):
-    return sum(filter(lambda x: 1 <= abs(x) <= 10, arr[:k]))
-'''
+    return sum(i for i in arr[:k] if 10 > abs(i) >= 1)
