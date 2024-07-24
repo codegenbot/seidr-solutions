@@ -1,17 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst){
@@ -26,14 +21,7 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main(){
-    // Call the function sorted_list_sum instead of issame
-    vector<string> input = {"hello", "world", "cpp", "contest"};
-    vector<string> result = sorted_list_sum(input);
-
-    // Printing the sorted list
-    for(string s : result){
-        cout << s << " ";
-    }
-
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    cout << "Test passed successfully!" << endl;
     return 0;
 }
