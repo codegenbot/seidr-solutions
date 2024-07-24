@@ -1,7 +1,4 @@
-Here is the completed code:
-
-```cpp
-#include <vector>
+#include <initializer_list>
 
 int solutions(std::vector<int> lst) {
     int sum = 0;
