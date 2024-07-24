@@ -1,30 +1,36 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(std::string input) {
-    std::string output;
-    bool firstWord = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            if (!firstWord) {
-                output.push_back(char(toupper(c)));
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip '-'
+            while (i < s.size() && s[i] == ' ') {
+                i++; // skip spaces
             }
-            firstWord = false;
-        } else if (c == ' ') {
-            output += char(toupper(c));
-            firstWord = true;
+            if (result != "") {
+                result += char(toupper(s[i])); // capitalize the first letter of each new word
+            } else {
+                result = char(toupper(s[i]));
+            }
+        } else if (s[i] == ' ') {
+            continue; // skip spaces
         } else {
-            output += c;
+            if (result != "") {
+                result += s[i]; // add lowercase letters to the result
+            } else {
+                result += char(tolower(s[i])); // add lowercase letters to the result
+            }
         }
     }
-
-    return output;
+    return result;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << camelCase(input) << std::endl;
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << "Camel case conversion: " << camelCase(input) << endl;
     return 0;
 }
