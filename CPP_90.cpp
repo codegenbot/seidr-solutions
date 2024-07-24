@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None
+    if (lst.empty()) return -1; 
     vector<int> copy = lst;
     sort(copy.begin(), copy.end());
     int first = *copy.begin();
@@ -9,5 +9,5 @@ int next_smallest(vector<int> lst) {
         if (i != first)
             return i;
     }
-    return -1; // Return None
+    return -1; 
 }
