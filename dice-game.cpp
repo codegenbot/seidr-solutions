@@ -1,9 +1,10 @@
 ```cpp
 int main() {
-    int n = 6; // for example
+    int n = 6; 
     int m = 4;
     double probability = getProbability(n, m);
     return 0;
+
 }
 
 double getProbability(int n, int m) {
