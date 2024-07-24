@@ -1,2 +1,4 @@
-def digitSum(s):
-    return sum(int(c) if c.isdigit() else 0 for c in s)
+```python
+def digitSum(n):
+    s = str(abs(n))
+    return sum(int(digit) for digit in s)
