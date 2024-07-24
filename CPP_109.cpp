@@ -1,8 +1,12 @@
+#include <vector>
+using namespace std;
+
 bool move_one_ball(vector<int> arr) {
-    int last = arr[0];
-    for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] <= last) return false;
-        last = arr[i];
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        if (arr[i] >= arr[i - 1]) {
+            return true;
+        }
     }
-    return true;
+    return false;
 }
