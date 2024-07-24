@@ -1,10 +1,3 @@
-```
-def decode_shift(s: str):
-    result = ""
-    for ch in s:
-        if ch.isalpha():
-            shift = ord("a") - 97
-            result += chr((ord(ch.lower()) - 97 - shift) % 26 + 97)
-        else:
-            result += ch
-    return result
+def decode_shift():
+    s = input("Enter the encoded string: ")
+    return "".join([chr(((ord(ch.lower()) - ord('a')) + shift) % 26) if ch.isalpha() else ch for shift in [int(s[i:i+3]) for i in range(0, len(s), 3)] + [ch] for ch in s])
