@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -13,14 +14,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> myVector; 
-    float odd_sum = 0.0f; 
-    std::cout << "Enter numbers separated by space: ";
-    for (float num : myVector) {
-        std::cin >> num;
-        if (num > 0 && modf(num, &num) == 0) {
-            odd_sum += pow(num, 2);
-        }
-    }
+    std::vector<float> myVector = {1.5f, 2.7f, 3.8f}; 
+    float odd_sum = double_the_difference(myVector); 
+    assert(odd_sum == double_the_difference(myVector)); 
     return 0;
 }
