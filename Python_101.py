@@ -1,3 +1,5 @@
 ```
+import re
+
 def words_string(s):
-    return s.replace(", ", ",").replace("  |  ", " | ").replace("  |", " |").split("|")
+    return re.sub(r'\s+', ', ', s).split(", ")
