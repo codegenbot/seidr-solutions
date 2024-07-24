@@ -22,5 +22,5 @@ std::vector<int> parse_nested_parens(const std::string& s) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{4}, std::vector<int>{4}));
+    assert(issame({4}, {4}));
 }
