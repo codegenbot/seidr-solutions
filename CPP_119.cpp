@@ -25,7 +25,7 @@ bool match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"(hello)","(world)"};
+    vector<string> lst = {"(())", "()()"};
     string result = match_parens(lst);
     cout << result << endl;
     return 0;
