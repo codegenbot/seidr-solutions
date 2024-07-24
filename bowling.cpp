@@ -1,26 +1,56 @@
-int score(string s) {
-    int total = 0, frame = 0, i = 0;
-    while (frame < 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i+2] == 'X' ? 10 : (s[i+2] == '/' ? 10 - (s[i+1] - '0') : s[i+1] - '0' + s[i+2] - '0'));
-            i++;
-        } else if (s[i+1] == '/') {
-            total += 10;
-            total += (s[i+2] == 'X' ? 10 : s[i+2] - '0');
-            i += 2;
+int score(string input) {
+    int totalScore = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls = 0;
+    vector<int> scores(22, 0);
+
+    for (char c : input) {
+        if (c == 'X') {
+            scores[rolls++] = 10;
+            if (frame < 10) {
+                scores[rolls++] = 0;
+            }
+            frame++;
+        } else if (c == '/') {
+            scores[rolls - 1] = 10 - scores[rolls - 2];
+            if (frame < 10) {
+                scores[rolls++] = 0;
+            }
+            frame++;
+        } else if (c == '-') {
+            scores[rolls++] = 0;
+            if (frame < 10) {
+                scores[rolls++] = 0;
+            }
+            frame++;
         } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0') + (s[i+1] == '-' ? 0 : s[i+1] - '0');
-            i += 2;
+            scores[rolls++] = c - '0';
+            if (ball % 2 == 1 || c == '9') {
+                frame++;
+            }
         }
-        frame++;
+        ball++;
     }
-    return total;
+
+    for (int i = 0; i < 20; i += 2) {
+        totalScore += scores[i] + scores[i + 1];
+        if (scores[i] == 10) {
+            totalScore += scores[i + 2] + scores[i + 3];
+            if (scores[i + 2] == 10) {
+                totalScore += scores[i + 4];
+            }
+        } else if (scores[i] + scores[i + 1] == 10) {
+            totalScore += scores[i + 2];
+        }
+    }
+
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
