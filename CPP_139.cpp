@@ -1,8 +1,18 @@
-Here is the completed code:
+#include <stdio.h>
+using namespace std;
 
 long long special_factorial(int n) {
-    if (n == 0)
+    if (n == 0 || n == 1)
         return 1;
-    else
-        return n * special_factorial(n - 1);
+    else {
+        long long result = 1;
+        for (int i = 1; i <= n; i++) {
+            long long fact = 1;
+            for (int j = 1; j <= i; j++) {
+                fact *= j;
+            }
+            result *= fact;
+        }
+        return result;
+    }
 }
