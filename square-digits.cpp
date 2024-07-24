@@ -2,9 +2,9 @@ int main() {
     string num;
     cin >> num;
     string result = "";
-    for (char digit : num) {
-        int d = digit - '0';
-        result += to_string(d * d);
+    for (char c : num) {
+        int digit = c - '0';
+        result += to_string(digit * digit);
     }
     cout << result << endl;
     return 0;
