@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool is_same(std::vector<int> a, std::vector<int> b) { return a == b; }
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
