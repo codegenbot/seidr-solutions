@@ -1,8 +1,13 @@
 ```python
 def search(lst):
     """
-    This function takes a list of integers as input, counts the frequency of each positive number in the list,
-    and returns the maximum number that appears at least once in the list.
+    This function takes a list of numbers as input and returns the largest number that appears at least once in the list.
+    
+    Args:
+        lst (list): A list of integers.
+    
+    Returns:
+        int: The largest number that appears at least once in the list, or -1 if no such number exists.
     """
     freq_dict = {}
     for num in lst:
