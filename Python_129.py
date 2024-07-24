@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for i in range(n)] for j in range(n)]
@@ -7,7 +6,7 @@ def minPath(grid, k):
     for i in range(k):
         for j in range(n):
             if i > 0:
-                dp[j][0][i] = m[j][0]
+                m[j][0] = grid[j][0]
             for k1 in range(1, n):
                 if i > 0 and j > 0:
                     dp[k1][j][i] = (
@@ -16,9 +15,9 @@ def minPath(grid, k):
                         else m[k1][j]
                     )
                 elif j == 0:
-                    dp[k1][j][i] = min(dp[k1 - 1][j][i], dp[k1][j][i-1], m[k1][j])
-                elif j == n-1:
-                    dp[k1][j][i] = min(dp[k1 - 1][j][i], dp[k1][j][i-1], m[k1][j])
+                    dp[k1][j][i] = min(dp[k1 - 1][j][i], dp[k1][j][i - 1], m[k1][j])
+                elif j == n - 1:
+                    dp[k1][j][i] = min(dp[k1 - 1][j][i], dp[k1][j][i - 1], m[k1][j])
     path = []
     j, k1 = n - 1, k
     while k1:
