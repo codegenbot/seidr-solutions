@@ -11,16 +11,25 @@ int main() {
         if (*p == '-') {
             p++; // Skip the '-'
             if (!capitalizeNext) {
-                result += tolower(*p);
-            } else {
-                result += toupper(*p);
+                char c = (*p);
+                if (capitalizeNext) {
+                    result += toupper(c);
+                } else {
+                    result += tolower(c);
+                }
                 capitalizeNext = false;
             }
         } else if (capitalizeNext) {
-            result += toupper(*p);
+            char c = (*p);
+            if (capitalizeNext) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
             capitalizeNext = false;
         } else {
-            result += tolower(*p);
+            char c = (*p);
+            result += tolower(c);
         }
     }
 
