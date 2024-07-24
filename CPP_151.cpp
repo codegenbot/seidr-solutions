@@ -1,6 +1,6 @@
-#include <cassert>
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 long long double_the_difference(std::vector<long double> lst){
     long long sum = 0;
