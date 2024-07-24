@@ -1,4 +1,4 @@
-"""
+```
 def main():
     grid = []
     m = int(input("Enter number of rows: "))
@@ -26,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-..."
