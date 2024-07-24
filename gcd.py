@@ -1,4 +1,4 @@
-```python
+```
 print(gcd(1, 1))
 print(gcd(4, 4000000))
 print(gcd(54, 24))
