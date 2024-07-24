@@ -25,14 +25,15 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
+            while(std::cin.fail()) std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec1.clear();
             break;
         }
-        if(std::abs(num) > 1e30) {
+        if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec1.clear();
             break;
@@ -48,14 +49,15 @@ int main() {
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            std::cin.clear(); // Reset error state
+            std::cin.clear(); 
+            while(std::cin.fail()) std::cin.clear(); 
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
             vec2.clear();
             break;
         }
-        if(std::abs(num) > 1e30) {
+        if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec2.clear();
             break;
@@ -67,9 +69,11 @@ int main() {
         inputCount++;
     }
 
-    if(sameVectors(vec1, vec2)) {
-        std::cout << "The two vectors are same.\n";
-    } else {
-        std::cout << "The two vectors are not same.\n";
+    if(vec1.size() > 0 && vec2.size() > 0) {
+        if(sameVectors(vec1, vec2)) {
+            std::cout << "The two vectors are same.\n";
+        } else {
+            std::cout << "The two vectors are not same.\n";
+        }
     }
 }
