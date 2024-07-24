@@ -1,11 +1,9 @@
+```
 from typing import List
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]
 
+strings = input("Enter the list of strings (space-separated): ")
+prefix = input("Enter the prefix: ")
 
-def filter_by_prefix() -> None:
-    strings = input("Enter space-separated list of strings: ").split()
-    prefix = input("Enter the prefix to filter by: ")
-    result = [s for s in strings if s.startswith(prefix)]
-    print(result)
-
-
-filter_by_prefix()
+print(filter_by_prefix([string.strip() for string in strings.split()], prefix))
