@@ -1,32 +1,34 @@
-#include <vector>
-#include <string>
-
+#include<stdio.h>
+#include<vector>
+#include<string>
 using namespace std;
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-
-    int index1 = -1;
-    int index2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        } else if (planets[i] == planet2) {
-            index2 = i;
-        }
-    }
-
-    if (index1 == -1 || index2 == -1) {
-        return {};
-    }
-
+vector<string> bf(string planet1,string planet2){
     vector<string> result;
+    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    for (int i = 0; i < planets.size(); i++) {
-        if ((i > index1 && i < index2) || (i < index1 && i > index2)) {
-            result.push_back(planets[i]);
+    int i, j;
+    for(i=0; i<8; i++){
+        if(planet1 == planets[i]){
+            break;
         }
+    }
+
+    for(j=i+1; j<8; j++){
+        if(planet2 == planets[j]){
+            break;
+        }
+    }
+
+    if(i >= 8 || j < 0){
+        return vector<string>();
+    }
+
+    int start = max(i, 0);
+    int end = min(j, 7);
+
+    for(int k=start; k<=end; k++){
+        result.push_back(planets[k]);
     }
 
     return result;
