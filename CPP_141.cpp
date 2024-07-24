@@ -28,7 +28,7 @@ int file_name_check(std::string file_name) {
     std::string beforeDot = file_name.substr(0, pos);
     std::string afterDot = file_name.substr(pos + 1);
 
-    if (!isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    if (!std::isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
         return 0;
     }
 
