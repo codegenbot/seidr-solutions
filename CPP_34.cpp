@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,16 +22,16 @@ vector<int> unique(vector<int> l) {
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     vector<int> result(l.size()); 
-    for (int x : l) {
+    for (int i : l) {
         bool found = false;
         for (int y : result) {
-            if (x == y) {
+            if (i == y) {
                 found = true;
                 break;
             }
         }
         if (!found)
-            result.push_back(x);
+            result.push_back(i);
     }
     for (int i : result) {
         cout << i << " ";
