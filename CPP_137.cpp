@@ -1,31 +1,19 @@
 #include <boost/any.hpp>
+#include <algorithm>
 #include <string>
 #include <cassert>
+#include <cmath>
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) {
-            return a;
-        } else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) {
-            return b;
-        }
-    }
-    return boost::any();
-}
+using namespace std;
 
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
-    return 0;
+template <typename T, typename U>
+auto compare_one(const T& a, const U& b) {
+    if(a == b) return static_cast<T>(-1);
+    if(typeid(T) == typeid(int) && typeid(U) == typeid(float)) return max(a, static_cast<T>(b));
+    if(typeid(T) == typeid(float) && typeid(U) == typeid(int)) return max(static_cast<T>(a), b);
+    if(typeid(T) == typeid(string) && typeid(U) == typeid(int)) return max(stof(a), static_cast<float>(b));
+    if(typeid(T) == typeid(int) && typeid(U) == typeid(string)) return max(static_cast<T>(a), stof(b));
+    if(typeid(T) == typeid(string) && typeid(U) == typeid(float)) return max(stof(a), static_cast<float>(b));
+    if(typeid(T) == typeid(float) && typeid(U) == typeid(string)) return max(static_cast<T>(a), stof(b));
+    return static_cast<T>(-1);
 }
