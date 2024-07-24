@@ -1,11 +1,11 @@
-```cpp
+#include <iostream>
 #include <sstream>
 #include <iomanip>
 
 std::string string_to_md5(const std::string& str) {
-    ostringstream ss;
+    std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << setfill(2) << setw(2) << hex << (int)(unsigned char)str[i];
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)str[i];
     }
     return ss.str();
 }
