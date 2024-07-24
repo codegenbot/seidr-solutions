@@ -1,8 +1,3 @@
-Here is the solution:
-
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[-1]
-    b = -sum(x for x in xs[:-1])
-    return -b / a
+    degree = len(xs) // 2
+    return round((-xs[degree - 1] / xs[degree]) ** (1 / (degree - 1)), 2)
