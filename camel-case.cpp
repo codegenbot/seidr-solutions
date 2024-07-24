@@ -25,7 +25,7 @@ int main() {
     }
     string input;
     cout << "Enter a kebab-case string: ";
-    cin >> input;
-    cout << "CamelCase: " << camelCase(input) << endl;
+    getline(cin, input);
+    cout << "CamelCase string: " << camelCase(input) << endl;
     return 0;
 }
