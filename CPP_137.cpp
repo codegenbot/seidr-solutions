@@ -1,16 +1,9 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <boost/any.hpp>
-
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(a, b);
+        return boost::any(max(boost::any_cast<double>(a), boost::any_cast<int>(b)));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string sa = boost::any_cast<string>(a);
