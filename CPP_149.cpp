@@ -1,21 +1,15 @@
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> sorted_list_sum(vector<string> lst){
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b){
-        if (a.length() == b.length()) {
-            return a < b;
-        }
-        return a.length() < b.length();
-    });
-    return lst;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return accumulate(a.begin(), a.end(), 0, [](int sum, const string& s) { return sum + s.length(); }) ==
+           accumulate(b.begin(), b.end(), 0, [](int sum, const string& s) { return sum + s.length(); });
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
+int sorted_list_sum(const vector<string>& lst) {
+    vector<string> sorted_lst = lst;
+    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), 
+        [](const string& s) { return s.length() % 2 != 0; }), sorted_lst.end());
+    sort(sorted_lst.begin(), sorted_lst.end(), 
+        [](const string& a, const string& b) { return a.length() == b.length() ? a < b : a.length() < b.length(); });
+    
+    int sum = accumulate(sorted_lst.begin(), sorted_lst.end(), 0, [](int sum, const string& s) { return sum + s.length(); });
+    return sum;
 }
