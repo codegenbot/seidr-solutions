@@ -1,3 +1,4 @@
+```
 std::string camelCase(const std::string& input) {
     std::string result;
     bool capitalizeNext = true;
