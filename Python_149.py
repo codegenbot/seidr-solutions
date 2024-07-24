@@ -1,7 +1,10 @@
-def sorted_list_sum(input_data):
-    nums = sorted([int(num) for num in input_data])
+def sorted_list_sum(nums=None):
+    if nums is None:
+        nums = [int(input("Enter a number (or 'q' to quit): ")) for _ in range(5)]
+    nums = sorted(nums)
     while True:
-        if nums[-1] == int(input("Enter a number (or 'q' to quit): ")):
+        num_input = input("Enter a number (or 'q' to quit): ")
+        if int(num_input) == nums[-1]:
             return sum(nums)
-        elif input("Enter a number (or 'q' to quit): ") == 'q':
+        elif num_input == 'q':
             return 0
