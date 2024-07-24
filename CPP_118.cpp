@@ -6,6 +6,14 @@ std::string get_closest_vowel(std::string word);
 bool isvowel(char c);
 bool isconsonant(char c);
 
+// Existing code here...
+
+int main() {
+    // Use the functions as needed...
+    assert (get_closest_vowel("Above") == "o");
+    return 0;
+}
+
 std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
@@ -29,9 +37,4 @@ bool isvowel(char c) {
 bool isconsonant(char c) {
     c = tolower(c);
     return !isvowel(c) && (c >= 'b' && c <= 'z');
-}
-
-int main() {
-    assert (get_closest_vowel("Above") == "o");
-    return 0;
 }
