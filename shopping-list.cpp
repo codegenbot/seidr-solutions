@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -24,7 +23,6 @@ int main() {
     for (float& d : discounts) {
         cin >> d;
     }
-    cout << fixed << setprecision(1);
-    cout << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
