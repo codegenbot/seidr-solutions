@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -13,6 +12,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             if not stack:
                 result.append(0)
             else:
-                result.append(len(stack) + 1)
+                result.append(len(stack) + 1) 
             stack.pop()
     return result
