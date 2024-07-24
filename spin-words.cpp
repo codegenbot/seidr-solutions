@@ -1,3 +1,6 @@
+Here is your modified code using vector instead of initializer_list:
+
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
