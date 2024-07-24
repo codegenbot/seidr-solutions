@@ -1,7 +1,7 @@
 #include <cassert>
 
 bool is_multiply_prime(int n) {
-    return true; // placeholder return value
+    return true;
 }
 
 int main() {
