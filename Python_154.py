@@ -1,2 +1,6 @@
-def cycpattern_check(a , b):
-    return a.__contains__(b+b) or any(a.__contains__(rot+b) for rot in (b[i:]+b[:i] for i in range(len(b))))
+def cycpattern_check(a, b):
+    while len(b) <= len(a):
+        if a.__contains__(b):
+            return True
+        b = b[1:] + b[:1]
+    return False
