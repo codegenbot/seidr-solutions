@@ -17,8 +17,7 @@ std::string filp_case(std::string str) {
 }
 
 int main() {
-    std::string test = "These violent delights have violent ends";
-    assert(filp_case(test) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     // You can test your function here with different inputs.
     return 0;
 }
