@@ -24,5 +24,11 @@ def main():
 
     print(dfs(0, 0, [], set(), grid[0][0]))
 
-if __name__ == "__main__":
-    main()
+    """
+    This program is designed to find the minimum path sum in a given grid.
+    The function dfs (depth-first search) is used to traverse the grid and 
+    calculate the total sum of each path. The nonlocal keyword is used 
+    to modify the minPath variable from within the nested dfs function.
+    """
+    if __name__ == "__main__":
+        main()
