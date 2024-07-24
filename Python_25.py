@@ -15,5 +15,5 @@ def factorize(num: int = int(input("Enter a number: "))) -> List[List[int]]:
                 count += 1
             factors.append([i] * count)
     if num > 1:
-        factors.append([[num]]) 
+        factors.append([[num]])
     return [factor_list for factor_list in set(tuple(factor) for factor in set(map(tuple, factors)))]
