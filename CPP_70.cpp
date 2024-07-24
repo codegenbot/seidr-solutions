@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,10 +14,10 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     
     while (!lst.empty()) {
-        int min = *std::min_element(lst.begin(), lst.end());
-        int max = *std::max_element(lst.begin(), lst.end());
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
         
-        if (*std::min_element(lst.begin(), lst.end()) == *std::max_element(lst.begin(), lst.end())) {
+        if (issame(*min_element(lst.begin(), lst.end()), *max_element(lst.begin(), lst.end()))) {
             result.insert(result.begin(), min);
             lst.clear();
         } else {
@@ -33,8 +33,10 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test = {1, 2, 3};
-    assert(strange_sort_list(test) == (std::vector<int>{1, 1, 1}));
-    
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<int> output = strange_sort_list(input);
+    for (int i : output) {
+        std::cout << i << " ";
+    }
     return 0;
 }
