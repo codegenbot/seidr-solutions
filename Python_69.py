@@ -1,3 +1,7 @@
 ```python
 def search(lst):
-    return max((num for num in set(lst) if num > 0), default=-1)
+    max_num = -1
+    for num in lst:
+        if num > 0 and (num > max_num or lst.count(num) == 1):
+            max_num = num
+    return max_num
