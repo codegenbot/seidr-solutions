@@ -1,12 +1,9 @@
 ```c++
-#include <iostream>
-using namespace std;
-
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double probability = getProbability(n, m);
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << std::endl;
     return 0;
 }
 
