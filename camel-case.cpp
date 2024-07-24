@@ -1,25 +1,31 @@
 using namespace std;
 
 string camelCase(string s) {
-    if (s.empty()) return s;
     string result = "";
-    bool prevWasDash = true;
-    
-    for (char c : s) {
-        if (c == '-') {
-            prevWasDash = true;
-        } else if (!prevWasDash) {
-            result += topper(c);
+    bool nextUpper = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            if (i < s.length()) {
+                if (!nextUpper) {
+                    result += tolower(s[i]);
+                    nextUpper = true;
+                } else {
+                    result += toupper(s[i]);
+                    nextUpper = false;
+                }
+            } else break;
+        } else if (s[i] == ' ') {
+            result += s[i];
+            nextUpper = false;
         } else {
-            result += tolower(c);
-            prevWasDash = false;
+            if (!nextUpper) {
+                result += tolower(s[i]);
+                nextUpper = true;
+            } else {
+                result += toupper(s[i]);
+                nextUpper = false;
+            }
         }
     }
-    
     return result;
-}
-
-// helper function
-char topper(char c) {
-    return (c >= 'a' && c <= 'z') ? ('A' + (c - 'a')) : c;
-}
