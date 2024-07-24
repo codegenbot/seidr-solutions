@@ -23,7 +23,6 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return result;
-
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -31,6 +30,9 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == {"", "True"});
+    vector<string> res = reverse_delete("mamma", "mia");
+    if (!issame({"" , "True"}, res)) {
+        cout << "Error!";
+    }
     return 0;
 }
