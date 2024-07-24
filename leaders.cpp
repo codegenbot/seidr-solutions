@@ -1,17 +1,18 @@
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& vec) {
-    int n = vec.size();
-    std::vector<int> result;
-
-    // The rightmost element is always a leader.
-    if (n > 0)
-        result.push_back(vec.back());
-
-    for (int i = n - 2; i >= 0; --i) {
-        if (vec[i] >= vec.back())
-            result.push_front(vec[i]);
+vector<int> leaders(vector<int> v) {
+    vector<int> res;
+    int n = v.size();
+    for (int i = n - 1; i >= 0; i--) {
+        bool leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (v[i] < v[j]) {
+                leader = false;
+                break;
+            }
+        }
+        if (leader) res.push_back(v[i]);
     }
-
-    return result;
+    return res;
 }
