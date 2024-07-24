@@ -1,4 +1,6 @@
-```cpp
 double getProbability(int n, int m) {
-    return (double)(n-m)/(n*m);
+    if(n <= m)
+        return 0;
+    else
+        return 1.0 - ((double)(m+1))/n;
 }
