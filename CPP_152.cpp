@@ -1,16 +1,32 @@
+#include <iostream>
+#include <ostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            result.push_back(2);
-        } else if (std::count(game.begin(), game.end(), guess[i]) > 0) {
-            result.push_back(1);
-        } else {
-            result.push_back(0);
+using namespace std;
+
+bool checkVectorEquality(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
+        cout << "Error: The two vectors must be the same size." << endl;
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            cout << "Error: The two vectors are not the same." << endl;
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+int main() {
+    vector<int> vec1 = {1,2,3,5};
+    vector<int> vec2 = {-1,2,3,4};
+    
+    if(checkVectorEquality(vec1,vec2)) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are not the same." << endl;
+    }
+    
+    return 0;
 }
