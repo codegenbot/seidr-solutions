@@ -7,14 +7,14 @@ def mastermind(code, guess):
         if code[i] == guess[i]:
             black_pegs += 1
         else:
-            if code[i] != guess[i]: 
-                code_count[ord(guess[i]) - ord('A')] += 1
+            code_count[ord(guess[i]) - ord("A")] += 1
 
-    for i in range(4):
-        if code[i] == guess[i]:
-            pass
-        elif code_count[ord(guess[i]) - ord('A')] > 0:
-            white_pegs += 1
-            code_count[ord(guess[i]) - ord('A')] -= 1
+    for i in range(6):
+        for j in range(4):
+            if code[j] == guess[i]:
+                black_pegs += 1
+            elif i == ord(guess[i]) - ord("A"):
+                white_pegs += 1
+        code_count[ord(guess[i]) - ord("A")] -= 1
 
     return str(black_pegs) + " " + str(white_pegs)
