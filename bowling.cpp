@@ -1,31 +1,51 @@
-int score(string s) {
-    int total = 0;
+int calculateBowlingScore(const string& bowls) {
+    int score = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10 && i < s.size()) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (s[i + 2] == 'X') {
-                total += 10 + (s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
-            } else {
-                total += (s[i + 2] == '/' ? 10 : s[i + 2] - '0') + (s[i + 3] == '/' ? 10 : s[i + 3] - '0');
+    int ball = 0;
+    vector<int> frameScores(10, 0);
+
+    for (char c : bowls) {
+        if (c == 'X') {
+            frameScores[frame - 1] = 10;
+            if (frame < 10) frame++;
+            ball = 0;
+        } else if (c == '/') {
+            frameScores[frame - 1] = 10;
+            ball = 1;
+        } else if (c == '-') {
+            ball++;
+            if (ball == 2) {
+                if (frame < 10) frame++;
+                ball = 0;
             }
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10 + (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
-            i += 2;
         } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0') + (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            int pins = c - '0';
+            frameScores[frame - 1] += pins;
+            if (ball == 1) {
+                if (frame < 10) frame++;
+                ball = 0;
+            } else {
+                ball++;
+            }
         }
-        frame++;
     }
-    return total;
+
+    for (int i = 0; i < 10; i++) {
+        score += frameScores[i];
+        if (i > 0 && frameScores[i - 1] == 10) {
+            score += frameScores[i];
+            if (i > 1 && frameScores[i - 2] == 10) {
+                score += frameScores[i];
+            }
+        }
+    }
+
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
     return 0;
 }
