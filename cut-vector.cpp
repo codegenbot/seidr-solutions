@@ -14,7 +14,7 @@ int main() {
     
     int n = nums.size();
     int cutIndex = 0;
-    int minDiff = std::numeric_limits<int>::max();
+    int minDiff = INT_MAX;
 
     for (int i = 1; i < n; i++) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
