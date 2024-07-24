@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list> // Include this header
 
 int gcd(int a, int b) {
     if (b == 0)
