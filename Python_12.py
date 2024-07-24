@@ -10,8 +10,4 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             result = s
-    return result
-
-
-strings_list = ["apple", "banana", "cat", "elephant"]
-print(longest(strings_list))
+    print(result)
