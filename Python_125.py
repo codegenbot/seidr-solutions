@@ -3,5 +3,8 @@ def split_words(txt):
     words = txt.split()
     if len(words) > 0 and any(char.isalnum() for char in words[0]):
         return words
+    elif ',' in txt:
+        return txt.split(',')
     else:
-        return sum(ord(c) - ord('a') for c in txt.lower().replace(',', '') if 'abcdefghijklmnopqrstuvwxyz'.find(c) != -1) % 2
+        result = sum(1 for c in txt.lower() if ord(c) - ord('a') % 2 == 0)
+        return result
