@@ -1,3 +1,6 @@
+Here is the modified code with the inclusion of `<initializer_list>` header:
+
+```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -24,10 +27,11 @@ std::vector<float> sort_even(std::vector<float> l) {
                     even.push_back(l[j]);
                 }
             }
-            sort(even.begin(), even.end());
+            std::sort(even.begin(), even.end());
             result.push_back(even[0]);
         } else {
             result.push_back(l[i]);
         }
     }
     return result;
+}
