@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     while True:
         try:
@@ -17,6 +18,6 @@ def add(x: int, y: int):
         user_input = input("Invalid input. Please enter yes or no: ")
 
     if user_input.lower() == "yes":
-        print(f"Result: {result}.")
+        return result
     else:
-        print("Goodbye!")
+        return None
