@@ -6,13 +6,10 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
 
 int main() {
     std::string cipher1, cipher2, message;
-    if(std::getline(std::cin, cipher1) && 
-       std::getline(std::cin, cipher2) &&
-       std::getline(std::cin, message)) { 
-        std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl; 
-    } else {
-        std::cerr << "Invalid input." << std::endl;
-    }
+    std::getline(std::cin, cipher1); 
+    std::getline(std::cin, cipher2);
+    std::getline(std::cin, message);
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl; 
     return 0;
 }
 
