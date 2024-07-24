@@ -22,19 +22,17 @@ def main():
 
     grid = []
     for i in range(m):
-        row = list(
-            map(int, input(f"Enter the numbers in a row separated by space: ").split())
-        )
+        row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
         grid.append(row)
 
-    minPath = float("inf")
+    minPath = float('inf')
     
     try:
         minPath = minPathSum(grid)
     except ValueError as e:
         print(f"Error: {e}")
     finally:
-        if minPath < float("inf"):
+        if minPath < float('inf'):
             print(f"Minimum path sum: {minPath}")
         else:
             print("No possible path")
