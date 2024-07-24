@@ -1,6 +1,6 @@
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    m = [[j for _ in range(n)] for i in range(n)]
 
     def dfs(i, j, path, visited):
         if len(path) == k:
@@ -14,4 +14,4 @@ def minPath(grid, k):
         return [p for p in res if len(p) == k]
 
     res = dfs(0, 0, [grid[0][0]], set())
-    return min(res, key=lambda x: sum(grid[i][x[i]] for i in range(k)))
+    return min(res, key=lambda x: sum(x))
