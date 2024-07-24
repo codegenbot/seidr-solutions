@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<std::string> expressions;
+std::vector<std::string> expressions = {"", ""};
 double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
     double result = args[0];
     
