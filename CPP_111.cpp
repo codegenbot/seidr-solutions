@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <map>
 #include <string>
@@ -34,7 +33,7 @@ multimap<char, int> histogram(string test) {
     return maxCountMap;
 }
 
-int main() {
+int main_function() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
