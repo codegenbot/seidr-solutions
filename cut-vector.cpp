@@ -1,44 +1,60 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for(int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i+1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int pos = -1;
+
+    for (int i = 0; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+
+        if (leftSum == rightSum) {
+            res[0] = vector<int>(v.begin(), v.begin() + i);
+            res[1] = vector<int>(v.begin() + i, v.end());
+            return res;
+        } else if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            pos = i;
         }
     }
-    
-    vector<int> left, right;
-    for(int i = 0; i < cutIndex; i++) {
-        left.push_back(v[i]);
+
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < pos; i++) {
+        leftSum += v[i];
     }
-    for(int i = cutIndex + 1; i < v.size(); i++) {
-        right.push_back(v[i]);
+    for (int i = pos; i < n; i++) {
+        rightSum += v[i];
     }
-    
-    return {left, right};
+
+    res[0] = vector<int>(v.begin(), v.begin() + pos);
+    res[1] = vector<int>(v.begin() + pos, v.end());
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    for(auto x : result.first) {
-        cout << x << " ";
+    
+    vector<vector<int>> result = cutVector(v);
+
+    for (auto &vec : result) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-    for(auto x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
+
     return 0;
 }
