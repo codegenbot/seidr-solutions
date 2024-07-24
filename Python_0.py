@@ -4,8 +4,7 @@ def check_numbers(numbers, threshold):
         if abs(numbers[i] - numbers[i+1]) < threshold:
             return True
     return False
-
-# Call the function with appropriate input
+    
 numbers = [5, 10, 15, 20]
 threshold = 5
 result = check_numbers(numbers, threshold)
