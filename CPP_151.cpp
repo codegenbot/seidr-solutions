@@ -15,8 +15,7 @@ int main(){
     float num;
     while(std::cin >> num) {
         lst.push_back(num);
-    }    
-    long long result = double_the_difference(lst); 
-    std::cout << result << std::endl; 
+    }
+    long long odd_sum = double_the_difference(lst); 
     return 0;
 }
