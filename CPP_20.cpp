@@ -8,21 +8,27 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     }
     return true;
 
-}
-
-int main(){
-    int n;
-    std::cin >> n;
-
-    std::vector<float> a(n), b(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> a[i] >> b[i];
+int main() {
+    std::vector<float> vec1, vec2;
+    float num;
+    
+    // Input for vector 1
+    std::cout << "Enter the elements of vector 1 (separated by space): ";
+    while(std::cin >> num) {
+        vec1.push_back(num);
     }
-
-    if(isSame(a, b))
-        std::cout << "The two vectors are the same.\n";
-    else
-        std::cout << "The two vectors are not the same.\n";
-
+    
+    // Input for vector 2
+    std::cout << "\nEnter the elements of vector 2 (separated by space): ";
+    while(std::cin >> num) {
+        vec2.push_back(num);
+    }
+    
+    if(isSame(vec1, vec2)) {
+        std::cout << "The two vectors are same.\n";
+    } else {
+        std::cout << "The two vectors are not same.\n";
+    }
+    
     return 0;
 }
