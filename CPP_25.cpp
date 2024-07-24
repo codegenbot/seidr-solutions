@@ -6,3 +6,4 @@ vector<int> factors;
         }
     }
     return factors;
+}
