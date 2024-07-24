@@ -1,5 +1,12 @@
-int main 
-{
+#include <iostream>
+#include <cmath>
+
+bool iscuber(int num) {
+    int c = round(cbrt(num));
+    return (c * c * c == num);
+}
+
+int main() {
     assert(iscuber(0) == false);
     int num;
     std::cout << "Enter a number: ";
