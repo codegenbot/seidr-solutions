@@ -17,8 +17,3 @@ std::string solve(std::string s) {
     }
     return result;
 }
-
-int main() {
-    std::cout << solve("Hello World!") << std::endl;
-    return 0;
-}
