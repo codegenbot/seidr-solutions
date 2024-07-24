@@ -18,10 +18,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "abcabcabc";
-    string target = "abc";
+    string text = "abcabc";
+    string target = "bc";
     vector<int> result = indicesOfSubstring(text, target);
-    for(int i : result){
+    for(int i : result) {
         cout << i << endl;
     }
     return 0;
