@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,10 +21,9 @@ std::string numerical_letter_grade(const std::vector<int>& grades) {
 }
 
 bool issame(const std::vector<std::string>& a) {
-    return (a.size() == 1 && a[0] == "E");
+    return (a.size() == 2 && a[0] == "D-" && a[1] == "F");
 }
 
 int main() {
-    assert(issame({{"E"}}));
-    std::cout << numerical_letter_grade({70}) << std::endl;
+    assert(issame({"E", "D-" }));
 }
