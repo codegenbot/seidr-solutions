@@ -2,6 +2,11 @@
 #include <cmath>
 #include <cassert>
 
+bool iscuber(int num) {
+    int c = round(cbrt(num));
+    return (c * c * c == num);
+}
+
 int main() {
     assert(iscuber(0) == false);
     int num;
@@ -13,9 +18,4 @@ int main() {
         std::cout << num << " is not a perfect cube.\n";
     }
     return 0;
-}
-
-bool iscuber(int num) {
-    int c = round(cbrt(num));
-    return (c * c * c == num);
 }
