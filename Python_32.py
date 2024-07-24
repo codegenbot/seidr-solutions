@@ -5,6 +5,7 @@ def find_zero(xs: list):
     a, b = xs[-2], xs[-1]
     return -a / b
 
+
 if __name__ == "__main__":
     xs = list(map(int, input().split()))
     result = find_zero(xs)
