@@ -1,7 +1,7 @@
 ClassName Strongest_Extension(std::string class_name, vector<std::string> extensions) {
     int strongest_strength = 0;
     std::string strongest_extension;
-    
+
     for(auto extension : extensions){
         int cap = 0, sm = 0;
         for(char c : extension){
@@ -15,6 +15,6 @@ ClassName Strongest_Extension(std::string class_name, vector<std::string> extens
             strongest_extension = extension;
         }
     }
-    
+
     return class_name + "." + strongest_extension;
 }
