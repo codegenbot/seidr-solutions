@@ -33,19 +33,6 @@ while True:
                 print("Please enter positive values for both base and height.")
         except ValueError:
             print("Invalid input. Please enter numbers.")
-    break
 
-triangle_area = (base * height) / 2
-
-while True:
-    while True:
-        try:
-            n = float(input("Enter a positive integer: "))
-            if n > 0:
-                break
-            else:
-                print("Please enter a positive number.")
-        except ValueError:
-            print("Invalid input. Please enter numbers.")
-    result = sum_of_squares(n)
-    check(triangle_area)
+    result = sum_of_squares(int((base * height) / 2))
+    check(result)
