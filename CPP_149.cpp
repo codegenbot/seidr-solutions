@@ -28,14 +28,14 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
         sums.push_back(sum);
     }
     
-    std::vector<int> sorted_sums = std::vector<int>(std::vector<int>());
-    std::sort(sums.begin(), sums.end());
-    
+    std::vector<int> sorted_sums(sums.begin(), sums.end()); 
+    std::sort(sorted_sums.begin(), sorted_sums.end()); 
+
     std::vector<std::string> result;
     for (int sum : sorted_sums) {
         for (const auto& str : lst[0]) {
             if (stoi(str) == sum) {
-                result.push_back(str);
+                result.push_back(std::to_string(sum));
                 break;
             }
         }
