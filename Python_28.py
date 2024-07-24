@@ -1,10 +1,7 @@
-from typing import List
+def concatenate_strings():
+    strings = input("Enter multiple strings separated by space: ").split()
+    result = "".join(strings)
+    print(result)
 
 
-def concatenate(strings: List[str]) -> str:
-    if not isinstance(strings, list):
-        return "Invalid input. Please enter a list of strings."
-    result = ''
-    for s in strings:
-        result += s
-    return result
+concatenate_strings()
