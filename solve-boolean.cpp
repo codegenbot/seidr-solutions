@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -14,7 +15,7 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s; 
-    bool result = solveBoolean(s); 
+    string s; // Read input from user
+    bool result = solveBoolean(s); // Call your existing code
     return 0;
 }
