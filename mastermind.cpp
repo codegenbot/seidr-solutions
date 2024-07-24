@@ -1,13 +1,14 @@
-#include <utility>
+#include <string>
+#include <algorithm>
 
-std::pair<int, int> mastermind(string code, string guess) {
+std::pair<int, int> mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
