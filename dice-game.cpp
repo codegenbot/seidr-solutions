@@ -9,14 +9,10 @@ int main() {
     double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                favorable_outcomes += 1.0;
-            }
-        }
+        favorable_outcomes += (double)i * (m - 1);
     }
     
-    double probability = favorable_outcomes / total_outcomes;
+    double probability = favorable_outcomes / total_outcomes / total_outcomes;
     
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
     
