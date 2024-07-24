@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -37,6 +36,9 @@ int main() {
             break;
         }
         vec1.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     // Input for vector 2
@@ -56,6 +58,9 @@ int main() {
             break;
         }
         vec2.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     if(isSame(vec1, vec2)) {
