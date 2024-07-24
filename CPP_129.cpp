@@ -1,30 +1,28 @@
-int n = grid.size();
-    vector<int> result;
-    
-    int row = 0, col = 0;
-    for (int i = 0; i < k; ++i) {
-        result.push_back(grid[row][col]);
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int N = grid.size();
+    int i = 0, j = 0;
+    vector<int> path;
+
+    for (int step = 0; step < k; ++step) {
+        path.push_back(grid[i][j]);
         
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                row++;
-            } else if (row == 0) {
-                col++;
+        if ((i + j) % 2 == 0) {
+            if (j + 1 < N) {
+                j++;
             } else {
-                row--;
-                col++;
+                i++;
             }
         } else {
-            if (row == n - 1) {
-                col++;
-            } else if (col == 0) {
-                row++;
+            if (i + 1 < N) {
+                i++;
             } else {
-                row++;
-                col--;
+                j++;
             }
         }
     }
-    
-    return result;
+
+    return path;
 }
