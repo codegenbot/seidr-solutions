@@ -1,9 +1,8 @@
-```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
+#include <deque>
 #include <cstdint>
-#include <initializer_list>
 
 bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -28,7 +27,7 @@ int mainFunction() {
         if (result.empty()) {
             result = v;
         } else {
-            while (!order_by_points({(int){result.back()}, (int){v.back()}})) {
+            while (!order_by_points({std::deque<int>(arr.begin(), arr.end()), std::deque<int>(v.begin(), v.end())})) {
                 if ((int)v.back() > (int)result.back()) {
                     result.push_back(v.back());
                     v.pop_back();
