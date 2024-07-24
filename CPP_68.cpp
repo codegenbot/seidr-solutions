@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -45,4 +45,6 @@ int getAndProcessInput() {
     return 0;
 }
 
-getAndProcessInput();
+int main() {
+    return getAndProcessInput();
+}
