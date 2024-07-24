@@ -1,7 +1,32 @@
-def bouncing_balls(starting_height, first_bounce_height, num_bounces):
-    bounciness_index = first_bounce_height / starting_height
-    total_distance = 1 + 2 * np.sum(
-        (np.power(bounciness_index, range(1, num_bounces + 1)) - 1)
-        / (bounciness_index - 1)
+def calculate_bounciness(starting_height, first_bounce_height):
+    return first_bounce_height / starting_height
+
+
+def calculate_total_distance(starting_height, bounciness_index, num_bounces):
+    total_distance = 0
+    current_height = starting_height
+
+    for i in range(num_bounces):
+        if i == 0:
+            continue
+        total_distance += abs(current_height - first_bounce_height)
+        current_height *= bounciness_index
+
+    return total_distance
+
+
+def main():
+    start_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
+
+    bounciness_index = calculate_bounciness(starting_height, first_bounce_height)
+    total_distance = calculate_total_distance(
+        starting_height, bounciness_index, num_bounces
     )
-    return round(total_distance, 6)
+
+    print(f"{total_distance:.6f}")
+
+
+if __name__ == "__main__":
+    main()
