@@ -1,33 +1,28 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-int file_name_check(string file_name) {
-    int i = 0, j = 0, digit_count = 0;
-    while (i < file_name.size()) {
-        if (isdigit(file_name[i])) {
-            digit_count++;
-            i++;
-            while (i < file_name.size() && isdigit(file_name[i]))
-                i++;
-        } else if (file_name[i] == '.') {
-            j = i + 1;
-            break;
-        } else
-            i++;
-    }
-    if (j != file_name.size()) {
-        string before_dot = file_name.substr(0, j);
-        string after_dot = file_name.substr(j + 1);
-        if (digit_count > 3 || before_dot.empty() || !isalpha(before_dot[0]) ||
-            (after_dot != "txt" && after_dot != "exe" && after_dot != "dll"))
-            return 0;
-    }
-    return 1;
-}
+bool file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
 
-int main() {
-    assert(file_name_check("s.") == 0);
-    cout << file_name_check("a.txt") << endl;
-    return 0;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) return false;
+        } else if(file_name[i] == '.'){
+            found_dot = true;
+        }
+    }
+
+    if(!found_dot || file_name.find('.') == string::npos) return false;
+
+    string before_dot = file_name.substr(0, file_name.find('.'));
+    string after_dot = file_name.substr(file_name.find('.') + 1);
+
+    if(before_dot.empty() || !isalpha(before_dot[0])) return false;
+    if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return false;
+
+    return true;
 }
