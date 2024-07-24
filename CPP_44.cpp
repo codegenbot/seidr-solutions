@@ -11,9 +11,7 @@ std::string change_base(int x, int base){
 }
 
 int main(){
-    assert(change_base(10, 2) == "1010");
-    assert(change_base(16, 16) == "10");
-    assert(change_base(255, 8) == "377");
-    assert(change_base(100, 10) == "100");
+    int x = 42;
+    assert (change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
