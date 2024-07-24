@@ -1,5 +1,20 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> rolling_max(vector<int> numbers);
+
+int main() {
+    vector<int> numbers = {1, 3, 5, 2, 6, 4};
+    vector<int> result = rolling_max(numbers);
+    for(int num : result){
+        cout << num << " ";
+    }
+    return 0;
 }
 
 vector<int> rolling_max(vector<int> numbers){
