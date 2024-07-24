@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <assert.h>
 
 int sum_squares(int n) {
     int sum = 0;
@@ -8,7 +10,7 @@ int sum_squares(int n) {
     return sum;
 }
 
-int main2() {
+int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
