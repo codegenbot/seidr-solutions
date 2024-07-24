@@ -1,34 +1,30 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++; // skip the '-'
-            while (i < str.length() && str[i] == ' ') {
-                i++; // skip the spaces
+std::string camelCase(std::string input) {
+    std::string output;
+    bool firstWord = true;
+
+    for (char c : input) {
+        if (c == '-') {
+            if (!firstWord) {
+                output.push_back(char(toupper(c)));
             }
-            if (result != "") {
-                result += std::toupper(str[i]);
-            } else {
-                result = std::toupper(str[i]);
-            }
-        } else if (str[i] != ' ') {
-            if (i > 0) {
-                result += str[i];
-            } else {
-                result = str[i];
-            }
+            firstWord = false;
+        } else if (c == ' ') {
+            output += char(toupper(c));
+            firstWord = true;
+        } else {
+            output += c;
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
