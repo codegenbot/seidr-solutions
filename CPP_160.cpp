@@ -23,47 +23,25 @@ vector<string> split(string str) {
 }
 
 double do_algebra(vector<string> expressions) {
-    double result = 0;
-    string operators = expressions[2];
+    double a = stod(expressions[0]);
+    double b = stod(expressions[1]);
+    char op = expressions[2][0];
 
-    if (stof(operators) == 0) {
-        if (expressions[2][0] == '+') {
-            result = pow(stod(expressions[0]), stod(expressions[1]));
-        } else if (expressions[2][0] == '-') {
-            result = pow(stod(expressions[0]), -stod(expressions[1]));
-        }
-    } else if (stof(operators) == 42) { 
-        if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
-                result = -stod(expressions[0]);
-            }
-        } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]) + stod(expressions[1]);
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]) - stod(expressions[1]);
-            } else if (expressions[2][0] == '*') {
-                result = stod(expressions[0]) * stod(expressions[1]);
-            }
-        }
-    } else if (stof(operators) == 47) { 
-        if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
-                result = -stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]);
-            }
-        } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]) + (-stod(expressions[1]));
-            } else if (expressions[2][0] == '-') {
-                result = stod(expressions[0]) - stod(expressions[1]);
-            }
+    if (op == '+') {
+        return pow(a, b);
+    } else if (op == '-') {
+        return pow(a, -b);
+    } else if (op == '*') {
+        return a * b;
+    } else if (op == '/') {
+        if (b != 0) {
+            return a / b;
+        } else {
+            return 0; // or throw an exception
         }
     }
-    return result;
+
+    return 0; // or throw an exception
 }
 
 int main() {
