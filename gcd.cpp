@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -31,17 +32,18 @@ int main() {
         cerr << "Invalid input for integers" << endl;
         return 1;
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
     cout << "Enter a text string: ";
-    if (!getline(cin, text)) {
+    if (!(cin >> text)) {
         cerr << "Error reading text string" << endl;
         return 1;
     }
 
     cout << "Enter a target string: ";
-    if (!getline(cin, target)) {
+    if (!(cin >> target)) {
         cerr << "Error reading target string" << endl;
         return 1;
     }
