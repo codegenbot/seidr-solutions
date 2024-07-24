@@ -2,10 +2,9 @@ def add_numbers(x=None, y=None):
     print("Please enter two numbers.")
     if x is None:
         x = int(input("Enter first number: "))
-    elif y is None:
+    if y is None:
         y = int(input("Enter second number: "))
-    else:
-        return x + y
+    return x + y
 
-result = add_numbers()
+result = add_numbers(0, 0) if (x is None and y is None) else add_numbers(x, y)
 print(result)
