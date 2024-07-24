@@ -30,8 +30,8 @@ int main() {
     }
     cout << endl;
     cout << "Right: ";
-    for(int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
+    for(auto x : std::vector<int>(res[1]).begin(), e = std::vector<int>(res[1]).end(); x != e; ++x) {
+        cout << *x << " ";
     }
     cout << endl;
     return 0;
