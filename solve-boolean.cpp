@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,8 +10,7 @@ bool solveBoolean(string expression) {
             return false;
     }
 
-    int pos = 0, i = 0;
-
+    int pos = 0;
     while (pos < expression.size()) {
         size_t start = pos;
         if (expression[pos] == '|') {
@@ -28,17 +26,16 @@ bool solveBoolean(string expression) {
                                             expression[end] == '|' || expression[end] == '&')) {
             end++;
         }
-        string part = expression.substr(start, end - start);
-        
+        std::string::size_type len = end - start;
+        string part = expression.substr(start, len);
         if (expression[start] == 'T' || expression[start] == 't')
-            i = true;
+            return true;
         else if (expression[start] == 'F' || expression[start] == 'f')
-            i = false;
+            return false;
 
         pos = end;
     }
-
-    return i;
+    return true;
 }
 
 int main() {
