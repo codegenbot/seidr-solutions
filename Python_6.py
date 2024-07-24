@@ -1,5 +1,5 @@
 def max_nested_paren_count(paren_string):
-    return (
+    return [
         max(
             [
                 sum([1 for char in paren if char == "("][:i])
@@ -7,8 +7,8 @@ def max_nested_paren_count(paren_string):
             ]
         )
         for paren in paren_string.split()
-    )
+    ]
 
 input_string = input().strip()  
-result = max_nested_paren_count(input_string)
-print(list(result))
+result = max_nested_paren_count(input_string.split(')'))
+print(result)
