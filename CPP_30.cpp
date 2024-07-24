@@ -1,8 +1,12 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+bool issame(float a, float b) {
+    return (a == b);
+}
+
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for (float i : l) {
         if(i > 0)
             result.push_back(i);
