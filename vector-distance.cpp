@@ -14,8 +14,7 @@ int main() {
     }
 
     for (int i = 0; i < n; ++i) {
-        char comma;
-        cin >> comma; // read and discard the comma
+        cin.ignore(1, ','); // ignore the comma
         cin >> v2[i];
     }
 
