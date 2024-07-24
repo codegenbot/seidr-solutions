@@ -1,39 +1,26 @@
 ```cpp
-#include <iostream>
-#include <string>
+bool capitalizeNext = true;
+std::string result;
 
-int main() {
-    const char* str = "camel-case example-test-string";
-    std::string result;
-    bool capitalizeNext = true;
-
-    for (const char* p = str; *p; p++) {
-        if (*p == '-') {
-            p++; // Skip the '-'
-            if (!capitalizeNext) {
-                char c = (*p);
-                if (capitalizeNext) {
-                    result += toupper(c);
-                } else {
-                    result += tolower(c);
-                }
-                capitalizeNext = false;
-            }
-        } else if (capitalizeNext) {
-            char c = (*p);
-            if (capitalizeNext) {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
-            capitalizeNext = false;
+for (const char* p = str; *p; p++) {
+    if (*p == '-') {
+        p++; // Skip the '-'
+        if (!capitalizeNext) {
+            result += tolower(*p);
         } else {
-            char c = (*p);
-            result += tolower(c);
+            result += toupper(*p);
+            capitalizeNext = false;
         }
+    } else {
+        if (capitalizeNext) {
+            result += toupper(*p);
+        } else {
+            result += tolower(*p);
+        }
+        capitalizeNext = true;
     }
-
-    std::cout << result.c_str() << std::endl;
-
-    return 0;
 }
+
+std::cout << result.c_str() << std::endl;
+
+return 0;
