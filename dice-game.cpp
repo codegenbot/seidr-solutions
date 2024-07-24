@@ -4,7 +4,6 @@ int main() {
     int m = 4;
     double probability = getProbability(n, m);
     return 0;
-
 }
 
 double getProbability(int n, int m) {
