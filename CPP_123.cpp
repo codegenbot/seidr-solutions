@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
+#include <iterator>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> get_odd_collatz(int n) {
