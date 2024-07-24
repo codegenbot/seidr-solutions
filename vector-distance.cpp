@@ -5,8 +5,8 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    float vec1[n];
-    float vec2[n];
+    vector<float> vec1(n);
+    vector<float> vec2(n);
 
     // Read input vectors
     for (int i = 0; i < n; i++) {
