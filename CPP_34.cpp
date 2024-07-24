@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +7,8 @@ using namespace std;
 vector<int> unique(vector<int> l) {
     vector<int> result;
     for (int x : l) {
-        if (find(result.begin(), result.end(), x) == result.end())
+        auto it = std::find(result.begin(), result.end(), x);
+        if (it == result.end())
             result.push_back(x);
     }
     return result;
@@ -16,11 +16,14 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result(l.size()); 
+    cout << "Original Vector: ";
     for (int i : l) {
-        if (find(result.begin(), result.end(), i) == result.end())
-            result.push_back(i);
+        cout << i << " ";
     }
+    cout << endl;
+    
+    vector<int> result = unique(l);
+    cout << "Unique Elements: ";
     for (int i : result) {
         cout << i << " ";
     }
