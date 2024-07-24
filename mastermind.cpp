@@ -21,10 +21,10 @@ void calculatePegs(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         if (matchedIndices.count(i) == 0) {
             for (int j = 0; j < 4; ++j) {
-                if (codeFreqCode[code[j] - 'A'] > 0 && codeFreqGuess[guess[i] - 'A'] > 0 && code[j] == guess[i]) {
+                if (codeFreqCode[code[j] - 'A'] > 0 && codeFreqGuess[guess[j] - 'A'] > 0 && code[j] == guess[i]) {
                     ++whitePegs;
                     --codeFreqCode[code[j] - 'A'];
-                    --codeFreqGuess[guess[i] - 'A'];
+                    --codeFreqGuess[guess[j] - 'A'];
                     break;
                 }
             }
