@@ -1,42 +1,28 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
+```c++
 string camelCase(string s) {
     string result = "";
-    bool nextWordIsUpper = false;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                if (!nextWordIsUpper) result += tolower(s[i]);
-                else result += toupper(s[i]);
-                nextWordIsUpper = !nextWordIsUpper;
+                result += toupper(s[i]);
                 i++;
             }
-        } else if (!nextWordIsUpper) result += tolower(s[i]);
-        else {
-            result += toupper(s[i]);
-            nextWordIsUpper = false;
+            if (i < s.length()) {
+                result += capitalize(s[i]);
+            }
+        } else {
+            if (result.empty()) {
+                result += tolower(s[i]);
+            } else {
+                result += capitalize(s[i]);
+            }
         }
     }
-    // Check for the last word
-    if (nextWordIsUpper) {
-        while(i < s.length()) {
-            result += tolower(s[i]);
-            i++;
-        }
-    } 
     return result;
 }
 
-int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "The camelCase version is: " << camelCase(input) << endl;
-    return 0;
+string capitalize(char c) {
+    return (c >= 'a' && c <= 'z') ? (char)(c - ('a' - 'A')) : c;
 }
