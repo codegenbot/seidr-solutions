@@ -34,13 +34,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             current_group += char
         else:
-            if current_group and current_group[0] == "(":
-                groups.append(result + [current_group])
+            if len(current_group) > 0 and current_group[0] == "(":
+                groups.append(current_group)
                 current_group = ""
-                result = []
             current_group += char
 
     if current_group:
         result.append(current_group)
 
-    return [result]
+    return [group for group in result if group[0] != "("]
