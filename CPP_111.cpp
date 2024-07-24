@@ -47,6 +47,7 @@ int main1() {
 }
 
 int main2() {
-    assert(histogram("a") == multimap<char, int>{{'a', 1}});
+    #include <cassert>
+    assert(histogram("a") == map<char, int>{{'a', 1}});
     return 0;
 }
