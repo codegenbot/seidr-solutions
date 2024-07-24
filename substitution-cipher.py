@@ -1,13 +1,8 @@
-cipher1 = input()
-cipher2 = input()
+cipher = input()
+decipher = input()
 message = input()
 
-deciphered_message = ""
-for char in message:
-    if char in cipher1:
-        index = cipher1.index(char)
-        deciphered_message += cipher2[index]
-    else:
-        deciphered_message += char
-
-print(deciphered_message)
+decoded_message = "".join(
+    decipher[cipher.index(char)] if char in cipher else char for char in message
+)
+print(decoded_message)
