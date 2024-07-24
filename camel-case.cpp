@@ -1,27 +1,26 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(std::string input) {
     std::string result = "";
     bool firstWord = true;
     
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++; // Skip the dash
+    for (char c : input) {
+        if (c == '-') {
             if (!firstWord) {
-                result += char(toupper(str[i])); // Convert to upper case
-            } else {
-                firstWord = false;
+                result += char(toupper(c));
             }
-        } else if (str[i] == ' ') {
-            continue; // Just skip the space
-        } else {
+            firstWord = false;
+        } else if (c == ' ') {
             if (!firstWord) {
-                result += char(tolower(str[i])); // Convert to lower case
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (firstWord) {
+                result += c;
             } else {
-                result += str[i]; // First word, just add it as is
-                firstWord = false;
+                result += char(tolower(c));
             }
         }
     }
@@ -32,7 +31,7 @@ std::string camelCase(std::string str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
+    std::cin >> input;
+    std::cout << "The camelCase version is: " << camelCase(input) << std::endl;
     return 0;
 }
