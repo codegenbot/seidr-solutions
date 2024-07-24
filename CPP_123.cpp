@@ -36,6 +36,10 @@ void startProgram() {
         cerr << "Error: Please enter a positive integer." << endl;
         return;
     }
+    if (n > std::numeric_limits<int>::max() / 2) {
+        cerr << "Error: The number exceeds the maximum value for an integer." << endl;
+        return;
+    }
     vector<int> res = getOddCollatz(n);
     for (int i : res) {
         cout << i << " ";
@@ -53,5 +57,6 @@ void startProgram() {
 }
 
 int main() {
-    return startProgram();
+    startProgram();
+    return 0;
 }
