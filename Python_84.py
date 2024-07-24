@@ -1,10 +1,10 @@
-```python
-def generate_power_set(S):
-    power_set = [[]]
-    for s in S:
-        power_set += [curr + [s] for curr in power_set]
-    return power_set
-
-S = input("Enter a set of numbers (space separated): ")
-S = list(map(int, S.split()))
-print(generate_power_set(S))
+while True:
+    try:
+        K = int(input("Enter a number (0 or 1): "))
+        if K == 0 or K == 1:
+            print(f"Output: {K}")
+            break
+        else:
+            print("Invalid input. Try again!")
+    except ValueError:
+        print("Invalid input. Please enter a whole number.")
