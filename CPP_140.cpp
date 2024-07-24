@@ -1,11 +1,12 @@
 Here is the solution:
 
+```cpp
 string fix_spaces(string text) {
     string result = "";
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
-            if (i < text.length() - 1 && text[i + 1] == ' ' && text.find(' ', i + 2) != std::string::npos) {
-                while (i < text.length() - 1 && text[i + 1] == ' ') {
+            if (i > 0 && text[i - 1] == ' ' && text.find(' ', i) != string::npos) {
+                while (i + 1 < text.length() && text[i + 1] == ' ') {
                     i++;
                 }
                 result += "-";
