@@ -5,9 +5,11 @@
 #include <iostream>
 
 bool same_chars(string s0, string s1) {
-    sort(s0.begin(), s0.end());
-    sort(s1.begin(), s1.end());
-    return s0 == s1;
+    vector<char> v0(s0.begin(), s0.end());
+    vector<char> v1(s1.begin(), s1.end());
+    sort(v0.begin(), v0.end());
+    sort(v1.begin(), v1.end());
+    return v0 == v1;
 }
 
 int main() {
