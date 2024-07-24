@@ -1,19 +1,18 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+array = [int(input()) for _ in range(n)]
 
-total = sum(nums)
-half_total = total // 2
+diff = float("inf")
+cut_index = -1
 
-prefix_sum = 0
-best_idx = -1
-best_diff = float("inf")
+for i in range(1, n):
+    left_sum = sum(array[:i])
+    right_sum = sum(array[i:])
 
-for i, num in enumerate(nums):
-    prefix_sum += num
-    diff = abs(prefix_sum - half_total)
-    if diff < best_diff:
-        best_diff = diff
-        best_idx = i
+    current_diff = abs(left_sum - right_sum)
 
-print(*nums[: best_idx + 1])
-print(*nums[best_idx + 1 :])
+    if current_diff < diff:
+        diff = current_diff
+        cut_index = i
+
+print(*array[:cut_index])
+print(*array[cut_index:])
