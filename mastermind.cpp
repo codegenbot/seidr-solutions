@@ -1,33 +1,25 @@
-int mastermind(const string& code, const string& guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
+    map<char, int> code_map;
     for (char c : code) {
-        bool correctColor = false;
-        bool correctPlace = false;
+        code_map[c]++;
+    }
 
-        for (int i = 0; i < 4; ++i) {
-            if (c == guess[i]) {
-                if (guess[i] == c) {
-                    blackPegs++;
-                    correctPlace = true;
-                    break;
-                } else {
-                    whitePegs++;
-                    correctColor = true;
-                }
-            }
-        }
-
-        if (!correctPlace && correctColor) {
-            for (int i = 0; i < 4; ++i) {
-                if (guess[i] == c && !correctPlace) {
-                    --whitePegs;
-                    break;
-                }
-            }
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            code_map[guess[i]]--;
+            black++;
         }
     }
 
-    return {blackPegs, whitePegs};
+    for (int i = 0; i < 4; i++) {
+        if (code_map[guess[i]] > 0) {
+            white++;
+            code_map[guess[i]]--;
+        }
+    }
+
+    return white, black;
 }
