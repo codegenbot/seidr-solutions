@@ -5,19 +5,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
     int cut_index = 0;
     
-    for (int i = 1; i <= v.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i; j < v.size(); ++j) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
         if (diff <= min_diff) {
             min_diff = diff;
             cut_index = i;
@@ -34,19 +23,17 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
-    }
+    for (auto &x : v) cin >> x;
+    
     pair<vector<int>, vector<int>> result = cutVector(v);
+    
     cout << "Left: ";
-    for (const auto &x : result.first) {
-        cout << x << " ";
-    }
+    for (const auto &x : result.first) cout << x << " ";
     cout << endl;
+    
     cout << "Right: ";
-    for (const auto &x : result.second) {
-        cout << x << " ";
-    }
+    for (const auto &x : result.second) cout << x << " ";
     cout << endl;
+    
     return 0;
 }
