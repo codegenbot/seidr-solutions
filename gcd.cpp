@@ -28,4 +28,4 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
     }
     
     return indices;
-}
+}  
