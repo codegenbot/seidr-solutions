@@ -20,17 +20,17 @@ int main() {
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
-    // Initialize vector with zeros
-    std::vector<float> v1(n), v2(n);
+    std::vector<float> v1, v2;
 
-    std::cout << "Enter vector 1 elements: ";
-    for (float &val : v1) {
+    for (int i = 0; i < n; i++) {
+        float val;
+        std::cout << "Enter vector 1 element " << i + 1 << ": ";
         std::cin >> val;
-    }
+        v1.push_back(val);
 
-    std::cout << "Enter vector 2 elements: ";
-    for (float &val : v2) {
+        std::cout << "Enter vector 2 element " << i + 1 << ": ";
         std::cin >> val;
+        v2.push_back(val);
     }
 
     try {
