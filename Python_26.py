@@ -5,5 +5,5 @@ def remove_duplicates(input_list=None):
         values = ' '.join(input("Enter numbers separated by space: ").split())
         input_list = [int(value) for value in values.split()]
     if not input_list:  
-        return []  
+        return []
     return list(OrderedDict.fromkeys(input_list))
