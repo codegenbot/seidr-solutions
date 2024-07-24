@@ -1,4 +1,3 @@
-#include <vector>
 #include <climits>
 #include <cmath>
 using namespace std;
@@ -18,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             right_sum += v[j];
         }
         
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(left_sum - right_sum);
         
         if (diff < min_diff) {
             min_diff = diff;
