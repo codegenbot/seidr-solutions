@@ -1,11 +1,8 @@
-from typing import List
-
-
-def concatenate(strings: List[str]) -> str:
-    result = ""
+```
+def concatenate_strings():
+    strings = input("Enter strings separated by space: ").split()
+    result = ''
     for string in strings:
         if len(string) > 5:
-            result += "Long string: " + string
-        else:
-            result += string
-    return result
+            result += string + ' '
+    return result.strip()
