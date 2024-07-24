@@ -10,14 +10,13 @@ def make_palindrome(string: str) -> str:
             left_middle_chars = postfix[:half_length]
             right_middle_chars = postfix[half_length:]
             return "".join(
-                [left_half]
-                + [char for char in left_middle_chars + right_middle_chars][::-1]
+                [left_half] + list(left_middle_chars)[::-1] + right_middle_chars
             )
     half = len(string) // 2
     left_half = string[:half]
     right_half = string[half:][::-1]
     if len(left_half) < len(right_half):
-        return "".join(
-            [char for char in left_half + left_half[::-1]] + list(right_half)
+        return (
+            left_half + "".join([c for c in left_half])[: -len(left_half)] + right_half
         )
-    return "".join([char for char in left_half] + list(right_half))
+    return left_half + right_half
