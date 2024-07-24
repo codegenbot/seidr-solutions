@@ -1,4 +1,4 @@
-```
+```Python
 def parse_music(music_string):
     if not isinstance(music_string, str):
         raise ValueError("Invalid input type")
@@ -20,7 +20,9 @@ def parse_music(music_string):
             else:
                 music_list.append(1)
             i += 8
-        elif music_string[i:i+2] == "e|":
+        elif music_string[i] in ['o', '|']:
+            i += 1
+        elif music_string[i] == 'e':
             music_list.append(2)
             i += 2 
         else:
