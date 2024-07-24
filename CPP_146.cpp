@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -13,17 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input;
-    cout << "Enter numbers separated by space: ";
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-        if (cin.peek() == ' ') {
-            cin.ignore();
-        } else if (cin.peek() != '\n') {
-            break;
-        }
-    }
-    cout << "Special filtered count: " << specialFilter(input) << endl;
+    vector<int> numbers = {123, -456, 789, 90123};
+    cout << "Number of special numbers: " << specialFilter(numbers) << endl;
     return 0;
 }
