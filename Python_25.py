@@ -1,8 +1,8 @@
-```
 from typing import List
 
 
-def factorize(n: int) -> List[List[int]]:
+def factorize():
+    n = int(input("Enter a number: "))
     factors = []
     i = 2
     while i * i <= n:
@@ -18,3 +18,6 @@ def factorize(n: int) -> List[List[int]]:
     if n > 1:
         factors.append([n])
     return [factor_list for factor_list in set(map(tuple, factors))]
+
+
+print(factorize())
