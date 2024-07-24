@@ -20,7 +20,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 1.3)
             letterGrades.push_back("C-");
         else if (grade > 1.0)
-            letterGrades.push_back("D+ ");
+            letterGrades.push_back("D+");
         else if (grade > 0.7)
             letterGrades.push_back("D");
         else
