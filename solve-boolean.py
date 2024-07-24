@@ -1,17 +1,23 @@
-def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+def solve_boolean(expression=''):
+    result = True
+    user_input = input("Enter Boolean expression: ")
+    
+    if user_input == 'T':
+        result = True
+    elif user_input == 'F':
+        result = False
+    elif '&' in user_input and '|' in user_input:
+        raise ValueError('Invalid expression')
     else:
-        for i, c in enumerate(expression):
-            if c == '&':
-                left = expression[:i]
-                right = expression[i+1:]
-                return solve_boolean(left) and solve_boolean(right)
-            elif c == '|':
-                left = expression[:i]
-                right = expression[i+1:]
-                return solve_boolean(left) or solve_boolean(right)
+        if expression[0] == 'T':
+            result = True
+        else:
+            result = False
+        
+        for op, value in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
+            if op == '&' and value % 2 != 0:
+                result = False
+            elif op == '|' and value % 2 == 0:
+                result = False
+        
+    return result
