@@ -1,3 +1,10 @@
+#include <vector>
+#include <utility>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<std::pair<int, int>> make_a_pile(int n) {
     std::vector<std::pair<int, int>> pile;
     for (int i = 1; i <= n; i++) {
