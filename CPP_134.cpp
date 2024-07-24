@@ -1,12 +1,16 @@
-Here is the completed code:
+#include<stdio.h>
+#include<string>
+using namespace std;
 
-```cpp
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
+    if(txt.empty()) return false;
     char lastChar = txt.back();
-    for (int i = 0; i < txt.size() - 1; i++) {
-        if (isspace(txt[i])) break;
-        if (lastChar == txt[i]) return false;
+    bool isLastCharLetter = isalpha(lastChar);
+    bool isLastCharPartOfWord = false;
+    for(int i = 0; i < txt.size() - 1; i++) {
+        if(isspace(txt[i]) && !isLastCharPartOfWord) {
+            isLastCharPartOfWord = true;
+        }
     }
-    return isalpha(lastChar);
+    return isLastCharLetter && !isLastCharPartOfWord;
 }
