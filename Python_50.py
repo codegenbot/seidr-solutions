@@ -1,13 +1,15 @@
 def decode_shift():
-    encoded_string = input("Enter the encoded string: ")
+    s = input("Enter the encoded string: ")
+    n = int(input("Enter the number of positions each letter is shifted: "))
     decoded_string = ""
-    for char in encoded_string:
+    for char in s:
         if not char.isalpha():
             decoded_string += char
         else:
             ascii_offset = 65 if char.isupper() else 97
-            decoded_char = chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+            decoded_char = chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
             decoded_string += decoded_char
-    print("The decoded string is: ", decoded_string)
+    return decoded_string
 
-decode_shift()
+
+print(decode_shift())
