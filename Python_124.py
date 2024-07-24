@@ -9,6 +9,6 @@ def valid_date(date):
         return False
     if (int(month) in [4,6,9,11] and int(day) > 30) or (int(month) == 2 and int(day) > 29):
         return False
-    if int(day) < 1 or int(day) > int(month) if month in ['04','06','09','11'] else 31:
+    if int(day) < 1 or int(day) > 31:
         return False
     return True
