@@ -8,6 +8,9 @@ def next_digit_sum(n):
     return total
 
 def is_happy(n):
+    if n < 0:
+        print("Invalid input. Please enter a non-negative integer.")
+        return False
     seen = set()
     while n != 1 and n not in seen:
         if '0' in str(n):  
