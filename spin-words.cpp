@@ -7,11 +7,11 @@ string spinWords(string str) {
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i - start);
+            start = i + 1;
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                reverse(word.begin(), prev(word.end()));
             }
             result += word + " ";
-            start = i + 1;
         }
     }
     return result;
