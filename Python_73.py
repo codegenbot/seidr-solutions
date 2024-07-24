@@ -6,16 +6,13 @@ def smallest_change(arr):
     
     while left < right:
         if arr[left] != arr[right]:
-            mid = (left + right) // 2
-            min_diff = float('inf')
-            for i in range(left, right):
-                diff = abs(arr[i] - arr[right])
-                if diff < min_diff:
-                    min_diff = diff
-                    mid = i
-            arr[mid], arr[right] = arr[right], arr[mid]
-            changes += 1
+            changes += min(n - left - 1, right + 1) - 1
+            break
         left += 1
         right -= 1
-    
+        
+    for i in range(left + 1):
+        if arr[i] != arr[n - 1 - i]:
+            changes += 1
+            
     return changes
