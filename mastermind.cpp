@@ -1,46 +1,44 @@
-int numWhitePegs(string &code, string &guess) {
-    int whitePegs = 0;
-    for(int i = 0; i < 4; ++i) {
-        if(code[i] == guess[i]) {
-            whitePegs++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++count;
         }
     }
-    return whitePegs;
+    return count;
 }
 
-int numBlackPegs(string &code, string &guess) {
-    int blackPegs = 0;
-    vector<int> codeCount(6, 0);
-    for(int i = 0; i < 4; ++i) {
-        codeCount[code[i] - 'A']++;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeCount;
+    for (char c : code) {
+        codeCount[c]++;
     }
-    for(int i = 0; i < 4; ++i) {
-        if(code[i] == guess[i]) {
-            blackPegs++;
-            codeCount[guess[i] - 'A']--;
-        } else {
-            for(int j = 0; j < 6; ++j) {
-                if(codeCount[j] > 0 && code.find(std::string(1, 'A' + j)) == string::npos) {
-                    blackPegs++;
-                    codeCount[j]--;
-                    break;
-                }
-            }
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            --codeCount[guess[i]];
+        } else if (codeCount[guess[i]] > 0) {
+            ++count;
+            --codeCount[guess[i]];
         }
     }
-    return blackPegs;
+
+    return count;
 }
 
 int main() {
-    // Read the input
     string code, guess;
-    cin >> code >> guess;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter a guess: ";
+    cin >> guess;
 
-    int white = numWhitePegs(code, guess);
-    int black = numBlackPegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
 
-    cout << black << endl;
     cout << white << endl;
-
+    cout << black << endl;
+    
     return 0;
 }
