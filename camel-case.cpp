@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,36 +5,23 @@ std::string camelCase(std::string input) {
     std::string result = "";
     bool firstWord = true;
     bool capitalNextWord = false;
-    
+
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
-                capitalNextWord = true;
-            } else {
-                firstWord = false;
-            }
+            capitalNextWord = !capitalNextWord;
         } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-                capitalNextWord = true;
-            } else {
-                firstWord = false;
-            }
+            firstWord = true;
+            capitalNextWord = false;
         } else {
-            if (firstWord) {
-                result += c;
+            if (!firstWord) {
+                result += capitalNextWord ? char(toupper(c)) : char(tolower(c));
             } else {
-                if (capitalNextWord) {
-                    result += toupper(c);
-                    capitalNextWord = false;
-                } else {
-                    result += tolower(c);
-                }
+                result += c;
             }
+            firstWord = false;
         }
     }
-    
+
     return result;
 }
 
