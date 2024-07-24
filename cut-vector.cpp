@@ -1,64 +1,50 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    vector<vector<int>> result;
-    int minDiff = INT_MAX;
-    int index = -1;
-    
-    for(int i = 0; i < vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for(int j = 0; j <= i; j++) {
-            leftSum += vec[j];
+vector<vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
+
+    for (int i = 1; i <= v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        if (i < v.size()) {
+            for (int j = 0; j < i; j++) {
+                left_sum += v[j];
+            }
+            for (int j = i; j < v.size(); j++) {
+                right_sum += v[j];
+            }
+        } else {
+            left_sum = accumulate(v.begin(), v.end(), 0);
+            right_sum = 0;
         }
-        
-        for(int k = i + 1; k < vec.size(); k++) {
-            rightSum += vec[k];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if(diff == minDiff) {
-            index = i;
-        } else if(diff < minDiff) {
-            minDiff = diff;
-            index = i;
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    
-    vector<int> leftVec;
-    for(int i = 0; i <= index; i++) {
-        leftVec.push_back(vec[i]);
-    }
-    result.push_back(leftVec);
-    
-    vector<int> rightVec;
-    for(int i = index + 1; i < vec.size(); i++) {
-        rightVec.push_back(vec[i]);
-    }
-    result.push_back(rightVec);
-    
-    return result;
+
+    return {{vector<int>(v.begin(), v.begin() + cut_index)},
+            {vector<int>(v.begin() + cut_index, v.end())}};
 }
 
 int main() {
     int n;
     cin >> n;
-    
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
     
-    vector<vector<int>> res = cutVector(vec);
-    
-    for(auto v : res) {
-        for(auto num : v) {
-            cout << num;
+    vector<vector<int>> res = cutVector(v);
+    for (vector<int> &v : res) {
+        for (int x : v) {
+            cout << x << " ";
         }
         cout << endl;
     }
-    
+
     return 0;
 }
