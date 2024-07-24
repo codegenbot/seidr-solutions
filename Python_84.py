@@ -1,2 +1,3 @@
+```
 def solve(N):
-    return bin(int(str(N), 10))
+    return bin(sum(int(i) for i in str(N)))[2:]
