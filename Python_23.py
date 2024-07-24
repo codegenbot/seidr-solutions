@@ -1,3 +1,5 @@
-```
 def strlen(string: str) -> int:
-    return len(string)
+    if string == "":
+        return 0
+    else:
+        return len(string)
