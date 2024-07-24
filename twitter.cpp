@@ -8,8 +8,9 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
-    if (!tweet.empty() && tweet.back() == '\n') {
-        tweet.erase(tweet.find_last_not_of('\0') - 1);
+    size_t pos = 0;
+    while ((pos = tweet.find('\n')) != string::npos) {
+        tweet.erase(pos, 1);
     }
 
     if (tweet.empty()) {
