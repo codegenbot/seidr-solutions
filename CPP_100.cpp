@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cassert>
 
@@ -18,8 +17,4 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int main() {
-    int pile[] = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(isSame(make_a_pile(8), std::vector<int>(pile, pile+8)));
-    return 0;
-}
+assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
