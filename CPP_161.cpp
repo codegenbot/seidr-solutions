@@ -15,17 +15,17 @@ std::string solve(const std::string& s) {
             }
         }
     }
-    
+
     if (all_of(s.begin(), s.end(), [](char c) { return !isalpha(c); })) {
         reverse(s.begin(), s.end());
     }
-    
+
     return s;
 }
 
 int main() {
     assert(solve("#ccc") == "#CCC");
     // Add more test cases if needed
-    
+
     return 0;
 }
