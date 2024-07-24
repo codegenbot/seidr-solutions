@@ -22,7 +22,7 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    float total = 0.0;
+    float total = shoppingList(&prices[0], n, &discounts[0]);
     cout << fixed << setprecision(1) << total << endl;
     return 0;
 }
