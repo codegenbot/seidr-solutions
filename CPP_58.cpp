@@ -1,7 +1,4 @@
-```cpp
 #include <vector>
-#include <set>
-
 bool issame(vector<int> a,vector<int>b){
     return (a==b);
 }
@@ -24,9 +21,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     
     sort(res.begin(), res.end());
     return res;
-}
-
-int main() {
-    assert (issame(common({4, 3, 2, 8}, {}) , {}));
-    // Rest of your code...
 }
