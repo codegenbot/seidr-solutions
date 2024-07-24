@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -12,12 +12,12 @@ std::vector<int> incr_list(std::vector<int> l) {
     return l;
 }
 
+// Testing
 int main() {
-    std::vector<int> test_vec = {1, 2, 3, 4, 5};
+    std::vector<int> input = {1, 2, 3};
+    std::vector<int> output = {2, 3, 4};
     
-    assert(issame(1, 1));
-    
-    std::vector<int> result = incr_list(test_vec);
+    assert(issame(incr_list(input), output));
     
     return 0;
 }
