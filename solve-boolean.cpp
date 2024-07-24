@@ -1,36 +1,32 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string expression) {
-    stack<char> s;
-    
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
-        } else if (expression[i] == 't' || expression[i] == 'f') {
-            s.push(expression[i]);
+string solveBoolean(string booleanExp) {
+    if (booleanExp == "T" || booleanExp == "t")
+        return "True";
+    else if (booleanExp == "F" || booleanExp == "f")
+        return "False";
+    else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '&') {
+        for (int i = 2; i < booleanExp.length(); i++) {
+            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
+                return "False";
         }
-    }
-    
-    return s.top() == 't';
-}
-
-int main() {
-    string input;
-    cout << "Enter a Boolean expression: ";
-    cin >> input;
-    bool result = solveBoolean(input);
-    if (result)
-        cout << "True" << endl;
-    else
-        cout << "False" << endl;
-    return 0;
+        return "True";
+    } else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '|') {
+        for (int i = 2; i < booleanExp.length(); i++) {
+            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
+                return "True";
+        }
+        return "True";
+    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '&') {
+        for (int i = 2; i < booleanExp.length(); i++) {
+            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
+                return "False";
+        }
+        return "True";
+    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '|') {
+        for (int i = 2; i < booleanExp.length(); i++) {
+            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
+                return "True";
+        }
+        return "True";
+    } else
+        return "Invalid expression";
 }
