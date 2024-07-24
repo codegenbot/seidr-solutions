@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 using namespace std;
 
@@ -46,6 +47,11 @@ int main1() {
 }
 
 int main2() {
-    assert(histogram("a").size() == 1 && histogram("a").count('a') == 1);
+    auto mappedHist = histogram("a");
+    map<char, int> histMap;
+    for (auto& p : mappedHist) {
+        histMap[p.first] = p.second;
+    }
+    assert(histMap == ((map<char, int>{{'a', 1}})));
     return 0;
 }
