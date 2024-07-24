@@ -15,17 +15,20 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (auto c : str) {
+    for (auto &c : str) { 
         if (c == '-' || c == ' ') {
             if (capitalizeNext) {
-                result += toupper(c);
+                result += toupper(c); 
                 capitalizeNext = false;
             } else {
                 result += c;
             }
         } else {
-            result += (capitalizeNext ? std::toupper(c) : std::tolower(c));
-            capitalizeNext = true;
+            if (!capitalizeNext) {
+                result += '-'; 
+                capitalizeNext = true;
+            }
+            result += (capitalizeNext ? toupper : tolower)(c); 
         }
     }
 
