@@ -10,6 +10,6 @@ std::vector<float> get_positive(std::initializer_list<float> values) {
 }
 
 int main() {
-    issame(get_positive({3.14f, 2.71f}), get_positive({3.14f, 2.71f}));
+    issame(get_positive({3.14, 2.71}), get_positive({3.14, 2.71}));
     return 0;
 }
