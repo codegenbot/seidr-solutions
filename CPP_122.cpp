@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,14 +12,25 @@ int add_elements(vector<int> arr, int k){
 int main() {
     assert (add_elements({1}, 1) == 1);
     vector<int> input;
-    int n, k;
+    int numElements, k;
+
+    // Read the number of elements
     cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for(int i=0; i<n; i++){
-        cin >> k;
-        input.push_back(k);
+    cin >> numElements;
+
+    // Read each element
+    for(int i=0; i<numElements; i++){
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> input.push_back();
     }
-    cout << "Sum of elements less than or equal to 100 is: " << add_elements(input, n) << endl;
+
+    cout << "Enter k: ";
+    cin >> k;
+    
+    int output = add_elements(input, k);
+    
+    // Display the result
+    cout << "Sum of elements: " << output << endl;
+
     return 0;
 }
