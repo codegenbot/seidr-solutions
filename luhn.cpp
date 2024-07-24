@@ -18,4 +18,3 @@ int luhn(const vector<int>& card) {
     }
 
     return sum;
-}
