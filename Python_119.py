@@ -15,4 +15,5 @@ def check():
     s = input("Enter a string of parentheses: ")
     print(match_parens(s))
 
-check()
+if __name__ == '__main__':
+    check()
