@@ -24,3 +24,4 @@ int main() {
     string prefix = "xxx";
     assert (issame(filter_by_prefix(strings, prefix) , vector<string>({"xxx", "xxxAAA", "xxx"})));
     return 0;
+}
