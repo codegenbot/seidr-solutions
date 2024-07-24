@@ -19,19 +19,19 @@ int main() {
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
-    }
-    std::cout << "-";
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+    for (int i = 0; i < n; ++i) {
+        if (i < cutIndex) {
+            std::cout << nums[i] << std::endl;
+        } else {
+            std::cout << 0 << std::endl;
+        }
     }
     
     return 0;
