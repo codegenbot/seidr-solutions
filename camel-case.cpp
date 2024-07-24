@@ -12,12 +12,7 @@ std::string camelCase(std::string str) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            if (isupper(c)) {
-                result += c;
-                capitalizeNext = true;
-            } else {
-                result += tolower(c);
-            }
+            result += tolower(c);
         }
     }
     
