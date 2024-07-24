@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,11 +16,7 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result(l.size()); // Initialize with the size of input
-    for (int i : l) {
-        if (find(result.begin(), result.end(), i) == result.end())
-            result.push_back(i);
-    }
+    vector<int> result = unique(l);
     for (int i : result) {
         cout << i << " ";
     }
