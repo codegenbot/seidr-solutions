@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,19 +18,6 @@ bool issame(const vector<int>& a, const vector<int>& b){
 }
 
 vector<int> parse_music(string music_string);
-
-int main() {
-    string music_string;
-    cin >> music_string;
-    
-    vector<int> result = parse_music(music_string);
-    
-    for (int beat : result) {
-        cout << beat << " ";
-    }
-    
-    return 0;
-}
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
@@ -53,4 +39,17 @@ vector<int> parse_music(string music_string){
     beats.push_back(note_duration + 1);
     
     return beats;
+}
+
+int main() {
+    string music_string;
+    cin >> music_string;
+    
+    vector<int> result = parse_music(music_string);
+    
+    for (int beat : result) {
+        cout << beat << " ";
+    }
+    
+    return 0;
 }
