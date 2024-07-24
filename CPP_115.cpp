@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
@@ -22,4 +25,11 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         
         return max_fill + bucket_lowering;
     }
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    int capacity = 9;
+    cout << "The output is: " << max_fill(grid, capacity) << endl;
+    return 0;
 }

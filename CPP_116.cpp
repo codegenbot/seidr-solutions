@@ -5,28 +5,20 @@
 using namespace std;
 
 vector<int> sort_vector(vector<int> arr) {
-    // Sort the array based on number of ones in binary representation and decimal value.
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        int oneCountA = __builtin_popcount(a);
-        int oneCountB = __builtin_popcount(b);
-
-        if (oneCountA == oneCountB)
-            return a < b; // Sort based on decimal value if number of ones is the same.
-        else
-            return oneCountA < oneCountB;
-    });
-
-    return arr;
-}
-
-int main() {
-    vector<int> testCases = {1, 5, 2, 3, 4};
-    vector<int> result = sort_vector(testCases);
-
-    for (auto num : result)
-        cout << num << " ";
-
-    cout << endl;
-
-    return 0;
+    vector<pair<int, int>> temp;
+    
+    for (int num : arr) {
+        int ones = __builtin_popcount(num);
+        temp.emplace_back(ones, num);
+    }
+    
+    sort(temp.begin(), temp.end());
+    
+    vector<int> result;
+    
+    for (const auto& p : temp) {
+        result.push_back(p.second);
+    }
+    
+    return result;
 }
