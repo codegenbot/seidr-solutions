@@ -1,2 +1,2 @@
 n, m = int(input()), int(input())
-print(sum([(n-i+1)/n * i/m for i in range(1, m+1)]).__round__(5))
+print(sum([i*(n-i)/n/m for i in range(1, n)]).__round__(5))
