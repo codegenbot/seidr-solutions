@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 std::vector<int> sort_third(std::vector<int> l);
 
