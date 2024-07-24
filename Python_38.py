@@ -1,20 +1,18 @@
 ```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
-    if len(s) < 3 or not all(c in 'abcd' for c in s):
-        return "Invalid Input"
-    
+    n = len(s)
     result = ""
     i = 0
-    while i < len(s):
+    while i < n:
         group = s[i:i+3]
-        if group == 'abc':
+        if len(group) == 3 and (group == 'abc' or group == 'bcd'):
             result += group
-        elif group == 'bcd':
-            result += group
-        else:
+        elif len(group) > 1:
             result += group[2] + group[1] + group[0]
-        i = (i+3)%len(s)
+        else:
+            result += group
+        i = (i+3)%n
     return result
 
 print(decode_cyclic())
