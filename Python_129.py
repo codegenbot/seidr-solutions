@@ -1,4 +1,9 @@
-```
+```"""
+Complete the following code given the task description and function signature..
+
+Your Python code here...
+"""
+
 def main():
     grid = []
     m = int(input("Enter number of rows: "))
