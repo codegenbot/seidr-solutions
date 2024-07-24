@@ -14,5 +14,5 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-print(*arr[:cut_index])
+print(*arr[: cut_index])
 print(*arr[cut_index:])
