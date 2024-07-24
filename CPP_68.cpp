@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <climits>
-#include <iostream>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main_function() {
+int main() {
     vector<int> input = {2, 4, 6, 8};
     vector<pair<int, int>> output = pluck(input);
     
