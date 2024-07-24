@@ -1,33 +1,35 @@
-int bowlingScore(string s) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int bowlingScore(const std::string& input) {
     int score = 0;
-    int frame = 1;
-    for (char c : s) {
-        if (c == '/') {
-            score += min(10 - '0', 10);
-            frame++;
-        } else if (isdigit(c)) {
-            int pins = c - '0';
-            if (frame < 10) {
-                if (frame == 9 && pins < 10) {
-                    score += pins + 10;
-                } else {
-                    score += pins;
-                }
-            } else {
-                score += pins;
-            }
+    bool firstRollInFrame = true;
+    
+    for (char c : input) {
+        if (c == 'X') { // Strike, add 10 + next frame's score
+            score += 10;
+            continue;
+        } else if (c == '/') { // Spare, add 10 - last roll in previous frame
+            int prevRoll = input[input.size() - 1] - '0';
+            score += 10 - prevRoll;
+            firstRollInFrame = true;
         } else {
-            if (c == 'X') {
-                score += 10;
-                frame++;
-            } else if (c == '-') {
-                continue;
-            } else {
-                int pins = c - '0' + c - '1';
-                score += pins;
-                frame++;
+            int currentRoll = c - '0';
+            if (firstRollInFrame) { // First roll in the frame
+                if (input.size() > input.find(c) + 1 && input[input.size() - 1] == '/') { // Spare, save for next frame
+                    score += currentRoll;
+                    firstRollInFrame = false;
+                } else {
+                    score += currentRoll;
+                }
+            } else { // Second roll in the frame
+                if (c != '0') { // Not a gutter ball, add to score
+                    score += currentRoll;
+                }
             }
         }
     }
+    
     return score;
 }
