@@ -10,8 +10,8 @@ int search(vector<int> lst) {
 
     int max = -1;
     for (pair<int, int> p : freq) {
-        if (p.second > p.first && p.first > 0) {
-            max = p.first;
+        if (p.second > 0 && p.second > 1) { 
+            max = p.second; 
         }
     }
 
