@@ -5,8 +5,7 @@ def check_numbers_within_threshold(numbers, threshold):
             return True
     return False
 
-# Example usage:
-numbers = [3, 8, 12, 5]
-threshold = 3
+numbers = [3, 6, 9, 1, 2]
+threshold = 2
 result = check_numbers_within_threshold(numbers, threshold)
 print(result)
