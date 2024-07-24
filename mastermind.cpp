@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -13,20 +10,20 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (int i = 0; i < 6; ++i) {
+    for (char c : {"A", "B", "C", "D", "E", "F"}) {
         int countCode = 0;
         int countGuess = 0;
 
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == 'A' + i) {
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == c) {
                 countCode++;
             }
-            if (guess[j] == 'A' + i) {
+            if (guess[i] == c) {
                 countGuess++;
             }
         }
 
-        whitePegs += std::min(countCode, countGuess);
+        whitePegs += min(countCode, countGuess);
     }
 
     return blackPegs - whitePegs;
