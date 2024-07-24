@@ -1,3 +1,4 @@
+```cpp
 std::string middleCharacter(std string& s) {
     if (s.empty()) return "";
 
