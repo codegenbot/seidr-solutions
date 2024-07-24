@@ -1,17 +1,8 @@
-def substitution_cipher(cipher1, cipher2, message):
-    mapping = {}
-    for i in range(len(cipher1)):
-        if cipher1[i] != cipher2[i]:
-            if cipher1[i] not in mapping:
-                mapping[cipher1[i]] = cipher2[i]
-            else:
-                mapping[cipher2[i]] = cipher1[i]
+def substitution_cipher():
+    cipher_map = [c for c1, c2 in zip(input(), input())]
+    message = input()
+    deciphered_message = "".join([c if c in cipher_map else "" for c in message])
+    print(deciphered_message)
 
-    deciphered_message = ""
-    for char in message:
-        if char in mapping:
-            deciphered_message += mapping[char]
-        else:
-            deciphered_message += char
 
-    return deciphered_message
+substitution_cipher()
