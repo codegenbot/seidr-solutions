@@ -1,11 +1,12 @@
-```python
 import statistics
 
+
 def check(rounded_avg):
-    if int(rounded_avg, 2) % 2 != 0:
-        print(f"{rounded_avg} is an odd number.")
+    if int(rounded_avg, 2) % 2 == 0:
+        print("The average is even.")
     else:
-        print(f"{rounded Avg} is an even number.")
+        print("The average is odd.")
+
 
 def average_rounded():
     while True:
