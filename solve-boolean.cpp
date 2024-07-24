@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <stack>
@@ -39,7 +38,7 @@ bool evaluateBooleanExpression(string expression) {
                 operand += expression[i];
                 i++;
             }
-            i--; // backtrack
+            i--; 
             operandStack.push(operand);
         }
     }
