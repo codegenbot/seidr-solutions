@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -41,7 +40,7 @@ bool solveBoolean(string booleanExpression) {
         }
     }
 
-    return operands.top().compare("TF") == 0;
+    return operands.top().compare("T") == 0;
 }
 
 int main() {
