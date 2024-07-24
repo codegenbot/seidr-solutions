@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 #include <cassert>
-#include <iostream>
 
 bool same_chars(string s0, string s1) {
     sort(s0.begin(), s0.end());
@@ -11,7 +10,6 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    assert (same_chars("aabb", "aaccc") == false);
-    std::cout << same_chars("abcde", "edcba") << std::endl;
+    assert (!same_chars("aabb", "aaccc"));  
     return 0;
 }
