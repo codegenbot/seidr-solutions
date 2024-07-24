@@ -1,7 +1,7 @@
 from typing import List
 
 
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> List[tuple]:
     factors = []
     i = 2
     while i * i <= n:
@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return [factor_list for factor_list in set(tuple(factor) for factor in factors)]
+    return [(i, count) if count > 1 else [i] for i, count in zip(*[[(i)]*count for i, count in ((i,) * (n//i))+(n,) if n%i==0])]
