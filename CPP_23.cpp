@@ -1,3 +1,6 @@
-int myStrlen(string str){
+```
+#include <string>
+
+int str_length(std::string str){
     return str.length();
 }
