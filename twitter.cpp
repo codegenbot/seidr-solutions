@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet); 
-
-    tweet = tweet.substr(0, tweet.find_last_not_of("\n\r")); 
+    cin.width(141); 
+    getline(cin, tweet);
 
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
