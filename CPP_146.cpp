@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {123, 456, 789, 1011};
+    std::vector<int> nums = {1001, 1103, 1205, 1307, 2002, 2104, 2206};
     int result = specialFilter(nums);
-    std::cout << "The number of integers in the input vector that satisfy the condition is: " << result << std::endl;
+    std::cout << "The number of integers in the array that satisfy the condition is: " << result << std::endl;
     return 0;
 }
