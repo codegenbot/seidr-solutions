@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string spinWords(std::string str) {
     std::string result;
     int wordLength = 0;
@@ -15,8 +12,9 @@ std::string spinWords(std::string str) {
                 result += c;
             }
             wordLength = 0;
-            result += c;
-        } else {
+            result += ' ';
+        } 
+        else {
             result += c;
             ++wordLength;
         }
@@ -26,19 +24,10 @@ std::string spinWords(std::string str) {
         for (int i = wordLength - 1; i >= 0; --i) {
             result += str[wordLength - i - 1];
         }
-    } else {
-        result = str;
+    } 
+    else {
+        result += str.substr(wordLength);
     }
 
     return result;
-}
-
-int main() {
-    std::string str;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::cin >> str;
-        std::cout << spinWords(str) << std::endl;
-    }
-    return 0;
 }
