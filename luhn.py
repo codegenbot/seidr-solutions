@@ -5,6 +5,11 @@ total = 0
 for i in range(n):
     if i % 2 == 1:
         doubled = digits[i] * 2
-        total += doubled if doubled <= 9 else doubled - 9
+        if doubled > 9:
+            total += doubled - 9
+        else:
+            total += doubled
+    else:
+        total += digits[i]
 
 print(total)
