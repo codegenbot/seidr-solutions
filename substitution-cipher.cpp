@@ -1,5 +1,4 @@
-namespace {
-string cipher(string cipher1, string cipher2, string input) {
+string decipher(string cipher1, string cipher2, string input) {
     string result = "";
     for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
