@@ -1,18 +1,11 @@
-int stack_size = 0;
-bool is_good = true;
+int countOpen = 0, countClose = 0;
 
 for (const string& s : lst) {
     for (char c : s) {
-        if (c == '(') {
-            stack_size++;
-        } else if (c == ')') {
-            if (stack_size <= 0) {
-                is_good = false;
-                break;
-            }
-            stack_size--;
-        }
+        if (c == '(') countOpen++;
+        else countClose++;
     }
 }
 
-return is_good ? "Yes" : "No";
+if (countOpen == countClose) return "Yes";
+else return "No";
