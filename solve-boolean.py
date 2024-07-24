@@ -1,17 +1,23 @@
+```
 def solve_boolean(expression):
-    def evaluate(expression):
-        if expression == "T":
+    def parse(expression):
+        if expression == 'T':
             return True
-        elif expression == "F":
+        elif expression == 'F':
             return False
-        elif "&" in expression and "|" in expression:
-            left, right = expression.split("&")
-            return (evaluate(left) and evaluate(right)) 
-        elif "&" in expression:
-            left, right = expression.split("&")
-            return evaluate(left) and evaluate(right)
-        elif "|" in expression:
-            left, right = expression.split("|")
-            return (evaluate(left) or evaluate(right)) 
+        elif '&' in expression:
+            left, right = expression.split('&')
+            return parse(left) and parse(right)
+        elif '|' in expression:
+            left, right = expression.split('|')
+            return parse(left) or parse(right)
+        else:
+            return None
 
-    return evaluate(expression)
+    while '&' in expression:
+        expression = expression.replace('T&T', 'T').replace('F&F', 'F').\
+                     replace('T&F', 'F').replace('F&T', 'F')
+        expression = expression.replace('|T|T', 'T').replace('|F|F', 'F').\
+                     replace('|T|F', 'F').replace('|F|T', 'F')
+
+    return parse(expression)
