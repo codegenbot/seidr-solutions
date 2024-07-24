@@ -1,1 +1,2 @@
-below_zero([int(input("Enter operations: ")) for _ in range(5)])
+```
+below_zero([-1, -2, -3])
