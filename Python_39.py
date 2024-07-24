@@ -1,14 +1,10 @@
-import math
-
-
-def is_prime(num):
+def is_prime(num: int) -> bool:
     if num < 2:
         return False
-    for i in range(2, int(math.sqrt(num)) + 1):
+    for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
     return True
-
 
 def prime_fib(n: int) -> int:
     fib = [0, 1]
@@ -22,6 +18,4 @@ def prime_fib(n: int) -> int:
     elif n > 1 and n <= len(prime_fib_nums):
         return prime_fib_nums[n - 1]
     else:
-        return (
-            None  # Handle the case when n is greater than the length of prime_fib_nums
-        )
+        return None  # Handle the case when n is greater than the length of prime_fib_nums
