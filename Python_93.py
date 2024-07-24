@@ -1,14 +1,14 @@
 def encode(message):
     result = ""
-    result += " "
     for char in message:
-        if char == " ":
-            result += " "
-        elif char.isalpha():
+        if char.isalpha():
+            shift = 3
             if char.isupper():
-                result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
+                start = ord('A')
             else:
-                result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
+                start = ord('a')
+
+            result += chr((ord(char) - start + shift) % 26 + start)
         else:
             result += char
     return result

@@ -1,9 +1,6 @@
 def count_upper(s):
     count = 0
-    for i in s:
-        if i.isupper() and i.upper() in 'AEIOU':
+    for i in range(0, len(s), 2):
+        if s[i].upper() in 'AEIO':
             count += 1
     return count
-
-s = input("Enter a string: ")
-print(count_upper(s))
