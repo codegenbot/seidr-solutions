@@ -26,14 +26,13 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
     int n;
-    cout << "Enter number of elements: ";
+    cout << "Enter the number of elements: ";
     cin >> n;
 
-    cout << "Enter " << n << " elements:\n";
-    arr.resize(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
@@ -42,6 +41,5 @@ int main() {
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
-    
     return 0;
 }
