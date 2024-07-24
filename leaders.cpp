@@ -5,7 +5,7 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = 0; i < n; i++) {
         bool isLeader = true;
         for (int j = i + 1; j < n; j++) {
             if (arr[j] >= arr[i]) {
@@ -20,10 +20,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {1, 3, 4, 2, 5}; // Example input
+    vector<int> input = {1, 3, 4, 2, 5}; 
     vector<int> output = leaders(input);
     for (int leader : output) {
-        cout << leader << " "; // Print the leaders
+        cout << leader << " "; 
     }
     return 0;
 }
