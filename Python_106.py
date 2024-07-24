@@ -22,12 +22,6 @@ def f(n):
 while True:
     try:
         num = int(input("Enter a number: "))
-        while True:
-            try:
-                print(f(num))
-                break
-            except ValueError:
-                print("Invalid input. Please enter an integer.")
-        break
+        print(f(num))
     except ValueError:
         print("Invalid input. Please enter an integer.")

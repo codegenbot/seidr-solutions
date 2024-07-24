@@ -1,3 +1,4 @@
+```
 def match_parens(p):
     stack = []
     for char in p:
@@ -7,8 +8,8 @@ def match_parens(p):
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                return False
-    return len(stack) == 0
+                return "No"
+    return "Yes" if len(stack) == 0 else "No"
 
 
 def check():

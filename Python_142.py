@@ -1,5 +1,6 @@
-def sum_squares(lst):
-    return sum([n ** 2 for n in lst if isinstance(n, int)])
+```
+def sum_of_squares(n):
+    return n ** 2
 
-result = sum_squares([1, 2, 'a', 11, 'b'])
+result = sum_of_squares(11)
 print(result)
