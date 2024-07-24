@@ -9,7 +9,9 @@ def sort_numbers(numbers: str) -> str:
         "six": 6,
         "seven": 7,
         "eight": 8,
-        "nine": 9
+        "nine": 9,
     }
-    sorted_numbers = sorted([num_dict.get(num) for num in numbers.replace(" ", "").split() if num in num_dict])
-    return " ".join(map(str, filter(None, sorted_numbers)))
+    sorted_numbers = sorted(
+        [num_dict[num] for num in numbers.split() if num.replace(" ", "") in num_dict]
+    )
+    return " ".join(map(str, sorted_numbers))
