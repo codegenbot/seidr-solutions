@@ -15,7 +15,11 @@ def calculate_score(bowls):
         elif bowls[i + 1] == "/":
             score += 10
         else:
-            score += 10 if bowls[i] == '-' else int(0 if bowls[i] == '-' else bowls[i]) + 10 if bowls[i + 1] == '/' else int(bowls[i]) + int(bowls[i + 1])
+            if bowls[i] == "-":
+                score += 0
+            else:
+                if bowls[i] != '-':
+                    score += 10 if bowls[i + 1] == '/' else int(bowls[i]) + int(bowls[i + 1])
         i += 2
     return score
 
