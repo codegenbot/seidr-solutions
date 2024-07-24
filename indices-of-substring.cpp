@@ -4,8 +4,8 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int prevLast = -1;
     int last;
+    int prevLast = -1;
     if ((last = text.find(target)) != string::npos) {
         indices.push_back(last);
         prevLast = last;

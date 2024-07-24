@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+using namespace std;
+
 std::string kebabToCamel(const std::string& str) {
     std::string result;
     bool capitalizeNext = true;
@@ -7,22 +10,22 @@ std::string kebabToCamel(const std::string& str) {
         if (c == '-') {
             if (!result.empty()) {
                 if (capitalizeNext) {
-                    result.push_back(' ');
+                    result += ' ';
                     capitalizeNext = false;
                 }
             } else {
                 capitalizeNext = true;
             }
         } else if (capitalizeNext) {
-            result += std::toupper(c);
+            result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += std::tolower(c);
+            result += tolower(c);
         }
     }
 
     if (!result.empty() && !capitalizeNext) {
-        result[0] = std::tolower(result[0]);
+        result[0] = tolower(result[0]);
     }
 
     return result;
