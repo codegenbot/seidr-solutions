@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
     
@@ -13,24 +13,21 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    return {{v.begin(), v.begin() + splitIndex}, {v.begin() + splitIndex, v.end()}};
+    return {vector<int>(v.begin(), v.begin() + splitIndex), vector<int>(v.begin() + splitIndex, v.end())};
 }
 
 int main() {
     int n;
     cin >> n;
-    
     vector<int> v(n);
     for (auto &x : v) cin >> x;
     
-    vector<vector<int>> result = cutVector(v);
-    
+    pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "[";
-    for (const auto &x : result[0]) cout << x << " ";
-    cout << "]" << endl;
-    cout << "[";
-    for (const auto &x : result[1]) cout << x << " ";
-    cout << "]" << endl;
+    for (const auto &x : result.first) cout << x << " ";
+    cout << "]\n[";
+    for (const auto &x : result.second) cout << x << " ";
+    cout << "]\n0\n";
     
     return 0;
 }
