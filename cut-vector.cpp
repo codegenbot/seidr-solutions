@@ -1,53 +1,45 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <numeric>
-
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(const vector<int>& nums);
 
 int main() {
-    vector<int> nums = {3, 1, 1, 2, 2, 1};
-    auto result = cutVector(nums);
-
-    cout << "Left Subvector: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    cout << "Right Subvector: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
-pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
-    int n = nums.size();
-    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0;
-    int cutIndex = -1;
-    int minDiff = INT_MAX;
-
+    int n;
+    std::cin >> n;
+    std::vector<int> vec(n);
+    
     for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        int rightSum = totalSum - leftSum;
-        int currentDiff = abs(leftSum - rightSum);
+        std::cin >> vec[i];
+    }
 
-        if (currentDiff < minDiff || (currentDiff == minDiff && rightSum < leftSum)) {
-            minDiff = currentDiff;
-            cutIndex = i;
+    int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < n; i++) {
+        right_sum += vec[i];
+    }
+
+    int min_diff = abs(left_sum - right_sum);
+    int cut_index = 0;
+
+    for (int i = 0; i < n-1; i++) {
+        left_sum += vec[i];
+        right_sum -= vec[i];
+        int current_diff = abs(left_sum - right_sum);
+        if (current_diff < min_diff) {
+            min_diff = current_diff;
+            cut_index = i;
         }
     }
 
-    if (cutIndex == n-1) {
-        return {vector<int>(nums.begin(), nums.end()), {}};
-    }
+    std::vector<int> subvec1(vec.begin(), vec.begin() + cut_index + 1);
+    std::vector<int> subvec2(vec.begin() + cut_index + 1, vec.end());
 
-    return {vector<int>(nums.begin(), nums.begin() + cutIndex + 1),
-            vector<int>(nums.begin() + cutIndex + 1, nums.end())};
+    for (int num : subvec1) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    for (int num : subvec2) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
