@@ -1,12 +1,17 @@
-int slashIndexX = x.find('/');
-    int numeratorX = stoi(x.substr(0, slashIndexX));
-    int denominatorX = stoi(x.substr(slashIndexX + 1));
+#include <iostream>
+#include <string>
 
-    int slashIndexN = n.find('/');
-    int numeratorN = stoi(n.substr(0, slashIndexN));
-    int denominatorN = stoi(n.substr(slashIndexN + 1));
+bool simplify(std::string x, std::string n) {
+    int x_num = std::stoi(x.substr(0, x.find('/')));
+    int x_denom = std::stoi(x.substr(x.find('/') + 1));
+    int n_num = std::stoi(n.substr(0, n.find('/')));
+    int n_denom = std::stoi(n.substr(n.find('/') + 1));
+    
+    return (x_num * n_num) % (x_denom * n_denom) == 0;
+}
 
-    double result = (double)numeratorX / denominatorX * numeratorN / denominatorN;
+int main() {
+    assert(simplify("1/5", "1/5") == false);
 
-    return result == (int)result;
+    return 0;
 }
