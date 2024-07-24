@@ -1,8 +1,16 @@
-Here is the solution:
+Here is the completed code:
+
+```
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    max_nonzero_coeff = max(abs(coeff) for coeff in xs)
-    max_index = [i for i, coeff in enumerate(xs) if abs(coeff) == max_nonzero_coeff][0]
-    return -xs[max_index] / xs[max_index + 1]
+    n = len(xs)
+    if n % 2 == 1:
+        raise ValueError("xs should have an even number of coefficients")
+    root_x = -1 * (xs[n//2] / xs[0])
+    return round(root_x, 2)
