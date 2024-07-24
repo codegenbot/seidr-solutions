@@ -6,4 +6,4 @@ def fix_spaces(text):
             text = text.replace("--", "-")
         else:
             text = text.replace("__", "_")
-    return text.strip()  # remove leading and trailing spaces
+    return text.strip()
