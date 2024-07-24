@@ -6,6 +6,4 @@ def sort_third(l: list):
     ]
 
 
-print(
-    sort_third([5, 6, 3, 4, 8, 9, 2, 1])
-)  # Output should be: [3, 4, 8, 2, 1, 5, 6, 9]
+print(sort_third([5, 6, 3, 4, 8, 9, 2, 1]))
