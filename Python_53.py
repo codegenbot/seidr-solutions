@@ -1,4 +1,3 @@
-```
 def add_numbers():
     while True:
         print("Please enter two numbers.")
