@@ -7,7 +7,7 @@ def minPath(grid, k):
     for i in range(k):
         for j in range(n):
             if i > 0:
-                m[j][0] = grid[0][j]
+                m[j][0]
             for k1 in range(1, n):
                 if i > 0 and j > 0:
                     dp[k1][j][i] = (
