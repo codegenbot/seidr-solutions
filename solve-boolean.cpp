@@ -1,32 +1,24 @@
-string solveBoolean(string booleanExp) {
-    if (booleanExp == "T" || booleanExp == "t")
-        return "True";
-    else if (booleanExp == "F" || booleanExp == "f")
-        return "False";
-    else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "False";
+string solveBoolean(string s) {
+    bool result = (s == "t");
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            if(result) {
+                result = (s.substr(i+1) == "t");
+            }
+            else {
+                result = (s.substr(i+1) != "f");
+            }
+            i = s.length();
         }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "True";
+        else if(s[i] == '|') {
+            if(result) {
+                result = true;
+            }
+            else {
+                result = (s.substr(i+1) != "f");
+            }
+            i = s.length();
         }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "False";
-        }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "True";
-        }
-        return "True";
-    } else
-        return "Invalid expression";
+    }
+    return result ? "True" : "False";
 }
