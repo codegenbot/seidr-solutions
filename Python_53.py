@@ -1,7 +1,8 @@
+```
 def calculate_area_and_perimeter(length: int, width: int):
     area = length * width
     perimeter = 2 * (length + width)
-
+    
     while True:
         try:
             length = float(input("Enter the length of the rectangle: "))
