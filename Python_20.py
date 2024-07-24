@@ -1,6 +1,7 @@
 def find_min_diff_pair(numbers):
     numbers.sort()
-    min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
+    min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1)
+    )
     result = [
         (numbers[i], numbers[i + 1])
         for i in range(len(numbers) - 1)
@@ -8,8 +9,6 @@ def find_min_diff_pair(numbers):
     ]
     return result[0]
 
-# Input
-numbers = list(map(int, input().split()))
-
-# Output
-print(find_min_diff_pair(numbers))
+input_numbers = list(map(int, input().split()))
+output = find_min_diff_pair(input_numbers)
+print(output)
