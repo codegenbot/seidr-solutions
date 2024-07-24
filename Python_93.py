@@ -1,11 +1,11 @@
+import string
+
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
-            else:
-                result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
+            alphabet = string.ascii_lowercase if char.islower() else string.ascii_uppercase
+            result += chr((ord(char) - ord(alphabet[0]) + 2) % 26 + ord(alphabet[0]))
         else:
             result += char
     return result
