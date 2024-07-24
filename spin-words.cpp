@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -22,9 +23,13 @@ string spinWords(string str) {
         result += word + " ";
         
         start = end + 1;
+        
+        // Check if we have reached the end of the string
+        if (start >= str.length())
+            break; 
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
