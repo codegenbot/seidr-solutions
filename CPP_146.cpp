@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
 
-int main1() {
+int main() {
     assert(specialFilter({}) == 0);
     return 0;
 }
