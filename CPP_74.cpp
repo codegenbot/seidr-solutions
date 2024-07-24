@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -32,7 +32,7 @@ vector<string> match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
+int originalMain() {
     vector<string> lst1 = {"a", "b", "c"};
     vector<string> lst2 = {"d", "e", "f"};
 
@@ -48,4 +48,8 @@ int main() {
     }
 
     return 0;
+}
+
+int main() {
+    originalMain();
 }
