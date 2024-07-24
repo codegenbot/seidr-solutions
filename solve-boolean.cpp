@@ -22,8 +22,4 @@ string solveBoolean(string s) {
         res += st.top();
         st.pop();
     }
-    if (res == "T&" || res == "&F") return "False";
-    if (res == "FT|" || res == "|F") return "True";
-    if (res == "T|") return "True";
-    if (res == "F&") return "False";
-    return res;
+    return (res == "T") ? "True" : (res == "F") ? "False" : "";
