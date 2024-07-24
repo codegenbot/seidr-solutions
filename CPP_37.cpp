@@ -14,22 +14,24 @@ bool isSameVector(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> vec) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
-    for (int i = 0; i < vec.size(); i++) {
+    std::vector<float> even;
+
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> even;
-            for (int j = 0; j < vec.size(); j++) {
-                if (j % 2 == 0) {
-                    even.push_back(vec[j]);
-                }
-            }
-            std::sort(even.begin(), even.end());
-            result.push_back(even[0]);
+            even.push_back(l[i]);
         } else {
-            result.push_back(vec[i]);
+            result.push_back(l[i]);
         }
     }
+
+    std::sort(even.begin(), even.end());
+    
+    for (int i = 0; i < even.size(); i++) {
+        result.insert(result.begin() + i, even[i]);
+    }
+
     return result;
 }
 
