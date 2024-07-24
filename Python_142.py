@@ -8,10 +8,5 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-while True:
-    try:
-        numbers = list(map(int, input().split()))
-        break
-    except ValueError:
-        print("Invalid input. Please enter space-separated integers.")
+numbers = list(map(int, input().split(',')))
 print(sum_squares(numbers))
