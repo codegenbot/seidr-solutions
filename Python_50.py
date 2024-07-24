@@ -1,4 +1,6 @@
 def decode_shift(encoded_string):
+    if not set(encoded_string).issubset(set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')):
+        return 
     decoded_string = ""
     for char in encoded_string:
         if not char.isalpha():
