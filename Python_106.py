@@ -20,6 +20,5 @@ while True:
     try:
         num = int(input("Enter a number: "))
         print(f(num))
-        break
     except ValueError:
         print("Invalid input. Please enter an integer.")
