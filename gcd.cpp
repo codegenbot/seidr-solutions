@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -16,16 +17,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-vector<int> findIndices(string s, string t) {
-    vector<int> indices;
-    int len = s.length();
-    int tar_len = t.length();
-
-    for(int i=0; i <=len-tar_len;i++){
-        if(s.substr(i,tar_len)==t){
-            indices.push_back(i);
-        }
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-
-    return indices;
+    return a;
 }
