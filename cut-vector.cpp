@@ -5,25 +5,28 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    
-    int idx = 0;
-    int min_diff = abs(nums[0] - nums[n-1]);
-    for (int i = 1; i < n-1; ++i) {
-        if (abs(nums[i] - nums[i+1]) < min_diff) {
-            min_diff = abs(nums[i] - nums[i+1]);
-            idx = i;
+    int min_diff = INT_MAX;
+    int pivot = 0;
+    for (int i = 1; i < n; ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            right_sum += nums[j];
+        }
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            pivot = i;
         }
     }
-    
-    for (int i = 0; i <= idx; ++i) {
+    for (int i = 0; i < pivot; ++i) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    
-    for (int i = idx+1; i < n; ++i) {
+    cout << pivot << endl;
+    for (int i = pivot; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    
     return 0;
 }
