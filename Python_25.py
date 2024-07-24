@@ -7,10 +7,8 @@ def factorize(n: int) -> List[int]:
     for i in range(2, math.isqrt(n) + 1):
         while n % i == 0:
             n //= i
-        if n > 1 and i * i <= n:
-            break
-        factors.extend([i] * (n // i))
-        n %= i
-    if n > 1:
-        factors.append(n)
+        if n > 1:
+            factors.append(i)
+        elif n > 0:
+            factors.append(n)
     return factors
