@@ -1,21 +1,18 @@
 #include <iostream>
-
 using namespace std;
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 int main() {
-    int num1, num2;
-    
-    cout << "Enter two integers: ";
-    cin >> num1 >> num2;
-    
-    cout << "GCD of the given numbers is: " << gcd(num1, num2) << endl;
-
+    int a, b;
+    cin >> a >> b;
+    int greatest = a;
+    if (b > greatest) {
+        greatest = b;
+    }
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    cout << "The GCD is: " << greatest << endl;
     return 0;
 }
