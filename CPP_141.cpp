@@ -1,33 +1,32 @@
+```
 #include <string>
-#include <cassert>
+bool hasDigit = false;
+int dotCount = 0;
 
-int file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    string before_dot;
-
-    for(int i=0; i<file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return 0; 
-        } else if(file_name[i] == '.'){
-            found_dot = true;
-        } else {
-            if(!found_dot) before_dot += file_name[i];
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!hasDigit) {
+            hasDigit = true;
+        }
+        else {
+            return false;
         }
     }
-
-    if(before_dot.empty()) return 0; 
-    if(found_dot && (file_name.find("txt") == string::npos &&
-                     file_name.find("exe") == string::npos &&
-                     file_name.find("dll") == string::npos)) 
-        return 0;
-
-    return 1;
+    else if (c == '.') {
+        dotCount++;
+    }
 }
 
-int main() {
-    assert(file_name_check("s.") == 0);
-    // Add more test cases here...
-    return 0;
+if (dotCount != 1 || !file_name.empty()) {
+    return false;
 }
+
+size_t pos = file_name.find('.');
+std::string beforeDot = file_name.substr(0, pos);
+std::string afterDot = file_name.substr(pos + 1);
+
+if (!isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    return false;
+}
+
+return true;
