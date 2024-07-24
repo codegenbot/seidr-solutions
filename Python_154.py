@@ -1,7 +1,13 @@
+```
 def cycpattern_check(a, b):
-    if len(b) < len(a):
-        return False
-    for i in range(len(b)):
-        if a.casefold() == (b[i:] + b[:i]).casefold():
-            return True
+    b_len = len(b)
+    for i in range(len(a)):
+        k = 0
+        while k < len(a):
+            if a[k:k+b_len] == b:
+                k += b_len
+                if k >= len(a):
+                    return True
+            else:
+                break
     return False

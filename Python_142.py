@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for i, num in enumerate(lst):
@@ -7,13 +8,5 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-numbers = []
-while True:
-    try:
-        num = eval(input())
-        numbers.append(num)
-        break
-    except (SyntaxError, NameError):
-        print("Invalid input. Please enter a number.")
-
+numbers = list(map(int, filter(None, input().split())))
 print(sum_squares(numbers))
