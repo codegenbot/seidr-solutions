@@ -1,4 +1,5 @@
 #include <vector>
+
 using namespace std;
 
 int sum_squares(vector<int> lst) {
