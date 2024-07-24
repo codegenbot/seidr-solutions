@@ -11,7 +11,7 @@ int main() {
         } else if (input[i] == ' ') {
             input.replace(i, 1, "");
             i -= 1;
-        } 
+        }
     }
     for(int i = 0; i < input.size(); ++i) {
         if(input[i] >= 'A' && input[i] <= 'Z') {
@@ -31,5 +31,4 @@ int main() {
         }
     }
     std::cout << result;
-    return 0;
 }
