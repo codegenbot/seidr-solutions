@@ -1,3 +1,4 @@
+```Python
 def double_the_difference(lst):
     total = 0
     for num in lst:
@@ -6,5 +7,4 @@ def double_the_difference(lst):
                 total += num**2
     return total
 
-expected_result = double_the_difference([1, 3, 5])
-print("Expected {} to be the result".format(expected_result))
+print("{} is the result".format(double_the_difference([1, 3, 5])))
