@@ -1,12 +1,12 @@
 ```
 def fix_spaces(text):
-    lines = text.split('\n')
-    new_lines = []
-    for line in lines:
-        line = line.strip().replace(" ", "_")
+    lines = text.split("\n")
+    for i in range(len(lines)):
+        line = lines[i]
         while "--" in line or "---" in line or "----" in line:
             line = line.replace("--", "-")
             line = line.replace("---", "-")
             line = line.replace("----", "-")
-        new_lines.append(line)
-    return '\n'.join(new_lines)
+        while "  " in line: 
+            line = line.replace("  ", " ")
+    return "\n".join(lines)
