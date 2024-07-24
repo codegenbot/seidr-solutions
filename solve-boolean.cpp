@@ -3,24 +3,31 @@
 #include <cctype>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr;
+    bool result = false;
+    bool orFlag = false;
+    bool current = true;
+    
     for (char c : expr) {
-        lowercaseExpr += std::tolower(c);
+        if (c == 'F' || c == 'f') {
+            current = false;
+        } else if (c == 'T' || c == 't') {
+            if (orFlag) {
+                result = result || current;
+            } else {
+                result = result && current;
+            }
+            current = true;
+        } else if (c == '&') {
+            orFlag = false;
+        } else if (c == '|') {
+            orFlag = true;
+        }
     }
     
-    bool result = true;
-    bool andFlag = true;
-    
-    for (char c : lowercaseExpr) {
-        if (c == 'f') {
-            result = false;
-        } else if (c == 't') {
-            result = andFlag ? (result && true) : (result || true);
-        } else if (c == '&') {
-            andFlag = true;
-        } else if (c == '|') {
-            andFlag = false;
-        }
+    if (orFlag) {
+        result = result || current;
+    } else {
+        result = result && current;
     }
     
     return result;
