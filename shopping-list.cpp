@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
