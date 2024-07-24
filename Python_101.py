@@ -1,3 +1,5 @@
-```
-def words_string(s):
-    return [word.strip().replace("\n", "").split()[0] for word in s.replace("\n", "").split(",|")]
+def words_string():
+    s = input("Enter your string: ")
+    return [word.split()[0].replace("\n", "").strip().rstrip() for word in s.replace("\n", "").split(",|")]
+
+print(words_string())
