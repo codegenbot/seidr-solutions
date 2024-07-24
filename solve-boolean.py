@@ -1,12 +1,24 @@
-def solve_boolean(s):
-    if s == "T":
+```
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif s == "F":
+    elif expression == 'F':
         return False
-    elif "&" in s and "|" in s:
-        return eval(" ".join(map(str, list(s))))
-    elif "&" in s:
-        s = s.replace("|", "")
-        return eval(" ".join(map(str, list(s)))) & True
-    else:
-        return eval(" ".join(map(str, list(s))))
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    elif '&' in expression:
+        parts = expression.split('&')
+        if all(part == 'T' for part in parts):
+            return True
+        elif any(part == 'F' for part in parts):
+            return False
+        else:
+            return True
+    elif '|' in expression:
+        parts = expression.split('|')
+        if all(part == 'T' for part in parts):
+            return True
+        elif any(part == 'F' for part in parts):
+            return False
+        else:
+            return True
