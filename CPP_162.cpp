@@ -1,6 +1,4 @@
-#include <string>
-
-string string_to_md5(string text) {
+string_to_md5(string text) {
     if (text.empty()) {
         return "Invalid Input";
     }
