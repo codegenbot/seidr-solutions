@@ -21,4 +21,3 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     result.push_back(min_positive);
     
     return result;
-}
