@@ -5,9 +5,14 @@ import statistics
 def mean_absolute_deviation(numbers: List[float]) -> float:
     if not numbers:
         return 0
+    average = statistics.mean(numbers)
+    total = sum(abs(num - average) for num in numbers)
+    return total / len(numbers)
+
+while True:
     try:
-        average = statistics.mean(numbers)
-        total = sum(abs(num - average) for num in numbers)
-        return total / len(numbers)
-    except TypeError:
-        return "Invalid input. Please enter a list of numbers."
+        numbers = [float(i) for i in input("Enter numbers separated by space: ").split()]
+        break
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+print(mean_absolute_deviation(numbers))
