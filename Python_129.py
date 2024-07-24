@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     N = len(grid)
     values = [[i * j for j in range(1, N + 1)] for i in range(1, N + 1)]
@@ -25,13 +24,3 @@ def minPath(grid, k):
                     break
 
     return path
-
-grid = []
-k = 0
-    
-for _ in range(int(input("Enter number of rows: "))): 
-    grid.append(list(map(int, input("Enter row: ").split())))
-
-k = int(input("Enter the value of k: "))
-
-minPath(grid, k)
