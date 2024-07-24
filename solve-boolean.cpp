@@ -2,31 +2,33 @@
 #include <iostream>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    bool result = false;
-    bool isFirstOperand = true;
-    char op = '|'; // Default operator
+    std::string lowercaseExpr;
     for (char c : expr) {
-        if (c == 'T') {
-            if (isFirstOperand) {
-                result = true;
-            } else {
-                result = (op == '|') ? true : result;
-                op = '|'; // Reset operator
-            }
-        } else if (c == 'F') {
-            if (isFirstOperand) {
-                result = false;
-            } else {
-                result = (op == '|') ? false : result;
-                op = '|'; // Reset operator
-            }
-        } else if (c == '&' || c == '|') {
-            op = c;
-        } else {
-            // Ignore other characters
-        }
-        isFirstOperand = (c == 'T' || c == 'F');
+        lowercaseExpr += tolower(c);
     }
+    
+    bool result = false;
+    bool temp = false;
+    bool isAnd = true;
+    
+    for (char c : lowercaseExpr) {
+        if (c == 't') {
+            temp = true;
+        } else if (c == 'f') {
+            temp = false;
+        } else if (c == '|') {
+            isAnd = false;
+        } else if (c == '&') {
+            isAnd = true;
+        }
+        
+        if (isAnd) {
+            result = result && temp;
+        } else {
+            result = result || temp;
+        }
+    }
+
     return result;
 }
 
@@ -35,4 +37,4 @@ int main() {
     std::cin >> expression;
     std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
     return 0;
-}
+}  
