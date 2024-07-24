@@ -1,11 +1,11 @@
-#include <vector>
+```cpp
 #include <boost/variant.hpp>
-#include <boost/variant/variant.hpp>
+#include <vector>
 
 std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::holds_alternative<int>(value)) {
+        if(boost::holds_alternative<int>(value)) {
             result.push_back(boost::get<int>(value));
         }
     }
