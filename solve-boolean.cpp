@@ -31,6 +31,7 @@ bool solveBoolean(string expression) {
 int main() {
     string expression;
     cout << "Enter the Boolean expression: ";
-    cin >> expression; // Declare and initialize before using
+    cin >> expression; 
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
+}
