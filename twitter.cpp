@@ -1,4 +1,4 @@
-```c
+```
 #include <iostream>
 #include <string>
 
@@ -9,12 +9,9 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
 
-    if (tweet.find_last_of('\n') != string::npos) {
-        tweet.erase(tweet.find_last_of('\n'));
+    if (!tweet.empty() && tweet.back() == '\n') {
+        tweet.erase(tweet.find_last_not_of('\0') - 1);
     }
-
-    tweet.erase(0, tweet.find_first_not_of(' ')); // remove leading whitespace
-    tweet.erase(tweet.find_last_not_of(' ') + 1); // remove trailing whitespace
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
