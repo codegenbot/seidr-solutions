@@ -8,9 +8,9 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    for i in range(2, 100):
-        for j in range(i, 100):
-            for k in range(j, 100):
-                if i * j * k == a and is_prime(i) and is_prime(j) and is_prime(k):
-                    return True
-    return False
+    prime_factors = set()
+    for i in range(2, a+1):
+        while a % i == 0:
+            prime_factors.add(i)
+            a //= i
+    return len(prime_factors) == 3
