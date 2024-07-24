@@ -1,17 +1,20 @@
-```
 #include <iostream>
 #include <vector>
 #include <boost/variant.hpp>
 
-using namespace boost;
+using namespace std;
 
-int main() {
-    std::vector<variant<int>> values = {1, "hello", 2.5f, 3, "world", 4};
-    
+vector<int> filter_integers(vector<variant<int>> values) {
+    vector<int> result;
     for (const auto& value : values) {
         if (holds_alternative<int>(value)) {
-            int v = get<int>(value);
-            std::cout << "Integer: " << v << std::endl;
+            result.push_back(get<int>(value));
         }
     }
+    return result;
+
+}
+
+bool is_same(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
