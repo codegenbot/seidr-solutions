@@ -34,10 +34,9 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input = {1, 2, 3};
-    vector<int> output = strange_sort_vector(input);
-    for (int num : output) {
-        cout << num << " ";
+    vector<int> test = {1, 2, 3};
+    for (auto i : strange_sort_vector(test)) {
+        cout << i << " ";
     }
-    cout << endl;
+    return 0;
 }
