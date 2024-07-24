@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Add this include for assert
+#include <cassert>
 
 using namespace std;
 
@@ -17,6 +17,5 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 int main() {
     assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == std::vector<std::string>{"xxx", "xxxAAA", "xxx"});
-
     return 0;
 }
