@@ -1,2 +1,2 @@
-def car_race_collision(n: int):
-    return sum((i + 1) * 10 for i in range(n))
+def car_race_collision(n: int, speeds: List[int], times: List[int]) -> int:
+    return sum(speed * time for speed, time in zip(speeds, times))
