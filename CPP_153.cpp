@@ -14,7 +14,8 @@ int Strongest_Extension(string class_name, vector<string> extensions) {
         if (strength > strongest) {
             strongest = strength;
             strongest_extension = extension;
-        } else if (strength == strongest) {
+        } 
+        else if (strength == strongest) {
             if (find(extensions.begin(), extensions.end(), extension) < find(extensions.begin(), extensions.end(), strongest_extension)) {
                 strongest_extension = extension;
             }
