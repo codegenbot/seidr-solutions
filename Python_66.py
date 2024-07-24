@@ -1,2 +1,2 @@
-def digitSum(n):
-    return sum(int(char) for char in str(n) if char.isdigit())
+def digitSum(s):
+    return sum(ord(c.lower()) - 96 if c.isalpha() else int(c) for c in s)
