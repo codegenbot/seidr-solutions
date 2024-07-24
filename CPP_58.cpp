@@ -3,7 +3,7 @@ using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2); // Corrected code
+    set<int> s2(s2.begin(), s2.end()); // replaced l2 with s2
     
     set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
