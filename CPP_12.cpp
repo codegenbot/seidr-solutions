@@ -1,7 +1,9 @@
-vector<string>::iterator it = strings.end();
-for(auto s : strings) {
-    if(s.length() > it->length()) {
-        it = &s;
+string longest(vector<string> strings){
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(auto str : strings) {
+        if(str.length() > result.length())
+            result = str;
     }
+    return result;
 }
-return *it == strings.end() ? "" : *it;
