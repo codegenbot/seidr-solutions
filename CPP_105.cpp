@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> to_check){
-    if (a.size() != to_check.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> to_be) {
+    if (a.size() != to_be.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != to_check[i]) return false;
+        if (a[i] != to_be[i]) return false;
     }
     return true;
 }
