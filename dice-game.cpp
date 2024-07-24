@@ -1,19 +1,16 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double petersWin = 0;
-
-    for(int i = 1; i < m; i++) {
-        petersWin += (double)(n - i + 1) / total;
-    }
-
-    return petersWin;
+    double total = 1.0;
+    for (int i = 1; i <= n && i < m; ++i)
+        total += 1.0 / m;
+    return total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(5) << diceGame(n, m) << endl;
     return 0;
 }
