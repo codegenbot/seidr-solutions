@@ -1,6 +1,4 @@
-import math
-
-
+```
 def find_zero():
     while True:
         try:
