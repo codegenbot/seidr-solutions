@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <climits>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -18,19 +17,28 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> rolling_max(vector<int> numbers);
 
 int main() {
-    vector<int> numbers = {1, 3, 5, 2, 8, 7};
-    vector<int> result = rolling_max(numbers);
-    for(int num : result){
-        cout << num << " ";
+    vector<int> input = {1, 3, 5, 2, 6, 4};
+    vector<int> result = rolling_max(input);
+    for(int i=0; i<result.size(); i++) {
+        cout << result[i] << " ";
     }
     cout << endl;
+
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    if(issame(a, b)) {
+        cout << "Vectors are same" << endl;
+    } else {
+        cout << "Vectors are different" << endl;
+    }
+
     return 0;
 }
 
-vector<int> rolling_max(vector<int> numbers){
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int max_val = INT_MIN;
-    for(int i=0; i<numbers.size(); i++){
+    for(int i=0; i<numbers.size(); i++) {
         max_val = max(max_val, numbers[i]);
         result.push_back(max_val);
     }
