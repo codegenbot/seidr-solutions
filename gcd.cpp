@@ -1,15 +1,13 @@
-```cpp
+```c++
 #include <algorithm>
 #include <vector>
 #include <string>
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -30,16 +28,13 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     return result;
 }
 
-#include <iostream>
-
 int main() {
     std::string text, target;
-    int a, b;
 
     std::cout << "Enter number 1: ";
-    std::cin >> a;
+    int a; std::cin >> a;
     std::cout << "Enter number 2: ";
-    std::cin >> b;
+    int b; std::cin >> b;
 
     if (a == 0 || b == 0) {
         std::cout << "Invalid input! Please try again." << std::endl;
