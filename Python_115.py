@@ -1,7 +1,3 @@
-```
-while True:
-    try:
-        max_fill = int(input("Enter maximum number of fills: "))
-        break
-    except ValueError:
-        print("Invalid input! Please enter a valid integer.")
+```Python
+max_fill = int(input("Enter maximum number of fills: "))
+print("Maximum number of fills:", max_fill)
