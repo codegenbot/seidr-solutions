@@ -11,26 +11,8 @@ int add_elements(vector<int> arr, int k){
 
 int main() {
     assert (add_elements({1}, 1) == 1);
-    vector<int> input;
-    int numElements, k;
-
-    // Read the number of elements
-    cout << "Enter the number of elements: ";
-    cin >> numElements;
-
-    // Read each element
-    for(int i=0; i<numElements; i++){
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> input.push_back();
-    }
-
-    cout << "Enter k: ";
-    cin >> k;
-    
-    int output = add_elements(input, k);
-    
-    // Display the result
-    cout << "Sum of elements: " << output << endl;
-
+    vector<int> vec = {1, 2, 3};
+    int k = 3;
+    cout << "Sum of elements less than or equal to 10 is: " << add_elements(vec, k) << endl;
     return 0;
 }
