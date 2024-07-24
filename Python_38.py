@@ -5,3 +5,7 @@ def decode_cyclic():
         (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
     ]
     return "".join(groups)
+
+# Call the function to execute the logic
+result = decode_cyclic()
+print(result)
