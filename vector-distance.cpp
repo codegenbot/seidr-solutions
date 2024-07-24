@@ -18,6 +18,6 @@ int main() {
     }
 
     cout << sqrt(sum) << endl;
-    
+
     return 0;
 }
