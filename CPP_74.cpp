@@ -42,14 +42,15 @@ int main() {
     cout << "Enter string " << n1 << " for list 1:\n";
     for (int i = 0; i < n1; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
-            cout << "Invalid input. Please enter a non-empty string.\n";
+        while (true) {
+            cin >> s;
+            if (s.size() > 0) break;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a non-empty string.\n";
             cout << "Please try again: ";
             getline(cin, s);
         }
-        getline(cin, s); // add this line
         lst1.push_back(s);
     }
 
@@ -59,14 +60,15 @@ int main() {
     cout << "Enter string " << n2 << " for list 2:\n";
     for (int i = 0; i < n2; i++) {
         string s;
-        while (!(cin >> s) || s.empty()) {
-            cout << "Invalid input. Please enter a non-empty string.\n";
+        while (true) {
+            cin >> s;
+            if (s.size() > 0) break;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a non-empty string.\n";
             cout << "Please try again: ";
             getline(cin, s);
         }
-        getline(cin, s); // add this line
         lst2.push_back(s);
     }
 
