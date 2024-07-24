@@ -1,13 +1,14 @@
+```
 def minPath(grid, k):
     N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    queue = [(0, 0, [])]
+    visited = [[False]*N for _ in range(N)]
+    queue = [(0, 0, [])]  
     res = None
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
             if not res or sorted(path) < sorted(res):
-                res = list(sorted(set(path)))
+                res = list(sorted(path))
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
@@ -16,7 +17,6 @@ def minPath(grid, k):
                     visited[nr][nc] = True
     return res
 
-
-grid = [["1", "0", "1"], ["0", "0", "0"], ["1", "0", "1"]]
+grid = [['1', '0', '1'], ['0', '0', '0'], ['1', '0', '1']]
 k = 3
 print(minPath(grid, k))
