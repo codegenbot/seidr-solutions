@@ -1,42 +1,41 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int len;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+std::string spinWords(std::string str) {
+    std::string result = "";
+    int i = 0;
+    
+    while(i < str.length()) {
+        if(str[i] == ' ') {
             result += " ";
-        } else {
-            len = i + 1;
-            while (len > 4 && i < str.length()) {
-                i++;
-                len++;
+            i++;
+        } else if(strlen(&str[i]) >= 5) {
+            for(int j = strlen(&str[i]); j > 0; j--) {
+                result += str[i+j-1];
             }
-            if (i >= str.length() || len <= 5) {
-                for (int j = len - 1; j >= 0; j--) {
-                    result += str[i - j];
-                }
+            i += strlen(&str[i]);
+        } else {
+            int k = 0;
+            while(i < str.length() && str[i] != ' ') {
+                result += str[i];
+                i++;
+                k++;
+            }
+            for(int j = k; j > 0; j--) {
+                result += str[i-j];
                 i--;
-            } else {
-                for (int j = i; j >= 0; j--) {
-                    result += str[j];
-                }
             }
         }
     }
+    
     return result;
 }
 
 int main() {
-    string input;
-    while (getline(cin, input)) {
-        cout << spinWords(input) << endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
     return 0;
 }
