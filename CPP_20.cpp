@@ -20,8 +20,10 @@ bool sameVectors(std::vector<float> a, std::vector<float> b) {
 int main() {
     std::vector<float> vec1, vec2;
 
-    // Input for vector 1
-    float num;
+    int maxInputCount = 5; 
+    int inputCount = 0;
+    
+    int num;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -30,23 +32,24 @@ int main() {
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
-            vec1.clear();
+            if(inputCount >= maxInputCount) break; 
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec1.clear();
+        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
+            std::cout << "Invalid input. Please enter a number within the range of int.\n";
+            if(inputCount >= maxInputCount) break; 
             break;
         }
-        vec1.push_back(num);
+        vec1.push_back((float)num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
+        inputCount++;
+        if(inputCount >= maxInputCount) break; 
     }
 
-    int maxInputCount = 5; 
-    int inputCount = 0;
-    while(inputCount < maxInputCount) {
+    int remainingInputCount = std::min(maxInputCount, vec1.size());
+    while(remainingInputCount > 0) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             std::cin.clear(); 
@@ -54,19 +57,17 @@ int main() {
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
-            vec2.clear();
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec2.clear();
+        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
+            std::cout << "Invalid input. Please enter a number within the range of int.\n";
             break;
         }
-        vec2.push_back(num);
+        vec2.push_back((float)num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
-        inputCount++;
+        remainingInputCount--;
     }
 
     if(vec1.size() > 0 && vec2.size() > 0) {
