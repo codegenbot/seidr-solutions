@@ -1,15 +1,24 @@
+Here is the solution:
+
 def solve_boolean(expression):
-    if expression == "t":
+    if expression == 'T':
         return True
-    elif expression == "f":
+    elif expression == 'F':
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid input")
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     else:
         result = True
-        for i in range(0, len(expression), 2):
-            if expression[i] == "&":
-                result &= expression[i + 1] == "t"
-            elif expression[i] == "|":
-                result |= expression[i + 1] == "t"
+        for term in expression.split('&'):
+            if any(char in term for char in '|'):
+                if '|' not in term or '&' in term:
+                    result = False
+                break
+            else:
+                if 'F' in term:
+                    return False
+                elif 'T' in term:
+                    continue
+                else:
+                    raise ValueError("Invalid expression")
         return result
