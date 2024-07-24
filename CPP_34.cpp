@@ -1,8 +1,6 @@
-#include <algorithm>
-#include <set>
-
 vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    vector<int> result(s.begin(), s.end());
+    vector<int> result(l.begin(), unique(l.begin(), l.end()).end());
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
