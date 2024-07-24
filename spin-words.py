@@ -1,5 +1,4 @@
 def spin_words(sentence):
-    import string
     words = sentence.split()
     result = []
     for word in words:
