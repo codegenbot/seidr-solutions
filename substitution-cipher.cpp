@@ -1,17 +1,12 @@
-#include <iostream>
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 string substitutionCipher(string key1, string key2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
         if (i < key1.length()) {
-            if (key1[i] == message[i]) {
-                result += key2[i];
-            } else {
-                result += message[i];
-            }
+            result += key2[stoi(to_string(i)) - stoi(to_string(0))];
         } else {
             result += message[i];
         }
