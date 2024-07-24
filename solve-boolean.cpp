@@ -1,8 +1,8 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <stack>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -39,8 +39,8 @@ bool evaluateBooleanExpression(string expression) {
                 operand += expression[i];
                 i++;
             }
-            i--; // backtrack
-            operandStack.push(operand);
+            i--; 
+            operandStack.push((operand == "TF" || operand == "TT") ? "True" : "False");
         }
     }
 
