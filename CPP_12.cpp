@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-std::string longest(std::vector<std::string> strings){
+std::string main(std::vector<std::string> strings){
     if(strings.empty()) {
         return "None";
     }
@@ -19,6 +19,6 @@ std::string longest(std::vector<std::string> strings){
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert(main({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
