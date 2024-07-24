@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -5,21 +6,16 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring in s]
 
 
-user_strings = input("Enter a list of strings (space separated): ").split()
-user_substrings = []
+user_input = input("Enter a list of strings (space separated): ")
+user_substring = input("Enter the substring to search for: ")
 
-while True:
-    user_substring = input("Enter the substring to search for ('q' to quit): ")
-
-    if user_substring.lower() == "q":
-        break
-    if not isinstance(user_substring, str):
-        print("Please enter a string.")
-        continue
-    user_substrings.append(user_substring)
-
-if not user_substrings:
-    print("No substrings entered. Quitting.")
+try:
+    user_strings = [s.strip() for s in user_input.split()]
+except AttributeError:
+    print("Invalid input. Please enter valid strings.")
 else:
-    result = filter_by_substring(user_strings, user_substrings[0])
-    print(result)
+    if all(isinstance(s, str) for s in user_strings):
+        result = filter_by_substring(user_strings, user_substring)
+        print(result)
+    else:
+        print("Not all inputs are strings.")
