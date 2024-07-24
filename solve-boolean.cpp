@@ -1,14 +1,15 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
 
 using namespace std;
 
-bool solveBoolean(string booleanExpression) {
-    stack<char> operators;
-    stack<string> operands;
+stack<char> operators;
+stack<string> operands;
 
+bool solveBoolean(string booleanExpression) {
     for (int i = 0; i < booleanExpression.length(); i++) {
         if (booleanExpression[i] == '&') {
             while (!operators.empty() && operators.top() == '|') {
