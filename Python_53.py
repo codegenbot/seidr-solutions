@@ -1,10 +1,13 @@
+```
 def add_numbers():
     while True:
         print("Please enter two numbers.")
-        x = input("Enter first number: ")
-        y = input("Enter second number: ")
-        if x.isdigit() and y.isdigit():
-            return int(x) + int(y)
+        try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            return x + y
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 result = add_numbers()
 print(result)
