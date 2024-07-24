@@ -1,4 +1,6 @@
 def below_zero(operations: List[int]) -> bool:
+    if not operations:
+        return False
     balance = 0
     for operation in operations:
         balance += operation
