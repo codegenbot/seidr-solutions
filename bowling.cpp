@@ -1,54 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    int currentFrame = 0;
-    int totalInFrame = 0;
-
-    for (int i = 0; i < s.size(); i++) {
-        if (isdigit(s[i])) {
-            int pin = s[i] - '0';
-            if (inFrame) {
-                totalInFrame += pin;
-                if (totalInFrame == 2) {
-                    inFrame = false;
-                    score += calculateScore(currentFrame, totalInFrame);
-                    currentFrame++;
-                    totalInFrame = 0;
+    for(int i=0; i<10; i++){
+        if(s[i] == 'X'){
+            score += 30;
+        }
+        else if(s[i] == '/'){
+            score += 10 + (s[i+1] - '0') * 10 + (s[i+2] - '0');
+            i++;
+        }
+        else{
+            int sum = 0;
+            for(int j=i; j<i && j<10; j++){
+                if(s[j] == 'X'){
+                    sum += 30;
+                    break;
                 }
-            } else {
-                totalInFrame = pin;
-                inFrame = true;
+                else if(s[j] == '/'){
+                    sum += 10 + (s[j+1] - '0') * 10 + (s[j+2] - '0');
+                    i++;
+                    j++;
+                    break;
+                }
+                else{
+                    sum += s[j] - '0';
+                }
             }
-        } else {
-            if (s[i] == '/') {
-                int firstPin = s[i - 1] - '0';
-                int secondPin = s[i + 1] - '0';
-                score += calculateScore(currentFrame, firstPin);
-                totalInFrame = secondPin;
-                inFrame = true;
-                currentFrame++;
-            }
+            score += sum;
         }
     }
-
-    if (inFrame) {
-        score += calculateScore(10, totalInFrame);
-    } else {
-        for (int i = 0; i < currentFrame; i++) {
-            score += calculateScore(i + 1, totalInFrame);
-            totalInFrame = 0;
-        }
-    }
-
     return score;
-}
-
-int calculateScore(int frame, int pins) {
-    if (frame == 10) {
-        return 10 + pins;
-    } else if (pins >= 2) {
-        return 10;
-    } else {
-        return pins;
-    }
 }

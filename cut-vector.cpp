@@ -1,49 +1,32 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff <= min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
-        }
-    }
-    
-    return result;
-}
+vector<int> cutVector(vector<int>& vec) {
+    int n = vec.size();
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        if (i == 0 || i == n - 1) continue;
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i / 2; j++)
+            leftSum += vec[j];
+        for (int j = i + 1; j < n; j++)
+            rightSum += vec[j];
+
+        if (leftSum == rightSum) {
+            return {vec.begin(), vec.begin() + i} , {vec.begin() + i, vec.end()};
+        } else if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            cutIndex = i;
+        }
     }
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < res.first.size(); i++) {
-        cout << res.first[i] << " ";
-    }
-    cout << "] [" << "[";
-    for (int i = 0; i < res.second.size(); i++) {
-        cout << res.second[i] << " ";
-    }
-    cout << "]" << endl;
-    return 0;
+
+    int leftSum = 0, rightSum = 0;
+    for (int i = 0; i < cutIndex / 2; i++)
+        leftSum += vec[i];
+    for (int i = cutIndex + 1; i < n; i++)
+        rightSum += vec[i];
+
+    return {vec.begin(), vec.begin() + cutIndex} , {vec.begin() + cutIndex, vec.end()};
 }
