@@ -29,4 +29,4 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
-};
+}
