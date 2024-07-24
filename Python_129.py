@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[cell for cell in row] for row in grid]
@@ -15,7 +14,9 @@ def minPath(grid, k):
                 ni, nj = i + x, j + y
                 if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                     new_path = dfs(ni, nj, path + [m[ni][nj]], visited.copy())
-                    if new_path is not None and (min_path is None or new_path < min_path):
+                    if new_path is not None and (
+                        min_path is None or new_path < min_path
+                    ):
                         min_path = new_path
         return min_path
 
