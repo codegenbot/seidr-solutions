@@ -1,10 +1,11 @@
 import re
 
 
-def fruit_distribution():
-    s = input()
-    n = int(input())
+def fruit_distribution(s, n):
     pattern = r"(\d+)\s*(apples|oranges)"
+
+    if not s or not s.lower():
+        return "Invalid input format"
 
     if not re.search(pattern, s.lower()):
         return "Invalid input format"
