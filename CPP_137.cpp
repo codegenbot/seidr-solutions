@@ -1,10 +1,3 @@
-#include <iostream>
-#include<string>
-#include<algorithm>
-#include<variant>
-
-using namespace std;
-
 variant<int, string> compare_one(variant<int|string> a, variant<int|string> b) {
     if (a.index() == 0 && b.index() == 1) {
         int da = get<int>(a);
