@@ -2,8 +2,8 @@
 #include <string>
 
 bool issame(vector<string> a,vector<string>b){
-    for(string s : b){
-        if(find(a.begin(),a.end(),s) == a.end())
+    for(string s : a){
+        if(find(b.begin(), b.end(), s) == b.end())
             return false;
     }
     return true;
