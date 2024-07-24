@@ -3,7 +3,7 @@ def handle_bonus(bowls, score):
         bonus = 0
         if bowls[frame] == "X":
             bonus += 10
-            if bowls[frame + 1] == "X":
+            if bowls[frame + 1] == "X" or bowls[frame + 1] == "/":
                 bonus += 10
                 if bowls[frame + 2] == "X":
                     bonus += 10
