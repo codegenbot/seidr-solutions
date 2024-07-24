@@ -41,13 +41,14 @@ int main() {
     }
 
     auto result = cutVector(vec);
-    for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i] << " ";
+    std::cout << "Left side: ";
+    for (int num : result.first) {
+        std::cout << num << " ";
     }
     std::cout << "\n";
-
-    for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i] << " ";
+    std::cout << "Right side: ";
+    for (int num : result.second) {
+        std::cout << num << " ";
     }
     std::cout << "\n";
     
