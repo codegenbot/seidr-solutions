@@ -3,12 +3,12 @@
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float snowFallRate, float meltRate) {
-    float totalSnow = 0;
+    float totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
         if (i > 0) {
             totalSnow -= totalSnow * meltRate / 100.0f;
         }
-        totalSnow += initialSnow + snowFallRate;
+        totalSnow += snowFallRate;
     }
     return totalSnow;
 }
@@ -19,4 +19,3 @@ int main() {
     cin >> hours >> initialSnow >> snowFallRate >> meltRate;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, snowFallRate, meltRate);
     return 0;
-}
