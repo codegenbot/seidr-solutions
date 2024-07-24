@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
 
-bool solveBoolean(std::string expression) {
-    std::stack<char> s;
+bool solveBoolean(string expression) {
+    bool result = false; 
+    stack<char> s;
     
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
@@ -21,12 +23,13 @@ bool solveBoolean(std::string expression) {
         }
     }
     
-    return s.top() == 'T'; 
+    result = s.top() == 'T'; 
+    return result;
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-    std::cout << (solveBoolean(expression) ? "True" : "False");
+    string expression;
+    getline(cin, expression);
+    cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
 }
