@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <variant>
 #include <any>
@@ -5,7 +6,7 @@
 
 using namespace std;
 
-variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
+variant<string, int, float> compare_one(variant<string, int, float> a, variant<string, int, float> b) {
     return visit([&](auto&& a, auto&& b) -> variant<string, int, float> {
         if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
             if (get<string>(a) > get<string>(b)) {
@@ -51,7 +52,7 @@ int main() {
     cout << "Enter the second value: ";
     cin >> input2;
 
-    auto result = compare_one(any(input1), any(input2));
+    auto result = compare_one(variant<string>(input1), variant<string>(input2));
 
     if (holds_alternative<string>(result)) {
         cout << "The comparison is: " << get<string>(result) << endl;
