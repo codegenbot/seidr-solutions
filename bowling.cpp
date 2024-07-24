@@ -1,54 +1,31 @@
 int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    int currentFrame = 0;
-    int totalInFrame = 0;
+    vector<int> rolls;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (isdigit(s[i])) {
-            int pin = s[i] - '0';
-            if (inFrame) {
-                totalInFrame += pin;
-                if (totalInFrame == 2) {
-                    inFrame = false;
-                    score += calculateScore(currentFrame, totalInFrame);
-                    currentFrame++;
-                    totalInFrame = 0;
-                }
-            } else {
-                totalInFrame = pin;
-                inFrame = true;
-            }
-        } else {
-            if (s[i] == '/') {
-                int firstPin = s[i - 1] - '0';
-                int secondPin = s[i + 1] - '0';
-                score += calculateScore(currentFrame, firstPin);
-                totalInFrame = secondPin;
-                inFrame = true;
-                currentFrame++;
-            }
+    for (char c : s) {
+        if (c == '/') {
+            if (rolls.size() < 2)
+                return -1; // invalid input
+            int frameScore = rolls[rolls.size() - 1] + rolls[rolls.size() - 2];
+            score += frameScore;
+            rolls.clear();
+        } else if (c == 'X') {
+            rolls.push_back(10);
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            rolls.push_back(roll);
         }
     }
 
-    if (inFrame) {
-        score += calculateScore(10, totalInFrame);
-    } else {
-        for (int i = 0; i < currentFrame; i++) {
-            score += calculateScore(i + 1, totalInFrame);
-            totalInFrame = 0;
+    for (int i = 0; i < rolls.size(); i++) {
+        score += rolls[i];
+        if (i < rolls.size() - 1) {
+            if (rolls[i] + rolls[i + 1] == 10) {
+                score += rolls[i + 1];
+                i++;
+            }
         }
     }
 
     return score;
-}
-
-int calculateScore(int frame, int pins) {
-    if (frame == 10) {
-        return 10 + pins;
-    } else if (pins >= 2) {
-        return 10;
-    } else {
-        return pins;
-    }
 }
