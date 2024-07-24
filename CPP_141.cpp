@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 int file_name_check(string file_name){
     int digit_count = 0;
