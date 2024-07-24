@@ -16,12 +16,15 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    return vector<int>(result.rbegin(), result.rend());
+    reverse(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    vector<int> vec = {1, 3, 4, 1, 5};
-    vector<int> leadersVector = leaders(vec);
-    for(int i: leadersVector) cout << i << " ";
+    vector<int> arr = {17, 11, 13, 2, 3, 5, 7};
+    vector<int> result = leaders(arr);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }

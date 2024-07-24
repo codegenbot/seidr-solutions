@@ -1,23 +1,17 @@
-using namespace std;
-
-string camelCase(string s) {
-    if (s.empty()) return "";
-    
+std::string camelCase(std::string s) {
+    if (s[0] == '-') s.erase(0, 1); 
     string result = "";
-    bool prevWasDash = true;
-    
-    for (char c : s) {
-        if (c == '-') {
-            prevWasDash = true;
-        } else {
-            if (prevWasDash) {
-                result += toupper(c);
-                prevWasDash = false;
-            } else {
-                result += tolower(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
+                i++;
             }
+            result += " ";
+        } else {
+            result += tolower(s[i]);
         }
     }
-    
     return result;
 }
