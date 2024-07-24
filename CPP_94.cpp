@@ -1,7 +1,7 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <iostream> 
+#include <initializer_list>
 using namespace std;
 
 bool isPrime(int n){
