@@ -1,2 +1,2 @@
-def count_odd_numbers_in_uneven_indices(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+def sum_of_odd_numbers(lst):
+    return sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
