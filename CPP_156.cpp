@@ -1,6 +1,5 @@
-#include <vector>
+```cpp
 #include <string>
-#include <cassert>
 
 struct Roman {
     std::string value;
