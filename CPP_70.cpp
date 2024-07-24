@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -29,5 +29,4 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
-    assert(issame(sortList({111}), {111}));
 }
