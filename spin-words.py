@@ -1,2 +1,3 @@
-def spin_words(s): 
+```
+def spin_words(s):
     return " ".join(word[::-1] if len(word.strip()) >= 5 else word for word in s.split())
