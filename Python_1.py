@@ -21,7 +21,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     # Push the last temp into result and reset it
     if stack: 
-        return []  # return an empty list as there is no corresponding ')
+        return []  # return an empty list as there is no corresponding ')'
     else:
         result.append(temp)
 
