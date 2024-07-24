@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <algorithm>
+#include <algorithm> // Add this line for using std::find
 
 bool issame(std::vector<int> b, std::vector<int> c) {
     for (int i = 0; i < b.size(); i++) {
