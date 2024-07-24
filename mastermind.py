@@ -1,11 +1,13 @@
-def mastermind(code, guess):
-    correct_color_wrong_place = 0
-    correct_color_correct_place = 0
+Here is the solution:
 
+def mastermind(code, guess):
+    correct_placement = 0
+    correct_color = 0
+    
     for i in range(4):
         if code[i] == guess[i]:
-            correct_color_correct_place += 1
-        elif str(guess[i]) in str(code):
-            correct_color_wrong_place += 1
-
-    return str(correct_color_wrong_place) + "\n" + str(correct_color_correct_place)
+            correct_placement += 1
+        elif str(code[i]) in str(guess):
+            correct_color += 1
+            
+    return str(correct_placement) + '\n' + str(correct_color)
