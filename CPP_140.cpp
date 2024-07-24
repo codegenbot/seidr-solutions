@@ -1,9 +1,8 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
-std::string fix_spaces(const std::string& text) {
-    std::string result = "";
+string fix_spaces(string text) {
+    string result = "";
     int consecutiveSpaces = 0;
     for (char c : text) {
         if (c == ' ') {
@@ -23,6 +22,7 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    string text = "hello   world";
+    assert(fix_spaces(text) == "hello__-world");
     return 0;
 }
