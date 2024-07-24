@@ -1,23 +1,20 @@
+#include <iostream>
 #include <string>
 
-void toCamelCase(std::string input) {
-    result = "";
-    size_t pos = 0;
-    
-    while ((pos = input.find("-")) != std::string::npos) {
-        result += input.substr(0, pos);
-        
-        if (input.length() > pos + 1) {
-            result += toupper(input[pos + 1]);
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    for (int i = 0; i <= input.length(); i++) {
+        if (i > 0 && input[i] == '-') {
+            input[i] = char(toupper(input[i]));
+            for (int j = i + 1; j <= input.length() && j < input.find(' ', i); j++)
+                input[j] = tolower(input[j]);
         }
-        
-        input.erase(0, pos + 1);
     }
-    
-    if (!input.empty()) {
-        result += toupper(input[0]);
-        result += input.substr(1);
-    } else {
-        result = "Error";
-    }
+
+    std::cout << "The camel-case string is: " << input << '\n';
+
+    return 0;
 }
