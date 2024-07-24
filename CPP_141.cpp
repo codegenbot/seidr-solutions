@@ -1,28 +1,25 @@
-string file_name_check(string file_name){
-    int count = 0;
-    bool dotFound = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            count++;
-        }
-        else if(file_name[i] == '.'){
-            dotFound = true;
-        }
-        else if(!dotFound && (file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
+```cpp
+int digit_count = 0;
+bool found_dot = false;
+
+for(int i=0; i<file_name.length(); i++){
+    char c = file_name[i];
+    if(c == '.'){
+        found_dot = true;
+    }else if(isdigit(c)){
+        digit_count++;
+    }else if(found_dot){
+        string extension = file_name.substr(i);
+        if(extension != "txt" && extension != "exe" && extension != "dll"){
             return "No";
         }
+    }else if(!isalpha(c) && c != '.'){
+        return "No";
     }
-    if(count > 3) return "No";
-    string extension = "";
-    for(int i=file_name.length()-1; i>=0; i--){
-        if(file_name[i] == '.'){
-            break;
-        }
-        else{
-            extension = file_name[i]+extension;
-        }
-    }
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    if(!dotFound) return "No";
-    return "Yes";
 }
+
+if(digit_count > 3 || !found_dot){
+    return "No";
+}
+
+return "Yes";
