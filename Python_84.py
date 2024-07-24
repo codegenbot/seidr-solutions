@@ -1,6 +1,6 @@
-def solve(N):
-    filename = input("Enter a filename: ")
-    if not all(char.isalnum() or char in "_.-" for char in filename):
-        print("Invalid characters in the filename.")
-    else:
-        print(filename)
+def solve(N=None):
+    if N is None:
+        N = int(input("Enter a number: "))
+    if N < 1:
+        return 
+    return bin(N)[2:]
