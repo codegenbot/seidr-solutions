@@ -12,6 +12,6 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::cout << count_upper("ABCDE") << std::endl;
+    std::cout << count_upper("EEEE") << std::endl;
     return 0;
 }
