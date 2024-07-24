@@ -6,17 +6,17 @@ def gcd(a, b):
 
 def find_indices(text, target):
     indices = []
-    target_len = len(target)
-    for i in range(len(text)):
-        if text[i : i + target_len] == target:
-            indices.append(i)
+    index = 0
+    while True:
+        try:
+            index = text.index(target, index)
+            indices.append(index)
+            index += len(target)
+        except ValueError:
+            break
     return indices
 
 
 a = int(input())
 b = int(input())
 print(gcd(a, b))
-
-text = input()
-target = input()
-print(find_indices(text, target))
