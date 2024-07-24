@@ -5,7 +5,7 @@ def find_zero(xs: list):
     else:
         return 1.0
 
+input_list = list(map(int, input("Enter a list of integers separated by space: ").split()))
 
-input_list = list(map(int, input("Enter space-separated integers: ").split()))
 result = find_zero(input_list)
 print(result)
