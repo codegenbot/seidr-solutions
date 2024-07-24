@@ -8,5 +8,8 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     text = input("Enter a string: ")
-    result = string_to_md5(text.lower())
-    print(result)
+    if text.strip() == "":
+        print("Please enter a valid input.")
+    else:
+        result = string_to_md5(text.lower())
+        print(result)
