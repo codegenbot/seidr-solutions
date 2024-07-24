@@ -1,9 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
-using namespace std;
-
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long sum = 0;
     for (int x : arr) {
@@ -13,16 +12,22 @@ int prod_signs(vector<int> arr) {
         product *= abs(x);
         sum += abs(x);
     }
+    std::cout << "product * sum: " << product * sum << std::endl;
     return product * sum > INT_MAX ? -32768 : product * sum;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> arr(n);
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
     for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
     }
-    cout << prod_signs(arr) << endl;
+
+    int result = prod_signs(arr);
+
     return 0;
 }
