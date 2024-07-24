@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 int main() {
     std::vector<int> nums;
@@ -11,7 +10,7 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
+        sum += (num / 3) - 2;
     }
 
     std::cout << sum << std::endl;
