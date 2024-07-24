@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(vector<int> digits) {
@@ -5,15 +6,13 @@ int luhn(vector<int> digits) {
     bool doubleNext = false;
 
     for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
+        int digit = digits[i] * (doubleNext ? 2 : 1);
+        if (digit > 9) {
+            digit -= 9;
         }
         sum += digit;
         doubleNext = !doubleNext;
     }
 
     return sum;
+}
