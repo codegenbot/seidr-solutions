@@ -2,7 +2,7 @@
 #include <list>
 #include <boost/any.hpp>
 #include <typeinfo>
-#include <cassert>
+#include <assert.h>
 
 using namespace std;
 
