@@ -1,26 +1,29 @@
 #include <iostream>
 #include <string>
-#include <variant>
+#include <sstream>
+#include <vector>
 #include <algorithm>
+#include <boost/any.hpp>
+#include <boost/variant.hpp>
 
 using namespace std;
 
-variant<int, string> compare_one(variant<int, string> a, variant<int, string> b) {
-    if (holds_alternative<int, string>(a) > holds_alternative<int, string>(b)) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
         return a;
-    } else if (holds_alternative<int, string>(b) > holds_alternative<int, string>(a)) {
+    } else if (boost::any_cast<int>(b) > boost::any_cast<int>(a)) {
         return b;
-    } else if (get<string>(a) != "" && get<string>(b) != "") {
-        double numA = stod(get<string>(a));
-        double numB = stod(get<string>(b));
+    } else if ((boost::any_cast<string>(a) != "") && (boost::any_cast<string>(b) != "")) {
+        double numA = stod(boost::any_cast<string>(a));
+        double numB = stod(boost::any_cast<string>(b));
         if (numA > numB) {
             return a;
         } else if (numB > numA) {
             return b;
         } else {
-            return 0;
+            return boost::any("None");
         }
     } else {
-        return 0;
+        return boost::any("None");
     }
 }
