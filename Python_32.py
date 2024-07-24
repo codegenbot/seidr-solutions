@@ -3,4 +3,3 @@ def find_zero(xs: list):
     a = xs[:n]
     b = xs[n:]
     return -sum(a) / sum([a_i * b_i for a_i, b_i in zip(a, b)])
-Here is the solution:
