@@ -29,8 +29,3 @@ bool is_prime(int n) {
     }
     return true;
 }
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    return 0;
-}
