@@ -1,4 +1,4 @@
-```Python
+```
 def double_the_difference(lst):
     total = 0
     for num in lst:
