@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -19,7 +17,6 @@ int main() {
 
     std::fixed;
     std::setprecision(6);
-    cout << std_;
     cout << totalDistance << endl;
 
     return 0;
