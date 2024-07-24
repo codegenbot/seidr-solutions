@@ -24,13 +24,7 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    // Add more test cases here
-    std::vector<int> arr = {0, 2};
-    int result = smallest_change(arr);
-    std::cout << "smallest change for array: ";
-    for (int i : arr) {
-        std::cout << i << " ";
-    }
-    std::cout << "is: " << result << std::endl;
+    assert(smallest_change({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) == 9);
+    assert(smallest_change({1, 2, 3, 4, 5, 5, 4, 3, 2, 1}) == 0);
     return 0;
 }
