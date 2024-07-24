@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::string find_max(const std::vector<std::string>& words) {
     if (words.empty()) {
@@ -8,7 +9,7 @@ std::string find_max(const std::vector<std::string>& words) {
     }
     std::string max = words[0];
     for (const auto& word : words) {
-        if (word.size() > std::max(size_t(0), max.size())) {
+        if (word.size() > max.size()) {
             max = word;
         }
     }
