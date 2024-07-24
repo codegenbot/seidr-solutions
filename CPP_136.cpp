@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <climits> 
+#include <climits> // Include this for INT_MAX
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
