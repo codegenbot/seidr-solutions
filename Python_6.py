@@ -1,3 +1,4 @@
+```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
@@ -8,4 +9,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ')':
                 level -= 1
         result.append(level)
-    return [int(i) for i in result]
+    return result
