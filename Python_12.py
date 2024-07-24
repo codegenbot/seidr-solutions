@@ -1,4 +1,6 @@
-def longest(strings=[]):
+```
+def longest():
+    strings = []
     while True:
         s = input("Enter a string (or 'stop' to finish): ")
         if s.lower() == 'stop':
