@@ -44,17 +44,9 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
-    cout << "Enter numbers (enter -1 to stop): ";
-    int num;
-    while ((cin >> num) && (num != -1)) {
-        arr.push_back(num);
-    }
+    vector<int> arr = {9, 4, 8};
     vector<string> result = by_length(arr);
-
     for (string s : result) {
-        cout << s << endl;
+        cout << s << "\n";
     }
-
-    return 0;
 }
