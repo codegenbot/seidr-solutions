@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -38,4 +39,3 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return {result[0], result.size() > 1 ? result[1] : ""};
-}
