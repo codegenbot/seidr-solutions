@@ -1,28 +1,20 @@
-from typing import List
-
+from typing import List, Any
 
 def main():
     values = []
     while True:
-        value = input("Enter a string (or 'stop' to finish): ")
+        value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == "stop":
             break
         try:
-            if len(value) > 5:
-                values.append(value)
-            else:
-                print(f"The length of {value} is less than or equal to 5. Try again.")
+            values.append(int(value))
         except ValueError:
-            print(
-                "Invalid input. Please enter a valid string or type 'stop' to finish."
-            )
-    filtered_values = filter_strings(values)
+            print("Invalid input. Please enter a valid integer or type 'stop' to finish.")
+    filtered_values = [i for i in values if isinstance(i, int) and i % 2 != 0]
     print(filtered_values)
 
-
-def filter_strings(values: List[str]) -> List[str]:
-    return [value for value in values if len(value) > 5]
-
+def filter_integers(values: List[Any]) -> List[int]:
+    return []
 
 if __name__ == "__main__":
     main()
