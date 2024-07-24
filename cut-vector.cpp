@@ -1,21 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
+vector<vector<int>> cutVector(vector<int>& vec) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    vector<vector<int>> result(2);
+    
+    for (int i = 1; i <= vec.size(); i++) {
+        if (i == vec.size() || vec[i] - vec[0] < minDiff) {
+            minDiff = vec[i] - vec[0];
+            result[0].clear();
+            result[0].insert(result[0].end(), vec.begin(), vec.begin() + i);
+            result[1].clear();
+            result[1].insert(result[1].end(), vec.begin() + i, vec.end());
         }
     }
-    vector<vector<int>> result(2);
-    result[0].resize(cutIndex + 1);
-    result[1].resize(vec.size() - cutIndex - 1);
-    copy(vec.begin(), vec.begin() + cutIndex + 1, result[0].begin());
-    copy(vec.begin() + cutIndex + 1, vec.end(), result[1].begin());
+    
     return result;
 }
 
@@ -23,15 +22,12 @@ int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
-    for (auto& x : vec) {
-        cin >> x;
-    }
-    vector<vector<int>> res = cutVector(vec);
-    for (const auto& v : res) {
-        for (int x : v) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
+    for (auto& x : vec) cin >> x;
+    auto res = cutVector(vec);
+    cout << "[";
+    for (const auto& v : res[0]) cout << v << " ";
+    cout << "] ["; 
+    for (const auto& v : res[1]) cout << v << " ";
+    cout << "]" << endl;
     return 0;
 }
