@@ -1,24 +1,17 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
+    bool hasLetter = false;
+    
     for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? tolower(c) : toupper(c);
+        if (isalpha(c)) { 
+            hasLetter = true;
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += c;
+            result += c; 
         }
     }
-    if (result.empty()) {
-        reverse(result.begin(), result.end());
-    }
-    return result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
+    
+    return hasLetter ? result : string(rbegin(s), rend(s)); 
 }
