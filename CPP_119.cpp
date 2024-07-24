@@ -1,8 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-std::string match_parens(const std::vector<std::string>& lst) {
+bool match_parens(vector<string> lst) {
     int stack_size = 0;
     bool is_good = true;
 
@@ -24,7 +24,8 @@ std::string match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {")", "("};
-    std::cout << match_parens(lst) << std::endl;
-    
+    vector<string> lst = {"(())", "()()", "((()))"};
+    string result = match_parens(lst);
+    cout << result << endl;
+    return 0;
 }
