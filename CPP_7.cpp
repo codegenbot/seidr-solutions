@@ -1,7 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    for (auto it = a.begin(); it != a.end(); ++it) {
+        if (std::find(b.begin(), b.end(), *it) == b.end()) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
