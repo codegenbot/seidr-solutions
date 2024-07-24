@@ -1,2 +1,4 @@
+```
 def solve(K):
-    return str(int(bin(K)[2:], 2))
+    K = str(int(K)) if type(K) == float else str(K)
+    return bin(int(K))[2:]
