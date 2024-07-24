@@ -10,8 +10,6 @@ def factorial(x):
 
 
 def f(n):
-    if n < 1:
-        return "Input should be a positive integer."
     result = 1
     for i in range(1, n + 1):
         if i % 2 == 0:
@@ -24,6 +22,9 @@ def f(n):
 while True:
     try:
         num = int(input("Enter a number: "))
-        print(f(num))
+        if num <= 0:
+            print("Please enter a positive integer.")
+        else:
+            print(f(num))
     except ValueError:
         print("Invalid input. Please enter an integer.")
