@@ -1,20 +1,21 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true;
-    string op = "";
+    bool result = false;
+    bool temp = false;
     for (char c : s) {
         if (c == 'T' || c == 't') {
-            op += "1";
+            return true;
         } else if (c == 'F' || c == 'f') {
-            op += "0";
+            return false;
         } else if (c == '&') {
-            result = (result && (op.back() - '0'));
-            op.pop_back();
+            result = temp;
+            temp = false;
         } else if (c == '|') {
-            result = (result || (op.back() - '0'));
-            op.pop_back();
+            temp = result;
+            result = false;
         }
     }
     return result;
