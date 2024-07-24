@@ -1,27 +1,31 @@
-def calculate_score(bowls):
-    score = 0
+def handle_bonus(bowls, score):
     i = 0
     for frame in range(10):
-        if bowls[i] == "X":
+        if bowls[i] == "/":
+            score += 10 - int(bowls[i - 1])
+        elif bowls[i] == "X":
             score += 10
-            if i + 2 < len(bowls):
+            if i < len(bowls) - 3:
                 if bowls[i + 1] == "X":
                     score += 10
-                else:
-                    score += int(bowls[i + 1])
-                if bowls[i + 2] == "X":
-                    score += 10
+                    if bowls[i + 2] == "/":
+                        score += 10
+                    else:
+                        score += int(bowls[i + 2])
                 elif bowls[i + 2] == "/":
-                    score += 10 - int(bowls[i + 1])
+                    score += 10
                 else:
-                    score += int(bowls[i + 2])
-        elif bowls[i + 1] == "/":
-            score += 10
-        elif bowls[i] != "-":
-            score += int(bowls[i])
-        i += 2
+                    score += int(bowls[i + 1]) + (int(bowls[i + 2]) if bowls[i + 2] != "-" else 0)
+            else:
+                score += int(bowls[i + 1]) + (int(bowls[i + 2]) if bowls[i + 2] != "-" else 0)
+        if bowls[i] != "-":
+            if bowls[i + 1] == "/":
+                score += int(bowls[i]) + 10
+            else:
+                score += int(bowls[i]) + (int(bowls[i + 1]) if bowls[i + 1] != "-" else 0)
+        i += 1
     return score
 
 input_bowls = input("Enter the bowling sequence: ")
-result = calculate_score(input_bowls)
+result = handle_bonus(input_bowls, 0)
 print(result)
