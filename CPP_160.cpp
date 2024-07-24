@@ -1,15 +1,13 @@
-#include <iostream>
 #include <cmath>
 #include <string>
+#include <vector>
 
-using namespace std;
-
-double do_algebra(vector<string> expressions) {
+double do_algebra(const std::vector<std::string>& expressions, const std::vector<std::string>& operators) {
     double result = 0;
-    string operators = expressions[2];
-
     if (stoi(operators[1]) == 0) {
-        result = pow(stod(expressions[0]), stod(expressions[1]));
+        double a = stod(expressions[0]);
+        double b = stod(expressions[1]);
+        result = pow(a, b);
     } else {
         // ... rest of your code ...
     }
@@ -17,30 +15,8 @@ double do_algebra(vector<string> expressions) {
 }
 
 int main() {
-    vector<string> expressions;
-    string input;
-
-    cout << "Enter the expressions (space separated): ";
-    getline(cin, input);
-    expressions = split(input);
-
-    double output = do_algebra(expressions);
-    cout << "Result: " << output << endl;
+    std::vector<std::string> expressions = {"2.5", "3"};
+    std::vector<std::string> operators = {"+", "0"};
+    double output = do_algebra(expressions, operators);
     return 0;
-}
-
-vector<string> split(string str) {
-    vector<string> result;
-    string temp;
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result.push_back(temp);
-            temp = "";
-        } else {
-            temp += str[i];
-        }
-    }
-    result.push_back(temp);
-    return result;
 }
