@@ -2,29 +2,39 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(int a, int b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-std::vector<int> strangeSortVector(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
-        int minVal = *min_element(lst.begin(), lst.end());
-        int maxVal = *max_element(lst.begin(), lst.end());
-        if (isSame(minVal, maxVal)) {
-            result.push_back(minVal);
-            lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+        if (issame(min_val, max_val)) {
+            for(int i : lst) {
+                if(i == min_val) {
+                    result.push_back(i);
+                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
+                    break;
+                }
+            }
         } else {
-            result.push_back(minVal);
-            result.push_back(maxVal);
-            lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
-            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
+            for(int i : lst) {
+                if(i == min_val) {
+                    result.push_back(i);
+                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
+                    break;
+                }
+            }
+            for(int i : lst) {
+                if(i == max_val) {
+                    result.push_back(i);
+                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
+                    break;
+                }
+            }
         }
     }
     return result;
-}
-
-int main() {
-    assert(isSame(strangeSortVector({111}), std::vector<int>({111})));
-    return 0;
 }
