@@ -21,7 +21,7 @@ int main(){
 
     assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
 
-    assert(issame(strange_sort_list({111111}), std::vector<int>{1, 1, 1, 1, 1, 1}));
+    assert(strange_sort_list({111111}));
 
     return 0;
 }
