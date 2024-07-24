@@ -19,5 +19,3 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append([n])
     return [factor_list for factor_list in set(tuple(factor) for factor in factors)]
-
-''
