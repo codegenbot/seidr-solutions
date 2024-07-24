@@ -1,23 +1,24 @@
 ```
 from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    result = [numbers[0]]
+def intersperse(numbers: List[int], delimeter: int) -> List[str]:
+    result = [str(numbers[0])]
     for i in range(1, len(numbers)):
-        result.extend([delimiter])
-        result.extend([numbers[i]])
+        result.append(str(delimeter))
+        result.append(str(numbers[i]))
     return result
 
 if __name__ == "__main__":
     while True:
         try:
             input_numbers_str = input("Enter comma-separated numbers: ")
-            delimiter_str = input("Enter the delimeter you want to use: ")
+            delimeter_str = input("Enter the delimeter you want to use: ")
 
             input_numbers = list(map(int, input_numbers_str.split(',')))
-            delimiter = int(delimiter_str)
+            delimeter = int(delimeter_str)
             
-            print(intersperse(input_numbers, delimiter))
+            print(', '.join(str(x) for x in intersperse(input_numbers, delimeter)))
+            break
         except ValueError:
             print("Invalid number(s) entered. Please enter valid numbers.")
         except TypeError:
