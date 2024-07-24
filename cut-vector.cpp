@@ -12,27 +12,24 @@ int main() {
         sum += nums[i];
     }
     
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
     for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
+        prefix_sum += nums[i];
+        int suffix_sum = sum - prefix_sum;
+        int diff = abs(prefix_sum - suffix_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
-    
-    for (int i = 0; i < subVec1.size(); i++) {
-        cout << subVec1[i] << endl;
+    for (int i = 0; i <= cut_index; i++) {
+        cout << nums[i] << endl;
     }
-    
-    for (int i = 0; i < subVec2.size(); i++) {
-        cout << subVec2[i] << endl;
-    }
+    cout << 0 << endl;
     
     return 0;
 }
