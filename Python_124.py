@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     while True:
         if len(date) != 10 or not date.replace("-", "").isdigit():
@@ -6,7 +5,7 @@ def valid_date(date):
         year, month_day = date.split("-")
         year = int(year)
         if not (1900 <= year <= 2100): 
-            continue
+            return False
 
         month_day = int(month_day)
         if not (1 <= month_day <= 366): 
