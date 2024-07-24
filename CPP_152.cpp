@@ -38,14 +38,7 @@ int main() {
     }
 
     bool checkEquality = true;
-    for(int i = 0; i < n; i++) {
-        if(vec1[i] != vec2[i]) {
-            checkEquality = false;
-            break;
-        }
-    }
-
-    if(checkEquality) {
+    if(checkVectorEquality(vec1, vec2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
