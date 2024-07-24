@@ -1,3 +1,4 @@
+```
 def indices_of_substring(text):
     target = str(input())
     result = []
