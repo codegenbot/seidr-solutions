@@ -1,12 +1,5 @@
-```
 def check(func):
-    def wrapper(lst):
-        result = func(lst)
-        if isinstance(result, (int, float)):
-            return "The function {} returns a valid number.".format(func.__name__)
-        else:
-            return "The function {} does not return a valid number.".format(func.__name__)
-    return wrapper
+    return func([1, 5, 3, 19, 18, 25])
 
 def double_the_difference(lst):
     if len(lst) < 2:
@@ -15,4 +8,4 @@ def double_the_difference(lst):
     diff = abs(max(lst) - min(lst)) - abs(avg - min(lst))
     return 2 * diff
 
-print(check(double_the_difference)([1, 5, 3, 19, 18, 25]))
+print(check(double_the_difference))
