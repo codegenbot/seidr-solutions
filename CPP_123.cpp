@@ -1,5 +1,6 @@
 #include <vector>
-vector<int> result { 
+vector<int> is_same(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
