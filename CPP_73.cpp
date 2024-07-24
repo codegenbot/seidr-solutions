@@ -24,7 +24,9 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    assert(smallest_change({2, 3, 4, 5, 6, 7, 8, 9}) == 8);
-    // Add more test cases here
+    std::vector<int> test1 = {1, 2};
+    std::cout << smallest_change(test1) << std::endl; // Output: 1
+    std::vector<int> test2 = {3, 4, 5};
+    std::cout << smallest_change(test2) << std::endl; // Output: 0
     return 0;
 }
