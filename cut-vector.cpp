@@ -1,35 +1,39 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int split_point = 0;
+vector<int> cutVector(vector<int>& vec) {
+    int n = vec.size();
+    vector<int> left(n);
+    vector<int> right(n);
 
-    for (int i = 1; i < v.size(); i++) {
-        if (abs(v[i] - v[0]) < min_diff) {
-            min_diff = abs(v[i] - v[0]);
-            split_point = i;
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            left[i] = vec[0];
+            right[n - i - 1] = vec[n - 1];
+        } else {
+            left[i] = vec[i];
+            right[n - i - 2] = vec[n - i - 1];
         }
     }
 
-    return {vector<int>(v.begin(), v.begin() + split_point), vector<int>(v.begin() + split_point, v.end())};
-}
+    int minDiff = INT_MAX;
+    int pos = -1;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto& x : v) cin >> x;
+    for (int i = 0; i < n; i++) {
+        if (abs(left[i] - right[i]) < minDiff) {
+            minDiff = abs(left[i] - right[i]);
+            pos = i;
+        }
+    }
 
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    vector<int> res[2];
+    int j = 0;
+    for (int i = 0; i <= pos; i++) {
+        res[0].push_back(vec[i]);
+    }
+    while (!res[0].empty() && !res[1].empty()) {
+        res[1].push_back(vec[n - 1 - j++]);
+    }
 
-    cout << "[";
-    for (const auto& x : result.first) cout << x << " ";
-    cout << "] [";
-
-    for (const auto& x : result.second) cout << x << " ";
-
-    cout << "]\n";
-
-    return 0;
+    return res[0];
 }
