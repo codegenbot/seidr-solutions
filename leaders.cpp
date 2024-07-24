@@ -1,8 +1,13 @@
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
     int leader = nums[n-1];
-    leaders.push_back(leader);  
+    leaders.push_back(leader);
     for (int i = n-2; i >= 0; i--) {
         if (nums[i] >= leader) {
             leader = nums[i];
@@ -11,4 +16,20 @@ vector<int> findLeaders(vector<int> nums) {
     }
     reverse(leaders.begin(), leaders.end());
     return leaders;
+}
+
+int main() {
+    vector<int> nums;
+    int num;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> num;
+        nums.push_back(num);
+    }
+    vector<int> result = findLeaders(nums);
+    for (int leader : result) {
+        cout << leader << " ";
+    }
+    return 0;
 }
