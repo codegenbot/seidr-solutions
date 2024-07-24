@@ -1,22 +1,19 @@
-#include<string>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator1 = stoi(strtok((x.substr(1)).c_str(), "/"));
-    int denominator1 = stoi(x.substr(0, 1));
-    
-    int numerator2 = stoi(strtok((n.substr(1)).c_str(), "/"));
-    int denominator2 = stoi(n.substr(0, 1));
+    int a = stoi(x.substr(0, x.find('/'))), b = stoi(x.substr(x.find('/') + 1));
+    int c = stoi(n.substr(0, n.find('/'))), d = stoi(n.substr(n.find('/') + 1));
 
-    if(denominator1 != denominator2) {
-        return false;
-    }
+    long gcd = abs(a * d - b * c);
+    a /= gcd;
+    b /= gcd;
+    c /= gcd;
+    d /= gcd;
 
-    long gcd = numerator1 / __gcd(numerator1, numerator2);
-    numerator1 /= gcd;
-    numerator2 /= gcd;
-
-    if((long)numerator1 * (long)denominator2 == (long)numerator2 * (long)denominator1) {
+    if (a % c == 0 && b % d == 0) {
         return true;
     } else {
         return false;
