@@ -10,10 +10,10 @@ int main() {
     getline(cin, target);
 
     vector<int> indices;
-    size_t pos = text.find(target, 0, target.size());
+    size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1, target.size());
+        pos = text.find(target, pos + target.size());
     }
 
     for (int i = 0; i < indices.size(); ++i) {
