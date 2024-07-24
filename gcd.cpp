@@ -1,4 +1,8 @@
-```
+```cpp
+#include <algorithm>
+#include <vector>
+#include <string>
+
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -43,9 +47,9 @@ int main() {
     std::cout << "GCD is: " << gcdVal << std::endl;
 
     std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
+    std::cin >> text;
     std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
+    std::cin >> target;
 
     if (text.empty() || target.empty()) {
         std::cout << "Invalid input! Please try again." << std::endl;
