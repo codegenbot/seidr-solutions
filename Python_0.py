@@ -1,11 +1,10 @@
-def check_numbers(numbers, threshold): 
-    numbers.sort()
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) < threshold:
-            return True
-    return False
+def check_numbers(numbers, threshold):
+    count = 0
+    for num in numbers:
+        if int(num) > threshold:
+            count += 1
+    return count
 
-threshold = 5
-numbers = [1, 6, 10, 4]
+numbers = input("Enter numbers separated by space: ").split()
+threshold = int(input("Enter threshold value: "))
 result = check_numbers(numbers, threshold)
-print(result)
