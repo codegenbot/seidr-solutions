@@ -1,6 +1,3 @@
-```
-from typing import List, Any
-
-
-def filter_integers(lst: List[Any]) -> List[int]:
-    return [value for value in lst if isinstance(value, int)]
+def filter_integers(input_str: str) -> List[int]:
+    result = [int(num) for num in input_str.split() if num.isdigit()]
+    return result
