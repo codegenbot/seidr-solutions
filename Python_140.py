@@ -10,5 +10,4 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-def check(func):
-    print(func("Hello World!"))
+check(fix_spaces)
