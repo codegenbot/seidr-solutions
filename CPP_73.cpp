@@ -10,8 +10,8 @@ int smallest_change(vector<int> arr) {
         if (arr[left] != arr[right]) {
             changes++;
             for (int i = left; i <= right; i++) {
-                if (arr[i] == arr[left]) {
-                    swap(arr[i], arr[right]);
+                if (arr[i] == arr[right]) {
+                    swap(arr[i], arr[left]);
                     break;
                 }
             }
