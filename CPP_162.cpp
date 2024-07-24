@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include <stringstream>
+#include <sstream>
 #include <iomanip>
 #include <digest.h>
 
