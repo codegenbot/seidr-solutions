@@ -5,9 +5,7 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string
+        return string + string[::-1]
     for i in range(len(string)):
-        prefix = string[:i]
-        postfix = string[i:][::-1]
-        if prefix + postfix == (string + postfix):
-            return string + postfix
+        if string[:i][::-1] + string[i:][::-1] == string:
+            return string[:i][::-1] + string + string[len(string)-i:][::-1]
