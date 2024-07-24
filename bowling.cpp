@@ -1,22 +1,47 @@
 int score(string s) {
-    int sum = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; ++i) {
-        if (s[i] == 'X') {
+    int sum = 0, frame = 0, ball = 0;
+    for (char c : s) {
+        if (c == 'X') {
             sum += 10;
-            sum += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - (s[i + 1] - '0') : (s[i + 1] - '0') + (s[i + 2] - '0');
-            ++frame;
-        } else if (s[i] == '/') {
-            sum += 10 - (s[i - 1] - '0');
-            sum += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-            ++frame;
-        } else if (s[i] >= '0' && s[i] <= '9') {
-            sum += s[i] - '0';
-            if (s[i + 1] == '/') {
-                sum += 10 - (s[i] - '0');
+            if (frame < 9) {
+                if (s[ball + 1] == 'X') {
+                    sum += 10;
+                    if (s[ball + 2] == 'X') {
+                        sum += 10;
+                    } else {
+                        sum += s[ball + 2] - '0';
+                    }
+                } else {
+                    sum += s[ball + 1] - '0';
+                    if (s[ball + 2] == '/') {
+                        sum += 10 - (s[ball + 1] - '0');
+                    } else {
+                        sum += s[ball + 2] - '0';
+                    }
+                }
             }
-            ++i;
+            ball++;
+        } else if (c == '/') {
+            sum += 10 - (s[ball - 1] - '0');
+            if (frame < 9) {
+                sum += s[ball + 1] - '0';
+            }
+            ball++;
+        } else {
+            sum += c - '0';
+            if (frame < 9 && c != '-') {
+                if (s[ball + 1] == '/') {
+                    sum += 10 - (c - '0');
+                }
+            }
         }
+        if (c == 'X' || ball % 2 == 1) {
+            frame++;
+        }
+        if (frame == 10) {
+            break;
+        }
+        ball++;
     }
     return sum;
 }
