@@ -1,34 +1,25 @@
-bool solveBoolean(string boolExp) {
-    stack<char> ops;
-    stack<bool> values;
-
-    for (int i = 0; i < boolExp.length(); i++) {
-        if (boolExp[i] == '&') {
-            while (!ops.empty() && ops.top() == '|') {
-                ops.pop();
-                values.pop();
+bool solveBoolean(string boolean) {
+    stack<char> s;
+    for (int i = 0; i < boolean.length(); i++) {
+        if (boolean[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (!values.empty()) {
-                values.push(values.top() && values.pop());
+            if (!s.empty() && s.top() == '|') {
+                s.pop();
+                return false;
+            } else if (!s.empty()) {
+                s.pop();
+                return true;
             } else {
-                values.push(false);
+                return false;
             }
-        } else if (boolExp[i] == '|') {
-            while (!ops.empty()) {
-                ops.pop();
-                values.pop();
-            }
-            if (!values.empty()) {
-                values.push(values.top() || values.pop());
-            } else {
-                values.push(false);
-            }
-        } else if (boolExp[i] == 'T' || boolExp[i] == 't') {
-            values.push(true);
-        } else if (boolExp[i] == 'F' || boolExp[i] == 'f') {
-            values.push(false);
+        } else if (boolean[i] != '&' && boolean[i] != '|') {
+            s.push(boolean[i]);
         }
     }
-
-    return values.top();
+    while (!s.empty()) {
+        s.pop();
+    }
+    return s.empty();
 }
