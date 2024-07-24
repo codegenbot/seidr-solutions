@@ -2,19 +2,19 @@
 #include <map>
 #include <cctype>
 
-bool check_dict_case(const std::map<std::string, std::string>& dict) {
+bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (const auto& pair : dict) {
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
         if (!allLower && !allUpper)
             return false;
 
         if (allLower) {
-            if (std::tolower(pair.first[0]) != std::tolower(pair.second[0]))
+            if (it->first.find((char)toupper(it->first[0])) != 0)
                 allLower = false;
         } else {
-            if (std::toupper(pair.first[0]) != std::toupper(pair.second[0]))
+            if (it->first.find((char)tolower(it->first[0])) != 0)
                 allUpper = false;
         }
     }
@@ -23,17 +23,25 @@ bool check_dict_case(const std::map<std::string, std::string>& dict) {
 }
 
 int main() {
-    std::map<std::string, std::string> dict;
+    map<string, string> dict;
+    // Get user input
+    int n;
+    std::cout << "Enter the number of key-value pairs: ";
+    std::cin >> n;
 
-    // Read input from user
-
-    bool result = check_dict_case(dict);
-
-    if (result) {
-        std::cout << "The dictionary is either entirely lower-case or entirely upper-case." << std::endl;
-    } else {
-        std::cout << "The dictionary contains both lower-case and upper-case words." << std::endl;
+    for (int i = 0; i < n; ++i) {
+        string key, value;
+        cout << "Enter key: ";
+        cin >> key;
+        cout << "Enter value: ";
+        cin >> value;
+        dict[key] = value;
     }
+
+    if (check_dict_case(dict))
+        cout << "The dictionary is either all lower case or all upper case." << endl;
+    else
+        cout << "The dictionary contains both lower and upper case keys." << endl;
 
     return 0;
 }
