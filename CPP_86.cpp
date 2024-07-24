@@ -1,4 +1,3 @@
-```cpp
 string anti_shuffle(string s) {
     string reversed = s;
     reverse(reversed.begin(), reversed.end());
