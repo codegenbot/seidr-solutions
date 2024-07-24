@@ -1,28 +1,33 @@
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    frames = game.split("/")
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            strike = False
-            spare = False
-            if (
-                len(frames) - i > 1
-                and frames[i + 1].isdigit()
-                and frames[i + 2].isdigit()
-            ):
-                spare = True
-                score += int(frames[i]) + int(frames[i + 1])
-                i += 1
-            else:
-                if i < len(frames) - 1 and frames[i + 1].isdigit():
-                    strike = True
-                score += int(frames[i])
-        elif frames[i] == "X":
-            score += 10
-            if not spare and not strike:
-                score += int(frames[i - 1])
+    for i, frame in enumerate(frames.split('/')):
+        if len(frame) == 1:
+            score += 10 + (10 - int(frame)) * 2 if i > 0 else 30
+        elif len(frame) == 2:
+            a, b = map(int, frame)
+            if a == 10:  # strike
+                score += 10 + (b + next_frames.get(i+1, 0)[0] or 0) * 2
+            else:  # spare
+                score += 10 + b
         else:
-            first_roll = int(frames[i][:-1])
-            second_roll = int(frames[i][-1])
-            score += first_roll + second_roll
+            a, b = map(int, frame)
+            if i == 9 and a != 10:
+                score += a + b + next_frames.get(i+1, [0])[0]
+            else:
+                score += a + b
     return score
+
+next_frames = collections.defaultdict(list)
+
+def get_input():
+    while True:
+        try:
+            frames = input("Enter the bowling frames (e.g., 10/10/.../): ")
+            if len(frames) > 20: 
+                break
+        except ValueError:
+            print("Invalid input. Please enter a valid sequence of numbers and '/'.")
+
+frames = get_input()
+print(bowling_score(frames))
