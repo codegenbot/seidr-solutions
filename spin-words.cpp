@@ -1,26 +1,48 @@
+Here's the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string s) {
-    std::string result = "";
-    std::size_t prev = 0;
-    for (std::size_t i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == ' ') {
-            std::string word = s.substr(prev, i - prev);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            prev = i + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordCount = 0;
+    
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ') {
+            wordCount++;
+            result += str.substr(i - str.find_last_of(" ") + 1, (i - (str.find_last_of(" "))) - 1);
+        }
+        else {
+            continue;
         }
     }
-    return result.substr(0, result.size() - 1);
+    
+    for(int i = str.length() - 1; i >= 0; i--) {
+        if(str[i] == ' ') {
+            result += str.substr(i + 1) + " ";
+        } 
+        else {
+            if(wordCount > 0 && strlen(str.c_str()) >= 5) {
+                for(int j = strlen(str.c_str()) - 1; j >= 0; j--) {
+                    result += str[cstrrev(&str[j])];
+                }
+                wordCount--;
+            } 
+            else {
+                result += str[i];
+            }
+        }
+    }
+    
+    return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << spinWords(s) << std::endl;
-    }
+    string input;
+    cin >> input;
+    cout << spinWords(input) << endl;
     return 0;
 }
