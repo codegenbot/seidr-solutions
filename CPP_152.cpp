@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,13 +19,13 @@ bool checkVectorEquality(vector<int> a, vector<int> b) {
 
 int main() {
     vector<int> vec1 = {1,2,3,5};
-    vector<int> vec2 = {-1,2,3,4};
+    vector<int> vec2 = {1,-2,3,4};
 
     if(checkVectorEquality(vec1,vec2)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
     }
-
+    
     return 0;
 }
