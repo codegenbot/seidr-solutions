@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
 std::vector<int> incr_list(std::vector<int> l) {
@@ -13,12 +13,8 @@ std::vector<int> incr_list(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> l = {1, 2, 3, 4, 5};
-    assert(issame(incr_list(l)[0], 2));
-    assert(issame(incr_list(l)[1], 3));
-    assert(issame(incr_list(l)[2], 4));
-    assert(issame(incr_list(l)[3], 5));
-    assert(issame(incr_list(l)[4], 6));
-
+    std::vector<int> v1 = {1, 2, 3, 4};
+    std::vector<int> v2 = incr_list({0, 1, 2, 3});
+    assert(issame(v1, v2));
     return 0;
 }
