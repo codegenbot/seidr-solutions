@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
+using namespace std;
+
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 double shoppingList(double prices[], double discounts[], int n) {
     double total = 0;
@@ -26,3 +28,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(&prices[0], &discounts[0], n) << endl;
     return 0;
+}
