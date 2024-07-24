@@ -1,28 +1,31 @@
+````
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+int findIndices(string text, string target) {
+    vector<int> indices;
     int prevLast = 0;
-    while ((int last = text.find(target, prevLast)) != std::string::npos) {
+    while ((int last = text.find(target, prevLast)) != string::npos) {
         indices.push_back(last);
         prevLast = last + 1;
     }
-    return indices;
+    return indices.size();
 }
 
 int main() {
-    std::string text;
+    string text;
     cin >> text;
 
-    std::string target;
+    string target;
     cin >> target;
 
-    std::vector<int> indices = findIndices(text, target);
+    vector<int> indices = findIndices(text, target);
     for (int i : indices) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
-
+    cout << endl;
     return 0;
+}
+```
