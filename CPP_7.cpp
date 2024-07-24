@@ -3,16 +3,14 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+    std::vector<std::string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != string::npos) {
+        if (str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
@@ -20,14 +18,30 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
-    string substring = "ap";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
+    int num_strings;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
 
-    if (issame(filtered_strings, {"apple"})) {
-        cout << "The filtered strings are the same as expected." << endl;
+    std::vector<std::string> input_strings(num_strings);
+    for (int i = 0; i < num_strings; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, input_strings[i]);
+    }
+
+    std::string substring;
+    std::cout << "Enter the substring: ";
+    std::cin >> substring;
+
+    std::vector<std::string> output = filter_by_substring(input_strings, substring);
+
+    if (issame(output, input_strings)) {
+        std::cout << "No strings contain the substring." << std::endl;
     } else {
-        cout << "The filtered strings are not the same as expected." << endl;
+        std::cout << "Strings containing the substring: ";
+        for (const auto& str : output) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     }
 
     return 0;
