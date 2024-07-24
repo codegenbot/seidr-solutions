@@ -1,3 +1,6 @@
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <string>
