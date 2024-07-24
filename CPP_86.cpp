@@ -1,19 +1,19 @@
 #include <algorithm>
-using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
-            result += ' ';
+            result += " ";
         } else {
             string word;
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
-                word += s[j];
+            do {
+                word += s[i];
+                i++;
+            } while (i < s.length() && s[i] <= s[i - 1]);
+            for (char c : word) {
+                result += c;
             }
-            sort(word.begin(), word.end());
-            result += word;
-            i = j - 1;
         }
     }
     return result;
