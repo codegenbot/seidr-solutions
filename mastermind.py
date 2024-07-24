@@ -1,6 +1,6 @@
 ```
-code = str(input("Enter Mastermind code: "))
-guess = str(input("Enter your guess: "))
+code = input("Enter Mastermind code: ")
+guess = input("Enter your guess: ")
 black_pegs = 0
 white_pegs = 0
 for i in range(len(code)):
