@@ -1,8 +1,9 @@
+```
 #include <vector>
 #include <iostream>
 #include <algorithm>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -11,19 +12,19 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
 
     while (!lst.empty()) {
-        int min_val = *std::min_element(lst.begin(), lst.end());
-        int max_val = *std::max_element(lst.begin(), lst.end());
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
 
-        auto it = std::find_if(lst.begin(), lst.end(),
+        auto it = find_if(lst.begin(), lst.end(),
             [&](int x) { return x == min_val; });
         result.push_back(*it);
         lst.erase(it);
 
-        it = std::find_if(lst.begin(), lst.end(),
+        it = find_if(lst.begin(), lst.end(),
             [&](int x) { return x == max_val; });
         result.push_back(*it);
         lst.erase(it);
@@ -33,15 +34,15 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
-    std::cout << "Enter numbers separated by space: ";
+    vector<int> input;
+    cout << "Enter numbers separated by space: ";
     int temp;
-    while(std::cin >> temp) {
+    while (cin >> temp) {
         input.push_back(temp);
-        if(std::cin.peek() == '\n') break;
+        if (cin.peek() == '\n') break;
     }
     if(input.empty()) return 0;
-    std::vector<int> output = strange_sort_list(input);
-    for(int i : output) std::cout << i << " ";
-    std::cout << std::endl;
+    vector<int> output = strange_sort_list(input);
+    for(int i : output) cout << i << " ";
+    cout << endl;
 }
