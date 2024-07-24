@@ -1,55 +1,19 @@
-#ifndef LEADERS_H
-#define LEADERS_H
-
+#include <climits>
+#include <algorithm>
 #include <vector>
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums);
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
+    int n = nums.size();
+    int maxRight = INT_MIN;
 
-#endif
-``` 
-
-leaders.cpp
-```cpp
-#include <vector>
-#include "leaders.h"
-
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
-    if (nums.empty()) {
-        return leaders;
-    }
-
-    int maxRight = nums.back();
-    leaders.push_back(maxRight);
-
-    for (int i = nums.size() - 2; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
+            leaders.push_back(nums[i]);
             maxRight = nums[i];
-            leaders.insert(leaders.begin(), maxRight);
         }
     }
 
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-```
-
-main.cpp
-```cpp
-#include <iostream>
-#include "leaders.h"
-using namespace std;
-
-int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
-
-    cout << "Leaders: ";
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-```
