@@ -1,10 +1,5 @@
-cipher1 = input().strip()
-cipher2 = input().strip()
-message = input().strip()
-
-deciphered_message = ""
-for char in message:
-    index = cipher2.index(char)
-    deciphered_message += cipher1[index]
-
+cipher1 = input()
+cipher2 = input()
+message = input()
+deciphered_message = "".join(cipher2[cipher1.index(char)] for char in message)
 print(deciphered_message)
