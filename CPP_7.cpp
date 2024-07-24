@@ -8,19 +8,20 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-void filter_by_substring(std::vector<std::string>& vec, const std::string& sub){
-    vec.erase(std::remove_if(vec.begin(), vec.end(), [sub](const std::string& s){
+void filter_by_substring(const std::vector<std::string>& vec, const std::string& sub){
+    std::vector<std::string> tempVec = vec;
+    tempVec.erase(std::remove_if(tempVec.begin(), tempVec.end(), [sub](const std::string& s){
         return s.find(sub) == std::string::npos;
-    }), vec.end());
+    }), tempVec.end());
 }
 
 int main() {
     std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> expected = {"grunt", "prune"};
     
-    std::vector<std::string> input = {"grunt", "trumpet", "prune", "gruesome"};
-    filter_by_substring(input, "run");
-    assert(issame(input, expected));
+    filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    
+    assert(issame(vec, expected));
     
     return 0;
 }
