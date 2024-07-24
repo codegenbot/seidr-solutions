@@ -1,42 +1,29 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
+    std::size_t prev = 0;
+    for (std::size_t i = 0; i <= sentence.size(); ++i) {
+        if (i == sentence.size() || sentence[i] == ' ') {
+            std::string word = sentence.substr(prev, i - prev);
+            if (word.size() >= 5) {
                 std::reverse(word.begin(), word.end());
-                result += word + " ";
-                word = "";
-            } else {
-                result += word + " ";
-                word = "";
             }
-        } else {
-            word += str[i];
+            result += word + " ";
+            prev = i + 1;
         }
     }
-
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
-        result += word;
-    } else {
-        result += word;
-    }
-
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-
+    std::string sentence;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, sentence);
+        if (sentence == "exit") break;
+        std::cout << spinWords(sentence) << std::endl;
+    }
     return 0;
 }
