@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string longest(vector<string> strings){
+string longest(const vector<string>& strings){
     if(strings.empty()){
         return "None";
     }
@@ -18,7 +18,7 @@ string longest(vector<string> strings){
     return longestStr;
 }
 
-int main() {
+int main(){
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
