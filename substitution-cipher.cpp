@@ -6,15 +6,11 @@ namespace {
             size_t pos = cipher2.find(std::tolower(c)); 
             if (pos != std::string::npos) {
                 char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-                if (std::find_if(cipher1.begin(), cipher1.end(), [originalCase](char x) { return std::tolower(x) == std::tolower(originalCase); }) != cipher1.end()) {
-                    result += c;
+                size_t pos1 = std::string(cipher1).find(std::tolower(originalCase));
+                if (pos1 != std::string::npos) {
+                    result += cipher2[pos];
                 } else {
-                    size_t pos2 = cipher1.find(std::tolower(c)); 
-                    if (pos2 != std::string::npos) {
-                        result += cipher1[pos2];
-                    } else {
-                        result += c; 
-                    }
+                    result += c; 
                 }
             }
         }
