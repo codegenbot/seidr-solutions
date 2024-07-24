@@ -3,60 +3,49 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
-    int min_diff = INT_MAX;
-    int index = 0;
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
     
-    for (int i = 1; i <= n / 2; ++i) {
-        int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
         
         for (int j = 0; j < i; ++j)
-            left_sum += vec[j];
+            leftSum += vec[j];
         for (int j = i; j < n; ++j)
-            right_sum += vec[j];
+            rightSum += vec[j];
         
-        if (left_sum == right_sum) {
-            return {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
-        } else if (abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            index = i;
+        if (leftSum == rightSum) {
+            return {{vec[0], vec[1]}, vec.substr(2)};
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    int left_sum = 0, right_sum = 0;
-    for (int i = 0; i < n; ++i)
-        left_sum += vec[i];
-    for (int i = 1; i < n; ++i)
-        right_sum += vec[i];
+    vector<int> left, right;
+    for (int i = 0; i < splitIndex; ++i)
+        left.push_back(vec[i]);
+    for (int i = splitIndex; i < n; ++i)
+        right.push_back(vec[i]);
     
-    if (left_sum == right_sum) {
-        return {{vec.begin(), vec.end()}, {}};
-    } else {
-        int diff = abs(left_sum - right_sum);
-        vector<int> left, right;
-        for (int i = 0; i < n - index; ++i)
-            left.push_back(vec[i]);
-        for (int i = index; i < n; ++i)
-            right.push_back(vec[i]);
-        return {left, right};
-    }
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
-    }
-    
+    for (int &x : vec) cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
+    cout << "{";
     for (int i = 0; i < result.first.size(); ++i)
         cout << result.first[i] << " ";
-    cout << "] [";
+    cout << "}, {";
     for (int i = 0; i < result.second.size(); ++i)
         cout << result.second[i] << " ";
-    cout << "]" << endl;
-    
+    cout << "0}" << endl;
     return 0;
 }
