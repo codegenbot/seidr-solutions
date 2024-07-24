@@ -1,5 +1,7 @@
+```cpp
+#include <vector>
+#include <iostream> 
 #include <initializer_list>
-
 using namespace std;
 
 bool isPrime(int n){
@@ -43,3 +45,5 @@ int main() {
     else
         cout << "No primes found in the list." << endl;
     return 0;
+
+}
