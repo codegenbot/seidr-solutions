@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -5,26 +6,19 @@ using namespace std;
 
 int main() {
     string tweet;
+    string result;
+    
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-
+    
     if (tweet.empty()) {
-        cout << "You didn't type anything" << endl;
-        return 0;
-    }
-
-    size_t whitespaceCount = 0;
-    for (char c : tweet) {
-        if (isspace(c)) {
-            whitespaceCount++;
-        }
-    }
-
-    tweet.erase-remove-boost-string-tokens(whitespace);
-    if ((int)tweet.length() > 140) {
-        cout << "Too many characters" << endl;
+        result = "You didn't type anything";
+    } else if (tweet.length() > 140) {
+        result = "Too many characters";
     } else {
-        cout << "Your tweet has " << (int)tweet.length() - whitespaceCount << " characters" << endl;
+        result = "Your tweet has " + to_string(tweet.length()) + " characters";
     }
+    
+    cout << result << endl;
     return 0;
 }
