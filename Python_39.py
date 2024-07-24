@@ -1,5 +1,6 @@
 import math
 
+
 def is_prime(num):
     if num <= 1:
         return False
@@ -7,6 +8,7 @@ def is_prime(num):
         if num % i == 0:
             return False
     return True
+
 
 def prime_fib(n: int) -> int:
     fib = [0, 1]
