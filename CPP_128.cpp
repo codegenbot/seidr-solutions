@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 
 int prod_signs(vector<int> arr) {
