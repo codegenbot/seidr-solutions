@@ -1,4 +1,5 @@
 #include <stack>
+#include <string>
 
 bool solveBoolean(string expression) {
     stack<char> s;
