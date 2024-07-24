@@ -21,8 +21,8 @@ int main() {
         groundSnow += round(snowFallRate - (groundSnow * snowMeltingRate));
     }
 
-    cout << fixed << setprecision(2) 
-         << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow;
+    cout << fixed << setprecision(2);
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << groundSnow << endl;
 
     return 0;
 }
