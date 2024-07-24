@@ -1,19 +1,33 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-multimap<int, string> sorted_numbers;
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-for (string::size_type i = 0; i < numbers.size(); ++i) {
-    string num;
-    while (i < numbers.size() && numbers[i] != ' ') {
-        num += numbers[i];
-        ++i;
+string sort_numbers(string numbers){
+    vector<string> number_strings;
+    stringstream ss(numbers);
+    string token;
+    while (ss >> token) {
+        number_strings.push_back(token);
     }
-    sorted_numbers.insert({num_map[num], num});
-}
-
-string result;
-for (const auto& pair : sorted_numbers) {
-    result += pair.second + " ";
-}
-
-return result;
+    
+    sort(number_strings.begin(), number_strings.end(), [&](const string &a, const string &b) {
+        return number_map[a] < number_map[b];
+    });
+    
+    string sorted_numbers;
+    for (const string &num : number_strings) {
+        sorted_numbers += num + " ";
+    }
+    
+    sorted_numbers.pop_back(); // Remove the extra space at the end
+    return sorted_numbers;
 }
