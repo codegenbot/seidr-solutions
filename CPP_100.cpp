@@ -4,9 +4,9 @@
 using namespace std;
 
 vector<vector<int>> make_a_pile(int n) {
-    vector<vector<int>> pile(n);
+    vector<vector<int>> pile;
     for (int i = 1; i <= n; i++) {
-        pile[i-1].push_back(i*2);
+        pile.push_back({i*2, i*2 - 1});
     }
     return pile;
 }
