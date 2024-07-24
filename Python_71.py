@@ -1,5 +1,8 @@
-a = float(input("Enter the first side of the triangle: "))
-b = float(input("Enter the second side of the triangle: "))
-c = float(input("Enter the third side of the triangle: "))
+import math
 
-print(triangle_area(a, b, c))
+def triangle_area(a, b, c):
+    if a + b > c and a + c > b and b + c > a:
+        s = (a + b + c) / 2
+        return round(math.sqrt(s * (s - a) * (s - b) * (s - c)), 2)
+    else:
+        return -1
