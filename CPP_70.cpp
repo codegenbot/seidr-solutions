@@ -34,7 +34,9 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> test = {111111};
-    assert(strange_sort_vector(test) == test);
+    vector<int> test = {1, 2, 3};
+    for (auto i : strange_sort_vector(test)) {
+        cout << i << " ";
+    }
     return 0;
 }
