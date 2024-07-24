@@ -11,37 +11,31 @@ bool solveBoolean(string expression) {
             return false;
     }
 
-    int start = 0, end = 0;
-    while ((end = expression.find('|', start)) != string::npos) {
-        string left = expression.substr(start, end - start);
-        string right = expression.substr(end + 1);
-
-        if (solveBoolean(left) && solveBoolean(right))
+    int pos = 0;
+    while (pos < expression.size()) {
+        size_t start = pos;
+        if (expression[pos] == '|') {
+            pos++;
+            continue;
+        } else if (expression[pos] == '&') {
+            pos += 2;
+            continue;
+        }
+        size_t end = pos + 1;
+        while (end < expression.size() && (expression[end] == 'T' || expression[end] == 't' ||
+                                            expression[end] == 'F' || expression[end] == 'f' ||
+                                            expression[end] == '|' || expression[end] == '&')) {
+            end++;
+        }
+        string part = expression.substr(start, end - start);
+        if (expression[start] == 'T' || expression[start] == 't')
             return true;
+        else if (expression[start] == 'F' || expression[start] == 'f')
+            return false;
 
-        start = end + 1;
+        pos = end;
     }
-
-    while ((end = expression.find('&', start)) != string::npos) {
-        string left = expression.substr(start, end - start);
-        string right = expression.substr(end + 1);
-
-        if (solveBoolean(left) && solveBoolean(right))
-            return true;
-
-        start = end + 1;
-    }
-
-    if (start < expression.size()) {
-        string last = expression.substr(start);
-
-        if (last.size() > 0 && (last[0] == 'T' || last[0] == 't'))
-            return true;
-
-        return false;
-    }
-
-    return false;
+    return true;
 }
 
 int main() {
