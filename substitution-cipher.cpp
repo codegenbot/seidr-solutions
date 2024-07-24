@@ -12,17 +12,7 @@ namespace {
                 } else {
                     size_t pos2 = cipher1.find(std::tolower(c));
                     if (pos2 != std::string::npos) {
-                        char mappedChar = cipher2[pos];
-                        if (std::isupper(mappedChar)) {
-                            for (char x : cipher1) {
-                                if (std::tolower(x) == std::tolower(mappedChar)) {
-                                    result += x;
-                                    break;
-                                }
-                            }
-                        } else {
-                            result += mappedChar;
-                        }
+                        result += cipher1[pos2];
                     } else {
                         result += c;
                     }
@@ -30,5 +20,5 @@ namespace {
             }
         }
         return result;
-    }
+    };
 };
