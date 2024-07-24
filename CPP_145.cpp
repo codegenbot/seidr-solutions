@@ -4,9 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
 bool compare_by_sum(int a, int b) {
     int sum_a = 0, sum_b = 0;
