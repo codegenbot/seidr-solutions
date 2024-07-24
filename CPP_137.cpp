@@ -2,18 +2,7 @@
 #include <string>
 using namespace std;
 
-// Declare the function
-boost::any compare_one(boost::any a, boost::any b);
-
-int main() {
-    assert(compare_one(5, 10) == 10);
-    assert(compare_one(3.14f, 2.71f) == 3.14f);
-    assert(compare_one("abc.123", "def,456") == "def,456");
-
-    return 0;
-}
-
-boost::any compare_one(boost::any a, boost::any b) {
+int compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int int_a = boost::any_cast<int>(a);
         int int_b = boost::any_cast<int>(b);
@@ -42,10 +31,10 @@ boost::any compare_one(boost::any a, boost::any b) {
             str_b.replace(str_b.find('.'), 1, ",");
         }
         if (stof(str_a) > stof(str_b)) {
-            return str_a;
+            return stof(str_a);
         } else if (stof(str_b) > stof(str_a)) {
-            return str_b;
+            return stof(str_b);
         }
     }
-    return "None";
+    return 0;
 }
