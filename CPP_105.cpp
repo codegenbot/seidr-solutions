@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -45,9 +44,20 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3};
-    vector<string> result = by_length(arr);
-    for (string s : result) {
+    vector<int> arr1 = {1, 2, 3};
+    vector<string> result1 = by_length(arr1);
+
+    vector<int> arr2 = {4, 5, 6};
+    vector<string> result2 = by_length(arr2);
+
+    for (string s : result1) {
         cout << s << "\n";
     }
+    cout << "-----------------\n";
+
+    for (string s : result2) {
+        cout << s << "\n";
+    }
+
+    return 0;
 }
