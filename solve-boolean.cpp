@@ -1,17 +1,29 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <stack>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr;
+    std::stack<bool> operands;
+
     for (char c : expr) {
-        lowercaseExpr += std::tolower(c);
+        if (c == 't' || c == 'f') {
+            operands.push(c == 't');
+        } else if (c == '&' || c == '|') {
+            bool operand2 = operands.top();
+            operands.pop();
+            bool operand1 = operands.top();
+            operands.pop();
+
+            if (c == '&') {
+                operands.push(operand1 && operand2);
+            } else if (c == '|') {
+                operands.push(operand1 || operand2);
+            }
+        }
     }
-    if (lowercaseExpr == "false") {
-        return false;
-    }
-    // Add your existing evaluation logic using lowercaseExpr
-    return true;
+
+    return operands.top();
 }
 
 int main() {
