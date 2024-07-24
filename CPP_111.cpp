@@ -2,10 +2,6 @@
 #include <map>
 #include <string>
 #include <cctype>
-#include <unordered_map>
-#include <assert>
-#include <ext/hashtable.h>
-#include <cassert>
 
 using namespace std;
 
