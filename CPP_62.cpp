@@ -35,6 +35,6 @@ int main() {
     } else {
         // Output does not match expected result
     }
-    
+
     return 0;
 }
