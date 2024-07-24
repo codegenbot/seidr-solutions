@@ -4,8 +4,7 @@
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    std::cin >> text >> target;
     
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
