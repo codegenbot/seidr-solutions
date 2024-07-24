@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> test = {123, 456, 789};
-    int result = specialFilter(test);
-    std::cout << "Result: " << result << std::endl;
+    std::vector<int> nums = {11, 12, 13, 14, 15};
+    int result = specialFilter(nums);
+    std::cout << "The number of integers in the given vector that satisfy the conditions is: " << result << std::endl;
     return 0;
 }
