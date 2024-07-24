@@ -1,9 +1,9 @@
 ```
-def check(input_value, input_list, total_sum):
-    if input_value == "Correct":
-        return f"Congratulations! The sum {total_sum} is in the list."
+def check(result):
+    if result == "Correct":
+        return 1
     else:
-        return f"Sorry, the sum {total_sum} is not in the list."
+        return 0
 
 if __name__ == "__main__":
     input_list = list(range(1, 19))
@@ -15,4 +15,4 @@ if __name__ == "__main__":
         result = "Correct"
     else:
         result = "Incorrect"
-    print(check(result, input_list, total_sum))
+    print(check(result))
