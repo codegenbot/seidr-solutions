@@ -41,7 +41,7 @@ bool solveBoolean(string booleanExpression) {
         }
     }
 
-    return operands.top().compare("TF") == 0;
+    return (operands.top() == "TF") ? false : true;
 }
 
 int main() {
