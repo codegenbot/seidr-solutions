@@ -1,41 +1,40 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    for (int i = 0; i < 6; i++) {
-        int countCode = 0;
-        int countGuess = 0;
-
-        for (int j = 0; j < 4; j++) {
-            if (code[j] == (char)(i + 'A')) {
-                countCode++;
-            }
-            if (guess[j] == (char)(i + 'A')) {
-                countGuess++;
+int blackPegs(string code, string guess) {
+    int whitePegsCount = whitePegs(code, guess);
+    int blackPegsCount = 0;
+    for(int i=0; i<4; i++) {
+        bool correctColorWrongPosition = false;
+        for(int j=0; j<4; j++) {
+            if(code[j] == guess[i] && i != j) {
+                correctColorWrongPosition = true;
+                break;
             }
         }
-
-        whitePegs += min(countCode, countGuess) - blackPegs;
+        if(!correctColorWrongPosition) {
+            blackPegsCount++;
+        }
     }
-
-    return make_pair(whitePegs, blackPegs).second;
+    return blackPegsCount - whitePegsCount;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << mastermind(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
