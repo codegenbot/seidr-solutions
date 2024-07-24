@@ -2,20 +2,6 @@
 #include <vector>
 using namespace std;
 
-int skjkasdkd(vector<int> lst){
-    int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime)
-            maxPrime = i;
-    }
-    int sumOfDigits = 0;
-    while(maxPrime > 0){
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
-}
-
 bool isPrime(int n){
     if(n <= 1)
         return false;
@@ -24,6 +10,28 @@ bool isPrime(int n){
             return false;
     }
     return true;
+
+};
+
+int maxPrime(vector<int> lst){
+    int maxPrime = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
+    }
+    return maxPrime;
+
+};
+
+int sumOfDigits(int n){
+    int sum = 0;
+    while(n > 0){
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+
+};
 
 int main() {
     vector<int> lst;
@@ -35,6 +43,10 @@ int main() {
         int x; cin >> x; 
         lst.push_back(x);
     }
-    cout << "The sum of digits of the maximum prime is: " << skjkasdkd(lst) << endl;
+    int maxPrimeNum = maxPrime(lst);
+    if(maxPrimeNum > 0)
+        cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
+    else
+        cout << "No primes found in the list." << endl;
     return 0;
 }
