@@ -7,4 +7,4 @@ def longest(strings: List[str]) -> Optional[str]:
 
 strings = input().split()  
 result = longest(strings)  
-print(result)  
+print(result)
