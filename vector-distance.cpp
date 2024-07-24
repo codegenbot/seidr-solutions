@@ -13,8 +13,6 @@ int main() {
         cin >> v1[i];
     }
     
-    cin.ignore(1); // Skip the comma between the two float values
-    
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
     }
