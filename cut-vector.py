@@ -15,8 +15,8 @@ for i in range(1, n):
         min_diff = diff
         cut_index = i
 
-subvector1 = arr[:cut_index+1]
-subvector2 = arr[cut_index+1:]
+subvector1 = cumulative_sum[:cut_index]
+subvector2 = cumulative_sum[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
