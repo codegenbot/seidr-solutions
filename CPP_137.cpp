@@ -15,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string sa = boost::any_cast<string>(a);
         string sb = boost::any_cast<string>(b);
-        if (stod(sa) > stod(sb))
+        if (stof(sa) > stof(sb))
             return a;
-        else if (stod(sa) < stod(sb))
+        else if (stof(sa) < stof(sb))
             return b;
         else
             return boost::any("None");
@@ -25,9 +25,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string sa = boost::any_cast<string>(a);
         double sb = boost::any_cast<double>(b);
-        if (stod(sa) > sb)
+        if (stof(sa) > sb)
             return a;
-        else if (stod(sa) < sb)
+        else if (stof(sa) < sb)
             return b;
         else
             return boost::any("None");
@@ -35,9 +35,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
         double sa = boost::any_cast<double>(a);
         string sb = boost::any_cast<string>(b);
-        if (sa > stod(sb))
+        if (sa > stof(sb))
             return a;
-        else if (sa < stod(sb))
+        else if (sa < stof(sb))
             return b;
         else
             return boost::any("None");
