@@ -10,16 +10,16 @@ string spinWords(string str) {
     
     while (i < str.length()) {
         if (str.find(" ", i) == -1) {
-            if(str.length() >= 5) {
-                reverse(str.begin()+i, str.begin()+str.find(" ", i)+1);
-            }
-            result += str.substr(i);
+            if(str.length() >= 5)
+                for(int j = 0; j < str.length()/2; j++)
+                    swap(str[j], str[str.length()-j-1]);
+            result += str;
             break;
         } else {
             int j = str.find(" ", i);
-            if (j + 1 <= str.length()) {
-                if(str.length() >= 5) {
-                    reverse(str.begin()+i, str.begin()+j+1);
+            if (j + 1 <= str.length() && isupper(str.begin()+(j+1))) {
+                for(int k = 0; k < j/2; k++) {
+                    swap(str[k], str[j - k - 1]);
                 }
             }
             result += str.substr(i, j - i);
