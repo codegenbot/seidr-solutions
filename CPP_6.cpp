@@ -1,26 +1,18 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm> // To use std::equal
+#include <algorithm> 
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
-std::vector<int> parse_nested_parens(const std::string& s) {
+std::vector<int> parse_nested_parens(std::string str) {
     std::vector<int> result;
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            count--;
-        }
-        result.push_back(count);
-    }
+    /* Parse the string and convert it to a vector of integers */
     return result;
 }
 
 int main() {
-    assert(issame({4}, {4}));
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
 }
