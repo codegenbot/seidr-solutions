@@ -25,7 +25,7 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::vector<int> vec1;
+    std::vector<int> vec1(n);
     int size = 0;
     while (size < n) {
         int x;
@@ -34,11 +34,11 @@ int main() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        vec1.push_back(x); 
+        vec1[size] = x; 
         size++;
     }
 
-    std::vector<int> vec2;
+    std::vector<int> vec2(n);
     size = 0;
     while (size < n) {
         int x;
@@ -47,7 +47,7 @@ int main() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        vec2.push_back(x); 
+        vec2[size] = x; 
         size++;
     }
 
