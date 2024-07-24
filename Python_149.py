@@ -5,4 +5,4 @@ def sorted_list_sum(words=None):
     else:
         lst = [word.strip().lower() for word in words]
     
-    return sorted([word for word in lst if len(word) % 2 == 0])
+    return sum(len(word) for word in lst if len(word) % 2 == 0)
