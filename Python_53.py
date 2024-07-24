@@ -1,8 +1,12 @@
-```
 def add_numbers():
     print("Please enter two numbers.")
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    return x + y
+    while True:
+        try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            return x + y
+        except ValueError:
+            print("Invalid input. Please enter integers.")
 
-print(add_numbers())
+result = add_numbers()
+print(result)
