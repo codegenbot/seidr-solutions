@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def match_parens(lst):
     for s in lst:
