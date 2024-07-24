@@ -1,27 +1,22 @@
-std::string kebabToCamel(const std::string& input) {
+#include <string>
+
+std::string kebabToCamel(const std::string& str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '-') {
-            if (!result.empty()) {
-                if (capitalizeNext) {
-                    result.push_back(' ');
-                    capitalizeNext = false;
-                }
-            } else {
-                capitalizeNext = true;
-            }
-        } else if (capitalizeNext) {
-            result += std::toupper(input[i]);
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] != '-') continue;
+        capitalizeNext = true;
+        result += ' ';
+    }
+    for (int i = 0; i < str.size(); i++) {
+        if (capitalizeNext) {
+            result += toupper(str[i]);
             capitalizeNext = false;
         } else {
-            result += input[i];
+            result += tolower(str[i]);
         }
-    }
-
-    if (!result.empty() && !capitalizeNext) {
-        result[0] = std::tolower(result[0]);
+        if (str[i] == '-') capitalizeNext = true;
     }
 
     return result;
