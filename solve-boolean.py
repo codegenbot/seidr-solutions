@@ -1,11 +1,49 @@
-def solve_boolean(expression):
-    if expression == "T":
+def solve(input):
+    if input == "t":
         return True
-    elif expression == "F":
+    elif input == "f":
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return not (solve_boolean(left) and solve_boolean(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
+    elif "&" in input and "|" in input:
+        left, right = input.split("&")
+        left = left.strip()
+        right = right.strip()
+        if "|" in left:
+            left = eval(left)
+        else:
+            left = left == "t"
+        if "|" in right:
+            right = eval(right)
+        else:
+            right = right == "t"
+        return left and right
+    elif "&" in input:
+        left, right = input.split("&")
+        left = left.strip()
+        right = right.strip()
+        if "|" in left:
+            left = eval(left)
+        else:
+            left = left == "t"
+        if "|" in right:
+            right = eval(right)
+        else:
+            right = right == "t"
+        return left and right
+    elif "|" in input:
+        left, right = input.split("|")
+        left = left.strip()
+        right = right.strip()
+        if "&" in left:
+            left = eval(left)
+        else:
+            left = left == "t"
+        if "&" in right:
+            right = eval(right)
+        else:
+            right = right == "t"
+        return left or right
+    elif "|" in input and "&" not in input:
+        left, right = input.split("|")
+        left = left.strip()
+        right = right.strip()
+        return eval(left) or eval(right)
