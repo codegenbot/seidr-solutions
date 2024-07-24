@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```python
 import math
 
 def factorial(x):
