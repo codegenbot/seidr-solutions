@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -15,15 +14,4 @@ def minPath(grid, k):
         return [p for p in res if len(p) == k]
 
     res = dfs(0, 0, [grid[0][0]], set())
-    min_val = float('inf')
-    for path in res:
-        val = sum(grid[i][x] for i, x in enumerate(path))
-        if val < min_val:
-            min_val = val
-            min_path = path
-    return min_path
-
-# Testing the function
-grid = [[1, 2], [3, 4]]
-k = 2
-print(minPath(grid, k))
+    return min(res, key=lambda x: sum(grid[i][x[i]] for i in range(k)))
