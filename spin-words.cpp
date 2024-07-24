@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -24,6 +25,10 @@ string spinWords(string str) {
         start = end + 1;
     }
     
+    if (!result.empty()) {
+        result.pop_back(); // remove last character (space)
+    }
+    
     return result;
 }
 
@@ -33,6 +38,6 @@ int main() {
         cout << "Enter a string: ";
         getline(cin, str);
         if(str == "quit" || str == "exit") break; 
-        cout << spinWords(str);
+        cout << spinWords(str) << endl;
     }
 }
