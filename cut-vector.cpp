@@ -1,19 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 int main() {
-    int cutIndex;
-    std::cin >> cutIndex;
-
-    std::vector<int> nums = {1, 3, 5, 7, 4, 2}; // Example vector
+    std::vector<int> nums;
+    int num;
+    
+    while(std::cin >> num) {
+        nums.push_back(num);
+    }
+    
     int n = nums.size();
+    int cutIndex = 0;
+    int minDiff = INT_MAX;
 
-    for (int i = 0; i <= cutIndex; i++) {
+    for (int i = 1; i < n; i++) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
+    }
+
+    for (int i = 0; i < cutIndex; i++) {
         std::cout << nums[i] << ' ';
     }
     std::cout << '\n';
 
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex; i < n; i++) {
         std::cout << nums[i] << ' ';
     }
 
