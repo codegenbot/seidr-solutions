@@ -1,13 +1,11 @@
-```
-def solve(K=None):
-    if K is None:
-        N = int(input("Enter another number: "))
-    else:
-        N = K
-    if N < 1:
+def solve(K):
+    if K < 1:
         return '0'
     binary = ''
-    while N > 0:
-        binary = str(N % 2) + binary
-        N //= 2
-    return binary
+    while K > 0:
+        binary = str(K % 2) + binary
+        K //= 2
+    if int(binary, 2) != K: 
+        return str(int(binary, 2)) 
+    else:
+        return binary
