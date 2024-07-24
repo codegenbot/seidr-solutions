@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size())
         return false;
@@ -7,22 +6,25 @@ bool issame(vector<float> a, vector<float> b) {
             return false;
     return true;
 }
-
 std::vector<float> sort_even(std::vector<float> vec) {
     std::vector<float> result;
-    int j = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            while (j < vec.size() && j % 2 != 0) {
+            std::vector<float> temp;
+            int j = i;
+            while (j < vec.size() && j % 2 == 0) {
+                temp.push_back(vec[j++]);
+            }
+            std::sort(temp.begin(), temp.end());
+            for (int k = 0; k < temp.size(); k++) {
+                result.push_back(temp[k]);
                 j++;
             }
-            for (; j < vec.size() && j % 2 == 0; j++) {
-                result.push_back(vec[j]);
+            while (j < vec.size()) {
+                result.push_back(vec[j++]);
             }
         } else {
             result.push_back(vec[i]);
-            if (i < vec.size() - 1)
-                j++;
         }
     }
     return result;
