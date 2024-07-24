@@ -1,8 +1,10 @@
-def add():
+```
+def add(x: int, y: int):
     while True:
         try:
-            x = int(input("Enter first number: "))
-            y = int(input("Enter second number: "))
             return x + y
         except ValueError:
-            print("Invalid input. Please enter integers.")
+            if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+                print("Both inputs must be numbers")
+                x = float(input("Enter a number for x: "))
+                y = float(input("Enter a number for y: "))
