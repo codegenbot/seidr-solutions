@@ -12,9 +12,7 @@ try:
     if not user_strings or not user_substring.strip():
         print("Error: Input cannot be empty.")
     else:
-        result = filter_by_substring(
-            [str(s) for s in user_strings], str(user_substring)
-        )
+        result = filter_by_substring([str(s) for s in user_strings], str(user_substring))
         print(result)
 except ValueError as e:
     print(f"Error: {e}")
