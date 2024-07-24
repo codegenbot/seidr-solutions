@@ -8,3 +8,15 @@ vector<int> unique(vector<int> l) {
     sort(result.begin(), result.end());
     return result;
 }
+
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    if (first == last)
+        return first;
+    iterator i = first + 1;
+    for (; i != last; ++i) {
+        if (*i != *--first) {
+            *++first = *i;
+        }
+    }
+    return ++first;
+}
