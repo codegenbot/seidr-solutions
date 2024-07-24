@@ -1,7 +1,7 @@
 ```
 def fib(n: int):
     if n <= 0:
-        return "Input should be a positive integer."
+        return None
     elif n == 1:
         return 1
     elif n == 2:
