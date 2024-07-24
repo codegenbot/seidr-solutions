@@ -1,4 +1,3 @@
-```
 def sum_of_squares(n):
     result = 0
     while True:
@@ -35,6 +34,6 @@ while True:
         except ValueError:
             print("Invalid input. Please enter numbers.")
 
-    area = (base * height) / 2
-    print("The sum of squares for the area is: ", area)
-    check(area)
+    triangle_area = (base * height) / 2
+    print("The sum of squares for the area is: ", triangle_area)
+    check(triangle_area)
