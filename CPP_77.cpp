@@ -1,4 +1,5 @@
-int main() {
+int main 
+{
     assert(iscuber(0) == false);
     int num;
     std::cout << "Enter a number: ";
