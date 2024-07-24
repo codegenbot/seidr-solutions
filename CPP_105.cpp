@@ -1,16 +1,23 @@
-Here is the completed code:
 ```
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            temp.push_back(i);
+    vector<int> nums;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
+        }
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
     vector<string> result;
-    for (int i : temp) {
-        switch (i) {
+    for (int num : nums) {
+        switch (num) {
             case 1:
                 result.push_back("One");
                 break;
@@ -40,5 +47,6 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
+
     return result;
 }
