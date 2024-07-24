@@ -1,8 +1,4 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,32 +6,25 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int main() {
-    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::string> result = sorted_list_sum(lst);
-
-    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
-
-    return 0;
-}
-
-std::vector<std::string> sorted_list_sum(std::vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
+    // Remove strings with odd lengths from the input list
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
-                 return a < b;
-             } else {
-                 return a.length() < b.length();
-             }
-         });
+    // Sort the resulting list by length and then alphabetically
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() == b.length()) {
+                      return a < b;
+                  } else {
+                      return a.length() < b.length();
+                  }
+              });
 
     return result;
 }
