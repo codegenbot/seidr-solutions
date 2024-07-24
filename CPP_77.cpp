@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 bool iscuber(int num) {
     int c = round(cbrt(num));
