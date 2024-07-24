@@ -1,12 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.empty() && b.empty()) {
-        return true;
-    }
-    
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,6 +17,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 void filter_by_substring(std::vector<std::string>& vec, const std::string& substr) {
     vec.erase(std::remove_if(vec.begin(), vec.end(), [substr](const std::string& s) {
-        return s.find(substr) != std::string::npos;
+        return s.find(substr) == std::string::npos;
     }), vec.end());
+}
+
+int main() {
+    // Add test cases or implementation here
+    return 0;
 }
