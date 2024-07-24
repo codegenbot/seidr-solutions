@@ -1,9 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
-bool areEqualVectors(const std::vector<float>& a, const std::vector<float>& b) {
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,7 @@ bool areEqualVectors(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -33,3 +33,5 @@ std::vector<float> sortEven(std::vector<float> l) {
     }
     return result;
 }
+
+int main() {}
