@@ -11,6 +11,9 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(input().strip())
-result = factorize(n)
-print(result)
+try:
+    n = int(input().strip())
+    result = factorize(n)
+    print(result)
+except Exception as e:
+    print("Error:", e)
