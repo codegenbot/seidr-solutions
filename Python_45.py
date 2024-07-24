@@ -3,7 +3,10 @@ def triangle_area(a, h):
         raise ValueError("Invalid input. Please enter positive numeric values.")
     return 0.5 * a * h
 
+
 try:
-    print(triangle_area(float(input("Enter the length of a side: ")), float(input("Enter the height of the triangle: ")))
-except ValueError as e:
-    print(e)
+    a = float(input("Enter the length of a side: "))
+    h = float(input("Enter the height of the triangle: "))
+    print(triangle_area(a, h))
+except ValueError:
+    print("Invalid input. Please enter numeric values.")
