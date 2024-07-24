@@ -1,23 +1,20 @@
-Here is the completed code:
-
-```cpp
-#include <string>
-#include <sstream>
-
+#include<stdio.h>
+#include<string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    istringstream iss(s);
-    string token;
+    size_t pos = 0;
     int total_apples = 0, total_oranges = 0;
-
-    while (getline(iss, token, ' ')) {
-        if (token.find("apples") != string::npos) {
-            total_apples = stoi(token.substr(0, token.find(" ")));
-        } else if (token.find("oranges") != string::npos) {
-            total_oranges = stoi(token.substr(0, token.find(" ")));
-        }
+    
+    while ((pos = s.find(" apples", pos)) != string::npos) {
+        total_apples = stoi(s.substr(0, pos).erase().erase());
+        break;
     }
-
+    
+    while ((pos = s.find(" oranges", pos)) != string::npos) {
+        total_oranges = stoi(s.substr(0, pos).erase().erase());
+        break;
+    }
+    
     return n - total_apples - total_oranges;
 }
