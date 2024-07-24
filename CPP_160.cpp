@@ -1,46 +1,44 @@
-```c++
 #include <iostream>
 #include <vector>
-#include <string>
 #include <stack>
 
-double do_algebra(std::vector<std::string> ops, std::vector<int> args) {
-    std::stack<int> numStack(args.size()); // Initialize the stack with the size of args
+double do_algebra(std::vector<char> ops, std::vector<double> args) {
+    std::stack<double> numStack;
     for(int i = 0; i < ops.size(); ++i) {
-        if(ops[i] == "+") {
-            int b = numStack.top();
+        if(ops[i] == '+') {
+            double b = numStack.top();
             numStack.pop();
-            int a = numStack.top();
+            double a = numStack.top();
             numStack.pop();
             numStack.push(a + b);
-        } else if(ops[i] == "-") {
-            int b = numStack.top();
+        } else if(ops[i] == '-') {
+            double b = numStack.top();
             numStack.pop();
-            int a = numStack.top();
+            double a = numStack.top();
             numStack.pop();
             numStack.push(a - b);
-        } else if(ops[i] == "*") {
-            int b = numStack.top();
+        } else if(ops[i] == '*') {
+            double b = numStack.top();
             numStack.pop();
-            int a = numStack.top();
+            double a = numStack.top();
             numStack.pop();
             numStack.push(a * b);
-        } else if(ops[i] == "/") {
-            int b = numStack.top();
+        } else if(ops[i] == '/') {
+            double b = numStack.top();
             numStack.pop();
-            int a = numStack.top();
+            double a = numStack.top();
             numStack.pop();
             numStack.push(a / b);
         } else {
             numStack.push(args[i]);
         }
     }
-    return (double)numStack.top();
+    return numStack.top();
 }
 
 int main() {
-    std::vector<std::string> ops;
-    std::vector<int> args;
+    std::vector<char> ops;
+    std::vector<double> args;
 
     int count = 0;
     while(count < 5) { 
@@ -51,9 +49,9 @@ int main() {
         if(line == "q") break;
 
         line.erase(0, line.find(' '));
-        ops.push_back(line.substr(0));
+        ops.push_back(line[0]);
 
-        args.push_back(stoi(line.substr(line.find(' ') + 1)));
+        args.push_back(stod(line.substr(line.find(' ') + 1)));
         count++;
     }
 
