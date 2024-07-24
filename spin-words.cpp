@@ -14,13 +14,8 @@ std::string spinWords(std::string str) {
                 std::reverse(word.begin(), word.end());
             }
             
-            result = result + word;
-            if (i < str.length() - 1 && str[i+1] != ' ')
-                result += " ";
-        } else if (str[i] == ' ') {
-            result += " ";
-        } else {
-            word += str[i];
+            word = result.empty() ? word : " " + word;
+            result += word;
         }
     }
     
@@ -29,8 +24,8 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string input;
-    while (std::cin >> input) { 
-        std::cout << spinWords(input) << std::endl; 
-    }
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, input);
+    std::cout << spinWords(input) << std::endl; 
     return 0;
 }
