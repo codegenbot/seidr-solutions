@@ -12,28 +12,28 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
             int temp = 1;
             for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "*") {
-                    temp *= operand[j + 1];
+                    temp *= operand[j];
                 } else if (operator_[j] == "+") {
-                    result += temp * operand[j + 1];
+                    result += temp * operand[j];
                     break;
                 }
             }
         } else if (operator_[i] == "//") {
-            int temp = operand[i + 1];
+            int temp = operand[i+1];
             for (int j = i + 1; j < operator_.size(); j++) {
                 if (operator_[j] == "+") {
-                    result += temp / operand[j + 1];
+                    result += temp / operand[j];
                 } else if (operator_[j] == "-") {
-                    result -= temp / operand[j + 1];
+                    result -= temp / operand[j];
                 }
             }
         } else if (operator_[i] == "**") {
             int temp = 1;
             for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "**") {
-                    temp = pow(temp, operand[j + 1]);
+                if (operator_[j] == "*") {
+                    temp *= pow(operand[j], 1.0);
                 } else if (operator_[j] == "+") {
-                    result += temp;
+                    result += pow(temp, operand[j]);
                     break;
                 }
             }
