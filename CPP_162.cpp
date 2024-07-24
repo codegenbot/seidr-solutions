@@ -1,31 +1,27 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <algorithm>
 #include <string>
-#include <hash_map>
-
-using namespace std;
+#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& str) {
-    // Implement this function based on the requirement.
-    // For example, you can use a library like OpenSSL to generate MD5 hash.
-
-    return "Implement your own MD5 algorithm or use a library";
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(ctx, str.c_str(), str.size());
+    unsigned char buffer[16];
+    EVP_DigestFinal_ex(ctx, buffer, NULL);
+    std::stringstream ss;
+    for (int i = 0; i < 16; i++) {
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)buffer[i];
+    }
+    return ss.str();
 }
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
-    // Call your function here
-    if(input.empty()) {
-        std::cout << "Please enter a valid string." << std::endl;
-    } else {
-        std::cout << string_to_md5(input) << std::endl;
-    }
-    
-    return 0; 
+    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
+    return 0;
 }
