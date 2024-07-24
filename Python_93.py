@@ -1,5 +1,15 @@
 ```
 def encode(message):
+    """Complete the function to implement Caesar Cipher encoding.
+    Description:
+    Encode input string using Caesar Cipher with a shift of 2 for uppercase letters and 2 for lowercase letters.
+    
+    Args:
+        message (str): The input string to be encoded.
+
+    Returns:
+        str: The encoded string.
+    """
     result = ""
     for char in message:
         if char.isalpha():
