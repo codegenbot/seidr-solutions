@@ -8,7 +8,7 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if target in text[i:i+len(target)] or target == ''
+        if text[i:i+len(target)] == target or target in text
     ]
 
     return indices
