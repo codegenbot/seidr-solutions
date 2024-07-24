@@ -1,26 +1,24 @@
-def bowling_score(game):
+def bowling_score(games):
     score = 0
-    roll = 0
-    for frame in game.split("/"):
-        if len(frame) == 1:
-            score += int(frame)
-            roll += 1
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            score += first_roll + second_roll
-            roll += 1
+    game = []
+
+    for i in games:
+        if i.isdigit():
+            game.append(int(i))
         else:
-            spare = True
-            for i, col in enumerate(frame):
-                if col.isdigit():
-                    if i > 0 and col != frame[i - 1]:
-                        spare = False
-                        break
-            if spare:
-                score += 10 + int(frame[-2])
-                roll += 1
+            if sum(game) >= 10:
+                score += min(10, sum(game)) * 10
+            elif len(game) == 2 and game[0] + game[1] == 10:
+                score += 10 * (len(game) + 1)
             else:
-                score += sum(map(int, frame)) - 10
-                roll += 1
+                score += sum(game) * 10
+            game = []
+
+    if sum(game) >= 10:
+        score += min(10, sum(game)) * 10
+    elif len(game) == 2 and game[0] + game[1] == 10:
+        score += 10 * (len(game) + 1)
+    else:
+        score += sum(game) * 10
+
     return score
