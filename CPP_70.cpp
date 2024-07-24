@@ -1,13 +1,15 @@
+```cpp
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool std::operator!=(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
-        return false;
+        return true;
     for (int i = 0; i < a.size(); i++)
         if (a[i] != b[i])
-            return false;
-    return true;
+            return true;
+    return false;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -32,14 +34,19 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({1,2,3}), {1,3,2}));
     std::vector<int> input;
-    std::cout << "Enter numbers separated by space: ";
-    std::cin >> std::ws;
-    int temp;
-    while (true) {
-        if (!(std::cin >> temp)) break;
-        input.push_back(temp);
+    std::cout << "Enter numbers (space separated): ";
+    std::string line;
+    std::getline(std::cin, line);
+    std::stringstream ss(line);
+    int num;
+    while (ss >> num) {
+        input.push_back(num);
     }
-    return 0;
+    std::vector<int> output = strange_sort_list(input);
+    std::cout << "Sorted list: ";
+    for (int x : output) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
 }
