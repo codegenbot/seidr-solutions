@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -25,7 +24,5 @@ int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
     return sum;
 }
 
-int main() {
-    int result = sorted_list_sum({{{"aaaa", "bbbb"}, {"dd"}, {"cc"}}});
-    return 0;
-}
+std::vector<std::vector<std::string>> input = {{"aaaa", "bbbb"}, {"dd"}, {"cc"}};
+assert(sorted_list_sum(input) == 0);
