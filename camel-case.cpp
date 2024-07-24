@@ -1,37 +1,28 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            words.push_back(str.substr(start, i - start));
-            start = i + 1;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
+            if (result != "") {
+                result[0] = toupper(result[0]);
+            }
+            int j = i;
+            while (j < str.length() && str[j] != '-' && str[j] != ' ') {
+                j++;
+            }
+            result += str.substr(i, j - i);
+            i = j;
         }
     }
-
-    std::string result;
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += std::toupper(word[0]);
-        } else {
-            result += word;
-        }
-        for (size_t i = 1; i < word.size(); ++i) {
-            result += std::tolower(word[i]);
-        }
-    }
-
     return result;
 }
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> str;
+    std::cout << "The camelCase equivalent is: " << camelCase(str) << std::endl;
     return 0;
 }
