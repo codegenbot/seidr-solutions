@@ -1,9 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
-bool std::issame(std::vector<float> a, std::vector<float> b) {
+bool same(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,10 +23,11 @@ std::vector<float> sort_even(std::vector<float> l) {
                     even.push_back(l[j]);
                 }
             }
-            sort(even.begin(), even.end());
+            std::sort(even.begin(), even.end());
             result.push_back(even[0]);
         } else {
             result.push_back(l[i]);
         }
     }
     return result;
+}
