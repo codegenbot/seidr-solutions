@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert>  // Include this header for assert
 
 using namespace std;
 
@@ -19,11 +19,12 @@ int main() {
     // Test cases
     std::vector<std::string> strings = {"apple", "banana", "apricot", "orange"};
     std::string prefix = "ap";
-    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
-
-    for (const auto& filtered_str : filtered_strings) {
-        cout << filtered_str << endl;
-    }
-
+    
+    std::vector<std::string> filtered = filter_by_prefix(strings, prefix);
+    
+    assert(filtered.size() == 2);
+    assert(filtered[0] == "apple");
+    assert(filtered[1] == "apricot");
+    
     return 0;
 }
