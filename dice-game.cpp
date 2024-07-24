@@ -6,7 +6,7 @@ int main() {
     
     double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        probability += (double)(n - i) * m / (m * n);
+        probability += (double)(n - i) / n * (double)(m - 1) / (m + n - 1);
     }
     
     std::cout << probability << std::endl;
