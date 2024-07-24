@@ -1,41 +1,34 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <string>
 
-int doAlgebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = 0;
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "*") {
-                    temp *= operand[j + 1];
-                } else if (operator_[j] == "+") {
-                    result += temp * operand[j + 1];
-                    break;
-                }
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
+            result += operands[i];
+        } else if (operators[i] == "-") {
+            result -= operands[i];
+        } else if (operators[i] == "*") {
+            int temp = 1;
+            for (int j = 0; j <= i; j++) {
+                temp *= operands[j];
             }
-        } else if (operator_[i] == "//") {
-            int temp = operand[i + 1];
-            for (int j = i + 1; j < operator_.size(); j++) {
-                if (operator_[j] == "+") {
-                    result += temp / operand[j + 1];
-                } else if (operator_[j] == "-") {
-                    result -= temp / operand[j + 1];
-                }
+            result += temp;
+        } else if (operators[i] == "/") {
+            if(i+1 < operators.size() && operators[i+1] == "/") {
+                int temp = operands[i-1] / operands[i];
+                result += temp;
+            } else {
+                return -1; 
             }
-        } else if (operator_[i] == "**") {
-            int temp = pow(operand[i + 1], 1.0);
-            for (int j = i + 1; j < operator_.size(); j++) {
-                if (operator_[j] == "+") {
-                    result += pow(temp, operand[j + 1]);
-                } else if (operator_[j] == "-") {
-                    result -= pow(temp, operand[j + 1]);
-                }
+        } else if (operators[i] == "**") {
+            int temp = 1;
+            for (int j = 0; j < stoi(operators[i+1]); j++) {
+                temp *= operands[0];
             }
+            result += temp;
+            i++;
         }
     }
     return result;
