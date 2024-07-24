@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -15,7 +14,7 @@ bool checkVectors(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> vec) {
+std::vector<float> sortEven(std::vector<float> vec) {
     std::vector<float> result;
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
@@ -24,9 +23,7 @@ std::vector<float> sort_even(std::vector<float> vec) {
             while (j < vec.size() && j % 2 == 0) {
                 temp.push_back(vec[j++]);
             }
-            // Sort the temporary vector.
-            std::sort(temp.begin(), temp.end(), [](float a, float b){return a < b;});
-            // Replace even elements in result with the sorted ones.
+            std::sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
                 j++;
@@ -49,7 +46,7 @@ int main() {
     }
     std::cout << std::endl;
     
-    std::vector<float> result = sort_even(vec);
+    std::vector<float> result = sortEven(vec);
     std::cout << "Sorted even elements: ";
     for (float f : result) {
         std::cout << f << " ";
