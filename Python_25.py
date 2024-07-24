@@ -1,17 +1,22 @@
-n = int(input())
 from typing import List
 
-def factorize(n: int) -> List[int]:
-    factors = []
-    divisor = 2
-    while n > 1:
-        if n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        else:
-            divisor += 1
-    return factors
+def main():
+    n = int(input().strip())
 
-result = factorize(n)
+    def factorize(n: int) -> List[int]:
+        factors = []
+        divisor = 2
+        while n > 1:
+            if n % divisor == 0:
+                factors.append(divisor)
+                n //= divisor
+            else:
+                divisor += 1
+        return factors
 
-print(result)
+    result = factorize(n)
+
+    print(result)
+
+# Call the main function to run the code
+main()
