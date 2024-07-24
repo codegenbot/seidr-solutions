@@ -1,3 +1,4 @@
+```
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
@@ -7,7 +8,6 @@ def powermod(base: int, exponent: int, modulus: int):
         exponent = exponent // 2
         base = (base * base) % modulus
     return result
-
 
 def modp(n: int, p: int):
     if p <= 1:
