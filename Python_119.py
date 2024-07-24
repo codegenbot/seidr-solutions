@@ -1,6 +1,5 @@
 ```
 def match_parens(lst):
-    """Your code here"""
     s1 = lst[0]
     s2 = lst[1]
     stack = []
