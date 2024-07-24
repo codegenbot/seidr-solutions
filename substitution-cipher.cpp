@@ -1,20 +1,26 @@
+#include <iostream>
 #include <string>
 
 std::string cipher2;
-std::string result(cipher2.size(), ' ');
+std::string result;
 
 int main() {
     std::cin >> cipher2;
     std::string cipher1;
     std::cin >> cipher1;
-    std::cin >> result;
-
-    for (int i = 0; i < result.size(); i++) {
-        int index = cipher1.find(result[i]);
-        if (index != std::string::npos) {
-            result[i] = cipher2[index];
+    std::cin.ignore();
+    std::string message;
+    std::getline(std::cin, message);
+    result = message;
+    for(int i = 0; i < message.length(); i++) {
+        int index = cipher1.find(message[i]);
+        if(index != std::string::npos) {
+            char c = cipher2[index];
+            if(c != ' ') {
+                result[i] = c;
+            }
         }
     }
-
-    return result;
+    std::cout << result << std::endl;
+    return 0;
 }
