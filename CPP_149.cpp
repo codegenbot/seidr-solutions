@@ -1,38 +1,40 @@
+#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
-// Define issame function
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
-// Define sorted_list_sum function
-vector<vector<string>> sorted_list_sum(vector<string> lst) {
-    vector<vector<string>> result;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
     
-    int start = 0;
-    for (int end = 0; end < lst.size(); ) {
-        while(end + 1 < lst.size() && issame({lst.begin(), lst.begin()+end+1}, {"hello", "world"})) {
-            end++;
+    // Remove strings with odd lengths from the list
+    for (const string& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
-        if(start != end) {
-            result.push_back(vector<string>(lst.begin()+start, lst.begin()+end));
-        }
-        start = end + 1;
     }
     
+    // Sort the resulting list by length and then alphabetically
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+    
     return result;
-}
-
-int main() {
-    // Now you can use the functions
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
 }
