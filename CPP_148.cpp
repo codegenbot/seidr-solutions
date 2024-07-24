@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,7 +11,7 @@ bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std:
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
-        if (!issame({{a[i].first, a[i].second}}, {{b[i].first, b[i].second}}))
+        if (!(issame({{a[i].first,a[i].second}},{{b[i].first,b[i].second}})))
             return false;
     return true;
 }
@@ -22,15 +23,38 @@ void start() {
     std::cin >> planet1 >> planet2;
     planets = std::make_pair(planet1, planet2);
     
-    std::pair<std::string, std::string> result = bf({{planet1, planet2}});
-    if (issame({{{planet1}}}, {{result}})) {
+    std::vector<std::pair<std::string, std::string>> a;
+    a.push_back(planets);
+    
+    std::cout << "Enter two more planet names: ";
+    std::cin >> planet1 >> planet2;
+    planets = std::make_pair(planet1, planet2);
+    a.push_back(planets);
+    
+    std::cout << "Enter two more planet names: ";
+    std::cin >> planet1 >> planet2;
+    planets = std::make_pair(planet1, planet2);
+    a.push_back(planets);
+    
+    std::vector<std::pair<std::string, std::string>> b;
+    std::cout << "Enter two more planet names: ";
+    std::cin >> planet1 >> planet2;
+    b.push_back(std::make_pair(planet1, planet2));
+    
+    std::cout << "Enter two more planet names: ";
+    std::cin >> planet1 >> planet2;
+    b.push_back(std::make_pair(planet1, planet2));
+    
+    std::pair<std::string, std::string> result = bf(planets);
+    if (issame(a, b)) {
         std::cout << "same";
     } else {
         std::cout << "not same";
     }
+    return;
 }
 
-int main() {
+int main() { 
     start();
     return 0;
 }
