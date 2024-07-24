@@ -3,18 +3,23 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    string op = "";
     for (char c : s) {
         if (c == 'T' || c == 't') {
-            op += "1";
+            continue;
         } else if (c == 'F' || c == 'f') {
-            op += "0";
+            return false;
         } else if (c == '&') {
-            result = (result && (op.back() - '0'));
-            op.pop_back();
+            while (s.find('&') != string::npos) {
+                size_t pos = s.find('&');
+                s.replace(pos, 1, "false");
+            }
+            result &= (s == "true" || s == "True" || s == "TRUE") ? true : false;
         } else if (c == '|') {
-            result = (result || (op.back() - '0'));
-            op.pop_back();
+            while (s.find('|') != string::npos) {
+                size_t pos = s.find('|');
+                s.replace(pos, 1, "false");
+            }
+            result |= (s == "true" || s == "True" || s == "TRUE") ? true : false;
         }
     }
     return result;
