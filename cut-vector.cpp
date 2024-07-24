@@ -28,7 +28,7 @@ int main() {
         if (min_diff == 0) break;
     }
     
-    for (int i = 0; i <= cut_idx; ++i) {
+    for (int i = 0; i < cut_idx + 1; ++i) {
         std::cout << nums[i] << std::endl;
     }
     
