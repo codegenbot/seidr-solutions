@@ -1,20 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+using namespace std;
+
 int prime_fib(int n) {
-    int a = 0, b = 1, count = 0;
-    while (true) {
-        if (is_prime(b)) {
-            count++;
-            if (count == n) return b;
-        }
+    int a = 1, b = 1;
+    for (int i = 2; ; i++) {
         int temp = a + b;
+        if (temp >= n)
+            return temp;
         a = b;
         b = temp;
+        if (b < 2 || isPrime(b)) {
+            continue;
+        }
+        while (!isPrime(b) && b > 1) {
+            b--;
+        }
+        a = b;
     }
 }
 
-bool is_prime(int num) {
-    if (num <= 1) return false;
+bool isPrime(int num) {
+    if (num <= 1)
+        return false;
     for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+        if (num % i == 0)
+            return false;
     }
     return true;
 }
