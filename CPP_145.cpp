@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstdint>
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,7 +14,7 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 bool order_by_points(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; i++) {
-        if (areEqual({arr[i]}, {(int){arr[i + 1]}}) && (arr[i] > arr[i + 1])) return false;
+        if (isEqual({arr[i]}, {(int){arr[i + 1]}}) && (arr[i] > arr[i + 1])) return false;
     }
     return true;
 }
@@ -40,6 +40,6 @@ int mainFunction() {
             }
         }
     }
-    assert(areEqual(result, {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
+    assert(isEqual({-76, -21, 0, 4, 23, 6, 6}, result) && result.size() == 7);
     return 0;
 }
