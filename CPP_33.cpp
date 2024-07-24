@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        return a == b;
+    }
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
@@ -26,11 +28,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return sorted_l;
 }
 
-int main() {
-    std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
-    std::vector<int> expected_output = {2, 6, 3, 4, 8, 9, 5, 1};
+std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
+std::vector<int> expected_output = {2, 6, 3, 4, 8, 9, 5, 1};
     
-    assert(issame(sort_third(input), expected_output));
-    
-    return 0;
-}
+assert(std::issame(sort_third(input), expected_output));
