@@ -4,39 +4,6 @@
 #include <string>
 #include <initializer_list>
 
-bool issame(vector<string> a, vector<string> b);
-vector<vector<string>> sorted_list_sum(vector<vector<string>> lst);
-
-int main() {
-    int n;
-    cout << "Enter the number of lists: ";
-    cin >> n;
-
-    vector<vector<string>> lst(n);
-    for (int i = 0; i < n; i++) {
-        int m;
-        cout << "Enter the number of elements in list " << i + 1 << ": ";
-        cin >> m;
-
-        cout << "Enter the elements: ";
-        for (int j = 0; j < m; j++) {
-            string str;
-            cin >> str;
-            lst[i].push_back(str);
-        }
-    }
-
-    vector<string> output = sorted_list_sum(lst);
-
-    cout << "The result is: ";
-    for (const auto& str : output) {
-        cout << str << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -49,7 +16,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<vector<string>> sorted_list_sum(vector<vector<string>> lst) {
+vector<string> sorted_list_sum(vector<vector<string>> lst) {
     vector<int> sums;
     for (int i = 0; i < lst[0][0].size(); i++) {
         int sum = 0;
@@ -90,4 +57,34 @@ vector<vector<string>> sorted_list_sum(vector<vector<string>> lst) {
         }
     }
     return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of lists: ";
+    cin >> n;
+
+    vector<vector<string>> lst(n);
+    for (int i = 0; i < n; i++) {
+        int m;
+        cout << "Enter the number of elements in list " << i + 1 << ": ";
+        cin >> m;
+
+        cout << "Enter the elements: ";
+        for (int j = 0; j < m; j++) {
+            string str;
+            cin >> str;
+            lst[i].push_back(str);
+        }
+    }
+
+    vector<string> output = sorted_list_sum(lst);
+
+    cout << "The result is: ";
+    for (const auto& str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
