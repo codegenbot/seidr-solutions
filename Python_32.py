@@ -1,7 +1,8 @@
 def find_zero(xs: list):
     n = len(xs)
-    mid = n // 2
     if n % 2 == 0:
-        return -((xs[mid - 1] + xs[mid]) / 2) / xs[-1]
+        m1 = xs[n // 2 - 1]
+        m2 = xs[n // 2]
+        return -(m1 + m2) / (m1 + m2)
     else:
-        return -xs[mid] / xs[-1]
+        return -xs[n // 2] / xs[-1]
