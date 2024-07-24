@@ -1,9 +1,21 @@
-```
 def modp(n: int, p: int):
     if gcd(n, p) != 1:
         return None
-    def gcd(a: int, b: int):
-        while b:
-            a, b = b, a % b
-        return a
-    return pow(n, -1, p) * n % p
+
+    def extended_gcd(a, b):
+        if a == 0:
+            return b, 0, 1
+        else:
+            g, y, x = extended_gcd(b % a, a)
+            return g, x - (b // a) * y, y
+
+    g, x, _ = extended_gcd(p, n)
+    if g != 1:
+        return None
+    return pow(n, p - 2, p) * n % p
+
+
+def gcd(a: int, b: int):
+    while b:
+        a, b = b, a % b
+    return a
