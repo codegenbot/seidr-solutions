@@ -1,9 +1,9 @@
+```Python
 from typing import List
-
 
 def all_prefixes(string: str) -> List[str]:
     if len(string) == 0:
-        return [""]
+        return ['']
     elif len(string) == 1:
         return [string]
     else:
