@@ -6,11 +6,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (cin >> n && !cin.eof()) {
         nums.push_back(n);
-        if (cin.eof()) {
-            break;
-        }
     }
     
     int sum = 0, halfSum = 0;
