@@ -1,3 +1,2 @@
-```
 def unique(l: list):
-    return sorted(set(l))
+    return sorted(list(set(l)))
