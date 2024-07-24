@@ -1,11 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
-#include <memory_resource>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
 
