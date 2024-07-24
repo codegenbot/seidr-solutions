@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-
 int can_arrange(std::vector<int> arr);
 int main(){
     assert(can_arrange({})==-1);
