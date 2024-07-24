@@ -1,3 +1,4 @@
+```
 import statistics
 
 def average_rounded():
@@ -6,6 +7,6 @@ def average_rounded():
             n = int(input("Enter first number: "))
             m = int(input("Enter second number: "))
             if n > m:
-                return 'Error'
+                return bin(-1)[2:]
             avg = round((n + m) / 2)
             return bin(avg)[2:]
