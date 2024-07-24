@@ -1,11 +1,5 @@
-```cpp
-#include <string>
-#include <variant>
-
-using namespace std;
-
-variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
-    return visit([&](auto&& a, auto&& b) -> variant<string, int, float> {
+std::variant<std::string, int, float> compare_one(std::variant<any> a, std::variant<any> b) {
+    return visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
         if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
             if (get<string>(a) > get<string>(b)) {
                 return "Greater";
@@ -14,7 +8,7 @@ variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
             } else {
                 return "Equal";
             }
-        } else if (holds_alternative<int>(a) && holds_alternation<int>(b)) {
+        } else if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
             int aInt = get<int>(a);
             int bInt = get<int>(b);
             if (aInt > bInt) {
@@ -24,7 +18,7 @@ variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
             } else {
                 return "Equal";
             }
-        } else if (holds_alternation<float>(a) && holds_alternation<float>(b)) {
+        } else if (holds_alternative<float>(a) && holds_alternative<float>(b)) {
             float aFloat = get<float>(a);
             float bFloat = get<float>(b);
             if (aFloat > bFloat) {
