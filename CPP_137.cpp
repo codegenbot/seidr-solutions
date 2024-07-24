@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compareOne(boost::any a, boost::any b) {
+boost::any compare(boost::any a, boost::any b) {
     if(a.type() == boost::any::typeless_type || b.type() == boost::any::typeless_type) {
         if(a.type() == boost::any::typeless_type && b.type() == boost::any::typeless_type) {
             string a_s = any_cast<string>(a);
@@ -13,7 +13,7 @@ boost::any compareOne(boost::any a, boost::any b) {
             else if(a_int < b_int)
                 return b;
             else
-                return b;
+                return boost::any("None");
         } else {
             string a_s = any_cast<string>(a);
             double b_d = any_cast<double>(b);
@@ -29,6 +29,6 @@ boost::any compareOne(boost::any a, boost::any b) {
         else if(any_cast<int>(a) < any_cast<int>(b))
             return b;
         else
-            return b;
+            return boost::any("None");
     }
 }
