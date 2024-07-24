@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False for _ in range(N)] for _ in range(N)]
@@ -16,7 +17,7 @@ def dfs(x, y, val, k, path, visited, grid):
     for dx in [-1, 0, 1]:
         for dy in [-1, 0, 1]:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < len(grid[0]) and not visited[nx][ny] and grid[nx][ny] != val:
+            if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and not visited[nx][ny] and grid[nx][ny] != val:
                 path.append(val)
                 visited[nx][ny] = True
                 dfs(nx, ny, grid[nx][ny], k - 1, path, visited, grid)
