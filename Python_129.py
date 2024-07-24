@@ -1,27 +1,19 @@
-```
-def minPath(grid, k):
+def minPath(grid):
     n = len(grid)
     res = []
-    for i in range(n - k + 1):
-        for j in range(n - k + 1):
-            total = sum([grid[x][j] for x in range(i, i + k)])
-            if not res or total < min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res = [(i, j)]
-            elif total == min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res.append((i, j))
-    return dfs(0, 0, k, [], grid)
-def dfs(i, j, k, path, grid):
-    if k == 0:
-        return [path]
-    elif k > len(grid) - i:
-        return []
-    paths = []
-    for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-        ni, nj = i + dx, j + dy
-        if 0 <= ni < len(grid) and 0 <= nj < len(grid[0]):
-            paths += dfs(ni, nj, k-1, path + [(ni, nj)], grid)
-    return paths
+    total = sum(grid[0])
+    if total < min([sum(grid[i]) for i in range(1, n)]):
+        res = [[0]]
+    else:
+        for i in range(n):
+            temp_total = 0
+            for j in range(i + 1, n):
+                temp_total += grid[j][i]
+                if total == temp_total or (res and temp_total < min([sum(grid[y][i] for y in range(z, z+k)]) for k, z in res]):
+                    if not res or temp_total < min([sum(grid[y][i] for y in range(z1, z2)) for z1, z2 in res]):
+                        res = [[i]]
+                    elif temp_total == min([sum(grid[y][i] for y in range(z1, z2)) for z1, z2 in res]):
+                        res.append([i])
+                else:
+                    break
+    return sorted(res)
