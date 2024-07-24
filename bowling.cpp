@@ -4,48 +4,30 @@ using namespace std;
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
             score += 30;
             roll++;
-        }
-        else if (c == '/') {
-            temp = "";
-            continue;
-        }
-        else {
-            temp += c;
-        }
-        if (temp.length() >= 2 && c != 'X') {
-            int first, second;
-            string t = temp;
-            temp = "";
-            sscanf(t.c_str(), "%d%d", &first, &second);
-            score += first + second;
+        } else if (s[i] == '/') {
+            int j = i + 1;
+            while (j < s.length() && s[j] != ' ') j++;
+            int spare = 10 - stoi(s.substr(i+1, j-i-1).substr(1));
+            score += spare;
             roll++;
-            while (roll < 10) {
-                if (temp.length() >= 2 && c != 'X') {
-                    int first1, second1;
-                    string t1 = temp;
-                    temp = "";
-                    sscanf(t1.c_str(), "%d%d", &first1, &second1);
-                    score += first1 + second1;
-                    roll++;
-                }
-                else if (c == 'X' || c == '/') {
-                    if (temp.length() >= 2) {
-                        int first, second;
-                        string t = temp;
-                        temp = "";
-                        sscanf(t.c_str(), "%d%d", &first, &second);
-                        score += first + second;
-                        roll++;
-                    }
-                    else {
-                        score += 10;
-                        roll++;
-                    }
-                }
+            i = j;
+        } else {
+            string frame = "";
+            while (i < s.length() && s[i] != '/') {
+                frame += s[i];
+                i++;
+            }
+            int count = stoi(frame);
+            if (count == 10) {
+                score += 10;
+                roll++;
+            } else {
+                score += count + (10 - count);
+                roll++;
             }
         }
     }
