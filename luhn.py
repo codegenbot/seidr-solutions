@@ -1,3 +1,4 @@
 def luhn(card):
     card = str(card)
-    return sum((int(digit) * 2 - 9 + int(digit)) if i % 2 else int(digit) for i, digit in enumerate(reversed(card)))
+    result = sum(int(digit) * 2 % 10 if i % 2 != 0 else int(digit) for i, digit in enumerate(card[:-1]))
+    return result + int(card[-1])
