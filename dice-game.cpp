@@ -1,9 +1,7 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
 
-double game(int n, int m) {
-    double p = 0;
-    for (int i = 1; i < n; i++) {
-        p += 1.0 / n;
-    }
-    return p + (1.0 / m);
+double diceGame(int n, int m) {
+    double total = (n + m - 1);
+    return static_cast<double>(n-1)/total;
 }
