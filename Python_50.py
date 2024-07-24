@@ -6,7 +6,6 @@ def decode_shift(s: str):
         ]
     )
 
-
-input_str = input("Enter the encoded string: ")
-decoded_str = decode_shift(input_str)
-print(decoded_str)
+input_str = input("Enter the string to decode: ").lower()
+result = decode_shift(input_str)
+print(result)
