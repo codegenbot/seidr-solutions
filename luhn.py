@@ -1,2 +1,1 @@
-def luhn(card):
-    return sum(int(d) for d in str(sum(int(x) if i%2 else int(x)*2 if int(x)*2>9 else int(x)*2 for i,x in enumerate(map(str,card[::-1])))))
+return sum(int(x) for x in str(sum(map(lambda x: (x*2-9)//10 if i % 2 else int(x), range(len(card))))) if int(x))
