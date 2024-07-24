@@ -1,4 +1,6 @@
-```
+```Python
+import math
+
 def sum_of_squares(n):
     result = 0
     for i in range(1, n + 1):
