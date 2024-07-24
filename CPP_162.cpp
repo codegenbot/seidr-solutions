@@ -1,2 +1,1 @@
-#include <boost/config.hpp>
-#include <boost/uuids/uuid.hpp>
+#include <\/usr\/include\/boost\/uuids\/uuid.hpp>
