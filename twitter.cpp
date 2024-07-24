@@ -7,7 +7,6 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(tweet.find_last_of('\n') == string::npos ? 0 : tweet.find_last_of('\n'));
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
