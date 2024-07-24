@@ -1,27 +1,35 @@
-Here is the solution:
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-
     string temp = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
-            temp += s[i];
+    
+    for (char ch : s) {
+        bool found = false;
+        for (char cc : c) {
+            if (ch == cc) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
+            temp += ch;
         }
     }
-
-    string reverseTemp = "";
-    for (int i = temp.length() - 1; i >= 0; i--) {
-        reverseTemp += temp[i];
-    }
-
-    if (temp == reverseTemp) {
-        result.push_back(temp);
+    
+    string newStr = temp;
+    reverse(newStr.begin(), newStr.end());
+    
+    result.push_back(temp);
+    if (temp == newStr) {
         result.push_back("True");
     } else {
-        result.push_back(temp);
         result.push_back("False");
     }
-
+    
     return result;
-}
