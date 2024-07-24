@@ -22,6 +22,8 @@ int main() {
 
     // Input for vector 1
     float num;
+    int maxInputCount = 5; 
+    int inputCount = 0;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -30,22 +32,27 @@ int main() {
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
-            vec1.clear();
+            if(inputCount >= maxInputCount) break; 
             break;
         }
         if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec1.clear();
+            if(inputCount >= maxInputCount) break; 
             break;
         }
-        vec1.push_back(num);
+        if (num <= std::numeric_limits<float>::max()) {
+            vec1.push_back(num);
+        } else {
+            std::cout << "Invalid input. Number exceeds maximum limit of float.\n";
+            if(inputCount >= maxInputCount) break; 
+            break;
+        }
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
+        inputCount++;
     }
 
-    int maxInputCount = 5; 
-    int inputCount = 0;
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -54,15 +61,18 @@ int main() {
             while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
                 std::cin.ignore();
             }
-            vec2.clear();
             break;
         }
         if(num > std::numeric_limits<float>::max()) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
-            vec2.clear();
             break;
         }
-        vec2.push_back(num);
+        if (num <= std::numeric_limits<float>::max()) {
+            vec2.push_back(num);
+        } else {
+            std::cout << "Invalid input. Number exceeds maximum limit of float.\n";
+            break;
+        }
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
