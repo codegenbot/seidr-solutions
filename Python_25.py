@@ -1,1 +1,27 @@
-The provided code is correct and does not require any modifications. It defines a function `factorize` that takes an integer `n` as input and returns a list of its prime factors. The function then enters an infinite loop where it repeatedly asks the user to enter a positive integer, calls the `factorize` function with this input, prints the result, and breaks out of the loop once valid input is provided.
+from typing import List
+
+def factorize(n: int) -> List[int]:
+    if n <= 0:
+        raise ValueError("Expected positive integer")
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            while n % i == 0:
+                n //= i
+                factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        factors = factorize(n)
+        print(factors)
+        break
+    except ValueError as e:
+        print("Invalid input. Please enter an integer.")
