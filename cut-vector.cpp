@@ -5,21 +5,25 @@
 #include <numeric>
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    
-    for (int i = 0; i < n; i++) {
-        std::cin >> nums[i];
+    std::vector<int> nums;
+    int num;
+
+    while (std::cin >> num && num != -1) {
+        nums.push_back(num);
     }
-    
+
+    if (nums.empty()) {
+        std::cout << "Error: Empty vector input\n";
+        return 1;
+    }
+
+    int n = nums.size();
     int cutIndex = 0;
     int minDiff = std::numeric_limits<int>::max();
 
     for (int i = 1; i < n; i++) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        
+
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
