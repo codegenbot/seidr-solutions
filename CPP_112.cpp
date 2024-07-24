@@ -22,5 +22,4 @@ vector<string> reverse_delete(string s, string c) {
     } else {
         result.push_back("False");
     }
-    return result; 
-}
+    return result;
