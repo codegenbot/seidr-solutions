@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -6,6 +7,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         if not isinstance(num, int):
             raise ValueError("List elements must be integers")
+    if len(numbers) == 0:
+        return "Please provide some numbers"
     total_sum = 0
     product = 1
     for num in numbers:
