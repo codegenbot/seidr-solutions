@@ -18,6 +18,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(temp)
                 temp = ''
+    # Handle the last temp when the loop ends
     if stack:
         return []  # Or handle this case as per your requirement
     elif temp:
