@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -33,24 +32,22 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    int num;
     std::vector<int> input;
-
-    // Read input from user
     std::cout << "Enter numbers separated by space: ";
-    while (std::cin >> num) {
-        input.push_back(num);
+    int temp;
+    while (std::cin >> temp) {
+        input.push_back(temp);
     }
     
     if (!input.empty()) {
-        std::vector<int> sorted_list = strange_sort_list(input);
-        
-        // Print output
+        std::vector<int> sorted = strange_sort_list(input);
         std::cout << "Sorted list is: ";
-        for (int x : sorted_list)
-            std::cout << x << " ";
-        std::cout << std::endl;
+        for (int i : sorted)
+            std::cout << i << " ";
+        std::cout << "\n";
+    } else {
+        std::cout << "No numbers entered. Exiting.\n";
     }
-    
+
     return 0;
 }
