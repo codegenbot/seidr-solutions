@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     if n <= 0:
         raise ValueError("Expected positive integer")
@@ -17,11 +18,21 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
-while True:
-    try:
-        n = int(input("Enter a positive integer: "))
-        factors = factorize(n)
-        print(factors)
-        break
-    except ValueError as e:
-        print("Invalid input. Please enter an integer.")
+
+def main():
+    while True:
+        try:
+            num = input("Enter a positive integer: ")
+            if num.isdigit() and int(num) > 0:
+                n = int(num)
+                factors = factorize(n)
+                print(factors)
+                break
+            else:
+                print("Invalid input. Please enter an integer.")
+        except ValueError as e:
+            print("Invalid input. Please enter an integer.")
+
+
+if __name__ == "__main__":
+    main()
