@@ -10,12 +10,12 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<vector<int>> order_by_points(vector<vector<int>> nums) {
+vector<vector<int>> order_by_points(vector<int> nums) {
     vector<pair<int, int>> numSumIndex;
 
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
-        int n = nums[i][0];
+        int n = nums[i];
         while (n > 0) {
             sum += n % 10;
             n /= 10;
@@ -24,15 +24,11 @@ vector<vector<int>> order_by_points(vector<vector<int>> nums) {
     }
 
     sort(numSumIndex.begin(), numSumIndex.end());
-
+    
     vector<vector<int>> result;
     for (auto& p : numSumIndex) {
-        result.push_back(nums[p.second]);
+        result.push_back({nums[p.second]});
     }
-
+    
     return result;
-}
-
-int main() {
-    // Your code here
 }
