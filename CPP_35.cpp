@@ -1,21 +1,9 @@
+```c
 #include <algorithm>
 #include <cmath>
-#include <vector>
-#include <iostream>
-
-int calculateMaxValue() {
-    std::vector<int> numbers;
-    int num;
-    while (true) {
-        std::cout << "Enter a number (-1 to finish): ";
-        std::cin >> num;
-        if (num == -1)
-            break;
-        numbers.push_back(num);
-    }
-    return std::abs(*std::max_element(numbers.begin(), numbers.end()));
-}
 
 int main() {
-    return calculateMaxValue();
+    int tempMax;
+    tempMax = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    return std::abs(tempMax);
 }
