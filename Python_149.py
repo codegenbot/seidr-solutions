@@ -1,9 +1,8 @@
 ```
 def sorted_list_sum(input_data):
     try:
-        input_string = ' '.join(map(str, input_data))
-        nums = sorted([int(num) for num in input_string.split() if num.isdigit()])
-    except ValueError as e:
+        nums = [int(num) for num in input_data.split() if num.isdigit()]
+    except ValueError:
         print("Invalid input. Please enter a valid integer or digits separated by spaces.")
         return -1
 
@@ -13,9 +12,9 @@ def sorted_list_sum(input_data):
             return 0
         try:
             target_num = int(target)
-            if target_num < nums[0]:
+            if target_num < min(nums):
                 return sum(nums)
-            elif target_num > nums[-1]:
+            elif target_num > max(nums):
                 return 0
             else:
                 return sum(num for num in nums if num <= target_num)
