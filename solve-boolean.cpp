@@ -1,6 +1,18 @@
 #include <string>
 #include <algorithm>
 
+bool evalBoolOr(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 || subResult2;
+}
+
+bool evalBoolAnd(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 && subResult2;
+}
+
 bool evalBool(std::string s) {
     for (char c : s) {
         switch (std::tolower(c)) {
@@ -28,17 +40,6 @@ bool evalBool(std::string s) {
     }
     return false; 
 }
-
-bool evalBoolAnd(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 && subResult2;
-}
-
-bool evalBoolOr(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 || subResult2;
 
 int main() {
     std::string input = "t|t|f&f|t|t";
