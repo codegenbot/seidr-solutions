@@ -21,5 +21,16 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
+    if(res.size() == 1 && res[0] == 1) {
+        int arr[res.size()];
+        for(int i=0; i<res.size(); i++) {
+            arr[i] = res[i];
+        }
+        assert(std::equal(arr, arr+res.size(), &n));
+    } else {
+        assert(false);
+    }
+
     return 0;
 }
