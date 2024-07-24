@@ -1,39 +1,18 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& vec) {
-    int n = vec.size();
-    vector<int> left(n);
-    vector<int> right(n);
-
-    for (int i = 0; i < n; i++) {
-        if (i == 0) {
-            left[i] = vec[0];
-            right[n - i - 1] = vec[n - 1];
-        } else {
-            left[i] = vec[i];
-            right[n - i - 2] = vec[n - i - 1];
-        }
-    }
-
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int pos = -1;
+    int idx = -1;
 
-    for (int i = 0; i < n; i++) {
-        if (abs(left[i] - right[i]) < minDiff) {
-            minDiff = abs(left[i] - right[i]);
-            pos = i;
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] == vec[i + 1]) continue;
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            idx = i;
         }
     }
 
-    vector<int> res[2];
-    int j = 0;
-    for (int i = 0; i <= pos; i++) {
-        res[0].push_back(vec[i]);
-    }
-    while (!res[0].empty() && !res[1].empty()) {
-        res[1].push_back(vec[n - 1 - j++]);
-    }
-
-    return res[0];
+    return {{}, {}}; // replace this with your actual implementation
 }
