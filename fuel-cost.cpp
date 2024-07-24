@@ -10,12 +10,13 @@ int main() {
         cin >> num;
         numbers.push_back(num);
     }
+    
     int sum = 0;
     for (int num : numbers) {
         int result = (num / 3) - 2;
         if (result < 0) result = 0;
         sum += result;
     }
-    cout << sum;
-    return 0;
+    
+    return sum;
 }
