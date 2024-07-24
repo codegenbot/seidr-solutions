@@ -1,18 +1,25 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <string>
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    int greatest = a;
-    if (b > greatest) {
-        greatest = b;
+    std::vector<int> indices;
+    std::string text, target;
+
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
+
+    size_t pos = 0;
+    while ((pos = text.find(target)) != std::string::npos) {
+        indices.push_back(pos);
+        text.erase(0, pos + target.length());
     }
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+
+    for (int i : indices) {
+        std::cout << i << " ";
     }
-    cout << "The GCD is: " << greatest << endl;
     return 0;
 }
