@@ -1,5 +1,2 @@
 def sort_third(l: list):
-    for i in range(0, len(l), 3):
-        sorted_segment = sorted(l[i:i+3])
-        l[i:i+3] = sorted_segment
-    return l
+    return [sorted(l[i:i+3]) if i % 3 == 0 else l[i] for i in range(len(l))]
