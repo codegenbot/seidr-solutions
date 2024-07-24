@@ -1,6 +1,5 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
+string txt;
+cout << "Enter a string: ";
+getline(cin, txt);
 
-    char lastChar = txt.back();
-    return isalpha(lastChar) && !isalnum(lastChar);
-}
+return !txt.empty() && isalpha(txt.back());
