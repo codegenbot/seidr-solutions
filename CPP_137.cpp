@@ -13,7 +13,7 @@ boost::any compareOne(boost::any a, boost::any b) {
             else if(a_int < b_int)
                 return b;
             else
-                return b;
+                return boost::any("None");
         } else {
             string a_s = any_cast<string>(a);
             double b_d = any_cast<double>(b);
@@ -29,6 +29,6 @@ boost::any compareOne(boost::any a, boost::any b) {
         else if(any_cast<int>(a) < any_cast<int>(b))
             return b;
         else
-            return b;
+            return boost::any("None");
     }
 }
