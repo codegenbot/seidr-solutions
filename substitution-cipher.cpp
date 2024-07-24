@@ -6,12 +6,15 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
 
+    if (cipher1.size() != cipher2.size()) {
+        cout << "Error: Cipher length mismatch." << endl;
+        return 1;
+    }
+
     for (char &c : message) {
-        for (size_t i = 0; i < cipher1.size(); ++i) {
-            if (c == cipher1[i]) {
-                c = cipher2[i];
-                break;
-            }
+        size_t pos = cipher1.find(c);
+        if (pos != string::npos) {
+            c = cipher2[pos];
         }
     }
 
