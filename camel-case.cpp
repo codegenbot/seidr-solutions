@@ -9,9 +9,15 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord + " ";
-            currentWord.clear();
-            capitalizeNext = true;
+            if(capitalizeNext) {
+                result += toupper(currentWord[0]);
+                currentWord.erase(0, 1);
+                capitalizeNext = false;
+            } else {
+                result += currentWord + " ";
+                currentWord.clear();
+                capitalizeNext = true;
+            }
         } else {
             currentWord += c;
             capitalizeNext = false;
@@ -19,7 +25,12 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     // Add the last word
-    result += capitalizeNext ? toupper(currentWord[0]) + tolower(&currentWord[1]) : currentWord;
+    if(capitalizeNext) {
+        result += toupper(currentWord[0]);
+        currentWord.erase(0, 1);
+    } else {
+        result += currentWord;
+    }
 
     return result;
 }
@@ -30,3 +41,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     return 0;
+}
