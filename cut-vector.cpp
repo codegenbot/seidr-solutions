@@ -19,21 +19,21 @@ int main() {
         rightSum += nums[i];
     }
     
-    for (int i = 0; i < n-1; ++i) {
-        leftSum += nums[i];
+    for (int i = 0; i < n; ++i) {
         rightSum -= nums[i];
         int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
-            cutIndex = i + 1;
+            cutIndex = i;
         }
+        leftSum += nums[i];
     }
     
     for (int i = 0; i < n; ++i) {
         if (i < cutIndex) {
             cout << nums[i] << endl;
         } else {
-            cout << nums[i] << endl;
+            cout << 0 << endl;
         }
     }
     
