@@ -1,20 +1,21 @@
 ```bool solveBoolean(std::string expression) {
-    bool result = true;
+    stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (i + 1 < expression.length() && expression[i+1] == '&') {
-                i++;
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (i + 1 < expression.length() && expression[i+1] == '|') {
+            if (!s.empty() && s.top() == '|') {
+                s.pop();
                 return false;
             }
         } else if (expression[i] == '|') {
-            while (i + 1 < expression.length()) {
-                i++;
+            while (!s.empty()) {
+                s.pop();
             }
         } else {
-            result = (result && (expression[i] == 'T'));
+            s.push(expression[i]);
         }
     }
-    return result;
-}``
+    return s.top() == 'T';
+}```
