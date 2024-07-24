@@ -1,6 +1,5 @@
-#include <vector>
 #include <unordered_map>
-#include <initializer_list>  
+#include <vector>
 
 int search(std::vector<int> lst) {
     std::unordered_map<int, int> freq;
