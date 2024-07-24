@@ -1,5 +1,9 @@
-string get_closest_vowel(string word) {
-    string result = "";
+#include <iostream>
+#include <cctype>
+#include <string>
+
+std::string get_closest_vowel(std::string word) {
+    std::string result = "";
     int i = 0;
     while (i < word.size()) {
         if (!isalpha(word[i])) i++;
@@ -14,4 +18,12 @@ string get_closest_vowel(string word) {
         i++;
     }
     return result;
+}
+
+int main() {
+    std::string word;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, word);
+    std::cout << get_closest_vowel(word) << std::endl;
+    return 0;
 }
