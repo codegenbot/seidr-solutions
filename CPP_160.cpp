@@ -1,5 +1,25 @@
-int main 
-{
+```
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<std::string> expressions;
+
+double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
+    double result = args[0];
+    
+    for(int i = 0; i < ops.size(); i++) {
+        if(ops[i] == "//") {
+            result /= args[i+1];
+        } else if(ops[i] == "*") {
+            result *= args[i+1];
+        }
+    }
+    
+    return result;
+}
+
+int main() {
     std::vector<std::string> ops; 
     std::vector<int> args;
 
@@ -18,19 +38,7 @@ int main
         args.push_back(arg);
     }
     
-    double output = 0.0;
-
-    for(int i = 0; i < ops.size(); i++) {
-        if(ops[i] == "+") {
-            output += static_cast<double>(args[i]);
-        } else if(ops[i] == "-") {
-            output -= static_cast<double>(args[i]);
-        } else if(ops[i] == "*") {
-            output *= static_cast<double>(args[i]);
-        } else if(ops[i] == "/") {
-            output /= static_cast<double>(args[i]);
-        }
-    }
-    
+    double output = do_algebra(ops, args);
     std::cout << "Output: " << output << std::endl;
-}
+    return 0;
+};
