@@ -1,16 +1,20 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> xs, double x){
+double poly(std::vector<double> coeffs, double x) {
     double result = 0;
-    for(int i=0; i<xs.size(); i++){
-        result += xs[i] * pow(x,i);
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double abs(double x){
-    return x > 0 ? x : -x;
+std::vector<double> abs(std::vector<double> v) {
+    std::vector<double> res(v.size());
+    for (int i = 0; i < v.size(); i++) {
+        res[i] = fabs(v[i]);
+    }
+    return res;
 }
 
 double find_zero(std::vector<double> xs){
