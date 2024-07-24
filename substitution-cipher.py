@@ -1,3 +1,5 @@
-def substitution_cipher(s1, s2, s3):
-    cipher = str.maketrans(s1, s2)
-    return s3.translate(cipher)
+def decipher_cipher(cipher_map, message):
+    deciphered_message = "".join(
+        [cipher_map[i] if i < len(cipher_map) else "" for i in range(len(message))]
+    )
+    return deciphered_message
