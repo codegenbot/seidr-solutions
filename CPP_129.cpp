@@ -1,28 +1,14 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<int> result;
-    function<void(int, int)> dfs = [&](int x, int y) {
-        if (result.size() == k) return;
-        visited[x][y] = true;
-        result.push_back(grid[x][y]);
-        for (int dx : {-1, 0, 1}) {
-            for (int dy : {-1, 0, 1}) {
-                int nx = x + dx;
-                int ny = y + dy;
-                if (nx >= 0 && nx < n && ny >= 0 && ny < n &&
-                    !visited[nx][ny] && result.size() + 1 <= k) {
-                    dfs(nx, ny);
-                    return;
-                }
-            }
-        }
-        visited[x][y] = false;
-    };
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) dfs(i, j);
+for (int dir = 0; dir < 4; dir++) {
+    int newX = pos.first + (dir % 2 ? -1 : 1);
+    int newY = pos.second + (dir == 0 ? -1 : 1);
+
+    if (newX >= 0 && newX < n && newY >= 0 && newY < n && !visited[newX][newY]) {
+        visited[newX][newY] = true;
+        res.push_back(grid[newX][newY]);
+        q.push({{newX, newY}, path});
+        
+        if ((int)res.size() == k) {
+            return res;
         }
     }
-    return result;
 }
