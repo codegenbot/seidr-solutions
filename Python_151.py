@@ -1,2 +1,2 @@
-lst = [1, 3, 5]
-print(double_the_difference(lst))
+```
+print(double_the_difference([1, 3, 5]))
