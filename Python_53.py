@@ -1,3 +1,2 @@
-x, y = map(int, raw_input("Enter two numbers separated by space: ").split())
-result = add(x, y)
-print("The sum is:", result)
+# Update input method to read line
+x, y = map(int, input("Enter two numbers separated by space:\n").strip().split())
