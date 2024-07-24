@@ -1,33 +1,32 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result = {n};
     while (n != 1) {
-        if (n % 2 == 0) {
-            n /= 2;
-        } else {
-            n = 3 * n + 1;
-        }
         if (n % 2 != 0) {
-            result.push_back(n);
+            n = 3 * n + 1;
+        } else {
+            n /= 2;
         }
+        result.push_back(n);
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
     int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+    std::vector<int> res = get_odd_collatz(n);
     for (int i : res) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
+}
