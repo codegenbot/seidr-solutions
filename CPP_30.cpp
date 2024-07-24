@@ -23,6 +23,6 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    
+
     return 0;
 }
