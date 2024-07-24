@@ -1,17 +1,22 @@
-```c++
 #include <iostream>
 #include <string>
 
 int sum_of_squares(int n) {
     int total = 0;
+    std::string result;
+
     for (int i = 1; i * i <= n; ++i) {
         total += i * i;
+        for (int j = 1; j * j <= i * i; ++j) {
+            result.push_back(j % 10 + '0');
+        }
     }
+
     return total;
 }
 
 int main() {
     int sum = sum_of_squares(100);
-    std::cout << "The sum of squares is: " << std::to_string(sum) << std::endl;
+    std::cout << "The sum of squares is: " << sum << std::endl;
     return 0;
 }
