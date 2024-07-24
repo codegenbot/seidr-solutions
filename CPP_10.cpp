@@ -1,26 +1,19 @@
-#include <iostream>
-#include<string>
+#include <string>
 using namespace std;
 
-bool is_palindrome(string str){
+bool is_palindrome(string str) {
     string s(str.rbegin(),str.rend());
     return s==str;
 }
 
-string make_palindrome(string str){
-    if(is_palindrome(str)) return str;
-    for(int i=str.size()-1; i>=0; --i){
-        if(!is_palindrome(str + string(1, str[i]))){
-            return str + string(str.rbegin(), str.rend());
-        }
+string make_palindrome(string str) {
+    int i = 0, j = str.length() - 1;
+    while (i <= j && str[i] == str[j]) {
+        i++;
+        j--;
     }
-    return str;
-}
-
-int main(){
-    string s;
-    cout << "Enter a string: ";
-    getline(cin,s);
-    cout << "Shortest palindrome that begins with the supplied string is: " << make_palindrome(s) << endl;
-    return 0;
+    
+    string palindrome = str.substr(0, i);
+    string reverse_str = str.substr(i).reverse();
+    return palindrome + reverse_str;
 }
