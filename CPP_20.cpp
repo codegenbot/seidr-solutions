@@ -27,13 +27,16 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
-            tempLine.clear(); // Add this line
             break;
         }
         vec1.push_back(num);
         // Read the next line for the next number
-        if (!std::getline(std::cin, tempLine).good()) {
-            break; 
+        tempLine = "";
+        while(std::getline(std::cin, tempLine) && !tempLine.empty()) {
+            if (std::cin.peek() == '\n') {
+                break;
+            }
+            std::cin.ignore();
         }
     }
 
@@ -43,13 +46,16 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec2.clear(); 
-            tempLine.clear(); // Add this line
             break;
         }
         vec2.push_back(num);
         // Read the next line for the next number
-        if (!std::getline(std::cin, tempLine).good()) {
-            break; 
+        tempLine = "";
+        while(std::getline(std::cin, tempLine) && !tempLine.empty()) {
+            if (std::cin.peek() == '\n') {
+                break;
+            }
+            std::cin.ignore();
         }
     }
 
