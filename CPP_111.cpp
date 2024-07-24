@@ -5,8 +5,8 @@
 
 using namespace std;
 
-multimap<char, int> histogram(string test) {
-    multimap<char, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -18,7 +18,7 @@ multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    multimap<char, int> maxCountMap;
+    map<char, int> maxCountMap;
 
     for (auto& p : result) {
         if (p.second > maxCount) {
@@ -38,7 +38,7 @@ int main_function() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    multimap<char, int> hist = histogram(input);
+    map<char, int> hist = histogram(input);
     for (auto& p : hist) {
         cout << p.first << ": " << p.second << endl;
     }
