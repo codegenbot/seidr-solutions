@@ -27,6 +27,7 @@ std::string anti_shuffle(std::string s) {
             }
             if (!result.empty()) {
                 result += " ";
+            }
         }
     }
     return result;
