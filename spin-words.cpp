@@ -15,12 +15,11 @@ string spinWords(string str) {
         } else {
             int j = str.find(" ", i);
             if (j + 1 <= str.length() && isupper(str.begin()+(j+1))) {
-                string temp = str.substr(j-i+1);
-                reverse(temp.begin(), temp.end());
-                result += temp;
-            } else {
-                result += str.substr(i, j - i);
+                for(int k = 0; k < j/2; k++) {
+                    swap(str[k], str[j - k - 1]);
+                }
             }
+            result += str.substr(i, j - i);
             i = j + 1;
         }
     }
