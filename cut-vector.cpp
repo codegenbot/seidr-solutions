@@ -47,12 +47,8 @@ int main() {
 
     cout << endl;
 
-    if (cut_index == -1) {
-        cout << "No valid cut found." << endl;
-    } else {
-        for (int i = cut_index + 1; i < n; i++) {
-            cout << nums[i] << " ";
-        }
+    for (int i = cut_index; i < n; i++) {
+        cout << nums[i] << " ";
     }
 
     return 0;
