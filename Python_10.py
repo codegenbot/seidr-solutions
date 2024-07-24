@@ -1,14 +1,12 @@
-```Python
+```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
-
 def make_palindrome(string: str) -> str:
-    if not string or string == string[::-1]:
-        return string + string[0]
-    for char in string:
-        if string == string[::-1]:
-            return string + char + string[0] + string[::-1][1:]
-        new_string = string.replace(char, '')
-        if is_palindrome(new_string):
-            return char + char + string + char + char
+    if string == string[::-1]:
+        return string + chr(ord(string[0]) + 1)
+    for i in range(len(string)):
+        prefix = string[:i]
+        postfix = string[i:]
+        if postfix == postfix[::-1]:
+            return prefix[::-1] + string + postfix[::-1]
