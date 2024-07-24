@@ -1,35 +1,21 @@
-```
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    path = []
-    
-    def dfs(x, y, curr_path):
-        nonlocal visited
-        if len(curr_path) == k:
-            return curr_path
-        
-        visited[x][y] = True
-        path.extend(curr_path)
-        
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        for dx, dy in directions:
+    n = len(grid)
+    seen = set()
+    queue = [(0, (grid[0][0],))]
+    min_path = []
+
+    while queue:
+        x, path = queue.pop(0)
+        if len(path) > k:
+            continue
+        if len(path) == k:
+            if path not in min_path or min_path == [path]:
+                min_path.append(path)
+
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
-                path_val = grid[nx][ny]
-                new_path = dfs(nx, ny, curr_path + [path_val])
-                if new_path:
-                    return new_path
-        
-        visited[x][y] = False
-        return []
-    
-    for i in range(N):
-        for j in range(N):
-            curr_path = [grid[i][j]]
-            path_val = grid[i][j]
-            new_path = dfs(i, j, curr_path)
-            if new_path:
-                return sorted(new_path)
-    
-    return []
+            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in seen:
+                queue.append(((nx, ny), path + (grid[nx][ny],)))
+                seen.add((nx, ny))
+
+    return [i for i in min_path[0]]
