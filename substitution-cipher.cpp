@@ -1,14 +1,22 @@
-```#include <string>
-string cipher(string cipher1, string cipher2, string input) {
-    string result = "";
+#include <iostream>
+#include <string>
+
+std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
+    std::string result = "";
     for (char c : input) {
-        size_t pos = cipher2.find(std::tolower(c)); 
-        if (pos != std::string::npos) {
-            char decrypted_char = cipher1.at(pos);
-            result += decrypted_char;
-        } else {
-            result += c; 
+        if (c != '\0') {  
+            size_t pos = cipher2.find(std::tolower(c)); 
+            if (pos != std::string::npos) {
+                char decodedChar = cipher1.at(pos);
+                if(std::isupper(decodedChar)) {
+                    result += std::toupper(decodedChar);
+                } else {
+                    result += decodedChar;
+                }
+            } else {
+                result += c; 
+            }
         }
     }
     return result;
-}``
+}
