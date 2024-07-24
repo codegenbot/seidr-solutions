@@ -1,5 +1,7 @@
+import statistics
+
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = round((n + m) / 2)  
+    avg = int(statistics.mean([n, m])) 
     return bin(avg)[2:]
