@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     if len(grid) != 0 and type(grid[0]) == list:
         N = len(grid)
