@@ -1,32 +1,56 @@
-string solveBoolean(string booleanExp) {
-    if (booleanExp == "T" || booleanExp == "t")
-        return "True";
-    else if (booleanExp == "F" || booleanExp == "f")
-        return "False";
-    else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "False";
+bool solveBoolean(string booleanExpression) {
+    stack<char> expressionStack;
+    
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        char currentChar = booleanExpression[i];
+        
+        if (currentChar == '&' || currentChar == '|') {
+            while (!expressionStack.empty() && expressionStack.top() != '(') {
+                int prevOp = expressionStack.top();
+                expressionStack.pop();
+                
+                if (prevOp == '&') {
+                    currentChar = '&';
+                } else {
+                    currentChar = '|';
+                }
+            }
+            
+            if (!expressionStack.empty() && expressionStack.top() == '(') {
+                expressionStack.pop(); // remove the left parenthesis
+            }
+        } else if (currentChar == '(') {
+            expressionStack.push('(');
+        } else if (currentChar == ')') {
+            while (!expressionStack.empty() && expressionStack.top() != '(') {
+                int prevOp = expressionStack.top();
+                expressionStack.pop();
+                
+                if (prevOp == '&') {
+                    currentChar = '&';
+                } else {
+                    currentChar = '|';
+                }
+            }
+            
+            if (!expressionStack.empty() && expressionStack.top() == '(') {
+                expressionStack.pop(); // remove the left parenthesis
+            }
+        } else {
+            expressionStack.push(currentChar);
         }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 'f' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 't' || booleanExp[i] == 'T')
-                return "True";
+    }
+    
+    while (!expressionStack.empty()) {
+        int prevOp = expressionStack.top();
+        expressionStack.pop();
+        
+        if (prevOp == '&') {
+            currentChar = '&';
+        } else {
+            currentChar = '|';
         }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '&') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "False";
-        }
-        return "True";
-    } else if (booleanExp.length() > 1 && booleanExp[0] == 't' && booleanExp[1] == '|') {
-        for (int i = 2; i < booleanExp.length(); i++) {
-            if (booleanExp[i] == 'f' || booleanExp[i] == 'F')
-                return "True";
-        }
-        return "True";
-    } else
-        return "Invalid expression";
+    }
+    
+    return currentChar == 't' ? true : false;
 }
