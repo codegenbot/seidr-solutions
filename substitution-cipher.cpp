@@ -1,6 +1,6 @@
 string cipher(string cipher1, string cipher2, string input) {
     string result = "";
-    for (char c : input.substr(0, input.find('\0'))) {
+    for (char c : input) {
         if (c != '\0') {  
             size_t pos = cipher2.find(std::tolower(c)); 
             if (pos != std::string::npos) {
