@@ -31,19 +31,11 @@ int main() {
     cin >> a >> b;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
-
     cout << "Enter a text string: ";
-    if (!getline(cin, text)) {
-        cerr << "Error reading text string" << endl;
-        return 1;
-    }
+    getline(cin >> ws, text);
 
     cout << "Enter a target string: ";
-    if (!getline(cin, target)) {
-        cerr << "Error reading target string" << endl;
-        return 1;
-    }
+    getline(cin >> ws, target);
 
     vector<int> result = findSubstringIndices(text, target);
 
