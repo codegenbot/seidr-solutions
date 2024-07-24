@@ -1,11 +1,11 @@
-vector<int> res;
+vector<int> factors;
     for(int i=2; i*i<=n; i++){
         while(n%i == 0){
-            res.push_back(i);
+            factors.push_back(i);
             n /= i;
         }
     }
     if(n > 1){
-        res.push_back(n);
+        factors.push_back(n);
     }
-    return res;
+    return factors;
