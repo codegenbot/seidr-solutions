@@ -1,2 +1,13 @@
+```
 def luhn(card):
-    return sum(int(x) for x in str(sum(map(lambda x: x*2 if (i:=len(card)-1)//2!=i else x, card)) if int(x)>9 then int(x)-9 else int(x)))
+    card = [int(x) for x in str(card)]
+    new_card = []
+    for i, digit in enumerate(card):
+        if i % 2 != 0:
+            new_card.append(digit)
+        else:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+            new_card.append(digit)
+    return sum(new_card)
