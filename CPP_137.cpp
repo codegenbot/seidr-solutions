@@ -12,8 +12,7 @@ std::variant<std::string, int, float> compare_one(std::variant<any> a, std::vari
         int aInt = get<int>(a);
         int bInt = get<int>(b);
         return to_string((aInt > bInt) ? aInt : bInt);
-    } else {
-        // Handle all other cases or unexpected inputs
-        return 0;
     }
+    // Handle all other cases or unexpected inputs
+    return 0;
 }
