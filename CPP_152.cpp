@@ -21,20 +21,20 @@ int main() {
     std::cout << "Enter the number of elements for both vectors: ";
     std::cin >> n;
 
-    std::vector<int> vec1(n);
+    std::vector<int> vec1;
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        vec1[i] = x; 
+        std::cin >> x; 
+        vec1.push_back(x); 
     }
 
-    std::vector<int> vec2(n);
+    std::vector<int> vec2;
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        vec2[i] = x; 
+        std::cin >> x; 
+        vec2.push_back(x); 
     }
 
     bool checkEquality = true;
