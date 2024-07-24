@@ -1,4 +1,3 @@
-```
 while True:
     numbers = input("Enter numbers separated by space: ").split()
     while not all(map(lambda x: isinstance(int(x), int), numbers)):
