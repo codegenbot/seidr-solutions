@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -16,9 +15,8 @@ std::string int_to_mini_roman(int number) {
     return result;
 }
 
-int testMain() {
+void testMain() {
     assert(int_to_mini_roman(1000) == "M");
-    assert(int_to_mini_roman(1999) == std::string("1999"));
+    assert(int_to_mini_roman(1999) == "1999");
     assert(int_to_mini_roman(2024) == "MMXXIV");
-    return 0;
 }
