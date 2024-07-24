@@ -1,7 +1,2 @@
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+def below_zero(operations):
+    return sum(1 for num in operations if num < 0) > 0
