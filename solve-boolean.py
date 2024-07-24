@@ -1,11 +1,12 @@
-def solve_boolean(expression):
-    if expression == 'T':
+```
+import re
+
+def solveBoolean(input_str):
+    if input_str == "t":
         return True
-    elif expression == 'F':
+    elif input_str == "f":
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
+    else:
+        while "&" in input_str or "|" in input_str:
+            input_str = re.sub('(&&)|\|\|', lambda m: 'and' if m.group() == '&&' else 'or', input_str)
+        return bool(eval(input_str))
