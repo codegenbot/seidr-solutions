@@ -1,4 +1,3 @@
-```
 def is_happy_number(n):
     seen = set()
     while True:
