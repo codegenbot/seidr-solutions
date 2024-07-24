@@ -1,19 +1,14 @@
-#include <variant>
 #include <string>
-#include <any>
-#include <boost/variant.hpp>
+#include <variant>
 
-using namespace std;
-using boost::variant;
+using std::string;
 
 variant<string, int, float> compare_one(variant<any> a, variant<any> b) {
     return visit([&](auto&& a, auto&& b) -> variant<string, int, float> {
         if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-            string s1 = get<string>(a);
-            string s2 = get<string>(b);
-            if (s1 > s2) {
+            if (get<string>(a) > get<string>(b)) {
                 return "Greater";
-            } else if (s1 < s2) {
+            } else if (get<string>(a) < get<string>(b)) {
                 return "Less";
             } else {
                 return "Equal";
