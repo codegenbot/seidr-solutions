@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -12,7 +13,6 @@ int main() {
     }
 
     string result = squareDigits("123");
-    cout << result << endl;  // Print the resulting string
-
+    cout << result << endl;  
     return 0;
 }
