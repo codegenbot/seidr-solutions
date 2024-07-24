@@ -9,4 +9,3 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
-}
