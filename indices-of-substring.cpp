@@ -6,4 +6,3 @@ auto findIndices(string text, string target) -> vector<int> {
         prevLast = last + 1;
     }
     return indices;
-}
