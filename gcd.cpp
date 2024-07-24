@@ -1,21 +1,25 @@
 #include <iostream>
-
-using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+#include <vector>
+#include <string>
 
 int main() {
-    int num1, num2;
-    
-    cout << "Enter two integers: ";
-    cin >> num1 >> num2;
-    
-    cout << "GCD of the given numbers is: " << gcd(num1, num2) << endl;
+    std::vector<int> indices;
+    std::string text, target;
 
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
+
+    size_t pos = 0;
+    while ((pos = text.find(target)) != std::string::npos) {
+        indices.push_back(pos);
+        text.erase(0, pos + target.length());
+    }
+
+    for (int i : indices) {
+        std::cout << i << " ";
+    }
     return 0;
 }

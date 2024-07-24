@@ -1,4 +1,4 @@
-auto findIndices(string text, string target) -> vector<int> {
+auto findIndices(string text, string target) -> std::vector<int> {
     vector<int> indices;
     int prevLast = 0;
     while ((int last = text.find(target, prevLast)) != string::npos) {
@@ -15,7 +15,7 @@ int main() {
     string target;
     cin >> target;
 
-    vector<int> indices = findIndices(text, target);
+    auto indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";
     }
