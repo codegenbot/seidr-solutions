@@ -40,6 +40,6 @@ int mainFunction() {
             }
         }
     }
-    assert(areEqual(result, {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
+    assert(areEqual({-76, -21, 0, 4, 23, 6, 6}, result) && result.size() == 7);
     return 0;
 }

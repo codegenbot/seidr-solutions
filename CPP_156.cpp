@@ -35,7 +35,7 @@ string intToRoman(int number) {
     return roman;
 }
 
-int std::main() {
+int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
