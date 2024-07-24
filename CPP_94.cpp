@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -30,20 +29,19 @@ int sumOfDigits(int n){
     return sum;
 
 int main() {
-    vector<string> lst;
+    vector<int> lst;
     int num, i;
     cout << "Enter the number of elements in the list: ";
     cin >> num;
-    for(i = 0; i < stoi(num); i++){
+    for(i = 0; i < num; i++){
         cout << "Enter element " << i+1 << ": ";
-        string x; 
+        int x; 
         cin >> x; 
-        lst.push_back(x);
+        lst.push_back(to_string(x));
     }
-    int maxPrimeNum = maxPrime(stoi(lst[0]));
+    int maxPrimeNum = maxPrime(lst);
     if(maxPrimeNum > 0)
         cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
     else
         cout << "No primes found in the list." << endl;
     return 0;
-}
