@@ -1,5 +1,23 @@
+```cpp
 #include <iostream>
+#include <vector>
 #include <string>
+
+using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+        }
+    }
+
+    return result;
+}
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -14,10 +32,10 @@ int main() {
     int a = 0;
     int b = 0;
 
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
 
-    std::cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << std::endl;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
 
     return 0;
 }
