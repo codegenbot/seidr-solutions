@@ -1,5 +1,5 @@
-```
 import re
+
 
 def print_result():
     while True:
@@ -23,5 +23,6 @@ def print_result():
 
     print(f"Apples: {count_apples}")
     print(f"Oranges: {count_oranges}")
+
 
 print_result()
