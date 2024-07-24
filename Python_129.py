@@ -2,11 +2,12 @@
 def minPath(grid, k):
     N = len(grid)
     queue = [(0, 0, [])]
-    res = None
+    res = []
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            res = tuple(path)
+            if not res or sum(map(int, path)) < sum(map(int, res)):
+                res = path
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
