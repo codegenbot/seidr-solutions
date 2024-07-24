@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <openssl/md5.h>
+#include <string>
 
 using namespace std;
 
@@ -22,11 +22,11 @@ string string_to_md5(const string& text) {
 
 int main() {
     string input;
-    cout << "Enter text: ";
-    getline(cin, input);
+    cout << "Enter a string: ";
+    cin >> input;
 
     string result = string_to_md5(input);
-    cout << "MD5 hash of the text: " << result << endl;
+    cout << "MD5 hash of the input string: " << result << endl;
 
     return 0;
 }
