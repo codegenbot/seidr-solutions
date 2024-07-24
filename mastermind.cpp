@@ -1,9 +1,7 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
-
-tuple<int, int> mastermind(string code, string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -15,5 +13,4 @@ tuple<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return make_tuple(black, white);
-}
+    return {black, white};
