@@ -1,3 +1,6 @@
 ```
-numbers = [int(x) for x in input().split(',')]
-print(sum_squares(list(map(int, numbers))))
+try:
+    numbers = list(map(int, input().split()))
+    print(sum_squares(numbers))
+except ValueError:
+    print("Invalid input. Please enter space-separated numbers.")
