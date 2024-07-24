@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 #include <variant>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
@@ -12,21 +13,17 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
                 return "Equal";
             }
         } else if (std::holds_alternative<int>(a) && std::holds_alternative<int>(b)) {
-            int aInt = std::get<int>(a);
-            int bInt = std::get<int>(b);
-            if (aInt > bInt) {
+            if (std::get<int>(a) > std::get<int>(b)) {
                 return "Greater";
-            } else if (aInt < bInt) {
+            } else if (std::get<int>(a) < std::get<int>(b)) {
                 return "Less";
             } else {
                 return "Equal";
             }
         } else if (std::holds_alternative<float>(a) && std::holds_alternative<float>(b)) {
-            float aFloat = std::get<float>(a);
-            float bFloat = std::get<float>(b);
-            if (aFloat > bFloat) {
+            if (std::get<float>(a) > std::get<float>(b)) {
                 return "Greater";
-            } else if (aFloat < bFloat) {
+            } else if (std::get<float>(a) < std::get<float>(b)) {
                 return "Less";
             } else {
                 return "Equal";
