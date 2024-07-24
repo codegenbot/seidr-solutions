@@ -1,18 +1,19 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
+total_sum = sum(numbers)
+half_sum = total_sum // 2
+current_sum = 0
 cut_index = 0
 
-for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
+for i, num in enumerate(numbers):
+    current_sum += num
+    if current_sum >= half_sum:
         cut_index = i
+        break
 
-print(*arr[: cut_index + 1])
-print(*arr[cut_index + 1 :])
+if abs(current_sum - half_sum) < abs(current_sum - num - half_sum):
+    cut_index -= 1
+
+print(numbers[: cut_index + 1])
+print(numbers[cut_index + 1 :])
