@@ -11,14 +11,14 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
         std::string strB = boost::any_cast<std::string>(b);
-        return stof(strA) > stod(strB) ? a : b;
+        return std::stof(strA) > std::stod(strB) ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        return stof(boost::any_cast<std::string>(a)) > boost::any_cast<float>(b) ? a : b;
+        return std::stof(boost::any_cast<std::string>(a)) > boost::any_cast<float>(b) ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        return (int)boost::any_cast<int>(a) > stod(boost::any_cast<std::string>(b)) ? a : b;
+        return (int)boost::any_cast<int>(a) > std::stod(boost::any_cast<std::string>(b)) ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(float)) {
         return boost::any_cast<double>(a) > boost::any_cast<float>(b) ? a : b;
     } else {
-        return typeid(any);
+        return typeid(std::string);
     }
 }
