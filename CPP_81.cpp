@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -36,7 +37,36 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-int main() {
-    std::vector<float> grades = {0.0f, 0.7f}; // Initialize the vector with float values
+int main_test() {
+    std::vector<float> grades = {0, 0.7};
+    std::vector<std::string> a = numerical_letter_grade(grades);
+    std::vector<std::string> b;
+    for (const auto& grade : grades) {
+        if (grade >= 4.0)
+            b.push_back("A+");
+        else if (grade > 3.7)
+            b.push_back("A");
+        else if (grade > 3.3)
+            b.push_back("A-");
+        else if (grade > 3.0)
+            b.push_back("B+");
+        else if (grade > 2.7)
+            b.push_back("B");
+        else if (grade > 2.3)
+            b.push_back("B-");
+        else if (grade > 2.0)
+            b.push_back("C+");
+        else if (grade > 1.7)
+            b.push_back("C");
+        else if (grade > 1.3)
+            b.push_back("C-");
+        else if (grade > 1.0)
+            b.push_back("D+");
+        else if (grade > 0.7)
+            b.push_back("D");
+        else
+            b.push_back("E");
+    }
+    bool same = issame(a, b);
     return 0;
 }
