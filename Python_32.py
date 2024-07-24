@@ -1,3 +1,2 @@
-import sys
-n = int(sys.stdin.readline().strip())
-coefficients = list(map(int, sys.stdin.readline().strip().split()))
+n = int(input())
+coefficients = list(map(int, input().split()))
