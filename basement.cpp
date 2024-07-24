@@ -10,7 +10,7 @@ int main() {
         cin >> nums[i];
     }
     
-    int sum = 0, index = 0;
+    int sum = 0, index = -1;
     for (int i = 0; i < n; ++i) {
         sum += nums[i];
         if (sum < 0) {
