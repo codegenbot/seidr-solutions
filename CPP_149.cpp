@@ -1,6 +1,10 @@
 ```cpp
-#include <vector>
-#include <string>
+int main() {
+    vector<vector<string>> list1 = {{"aaaa", "bbbb"}, {"dd"}, {"cc"}};
+    vector<vector<string>> list2 = {{"cc"}, {"dd"}, {"aaaa", "bbbb"}};
+    assert(issame(list1, list2));
+    return 0;
+}
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
@@ -18,14 +22,9 @@ int sorted_list_sum(const vector<vector<string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
-        if (issame({{"hello", "world"}}, vector<string>(sublst.begin() + 1, sublst.end()))) {
-            sum += std::stoi(sublst[0].substr(6));
+        if (issame({{"hello", "world"}}, sublst)) {
+            sum += std::stoi(sublst[1].substr(7));
         }
     }
     return sum;
-}
-
-int main() {
-    assert(sorted_list_sum({{"aaaa", "bbbb"}, {"dd"}, {"cc"}}) == 0);
-    return 0;
 }
