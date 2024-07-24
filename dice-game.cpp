@@ -1,15 +1,12 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1.0) / total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(6);
-    cout << diceGame(n, m) << endl;
-    return 0;
+double probability(int n, int m) {
+    double totalPossibilities = 1e6; // assume both dice have 1e6 sides (it's enough for this problem)
+    int peterWins = 0;
+    
+    for (int i = n + 1; i <= m; i++) {
+        peterWins += i - n;
+    }
+    
+    return (double) peterWins / totalPossibilities;
 }
