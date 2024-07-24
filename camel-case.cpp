@@ -1,34 +1,32 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 
-std::vector<std::string> split(const std::string& s, char delimeter) {
+std::vector<std::string> split(const std::string& str, char ch) {
     std::vector<std::string> tokens;
-    size_t start = 0;
-    size_t end = 0;
-
-    while ((end = s.find(delimeter, start)) != std::string::npos) {
-        tokens.push_back(s.substr(start, end - start));
-        start = end + 1;
+    size_t pos = 0;
+    while ((pos = str.find(ch)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
-
-    tokens.push_back(s.substr(start));
-
+    tokens.push_back(str);
     return tokens;
 }
 
 std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words = split(s, " ");
+    std::vector<std::string> words = split(s, '-');
     std::string result;
-
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += tolower(word[0]);
-            result += word.substr(1);
-        } else {
-            result += toupper(word[0]) + word.substr(1);
-        }
+    
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0)
+            result += toupper(words[i][0]) + tolower(string(words.begin() + 1, words.end()));
+        else
+            result += words[i];
+        if (i < words.size() - 1)
+            result += " ";
     }
-
+    
     return result;
 }
 
