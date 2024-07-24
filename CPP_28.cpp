@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::string concatenate(std::vector<std::string> strings) {
+std::string concatenate(std::vector<std::string> strings){
     std::string result = "";
     for (const auto& str : strings) {
         result += str;
@@ -11,7 +11,6 @@ std::string concatenate(std::vector<std::string> strings) {
 }
 
 int main() {
-    vector<string> words = {"Hello", " ", "world!"};
-    assert(concatenate(words) == "Hello world!");
+    assert(concatenate({"hello", "world"}) == "helloworld");
     return 0;
 }
