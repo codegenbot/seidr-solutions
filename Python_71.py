@@ -1,3 +1,4 @@
+```Python
 import math
 
 
@@ -16,9 +17,23 @@ def check(area):
         print("The area of the triangle is not a perfect square.")
 
 
-base = float(input("Enter the base of the triangle: "))
-height = float(input("Enter the height of the triangle: "))
+while True:
+    while True:
+        try:
+            base = float(input("Enter the base of the triangle: "))
+            height = float(input("Enter the height of the triangle: "))
 
-triangle_area = (base * height) / 2
+            if base > 0 and height > 0:
+                break
+            else:
+                print("Please enter positive values for both base and height.")
+        except ValueError:
+            print("Invalid input. Please enter numbers.")
 
-check(triangle_area)
+    triangle_area = (base * height) / 2
+
+    check(triangle_area)
+
+    cont = input("Do you want to continue? (yes/no): ")
+    if cont.lower() != "yes":
+        break
