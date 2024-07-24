@@ -28,6 +28,10 @@ int main() {
             break;
         }
         vec1.push_back(num);
+        // Read the space to process the next number
+        if (!(std::cin >> ws).good()) {
+            break; // No more numbers in the stream
+        }
     }
 
     // Input for vector 2
@@ -40,6 +44,10 @@ int main() {
             break;
         }
         vec2.push_back(num);
+        // Read the space to process the next number
+        if (!(std::cin >> ws).good()) {
+            break; // No more numbers in the stream
+        }
     }
 
     if(isSame(vec1, vec2)) {
