@@ -1,3 +1,4 @@
-def add_elements(arr: list, k: int) -> int:
-    sorted_nums = sorted([num for num in arr if 10 <= num < 100], reverse=True)
-    return sum(sorted_nums) if len(sorted_nums) <= k else sum(sorted_nums[:k])
+def add_elements(arr: list[int], k: int) -> int:
+    sorted_nums = sorted(arr, reverse=True)
+    filtered_nums = [num for num in sorted_nums if 10 <= num < 100]
+    return sum(filtered_nums[:k])
