@@ -1,10 +1,10 @@
 vector<bool> issame(vector<string> a, vector<string> b) {
     vector<bool> result;
-    for(int i = 0; i < a.size(); i++) {
-        if(find(b.begin(), b.end(), a[i]) != b.end())
-            result.push_back(true);
-        else
+    for(int i = 0; i < a.size() && i < b.size(); i++) {
+        if(a[i] != b[i]) 
             result.push_back(false);
+        else
+            result.push_back(true);
     }
     return result;
 }
