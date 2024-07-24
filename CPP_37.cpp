@@ -26,6 +26,5 @@ void sort_even(vector<float>& l) {
 }
 
 int main() {
-    // Code for main function
-    return 0;
+    // Main function implementation
 }
