@@ -4,22 +4,24 @@
 std::string camelCase(std::string input) {
     std::string result = "";
     bool firstWord = true;
-    
+    bool capitalNextWord = false;
+
     for (char c : input) {
         if (c == '-') {
-            // Skip dash
+            capitalNextWord = !capitalNextWord;
         } else if (c == ' ') {
-            // Skip space
+            firstWord = true;
+            capitalNextWord = false;
         } else {
-            if (firstWord) {
-                result += char(tolower(c));
-                firstWord = false;
+            if (!firstWord) {
+                result += capitalNextWord ? char(toupper(c)) : char(tolower(c));
             } else {
-                result += char(toupper(c));
+                result += c;
             }
+            firstWord = false;
         }
     }
-    
+
     return result;
 }
 
