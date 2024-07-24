@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
