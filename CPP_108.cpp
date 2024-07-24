@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
@@ -15,13 +12,15 @@ int count_nums(std::vector<int> n) {
                 count++;
             }
         } else {
-            int sum = 0, i = 1;
+            int sum = 0;
+            int i = 1;
             int abs_num = num;
             while (abs_num != 0) {
-                if ((abs_num / i) % 10 < 0) {
-                    sum -= (abs_num / i) % 10;
+                int digit = abs_num / i % 10;
+                if (num < 0) {
+                    sum -= digit;
                 } else {
-                    sum += (abs_num / i) % 10;
+                    sum += digit;
                 }
                 i *= 10;
                 abs_num /= i;
@@ -32,21 +31,4 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> numbers(n);
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> numbers[i];
-    }
-    
-    int result = count_nums(numbers);
-    std::cout << "The number of positive sum is: " << result;
-    
-    return 0;
 }
