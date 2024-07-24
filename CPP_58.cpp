@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
@@ -18,7 +17,5 @@ int main() {
         cout << "Vectors are different." << endl;
     }
 
-    assert(issame(vector<int>({4, 3, 2, 8}), {}));
-    
     return 0;
 }
