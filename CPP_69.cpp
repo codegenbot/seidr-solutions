@@ -1,11 +1,11 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-int search(vector<int> lst) {
+int search(std::vector<int> lst) { 
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && i >= count(i)) {
+        if (i > 0 && std::count_if(std::begin(lst), std::end(lst), [i](int x) { return x == i; }) >= 1) { 
             max = i;
         }
     }
@@ -14,4 +14,5 @@ int search(vector<int> lst) {
 
 int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
