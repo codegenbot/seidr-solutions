@@ -2,21 +2,31 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator1 = 0, denominator1 = 0;
-    int numerator2 = 0, denominator2 = 0;
+    int a = 0, b = 0, c = 0, d = 0;
+    
+    // Convert numerator and denominator of both fractions to integers
+    sscanf(x.c_str(), "%d/%d", &a, &b);
+    sscanf(n.c_str(), "%d/%d", &c, &d);
 
-    // Convert strings to integers
-    size_t pos = x.find('/');
-    numerator1 = stoi(x.substr(0, pos));
-    denominator1 = stoi(x.substr(pos + 1));
+    // Calculate the greatest common divisor (GCD) for both fractions
+    int GCD = gcd(b, d);
 
-    pos = n.find('/');
-    numerator2 = stoi(n.substr(0, pos));
-    denominator2 = stoi(n.substr(pos + 1));
+    // Simplify the fractions by dividing numerator and denominator by their GCD
+    a /= GCD;
+    b /= GCD;
+    c /= GCD;
+    d /= GCD;
 
-    // Check if the product is a whole number
-    int productNumerator = numerator1 * numerator2;
-    int productDenominator = denominator1 * denominator2;
+    // Check if the simplified fractions are equal
+    return (a == c) && (b == d);
+}
 
-    return (productNumerator == productDenominator);
+// Function to calculate the greatest common divisor (GCD)
+int gcd(int a, int b) {
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
