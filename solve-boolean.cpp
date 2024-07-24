@@ -1,36 +1,30 @@
-#include <string>
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
 
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    stack<string> valStack;
+    for (int i = 0; i < booleanExpression.size(); i++) {
+        char c = booleanExpression[i];
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
-            }
-            opStack.push('&');
-        } else if (expression[i] == '|') {
-            while (!opStack.empty()) {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1 == "True" || operand2 == "True") ? "True" : "False");
-            }
-            opStack.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            valStack.push("True");
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.push("False");
+        if (c == 'T' || c == 't') {
+            valueStack.push(true);
+        } else if (c == 'F' || c == 'f') {
+            valueStack.push(false);
+        } else if (c == '&') {
+            bool right = valueStack.top();
+            valueStack.pop();
+            bool left = valueStack.top();
+            valueStack.pop();
+
+            valueStack.push(left && right);
+        } else if (c == '|') {
+            bool right = valueStack.top();
+            valueStack.pop();
+            bool left = valueStack.top();
+            valueStack.pop();
+
+            valueStack.push(left || right);
         }
     }
 
-    return valStack.top() == "True";
+    return valueStack.top();
 }
