@@ -1,7 +1,7 @@
-```python
-def match_parens(p):
+```
+def match_parens(s):
     stack = []
-    for char in p:
+    for char in s:
         if char == '(':
             stack.append(char)
         elif char == ')':
@@ -9,10 +9,9 @@ def match_parens(p):
                 stack.pop()
             else:
                 return False
-    return len(stack) == 0
+    if len(stack) > 0:
+        return False
+    return True
 
-def check(match_parens):
-    s = input("Enter a string of parentheses: ")
-    print(match_parens(s))
-
-check(match_parens)
+s = input("Enter a string: ")
+print(match_parens(s))
