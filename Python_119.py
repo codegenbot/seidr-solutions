@@ -1,4 +1,4 @@
-````
+```
 def match_parens(lst):
     """Your code here"""
     s1 = lst[0]
