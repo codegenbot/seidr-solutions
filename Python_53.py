@@ -1,11 +1,12 @@
+```
 def add_numbers():
     while True:
+        print("Please enter two numbers.")
         try:
             x = int(input("Enter first number: "))
             y = int(input("Enter second number: "))
-            return x + y
+            print(x + y)
+            break
         except ValueError:
             print("Invalid input. Please enter a number.")
-
-result1 = add_numbers()
-print("First result:", result1)
+add_numbers()
