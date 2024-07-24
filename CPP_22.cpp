@@ -15,9 +15,9 @@ std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
 }
 
 bool operator<(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() < b.size();
+    return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
 }
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && a == b;
+    return a < b && a > b;
 }
