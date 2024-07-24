@@ -1,17 +1,17 @@
 Here is the solution:
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); i++) {
-        if (i == str.size() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            if (word.size() >= 5) {
+    int start = 0;
+    for (int i = 0; i <= sentence.length(); i++) {
+        if (i == sentence.length() || sentence[i] == ' ') {
+            string word = sentence.substr(start, i - start);
+            if (word.length() >= 5) {
                 result += std::string(word.rbegin(), word.rend());
             } else {
                 result += word;
             }
-            if (i < str.size()) {
+            if (i < sentence.length()) {
                 result += " ";
             }
             start = i + 1;
