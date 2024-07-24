@@ -3,10 +3,11 @@
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
     return true;
 }
 
@@ -20,12 +21,9 @@ string reverse_delete(string s, string c) {
                 break;
             }
         }
-        if (!found) {
+        if (!found)
             temp += ch;
-        }
     }
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) return "True";
-    else return "False";
+    reverse(temp.begin(), temp.end());
+    return temp;
 }
