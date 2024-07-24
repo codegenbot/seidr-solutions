@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,31 +32,16 @@ std::pair<std::string, std::string> bf(std::pair<std::string, std::string> plane
 }
 
 int main() {
+    std::pair<std::string, std::string> planets;
     std::cout << "Enter two planet names: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
+    planets = {planet1, planet2};
     
-    if (planet1 == "Jupiter" && planet2 == "Makemake") {
-        planet1 = "Jupiter";
-        planet2 = "Makemake";
-    } else if ((planet1 == "Mars" || planet1 == "Neptune") && planet2 == "Earth") {
-        planet1 = (planet1 == "Mars" ? "Mars" : "Neptune");
-        planet2 = " to " + planet1;
-    } else if (planet1 == "Earth" && (planet2 == "Mars" || planet2 == "Neptune")) {
-        planet2 = (planet2 == "Mars" ? "Mars" : "Neptune");
-        planet1 = " to " + planet2;
-    }
-    
-    std::pair<std::string, std::string> planets({planet1, planet2});
     std::pair<std::string, std::string> output = bf(planets);
-    
-    if (output.first != "No valid planet combination found") {
-        std::cout << output.first;
-        if (!output.second.empty()) {
-            std::cout << " " + output.second;
-        }
-    } else {
-        // Handle invalid input here
+    std::cout << output.first << " ";
+    if (!output.second.empty()) {
+        std::cout << output.second;
     }
     return 0;
 }
