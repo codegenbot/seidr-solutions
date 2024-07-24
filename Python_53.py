@@ -1,7 +1,6 @@
 def add(x: int, y: int) -> int:
-    try:
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        return x + y
-    except ValueError:
-        return "Invalid input"
+    return x + y
+
+x, y = map(int, input().split())
+result = add(x, y)
+print(result)
