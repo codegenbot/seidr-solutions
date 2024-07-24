@@ -11,4 +11,4 @@ def solve_boolean(expression):
         a, b = expression.split('|')
         return solve_boolean(a) or solve_boolean(b)
     else:
-        raise ValueError("Invalid input")
+        return eval(' '.join(['T' if c == 'T' else 'F' for c in expression]))
