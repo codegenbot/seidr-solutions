@@ -1,18 +1,6 @@
 #include <string>
 #include <algorithm>
 
-bool evalBoolAnd(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 && subResult2;
-}
-
-bool evalBoolOr(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 || subResult2;
-}
-
 bool evalBool(std::string s) {
     while (s.length() > 0) {
         switch (std::tolower(s[0])) {
@@ -35,6 +23,18 @@ bool evalBool(std::string s) {
         s.erase(0, 1); // Remove the evaluated part
     }
     return false; 
+}
+
+bool evalBoolOr(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 || subResult2;
+}
+
+bool evalBoolAnd(std::string left, std::string right) {
+    bool subResult1 = evalBool(left);
+    bool subResult2 = evalBool(right);
+    return subResult1 && subResult2;
 }
 
 int main() {
