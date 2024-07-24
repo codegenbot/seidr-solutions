@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 import math
 
@@ -16,10 +18,8 @@ def f(n):
             result.append(sum(range(1, i+1)))
     return result
 
-while True:
-    try:
-        num = int(input("Enter a number: "))
-        print(f(num))
-        break
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
+try:
+    num = int(input("Enter a number: "))
+    print(f(num))
+except ValueError:
+    print("Invalid input. Please enter an integer.")
