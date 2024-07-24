@@ -9,16 +9,16 @@ def filter_integers() -> List[int]:
             print("Invalid input. Please enter numbers separated by commas.")
             continue
 
-        try:
-            num_list = [int(x) for x in values.split(",")]
-        except ValueError:
-            print("Invalid input. The following values were not integers: ")
-            for value in set([value for value in values.split(",") if not value.replace(",", "").isdigit()]):
-                print(f"{value}")
+        num_list = [int(x) for x in values.split(",") if x.strip().replace(",", "").isdigit()]
+
+        if len(num_list) != len([x for x in values.split(",") if x.strip()]):
+            print("Invalid input. Please enter numbers separated by commas.")
             continue
 
-        if len(num_list) != len(set(num_list)):
-            print("Duplicate integers found in the list.")
-            return []
-        else:
+        if all(isinstance(i, int) for i in num_list):
             return num_list
+        else:
+            print("Invalid input. The following values were not integers: ")
+            for value in set([value for value in num_list if not isinstance(value, int)]):
+                print(f"{value}")
+            continue
