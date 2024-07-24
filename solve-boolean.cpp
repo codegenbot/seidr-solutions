@@ -1,7 +1,9 @@
+#include <stack>
 #include <string>
-bool solveBoolean(string expression) {
-    stack<char> operationStack;
-    stack<bool> valueStack;
+
+bool solveBoolean(std::string expression) {
+    std::stack<char> operationStack;
+    std::stack<bool> valueStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
