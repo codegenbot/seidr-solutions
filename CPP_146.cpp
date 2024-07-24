@@ -12,7 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {12, 34, 45, 56};
-    cout << "Number of special numbers in the array: " << specialFilter(nums) << endl;
+    vector<int> nums = {123, 456, 789};
+    cout << "Number of special numbers: " << specialFilter(nums) << endl;
     return 0;
 }
