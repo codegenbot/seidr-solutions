@@ -1,13 +1,12 @@
-```
 def car_race_collision(n: int):
-    if n < 2:
-        return False
-    first_car = 0
-    second_car = 1
+    speed1 = int(input("Enter the speed of the first car: "))
+    speed2 = int(input("Enter the speed of the second car: "))
+
+    position1 = 0
+    position2 = 0
+
     while True:
-        if first_car == second_car:
+        if position1 == position2:
             return True
-        first_car += 1
-        if first_car == second_car:
-            return True
-        second_car += 1
+        position1 += speed1
+        position2 += speed2
