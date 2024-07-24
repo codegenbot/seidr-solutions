@@ -1,4 +1,4 @@
-n = int(input())
+total_numbers = int(input())
 numbers = list(map(float, input().split()))
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
