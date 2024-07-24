@@ -1,20 +1,16 @@
 ```
-def calculate_area_and_perimeter(length: int, width: int):
-    area = length * width
-    perimeter = 2 * (length + width)
-    
+def add(x: int, y: int):
     while True:
         try:
-            length = float(input("Enter the length of the rectangle: "))
-            width = float(input("Enter the width of the rectangle: "))
+            x = float(input("Enter a number for x: "))
+            y = float(input("Enter a number for y: "))
         except ValueError:
             print("Both inputs must be numbers")
         else:
             break
-    result_area = area
-    result_perimeter = perimeter
+    result = x + y
 
-    user_input = input(f"Area: {result_area}, Perimeter: {result_perimeter}. Do you want to continue? (yes/no): ")
+    user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
 
     while True:
         if user_input.lower() in ["yes", "no"]:
@@ -22,6 +18,6 @@ def calculate_area_and_perimeter(length: int, width: int):
         user_input = input("Invalid input. Please enter yes or no: ")
 
     if user_input.lower() == "yes":
-        return result_area, result_perimeter
+        return result
     else:
         return None
