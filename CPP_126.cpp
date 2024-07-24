@@ -6,6 +6,3 @@ bool is_sorted(vector<int> lst) {
     sort(temp.begin(), temp.end());
     return temp == lst;
 }
-int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
-}
