@@ -34,12 +34,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // You can now call the order_by_points function here
-    // For example:
-    vector<int> nums = {123, 456, 789};
-    vector<int> result = order_by_points(nums);
-    for(int i : result) {
-        cout << i << " ";
-    }
+    // your code here
     return 0;
 }
