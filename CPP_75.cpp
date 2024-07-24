@@ -1,12 +1,14 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
-bool is_prime(int num) {
-    if (num <= 1) {
+using namespace std;
+
+bool is_prime(int n) {
+    if (n <= 1) {
         return false;
     }
-    for (int i = 2; i <= sqrt(num); i++) {
-        if (num % i == 0) {
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
             return false;
         }
     }
@@ -14,25 +16,26 @@ bool is_prime(int num) {
 }
 
 bool is_multiply_prime(int a) {
-    int count = 0;
-    for (int i = 2; i <= a; i++) {
-        if (is_prime(i) && a % i == 0) {
-            count++;
+    if (a < 6) {
+        return false;
+    }
+
+    vector<int> primes;
+    for (int i = 2; i <= 100; i++) {
+        if (is_prime(i)) {
+            primes.push_back(i);
         }
     }
-    return count == 3;
-}
 
-int main() {
-    int num;
-    std::cout << "Enter a number less than 100: ";
-    std::cin >> num;
-    
-    if (is_multiply_prime(num)) {
-        std::cout << "true";
-    } else {
-        std::cout << "false";
+    for (int i = 0; i < primes.size(); i++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
+                if (primes[i] * primes[j] * primes[k] == a) {
+                    return true;
+                }
+            }
+        }
     }
-    
-    return 0;
+
+    return false;
 }
