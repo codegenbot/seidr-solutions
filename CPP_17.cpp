@@ -1,8 +1,10 @@
-vector<int> parse_music(string music_string);
+#include <iostream>
+#include <vector>
+#include <string>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
+
+vector<int> parse_music(string music_string);
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
@@ -27,6 +29,14 @@ vector<int> parse_music(string music_string){
 }
 
 int main() {
-    // Your main function code here
+    string music_string;
+    cin >> music_string;
+    
+    vector<int> result = parse_music(music_string);
+    
+    for (int beat : result) {
+        cout << beat << " ";
+    }
+    
     return 0;
 }
