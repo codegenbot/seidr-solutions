@@ -6,6 +6,7 @@ def sum_of_squares(n):
 
 
 while True:
+    print("Enter the base and height of a triangle.")
     while True:
         try:
             base = float(input("Enter the base of the triangle: "))
@@ -20,4 +21,4 @@ while True:
 
     triangle_area = (base * height) / 2
     sum_of_squares_value = sum_of_squares(int(triangle_area))
-    print(sum_of_squares_value)
+    check(triangle_area)
