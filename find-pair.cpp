@@ -4,13 +4,13 @@ using namespace std;
 pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.count(complement)) {
-            return {complement, nums[i]};
+        int comp = target - nums[i];
+        if (numMap.count(comp)) {
+            return {comp, nums[i]};
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    return {-1, -1}; // or throw an exception
 }
 
 int main() {
@@ -24,10 +24,9 @@ int main() {
     cin >> target;
     pair<int, int> result = findPair(nums, target);
     if (result.first != -1) {
-        cout << result.first << endl;
-        cout << result.second << endl;
+        cout << result.first << " " << result.second << endl;
     } else {
-        cout << "No such pair found." << endl;
+        cout << "No such pair found" << endl;
     }
     return 0;
 }

@@ -1,35 +1,35 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<int> prefixSum(n + 1);
-    for (int i = 0; i < n; ++i) {
-        prefixSum[i + 1] = prefixSum[i] + v[i];
-    }
-
     int minDiff = INT_MAX;
-    int pos;
-    for (int i = 1; i <= n; ++i) {
-        int leftSum = prefixSum[i];
-        int rightSum = prefixSum[n] - leftSum;
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            pos = i;
+    int cutIndex = -1;
+    
+    for (int i = 0; i < n; ++i) {
+        if ((v[i] == v[0]) || (abs(v[i] - v[0]) <= minDiff)) {
+            minDiff = abs(v[i] - v[0]);
+            cutIndex = i;
         }
     }
+    
+    vector<int> left(v.begin(), v.begin() + cutIndex);
+    vector<int> right(v.begin() + cutIndex, v.end());
+    
+    return {left, right};
+}
 
-    vector<vector<int>> result(2);
-    result[0].resize(pos);
-    result[1].resize(n - pos);
-
-    for (int i = 0; i < pos; ++i) {
-        result[0][i] = v[i];
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) {
+        cin >> x;
     }
-
-    for (int i = 0; i < n - pos; ++i) {
-        result[1][i] = v[pos + i];
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "0\n";
+    for (const auto &x : result.first) {
+        cout << x << "\n";
     }
-
-    return result;
+    return 0;
 }
