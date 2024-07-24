@@ -1,30 +1,20 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    string res = "";
-    
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == '&' || s[i] == '|') {
-            while(st.size() > 1 && (st.top() == '&' || st.top() == '|')) {
-                res += st.top();
-                st.pop();
+```bool solveBoolean(std::string expression) {
+    bool result = true;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (i + 1 < expression.length() && expression[i+1] == '&') {
+                i++;
             }
-            st.push(s[i]);
+            if (i + 1 < expression.length() && expression[i+1] == '|') {
+                return false;
+            }
+        } else if (expression[i] == '|') {
+            while (i + 1 < expression.length()) {
+                i++;
+            }
         } else {
-            st.push(s[i]);
+            result = (result && (expression[i] == 'T'));
         }
     }
-    
-    while(st.size() > 0) {
-        res += st.top();
-        st.pop();
-    }
-    
-    string result = "True";
-    if(res == "F") {
-        result = "False";
-    } else if(res.length() > 1 && (res.find("T&") != string::npos || res.find("F|") != string::npos)) {
-        result = "False";
-    }
-    
     return result;
-}
+}``
