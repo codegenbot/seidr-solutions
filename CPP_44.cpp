@@ -17,8 +17,9 @@ int main() {
     assert(change_base(255, 8) == "377");
     assert(change_base(100, 10) == "100");
     
+    // Additional test case mentioned in the error
     int x = 42;
-    assert(change_base(x, x + 1) == std::to_string(x));
+    assert(change_base(x, x + 1) == std::__cxx11::to_string(x));
     
     return 0;
 }
