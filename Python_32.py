@@ -1,11 +1,4 @@
-def find_zero_coefficients():
-    coefficients = input("Enter the coefficients (separated by space): ").split()
-    for i in range(len(coefficients)):
-        coefficients[i] = float(coefficients[i])
-    if len(coefficients) % 2 != 0:
-        raise ValueError("coefficients must have even number of coefficients")
-    return coefficients
-
+```
 def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
