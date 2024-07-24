@@ -1,2 +1,1 @@
-```Python
-max_fill = int(input("Enter maximum number of fills: "))
+max_fill = int(input("Enter max fill: "))
