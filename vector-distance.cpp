@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
+double vector_distance(int n, const vector<float>& v1, const vector<float>& v2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
         sum += pow(v1[i] - v2[i], 2);
@@ -25,8 +25,8 @@ int main() {
         cin >> v2[i];
     }
 
-    double distance = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << distance << endl;
+    double dist = vector_distance(n, v1, v2);
+    cout << fixed << setprecision(10) << dist << endl;
 
     return 0;
 }
