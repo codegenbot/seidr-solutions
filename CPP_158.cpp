@@ -1,8 +1,8 @@
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-std::string find_max(std::vector<std::string> words){
+std::string find_max(std::vector<std::string> words) {
     std::string result = *std::minmax_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             return std::count(a.begin(), a.end(), std::unique_copy(a.begin(), a.end())) <
