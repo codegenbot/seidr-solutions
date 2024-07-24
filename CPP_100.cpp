@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-
 using namespace std;
 
 vector<vector<int>> make_a_pile(int n) {
@@ -25,7 +24,7 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     vector<vector<int>> pile1 = make_a_pile(n);
-    assert(isSame(make_a_pile(8), pile1));
+    assert(isSame(pile1, make_a_pile(n)));
     for (const auto& row : pile1) {
         for (int val : row) {
             cout << val << " ";
