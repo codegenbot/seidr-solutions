@@ -1,3 +1,8 @@
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 vector<string> sorted_list_sum(vector<string> lst) {
     int total = 0;
     
