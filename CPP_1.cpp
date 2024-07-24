@@ -15,9 +15,9 @@ int main() {
     cout << "Enter a string with parentheses: ";
     cin >> input;
 
-    vector<string> result = separate_paren_groups(input);
+    vector<string> groups = separate_paren_groups(input);
 
-    for (const string& group : result) {
+    for (const string& group : groups) {
         cout << group << endl;
     }
 
