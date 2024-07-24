@@ -1,9 +1,10 @@
-def double_the_difference():
-    odd_sum = 0
-    lst = input().split()
-    for item in map(int, lst):
-        if item % 2 != 0:
-            odd_sum += item**2
-    return str(odd_sum*2)
+```
+def double_the_difference(lst):
+    total = 0
+    for num in lst:
+        if isinstance(num, int) and num >= 0:
+            if num % 2 != 0:
+                total += num**2
+    return total
 
-print(double_the_difference())
+print("{}".format(double_the_difference([2] + [1, 3, 5])))
