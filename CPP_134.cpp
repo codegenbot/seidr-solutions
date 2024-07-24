@@ -20,9 +20,15 @@ int main() {
         else
             break;
     }
-    if (check_if_last_char_is_a_letter(input))
-        std::cout << "The last character of the input string is a letter.\n";
-    else
-        std::cout << "The last character of the input string is not a letter.\n";
+    
+    if (!input.empty()) {
+        if (check_if_last_char_is_a_letter(input))
+            std::cout << "The last character of the input string is a letter.\n";
+        else
+            std::cout << "The last character of the input string is not a letter.\n";
+    }
+    else 
+        std::cout << "Input is empty, no character to check.\n";
+
     return 0;
 }
