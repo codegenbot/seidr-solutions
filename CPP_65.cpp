@@ -19,7 +19,5 @@ string circular_shift(int x, int shift) {
     return num_str.substr(n - shift) + num_str.substr(0, n - shift);
 }
 
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
-}
+assert(circular_shift(11, 101) == "11");
+return 0;
