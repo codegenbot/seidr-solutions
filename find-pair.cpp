@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <iostream>
 #include <unordered_map>
@@ -32,4 +32,5 @@ int main() {
     } else {
         cout << "No such pair found" << endl;
     }
-    return 0; }
+    return 0;
+}
