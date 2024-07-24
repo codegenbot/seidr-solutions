@@ -2,14 +2,14 @@
 #include <iostream>
 #include <string>
 
-std::string applySubstitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    string result = "";
-    for (char c : message) {
-        if (c == '\n') {
-            result += '\n';
-        } else {
-            int index = c - 'a';
+std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
+    std::string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        int index = message[i] - 'a';
+        if (index >= 0 && index < cipher1.length()) {
             result += cipher2[index];
+        } else {
+            result += message[i];
         }
     }
     return result;
@@ -17,7 +17,7 @@ std::string applySubstitutionCipher(const std::string& cipher1, const std::strin
 
 int main() {
     std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << applySubstitutionCipher(cipher1, cipher2, message) << std::endl;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << decipher(cipher1, cipher2, message) << endl;
     return 0;
 }
