@@ -1,11 +1,10 @@
-```
 from typing import List
 
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not numbers:
         return []
-    
+
     try:
         min_val = min(numbers)
         max_val = max(numbers)
