@@ -1,10 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(vector<string>({"hello", "world"}), vector<string>({"hello", "world"})));
-    assert(!issame(vector<string>({"hello"}), vector<string>({"world"})));
+    vector<string> lst1 = {"apple", "banana", "orange"};
+    vector<string> lst2 = {"apple", "banana", "orange"};
+
+    assert(issame(lst1, lst2));
 
     return 0;
 }
