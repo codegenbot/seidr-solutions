@@ -11,17 +11,6 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(const string& str, char delim) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = str.find(delim)) != string::npos) {
-        result.push_back(str.substr(0, pos));
-        str = str.substr(pos + 1);
-    }
-    result.push_back(str);
-    return result;
-}
-
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
     string result;
@@ -33,4 +22,15 @@ string words_in_sentence(string sentence) {
     }
     
     return result.substr(0, result.size() - 1);
+}
+
+vector<string> split(const string& str, char delim) {
+    vector<string> result;
+    size_t pos = 0;
+    while ((pos = str.find(delim)) != string::npos) {
+        result.push_back(str.substr(0, pos));
+        str = str.substr(pos + 1);
+    }
+    result.push_back(str);
+    return result;
 }
