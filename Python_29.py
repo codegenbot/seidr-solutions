@@ -1,4 +1,2 @@
-def filter_strings(strings, prefix):
+def filter_strings_by_prefix(strings, prefix):
     return [s for s in strings if s.startswith(prefix)]
-
-filtered_strings = filter_strings(strings, prefix)
