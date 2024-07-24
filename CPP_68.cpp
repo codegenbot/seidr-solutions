@@ -25,7 +25,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int main() {
+int getAndProcessInput() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
@@ -38,12 +38,13 @@ int main() {
 
     vector<pair<int, int>> output = pluck(arr);
 
-    if (!output.empty()) {
-        for (const auto& pair : output) {
-            cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
-        }
-    } else {
-        cout << "No even elements found." << endl;
+    for (const auto& pair : output) {
+        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
+    return 0;
+}
+
+int main() {
+    getAndProcessInput();
     return 0;
 }
