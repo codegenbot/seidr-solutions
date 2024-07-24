@@ -1,21 +1,20 @@
 std::string fix_spaces(const std::string &text) {
     int count = 0;
-    std::string modified_text = text;
-    
-    for (size_t i = 0; i < modified_text.size(); ++i) {
-        if (modified_text[i] == ' ') {
+    std::string result = text;
+    for (size_t i = 0; i < text.size(); ++i) {
+        if (result[i] == ' ') {
             count++;
             if (count > 2) {
-                modified_text[i] = '-';
+                result[i] = '-';
             }
         } else {
             count = 0;
         }
     }
-    for (size_t i = 0; i < modified_text.size(); ++i) {
-        if (modified_text[i] == ' ') {
-            modified_text[i] = '_';
+    for (size_t i = 0; i < result.size(); ++i) {
+        if (result[i] == ' ') {
+            result[i] = '_';
         }
     }
-    return modified_text;
+    return result;
 }
