@@ -1,4 +1,3 @@
-```
 def sort_numbers(numbers: str) -> str:
     numbers = numbers.replace("-", " ")
     words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", 
