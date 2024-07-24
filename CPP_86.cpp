@@ -1,14 +1,15 @@
+#include <iostream>
+#include <algorithm>
 #include <string>
-using namespace std;
 
-string anti_shuffle(string s) {
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
             result += " ";
             continue;
         }
-        string word = "";
+        std::string word = "";
         for (int j = i; j < s.length() && s[j] != ' '; j++) {
             word += s[j];
         }
@@ -17,3 +18,9 @@ string anti_shuffle(string s) {
         i += word.length() - 1;
     }
     return result;
+}
+
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
+}
