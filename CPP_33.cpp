@@ -1,8 +1,9 @@
-vector<int> res = l;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            sort(res.begin() + i, res.begin() + i + 3);
+for (int i = 2; i < l.size(); i += 3) {
+        int j = i;
+        while (j > 0 && l[j] < l[j - 1]) {
+            swap(l[j], l[j - 1]);
+            j--;
         }
     }
-    return res;
+    return l;
 }
