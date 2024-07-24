@@ -18,6 +18,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group = ""
     
     return result
-
-paren_string = input()
-print(separate_paren_groups(paren_string))
