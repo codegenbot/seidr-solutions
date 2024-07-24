@@ -1,28 +1,27 @@
 int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    // Count black pegs
+    // Count the number of correct colors in wrong positions
+    map<char, int> codeCount, guessCount;
+    for (char c : code) {
+        codeCount[c]++;
+    }
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            code[i] = '-';
-            guess[i] = '-';
+        char c = guess[i];
+        if (codeCount[c] > 0 && code.find(c) != string::npos) {
+            whitePegs++;
+            codeCount[c]--;
         }
     }
 
-    // Count remaining correct colors at wrong positions
-    map<char, int> codeCount;
+    // Count the number of correct colors in correct positions
     for (int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] != '-' && codeCount[guess[i]] > 0) {
-            white++;
-            codeCount[guess[i]]--;
+        char c = guess[i];
+        if (c == code[i]) {
+            blackPegs++;
         }
     }
 
-    return black + white;
+    return blackPegs + whitePegs;
 }
