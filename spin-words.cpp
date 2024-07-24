@@ -1,18 +1,23 @@
 string spinWords(const string &sentence) {
     string result = "";
-    istringstream iss(sentence);
-    string word;
+    string word = "";
     
-    while (iss >> word) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+    for (const char &c : sentence) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
         }
-        result += word + " ";
     }
     
-    if (!result.empty()) {
-        result.pop_back(); // remove last space
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
     }
+    result += word;
     
     return result;
 }
