@@ -1,5 +1,4 @@
-```
-def skjkasdkd(lst):
+def sum_of_digits(lst):
     def is_prime(n):
         if n < 2:
             return False
