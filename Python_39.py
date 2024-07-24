@@ -1,5 +1,6 @@
 def prime_fib(n: int):
     n = int(input("Enter a number: "))  # Read input number
+
     def fibonacci(n):
         if n <= 0:
             return 0
