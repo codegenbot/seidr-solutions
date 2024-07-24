@@ -1,24 +1,18 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return accumulate(a.begin(), a.end(), 0, [](int sum, const string& s) { return sum + s.length(); }) ==
+           accumulate(b.begin(), b.end(), 0, [](int sum, const string& s) { return sum + s.length(); });
 }
 
 int sorted_list_sum(const vector<string>& lst) {
-    int sum = 0;
-    for (const auto& s : lst) {
-        sum += stoi(s);
-    }
-    return sum;
+    vector<string> new_lst = lst;
+    new_lst.erase(remove_if(new_lst.begin(), new_lst.end(),
+                            [](const string& s) { return s.length() % 2 != 0; }), new_lst.end());
+    sort(new_lst.begin(), new_lst.end(),
+         [](const string& a, const string& b) { return a.length() == b.length() ? a < b : a.length() < b.length(); });
+    return accumulate(new_lst.begin(), new_lst.end(), 0, [](int sum, const string& s) { return sum + s.length(); });
 }
 
 int main() {
-    vector<string> lst = {"123", "45", "6789", "0", "12"};
-    
-    lst.erase(remove_if(lst.begin(), lst.end(), 
-        [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), 
-        [](const string& a, const string& b) { return a.length() == b.length() ? a < b : a.length() < b.length(); });
-    
-    cout << "Sorted list sum: " << sorted_list_sum(lst) << endl;
-    
+    // Your main function code here
     return 0;
 }
