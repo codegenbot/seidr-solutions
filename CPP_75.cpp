@@ -1,44 +1,18 @@
-bool is_multiply_prime(int a) {
-    bool flag = true;
-    for (int i = 2; i <= 100; i++) {
-        if (a % i == 0) {
-            int temp = i;
-            for (; temp * temp <= a; temp++) {
-                if (temp % i != 0) {
-                    break;
-                }
-            }
-            if (temp * temp > a) {
-                int j = i + 1;
-                while (j <= 100) {
-                    if (a % j == 0) {
-                        int k = j;
-                        for (; k * k <= a; k++) {
-                            if (k % j != 0) {
-                                break;
-                            }
-                        }
-                        if (k * k > a) {
-                            int l = j + 1;
-                            while (l <= 100) {
-                                if (a % l == 0) {
-                                    flag = false;
-                                    return flag;
-                                }
-                                l++;
-                            }
-                        } else {
-                            flag = false;
-                            return flag;
-                        }
-                    }
-                    j++;
-                }
-            } else {
-                flag = false;
-                return flag;
-            }
-        }
-    }
+bool is_multiply_prime(int a){
+    bool flag=false;
+    for(int i=2;i<=100;++i)
+        if(isPrime(i))
+            for(int j=i;j<=100;++j)
+                if(isPrime(j) && (a/i)/j==int((a/i)/j))
+                    for(int k=(a/i)/j;k>=2;--k)
+                        if(k*k*k==(a/i)/j)
+                            flag=true;
     return flag;
+}
+
+bool isPrime(int n){
+    if(n<=1)return false;
+    for(int i=2;i*i<=n;++i)
+        if(n%i==0)return false;
+    return true;
 }
