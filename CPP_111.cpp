@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -5,9 +6,8 @@
 
 using namespace std;
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
     if (test.empty()) return result;
 
     for (char c : test) {
@@ -18,15 +18,18 @@ map<char, int> histogram(string test) {
         }
     }
 
-    map<char, int> maxCountMap;
     int maxCount = 0;
+    unordered_map<char, int> maxCountMap;
+
     for (auto& pair : result) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
             maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount) {
-            maxCountMap[pair.first] = pair.second;
+            if (maxCount > 0) {
+                maxCountMap[pair.first] = pair.second;
+            }
         }
     }
 
@@ -38,11 +41,7 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
 
-    map<char, int> hist;
-    for (auto& pair : histogram(input)) {
-        hist[pair.first] = pair.second;  
-    }
-    
+    unordered_map<char, int> hist = histogram(input);
     for (auto& pair : hist) {
         cout << pair.first << ": " << pair.second << endl;
     }
