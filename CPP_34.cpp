@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -10,11 +9,13 @@ vector<int> unique(vector<int> l) {
     return result;
 }
 
-int main() {
-    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result = unique(l);
-    for (int i : result) {
-        cout << i << " ";
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    iterator i = first - 1;
+    for(; first != last; ++first) {
+        if(i == first || *i != *first) {
+            ++i;
+            *++i = *first;
+        }
     }
-    return 0;
+    return ++i;
 }
