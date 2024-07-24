@@ -1,50 +1,27 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    stack<string> expressionStack;
+string solveBoolean(string input) {
+    stack<char> s;
+    string output;
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            expressionStack.push(operationStack.pop() + "&");
-            operationStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            expressionStack.push(operationStack.pop() + "|");
-            operationStack.push('|');
+    for(int i = 0; i < input.length(); i++) {
+        if(input[i] == '&') {
+            while(!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if(input[i] == '|') {
+            while(!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
         } else {
-            string currentExpression = "";
-            while (!operationStack.empty() && precedence(operationStack.top()) >= precedence(booleanExpression[i])) {
-                currentExpression += operationStack.pop();
-            }
-            if (!expressionStack.empty()) {
-                expressionStack.top() += currentExpression;
-                operationStack.push(')');
-            } else {
-                expressionStack.push(currentExpression);
-            }
-            if (booleanExpression[i] == 'T') {
-                expressionStack.push("True");
-            } else {
-                expressionStack.push("False");
-            }
+            s.push(input[i]);
         }
     }
 
-    string finalExpression = "";
-    while (!expressionStack.empty()) {
-        finalExpression = expressionStack.top() + finalExpression;
-        expressionStack.pop();
+    while(!s.empty()) {
+        output += s.top();
+        s.pop();
     }
 
-    if (finalExpression.length() > 1) {
-        return "Invalid Boolean Expression";
-    } else {
-        return finalExpression;
-    }
-}
-
-int precedence(char operation) {
-    if (operation == '|') {
-        return 1;
-    } else {
-        return 2;
-    }
+    return (output == "TF") ? "False" : (output == "T|F") ? "True" : "Error";
 }
