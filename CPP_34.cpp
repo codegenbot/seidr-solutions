@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -10,11 +9,11 @@ vector<int> unique(vector<int> l) {
     return result;
 }
 
-int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output = unique(input);
-    for (int i : output) {
-        cout << i << " ";
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    unordered_set<int> seen;
+    for (auto it = first; it != last; ++it) {
+        if (!seen.insert(*it).second)
+            *it = 0;
     }
-    return 0;
+    return first + distance(first, last);
 }
