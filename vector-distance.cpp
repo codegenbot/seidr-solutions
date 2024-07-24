@@ -12,26 +12,24 @@ double euclideanDistance(const std::vector<float>& v1, const std::vector<float>&
 
 int main() {
     std::vector<float> v1;
-    std::vector<float> v2;
-
     int n;
-    std::cout << "Enter the dimension: ";
+    std::cout << "Enter the number of dimensions: ";
     std::cin >> n;
-
-    for(int i=0; i<n; i++) {
-        float x;
-        std::cout << "Enter vector 1 element " << i+1 << ": ";
-        std::cin >> x;
-        v1.push_back(x);
-
-        float y;
-        std::cout << "Enter vector 2 element " << i+1 << ": ";
-        std::cin >> y;
-        v2.push_back(y);
+    
+    std::cout << "Enter " << n << " values for vector 1: ";
+    v1.resize(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> v1[i];
     }
 
+    std::vector<float> v2;
+    std::cout << "Enter " << n << " values for vector 2: ";
+    v2.resize(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> v2[i];
+    }
+    
     double distance = euclideanDistance(v1, v2);
     std::cout << "Euclidean Distance: " << distance << std::endl;
-
     return 0;
 }
