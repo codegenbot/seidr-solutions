@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <utility>
 
 std::vector<std::pair<int, std::string>> romanNumerals = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
     {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"},
@@ -15,4 +15,10 @@ std::string int_to_roman(int number) {
     }
 
     return roman;
+}
+
+int main() {
+    string roman = int_to_roman(4);
+    cout << "The roman numeral is: " << roman << endl;
+    return 0;
 }
