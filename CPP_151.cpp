@@ -14,7 +14,7 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> myVector; 
+    std::vector<float> myVector; // input vector
     float odd_sum = 0.0f;
 
     int size;
