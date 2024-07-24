@@ -2,16 +2,32 @@
 #include <iostream>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    std::string lowercaseExpr;
+    bool result = false;
+    bool isFirstOperand = true;
+    char op = '|'; // Default operator
     for (char c : expr) {
-        lowercaseExpr += tolower(c);
+        if (c == 'T') {
+            if (isFirstOperand) {
+                result = true;
+            } else {
+                result = (op == '|') ? true : result;
+                op = '|'; // Reset operator
+            }
+        } else if (c == 'F') {
+            if (isFirstOperand) {
+                result = false;
+            } else {
+                result = (op == '|') ? false : result;
+                op = '|'; // Reset operator
+            }
+        } else if (c == '&' || c == '|') {
+            op = c;
+        } else {
+            // Ignore other characters
+        }
+        isFirstOperand = (c == 'T' || c == 'F');
     }
-    // Your existing evaluation logic using lowercaseExpr
-
-    if (lowercaseExpr == "false") {
-        return false;
-    }
-    return true;
+    return result;
 }
 
 int main() {
