@@ -1,4 +1,3 @@
-```
 input_list = list(range(1, 19))
 
 def check(result):
