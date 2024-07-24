@@ -1,13 +1,9 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
 double diceGame(int n, int m) {
-    return (double)(n - 1) / (n * m);
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
-    return 0;
+    double p = 0.0;
+    for (int i = 1; i < n; i++) {
+        p += 1.0 / n;
+    }
+    return p / (n * m);
 }
