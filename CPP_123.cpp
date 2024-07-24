@@ -1,8 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,8 +15,8 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> res; 
+vector<int> get_odd_collatz(int n) {
+    vector<int> res; 
     res.push_back(n); 
     while (n > 1 || n == 4) {
         if (n % 2 != 0) {
@@ -30,25 +33,25 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
     if (n <= 0) {
-        std::cerr << "Error: Please enter a positive integer." << std::endl;
+        cerr << "Error: Please enter a positive integer." << endl;
         return 1;
     }
-    std::vector<int> res = get_odd_collatz(n);
+    vector<int> res = get_odd_collatz(n);
     for (int i : res) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     if (!res.empty()) {
         if (issame(res, get_odd_collatz(1))) {
-            std::cout << "The sequence is the same as Collatz Conjecture." << std::endl;
+            cout << "The sequence is the same as Collatz Conjecture." << endl;
         } else {
-            std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
+            cout << "The sequence does not match Collatz Conjecture." << endl;
         }
     } else {
-        std::cout << "The sequence does not match Collatz Conjecture." << std::endl;
+        cout << "The sequence does not match Collatz Conjecture." << endl;
     }
     return 0;
 }
