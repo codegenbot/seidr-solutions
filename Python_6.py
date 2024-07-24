@@ -1,7 +1,4 @@
-from typing import List
-
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def max_nested_paren_count(paren_string):
     return [
         max(
             [
@@ -11,3 +8,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         )
         for paren_string in paren_string.split()
     ]
+
+# Call the function with the input
+input_string = input().strip()
+result = max_nested_paren_count(input_string)
+print(result)
