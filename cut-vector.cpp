@@ -1,30 +1,28 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    int minDiff = INT_MAX;
-    int idx = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    int min_diff = INT_MAX;
+    int pos = -1;
     
     for (int i = 0; i < n; i++) {
-        if (i == 0 || i == n-1) continue;
+        if (v[i] == 0) return {{}, {v}};
         
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i/2; j++)
-            leftSum += vec[j];
-        for (int j = i + i/2; j < n; j++)
-            rightSum += vec[j];
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j <= i; j++) left_sum += v[j];
+        for (int j = i + 1; j < n; j++) right_sum += v[j];
         
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            idx = i;
+        if (left_sum == right_sum) return {{v.begin(), v.begin() + i + 1}, {v.begin() + i + 1, v.end()}};
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            pos = i;
         }
     }
     
-    vector<int> leftVec, rightVec;
-    for (int i = 0; i < idx; i++) leftVec.push_back(vec[i]);
-    for (int i = idx; i < n; i++) rightVec.push_back(vec[i]);
-    
-    return {leftVec, rightVec};
+    vector<int> left(v.begin(), v.begin() + pos + 1);
+    vector<int> right(v.begin() + pos + 1, v.end());
+    return {left, right};
 }
