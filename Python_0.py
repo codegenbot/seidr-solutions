@@ -8,6 +8,9 @@ def has_close_elements(numbers_list: List[float], threshold: float) -> bool:
         for j in range(i + 1, len(numbers_list)):
             if abs(numbers_list[i] - numbers_list[j]) <= threshold:
                 return True
+    if numbers_list[0] == numbers_list[-1]:
+        return True
+
     return False
 
 
@@ -16,7 +19,7 @@ def main():
         print("Do you want to run the program? (yes/no): ")
         response = input().lower()
         while response not in ["y", "yes", "n", "no"]:
-            print("Invalid input. Please enter 'y', 'yes', 'n', or 'no'.")
+            print("Invalid input. Please enter 'y' or 'n'.")
             response = input().lower()
 
         if response in ["y", "yes"]:
