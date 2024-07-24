@@ -1,3 +1,4 @@
+```
 import math
 
 def factorial(x):
@@ -17,8 +18,10 @@ def f(n):
 
 while True:
     try:
-        num = int(input("Enter a number: "))
-        print(f(num))
-        break
+        num = int(input("Enter a number between 1 and 20: "))
+        if 1 <= num <= 20:
+            break
+        else:
+            print("Invalid input. Please enter a number between 1 and 20.")
     except ValueError:
         print("Invalid input. Please enter an integer.")
