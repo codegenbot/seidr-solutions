@@ -34,7 +34,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             current_group += char
         else:
-            if current_group and current_group[0] != '(':
+            if current_group:
                 result.append(current_group)
                 current_group = ''
             current_group += char
