@@ -1,4 +1,3 @@
-```c
 int main() {
     double result = getProbability(6, 6); 
     std::cout << "Result: " << result << std::endl;
