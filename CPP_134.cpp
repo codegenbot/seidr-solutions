@@ -1,3 +1,4 @@
+```c++
 #include <cctype>
 #include <cassert>
 #include <string>
@@ -11,7 +12,8 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
 
 int main() {
     std::cout << "Enter a string: ";
-    std::string line; std::getline(std::cin, line); 
+    std::string line; 
+    std::getline(std::cin, line); 
 
     size_t pos = 0;
     while (pos < line.size() && std::isspace(line[pos])) {
@@ -23,9 +25,9 @@ int main() {
     else
         line.erase(pos, 1);
     
-    if (check_if_last_char_is_a_letter(line))
+    if (check_if_last_char_is_a_letter(line)) {
         std::cout << "The last character of the input string is a letter.\n";
-    else
+    } else {
         std::cout << "The last character of the input string is not a letter.\n";
-    return 0;
+    }
 }
