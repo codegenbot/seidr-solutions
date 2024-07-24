@@ -15,4 +15,3 @@ int luhn(vector<int>& digits) {
         }
     }
     return sum;
-}
