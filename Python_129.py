@@ -1,18 +1,14 @@
-def minPath(grid, k):
+def minPath(grid):
     n = len(grid)
     res = []
-    for i in range(n - k + 1):
-        for j in range(n - k + 1):
-            total = sum([grid[x][j] for x in range(i, i + k)])
-            if not res or total < min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res = [(i, j)]
-            elif total == min(
-                [sum([grid[x][j] for x in range(y1, y2)]) for y1, y2 in res]
-            ):
-                res.append((i, j))
+    min_val = float("inf")
+    for i in range(n - 1):
+        for j in range(n - 1):
+            total = grid[i][j] + grid[i][j + 1] + grid[i + 1][j] + grid[i + 1][j + 1]
+            if total < min_val:
+                min_val = total
+                res = [(i, j), (i, j + 1), (i + 1, j), (i + 1, j + 1)]
     return [
-        [grid[i][j] for i in range(x) for j in (y,) if 0 <= i < k and 0 <= y - j < k]
-        for x, y in sorted(res)
+        [grid[x][y] for x in range(i - 1, i) for y in range(j - 1, j + 1)]
+        for i, j in res
     ]
