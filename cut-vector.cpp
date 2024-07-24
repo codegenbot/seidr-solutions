@@ -9,6 +9,7 @@ int main() {
     int temp;
 
     cout << "Enter positive integers separated by spaces (terminate input with Ctrl+D):" << endl;
+
     while (cin >> temp) {
         nums.push_back(temp);
     }
