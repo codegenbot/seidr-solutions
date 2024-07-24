@@ -1,5 +1,5 @@
 def double_the_difference(lst):
     return abs(
         sum(i for i in lst)
-        - 2 * sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+        - 2 * sum(x for x in lst if isinstance(x, int) and x % 2 != 0)
     )
