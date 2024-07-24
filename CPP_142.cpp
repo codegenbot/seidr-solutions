@@ -1,6 +1,7 @@
-```
 #include <vector>
 #include <cmath>
+#include <iostream>
+#include <initializer_list>
 using namespace std;
 
 int sum_squares(vector<int> lst) {
@@ -14,11 +15,7 @@ int sum_squares(vector<int> lst) {
     return total;
 
 int main() {
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    cout << "Test 1: " << sum_squares(test1) << endl;
-    
-    vector<int> test2 = {6, 7, 8, 9, 10};
-    cout << "Test 2: " << sum_squares(test2) << endl;
-
+    int result = sum_squares({1, 2, 3, 4, 5}); 
+    cout << "The sum of squares is: " << result << endl;
     return 0;
 }
