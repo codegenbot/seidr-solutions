@@ -1,30 +1,21 @@
 def handle_bonus(bowls, score):
-    i = 0
-    frame = 1
-
-    while frame <= 10:
+    for i in range(10):
         if bowls[i] == "/":
             score += 10 - int(bowls[i - 1])
-        elif bowls[i] == "X":
+        elif bowls[i] == "X" and i < 9:
             score += 10
             if bowls[i+1] == "X":
                 score += 10
-                score += int(bowls[i+2]) if bowls[i+2].isdigit() else 10
-            elif bowls[i+1] == "/":
+                if i < 8 and bowls[i+2] == "/":
+                    score += 10
+                else:
+                    score += int(bowls[i+2]) if bowls[i+2].isdigit() else 0
+            elif i < 9 and bowls[i+1] == "/":
                 score += 10
             else:
                 score += int(bowls[i+1]) if bowls[i+1].isdigit() else 0
-                if i < 8 and (bowls[i+1] + bowls[i+2]).isdigit():
-                    score += int(bowls[i+1]) + int(bowls[i+2])
-
-        elif bowls[i].isdigit():
+        elif bowls[i].isdigit() or bowls[i] == "-":
             score += int(bowls[i])
-
-        if bowls[i] == "X" or bowls[i] == "/":
-            i += 1
-
-        i += 1
-        frame += 1
 
     return score
 
