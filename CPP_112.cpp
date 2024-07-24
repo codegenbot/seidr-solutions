@@ -1,29 +1,10 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
-    return true;
+```
+void issame(int n1, int n2, string s1, string s2) {
+    if (n1 == n2 && s1 == s2)
+        cout << "issame is true" << endl;
+    else
+        cout << "issame is false" << endl;
 }
-
-string reverse_delete(string s, string c) {
-    string temp = "";
-    for (char& ch : s) {
-        bool found = false;
-        for (char& cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found)
-            temp += ch;
-    }
-    reverse(temp.begin(), temp.end());
-    return temp;
+int main() {
+    issame(3, 3, "Hello", "Hello");
 }
