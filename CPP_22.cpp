@@ -13,7 +13,8 @@ std::vector<int> filter_integers(const boost::any& values) {
             try {
                 result.push_back(boost::any_cast<int>(value));
             } catch (...) {
-                // Handle the exception
+                // handle the exception
+                return result;
             }
         }
     }
