@@ -1,17 +1,19 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
-    string text, target;
-
-    cout << "Enter two strings separated by a space: ";
-    getline(cin, text);
-    getline(cin, target);
+    int num1, num2;
     
-    // Your code for the problem here
+    cout << "Enter two integers separated by a space: ";
+    cin >> num1 >> num2;
+    
+    int gcd = __gcd(num1, num2);
+    
+    cout << gcd << endl;
     
     return 0;
 }
