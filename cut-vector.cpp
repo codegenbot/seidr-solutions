@@ -11,7 +11,7 @@ void cutVector(const vector<int>& nums) {
     int minDiff = INT_MAX;
 
     for (int i = 1; i < n; i++) {
-        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
