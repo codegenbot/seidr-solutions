@@ -1,4 +1,4 @@
-def max_nested_paren_count(paren_string):
+def max_nested_paren_count(paren_strings):
     return [
         max(
             [
@@ -6,9 +6,9 @@ def max_nested_paren_count(paren_string):
                 for i in range(1, paren_string.count("(") + 1)
             ]
         )
-        for paren_string in paren_string.split()
+        for paren_string in paren_strings
     ]
 
-input_string = input("Enter the paren_string: ").strip()
-result = max_nested_paren_count(input_string)
+input_strings = input().strip().split()
+result = max_nested_paren_count(input_strings)
 print(result)
