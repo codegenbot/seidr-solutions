@@ -18,5 +18,4 @@ def is_happy(n):
         seen.add(str(n))
         n = next_digit_sum(n)
 
-num = int(input("Enter a number: "))
-print(is_happy(num))
+print(is_happy(int(input("Enter a number: "))))
