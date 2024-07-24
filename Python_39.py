@@ -1,4 +1,3 @@
-
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -7,12 +6,9 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-
 def prime_fib(n: int):
     fib = [0, 1]
-    while (
-        len(fib) < n
-    ):  
+    while len(fib) < n:
         fib.append(fib[-1] + fib[-2])
 
     prime_fib_nums = [num for num in fib if is_prime(num)]
