@@ -1,3 +1,4 @@
+```
 def paired_digits(s):
     total = 0
     i = 0
@@ -6,3 +7,6 @@ def paired_digits(s):
             total += int(s[i])
         i += 1
     return total
+
+s = input("Enter a string of digits: ")
+print(paired_digits(s))
