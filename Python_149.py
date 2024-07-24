@@ -1,3 +1,4 @@
+```
 def sorted_list_sum(lst=None):
     if lst is None:
         lst = [word.strip().lower() for word in input("Enter words separated by spaces: ").split()]
