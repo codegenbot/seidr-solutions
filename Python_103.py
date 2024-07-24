@@ -1,4 +1,4 @@
-```python
+```
 import statistics
 
 def check(rounded_avg):
