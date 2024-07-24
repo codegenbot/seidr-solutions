@@ -1,6 +1,4 @@
-```python
 import math
-
 
 def rounded_avg():
     n = None
@@ -18,6 +16,5 @@ def rounded_avg():
             print("Invalid input. Please enter a number.")
 
     return str(math.ceil((n + m) / 2))
-
 
 print(rounded_avg())
