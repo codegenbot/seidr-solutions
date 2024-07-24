@@ -9,7 +9,7 @@ string string_to_md5(string text) {
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5_CTX mdContext;
     MD5_Init(&mdContext);
-    const char* ptr = &text[0];
+    const char* ptr = text.c_str();
     while (*ptr) {
         MD5_Update(&mdContext, &*ptr, 1);
         ptr++;
