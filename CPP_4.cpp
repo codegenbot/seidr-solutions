@@ -1,20 +1,27 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-using namespace std;
+```cpp
+#include <vector>
+#include <cmath>
 
-float mean_absolute_deviation(vector<float> numbers){
-    float sum = 0;
-    for (float num : numbers) {
-        sum += abs(num - mean(numbers));
+float mean_absolute_deviation(vector<float> numbers) {
+    float sum = 0.0; // sum of absolute deviations
+    float mean = 0.0; // mean of the input numbers
+    int n = numbers.size();
+
+    // calculate the mean
+    for (int i = 0; i < n; i++) {
+        mean += numbers[i];
     }
-    return sum / numbers.size();
+    mean /= n;
+
+    // calculate the sum of absolute deviations
+    for (int i = 0; i < n; i++) {
+        sum += abs(numbers[i] - mean);
+    }
+
+    return sum / n;
 }
 
-float mean(vector<float> numbers){
-    float sum = 0;
-    for (float num : numbers) {
-        sum += num;
-    }
-    return sum / numbers.size();
+int main() {
+    assert(abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    return 0;
 }
