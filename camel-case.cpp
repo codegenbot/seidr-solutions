@@ -3,36 +3,30 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool firstWord = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
-        } else {
-            if (firstWord) {
-                result += c;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
+            if (result != "") {
+                result += char toupper(str[i + 1]);
             } else {
-                result += char(tolower(c));
+                result += str.substr(i + 1, 1);
             }
-            firstWord = false;
+        } else if (str[i] == ' ') {
+            continue;
+        } else {
+            if (i > 0) {
+                result += char tolower(str[i]);
+            } else {
+                result = str.substr(0, i);
+            }
         }
     }
-    
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
     }
     return 0;
 }
