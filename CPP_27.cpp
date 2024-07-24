@@ -1,8 +1,14 @@
-for (int i = 0; i < str.length(); i++) {
-    if (islower(str[i])) {
-        str[i] = toupper(str[i]);
-    } else if (isupper(str[i])) {
-        str[i] = tolower(str[i]);
+#include <string>
+
+using namespace std;
+
+string flip_case(string str) {
+    string result = "";
+    for (char c : str) {
+        if (islower(c))
+            result += toupper(c);
+        else
+            result += tolower(c);
     }
+    return result;
 }
-return str;
