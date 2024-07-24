@@ -1,4 +1,4 @@
-#include <string> // Add this header file for 'string' type
+#include <string>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "db";
@@ -10,9 +10,6 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    // Add this main function for testing
-
-    // Test the function
     assert (decimal_to_binary(15) == "db1111db");
 
     return 0;
