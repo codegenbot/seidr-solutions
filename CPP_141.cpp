@@ -1,34 +1,44 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
+string file_name_check(string file_name) {
+    bool has_digits = false;
     int dot_count = 0;
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            if (!has_digits) {
+                has_digits = true;
+            }
+            if (has_digits && has_digits < 3) {
+                has_digits++;
+            } else {
+                return "No";
+            }
+        } else if (c == '.') {
             dot_count++;
-            if(dot_count > 1) return "No";
+            if (dot_count > 1) {
+                return "No";
+            }
         }
     }
-    string extension = "";
-    for(int i = file_name.length() - 1; i >= 0; i--){
-        if(file_name[i] == '.'){
-            break;
-        }
-        else{
-            extension = file_name[i]+extension;
-        }
+
+    if (!has_digits || dot_count != 1) {
+        return "No";
     }
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    string start = "";
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] >= 'a' && file_name[i] <= 'z' || file_name[i] >= 'A' && file_name[i] <= 'Z'){
-            start += file_name[i];
-        }
-        else{
-            break;
-        }
+
+    string ext = "";
+    int i = file_name.find('.');
+    for (; i < file_name.size(); i++) {
+        ext += file_name[i];
     }
-    if(start.empty()) return "No";
-    return "Yes";
+    i = 0;
+    while (i < ext.size() && (ext[i] == 't' || ext[i] == 'T' || ext[i] == 'x' || ext[i] == 'X')) {
+        i++;
+    }
+
+    if (i > 0) {
+        return "Yes";
+    } else if (ext == "txt" || ext == "exe" || ext == "dll") {
+        return "Yes";
+    } else {
+        return "No";
+    }
+}
