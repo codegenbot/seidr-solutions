@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -10,8 +11,7 @@ bool isPrime(int n){
             return false;
     }
     return true;
-
-};
+}
 
 int maxPrime(vector<int> lst){
     int maxPrime = 0;
@@ -21,8 +21,6 @@ int maxPrime(vector<int> lst){
     }
     return maxPrime;
 
-};
-
 int sumOfDigits(int n){
     int sum = 0;
     while(n > 0){
@@ -30,8 +28,6 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
-
-};
 
 int main() {
     vector<int> lst;
@@ -41,7 +37,7 @@ int main() {
     for(i = 0; i < num; i++){
         cout << "Enter element " << i+1 << ": ";
         int x; cin >> x; 
-        lst.push_back(x);
+        lst.push_back(std::to_string(x));
     }
     int maxPrimeNum = maxPrime(lst);
     if(maxPrimeNum > 0)
