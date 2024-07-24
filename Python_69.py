@@ -1,14 +1,14 @@
 ```
 def search(lst):
-    freq = {}
+    frequency_dict = {}
     for num in lst:
-        if num in freq:
-            freq[num] += 1
-        else:
-            freq[num] = 1
+        if num > 0:
+            if num in frequency_dict:
+                frequency_dict[num] += 1
+            else:
+                frequency_dict[num] = 1
     max_num = -1
-    for num in freq:
-        if num > 0 and freq[num] >= num:
-            max_num = num
-            break
-    return max_num
+    for key, value in frequency_dict.items():
+        if key >= value and key > max_num:
+            max_num = key
+    return max_num if max_num != -1 else -1
