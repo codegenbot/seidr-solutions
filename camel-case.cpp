@@ -1,22 +1,44 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(const std::string& s) {
-    std::string result;
-    for (const auto& word : s.split("-")) {
-        if (!result.empty()) {
-            result[0] = toupper(word[0]);
+using namespace std;
+
+string camelCase(string str) {
+    string result = "";
+    for (char c : str) {
+        if (c == '-') {
+            c++;
+            while (c != ' ' && c != '\0') {
+                result += topper(c);
+                c++;
+            }
+            if (result.back() != ' ') {
+                result.push_back(' ');
+            }
+        } else if (!isblank(c)) {
+            if (result.empty()) {
+                result = tolower(c);
+            } else {
+                if (c >= 'A' && c <= 'Z') {
+                    result += string(1, tolower(c));
+                } else {
+                    result += string(1, c);
+                }
+            }
         }
-        result += word;
     }
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << toCamelCase(s) << '\n';
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        string s;
+        getline(cin, s);
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
