@@ -12,9 +12,9 @@ any compare_one(any a, any b) {
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
         string sa = get<string>(a);
         string sb = get<string>(b);
-        if (stof(sa) > stof(sb))
+        if (stod(sa) > stod(sb))
             return a;
-        else if (stof(sa) < stof(sb))
+        else if (stod(sa) < stod(sb))
             return b;
         else
             return "None";
@@ -22,19 +22,19 @@ any compare_one(any a, any b) {
     else if (holds_alternative<string>(a) && holds_alternative<int, float>(b)) {
         string sa = get<string>(a);
         double sb = get<double>(b);
-        if (stof(sa) > sb)
+        if (stod(sa) > sb)
             return a;
-        else if (stof(sa) < sb)
+        else if (stod(sa) < sb)
             return b;
         else
             return "None";
     }
-    else if (holds_alternative<int, float>(a) && holds_alternation<string>(b)) {
+    else if (holds_alternative<int, float>(a) && holds_alternative<string>(b)) {
         double sa = get<double>(a);
         string sb = get<string>(b);
-        if (sa > stof(sb))
+        if (sa > stod(sb))
             return a;
-        else if (sa < stof(sb))
+        else if (sa < stod(sb))
             return b;
         else
             return "None";
