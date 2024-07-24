@@ -24,11 +24,14 @@ print("Enter a number:")
 
 
 while True:
+    n = input("Enter a positive integer (or 'q' to quit): ")
+    if n.lower() == 'q':
+        break
     try:
-        n = int(input("Enter a positive integer (or 'q' to quit): "))
-        if n <= 0: 
+        n = int(n)
+        if n > 0: 
+            print(*factorize(n), sep=', ')
+        else: 
             print("Please enter a positive integer.")
-            continue
-        print(*factorize(n), sep=', ')
     except ValueError:
         print("Invalid input. Please enter an integer or 'q' to quit.")
