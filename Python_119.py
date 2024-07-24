@@ -13,3 +13,5 @@ def match_parens(lst):
     if stack:
         return 'No'
     return 'Yes'
+
+print(match_parens(['(hello world)', 'world)('))
