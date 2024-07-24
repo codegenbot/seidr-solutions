@@ -1,10 +1,10 @@
-vector<bool> issame(vector<string> a,vector<string>b){
+vector<bool> issame(vector<string> a, vector<string> b) {
     vector<bool> result;
-    for(auto s : a){
-        if(find(b.begin(),b.end(),s) != b.end())
-            result.push_back(true);
-        else
+    for(int i = 0; i < a.size(); i++){
+        if(b[i].find(a[i]) == string::npos)
             result.push_back(false);
+        else
+            result.push_back(true);
     }
     return result;
 }
