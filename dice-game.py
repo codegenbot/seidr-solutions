@@ -1,2 +1,13 @@
-def dice_game(n, m):
-    return sum(1 / m for _ in range(m)) if n > m else sum(1 / n for _ in range(n))
+def get_probability(n, m):
+    if n == 1 or m == 1:
+        return 0.0
+    elif n > m:
+        return (m - 1) / (n * m - 1)
+    else:
+        return (n - 1) / (n * m - 1)
+
+
+n = int(input())
+m = int(input())
+
+print(get_probability(n, m))
