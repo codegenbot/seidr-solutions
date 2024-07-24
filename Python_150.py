@@ -8,7 +8,14 @@ def x_or_y(n, x, y):
                 return False
         return True
     
-    if is_prime(n):
-        return x
-    else:
-        return y
+    count = 0
+    num = 2
+    while True:
+        if is_prime(num):
+            count += 1
+            if count >= n:
+                return x
+        else:
+            num += 1
+        if count >= n:
+            return y
