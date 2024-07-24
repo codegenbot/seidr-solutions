@@ -5,15 +5,13 @@ def parse_music(music_string: str) -> List[int]:
     while i < len(music_string):
         if music_string[i] == '.':
             if i+3 <= len(music_string) - 1:
-                note = music_string[i:i+3]
                 i += 3
             else:
                 break
         else:
-            if i+1 <= len(music_string) - 1:
-                note = music_string[i:i+2]
-                i += 2
-            else:
+            note = music_string[i:i+2]
+            if i+2 > len(music_string) - 1:
                 break
+            i += 2
             result.append(beats.get(note, 0))
     return result
