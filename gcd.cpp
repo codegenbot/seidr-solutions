@@ -12,9 +12,9 @@ int main() {
     cout << "Enter two integers separated by a space: ";
     cin >> num1 >> num2;
     
-    int gcd = std::__gcd(num1, num2);
+    int gcd_val = gcd(num1, num2);
     
-    cout << gcd << endl;
+    cout << gcd_val << endl;
     
     return 0;
 }
