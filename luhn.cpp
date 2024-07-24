@@ -1,20 +1,17 @@
 int luhn(vector<int> digits) {
     int sum = 0;
-    bool doubleNext = false;
+    bool alternate = false;
 
-    for (int i = 0; i < digits.size(); ++i) {
-        if (doubleNext) {
-            int doubledDigit = digits[i] * 2;
-            if (doubledDigit > 9) {
-                sum += (doubledDigit % 10) + 1;
-            } else {
-                sum += doubledDigit;
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-        } else {
-            sum += digits[i];
         }
-
-        doubleNext = !doubleNext;
+        sum += digit;
+        alternate = !alternate;
     }
 
     return sum;
