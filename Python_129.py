@@ -20,7 +20,7 @@ def minPath(grid, k):
         ]
         neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
         for x, y in neighbors:
-            dfs(x, y, set(visited), path.copy(), steps + 1)
+            dfs(x, y, set(visited), list(path), steps + 1)
 
     for i in range(N):
         for j in range(N):
