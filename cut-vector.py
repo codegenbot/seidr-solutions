@@ -1,20 +1,19 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(vector)
-current_sum = 0
+total_sum = sum(numbers)
+target_sum = total_sum // 2
+
+prefix_sum = 0
 min_diff = float("inf")
-cut_idx = 0
+cut_idx = -1
 
-for i in range(n):
-    current_sum += vector[i]
-    diff = abs(current_sum - (total_sum - current_sum))
+for i, num in enumerate(numbers):
+    prefix_sum += num
+    diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
         min_diff = diff
         cut_idx = i
 
-subvector1 = vector[: cut_idx + 1]
-subvector2 = vector[cut_idx + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(*numbers[: cut_idx + 1])
+print(*numbers[cut_idx + 1 :])
