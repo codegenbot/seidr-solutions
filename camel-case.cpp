@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -18,6 +17,7 @@ std::string kebabToCamel(const std::string& str) {
         }
     }
 
+    // Add the last word
     capitalizeNext ? (result += toupper(currentWord[0])) + tolower(&currentWord[1]) : result += currentWord;
 
     return result;
