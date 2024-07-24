@@ -1,3 +1,5 @@
-def longest_name(names: list) -> str:
-    longest = max(names, key=len)
-    return longest
+def strlen(string: str) -> int:
+    if string == "":
+        return 0
+    else:
+        return len(string)
