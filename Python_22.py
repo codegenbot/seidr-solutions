@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -10,7 +9,9 @@ def filter_integers() -> List[int]:
             print("Invalid input. Please enter numbers separated by commas.")
             continue
 
-        num_list = [int(x) for x in values.split(",") if x.strip().replace(",", "").isdigit()]
+        num_list = [
+            int(x) for x in values.split(",") if x.strip().replace(",", "").isdigit()
+        ]
 
         if len(num_list) != len([x for x in values.split(",") if x.strip()]):
             print("Invalid input. Please enter numbers separated by commas.")
@@ -20,6 +21,8 @@ def filter_integers() -> List[int]:
             return num_list
         else:
             print("Invalid input. The following values were not integers: ")
-            for value in set([value for value in num_list if not isinstance(value, int)]):
+            for value in set(
+                [value for value in num_list if not isinstance(value, int)]
+            ):
                 print(f"{value}")
             return []
