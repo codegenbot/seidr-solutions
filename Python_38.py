@@ -1,17 +1,24 @@
 def decode_cyclic(s: str):
-    result = ''
-    group = ''
-    for char in s:
-        group += char
-        if len(group) == 3:
-            if len(result) > 0 and len(result[-1]) == 3:
-                result[-1] = (result[-1][1:] + result[-1][0])
-            else:
-                result += group
-            group = ''
-    if len(group) > 0:
-        if len(result) > 0 and len(result[-1]) == 3:
-            result[-1] = (result[-1][1:] + result[-1][0])
+    n = len(s)
+    res = ''
+    i = 0
+    while i < n:
+        if s[i] == '[':
+            j = i + 1
+            k = 1
+            while k > 0 and j < n:
+                if s[j] == '[':
+                    k += 1
+                elif s[j] == ']':
+                    k -= 1
+                j += 1
+            decoded_group = s[i+1:j].replace(']', '')[1:-1]
+            res += decoded_group[0] * (len(decoded_group) // 2)
+            i = j
         else:
-            result += group
-    return result
+            if len(res) > 0 and len(res[-1]) == 3:
+                res[-1] = (res[-1][1:] + res[-1][0])
+            else:
+                res += s[i]
+            i += 1
+    return res
