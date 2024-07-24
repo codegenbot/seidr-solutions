@@ -1,4 +1,4 @@
-numbers_min = min(numbers)
-numbers_max = max(numbers)
-scaled_numbers = [(num - numbers_min) / (numbers_max - numbers_min) for num in numbers]
-return scaled_numbers
+def normalize(numbers):
+    min_num = min(numbers)
+    max_num = max(numbers)
+    return [(x - min_num) / (max_num - min_num) for x in numbers]
