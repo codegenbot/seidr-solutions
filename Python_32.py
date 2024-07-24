@@ -1,6 +1,10 @@
-res = []
-    for i in range(len(xs) - 1):
-        if xs[i] * xs[i+1] < 0:
-            res.append(i)
+assert len(xs) % 2 == 0
+    largest_non_zero_coeff = max(xs)
+    zero_point_candidates = [-largest_non_zero_coeff - 1, largest_non_zero_coeff + 1]
     
-    return round(-xs[res[0]] / xs[res[0] + 1], 9)
+    def f(x):
+        return poly(xs, x)
+
+    for candidate in zero_point_candidates:
+        if abs(f(candidate)) < 1e-6:
+            return candidate
