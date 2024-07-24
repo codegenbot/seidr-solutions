@@ -1,38 +1,18 @@
 #include <string>
-#include <iostream>
-#include <algorithm>
-
 bool solveBoolean(std::string s) {
-    size_t left_end = 0;
-    while (left_end < s.size()) {
-        if (s[left_end] == '(') {
-            size_t right_start = ++left_end;
-            size_t right_end = s.find(')', left_end);
-            bool left = solveBoolean(s.substr(left_end, right_end - left_end));
-            left_end = right_end + 1;
-            if (s[left_end-1] == '&') {
-                return left && solveBoolean(s.substr(left_end));
-            } else {
-                return left || solveBoolean(s.substr(left_end));
-            }
-        } else if (s.find("TF", left_end) != std::string::npos) {
-            size_t right_start = ++left_end;
-            while (right_start < s.size() && (s[right_start] == '&' || s[right_start] == '|')) {
-                ++right_start;
-            }
-            bool left = s.substr(left_end - 1, 1) != 'F';
-            bool right = solveBoolean(s.substr(right_start));
-            return ((s[left_end-2] == '&') ? (left && right) : (left || right));
+    while (s.find("++") != std::string::npos) s.replace(s.find("++"), 2, "+");
+    size_t left_end = s.find_first_of("TF");
+    if (left_end == std::string::npos) {
+        return s[0] == 'T';
+    } else {
+        bool left = s.substr(0, left_end).back() == 'T';
+        size_t right_start = (left_end == std::string::npos) ? 0 : left_end + 1;
+        size_t right_end = s.find_first_of("TF", right_start);
+        if (right_end == std::string::npos) {
+            return s[0] == 'T' ? !left : left;
         } else {
-            ++left_end;
+            bool right = s.substr(right_start, right_end - right_start).back() == 'T';
+            return ((s[left_end-1] == '|') ? (left || right) : (left && right));
         }
     }
-    return s[0] == 'T';
-}
-
-int main() {
-    std::string s = "t|t|f&f|t|t";
-    bool result = solveBoolean(s);
-    std::cout << (result ? "True" : "False") << std::endl;
-    return 0;
 }
