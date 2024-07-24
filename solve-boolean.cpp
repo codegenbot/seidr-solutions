@@ -2,19 +2,10 @@
     bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (i + 1 < expression.length() && expression[i+1] == '&') {
-                i++;
-            }
-            if (i + 1 < expression.length() && expression[i+1] == '|') {
-                return false;
-            }
+            result &= expression[i + 1] != 'T';
         } else if (expression[i] == '|') {
-            while (i + 1 < expression.length()) {
-                i++;
-            }
-        } else {
-            result = (result && (expression[i] == 'T'));
+            result |= expression[i + 1] != 'F';
         }
     }
     return result;
-}``
+}```
