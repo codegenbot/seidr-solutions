@@ -39,7 +39,6 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         sort(nextPoses.begin(), nextPoses.end());
         int ni = nextPoses[0].second;
         int nj = nextPoses[0].third;
-        
         i = ni;
         j = nj;
     }
