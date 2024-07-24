@@ -1,13 +1,6 @@
 ```
-def sum_squares():
+def sum_squares(lst):
     total_sum = 0
-    while True:
-        try:
-            num = int(input("Enter an integer (or 'done' to finish): "))
-            if num == 'done':
-                break
-            if num % 2 != 0:
-                total_sum += num ** 2
-        except ValueError:
-            print("Invalid input. Please enter a valid integer or 'done'.")
+    for num in lst:
+        total_sum += num ** 2
     return total_sum
