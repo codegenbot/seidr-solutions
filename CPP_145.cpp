@@ -1,10 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -20,14 +14,18 @@ vector<int> order_by_points(vector<int> nums) {
             sum_b += temp_b % 10;
             temp_b /= 10;
         }
+        
         if (sum_a == sum_b) {
             return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
         }
+        
         return sum_a < sum_b;
     });
+
     return nums;
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
