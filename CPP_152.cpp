@@ -25,7 +25,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
+        std::cin >> std::ws >> x; 
         vec1.push_back(x); 
     }
 
@@ -33,19 +33,12 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
+        std::cin >> std::ws >> x; 
         vec2.push_back(x); 
     }
 
     bool checkEquality = true;
-    for(int i = 0; i < n; i++) {
-        if(vec1[i] != vec2[i]) {
-            checkEquality = false;
-            break;
-        }
-    }
-
-    if(checkEquality) {
+    if(checkVectorEquality(vec1, vec2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
