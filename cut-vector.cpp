@@ -10,7 +10,7 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int cutIndex = 0;
     int minDiff = INT_MAX;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
@@ -18,7 +18,7 @@ pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
         }
     }
 
-    return {vector<int>(nums.begin(), nums.begin() + cutIndex), vector<int>(nums.begin() + cutIndex, nums.end())};
+    return {vector<int>(nums.begin(), nums.begin() + cutIndex + 1), vector<int>(nums.begin() + cutIndex + 1, nums.end())};
 }
 
 int main() {
