@@ -1,5 +1,14 @@
+Here is the solution:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    copy_n(rbegin(arr), k, rbegin(res));
-    return res;
+    priority_queue<int> pq;
+    for (int i : arr) {
+        pq.push(i);
+    }
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        result.push_back(pq.top());
+        pq.pop();
+    }
+    return result;
 }
