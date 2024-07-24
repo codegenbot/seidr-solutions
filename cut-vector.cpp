@@ -17,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
 
         if (sumLeft == sumRight) {
-            return {{}, vector<int>(v.begin(), v.end())};
+            return {{}, {v.begin(), v.end()}};
         }
 
         int diff = abs(sumLeft - sumRight);
@@ -28,7 +28,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     }
 
     vector<int> left(v.begin(), v.begin() + cutIndex);
-    vector<int> right(vector<int>(v.begin() + cutIndex, v.end()));
+    vector<int> right(v.begin() + cutIndex, v.end());
     return {left, right};
 }
 
