@@ -25,3 +25,11 @@ std::string string_to_md5(const std::string& text) {
 
     return std::string(mdString);
 }
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::string result = string_to_md5(input);
+    std::cout << result << std::endl;
+    return 0;
+}
