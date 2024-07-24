@@ -1,4 +1,3 @@
 ```
-import itertools
 def paired_digits(s):
-    return sum(int(d) for _, g in itertools.groupby(s) if len(list(g)) > 1)
+    return sum(int(digit) for i, digit in enumerate(s) if s[i] == s[i+1])
