@@ -1,4 +1,3 @@
-```
 def car_race_collision(n: int):
     speed1 = int(input("Enter the speed of the first car: "))
     speed2 = int(input("Enter the speed of the second car: "))
