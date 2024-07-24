@@ -13,7 +13,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             if not stack:
                 result.append(0)
             else:
-                level = len(stack)
-                result.extend([level] * (len(stack)))
+                level = len(stack) + 1
+                result.extend([level] * (len(stack) + 1))
             [stack.pop() for _ in range(len(stack))]
     return result
