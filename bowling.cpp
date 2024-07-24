@@ -1,54 +1,32 @@
-int main() {
-    string input;
-    cin >> input;
-    
+int scoreOfBowlingRound(string s) {
     int score = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> frames;
-    
-    for(char c : input) {
-        if(c == 'X') {
-            frames.push_back(10);
-            frame++;
-            ball = 0;
-        } else if(c == '/') {
-            frames.push_back(10 - frames.back());
-            frame++;
-            ball = 0;
-        } else if(c == '-') {
-            frames.push_back(0);
-            ball++;
-            if(ball == 2) {
-                frame++;
-                ball = 0;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                score += (s[i + 4] == 'X') ? 10 : (s[i + 4] == '/') ? 10 - (s[i + 2] - '0') : (s[i + 4] - '0');
             }
+            ++frame;
+            ball = 0;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            score += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
+            ++frame;
+            ball = 0;
+        } else if (s[i] == '-') {
+            ball = (ball == 0) ? 1 : 0;
         } else {
-            int pins = c - '0';
-            frames.push_back(pins);
-            ball++;
-            if(ball == 2) {
-                frame++;
+            score += s[i] - '0';
+            if (ball == 0) {
+                ++ball;
+            } else {
+                ++frame;
                 ball = 0;
             }
         }
-        
-        if(frame > 10) break;
     }
-    
-    for(int i = 0; i < 10; i++) {
-        if(frames[i] == 10) {
-            score += 10 + frames[i+1] + frames[i+2];
-        } else if(frames[i] + frames[i+1] == 10) {
-            score += 10 + frames[i+2];
-            i++;
-        } else {
-            score += frames[i] + frames[i+1];
-            i++;
-        }
-    }
-    
-    cout << score << endl;
-    
-    return 0;
+    return score;
 }
