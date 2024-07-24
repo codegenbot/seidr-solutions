@@ -1,30 +1,48 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    stack<bool> valueStack;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < booleanExpression.size(); i++) {
-        char c = booleanExpression[i];
+bool solveBoolean(string expression) {
+    if(expression == "T") return true;
+    if(expression == "F") return false;
 
-        if (c == 'T' || c == 't') {
-            valueStack.push(true);
-        } else if (c == 'F' || c == 'f') {
-            valueStack.push(false);
-        } else if (c == '&') {
-            bool right = valueStack.top();
-            valueStack.pop();
-            bool left = valueStack.top();
-            valueStack.pop();
+    for(int i = 0; i < expression.length(); i++) {
+        if(expression[i] == '|') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
 
-            valueStack.push(left && right);
-        } else if (c == '|') {
-            bool right = valueStack.top();
-            valueStack.pop();
-            bool left = valueStack.top();
-            valueStack.pop();
+            bool leftResult = solveBoolean(left);
+            bool rightResult = solveBoolean(right);
 
-            valueStack.push(left || right);
+            return leftResult || rightResult;
         }
     }
 
-    return valueStack.top();
+    for(int i = 0; i < expression.length(); i++) {
+        if(expression[i] == '&') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+
+            bool leftResult = solveBoolean(left);
+            bool rightResult = solveBoolean(right);
+
+            return leftResult && rightResult;
+        }
+    }
+
+    return false; // default to False if no operator found
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+
+    if(solveBoolean(expression)) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+
+    return 0;
 }
