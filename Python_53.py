@@ -1,4 +1,3 @@
-```
 def calculate_area_and_perimeter() -> tuple(float, float):
     def check(length: int, width: int):
         if length < 0 or width < 0:
