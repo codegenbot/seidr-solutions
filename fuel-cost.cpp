@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
-int calculateFuelCost(vector<int> numbers) {
-    int total = 0;
-    for (int num : numbers) {
-        int result = static_cast<int>(num / 3.0);
-        result -= 2;
-        total += result;
+int calculateFuelCost(vector<int> prices) {
+    int totalFuel = 0;
+    for (int price : prices) {
+        int fuel = (price / 3 - 2);
+        if (fuel > 0)
+            totalFuel += fuel;
     }
-    return total;
+    return totalFuel;
 }
