@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -8,8 +9,9 @@ std::string string_to_md5(const std::string& str) {
 }
 
 int main() {
-    std::string input;
+    std::stringstream ss;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    return 0; 
+    std::getline(std::cin, ss);
+    ss.clear();
+    return 0;
 }
