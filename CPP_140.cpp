@@ -1,29 +1,20 @@
-#include <string>
-#include <cassert>
-
-string fix_spaces(string text) {
-    string result = "";
-    int consecutiveSpaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result += "-";
-                consecutiveSpaces = 0;
-            } else {
-                result += "_";
+std::string fix_spaces(const std::string &text) {
+    int count = 0;
+    std::string modified_text = text;
+    for (size_t i = 0; i < modified_text.size(); ++i) {
+        if (modified_text[i] == ' ') {
+            count++;
+            if (count > 2) {
+                modified_text[i] = '-';
             }
         } else {
-            result += c;
-            consecutiveSpaces = 0;
+            count = 0;
         }
     }
-    return result;
-}
-
-int main() {
-    assert(fix_spaces("Hello   world") == "Hello_-world");
-    assert(fix_spaces("I  love  programming") == "I_-love_-programming");
-
-    return 0;
+    for (size_t i = 0; i < modified_text.size(); ++i) {
+        if (modified_text[i] == ' ') {
+            modified_text[i] = '_';
+        }
+    }
+    return modified_text;
 }
