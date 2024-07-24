@@ -1,20 +1,15 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
-std::string get_closest_vowel(std::string word);
-bool isvowel(char c);
-bool isconsonant(char c);
-
 std::string get_closest_vowel(std::string word) {
     int n = word.size();
-    for (int i = 0; i < n; ++i) {
+    for (int i = n - 1; i > 0; --i) {
         if (isvowel(word[i])) {
             int j;
             for (j = i - 1; j >= 0 && !isconsonant(word[j]); --j)
                 ;
             if (j >= 0) {
-                return word.substr(j + 1, i - j);
+                return word.substr(j + 1, i - j - 1);
             }
         }
     }
@@ -32,7 +27,6 @@ bool isconsonant(char c) {
 }
 
 int main() {
-    // Use the functions as needed...
     assert(get_closest_vowel("Above") == "o");
     return 0;
 }
