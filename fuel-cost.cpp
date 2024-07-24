@@ -1,9 +1,9 @@
 #include <vector>
+
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        double temp = i / 3.0;
-        temp = floor(temp);
+        int temp = i / 3;
         temp -= 2;
         sum += temp;
     }
