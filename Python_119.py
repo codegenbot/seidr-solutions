@@ -12,15 +12,12 @@ def match_parens(p):
     return len(stack) == 0
 
 def check():
-    s = input("Enter a string of parentheses (or type 'q' to quit): ")
     while True:
-        if s.lower() == 'q':
-            break
-        elif isinstance(int(s), int):
-            print("Invalid input. Please enter a string or type 'q' to quit.")
+        try:
             s = input("Enter a string of parentheses: ")
-        else:
             print(match_parens(s))
-            s = input("Enter a string of parentheses (or type 'q' to quit): ")
+            break
+        except ValueError:
+            print("Invalid input. Try again!")
 
 check()
