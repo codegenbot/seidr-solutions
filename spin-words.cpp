@@ -1,5 +1,6 @@
-#include <iostream>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string spinWords(string sentence) {
@@ -22,28 +23,6 @@ string spinWords(string sentence) {
         }
     }
     return result;
-}
-
-string spinWords(string sentence) {
-    string reversedSentence = "";
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            reversedSentence += " ";
-        } else {
-            int wordLength = 0;
-            while (i + wordLength < sentence.length() && sentence[i + wordLength] != ' ') {
-                wordLength++;
-            }
-            string word = sentence.substr(i, wordLength);
-            if (word.length() >= 5) {
-                reversedSentence += word.substr(word.length() - 1) + word.substr(0, word.length() - 1) + " ";
-            } else {
-                reversedSentence += word + " ";
-            }
-            i += wordLength;
-        }
-    }
-    return reversedSentence;
 }
 
 int main() {
