@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <set>
@@ -13,28 +14,23 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     int n;
     cin >> n;
-    vector<string> strings;
+    
+    vector<string> strings(n);
     for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        strings.push_back(s);
-    }
-    int m;
-    cin >> m;
-    vector<string> substrings;
-    for(int i = 0; i < m; i++) {
-        string s;
-        cin >> s;
-        substrings.push_back(s);
-    }
-
-    vector<string> filtered_strings = filter_by_substring(strings, substrings[0]);
-    if(issame(filtered_strings, strings)) {
-        cout << "Yes\n";
-    } else {
-        cout << "No\n";
+        cin >> strings[i];
     }
     
+    string substring;
+    cin >> substring;
+
+    vector<string> result = filter_by_substring(strings, substring);
+
+    if(issame({}, strings) || issame({}, {substring})) {
+        cout << "Yes";
+    } else {
+        cout << "No";
+    }
+
     return 0;
 }
 
