@@ -1,7 +1,2 @@
-Here is the Python solution:
-
-def roll_higher(n, m):
-    if n > m:
-        return 1 - (m / (n + m))
-    else:
-        return 1 - (n / (n + m))
+def dice_game(n, m):
+    return (n - 1) / n if n > m else (m - 1) / m
