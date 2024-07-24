@@ -1,38 +1,29 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
+    int roll = 0;
+    vector<int> rolls(21);
+    
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            score += min(stoi(s.substr(0, i)), 10);
-            currentFrame++;
-            s = s.substr(i + 1);
-            i--;
-        }
-    }
-    int remainingFrames = max(0, 10 - currentFrame);
-    for (int i = 0; i < remainingFrames; i++) {
         if (s[i] == 'X') {
-            score += 10;
-            currentFrame++;
+            score += 10 + rolls[roll+1] + rolls[roll+2];
+            roll += 3;
         } else if (s[i] == '/') {
-            score += min(stoi(s.substr(0, i)), 10) + stoi(s.substr(i + 1));
-            currentFrame++;
-            s = "";
+            int strike = 10 - (rolls[roll-1] + rolls[roll-2]);
+            score += 10 + strike;
+            roll += 2;
         } else {
-            int strikeOrSpare = 0;
-            for (int j = i; j < s.length(); j++) {
-                if (s[j] == 'X') {
-                    score += 10;
-                    strikeOrSpare = 2;
-                    break;
-                } else if (s[j] == '/') {
-                    score += min(stoi(s.substr(0, j)), 10) + stoi(s.substr(j + 1));
-                    strikeOrSpare = 1;
-                    break;
+            int pin = s[i] - '0';
+            rolls[roll++] = pin;
+            if (roll >= 2) {
+                if (rolls[roll-1] + rolls[roll-2] == 10) {
+                    score += 10 + rolls[roll];
+                    roll++;
+                } else {
+                    score += rolls[roll-1] + rolls[roll-2] + pin;
                 }
             }
-            i += strikeOrSpare - 1;
         }
     }
+    
     return score;
 }
