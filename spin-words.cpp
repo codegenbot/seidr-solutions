@@ -2,18 +2,18 @@ int main() {
     string input;
     getline(cin, input);
 
-    string word;
-    string result;
+    string word, output;
     istringstream iss(input);
+
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
-        result += word + " ";
+        output += word + " ";
     }
 
-    result.pop_back(); // remove trailing space
-    cout << result << endl;
+    output.pop_back(); // Remove extra space at the end
+    cout << output << endl;
 
     return 0;
 }
