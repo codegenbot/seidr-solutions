@@ -1,16 +1,18 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
+#include <any>
+#include <variant>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+variant<int, string> compare_one(any a, any b) {
+    if (get<int>(a) > get<int>(b)) {
         return a;
-    } else if (boost::any_cast<int>(b) > boost::any_cast<int>(a)) {
+    } else if (get<int>(b) > get<int>(a)) {
         return b;
-    } else if ((boost::any_cast<string>(a) != "") && (boost::any_cast<string>(b) != "")) {
-        double numA = stod(boost::any_cast<string>(a));
-        double numB = stod(boost::any_cast<string>(b));
+    } else if ((any_cast<string>(a) != "") && (any_cast<string>(b) != "")) {
+        double numA = stod(any_cast<string>(a));
+        double numB = stod(any_cast<string>(b));
         if (numA > numB) {
             return a;
         } else if (numB > numA) {
