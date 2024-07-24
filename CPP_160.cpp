@@ -1,91 +1,94 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-vector<string> split(string str) {
-    vector<string> result;
+vector<string> splitOperator(vector<string>& expressions) {
+    vector<string> operators;
     string temp;
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+    for (int i = 0; i < expressions.size(); i++) {
+        if (expressions[i] == "+-*/" || expressions[i] == "42" || expressions[i] == "47") {
             if (!temp.empty()) {
-                result.push_back(temp);
+                operators.push_back(temp);
                 temp = "";
             }
+            operators.push_back(expressions[i]);
         } else {
-            temp += str[i];
+            temp += expressions[i];
         }
     }
     if (!temp.empty()) {
-        result.push_back(temp);
+        operators.push_back(temp);
     }
-    for (int i = 0; i < result.size(); i++) {
-        if (result[i].empty()) {
-            result.erase(result.begin() + i);
-            i--; 
+
+    return operators;
+}
+
+vector<string> splitExpressions(vector<string>& input) {
+    vector<string> expressions;
+
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == "42" || input[i] == "47") {
+            continue;
         }
+        expressions.push_back(input[i]);
     }
-    return result;
+
+    return expressions;
 }
 
 double do_algebra(vector<string> expressions) {
-    double result = 0;
-    string operators = expressions[2];
+    double result = 0.0;
 
-    if (stod(operators) == 0) {
-        if (expressions[2][0] == '+') {
-            result = pow(stod(expressions[0]), stod(expressions[1]));
-        } else if (expressions[2][0] == '-') {
-            result = pow(stod(expressions[0]), -stod(expressions[1]));
-        }
-    } else if (stod(operators) == 42) { 
+    vector<string> op = splitOperator(expressions);
+
+    if (stod(op[2]) == 42) {
         if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
-                result = stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
-                result = -stod(expressions[0]);
+            if (op[0][0] == '+') {
+                result = pow(stod(expressions[0]), stod(expressions[1]));
+            } else if (op[0][0] == '-') {
+                result = pow(stod(expressions[0]), -stod(expressions[1]));
             }
         } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
+            if (op[0][0] == '+') {
                 result = stod(expressions[0]) + stod(expressions[1]);
-            } else if (expressions[2][0] == '-') {
+            } else if (op[0][0] == '-') {
                 result = stod(expressions[0]) - stod(expressions[1]);
-            } else if (expressions[2][0] == '*') {
-                result = stod(expressions[0]) * stod(expressions[1]);
             }
         }
-    } else if (stod(operators) == 47) { 
+    } else if (stod(op[2]) == 47) {
         if (expressions[1] == "0") {
-            if (expressions[2][0] == '+') {
+            if (op[0][0] == '+') {
                 result = -stod(expressions[0]);
-            } else if (expressions[2][0] == '-') {
+            } else if (op[0][0] == '-') {
                 result = stod(expressions[0]);
             }
         } else if (expressions[1] != "0") {
-            if (expressions[2][0] == '+') {
+            if (op[0][0] == '+') {
                 result = stod(expressions[0]) + (-stod(expressions[1]));
-            } else if (expressions[2][0] == '-') {
+            } else if (op[0][0] == '-') {
                 result = stod(expressions[0]) - stod(expressions[1]);
             }
         }
     }
+
     return result;
 }
 
 int main() {
-    vector<string> expressions;
-    string input;
+    vector<string> input;
 
     cout << "Enter the expressions (space separated): ";
     getline(cin, input);
-    expressions = split(input);
+    if (!input.empty()) {
+        vector<string> expressions = splitExpressions(input);
 
-    double output = do_algebra({expressions[0], expressions[1], expressions[2]});
-    cout << "Result: " << output << endl;
+        double output = do_algebra(expressions);
+        cout << "Result: " << output << endl;
+    }
+
     return 0;
 }
