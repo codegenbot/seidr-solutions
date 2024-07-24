@@ -3,15 +3,11 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return bool(int(left)) and bool(int(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return bool(int(left)) or bool(int(right))
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= True
-            elif char == '|':
-                result |= True
-            elif char not in ['T', 'F']:
-                raise ValueError("Invalid character")
-        return result
+        raise ValueError('Invalid input')
