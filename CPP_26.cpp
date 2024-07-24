@@ -1,12 +1,12 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> unique_numbers(std::vector<int> numbers){
+std::vector<int> uniqueNumbers(std::vector<int> numbers){
     std::vector<int> result;
     for(int i = 0; i < numbers.size(); i++){
         bool exists = false;
@@ -24,6 +24,6 @@ std::vector<int> unique_numbers(std::vector<int> numbers){
 }
 
 int main() {
-    assert(issame(unique_numbers({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(isSame(uniqueNumbers({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
