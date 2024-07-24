@@ -1,5 +1,7 @@
 from typing import List, Any
+
 import sys
+
 
 def main():
     values = []
@@ -7,12 +9,22 @@ def main():
         value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == "stop":
             break
-        values.append(int(value))
+        while True:
+            try:
+                values.append(int(input()))
+                break
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid integer or type 'stop' to finish."
+                )
     filtered_values = filter_integers(values)
+
     print(filtered_values)
 
+
 def filter_integers(values: List[Any]) -> List[int]:
-    return [int(value) for value in values]
+    return [value for value in values if isinstance(value, int)]
+
 
 if __name__ == "__main__":
     main()
