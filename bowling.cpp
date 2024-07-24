@@ -1,48 +1,49 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { // strike
-            score += 10 + bowlingScoreForNextTwoFrames(s, i);
-        } else if (s[i] == '/') { // spare
-            int nextRoll = s[i + 2] - '0';
-            score += 10 + nextRoll;
-            i++;
-        } else { // normal roll
-            int firstRoll = s[i] - '0';
-            int secondRoll = s[i + 1] - '0';
-            score += firstRoll + secondRoll;
+    int currentRolls = 0;
+    int currentFrame = 1;
+
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRolls == 2) {
+                score += 10 + getPreviousFrames();
+                currentRolls = 0;
+                currentFrame++;
+            }
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            if (currentRolls < 2) {
+                if (roll == 10) {
+                    score += 10 + getPreviousFrames();
+                    currentRolls = 2;
+                } else {
+                    score += roll;
+                    currentRolls++;
+                }
+            } else {
+                int previousRolls = currentFrame - 1 ? min(roll, 2) : 0;
+                score += previousRolls * 10 + getPreviousFrames() + roll;
+                currentRolls = 0;
+                currentFrame++;
+            }
         }
     }
+
     return score;
+
 }
 
-int bowlingScoreForNextTwoFrames(string s, int i) {
-    int score = 0;
-    for (int j = i; j < i + 2; j++) {
-        if (s[j] == 'X') { // strike
-            score += 10 + bowlingScoreForNextOneFrame(s, j);
-        } else if (s[j] == '/') { // spare
-            int nextRoll = s[j + 2] - '0';
-            score += 10 + nextRoll;
-            j++;
-        } else { // normal roll
-            int firstRoll = s[j] - '0';
-            int secondRoll = s[j + 1] - '0';
-            score += firstRoll + secondRoll;
+int getPreviousFrames() {
+    int sum = 0;
+    for (int i = currentFrame - 1; i > 0; i--) {
+        if (i == 9) {
+            sum += min(10, frames[i]);
+        } else {
+            sum += frames[i];
         }
     }
-    return score;
+    return sum;
 }
 
-int bowlingScoreForNextOneFrame(string s, int i) {
-    if (s[i] == 'X') { // strike
-        return 10;
-    } else if (s[i] == '/') { // spare
-        int nextRoll = s[i + 2] - '0';
-        return 10 + nextRoll;
-    } else { // normal roll
-        int firstRoll = s[i] - '0';
-        int secondRoll = s[i + 1] - '0';
-        return firstRoll + secondRoll;
-    }
-}
+// Initialize the score array
+int frames[10] = {0};
