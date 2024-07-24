@@ -1,2 +1,3 @@
 def leaders(a):
-    return [a[i] for i in range(len(a) - 1, -1, -1) if not any(x > a[i] for x in a[:i + 1])]
+    max_right = a[-1]
+    return [max_right] + [x for x in a[:-1] if x >= max_right][::-1]
