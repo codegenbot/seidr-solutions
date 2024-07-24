@@ -1,5 +1,5 @@
 ```
-def find_max_prime(lst):
+def search(lst):
     max_prime = -1
     for num in lst:
         if is_prime(num) and num > max_prime:
@@ -14,7 +14,3 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
-n = int(input("Enter the number of elements: "))
-numbers = [int(x) for x in input(f"Enter {n} space-separated integers: ").split()]
-print(find_max_prime(numbers))
