@@ -1,6 +1,7 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
+
+#include <iomanip>
 
 float snowDay(int hours, float initialSnow, float snowFallRate, float meltRate) {
     float totalSnow = 0;
