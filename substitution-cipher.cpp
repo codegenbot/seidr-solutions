@@ -4,9 +4,11 @@
 
 int main() {
     std::string cipher2;
-    std::cin >> cipher2;
+    std::getline(std::cin, cipher2);
+    cipher2 += ' '; // Add space at the end
     std::string cipher1;
-    std::cin >> cipher1;
+    std::getline(std::cin, cipher1);
+    cipher1 += ' '; // Add space at the end
     std::string message;
     std::getline(std::cin, message);
 
@@ -17,15 +19,10 @@ int main() {
 
     std::string result;
     for(int i = 0; i < message.length(); i++) {
-        char c = message[i]; 
-        if(isalpha(c)) { // Check if the character is alphabetic
-            c = std::tolower(c); // Convert to lowercase
-            if(cipherMap.find(c) != cipherMap.end()) { // Find in map and substitute
-                result += cipherMap.at(c);
-            } else {
-                result += c; // If not found, add original char
-            }
-        } else { // Non-alphabet characters remain unchanged
+        char c = message[i]; // Convert to lowercase
+        if(cipherMap.find(std::tolower(c)) != cipherMap.end()) {
+            result += cipherMap.at(std::tolower(c));
+        } else {
             result += c;
         }
     }
