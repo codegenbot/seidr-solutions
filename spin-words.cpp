@@ -1,35 +1,42 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    int wordLength = 0;
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            if (wordLength >= 5) {
-                result += reverseWord(sentence.substr(i - wordLength, wordLength)) + " ";
-                wordLength = 0;
+    std::string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
+                word = "";
             } else {
-                result += sentence.substr(i - wordLength, wordLength) + " ";
-                wordLength = 0;
+                result += word + " ";
+                word = "";
             }
         } else {
-            wordLength++;
+            word += str[i];
         }
     }
-    if (wordLength >= 5) {
-        result += reverseWord(sentence.substr(sentence.length() - wordLength, wordLength));
+
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+        result += word;
     } else {
-        result += sentence;
+        result += word;
     }
+
     return result;
 }
 
-std::string reverseWord(std::string str) {
-    std::string reversed = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        reversed += str[i];
-    }
-    return reversed;
+int main() {
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+
+    return 0;
 }
