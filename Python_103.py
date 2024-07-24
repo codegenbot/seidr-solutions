@@ -1,11 +1,13 @@
 ```
 import statistics
 
+
 def check(rounded_avg):
-    if str(rounded_avg).endswith('0') or str(rounded_avg).endswith('5'):
-        print(f"{rounded_avg} is an odd number.")
+    if int(rounded_avg) % 2 == 0:
+        print("The average is even.")
     else:
-        print(f"{rounded_avg} is an even number.")
+        print("The average is odd.")
+
 
 def average_rounded():
     while True:
@@ -15,7 +17,10 @@ def average_rounded():
             if n > m:
                 return -1
             avg = round((n + m) / 2)
-            rounded_avg = bin(avg)[2:]
+            rounded_avg = format(avg, '.0f').zfill(3).lstrip('0')
             check(rounded_avg)
+            response = input("Do you want to continue? (yes/no): ")
+            if response.lower() != 'yes':
+                break
         except ValueError:
             print("Invalid input. Please enter integers.")
