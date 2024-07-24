@@ -16,14 +16,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             stack.pop()
             current_group += char
-        else:
-            raise ValueError("Invalid input. String should only contain '(', ')', and spaces.")
-
+            if not stack:
+                groups.append(current_group)
+                current_group = ""
     if stack:
         while stack:
-            current_group += ")"
-            stack.pop()
+            current_group += ")" * len(stack)
         groups.append(current_group)
-    groups.append(current_group)
-
     return groups
