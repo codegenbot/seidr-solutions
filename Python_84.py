@@ -1,6 +1,6 @@
 while True:
     K = input("Enter a number (0 or 1): ")
-    if K in ['0', '1']:
+    if K.strip() in ['0', '1']:
         print(int(K))
         break
     else:
