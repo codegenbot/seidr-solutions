@@ -1,8 +1,16 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+```cpp
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> find_max_neg_min_pos(vector<int> lst) {
+std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
 
@@ -16,9 +24,4 @@ vector<int> find_max_neg_min_pos(vector<int> lst) {
     }
 
     return {(maxNeg < 0 ? maxNeg : 0), (minPos > 0 ? minPos : 0)};
-}
-
-int main() {
-    assert(issame(find_max_neg_min_pos({-6, -4, -4, -3, -100, 1}), {-3, 1}));
-    return 0;
 }
