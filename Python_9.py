@@ -1,5 +1,3 @@
-n = int(input())
-input_numbers = list(map(int, input().split()))
 from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
@@ -10,5 +8,9 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-output = rolling_max(input_numbers)
-print(output)
+try:
+    input_numbers = list(map(int, input().split()))
+    output = rolling_max(input_numbers)
+    print(output)
+except:
+    print("Invalid input. Please enter a list of integers separated by spaces.")
