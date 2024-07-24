@@ -1,30 +1,36 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(const std::string& str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            size_t len = i - start;
-            words.push_back(str.substr(start, len));
-            start = i + 1;
-        }
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--)
+                    result += word[j];
+                result += " ";
+            } else
+                result += word + " ";
+            word = "";
+        } else
+            word += str[i];
     }
 
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (words[i].size() >= 5)
-            std::reverse(words[i].begin(), words[i].end());
-    }
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--)
+            result += word[i];
+    } else
+        result += word;
 
-    std::string result;
-    for (const auto& word : words)
-        result += word + " ";
-
-    return result.substr(0, result.size() - 1);
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
+    string input;
+    cout << "Enter a string of one or more words (separated by spaces): ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
