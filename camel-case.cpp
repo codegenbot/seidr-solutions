@@ -7,7 +7,10 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            capitalizeNext = true;
+            if (!result.empty()) {
+                result.push_back(toupper(input[input.find(c) + 1]));
+                capitalizeNext = true;
+            }
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
