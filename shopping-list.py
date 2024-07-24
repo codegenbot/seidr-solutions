@@ -8,9 +8,7 @@ def shopping_list():
         price * (1 - discount / 100) for price, discount in zip(prices, discounts)
     )
 
-    total_price = float("{:.2f}".format(total_price))
+    return "{:.2f}".format(total_price)
 
-    return total_price
-
-if __name__ == '__main__':
-    print(shopping_list())
+total_price = float("{:.2f}".format(shopping_list()))
+print(total_price)
