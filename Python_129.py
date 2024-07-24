@@ -20,9 +20,7 @@ def main():
         try:
             m = int(input("Enter number of rows: "))
             if m <= 0:
-                print(
-                    "Number of rows must be greater than zero. Please enter a valid input."
-                )
+                print("Number of rows must be greater than zero. Please enter a valid input.")
                 continue
             break
         except ValueError:
@@ -32,9 +30,7 @@ def main():
         try:
             n = int(input("Enter number of columns: "))
             if n <= 0:
-                print(
-                    "Number of columns must be greater than zero. Please enter a valid input."
-                )
+                print("Number of columns must be greater than zero. Please enter a valid input.")
                 continue
             break
         except ValueError:
@@ -44,12 +40,7 @@ def main():
     for i in range(m):
         while True:
             try:
-                row = list(
-                    map(
-                        int,
-                        input(f"Enter the numbers in a row separated by space: ").split(),
-                    )
-                )
+                row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
                 if len(row) != n:
                     print("Number of elements must match the number of columns. Please enter a valid input.")
                     continue
@@ -58,7 +49,7 @@ def main():
             except ValueError:
                 print("Invalid input. Please enter integers separated by spaces.")
 
-    print(minPathSum(grid) if grid else "Program did not receive expected input")
+    print(minPathSum(list(zip(*grid))))
 
 
 main()
