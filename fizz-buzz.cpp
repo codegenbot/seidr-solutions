@@ -1,5 +1,6 @@
 #include <string>
 using namespace std;
+
 string fizzBuzz(int x) {
     string res;
     if (x % 3 == 0 && x % 5 == 0)
