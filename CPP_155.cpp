@@ -1,9 +1,10 @@
-std::vector<int> result;
-    int count = 0;
+#include <vector>
+#include <cassert>
+
+std::vector<int> counts(std::vector<int> b, int num) {
+    std::vector<int> result(b.size());
     for (int i = 0; i < b.size(); ++i) {
-        if (b[i] == num) {
-            count++;
-        }
+        result[i] = (b[i] == num) ? 1 : 0;
     }
-    result.push_back(count);
     return result;
+}
