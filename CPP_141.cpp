@@ -1,42 +1,62 @@
-bool has_digits = false;
-int dot_count = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!has_digits) {
-            has_digits = true;
-        }
-        if (has_digits && has_digits < 3) {
-            has_digits++;
-        } else {
-            return "No";
-        }
-    } else if (c == '.') {
-        dot_count++;
-        if (dot_count > 1) {
-            return "No";
+int count_digits(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (isdigit(c)) {
+            count++;
         }
     }
+    return count;
 }
 
-if (!has_digits || dot_count != 1) {
-    return "No";
-}
+string file_name_check(string file_name) {
+    bool valid = true;
 
-string ext = "";
-int i = file_name.find('.');
-for (; i < file_name.size(); i++) {
-    ext += file_name[i];
-}
-i = 0;
-while (i < ext.size() && (ext[i] == 't' || ext[i] == 'T' || ext[i] == 'x' || ext[i] == 'X')) {
+    // Check if there are more than three digits
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3) {
+        valid = false;
+    }
+
+    // Check for exactly one dot
+    int dot_count = 0;
+    for (char c : file_name) {
+        if (c == '.') {
+            dot_count++;
+        }
+    }
+    if (dot_count != 1) {
+        valid = false;
+    }
+
+    // Check the substring before the dot
+    string before_dot = "";
+    int i = 0;
+    while (i < file_name.size() && file_name[i] != '.') {
+        before_dot += file_name[i];
+        i++;
+    }
+    if (before_dot.empty()) {
+        valid = false;
+    } else {
+        for (char c : before_dot) {
+            if (!isalpha(c)) {
+                valid = false;
+                break;
+            }
+        }
+    }
+
+    // Check the substring after the dot
+    string after_dot = "";
     i++;
-}
+    while (i < file_name.size()) {
+        after_dot += file_name[i];
+        i++;
+    }
+    vector<string> allowed_extensions = {"txt", "exe", "dll"};
+    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
+        valid = false;
+    }
 
-if (i > 0) {
-    return "Yes";
-} else if (ext == "txt" || ext == "exe" || ext == "dll") {
-    return "Yes";
-} else {
-    return "No";
+    return valid ? "Yes" : "No";
 }
