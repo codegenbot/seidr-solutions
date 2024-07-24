@@ -11,6 +11,3 @@ def indices_of_substring(text, target):
         if text[i : i + target_len] == target:
             result.append(i)
     return result
-
-print(gcd(int(input()), int(input())))
-print(indices_of_substring(input(), input()))
