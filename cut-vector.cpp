@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <climits>
+#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -14,9 +14,9 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         if (abs(diff1-diff2) < abs(min_diff)) {
             min_diff = diff1 - diff2;
             result.push_back(vector<int>(nums.begin(), nums.begin() + i));
-            vector<int> temp(nums.begin() + i, nums.end());
-            nums.clear();
-            nums.insert(nums.begin(), temp.begin(), temp.end());
+            for(int j = 0; j < i; j++){
+                nums.erase(nums.begin());
+            }
         }
     }
     
@@ -30,15 +30,13 @@ vector<vector<int>> cutVector(vector<int>& nums) {
 int main() {
     vector<int> nums = {1, 2, 3, 4};
     vector<vector<int>> result = cutVector(nums);
-    cout << "Subvector 1: ";
-    for (int i : result[0]) {
-        cout << i << " ";
+    cout << "The two resulting subvectors are: " << endl;
+    for (auto v : result) {
+        cout << "[";
+        for (int num : v) {
+            cout << num << ", ";
+        }
+        cout << "]" << endl;
     }
-    cout << endl;
-    cout << "Subvector 2: ";
-    for (int i : result.back()) {
-        cout << i << " ";
-    }
-    cout << endl;
     return 0;
 }
