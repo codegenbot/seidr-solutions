@@ -1,12 +1,13 @@
-h0 = float(input())
-hf = float(input())
-n = int(input())
+def bouncing_balls():
+    h0 = float(input())
+    hf = float(input())
+    b = int(input())
 
-bounciness_index = hf / h0
+    bi = hf / h0
 
-total_distance = 0
-for _ in range(n):
-    total_distance += bounciness_index
-    hf *= bounciness_index
+    total_distance = (bi + 1) ** (2 * b)
 
-print(total_distance)
+    return format(total_distance, ".4f")
+
+
+print(bouncing_balls())
