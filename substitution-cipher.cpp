@@ -1,35 +1,21 @@
-#include <iostream>
-#include <string>
-
-std::string decipher(const std::string& input, const std::string& cipher1, const std::string& cipher2) {
-    std::string result;
+namespace {
+string cipher(string cipher1, string cipher2, string input) {
+    string result = "";
     for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
-            result += cipher1[pos]; 
-        } else {
             char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            size_t pos2 = cipher1.find(originalCase); 
-            if (pos2 != std::string::npos) {
-                result += originalCase; 
+            if (std::find_if(cipher1.begin(), cipher1.end(), [originalCase](char x) { return std::tolower(x) == std::tolower(originalCase); }) != cipher1.end()) {
+                result += c;
             } else {
-                result += c; 
+                size_t pos2 = cipher1.find(std::tolower(c)); 
+                if (pos2 != std::string::npos) {
+                    result += cipher1[pos2];
+                } else {
+                    result += c; 
+                }
             }
         }
     }
     return result;
-}
-
-int main() {
-    std::string input, cipher1, cipher2;
-
-    std::cout << "Enter the three strings:" << std::endl;
-    std::getline(std::cin, cipher1);
-    std::getline(std::cin, cipher2);
-    std::getline(std::cin, input);
-
-    std::string result = decipher(input, cipher1, cipher2);
-    std::cout << "Deciphered message: " << result << std::endl;
-    
-    return 0;
 }
