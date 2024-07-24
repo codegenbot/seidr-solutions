@@ -1,9 +1,12 @@
-Here is the solution:
+```
+from typing import List
+import math
 
-def find_factorization(n):
-    i = 2
+
+def factorize(n: int) -> List[int]:
     factors = []
-    while i <= math.sqrt(n):
+    i = 2
+    while i * i <= n:
         if n % i:
             i += 1
         else:
@@ -11,12 +14,7 @@ def find_factorization(n):
             while n % i == 0:
                 n //= i
                 count += 1
-            for _ in range(count):
-                factors.append(i)
-            i += 1
+            factors.extend([i] * count)
     if n > 1:
-        factors.append(int(n))
+        factors.append(n)
     return factors
-
-n = int(input("Enter a number: "))
-print(find_factorization(n))
