@@ -11,23 +11,19 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
+    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<int> vec(n);
-    
     for (int i = 0; i < n; ++i) {
+        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> vec[i];
+        std::cin >> num;
+        arr.push_back(num);
     }
     
-    int result = can_arrange(vec);
-    
-    if(result == -1)
-        std::cout << "The array can be arranged in increasing order.\n";
-    else
-        std::cout << "The array cannot be arranged in increasing order at index " << result << ".\n";
+    std::cout << "The first index at which the array cannot be arranged in increasing order is: " << can_arrange(arr) << std::endl;
     
     return 0;
 }
