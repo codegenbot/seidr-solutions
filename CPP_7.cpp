@@ -15,9 +15,11 @@ int main() {
     int n;
     cin >> n;
     
-    vector<string> strings(n);
+    vector<string> strings;
     for(int i = 0; i < n; i++) {
-        cin >> strings[i];
+        string s;
+        cin >> s;
+        strings.push_back(s);
     }
     
     string substring;
@@ -25,10 +27,12 @@ int main() {
 
     vector<string> result = filter_by_substring(strings, substring);
 
-    if(issame({}, strings) || issame({}, {substring})) {
-        cout << "Yes";
+    if(issame({}, strings) && issame({}, {substring})) {
+        cout << "All substrings are present in the main string." << endl;
+    } else if(issame(result, strings)) {
+        cout << "The filtered vector contains all the original strings." << endl;
     } else {
-        cout << "No";
+        cout << "The filtered vector does not contain all the original strings." << endl;
     }
 
     return 0;
