@@ -1,7 +1,14 @@
 ```cpp
+#include <vector>
+#include <iostream>
+#include <stack>
+#include <string>
+
+using namespace std;
+
 bool solveBoolean(string expression) {
     bool result = false;
-    stack<char> s; 
+    stack<char> s;
 
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
@@ -18,7 +25,7 @@ bool solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-    
+
     result = s.top() == 'T'; 
     return result;
 }
