@@ -1,8 +1,8 @@
-def solve(K):
-    K = int(K)
-    if K == 1:
-        return "0"
-    elif K == 0:
-        return "1"
+K = input().strip()
+if K.isdigit() and (int(K) == 0 or int(K) == 1):
+    if int(K) == 1:
+        print("0")
     else:
-        return "Invalid input"
+        print("1")
+else:
+    print("Invalid input")
