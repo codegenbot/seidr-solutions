@@ -1,5 +1,7 @@
-string str = "";
-for (int i = text.length() - 1; i >= 0; --i) {
-    str += text[i];
+string trimmed = "";
+for (char c : text) {
+    if (!ispunct(c)) {
+        trimmed += tolower(c);
+    }
 }
-return text == str;
+return trimmed == istringstream(trimmed)->str();
