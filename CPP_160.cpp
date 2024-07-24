@@ -1,45 +1,19 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& args) {
-    double output = 0.0;
-
-    for(int i = 0; i < ops.size(); i++) {
-        if(ops[i][0] == "+") { 
-            output += static_cast<double>(args[i]);
-        } else if(ops[i][0] == "-") {
-            output -= static_cast<double>(args[i]);
-        } else if(ops[i][0] == "*") {
-            output *= static_cast<double>(args[i]);
-        } else if(ops[i][0] == "/") {
-            if(args[i] != 0) {
-                output /= static_cast<double>(args[i]);
-            } else {
-                std::cout << "Error: Division by zero is not allowed." << std::endl;
-                return 0.0;
-            }
-        }
-    }
-
-    return output;
-}
-
 int main() {
     std::vector<std::string> ops; 
     std::vector<int> args;
 
-    while(true) {
+    int count = 0;
+    while(count < 5) { 
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
-        char op;
+        std::string op;
         int arg;
-        std::cin >> op;
+        std::cin >> op >> std::ws >> arg;
 
-        if(op == 'q') break;
+        if(op == "q") break;
         
+        ops.push_back(op);
         args.push_back(arg);
-        ops.push_back(std::string(1, op)); 
+        count++;
     }
     
     double output = do_algebra(ops, args);
