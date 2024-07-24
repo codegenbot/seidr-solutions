@@ -4,8 +4,8 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for coin in sorted(coins, reverse=True):
-        count = cents // coin
-        if count > 0:
+        while cents >= coin:
+            count = cents // coin
             result[coins.index(coin)] += count
             cents -= count * coin
 
