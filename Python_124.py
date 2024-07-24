@@ -21,12 +21,12 @@ def valid_date(date):
                 elif month == 2:
                     break
                 if month in months_with_31_days:
-                    if int(month_day) > days_in_months[month]:
+                    if int(month_day) > days_in_months[month-1]:
                         return False
 
-        if int(int(month_day) / 100) != int(year/100): 
+        if int(month_day / 100) != int(year/100): 
             if len(str(int(month_day/100)))>3: 
                 return False
-            return 
+            return False 
 
         return True
