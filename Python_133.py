@@ -1,3 +1,5 @@
-numbers = input("Enter numbers separated by space: ").split()
-def sum_squares(lst):
-    return round(sum([round(int(x))**2 for x in lst]))
+def sum_squares():
+    lst = list(map(int, input("Enter space-separated numbers: ").split()))
+    return round(sum([round(x)**2 for x in lst]))
+
+print(sum_squares())
