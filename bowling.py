@@ -12,12 +12,14 @@ def handle_bonus(bowls, score):
 
     score += bonus
 
-    for i in range(9):
+    for i in range(10, len(bowls) - 2):
         if bowls[i] == "/":
             score += 10 - int(bowls[i - 1]) if bowls[i - 1].isdigit() else 10
 
-    return score
+    if bowls[9] == "/":
+        score += 10 - int(bowls[10])
 
-input_bowls = input("Enter the bowling sequence: ")
-result = handle_bonus(input_bowls, 0)
-print(result)
+    if bowls[9] == "X" or bowls[9] == "10":
+        score += get_strike_bonus(bowls, 10)
+
+    return score
