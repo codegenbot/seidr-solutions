@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -29,6 +28,5 @@ int main() {
    
     
     cout << luhn(digits); 
-
     return 0;
 }
