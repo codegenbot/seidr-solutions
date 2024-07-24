@@ -14,8 +14,8 @@ def find_zero(xs: list):
 
 
 if __name__ == "__main__":
-    xs = list(map(int, input("Enter coefficients: ").split()))
+    xs = list(map(float, input("Enter coefficients separated by space: ").split()))
     try:
         print(find_zero(xs))
     except ValueError as e:
-        print(e)
+        print(str(e))
