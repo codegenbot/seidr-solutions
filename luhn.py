@@ -1,11 +1,14 @@
+n = int(input())
 digits = list(map(int, input().split()))
-new_digits = []
-for i in range(16):
+
+total = 0
+for i in range(n):
     if i % 2 == 1:
-        doubled_digit = digits[i] * 2
-        if doubled_digit > 9:
-            doubled_digit -= 9
-        new_digits.append(doubled_digit)
+        double = digits[i] * 2
+        if double > 9:
+            double -= 9
+        total += double
     else:
-        new_digits.append(digits[i])
-print(sum(new_digits))
+        total += digits[i]
+
+print(total)
