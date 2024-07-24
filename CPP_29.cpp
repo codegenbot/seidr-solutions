@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>  // Include this header for assert
+#include <cassert>
 
 using namespace std;
 
@@ -16,6 +16,14 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 }
 
 int main() {
-    // Add your test cases here without using assert due to redefinition error
+    // Test cases
+    std::vector<std::string> strings = {"apple", "banana", "apricot", "orange"};
+    std::string prefix = "ap";
+    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
+
+    for (const auto& filtered_str : filtered_strings) {
+        cout << filtered_str << endl;
+    }
+
     return 0;
 }
