@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <set>
@@ -10,43 +10,36 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 
     std::set<int> intersection;
     std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        std::inserter(intersection, intersection.begin()));
+        inserter(intersection, intersection.begin()));
 
     std::vector<int> result(intersection.begin(), intersection.end());
     std::sort(result.begin(), result.end());
     return result;
 }
 
+bool issame(const std::vector<int>& a,const std::vector<int>& b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size();i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 int main() {
-    int n1, n2;
-    std::cout << "Enter the size of first list: ";
-    std::cin >> n1;
-    std::vector<int> l1(n1);
-    std::cout << "Enter elements of first list: ";
-    for (int i = 0; i < n1; ++i) {
-        std::cin >> l1[i];
+    int n,m;
+    std::cin >> n >> m;
+    std::vector<int> l1(n);
+    std::vector<int> l2(m);
+
+    for(int i = 0; i < n;i++) std::cin >> l1[i];
+    for(int i = 0; i < m;i++) std::cin >> l2[i];
+
+    if(issame(l1,l2)){
+        std::cout << "The lists are same." << std::endl;
+    }else{
+        std::vector<int> common_list = common(l1, l2);
+        for(int i = 0; i < common_list.size();i++) std::cout << common_list[i] << " ";
+        std::cout << std::endl;
     }
-
-    int m1, m2;
-    std::cout << "Enter the size of second list: ";
-    std::cin >> m1;
-    std::vector<int> l2(m1);
-    std::cout << "Enter elements of second list: ";
-    for (int i = 0; i < m1; ++i) {
-        std::cin >> l2[i];
-    }
-
-    std::vector<int> common_elements = common(l1, l2);
-
-    if(common_elements.size() == 0) {
-        std::cout << "No common elements.\n";
-    } else {
-        std::cout << "Common elements: ";
-        for (int i = 0; i < common_elements.size(); ++i) {
-            std::cout << common_elements[i] << " ";
-        }
-        std::cout << "\n";
-    }
-
     return 0;
 }
