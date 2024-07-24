@@ -1,29 +1,12 @@
-```
-def minPath(grid):
+def minFallingSteps(grid):
     n = len(grid)
-    visited = [[False]*n for _ in range(n)]
-    min_path = []
-    
-    def dfs(x, y, k, path):
-        if k == 0:
-            return True
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                visited[nx][ny] = True
-                path.append(grid[nx][ny])
-                if dfs(nx, ny, k-1, path):
-                    return True
-                visited[nx][ny] = False
-                path.pop()
-        return False
-    
-    for i in range(n):
-        for j in range(n):
-            if visited[i][j]:
-                continue
-            path = [grid[i][j]]
-            if dfs(i, j, 1, path):
-                if not min_path or path < min_path:
-                    min_path = path
-    return min_path
+    dp = [[0]*n for _ in range(n)]
+    dp[0][0] = grid[0][0]
+    for i in range(1, n):
+        dp[i][0] = dp[i-1][0] + 1
+    for j in range(1, n):
+        dp[0][j] = dp[0][j-1] + 1
+    for i in range(1, n):
+        for j in range(1, n):
+            dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+    return dp[-1][-1]
