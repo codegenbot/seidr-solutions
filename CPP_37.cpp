@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -7,14 +8,14 @@ bool areEqualVectors(const std::vector<float>& a, const std::vector<float>& b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6) { // Consider two floating point numbers equal if their difference is less than a small value
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
+std::vector<float> sortEven(std::vector<float> l) {
     std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
