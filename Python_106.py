@@ -2,10 +2,7 @@
 import math
 
 def factorial(x):
-    if x == 0:
-        return 1
-    else:
-        return x * factorial(x-1)
+    return math.factorial(x)
 
 if __name__ == '__main__':
     def f(n):
@@ -18,4 +15,4 @@ if __name__ == '__main__':
         return result
 
     num = int(input("Enter a number: "))
-    print(f(num))
+    print(f(num)[0])
