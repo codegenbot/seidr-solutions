@@ -1,6 +1,7 @@
 ```
 import math
 
+
 def find_zero():
     while True:
         try:
@@ -22,6 +23,7 @@ def find_zero():
         return f"Root: {round(x, 2)}"
     else:
         return "No real roots found"
+
 
 while True:
     print("Find roots of quadratic equation ax^2 + bx + c = 0: ")
