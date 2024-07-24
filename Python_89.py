@@ -1,13 +1,10 @@
 ```
 def encrypt(s):
-    result = ''
+    result = ""
     for char in s:
         if char.isalpha():
-            if char.isupper():
-                base = ord('A')
-            else:
-                base = ord('a')
-            result += chr((ord(char) - base + 2*2)%26 + base)
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(char) - ascii_offset + (2 * 2)) % 26 + ascii_offset)
         else:
             result += char
     return result
