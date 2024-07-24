@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -25,9 +25,9 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string (const std::string&)input;
+    std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
+    std::cin >> (const std::string&)input;
     std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     return 0;
 }
