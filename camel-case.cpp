@@ -1,26 +1,35 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string camelCase(const std::string& s) {
     std::vector<std::string> parts = {""};
-    for (int i = 0; i <= s.length(); ++i) {
-        if (s[i] == '-' || i == s.length()) {
-            parts.back() += toupper(s[i] == '-' ? s[++i] : s[i]);
-            if (i < s.length()) {
-                parts.push_back("");
-            }
+    for (char c : s + " ") {
+        if (c == '-') {
+            parts.back() += c;
+        } else if (c == ' ') {
+            parts.push_back("");
         } else {
-            parts.back() += tolower(s[i]);
+            parts.back() += c;
         }
     }
-    return parts[0];
+    std::string result = "";
+    bool first = true;
+    for (const auto& part : parts) {
+        if (!first) {
+            result += std::toupper(part[0]);
+            result.erase(0, 1);
+        } else {
+            result += part;
+        }
+        first = false;
+    }
+    return result;
 }
 
 int main() {
     std::string s;
     while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+        std::cout << camelCase(s) << "\n";
     }
     return 0;
 }
