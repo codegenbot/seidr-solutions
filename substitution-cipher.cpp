@@ -1,20 +1,14 @@
-string decipher(string cipher1, string cipher2, string input) {
-    string result = "";
-    for (char c : input) {
-        size_t pos = cipher2.find(std::tolower(c)); 
-        if (pos != std::string::npos) {
-            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            if (std::find_if(cipher1.begin(), cipher1.end(), [originalCase](char x) { return std::tolower(x) == std::tolower(originalCase); }) != cipher1.end()) {
-                result += c;
-            } else {
-                size_t pos2 = cipher1.find(std::tolower(c)); 
-                if (pos2 != std::string::npos) {
-                    result += cipher1[pos2];
-                } else {
-                    result += c; 
-                }
-            }
-        }
+std::string cipher(const std::string& cipher1, const std::string& cipher2, const std::string& input) {
+    std::string output;
+    for (int i = 0; i < input.length(); i++) {
+        if (i < cipher1.length()) {
+            int index = cipher1.find(input[i]);
+            if (index != std::string::npos && index < cipher2.length())
+                output += cipher2[index];
+            else
+                output += input[i];
+        } else
+            output += input[i];
     }
-    return result;
+    return output;
 }
