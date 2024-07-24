@@ -9,8 +9,7 @@ int main() {
     float snowOnGround = snow;
 
     for (int i = 0; i < hours; ++i) {
-        float snowfall = rate - (snowOnGround * melt);
-        snowOnGround += snowfall;
+        snowOnGround += rate - (snowOnGround * melt);
     }
 
     std::cout << snowOnGround << std::endl;
