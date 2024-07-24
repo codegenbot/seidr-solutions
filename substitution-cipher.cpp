@@ -1,8 +1,8 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string cipher2;
-std::string result;
+std::string result(cipher2.size(), ' ');
 
 int main() {
     std::cin >> cipher2;
@@ -11,16 +11,13 @@ int main() {
     std::cin.ignore();
     std::string message;
     std::getline(std::cin, message);
-    result = message;
     for(int i = 0; i < message.length(); i++) {
         int index = cipher1.find(message[i]);
         if(index != std::string::npos) {
-            char c = cipher2[index];
-            if(c != ' ') {
-                result[i] = c;
-            }
+            result[i] = cipher2[index];
+        } else {
+            result[i] = message[i];
         }
     }
-    std::cout << result << std::endl;
     return 0;
 }
