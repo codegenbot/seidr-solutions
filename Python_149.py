@@ -3,4 +3,4 @@ def sorted_list_sum(input_data):
                  'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
     nums = sorted([word_dict.get(word) for word in input_data if word in word_dict])
     
-    return sum(nums)
+    return sum(num for num in nums)
