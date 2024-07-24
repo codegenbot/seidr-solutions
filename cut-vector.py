@@ -10,8 +10,19 @@ def cut_vector(vector):
             return vector[:i], vector[i:]
 
         diff = abs(left_sum - right_sum)
+
         if diff < min_diff:
             min_diff = diff
             split_index = i
 
-    return vector[:split_index], vector[split_index:]
+    left_half = vector[:split_index]
+    right_half = vector[split_index:]
+
+    return left_half, right_half
+
+
+# Example usage
+vector = [1, 0]
+left_half, right_half = cut_vector(vector)
+print(left_half)  # Output: [1]
+print(right_half)  # Output: [0]
