@@ -1,50 +1,56 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    stack<string> expressionStack;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '&') {
-            expressionStack.push(operationStack.pop() + "&");
-            operationStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            expressionStack.push(operationStack.pop() + "|");
-            operationStack.push('|');
-        } else {
-            string currentExpression = "";
-            while (!operationStack.empty() && precedence(operationStack.top()) >= precedence(booleanExpression[i])) {
-                currentExpression += operationStack.pop();
-            }
-            if (!expressionStack.empty()) {
-                expressionStack.top() += currentExpression;
-                operationStack.push(')');
-            } else {
-                expressionStack.push(currentExpression);
-            }
-            if (booleanExpression[i] == 'T') {
-                expressionStack.push("True");
-            } else {
-                expressionStack.push("False");
-            }
+bool solveBoolean(string expression) {
+    stack<char> operations;
+    string temp = "";
+    
+    for (char c : expression) {
+        if (c == '&' || c == '|') {
+            while (!operations.empty() && operations.top() != '(')
+                temp += operations.top(), operations.pop();
+            
+            if (!operations.empty() && operations.top() == '(')
+                operations.pop();
+            
+            temp += c;
+        } else if (c == '(') 
+            operations.push(c);
+        else if (c == 'T' || c == 'F') {
+            temp += c;
+            while (!operations.empty() && operations.top() != ')')
+                temp += operations.top(), operations.pop();
+            
+            if (!operations.empty() && operations.top() == ')')
+                operations.pop();
         }
     }
-
-    string finalExpression = "";
-    while (!expressionStack.empty()) {
-        finalExpression = expressionStack.top() + finalExpression;
-        expressionStack.pop();
+    
+    while (!operations.empty()) {
+        temp += operations.top(), operations.pop();
     }
-
-    if (finalExpression.length() > 1) {
-        return "Invalid Boolean Expression";
-    } else {
-        return finalExpression;
+    
+    int T = 0, F = 0;
+    
+    for (char c : temp) {
+        if (c == 'T') 
+            T++;
+        else if (c == 'F')
+            F++;
     }
+    
+    return T > F;
 }
 
-int precedence(char operation) {
-    if (operation == '|') {
-        return 1;
-    } else {
-        return 2;
-    }
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
+    if (result) 
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+    return 0;
 }
