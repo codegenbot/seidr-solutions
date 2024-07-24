@@ -1,10 +1,5 @@
-def fibfib(n: int):
-    if n <= 1:
-        return 0
-    elif n == 2:
-        return 1
+def count_squares(n: int):
+    if n < 0:
+        return "Input should be a non-negative integer."
     else:
-        a, b = 0, 1
-        for _ in range(2, n):
-            a, b = b, a + b
-        return b
+        return sum([i**2 for i in range(n+1)])
