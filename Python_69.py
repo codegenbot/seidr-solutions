@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the corrected code:
 
 def search(lst):
     freq = {}
@@ -7,5 +7,7 @@ def search(lst):
             freq[num] += 1
         else:
             freq[num] = 1
-    max_num = max(freq.keys())
-    return max_num if max_num > 0 and freq[max_num] >= max_num else -1
+    for k, v in freq.items():
+        if k > 0 and v >= k:
+            return k
+    return -1
