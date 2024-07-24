@@ -1,19 +1,24 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    if (numbers.empty()) return {};
+#include <vector>
+#include <algorithm>
 
-    unique_numbers.push_back(numbers[0]);
-    
-    for(int i = 1; i < numbers.size(); i++){
-        bool isDuplicate = false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> remove_duplicates(std::vector<int> numbers){
+    vector<int> unique_numbers;
+
+    for(int i = 0; i < numbers.size(); i++){
+        bool found = false;
         for(int j = 0; j < unique_numbers.size(); j++){
-            if(unique_numbers[j] == numbers[i]){
-                isDuplicate = true;
+            if(numbers[i] == unique_numbers[j]){
+                found = true;
                 break;
             }
         }
-        
-        if(!isDuplicate)
+        if(!found){
             unique_numbers.push_back(numbers[i]);
+        }
     }
 
     return unique_numbers;
