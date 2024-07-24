@@ -31,7 +31,5 @@ def sort_numbers(numbers: str) -> str:
         "ninety": 90,
         "ninety-nine": 99
     }
-    
-    numbers = input("Enter the numbers separated by space: ")
     sorted_numbers = sorted([num_dict[num] for num in numbers.split() if num.replace(" ", "") in num_dict])
     return ' '.join(map(str, sorted_numbers))
