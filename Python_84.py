@@ -1,9 +1,7 @@
-```
-K = None
-while K not in [0, 1]:
-    try:
-        K = int(input("Enter a number (0 or 1): "))
+while True:
+    K = int(input("Enter a number (0 or 1): "))
+    if K == 0 or K == 1:
         print(K)
         break
-    except ValueError:
+    else:
         print("Invalid input. Try again!")
