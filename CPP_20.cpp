@@ -32,7 +32,7 @@ int main() {
             vec1.clear();
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
+        if(std::abs(num) > 1e30) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec1.clear();
             break;
@@ -55,7 +55,7 @@ int main() {
             vec2.clear();
             break;
         }
-        if(num > std::numeric_limits<float>::max()) {
+        if(std::abs(num) > 1e30) {
             std::cout << "Invalid input. Please enter a number within the range of float.\n";
             vec2.clear();
             break;
@@ -67,11 +67,9 @@ int main() {
         inputCount++;
     }
 
-    if(vec1.size() > 0 && vec2.size() > 0) {
-        if(sameVectors(vec1, vec2)) {
-            std::cout << "The two vectors are same.\n";
-        } else {
-            std::cout << "The two vectors are not same.\n";
-        }
+    if(sameVectors(vec1, vec2)) {
+        std::cout << "The two vectors are same.\n";
+    } else {
+        std::cout << "The two vectors are not same.\n";
     }
 }
