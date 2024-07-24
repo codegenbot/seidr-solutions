@@ -1,8 +1,8 @@
 #include <string>
-#include <algorithm>
+#include <cctype>
 
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
@@ -10,8 +10,7 @@ std::string solve(std::string s) {
             result += s[i];
         }
     }
-    if (!std::any_of(s.begin(), s.end(), ::isalpha)) {
-        std::reverse(result.begin(), result.end());
+    if (!any(isalpha, s)) {
+        reverse(result.begin(), result.end());
     }
     return result;
-}
