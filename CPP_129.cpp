@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<int>> visited(n, vector<int>(n));
