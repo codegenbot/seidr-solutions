@@ -16,11 +16,11 @@ std::string string_xor(std::string a, std::string b) {
 }
 
 int main() {
-    std::string str1, str2;
+    std::string a, b;
     std::cout << "Enter the first string: ";
-    std::cin >> str1;
+    std::cin >> a;
     std::cout << "Enter the second string: ";
-    std::cin >> str2;
-    std::cout << "The XOR of two strings is: " << string_xor(str1, str2) << std::endl;
+    std::cin >> b;
+    std::cout << "The XOR of the two strings is: " << string_xor(a, b) << std::endl;
     return 0;
 }
