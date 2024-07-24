@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -18,6 +19,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> lst[i];
     }
-    std::cout << solution(lst) << std::endl;
+    
+    int result = solution(lst);
+    std::cout << result << std::endl;
+
     return 0;
 }
