@@ -1,7 +1,5 @@
-```Python
 import re
 
-text = input()  
 def fix_spaces(text):
     if not text:
         return ""
@@ -10,4 +8,5 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
+text = input("Please enter a string: ")
 print(fix_spaces(text))
