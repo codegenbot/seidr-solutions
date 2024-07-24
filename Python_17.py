@@ -15,3 +15,4 @@ def parse_music(music_string: str) -> List[int]:
             result.append(beats)
             i += 2
     return result
+```
