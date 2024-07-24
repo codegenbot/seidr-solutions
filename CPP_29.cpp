@@ -20,28 +20,29 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
-
 }
+
 int main() {
     int n;
-    cin >> n;
-    
-    vector<string> words;
+    std::cin >> n;
+    vector<string> strings(n);
     for(int i = 0; i < n; i++) {
-        string word;
-        cin >> word;
-        words.push_back(word);
+        cin >> strings[i];
     }
 
     string prefix;
     cin >> prefix;
 
-    vector<string> filtered_words = filter_by_prefix(words, prefix);
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
 
-    if(filtered_words.size() > 1 && issame(filtered_words[0], filtered_words[1])){
-        cout << "Yes" << endl;
+    if(filtered_strings.size() > 1) {
+        bool is_same = issame(filtered_strings.begin(), filtered_strings.end());
+        if(is_same)
+            cout << "All filtered strings are the same.\n";
+        else
+            cout << "Not all filtered strings are the same.\n";
     } else {
-        cout << "No" << endl;
+        cout << "There's only one string in the result.\n";
     }
 
     return 0;
