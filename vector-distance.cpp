@@ -22,7 +22,6 @@ int main() {
         sum += pow(v1[i] - v2[i], 2);
     }
 
-    cout.precision(14);
     cout << fixed << sqrt(sum) << endl;
 
     return 0;
