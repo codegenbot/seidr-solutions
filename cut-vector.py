@@ -1,19 +1,14 @@
-Here is the Python code for the problem:
-
-def cut_vector(vector):
-    n = len(vector)
-    min_diff = float('inf')
+def cut_vector(nums):
+    left_sum = right_sum = 0
+    min_diff = float("inf")
     split_idx = -1
-    left_sum = 0
-    
-    for i in range(n-1):
-        right_sum = sum(vector[i+1:])
+    for i in range(len(nums)):
+        if i % 2 == 0:
+            left_sum += nums[i]
+        else:
+            right_sum += nums[i]
         diff = abs(left_sum - right_sum)
-        
-        if diff <= min_diff:
+        if diff < min_diff or (diff == min_diff and split_idx != i):
             min_diff = diff
             split_idx = i
-            
-        left_sum += vector[i]
-    
-    return vector[:split_idx+1], vector[split_idx+1:]
+    return nums[: split_idx // 2 + 1], nums[split_idx // 2 + 1 :]
