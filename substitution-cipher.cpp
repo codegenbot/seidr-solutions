@@ -17,12 +17,12 @@ int main() {
 
     std::string result = "";
     for(int i = 0; i < message.length(); i++) {
-        std::string c = message.substr(i, 1);
-        if(cipherMap.find(c[0]) != cipherMap.end()) {
-            result.append(1, cipherMap.at(c[0]));
+        char c = message[i];
+        if(cipherMap.find(c) != cipherMap.end()) {
+            result += cipherMap.at(c);
         } else {
             // Handle characters not in the cipher map by keeping them unchanged
-            result.append(1, c[0]);
+            result += c;
         }
     }
     std::cout << result.c_str() << std::endl;
