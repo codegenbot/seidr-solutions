@@ -11,5 +11,4 @@ def decode_shift():
             decoded_string += decoded_char
     return decoded_string
 
-
 print(decode_shift())
