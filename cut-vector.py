@@ -1,19 +1,14 @@
 n = int(input())
-numbers = [int(input()) for _ in range(n)]
-
-total_sum = sum(numbers)
-target_sum = total_sum // 2
-
-prefix_sum = 0
-min_diff = float("inf")
-cut_idx = -1
-
-for i, num in enumerate(numbers):
-    prefix_sum += num
-    diff = abs(total_sum - 2 * prefix_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_idx = i
-
-print(*numbers[: cut_idx + 1])
-print(*numbers[cut_idx + 1 :])
+arr = [int(input()) for _ in range(n)]
+diff = sum(arr) // 2
+left_sum = 0
+for i in range(n):
+    if left_sum + arr[i] >= diff:
+        break
+    left_sum += arr[i]
+if abs(sum(arr[:i]) - sum(arr[i:])) <= abs(sum(arr[: i - 1]) - sum(arr[i - 1 :])):
+    print(arr[:i])
+    print(arr[i:])
+else:
+    print(arr[: i - 1])
+    print(arr[i - 1 :])
