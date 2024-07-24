@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iomanip> // for setfill, setw, hex
 
+// Add these includes from OpenSSL
 #include <openssl/md5.h>
 #include <openssl/ssl.h>
 
