@@ -9,12 +9,12 @@ variant<int, string> compare_one(variant<any> a, variant<any> b) {
     if (a.index() == 0 && b.index() == 1) {
         int da = get<int>(a);
         string db = get<string>(b);
-        return da > stoi(db) ? a : b;
+        return da > stod(db) ? a : b;
     }
     else if (a.index() == 1 && b.index() == 0) {
         int da = get<int>(b);
         string db = get<string>(a);
-        return stoi(db) > da ? a : b;
+        return stod(db) > da ? a : b;
     }
     else if (a.index() == 1 && b.index() == 1) {
         string da = get<string>(a);
@@ -24,7 +24,7 @@ variant<int, string> compare_one(variant<any> a, variant<any> b) {
         else if (db > da)
             return b;
         else
-            return variant<string>(string(""));
+            return variant<string>(string("")); // return an empty string
     }
     else if (a.index() == 0 && b.index() == 0) {
         int da = get<int>(a);
@@ -34,9 +34,9 @@ variant<int, string> compare_one(variant<any> a, variant<any> b) {
         else if (db > da)
             return b;
         else
-            return variant<string>(string(""));
+            return variant<string>(string("")); // return an empty string
     }
-    return variant<string>(string(""));
+    return variant<string>(string("")); // return an empty string
 }
 
 int main() {
