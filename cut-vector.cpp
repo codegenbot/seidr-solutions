@@ -1,42 +1,25 @@
 #include <vector>
-#include <climits>
 using namespace std;
 
-void cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
+    vector<vector<int>> result;
     
-    int min_diff = INT_MAX;
-    for (int i = 1; i < n; i++) {
-        int diff1 = abs(nums[i] - nums[0]);
-        int diff2 = abs(nums[n-1] - nums[i-1]);
-        if (diff1 <= diff2) {
-            cout << "[";
-            for (int j = 0; j < i; j++) {
-                cout << nums[j] << " ";
-            }
-            cout << "] [";
-
-            for (int k = i; k < n; k++) {
-                cout << nums[k] << " ";
-            }
-            cout << "]" << endl;
-            return;
-        } else {
-            if (abs(diff1-diff2) < abs(min_diff)) {
-                min_diff = diff1 - diff2;
-            }
+    if(n <= 1)
+        return {nums};
+    
+    int min_diff = INT_MAX, left_sum = 0, right_sum = 0;
+    for(int i = 1; i < n - 1; i++){
+        left_sum += nums[i-1];
+        right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        if(abs(left_sum-right_sum) < min_diff){
+            min_diff = abs(left_sum-right_sum);
         }
-    }
-
-    cout << "[";
-    for (int j = 0; j < n; j++) {
-        cout << nums[j] << " ";
-    }
-    cout << "]" << endl;
-}
-
-int main() {
-    vector<int> nums = {3,1,5,6,7};
-    cutVector(nums);
-    return 0;
+   
+    
+    result.push_back(vector<int>(nums.begin(), nums.begin()+min_diff));
+    vector<int> temp(nums.begin()+min_diff, nums.end());
+    result.push_back(temp);
+    
+    return result;
 }
