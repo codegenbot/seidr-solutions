@@ -1,3 +1,3 @@
-bool cycpattern_check(const char* a, const char* b) {
-    return (std::string(a) + std::string(a)).find(b) != std::string::npos;
+bool cycpattern_check(const std::string& a, const std::string& b) {
+    return (a + a).find(b) != std::string::npos;
 }
