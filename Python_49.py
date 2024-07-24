@@ -1,12 +1,12 @@
-```"
-Calculate Modular Exponentiation Power (modp)
+```
+"""
+Given two integers n and p, where n is not divisible by p, 
+return a value k such that k^p ≡ n (mod p).
 
-In cryptography and mathematics, modular exponentiation is a fast method for performing integer exponentiation when the result is taken modulo n. It can be used in various algorithms such as RSA.
+The function should use the exponentiation algorithm to compute this.
 
-This function takes two parameters: the base number `n` and the power `p`. It calculates `n^p % p` using the property that `(n^(p-2)) % p * n` is equivalent to `n^p % p`.
-
-Example: modp(3, 4) should return 1.
+Note: The inputs are guaranteed to be valid, so you don't need to add error checking code.
+"""
 
 def modp(n: int, p: int):
     return pow(n, (p-2)%p, p) * n % p
-"""
