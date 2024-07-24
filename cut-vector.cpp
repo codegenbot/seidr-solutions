@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+vector<int> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int pos = -1;
     for(int i = 0; i < v.size() - 1; i++) {
