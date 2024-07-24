@@ -1,40 +1,37 @@
 #include <string>
+
 using namespace std;
 
 bool valid_date(string date) {
     int day, month, year;
-    string temp;
     size_t pos = 0;
-    
-    // Find '-' and split into three parts: month-day-year
-    for (int i = 0; i < 3; i++) {
-        pos = date.find('-');
-        if (pos != string::npos) {
-            temp = date.substr(0, pos);
-            break;
-        }
+
+    // Extract day, month and year from input string
+    pos = date.find('-');
+    month = stoi(date.substr(0, pos));
+    pos += 1;
+    pos = date.find('-', pos);
+    day = stoi(date.substr(pos - 3, 2));
+    year = stoi(date.substr(pos + 1));
+
+    // Check if the input string is not empty
+    if (date.empty()) {
+        return false;
     }
 
-    // Convert month to integer and check if it's valid
-    int month_int = stoi(temp);
-    if (month_int < 1 || month_int > 12)
+    // Check if month is valid
+    if (month < 1 || month > 12) {
         return false;
+    }
 
-    // Find '-' again
-    pos = date.find('-');
-    temp = date.substr(pos + 1);
-
-    // Convert day to integer and check if it's valid
-    day = stoi(temp);
-    if ((month_int == 2 && day > 29) || (month_int == 4 || month_int == 6 || month_int == 9 || month_int == 11) && day > 30)
+    // Check if day is valid for given month and year
+    if ((month == 2 && (day < 1 || day > 29)) ||
+        (month == 4 || month == 6 || month == 9 || month == 11 &&
+         (day < 1 || day > 30)) ||
+        (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 &&
+         (day < 1 || day > 31))) {
         return false;
+    }
 
-    // Find '-' again
-    pos = date.find('-');
-    temp = date.substr(pos + 1);
-
-    // Convert year to integer
-    year = stoi(temp);
-    
     return true;
 }
