@@ -17,13 +17,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+    if(b == 0) {
+        return a;
+    } else {
+        cout << "Error: Both numbers must be greater than zero." << endl;
+        exit(1);
     }
-    if (a < 0 || b < 0) {
-        throw runtime_error("GCD of two negative numbers is undefined");
-    }
-    return abs(a);
 }
