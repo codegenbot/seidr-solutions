@@ -8,7 +8,7 @@ double diceGame(int n, int m) {
     for (int i = 1; i <= m && i < n; i++) {
         total += pow(1.0 / n, i);
     }
-    return 1.0 - pow(1.0, 1.0 / n) * total;
+    return 1.0 - total;
 }
 
 int main() {
