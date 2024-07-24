@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,7 +28,16 @@ vector<string> split_words(string txt) {
     }
     
     if (result.empty()) {
-        result = {"default"}; // Add a default element to the vector
+        int count = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z') {
+                count++;
+                if ((count - 1) % 2 == 0) {
+                    result.push_back(to_string(count));
+                    break;
+                }
+            }
+        }
     }
     
     return result;
