@@ -10,6 +10,16 @@ def sort_numbers(numbers: str) -> str:
         "seven": 7,
         "eight": 8,
         "nine": 9,
+        "ten": 10,
+        "eleven": 11,
+        "twelve": 12,
+        "thirteen": 13,
+        "fourteen": 14,
+        "fifteen": 15,
+        "sixteen": 16,
+        "seventeen": 17,
+        "eighteen": 18,
+        "nineteen": 19,
     }
-    nums = list(map(lambda x: num_dict[x], numbers.split()))
-    return " ".join(sorted(map(str, nums)))
+    sorted_nums = [num_dict[num] for num in numbers.split() if num in num_dict]
+    return " ".join(map(str, sorted(sorted_nums)))
