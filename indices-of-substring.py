@@ -1,4 +1,3 @@
-```python
 def indices_of_substring(text, target):
     result = []
     i = 0
