@@ -5,16 +5,15 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     stack = []
-    for i, char in enumerate(paren_string):
+    count = 0
+    for char in paren_string:
         if char == "(":
-            stack.append(i)
+            count = 0
         elif char == ")":
+            stack.pop()
+            count -= 1
             if not stack:
-                result.append(len(result))
-            else:
-                last_open = stack.pop()
-                if len(stack):
-                    result.append(i - last_open - 1)
-                else:
-                    result.append(-1)
+                result.append(count)
+        count += (char == "(") - (char == ")")
+        stack.append(char == "(")
     return result
