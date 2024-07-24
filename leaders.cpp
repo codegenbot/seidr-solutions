@@ -21,13 +21,13 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (true) {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
         cin >> num;
-        if (num == 0) {
-            break;
-        }
         nums.push_back(num);
     }
+    cin.ignore();
     vector<int> result = findLeaders(nums);
     for (int leader : result) {
         cout << leader << " ";
