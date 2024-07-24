@@ -1,9 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b){
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
@@ -13,4 +11,16 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
