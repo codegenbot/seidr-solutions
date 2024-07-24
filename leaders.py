@@ -1,4 +1,3 @@
-```
 def leaders(a):
     n = len(a)
     result = [a[n - 1]]
