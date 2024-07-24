@@ -3,17 +3,17 @@
 
 double poly(std::vector<double> coeffs, double x) {
     double result = 0;
-    for (int i = 0; i < coeffs.size(); ++i) {
+    for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double abs(double x) {
-    if (x < 0)
-        return -x;
+std::abs(double a) {
+    if (a < 0)
+        return -a;
     else
-        return x;
+        return a;
 }
 
 double find_zero(std::vector<double> xs){
