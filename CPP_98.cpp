@@ -1,7 +1,10 @@
-int count_upper(string s) {
+#include <string>
+#include <cctype>
+
+int count_upper(std::string s) {
     int count = 0;
     for(int i = 1; i < s.length(); i += 2) {
-        if(isupper(s[i])) {
+        if(std::isupper(s[i])) {
             count++;
         }
     }
