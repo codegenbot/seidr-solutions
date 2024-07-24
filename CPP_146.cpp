@@ -12,16 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        input.push_back(num);
-    }
-    cout << "The count is: " << specialFilter(input) << endl;
+    vector<int> numbers = {123, 456, 789};
+    cout << "Number of special filtered integers: " << specialFilter(numbers) << endl;
     return 0;
 }
