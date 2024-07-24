@@ -1,3 +1,5 @@
+#include <vector>
+
 int smallest_change(const vector<int>& arr) {
     int n = arr.size();
     int changes = 0;
@@ -7,4 +9,9 @@ int smallest_change(const vector<int>& arr) {
         }
     }
     return changes;
+}
+
+int main() {
+    smallest_change(vector<int>{0, 1});
+    return 0;
 }
