@@ -46,8 +46,6 @@ int main() {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Please try again: ";
-            getline(cin, s);
         }
         lst1.push_back(s);
     }
@@ -62,8 +60,6 @@ int main() {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Please try again: ";
-            getline(cin, s);
         }
         lst2.push_back(s);
     }
