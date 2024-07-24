@@ -1,64 +1,99 @@
+```cpp
 #include <vector>
 #include <string>
 
-struct Roman {
-    std::string value;
-};
-
-std::string int_to_mini_romank(int number) {
-    if (number >= 1000) {
-        return "m";
-    } else if (number >= 900) {
-        return "cm";
-    } else if (number >= 500) {
-        return "d";
-    } else if (number >= 400) {
-        return "cd";
-    } else if (number >= 100) {
-        if (number % 100 == 0) {
-            return std::to_string(number / 100) + "c";
-        } else {
-            return std::to_string(number / 100) + "c" + int_to_mini_romank(number % 100);
+std::vector<std::string> int_to_mini_roman(int n) {
+    std::vector<std::string> roman;
+    if(n >= 1000) {
+        while (n >= 1000) {
+            roman.push_back("M");
+            n -= 1000;
         }
-    } else if (number >= 90) {
-        return "xc";
-    } else if (number >= 50) {
-        if (number % 50 == 0) {
-            return std::to_string(number / 50) + "l";
-        } else {
-            return std::to_string(number / 50) + "l" + int_to_mini_romank(number % 50);
-        }
-    } else if (number >= 40) {
-        return "xl";
-    } else if (number >= 10) {
-        if (number % 10 == 0) {
-            return std::to_string(number / 10) + "x";
-        } else {
-            return std::to_string(number / 10) + "x" + int_to_mini_romank(number % 10);
-        }
-    } else if (number >= 9) {
-        return "ix";
-    } else if (number >= 5) {
-        if (number % 5 == 0) {
-            return std::to_string(number / 5) + "v";
-        } else {
-            return std::to_string(number / 5) + "v" + int_to_mini_romank(number % 5);
-        }
-    } else if (number >= 4) {
-        return "iv";
-    } else if (number >= 1) {
-        if (number % 1 == 0) {
-            return std::to_string(number / 1) + "i";
-        } else {
-            return std::to_string(number / 1) + "i" + int_to_mini_romank(number % 1);
-        }
-    } else {
-        return "";
     }
-}
-
-int main() {
-    std::vector<int> romanMap(std::vector<int>::allocator_type{}); // Initialize an empty vector
-    assert(int_to_mini_romank(1000) == "m"); // Call the function and test it
-    return 0;
+    if(n >= 900) {
+        while (n >= 900) {
+            roman.push_back("CM");
+            n -= 900;
+        }
+    }
+    if(n >= 500) {
+        while (n >= 500) {
+            roman.push_back("D");
+            n -= 500;
+        }
+    }
+    if(n >= 400) {
+        while (n >= 400) {
+            roman.push_back("CD");
+            n -= 400;
+        }
+    }
+    if(n >= 100) {
+        while (n >= 100) {
+            if(n >= 900) {
+                roman.push_back("CM");
+                n -= 900;
+            } else if(n >= 400) {
+                roman.push_back("CD");
+                n -= 400;
+            } else {
+                roman.push_back("C");
+                n -= 100;
+            }
+        }
+    }
+    if(n >= 90) {
+        while (n >= 90) {
+            roman.push_back("XC");
+            n -= 90;
+        }
+    }
+    if(n >= 50) {
+        while (n >= 50) {
+            roman.push_back("L");
+            n -= 50;
+        }
+    }
+    if(n >= 40) {
+        while (n >= 40) {
+            roman.push_back("XL");
+            n -= 40;
+        }
+    }
+    if(n >= 10) {
+        while (n >= 10) {
+            if(n >= 90) {
+                roman.push_back("XC");
+                n -= 90;
+            } else if(n >= 40) {
+                roman.push_back("XL");
+                n -= 40;
+            } else {
+                roman.push_back("X");
+                n -= 10;
+            }
+        }
+    }
+    if(n >= 9) {
+        while (n >= 9) {
+            roman.push_back("IX");
+            n -= 9;
+        }
+    }
+    if(n >= 5) {
+        while (n >= 5) {
+            roman.push_back("V");
+            n -= 5;
+        }
+    }
+    if(n >= 4) {
+        while (n >= 4) {
+            roman.push_back("IV");
+            n -= 4;
+        }
+    }
+    if(n > 0) {
+        roman.push_back(std::to_string(n));
+    }
+    return roman;
 }
