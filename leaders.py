@@ -1,8 +1,8 @@
-Here is the Python solution:
-
-def leaders(a):
-    leader = a[-1]
-    for i in range(len(a)-2, -1, -1):
-        if a[i] >= leader:
-            leader = a[i]
-    return [leader] + a[:-1][::-1]
+def leaders(input):
+    result = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            result.append(input[i])
+            max_right = input[i]
+    return result[::-1]
