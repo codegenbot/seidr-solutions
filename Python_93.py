@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     if message:
