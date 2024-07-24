@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,11 +12,16 @@ int sum_squares(int n) {
 int main2() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
+    std::getline(std::cin, input); 
     if (!input.empty()) {
-        std::cout << "Sum of squares is: " << sum_squares(std::stoi(input)) << std::endl;
+        try {
+            int num = std::stoi(input);
+            std::cout << "Sum of squares is: " << sum_squares(num) << std::endl;
+        } catch (...) {
+            std::cout << "Please enter a valid integer.\n";
+        }
     } else {
-        std::cout << "Please enter a valid integer.\n";
+        std::cout << "Please enter a valid string.\n";
     }
     return 0;
 }
