@@ -1,26 +1,34 @@
 map<string, int> number_map = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-    {"eight", 8}, {"nine", 9}
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
 };
 
 string sort_numbers(string numbers){
     map<int, string> reverse_map;
     string result = "";
     
-    size_t pos = 0;
-    string token;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        token = numbers.substr(0, pos);
-        reverse_map[number_map[token]] = token;
-        numbers.erase(0, pos + 1);
+    string current_number = "";
+    for(char c : numbers){
+        if(c == ' '){
+            reverse_map[number_map[current_number]] = current_number;
+            current_number = "";
+        } else {
+            current_number += c;
+        }
     }
-    reverse_map[number_map[numbers]] = numbers;
+    reverse_map[number_map[current_number]] = current_number;
     
-    for (auto const& pair : reverse_map) {
-        result += pair.second + " ";
+    for(auto it = reverse_map.begin(); it != reverse_map.end(); ++it){
+        result += it->second + " ";
     }
     
-    result.pop_back(); // Remove the extra space at the end
     return result;
 }
