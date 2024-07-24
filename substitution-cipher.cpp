@@ -3,16 +3,18 @@
 #include <unordered_map>
 
 int main() {
-    std::string cipher2;
-    std::cin >> cipher2;
     std::string cipher1;
-    std::cin >> cipher1;
+    std::getline(std::cin, cipher1);
+    std::string cipher2;
+    std::getline(std::cin, cipher2);
     std::string message;
     std::getline(std::cin, message);
 
     std::unordered_map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
-        cipherMap[cipher1[i]] = cipher2[i];
+        if(cipher1[i] != ' ' && cipher2[i] != ' ') { // Check if the character is alphabetic
+            cipherMap[cipher1[i]] = cipher2[i];
+        }
     }
 
     std::string result;
@@ -25,12 +27,8 @@ int main() {
             } else {
                 result += c; // If not found, add original char
             }
-        } else { 
-            if(isalnum(c)) { 
-                result += c; 
-            } else {
-                result += c;
-            }
+        } else { // Non-alphabet characters remain unchanged
+            result += c;
         }
     }
     std::cout << result.c_str() << std::endl;
