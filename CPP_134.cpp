@@ -5,7 +5,7 @@
 
 bool check_if_last_char_is_a_letter(const std::string& str) {
     if (str.empty()) return false;
-    char lastChar = line[str.size() - 1];
+    char lastChar = str.back();
     return std::isalpha(lastChar);
 }
 
@@ -20,7 +20,7 @@ int main() {
     }
     
     if (pos == line.size())
-        line.clear();
+        line = ""; // Instead of line.clear(), make a copy
     else
         line.erase(pos, 1);
     
