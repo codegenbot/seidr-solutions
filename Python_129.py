@@ -1,29 +1,26 @@
-Here is the solution:
-
 def minPath(grid, k):
-    n = len(grid)
-    visited = [[False] * n for _ in range(n)]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    N = len(grid)
+    visited = [[False for _ in range(N)] for _ in range(N)]
     path = []
-    
-    def dfs(x, y, current_path):
-        nonlocal path
-        if len(current_path) == k:
-            path = current_path[:]
-            return True
-        
-        visited[x][y] = True
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                dfs(nx, ny, current_path + [grid[nx][ny]])
-        
-        visited[x][y] = False
-        return False
-    
-    for i in range(n):
-        for j in range(n):
-            if not visited[i][j]:
-                dfs(i, j, [grid[i][j]])
-    
+    dfs(0, 0, grid[0][0], k, path, visited)
+
     return path
+
+
+def dfs(x, y, val, k, path, visited):
+    if k == 0:
+        return
+    if len(path) > k:
+        return
+
+    for dx in [-1, 0, 1]:
+        for dy in [-1, 0, 1]:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and not visited[nx][ny] and grid[nx][ny] != val:
+                path.append(val)
+                visited[nx][ny] = True
+                dfs(nx, ny, grid[nx][ny], k - 1, path, visited)
+                if len(path) > k:
+                    return
+                path.pop()
+                visited[nx][ny] = False
