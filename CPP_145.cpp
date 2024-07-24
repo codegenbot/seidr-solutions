@@ -1,4 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if(a.size() != b.size()) return false;
