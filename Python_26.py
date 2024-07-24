@@ -1,2 +1,7 @@
+```
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    return list(dict.fromkeys(numbers))
+    result = []
+    for num in numbers:
+        if num not in result:
+            result.append(num)
+    return result
