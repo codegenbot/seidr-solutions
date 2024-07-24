@@ -1,18 +1,15 @@
+```cpp
+#include <vector>
+#include <algorithm>
 bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+    string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += to_string(i);
     }
-    if (!is_palindrome(s)) return false;
+    if (str != string(str.rbegin(), str.rend())) return true;
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
     return sum <= w;
-}
-
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return s == t;
 }
