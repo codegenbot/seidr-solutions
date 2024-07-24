@@ -1,2 +1,2 @@
 def digitSum(s):
-    return sum(int(c) for c in s if c.isupper())
+    return sum(int(c) if c.isupper() else 0 for c in s)
