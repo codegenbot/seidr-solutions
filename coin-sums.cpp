@@ -1,7 +1,7 @@
 int main() {
-    int n;
-    cin >> n;
-    cout << n << endl;
+    int cents;
+    cin >> cents;
+    cout << cents << endl;
     cout << 0 << endl;
     cout << 0 << endl;
     cout << 0 << endl;
