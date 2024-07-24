@@ -1,3 +1,4 @@
+int i = 0;
 string camelCase(string s) {
     int i = 0;
     string result = "";
