@@ -1,3 +1,4 @@
+```
 def search(lst):
     max_prime = -1
     for num in lst:
@@ -17,8 +18,8 @@ def is_prime(n):
 
 user_input = input("Enter a series of space-separated numbers: ")
 
-if user_input.strip() == "":
-    print("Program did not receive expected input")
-else:
+if user_input.strip() == "": 
+    print("Program did not receive expected input") 
+else: 
     nums = list(map(int, user_input.split()))
     print(search(nums))
