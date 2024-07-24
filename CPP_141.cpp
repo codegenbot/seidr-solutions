@@ -21,13 +21,13 @@ int file_name_check(string file_name) {
         string after_dot = file_name.substr(j + 1);
         if (digit_count > 3 || before_dot.empty() || !isalpha(before_dot[0]) ||
             (after_dot != "txt" && after_dot != "exe" && after_dot != "dll"))
-            return 0;
+            return "No";
     }
-    return 1;
+    return "Yes";
 }
 
 int main() {
-    assert(file_name_check("s.") == 0);
+    assert(file_name_check("s.") == "No");
     cout << file_name_check("a.txt") << endl;
     return 0;
 }
