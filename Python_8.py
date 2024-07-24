@@ -1,16 +1,12 @@
-from typing import List
-
-def sum_product(numbers: List[int]) -> int:
-    if not isinstance(numbers, list):
-        raise ValueError("Input must be a list")
-    
-    total_sum = 0
-    product = 1
-
-    for num in numbers:
-        if not isinstance(num, int):
-            raise ValueError("List elements must be integers")
-        total_sum += num
-        product *= num
-
-    return total_sum, product
+print("Enter a list of numbers separated by space: ")
+numbers = [int(num) for num in input().split()]
+if not all(isinstance(i, int) for i in numbers):
+    print("List elements must be integers")
+elif len(set(numbers)) != len(numbers):
+    print("All elements must be unique.")
+else:
+    try:
+        result = sum_product(numbers)
+        print(f"Sum: {result[0]}, Product: {result[1]}")
+    except ValueError as e:
+        print(e)
