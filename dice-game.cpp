@@ -1,7 +1,9 @@
-#include <vector>
 #include <iostream>
-
-using namespace std;
+#include <vector>
+using std::cin;
+using std::cout;
+using std::fixed;
+using std::setprecision;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
