@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 int basement(vector<int>& arr) {
     int sum = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -5,5 +8,5 @@ int basement(vector<int>& arr) {
         if (sum < 0)
             return i;
     }
-    return -1;
+    return -1; // not found
 }
