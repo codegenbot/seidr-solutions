@@ -1,4 +1,3 @@
-```
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0) {
@@ -8,10 +7,5 @@ string decimal_to_binary(int decimal){
             binary = "1" + binary;
         decimal /= 2;
     }
-    return binary;
-}
-
-int main() {
-    cout << decimal_to_binary(15);
-    return 0;
+    return "db" + binary + "db";
 }
