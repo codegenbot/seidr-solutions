@@ -1,47 +1,77 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
-    std::vector<std::string> words = split(str);
-    for (auto &word : words) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-    }
-    return concatenate(words);
-}
+    std::string result;
+    int wordLength = 0;
 
-std::vector<std::string> split(const std::string &str) {
-    std::vector<std::string> result;
-    std::string temp = "";
     for (char c : str) {
         if (c == ' ') {
-            result.push_back(temp);
-            temp = "";
+            if (wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i) {
+                    result += str[wordLength - i - 1];
+                }
+            } else {
+                result += c;
+            }
+            wordLength = 0;
         } else {
-            temp += c;
+            result += c;
+            ++wordLength;
         }
     }
-    if (!temp.empty()) {
-        result.push_back(temp);
+
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i) {
+            result += str[wordLength - i - 1];
+        }
+    } else {
+        result = str;
     }
+
     return result;
 }
 
-std::string concatenate(const std::vector<std::string> &words) {
-    std::string result = "";
-    for (const auto &word : words) {
-        result += word + " ";
+std::string spinWords(std::string str) {
+    std::string result;
+    int wordLength = 0;
+
+    for (char c : str) {
+        if (c == ' ') {
+            if (wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i) {
+                    result += str[wordLength - i - 1];
+                }
+            } else {
+                result += c;
+            }
+            wordLength = 0;
+        } else {
+            result += c;
+            ++wordLength;
+        }
     }
-    return result.substr(0, result.length() - 1);
+
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i) {
+            result += str[wordLength - i - 1];
+        }
+    } else {
+        result = str;
+    }
+
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::cin >> str;
+        std::cin.ignore();  // or use getline()
+        std::cout << spinWords(str) << std::endl;
+    }
     return 0;
 }
