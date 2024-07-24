@@ -1,14 +1,7 @@
-Here is the solution:
+Here is the completed code:
 
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
-    for (int i : arr) {
-        pq.push(i);
-    }
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(pq.top());
-        pq.pop();
-    }
-    return result;
+    vector<int> res(k);
+    partial_sort(res.begin(), res.end(), [&arr](int a, int b){ return std::abs(a) > std::abs(b); });
+    return res;
 }
