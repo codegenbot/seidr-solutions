@@ -1,11 +1,12 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    product = 1
-    is_zero_present = False
-    for num in numbers:
-        product *= num
-        if num == 0:
-            is_zero_present = True
-    
-    return sum(numbers), product if not is_zero_present else 0
+    return (
+        sum(numbers),
+        0 if any(value == 0 for value in numbers) else eval("*".join(map(str, numbers))),
+    )
+
+if __name__ == "__main__":
+    numbers = list(map(int, input().split()))
+    result = sum_product(numbers)
+    print(result)
