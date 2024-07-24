@@ -5,9 +5,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> numSumIndex;
-    
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> numSumIndex;
+
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int n = nums[i];
@@ -18,9 +18,9 @@ vector<int> order_by_points(vector<int> nums) {
         numSumIndex.push_back({sum, i});
     }
 
-    sort(numSumIndex.begin(), numSumIndex.end());
+    std::sort(numSumIndex.begin(), numSumIndex.end());
     
-    vector<int> result;
+    std::vector<int> result;
     for (auto& p : numSumIndex) {
         result.push_back(nums[p.second]);
     }
