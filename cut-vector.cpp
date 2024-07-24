@@ -10,7 +10,7 @@ int main() {
 
     while (cin >> num) {
         vec.push_back(num);
-        if (cin.peek() == '\n')  // Additional condition for input termination
+        if(cin.peek() == '\n')
             break;
     }
 
