@@ -1,9 +1,10 @@
-def normalize_numbers(numbers):
+from typing import List
+
+def rescale_to_unit(numbers: List[float]) -> List[float]:
     min_num = min(numbers)
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-# Call the function with the input data
-input_numbers = [3, 7, 10, 15]
-result = normalize_numbers(input_numbers)
-print(result)
+if __name__ == "__main__":
+    numbers = [float(x) for x in input().split()]
+    print(rescale_to_unit(numbers))
