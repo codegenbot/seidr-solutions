@@ -1,42 +1,40 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    int i = 0;
-    
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += str.substr(i, 1);
-            i++;
-        } else if(i >= str.length() - 4) { 
-            for(int j=i; j>=i && j >= (str.length()-5); j--) {
-                result += str[j];
-            }
-            i = str.length();
-        } else if(str.length() - i > 4) {
-            for(int j=i; j>=i && j < i + 5; j--) {
-                result += str[j];
-            }
-            i += 5;
+    int wordLength;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            result += " ";
         } else {
-            result += str[i];
-            i++;
+            wordLength = 0;
+            while (i < sentence.length() && sentence[i] != ' ') {
+                i++;
+                wordLength++;
+            }
+            if (wordLength >= 5) {
+                for (int j = wordLength - 1; j >= 0; j--) {
+                    result += sentence[i - j];
+                }
+            } else {
+                while (i < sentence.length() && sentence[i] != ' ') {
+                    i++;
+                    result += sentence[i - 1];
+                }
+            }
         }
     }
-
     return result;
 }
 
 int main() {
-    // Test cases
-    cout << spinWords("a") << endl;          // Output: a
-    cout << spinWords("this is a test") << endl;  // Output: this is a test
-    cout << spinWords("this is another test") << endl;  // Output: this is rehtona test
-    cout << spinWords("hi") << endl;          // Output: hi
-
+    string input;
+    cout << "Enter the string: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
