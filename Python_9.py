@@ -9,15 +9,14 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 input_numbers = []
-try:
-    while True:
+while True:
+    try:
         line = input()
-        if line:
-            input_numbers.append(int(line))
-        else:
+        if not line:
             break
-except EOFError:
-    pass
+        input_numbers.append(int(line))
+    except EOFError:
+        break
 
 output = rolling_max(input_numbers)
 print(*output)
