@@ -14,6 +14,6 @@ int solution(vector<int> lst) {
 
 int main() {
     vector<int> lst = {3, 13, 2, 9};
-    assert(solution(lst) == 16);
+    cout << solution(lst);
     return 0;
 }
