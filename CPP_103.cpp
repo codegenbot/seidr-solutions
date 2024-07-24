@@ -1,4 +1,3 @@
-#include <cmath>
 #include <string>
 
 string rounded_avg(int n, int m) {
@@ -13,10 +12,11 @@ string rounded_avg(int n, int m) {
     while (avg > 0) {
         if (avg >= 2) {
             avg -= 2;
-            bin.push_back('1');
+            bin.append("1");
         } else {
             avg++;
-            bin.push_back('0');
+            bin.append("0");
         }
     }
     return bin;
+}
