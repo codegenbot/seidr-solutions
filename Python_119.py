@@ -1,9 +1,8 @@
-import re
+Here is the modified code:
 
+```
 def match_parens(lst):
     for s in lst:
-        if not re.match(r'^[\(\)]+$', s):  
-            return "No"
         open_count = 0
         close_count = 0
         for char in s:
