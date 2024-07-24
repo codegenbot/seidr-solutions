@@ -8,8 +8,8 @@ def solve_boolean(expression):
     else:
         result = True if expression[0] == 'T' else False
         for op, value in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
-            if op == '&' and value % 2 != 0:
+            if op == '&' and value > 0:
                 result = False
-            elif op == '|' and value % 2 == 0:
+            elif op == '|' and value > 0:
                 result = False
         return result
