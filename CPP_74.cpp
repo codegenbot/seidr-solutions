@@ -45,8 +45,9 @@ int main() {
         while (!(cin >> s) || s.empty()) {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
-            cin.ignore();
-            while (cin.peek() == '\n') cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while (cin.get() != '\n') {}
         }
         lst1.push_back(s);
     }
@@ -60,8 +61,9 @@ int main() {
         while (!(cin >> s) || s.empty()) {
             cout << "Invalid input. Please enter a non-empty string.\n";
             cin.clear();
-            cin.ignore();
-            while (cin.peek() == '\n') cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            while (cin.get() != '\n') {}
         }
         lst2.push_back(s);
     }
