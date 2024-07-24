@@ -10,3 +10,4 @@ int calculateFuelCost(vector<int>& inputs) {
         total += result;
     }
     return total;
+}
