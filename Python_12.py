@@ -5,10 +5,6 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    while True:
-        user_input = input("Enter a list of strings (comma-separated): ")
-        try:
-            strings_list = [s.strip() for s in user_input.split(',')]
-            return max(strings_list, key=len)
-        except ValueError:
-            print("Invalid input. Please enter a comma-separated list of strings.")
+    max_len = len(max(strings, key=len))
+    longest_strs = [s for s in strings if len(s) == max_len]
+    return longest_strs[0] if longest_strs else None
