@@ -1,11 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> sort_third(vector<int> l) {
     vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
@@ -24,4 +16,13 @@ vector<int> sort_third(vector<int> l) {
     }
 
     return l_prime;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    // Main function logic (if any) goes here
+    return 0;
 }
