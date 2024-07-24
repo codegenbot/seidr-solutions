@@ -16,13 +16,12 @@ int main() {
     int maxRight = nums[n-1];
     vector<int> leaders;
 
-    for (int i = n-2; i > 0; i--) {
+    for (int i = n-2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
+            leaders.insert(leaders.begin(), nums[i]);
             maxRight = nums[i];
-            leaders.push_back(maxRight);
         }
     }
-    leaders.push_back(maxRight);
 
     for (int leader : leaders) {
         cout << leader << " ";
