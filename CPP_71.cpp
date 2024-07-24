@@ -1,10 +1,9 @@
 Here is the completed code:
 
 float triangle_area(float a, float b, float c) {
-    if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        float s = (a + b + c) / 2.0;
-        return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
+    if (a + b > c && a + c > b && b + c > a) {
+        return (sqrt((b * c - a * a) / 2.0)) * 100;
     } else {
-        return -1.0;
+        return -1;
     }
 }
