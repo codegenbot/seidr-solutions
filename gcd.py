@@ -1,8 +1,8 @@
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    if abs(a) == 1 and abs(b) == 1:
-        return 1
-    return abs(a) if a != 0 else abs(b) if a == 1 or b == 1 else 1
-    
-    return 1  # Add this line at the end to ensure the function returns 1 for any input
+    if b == 0:
+        return abs(a)
+    return gcd(b, a % b)
+
+
+num1, num2 = map(int, input().split())
+print(gcd(num1, num2))
