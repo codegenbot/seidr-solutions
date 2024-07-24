@@ -1,7 +1,8 @@
 #include <iostream>
 
 int main() {
-    double hours, snow, rate, melt;
+    int hours;
+    double snow, rate, melt;
 
     std::cin >> hours >> snow >> rate >> melt;
 
