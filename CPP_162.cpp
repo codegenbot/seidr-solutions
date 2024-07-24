@@ -1,9 +1,5 @@
-```cpp
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <openssl/err.h>
-#include <openssl/evp.h>
+#include <openssl/ssl.h>
+#include <openssl/engine.h>
 
 using namespace std;
 
@@ -23,4 +19,3 @@ string string_to_md5(string text) {
     }
     OPENSSL_free(digest);
     return ss.str();
-}
