@@ -11,7 +11,7 @@ std::vector<std::string> by_length(const std::vector<int>& lengths) {
         else if (length == 9)
             result.push_back("Nine");
         else
-            result.push_back(std::to_string(length));
+            result.push_back(std::to_string(length) + "teen");
     }
     return result;
 }
@@ -25,6 +25,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(by_length({1, 4, 9}), std::vector<std::string>{ "One", "Four", "Nine" }));
+    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
 }
