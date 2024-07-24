@@ -8,8 +8,8 @@ def match_parens(s):
             if len(stack) > 0 and stack[-1] == "(":
                 stack.pop()
             else:
-                return "No"
-    return "Yes" if len(stack) == 0 else "No"
+                return "No" if stack else "Yes"
+    return "Yes" if not stack else "No"
 
 def check():
     while True:
