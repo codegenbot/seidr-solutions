@@ -5,7 +5,7 @@ def mastermind(code, guess):
     for i in range(4):
         if code[i] == guess[i]:
             black_pegs += 1
-        elif guess_counts[ord(guess[i]) - ord("A")] > 0:
+        elif str(code).count(str(guess[i])) > 0:
             white_pegs += 1
 
     return str(black_pegs) + " " + str(white_pegs)
