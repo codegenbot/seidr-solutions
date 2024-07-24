@@ -9,7 +9,7 @@ bool issame(vector<int> a, vector<int> b) {
     }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
-            throw runtime_error("Vectors contain different elements");
+            throw runtime_error("Vectors are not the same");
         }
     }
     return true;
