@@ -1,8 +1,9 @@
+```
 #include <vector>
 #include <string>
 
 bool issame(float a, float b) {
-    if ((a - b) > 0.0001 || (b - a) > 0.0001)
+    if (a - b > 0.0001 || b - a > 0.0001)
         return false;
     else
         return true;
