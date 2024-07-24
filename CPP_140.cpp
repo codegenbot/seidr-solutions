@@ -1,5 +1,8 @@
-int count = 0;
-    string result = "";
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    int count = 0;
+    std::string result = "";
     for (char c : text) {
         if (c == ' ') {
             count++;
