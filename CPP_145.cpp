@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -13,18 +14,15 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 bool order_by_points(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; i++) {
-        if (same({arr[i]}, {arr[i + 1]}) && (arr[i] > arr[i + 1])) return false;
+        if (same(std::vector<int>(arr.begin()+i, arr.begin()+i+2), 
+                 std::vector<int>(arr.begin()+i+1, arr.begin()+i+3)) && 
+            (arr[i] > arr[i + 1])) return false;
     }
     return true;
 }
 
 int mainFunction() {
-    std::vector<int> result = {};
-    for(int i=0;i<7;i++){
-        int x; 
-        std::cin >> x;
-        result.push_back(x);
-    }
-    assert(order_by_points(result) && same(result, {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
+    std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    assert(same(result, {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
     return 0;
 }
