@@ -9,7 +9,9 @@ def main():
         try:
             values.append(int(value))
         except ValueError:
-            print("Invalid input. Please enter a valid integer or type 'stop' to finish.")
+            print(
+                "Invalid input. Please enter a valid integer or type 'stop' to finish."
+            )
     filtered_values = filter_integers(values)
     print(filtered_values)
 
