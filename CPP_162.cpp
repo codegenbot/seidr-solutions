@@ -1,6 +1,8 @@
-#include <iostream>
+#include <string>
+#include <sstream>
 #include <iomanip>
-#include <openssl/errstack.h>
+#include <openssl/ssl.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
