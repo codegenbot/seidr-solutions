@@ -1,8 +1,8 @@
 ```python
 def search(lst):
     """
-    This function takes a list of numbers as input and returns the maximum number that is a multiple of its frequency in the list.
-    If no such number exists, it returns -1.
+    This function takes a list of integers as input, counts the frequency of each positive number in the list,
+    and returns the maximum number that appears at least once in the list.
     """
     freq_dict = {}
     for num in lst:
