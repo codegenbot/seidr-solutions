@@ -1,3 +1,4 @@
+```
 def sort_numbers(numbers: str) -> str:
     numbers = numbers.replace("-", " ")
     numbers = " ".join(filter(None, numbers.split()))
