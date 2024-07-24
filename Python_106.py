@@ -22,6 +22,9 @@ def f(n):
 while True:
     try:
         num = int(input("Enter a number: "))
-        print(f(num))
+        if num <= 0:
+            print("Please enter a positive integer.")
+        else:
+            print(f(num))
     except ValueError:
         print("Invalid input. Please enter an integer.")
