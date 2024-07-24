@@ -1,8 +1,9 @@
 ```
 from typing import List
 
-def factorize() -> List[int]:
-    n = int(input("Enter a number: "))
+def factorize(n: int) -> List[int]:
+    if n <= 0:
+        raise ValueError("Expected positive integer")
     factors = []
     i = 2
     while i * i <= n:
