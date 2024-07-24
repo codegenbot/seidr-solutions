@@ -1,14 +1,9 @@
-Here is the solution:
-
-def luhn(card):
-    card = [int(i) for i in str(card)]
-    double_even = False
-    result = 0
-    for digit in reversed(card):
-        if double_even:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        result += digit
-        double_even = not double_even
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number)[1:]]
+    result = sum(
+        [
+            x if i % 2 == 0 else x * 2 if x * 2 > 9 else x * 2 - 9
+            for i, x in enumerate(card_number)
+        ]
+    )
     return result
