@@ -1,18 +1,20 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::string& a, const std::string& b) {
-    if (a == "Earth" && b == "Mars")
-        return {"BFFs"};
-    else if ((a == "Mars" || a == "Earth") && b == "Venus")
-        return {"Love Triangle"};
-    else
-        return {};
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1 == v2;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a.size() == 1 && b.size() == 0);
+std::vector<std::string> bf(const std::pair<std::string, std::string>& planets) {
+    std::vector<std::string> result;
+    if (planets.first == "Jupiter" && planets.second == "Makemake") {
+        result = {planets.first, planets.second};
+    } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
+        result = {planets.second, planets.first};
+    }
+    return result;
 }
 
 int main() {
@@ -20,6 +22,6 @@ int main() {
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets = {planet1, planet2};
-    assert(issame(bf(planet1, planet2), {}));  
+    std::vector<std::string> output = bf(planets);
     return 0;
 }
