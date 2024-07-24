@@ -1,24 +1,16 @@
-```
-def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    elif '&' in expression:
-        parts = expression.split('&')
-        if all(part == 'T' for part in parts):
+Here is the Python solution for the problem:
+
+def solve(input_str):
+    def evaluate(expression):
+        if expression == 'T':
             return True
-        elif any(part == 'F' for part in parts):
+        elif expression == 'F':
             return False
-        else:
-            return True
-    elif '|' in expression:
-        parts = expression.split('|')
-        if all(part == 'T' for part in parts):
-            return True
-        elif any(part == 'F' for part in parts):
-            return False
-        else:
-            return True
+        elif len(expression) > 1:
+            if '&' in expression:
+                left, right = expression.split('&')
+                return evaluate(left) and evaluate(right)
+            else:
+                return evaluate(left) or evaluate(right)
+
+    return evaluate(input_str)
