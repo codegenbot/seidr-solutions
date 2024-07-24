@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,10 +13,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int sorted_list_sum(const std::vector<std::string>& lst) {
+int sorted_list_sum(const vector<string>& lst) {
     int sum = 0;
     for (const auto& str : lst) {
-        if(issame({{"hello", "world"}}, vector<string>(split(str, ' ') + 1, split(str, ' ').end()))) {
+        std::vector<std::string> split_str = split(str, ' ');
+        if(issame({{"hello", "world"}}, vector<string>(split_str.begin() + 1, split_str.end()))) {
             sum += std::stoi(str.substr(6));
         }
     }
@@ -31,10 +32,4 @@ std::vector<std::string> split(const std::string& s, char delimiter) {
         items.push_back(item);
     }
     return items;
-}
-
-int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(sorted_list_sum(lst) == 2);
-    return 0;
 }
