@@ -1,30 +1,51 @@
-int score(const string& input) {
-    int total = 0;
-    int frame = 1;
-    int i = 0;
-    while (frame <= 10 && i < input.size()) {
-        if (input[i] == 'X') {
-            total += 10;
-            total += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
-            total += (input[i + 4] == 'X') ? 10 : (isdigit(input[i + 4]) ? input[i + 4] - '0' : 10);
-            i += 2;
-        } else if (input[i + 1] == '/') {
-            total += 10;
-            total += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
-            i += 3;
-        } else {
-            total += (isdigit(input[i]) ? input[i] - '0' : 0);
-            total += (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0);
-            i += 2;
-        }
-        frame++;
-    }
-    return total;
-}
-
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string bowls;
+    cin >> bowls;
+    
+    int score = 0;
+    int frame = 1;
+    int ball = 1;
+    int prevBall = 0;
+    int frameScore = 0;
+    
+    for (char c : bowls) {
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                if (prevBall == 1) {
+                    score += 10;
+                } else {
+                    prevBall = 0;
+                    frame++;
+                }
+            }
+            ball = 1;
+        } else if (c == '/') {
+            score += 10 - frameScore;
+            prevBall = 1;
+            if (frame < 10) {
+                frame++;
+            }
+            ball = 1;
+        } else if (c == '-') {
+            ball++;
+        } else {
+            score += c - '0';
+            if (ball == 1) {
+                frameScore = c - '0';
+                ball++;
+            } else {
+                frameScore += c - '0';
+                score += frameScore;
+                if (frame < 10) {
+                    frame++;
+                }
+                ball = 1;
+            }
+        }
+    }
+    
+    cout << score << endl;
+    
     return 0;
 }
