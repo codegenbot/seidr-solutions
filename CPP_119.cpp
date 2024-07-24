@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -25,10 +24,7 @@ std::string match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"(())", "()(()())"};
-    for (const auto& s : lst) {
-        if (match_parens({s}) != "Yes") {
-            cout << "Error in: " << s << endl;
-        }
-    }
+    std::vector<std::string> lst = {")", "("};
+    cout << match_parens(lst);
+    
 }
