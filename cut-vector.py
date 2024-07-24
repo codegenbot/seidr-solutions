@@ -2,15 +2,21 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
-target_sum = total_sum // 2
+left_sum = 0
+min_diff = total_sum
+cut_index = -1
 
-prefix_sum = 0
-for i, num in enumerate(arr):
-    prefix_sum += num
-    if prefix_sum >= target_sum:
-        if prefix_sum == target_sum or abs(prefix_sum - target_sum) < abs(
-            prefix_sum - num - target_sum
-        ):
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-            break
+for i in range(n):
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+
+    if diff <= min_diff:
+        min_diff = diff
+        cut_index = i
+
+output1 = arr[: cut_index + 1]
+output2 = arr[cut_index + 1 :]
+
+print(*output1)
+print(*output2)
