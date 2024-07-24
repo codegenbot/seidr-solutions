@@ -1,2 +1,2 @@
-def solve(arr):
-    return [''.join([name_dict[i] if i < 10 else name_dict[int(i)] for i in [str(i) for i in arr if 1 <= int(i) <= 19]])].replace("Twenty", "Tw").replace("Eighteen", "Eight")
+by_length = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+check(solve_task(by_length))
