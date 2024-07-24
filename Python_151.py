@@ -1,5 +1,5 @@
 ```
-def calculate_double_the_difference(input_list):
+def double_the_difference(input_list):
     if len(input_list) < 2:
         return 0
     avg = sum(input_list) / len(input_list)
@@ -14,8 +14,11 @@ while True:
             print("Please enter some numbers.")
             continue
         input_list = list(map(float, input_str.split()))
+        if len(input_list) < 2:
+            print("Input list must contain at least two elements.")
+            continue
         break
     except ValueError:
         print("Invalid input. Please enter numbers separated by space.")
 
-print(calculate_double_the_difference(input_list))
+print(double_the_difference(input_list))
