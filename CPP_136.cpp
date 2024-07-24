@@ -1,18 +1,21 @@
+Here is the completed code:
+
+```cpp
 #include <vector>
+
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int max_neg = 0;
-    int min_pos = INT_MAX;
-    
+    int maxNeg = 0;
+    int minPos = INT_MAX;
+
     for (int num : lst) {
-        if (num < 0 && num > max_neg) {
-            max_neg = num;
-        }
-        else if (num > 0 && num < min_pos) {
-            min_pos = num;
+        if (num < 0 && num > maxNeg) {
+            maxNeg = num;
+        } else if (num > 0 && num < minPos) {
+            minPos = num;
         }
     }
-    
-    return {(max_neg > 0 ? 0 : max_neg), (min_pos < 1 ? 0 : min_pos)};
+
+    return {(maxNeg >= 0) ? 0 : maxNeg, (minPos <= 0) ? 0 : minPos};
 }
