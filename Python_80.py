@@ -2,10 +2,12 @@
 def is_happy_number(n):
     if n < 1:
         return False
-    while n != 1 and n != 4:
+    seen = set()
+    while n != 1 and n not in seen:
+        seen.add(n)
         sum_of_digits = sum(int(digit) ** 2 for digit in str(n))
         n = sum_of_digits
-    return n == 1 or n == 4
+    return n == 1
 
 while True:
     try:
