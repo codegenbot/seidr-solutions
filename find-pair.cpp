@@ -8,15 +8,15 @@ int main() {
     int target;
     cin >> target;
     
-    map<int, int> hash;
+    map<int, int> numIdx;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (hash.find(complement) != hash.end()) {
-            cout << complement << endl;
+        if (numIdx.find(complement) != numIdx.end()) {
+            cout << nums[numIdx[complement]] << endl;
             cout << nums[i] << endl;
             break;
         }
-        hash[nums[i]] = i;
+        numIdx[nums[i]] = i;
     }
     
     return 0;
