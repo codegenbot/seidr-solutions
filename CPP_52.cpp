@@ -1,10 +1,10 @@
+#include <iostream>
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 bool below_threshold(vector<int> l, int t) {
     for (int num : l) {
         if (num >= t) {
-            cout << "Error: Some numbers are greater than the threshold!" << endl;
             return false;
         }
     }
