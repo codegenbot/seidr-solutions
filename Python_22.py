@@ -11,7 +11,7 @@ def main():
             break
         while True:
             try:
-                values.append(int(value))  # Ask user for an integer here
+                values.append(int(value))
                 break
             except ValueError:
                 print(
