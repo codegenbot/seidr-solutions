@@ -1,15 +1,18 @@
 string fix_spaces(string text){
     string result = "";
     for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' ' && (i==0 || text[i-1] != ' ')){
-                while(i+1 < text.length() && text[i+1] == ' ') i++;
-                result += '-';
-            } else {
-                result += '_';
-            }
+        if(text[i] == ' ' && (result.empty() || result.back() != ' ')){
+            result += ' ';
+        } else if(text[i] == ' ' && !result.empty() && result.back() == ' '){
+            if(result.size() > 2) result.pop_back();
+            else result += '-';
         } else {
             result += text[i];
+        }
+    }
+    for(int i=0; i<result.length(); i++){
+        if(result[i] == ' '){
+            result[i] = '_';
         }
     }
     return result;
