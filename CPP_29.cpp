@@ -27,5 +27,6 @@ int main() {
     strings.push_back("xxx");
 
     assert (issame(filter_by_prefix(strings, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    
     return 0;
 }
