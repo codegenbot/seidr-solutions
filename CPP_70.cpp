@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -32,14 +33,19 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({1,2,3}), {1,3,2}));
-    //std::vector<int> input = {};
-    //std::cout << "Enter numbers separated by space: ";
-    //std::cin >> std::ws;
-    //for (int i=0; i < 10; i++) {
-    //    int temp;
-    //    std::cin >> temp;
-    //    input.push_back(temp);
-    //}
-    return 0;
+    std::vector<int> input;
+    std::cout << "Enter numbers (space separated): ";
+    std::string line;
+    std::getline(std::cin, line);
+    std::stringstream ss(line);
+    int num;
+    while (ss >> num) {
+        input.push_back(num);
+    }
+    std::vector<int> output = strange_sort_list(input);
+    std::cout << "Sorted list: ";
+    for (int x : output) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
 }
