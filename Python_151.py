@@ -1,3 +1,4 @@
+```python
 def double_the_difference(input_list):
     if len(input_list) < 2:
         return 0
