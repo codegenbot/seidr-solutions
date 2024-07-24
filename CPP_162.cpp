@@ -9,9 +9,9 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    unsigned char digest[EVP_MAX_MD_SIZE];
-    EVP_MD_CTX* mdctx;
-    const EVP_MD* md = EVP_md5();
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
