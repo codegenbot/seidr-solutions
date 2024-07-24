@@ -1,4 +1,13 @@
 def mastermind(code, guess):
-    white = sum([1 for a, b in zip(guess, code) if a == b and a != "B"])
-    black = sum([1 for a, b in zip(sorted(guess), sorted(code)) if a == b and a != "0"])
-    return str(white) + "\n" + str(black)
+    code_set = set(code)
+    white_peg = 0
+    black_peg = 0
+
+    for char in guess:
+        if char in code_set:
+            if code.index(char) == guess.index(char):
+                black_peg += 1
+            else:
+                white_peg += 1
+
+    return str(white_peg) + "\n" + str(black_peg)
