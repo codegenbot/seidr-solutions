@@ -19,23 +19,21 @@ bool checkVectorEquality(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> vec1;
     int n;
-    cout << "Enter the number of elements for both vectors: ";
+    cout << "Enter the number of elements: ";
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        vec1.push_back(x);
-    }
 
-    vector<int> vec2;
+    vector<int> vec1(n);
+    vector<int> vec2(n);
+
     for(int i = 0; i < n; i++) {
         int x;
         cout << "Enter element " << i+1 << ": ";
         cin >> x;
-        vec2.push_back(x);
+        vec1[i] = x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        vec2[i] = x;
     }
 
     if(checkVectorEquality(vec1,vec2)) {
