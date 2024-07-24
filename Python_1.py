@@ -1,11 +1,8 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not all(c.isalnum() or c in "()[]" for c in paren_string):
-        return []
-
     result = []
-    stack = []
+    stack = [""]
     current_group = ""
 
     for char in paren_string:
