@@ -6,3 +6,4 @@ string squareDigits(long int n) {
         result += to_string(digit * digit);
     }
     return result;
+}
