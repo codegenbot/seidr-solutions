@@ -1,6 +1,5 @@
-#include <string>
-#include <algorithm>
 #include <variant>
+#include <string>
 
 std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std::variant<std::any> b) {
     return std::visit([&](auto&& a, auto&& b) -> std::variant<std::string, int, float> {
@@ -13,17 +12,21 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
                 return "Equal";
             }
         } else if (std::holds_alternative<int>(a) && std::holds_alternative<int>(b)) {
-            if (std::get<int>(a) > std::get<int>(b)) {
+            int aInt = std::any_cast<int>(a);
+            int bInt = std::any_cast<int>(b);
+            if (aInt > bInt) {
                 return "Greater";
-            } else if (std::get<int>(a) < std::get<int>(b)) {
+            } else if (aInt < bInt) {
                 return "Less";
             } else {
                 return "Equal";
             }
         } else if (std::holds_alternative<float>(a) && std::holds_alternative<float>(b)) {
-            if (std::get<float>(a) > std::get<float>(b)) {
+            float aFloat = std::any_cast<float>(a);
+            float bFloat = std::any_cast<float>(b);
+            if (aFloat > bFloat) {
                 return "Greater";
-            } else if (std::get<float>(a) < std::get<float>(b)) {
+            } else if (aFloat < bFloat) {
                 return "Less";
             } else {
                 return "Equal";
@@ -33,3 +36,5 @@ std::variant<std::string, int, float> compare_one(std::variant<std::any> a, std:
         }
     }, a, b);
 }
+
+assert(std::get<std::string>(compare_one("1", 1)) == "Non");
