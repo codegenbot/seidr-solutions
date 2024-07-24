@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     N = len(grid)
     queue = [(0, 0, [])]
@@ -13,6 +14,12 @@ def minPath(grid, k):
                     queue.append((nr, nc, path + [grid[nr][nc]]))
     return res
 
-grid = [["1", "0", "1"], ["0", "0", "0"], ["1", "0", "1"]]
-k = 3
+N = int(input("Enter number of rows: "))
+M = int(input("Enter number of columns: "))
+grid = []
+for i in range(N):
+    row = input(f"Enter row {i+1}: ").split()
+    grid.append(row)
+
+k = int(input("Enter k: "))
 print(minPath(grid, k))

@@ -8,5 +8,13 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-numbers = [eval(x) for x in input().split()]
+numbers = []
+while True:
+    try:
+        num = float(input())
+        numbers.append(num)
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
 print(sum_squares(numbers))
