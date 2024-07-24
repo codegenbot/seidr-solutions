@@ -1,3 +1,5 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -13,4 +15,17 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> strings = {"hello", "world", "hell", "goodbye"};
+    std::string substring = "ell";
+    
+    std::vector<std::string> output = filter_by_substring(strings, substring);
+    
+    for (const auto& str : output) {
+        std::cout << str << std::endl;
+    }
+    
+    return 0;
 }
