@@ -1,11 +1,13 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
-    for (char c : str) {
+    for (char c : s) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
