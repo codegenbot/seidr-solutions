@@ -1,16 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int max = 0, minPos = INT_MAX, maxNeg = INT_MIN;
+    int largest = 0, smallest = INT_MAX;
     
     for (int i : lst) {
-        if (i > 0 && i < minPos) minPos = i;
-        else if (i < 0 && i > maxNeg) maxNeg = i;
+        if (i < 0 && i > largest)
+            largest = i;
+        else if (i > 0 && i < smallest)
+            smallest = i;
     }
     
-    return vector<int>({maxNeg, minPos});
+    return {largest >= 0 ? 0 : largest, smallest <= 0 ? 0 : smallest};
 }
