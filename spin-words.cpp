@@ -1,24 +1,32 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string spinWords(string s) {
+string spinWords(string str) {
     string result = "";
-    int length = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            length = 0;
-            result += ' ';
+    int len;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += " ";
         } else {
-            length++;
-            if (length >= 5) {
-                for (int j = length - 1; j >= 0; j--) {
-                    result += s[i - j];
+            len = i + 1;
+            while (len > 4 && i < str.length()) {
+                i++;
+                len++;
+            }
+            if (i >= str.length() || len <= 5) {
+                for (int j = len - 1; j >= 0; j--) {
+                    result += str[i - j];
                 }
+                i--;
             } else {
-                result += s[i];
+                for (int j = i; j >= 0; j--) {
+                    result += str[j];
+                }
             }
         }
     }
@@ -27,7 +35,7 @@ string spinWords(string s) {
 
 int main() {
     string input;
-    while (cin >> input) {
+    while (getline(cin, input)) {
         cout << spinWords(input) << endl;
     }
     return 0;
