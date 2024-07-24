@@ -6,7 +6,7 @@ def search(lst):
             freq[num] += 1
         else:
             freq[num] = 1
-    for k, v in freq.items():
-        if k > 0 and v >= k:
-            return k
+    for num, count in freq.items():
+        if num > 0 and count >= num:
+            return num
     return -1
