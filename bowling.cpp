@@ -1,35 +1,26 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int bowlingScore(const std::string& input) {
+int bowlingScore(string input) {
     int score = 0;
-    bool firstRollInFrame = true;
-    
-    for (char c : input) {
-        if (c == 'X') { // Strike, add 10 + next frame's score
-            score += 10;
-            continue;
-        } else if (c == '/') { // Spare, add 10 - last roll in previous frame
-            int prevRoll = input[input.size() - 1] - '0';
-            score += 10 - prevRoll;
-            firstRollInFrame = true;
+    for (int i = 0; i < 10; i++) {
+        if (input[i] == '/') {
+            string firstRoll = input.substr(0, i);
+            string secondRoll = input.substr(i + 1);
+            int firstRollScore = (firstRoll[0] - '0') * 10 + (firstRoll[1] - '0');
+            int secondRollScore = (secondRoll[0] - '0') * 10 + (secondRoll[1] - '0');
+            if (secondRollScore == 10) {
+                score += firstRollScore + 10;
+            } else {
+                score += max(firstRollScore, min(10, firstRollScore / 2)) + secondRollScore;
+            }
+            input = "";
         } else {
-            int currentRoll = c - '0';
-            if (firstRollInFrame) { // First roll in the frame
-                if (input.size() > input.find(c) + 1 && input[input.size() - 1] == '/') { // Spare, save for next frame
-                    score += currentRoll;
-                    firstRollInFrame = false;
-                } else {
-                    score += currentRoll;
-                }
-            } else { // Second roll in the frame
-                if (c != '0') { // Not a gutter ball, add to score
-                    score += currentRoll;
-                }
+            int rollScore = (input[i] - '0') * 10 + (input[i+1] - '0');
+            if (rollScore == 10) {
+                score += rollScore;
+                i++;
+            } else {
+                score += rollScore;
             }
         }
     }
-    
     return score;
 }
