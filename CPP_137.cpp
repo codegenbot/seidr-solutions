@@ -23,3 +23,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         return boost::any("None");
     }
 }
+
+int main() {
+    boost::any a = 5; 
+    boost::any b = 7;
+    cout << "The maximum value is: " << boost::any_cast<int>(compare_one(a, b)) << endl;
+
+    a = "3.5";
+    b = "2.8";
+    cout << "The maximum value is: " << boost::any_cast<string>(compare_one(a, b)) << endl;
+
+    return 0;
+}
