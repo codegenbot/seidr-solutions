@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -27,14 +26,11 @@ while True:
     n = input("Enter a positive integer (or 'q' to quit): ")
     if n.lower() == 'q':
         break
-    elif n.lower() in ['y', 'yes']:
-        print("Please enter a positive integer.")
-    else:
-        try:
-            n = int(n)
-            if n > 0: 
-                print(*factorize(n), sep=', ')
-            else: 
-                print("Please enter a positive integer.")
-        except ValueError:
-            print("Invalid input. Please enter an integer or 'q' to quit.")
+    try:
+        n = int(n)
+        if n > 0: 
+            print(*factorize(n), sep=', ')
+        else: 
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Invalid input. Please enter an integer or 'q' to quit.")
