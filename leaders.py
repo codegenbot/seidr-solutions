@@ -1,7 +1,7 @@
 def leaders(input):
     input = list(map(int, input.split()))
-    leaders_list = [input[-1]]
     last_leader = input[-1]
+    leaders_list = [last_leader]
 
     for i in range(len(input) - 2, -1, -1):
         if input[i] >= last_leader:
