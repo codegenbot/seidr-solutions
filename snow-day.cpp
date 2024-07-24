@@ -1,12 +1,12 @@
 #include <iostream>
 
-using namespace std;
-
-double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
+float snowDay(int hours, float groundSnow, float rateOfFall, float meltingPerHour) {
+    float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+        groundSnow += rateOfFall;
+        groundSnow -= meltingPerHour * groundSnow;
+        totalSnow = max(totalSnow, groundSnow);
     }
     
     return totalSnow;
@@ -14,11 +14,11 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
 
 int main() {
     int hours;
-    cin >> hours;
-    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    std::cin >> hours;
+    float groundSnow, rateOfFall, meltingPerHour;
+    std::cin >> groundSnow >> rateOfFall >> meltingPerHour;
 
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    std::cout << std::fixed << std::setprecision(12) << snowDay(hours, groundSnow, rateOfFall, meltingPerHour) << std::endl;
 
     return 0;
 }
