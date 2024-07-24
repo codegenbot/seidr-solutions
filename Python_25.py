@@ -9,8 +9,10 @@ def factorize(n: int) -> List[int]:
             n //= i
         if n > 1:
             return [n]
+        if n == 1:
+            return factors
         factors.extend([i] * (n // i))
-        n //= i
+        n %= i
     if n > 1:
         factors.append(n)
     return factors
