@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -59,6 +59,31 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
 }
 
 int main() {
-    std::vector<std::vector<std::string>> input = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
-    assert(issame(sorted_list_sum(input), {"even", "even", "odd", "even"}));
+    int n;
+    std::cout << "Enter the number of lists: ";
+    std::cin >> n;
+
+    std::vector<std::vector<std::string>> lst(n);
+    for (int i = 0; i < n; i++) {
+        int m;
+        std::cout << "Enter the number of elements in list " << i + 1 << ": ";
+        std::cin >> m;
+
+        std::cout << "Enter the elements: ";
+        for (int j = 0; j < m; j++) {
+            std::string str;
+            std::cin >> str;
+            lst[i].push_back(str);
+        }
+    }
+
+    std::vector<std::string> output = sorted_list_sum(lst);
+
+    std::cout << "The result is: ";
+    for (const auto& str : output) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
