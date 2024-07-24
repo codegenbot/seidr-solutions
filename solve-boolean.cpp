@@ -2,42 +2,28 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'T') {
-            res = true;
-            i++;
-        } else if (s[i] == 'F') {
-            res = false;
-            i++;
-        } else if (s[i] == '&') {
-            bool temp = res;
-            while (i < s.size() && s[i] != '&') {
-                if (s[i] == 'T') {
-                    res = true;
-                } else if (s[i] == 'F') {
-                    res = false;
-                }
-                i++;
-            }
-            if (!temp) {
-                return false;
-            }
+    bool result = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'f') {
+            result = false;
+            break;
         } else if (s[i] == '|') {
-            bool temp = res;
-            while (i < s.size() && s[i] != '|') {
-                if (s[i] == 'T') {
-                    res = true;
-                } else if (s[i] == 'F') {
-                    res = false;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == 'f') {
+                    return false;
                 }
-                i++;
             }
-            if (temp) {
-                return false;
+            result = true;
+            i = s.length();
+        } else if (s[i] == '&') {
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] != 't' && s[j] != '&') {
+                    return false;
+                }
             }
+            result = true;
+            i = s.length();
         }
     }
-    return res;
+    return result;
 }
