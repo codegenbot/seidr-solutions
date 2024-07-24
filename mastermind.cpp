@@ -1,26 +1,33 @@
-int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
+int mastermind(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
+
+    // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
+            code.erase(i, 1);
+            guess.erase(i, 1);
+            --i;
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
+    // Count white pegs
+    for (int i = 0; i < 4; ++i) {
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                code.erase(j, 1);
+                j--;
+                break;
             }
-        }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1) {
-            black--;
+            j++;
         }
     }
 
-    return black;
+    return blackPegs;
 }
