@@ -1,26 +1,19 @@
-Here is a Python solution for this problem:
-
-```
 def solve_boolean(expression):
-    def boolean_operation(a, b, op):
-        if op == '&':
-            return a and b
-        elif op == '|':
-            return a or b
-        else:
-            raise ValueError('Invalid operator')
-
-    tokens = expression.split()
-    result = True
-
-    for token in tokens:
-        if token == 'T':
-            result = boolean_operation(result, True, '&')
-        elif token == 'F':
-            result = boolean_operation(result, False, '&')
-        elif token == '&' or token == '|':
-            pass
-        else:
-            raise ValueError('Invalid expression')
-
-    return result
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char == "&":
+                a, b = stack.pop(), stack.pop()
+                stack.append(a and b)
+            elif char == "|":
+                a, b = stack.pop(), stack.pop()
+                stack.append(a or b)
+            else:
+                stack.append(char == "T")
+        return stack[0]
