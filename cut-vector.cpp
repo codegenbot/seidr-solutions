@@ -2,28 +2,26 @@
 using namespace std;
 
 vector<int> cutVector(vector<int>& vec) {
-    int n = vec.size();
-    vector<int> left, right;
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 0; i < n; i++) {
-        left.push_back(vec[i]);
-        
-        if ((i >= 1 && vec[i-1] != vec[i]) || (i == n - 1)) {
-            int minDiff = INT_MAX, prevVal = left.back();
-            
-            for (int j = i; j < n; j++) {
-                if (vec[j] == prevVal) {
-                    right = vector<int>(vec.begin() + i, vec.end());
-                    return {left, right};
-                }
-                
-                int diff = abs(prevVal - vec[j]);
-                minDiff = min(minDiff, diff);
-            }
-            
-            break;
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i] - vec[i-1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    return {{}, {}};
+    vector<int> leftVec(0);
+    for (int i = 0; i < cutIndex; i++) {
+        leftVec.push_back(vec[i]);
+    }
+    
+    vector<int> rightVec(0);
+    for (int i = cutIndex; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
+    }
+    
+    return {leftVec, rightVec};
 }
