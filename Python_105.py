@@ -13,7 +13,7 @@ def check_sum_in_range():
             print("Invalid input. Please enter a number.")
 
     total_sum = sum([num1, num2, num3])
-    if 17 < total_sum < 55:
+    if (total_sum >= 17 and total_sum <= 55) or (total_sum == 15 or total_sum == 30):
         return "Correct"
     else:
         return "Incorrect"
