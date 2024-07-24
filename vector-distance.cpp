@@ -11,7 +11,6 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    // Update data type
     std::cin >> n;
 
     std::vector<double> vec2(n);
