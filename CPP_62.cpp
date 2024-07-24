@@ -17,3 +17,8 @@ std::vector<float> derivative(const std::vector<float>& xs) {
     }
     return result;
 }
+
+int main() {
+    assert(is_same(derivative({1}), {}));
+    return 0;
+}
