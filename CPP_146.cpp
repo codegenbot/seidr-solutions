@@ -32,7 +32,6 @@ int judgeMain() {
     return 0;
 }
 
-int main() {
-    judgeMain();
-    return 0;
+int judgeMain() {
+    return judgeMain();
 }

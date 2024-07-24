@@ -23,7 +23,7 @@ int main() {
     int maxInputCount = 5; 
     int inputCount = 0;
     
-    int num;
+    float num;
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -35,12 +35,7 @@ int main() {
             if(inputCount >= maxInputCount) break; 
             break;
         }
-        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of int.\n";
-            if(inputCount >= maxInputCount) break; 
-            break;
-        }
-        vec1.push_back((float)num);
+        vec1.push_back(num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
@@ -59,11 +54,7 @@ int main() {
             }
             break;
         }
-        if(num > std::numeric_limits<int>::max() || num < -std::numeric_limits<int>::max()) {
-            std::cout << "Invalid input. Please enter a number within the range of int.\n";
-            break;
-        }
-        vec2.push_back((float)num);
+        vec2.push_back(num);
         
         // Ask for next number
         std::cout << "Enter next number (or press Enter to finish): ";
