@@ -1,26 +1,24 @@
+```
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool res = true;
-    int op = -1; // track the last operator
+    bool lastOp = true;
     for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'T') {
-            res = true;
+            return true;
         }
-        else if (s[i] == 'F') {
-            res = false;
+        if (s[i] == 'F') {
+            return false;
         }
-        else if (s[i] == '|') {
-            op = i;
+        if (s[i] == '|') {
+            res = lastOp;
+            lastOp = true;
         }
-        else if (s[i] == '&') {
-            bool leftRes = false;
-            for (int j = 0; j < op; ++j) {
-                if (s[j] == 'T') leftRes = true;
-                else if (s[j] == 'F') leftRes = false;
-            }
-            res = leftRes;
+        if (s[i] == '&') {
+            res &= lastOp;
+            lastOp = false;
         }
     }
     return res;
