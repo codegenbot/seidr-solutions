@@ -1,15 +1,14 @@
 #include <iostream>
 
 int main() {
-    int hours;
-    double snow, rate, melt;
+    double hours, snow, rate, melt;
 
     std::cin >> hours >> snow >> rate >> melt;
 
     double snowOnGround = snow;
 
     for (int i = 0; i < hours; ++i) {
-        snowOnGround += rate - (snowOnGround * melt);
+        snowOnGround = snowOnGround + rate - (snowOnGround * melt);
     }
 
     std::cout << snowOnGround << std::endl;
