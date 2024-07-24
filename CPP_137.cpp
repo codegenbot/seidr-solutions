@@ -1,8 +1,6 @@
-#include <any>
 #include <variant>
 #include <string>
-
-using namespace std;
+#include <any>
 
 std::variant<std::string, int, float> compare_one(std::variant<any> a, std::variant<any> b) {
     if (holds_alternative<int>(a) && holds_alternation<float>(b)) {
