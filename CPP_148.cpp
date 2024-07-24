@@ -1,22 +1,31 @@
-#include <string>
-#include <vector>
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    int index1 = -1;
+    int index2 = -1;
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    static const std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    if (find(planets.begin(), planets.end(), planet1) == planets.end() || 
-        find(planets.begin(), planets.end(), planet2) == planets.end()) {
-        return {};
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planets[i] == planet1) {
+            index1 = i;
+        }
+        if (planets[i] == planet2) {
+            index2 = i;
+        }
     }
-    
-    auto first = find(planets.begin(), planets.end(), planet1);
-    auto second = find(planets.begin(), planets.end(), planet2);
-    
-    if (*first > *second) {
-        std::swap(first, second);
+
+    if (index1 == -1 || index2 == -1)
+        return vector<string>();
+
+    vector<string> result;
+
+    for (int i = 0; i < planets.size(); ++i) {
+        int j = max(0, min(index1 - 1, index2));
+        while (j != index1 && j <= index2) {
+            if (planets[j] == planet1 || planets[j] == planet2)
+                break;
+            result.push_back(planets[j]);
+            ++j;
+        }
     }
-    
-    auto result = std::vector<std::string>(first + 1, second - 1);
-    std::sort(result.begin(), result.end());
+
     return result;
 }
