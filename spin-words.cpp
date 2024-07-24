@@ -1,5 +1,4 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 string spinWords(string str) {
     string result = "";
@@ -8,12 +7,13 @@ string spinWords(string str) {
         if (str.find(" ", i) == -1 || i + 1 >= str.length())
             result += str.substr(i);
         else {
-            string word = str.substr(i, str.find(" ", i) - i);
+            int j = str.find(" ", i);
+            string word = str.substr(i, j - i);
             if (word.length() >= 5)
-                result += string(word.rbegin(), word.rend()) + " ";
+                result += std::string(word.rbegin(), word.rend());
             else
-                result += word + " ";
-            i = str.find(" ", i) + 1;
+                result += word;
+            i = j + 1;
         }
     }
     return result;
