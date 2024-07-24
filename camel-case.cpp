@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,17 +8,15 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool convert = true;
+    bool convert = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             convert = true;
         } else if (convert) {
-            if(i > 0) // Add space before first letter of each word
-                result += ' ';
             result += toupper(s[i]);
             convert = false;
         } else {
-            result += tolower(s[i]);
+            result += (i == 0) ? tolower(s[i]) : (convert ? toupper(s[i]) : tolower(s[i]));
         }
     }
     return result;
