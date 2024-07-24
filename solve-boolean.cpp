@@ -22,4 +22,29 @@ string solveBoolean(string s) {
         res += st.top();
         st.pop();
     }
-    return (res == "T") ? "True" : (res == "F") ? "False" : "Invalid";
+    return (res == "T") ? "True" : (res == "F") ? "False" : to_string(eval(res));
+}
+
+string eval(string s) {
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == '&') {
+            i++;
+            if (s[i] == 'T') {
+                return "F";
+            } else {
+                return "F";
+            }
+        } else if (s[i] == '|') {
+            i++;
+            if (s[i] == 'T') {
+                return "T";
+            } else {
+                return "F";
+            }
+        } else {
+            i++;
+        }
+    }
+    return s;
+}
