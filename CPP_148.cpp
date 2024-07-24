@@ -9,9 +9,9 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
 
 std::vector<std::string> bf(std::pair<std::string, std::string>& planets) {
     if (planets.first == "Jupiter" && planets.second == "Makemake") {
-        return {planets.first, "to", planets.second};
+        return {{"to", planets.first}, {"to", planets.second}};
     } else if (planets.first == "Makemake" && planets.second == "Jupiter") {
-        return {"to", planets.second, planets.first};
+        return {{"to"}, {planets.second}, {planets.first}};
     }
     return {};
 }
