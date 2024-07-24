@@ -1,20 +1,28 @@
 #include <vector>
 #include <iostream>
-#include <assert.h>
+using namespace std;
 
-std::vector<int> make_pile(int n) {
-    std::vector<int> pile;
+vector<vector<int>> make_a_pile(int n) {
+    vector<vector<int>> pile(n);
     for (int i = 1; i <= n; i++) {
-        pile.push_back(i * 2);
+        pile[i-1].push_back(i*2);
     }
     return pile;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i][0] != b[i][0]) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(make_pile(8) == std::vector<int>({2, 4, 6, 8, 10, 12, 14, 16}));
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    vector<vector<int>> pile = make_a_pile(n);
+    assert(isSame(pile, make_a_pile(n)));
     return 0;
 }
