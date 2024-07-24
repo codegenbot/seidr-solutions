@@ -4,6 +4,7 @@
 
 int main() {
     std::vector<int> nums;
+    
     int n;
     while (std::cin.peek() != EOF) {
         std::cin >> n;
