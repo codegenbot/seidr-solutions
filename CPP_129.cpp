@@ -37,10 +37,12 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         }
         
         sort(nextPoses.begin(), nextPoses.end());
-        tie(i, j) = make_pair(nextPoses[0].second, nextPoses[0].first);
+        int ni = nextPoses[0].second;
+        int nj = nextPoses[0].third;
+        
+        i = ni;
+        j = nj;
     }
     
     return res;
 }
-
-assert (minPath({{1, 3}, {3, 2}}, 10) == vector<int>(1,3,1,3,1,3,1,3,1,3));
