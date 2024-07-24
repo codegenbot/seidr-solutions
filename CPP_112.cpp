@@ -11,7 +11,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-bool reverse_delete(const string& s, const string& c) {
+bool reverse_delete(string s, string c) {
     string temp = "";
     for (char& ch : s) {
         bool found = false;
@@ -27,17 +27,17 @@ bool reverse_delete(const string& s, const string& c) {
     }
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    return temp == rev;
+    return rev == s;
 }
 
 int main() {
-    vector<string> a = {"abc", "def", "ghi"};
-    vector<string> b = {"abc", "def", "jkl"};
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"banana", "cherry", "date"};
     assert(issame(a, b) == false);
-
-    string s = "hello";
-    string c = "hl";
-    cout << (reverse_delete(s, c) ? "True" : "False") << endl;
-
+    
+    string str = "hello";
+    string chars = "aeiou";
+    cout << (reverse_delete(str, chars) ? "True" : "False") << endl;
+    
     return 0;
 }
