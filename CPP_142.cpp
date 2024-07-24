@@ -2,9 +2,6 @@
 #include <cmath>
 #include <iostream>
 #include <initializer_list>
-#include <limits>
-
-#define __STDCPP_VERSION__ 201703L
 
 using namespace std;
 
@@ -22,4 +19,3 @@ int main() {
     int result = sum_squares({1, 2, 3, 4, 5}); 
     cout << "The sum of squares is: " << result << endl;
     return 0;
-}
