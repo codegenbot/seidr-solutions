@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -26,7 +25,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-int getAndProcessInput() {
+int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
@@ -44,5 +43,3 @@ int getAndProcessInput() {
     }
     return 0;
 }
-
-getAndProcessInput();
