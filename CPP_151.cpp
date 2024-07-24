@@ -14,5 +14,11 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst = {1.5f, 2.25f, 3.75f};
     int odd_sum = double_the_difference(lst);
+    int even_sum = 0;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) {
+            even_sum += num * num;
+        }
+    }
     return 0;
 }
