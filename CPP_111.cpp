@@ -13,8 +13,8 @@ multimap<char, int> histogram(string test) {
     for (char c : test) {
         char ch = tolower(c);
         if (ch != ' ') { 
-            if (!result.count(ch)) result.insert(std::pair<char, int>(ch, 0));
-            result.insert(std::pair<char, int>(ch, 1));
+            if (!result.count(ch)) result.insert({ch, 0});
+            result.find(ch)->second++;
         }
     }
 
@@ -25,9 +25,9 @@ multimap<char, int> histogram(string test) {
         if (p.second > maxCount) {
             maxCount = p.second;
             maxCountMap.clear();
-            maxCountMap.insert(p);
+            maxCountMap.insert({p.first, p.second});
         } else if (p.second == maxCount) {
-            maxCountMap.insert(p);
+            maxCountMap.insert({p.first, p.second});
         }
     }
 
@@ -46,6 +46,7 @@ int main1() {
     return 0;
 }
 
-void main2() {
-    assert(histogram("a") == std::multimap<char, int>{{'a', 1}});
+int main2() {
+    assert(std::same(histogram("a"), {{'a', 1}}));
+    return 0;
 }
