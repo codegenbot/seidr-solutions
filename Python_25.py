@@ -1,5 +1,5 @@
 try:
-    n = int(input("Enter a positive number to factorize: ").strip())
+    n = int(input("Enter a positive number to factorize: "))
     if n <= 0:
         print("Please enter a positive integer.")
     else:
@@ -9,4 +9,4 @@ try:
                 factors.append(i)
         print(factors)
 except ValueError:
-    print("Invalid input. Please enter a valid positive integer.")
+    print("Invalid input. Please enter a valid integer.")
