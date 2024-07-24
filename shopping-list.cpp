@@ -7,7 +7,7 @@ using namespace std;
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        double priceAfterDiscount = priceAfterDiscount * (1 - discounts[i] / 100.0);
+        double priceAfterDiscount = price * (1 - discounts[i] / 100.0);
         total += priceAfterDiscount;
     }
     return total;
