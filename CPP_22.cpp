@@ -7,7 +7,7 @@ bool issame(const boost::any& a, const boost::any& b) {
     return a.type() == b.type();
 }
 
-std::vector<int> filter_integers(const std::list<boost::any>& values){
+std::vector<int> filter_integers(const std::list<boost::any>& values) {
     std::vector<int> result;
     for (const auto& val : values) {
         if (val.type() == typeid(int)) {
@@ -18,6 +18,6 @@ std::vector<int> filter_integers(const std::list<boost::any>& values){
 }
 
 int main() {
-    // Main function implementation can be added here for testing if needed
+    // Test your functions here
     return 0;
 }
