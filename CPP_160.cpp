@@ -8,12 +8,27 @@
 using namespace std;
 
 vector<string> split(string str) {
-    istringstream iss(str);
-    string temp;
     vector<string> result;
+    string temp;
 
-    while (getline(iss, temp, ' ')) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
+            }
+        } else {
+            temp += str[i];
+        }
+    }
+    if (!temp.empty()) {
         result.push_back(temp);
+    }
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i].empty()) {
+            result.erase(result.begin() + i);
+            i--; 
+        }
     }
     return result;
 }
@@ -68,7 +83,8 @@ int main() {
 
     cout << "Enter the expressions (space separated): ";
     getline(cin, input);
-    expressions = split(input);
+    if (!input.empty()) {
+        expressions = split(input);
 
     double output = do_algebra({expressions[0], expressions[1], expressions[2]});
     cout << "Result: " << output << endl;
