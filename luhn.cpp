@@ -16,14 +16,3 @@ int luhn(vector<int> digits) {
     }
     return sum;
 }
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
-        cin >> digits[i];
-    }
-    cout << luhn(digits) << endl;
-    return 0;
-}
