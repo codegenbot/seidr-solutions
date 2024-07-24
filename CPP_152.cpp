@@ -1,26 +1,7 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <limits>
-
-bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        std::cout << "Error: The two vectors must be the same size." << std::endl;
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            std::cout << "Error: The two vectors are not the same." << std::endl;
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     int n;
-    while (!(std::cin >> n) || n < 0) {
-        std::cout << "Invalid input. Please enter a positive integer: ";
+    while (!(std::cin >> n)) {
+        std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
@@ -29,13 +10,13 @@ int main() {
     int size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() != '\n') {
-                std::cin.ignore(); 
-            }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                if (std::cin.eof()) break; 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } else break;
         }
         vec1.push_back(x); 
         size++;
@@ -45,13 +26,13 @@ int main() {
     size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() != '\n') {
-                std::cin.ignore(); 
-            }
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                if (std::cin.eof()) break; 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } else break;
         }
         vec2.push_back(x); 
         size++;
