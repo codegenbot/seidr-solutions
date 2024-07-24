@@ -25,3 +25,4 @@ int main() {
     vector<string> expected = filter_by_prefix(strings, prefix);
     assert (issame(expected , {"xxx", "xxxAAA", "xxx"}));
     return 0;
+}
