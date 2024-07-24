@@ -1,44 +1,44 @@
-int score(string s) {
-    int total = 0;
+int scoreOfBowlingRound(string bowls) {
+    int score = 0;
     int frame = 0;
-    int rolls = 0;
-    vector<int> points(21, 0);
-
-    for (char c : s) {
-        if (c == 'X') {
-            points[rolls] = 10;
-            rolls++;
-        } else if (c == '/') {
-            points[rolls] = 10 - points[rolls - 1];
-            rolls++;
-        } else if (c == '-') {
-            points[rolls] = 0;
-            rolls++;
+    for (int i = 0; i < bowls.size() && frame < 10; ++i) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (i + 2 < bowls.size()) {
+                if (bowls[i + 2] == 'X') {
+                    score += 10;
+                    if (i + 4 < bowls.size()) {
+                        score += (bowls[i + 4] == 'X') ? 10 : (bowls[i + 4] - '0');
+                    }
+                } else {
+                    score += (bowls[i + 2] == '/') ? 10 : (bowls[i + 2] - '0');
+                    if (i + 3 < bowls.size()) {
+                        score += (bowls[i + 3] == 'X') ? 10 : (bowls[i + 3] - '0');
+                    }
+                }
+            }
+            ++frame;
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (i + 1 < bowls.size()) {
+                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
+            }
+            ++frame;
         } else {
-            points[rolls] = c - '0';
-            rolls++;
+            score += bowls[i] - '0';
+            if (i + 1 < bowls.size() && bowls[i + 1] == '/') {
+                score += 10 - (bowls[i] - '0');
+            }
+            ++i;
+            ++frame;
         }
     }
-
-    for (int i = 0; frame < 10; i += 2) {
-        if (points[i] == 10) {
-            total += 10 + points[i + 1] + points[i + 2];
-            frame++;
-        } else if (points[i] + points[i + 1] == 10) {
-            total += 10 + points[i + 2];
-            frame++;
-        } else {
-            total += points[i] + points[i + 1];
-            frame++;
-        }
-    }
-
-    return total;
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << scoreOfBowlingRound(bowls) << endl;
     return 0;
 }
