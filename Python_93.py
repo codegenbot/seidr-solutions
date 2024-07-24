@@ -1,4 +1,3 @@
-```Python
 def encode(message):
     result = ""
     for char in message:
@@ -9,15 +8,17 @@ def encode(message):
                     result += chr((ord(char) - ascii_offset + 25) % 26 + ascii_offset)
                 else:
                     result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-            else: 
+            else:
                 result += char.lower()
-        elif char == " ": # handle spaces correctly
-            result += "+"
-        elif char in "!?,.:; '": # handle special characters
-            result += "/".join([f"{ord(c)-44:.2X}" for c in char])
         else:
-            if char.isdigit():
-                result += chr((int(char) - 48) % 10 + 55)
-            else: 
-                result += "" # You can add any encoding for other characters as per your requirement
+            if not char.isalnum():
+                if char in ["!", "?", ","]:
+                    if char == "!":
+                        result += "/!"
+                    elif char == "?":
+                        result += "/?"
+                    else:
+                        result += "."
+                else:
+                    result += char
     return result
