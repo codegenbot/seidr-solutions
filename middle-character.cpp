@@ -1,13 +1,13 @@
 int main() {
-    string input;
-    cin >> input;
+    string s;
+    cin >> s;
     
-    int n = input.size();
+    int len = s.length();
     
-    if (n % 2 == 0) {
-        cout << input.substr(n/2-1, 2) << endl;
+    if (len % 2 == 1) {
+        cout << s.substr(len/2, 1);
     } else {
-        cout << input.substr(n/2, 1) << endl;
+        cout << s.substr(len/2 - 1, 2);
     }
     
     return 0;
