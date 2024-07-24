@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool same(vector<std::string> a, vector<std::string> b) {
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); ++i)
@@ -30,5 +30,5 @@ std::string deleteAndReverse(std::string s, std::string c) {
 }
 
 int main() {
-    assert(same(deleteAndReverse("mamma", "mia"), {"", "True"}));
+    assert(same(std::vector<std::string>{deleteAndReverse("mamma", "mia")}, {"", "True"}));
 }
