@@ -1,51 +1,38 @@
-Here is the solution:
-
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int index = -1;
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            index = i;
+    int min_diff = INT_MAX;
+    int split_index = 0;
+    
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i] - vec[0]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_index = i;
         }
     }
-
-    vector<int> leftVec(1, vec[0]);
-    for (int i = 1; i <= index; i++) {
-        leftVec.push_back(vec[i]);
-    }
-
-    vector<int> rightVec = vector<int>(vec.begin() + index + 1, vec.end());
-    if (!rightVec.empty()) {
-        rightVec.push_back(0);
-    }
-
-    return make_pair(leftVec, rightVec);
+    
+    vector<int> left_vec(vec.begin(), vec.begin() + split_index);
+    vector<int> right_vec(vec.begin() + split_index, vec.end());
+    
+    return make_pair(left_vec, right_vec);
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+    for (auto& i : vec) {
+        cin >> i;
     }
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "Left vector: ";
-    for (int x : result.first) {
-        cout << x << " ";
+    for (const auto& i : result.first) {
+        cout << i << " ";
     }
-    cout << endl;
-    cout << "Right vector: ";
-    for (int x : result.second) {
-        cout << x << " ";
+    cout << "\n";
+    for (const auto& i : result.second) {
+        cout << i << " ";
     }
-    cout << endl;
     return 0;
 }
