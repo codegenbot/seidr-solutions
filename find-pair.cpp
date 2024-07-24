@@ -28,7 +28,7 @@ int main() {
     pair<int, int> result = findPair(numbers, target);
     if (result.first != -1) {
         cout << result.first << " ";
-        cout >> result.second << endl;
+        cout << result.second << endl;
     } else {
         cout << "No such pair found" << endl;
     }

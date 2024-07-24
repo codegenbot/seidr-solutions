@@ -1,11 +1,11 @@
-Here is a Python solution:
+def leaders(a):
+    n = len(a)
+    max_right = a[n - 1]
+    result = [max_right]
 
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    for i in range(n-2, -1, -1):
+        if a[i] >= max_right:
+            max_right = a[i]
+            result.append(max_right)
 
-# test cases
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+    return result[::-1]
