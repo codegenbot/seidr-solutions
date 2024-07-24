@@ -19,7 +19,7 @@ int main(){
 
     std::cout << (issame(vec1, vec2) ? "Vectors are the same" : "Vectors are different") << std::endl;
 
-    assert(strange_sort_list(std::vector<int>{111111}));
+    assert(strange_sort_list(std::vector<int>{111111}) == true);
 
     return 0;
 }
