@@ -1,9 +1,10 @@
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if ((arr[i] >= 10 && arr[i] <= 99)) {
+    for (int i = 0; i < min(k, (int)arr.size()); i++) {
+        if (to_string(arr[i]).size() <= 2) {
             sum += arr[i];
         }
+        else break;
     }
     return sum;
 }
