@@ -1,14 +1,19 @@
 #include <vector>
 #include <boost/variant.hpp>
 
-vector<int> filter_integers(vector<boost::variant<int>> values) {
-    vector<int> result;
-    for (const auto& value : values | boost::adaptors::filtered(boost::is_instance<int>)) {
-        result.push_back(boost::get<int>(value));
+std::vector<int> filter_integers(std::vector<boost::variant<int>> values) {
+    std::vector<int> result;
+    for (const auto& value : boost::apply_visitor(
+            boost::static_visitor<bool>(),
+            [&result](int x) { result.push_back(x); },
+            [](auto) { return false; })(values)) {
+        if constexpr(boost::holds_alternative<int>(value)) {
+            result.push_back(boost::get<int>(value));
+        }
     }
     return result;
 }
 
-bool is_same(const vector<int>& a, const vector<int>& b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
