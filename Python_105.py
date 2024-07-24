@@ -1,3 +1,4 @@
+```
 input_list = list(range(1, 19))
 
 def check(result):
@@ -9,8 +10,8 @@ def check(result):
 def solve_task(input_list):
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
-    total = num1 * num2
-    if total in input_list:
+    num3 = int(input("Enter the third number: "))
+    if num1 + num2 + num3 in input_list:
         return "Correct"
     else:
         return "Incorrect"
