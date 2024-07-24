@@ -2,8 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#define _GLIBCXX_USE_CXX11_ABI 0
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -31,4 +29,4 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
-}
+};
