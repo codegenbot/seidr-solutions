@@ -1,16 +1,20 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
-    for (const auto& str : a) {
-        if (str != "hello world") {
+bool issame(const vector<string>& a) {
+    if (a.empty()) {
+        return true;
+    }
+    string target = a[0];
+    for(int i=1; i<a.size(); i++) {
+        if(a[i] != target) {
             return false;
         }
     }
     return true;
 }
 
-int sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
+int sorted_list_sum(const vector<vector<string>>& lst) {
     int sum = 0;
     for (const auto& sublst : lst) {
         std::sort(sublst.begin(), sublst.end());
