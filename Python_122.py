@@ -1,3 +1,2 @@
-```
 def add_elements(arr, k):
-    return sum(i for i in arr[:k] if 10 > str(abs(i)).ljust(3)[:2].isdigit())
+    return sum(x for x in arr[:k] if 10 > x >= 10 and str(x).count("0") < 3)
