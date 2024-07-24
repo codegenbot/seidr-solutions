@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool solveBoolean(string expression) {
     bool result = false; 
     stack<char> s;
