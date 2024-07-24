@@ -2,47 +2,49 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+bool solveBoolean(const string& booleanExp) {
+    stack<char> s;
+    bool result = false;
 
-bool solveBoolean(string expression) {
-    stack<char> opstack;
-    stack<string> valstack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '(') {
-            opstack.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (opstack.top() != '(') {
-                valstack.push(getValue(&expression[i+1]));
-                opstack.pop();
+    for (int i = 0; i < booleanExp.length(); ++i) {
+        if (booleanExp[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            opstack.pop();  // Remove the '('
-        } else if ((expression[i] >= 'a' && expression[i] <= 'f') || 
-                   (expression[i] >= 'A' && expression[i] <= 'F')) {
-            string temp = "";
-            while (i < expression.length() && ((expression[i] >= 'a' && expression[i] <= 'f') || 
-                                               (expression[i] >= 'A' && expression[i] <= 'F'))) {
-                temp += expression[i];
-                i++;
+            if (s.empty()) {
+                return true;
+            } else {
+                result = false;
             }
-            valstack.push(temp);
-        } else if (expression[i] == '&' || expression[i] == '|') {
-            while (!opstack.empty() && opstack.top() != '(') {
-                valstack.push(getValue(&expression[i]));
-                opstack.pop();
+        } else if (booleanExp[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
+            if (s.empty()) {
+                result = true;
+            } else {
+                result = true;
+            }
+        } else {
+            s.push(booleanExp[i]);
         }
     }
 
-    return getValue(NULL);
+    return result;
 }
 
-string getValue(char **exp) {
-    if (*exp != NULL) {
-        return *exp;
+int main() {
+    string booleanExp;
+    cout << "Enter a Boolean expression: ";
+    cin >> booleanExp;
+
+    bool result = solveBoolean(booleanExp);
+
+    if (result) {
+        cout << "True" << endl;
     } else {
-        string temp = valstack.top();
-        valstack.pop();
-        return temp;
+        cout << "False" << endl;
     }
+
+    return 0;
 }
