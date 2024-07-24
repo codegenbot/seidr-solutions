@@ -1,17 +1,10 @@
 #include <algorithm>
-#include <iostream>
+#include <cmath>
 
-int findMaxAbsoluteValue() {
-    int numbers[11];
-    std::cout << "Enter a set of numbers (up to 10): ";
-    for (int i = 0; i < 11; ++i) {
-        std::cin >> numbers[i];
-    }
-    int max_val = *std::max_element(numbers, numbers + sizeof(numbers) / sizeof(numbers[0]));
-    return std::abs(max_val);
-}
+int max_val = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+int max_abs = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}, [](int a, int b){ return std::abs(a) < std::abs(b); });
 
 int main() {
-    std::cout << "The maximum absolute value is: " << findMaxAbsoluteValue() << std::endl;
+    // Use the max_val and max_abs variables here
     return 0;
 }
