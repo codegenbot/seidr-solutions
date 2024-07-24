@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def fib(n: int):
     if n <= 1:
         return n
