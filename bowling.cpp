@@ -1,52 +1,48 @@
+#include <vector>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> rolls(21);
-
+    int currentFrame = 1;
+    int rollsInFrame = 0;
+    
     for (char c : s) {
-        if (c == '/') {
-            score += getScore(roll);
-            roll = 0;
-        } else {
-            roll++;
-            rolls[20 - s.length() + 1] = c - 'X';
+        if (c == 'X') { // Strike
+            score += 10 + getBonusForNextTwoRolls(s, currentFrame);
+            currentFrame++;
+            rollsInFrame = 2;
+        } else if (c == '/') { // Spare
+            score += 5 + getBonusForNextRoll(s, currentFrame);
+            currentFrame++;
+            rollsInFrame = 1;
+        } else { // Normal roll
+            int rollValue = c - '0';
+            score += rollValue;
+            rollsInFrame++;
+
+            if (rollsInFrame == 2) {
+                currentFrame++;
+            }
         }
     }
-
-    score += getScore(roll);
 
     return score;
 }
 
-int getScore(int numRolls) {
-    int score = 0;
-
-    for (int i = 0; i < numRolls; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + getScore(i + 1);
-            break;
-        } else if (rolls[i] >= 5) {
-            int spare = rolls[i];
-            for (int j = i + 1; j < numRolls && j - i <= 2; j++) {
-                spare += rolls[j];
-                if (spare == 10) {
-                    score += 10;
-                    break;
-                }
-            }
-            if (spare > 10) {
-                score += 10 + spare - 10;
-            } else {
-                score += spare;
-            }
-        } else {
-            int num = rolls[i];
-            for (int j = i + 1; j < numRolls && j - i <= 2; j++) {
-                num += rolls[j];
-            }
-            score += num;
-        }
+int getBonusForNextTwoRolls(string s, int frameNumber) {
+    for (int i = 0; i < 2; i++) {
+        char c = s[frameNumber * 2 + i];
+        if (c == 'X') return 10;
+        else if (c == '/') return 5;
+        else return c - '0';
     }
+}
 
-    return score;
+int getBonusForNextRoll(string s, int frameNumber) {
+    for (int i = 0; i < 1; i++) {
+        char c = s[frameNumber * 2 + i];
+        if (c == 'X') return 10;
+        else if (c == '/') return 5;
+        else return c - '0';
+    }
 }
