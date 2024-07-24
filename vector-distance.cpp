@@ -5,12 +5,11 @@
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
-    std::cin.ignore(); // Clear the newline character from the input stream
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
