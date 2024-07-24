@@ -1,31 +1,39 @@
-int bowlingScore(string s) {
+int bowlingScore(string str) {
     int score = 0;
     int roll = 0;
-    bool firstRollInFrame = true;
-
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + ((firstRollInFrame) ? 10 : 20);
-            roll++;
-            firstRollInFrame = false;
-        } else if (c == '/') {
-            int nextRoll = s.find('/');
-            string leftSide = s.substr(0, nextRoll);
-            string rightSide = s.substr(nextRoll + 1);
-
-            score += ((firstRollInFrame) ? stof(leftSide) : stof(leftSide) + stof(rightSide));
-            roll++;
-            firstRollInFrame = (leftSide.length() == 2);
-        } else {
-            if (firstRollInFrame) {
-                score += c - '0';
-                firstRollInFrame = false;
+    string frame;
+    
+    for (char c : str) {
+        if (c == '/') {
+            int pins = stoi(frame);
+            if (roll < 2) {
+                score += min(10, pins);
             } else {
-                score += c - '0' + ((roll < 9) ? stof(to_string(c - '0')) : 10);
+                score += pins + min(10, roll - 1) * 10;
             }
+            frame.clear();
+            roll = 0;
+        } else if (c == 'X') {
+            int pins = 30;
+            if (roll < 2) {
+                score += 10;
+            } else {
+                score += 20 + min(10, roll - 1) * 10;
+            }
+            frame.clear();
+            roll = 0;
+        } else {
+            frame.push_back(c);
             roll++;
         }
     }
-
+    
+    int pins = stoi(frame);
+    if (roll < 2) {
+        score += min(10, pins);
+    } else {
+        score += pins + min(10, roll - 1) * 10;
+    }
+    
     return score;
 }
