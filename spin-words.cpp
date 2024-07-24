@@ -1,37 +1,18 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here's the solution:
 
-string spinWords(string sentence) {
+string spinWords(string s) {
     string result = "";
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            result += " ";
-        } else {
-            int j = i;
-            while (j < sentence.size() && sentence[j] != ' ') {
-                j++;
-            }
-            string word = sentence.substr(i, j - i);
-            if (word.length() >= 5) {
-                for (int k = word.length() - 1; k >= 0; k--) {
-                    result += word[k];
-                }
-            } else {
-                result += word;
-            }
-            i = j;
-        }
+    int wordLength;
+    char* word = strtok(const_cast<char*>(s.c_str()), " ");
+    while(word != NULL) {
+        wordLength = strlen(word);
+        if(wordLength >= 5) {
+            for(int i = wordLength - 1; i >= 0; --i)
+                result += word[i];
+        } else
+            result += word;
+        result += " ";
+        word = strtok(NULL, " ");
     }
-    return result;
-}
-
-int main() {
-    // Testing the function
-    cout << spinWords("a") << endl; // Output: a
-    cout << spinWords("this is a test") << endl; // Output: this is a test
-    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
-    cout << spinWords("hi") << endl; // Output: hi
-
-    return 0;
+    return result.substr(0, result.size() - 1);
 }
