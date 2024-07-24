@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
