@@ -16,7 +16,7 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+int compareMain() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
@@ -47,11 +47,17 @@ int main() {
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
+
     if(checkEquality) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
     }
 
+    return 0;
+}
+
+int main() {
+    compareMain();
     return 0;
 }
