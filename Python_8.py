@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     sum_value = sum(numbers)
     product_value = 1
@@ -12,9 +11,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         else:
             product_value *= number
 
-    return (sum_value, product_value) if not has_zero else (sum_value, 0)
+    return sum_value, product_value if not has_zero else 0
 
-
-numbers = list(map(int, input().split()))
+user_input = input("Enter a list of integers separated by commas: ")
+numbers = [int(num) for num in user_input.split(',')]
 result = sum_product(numbers)
 print(result)
