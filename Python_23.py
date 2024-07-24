@@ -1,7 +1,3 @@
-def file_length(filename: str) -> int:
-    try:
-        with open(filename, 'r') as f:
-            length = len(f.read())
-            return length
-    except FileNotFoundError:
-        return 0
+def longest_name(names: list) -> str:
+    longest = max(names, key=len)
+    return longest
