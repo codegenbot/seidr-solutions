@@ -1,34 +1,42 @@
 int score(string s) {
     int total = 0;
-    int frame = 1;
-    int ball = 0;
-    int balls[22];
-    for (char c : s) {
-        if (c == 'X') {
-            balls[ball++] = 10;
-            if (frame < 10) {
-                balls[ball++] = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (s[i+2] == 'X') {
+                total += 10;
+                if (s[i+4] == 'X') {
+                    total += 10;
+                } else if (s[i+4] == '-') {
+                    total += 0;
+                } else {
+                    total += s[i+4] - '0';
+                }
+            } else if (s[i+2] == '/') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0';
+                total += s[i+4] - '0';
             }
-        } else if (c == '/') {
-            balls[ball-1] = 10 - balls[ball-2];
-        } else if (c == '-') {
-            balls[ball++] = 0;
+            frame++;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i-1] - '0');
+            if (s[i+2] == 'X') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0';
+            }
+            frame++;
+        } else if (s[i] == '-') {
+            total += 0;
+            frame++;
         } else {
-            balls[ball++] = c - '0';
+            total += s[i] - '0';
+            frame++;
         }
-    }
-    for (int i = 0; i < 20 && frame <= 10; ++i) {
-        if (balls[i] == 10) {
-            total += 10 + balls[i+1] + balls[i+2];
-            frame++;
-        } else if (balls[i] + balls[i+1] == 10) {
-            total += 10 + balls[i+2];
-            i++;
-            frame++;
-        } else {
-            total += balls[i] + balls[i+1];
-            i++;
-            frame++;
+        if (frame == 10) {
+            break;
         }
     }
     return total;
