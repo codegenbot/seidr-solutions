@@ -1,4 +1,14 @@
-vector<int> strange_sort_list(vector<int> lst) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) {
         return result;
@@ -8,7 +18,7 @@ vector<int> strange_sort_list(vector<int> lst) {
         int min = *min_element(lst.begin(), lst.end());
         int max = *max_element(lst.begin(), lst.end());
         
-        if (min == max) {
+        if (*min_element(lst.begin(), lst.end()) == *max_element(lst.begin(), lst.end())) {
             result.insert(result.begin(), min);
             lst.clear();
         } else {
@@ -21,4 +31,13 @@ vector<int> strange_sort_list(vector<int> lst) {
     }
     
     return result;
+}
+
+int main() {
+    vector<int> input = {1, 2, 3};
+    vector<int> output = strange_sort_vector(input);
+    for (int num : output) {
+        cout << num << " ";
+    }
+    cout << endl;
 }
