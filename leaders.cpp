@@ -1,30 +1,31 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
+int main() {
+    vector<int> arr = {16,17,4,3,5,2};
+    vector<int> leaders_vector;
     int n = arr.size();
-    if (n == 0) return result; 
+    
+    if (n == 0) {
+        cout << "Array is empty";
+        return 1;
+    }
 
     int lastLeader = arr[n-1];
-    result.push_back(lastLeader);
+    leaders_vector.push_back(lastLeader);
 
     for(int i = n-2; i >= 0; --i) {
         if(arr[i] >= lastLeader) {
             lastLeader = arr[i];
-            result.push_back(lastLeader);
+            leaders_vector.push_back(lastLeader);
         }
     }
     
-    reverse(result.begin(), result.end());
-    return result;
-}
-
-int main() {
-    vector<int> arr = {5, 2, 3, 4};
-    vector<int> result = leaders(arr);
-    // Do something with the result
+    reverse(leaders_vector.begin(), leaders_vector.end());
+    cout << "Leaders are: ";
+    for (int i : leaders_vector) {
+        cout << i << " ";
+    }
     return 0;
 }
