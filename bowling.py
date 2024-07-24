@@ -17,13 +17,21 @@ def handle_bonus(bowls, score):
                     else:
                         score += int(bowls[i + 2])
         else:
-            if bowls[i] != "-":
-                if bowls[i + 1] == "/":
-                    score += int(bowls[i]) + 10
+            if bowls[i + 1] == "/":
+                score += int(bowls[i]) + 10
+            else:
+                if bowls[i] == "-":
+                    score += 0
                 else:
-                    score += int(bowls[i]) + (int(bowls[i + 1]) if bowls[i + 1] != "-" else 0)
+                    score += int(bowls[i]) if bowls[i].isdigit() else 0
+                
+                if bowls[i + 1] == "-":
+                    score += 0
+                else:
+                    score += int(bowls[i + 1]) if bowls[i + 1].isdigit() else 0
         i += 1
     return score
+
 
 input_bowls = input("Enter the bowling sequence: ")
 result = handle_bonus(input_bowls, 0)
