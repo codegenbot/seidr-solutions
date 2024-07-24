@@ -1,38 +1,38 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(const std::string& input) {
-    std::vector<std::string> words;
-    size_t pos = 0;
+string spinWords(string s) {
+    string result = "";
+    int wordLength;
+    string word;
 
-    while ((pos = input.find(' ')) != std::string::npos) {
-        words.push_back(input.substr(0, pos));
-        input.erase(0, pos + 1);
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == ' ') {
+            if ((word.length()) >= 5) {
+                for (int j = word.length(); j >= 0; j--)
+                    result += word[j];
+            } else
+                result += word;
+            word = "";
+        } else
+            word += s[i];
     }
-
-    words.push_back(input);
-
-    for (std::string& word : words) {
-        if (word.size() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-    }
-
-    std::string output;
-    for (const auto& word : words) {
-        output += word + " ";
-    }
-
-    return output.substr(0, output.size() - 1);
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // Should print a
-    std::cout << spinWords("this is a test") << std::endl; // Should print this is a test
-    std::cout << spinWords("this is another test") << std::endl; // Should print this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // Should print hi
+    string str1 = "a";
+    cout << spinWords(str1) << endl;
 
+    str1 = "this is a test";
+    cout << spinWords(str1) << endl;
+
+    str1 = "this is another test";
+    cout << spinWords(str1) << endl;
+
+    str1 = "hi";
+    cout << spinWords(str1) << endl;
+    
     return 0;
 }
