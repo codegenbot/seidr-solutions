@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 int sum_of_squares(int n) {
     int total = 0;
@@ -10,7 +11,6 @@ int sum_of_squares(int n) {
 }
 
 int main() {
-    assert(sum_of_squares(2*2 + 3*3 + 17*17) == 385);
-    std::cout << "Sum of squares: " << sum_of_squares(2*2 + 3*3 + 17*17) << std::endl;
+    assert(sum_of_squares(1*1 + 3*3 + 17*17 + 1*1 + 15*15 + 13*13 + 1*1 + 14*14 + 14*14 + 12*12 + 5*5) == 385);
     return 0;
 }
