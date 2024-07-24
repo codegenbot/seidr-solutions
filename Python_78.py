@@ -1,8 +1,10 @@
 ```
 def hex_key(num):
-    primes = set([2, 3, 5, 7, ord('B'), ord('D')])
+    primes = set([2, 3, 5, 7, 11, 13, 17])
     count = 0
-    for char in num:
-        if char.upper() in '237BD':
-            count += (int(char, 16) in primes)
+    for digit in num:
+        if digit.upper() in 'BDF':
+            count += 1
+        elif int(digit, 16) in primes:
+            count += 1
     return count
