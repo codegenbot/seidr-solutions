@@ -1,8 +1,12 @@
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-void sort_third(vector<int>& l){
+using namespace std;
+
+vector<int> sort_third(vector<int> l){
+    
     for(int i = 0; i < l.size(); i++){
         if(i % 3 == 0){
             vector<int> temp;
@@ -15,4 +19,12 @@ void sort_third(vector<int>& l){
             }
         }
     }
+    return l;
+}
+
+bool issame(vector<int> a, vector<int> b);
+
+int main() {
+    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
+    return 0;
 }
