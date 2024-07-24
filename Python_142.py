@@ -1,2 +1,9 @@
-numbers = [int(x) for x in input().split(",")]
-print(sum_squares(list(map(int, numbers))))
+```
+def sum_squares(numbers):
+    total_sum = 0
+    for number in numbers:
+        total_sum += number ** 2
+    return total_sum
+
+numbers = list(map(int, input().split(',')))
+print(sum_squares(numbers))
