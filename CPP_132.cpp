@@ -1,4 +1,3 @@
-```cpp
 bool is_nested(string str) {
     int count = 0;
     for (char c : str) {
@@ -8,5 +7,4 @@ bool is_nested(string str) {
             else return false;
         }
     }
-    return count != 0; 
-}
+    return count != 0;
