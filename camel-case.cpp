@@ -31,3 +31,4 @@ int main() {
         cout << "camelCase: " << kebabToCamel(s) << endl;
     }
     return 0;
+}
