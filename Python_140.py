@@ -5,20 +5,15 @@ def fix_spaces(text):
         if char.isalnum():
             new_text += char
             add_hyphen = False
-        elif char in ["-", "_"]:
-            new_text += char
-            add_hyphen = True
-        elif char.isspace() or (char.isspace() and not add_hyphen):
-            if char.isspace():
-                if len(new_text) > 0 or add_hyphen:
-                    new_text += "-"
-                else:
-                    new_text += " "
-                add_hyphen = True
-            else:
+        elif char.isspace():
+            if not add_hyphen:
                 new_text += "-"
                 add_hyphen = True
+            else:
+                new_text += "_"
         else:
             new_text += "-"
             add_hyphen = True
+    if text.strip() != text:  
+        new_text += "-" * len(text[:-1]) 
     return new_text
