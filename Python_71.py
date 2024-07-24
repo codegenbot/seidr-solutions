@@ -1,3 +1,4 @@
+```Python
 import math
 
 def sum_of_squares(n):
