@@ -10,8 +10,8 @@ def match_parens(lst):
             open_count += 1
         elif c == ')':
             if not stack or stack.pop() != '(':
-                return 
+                return False
             close_count += 1
     if stack or open_count != close_count:
-        return 
-    return
+        return False
+    return True
