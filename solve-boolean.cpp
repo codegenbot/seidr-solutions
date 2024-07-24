@@ -3,11 +3,6 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    if (expression[0] == '(') {
-        int pos = expression.find(')');
-        return solveBoolean(expression.substr(1, pos - 1));
-    }
-
     int pos = expression.find('|');
     while (pos != string::npos) {
         string left = expression.substr(0, pos);
@@ -30,19 +25,13 @@ bool solveBoolean(string expression) {
         pos = expression.find('&', pos);
     }
 
-    if (tolower(expression[0]) == 't')
-        return true;
-
-    return false;
+    return !expression.empty() && tolower(expression[0]) == 't';
 }
 
 int main() {
-    char c;
-    string expression = "";
+    string expression;
     cout << "Enter a Boolean expression: ";
-    while ((c = cin.get()) != '\n') {
-        expression += c;
-    }
+    getline(cin, expression);
     bool result = solveBoolean(expression);
     if (result)
         cout << "True";
