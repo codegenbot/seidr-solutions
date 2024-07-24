@@ -1,15 +1,5 @@
+```
 def sort_numbers(numbers: str) -> str:
-    num_dict = {
-        "zero": 0,
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        "nine": 9,
-    }
-    sorted_numbers = sorted([num_dict[num] for num in numbers.split() if num in num_dict])
+    num_dict = {k: v for k, v in zip(["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", "ninety-nine"], range(1, 100))]
+    sorted_numbers = sorted([num_dict[num] for num in numbers.split() if num.replace(" ", "") in num_dict])
     return " ".join(map(str, sorted_numbers))
