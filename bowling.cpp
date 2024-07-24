@@ -1,25 +1,36 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-    int score = 0;
+int score(const string& input) {
+    int totalScore = 0;
     int frame = 0;
-    int balls = 0;
-    for (char c: bowls) {
+    int rolls = 0;
+
+    for (char c : input) {
         if (c == 'X') {
-            score += 10;
+            totalScore += 10;
             if (frame < 9) {
-                score += ((bowls[balls + 1] == 'X') ? 10 : (isdigit(bowls[balls + 1]) ? bowls[balls + 1] - '0' : 0)) +
-                         ((bowls[balls + 2] == 'X') ? 10 : (bowls[balls + 2] == '/' ? 10 - (isdigit(bowls[balls + 1]) ? bowls[balls + 1] - '0' : 0) : (isdigit(bowls[balls + 2]) ? bowls[balls + 2] - '0' : 0));
-                balls += 1;
+                totalScore += (input[rolls + 1] == 'X') ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10);
+                totalScore += (input[rolls + 2] == 'X') ? 10 : (input[rolls + 2] == '/' ? 10 - (input[rolls + 1] - '0') : (isdigit(input[rolls + 2]) ? input[rolls + 2] - '0' : 10));
             }
-            frame++;
+            rolls++;
         } else if (c == '/') {
-            score += 10 - (isdigit(bowls[balls - 1]) ? bowls[balls - 1] - '0' : 0);
+            totalScore += 10 - (input[rolls - 1] - '0');
+            totalScore += (input[rolls + 1] == 'X') ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10);
+            if (frame == 9) break;
+            rolls += 2;
         } else if (isdigit(c)) {
-            score += c - '0';
+            totalScore += c - '0';
+            if (frame == 9) break;
+            rolls++;
         }
-        balls++;
+        if (c != 'X') rolls++;
+        if (rolls % 2 == 0) frame++;
     }
-    cout << score;
+
+    return totalScore;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
