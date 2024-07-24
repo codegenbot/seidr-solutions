@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -10,7 +9,8 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
             totalSnow += rateOfSnowFall;
         }
         if (proportionOfSnowMeltingPerHour > 0.0) {
-            double snowToMelt = min(double(initialSnow * proportionOfSnowMeltingPerHour), totalSnow);
+            double initialSnowDouble = static_cast<double>(initialSnow); 
+            double snowToMelt = std::min(totalSnow, initialSnowDouble * proportionOfSnowMeltingPerHour);
             totalSnow -= snowToMelt;
         }
     }
