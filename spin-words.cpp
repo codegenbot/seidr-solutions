@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -31,7 +32,7 @@ int main() {
     string str;
     cout << "Enter a string: ";
     cin >> str; 
-    if(str == "quit" || str == "exit") return 0; 
+    if(str == "quit" || str == "exit") 
+        return 0; 
     cout << spinWords(str);
-    str.clear(); 
 }
