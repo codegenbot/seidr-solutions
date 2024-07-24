@@ -9,4 +9,3 @@ int prod_signs(vector<int> arr) {
         sum += abs(num);
     }
     return product * sum;
-}
