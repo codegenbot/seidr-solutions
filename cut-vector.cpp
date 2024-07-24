@@ -6,10 +6,15 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    char c;
 
     int temp;
-    while (cin >> temp) {
+    while (cin >> std::noskipws >> c) {
+        if (c == '\n') {
+            break;
+        }
+        cin.putback(c);
+        cin >> temp;
         nums.push_back(temp);
     }
 
