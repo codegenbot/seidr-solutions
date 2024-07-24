@@ -13,13 +13,13 @@ bool solveBoolean(string booleanExpression) {
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push((leftOperand == "T" || rightOperand == "T") ? "T" : "F");
+            operandStack.push((leftOperand == "T" && rightOperand == "F") || (leftOperand == "T") || (rightOperand == "T")) + "";
         } else if (booleanExpression[i] == '&') {
             string rightOperand = operandStack.top();
             operandStack.pop();
             string leftOperand = operandStack.top();
             operandStack.pop();
-            operandStack.push((leftOperand == "T" && rightOperand == "T") ? "T" : "F");
+            operandStack.push((leftOperand == "T" && rightOperand == "T") && true) + "";
         } else if (booleanExpression[i] != ' ') {
             string operand;
             while (i < booleanExpression.length() && booleanExpression[i] != ' ' && booleanExpression[i] != '|' && booleanExpression[i] != '&') {
