@@ -13,7 +13,7 @@ def prime_fib(n: int):
     
     prime_fib_nums = [num for num in fib if is_prime(num)]
     
-    if n > len(prime_fib_nums) - 1:
+    if n >= len(prime_fib_nums): # Updated condition from '>' to '>='
         return None
     
     return prime_fib_nums[n - 1]
