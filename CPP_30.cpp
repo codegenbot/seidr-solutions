@@ -13,11 +13,17 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::initializer_list<float> values) {
-    return std::vector<float>(values);
+std::vector<float> get_positive(std::vector<float> v) {
+    std::vector<float> result;
+    for (float val : v) {
+        if (val > 0) {
+            result.push_back(val);
+        }
+    }
+    return result;
 }
 
 int main() {
-    assert(issame(get_positive({}), get_positive({})));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
