@@ -1,7 +1,8 @@
 string result = "";
     while (x > 0) {
-        result = to_string(x % base) + result;
-        x /= base;
+        int remainder = x % base;
+        result = to_string(remainder) + result;
+        x = x / base;
     }
     return result;
 }
