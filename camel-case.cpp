@@ -16,7 +16,7 @@ std::string kebabToCamel(const std::string& input) {
             result += std::toupper(input[i]);
             capitalizeNext = false;
         } else {
-            result += std::tolower(input[i]);
+            result += input[i];
         }
     }
 
