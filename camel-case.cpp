@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <iostream>
 
@@ -28,7 +27,7 @@ int main() {
         }
     }
 
-    cout << result << endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
