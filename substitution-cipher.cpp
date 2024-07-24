@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
 
 int main() {
-    std::string cipher2;  
-    std::string result;   
+    std::string cipher2;
     std::cin >> cipher2;
     std::string cipher1;
     std::cin >> cipher1;
@@ -18,13 +18,13 @@ int main() {
         cipherMap[cipher1[i]] = cipher2[i];
     }
     
-    result = "";
+    std::string result = "";
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
             result.push_back(cipherMap.at(c));
         } else {
-            // Handle characters not in the cipher map
+            // Handle characters not in the cipher map by keeping them unchanged
             result.push_back(c);
         }
     }
