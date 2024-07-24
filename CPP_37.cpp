@@ -31,4 +31,3 @@ std::vector<float> sort_even(std::vector<float> l) {
         }
     }
     return result;
-}
