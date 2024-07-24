@@ -1,8 +1,10 @@
+```cpp
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <openssl/err.h>
 #include <openssl/md5.h>
-#include <openssl/ssl.h>
+#pragma comment(lib, "libcrypto.lib")
 
 using namespace std;
 
