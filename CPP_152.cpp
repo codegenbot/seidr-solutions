@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -16,7 +17,7 @@ bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int compareMain() {
+int main() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
@@ -54,10 +55,5 @@ int compareMain() {
         std::cout << "The two vectors are not the same." << std::endl;
     }
 
-    return 0;
-}
-
-int main() {
-    compareMain();
     return 0;
 }
