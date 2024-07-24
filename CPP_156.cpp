@@ -22,7 +22,7 @@ vector<Roman> romanMap = {
     {1, "I"}
 };
 
-string romanToInt(int number) {
+string intToRoman(int number) {
     string roman = "";
     
     for (const auto& pair : romanMap) {
@@ -39,6 +39,6 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The Roman numeral is: " << romanToInt(num) << endl;
+    cout << "The Roman numeral is: " << intToRoman(num) << endl;
     return 0;
 }
