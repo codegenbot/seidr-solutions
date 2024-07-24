@@ -1,35 +1,27 @@
-int countWhitePegs(const string& code, const string& guess) {
+int mastermind(string code, string guess) {
     int whitePegs = 0;
+    int blackPegs = 0;
+
+    // Count the number of correct colors in wrong positions
+    map<char, int> codeCount, guessCount;
     for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 0) {
+        codeCount[c]++;
+    }
+    for (int i = 0; i < 4; i++) {
+        char c = guess[i];
+        if (codeCount[c] > 0 && code.find(c) != string::npos) {
             whitePegs++;
+            codeCount[c]--;
         }
     }
-    return whitePegs;
-}
 
-int countBlackPegs(const string& code, const string& guess) {
-    int blackPegs = 0;
-    for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 1) {
+    // Count the number of correct colors in correct positions
+    for (int i = 0; i < 4; i++) {
+        char c = guess[i];
+        if (c == code[i]) {
             blackPegs++;
         }
     }
-    return blackPegs;
-}
 
-int main() {
-    // Read the input from user
-    string code, guess;
-    cin >> code >> guess;
-
-    // Count white and black pegs
-    int whitePegs = countWhitePegs(code, guess);
-    int blackPegs = countBlackPegs(code, guess);
-
-    // Print the output
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
-
-    return 0;
+    return blackPegs + whitePegs;
 }
