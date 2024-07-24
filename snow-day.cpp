@@ -9,7 +9,7 @@ int main() {
     std::cout << std::fixed << std::setprecision(15);
     
     for (int i = 0; i < hours; ++i) {
-        float snowfall = rate - (snow * melt);
+        float snowfall = rate - static_cast<float>(static_cast<int>(snow * melt));
         snow = snow + snowfall;
     }
     
