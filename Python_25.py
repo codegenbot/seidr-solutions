@@ -1,3 +1,4 @@
+```
 def factorize(n: int) -> list:
     factors = []
     i = 2
