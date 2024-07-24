@@ -1,16 +1,14 @@
 #include <algorithm>
+#include <numeric>
 #include <vector>
-#include <cmath>
+#include <limits>
+#include <stdexcept>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 1e-6f) return false;
-    }
-    return true;
+bool issame(vector<float> a, vector<float> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
         throw runtime_error("Vector must have at least two elements");
     }
