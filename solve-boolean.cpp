@@ -1,43 +1,38 @@
-#include <string>
-
 bool evalBool(std::string s) {
+    bool result = false;
     for (char c : s) {
         switch (std::tolower(c)) {
             case 't':
-                return true;
+                result = true;
+                break;
             case 'f':
-                return false;
-            case '|': 
+                result = false;
+                break;
+            case '|': {
                 if (s.length() > 1) {
                     int pos = s.find('|');
                     std::string left = s.substr(0, pos);
                     std::string right = s.substr(pos + 1);
-                    return evalBoolOr(left, right);
+                    bool subResult1 = evalBool(left);
+                    bool subResult2 = evalBool(right);
+                    result = subResult1 || subResult2;
                 }
                 break;
-            case '&':
+            }
+            case '&': {
                 if (s.length() > 1) {
                     int pos = s.find('&');
                     std::string left = s.substr(0, pos + 1);
                     std::string right = s.substr(pos + 1);
-                    return evalBoolAnd(left, right);
+                    bool subResult1 = evalBool(left);
+                    bool subResult2 = evalBool(right);
+                    result = subResult1 && subResult2;
                 }
                 break;
+            }
         }
     }
-    return false; 
-}
-
-bool evalBoolOr(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 || subResult2;
-}
-
-bool evalBoolAnd(std::string left, std::string right) {
-    bool subResult1 = evalBool(left);
-    bool subResult2 = evalBool(right);
-    return subResult1 && subResult2;
+    return result; 
 }
 
 int main() {
