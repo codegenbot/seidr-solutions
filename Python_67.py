@@ -1,40 +1,17 @@
-import re
-
-
-def fruit_distribution():
-    while True:
-        try:
-            s = input()
-            n = int(input())
-            break
-        except ValueError:
-            print(
-                "Invalid input format. Please enter a string for 's' and an integer for 'n'."
-            )
-
+```
+while True:
+    s = input()
+    n = int(input())
     pattern = r"(\d+)\s*(apples|oranges)"
 
     if not re.search(pattern, s.lower()):
-        return "Invalid input format"
+        continue
 
-    quantities = [int(x[0]) for x in re.findall(pattern, s.lower())]
+    break
 
-    apples, oranges = (
-        sum(1 if x == "apples" else 0 for x in (re.findall(pattern, s.lower()))),
-        len(quantities) - apples,
-    )
-    total_fruit = sum(quantities)
+total_apples_oranges = 0
+for _ in range(n):
+    quantity = int(input())
+    total_apples_oranges += quantity
 
-    max_per_box = min(total_fruit // n, n)
-    remaining_fruits = total_fruit - (max_per_box * n)
-
-    boxes = []
-    for i in range(n):
-        box = 0
-        if i < remaining_fruits // (n - i):
-            box = max_per_box + 1
-        else:
-            box = max_per_box
-        boxes.append(box)
-
-    return sum(boxes)
+print(total_apples_oranges)
