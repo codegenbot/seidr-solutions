@@ -1,22 +1,35 @@
-#include <string>
-#include <vector>
+#include<stdexcept>
+using namespace std;
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    static const std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    if (find(planets.begin(), planets.end(), planet1) == planets.end() || 
-        find(planets.begin(), planets.end(), planet2) == planets.end()) {
-        return {};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> result;
+    const string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+
+    int i = 0;
+    while (i < 8) {
+        if (planet1 == planets[i]) {
+            break;
+        }
+        i++;
     }
-    
-    auto first = find(planets.begin(), planets.end(), planet1);
-    auto second = find(planets.begin(), planets.end(), planet2);
-    
-    if (*first > *second) {
-        std::swap(first, second);
+
+    if (i >= 8) {
+        return vector<string>();
     }
-    
-    auto result = std::vector<std::string>(first + 1, second - 1);
-    std::sort(result.begin(), result.end());
+
+    for (int j = i + 1; j < 8; j++) {
+        if (planet2 == planets[j]) {
+            break;
+        }
+    }
+
+    if (j >= 8) {
+        return vector<string>();
+    }
+
+    for (int k = i + 1; k < j; k++) {
+        result.push_back(planets[k]);
+    }
+
     return result;
 }
