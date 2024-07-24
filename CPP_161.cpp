@@ -1,11 +1,15 @@
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(char c : s) {
-        if(isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+    for (char c : s) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            if (c >= 'a' && c <= 'z') {
+                c -= ('a' - 'A');
+            }
         } else {
-            result += c;
+            c = toupper(c);
         }
+        result += c;
     }
     return result;
 }
