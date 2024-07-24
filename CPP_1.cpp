@@ -2,51 +2,43 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-vector<string> separate_paren_groups(string paren_string);
 bool issame(vector<string> a, vector<string> b);
 
-int main() {
-    string input;
-    cout << "Enter the parentheses string: ";
-    cin >> input;
-
-    vector<string> separated_groups = separate_paren_groups(input);
-
-    for (const string& group : separated_groups) {
-        cout << group << endl;
-    }
-
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+    vector<string> groups;
     string current_group;
-    int open_braces = 0;
-
+    int balance = 0;
+    
     for (char c : paren_string) {
         if (c == '(') {
-            open_braces++;
-            if (open_braces > 1) {
+            if (balance > 0) {
                 current_group += c;
             }
+            balance++;
         } else if (c == ')') {
-            open_braces--;
-            if (open_braces >= 0) {
+            balance--;
+            if (balance > 0) {
                 current_group += c;
-            } 
-            if (open_braces == 0) {
-                result.push_back(current_group);
+            } else if (balance == 0) {
+                groups.push_back(current_group);
                 current_group = "";
             }
         }
     }
-
-    return result;
+    
+    return groups;
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
