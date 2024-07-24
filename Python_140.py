@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def fix_spaces(text):
     if not text:
