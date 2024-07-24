@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int fuelCost(vector<int> numbers) {
@@ -10,4 +9,3 @@ int fuelCost(vector<int> numbers) {
         sum += newNum;
     }
     return sum;
-}

@@ -1,38 +1,30 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string s) {
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 't') return true;
-        else if (s[i] == 'f') return false;
-        else if (s[i] == '|') {
-            i++;
-            bool first = solveBoolean(s.substr(i));
-            i += s.find('&', i) - 1;
-            bool second = solveBoolean(s.substr(i));
-            return first || second;
+string solveBoolean(string s) {
+    stack<char> st;
+    string res = "";
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&' || s[i] == '|') {
+            while(st.size() > 1 && (st.top() == '&' || st.top() == '|')) {
+                res += st.top();
+                st.pop();
+            }
+            st.push(s[i]);
+        } else {
+            st.push(s[i]);
         }
-        else if (s[i] == '&') {
-            i++;
-            bool first = solveBoolean(s.substr(i));
-            i += s.find('|', i) - 1;
-            bool second = solveBoolean(s.substr(i));
-            return first && second;
-        }
-        i++;
     }
-    return false; // default to False if no T or F found
-}
-
-int main() {
-    string input;
-    cout << "Enter a Boolean expression (T/F/|/&): ";
-    cin >> input;
-    bool output = solveBoolean(input);
-    cout << (output ? "True" : "False") << endl;
-    return 0;
+    
+    while(st.size() > 0) {
+        res += st.top();
+        st.pop();
+    }
+    
+    string result = "True";
+    if(res == "F") {
+        result = "False";
+    } else if(res.length() > 1 && (res.find("T&") != string::npos || res.find("F|") != string::npos)) {
+        result = "False";
+    }
+    
+    return result;
 }
