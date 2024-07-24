@@ -11,6 +11,7 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
+
 try:
     n = int(input("Enter a positive number to factorize: ").strip())
     if n > 0:
