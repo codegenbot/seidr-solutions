@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,7 +27,7 @@ string intToRoman(int number) {
     return roman;
 }
 
-void RomanToInt() {
+int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
