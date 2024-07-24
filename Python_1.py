@@ -1,8 +1,6 @@
 from typing import List
 
-
-def separate_paren_groups() -> List[str]:
-    paren_string = input()
+def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     current_group = ""
@@ -12,15 +10,14 @@ def separate_paren_groups() -> List[str]:
             stack.append("(")
         elif char == ")" and stack:
             stack.pop()
-
-        current_group += char
-
-        if not stack:
+        elif char == ")" and not stack:
             result.append(current_group)
             current_group = ""
+        else:
+            current_group += char
 
+    result.append(current_group)
     return result
 
-
-output = separate_paren_groups()
-print(output)
+# Call the function with the input string for testing
+print(separate_paren_groups("abc(def)ghi(jkl)mno"))
