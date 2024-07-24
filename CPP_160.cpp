@@ -19,23 +19,21 @@ vector<string> split(string str) {
             temp += str[i];
         }
     }
-    if (!temp.empty()) {
-        result.push_back(temp);
-    }
+    result.push_back(temp);
     return result;
 }
 
 double do_algebra(vector<string> expressions) {
     double result = 0;
-    string operators = expressions[2];
+    int operator_value = stoi(expressions[2]);
 
-    if (stod(operators) == 0) {
+    if (operator_value == 0) {
         if (expressions[2][0] == '+') {
             result = pow(stod(expressions[0]), stod(expressions[1]));
         } else if (expressions[2][0] == '-') {
             result = pow(stod(expressions[0]), -stod(expressions[1]));
         }
-    } else if (stod(operators) == 42) { 
+    } else if (operator_value == 42) { 
         if (expressions[1] == "0") {
             if (expressions[2][0] == '+') {
                 result = stod(expressions[0]);
@@ -51,7 +49,7 @@ double do_algebra(vector<string> expressions) {
                 result = stod(expressions[0]) * stod(expressions[1]);
             }
         }
-    } else if (stod(operators) == 47) { 
+    } else if (operator_value == 47) { 
         if (expressions[1] == "0") {
             if (expressions[2][0] == '+') {
                 result = -stod(expressions[0]);
