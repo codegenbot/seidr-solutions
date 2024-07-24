@@ -1,11 +1,20 @@
-Here's the solution:
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0) {
-            sum += num * num;
+    for(float num : lst){
+        if(int(num) > 0 && int(num) == (int)num){
+            sum += pow(int(num), 2);
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> lst = {1, 2.5, 3};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == 14); 
+    return 0;
 }
