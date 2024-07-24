@@ -1,15 +1,31 @@
-Here is the solution:
-
-def bowling_score(bowling):
+```
+def bowling_score(game):
     score = 0
-    frames = [int(x) for x in re.split('([-X])', bowling) if x.isdigit()]
-    for i in range(0, len(frames), 2):
-        if frames[i] == 10:
-            score += 10 + (frames[i+1] if i+1 < len(frames) and frames[i+1].isdigit() else 10)
-        elif sum(frames[i:i+2]) == 10:
-            score += sum(frames[i:i+2])
-            if i+2 < len(frames):
-                score += frames[i+2]
+    frame_num = 1
+    for roll in game:
+        if roll == 'X':
+            score += 10 + (10 if frame_num < 9 else 0)
+            frame_num += 1
+        elif roll == '/':
+            score += 10
+            frame_num += 1
+        elif roll.isdigit():
+            strike = False
+            while len(roll) > 1 and roll[1].isdigit():
+                if roll[0] == '5' or int(roll[:2]) < 10:
+                    break
+                else:
+                    score += 10 + int(roll)
+                    frame_num += 1
+                    strike = True
+                    break
+            if not strike:
+                score += int(roll)
         else:
-            score += frames[i] + frames[i+1]
+            if roll == '-':
+                continue
+            elif len(roll) > 1 and roll[0].isdigit():
+                score += int(roll[0])
+            else:
+                score += int(roll)
     return score
