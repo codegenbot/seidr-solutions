@@ -8,16 +8,12 @@ bool isconsonant(char c);
 
 std::string get_closest_vowel(std::string word) {
     int n = word.size();
-    std::string closestVowel;
-    for (int i = n - 1; i > 0; --i) {
+    for (int i = 0; i < n; ++i) {
         if (isvowel(word[i])) {
             int j;
             for (j = i - 1; j >= 0 && !isconsonant(word[j]); --j)
                 ;
-            if (j >= 0) {
-                closestVowel = word.substr(j + 1, i - j - 1);
-                return closestVowel;
-            }
+            return word.substr(j + 1, i - j);
         }
     }
     return "";
