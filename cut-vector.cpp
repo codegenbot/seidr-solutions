@@ -1,3 +1,4 @@
+#include <vector>
 #include <climits>
 #include <cmath>
 using namespace std;
