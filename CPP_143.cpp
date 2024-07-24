@@ -1,7 +1,5 @@
-#include <vector>
-#include <string>
+```cpp
 #include <bits/stdc++.h>
-
 using namespace std;
 
 bool is_prime(int n) {
