@@ -1,17 +1,33 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long doubleTheDifference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    long long oddSum = 0;
     for (float num : lst) {
-        if (num > 0 && floor(num) == num) {
-            if (num % 2.0 == 0) {
-                sum += num;
-            } else {
-                oddSum += num;
-            }
+        if (num > 0 && static_cast<int>(num) == num) {
+            sum += pow(num, 2);
         }
     }
-    return std::abs(sum - oddSum);
+    return sum;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<float> lst;
+    for (int i = 0; i < n; ++i) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        lst.push_back(num);
+    }
+
+    long long result = double_the_difference(lst);
+
+    std::cout << "Double the difference: " << result << std::endl;
+
+    return 0;
 }
