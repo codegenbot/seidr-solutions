@@ -1,7 +1,6 @@
-```
 def histogram(test):
-    if not test:
-        return {}
+    if len(test.split()) == 1:
+        return {test: 1}
 
     letter_count = {}
     max_count = 0
@@ -19,4 +18,4 @@ def histogram(test):
         elif letter_count[letter] == max_count:
             most_repeated_letters.append(letter)
 
-    return {letter: count for letter, count in letter_count.items() if count == max_count}
+    return {letter: count for letter, count in letter_count.items() if count in most_repeated_letters}
