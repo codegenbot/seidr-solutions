@@ -3,14 +3,16 @@
 
 std::string solve(std::string s) {
     std::string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
-    if (!std::any_of(s.begin(), s.end(), ::isalpha)) {
+    if (result.empty()) {
         std::reverse(result.begin(), result.end());
     }
     return result;
