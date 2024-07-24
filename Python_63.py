@@ -1,3 +1,4 @@
+```Python
 def fibfib(n: int):
     if n <= 1:
         return 0
@@ -6,5 +7,5 @@ def fibfib(n: int):
     else:
         a, b, c = 0, 0, 1
         for _ in range(3, n + 1):
-            a, b, c = b, c, c
-        return c
+            a, b, c = b, c, a + b + c
+        return b
