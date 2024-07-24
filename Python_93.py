@@ -3,26 +3,22 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.isupper():
-                shifted_value = (ord(char) - 65 + 3) % 26
-                if shifted_value == 0:
-                    result += 'Z'
-                else:
-                    result += chr(shifted_value + 65)
+                value = (ord(char) - 65 + 3) % 26
+                if value == 0: value += 26
+                result += chr(value + 65)
             else:
-                shifted_value = (ord(char) - 97 + 3) % 26
-                if shifted_value == 0:
-                    result += 'z'
-                else:
-                    result += chr(shifted_value + 97)
+                value = (ord(char) - 97 + 3) % 26
+                if value == 0: value += 26
+                result += chr(value + 97)
         elif char.isdigit():  
-            num_value = int(char) + 3
-            if num_value > 9:
-                if num_value % 10 == 0:
+            value = int(char) + 3
+            if value > 9:
+                if value == 10: 
                     result += '7'
                 else:
                     result += '8'
             else:
-                result += str(num_value)
+                result += str(value)
         else:  
             result += char
     return result
