@@ -1,7 +1,6 @@
 def triangle_area(a, h):
     return 0.5 * a * h
 
-
 valid_input = False
 while not valid_input:
     try:
