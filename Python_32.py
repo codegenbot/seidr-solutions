@@ -1,9 +1,5 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[0]
-    b = xs[1]
-    c = xs[2]
-    if n == 2:
-        return -b / (2 * c)
-    else:
-        return 1.0
+    assert n % 2 == 0
+    assert xs[n] != 0
+    return -xs[0] / xs[n]
