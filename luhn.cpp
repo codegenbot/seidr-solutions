@@ -22,7 +22,12 @@ int luhn(std::vector<int> &digits) {
 }
 
 int main() {
-    std::vector<int> digits = {4,3,2,1,8,7,6,5};
+    std::vector<int> digits;
+    int num;
+    for(int i=0; i<16; ++i){
+        std::cin >> num;
+        digits.push_back(num);
+    }
     std::cout << luhn(digits) << std::endl;
     return 0;
 }
