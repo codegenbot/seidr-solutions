@@ -1,12 +1,13 @@
 float sum = 0.0;
-    for(float num : numbers){
+    for (auto num : numbers) {
         sum += num;
     }
     float mean = sum / numbers.size();
 
-    float deviation = 0.0;
-    for(float num : numbers){
-        deviation += fabs(num - mean);
+    float sum_diff = 0.0;
+    for (auto num : numbers) {
+        sum_diff += abs(num - mean);
     }
-    return deviation / numbers.size();
+
+    return sum_diff / numbers.size();
 }
