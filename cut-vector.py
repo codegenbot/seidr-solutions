@@ -3,19 +3,17 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 half_sum = total_sum // 2
-cumulative_sum = 0
-min_diff = float("inf")
-cut_index = 0
+current_sum = 0
+idx = 0
 
-for i in range(n):
-    cumulative_sum += arr[i]
-    current_diff = abs(cumulative_sum - half_sum)
-    if current_diff < min_diff:
-        min_diff = current_diff
-        cut_index = i
+for i, num in enumerate(arr):
+    current_sum += num
+    if current_sum >= half_sum:
+        idx = i
+        break
 
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
+if abs(total_sum - 2 * current_sum) < abs(total_sum - 2 * (current_sum - num)):
+    idx += 1
 
-print(*subvector1)
-print(*subvector2)
+print(arr[: idx + 1])
+print(arr[idx + 1 :])
