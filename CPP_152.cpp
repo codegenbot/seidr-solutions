@@ -23,7 +23,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
             if (numCount[guess[i]]-- > 0) cows++;
         }
     }
-
+    
     result.push_back(bulls);
     result.push_back(cows);
 
