@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    return (n - m) / total;
+    return (n - 1) / total;
 }
 
 int main() {
