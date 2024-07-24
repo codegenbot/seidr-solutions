@@ -1,54 +1,30 @@
+#include <string>
+
 bool solveBoolean(string expression) {
-    int pos = 0;
+    if (expression.find('|') == string::npos && expression.find('&') == string::npos) {
+        return tolower(expression[0]) == 't';
+    }
+    int pos = expression.find('|');
     while (pos != string::npos) {
-        if (expression[pos] == '|') {
-            string left;
-            string right;
+        string left = expression.substr(0, pos);
+        string right = expression.substr(pos + 1);
 
-            if (pos > 0 && expression[pos - 1] == '|')
-                left = "";
-            else
-                left = expression.substr(0, pos);
-
-            if (pos < expression.length() - 1 && expression[pos + 1] == '|')
-                right = "";
-            else
-                right = expression.substr(pos + 1);
-
-            if (solveBoolean(left) || solveBoolean(right))
-                return true;
-        } else if (expression[pos] == '&') {
-            string left;
-            string right;
-
-            if (pos > 0 && expression[pos - 1] == '&')
-                left = "";
-            else
-                left = expression.substr(0, pos);
-
-            if (pos < expression.length() - 1 && expression[pos + 1] == '&')
-                right = "";
-            else
-                right = expression.substr(pos + 1);
-
-            if (solveBoolean(left) && solveBoolean(right))
-                return true;
-        }
-
-        pos = expression.find((expression[pos] == '|') ? "|" : "&", pos + 1);
+        if (solveBoolean(left) || solveBoolean(right))
+            return true;
+        
+        pos = expression.find('|', pos);
     }
 
-    return tolower(expression[0]) == 't';
-}
+    pos = expression.find('&');
+    while (pos != string::npos) {
+        string left = expression.substr(0, pos);
+        string right = expression.substr(pos + 1);
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, expression);
-    bool result = solveBoolean(expression);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
+        
+        pos = expression.find('&', pos);
+    }
+
+    return !expression.empty() && tolower(expression[0]) == 't';
 }
