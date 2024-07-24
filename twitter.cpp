@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     string tweet;
-    cout << "Enter a tweet: ";
+    cout << "Enter a tweet: Too many characters" << endl;
     getline(cin, tweet);
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
