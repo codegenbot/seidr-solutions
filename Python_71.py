@@ -1,7 +1,5 @@
-```
-def triangle_area(a, b, c):
-    if a + b > c and a + c > b and b + c > a:
-        s = (a + b + c) / 2
-        return round((s*(s-a)*(s-b)*(s-c)) ** 0.5, 2)
-    else:
-        return -1
+def sum_of_squares(n):
+    result = 0
+    for i in range(1, n + 1):
+        result += i**2
+    return result
