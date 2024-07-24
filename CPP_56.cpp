@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 bool correct_bracketing(string brackets) {
@@ -8,8 +7,7 @@ bool correct_bracketing(string brackets) {
         if (bracket == '<') {
             count++;
         } else if (bracket == '>') {
-            if (count == 0)
-                return false;
+            if (count <= 0) return false;
             count--;
         }
     }
