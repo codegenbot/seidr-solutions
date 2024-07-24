@@ -1,7 +1,6 @@
-```c++
-#include <algorithm>
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -26,15 +25,14 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         }
     }
     return result;
-}
 
 int main() {
     std::string text, target;
-
+    int a, b;
     std::cout << "Enter number 1: ";
-    int a; std::cin >> a;
+    std::cin >> a;
     std::cout << "Enter number 2: ";
-    int b; std::cin >> b;
+    std::cin >> b;
 
     if (a == 0 || b == 0) {
         std::cout << "Invalid input! Please try again." << std::endl;
@@ -60,4 +58,3 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
-}

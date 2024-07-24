@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -23,13 +23,9 @@ string spinWords(string str) {
         result += word + " ";
         
         start = end + 1;
-        
-        // Check if we have reached the end of the string
-        if (start >= str.length())
-            break; 
     }
     
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, (result.size() > 0 && result.back() == ' ') ? result.size() - 1 : result.size());
 }
 
 int main() {
