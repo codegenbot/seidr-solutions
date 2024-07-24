@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool evalBoolean(string s) {
     if (s.empty())
         return false;
@@ -12,9 +16,8 @@ bool evalBoolean(string s) {
         for (int i = 0; i < j; i++) {
             if (s[i] == 'T')
                 result = true;
-            else if (s[i] == 'F') {
-                result = false;
-            }
+            else if (s[i] == 'F')
+                return false;
         }
     } else {
         for (int i = 0; i < j; i++) {
@@ -46,9 +49,8 @@ bool evalOp(string s) {
         for (int i = 0; i < j; i++) {
             if (s[i] == 'T')
                 left = true;
-            else if (s[i] == 'F') {
-                left = false;
-            }
+            else if (s[i] == 'F')
+                return false;
         }
     } else {
         for (int i = 0; i < j; i++) {
@@ -62,7 +64,15 @@ bool evalOp(string s) {
     if (!left)
         return false;
 
-    return evalBoolean(s.substr(j));
+    bool finalResult = false;
+    while (s.length()) {
+        if (*s.rbegin() == 'T') 
+            finalResult = true;
+        else if (*s.rbegin() == 'F')
+            break;
+        s.pop_back(); 
+    }
+    return result || finalResult; 
 }
 
 int main() {
