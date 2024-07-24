@@ -1,5 +1,8 @@
-from typing import list
+from typing import List
 
-def below_zero() -> bool:
-    operations = [int(i) for i in input("Enter some numbers separated by spaces: ").split()]
-    return any(op < 0 for op in operations)
+def below_zero(operations: List[str]) -> bool:
+    inp = input("Enter operations (space-separated): ")
+    ops = [i.strip() for i in inp.split()]
+    return any(int(op) < 0 for op in operations)
+
+print(below_zero(input().split()))
