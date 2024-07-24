@@ -4,4 +4,7 @@ def by_length(arr):
 
 def num_to_name(num):
     names = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
-    return names[num - 1]
+    if not isinstance(num, int) or num < 1 or num > 9:
+        return None
+    else:
+        return names[num - 1]
