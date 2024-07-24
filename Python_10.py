@@ -1,17 +1,15 @@
-def make_palindrome(s: str) -> str:
-    s = s.replace(' ', '').lower()
-    if s == s[::-1]:
-        return s
-    for i in range(len(s)):
-        postfix = s[i:]
-        if postfix == postfix[::-1]:
-            left_half = s[:i]
-            right_half = postfix[::-1]
-            middle_chars = len(postfix) // 2 * [postfix[0]]
-            return ''.join([left_half] + middle_chars + [right_half])
-    half = len(s) // 2
-    left_half = s[:half]
-    right_half = s[half:][::-1]
-    if len(left_half) < len(right_half):
-        return left_half + left_half[::-1] + right_half
-    return left_half + right_half
+```
+def make_palindrome(string: str) -> str:
+    if string == string[::-1]:
+        return string
+    left = ""
+    for char in string:
+        string = string[1:] + char
+        if string == string[::-1]:
+            return string
+    right = ""
+    for char in string:
+        right = char + right
+        if right == right[::-1]:
+            return right
+    return left + right[::-1]
