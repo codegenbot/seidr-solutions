@@ -4,4 +4,4 @@ def complete_code(numbers, delimiter):
         result.extend([num, delimiter])
     if numbers:
         result.append(numbers[-1])
-    return result  
+    return result
