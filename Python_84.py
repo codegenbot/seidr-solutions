@@ -1,9 +1,4 @@
-def grayCode(N):
-    if N == 0:
-        return "0"
-    if N == 1:
-        return "0," "1"
-    res = ["0"]
-    for i in range(1, N + 1):
-        res += list(map(lambda x: str(int(x, 2) ^ i), res))
-    return ",".join(res)
+```
+def solve(N):
+    total = sum(int(digit) for digit in str(N))
+    return "0" if total == 0 else bin(total)[2:]
