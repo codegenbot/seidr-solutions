@@ -1,38 +1,36 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff == 0 || diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-    
-    vector<vector<int>> result(2);
-    result[0].resize(cut_index + 1);
-    for (int i = 0; i <= cut_index; i++) {
-        result[0].push_back(v[i]);
+    return {vector<int>(v.begin(), v.begin() + splitIndex), vector<int>(v.begin() + splitIndex, v.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    result[1].resize(v.size() - cut_index - 1);
-    for (int i = 0; i < v.size() - cut_index - 1; i++) {
-        result[1].push_back(v[i + cut_index + 1]);
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "First subvector: ";
+    for (int num : result.first) {
+        cout << num << " ";
     }
-    
-    return result;
+    cout << endl;
+    cout << "Second subvector: ";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
