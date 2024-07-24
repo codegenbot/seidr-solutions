@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -26,7 +25,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     return result;
 }
 
-int main() {
+int cppMain() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
