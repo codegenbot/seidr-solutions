@@ -13,17 +13,17 @@ auto findIndices(string text, string target) -> vector<int> {
 }
 
 int main() {
-    std::string text;
-    std::cin >> text;
+    string text;
+    cin >> text;
 
-    std::string target;
-    std::cin >> target;
+    string target;
+    cin >> target;
 
-    std::vector<int> indices = findIndices(text, target);
+    vector<int> indices = findIndices(text, target);
     for (int i : indices) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
