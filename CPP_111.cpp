@@ -1,44 +1,45 @@
-Here is the completed code:
-
-```cpp
 #include <string>
 #include <map>
-#include <unordered_map>
-
 using namespace std;
 
 map<char, int> histogram(string test) {
-    unordered_map<char, int> count;
     map<char, int> result;
-
-    string temp = "";
-    for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                ++count[temp[0]];
-                temp = "";
-            }
-        } else {
-            temp += c;
-        }
-    }
-
-    if (!temp.empty()) {
-        ++count[temp[0]];
-    }
-
     int maxCount = 0;
-    for (const auto& pair : count) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
+    for (const auto& word : split(test)) {
+        char c = word[0];
+        int count = 0;
+        for (const auto& w : split(word)) {
+            if (w == c) {
+                count++;
+            }
         }
+        if (count > maxCount) {
+            maxCount = count;
+        }
+        result[c] = count;
     }
-
-    for (const auto& pair : count) {
+    map<char, int> mostFrequent;
+    for (const auto& pair : result) {
         if (pair.second == maxCount) {
-            result[pair.first] = pair.second;
+            mostFrequent[pair.first] = pair.second;
         }
     }
+    return mostFrequent;
+}
 
-    return result;
+vector<string> split(string s) {
+    vector<string> res;
+    string temp;
+    for (char c : s) {
+        if (c != ' ') {
+            temp += c;
+        } else {
+            res.push_back(temp);
+            temp = "";
+        }
+    }
+    if (!temp.empty()) {
+        res.push_back(temp);
+    }
+    return res;
 }
