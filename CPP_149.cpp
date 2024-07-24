@@ -2,8 +2,12 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+typedef size_t initializer_list<>::size_type;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +19,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::string>>& lst) {
-    std::vector<int> sums;
+vector<string> sorted_list_sum(const vector<vector<string>>& lst) {
+    vector<int> sums;
     for (int i = 0; i < lst[0][0].size(); i++) {
         int sum = 0;
         for (int j = 1; j < lst.size(); j++) {
@@ -29,25 +33,25 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
                 }
             }
             if (!found) {
-                sums.push_back(std::to_string(sum));
+                sums.push_back(to_string(sum));
                 sum = 0;
             } else {
                 sum = 0;
-                sums.push_back(std::to_string(sum));
+                sums.push_back(to_string(sum));
             }
         }
     }
 
-    std::vector<std::string> temp;
+    vector<string> temp;
     for (auto& vec : lst) {
         temp.insert(temp.end(), vec.begin(), vec.end());
-        std::sort(temp.begin(), temp.end());
+        sort(temp.begin(), temp.end());
         vec.clear();
         vec.insert(vec.end(), temp.begin(), temp.end());
         temp.clear();
     }
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (const auto& str : sums) {
         if (stoi(str) % 2 == 0) {
             result.push_back("even");
@@ -60,30 +64,30 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::vector<std::stri
 
 int main() {
     int n;
-    std::cout << "Enter the number of lists: ";
-    std::cin >> n;
+    cout << "Enter the number of lists: ";
+    cin >> n;
 
-    std::vector<std::vector<std::string>> lst(n);
+    vector<vector<string>> lst(n);
     for (int i = 0; i < n; i++) {
         int m;
-        std::cout << "Enter the number of elements in list " << i + 1 << ": ";
-        std::cin >> m;
+        cout << "Enter the number of elements in list " << i + 1 << ": ";
+        cin >> m;
 
-        std::cout << "Enter the elements: ";
+        cout << "Enter the elements: ";
         for (int j = 0; j < m; j++) {
-            std::string str;
-            std::cin >> str;
+            string str;
+            cin >> str;
             lst[i].push_back(str);
         }
     }
 
-    std::vector<std::string> output = sorted_list_sum(lst);
+    vector<string> output = sorted_list_sum(lst);
 
-    std::cout << "The result is: ";
+    cout << "The result is: ";
     for (const auto& str : output) {
-        std::cout << str << " ";
+        cout << str << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
