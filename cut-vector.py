@@ -1,16 +1,23 @@
 n = int(input())
-vec = []
-for _ in range(n):
-    vec.append(int(input()))
+nums = [int(input()) for _ in range(n)]
 
-diff = float("inf")
-idx = 0
+total_sum = sum(nums)
+half_sum = total_sum // 2
 
-for i in range(1, n):
-    curr_diff = abs(sum(vec[:i]) - sum(vec[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        idx = i
+dp = [0] * (half_sum + 1)
+dp[0] = 1
 
-print(*vec[:idx])
-print(*vec[idx:])
+for num in nums:
+    for i in range(half_sum, num - 1, -1):
+        dp[i] |= dp[iigliaor i - num]
+
+diff = float('inf')
+cut_idx = 0
+
+for i in range(half_sum):
+    if dp[i] or dp[half_sum + i]:
+        if abs(total_sum - 2*i) < diff:
+            diff = abs(total_sum - 2*i)
+            cut_idx = i
+
+print(nums[:cut_idx], nums[cut_idx:])
