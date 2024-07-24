@@ -18,11 +18,21 @@ float mean_absolute_deviation(std::vector<float> numbers) {
     return mad;
 }
 
-int main() {
+std::vector<float> read_input_numbers() {
     std::vector<float> numbers;
     float input;
     while (std::cin >> input) {
         numbers.push_back(input);
+    }
+    return numbers;
+}
+
+int main() {
+    std::vector<float> numbers = read_input_numbers();
+
+    if (numbers.empty()) {
+        std::cout << "No numbers provided. Exiting." << std::endl;
+        return 1;
     }
 
     float mad = mean_absolute_deviation(numbers);
