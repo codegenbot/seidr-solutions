@@ -1,3 +1,2 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [max([paren_string.count('(' * i) - paren_string.count(')' * i) for i in range(1, len(paren_string)//2 + 1])]
-            for paren_string in paren_string.split()]
+    return [max([sum([1 for char in paren_string if char == '('][:i]) for i in range(1, paren_string.count('(') + 1])] for paren_string in paren_string.split())  # Missing closing parenthesis ')' here. Fix the syntax error.
