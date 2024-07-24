@@ -14,4 +14,5 @@ def max_fill(grid):
                 right -= 1
     return total_water
 
-print(max_fill([[1, 1, 1, 1], [1, 1, 1, 1]]))
+
+print(max_fill([[0, 1, 0, 1], [1, 1, 1, 1]]))
