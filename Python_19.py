@@ -31,8 +31,6 @@ def sort_numbers(numbers: str) -> str:
         "eighty": 80,
         "ninety": 90,
         "ninety-nine": 99,
-        "hundred": 100,
-        "thousand": 1000
     }
     sorted_numbers = sorted([num_dict.get(num, int(num)) for num in numbers.split()])
     return " ".join(map(str, sorted_numbers))
