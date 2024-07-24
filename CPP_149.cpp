@@ -21,7 +21,7 @@ int main() {
 }
 
 std::vector<std::string> sorted_list_sum(const std::initializer_list<std::string>& lst) {
-    std::vector<std::string> result;
+    vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
