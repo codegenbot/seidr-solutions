@@ -9,20 +9,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> sorted_l = l;
-    std::vector<int> third_elems;
-
     for (int i = 2; i < l.size(); i += 3) {
-        third_elems.push_back(l[i]);
+        sorted_l[i] = l[i];
     }
-    
-    std::sort(third_elems.begin(), third_elems.end());
-    
-    int idx = 0;
-    for (int i = 2; i < l.size(); i += 3) {
-        sorted_l[i] = third_elems[idx];
-        idx++;
-    }
-    
+    std::sort(sorted_l.begin(), sorted_l.end());
     return sorted_l;
 }
 
