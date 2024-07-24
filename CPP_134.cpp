@@ -1,5 +1,3 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false; // Check for empty string
-    char lastChar = txt.back(); // Get the last character of the string
-    return !isalnum(lastChar); // Check if the last character is not alphanumeric
-}
+size_t space_pos = txt.find_last_of(" ");
+if(space_pos == string::npos) return false;
+return isalpha(txt[space_pos+1]);

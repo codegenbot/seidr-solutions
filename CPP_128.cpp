@@ -8,5 +8,4 @@ int prod_signs(vector<int> arr){
         else product *= (i > 0 ? 1 : -1);
         sum += abs(i);
     }
-    return product * sum == 0 ? -32768 : product * sum;
-}
+    return product * sum;
