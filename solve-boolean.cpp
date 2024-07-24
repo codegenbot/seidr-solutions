@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    std::string expr;
-    std::cin >> expr;
+    string expr;
+    cin >> expr;
     
-    if (expr == "t") {
-        std::cout << "True" << std::endl;
+    if (expr == "T" || expr == "t") {
+        cout << "True" << endl;
     } else {
-        std::cout << "False" << std::endl;
+        cout << "False" << endl;
     }
     
     return 0;
