@@ -1,17 +1,10 @@
-int main() {
-    using namespace std;
+#include <vector>
+using namespace std;
 
+int main() {
     int sum = 0;
     bool alternate = false;
-    vector<int> cardNumber;
-    
-    cout << "Enter your credit card number (16 digits): ";
-    for(int i = 0; i < 16; i++) {
-        int digit;
-        cin >> digit;
-        cardNumber.push_back(digit);
-    }
-    
+    vector<int> cardNumber = {4,3,2,1,2,1,3,4,2,8};
     for (int i = cardNumber.size() - 1; i >= 0; --i) {
         int digit = cardNumber[i];
         if (alternate) {
@@ -23,7 +16,5 @@ int main() {
         sum += digit;
         alternate = !alternate;
     }
-    
-    cout << "The Luhn check result: " << sum << endl;
-    return 0;
+    return sum;
 }
