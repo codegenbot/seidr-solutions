@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <assert.h>
 #include <vector>
+#include <initializer_list>
 
 bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -14,7 +15,7 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 bool order_by_points(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; i++) {
-        if (areEqual({arr[i]}, {(int){arr[i + 1]}}) && (arr[i] > arr[i + 1])) return false;
+        if (areEqual({arr[i]}, {arr[i + 1]}) && (arr[i] > arr[i + 1])) return false;
     }
     return true;
 }
@@ -26,12 +27,12 @@ int mainFunction() {
         if (result.empty()) {
             result = v;
         } else {
-            while (!order_by_points({(int){result.back()}, (int){v.back()}})) {
-                if ((int){v.back()} > (int){result.back()}) {
+            while (!order_by_points({result.back(), v.back()})) {
+                if (v.back() > result.back()) {
                     result.push_back(v.back());
                     v.pop_back();
                 } else {
-                    result.push_back((int){result.back()});
+                    result.push_back(result.back());
                     result.pop_back();
                 }
             }
