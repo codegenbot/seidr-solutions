@@ -1,4 +1,3 @@
-```
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     base = base % modulus
@@ -21,11 +20,10 @@ def modp(n: int, p: int):
 
 
 def main():
-    base = int(input("Enter the base: "))
-    exponent = int(input("Enter the exponent: "))
-    p = int(input("Enter the prime p: "))
+    n = int(input("Enter the value of n: "))
+    p = int(input("Enter the value of p: "))
 
-    result = modp(base, p)
+    result = modp(n, p)
     print(f"The result is {result}")
 
 
