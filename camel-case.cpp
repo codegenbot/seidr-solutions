@@ -1,22 +1,23 @@
-```cpp
 #include <string>
+#include <cctype>
 
-std::string camelCase(std::string inputString) {
-    if (inputString[0] == '-') i++; 
-    std::string result = "";
-    int i = 0;
-    for (; i < inputString.length(); i++) {
-        if (inputString[i] == '-') {
+string camelCase(string s) {
+    if (s[0] == '-') i++; 
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
             i++;
-            while (i < inputString.length() && inputString[i] != ' ') {
-                result += toupper(inputString[i]);
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
                 i++;
             }
-            if (i < inputString.length()) {
-                result += tolower(inputString[i++]);
-            }
+            result += " ";
         } else {
-            result += tolower(inputString[i]);
+            if (!result.empty()) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
     return result;
