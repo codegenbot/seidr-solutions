@@ -25,7 +25,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
+        std::cin >> x >> std::ws; 
         vec1.push_back(x); 
     }
 
@@ -33,8 +33,8 @@ int main() {
     for(int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x; 
-        vec2.push_back(x); 
+        std::cin >> x;
+        vec2.push_back(x);
     }
 
     bool checkEquality = true;
