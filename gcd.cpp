@@ -1,15 +1,29 @@
-```c++
 #include <vector>
 #include <string>
+
 using namespace std;
 
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+        }
+    }
+
+    return result;
+}
+
 int main() {
-    int a, b;
-    cout << "Enter the first integer: ";
-    cin >> a;
-    cout << "Enter the second integer: ";
-    cin >> b;
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+    string s1 = "180";
+    int a = stoi(s1);
+    string s2 = "12";
+    int b = stoi(s2);
+
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
     return 0;
 }
 
