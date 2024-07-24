@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,25 +7,25 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
+    bool isFirstWord = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
-            if (i > 0) {
-                result += ' ';
-            }
             while (i < s.length() && s[i] != ' ') {
-                if (i == 0) {
-                    result += tolower(s[i]);
-                } else {
+                if (!isFirstWord) {
                     result += toupper(s[i]);
+                } else {
+                    isFirstWord = false;
+                    result += tolower(s[i]);
                 }
                 i++;
             }
         } else {
-            if (i == 0) {
-                result += tolower(s[i]);
-            } else {
+            if (!isFirstWord) {
                 result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+                isFirstWord = false;
             }
         }
     }
