@@ -1,4 +1,4 @@
-n = int(input("Enter the number of coefficients:"))
+n = int(input("Enter the number of coefficients: "))
 coefficients = list(map(int, input().split()))
 
 def find_zero(xs: list):
