@@ -1,4 +1,4 @@
-```Python
+```
 def luhn(card_number):
     card_number = list(map(int, card_number))
     new_card_number = []
