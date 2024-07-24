@@ -1,5 +1,5 @@
-```
 # Find all pairs of numbers in two lists that are within a given distance.
+
 def find_closest_elements(numbers: List[float], target, num_to_include):
     sorted_numbers = sorted(set(numbers))
     closest_nums = []
