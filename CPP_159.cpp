@@ -1,12 +1,17 @@
 #include <iostream>
 #include <vector>
-
-using std::cout;
-using std::cin;
-using std::vector;
+using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    vector<int> result({number + remaining, remaining - need});
+    vector<int> result;
+    
+    if (number + need > remaining) {
+        result.push_back(number);
+        result.push_back(remaining - number);
+    } else {
+        result.push_back(number + need);
+        result.push_back(0);
+    }
     
     return result;
 }
