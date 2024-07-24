@@ -25,5 +25,5 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
+
 #include <string>
