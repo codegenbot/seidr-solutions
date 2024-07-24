@@ -1,8 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <utility>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
