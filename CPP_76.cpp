@@ -1,6 +1,6 @@
-Here's the solution:
+#include <cmath>
 
-bool is_simple_power(int x, int n) {
-    double y = pow(n, 1.0);
-    return (int)y == x;
+bool is_simple_power(int x, int n){
+    double y = pow(n, ceil(log2(x)/log2(n)));
+    return (y == x);
 }
