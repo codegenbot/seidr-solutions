@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <sstream>
 
@@ -8,17 +7,10 @@ bool valid_date(string date) {
     int month, day, year;
     string temp;
 
-    stringstream ss(date);
+    istringstream iss(date);
 
-    // Parse the date
-    getline(ss, temp, '-');
-    month = stoi(temp);
-    getline(ss, temp, '-');
-    day = stoi(temp);
-    getline(ss, temp);
-    year = stoi(temp);
+    if (!(iss >> month >> '-' >> day >> '-' >> year)) return false; // Invalid format
 
-    // Validate the date
     if (month < 1 || month > 12) return false;
     if ((month == 2 && day > 29) ||
         (month == 4 || month == 6 || month == 9 || month == 11) &&
