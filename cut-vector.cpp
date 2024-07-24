@@ -54,7 +54,7 @@ int main() {
         }
     }
     
-    if (prefixSum == sum - prefixSum || abs(prefixSum - (sum - prefixSum - nums[cutIndex])) <= minDiff) {
+    if (prefixSum == sum - prefixSum || abs(prefixSum - suffixSum) <= minDiff) {
         cutIndex++;
     }
     
