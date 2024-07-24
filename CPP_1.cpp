@@ -2,14 +2,27 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
-vector<string> separate_paren_groups(string paren_string);
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::vector<std::string> result = separate_paren_groups(input);
+
+    for (const auto& group : result) {
+        std::cout << group << "\n";
+    }
+
+    return 0;
+}
+
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -30,8 +43,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
