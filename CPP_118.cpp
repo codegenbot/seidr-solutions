@@ -32,6 +32,6 @@ bool isconsonant(char c) {
 }
 
 int main() {
-    assert(get_closest_vowel("Above") == "o");
+    assert (get_closest_vowel("Above") == "o");
     return 0;
 }
