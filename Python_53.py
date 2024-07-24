@@ -1,4 +1,3 @@
-````
 def add(x: int, y: int):
     while True:
         x = float(input("Enter a number for x: "))
@@ -13,4 +12,4 @@ def add(x: int, y: int):
             while True:
                 user_input = input(f"Result: {result}. Do you want to continue? (yes/no): ")
                 if user_input.lower() == 'no':
-                    break
+                    return result
