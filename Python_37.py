@@ -1,5 +1,10 @@
 def sort_even(l: list):
-    return [
-        x if i % 2 else y
-        for i, (x, y) in enumerate(sorted((y, x) for x, y in zip(l[1::2], l[::2])))
-    ]
+    even_indices = [i for i in range(len(l)) if i % 2 == 0]
+    sorted_evens = sorted([l[i] for i in even_indices])
+    result = []
+    for i in range(len(l)):
+        if i % 2 == 0:
+            result.append(sorted_evens.pop(0))
+        else:
+            result.append(l[i])
+    return result
