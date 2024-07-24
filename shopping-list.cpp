@@ -16,13 +16,13 @@ int main() {
         cin >> discounts[i];
     }
 
-    double total = 0.0; // Change float to double
+    double total = 0.0;
     for (int i = 0; i < n; ++i) {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
-    cout << fixed; // Add this line
-    cout.precision(2); // Add this line
+    cout << fixed;
+    cout.precision(2);
     cout << total << endl;
 
     return 0;
