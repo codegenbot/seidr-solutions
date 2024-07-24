@@ -1,10 +1,11 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
-    double distance = 0;
-    for (int i = 0; i < n; ++i) {
-        float diff = v1[i] - v2[i];
+double calculateDistance(const vector<float>& vec1, const vector<float>& vec2) {
+    double distance = 0.0;
+    for (int i = 0; i < vec1.size(); ++i) {
+        double diff = vec1[i] - vec2[i];
         distance += diff * diff;
     }
     return sqrt(distance);
@@ -14,14 +15,20 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n), v2(n);
-
-    for (int i = 0; i < n; ++i) {
-        cin >> v1[i] >> v2[i];
+    vector<float> vec1(n);
+    for (float& f : vec1) {
+        cin >> f;
     }
 
-    double result = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << result << endl;
+    vector<float> vec2(n);
+    for (float& f : vec2) {
+        cin >> f;
+    }
+
+    double result = calculateDistance(vec1, vec2);
+
+    cout.setprecision(15); // to print more than 10 decimal places
+    cout << fixed << result << endl;
 
     return 0;
 }
