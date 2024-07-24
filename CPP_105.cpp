@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -19,10 +20,10 @@ bool by_length(const std::vector<int>& v) {
             s += "0";
         result.push_back(s);
     }
-    return issame(result, {"One", "Four", "Nine"});
+    return result;
 }
 
 int main() {
-    assert(by_length({1, 4, 9}));
+    assert(issame(by_length({1, 4, 9}), {"One", "Four", "Nine"}));
     return 0;
 }
