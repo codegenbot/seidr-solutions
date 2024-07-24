@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 int main() {
     vector<int> numbers;
     int n;
@@ -7,14 +10,11 @@ int main() {
         cin >> num;
         numbers.push_back(num);
     }
-    using namespace std;
-
     int sum = 0;
     for (int num : numbers) {
         int result = (num / 3) - 2;
         if (result < 0) result = 0;
         sum += result;
     }
-    cout << sum << endl;
-    return 0;
+    return sum;
 }
