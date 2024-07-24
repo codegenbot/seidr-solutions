@@ -1,7 +1,20 @@
-double find_zero(vector<double> xs){
-    double sum = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
-        sum -= xs[i] / xs[0];
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        sum+=xs[i]*pow(x,i);
     }
-    return -sum / xs[0];
+    return sum;
+}
+
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; // Check if the number of coefficients is even
+    double x = -xs[1]/(2*xs[0]); // Calculate the zero point using the quadratic formula
+    return x;
 }
