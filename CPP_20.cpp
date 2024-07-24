@@ -26,18 +26,14 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec1.clear();
-            std::cin.clear(); 
-            while(std::cin.get() != '\n') {
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
             }
+            vec1.clear();
             break;
         }
         vec1.push_back(num);
-        // Read the next line for the next number
-        if (!std::getline(std::cin, tempLine).good()) {
-            break; 
-        }
     }
 
     // Input for vector 2
@@ -45,18 +41,14 @@ int main() {
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
-            vec2.clear();
-            std::cin.clear(); 
-            while(std::cin.get() != '\n') {
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
             }
+            vec2.clear();
             break;
         }
         vec2.push_back(num);
-        // Read the next line for the next number
-        if (!std::getline(std::cin, tempLine).good()) {
-            break; 
-        }
     }
 
     if(isSame(vec1, vec2)) {
