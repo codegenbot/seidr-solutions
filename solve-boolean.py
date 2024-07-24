@@ -7,10 +7,9 @@ def solve_boolean(expression):
         raise ValueError('Invalid expression')
     else:
         result = True if expression[0] == 'T' else False
-        ops = {'&': lambda x: x % 2 == 0, '|': lambda x: x % 2 != 0}
-        for op in expression[1:]:
-            if op in ops:
-                result = ops[op](expression.count(op))
-            else:
-                raise ValueError('Invalid expression')
+        for op, value in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
+            if op == '&' and value % 2 != 0:
+                result = False
+            elif op == '|' and value % 2 == 0:
+                result = False
         return result
