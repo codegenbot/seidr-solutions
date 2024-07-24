@@ -1,2 +1,5 @@
-def dice_game(n, m):
-    return (n - 1) / m if n > m else (m - 1) / n
+n = int(input())
+m = int(input())
+
+probability = 0 if m > n else (sum(range(m + 1, n + 1)) / (n * m))
+print(probability)
