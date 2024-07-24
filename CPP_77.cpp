@@ -1,4 +1,6 @@
 #include <cmath>
+#include <cassert>
+using namespace std;
 
 bool iscuber(int a){
     int i = 1;
@@ -8,9 +10,8 @@ bool iscuber(int a){
         i++;
     }
     return false;
+
 }
 
-int main() {
-    assert(iscuber(1729) == false);
-    return 0;
-}
+int main(){
+   assert(iscuber(1729) == false);
