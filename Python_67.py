@@ -1,17 +1,12 @@
-```
-import re
-
 def fruit_distribution(s, n):
-    pattern = r'(\d+)\s*(apples|oranges)'
-    quantities = [int(x[0]) for x in re.findall(pattern, s.lower())]
-    apples, oranges = map(sum, zip(*[(x == 'apples') for x in (re.findall(pattern, s.lower()))]))
+    apple_quantity = s.lower().split("apples")[1].split()[0]
+    orange_quantity = s.lower().split("oranges")[1].split()[0]
     
-    total_fruit = apples + oranges
-    max_per_box = min(total_fruit // (n + 1), n)
-    remaining_fruits = total_fruit - (max_per_box * (n + 1))
-    
+    max_per_box = min(int(apple_quantity) + int(orange_quantity), n)
+    remaining_fruits = int(apple_quantity) + int(orange_quantity) - (max_per_box * (n + 1))
+
     return (
-        int(-(-total_fruit / float(max_per_box)) + 0.5)
+        int(-(-int(apple_quantity) + int(orange_quantity) / float(max_per_box)) + 0.5)
         if max_per_box != 0
-        else total_fruit
+        else int(apple_quantity) + int(orange_quantity)
     )
