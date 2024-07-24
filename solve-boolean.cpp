@@ -9,26 +9,39 @@ bool evalBoolean(string s) {
     while (j < s.length() && (s[j] == '|' || s[j] == '&'))
         j++;
 
-    string opStr = s.substr(0, j);
+    string opStr;
+    for (char c : s.substr(0, j)) {
+        opStr.push_back(c);
+    }
     bool result = false;
     if (opStr[0] == '|') {
-        for (int i = j; i < s.length(); i++) {
-            if (s[i] == 'T')
+        for (char c : s.substr(j)) {
+            if (c == 'T')
                 result = true;
-            else if (s[i] == 'F') {
+            else if (c == 'F') {
                 result = false;
                 return result;
             }
         }
     } else {
         bool left = false;
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
+        bool right = false;
+        for (char c : s.substr(0, j)) {
+            if (c == 'T' && opStr[1] != '|')
                 left = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
-                return false;
+            else if (c == 'F' && opStr[1] != '&') {
+                return false;  // F must be the last character
+            }
         }
-        result = left;
+        for (char c : s.substr(j)) {
+            if (c == 'T' && opStr[1] == '|')
+                right = true;
+            else if (c == 'F' && opStr[1] == '&') {
+                right = false;
+                return right;  // F must be the last character
+            }
+        }
+        result = left && right;
     }
 
     return result;
