@@ -1,7 +1,5 @@
+```
 def add(x: int, y: int):
-    print("Enter first number: ")
-    x = int(input())
-    print("Enter second number: ")
-    y = int(input())
-    return x + y
-print(add(0, 0))
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
+    return str(x + y)
