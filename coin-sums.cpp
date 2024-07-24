@@ -1,6 +1,7 @@
 int main() {
     int n;
     cin >> n;
+    
     int quarters = n / 25;
     n %= 25;
     int dimes = n / 10;
