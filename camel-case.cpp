@@ -1,34 +1,36 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    bool firstWord = true;
-    bool capitalNextWord = false;
-
-    for (char c : input) {
-        if (c == '-') {
-            capitalNextWord = !capitalNextWord;
-            continue;
-        } else if (c == ' ') {
-            capitalNextWord = !capitalNextWord;
-            continue;
-        }
-        if (capitalNextWord) {
-            result += toupper(c);
-            capitalNextWord = false;
-        } else {
-            result += tolower(c);
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            while (++i < s.size() && s[i] == '-');
+            if (!result.empty()) {
+                result += char(toupper(s[i]));
+            } else {
+                result += tolower(s[i]);
+            }
+            result += " ";
+        } else if (!result.empty() && !std::isalpha(s[i])) {
+            result += s[i];
+        } else if (std::isalpha(s[i])) {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += tolower(s[i]);
         }
     }
-    
     return result;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-    std::cout << "The camelCase version is: " << camelCase(input) << std::endl;
+    while (true) {
+        std::cout << "Enter a string in kebab-case: ";
+        std::getline(std::cin, input);
+        std::cout << "camelCase: " << camelCase(input) << std::endl;
+    }
     return 0;
 }
