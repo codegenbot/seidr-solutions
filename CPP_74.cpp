@@ -19,6 +19,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     for (const std::string& s : lst2) {
         sum2 += s.length();
     }
+
+    if (!lst1.size() && !lst2.size()) return {};
+
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
     else {
@@ -28,15 +31,8 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1;
-    lst1.push_back("a");
-    lst1.push_back("b");
-    lst1.push_back("c");
-
-    std::vector<std::string> lst2;
-    lst2.push_back("d");
-    lst2.push_back("e");
-    lst2.push_back("f");
+    std::vector<std::string> lst1 = {"a", "b", "c"};
+    std::vector<std::string> lst2 = {"d", "e", "f"};
 
     if (issame(lst1, lst2)) {
         std::cout << "The lists are the same.\n";
