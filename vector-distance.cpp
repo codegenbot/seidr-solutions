@@ -11,7 +11,8 @@ int main() {
     vector<double> v1(n);
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
-        v1[i] = max(0.0, min(1.0, v1[i])); // Ensure the value is in [0, 1]
+        if(v1[i] < 0) v1[i] = 0;
+        else if (v1[i] > 1) v1[i] = 1;
     }
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -19,7 +20,8 @@ int main() {
     vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
-        v2[i] = max(0.0, min(1.0, v2[i])); // Ensure the value is in [0, 1]
+        if(v2[i] < 0) v2[i] = 0;
+        else if (v2[i] > 1) v2[i] = 1;
     }
 
     double sum = 0;
