@@ -11,12 +11,16 @@ vector<string> split_words(string txt) {
     for (char c : txt) {
         if (isspace(c)) {
             if (!currentWord.empty()) {
-                result.push_back(currentWord);
+                if (currentWord.size() > 0) {
+                    result.push_back(currentWord);
+                }
                 currentWord = "";
             }
         } else if (c == ',') {
             if (!currentWord.empty()) {
-                result.push_back(currentWord);
+                if (currentWord.size() > 0) {
+                    result.push_back(currentWord);
+                }
                 currentWord = "";
             }
         } else {
@@ -25,15 +29,9 @@ vector<string> split_words(string txt) {
     }
     
     if (!currentWord.empty()) {
-        result.push_back(currentWord);
-    } else {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c)) {
-                count++;
-            }
+        if (currentWord.size() > 0) {
+            result.push_back(currentWord);
         }
-        result.push_back(to_string(count));
     }
     
     return result;
