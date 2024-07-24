@@ -1,3 +1,4 @@
+```cpp
 bool is_nested(string str) {
     int count = 0;
     for (char c : str) {
