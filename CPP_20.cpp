@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -16,6 +18,7 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> vec1, vec2;
+    std::string tempLine;
 
     // Input for vector 1
     std::cout << "Enter the elements of vector 1 (separated by space): ";
@@ -24,14 +27,13 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec1.clear();
+            tempLine.clear(); // Add this line
             break;
         }
         vec1.push_back(num);
-        // Unset precision
-        std::cin.reset();
-        // Read the space to process the next number
-        if (!(std::cin >> ws).good()) {
-            break; // No more numbers in the stream
+        // Read the next line for the next number
+        if (!std::getline(std::cin, tempLine).good()) {
+            break; 
         }
     }
 
@@ -41,14 +43,13 @@ int main() {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
             vec2.clear(); 
+            tempLine.clear(); // Add this line
             break;
         }
         vec2.push_back(num);
-        // Unset precision
-        std::cin.reset();
-        // Read the space to process the next number
-        if (!(std::cin >> ws).good()) {
-            break; // No more numbers in the stream
+        // Read the next line for the next number
+        if (!std::getline(std::cin, tempLine).good()) {
+            break; 
         }
     }
 
