@@ -1,11 +1,8 @@
-Here is a Python solution:
+def leaders(a):
+    n = len(a)
+    result = [a[n - 1]]
 
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
-
-# test cases
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+    for i in range(n - 2, -1, -1):
+        if a[i] >= max(a[i + 1:]):
+            result.append(a[i])
+    return result[::-1]
