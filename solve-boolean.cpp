@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
 #include <stack>
 #include <string>
+
 using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> s;
-    bool result = false;
     
     for (int i = 0; i < expression.length(); ++i) {
         if (expression[i] == '&') {
@@ -24,7 +23,7 @@ bool solveBoolean(string expression) {
         }
     }
     
-    result = (s.top() == 'T'); 
+    bool result = (s.top() == 'T');
     return result;
 }
 
