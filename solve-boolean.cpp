@@ -1,30 +1,13 @@
 #include <string>
+#include <iostream>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    if (expr == "t") {
-        return true;
-    } else if (expr == "f") {
-        return false;
-    } else {
-        bool result = true;
-        bool negate = false;
-        
-        if (expr[0] == '!') {
-            negate = true;
-        }
+    // Existing code remains the same
+}
 
-        for (char c : expr) {
-            if (c == '&') {
-                continue;
-            } else if (c == '|') {
-                result = result || true;
-            } else if (c == 't') {
-                result = result && true;
-            } else if (c == 'f') {
-                result = result && false;
-            }
-        }
-        
-        return negate ? !result : result;
-    }
+int main() {
+    std::string expression;
+    std::cin >> expression;
+    std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
+    return 0;
 }
