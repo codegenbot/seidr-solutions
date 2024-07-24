@@ -1,2 +1,6 @@
-def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+def solution(path):
+    if not os.path.exists(path):
+        return "File does not exist"
+    with open(path) as file:
+        content = file.read()
+    return content
