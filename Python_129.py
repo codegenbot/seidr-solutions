@@ -3,13 +3,13 @@ def minPath(grid, k):
     if len(grid) != 0 and type(grid[0]) == list:
         N = len(grid)
     else:
-        return "Invalid grid format"
+        return 
 
     if not isinstance(k, int):
-        return "k should be an integer"
+        return 
 
     if k < 1 or k > len(grid)*len(grid):
-        return "k is out of range"
+        return 
 
     values = [[i * j for j in range(1, N + 1)] for i in range(1, N + 1)]
     current_position = (0, 0)
