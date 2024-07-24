@@ -1,22 +1,17 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    left, right = 0, n-1
-    changes = 0
-    
-    while left < right:
-        if arr[left] != arr[right]:
-            for i in range(left+1, right):
-                if arr[i] == arr[right]:
-                    arr[i], arr[left] = arr[left], arr[i]
-                    changes += 1
-                    break
-            else:
-                changes += right - left + 1
-        left += 1
-        right -= 1
-    
-    return changes
+    if isinstance(arr[0], list):  
+        n = len(arr[0])
+        arr_str = ''.join([str(x) for x in arr[0] + arr[1]])
+    else:  
+        n = 2
+        arr_str = str(arr[0]) + str(arr[1])
 
-arr = list(map(str, input("Enter the array: ").split(",")))
-print("The smallest change needed is:", smallest_change(arr))
+    rev_arr_str = arr_str[::-1]
+    diff_count = 0
+
+    for i in range(n//2):
+        if arr_str[i] != rev_arr_str[n-i-1]:
+            diff_count += 1
+
+    return diff_count
