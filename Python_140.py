@@ -1,8 +1,8 @@
+```
 import re
 
-
 def fix_spaces(text):
-    if not text:
+    if not text:  
         return "Invalid input"
     text = text.strip().replace(" ", "_").replace("\n", "")
     while "__" in text:
