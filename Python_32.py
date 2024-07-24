@@ -1,10 +1,8 @@
 n = int(input())
-coefficients = []
-for _ in range(n):
-    coefficients.extend(map(int, input().split()))
+coefficients = list(map(int, input().split()))
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
+    if len(xs) != 2 * n:
         raise ValueError("Number of coefficients should be even")
     return sum(xs)
 
