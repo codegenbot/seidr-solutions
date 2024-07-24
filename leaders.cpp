@@ -12,6 +12,8 @@ std::vector<int> leaders(const std::vector<int>& vec) {
     }
     return leaders;
 
+}
+
 int main() {
     return 0;
 }
