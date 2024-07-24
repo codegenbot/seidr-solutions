@@ -4,41 +4,31 @@
 
 using namespace std;
 
-string spinWords(string str) {
+string spinWords(string s) {
     string result = "";
-    int wordLength = 0;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (wordLength >= 5) {
-                for (int j = i - 1; j >= i - wordLength; j--) {
-                    result += str[j];
+    int length = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            length = 0;
+            result += ' ';
+        } else {
+            length++;
+            if (length >= 5) {
+                for (int j = length - 1; j >= 0; j--) {
+                    result += s[i - j];
                 }
             } else {
-                result += str.substr(i - wordLength, 1);
+                result += s[i];
             }
-            result += " ";
-            wordLength = 0;
-        } else {
-            wordLength++;
         }
     }
-    
-    if (wordLength >= 5) {
-        for (int j = str.length() - 1; j >= str.length() - wordLength; j--) {
-            result += str[j];
-        }
-    } else {
-        result += str;
-    }
-    
     return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    string input;
+    while (cin >> input) {
+        cout << spinWords(input) << endl;
+    }
     return 0;
 }
