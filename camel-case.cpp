@@ -1,10 +1,9 @@
-int i = 0;
 string camelCase(string s) {
     int i = 0;
     string result = "";
     for (i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            i++; // Skip the '-'
+            i++; 
             while (i < s.length() && s[i] != ' ') {
                 result += toupper(s[i]);
                 i++;
