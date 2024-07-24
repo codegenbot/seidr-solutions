@@ -1,7 +1,3 @@
-n = int(input())
-total = 0
-for _ in range(n):
-    num = int(input())
-    new_num = max(0, num // 3 - 2)
-    total += new_num
+arr = list(map(int, input().split()))
+total = sum([max(0, num // 3 - 2) for num in arr])
 print(total)
