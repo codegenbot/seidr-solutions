@@ -1,20 +1,20 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double p = 0;
-    
-    for(int i=1; i<n; i++) {
-        p += (n - i) / total;
+    double totalPossibilities = (long long)n * m;
+    double peterWins = 0;
+
+    for (int i = m + 1; i <= n; i++) {
+        peterWins += (long long)i / totalPossibilities;
     }
-    
-    return p;
+
+    return peterWins;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << diceGame(n, m);
+    cout << fixed << setprecision(5) << diceGame(n, m);
     return 0;
 }
