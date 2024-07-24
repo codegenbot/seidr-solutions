@@ -6,11 +6,9 @@ def fizz_buzz(n: int):
             print("FizzBuzz")
             count += 1
         elif i % 3 == 0:
-            print("Fizz" if i % 5 else "Fizz", end="")
-            count += (i % 5 != 0)
+            print("Fizz" if i % 5 != 0 else "FizzBuzz")
         elif i % 5 == 0:
             print("Buzz")
-            count += 1
         else:
             print(i)
     return count
