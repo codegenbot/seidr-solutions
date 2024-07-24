@@ -1,4 +1,6 @@
-bool issame(const vector<int>& a, const vector<int>& b);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
 
 void sort_third(vector<int>& l) {
     for(int i = 0; i < l.size(); i++){
