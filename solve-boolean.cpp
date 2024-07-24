@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(string expression) {
     if (expression.find('|') == string::npos && expression.find('&') == string::npos) {
         return tolower(expression[0]) == 't';
@@ -25,4 +26,16 @@ bool solveBoolean(string expression) {
     }
 
     return !expression.empty() && tolower(expression[0]) == 't';
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, expression);
+    bool result = solveBoolean(expression);
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
 }
