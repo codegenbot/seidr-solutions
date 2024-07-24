@@ -8,15 +8,13 @@ def fix_spaces(text):
             new_text += char
             add_hyphen = False
         elif char.isspace():
-            if add_hyphen:
-                new_text += " "
-                add_hyphen = False
-            else:
+            if not add_hyphen:
                 new_text += "-"
                 add_hyphen = True
+            else:
+                new_text += " "
         else:
             if add_hyphen:
                 new_text += "-"
                 add_hyphen = False
             new_text += char
-    return new_text
