@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-int search(std::vector<int> lst) {
+int search(std::vector<int> lst) { 
     int max = 0;
     for (int i : lst) {
         if (i > 0 && std::count(std::begin(lst), std::end(lst), i) >= 1) { 
