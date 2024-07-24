@@ -1,17 +1,17 @@
-Here is the completed code:
+def encode_cyclic(s: str):
+    return "".join(
+        [
+            (
+                s[i : i + 3][1:] + s[i : i + 3][0]
+                if len(s[i : i + 3]) == 3
+                else s[i : i + 3]
+            )
+            for i in range(0, len(s), 3)
+        ]
+    )
+
 
 def decode_cyclic(s: str):
-    result = []
-    i = 0
-    while i < len(s):
-        if i + 2 < len(s) and s[i] == s[i+3]:
-            group = s[i:i+3]
-            j = 1
-            while len(group) > 3:
-                group = group[1:] + group[0]
-                j += 1
-            result.extend([group[:1], group[1:]] * (j-1))
-        else:
-            result.append(s[i:i+3])
-        i += 3
-    return "".join(result)
+    return "".join(
+        ["".join([s[i], s[i + 9]]) if i % 9 < 6 else s[i] for i in range(len(s))]
+    )
