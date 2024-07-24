@@ -7,4 +7,7 @@ def modify_string(string):
         [char.lower() if char.isupper() else char.upper() for char in string]
     )
 
-return check()
+    return modify_string(string)
+    
+output = check()
+print(output)
