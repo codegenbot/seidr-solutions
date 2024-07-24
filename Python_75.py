@@ -7,13 +7,13 @@ def is_multiply_prime(a):
             if n % i == 0:
                 return False
         return True
-
+    
     factors = []
-    for i in range(2, a // 2 + 1):
+    i = 2
+    while a > 1:
         while a % i == 0:
-            if is_prime(i):
-                factors.append(i)
+            factors.append(i)
             a //= i
-    if len(factors) != 3:
-        return False
-    return all(is_prime(f) for f in factors)
+        i += 1
+    primes = [x for x in set(factors) if is_prime(x)]
+    return len(primes) == 3
