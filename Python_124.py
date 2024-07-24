@@ -1,10 +1,8 @@
-Here's the complete Python function:
-
 ```Python
 def valid_date():
     date = input("Enter a date in the format YYYY-MM-DD: ")
-    if not date.replace('-', '').isdigit():
-        return "Invalid date."
+    if not date:
+        return "Date is empty."
     month, day, year = date.split('-')
     if len(month) == 1:
         month = '0' + month
