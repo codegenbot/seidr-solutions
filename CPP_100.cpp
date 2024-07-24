@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <initializer_list>
 #include <iostream>
@@ -23,7 +24,7 @@ bool isSame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
     return true;
 }
 
-int main()
+int main 
 {
     int n;
     cout << "Enter the number: ";
@@ -35,4 +36,3 @@ int main()
         }
         cout << endl;
     }
-}
