@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 int maxPrimeNum = 0;
 std::vector<int> lst;
