@@ -6,4 +6,4 @@ def rolling_max(numbers: list) -> list:
         max_seen_so_far = max(num, max_seen_so_far)
         result.append(max_seen_so_far)
         max_seen_so_far = max(num, max_seen_so_far)
-    return result
+        result.append(max_seen_so_far)
