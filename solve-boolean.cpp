@@ -1,6 +1,11 @@
-```c++
 #include <string>
 using namespace std;
+
+int main() {
+    string s; 
+    bool result = solveBoolean(s); 
+    return 0;
+}
 
 bool solveBoolean(string s) {
     bool res = true;
@@ -12,10 +17,4 @@ bool solveBoolean(string s) {
         }
     }
     return res;
-}
-
-int main() {
-    string s; // Read input from user
-    bool result = solveBoolean(s); // Call your existing code
-    return 0;
 }
