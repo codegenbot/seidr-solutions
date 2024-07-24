@@ -1,12 +1,20 @@
-sort(numbers.begin(), numbers.end());
-    pair<float, float> closest_pair = {numbers[0], numbers[1]};
-    float min_diff = abs(numbers[0] - numbers[1]);
-    for (int i = 1; i < numbers.size() - 1; ++i) {
-        float diff = abs(numbers[i] - numbers[i + 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+vector<float> find_closest_elements(vector<float> numbers){
+    sort(numbers.begin(), numbers.end());
+    float minDiff = numbers[1] - numbers[0];
+    pair<float, float> result = make_pair(numbers[0], numbers[1]);
+    
+    for(int i = 1; i < numbers.size() - 1; i++){
+        if(numbers[i+1] - numbers[i] < minDiff){
+            minDiff = numbers[i+1] - numbers[i];
+            result = make_pair(numbers[i], numbers[i+1]);
         }
     }
-    return {closest_pair.first, closest_pair.second};
+    
+    return {result.first, result.second};
 }
