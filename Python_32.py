@@ -1,4 +1,3 @@
-print("Enter the number of coefficients:")
 n = int(input())
 coefficients = list(map(int, input().split()))
 
