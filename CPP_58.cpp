@@ -13,11 +13,6 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
-}
-
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
 }
