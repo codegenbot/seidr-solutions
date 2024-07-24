@@ -22,14 +22,7 @@ std::string spinWords(std::string str) {
         }
     }
 
-    if (word.length() >= 5) {
-        std::string revWord = word;
-        std::reverse(revWord.begin(), revWord.end());
-        result += revWord;
-    } else {
-        result += word;
-    }
-
+    result += word; // No need to check the length here
     return result;
 }
 
