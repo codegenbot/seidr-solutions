@@ -1,13 +1,15 @@
-def gcd():
-    n = int(input("Enter first integer: "))
-    m = int(input("Enter second integer: "))
-
-    def _gcd(a, b):
-        while b != 0:
-            a, b = b, a % b
-        return abs(a)
-
-    print(_gcd(n, m))
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
 
-gcd()
+def main():
+    n = int(input())
+    m = int(input())
+
+    print(gcd(n, m))
+
+
+if __name__ == "__main__":
+    main()
