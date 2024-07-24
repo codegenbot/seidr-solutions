@@ -20,7 +20,7 @@ multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    multimap<char, int> maxCountMap;
+    map<char, int> maxCountMap;
 
     for (auto& p : result) {
         if (p.second > maxCount) {
@@ -48,6 +48,6 @@ int main1() {
 }
 
 int main2() {
-    assert((histogram("a")) == map<char,int>{{'a', 1}});
+    assert(histogram("a") == multimap<char,int>{{'a', 1}});
     return 0;
 }
