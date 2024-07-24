@@ -8,9 +8,10 @@ def is_happy_number(n):
         n = sum(int(digit) ** 2 for digit in str(n))
     return True
 
-while True:
-    try:
-        print(is_happy_number(int(input("Enter a number: "))))
-        break
-    except ValueError as e:
-        print(f"Invalid input. {e}")
+if __name__ == "__main__":
+    while True:
+        try:
+            print(is_happy_number(int(input("Enter a number: "))))
+            break
+        except ValueError as e:
+            print(f"Invalid input. {e}")
