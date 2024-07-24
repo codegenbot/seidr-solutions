@@ -1,3 +1,4 @@
+```c
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -8,6 +9,16 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    size_t nonAlphanumericCount = count_if(tweet.begin(), tweet.end(), [](char c){ return !isalnum(c); });
-    cout << (tweet.length() + nonAlphanumericCount > 140 ? "Too many characters" : tweet.empty() ? "You didn't type anything" : "Your tweet has " << tweet.length() << " characters") << endl;
+    if (tweet.length() > 140) {
+        int count = 0;
+        for (char c : tweet) {
+            if (!isalnum(c)) continue; // Don't count non-alphanumeric chars
+            count++;
+        }
+        cout << "Too many characters" << endl;
+    } else if(tweet.empty()) {
+        cout << "You didn't type anything" << endl;
+    } else {
+        cout << "Your tweet has " << static_cast<int>(count + 1) << " characters" << endl;
+    }
 }
