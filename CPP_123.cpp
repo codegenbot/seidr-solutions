@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -53,6 +52,7 @@ void startProgram() {
             cout << "The sequence does not match Collatz Conjecture." << endl;
         }
     } else {
+        assert(isSame(getOddCollatz(1), {1}));
         cout << "The sequence does not match Collatz Conjecture." << endl;
     }
 }
