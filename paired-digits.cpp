@@ -9,13 +9,8 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
-    string s;
-    cout << "Enter a string of digits: ";
-    cin >> s;
-    cout << "Sum of paired digits: " << pairedDigits(s) << endl;
-    return 0;
+    return pairedDigits("123333");
 }
