@@ -9,7 +9,7 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
     return std::isalpha(lastChar);
 }
 
-int main() {
+int main(int argc, const char* argv[]) {
     std::cout << "Enter a string: ";
     std::string line; 
     std::getline(std::cin, line); 
