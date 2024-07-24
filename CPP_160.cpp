@@ -26,7 +26,10 @@ vector<string> split(string str) {
     }
     for (int i = 0; i < result.size(); i++) {
         if (result[i].empty()) {
-            result.pop_back();
+            result.erase(result.begin() + i);
+            i--; 
+        } else if (result[i] == "") { 
+            result.erase(result.begin() + i);
             i--;
         }
     }
@@ -83,7 +86,8 @@ int main() {
 
     cout << "Enter the expressions (space separated): ";
     getline(cin, input);
-    expressions = split(input);
+    if (!input.empty()) {
+        expressions = split(input);
 
     double output = do_algebra({expressions[0], expressions[1], expressions[2]});
     cout << "Result: " << output << endl;
