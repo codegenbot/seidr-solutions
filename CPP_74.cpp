@@ -48,10 +48,9 @@ int main() {
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
                 cout << "Please try again: ";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignore newline char
             }
         }
-        lst1.push_back(s);
+        if (!s.empty()) lst1.push_back(s);
     }
 
     cout << "Enter the number of strings for list 2: ";
@@ -66,10 +65,9 @@ int main() {
             else {
                 cout << "Invalid input. Please enter a non-empty string.\n";
                 cout << "Please try again: ";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignore newline char
             }
         }
-        lst2.push_back(s);
+        if (!s.empty()) lst2.push_back(s);
     }
 
     if (same(lst1, lst2)) {
