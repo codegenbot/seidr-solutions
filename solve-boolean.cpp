@@ -1,38 +1,27 @@
-bool solveBoolean(string booleanExp) {
-    stack<char> stack;
-    bool result = false;
-    
-    for (int i = 0; i < booleanExp.length(); i++) {
-        if (booleanExp[i] == '&') {
-            while (!stack.empty() && stack.top() == '&') {
-                stack.pop();
+#include <string>
+
+bool evaluateBoolean(const string &expression) {
+    stack<char> operators;
+    bool current = (expression[0] == 't') ? true : false;
+
+    for (int i = 1; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            while (!operators.empty() && operators.top() == '&') {
+                operators.pop();
+                current ^= true;
             }
-            if (!stack.empty() && stack.top() == '|') {
-                result = false;
-                stack.pop();
-            } else if (stack.empty()) {
-                result = true;
-            } else if (stack.top() == 'F') {
-                result = false;
-                stack.pop();
-            }
-        } else if (booleanExp[i] != '&') {
-            stack.push(boolStringToChar(booleanExp[i]));
+            operators.push('|');
+        } else if (expression[i] == '&') {
+            operators.push('&');
+        } else {
+            current = expression[i] == 't';
         }
     }
-    
-    return result;
-}
 
-char boolStringToChar(char c) {
-    if (c == 't' || c == 'T')
-        return 'T';
-    else if (c == 'f' || c == 'F')
-        return 'F';
-    else if (c == '|') 
-        return '|';
-    else if (c == '&') 
-        return '&';
-    
-    return '0';
+    while (!operators.empty()) {
+        operators.pop();
+        current ^= true;
+    }
+
+    return current;
 }
