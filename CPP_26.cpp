@@ -1,9 +1,14 @@
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int num : numbers){
-        if(find(result.begin(), result.end(), num) == result.end()){
-            result.push_back(num);
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> uniqueNumbers;
+    for (int number : numbers) {
+        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), number) == uniqueNumbers.end()) {
+            uniqueNumbers.push_back(number);
         }
     }
-    return result;
+    return uniqueNumbers;
 }
