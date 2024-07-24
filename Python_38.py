@@ -9,12 +9,12 @@ def decode_cyclic():
     result = set()
     for i in range(n):
         rotated = s[i:] + s[:i]
-        while True:
-            if rotated not in result and s not in result:
-                break
+        while i < n and (rotated in result or s in result):
             i += 1
-        result.add(rotated)
+        if i < n:
+            result.add(rotated)
     
-    return min(result, key=lambda x: [c for c in x].count(min([c for c in x])))
+    rotations = {s[i:] + s[:i] for i in range(n)}
+    return min({k for k in rotations if k in result}, key=len)
 
 print(decode_cyclic())
