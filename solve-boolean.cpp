@@ -32,9 +32,9 @@ int main() {
     std::string input;
     std::cout << "Enter boolean expression: ";
     std::cin >> input;
-
+    
     bool result = evaluateBooleanExpression(input);
     std::cout << "Result: " << (result ? "true" : "false") << std::endl;
-
+    
     return 0;
 }
