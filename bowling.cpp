@@ -1,45 +1,44 @@
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
-
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball++] = 10;
-            if (frame < 10) {
-                scores[ball++] = 0;
+int scoreOfBowlingRound(string bowls) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < bowls.size() && frame < 10; ++i) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (i + 2 < bowls.size()) {
+                if (bowls[i + 2] == 'X') {
+                    score += 10;
+                    if (i + 4 < bowls.size()) {
+                        score += (bowls[i + 4] == 'X') ? 10 : (bowls[i + 4] - '0');
+                    }
+                } else {
+                    score += (bowls[i + 2] == '/') ? 10 : (bowls[i + 2] - '0');
+                    if (i + 3 < bowls.size()) {
+                        score += (bowls[i + 3] == 'X') ? 10 : (bowls[i + 3] - '0');
+                    }
+                }
             }
-            frame++;
-        } else if (c == '/') {
-            scores[ball++] = 10 - scores[ball - 1];
-            frame++;
-        } else if (c == '-') {
-            scores[ball++] = 0;
+            ++frame;
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (i + 1 < bowls.size()) {
+                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
+            }
+            ++frame;
         } else {
-            scores[ball++] = c - '0';
+            score += bowls[i] - '0';
+            if (i + 1 < bowls.size() && bowls[i + 1] == '/') {
+                score += 10 - (bowls[i] - '0');
+            }
+            ++i;
+            ++frame;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (scores[i * 2] == 10) {
-            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
-            if (scores[i * 2 + 2] == 10) {
-                total += scores[i * 2 + 4];
-            }
-        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
-            total += 10 + scores[i * 2 + 2];
-        } else {
-            total += scores[i * 2] + scores[i * 2 + 1];
-        }
-    }
-
-    return total;
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << scoreOfBowlingRound(bowls) << endl;
     return 0;
 }
