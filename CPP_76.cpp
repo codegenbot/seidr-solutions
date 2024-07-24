@@ -1,8 +1,9 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (x == 1) {
+        return true;
     }
     
-    double power = log(x) / log(n);
+    double root = pow(x, 1.0 / n);
+    int root_int = (int)root;
     
-    return power == floor(power);
+    return pow(root_int, n) == x;
 }
