@@ -1,7 +1,12 @@
-float triangle_area(float a, float b, float c){
-    if((a + b > c) && (a + c > b) && (b + c > a)){
-        return round(0.5 * sqrt(pow(a, 2) * pow(b, 2) - pow(c, 2)), 2);
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+
+float triangle_area(float a, float b, float c) {
+    if ((a + b > c) && (a + c > b) && (b + c > a)) {
+        float s = (a + b + c) / 2.0;
+        return round((sqrt(s*(s-a)*(s-b)*(s-c))) * 100.0) / 100.0;
     } else {
-        return -1;
+        return -1.0f;
     }
 }
