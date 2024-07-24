@@ -5,9 +5,9 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     return [s for s in strings if substring in s]
 
 
-user_strings = input("Enter a list of strings (space separated): ").split()
-user_substring = input("Enter the substring to search for: ")
+strings = input("Enter a list of strings (space separated): ")
+substring = input("Enter the substring to search for: ")
 
-result = filter_by_substring(user_strings, user_substring)
+result = filter_by_substring([i.strip() for i in strings.split()], substring)
 
 print(result)
