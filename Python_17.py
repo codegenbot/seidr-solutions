@@ -1,4 +1,4 @@
-```'
+```
 def parse_music(music_string):
     if not isinstance(music_string, str):
         raise ValueError("Invalid input type")
@@ -25,4 +25,4 @@ def parse_music(music_string):
             i += 3 
         else:
             raise ValueError("Invalid input format")
-    return music_list'
+    return music_list
