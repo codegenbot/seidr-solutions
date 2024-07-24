@@ -29,5 +29,5 @@ std::string deleteAndReverse(std::string s, std::string c) {
 }
 
 int main() {
-    assert(same(std::vector<std::string>{deleteAndReverse("mamma", "mia")}, {"", "True"}));
+    assert(same(deleteAndReverse("mamma", "mia"), {"", "True"}));
 }
