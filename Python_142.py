@@ -14,5 +14,4 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter space-separated integers.")
-
 print(sum_squares(numbers))
