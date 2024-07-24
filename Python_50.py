@@ -6,7 +6,9 @@ def decode_shift(s: str):
         ]
     )
 
+input_str = input("Enter the string to decode: ")
+while not input_str.islower():
+    input_str = input("Please enter a string with only lowercase letters: ")
 
-input_str = input("Enter the string to decode: ").strip()
 result = decode_shift(input_str)
 print(result)
