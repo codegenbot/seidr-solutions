@@ -4,16 +4,19 @@
 int main() {
     int hours;
     float snow, rate, melt;
+    const double EPSILON = 1e-9;
+    
     std::cin >> hours >> snow >> rate >> melt;
     
-    std::cout << std::fixed << std::setprecision(15);
+    std::cout << std::fixed << std::setprecision(10);
     
-    float original_snow = snow;
     for (int i = 0; i < hours; ++i) {
-        snow = snow + rate - (original_snow * melt);
+        snow = snow + rate - (snow * melt);
     }
     
-    std::cout << snow << std::endl;
+    snow = std::max(0.0f, snow);
+    
+    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
     
     return 0;
 }
