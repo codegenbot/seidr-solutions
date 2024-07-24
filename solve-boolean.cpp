@@ -1,26 +1,22 @@
-bool evaluateBoolExpression(const string& s) {
-    if (s == "t") {
-        return true;
-    } else if (s == "f") {
-        return false;
+int main() {
+    string input;
+    cin >> input;
+
+    if (input == "t") {
+        cout << "True" << endl;
+    } else if (input == "f") {
+        cout << "False" << endl;
     } else {
-        char op = s.back();
-        if (op == '|') {
-            return s[0] == 't' || s[1] == 't';
-        } else if (op == '&') {
-            return s[0] == 't' && s[1] == 't';
+        char op = input[input.size() - 2];
+        char left = input[0];
+        char right = input[input.size() - 1];
+
+        if ((left == 't' && right == 't' && op == '&') || (left == 'f' && right == 'f' && op == '|')) {
+            cout << "True" << endl;
+        } else {
+            cout << "False" << endl;
         }
     }
-    return false;
-}
 
-int main() {
-    string expression;
-    cin >> expression;
-    if (evaluateBoolExpression(expression)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
     return 0;
 }
