@@ -1,4 +1,6 @@
-bool solveBoolean(std::string expression) {
+using namespace std;
+
+bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
