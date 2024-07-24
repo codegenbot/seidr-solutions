@@ -1,39 +1,49 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    string frame;
-    
-    for (char c : str) {
+    int currentRolls = 0;
+    int currentFrame = 1;
+
+    for (char c : s) {
         if (c == '/') {
-            int pins = stoi(frame);
-            if (roll < 2) {
-                score += min(10, pins);
-            } else {
-                score += pins + min(10, roll - 1) * 10;
+            if (currentRolls == 2) {
+                score += 10 + getPreviousFrames();
+                currentRolls = 0;
+                currentFrame++;
             }
-            frame.clear();
-            roll = 0;
-        } else if (c == 'X') {
-            int pins = 30;
-            if (roll < 2) {
-                score += 10;
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            if (currentRolls < 2) {
+                if (roll == 10) {
+                    score += 10 + getPreviousFrames();
+                    currentRolls = 2;
+                } else {
+                    score += roll;
+                    currentRolls++;
+                }
             } else {
-                score += 20 + min(10, roll - 1) * 10;
+                int previousRolls = currentFrame - 1 ? min(roll, 2) : 0;
+                score += previousRolls * 10 + getPreviousFrames() + roll;
+                currentRolls = 0;
+                currentFrame++;
             }
-            frame.clear();
-            roll = 0;
-        } else {
-            frame.push_back(c);
-            roll++;
         }
     }
-    
-    int pins = stoi(frame);
-    if (roll < 2) {
-        score += min(10, pins);
-    } else {
-        score += pins + min(10, roll - 1) * 10;
-    }
-    
+
     return score;
+
 }
+
+int getPreviousFrames() {
+    int sum = 0;
+    for (int i = currentFrame - 1; i > 0; i--) {
+        if (i == 9) {
+            sum += min(10, frames[i]);
+        } else {
+            sum += frames[i];
+        }
+    }
+    return sum;
+}
+
+// Initialize the score array
+int frames[10] = {0};
