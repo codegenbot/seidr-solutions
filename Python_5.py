@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
@@ -18,9 +17,6 @@ if __name__ == "__main__":
             delimeter = int(delimeter_str)
             
             print(intersperse(input_numbers, delimeter))
-            cont = input("Do you want to continue? (yes/no): ")
-            if cont.lower() != 'yes':
-                break
         except ValueError:
             print("Invalid number(s) entered. Please enter valid numbers.")
         except TypeError:
