@@ -1,19 +1,25 @@
-```cpp
-bool issame(vector<string> a, vector<string> b);
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+#include <vector>
+#include <string>
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    return result;
+    return true;
+}
+
+int sorted_list_sum(const vector<vector<string>>& lst) {
+    int sum = 0;
+    for (const auto& sublst : lst) {
+        std::sort(sublst.begin(), sublst.end());
+        if (issame({{"hello", "world"}}, sublst)) {
+            sum += std::stoi(sublst[1].substr(7));
+        }
+    }
+    return sum;
 }
