@@ -41,3 +41,5 @@ int main() {
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
+    return 0;
+}
