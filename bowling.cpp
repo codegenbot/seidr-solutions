@@ -1,37 +1,44 @@
-int bowlingScore(string s) {
+int calculateBowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int ball = 0;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10 - (s[i + 1] == '/' ? 0 : s[i - 1] - '0'));
-                score += s[i + 2] == 'X' ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10 - (s[i + 2] == '/' ? 0 : s[i + 1] - '0'));
-            }
-            ball = 0;
+    int balls[21] = {0};
+    
+    for(char c : s) {
+        if(c == 'X') {
+            balls[ball++] = 10;
             frame++;
-        } else if (isdigit(s[i])) {
-            score += s[i] - '0';
-            if (ball == 0 && s[i + 1] == '/') {
-                score += 10 - (s[i] - '0');
-            }
-            ball = 1 - ball;
-        } else if (s[i] == '/') {
-            score += 10 - (s[i - 1] - '0');
-            if (frame < 10) {
-                score += s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10 - (s[i + 1] == '/' ? 0 : 10 - (s[i - 1] - '0')));
-            }
-            ball = 0;
+        } else if(c == '/') {
+            balls[ball-1] = 10 - balls[ball-1];
+            balls[ball++] = 0;
             frame++;
+        } else if(c == '-') {
+            balls[ball++] = 0;
+            frame++;
+        } else {
+            balls[ball++] = c - '0';
+            if(frame % 2 == 1 || c == '0') {
+                frame++;
+            }
         }
     }
+    
+    for(int i = 0; i < 10; i++) {
+        if(balls[i*2] == 10) {
+            score += 10 + balls[i*2+1] + balls[i*2+2];
+        } else if(balls[i*2] + balls[i*2+1] == 10) {
+            score += 10 + balls[i*2+2];
+        } else {
+            score += balls[i*2] + balls[i*2+1];
+        }
+    }
+    
     return score;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << bowlingScore(s) << endl;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
