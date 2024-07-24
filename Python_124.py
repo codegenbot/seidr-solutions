@@ -1,5 +1,5 @@
 def valid_date(date):
-    date = date.replace('-', '/').replace(' ', '')
+    date = date.replace('-', '/')
     day, month, year = map(int, date.split('/'))
     if len(date) != 9 or month < 1 or month > 12:
         return False
