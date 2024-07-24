@@ -27,16 +27,17 @@ int main() {
     string text, target;
 
     cout << "Enter two integers a and b: ";
-    cin >> a >> b;
-    cin.ignore();
+    if (!(cin >> a >> b)) {
+        cerr << "Invalid input for integers" << endl;
+        return 1;
+    }
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
-    cout << "Enter a text string: ";
-    cin >> text;
+    while (cin.get() != '\n');
+    getline(cin, text);
 
-    cout << "Enter a target string: ";
-    cin >> target;
+    getline(cin, target);
 
     vector<int> result = findSubstringIndices(text, target);
 
