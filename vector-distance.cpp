@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
-    char comma;
-    std::cin >> comma; // Read and discard the comma between vector elements
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
@@ -23,7 +22,7 @@ int main() {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << std::sqrt(sum) << "\n";
+    std::cout << std::fixed << std::setprecision(15) << std::sqrt(sum) << "\n";
 
     return 0;
 }
