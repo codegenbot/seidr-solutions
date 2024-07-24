@@ -17,6 +17,8 @@ def main():
                 print(
                     "Invalid input. Please enter a valid integer or type 'stop' to finish."
                 )
+                value = input("Enter an integer (or 'stop' to finish): ")
+
     filtered_values = filter_integers(values)
 
     print(filtered_values)
