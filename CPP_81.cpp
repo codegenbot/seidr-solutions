@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <string>
@@ -32,7 +30,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 1.0)
             result.push_back("D+");
         else
-            result.push_back("E");
+            result.push_back("F");
     }
     return result;
 }
@@ -40,25 +38,25 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main_test() {
     std::vector<float> grades = {0, 0.7};
     std::vector<std::string> a = numerical_letter_grade(grades);
-    if (a[0] >= 4.0)
+    if (a[0] >= "A+")
         a[0] = "A+";
-    else if (a[0] > 3.7)
+    else if (a[0] > "A")
         a[0] = "A";
-    else if (a[0] > 3.3)
+    else if (a[0] > "A-")
         a[0] = "A-";
-    else if (a[0] > 3.0)
+    else if (a[0] > "B+")
         a[0] = "B+";
-    else if (a[0] > 2.7)
+    else if (a[0] > "B")
         a[0] = "B";
-    else if (a[0] > 2.3)
+    else if (a[0] > "B-")
         a[0] = "B-";
-    else if (a[0] > 2.0)
+    else if (a[0] > "C+")
         a[0] = "C+";
-    else if (a[0] > 1.7)
+    else if (a[0] > "C")
         a[0] = "C";
-    else if (a[0] > 1.3)
+    else if (a[0] > "C-")
         a[0] = "C-";
-    else if (a[0] > 1.0)
+    else if (a[0] > "D+")
         a[0] = "D+";
     else
         a[0] = "F";
