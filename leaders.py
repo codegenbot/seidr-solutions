@@ -1,11 +1,9 @@
 def leaders(input):
     input = list(map(int, input.split()))
-    leader = input[-1]
-    leaders_list = [leader]
+    leaders_list = [input[-1]]
 
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= leader:
-            leader = input[i]
-            leaders_list.insert(0, leader)
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= leaders_list[0]:
+            leaders_list.insert(0, input[i])
 
     return " ".join(str(x) for x in leaders_list)

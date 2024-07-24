@@ -1,9 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
@@ -26,7 +23,7 @@ int mastermind(std::string code, std::string guess) {
             }
         }
 
-        whitePegs += std::min(countCode, countGuess);
+        whitePegs += min(countCode, countGuess);
     }
 
     return blackPegs - whitePegs;
