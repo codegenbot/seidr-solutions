@@ -1,9 +1,13 @@
 ```
-def sum_of_odd_squares(lst):
+def sum_squares():
     total_sum = 0
-    for i in range(len(lst)):
-        if lst[i] % 2 != 0:
-            total_sum += lst[i]**2
+    while True:
+        try:
+            num = int(input("Enter an integer (or 'done' to finish): "))
+            if num == 'done':
+                break
+            if num % 2 != 0:
+                total_sum += num ** 2
+        except ValueError:
+            print("Invalid input. Please enter a valid integer or 'done'.")
     return total_sum
-
-print(sum_of_odd_squares([1, 2, 3, 4, 5]))
