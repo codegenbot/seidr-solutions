@@ -8,5 +8,6 @@ def string_to_md5(text):
 
 if __name__ == "__main__":
     text = input("Enter a string: ").lower()
-    result = string_to_md5(text)
-    print(result)
+    if len(text) > 0:
+        result = string_to_md5(text)
+        print(result)
