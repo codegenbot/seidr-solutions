@@ -1,4 +1,7 @@
-vector<int> factors;
+#include <vector>
+
+vector<int> factorize(int n) {
+    vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
             factors.push_back(i);
@@ -9,3 +12,16 @@ vector<int> factors;
         factors.push_back(n);
     }
     return factors;
+}
+
+bool issame(vector<int> v1, vector<int> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
