@@ -13,6 +13,7 @@ int smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
+    std::vector<int> numbers = {0, 1};
+    assert(smallest_change(numbers) == 1);
     return 0;
 }
