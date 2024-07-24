@@ -44,3 +44,7 @@ int getAndProcessInput() {
     }
     return 0;
 }
+
+int main() {
+    getAndProcessInput();
+}
