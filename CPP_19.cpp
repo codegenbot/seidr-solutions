@@ -1,5 +1,4 @@
-string sort_numbers(string numbers){
-    map<string, int> num_map = {
+map<string, int> numMap = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -12,21 +11,16 @@ string sort_numbers(string numbers){
         {"nine", 9}
     };
 
-    vector<string> num_list;
-    string num;
-
-    istringstream iss(numbers);
-    while(iss >> num) {
-        num_list.push_back(num);
+    map<int, string> revNumMap;
+    for (auto const& pair : numMap) {
+        revNumMap[pair.second] = pair.first;
     }
 
-    sort(num_list.begin(), num_list.end(), [&](const string &a, const string &b) {
-        return num_map[a] < num_map[b];
-    });
-
-    string result = "";
-    for(const string &n : num_list) {
-        result += n + " ";
+    string result;
+    for (int i = 0; i <= 9; ++i) {
+        if (numbers.find(numMap[revNumMap[i]]) != string::npos) {
+            result += revNumMap[i] + " ";
+        }
     }
 
     return result;
