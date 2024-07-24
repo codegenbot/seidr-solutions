@@ -19,7 +19,7 @@ vector<int> leaders(vector<int>& v) {
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n, 0);
+    vector<int> v(n, 0); // specify size and default value
     for (int i = 0; i < n; ++i) {
         cin >> v[i];
     }
