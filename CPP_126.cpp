@@ -1,16 +1,13 @@
-Here is the completed code:
+Here's the completed code:
 
-bool is_sorted(vector<int> lst){
-    bool flag = true;
-    for(int i=0; i<lst.size()-1; i++){
-        if(lst[i] >= lst[i+1]){
-            flag = false;
-            break;
-        }
-        if(i < lst.size() - 2 && lst[i] == lst[i+1]){
-            flag = false;
-            break;
-        }
+bool is_sorted(vector<int> lst) {
+    for(int i = 0; i < lst.size() - 1; ++i) {
+        if(lst[i] >= lst[i + 1]) return false;
     }
-    return flag;
+    int count = 0;
+    for(int num : unique(lst.begin(), lst.end())) {
+        if(count > 1) return false;
+        count++;
+    }
+    return true;
 }
