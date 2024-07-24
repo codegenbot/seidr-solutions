@@ -2,17 +2,15 @@
 using namespace std;
 
 bool is_nested(string str) {
-    int count = 0;
+    int depth = 0;
     for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return false;
-            }
+        if (c == '[')
+            depth++;
+        else if (c == ']') {
+            if (depth > 1)
+                return true;
+            depth--;
         }
     }
-    return count > 0;
+    return false;
 }
