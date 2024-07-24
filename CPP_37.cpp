@@ -5,13 +5,12 @@ vector<float> even_indices;
         }
     }
     sort(even_indices.begin(), even_indices.end());
-    
-    int even_index = 0;
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_indices[even_index++];
+            l[i] = even_indices[j];
+            j++;
         }
     }
-    
     return l;
 }
