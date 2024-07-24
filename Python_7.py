@@ -7,6 +7,6 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    strings = input("Enter a list of strings (comma-separated): ").split(",")
+    strings = input("Enter a list of strings (comma separated): ").split(",")
     substring = input("Enter a substring: ")
-    print(filter_by_substring(strings, substring))
+    print(filter_by_substring([s.strip() for s in strings], substring))
