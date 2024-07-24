@@ -1,7 +1,7 @@
-namespace {
-using namespace std;
+#include <string>
+
 std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
-    std::string result = "";
+    string result = "";
     for (char c : input) {
         size_t pos = cipher2.find(std::tolower(c)); 
         if (pos != std::string::npos) {
@@ -19,5 +19,4 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string input) 
         }
     }
     return result;
-}
 }
