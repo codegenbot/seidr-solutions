@@ -1,10 +1,5 @@
-```
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool res = true;
-    bool lastOp = true;
     for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'T') {
             return true;
@@ -13,13 +8,10 @@ bool solveBoolean(string s) {
             return false;
         }
         if (s[i] == '|') {
-            res = lastOp;
-            lastOp = true;
+            res = true;
         }
         if (s[i] == '&') {
-            res &= lastOp;
-            lastOp = false;
+            res = false;
         }
     }
     return res;
-}
