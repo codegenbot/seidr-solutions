@@ -2,7 +2,6 @@ from typing import List, Tuple
 
 def sum_product():
     numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-
     if not isinstance(numbers, list):
         raise ValueError("Input must be a list")
     for num in numbers:
