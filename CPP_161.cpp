@@ -10,7 +10,7 @@ std::string solve(std::string s) {
             result += s[i];
         }
     }
-    if (!std::any_of(s.begin(), s.end(), ::isalpha)) {
+    if (!any(isalpha, s.begin(), s.end())) {
         std::reverse(result.begin(), result.end());
     }
     return result;
