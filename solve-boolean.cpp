@@ -17,5 +17,8 @@ bool solveBoolean(string s) {
             st.push(s[i]);
         }
     }
-    return !st.empty();
+    while (!st.empty()) {
+        st.pop();
+    }
+    return st.empty();
 }
