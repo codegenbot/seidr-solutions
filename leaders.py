@@ -1,9 +1,5 @@
-def leaders(arr):
-    n = len(arr)
-    result = [arr[n - 1]]
+Here is the Python solution for the problem:
 
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[i + 1]:
-            result.append(arr[i])
-
-    return reversed(result)
+def leaders(a):
+    leaders = [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
+    return leaders[::-1]
