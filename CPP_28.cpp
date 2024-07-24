@@ -1,16 +1,16 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-std::string concatenate(std::vector<std::string> strings){
-    std::string result = "";
+void testConcatenate() {
+    vector<string> strings = {"Hello", " ", "World!"};
+    string result = concatenate(strings);
+    assert(result == "Hello World!");
+}
+
+string concatenate(vector<string> strings){
+    string result = "";
     for (const auto& str : strings) {
         result += str;
     }
     return result;
-}
-
-int main() {
-    assert(concatenate({"hello", "world"}) == "helloworld");
-    return 0;
 }
