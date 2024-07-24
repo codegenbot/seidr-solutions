@@ -1,18 +1,14 @@
-int search(vector<int> lst) {
+int search(vector<int> lst){
     map<int, int> freq;
-    for (int i : lst) {
-        if (!freq.count(i)) {
+    for(int i : lst) {
+        if(freq.find(i) == freq.end())
             freq[i] = 1;
-        } else {
+        else
             freq[i]++;
-        }
     }
-    int result = -1;
-    for (auto p : freq) {
-        if (p.second >= p.first && p.first > 0) {
-            result = p.first;
-            break;
-        }
+    for(auto p : freq) {
+        if(p.second >= p.first)
+            return p.first;
     }
-    return result;
+    return -1;
 }
