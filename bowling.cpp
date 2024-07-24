@@ -1,51 +1,36 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-    
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 1;
-    int ball = 1;
-    int prevBall = 0;
-    int frameScore = 0;
+    int i = 0;
     
-    for (char c : bowls) {
-        if (c == 'X') {
-            score += 10;
+    while (frame <= 10 && i < s.size()) {
+        if (s[i] == 'X') {
+            total += 10;
             if (frame < 10) {
-                if (prevBall == 1) {
-                    score += 10;
-                } else {
-                    prevBall = 0;
-                    frame++;
-                }
-            }
-            ball = 1;
-        } else if (c == '/') {
-            score += 10 - frameScore;
-            prevBall = 1;
-            if (frame < 10) {
-                frame++;
-            }
-            ball = 1;
-        } else if (c == '-') {
-            ball++;
-        } else {
-            score += c - '0';
-            if (ball == 1) {
-                frameScore = c - '0';
-                ball++;
+                total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                total += (s[i + 4] == 'X') ? 10 : (s[i + 4] == '/' ? 10 - (s[i + 2] - '0') : (s[i + 4] - '0'));
             } else {
-                frameScore += c - '0';
-                score += frameScore;
-                if (frame < 10) {
-                    frame++;
-                }
-                ball = 1;
+                total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                total += (s[i + 4] == 'X') ? 10 : (s[i + 4] == '/' ? 10 - (s[i + 2] - '0') : (s[i + 4] - '0'));
             }
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+            i += 3;
+        } else {
+            total += (s[i] == '-') ? 0 : (s[i] - '0');
+            total += (s[i + 1] == '-') ? 0 : (s[i + 1] == '/' ? 10 - (s[i] - '0') : (s[i + 1] - '0'));
+            i += 2;
         }
+        frame++;
     }
-    
-    cout << score << endl;
-    
+    return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
