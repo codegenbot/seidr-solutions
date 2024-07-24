@@ -1,8 +1,12 @@
 def mastermind(code, guess):
-    code_count = collections.Counter(code)
-    guess_count = collections.Counter(guess)
+    code_count = [0] * 6
+    for c in code:
+        code_count[ord(c) - ord("B")] += 1
+    guess_count = [0] * 6
+    for g in guess:
+        guess_count[ord(g) - ord("B")] += 1
 
-    white_peg = sum((code_count & guess_count).values())
-    black_peg = sum(min(code_count[c], guess_count[c]) for c in set(guess))
+    black_peg = sum(min(count, code_count[i]) for i, count in enumerate(guess_count))
 
-    return str(black_peg) + "\n" + str(white_peg)
+    white_peg = 4 - black_peg
+    return str(white_peg), str(black_peg)
