@@ -1,20 +1,14 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+vector = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
-left_sum = 0
-right_sum = total_sum
-
-min_diff = total_sum
+diff = float("inf")
 cut_index = 0
 
-for i in range(n):
-    left_sum += a[i]
-    right_sum -= a[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
+for i in range(1, n):
+    current_diff = abs(sum(vector[:i]) - sum(vector[i:]))
+    if current_diff < diff:
+        diff = current_diff
         cut_index = i
 
-print(*a[: cut_index + 1])
-print(*a[cut_index + 1 :])
+print(*vector[:cut_index])
+print(*vector[cut_index:])
