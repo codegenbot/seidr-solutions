@@ -31,7 +31,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> input(input.size());
+    std::vector<std::string> input(3, " "); // Initialize with empty strings
     input[0] = "E";
     input[1] = "D-";
     input[2] = "A-";
