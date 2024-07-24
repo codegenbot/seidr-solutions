@@ -13,7 +13,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> res = {n}; // Initialize with the input number
+    std::vector<int> res(std::vector<int>()); // Initialize an empty vector
+    res.push_back(n); // Push the input number into the vector
     while (n > 1) {
         if (n % 2 != 0) {
             res.push_back(n);
@@ -31,7 +32,7 @@ int main() {
         std::cerr << "Error: Please enter a positive integer." << std::endl;
         return 1;
     }
-    std::vector<int> res = {n}; // Initialize with the input number
+    std::vector<int> res = get_odd_collatz(n);
     for (int i : res) {
         std::cout << i << " ";
     }
