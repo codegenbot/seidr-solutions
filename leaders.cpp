@@ -12,7 +12,6 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i];
         }
     }
-    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
