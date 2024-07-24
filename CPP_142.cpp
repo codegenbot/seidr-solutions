@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 int sum_of_squares(int n) {
     int total = 0;
@@ -12,11 +12,16 @@ int sum_of_squares(int n) {
     return total;
 }
 
-int main() {
+int sumOfSquaresMain() {
     int num, sum = 0;
     std::cout << "Enter a number: ";
     std::cin >> num;
     sum = sum_of_squares(num);
     std::cout << "The sum of squares is: " << sum << std::endl;
     return 0;
+}
+
+int main() {
+    assert(sum_of_squares(17) == -1448);
+    return sumOfSquaresMain();
 }
