@@ -12,7 +12,7 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
 int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
-    
+
     int n;
     std::cout << "Enter the number of shopping goods: ";
     std::cin >> n;
