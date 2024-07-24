@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 
-int count_upper(std::string s) {
+int count_upper(std::string str) {
     int count = 0;
-    for(int i = 1; i < s.length(); i += 2) {
-        if(toupper(s[i-1]) == 'A' || toupper(s[i-1]) == 'E' || toupper(s[i-1]) == 'I' || toupper(s[i-1]) == 'O' || toupper(s[i-1]) == 'U') {
+    for(int i = 1; i < str.length(); i += 2) {
+        if(std::toupper(str[i-1]) == 'A' || std::toupper(str[i-1]) == 'E' || std::toupper(str[i-1]) == 'I' || std::toupper(str[i-1]) == 'O' || std::toupper(str[i-1]) == 'U') {
             count++;
         }
     }
@@ -13,10 +13,10 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string s;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> s;
-    int result = count_upper(s);
-    std::cout << "Number of vowels at even positions: " << result << std::endl;
+    std::getline(std::cin, str);
+    int result = count_upper(str);
+    std::cout << "Number of uppercase vowels in the string is: " << result << std::endl;
     return 0;
 }
