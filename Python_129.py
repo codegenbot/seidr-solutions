@@ -1,17 +1,16 @@
 ```
 def minPath(grid, k):
     N = len(grid)
-    queue = [(0, 0, [])]
+    queue = [(i, j, []) for i in range(N) for j in range(N)]
     res = None
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            res = tuple(sorted(set(path)))
+            res = tuple(path)
         else:
-            for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                nr, nc = row + dr, col + dc
-                if 0 <= nr < N and 0 <= nc < N:
-                    queue.append((nr, nc, path + [grid[nr][nc]]))
+            for cell in set([grid[i][j] for i in range(N) for j in range(N)]):
+                if grid[row][col] == cell and len(path)+1 <= k:
+                    queue.append((row, col, path + [cell]))
     return res
 
 grid = [["1", "0", "1"], ["0", "0", "0"], ["1", "0", "1"]]
