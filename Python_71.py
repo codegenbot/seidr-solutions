@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -36,11 +37,12 @@ while True:
                 print("Please enter positive values for both base and height.")
         except ValueError:
             print("Invalid input. Please enter numbers.")
+    break
 
-    triangle_area = (base * height) / 2
+triangle_area = (base * height) / 2
 
-    n = int(input("Enter the number of sides: "))
-    sum_of_squares_n = sum_of_squares(n)
-    print(f"The sum of squares is {sum_of_squares_n}.")
+n = int(input("Enter the number of sides: "))
+sum_of_squares_n = sum_of_squares(n)
+print(f"The sum of squares is {sum_of_squares_n}.")
 
-    check(triangle_area)
+check(triangle_area)
