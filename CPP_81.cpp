@@ -22,5 +22,9 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // Function content not provided as it is beyond the scope of the task description
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
