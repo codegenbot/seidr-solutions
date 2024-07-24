@@ -59,5 +59,3 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
-
-std::vector<int> result(target.size());
