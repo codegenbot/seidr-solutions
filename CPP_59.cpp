@@ -1,3 +1,5 @@
+#include <cassert>
+
 int largest_prime_factor(int n) {
     int factor = 2;
     while (n > factor) {
@@ -10,7 +12,5 @@ int largest_prime_factor(int n) {
     return factor;
 }
 
-int main() {
-    assert (largest_prime_factor(13195) == 29);
-    return 0;
-}
+assert(largest_prime_factor(13195) == 29);
+return 0;
