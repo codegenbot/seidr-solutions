@@ -2,12 +2,7 @@
 from typing import List
 
 
-def factorize(n: str) -> List[List[int]]:
-    try:
-        n = int(n)
-    except ValueError:
-        return ["Invalid input. Please enter an integer."]
-    
+def factorize(n: int) -> List[List[int]]:
     factors = []
     i = 2
     while i * i <= n:
@@ -22,4 +17,4 @@ def factorize(n: str) -> List[List[int]]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return [factor_list for factor_list in set(map(tuple, factors))].
+    return [factor_list for factor_list in set(map(tuple, factors))]
