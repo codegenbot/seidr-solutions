@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -5,12 +6,12 @@ std::vector<int> counts(std::vector<int> b, int num) {
     std::vector<int> result;
     for (int i = 0; i < b.size(); ++i) {
         int count = 0;
-        int current = b[i];
-        while (current > 0) {
-            if (current % 10 == num) {
-                count++;
+        int number = b[i];
+        while (number > 0) {
+            if (number % 10 == num) {
+                ++count;
             }
-            current /= 10;
+            number /= 10;
         }
         result.push_back(count);
     }
@@ -18,13 +19,21 @@ std::vector<int> counts(std::vector<int> b, int num) {
 }
 
 int main() {
-    std::vector<int> b = {123, 456, 789};
-    int num = 5;
-    
-    std::vector<int> result = counts(b, num);
-    for (int i : result) {
-        std::cout << i << " ";
+    int n;
+    std::cin >> n;
+    std::vector<int> digits(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> digits[i];
     }
-    
+    int target;
+    std::cin >> target;
+
+    std::vector<int> result = counts(digits, target);
+
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
