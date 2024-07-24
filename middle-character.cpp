@@ -1,10 +1,13 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::getline(std::cin, s); // Use getline() to read a whole line
     if (s.size() % 2 == 0) {
-        cout << s.substr(s.size() / 2 - 1, 2);
+        std::cout << s.substr(s.size() / 2 - 1, 2);
     } else {
-        cout << s[s.size() / 2];
+        std::cout << s.substr(s.size() / 2, 1); // Use substr() to get the single middle character
     }
     return 0;
 }
