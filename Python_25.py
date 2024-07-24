@@ -1,7 +1,9 @@
-Here is the solution to the problem:
+Here is the solution:
 
-```python
+```
 from typing import List
+import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
