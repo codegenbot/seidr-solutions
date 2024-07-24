@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <cassert>
 
 bool correct_bracketing(const std::string &brackets) {
     int count = 0;
@@ -18,14 +18,7 @@ bool correct_bracketing(const std::string &brackets) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of brackets (containing only '<' and '>'): ";
     std::cin >> input;
-
-    if (correct_bracketing(input)) {
-        std::cout << "The bracketing is correct." << std::endl;
-    } else {
-        std::cout << "The bracketing is incorrect." << std::endl;
-    }
-
+    std::cout << correct_bracketing(input) << std::endl;
     return 0;
 }
