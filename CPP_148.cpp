@@ -28,22 +28,18 @@ void start() {
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
-    a.push_back(planets);
-    
-    std::cout << "Enter two more planet names: ";
-    std::cin >> planet1 >> planet2;
-    planets = std::make_pair(planet1, planet2);
+    planets.first = planet1;
+    planets.second = planet2;
     a.push_back(planets);
     
     std::vector<std::pair<std::string, std::string>> b;
-    std::cout << "Enter two more planet names: ";
-    std::cin >> planet1 >> planet2;
-    b.push_back(std::make_pair(planet1, planet2));
+    b.push_back(planets);
     
     std::cout << "Enter two more planet names: ";
     std::cin >> planet1 >> planet2;
-    b.push_back(std::make_pair(planet1, planet2));
+    planets.first = planet1;
+    planets.second = planet2;
+    b.push_back(planets);
     
     std::pair<std::string, std::string> result = bf(planets);
     if (issame(a, b)) {
