@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,18 +13,11 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> numbers;
-    int n;
-    
-    cin >> n;
-    
-    for(int i=0; i<n; i++){
-        int num;
-        cin >> num;
-        numbers.push_back(num);
+    std::vector<int> lst;
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
-
-    cout << solution(numbers) << endl;
     
-    return 0;
+    std::cout << solution(lst);
 }
