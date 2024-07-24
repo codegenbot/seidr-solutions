@@ -8,6 +8,3 @@ def coin_sums(cents):
             cents %= coins[i]
 
     return tuple(count)
-
-cents = int(input())
-print(*coin_sums(cents))
