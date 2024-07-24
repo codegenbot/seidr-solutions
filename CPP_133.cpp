@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
+#include <cmath>
 
-int sum_squares(vector<float> lst) {
+int sum_squares(std::vector<float> lst){
     int result = 0;
     for(float x : lst){
-        result += static_cast<int>(x)*static_cast<int>(x);
+        result += std::ceil(x)*std::ceil(x);
     }
     return result;
-}
