@@ -8,6 +8,8 @@ def find_min_diff_pair(numbers):
     ]
     return result[0]
 
+
+# Call the function with input from the user
 input_numbers = list(map(int, input().split()))
 output = find_min_diff_pair(input_numbers)
 print(output)
