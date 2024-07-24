@@ -1,6 +1,6 @@
 string string_to_md5(string text) {
     if (text.empty()) {
-        return "Invalid Input"; 
+        return "Invalid Input";
     }
 
     MD5_CTX ctx;
