@@ -1,6 +1,3 @@
-import re
-
-
 def sort_numbers(numbers: str) -> str:
     num_dict = {
         "zero": 0,
@@ -31,11 +28,9 @@ def sort_numbers(numbers: str) -> str:
         "seventy": 70,
         "eighty": 80,
         "ninety": 90,
-        "ninety-nine": 99,
+        "ninety-nine": 99
     }
-    numbers_list = [
-        num_dict[num]
-        for num in re.split(" |-", numbers)
-        if num.replace(" ", "") in num_dict
-    ]
-    return " ".join(map(str, sorted(numbers_list)))
+    import re
+    numbers_list = [num_dict[num] for num in re.split(' |-', numbers) if num in num_dict]
+    sorted_numbers = sorted(numbers_list)
+    return " ".join(map(str, sorted_numbers))
