@@ -1,10 +1,4 @@
 ```cpp
-#include <vector>
-#include <algorithm>
-#include <string>
-
-using namespace std;
-
 string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
@@ -21,14 +15,4 @@ string find_max(vector<string> words){
         }
     }
     return max_word;
-}
-
-int main() {
-    vector<string> words;
-    words.push_back("play");
-    words.push_back("play");
-    words.push_back("play");
-    string result = find_max(words);
-    cout << result << endl;
-    return 0;
 }
