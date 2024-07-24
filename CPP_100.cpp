@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
 vector<vector<int>> make_a_pile(int n) {
-    vector<vector<int>> pile;
+    vector<vector<int>> pile(n);
     for (int i = 1; i <= n; i++) {
-        pile.push_back({i*2, i*2 - 1});
+        pile[i-1].push_back(i*2);
     }
     return pile;
 }
