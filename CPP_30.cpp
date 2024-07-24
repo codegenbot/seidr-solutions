@@ -1,11 +1,9 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<float>& l, float val) {
-    for (float x : l) {
-        if (x != val) {
-            return false;
-        }
+bool issame(float a, float b) {
+    if(abs(a - b) > 1e-5) {
+        return false;
     }
     return true;
 }
@@ -21,25 +19,9 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-
-    std::vector<float> vec(n);
-    for (auto& x : vec) {
-        std::cout << "Enter element " << &x << ": ";
-        std::cin >> x;
-    }
-
-    std::vector<float> positives = get_positive(vec);
-
-    if (!issame(positives, 0.0f)) {
-        for (float x : positives) {
-            std::cout << "Positive number: " << x << std::endl;
-        }
-    } else {
-        std::cout << "No positive numbers found" << std::endl;
-    }
+    // Example usage
+    std::vector<float> input = {-1.5, 2.5, -3.5, 4.5};
+    auto positive_input = get_positive(input);
 
     return 0;
 }
