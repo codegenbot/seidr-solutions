@@ -12,8 +12,3 @@ std::string squareDigits(std::string input) {
     }
     return output;
 }
-
-int main() {
-    // Your test code here
-    return 0;
-}
