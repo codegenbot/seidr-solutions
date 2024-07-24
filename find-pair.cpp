@@ -6,11 +6,11 @@ pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            return make_pair(nums[i], complement);
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    return make_pair(-1, -1); // or throw an exception
 }
 
 int main() {
