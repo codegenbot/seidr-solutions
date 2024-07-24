@@ -5,22 +5,25 @@ using namespace std;
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    string temp = "";
     for (char c : s) {
-        temp += c;
-        if (c == 'X' || (c == '/' && temp.back() != 'X')) {
-            if (temp.length() == 1) {
-                score += 30;
-            } else {
-                int count = temp.length();
-                if (count > 2) {
-                    score += (10 - (count % 2 ? 1 : 5)) * count;
+        if (c == 'X') {
+            score += 30;
+            roll++;
+        } else if (c == '/') {
+            score += 10 - (roll % 2 ? 1 : 5);
+            roll++;
+        } else {
+            int count = c - '0';
+            while (count--) {
+                if (c == 'X') {
+                    score += 30;
+                    roll++;
+                    break;
                 } else {
-                    score += (10 - (count % 2 ? 1 : 5));
+                    score += 10;
+                    roll++;
                 }
             }
-            roll++;
-            temp = "";
         }
     }
     return score;
