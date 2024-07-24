@@ -1,16 +1,14 @@
-```
 #include <vector>
 
-int fuelCost(std::vector<int> vec) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
-        int temp = std::floor((double)i / 3);
+        double temp = floor((double)i / 3);
+        temp--;
         if (temp < 1) {
             temp = 0;
-        } else {
-            temp--;
         }
-        sum += temp;
+        sum += static_cast<int>(temp);
     }
     return sum;
 }
