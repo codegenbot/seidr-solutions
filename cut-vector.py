@@ -1,19 +1,21 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(v)
+total_sum = sum(nums)
+half_sum = total_sum // 2
 left_sum = 0
-right_sum = total_sum
-min_diff = float("inf")
-cut_position = -1
+cut_idx = 0
 
 for i in range(n):
-    left_sum += v[i]
-    right_sum -= v[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_position = i
+    left_sum += nums[i]
+    if left_sum >= half_sum:
+        cut_idx = i
+        break
 
-print(*v[: cut_position + 1])
-print(*v[cut_position + 1 :])
+if abs(left_sum - (total_sum - left_sum)) < abs(
+    left_sum - nums[cut_idx] - (total_sum - left_sum)
+):
+    cut_idx -= 1
+
+print(*nums[: cut_idx + 1])
+print(*nums[cut_idx + 1 :])
