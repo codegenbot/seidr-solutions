@@ -1,11 +1,14 @@
+```
+def sum_squares(n):
+    return sum(i**2 for i in range(1, n+1))
+
 try:
     while True:
-        n = input("Enter a positive integer: ")
+        n = int(input("Enter a positive integer: "))
         if not n:
             print("Bye!")
             break
         try:
-            n = int(n)
             if n > 0:
                 print(sum_squares(n))
                 break
