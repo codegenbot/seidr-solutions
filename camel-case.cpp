@@ -24,7 +24,7 @@ int main() {
         return result;
     }
     string input;
-    cout << "Enter a string in kebab-case: ";
+    cout << "Enter a kebab-case string: ";
     cin >> input;
     cout << "CamelCase: " << camelCase(input) << endl;
     return 0;
