@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def minPath(grid, k):
     N = len(grid)
@@ -8,11 +6,12 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            res = tuple(sorted(set(path)))
+            if not res or tuple(sorted(set(path))) < res:
+                res = tuple(sorted(set(path)))
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
-                if 0 <= nr < N and 0 <= nc < N and grid[nr][nc] != '0':
+                if 0 <= nr < N and 0 <= nc < N:
                     queue.append((nr, nc, path + [grid[nr][nc]]))
     return res
 
