@@ -22,21 +22,22 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
-        while(std::cin.peek() != '\n') {
-            std::cin.ignore(); 
-        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> vec1;
     int size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() == '\n') { 
-                std::cin.ignore(); 
-            }
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
+                }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else break;
         }
         vec1.push_back(x); 
         size++;
@@ -46,12 +47,15 @@ int main() {
     size = 0;
     while (size < n) {
         int x;
-        while (!(std::cin >> x)) {
-            std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
-            while(std::cin.peek() == '\n') { 
-                std::cin.ignore(); 
-            }
+        while (true) {
+            if (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
+                }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else break;
         }
         vec2.push_back(x); 
         size++;
