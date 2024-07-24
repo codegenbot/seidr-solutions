@@ -8,21 +8,11 @@ def max_fill(grid, capacity):
         min_height_right = grid[i][right]
         while left < right and min_height_left <= min_height_right:
             if min_height_left < min_height_right:
-                water_level = min(min_height_left, capacity)
-                total_water += water_level
+                total_water += capacity
                 left += 1
             else:
-                water_level = min(min_height_right, capacity)
-                total_water += water_level
+                total_water += capacity
                 right -= 1
             min_height_left = grid[i][left]
             min_height_right = grid[i][right]
     return total_water
-
-grid = []
-capacity = int(input("Enter the capacity: "))
-for i in range(int(input("Enter the number of rows: "))):
-    row = list(map(int, input("Enter the heights for row {}: ".format(i+1)).split()))
-    grid.append(row)
-
-print(max_fill(grid, capacity))
