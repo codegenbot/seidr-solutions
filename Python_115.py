@@ -1,7 +1,10 @@
 ```
 rows = int(input("Enter the number of rows: "))
 cols = int(input("Enter the number of columns: "))
-grid = [[int(x) for x in input(f"Enter heights for each column (space separated): ").split()] * cols]
+grid = []
+for _ in range(rows):
+    row = list(map(int, input(f"Enter heights for each column (space separated): ").split()))
+    grid.append(row)
 capacity = int(input("Enter the capacity: "))
 
 def max_fill(grid, capacity):
