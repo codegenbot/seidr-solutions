@@ -1,11 +1,10 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    arr = ['1' if x else '0' for x in arr]
-    arr = ''.join(arr)
-    rev_arr = arr[::-1]
+    half_len = len(arr) // 2
+    first_half = arr[:half_len]
+    second_half = arr[half_len:]
     diff_count = 0
-    for i in range(n//2):
-        if arr[i] != rev_arr[n-i-1]:
+    for i in range(half_len):
+        if first_half[i] != str(int(str(second_half)[::-1]))[i]:
             diff_count += 1
     return diff_count
