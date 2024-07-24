@@ -1,4 +1,5 @@
-vector<float> even_values;
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_values;
     vector<float> result;
     
     for (int i = 0; i < l.size(); i++) {
@@ -20,4 +21,8 @@ vector<float> even_values;
     }
     
     return result;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
