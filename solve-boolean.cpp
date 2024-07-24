@@ -2,55 +2,34 @@
 #include <string>
 using namespace std;
 
-bool evalOp(string s) {
-    int j = 0;
-    while (j < s.length() && (s[j] == '|' || s[j] == '&'))
-        j++;
+bool solveBoolean(string s) {
+    bool result = true;
+    char lastOp = ' ';
 
-    string opStr = s.substr(0, j);
-    bool left = false;
-    if (opStr[0] == '|') {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T')
-                left = true;
-            else if (s[i] == 'F')
-                return false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T' || s[i] == 'F') {
+            result = (s[i] == 'T') ? true : false;
+        } else if (s[i] == '|' || s[i] == '&') {
+            if (lastOp == '|') {
+                return result;
+            } else if (lastOp == '&') {
+                return result && true;  // Assuming `&` has higher precedence
+            }
+        } else {
+            // Ignore invalid characters
         }
-    } else {
-        for (int i = 0; i < j; i++) {
-            if (s[i] == 'T' && opStr[1] != '|')
-                left = true;
-            else if (s[i] == 'F' && opStr[1] != '&')
-                return false;
-        }
+
+        lastOp = s[i];
     }
 
-    if (!left)
-        return false;
-
-    return evalBoolean(s.substr(j));
-}
-
-bool evalBoolean(string s) {
-    if (s.empty())
-        return false;
-
-    int j = 0;
-    while (j < s.length() && (s[j] == '|' || s[j] == '&'))
-        j++;
-
-    string opStr = s.substr(0, j);
-    bool result = evalOp(s);
-
-    // recursive call for the remaining part
-    return !result; 
+    return result;
 }
 
 int main() {
     string s;
     cout << "Enter a Boolean expression: ";
     cin >> s;
-    bool result = evalBoolean(s);
+    bool result = solveBoolean(s);
     if (result)
         cout << "True";
     else
