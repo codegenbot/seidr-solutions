@@ -1,7 +1,11 @@
-```cpp
-#include <iostream>
-#include <algorithm>
+```c++
 #include <string>
+#include <algorithm>
+
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
+    return 0;
+}
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -10,9 +14,8 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                std::string temp = word;
-                std::reverse(temp.begin(), temp.end());
-                result += temp + " ";
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
                 word.clear();
             } else {
                 result += word + " ";
@@ -24,17 +27,11 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        std::string temp = word;
-        std::reverse(temp.begin(), temp.end());
-        result += temp;
+        std::reverse(word.begin(), word.end());
+        result += word;
     } else {
         result += word;
     }
 
     return result;
-}
-
-int main() {
-    std::cout << spinWords("Hello World") << std::endl;
-    return 0;
 }
