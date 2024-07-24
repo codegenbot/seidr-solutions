@@ -2,5 +2,14 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
+}
+
+int main() {
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+
+    bool result = issame(vec1, vec2);
+
+    return 0;
 }
