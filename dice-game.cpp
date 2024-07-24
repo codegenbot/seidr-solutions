@@ -1,17 +1,17 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 double getProbability(int n, int m) {
-    double num = (m - 1.0) * ((n - m) / (double) (n * m));
-    return num;
+    double probability = 0;
+    for(int i=1; i<m; ++i){
+        probability += (double)(n-i)/((double)n*m);
+    }
+    return probability;
 }
 
 int main() {
     int n, m;
-    std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m;
-    std::cout << "The probability is: " << getProbability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << getProbability(n, m);
     return 0;
 }
