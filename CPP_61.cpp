@@ -1,12 +1,20 @@
-int count = 0;
+#include <iostream>
+#include <string>
 
-for (char bracket : brackets) {
-    if (bracket == '(') {
-        count++;
-    } else if (bracket == ')') {
-        if (count <= 0) return false;
-        count--;
+bool correct_bracketing(std::string brackets){
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            if (count <= 0) return false;
+            count--;
+        }
     }
+    return count == 0;
 }
 
-return count == 0;
+int main() {
+    assert (!correct_bracketing("()()(()())()))"));
+    return 0;
+}
