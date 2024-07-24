@@ -31,21 +31,17 @@ int main() {
     std::vector<int> args;
 
     while(true) {
-        std::cout << "Enter an operator (+, -, *, / or 'q' to quit): ";
+        std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string op;
-        std::cin >> op;
-        
+        int arg;
+        std::cin >> op >> std::ws >> arg;
+
         if(op == "q") break;
         
-        int arg;
-        std::cout << "Enter the argument: ";
-        std::cin >> op; // update here
-        arg = std::stoi(op); // convert string to int
-
-        ops.push_back(op);
-        args.push_back(arg);
-
-        std::cin.ignore(); // remove newline character from input buffer
+        if(ops.size() > 0) {
+            ops.push_back(op);
+            args.push_back(arg);
+        }
     }
     
     double output = do_algebra(ops, args);
