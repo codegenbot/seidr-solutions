@@ -1,14 +1,14 @@
-int count = 0;
-    string result = "";
-    for(char c : text){
-        if(c == ' '){
+string result = "";
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
             count++;
-            if(count > 2){
+            if (count > 2) {
                 result.pop_back();
                 result.pop_back();
-                result += "-";
+                result += '-';
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
