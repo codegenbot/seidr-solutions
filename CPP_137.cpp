@@ -1,13 +1,15 @@
 #include <boost/any.hpp>
 
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)boost::any_cast<int>(a) > boost::any_cast<float>(b)
+        return ((int)boost::any_cast<int>(a) > (float)boost::any_cast<float>(b))
                ? a
                : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)boost::any_cast<int>(b) > boost::any_cast<float>(a)
+        return ((float)boost::any_cast<int>(b) > (int)boost::any_cast<float>(a))
                ? b
                : a;
     }
@@ -45,7 +47,7 @@ boost::any compare_one(boost::any a, boost::any b) {
                : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+        return ((int)boost::any_cast<int>(a) > (int)boost::any_cast<int>(b))
                ? a
                : b;
     }
