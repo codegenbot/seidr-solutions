@@ -12,7 +12,15 @@ float max_element(std::vector<float> l){
     return max_val;
 }
 
+void solve() {
+    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
+}
+
+int main() {
+    return 0;
+}
+
 int main(){
-    assert(std::abs(max_element({5.0, 3.0, -5.0, 2.0, -3.0, 3.0, 9.0, 0.0, 124.0, 1.0, -10.0}) - 124.0) < 1e-4);
+    solve();
     return 0;
 }
