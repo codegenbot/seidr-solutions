@@ -1,3 +1,5 @@
+vector<int> sort_third(vector<int> l);
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
