@@ -1,3 +1,5 @@
+Here is the modified code:
+
 import math
 
 def find_zero(xs):
@@ -15,10 +17,10 @@ def find_zero(xs):
     x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
     return round(x, 2)
 
+xs = [float(x) for x in input("Enter coefficients separated by space: ").split()]
 try:
-    xs = [float(x) for x in input("Enter coefficients separated by space: ").split()]
+    result = find_zero(xs)
 except ValueError as e:
     print(f"Invalid input: {e}")
 else:
-    result = find_zero(xs)
     print(result)
