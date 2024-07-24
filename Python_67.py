@@ -1,3 +1,5 @@
+```
+n = int(input())
 def fruit_distribution(s,n):
     words = s.split()
     for i in range(len(words)):
@@ -6,7 +8,3 @@ def fruit_distribution(s,n):
         elif 'oranges' in words[i]:
             oranges = int(words[i-1])
     return n - apples - oranges
-
-s = input("Enter the string: ")
-n = int(input("Enter number: "))
-print(fruit_distribution(s,n))
