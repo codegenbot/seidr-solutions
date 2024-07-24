@@ -1,6 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
+
+bool isEqual(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
@@ -11,10 +14,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 }
 
-bool isEqual(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
     assert(isEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
