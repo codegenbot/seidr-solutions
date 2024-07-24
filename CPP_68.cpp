@@ -5,11 +5,10 @@
 
 using namespace std;
 
-std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    pair<int, int> temp;
-    std::vector<std::pair<int, int>> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
 
-    if (arr.empty()) return vector<pair<int, int>>();
+    if (arr.empty()) return vector<int>();
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -22,9 +21,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     if (minIndex != -1) {
-        temp.first = minEven;
-        temp.second = minIndex;
-        result.push_back(temp);
+        result.push_back(minEven);
     }
 
     return result;
@@ -35,16 +32,16 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    std::vector<int> arr(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
-    std::vector<pair<int, int>> output = pluck(arr);
+    vector<int> output = pluck(arr);
 
-    for (const auto& pair : output) {
-        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
+    for (const auto& num : output) {
+        cout << "Number: " << num << endl;
     }
     return 0;
 }
