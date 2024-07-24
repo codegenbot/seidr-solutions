@@ -1,7 +1,9 @@
+```cpp
 #include <string>
 #include <sstream>
 #include <openssl/evp.h>
 #include <cassert>
+#include <iomanip>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
@@ -16,7 +18,7 @@ std::string string_to_md5(std::string text) {
     unsigned char *digest = EVP_DigestFinal(md_ctx, NULL, NULL);
     if (digest != NULL) {
         for (int i = 0; i < 16; ++i) {
-            ss << setfill('0') << setw(2) << hex << (int)digest[i];
+            ss << std::setfill('0') << std::setw(2) << std::hex << (int)digest[i];
         }
     }
     OPENSSL_free(digest);
