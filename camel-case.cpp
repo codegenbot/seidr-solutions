@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -12,7 +13,7 @@ string camelCase(string s) {
         if (s[i] == '-') {
             convert = true;
         } else if (convert) {
-            if(i > 0) 
+            if(i > 0) // Add space before first letter of each word
                 result += ' ';
             result += toupper(s[i]);
             convert = false;
