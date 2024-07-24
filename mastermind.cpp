@@ -2,25 +2,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
-            }
+    for(int i=0; i<6; i++) {
+        char c = 'a' + i;
+        int count_code = 0, count_guess = 0;
+
+        for(int j=0; j<4; j++) {
+            if(code[j] == c) count_code++;
+            if(guess[j] == c) count_guess++;
         }
-        if (count > 1 && code.find(c) != string::npos) {
-            white += count - 1;
-        } else if (count == 1) {
-            white++;
-        }
+
+        white += min(count_code, count_guess) - black;
     }
 
-    return black + white;
+    return white + black;
 }
