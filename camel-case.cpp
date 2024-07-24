@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -27,7 +26,7 @@ int main() {
     string s;
     while (true) {
         cout << "Enter a kebab-case string (or 'quit' to exit): ";
-        getline(cin, s);
+        std::getline(std::cin, s);
         if (s == "quit") break;
         cout << "camelCase: " << kebabToCamel(s) << endl;
     }
