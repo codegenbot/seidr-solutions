@@ -1,17 +1,17 @@
 int main() {
     string input;
     getline(cin, input);
-    
-    bool capitalize = true;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                cout << (char)toupper(c);
-                capitalize = false;
+
+    bool capitalizeNext = false;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '-') {
+            capitalizeNext = true;
+        } else if (input[i] != ' ') {
+            if (capitalizeNext) {
+                cout << (char)toupper(input[i]);
+                capitalizeNext = false;
             } else {
-                cout << c;
+                cout << input[i];
             }
         }
     }
