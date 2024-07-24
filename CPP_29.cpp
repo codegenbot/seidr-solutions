@@ -10,7 +10,7 @@ bool issame(vector<string> a, vector<string> b){
         return false;
     }
     
-    for(int i = 0; i < a.size(); ++i) {
+    for(size_t i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -30,7 +30,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
     
     return 0;
 }
