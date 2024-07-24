@@ -3,21 +3,12 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        int j = 0;
-        while (j < target.size()) {
-            if (text[i + j] != target[j]) break;
-            j++;
-        }
-        if (j == target.size()) result.push_back(i);
-    }
-    return result;
-}
+    int last = 0, pos = 0;
 
-int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) cout << i << " ";
-    return 0;
+    while ((pos = text.find(target, last)) != string::npos) {
+        result.push_back(pos);
+        last = pos + 1;
+    }
+
+    return result;
 }
