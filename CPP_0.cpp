@@ -14,8 +14,10 @@ bool has_close_elements(const vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    vector<float> numbers = {1.2, 3.4, 2.0, 4.5, 6.7};
-    float threshold = 1.0;
+    vector<float> numbers = {3.2, 1.5, 2.6, 5.1};
+    float threshold = 0.5;
+    
     bool result = has_close_elements(numbers, threshold);
+    
     return 0;
 }
