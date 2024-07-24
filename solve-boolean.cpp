@@ -19,7 +19,7 @@ bool solveBoolean(string expression) {
                 s.pop();
             }
             s.push('|');
-        } else if(expression[i] == 'T' || expression[i] == 'F') {
+        } else {
             s.push(expression[i]);
         }
     }
