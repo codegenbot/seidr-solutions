@@ -1,5 +1,6 @@
-#include <iostream>
 #include <string>
+#include <sstream>
+#include <iostream>
 
 int main() {
     int x;
@@ -15,8 +16,7 @@ int main() {
     else if (x % 5 == 0)
         result = "Buzz";
     else
-        result = std::to_string(x);
+        result = "'" + std::to_string(x) + "'";
 
-    std::cout << result << std::endl;
     return 0;
 }
