@@ -14,7 +14,7 @@ bool check_if_last_char_is_a_letter(const std::string& str) {
 int main() {
     std::cout << "Enter a string: ";
     std::string line; std::getline(std::cin, line); 
-    size_t pos = std::distance(line.begin(), std::find_if_not(line.begin(), line.end(), [](char c){return std::isspace(c);}));
+    size_t pos = std::distance(line.cbegin(), std::find_if_not(line.cbegin(), line.cend(), [](char c){return std::isspace(c);}));
     if (pos == line.size())
         line.clear();
     else
