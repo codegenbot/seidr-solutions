@@ -1,7 +1,5 @@
 ```
-from typing import List, Optional
-
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: list[str]) -> str | None:
     if not strings:
         return None
     max_len = len(max(strings, key=len))
