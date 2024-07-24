@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include<string>
 
@@ -13,8 +12,8 @@ string compare_one(string a, double b) {
 
 int main() {
     cout << compare_one("1", 2.5) << endl;
-    cout << compare_one("2,3", 2.5) << endl;
-    cout << compare_one("5,1", "6") << endl;
-    cout << to_string(1) << endl;
+    cout << compare_one("1", 2.5) << endl; 
+    cout << compare_one("5.1", "6") << endl;
+    cout << to_string(1) << endl; 
     return 0;
 }
