@@ -1,27 +1,21 @@
+```c++
 #include <string>
+using namespace std;
 
-bool evaluateBoolean(const string &expression) {
-    stack<char> operators;
-    bool current = (expression[0] == 't') ? true : false;
-
-    for (int i = 1; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            while (!operators.empty() && operators.top() == '&') {
-                operators.pop();
-                current ^= true;
-            }
-            operators.push('|');
-        } else if (expression[i] == '&') {
-            operators.push('&');
-        } else {
-            current = expression[i] == 't';
+bool solveBoolean(string s) {
+    bool res = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            res &= (i + 1 < s.length() && s[i + 1] == 'T');
+        } else if (s[i] == '|') {
+            res |= (i + 1 < s.length() && s[i + 1] == 'T');
         }
     }
+    return res;
+}
 
-    while (!operators.empty()) {
-        operators.pop();
-        current ^= true;
-    }
-
-    return current;
+int main() {
+    string s; 
+    bool result = solveBoolean(s); 
+    return 0;
 }
