@@ -6,12 +6,8 @@ def parse_music(music_string: str) -> List[int]:
     beats = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == '|':
-            i += 1
-        substring = music_string[i:i+2]
-        if substring in notes:
-            beats.append(notes[substring])
-        else:
-            return []  # or raise an exception, depending on the problem requirements
+        if music_string[i:i+2] not in notes:
+            return ["Invalid input at position " + str(i) for _ in range(len(beats))]
+        beats.append(notes[music_string[i:i+2]])
         i += 2
     return beats
