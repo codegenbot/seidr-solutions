@@ -1,2 +1,10 @@
-def sorted_list_sum(lst):
-    return sum(sorted(map(int, input().split())))
+def sorted_list_sum():
+    while True:
+        try:
+            user_input = input().split()
+            if all(i.isnumeric() for i in user_input):
+                return sum(sorted(map(int, user_input)))
+            else:
+                print("Invalid input. Please enter a list of numbers.")
+        except ValueError:
+            print("Invalid input. Please enter a list of numbers.")
