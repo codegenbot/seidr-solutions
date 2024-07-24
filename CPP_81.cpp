@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -60,7 +61,6 @@ int main_test() {
     else
         a[0] = "F";
     std::vector<std::string> b(a);
-    std::vector<std::string> c = {a};
-    bool same = issame(c, b);
+    bool same = issame({a}, {b});
     return 0;
 }
