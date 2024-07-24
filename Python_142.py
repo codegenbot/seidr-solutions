@@ -1,3 +1,4 @@
+```Python
 def sum_squares(lst):
     if all(isinstance(i, int) for i in lst):  
         return sum(
