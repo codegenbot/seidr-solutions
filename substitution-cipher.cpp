@@ -1,6 +1,6 @@
 #include <string>
 
-string result;
+std::string result;
 for (char c : input.substr(0, input.find('\0'))) {
     if (c != '\0') {  
         size_t pos = cipher2.find(std::tolower(c)); 
