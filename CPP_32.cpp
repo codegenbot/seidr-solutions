@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+using namespace std;
 
 double poly(const std::vector<double>& xs, double x){
     double result = 0;
