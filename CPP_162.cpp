@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -21,10 +20,7 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         ss << setfill('0') << setw(2) << hex << (int)digest[i];
     }
-    if (ss.str().empty()) {
-        return "";
-    }
-    string result = ss.str();
+    string ss_str = ss.str();  // get the stream contents as a string
     OPENSSL_free(digest);
-    return result;
+    return ss_str;
 }
