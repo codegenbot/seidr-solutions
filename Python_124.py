@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     while True:
         if len(date) != 10 or not date.replace("-", "").isdigit():
@@ -24,13 +23,11 @@ def valid_date(date):
                     if int(month_day) > days_in_months[month]:
                         return False
 
-        if month_day >= 100: 
-            if len(str(month_day))>3: 
+            continue
+
+        if int(int(month_day) / 100) != int(year/100): 
+            if len(str(int(month_day/100)))>3: 
                 return False
-            year, month = divmod(month_day, 100)
-            if (year < 1 or year > 21): 
-                return False
-            if not (1 <= month <= 12): 
-                return False
+            break
 
         return True
