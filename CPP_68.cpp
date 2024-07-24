@@ -1,11 +1,14 @@
 #include <vector>
 #include <iostream>
-#include <numeric>
+#include <climits>
+#include <limits>
 
 using namespace std;
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    pair<int, int> temp;
     std::vector<std::pair<int, int>> result;
+
     if (arr.empty()) return vector<pair<int, int>>();
 
     int minEven = INT_MAX;
@@ -19,7 +22,9 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     if (minIndex != -1) {
-        result.push_back({minEven, minIndex});
+        temp.first = minEven;
+        temp.second = minIndex;
+        result.push_back(temp);
     }
 
     return result;
@@ -41,4 +46,5 @@ int main() {
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
+    return 0;
 }
