@@ -1,4 +1,4 @@
-```Python
+```python
 def powermod(base: int, exponent: int, modulus: int):
     result = 1
     while exponent > 0:
