@@ -1,4 +1,5 @@
-```Python
+```
+""""
 def is_happy_number(n):
     if n < 1:
         return False
@@ -18,3 +19,4 @@ while True:
         print("Invalid input. Please enter an integer.")
 
 print(is_happy_number(n))
+"""
