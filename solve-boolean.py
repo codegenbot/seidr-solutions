@@ -5,11 +5,12 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        raise ValueError("Invalid Expression")
     else:
         result = True
-        for op, val in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
-            if val % 2 != 0:
-                result = not result
-            expression = expression.replace(op + val // 2 * (val // 2 + 1), '')
+        for char in expression:
+            if char == '&':
+                result = result and (expression[expression.index(char) + 1] == 'T')
+            elif char == '|':
+                result = result or (expression[expression.index(char) + 1] == 'T')
         return result
