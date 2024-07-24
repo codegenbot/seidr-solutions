@@ -1,8 +1,6 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
 double find_zero(vector<double> xs);
 double poly(vector<double> coeffs, double x);
 
