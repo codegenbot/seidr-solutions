@@ -1,11 +1,22 @@
-```
-def fruit_distribution(s, n):
-    if not isinstance(s, str) or not isinstance(n, int):
-        return "Invalid input"
-    import re
+import re
 
+
+def fruit_distribution():
+    while True:
+        try:
+            s = input()
+            n = int(input())
+            break
+        except ValueError:
+            print(
+                "Invalid input format. Please enter a string for 's' and an integer for 'n'."
+            )
 
     pattern = r"(\d+)\s*(apples|oranges)"
+
+    if not re.search(pattern, s.lower()):
+        return "Invalid input format"
+
     quantities = [int(x[0]) for x in re.findall(pattern, s.lower())]
 
     apples, oranges = (
