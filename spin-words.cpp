@@ -6,7 +6,7 @@ std::string spinWords(std::string str) {
     std::string word;
     
     for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
+        if (i == str.length() || str[i + 1] == ' ') {
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
@@ -17,14 +17,13 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-    
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
