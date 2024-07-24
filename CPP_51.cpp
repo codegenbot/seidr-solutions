@@ -1,7 +1,14 @@
-Here is the completed code:
+#include <assert.h>
+#include <string>
+#include <cctype>
 
-string remove_vowels(string text){
-    string result = "";
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+std::string remove_vowels(std::string text){
+    std::string result = "";
     for (char c : text) {
         if (!isvowel(c)) {
             result += c;
@@ -10,7 +17,8 @@ string remove_vowels(string text){
     return result;
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+    // No further operations are required
+    return 0;
 }
