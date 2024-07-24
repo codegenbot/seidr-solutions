@@ -1,11 +1,9 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
-using namespace std;
 
 bool containSameStrings(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { 
+    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string& s) { 
         return find(b.begin(), b.end(), s) != b.end(); 
     });
 }
