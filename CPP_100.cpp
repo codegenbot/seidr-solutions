@@ -29,3 +29,4 @@ std::vector<int> make_a_pile(int n) {
 int main() {
     assert(issame(make_a_pile(8), {1, 2, 3, 4, 5, 6, 7, 8}));
     return 0;
+}
