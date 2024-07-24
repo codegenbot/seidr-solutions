@@ -1,4 +1,8 @@
-std::pair<int, int> mastermind(string code, string guess) {
+Here is the corrected code:
+
+using namespace std;
+
+tuple<int, int> mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -10,5 +14,5 @@ std::pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return std::make_pair(black, white);
+    return make_tuple(black, white);
 }
