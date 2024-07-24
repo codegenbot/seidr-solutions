@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for i in range(n)] for j in range(n)]
@@ -17,7 +16,7 @@ def minPath(grid, k):
     path = []
     j, k1 = n - 1, k
     while k1 > 0:
-        if j == 0 and k1 % n != 0:  
+        if j == 0 and k1 % n != 0:
             k1 -= 1
             continue
         path.append(m[j][k1 % n])
