@@ -11,9 +11,17 @@ def is_multiply_prime(a):
     factors = []
     i = 2
     while a > 1:
-        while a % i == 0:
-            factors.append(i)
+        if a % i:
+            i += 1
+        else:
             a //= i
-        i += 1
-    primes = [x for x in set(factors) if is_prime(x)]
-    return len(primes) == 3
+            factors.append(i)
+    
+    if len(factors) != 3:
+        return False
+    
+    for prime in factors:
+        if not is_prime(prime):
+            return False
+    
+    return True
