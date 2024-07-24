@@ -1,14 +1,14 @@
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> result;
-    int depth = 0;
+vector<int> depths;
+    int current_depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
-            depth++;
-            result.push_back(depth);
+            current_depth++;
+            if (current_depth > depths.size()) {
+                depths.push_back(current_depth);
+            }
         } else if (c == ')') {
-            result.push_back(depth);
-            depth--;
+            current_depth--;
         }
     }
-    return result;
+    return depths;
 }
