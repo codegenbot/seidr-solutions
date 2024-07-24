@@ -1,9 +1,7 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>; // Add a semicolon at the end of the line
-#include<boost/more_traits.hpp>
-
+#include <stdio.h>
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp> ;
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
