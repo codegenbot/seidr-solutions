@@ -1,38 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int pos = -1;
+vector<int> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    for(int i=0; i<v.size()-1; i++) {
-        int diff = abs(v[i] - v[i+1]);
-        if(diff < min_diff) {
-            min_diff = diff;
-            pos = i;
+    for(int i = 0; i < nums.size() - 1; i++) {
+        int diff = abs(nums[i] - nums[i+1]);
+        if(diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0].assign(v.begin(), v.begin() + pos + 1);
-    result[1].assign(v.begin() + pos + 1, v.end());
+    vector<int> left = vector<int>(nums.begin(), nums.begin() + cutIndex);
+    vector<int> right = vector<int>(nums.begin() + cutIndex, nums.end());
     
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n+1);
-    for(int i=0; i<=n; i++) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    for(auto &v : res) {
-        for(int x : v) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-    return 0;
+    return {left, right};
 }
