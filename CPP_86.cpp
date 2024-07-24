@@ -1,25 +1,21 @@
+#include <iostream>
 #include <algorithm>
-#include <string>
+#include <sstream>
+
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    int i = 0;
-    while (i <= s.length()) {
-        if (s[i] == ' ') {
-            result += " ";
-            i++;
-        } else {
-            string word = "";
-            while (i < s.length() && s[i] != ' ') {
-                word += s[i];
-                i++;
-            }
-            for (char c : word) {
-                result += *min_element(word.begin(), word.end());
-            }
-            result += " ";
+string anti_shuffle(string s) {
+    istringstream iss(s);
+    string word;
+    ostringstream oss;
+    
+    while (iss >> word) {
+        string temp;
+        for (char c : word) {
+            temp += (c <= temp.back()) ? c + "" : "";
         }
+        oss << temp << " ";
     }
-    return result.substr(0, result.length() - 1);
+    
+    return oss.str();
 }
