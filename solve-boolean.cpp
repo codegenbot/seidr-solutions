@@ -1,18 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 bool solveBoolean(string expression) {
-    if (expression.size() == 1)
-        return tolower(expression[0]) == 't';
+    if(expression.length() == 1) {
+        if(tolower(expression[0]) == 't')
+            return true;
+        else
+            return false;
+    }
     
     int pos = expression.find('|');
     while (pos != string::npos) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if (!left.empty()) {
-            if (solveBoolean(left))
-                return true;
-            else
-                solveBoolean(right);
-        }
+        if (solveBoolean(left) || solveBoolean(right))
+            return true;
         
         pos = expression.find('|', pos);
     }
@@ -22,15 +26,23 @@ bool solveBoolean(string expression) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if (!left.empty()) {
-            if (solveBoolean(left))
-                return solveBoolean(right);
-            else
-                return false;
-        }
+        if (solveBoolean(left) && solveBoolean(right))
+            return true;
         
         pos = expression.find('&', pos);
     }
 
     return !expression.empty() && tolower(expression[0]) == 't';
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, expression);
+    bool result = solveBoolean(expression);
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
 }
