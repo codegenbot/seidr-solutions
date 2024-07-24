@@ -9,8 +9,8 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
+std::vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0) {
             letter_grades.push_back("A+");
@@ -44,8 +44,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> input = {0, 0.7};
-    std::vector<std::string> expectedOutput = {"E", "D-"};
+    vector<float> input = {0, 0.7};
+    vector<string> expectedOutput = {"E", "D-"};
 
     if (!issame(numerical_letter_grade(input), expectedOutput)) {
         std::cout << "Error: Expected output is not matching with the actual one." << std::endl;
