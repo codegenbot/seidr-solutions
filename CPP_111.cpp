@@ -20,7 +20,7 @@ multimap<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    map<char, int> maxCountMap;
+    multimap<char, int> maxCountMap;
 
     for (auto& p : result) {
         if (p.second > maxCount) {
