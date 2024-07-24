@@ -21,11 +21,11 @@ int main() {
     }
     
     for (int i = 0; i < 6; ++i) {
-        whitePegs += min(codeCount[i], guessCount[i]);
+        whitePegs += std::min(codeCount[i], guessCount[i]);
     }
     
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
+    std::cout << whitePegs << std::endl;
+    std::cout << blackPegs << std::endl;
     
     return 0;
 }
