@@ -1,19 +1,17 @@
-#include <cmath>
-using namespace std;
-
-string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
+string rounded_avg(int n,int m){
+    if(n > m) return "-1";
     double sum = 0;
-    for (int i = n; i <= m; i++) {
+    int count = 0;
+    for(int i=n; i<=m; i++){
         sum += i;
+        count++;
     }
-    int avg = static_cast<int>(floor((sum / (m - n + 1)) + 0.5));
-    string res;
-    while (avg > 0) {
-        if (avg & 1) res.push_back('1');
-        else res.push_back('0');
-        avg >>= 1;
+    int avg = round(sum / count);
+    string res = "";
+    while(avg > 0){
+        if(avg & 1) res = "1" + res;
+        else res = "0" + res;
+        avg /= 2;
     }
-    reverse(res.begin(), res.end());
     return res;
 }
