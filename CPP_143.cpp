@@ -38,4 +38,3 @@ std::vector<std::string> split(std::string sentence, char c) {
         words.push_back(word);
     }
     return words;
-}
