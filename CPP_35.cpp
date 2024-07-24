@@ -1,8 +1,6 @@
-```cpp
 #include <algorithm>
 #include <cmath>
 
-int main() {
-    int max = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
-    return abs(max - 12);
+int maxAbsoluteValue(int* l, int n) {
+    return std::abs(*std::max_element(l, l + n));
 }
