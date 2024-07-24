@@ -5,12 +5,32 @@
 
 bool checkVectorEquality(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
-        std::cout << "Error: The two vectors must be the same size." << std::endl;
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
+        while (!(std::cin >> a[i])) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            char c;
+            while ((c = std::cin.peek()) != '\n' && !std::isspace(c)) {
+                std::cin.clear();
+                if (!(std::cin >> c)) {
+                    break;
+                }
+            }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        while (!(std::cin >> b[i])) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            char c;
+            while ((c = std::cin.peek()) != '\n' && !std::isspace(c)) {
+                std::cin.clear();
+                if (!(std::cin >> c)) {
+                    break;
+                }
+            }
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
         if(a[i] != b[i]) {
-            std::cout << "Error: The two vectors are not the same." << std::endl;
             return false;
         }
     }
@@ -21,7 +41,13 @@ int main() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
-        std::cin.clear();
+        char c;
+        while ((c = std::cin.peek()) != '\n' && !std::isspace(c)) {
+            std::cin.clear();
+            if (!(std::cin >> c)) {
+                break;
+            }
+        }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
@@ -30,7 +56,13 @@ int main() {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
+            char c;
+            while ((c = std::cin.peek()) != '\n' && !std::isspace(c)) {
+                std::cin.clear();
+                if (!(std::cin >> c)) {
+                    break;
+                }
+            }
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         vec1.push_back(x); 
@@ -41,7 +73,13 @@ int main() {
         int x;
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
-            std::cin.clear();
+            char c;
+            while ((c = std::cin.peek()) != '\n' && !std::isspace(c)) {
+                std::cin.clear();
+                if (!(std::cin >> c)) {
+                    break;
+                }
+            }
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         vec2.push_back(x); 
