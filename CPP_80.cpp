@@ -13,5 +13,3 @@ bool is_happy(const std::string& s) {
 
     return true;
 }
-
-assert(is_happy("iopaxioi") == false);
