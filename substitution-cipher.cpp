@@ -1,17 +1,18 @@
 #include <string>
+#include <cctype>
 
-std::string cipher(std::string cipher1, std::string cipher2, std::string input) {
-    std::string result = "";
-    for (char c : input) {
-        size_t pos = cipher2.find(std::tolower(c)); 
-        if (pos != std::string::npos) {
-            char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
-            if (std::find_if(cipher1.begin(), cipher1.end(), [originalCase](char x) { return std::tolower(x) == std::tolower(originalCase); }) != cipher1.end()) {
-                result += c;
+string cipher(string cipher1, string cipher2, string input) {
+    string result = "";
+    for (char c : input.substr(0, input.find('\0'))) {
+        if (c != '\0') {  
+            size_t pos = cipher2.find(std::tolower(c)); 
+            if (pos != std::string::npos) {
+                result += cipher1[pos]; 
             } else {
-                size_t pos2 = cipher1.find(std::tolower(c)); 
+                char originalCase = (std::isupper(c)) ? std::toupper(c) : std::tolower(c);
+                size_t pos2 = cipher1.find(originalCase); 
                 if (pos2 != std::string::npos) {
-                    result += cipher1[pos2];
+                    result += originalCase; 
                 } else {
                     result += c; 
                 }
