@@ -1,10 +1,10 @@
 #include <iostream>
-#include <list>
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
 
-bool issame(const boost::any& a, const boost::any& b) {
-    return a.type() == b.type();
+bool issame(const boost::any& a1, const boost::any& a2) {
+    return a1.type() == a2.type();
 }
 
 std::vector<int> filter_integers(const std::list<boost::any>& values) {
