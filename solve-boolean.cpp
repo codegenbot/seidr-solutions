@@ -5,27 +5,18 @@ string solveBoolean(string s) {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) {
-                return "False";
-            }
+            if (st.empty()) return "False";
             st.push('&');
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if (st.empty()) {
-                return "True";
-            }
+            if (st.empty()) return "True";
             st.push('|');
-        } else {
+        } else if (s[i] != '&' && s[i] != '|') {
             st.push(s[i]);
         }
     }
-    if (st.top() == '&') {
-        return "False";
-    } else if (st.top() == '|') {
-        return "True";
-    } else {
-        return st.top() == 'T' ? "True" : "False";
-    }
+    if (st.top() == '&') return "False";
+    else return "True";
 }
