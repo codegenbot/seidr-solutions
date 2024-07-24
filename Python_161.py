@@ -10,7 +10,7 @@ def solve(s):
                 result += char.upper()
             else:
                 result += char.lower()
-            is_upper = not is_upper
+            is_upper = not isUpper
         else:
             result += char
     return result[::-1] if not any(c.isalpha() for c in s) else result
