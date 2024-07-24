@@ -1,5 +1,5 @@
-```
 def remove_duplicates(input_list=None):
+    from collections import OrderedDict
     if input_list is None:
         values = input("Enter numbers separated by space: ").strip()
         input_list = [int(value) for value in values.split()]
