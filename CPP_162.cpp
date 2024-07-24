@@ -1,10 +1,17 @@
+#include <iostream>
 #include <iomanip>
-#include <sstream>
+#include <bitset>
 
-string string_to_md5(char* str) {
-    //... 
+std::string string_to_md5(const std::string& str) {
+    // Implement your MD5 calculation here
+    return "md5_value";
+}
+
+int main() {
+    const char* md[] = {"your_md_values"};
+    std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::setfill(2) << std::setw(2) << std::hex << (int)md[i];
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)md[i];
     }
-    return ss.str();
+    return 0;
 }
