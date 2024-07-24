@@ -1,24 +1,25 @@
 ```cpp
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <initializer_list>
 
-bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) {
+bool std::issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-5) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> even;
+            std::vector<float> even;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     even.push_back(l[j]);
@@ -31,4 +32,3 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
-}
