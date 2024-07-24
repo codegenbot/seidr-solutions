@@ -1,7 +1,6 @@
-def add(x: int, y: int):
-    print("Enter first number: ")
-    x = int(input())
-    print("Enter second number: ")
-    y = int(input())
+```
+def add_numbers():
+    print("Please enter two numbers.")
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
     return x + y
-print(add(0, 0))

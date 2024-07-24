@@ -1,20 +1,19 @@
-def search():
-    try:
-        lst = [int(x) for x in input("Enter a list of numbers separated by space: ").split()]
-        frequency_dict = {}
-        for num in lst:
-            if num > 0:
-                if num in frequency_dict:
-                    frequency_dict[num] += 1
-                else:
-                    frequency_dict[num] = 1
-        max_num = -1
-        for key, value in frequency_dict.items():
-            if key >= value and key > 0:
-                if key > max_num:
-                    max_num = key
-        return max_num
-    except ValueError:
-        return "Invalid input. Please enter a list of numbers separated by space."
+def search(lst):
+    freq = {}
+    for num in lst:
+        if num > 0 and is_prime(num):
+            freq[num] = freq.get(num, 0) + 1
+    max_num = -1
+    for k, v in freq.items():
+        if k >= v and k > max_num:
+            max_num = k
+    return max_num if max_num != -1 else -1
 
-print(search())
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
