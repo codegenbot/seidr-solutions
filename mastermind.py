@@ -1,9 +1,5 @@
 def mastermind(code, guess):
-    black = 0
-    white = 0
-    for i, c in enumerate(code):
-        if c == guess[i]:
-            black += 1
-        elif c in guess:
-            white += 1
-    return str(black) + "\n" + str(white)
+    white_pegs = sum(min(count, guess.count(c)) for c in "ABCDEF")
+    black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
+
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
