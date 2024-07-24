@@ -8,32 +8,24 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     for (int i = 1; i <= v.size(); i++) {
         int left_sum = 0, right_sum = 0;
         
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++) {
-                left_sum += v[j];
-            }
-            for (int j = i; j < v.size(); j++) {
-                right_sum += v[j];
-            }
-        } else {
-            left_sum = accumulate(v.begin(), v.end(), 0);
-            right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
         }
         
         int diff = abs(left_sum - right_sum);
+        
         if (diff <= min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    vector<int> left, right;
-    for (int i = 0; i < cut_index; i++) {
-        left.push_back(v[i]);
-    }
-    for (int i = cut_index; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
     
     return {left, right};
 }
