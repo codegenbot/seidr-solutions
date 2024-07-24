@@ -1,21 +1,28 @@
+#include <iostream>
+#include <string>
+#include <boost/config.hpp>
 #include <boost/any.hpp>
 
+using namespace std;
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)a < (int)b ? (int)b : (int)a);
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any((float)a > (float)b ? &b : &a);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return boost::any(((std::string)a).compare(((std::string)b)) > 0 ? b : a);
-    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((int)a < (float)b ? boost::any(b) : a);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any((float)a > (int)b ? a : b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        return boost::any(((std::string)a).compare(std::to_string((int)b)) > 0 ? a : b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        return boost::any(std::to_string((int)a).compare(((std::string)b)) > 0 ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return boost::any(boost::any_cast<float>(a) > std::stod(((std::string)b)) ? a : b);
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return ((int) a > (float) b) ? a : b;
     }
-    return boost::any();
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return ((float) a > (int) b) ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return a.convert<string>().compare(b.convert<string>()) > 0 ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return ((float) a > stod(b.convert<string>().c_str())) ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        return stod(a.convert<string>().c_str()) > (float) b ? a : b;
+    }
+    else {
+        return "None";
+    }
+}
