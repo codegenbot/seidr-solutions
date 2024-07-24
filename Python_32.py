@@ -1,6 +1,8 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
-    a = xs[0]
-    b = 0 if len(xs) == 2 else xs[1]
-    return -b / (2 * a)
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients must be even")
+    x1 = -xs[1] / xs[0]
+    return round(x1, 2)
