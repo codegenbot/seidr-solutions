@@ -1,3 +1,3 @@
-int strLength(string str){
+int myStrlen(string str){
     return str.length();
 }
