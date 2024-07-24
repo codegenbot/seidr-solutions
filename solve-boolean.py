@@ -1,13 +1,12 @@
-Here is the solution:
+def solveBoolean(expression):
+    def evalExpression(expression):
+        while "|" in expression or "&" in expression:
+            if "|" in expression:
+                left, right = expression.split("|", 1)
+                expression = str(eval(left)) | str(eval(right))
+            elif "&" in expression:
+                left, right = expression.split("&", 1)
+                expression = str(eval(left)) & str(eval(right))
+        return eval(expression) == True
 
-def solve_boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        a, b = map(bool, input_str.split('&'))
-        return a and b
-    elif '|' in input_str:
-        a, b = map(bool, input_str.split('|'))
-        return a or b
+    return evalExpression(expression)
