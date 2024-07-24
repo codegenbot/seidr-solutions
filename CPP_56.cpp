@@ -16,7 +16,7 @@ bool correct_bracketing(const std::string &brackets) {
     return count == 0;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     std::string input;
     std::cin >> input;
     std::cout << correct_bracketing(input) << std::endl;
