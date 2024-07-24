@@ -13,7 +13,7 @@ std::vector<std::pair<int, int>> make_a_pile(int n) {
     return pile;
 }
 
-bool isSame(std::vector<std::pair<int, int>> p1, std::vector<std::pair<int, int>> p2) {
+bool samePiles(std::vector<std::pair<int, int>> p1, std::vector<std::pair<int, int>> p2) {
     if (p1.size() != p2.size()) {
         return false;
     }
@@ -28,6 +28,6 @@ bool isSame(std::vector<std::pair<int, int>> p1, std::vector<std::pair<int, int>
 int main() {
     int n = 8;
     std::vector<std::pair<int, int>> pile = make_a_pile(n);
-    assert(isSame(pile, {{1,2},{4,5},{8,10},{12,14},{16,18},{20,22}}));
+    assert(samePiles(pile, {{1, 2}, {4, 5}, {8, 10}, {12, 14}, {16, 18}, {20, 22}}));
     return 0;
 }
