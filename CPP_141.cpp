@@ -1,6 +1,8 @@
+```cpp
+#include <iostream>
 #include <string>
-#include <cctype>
 #include <vector>
+#include <cctype>
 
 int count_digits(const std::string& str) {
     int count = 0;
@@ -26,7 +28,7 @@ std::string file_name_check(std::string file_name) {
         return "No";
     }
     std::vector<std::string> allowed_extensions = {"txt", "exe", "dll"};
-    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
+    if (std::find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
         return "No";
     }
     return "Yes";
