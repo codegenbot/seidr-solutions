@@ -1,3 +1,4 @@
+```
 #include <stack>
 #include <string>
 
@@ -27,3 +28,4 @@ bool solveBoolean(string s) {
     }
 
     return res;
+}
