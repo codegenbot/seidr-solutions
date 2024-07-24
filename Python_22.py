@@ -1,10 +1,8 @@
 ```
 from typing import List
-import sys
 
-values = list(map(int, sys.stdin.read().strip().split()))
+def process_input() -> List[int]:
+    values = input().split()
+    return [int(value) for value in values if value.isdigit()]
 
-def filter_integers(values: List[int]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
-
-print(filter_integers(values))
+print(process_input())
