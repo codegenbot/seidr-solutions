@@ -4,20 +4,11 @@
 
 bool issame(std::vector<boost::any> values) {
     std::vector<int> expected = {3};
-    return filter_integers(values) == expected;
-}
-
-std::vector<int> filter_integers(std::vector<boost::any> values) {
-    std::vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value).get());
-        }
-    }
-    return result;
+    std::vector<int> result = filter_integers(values);
+    return (result.size() == 1) && (std::find(result.begin(), result.end(), 3) != result.end());
 }
 
 int main() {
-    assert(issame({3, 'c', 3, 3, 'a', 'b'}));
+    assert(issame({3, boost::any('c'), 3, boost::any(3), boost::any('a'), boost::any('b')}));
     return 0;
 }
