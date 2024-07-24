@@ -7,31 +7,23 @@ bool evaluateBooleanExpression(const std::string& expr) {
     for (char c : expr) {
         lowercaseExpr += std::tolower(c);
     }
-    
-    bool result = true;
-    bool operand = true;
-    char operation = ' ';
-    
-    for (char c : lowercaseExpr) {
-        if (c == '|' || c == '&') {
-            operation = c;
-        } else if (c == 't' || c == 'f') {
-            if (c == 't') {
-                operand = true;
-            } else {
-                operand = false;
-            }
-            
-            if (operation == '|') {
-                result = result || operand;
-            } else if (operation == '&') {
-                result = result && operand;
-            } else {
-                result = operand;
-            }
+    if (lowercaseExpr == "false") {
+        return false;
+    }
+
+    bool result = lowercaseExpr[0] == 't';
+
+    for (int i = 1; i < lowercaseExpr.size(); i += 2) {
+        char op = lowercaseExpr[i];
+        char val = lowercaseExpr[i + 1];
+
+        if (op == '|') {
+            result = result || (val == 't');
+        } else if (op == '&') {
+            result = result && (val == 't');
         }
     }
-    
+
     return result;
 }
 
@@ -39,10 +31,10 @@ int main() {
     std::string expression;
     std::cout << "Enter a Boolean expression: ";
     std::cin >> expression;
-    
+
     bool result = evaluateBooleanExpression(expression);
-    
+
     std::cout << "Result: " << std::boolalpha << result << std::endl;
-    
+
     return 0;
 }
