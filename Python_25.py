@@ -1,7 +1,7 @@
 from typing import List
 
 
-def prime_factors(n: int) -> List[List[int]]:
+def find_prime_factors(n: int) -> List[List[int]]:
     factors = []
     i = 2
     while i * i <= n:
