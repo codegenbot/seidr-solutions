@@ -1,15 +1,9 @@
-def solve_boolean(s):
-    if s == 't':
-        return True
-    elif s == 'f':
-        return False
-    elif '&' in s and '|' in s:
-        raise ValueError("Invalid expression")
-    elif '&' in s:
-        a, b = s.split('&')
-        return not (bool(a) and bool(b))
-    elif '|' in s:
-        a, b = s.split('|')
-        return bool(a) or bool(b)
-    else:
-        raise ValueError("Invalid expression")
+```
+def solve_boolean(expression):
+    result = True if expression == 't' else False
+    for i in range(len(expression)):
+        if expression[i] == '&':
+            result = result and (expression[i+1] == 't')
+        elif expression[i] == '|':
+            result = result or (expression[i+1] == 't')
+    return result
