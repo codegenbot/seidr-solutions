@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
 
 using namespace std;
 
-std::pair<int, int> pluck(std::vector<int> arr) {
-    pair<int, int> result;
-    if (arr.empty()) return result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
+    if (arr.empty()) return vector<std::pair<int, int>>();
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -19,7 +20,7 @@ std::pair<int, int> pluck(std::vector<int> arr) {
     }
 
     if (minIndex != -1) {
-        result = {minEven, minIndex};
+        result.push_back({minEven, minIndex});
     }
 
     return result;
@@ -30,17 +31,15 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    vector<int> arr(n);
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
     }
 
-    pair<int, int> output = pluck(arr);
+    std::vector<std::pair<int, int>> output = pluck(arr);
 
-    if(output.first != INT_MAX) {
-        cout << "Pair: (" << output.first << ", " << output.second << ")" << endl;
-    } else {
-        cout << "No even number found." << endl;
+    for (const auto& pair : output) {
+        cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
     }
 }
