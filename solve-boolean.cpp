@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <stack>
 #include <string>
@@ -41,12 +40,10 @@ int main() {
     string booleanExpression;
     cout << "Enter Boolean expression: ";
     cin >> booleanExpression;
-    cin.ignore();
     bool result = solveBoolean(booleanExpression);
     if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-    return 0;
 }
