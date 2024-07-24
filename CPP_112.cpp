@@ -33,6 +33,6 @@ std::string reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame(std::vector<std::string>(1, reverse_delete("mamma", "mia")), std::vector<std::string>(1, {"true"})));
+    assert(std::issame({reverse_delete("mamma", "mia")}, {{"True"}}));
     return 0;
 }
