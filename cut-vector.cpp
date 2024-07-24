@@ -1,33 +1,56 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int>& vec) {
-    int minDiff = INT_MAX;
-    vector<vector<int>> result(2);
-    
-    for (int i = 1; i <= vec.size(); i++) {
-        if (i == vec.size() || vec[i] - vec[0] < minDiff) {
-            minDiff = vec[i] - vec[0];
-            result[0].clear();
-            result[0].insert(result[0].end(), vec.begin(), vec.begin() + i);
-            result[1].clear();
-            result[1].insert(result[1].end(), vec.begin() + i, vec.end());
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int sum_left = 0, sum_right = 0;
+
+        for (int j = 0; j <= i; ++j)
+            sum_left += vec[j];
+        for (int j = i + 1; j < vec.size(); ++j)
+            sum_right += vec[j];
+
+        if (sum_left == sum_right) {
+            return {{vec[0], vec[0]}, vec.substr(1)};
+        }
+
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    
-    return result;
+
+    std::vector<int> left, right;
+    for (int i = 0; i <= cut_index; ++i)
+        left.push_back(vec[i]);
+    for (int i = cut_index + 1; i < vec.size(); ++i)
+        right.push_back(vec[i]);
+
+    return {left, right};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto& x : vec) cin >> x;
-    auto res = cutVector(vec);
-    cout << "[";
-    for (const auto& v : res[0]) cout << v << " ";
-    cout << "] ["; 
-    for (const auto& v : res[1]) cout << v << " ";
-    cout << "]" << endl;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
+    }
+
+    auto result = cutVector(vec);
+
+    std::cout << "Left: ";
+    for (const auto& x : result.first)
+        std::cout << x << " ";
+    std::cout << "\nRight: ";
+    for (const auto& x : result.second)
+        std::cout << x << " ";
+    std::cout << "\n";
+
     return 0;
 }
