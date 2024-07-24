@@ -3,25 +3,25 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    bool result = false; 
+    bool result = true; 
     stack<char> s;
-    
+
     for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == '&') {
+        if (expression[i] == '|') {
+            while (!s.empty()) {
+                if (s.top() == 'F') return false;
+                s.pop();
+            }
+        } else if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
             s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
         } else {
             s.push(expression[i]);
         }
     }
-    
+
     result = s.top() == 'T'; 
     return result;
 }
