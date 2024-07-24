@@ -1,4 +1,7 @@
-"Here's the corrected code:
+```
+from typing import List, Optional
+
+
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
@@ -11,4 +14,4 @@ def longest(strings: List[str]) -> Optional[str]:
     print(result)
 
 
-print(longest(["apple", "banana", "cherry"]))  # Output: banana"
+print(longest(["apple", "banana", "cherry"]))
