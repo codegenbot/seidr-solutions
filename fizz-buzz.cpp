@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
@@ -13,8 +13,9 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    for(int i = 1; i <= 100; ++i) {
-        std::cout << fizzBuzz(i) << std::endl;
-    }
+    int x;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
