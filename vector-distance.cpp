@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <limits>
 
 int main() {
     int n;
@@ -10,7 +11,7 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::cin.ignore(); // Clear the newline character from the input stream
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ','); // Clear the comma as delimiter from the input stream
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
