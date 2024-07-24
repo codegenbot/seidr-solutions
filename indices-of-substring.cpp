@@ -1,12 +1,16 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
-int findIndices(string text, string target) {
-    vector<int> indices;
+namespace std {
+template<typename T, typename A>
+using vector = std::vector<T, A>;
+}
+
+int findIndices(std::string text, std::string target) {
+    std::vector<int> indices;
     int prevLast = 0;
-    while ((int last = text.find(target, prevLast)) != string::npos) {
+    while ((int last = text.find(target, prevLast)) != std::string::npos) {
         indices.push_back(last);
         prevLast = last + 1;
     }
@@ -14,15 +18,17 @@ int findIndices(string text, string target) {
 }
 
 int main() {
-    string text;
-    cin >> text;
+    std::string text;
+    std::cin >> text;
 
-    string target;
-    cin >> target;
+    std::string target;
+    std::cin >> target;
 
-    vector<int> indices = findIndices(text, target);
+    std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
+
     return 0;
+}
