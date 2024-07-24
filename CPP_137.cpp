@@ -1,26 +1,26 @@
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b) > boost::any_cast<int>(a) ? b : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        return stod(sb) > stoi(sa) ? b : a;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a) > boost::any_cast<int>(b) ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string sa = boost::any_cast<string>(a);
-        double db = boost::any_cast<double>(b);
-        return stod(sa) > db ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        return stod(sb) > stod(sa) ? b : a;
-    }
-    else {
-        return boost::any("None");
+if (a.type() == boost::any::type_code::void_) {
+    if (b.type() == boost::any::type_code::void_)
+        return "None";
+    else
+        return b;
+} else if (b.type() == boost::any::type_code::void_)
+    return a;
+else {
+    if (a.type() == boost::any::type_code::non_pointer_type && b.type() == boost::any::type_code::non_pointer_type) {
+        if (std::stoi(std::string(a.get<char>().c_str())) > std::stoi(std::string(b.get<char>().c_str())))
+            return a;
+        else if (std::stoi(std::string(a.get<char>().c_str())) < std::stoi(std::string(b.get<char>().c_str())))
+            return b;
+        else
+            return "None";
+    } else {
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        if (x > y)
+            return a;
+        else if (x < y)
+            return b;
+        else
+            return "None";
     }
 }
