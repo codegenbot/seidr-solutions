@@ -1,10 +1,14 @@
-```
-def longest():
-    strings = []
-    while True:
-        s = input("Enter a string (or 'stop' to finish): ")
-        if s.lower() == 'stop':
-            break
-        strings.append(s)
-    result = max(strings, key=len) if strings else None
+"Here's the corrected code:
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
+        return None
+    max_length = 0
+    result = ""
+    for s in strings:
+        if len(s) > max_length:
+            max_length = len(s)
+            result = s
     print(result)
+
+
+print(longest(["apple", "banana", "cherry"]))  # Output: banana"
