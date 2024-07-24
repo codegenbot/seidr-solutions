@@ -10,7 +10,7 @@ while True:
         result = triangle_area(a, h)
         print(result)
         break
-    except ValueError as e:
+    except ValueError:
         print("Invalid input. Please enter numeric values.")
-    except Exception as e:
+    except Exception:
         print("An error occurred. Please try again.")
