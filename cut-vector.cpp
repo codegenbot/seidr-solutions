@@ -8,8 +8,7 @@ int main() {
         nums.push_back(n);
     }
 
-    if (std::cin.fail() && !std::cin.eof()) {
-        std::cerr << "Invalid input" << std::endl;
+    if (std::cin.fail() || std::cin.bad()) {
         return 1;
     }
 
@@ -17,7 +16,7 @@ int main() {
     for (int num : nums) {
         sum += num;
     }
-
+    
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
