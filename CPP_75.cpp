@@ -1,8 +1,10 @@
-bool is_multiply_prime(int n) {
-    // Add your implementation here
+#include <iostream>
+
+bool is_multiply_prime(int a, int b) {
+    // Your implementation here
 }
 
 int main() {
-    assert(is_multiply_prime(11 * 13 * 7) == true);
+    // Your code here
     return 0;
 }
