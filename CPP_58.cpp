@@ -1,10 +1,15 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <set>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> s1(l1.begin(), l1.end());
@@ -12,40 +17,9 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 
     std::set<int> intersection;
     std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        inserter(intersection, intersection.begin()));
+        std::inserter(intersection, intersection.begin()));
 
     std::vector<int> result(intersection.begin(), intersection.end());
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    std::vector<int> l1 = {1,2,3,4};
-    std::vector<int> l2 = {3,4,5,6};
-    
-    if(issame(l1,l2)) {
-        std::cout << "The vectors are the same." << std::endl;
-    } else {
-        std::cout << "The vectors are not the same." << std::endl;
-        
-        std::vector<int> commonElements = common(l1, l2);
-        for(int i : commonElements) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
 }
