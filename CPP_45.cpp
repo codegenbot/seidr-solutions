@@ -1,13 +1,18 @@
+#ifndef TRIANGLE_MAIN
+#define TRIANGLE_MAIN
+
 #include <iostream>
 #include <cassert>
 #include <cmath>
 
-double triangle_area(double a, double h) {
+double triangle_area(double a, double h)
+{
     assert(a > 0 && h > 0);
     return 0.5 * a * h;
 }
 
-int main() {
+int main()
+{
     double base, height;
     std::cout << "Enter the base and height of the triangle: ";
     std::cin >> base >> height;
@@ -17,3 +22,5 @@ int main() {
 
     return 0;
 }
+
+#endif
