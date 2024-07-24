@@ -1,25 +1,22 @@
 def calculate_bowling_score(bowls):
     score = 0
-    frame = 1
-    frame_index = 0
+    index = 0
 
-    for i in range(len(bowls)):
-        if frame > 10:
-            break
+    for frame in range(10):
+        if bowls[index] == "X":
+            score += 10 + get_strike_bonus(bowls, index + 1)
+            index += 1
+        elif bowls[index + 1] == "/":
+            score += 10
+        else:
+            if bowls[index] != "-":
+                score += int(bowls[index])
+            if bowls[index + 1] != "-":
+                score += int(bowls[index + 1])
 
-        if bowls[i] == "X":
-            score += 10 + get_strike_bonus(bowls, i + 1)
-            frame += 1
-        elif bowls[i] == "/":
-            score += 10 - int(bowls[i - 1]) + int(bowls[i + 1])
-            frame += 1
-            frame_index = 0
-        elif bowls[i].isdigit():
-            score += int(bowls[i])
-            frame_index += 1
+        index += 2
 
-            if frame_index == 2 or bowls[i] == "-":
-                frame += 1
-                frame_index = 0
+    if bowls[-3:] == "XXX":
+        score += get_strike_bonus(bowls, -3)
 
     return score
