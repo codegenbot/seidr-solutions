@@ -6,5 +6,5 @@ def decode_shift(s: str):
         ]
     )
 
-s = input("Enter a string: ")
+s = input("Enter a string: ").strip()
 print(decode_shift(s))
