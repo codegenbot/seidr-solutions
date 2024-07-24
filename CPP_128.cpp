@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <algorithm>
 
 int prod_signs(vector<int> arr) {
     int product = 1;
