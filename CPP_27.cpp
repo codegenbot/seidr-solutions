@@ -1,3 +1,9 @@
+```c++
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 string flip_case(string str) {
     string result = "";
     for (char c : str) {
@@ -8,4 +14,8 @@ string flip_case(string str) {
     }
     return result;
 }
-assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
+}
