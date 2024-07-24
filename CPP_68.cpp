@@ -1,12 +1,11 @@
 #include <vector>
 #include <iostream>
+#include <numeric>
 
 using namespace std;
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    pair<int, int> temp;
     std::vector<std::pair<int, int>> result;
-
     if (arr.empty()) return vector<pair<int, int>>();
 
     int minEven = INT_MAX;
@@ -20,9 +19,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     if (minIndex != -1) {
-        temp.first = minEven;
-        temp.second = minIndex;
-        result.push_back(temp);
+        result.push_back({minEven, minIndex});
     }
 
     return result;
