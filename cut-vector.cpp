@@ -37,6 +37,6 @@ int main() {
     for (int i = cut_index + 1; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
