@@ -2,12 +2,11 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    stack = []
+    stack = 0
     for char in paren_string:
         if char == '(':
-            stack.append(char)
+            stack += 1
         elif char == ')':
-            result.append(len(stack))
-            stack.pop()
-    while stack: result.append(len(stack)); stack.pop()
+            result.append(stack)
+            stack -= 1
     return result
