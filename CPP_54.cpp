@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 bool same_chars(std::string s0, std::string s1) {
     if (s0.size() != s1.size()) return false;
     sort(s0.begin(), s0.end());
