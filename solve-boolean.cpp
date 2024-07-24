@@ -1,17 +1,22 @@
-bool solveBoolean(const std::string& s) {
-    if (s.empty()) return true;
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool solveBoolean(const std::string& s, size_t& i) {
+    if (i >= s.length()) return s.empty() ? true : false;
 
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == '|') {
-            if (s[i+1] == '&') i++;
-            else break;
-        } else if (s[i] == '&') {
-            while (i + 1 < s.length() && s[i+1] == '&') i++;
-            break;
-        }
+    while (i < s.length() && s[i] != '|' && s[i] != '&') {
         i++;
+    }
+
+    if (s[i] == '|') {
+        i++;
+        if (s[i] == '&') i++;
+        else break;
+    } else if (s[i] == '&') {
+        while (i + 1 < s.length() && s[i+1] == '&') i++;
+        break;
     }
 
     size_t left_end = std::count(s.begin(), s.end(), '|');
@@ -22,12 +27,14 @@ bool solveBoolean(const std::string& s) {
     else if (left == "f") result = false;
 
     if (right == "t" || right == "") return result;
-    else if (right == "f") return !result && solveBoolean(right.c_str());
+    else if (right == "f") return !result && solveBoolean(right, i - left_end - 1);
+
+    i++;
 
     if (s[i] == '|') {
-        return solveBoolean(left.c_str()) || solveBoolean(right.c_str());
+        return solveBoolean(left.c_str(), 0) || solveBoolean(right.c_str(), i);
     } else {
-        return solveBoolean(left.c_str()) && solveBoolean(right.c_str());
+        return solveBoolean(left.c_str(), 0) && solveBoolean(right.c_str(), i);
     }
 }
 
@@ -37,7 +44,7 @@ int main() {
         std::cout << "Enter a Boolean expression: ";
         std::getline(std::cin, input);
         if(input == "t" || input == "f") break;
-        bool result = solveBoolean(input);
+        bool result = solveBoolean(input, 0);
         if (result) std::cout << "True" << std::endl;
         else std::cout << "False" << std::endl;
     }
