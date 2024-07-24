@@ -32,3 +32,4 @@ int main() {
     getline(cin, expression);
     cout << (solveBoolean(expression) ? "True" : "False");
     return 0;
+}
