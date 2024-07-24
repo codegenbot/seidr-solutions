@@ -1,6 +1,6 @@
-```c++
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 long long double_the_difference(std::vector<long double> lst){
@@ -13,9 +13,10 @@ long long double_the_difference(std::vector<long double> lst){
     return sum;
 }
 
-int original_main() {
+int main_1() {
     std::vector<long double> myVector = {1.5, 2.7, 3.8}; 
     long long odd_sum = double_the_difference(myVector); 
-    assert(double_the_difference(myVector) == odd_sum);
+    std::vector<long double> lst = myVector; 
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
