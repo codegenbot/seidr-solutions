@@ -22,7 +22,7 @@ int main() {
         sum += (v1[i] - v2[i]) * (v1[i] - v2[i]);
     }
 
-    cout << sqrt(sum) << endl;
+    cout << sum << endl;
 
     return 0;
 }
