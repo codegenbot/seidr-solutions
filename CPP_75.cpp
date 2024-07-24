@@ -1,54 +1,44 @@
-#include <iostream>
-using namespace std;
-
 bool is_multiply_prime(int a) {
+    bool flag = true;
     for (int i = 2; i <= 100; i++) {
-        for (int j = i; j <= 100; j++) {
-            for (int k = j; k <= 100; k++) {
-                if (i * j * k == a) {
-                    bool isPrime = true;
-                    for (int p = 2; p * p <= i && isPrime; p++) {
-                        if (i % p == 0) {
-                            isPrime = false;
-                        }
-                    }
-                    if (!isPrime) {
-                        continue;
-                    }
-                    bool isSecondPrime = true;
-                    for (int p = 2; p * p <= j && isSecondPrime; p++) {
-                        if (j % p == 0) {
-                            isSecondPrime = false;
-                        }
-                    }
-                    if (!isSecondPrime) {
-                        continue;
-                    }
-                    bool isThirdPrime = true;
-                    for (int p = 2; p * p <= k && isThirdPrime; p++) {
-                        if (k % p == 0) {
-                            isThirdPrime = false;
-                        }
-                    }
-                    if (!isThirdPrime) {
-                        continue;
-                    }
-                    return true;
+        if (a % i == 0) {
+            int temp = i;
+            for (; temp * temp <= a; temp++) {
+                if (temp % i != 0) {
+                    break;
                 }
+            }
+            if (temp * temp > a) {
+                int j = i + 1;
+                while (j <= 100) {
+                    if (a % j == 0) {
+                        int k = j;
+                        for (; k * k <= a; k++) {
+                            if (k % j != 0) {
+                                break;
+                            }
+                        }
+                        if (k * k > a) {
+                            int l = j + 1;
+                            while (l <= 100) {
+                                if (a % l == 0) {
+                                    flag = false;
+                                    return flag;
+                                }
+                                l++;
+                            }
+                        } else {
+                            flag = false;
+                            return flag;
+                        }
+                    }
+                    j++;
+                }
+            } else {
+                flag = false;
+                return flag;
             }
         }
     }
-    return false;
-}
-
-int main() {
-    int a;
-    cout << "Enter a number: ";
-    cin >> a;
-    if (is_multiply_prime(a)) {
-        cout << "The given number is the multiplication of 3 prime numbers." << endl;
-    } else {
-        cout << "The given number is not the multiplication of 3 prime numbers." << endl;
-    }
-    return 0;
+    return flag;
 }
