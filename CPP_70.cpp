@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -18,7 +17,8 @@ std::vector<int> sortList(std::vector<int> input) {
     return input;
 }
 
-int main() {
+int main 
+{ 
     std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
@@ -34,4 +34,4 @@ int main() {
     for(int i : output) {
         std::cout << i << " ";
     }
-};
+}
