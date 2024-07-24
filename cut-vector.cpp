@@ -3,31 +3,32 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int pos = 0;
+    pair<int, int> cut_index;
     
-    for (int i = 1; i <= v.size(); i++) {
-        if ((i == v.size() || v[i] != v[0]) && abs((v[0] - v[i-1]) - (v[i] - v[0])) < min_diff) {
-            min_diff = abs(v[0] - v[i-1]) - (v[i] - v[0]);
-            pos = i;
+    for (int i = 1; i < v.size(); ++i) {
+        if (v[i] - v[0] <= min_diff) {
+            min_diff = v[i] - v[0];
+            cut_index = {0, i};
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + pos), vector<int>(v.begin() + pos, v.end())};
+    return {{v.begin(), v.begin() + cut_index.second}} |={v.begin() + cut_index.second, v.end()}|;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
 
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    vector<int> v(n+1);
+    for (auto &i : v) cin >> i;
+
+    pair<vector<int>, vector<int>> result = cutVector(v);
+
+    for (const auto &i : result.first) cout << i << " ";
+    cout << endl;
     
-    cout << "[";
-    for (const auto &x : res.first) cout << x << " ";
-    cout << "] ["; 
-    for (const auto &x : res.second) cout << x << " ";
-    cout << "]";
-
+    for (const auto &i : result.second) cout << i << " ";
+    cout << endl;
+    
     return 0;
 }
