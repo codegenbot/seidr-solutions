@@ -37,7 +37,8 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore(); // add this line
+    cin.ignore(); // to consume the newline character
+
     string text, target;
     getline(cin, text);
     getline(cin, target);
