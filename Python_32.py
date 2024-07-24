@@ -1,13 +1,16 @@
+```Python
 import math
 
 
 def find_zero():
     while True:
         try:
-            a = float(input("Enter coefficient 'a': "))
+            a = float(input("Enter coefficient 'a' (non-zero): "))
             b = float(input("Enter coefficient 'b': "))
             c = float(input("Enter coefficient 'c': "))
-            break
+            if a != 0:
+                break
+            print("Coefficient 'a' must be non-zero. Please enter again.")
         except ValueError:
             print("Invalid input. Please enter numeric values.")
 
