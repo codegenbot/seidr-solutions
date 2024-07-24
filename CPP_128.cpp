@@ -1,15 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int main() {
-    std::vector<int> arr = {1, 2, 3};
-    int result = prod_signs(arr);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
-}
-
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long sum = 0;
     for (int x : arr) {
@@ -20,4 +12,11 @@ int prod_signs(vector<int> arr) {
         sum += abs(x);
     }
     return product * sum > INT_MAX ? -32768 : product * sum;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3};
+    int result = prod_signs(arr);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
