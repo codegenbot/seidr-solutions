@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(string expression) {
     bool result = false; 
     stack<char> s;
