@@ -1,13 +1,11 @@
-Here is the modified code:
-
 ```
 while True:
     numbers = input("Enter numbers separated by space: ").split()
     if not numbers:
         print("Please enter some numbers.")
         continue
-    while not all(map(lambda x: isinstance(int(x), int), numbers)):
-        print("Invalid input. Please enter valid numbers separated by space:")
+    while not all(map(lambda x: isinstance(int(x), int) and int(x) > 0, numbers)):
+        print("Invalid input. Please enter valid positive numbers separated by space:")
         numbers = input("Enter numbers separated by space: ").split()
 
     total_sum_of_squares = sum_squares(list(map(int, numbers)))
