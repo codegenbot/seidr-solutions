@@ -24,16 +24,16 @@ int main() {
     }
     
     for (int i = 0; i < cut_spot; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
-    std::cout << 0 << std::endl;
+    cout << 0 << endl;
     
     for (int i = cut_spot; i < nums.size(); ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
-    std::cout << 0 << std::endl;
+    cout << 0 << endl;
     
     return 0;
 }
