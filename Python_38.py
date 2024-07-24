@@ -1,27 +1,20 @@
-def encode_cyclic(s: str):
-    return "".join(
-        [
-            (
-                s[i : i + 3][1:] + s[i : i + 3][0]
-                if len(s[i : i + 3]) == 3
-                else s[i : i + 3]
-            )
-            for i in range((len(s) + 2) // 3)
-        ]
-    )
-
-
 def decode_cyclic(s: str):
-    return "".join(
-        [
-            (
-                "".join(
-                    [s[3 * i % len(s) : 3 * (i + 1) % len(s)][-1]]
-                    + [s[3 * i % len(s) : 3 * (i + 1) % len(s)][:-1]]
-                )
-                if len(s[3 * i % len(s) : 3 * (i + 1) % len(s)]) == 3
-                else s[3 * i % len(s) : 3 * (i + 1) % len(s)]
-            )
-            for i in range((len(s) + 2) // 3)
-        ]
-    )
+    result = ""
+    temp = ""
+
+    for char in s:
+        temp += char
+        if len(temp) == 3:
+            if temp[0] == temp[2]:
+                result += temp[1]
+            else:
+                result += temp[:2] + temp[-1]
+            temp = ""
+
+    if temp:
+        if temp[0] == temp[2]:
+            result += temp[1]
+        else:
+            result += temp[:2] + temp[-1]
+
+    return result
