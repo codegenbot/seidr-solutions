@@ -29,18 +29,14 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n-1; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
-        }
-        
-        if (diff == 0) {
-            break; // found equal split
         }
     }
     
