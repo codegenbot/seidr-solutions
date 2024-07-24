@@ -1,3 +1,4 @@
-```python
 def by_length(arr):
-    return [''.join(sorted(str(i))) for i in sorted(arr)]
+    arr = [str(i) for i in arr]
+    sorted_arr = sorted(arr, key=len)
+    return [''.join(sorted(i)) for i in sorted_arr]
