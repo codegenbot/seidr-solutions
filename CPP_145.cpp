@@ -34,9 +34,11 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    // test code
-    vector<int> nums = {1, 23, 12};
+    // You can call the function here
+    vector<int> nums = {1, 2, 3};
     vector<int> result = order_by_points(nums);
-    for(int i: result) cout << i << " ";
+    for (auto i : result) {
+        cout << i << " ";
+    }
     return 0;
 }
