@@ -4,23 +4,25 @@
 #include <string>
 
 int main() {
-    std::string str = "camel-case example-test-string";
+    std::string str;
+    std::cin >> str;
     bool capitalizeNext = true;
     std::string result;
 
-    for (char c : str) {
-        if (c == '-') {
+    for (const char* p = str.c_str(); *p; p++) {
+        if (*p == '-') {
+            p++; // Skip the '-'
             if (!capitalizeNext) {
-                result += tolower(c);
+                result += tolower(*p);
             } else {
-                result += toupper(c);
+                result += toupper(*p);
                 capitalizeNext = false;
             }
         } else {
             if (capitalizeNext) {
-                result += toupper(c);
+                result += toupper(*p);
             } else {
-                result += tolower(c);
+                result += tolower(*p);
             }
             capitalizeNext = true;
         }
