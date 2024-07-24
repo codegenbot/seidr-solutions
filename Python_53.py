@@ -1,5 +1,4 @@
-```
-def add():
+def add(x: int, y: int):
     print("Please enter two numbers.")
     x = int(input("Enter first number: "))
     y = int(input("Enter second number: "))
