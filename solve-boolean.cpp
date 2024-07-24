@@ -1,8 +1,12 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
-    string expr;
-    cin >> expr;
+    string input;
+    cin >> input;
     
-    if (expr == "t") {
+    if (input == "T") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
