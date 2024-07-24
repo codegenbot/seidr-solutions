@@ -1,26 +1,12 @@
 #include <algorithm>
-using namespace std;
+#include <vector>
+#include <cassert>
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); i++) {
-        int sum = getDigitSum(nums[i]);
-        pairs.push_back(make_pair(sum, i));
-    }
-    sort(pairs.begin(), pairs.end());
-    vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
-    }
-    return result;
-
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-int getDigitSum(int num) {
-    int sum = 0;
-    while (num != 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
+int main(){
+    assert (issame({},{}) );
+    assert (issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
 }
