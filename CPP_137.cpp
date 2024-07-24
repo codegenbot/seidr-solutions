@@ -20,8 +20,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         string str = boost::any_cast<string>(b);
         int num = boost::any_cast<int>(a);
         return (num >= stoi(str))
-               ? boost::any(a)
-               : boost::any(b);
+               ? "None"
+               : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = boost::any_cast<string>(a);
@@ -50,6 +50,6 @@ boost::any compare_one(boost::any a, boost::any b) {
                : b;
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
