@@ -12,34 +12,35 @@ int main() {
         std::cin >> nums[i];
     }
     
-    int left_sum = nums[0];
-    int right_sum = std::accumulate(nums.begin() + 1, nums.end(), 0);
-    int min_diff = std::abs(left_sum - right_sum);
-    int cut_idx = 0;
-    int i = 1, j = n - 1;
+    int left_sum = 0;
+    int right_sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int min_diff = INT_MAX;
+    int cut_idx = -1;
+    int left_idx = 0;
+    int right_idx = n - 1;
 
-    while (i < j) {
-        if (left_sum <= right_sum) {
-            left_sum += nums[i];
-            min_diff = std::min(min_diff, std::abs(left_sum - right_sum));
-            cut_idx = (min_diff == std::abs(left_sum - right_sum)) ? i : cut_idx;
-            i++;
+    while (left_idx < right_idx) {
+        if (left_sum < right_sum) {
+            left_sum += nums[left_idx++];
         } else {
-            right_sum += nums[j];
-            min_diff = std::min(min_diff, std::abs(left_sum - right_sum));
-            cut_idx = (min_diff == std::abs(left_sum - right_sum)) ? i : cut_idx;
-            j--;
+            right_sum -= nums[right_idx--];
+        }
+        
+        int diff = std::abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = left_idx;
         }
     }
-    
-    for (int k = 0; k <= cut_idx; ++k) {
-        std::cout << nums[k] << std::endl;
+
+    for (int i = 0; i < cut_idx; ++i) {
+        std::cout << nums[i] << std::endl;
     }
     
     std::cout << std::endl;
     
-    for (int k = cut_idx + 1; k < n; ++k) {
-        std::cout << nums[k] << std::endl;
+    for (int i = cut_idx; i < n; ++i) {
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
