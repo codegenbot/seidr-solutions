@@ -1,15 +1,10 @@
 import math
 
-user_input = input("Please enter two integers separated by a space: ")
-split_input = user_input.split()
+while True:
+    user_input = input("Please enter two integers separated by a space: ")
+    if len(user_input.split()) == 2:
+        num1, num2 = map(int, user_input.split())
+        break
 
-try:
-    if len(split_input) != 2:
-        raise ValueError("Please enter exactly two integers separated by a space.")
-
-    num1, num2 = map(int, split_input)
-    result = math.gcd(num1, num2)
-    print(result)
-
-except ValueError as e:
-    print(e)
+result = math.gcd(num1, num2)
+print(result)
