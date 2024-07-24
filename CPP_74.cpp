@@ -44,11 +44,7 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
-            if (!s.empty()) break;
-            else {
-                cout << "Invalid input. Please enter a non-empty string.\n";
-                cout << "Please try again: ";
-            }
+            break;
         }
         lst1.push_back(s);
     }
@@ -61,11 +57,7 @@ int main() {
         string s;
         while (true) {
             getline(cin, s);
-            if (!s.empty()) break;
-            else {
-                cout << "Invalid input. Please enter a non-empty string.\n";
-                cout << "Please try again: ";
-            }
+            break;
         }
         lst2.push_back(s);
     }
