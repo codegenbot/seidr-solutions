@@ -5,19 +5,21 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
             index1 = i;
-        }
-        else if (planets[i] == planet2) {
+        } else if (planets[i] == planet2) {
             index2 = i;
         }
-        
-        if (index1 != -1 && index2 != -1)
-            break;
     }
     
-    vector<string> result;
+    if (index1 == -1 || index2 == -1) {
+        return {};
+    }
     
-    if (index1 >= 0 && index2 >= 0) {
-        for (int i = index1 + 1; i < index2; i++) {
+    int start = min(index1, index2);
+    int end = max(index1, index2);
+    
+    vector<string> result;
+    for (int i = 0; i < planets.size(); i++) {
+        if (i >= start && i <= end) {
             result.push_back(planets[i]);
         }
     }
