@@ -1,4 +1,9 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -11,15 +16,27 @@ vector<string> reverse_delete(string s, string c) {
                 break;
             }
         }
-        if (!found)
+        if (!found) {
             temp += ch;
+        }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    
+    result.push_back((temp == revTemp) ? "True" : "False");
+    
     return result;
+}
+
+int main() {
+    string s, c;
+    cout << "Enter the first string: ";
+    cin >> s;
+    cout << "Enter the second string: ";
+    cin >> c;
+    vector<string> res = reverse_delete(s, c);
+    cout << "Result: " << res[0] << ", " << res[1] << endl;
+    return 0;
+}
