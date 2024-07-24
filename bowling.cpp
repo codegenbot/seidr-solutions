@@ -1,59 +1,36 @@
-int calculateBowlingScore(string bowls) {
+int main() {
+    string input;
+    cin >> input;
+
     int score = 0;
     int frame = 0;
-    
-    for (int i = 0; i < bowls.size(); i++) {
-        if (frame == 10) break; // 10 frames are done
-        
-        if (bowls[i] == 'X') {
+    int rolls = 0;
+    for(char c : input) {
+        rolls++;
+        if(c == 'X') {
             score += 10;
-            if (bowls[i+2] == 'X') {
-                score += 10;
-                if (bowls[i+4] == 'X') {
-                    score += 10;
-                } else if (bowls[i+4] == '-') {
-                    score += 0;
-                } else {
-                    score += bowls[i+4] - '0';
-                }
-            } else if (bowls[i+2] == '-') {
-                score += 0;
-            } else {
-                score += bowls[i+2] - '0';
-                if (bowls[i+3] == '/') {
-                    score += 10 - (bowls[i+2] - '0');
-                } else if (bowls[i+3] == '-') {
-                    score += 0;
-                } else {
-                    score += bowls[i+3] - '0';
-                }
+            if(frame < 9) {
+                score += (input[rolls] == 'X') ? 10 + ((input[rolls+1] == 'X') ? 10 : (input[rolls+1] - '0')) : ((input[rolls+1] == '/') ? 10 : (input[rolls] - '0' + input[rolls+1] - '0'));
             }
             frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (bowls[i-1] - '0');
-            if (bowls[i+1] == 'X') {
-                score += 10;
-            } else if (bowls[i+1] == '-') {
-                score += 0;
-            } else {
-                score += bowls[i+1] - '0';
+        } else if(c == '/') {
+            score += 10 - (input[rolls-2] - '0');
+            if(frame < 9) {
+                score += (input[rolls] == 'X') ? 10 : (input[rolls] - '0');
             }
             frame++;
-        } else if (bowls[i] == '-') {
-            score += 0;
-        } else {
-            score += bowls[i] - '0';
-            frame++;
+        } else if(c >= '1' && c <= '9') {
+            score += c - '0';
+            if(frame < 9 && rolls % 2 == 0) {
+                if(input[rolls+1] == '/') {
+                    score += 10 - (c - '0');
+                }
+                frame++;
+            }
         }
     }
-    
-    return score;
-}
 
-int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
-    
+    cout << score;
+
     return 0;
 }
