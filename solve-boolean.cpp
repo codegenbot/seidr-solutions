@@ -11,10 +11,9 @@ bool solveBoolean(string expression) {
             return false;
     }
 
-    int pos = 0, i = 0;
-
+    int pos = 0;
     while (pos < expression.size()) {
-        size_t start = pos;
+        std::string::size_type start = pos;
         if (expression[pos] == '|') {
             pos++;
             continue;
@@ -22,23 +21,22 @@ bool solveBoolean(string expression) {
             pos += 2;
             continue;
         }
-        size_t end = pos + 1;
+        std::string::size_type end = pos + 1;
         while (end < expression.size() && (expression[end] == 'T' || expression[end] == 't' ||
                                             expression[end] == 'F' || expression[end] == 'f' ||
                                             expression[end] == '|' || expression[end] == '&')) {
             end++;
         }
-        string part = expression.substr(start, end - start);
-        
-        if (expression[start] == 'T' || expression[start] == 't')
-            i = true;
-        else if (expression[start] == 'F' || expression[start] == 'f')
-            i = false;
+        std::string::size_type len = end - start;
+        string part = expression.substr(start, len);
+        if (part == "T" || part == "t")
+            return true;
+        else if (part == "F" || part == "f")
+            return false;
 
         pos = end;
     }
-
-    return i;
+    return true;
 }
 
 int main() {
