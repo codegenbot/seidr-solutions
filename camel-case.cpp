@@ -1,11 +1,11 @@
-```cpp
 #include <iostream>
+#include <cctype>
 #include <string>
 
 int main() {
-    const char* str = "camel-case example-test-string";
-    std::string result;
+    std::string str = "camel-case example-test-string";
     bool capitalizeNext = true;
+    std::string result;
 
     for (const char* p = str; *p; p++) {
         if (*p == '-') {
@@ -16,11 +16,13 @@ int main() {
                 result += toupper(*p);
                 capitalizeNext = false;
             }
-        } else if (capitalizeNext) {
-            result += toupper(*p);
-            capitalizeNext = false;
         } else {
-            result += tolower(*p);
+            if (capitalizeNext) {
+                result += toupper(*p);
+            } else {
+                result += tolower(*p);
+            }
+            capitalizeNext = true;
         }
     }
 
