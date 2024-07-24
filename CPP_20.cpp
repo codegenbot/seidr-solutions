@@ -20,8 +20,6 @@ int main() {
 
     // Input for vector 1
     float num;
-    const int maxElements = 1000000; // adjust this according to your needs
-
     while(true) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
@@ -37,11 +35,28 @@ int main() {
             vec1.clear();
             break;
         }
-        if(vec1.size() >= maxElements) {
-            std::cout << "Maximum limit reached. Cannot accept more elements.\n";
+        vec1.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
+        if (!(std::cin >> num)) {
+            std::cout << "Invalid input. Please enter a valid number.\n";
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
+            }
+            vec1.clear();
+            break;
+        }
+        if (num > 3.4e38) {
+            std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            vec1.clear();
             break;
         }
         vec1.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     // Input for vector 2
@@ -60,11 +75,28 @@ int main() {
             vec2.clear();
             break;
         }
-        if(vec2.size() >= maxElements) {
-            std::cout << "Maximum limit reached. Cannot accept more elements.\n";
+        vec2.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
+        if (!(std::cin >> num)) {
+            std::cout << "Invalid input. Please enter a valid number.\n";
+            std::cin.clear(); // Reset error state
+            while(std::cin.peek() == '\n' || std::cin.peek() == ' ') { // Consume any whitespace left in the buffer
+                std::cin.ignore();
+            }
+            vec2.clear();
+            break;
+        }
+        if (num > 3.4e38) {
+            std::cout << "Invalid input. Please enter a number within the range of float.\n";
+            vec2.clear();
             break;
         }
         vec2.push_back(num);
+        
+        // Ask for next number
+        std::cout << "Enter next number (or press Enter to finish): ";
     }
 
     if(isSame(vec1, vec2)) {
