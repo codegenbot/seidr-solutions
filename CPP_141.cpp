@@ -1,31 +1,27 @@
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
+#include <iostream>
+#include <string>
+
+std::string file_name_check(std::string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    std::string before_dot;
+
+    for(int i=0; i<file_name.size(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        } else if(file_name[i] == '.'){
+            found_dot = true;
+        } else {
+            if(!found_dot) before_dot += file_name[i];
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos >= file_name.size() - 4) {
+    if(before_dot.empty()) return "No";
+    if(found_dot && (file_name.find("txt") == std::string::npos &&
+                     file_name.find("exe") == std::string::npos &&
+                     file_name.find("dll") == std::string::npos)) 
         return "No";
-    }
 
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
-
-    if (!before_dot.empty() && !ispunct(before_dot[0]) && isalpha(before_dot[0])) {
-        if (count_digits(before_dot) <= 3 && (
-            after_dot == "txt" || 
-            after_dot == "exe" || 
-            after_dot == "dll"
-        )) {
-            return "Yes";
-        }
-    }
-
-    return "No";
+    return "Yes";
 }
