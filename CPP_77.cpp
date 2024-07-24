@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 bool iscuber(int num) {
     int c = round(cbrt(num));
@@ -19,3 +19,4 @@ int main() {
         std::cout << num << " is not a perfect cube.\n";
     }
     return 0;
+}
