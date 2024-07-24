@@ -2,7 +2,6 @@
 #include<string>
 #include<algorithm>
 #include<boost/any.hpp>
-#include<boost/convert.hpp>
 
 using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
@@ -30,7 +29,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double da = boost::any_cast<double>(a);
@@ -40,15 +39,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (db > da)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
-    return "None";
+    return boost::any("None");
 }
 
 int main() {
     cout << boost::any_cast<string>(compare_one(1, 2.5)) << endl;
     cout << boost::any_cast<string>(compare_one(1, "2.5")) << endl;
-    cout << boost::any_cast<string>(compare_one("5.1", "6")) << endl;
-    cout << boost::any_cast<string>(compare_one("1", 1)) << endl;
+    cout << boost::any_cast<string>(compare_one("5.1", "6.3")) << endl;
+    cout << boost::any_cast<string>(compare_one("1.1", 1)) << endl;
     return 0;
 }
