@@ -3,10 +3,11 @@ def add(x: int, y: int) -> int:
 
 while True:
     try:
-        x, y = map(int, input("Enter two numbers separated by space: ").split())
+        x = int(input("Enter first number as an integer: "))
+        y = int(input("Enter second number as an integer: "))
         break
     except ValueError:
-        print("Invalid input. Please enter two valid integers separated by space.")
+        print("Invalid input. Please enter valid integers.")
 
 result = add(x, y)
 print("The sum is:", result)
