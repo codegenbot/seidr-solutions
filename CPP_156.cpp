@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,4 +19,12 @@ string romanToInt(int number) {
     }
     
     return roman;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "The Roman numeral is: " << romanToInt(num) << endl;
+    return 0;
 }
