@@ -1,4 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) // 2
-    zero_point = -xs[n] if len(xs) % 2 else (-xs[n - 1] + -xs[n]) / 2
-    return zero_point
+    if len(xs) % 2 == 0:
+        zero = -((xs[n] + xs[n - 1]) / 2) / xs[-1]
+    else:
+        zero = -xs[n] / xs[-1]
+    return zero
