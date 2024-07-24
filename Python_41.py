@@ -1,8 +1,5 @@
 ```
 def car_race_collision():
-    """Complete the following code given the task description and function signature.
-Currently, the code is 
-    """
     distance = int(input("Enter the distance in kilometers: "))
     speed = int(input("Enter the average speed of all cars in km/h: "))
 
