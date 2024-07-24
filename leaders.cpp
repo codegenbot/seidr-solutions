@@ -1,19 +1,24 @@
-```
+```c++
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    if(n==0) return leaders;
-    leaders.push_back(arr[n-1]);
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= arr[i+1]) {
-            leaders.push_back(arr[i]);
+vector<int> leaders(vector<int> v) {
+    vector<int> result;
+    int rightmost = v.back();
+    for (int i = v.size() - 2; i >= 0; i--) {
+        if (v[i] >= rightmost) {
+            rightmost = v[i];
+            result.push_back(rightmost);
         }
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return result;
 }
 
-int main() { leaders(vector<int>{}); return 0; }
+int main() {
+    vector<int> v = {1, 3, 4, 1, 5, 9};
+    vector<int> result = leaders(v);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
+}
