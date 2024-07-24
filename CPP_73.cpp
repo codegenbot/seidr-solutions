@@ -1,38 +1,40 @@
 #include <vector>
+#include <string>
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    int changes = smallest_change(arr);
+
+    std::cout << "The minimum number of operations to make all the numbers in the array equal is: " << changes << std::endl;
+
+    return 0;
+}
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
+    string s = "";
+    for (int i : arr) {
+        s += to_string(i);
+    }
     int left = 0, right = n - 1;
     int changes = 0;
-
     while (left < right) {
-        if (arr[left] != arr[right]) {
+        if (s[left] != s[right]) {
             changes++;
-            int maxLeft = arr[left], minRight = arr[right];
-            for (int i = left + 1; i <= right; i++) {
-                if (arr[i] > maxLeft) maxLeft = arr[i];
-                if (arr[i] < minRight) minRight = arr[i];
-            }
-            if (maxLeft == minRight) changes++;
-            else {
-                int mid = (left + right) / 2;
-                if (mid >= left && arr[mid] <= maxLeft) {
-                    right = mid;
-                } 
-                else if (mid < right && arr[mid] >= minRight) {
-                    left = mid + 1;
-                } 
-                else {
-                    left++;
-                    right--;
-                }
-            }
-        } 
-        else {
+            left++;
+        } else {
             left++;
             right--;
         }
     }
-
     return changes;
 }
