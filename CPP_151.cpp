@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cassert>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
@@ -17,6 +17,5 @@ int main() {
     long long odd_sum = double_the_difference(lst);
     
     assert(odd_sum == 35);
-    
     return 0;
 }
