@@ -1,69 +1,48 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
+pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
+    int split_index = 0;
 
-    for (int i = 1; i <= n / 2; i++) {
-        int left_sum = 0;
-        int right_sum = 0;
-
-        for (int j = 0; j < i; j++) {
-            left_sum += vec[j];
-        }
-
-        for (int j = i; j < n; j++) {
-            right_sum += vec[j];
-        }
-
-        if (left_sum == right_sum) {
-            return {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
-        } else if (abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            cut_index = i;
+    for (int i = 1; i < v.size(); ++i) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_index = i;
         }
     }
 
-    int left_sum = 0;
-    int right_sum = 0;
+    vector<int> left_v = {v[0]};
+    vector<int> right_v = v;
 
-    for (int i = 0; i < n; i++) {
-        left_sum += vec[i];
+    for (int i = 1; i < split_index; ++i) {
+        left_v.push_back(v[i]);
+    }
+    for (int i = split_index; i < right_v.size(); ++i) {
+        right_v.pop_back();
     }
 
-    right_sum = left_sum - vec[cut_index];
-
-    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
+    return make_pair(left_v, right_v);
 }
 
 int main() {
-    vector<int> vec;
     int n;
-    cout << "Enter the number of elements in the vector: ";
     cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        vec.push_back(num);
+    vector<int> v(n+1);
+    for (int i = 0; i <= n; i++) {
+        cin >> v[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    
-    cout << "Left subvector: ";
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left Vector: ";
     for (int num : result.first) {
         cout << num << " ";
     }
     cout << endl;
-    
-    cout << "Right subvector: ";
+    cout << "Right Vector: ";
     for (int num : result.second) {
         cout << num << " ";
     }
     cout << endl;
-
     return 0;
 }
