@@ -1,4 +1,11 @@
 ```c++
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 string camelCase(string s) {
     string result = "";
     int i = 0;
@@ -6,23 +13,30 @@ string camelCase(string s) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] != ' ') {
-                result += toupper(s[i]);
+                if (!result.size()) {
+                    result += tolower(s[i]);
+                } else {
+                    result += toupper(s[i]);
+                }
                 i++;
             }
-            if (i < s.length()) {
-                result += capitalize(s[i]);
-            }
+            result += " ";
         } else {
-            if (result.empty()) {
+            if (!result.size()) {
                 result += tolower(s[i]);
             } else {
-                result += capitalize(s[i]);
+                result += toupper(s[i]);
             }
+            i++;
         }
     }
     return result;
 }
 
-string capitalize(char c) {
-    return (c >= 'a' && c <= 'z') ? (char)(c - ('a' - 'A')) : c;
+int main() {
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    cin >> input;
+    cout << "The camelCase version is: " << camelCase(input) << endl;
+    return 0;
 }
