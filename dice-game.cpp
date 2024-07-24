@@ -1,8 +1,8 @@
 ```cpp
 double getProbability(int n, int m) {
-    double prob = 0;
-    for (int i = 1; i < m; ++i) {
-        prob += (double)1/(m);
+    double num = 0;
+    for(int i=1; i<m; ++i){
+        num += (double)(n-i+1)/((double)n*m);
     }
-    return prob;
+    return num;
 }
