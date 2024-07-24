@@ -8,26 +8,19 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
+    bool firstWord = true;
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '-') {
             while (i < s.length() && s[i] != ' ') {
-                if (!result.size()) {
-                    result += tolower(s[i]);
-                } else {
+                if (!firstWord) {
                     result += toupper(s[i]);
+                } else {
+                    firstWord = false;
+                    char c = tolower(s[i]);
+                    result += c;
                 }
                 i++;
             }
-            result += " ";
-        } else {
-            if (!result.size()) {
-                result += tolower(s[i]);
-            } else {
-                result += toupper(s[i]);
-            }
-            i++;
         }
     }
     return result;
