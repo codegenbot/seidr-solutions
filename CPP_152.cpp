@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -22,12 +23,10 @@ int main() {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin.clear();
+        std::cin >> std::skipws; // skip any remaining characters
     }
 
     std::vector<int> vec1;
-    vec1.resize(n);
-
     int size = 0;
     while (size < n) {
         int x;
@@ -35,15 +34,13 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line here
         }
-        vec1[size] = x; 
+        vec1.push_back(x); 
         size++;
     }
 
     std::vector<int> vec2;
-    vec2.resize(n);
-
     size = 0;
     while (size < n) {
         int x;
@@ -51,9 +48,9 @@ int main() {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line here
         }
-        vec2[size] = x; 
+        vec2.push_back(x); 
         size++;
     }
 
