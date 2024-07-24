@@ -1,14 +1,11 @@
-```Python
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                result += chr((ord(char) - 65 + 3) % 26 + 65)
+                result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('A'))
             else:
-                result += chr((ord(char) - 97 + 3) % 26 + 97)
-        elif char.isdigit():  
-            result += str(int(char) + 3) if int(char) + 3 < 10 else '7'
-        else:  
+                result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a'))
+        elif char.isdigit() or not char.isalnum():  
             result += char
     return result
