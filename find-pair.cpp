@@ -27,7 +27,7 @@ int main() {
         cout << result.first << endl;
         cout << result.second << endl;
     } else {
-        cout << "No such pair found." << endl;
+        cout << "No such pair found" << endl;
     }
     return 0;
 }
