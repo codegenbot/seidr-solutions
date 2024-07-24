@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -38,4 +38,17 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
 
     return result;
+}
+
+int main() {
+    vector<string> lst = {"test", "abc", "abcd", "xyz"};
+    vector<string> result = sorted_list_sum(lst);
+
+    // Use the function
+    assert(issame(result, {"abcd", "abc", "test"}));
+    for (const string& str : result) {
+        cout << str << endl;
+    }
+
+    return 0;
 }
