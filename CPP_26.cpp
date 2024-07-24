@@ -1,16 +1,18 @@
 vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
+    vector<int> unique_numbers;
+
     for(int i = 0; i < numbers.size(); i++){
-        bool exists = false;
-        for(int j = 0; j < result.size(); j++){
-            if(result[j] == numbers[i]){
-                exists = true;
+        bool found = false;
+        for(int j = 0; j < unique_numbers.size(); j++){
+            if(numbers[i] == unique_numbers[j]){
+                found = true;
                 break;
             }
         }
-        if(!exists){
-            result.push_back(numbers[i]);
+        if(!found){
+            unique_numbers.push_back(numbers[i]);
         }
     }
-    return result;
+
+    return unique_numbers;
 }
