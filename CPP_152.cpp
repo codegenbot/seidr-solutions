@@ -1,9 +1,9 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> b, std::vector<int> c) {
-    for (int i = 0; i < b.size(); i++) {
-        if (b[i] != c[i]) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -29,5 +29,4 @@ int main() {
     for (int i : result) {
         std::cout << i << " ";
     }
-    return 0;
 }
