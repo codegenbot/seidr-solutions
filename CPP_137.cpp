@@ -1,35 +1,34 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compare_one(boost::any a, boost::any b) {
+bool compare_one(boost::any a, boost::any b) {
     if(a.type() == boost::any::typeless_type || b.type() == boost::any::typeless_type) {
         if(a.type() == boost::any::typeless_type && b.type() == boost::any::typeless_type) {
-            string a_s = any_cast<string>(a);
-            string b_s = any_cast<string>(b);
+            std::string a_s = boost::any_cast<std::string>(a);
+            std::string b_s = boost::any_cast<std::string>(b);
             int a_int = stoi(a_s);
             int b_int = stoi(b_s);
             if(a_int > b_int)
-                return a;
+                return true;
             else if(a_int < b_int)
-                return b;
+                return false;
             else
-                return boost::any("None");
+                return a_int == 0; 
         } else {
-            string a_s = any_cast<string>(a);
-            double b_d = any_cast<double>(b);
+            std::string a_s = boost::any_cast<std::string>(a);
+            double b_d = boost::any_cast<double>(b);
             int a_int = stoi(a_s);
             if(a_int > b_d)
-                return a;
+                return true;
             else
-                return b;
+                return false;
         }
     } else {
-        if(any_cast<int>(a) > any_cast<int>(b))
-            return a;
-        else if(any_cast<int>(a) < any_cast<int>(b))
-            return b;
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
+            return true;
+        else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
+            return false;
         else
-            return boost::any("None");
+            return a_int == 0; 
     }
 }
