@@ -1,34 +1,32 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-std::vector<float> sort_even(const std::vector<float>& input) {
-    std::vector<float> result = input;
-    std::sort(result.begin(), result.end(), [](float a, float b) {
-        if ((int)a % 2 == 0 && (int)b % 2 == 0) {
-            return a < b;
-        } else if ((int)a % 2 == 0) {
-            return true;
-        } else if ((int)b % 2 == 0) {
-            return false;
-        } else {
-            return false;
-        }
-    });
-    return result;
-}
+using namespace std;
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
+vector<float> sort_even(vector<float> input){
+    vector<float> sorted_even;
+    for (const auto& num : input){
+        if (static_cast<int>(num) % 2 == 0){
+            sorted_even.push_back(num);
+        }
+    }
+    sort(sorted_even.begin(), sorted_even.end());
+    return sorted_even;
+}
+
 int main() {
-    std::vector<float> input = {3.5f, 2.0f, 1.2f, 4.8f, 5.3f};
-    std::vector<float> sorted_even = sort_even(input);
+    vector<float> input = {3.5, 2.0, 1.2, 4.8, 5.3};
+    vector<float> sorted_even = sort_even(input);
     
-    assert(issame(sorted_even, std::vector<float>{1.2f, 2.0f, 3.5f, 4.8f, 5.3f}));
+    assert(issame(sorted_even, vector<float>{1.2, 2.0, 3.5, 4.8, 5.3}));
     
-    assert(issame(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), std::vector<float>{-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f}));
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     
     return 0;
 }
