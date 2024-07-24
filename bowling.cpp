@@ -6,15 +6,15 @@ int bowlingScore(string s) {
             score += 30;
             roll++;
         } else if (c == '/') {
-            score += 10 + (roll - 1);
-            roll = 0;
+            score += 10 + (roll * 10);
+            roll++;
         } else {
-            int points = c - '0';
-            if (points == 10) {
-                score += 10;
-                roll = 0;
+            int count = c - '0';
+            if (count == 1 || count == 2) {
+                score += count * 10;
+                roll++;
             } else {
-                score += points;
+                score += count * 10 + 10;
                 roll++;
             }
         }
