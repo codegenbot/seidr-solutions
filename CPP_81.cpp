@@ -31,6 +31,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(std::vector<std::string>({"E", "D-"}) == std::vector<std::string>());
+    std::vector<std::string> output = {"E", "D-"};
+    assert(issame(std::vector<std::string>{"E", "D-"}, output));
     return 0;
 }
