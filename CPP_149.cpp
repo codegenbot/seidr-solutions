@@ -20,7 +20,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
 
     std::sort(result.begin(), result.end(),
-              [&](const string& a, const string& b) {
+              [&](const auto& a, const auto& b) {
                   if (a.length() == b.length()) {
                       return a < b;
                   } else {
