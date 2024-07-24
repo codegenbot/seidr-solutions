@@ -1,8 +1,19 @@
+#include <iostream>
+#include <climits>
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
-    int num;
+    string line;
     
-    while (cin >> num) {
+    getline(cin, line);
+    istringstream iss(line);
+    
+    int num;
+    while (iss >> num) {
         nums.push_back(num);
     }
     
@@ -28,10 +39,14 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << ' ';
     }
+    cout << '\n';
     
-    cout << 0 << endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << ' ';
+    }
+    cout << '\n';
     
     return 0;
 }
