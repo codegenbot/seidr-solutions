@@ -12,5 +12,8 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
+# Read input from standard input
 n = int(sys.stdin.readline().rstrip())
+
+# Call the function and print the output
 print(factorize(n))
