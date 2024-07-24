@@ -22,7 +22,7 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> std::ws; // Clear the remaining input
     }
 
     std::vector<int> vec1;
@@ -32,11 +32,10 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> std::ws; // Clear the remaining input
         }
         vec1.push_back(x); 
         size++;
-        if(size >= n) break; // Break loop once n is reached
     }
 
     std::vector<int> vec2;
@@ -46,11 +45,10 @@ int main() {
         while (!(std::cin >> x)) {
             std::cout << "Invalid input. Please enter an integer: ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> std::ws; // Clear the remaining input
         }
         vec2.push_back(x); 
         size++;
-        if(size >= n) break; // Break loop once n is reached
     }
 
     bool checkEquality = checkVectorEquality(vec1, vec2);
