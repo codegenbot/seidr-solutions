@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,8 +13,7 @@ long long double_the_difference(std::vector<double> lst){
 }
 
 int main() {
-    std::vector<double> myVector = {(double)1.5, (double)2.7, (double)3.8}; 
+    std::vector<double> myVector = {1.5, 2.7, 3.8}; 
     double odd_sum = double_the_difference(myVector); 
-    //assert(double_the_difference(myVector) == odd_sum);
     return 0;
 }
