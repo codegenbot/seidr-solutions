@@ -1,4 +1,3 @@
-```Python
 def string_to_md5(text):
     if not text:
         return None
@@ -8,7 +7,7 @@ def string_to_md5(text):
 if __name__ == "__main__":
     while True:
         try:
-            text = input("Enter a string: ").lower().strip()  
+            text = input("Enter a string: ").lower().strip()
             if len(text) > 0:
                 result = string_to_md5(text)
                 print(result)
