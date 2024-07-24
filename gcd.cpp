@@ -32,9 +32,10 @@ int main() {
         cerr << "Invalid input for integers" << endl;
         return 1;
     }
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     cout << "Enter a text string: ";
     if (!getline(cin >> ws, text)) {
