@@ -1,7 +1,8 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num >= 0) {
@@ -35,21 +36,15 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    int num, n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    
-    for(int i=0; i<n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        vec[i] = num;
+    vector<int> nums;
+    int n;
+    while (true) {
+        cout << "Enter a number (-1 to finish): ";
+        cin >> n;
+        if (n == -1) break;
+        nums.push_back(n);
     }
-
-    int result = count_nums(vec);
-
-    std::cout << "Count of numbers: " << result << endl;
-
+    int result = count_nums(nums);
+    cout << "The total numbers with positive sum is: " << result << endl;
     return 0;
 }
