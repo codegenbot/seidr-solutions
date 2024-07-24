@@ -1,30 +1,22 @@
-#include <vector>
-using namespace std;
-
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-    
+    int blackPegs = 0;
+    int whitePegs = 0;
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         }
     }
 
-    vector<int> count(6, 0);
     for (char c : code) {
-        count[c - 'A']++;
-    }
-    
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i]) {
-            int c = guess[i] - 'A';
-            if (count[c] > 0) {
-                white++;
-                count[c]--;
+        bool found = false;
+        for (int i = 0; i < 4; ++i) {
+            if (c == guess[i] && !found) {
+                whitePegs++;
+                found = true;
             }
         }
     }
 
-    return black + white;
+    return blackPegs << 2 | whitePegs;
 }
