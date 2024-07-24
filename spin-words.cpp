@@ -1,31 +1,38 @@
-std::string spinWords(std::string str) {
-    std::string result;
-    int wordLength = 0;
+````
+#include <iostream>
+#include <string>
+#include <algorithm>
 
-    for (char c : str) {
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string word;
+    
+    for (char c : sentence) {
         if (c == ' ') {
-            if (wordLength >= 5) {
-                for (int i = wordLength - 1; i >= 0; --i) {
-                    result += str[wordLength - i - 1];
-                }
-            } else {
-                result += c;
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            wordLength = 0;
-            result += c; // append the original character
+            result += word + " ";
+            word = "";
         } else {
-            result += c;
-            ++wordLength;
+            word += c;
         }
     }
-
-    if (wordLength >= 5) {
-        for (int i = wordLength - 1; i >= 0; --i) {
-            result += str[wordLength - i - 1];
-        }
-    } else {
-        result = str;
+    
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
-
+    result += word;
+    
     return result;
 }
+
+int main() {
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
+
+    return 0;
+}
+```
