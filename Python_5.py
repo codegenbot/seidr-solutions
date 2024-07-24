@@ -7,5 +7,4 @@ def join_with_delimeter(numbers, delimeter):
 
 numbers = input("Enter numbers separated by space: ").split()
 delimeter = input("Enter the delimiter: ")
-
 print(join_with_delimeter(numbers, delimeter))
