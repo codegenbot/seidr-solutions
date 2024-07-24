@@ -39,6 +39,6 @@ int main() {
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
     std::pair<std::string, std::string> planets = {std::pair<std::string, std::string>(planet1, planet2)};
-    assert(bf(planets) == {});  // Check if the result is an empty vector
+    assert(bf(planets) == {});  
     return 0;
 }
