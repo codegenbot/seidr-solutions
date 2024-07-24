@@ -16,6 +16,6 @@ double diceGame(int n, int m) {
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(5) << diceGame(n, m);
+    std::cin >> n >> m;
+    std::cout << fixed << setprecision(5) << diceGame(n, m);
     return 0;
