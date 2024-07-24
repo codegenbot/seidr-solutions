@@ -1,4 +1,6 @@
+```cpp
 #include <initializer_list>
+#include <algorithm>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
@@ -46,3 +48,4 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
+}
