@@ -1,4 +1,5 @@
-from typing import List, Tuple
+```
+from typing import List
 
 
 def sum_product():
