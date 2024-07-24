@@ -1,4 +1,3 @@
-```
 int choose_num(int x, int int) {
     if (x > y) {
         int temp = x;
