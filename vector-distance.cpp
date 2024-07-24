@@ -7,12 +7,12 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    vector<float> v1(n), v2(n);
+    vector<double> v1(n), v2(n);
     
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
     }
-
+    
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
     }
