@@ -28,10 +28,7 @@ while True:
         elif n.isdigit():
             n = int(n)
             if n > 0:
-                try:
-                    print(factorize(n))
-                except Exception as e:
-                    print(f"Failed to factorize {n}. Error: {str(e)}")
+                print(factorize(n))
             else:
                 print("Please enter a positive integer.")
         else:
