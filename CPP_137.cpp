@@ -8,34 +8,29 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (double)b > a.convert_to<int>() ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (int)a > b.convert_to<int>() ? a : b;
+        return (int)a > b.convert_to<int>() ? a : boost::any((long long)-1);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (int)b > a.convert_to<double>() ? b : a;
+        return (int)b > a.convert_to<double>() ? b : boost::any((long long)-1);
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if(strA.compare(strB) > 0)
-            return a;
-        else
-            return b;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return boost::any_cast<std::string>(b) > boost::any_cast<std::string>(a) ? b : a;
     }
     else if ((a.type() == typeid(int) || a.type() == typeid(double)) &&
-             (b.type() == typeid(string))) {
-        string str = boost::any_cast<string>(b);
-        if (str.find('.') != string::npos || str.find(',') != string::npos)
+             (b.type() == typeid(std::string))) {
+        std::string str = boost::any_cast<std::string>(b);
+        if (str.find('.') != std::string::npos || str.find(',') != std::string::npos)
             return b;
         else
-            return a > boost::any_cast<int>(b) ? a : b;
+            return a > boost::any_cast<int>(b) ? a : boost::any((long long)-1);
     }
-    else if ((a.type() == typeid(string)) &&
+    else if ((a.type() == typeid(std::string)) &&
              (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string str = boost::any_cast<string>(a);
-        if (str.find('.') != string::npos || str.find(',') != string::npos)
+        std::string str = boost::any_cast<std::string>(a);
+        if (str.find('.') != std::string::npos || str.find(',') != std::string::npos)
             return a;
         else
-            return b;
+            return boost::any((long long)-1);
     }
     return b;
 }
