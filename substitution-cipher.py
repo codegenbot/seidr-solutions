@@ -1,12 +1,14 @@
-def substitution_cipher(input_strings):
-    cipher_key = input_strings[0]
-    message_to_decipher = input_strings[2]
+def substitution_cipher(cipher, message):
+    deciphered = ""
+    for char in message:
+        if char in cipher[0]:
+            index = cipher[0].index(char)
+            deciphered += cipher[1][index]
+        else:
+            deciphered += char
+    return deciphered
 
-    deciphered_message = "".join(
-        [
-            chr(ord(c) - ord(cipher_key[i % len(cipher_key)])) if c in cipher_key else c
-            for i, c in enumerate(message_to_decipher)
-        ]
-    )
 
-    return deciphered_message
+cipher = input().split()
+message = input()
+print(substitution_cipher(cipher, message))
