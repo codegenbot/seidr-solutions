@@ -1,7 +1,5 @@
 def sum_squares(lst):
-    if not all(isinstance(x, int) for x in lst):
-        return "Invalid input. Please enter integers."
-    return sum([n ** 2 for n in lst])
+    return sum([n ** 2 for n in lst if isinstance(n, int)])
 
-result = sum_squares([1, 2, 3, 11, 12])
+result = sum_squares([1, 2, 'a', 11, 'b'])
 print(result)
