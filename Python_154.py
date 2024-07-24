@@ -9,6 +9,4 @@ def cycpattern_check(a, b):
                     return True
             else:
                 break
-        else:
-            continue
-        return False
+    return False
