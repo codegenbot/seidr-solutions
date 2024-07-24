@@ -6,7 +6,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main() {
     // Correct usage of function
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == std::vector<string>({"grunt", "prune"}));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == ({ "grunt", "prune" }));
     
     return 0;
 }
