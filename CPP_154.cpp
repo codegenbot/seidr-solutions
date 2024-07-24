@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool cycpattern_check(const std::string& a, const std::string& b) {
+bool cycpattern_check(const std::string &a, const std::string &b) {
     if (a.length() != b.length()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    assert(cycpattern_check("winemtt","tinem") == true);
+    assert(cycpattern_check("winemtt", "tinem") == true);
     
     return 0;
 }
