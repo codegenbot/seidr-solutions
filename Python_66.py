@@ -1,10 +1,6 @@
-```python
-import string
-
+```
 def digitSum(s):
-    translator = str.maketrans('', '', string.ascii_letters + string.punctuation)
-    s = s.translate(translator).replace(' ', '')
-    return sum(int(c) for c in s if c.isdigit())
+    return sum(int(c) for c in s if c.isdigit()) or 0
 
 input_s = str(input("Enter a string: "))
-print(digitSum(input_s))
+print(sum(int(i) for i in input_s if i.isdigit()) or 0)
