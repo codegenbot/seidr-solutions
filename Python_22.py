@@ -1,6 +1,2 @@
-```
-from typing import List
-
-
-def filter_integers(lst: List) -> List[int]:
-    return [value for value in lst if isinstance(value, int)]
+def filter_integers(input_dict: dict) -> List[int]:
+    return [value for value in input_dict.values() if isinstance(value, int)]
