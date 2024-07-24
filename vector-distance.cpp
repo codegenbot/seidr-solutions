@@ -10,14 +10,16 @@ int main() {
         std::cin >> vec1[i];
     }
 
+    std::cin >> n;
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
+        if (i != n - 1) std::cin.ignore(); // Add this line
     }
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
     std::cout << std::sqrt(sum) << "\n";
