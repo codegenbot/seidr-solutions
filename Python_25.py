@@ -1,4 +1,4 @@
-n = int(input().strip())
+n = int(input())
 from typing import List
 
 def factorize(n: int) -> List[int]:
