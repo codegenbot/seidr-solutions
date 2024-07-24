@@ -7,6 +7,6 @@ def match_parens(lst):
                 stack.append(c)  
             elif c.lower() == ')': 
                 if not stack: 
-                    return False
+                    return False  
                 stack.pop()
     return not stack
