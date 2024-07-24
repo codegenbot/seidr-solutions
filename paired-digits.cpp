@@ -1,15 +1,16 @@
-int main() {
-    string input;
-    cin >> input;
-    
+int pairedDigitsSum(const string& digits) {
     int sum = 0;
-    for(int i = 0; i < input.size() - 1; i++) {
-        if(input[i] == input[i + 1]) {
-            sum += input[i] - '0';
+    for (int i = 0; i < digits.size() - 1; ++i) {
+        if (digits[i] == digits[i+1]) {
+            sum += digits[i] - '0';
         }
     }
-    
-    cout << sum << endl;
-    
+    return sum;
+}
+
+int main() {
+    string digits;
+    cin >> digits;
+    cout << pairedDigitsSum(digits) << endl;
     return 0;
 }
