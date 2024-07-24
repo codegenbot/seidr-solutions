@@ -11,23 +11,22 @@ string spinWords(string str) {
     for(int i=0; i<=str.length(); i++) {
         if(i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i-start);
-            
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
             }
-            
             result += word + " ";
             start = i+1;
         }
     }
     
-    return result.substr(0, result.length()-1);
+    return result;
 }
 
 int main() {
-    string str;
+    // Your code here
+    string input;
     cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
