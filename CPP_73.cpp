@@ -9,15 +9,17 @@ int smallest_change(vector<int> arr) {
     while (left < right) {
         if (arr[left] != arr[right]) {
             changes++;
-            for (int i = left; i <= right; i++) {
+            for (int i = 0; i < n; i++) {
+                if ((i >= left && i <= right) || (i >= right)) {
+                    continue;
+                }
                 if (arr[i] == arr[right]) {
                     swap(arr[i], arr[left]);
                     break;
                 }
             }
         }
-        else
-            left++;
+        left++;
         right--;
     }
 
