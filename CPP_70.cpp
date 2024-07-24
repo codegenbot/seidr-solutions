@@ -1,22 +1,14 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
-
-bool issame(int a, int b) {
-    return a == b;
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     if (lst.empty()) {
         return result;
     }
-
+    
     while (!lst.empty()) {
         int min = *min_element(lst.begin(), lst.end());
         int max = *max_element(lst.begin(), lst.end());
-
-        if (issame(*min_element(lst.begin(), lst.end()), *max_element(lst.begin(), lst.end()))) {
+        
+        if (min == max) {
             result.insert(result.begin(), min);
             lst.clear();
         } else {
@@ -27,12 +19,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
             lst.erase(std::remove(lst.begin(), lst.end(), max), lst.end());
         }
     }
-
+    
     return result;
-}
-
-int main() {
-    std::vector<int> test = {3, 1, 2, 4};
-    assert(std::equal(test.begin(), test.end(), strange_sort_list(test).begin()));
-    return 0;
 }
