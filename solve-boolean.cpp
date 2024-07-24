@@ -2,8 +2,8 @@
 #include <string>
 #include <stack>
 
-bool solveBoolean(const std::string& expression) {
-    std::stack<char> stack;
+bool solveBoolean(const string& expression) {
+    stack<char> stack;
     for (char c : expression) {
         if (c == 'T' || c == 'F') {
             stack.push(c);
@@ -29,8 +29,8 @@ bool solveBoolean(const std::string& expression) {
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
-    std::cout << (solveBoolean(expression) ? "True" : "False") << std::endl;
+    string expression;
+    cin >> expression;
+    cout << (solveBoolean(expression) ? "True" : "False") << endl;
     return 0;
 }
