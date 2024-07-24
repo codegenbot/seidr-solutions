@@ -21,6 +21,6 @@ int main() {
     }
 
     cout << fixed << sqrt(sum) << endl;
-
+    
     return 0;
-}
+} 
