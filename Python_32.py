@@ -1,10 +1,12 @@
-n = int(input())
-coefficients = list(map(int, input().split()))
+n = int(input().strip())
+coefficients = list(map(int, input().strip().split()))
+
 
 def find_zero(xs: list, n: int):
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients should be even")
+    if len(xs) != n:
+        raise ValueError("Incorrect number of coefficients provided")
     return sum(xs)
+
 
 result = find_zero(coefficients, n)
 print(result)
