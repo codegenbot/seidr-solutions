@@ -1,2 +1,2 @@
-return n % 8 == 0;
+return (n % 8 == 0);
 }
