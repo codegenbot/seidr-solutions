@@ -3,30 +3,25 @@
 #include <cctype>
 
 bool evaluateBooleanExpression(const std::string& expr) {
-    bool result = false;
-    bool first = true;
-    char op = '|';
-
+    std::string lowercaseExpr;
     for (char c : expr) {
-        if (c == 't') {
-            if (op == '|') {
-                result = true;
-                break;
-            } else if (op == '&') {
-                result = result && true;
-            }
-            first = false;
-        } else if (c == 'f') {
+        lowercaseExpr += std::tolower(c);
+    }
+
+    bool result = true;
+    bool operand = true;
+    char op = '&';
+
+    for (char c : lowercaseExpr) {
+        if (c == 't' || c == 'f') {
+            operand = (c == 't');
             if (op == '&') {
-                result = false;
-                break;
+                result = result && operand;
             } else if (op == '|') {
-                result = result || false;
+                result = result || operand;
             }
-            first = false;
         } else if (c == '&' || c == '|') {
             op = c;
-            first = true;
         }
     }
 
@@ -37,9 +32,9 @@ int main() {
     std::string input;
     std::cout << "Enter boolean expression: ";
     std::cin >> input;
-    
+
     bool result = evaluateBooleanExpression(input);
     std::cout << "Result: " << (result ? "true" : "false") << std::endl;
-    
+
     return 0;
 }
