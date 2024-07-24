@@ -1,4 +1,3 @@
-```Python
 def search(lst):
     max_prime = -1
     for num in lst:
@@ -17,7 +16,9 @@ def is_prime(n):
 
 
 nums = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-if not all(isinstance(num, int) for num in nums):
-    print("Invalid input! Please enter only integers.")
+if not nums or not all(isinstance(num, int) for num in nums):
+    print("Invalid input! Please enter one or more integers.")
+elif len(nums) < 1:
+    print("No numbers were entered. Please try again!")
 else:
     print(search(nums))
