@@ -1,13 +1,11 @@
 ```cpp
 #include <string>
 #include <cctype>
+#include <iostream>
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    std::string str = "camel-case example-test-string";
     std::cout << camelCase(str) << std::endl;
-
     return 0;
 }
 
