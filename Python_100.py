@@ -1,12 +1,8 @@
-```
 def make_a_pile(n):
     pile = []
-    i = n
-    while len(pile) < n:
-        if i % 2 == 1:
-            pile.append(i)
-            i += 2
+    for i in range(n):
+        if n % 2 == 1:
+            pile.append(2*i+1)
         else:
-            pile.append(i)
-            i += 1
+            pile.append(2*i+2)
     return pile
