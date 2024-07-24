@@ -12,8 +12,8 @@ for i, num in enumerate(arr):
         idx = i
         break
 
-if abs(total_sum - 2 * current_sum) < abs(total_sum - 2 * (current_sum + num)):
+if abs(total_sum - 2 * current_sum) > abs(total_sum - 2 * (current_sum - num)):
     idx += 1
 
-print(arr[:idx+1])
-print(arr[idx+1:])
+print(arr[: idx + 1])
+print(arr[idx + 1 :])
