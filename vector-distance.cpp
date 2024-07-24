@@ -12,12 +12,9 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         cin >> v1[i];
-        if (i != n - 1) {
-            cin.ignore(); // ignore the comma
-        }
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignore the comma and whitespace
 
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
