@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
@@ -7,7 +7,7 @@ std::string file_name_check(std::string file_name){
     std::string before_dot;
 
     for(int i=0; i<file_name.size(); i++){
-        if(std::isdigit(file_name[i])){
+        if(isdigit(file_name[i])){
             digit_count++;
             if(digit_count > 3) return "No";
         } else if(file_name[i] == '.'){
