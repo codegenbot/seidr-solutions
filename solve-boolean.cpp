@@ -1,45 +1,47 @@
-#include <iostream>
 #include <string>
-#include <cctype>
+#include <iostream>
+#include <stack>
 
-bool evaluateBooleanExpression(const std::string& expr) {
-    bool result = false;
-    bool orFlag = false;
-    bool current = true;
+bool evaluateBooleanExpression(const std::string &expression) {
+    std::stack<char> stack;
     
-    for (char c : expr) {
-        if (c == 'F' || c == 'f') {
-            current = false;
-        } else if (c == 'T' || c == 't') {
-            if (orFlag) {
-                result = result || current;
+    for (char symbol : expression) {
+        if (symbol == 't' || symbol == 'f') {
+            stack.push(symbol);
+        } else if (symbol == '|') {
+            char operand1 = stack.top();
+            stack.pop();
+            char operand2 = stack.top();
+            stack.pop();
+            if (operand1 == 't' || operand2 == 't') {
+                stack.push('t');
             } else {
-                result = result && current;
+                stack.push('f');
             }
-            current = true;
-        } else if (c == '&') {
-            orFlag = false;
-        } else if (c == '|') {
-            orFlag = true;
+        } else if (symbol == '&') {
+            char operand1 = stack.top();
+            stack.pop();
+            char operand2 = stack.top();
+            stack.pop();
+            if (operand1 == 't' && operand2 == 't') {
+                stack.push('t');
+            } else {
+                stack.push('f');
+            }
         }
     }
     
-    if (orFlag) {
-        result = result || current;
-    } else {
-        result = result && current;
-    }
-    
-    return result;
+    return stack.top() == 't';
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter boolean expression: ";
-    std::getline(std::cin, input);
+    std::cout << "Enter the Boolean expression: ";
+    std::cin >> input;
     
     bool result = evaluateBooleanExpression(input);
-    std::cout << "Result: " << (result ? "true" : "false") << std::endl;
+    
+    std::cout << std::boolalpha << result << std::endl;
     
     return 0;
 }
