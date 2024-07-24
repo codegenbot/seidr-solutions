@@ -1,14 +1,12 @@
+```cpp
+#include <vector>
+#include <algorithm>
 bool will_it_fly(vector<int> q, int w) {
-    vector<string> strQ;
+    string str = "";
     for (int i : q) {
-        strQ.push_back(to_string(i));
+        str += to_string(i);
     }
-    string s = "";
-    for (string t : strQ) {
-        s += t;
-    }
-    reverse(s.begin(), s.end());
-    if (s != string(strQ.begin(), strQ.end())) return false;
+    if (str != string(str.rbegin(), str.rend())) return true;
     int sum = 0;
     for (int i : q) {
         sum += i;
