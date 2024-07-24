@@ -10,7 +10,4 @@ string squareDigits(string input) {
     return output;
 }
 
-int main() {
-    cout << squareDigits("34") << endl;
-    return 0;
-}
+int main() { return 0; }
