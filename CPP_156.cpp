@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
 struct Roman {
     std::string value;
@@ -59,7 +59,7 @@ std::string int_to_mini_romank(int number) {
 }
 
 int main() {
-    std::vector<int> romanMap(std::vector<int>::allocator_type{}); 
-    assert(int_to_mini_romank(1000) == "M"); 
+    std::vector<int> romanMap;
+    assert(int_to_mini_romank(1000) == "M");
     return 0;
 }
