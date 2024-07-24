@@ -2,13 +2,15 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
     
-    for (char& c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+    for (char &ch : message) {
+        if (ch == cipher1[0]) {
+            ch = cipher2[0];
+        } else if (ch == cipher2[0]) {
+            ch = cipher1[0];
         }
     }
     
     cout << message << endl;
-
+    
     return 0;
 }
