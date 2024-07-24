@@ -1,12 +1,10 @@
-```
-vector<int> leaders(vector<int>& v) {
-    vector<int> res;
-    int max_right = v.back();
-    for(int i=v.size()-1; i>=0; --i){
-        if(v[i]>=max_right){
-            max_right = v[i];
-            res.push_back(max_right);
-        }
+```cpp
+#include <vector>
+
+void solve(vector<int>& v, vector<int>& res) {
+    int cur = v.back();
+    for (int i = v.size() - 2; i >= 0; --i) { 
+        if (v[i] >= cur) cur = v[i];
+        else res.push_back(cur);
     }
-    return res;
 }
