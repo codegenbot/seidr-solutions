@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <iostream>
