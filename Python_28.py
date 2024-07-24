@@ -1,4 +1,6 @@
-def join_strings(strings):
+def concatenate_strings(strings):
     return "".join(strings)
 
-result = join_strings(strings)
+
+# Call the function
+concatenate_strings(strings)
