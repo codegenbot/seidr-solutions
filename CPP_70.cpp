@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -32,26 +32,25 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+
     std::vector<int> input;
-    std::cout << "Enter numbers separated by space: ";
-    int temp;
-    while (std::cin >> temp) {
+    for (int i = 0; i < n; i++) {
+        int temp;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> temp;
         input.push_back(temp);
     }
-    
-    std::vector<int> output = strange_sort_list(input);
 
-    std::cout << "Output: ";
-    for (int x : output) {
-        std::cout << x << ' ';
-    }
-    std::cout << '\n';
-    
-    if (issame(output, {1,3,2})) {
-        std::cout << "The list is sorted as expected.\n";
-    } else {
-        std::cout << "Error: The list is not sorted as expected.\n";
-    }
+    std::vector<int> result = strange_sort_list(input);
 
+    std::cout << "Sorted list: ";
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+    
     return 0;
 }
