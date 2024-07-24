@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -27,7 +28,7 @@ while True:
         elif n.isdigit():
             n = int(n)
             if n > 0:
-                print(factorize(n))
+                print(*factorize(n), sep=', ')
             else:
                 print("Please enter a positive integer.")
         else:
