@@ -1,13 +1,11 @@
+```
 rows = int(input("Enter the number of rows: "))
 cols = int(input("Enter the number of columns: "))
 grid = []
 for _ in range(rows):
-    row = list(
-        map(int, input(f"Enter heights for each column (space separated): ").split())
-    )
+    row = list(map(int, input(f"Enter heights for each column (space separated): ").split()))
     grid.append(row)
 capacity = int(input("Enter the capacity: "))
-
 
 def max_fill(grid, capacity):
     total_water = 0
@@ -28,6 +26,5 @@ def max_fill(grid, capacity):
             min_height_left = grid[i][left]
             min_height_right = grid[i][right]
     return total_water
-
 
 print(max_fill(grid, capacity))
