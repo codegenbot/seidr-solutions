@@ -1,4 +1,4 @@
-```Python
+```
 def decode_shift(encoded_string):
     decoded_string = ""
     for char in encoded_string:
