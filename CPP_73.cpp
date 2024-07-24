@@ -1,31 +1,33 @@
-#include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::string s = "";
-    for (int i : arr) {
-        s += std::to_string(i);
-    }
     int left = 0, right = n - 1;
     int changes = 0;
+
     while (left < right) {
-        if (s[left] != s[right]) {
+        if (arr[left] != arr[right]) {
             changes++;
-            left++;
-        } else {
-            left++;
-            right--;
+            for (int i = 0; i < n; i++) {
+                if ((i >= left && i <= right) || (i >= right)) {
+                    continue;
+                }
+                if (arr[i] == arr[right]) {
+                    swap(arr[i], arr[left]);
+                    break;
+                }
+            }
         }
+        left++;
+        right--;
     }
+
     return changes;
 }
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    std::vector<int> testArr = {2, 3};
-    int result = smallest_change(testArr);
-    std::cout << "Test case: " << testArr[0] << ", " << testArr[1] << ". Expected output: " << (result == 1 ? "1" : "0") << ". Actual output: " << result;
+    // Add more test cases here
     return 0;
 }
