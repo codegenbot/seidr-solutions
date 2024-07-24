@@ -1,4 +1,3 @@
-```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -27,3 +26,6 @@ def main():
         grid.append(row)
 
     print(minPathSum(grid))
+
+
+main()
