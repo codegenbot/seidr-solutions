@@ -1,3 +1,4 @@
+```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -20,12 +21,8 @@ def main():
 
     grid = []
     for i in range(m):
-        row = list(
-            map(int, input(f"Enter the numbers in a row separated by space: ").split())
-        )
+        row = list(map(int, input(f"Enter the numbers in a row separated by space: ").split()))
         grid.append(row)
 
     print(minPathSum(grid))
-
-
 main()
