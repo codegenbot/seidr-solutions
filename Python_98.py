@@ -1,5 +1,5 @@
 ```
 s = input()
-def count_upper(input_str):
-    return sum(1 for c in input_str if c.isupper())
-print(count_upper(s))
+def count_upper():
+    return sum(1 for c in s if c.isupper())
+print(count_upper())
