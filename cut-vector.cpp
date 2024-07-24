@@ -8,8 +8,12 @@ int main() {
     vector<int> nums;
     int num;
 
+    int n;
+    cin >> n;
+
     int temp;
-    while (cin >> temp || !cin.eof()) {
+    for (int i = 0; i < n; i++) {
+        cin >> temp;
         nums.push_back(temp);
     }
 
@@ -18,7 +22,6 @@ int main() {
         return 0;
     }
 
-    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -28,7 +31,7 @@ int main() {
     int min_diff = INT_MAX;
     int cut_index = -1;
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
         int suffix_sum = sum - prefix_sum;
         int diff = abs(prefix_sum - suffix_sum);
