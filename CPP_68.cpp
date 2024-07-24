@@ -26,7 +26,8 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 vector<pair<int, int>> main_function() {
-    vector<pair<int, int>> output = pluck({7, 9, 7, 1});
+    vector<int> input = {2, 4, 6, 8};
+    vector<pair<int, int>> output = pluck(input);
     
     for (const auto& pair : output) {
         cout << "Pair: (" << pair.first << ", " << pair.second << ")" << endl;
