@@ -4,11 +4,9 @@
 
 int main() {
     std::string text, target;
-    
-    std::cin.ignore();
+    std::ws(std::cin);
     std::getline(std::cin, text);
-   
-    std::cin.ignore();
+    std::ws(std::cin);
     std::getline(std::cin, target);
     
     std::vector<int> indices;
