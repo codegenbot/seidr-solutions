@@ -1,4 +1,5 @@
 int main() {
-    vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
-    return luhn(digits);
+    vector<int> digits = {3,7,1,6,0,2,0,0,9,8,5};
+    cout << luhn(digits) << endl;
+    return 0;
 }
