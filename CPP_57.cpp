@@ -8,9 +8,9 @@ bool monotonic(const std::vector<int>& l) {
         if (l[i] < l[i - 1]) {
             increasing = false;
         }
-        if (l[i] > l[i - 1]) {
+        else if (l[i] > l[i - 1]) {
             decreasing = false;
         }
     }
-    return increasing || decreasing;
+    return (increasing || decreasing);
 }
