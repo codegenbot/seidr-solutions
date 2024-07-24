@@ -9,15 +9,6 @@ def max_nested_paren_count(paren_string):
         for paren_string in paren_string.split()
     ]
 
-
-# Read input line by line
-input_lines = []
-try:
-    while True:
-        input_lines.append(input().strip())
-except EOFError:
-    pass
-
-# Call the function with each input line
-results = [max_nested_paren_count(line) for line in input_lines]
-print(results)
+input_string = input("Enter the paren_string: ").strip()
+result = max_nested_paren_count(input_string)
+print(result)
