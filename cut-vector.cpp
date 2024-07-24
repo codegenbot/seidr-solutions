@@ -41,14 +41,25 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << " ";
-    }
+    if (cut_index == 0) {
+        cout << nums[0] << endl;
+        for (int i = 1; i < n; i++) {
+            cout << nums[i] << " ";
+        }
+    } else if (cut_index == n - 1) {
+        for (int i = 0; i < n - 1; i++) {
+            cout << nums[i] << " ";
+        }
+        cout << nums[n - 1] << endl;
+    } else {
+        for (int i = 0; i <= cut_index; i++) {
+            cout << nums[i] << " ";
+        }
+        cout << endl;
 
-    cout << endl;
-
-    for (int i = cut_index + 1; i < n; i++) {
-        cout << nums[i] << " ";
+        for (int i = n - 1; i > cut_index; i--) {
+            cout << nums[i] << " ";
+        }
     }
 
     return 0;
