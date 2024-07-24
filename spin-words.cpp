@@ -25,20 +25,34 @@ string spinWords(string sentence) {
 }
 
 string spinWords(string sentence) {
-    string reversed = "";
-    int start = 0;
-    for (int end = 0; end <= sentence.length(); end++) {
-        if ((end == sentence.length()) || (sentence[end] == ' ')) {
-            string word = sentence.substr(start, end - start);
+    string reversedSentence = "";
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            reversedSentence += " ";
+        } else {
+            int wordLength = 0;
+            while (i + wordLength < sentence.length() && sentence[i + wordLength] != ' ') {
+                wordLength++;
+            }
+            string word = sentence.substr(i, wordLength);
             if (word.length() >= 5) {
-                reversed += string(word.rbegin(), word.rend());
+                reversedSentence += word.substr(word.length() - 1) + word.substr(0, word.length() - 1) + " ";
             } else {
-                reversed += word;
+                reversedSentence += word + " ";
             }
-            if (end < sentence.length()) {
-                reversed += " ";
-            }
-            start = end + 1;
+            i += wordLength;
         }
     }
-    return reversed;
+    return reversedSentence;
+}
+
+int main() {
+    string input;
+    while (true) {
+        cout << "Enter a string: ";
+        cin >> input;
+        if (input == "exit") break;
+        cout << spinWords(input) << endl;
+    }
+    return 0;
+}
