@@ -3,7 +3,7 @@ def hex_key(num):
     count = 0
     for digit in num.upper():
         if digit in primes:
-            count += int(primes[digit]).bit_length()
+            count += len(primes[digit])
         elif digit.isdigit() and int(digit) > 1:
             count += 1
     return count
