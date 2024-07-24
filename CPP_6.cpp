@@ -20,7 +20,3 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     }
     return result;
 }
-
-int main() {
-    assert(issame({4}, {4}));
-}
