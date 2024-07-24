@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 bool isPrime(int num) {
@@ -19,16 +19,19 @@ int x_or_y(int n, int x, int y) {
 }
 
 int main() {
-    int num, x, y;
+    int n, x, y;
+
+    // Input number, and two other numbers from the user
     std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "Enter value for x: ";
+    std::cin >> n;
+    std::cout << "Enter a value for 'x': ";
     std::cin >> x;
-    std::cout << "Enter value for y: ";
+    std::cout << "Enter a value for 'y': ";
     std::cin >> y;
-    
-    int result = x_or_y(num, x, y);
-    std::cout << "The result is: " << result << std::endl;
+
+    // Print the returned value
+    int result = x_or_y(n, x, y);
+    std::cout << "Result: " << result << "\n";
 
     return 0;
 }
