@@ -31,10 +31,14 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                char ch;
-                while((ch = std::getchar()) != '\n' && ch != EOF) {
-                    if(ch == '-') continue; // Ignore negative sign
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
                 }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else if (x < INT_MIN || x > INT_MAX) {
+                std::cout << "Error: The integer must be within the range of int." << std::endl;
+                return -1; 
             } else {
                 vec1.push_back(x); 
                 size++;
@@ -50,10 +54,14 @@ int main() {
         while (true) {
             if (!(std::cin >> x)) {
                 std::cout << "Invalid input. Please enter an integer: ";
-                char ch;
-                while((ch = std::getchar()) != '\n' && ch != EOF) {
-                    if(ch == '-') continue; // Ignore negative sign
+                std::cin.clear();
+                while(std::cin.peek() != '\n') {
+                    std::cin.ignore(); 
                 }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // flush the buffer
+            } else if (x < INT_MIN || x > INT_MAX) {
+                std::cout << "Error: The integer must be within the range of int." << std::endl;
+                return -1; 
             } else {
                 vec2.push_back(x); 
                 size++;
