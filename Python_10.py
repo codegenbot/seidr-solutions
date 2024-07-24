@@ -1,6 +1,7 @@
 def make_palindrome(s: str) -> str:
     s = s.lower()
-    new_s = ''
-    for char in s:
-        new_s += (char * 2)
-    return new_s + s[::-1]
+    for i in range(len(s)):
+        new_s = s[:i] + (s[i] * 2) + s[:i][::-1] + s[i+1:]
+        if new_s == s and new_s != s[::-1]:
+            return new_s
+    return ""
