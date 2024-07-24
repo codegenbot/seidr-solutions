@@ -28,34 +28,8 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1;
-    std::vector<std::string> lst2;
-
-    int n1, n2;
-
-    // Read number of strings for each list
-    std::cout << "Enter the number of strings for List 1: ";
-    std::cin >> n1;
-
-    // Initialize and fill Vector1
-    for(int i = 0; i < n1; i++) {
-        std::string temp;
-        std::cout << "Enter string " << (i+1) << " for List 1: ";
-        std::cin >> temp;
-        lst1.push_back(temp);
-    }
-
-    // Read number of strings for each list
-    std::cout << "Enter the number of strings for List 2: ";
-    std::cin >> n2;
-
-    // Initialize and fill Vector2
-    for(int i = 0; i < n2; i++) {
-        std::string temp;
-        std::cout << "Enter string " << (i+1) << " for List 2: ";
-        std::cin >> temp;
-        lst2.push_back(temp);
-    }
+    std::vector<std::string> lst1({"a", "b", "c"});
+    std::vector<std::string> lst2({"d", "e", "f"});
 
     if (issame(lst1, lst2)) {
         std::cout << "The lists are the same.\n";
