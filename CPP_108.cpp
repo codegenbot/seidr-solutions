@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -20,6 +19,7 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::cout << count_nums({1, -2, 3, -4}) << std::endl;
+    std::vector<int> nums = {1};
+    int result = count_nums(nums);
     return 0;
 }
