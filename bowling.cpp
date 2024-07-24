@@ -1,23 +1,33 @@
-int calculateBowlingScore(string bowls) {
+int calculateBowlingScore(const string& bowls) {
     int score = 0;
     int frame = 1;
     int ball = 0;
+    vector<int> frames(10, 0);
+
     for (char c : bowls) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball + 1] == 'X') ? 10 : (bowls[ball + 1] - '0');
-                score += (bowls[ball + 2] == 'X') ? 10 : (bowls[ball + 2] == '/' ? 10 - (bowls[ball + 1] - '0') : (bowls[ball + 2] - '0'));
-            }
-            ball++;
+            frames[frame-1] = 10;
             frame++;
         } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
+            frames[frame-1] = 10 - frames[frame-2];
+            frame++;
+            ball = 0;
+        } else if (c == '-') {
+            ball++;
         } else {
-            score += c - '0';
+            frames[frame-1] += c - '0';
+            ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+            }
         }
-        ball++;
     }
+
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+    }
+
     return score;
 }
 
