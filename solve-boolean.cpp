@@ -4,15 +4,19 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     bool result = false;
+    int precedence = 0;
     for (char c : expression) {
         if (c == 't') {
             result = true;
         } else if (c == 'f') {
-            return !result;
+            return false;
         } else if (c == '|') {
-            result = true; 
+            precedence = 1;
         } else if (c == '&') {
-            if (!result) return false;
+            if (precedence == 0) {
+                result &= true;
+            }
+            precedence = -1;
         }
     }
     return result;
