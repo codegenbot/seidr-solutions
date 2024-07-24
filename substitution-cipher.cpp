@@ -4,11 +4,11 @@
 
 int main() {
     std::string cipher2;
-    cin >> cipher2;
+    std::cin >> cipher2;
     std::string cipher1;
-    cin >> cipher1;
+    std::cin >> cipher1;
     std::string message;
-    getline(cin, message);
+    std::getline(std::cin, message);
 
     std::map<char, char> cipherMap;
     for(int i = 0; i < cipher1.length(); i++) {
@@ -19,12 +19,12 @@ int main() {
     for(int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(cipherMap.find(c) != cipherMap.end()) {
-            result.push_back(cipherMap.at(c));
+            result += cipherMap.at(c);
         } else {
             // Handle characters not in the cipher map by keeping them unchanged
-            result.push_back(c);
+            result += c;
         }
     }
-    cout << result << endl;
+    std::cout << result.c_str() << std::endl;
     return 0;
 }
