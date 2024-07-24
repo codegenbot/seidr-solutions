@@ -1,12 +1,18 @@
 int prod_signs(vector<int> arr) {
     int product = 1;
-    long sum = 0;
-    for (int x : arr) {
-        if (x == 0) {
+    long long sum = 0;
+
+    for (int i : arr) {
+        if (i == 0) {
             return 0;
         }
-        product *= abs(x);
-        sum += abs(x);
+        product *= (i > 0 ? 1 : -1);
+        sum += abs(i);
     }
-    return product * sum > INT_MAX ? -32768 : product * sum;
+
+    if (arr.empty()) {
+        return -32768;
+    }
+
+    return product * sum;
 }
