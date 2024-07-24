@@ -1,2 +1,2 @@
-def roll_highest(n, m):
-    return 1 - (n + m - 2) / (n * m)
+def dice_game(n, m):
+    return (n - 1) / (n * m)
