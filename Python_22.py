@@ -9,23 +9,18 @@ def main():
         value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == "stop":
             break
-        while True:
-            try:
-                values.append(int(value))
-                break
-            except ValueError:
-                print(
-                    "Invalid input. Please enter a valid integer or type 'stop' to finish."
-                )
-                value = input("Enter an integer (or 'stop' to finish): ")
+        try:
+            values.append(int(value))
+        except ValueError:
+            print(f"Invalid input '{value}'! Please enter a valid integer.")
 
-    filtered_values = filter_integers(values)
+    filtered_values = [int(value) for value in values if isinstance(value, int)]
 
     print(filtered_values)
 
 
 def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
+    return [int(value) for value in values if isinstance(value, int)]
 
 
 if __name__ == "__main__":
