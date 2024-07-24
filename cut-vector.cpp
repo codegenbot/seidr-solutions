@@ -1,32 +1,25 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cstdlib>
-using namespace std;
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
     int diff = INT_MAX;
     int cutIndex = 0;
-    int leftSum = 0, rightSum = 0;
-    
     for (int i = 1; i < n; ++i) {
-        leftSum += nums[i - 1];
-        rightSum = 0;
-
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-        
-        int currentDiff = abs(leftSum - rightSum);
-        
+        int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -35,9 +28,9 @@ int main() {
     
     for (int i = 0; i < n; ++i) {
         if (i < cutIndex) {
-            cout << nums[i] << endl;
+            std::cout << nums[i] << std::endl;
         } else {
-            cout << nums[i] << endl;
+            std::cout << 0 << std::endl;
         }
     }
     
