@@ -3,17 +3,17 @@ def valid_date():
     while True:
         date = input("Enter a date in the format YYYY-MM-DD: ")
         if len(date) != 10 or not date.replace("-", "").isdigit():
-            print("Invalid Date! Please try again.")
+            print("Invalid input! Please enter a valid date.")
             continue
         year, month_day = date.split("-")
         year = int(year)
         if not (1900 <= year <= 2100): 
-            print("Year should be between 1900 and 2100. Please try again.")
+            print("Year must be between 1900 and 2100.")
             continue
 
         month_day = int(month_day)
         if not (1 <= month_day <= 366): 
-            print("Invalid day! The maximum number of days is 366. Please try again.")
+            print("Invalid day! Please enter a valid date.")
             continue
 
         if month_day > 365: 
@@ -26,16 +26,12 @@ def valid_date():
                     break
                 if month in months_with_31_days:
                     if days_in_months[month-1] < month_day:
-                        print("Invalid date! The maximum number of days is",days_in_months[month-1],". Please try again.")
+                        print("Invalid day! Please enter a valid date.")
                         continue
 
         if int(month_day // 100) != year//100: 
             if len(str(int(month_day/100)))>3: 
-                print("Invalid Date! Please try again.")
+                print("Invalid input! Please enter a valid date.")
                 return 
-            print("Invalid Date! Please try again.")
-            return 
 
-        return "Valid date!"
-
-print(valid_date())
+        print("Date is valid!")
