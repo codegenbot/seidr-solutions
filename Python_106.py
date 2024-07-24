@@ -1,11 +1,12 @@
-```
 import math
+
 
 def factorial(x):
     if x == 0:
         return 1
     else:
         return x * factorial(x - 1)
+
 
 def f(n):
     result = 1
@@ -15,6 +16,7 @@ def f(n):
         else:
             result *= i
     return result
+
 
 while True:
     try:
