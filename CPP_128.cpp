@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <assert.h>
+
 int prod_signs(vector<int> arr) {
     int product = 1;
     long long sum = 0;
