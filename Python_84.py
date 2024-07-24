@@ -1,3 +1,7 @@
 ```
-def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:]).lstrip('0')))
+def solve(N=None):
+    if N is None:
+        N = int(input("Enter a number: "))
+    if N < 1:
+        return str(0)
+    return bin(N)[2:]
