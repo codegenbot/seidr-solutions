@@ -1,8 +1,7 @@
-Here is the corrected code:
-
+```cpp
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 auto findIndices(string text, string target) -> vector<int> {
     vector<int> indices;
@@ -14,7 +13,7 @@ auto findIndices(string text, string target) -> vector<int> {
     return indices;
 }
 
-auto main() -> int {
+int main() {
     string text;
     cin >> text;
 
@@ -26,5 +25,6 @@ auto main() -> int {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-
+    
     return 0;
+}
