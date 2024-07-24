@@ -28,9 +28,15 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     vector<vector<int>> pile1 = make_a_pile(n);
-    for (const auto& row : pile1) {
-        for (int val : row) {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
+    
+    {  
+        for (const auto& row : pile1) {
+            for (int val : row) {
+                cout << val << " ";
+            }
+            cout << endl;
+        }  
+    }  
+
+    return 0;  
+}
