@@ -13,9 +13,6 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (issame(vector<string>{temp, rev}, vector<string>{result[0], result[1]}))
-        result.push_back("True");
-    else
-        result.push_back("False");
+    result.push_back((temp == rev) ? "True" : "False");
     return result;
 }
