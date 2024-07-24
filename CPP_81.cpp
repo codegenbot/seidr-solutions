@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -60,8 +60,7 @@ int main_test() {
         a[0] = "D+";
     else
         a[0] = "F";
-    std::vector<std::string> b;
-    b.push_back(a[0]);
-    bool same = issame({a[0]}, b);
+    std::vector<std::string> b({a[0]});
+    bool same = issame({a}, {b});
     return 0;
 }
