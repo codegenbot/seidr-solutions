@@ -1,3 +1,4 @@
+```
 import math
 def rounded_avg():
     total = 0
@@ -10,7 +11,7 @@ def rounded_avg():
         except ValueError:
             print("Invalid input. Please enter a number.")
         
-        if count == 2: 
+        if input("Do you want to continue? (yes/no): ").lower() != "yes":
             break
 
     return str(math.ceil(total / count))
