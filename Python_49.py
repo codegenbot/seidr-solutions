@@ -12,9 +12,22 @@ def powermod(base: int, exponent: int, modulus: int):
 while True:
     try:
         base = int(input("Enter the base: "))
-        exponent = int(input("Enter the exponent: "))
-        modulus = int(input("Enter the modulus: "))
-        print(powermod(base, exponent, modulus))
         break
     except ValueError:
-        print("Invalid input. Please enter integers.")
+        print("Invalid input. Please enter an integer.")
+
+while True:
+    try:
+        exponent = int(input("Enter the exponent: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+while True:
+    try:
+        modulus = int(input("Enter the modulus: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(powermod(base, exponent, modulus))
