@@ -3,44 +3,38 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    int n;
-    std::cin >> n;
+    int num_strings;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
 
-    std::vector<std::string> inputStrings(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> inputStrings[i];
+    std::vector<std::string> strings(num_strings);
+    for (int i = 0; i < num_strings; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> strings[i];
     }
 
-    int m;
-    std::cin >> m;
+    std::string substring;
+    std::cout << "Enter the substring: ";
+    std::cin >> substring;
 
-    std::vector<std::string> substrings(m);
-    for (int i = 0; i < m; i++) {
-        std::cin >> substrings[i];
+    auto filtered = filter_by_substring(strings, substring);
+    for (const auto& str : filtered) {
+        std::cout << str << "\n";
     }
-
-    for (const auto& substring : substrings) {
-        std::cout << "Substrings: ";
-        for (const auto& str : filter_by_substring(inputStrings, substring)) {
-            std::cout << str << " ";
-        }
-        std::cout << std::endl;
-    }
-
     return 0;
 }
