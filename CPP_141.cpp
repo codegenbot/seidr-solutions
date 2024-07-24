@@ -9,7 +9,7 @@ int file_name_check(string file_name){
     for(int i=0; i<file_name.size(); i++){
         if(isdigit(file_name[i])){
             digit_count++;
-            if(digit_count > 3) return 0;
+            if(digit_count > 3) return 0; 
         } else if(file_name[i] == '.'){
             found_dot = true;
         } else {
