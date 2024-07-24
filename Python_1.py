@@ -1,4 +1,4 @@
-````
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -19,4 +19,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ''
 
-    return result
+    return [i for i in result if len(i) > 0]
