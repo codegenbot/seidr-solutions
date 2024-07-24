@@ -7,13 +7,13 @@ double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& a
     double output = 0.0;
 
     for(int i = 0; i < ops.size(); i++) {
-        if(ops[i] == "+") {
+        if(ops[i][0] == "+") { 
             output += static_cast<double>(args[i]);
-        } else if(ops[i] == "-") {
+        } else if(ops[i][0] == "-") {
             output -= static_cast<double>(args[i]);
-        } else if(ops[i] == "*") {
+        } else if(ops[i][0] == "*") {
             output *= static_cast<double>(args[i]);
-        } else if(ops[i] == "/") {
+        } else if(ops[i][0] == "/") {
             if(args[i] != 0) {
                 output /= static_cast<double>(args[i]);
             } else {
@@ -32,16 +32,14 @@ int main() {
 
     while(true) {
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
-        std::string op;
+        char op;
         int arg;
-        std::cin >> op >> std::ws >> arg;
+        std::cin >> op;
 
-        if(op == "q") break;
+        if(op == 'q') break;
         
-        if(ops.size() > 0) {
-            ops.push_back(op);
-            args.push_back(arg);
-        }
+        args.push_back(arg);
+        ops.push_back(std::string(1, op)); 
     }
     
     double output = do_algebra(ops, args);
