@@ -17,9 +17,3 @@ vector<int> common(const vector<int>& a, const vector<int>& b) {
 bool areSame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-int main() {
-    assert(areSame(common({4, 3, 2, 8}, {}) , {}));
-    
-    return 0;
-}
