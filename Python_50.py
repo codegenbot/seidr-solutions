@@ -7,5 +7,7 @@ def decode_shift(s: str):
     )
 
 s = input("Enter a string: ").strip()
-s = s.lower()
-print(decode_shift(s))
+if s.islower():
+    print(decode_shift(s))
+    else:
+        print("Input string should contain only lower case alphabets.")
