@@ -5,19 +5,16 @@
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 int main() {
     string input;
-    cout << "Enter a string with parentheses: ";
+    cout << "Enter the parentheses string: ";
     cin >> input;
-    
-    vector<string> result = separate_paren_groups(input);
 
-    for (const string &group : result) {
+    vector<string> separated_groups = separate_paren_groups(input);
+
+    for (const string& group : separated_groups) {
         cout << group << endl;
     }
 
@@ -39,13 +36,17 @@ vector<string> separate_paren_groups(string paren_string) {
             open_braces--;
             if (open_braces >= 0) {
                 current_group += c;
-                if (open_braces == 0) {
-                    result.push_back(current_group);
-                    current_group = "";
-                }
+            } 
+            if (open_braces == 0) {
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
