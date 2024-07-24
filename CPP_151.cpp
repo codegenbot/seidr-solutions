@@ -13,6 +13,6 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1.0f, 2.0f, 3.0f}; 
-    int odd_sum = 14; 
-    assert(double_the_difference(lst) == odd_sum);
+    int odd_sum = double_the_difference(lst); // Define the odd_sum variable
+    assert(odd_sum == 14);
 }
