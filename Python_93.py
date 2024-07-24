@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -12,10 +13,11 @@ def encode(message):
                 result += 'q'
             elif char.lower() == 'u':
                 result += 'y'
-            elif char.isupper():
-                result += chr(ord(char) + 32)
             else:
-                result += chr(ord(char) - 32)
+                if char.isupper():
+                    result += chr(ord(char) + 32)
+                else:
+                    result += chr(ord(char) - 32)
         else:
             result += char
     return result
