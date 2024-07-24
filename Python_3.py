@@ -1,7 +1,7 @@
 ```
 from typing import list
 
-def below_zero(operations: list) -> bool:
+def below_zero(operations: list[int]) -> bool:
     balance = 0
     for operation in operations:
         balance += operation
