@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -21,13 +23,7 @@ int sumOfDigits(int n){
     }
     return sum;
 
-int maxPrime(vector<int> lst){
-    int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime)
-            maxPrime = i;
-    }
-    return maxPrime;
+}
 
 int main() {
     vector<int> lst;
@@ -40,9 +36,15 @@ int main() {
         cin >> x; 
         lst.push_back(x);
     }
-    int maxPrimeNum = maxPrime(lst);
+    int maxPrimeNum = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrimeNum)
+            maxPrimeNum = i;
+    }
     if(maxPrimeNum > 0)
         cout << "The sum of digits of the maximum prime is: " << sumOfDigits(maxPrimeNum) << endl;
     else
         cout << "No primes found in the list." << endl;
     return 0;
+
+}
