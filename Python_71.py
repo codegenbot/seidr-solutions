@@ -6,4 +6,4 @@ def triangle_area(a, b, c):
         s = (a + b + c) / 2
         return round(math.sqrt(s * (s - a) * (s - b) * (s - c)), 2)
     else:
-        return -1
+        return "Input values do not form a triangle"
