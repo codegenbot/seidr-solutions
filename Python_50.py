@@ -1,3 +1,4 @@
+```
 def decode_shift(encoded_string):
     decoded_string = ""
     shift_value = None
