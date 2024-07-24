@@ -13,14 +13,10 @@ int main() {
     std::getline(std::cin, message);
     result = "";
     for(int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        int index = 0;
-        while(index < cipher1.length()) {
-            if(c == cipher1[index]) {
-                result.push_back(cipher2[index]);
-                break;
-            }
-            index++;
+        int index = cipher1.find(message[i]);
+        if(index != std::string::npos) {
+            c = cipher2[index];
+            result.push_back(c); 
         }
     }
     std::cout << result << std::endl;
