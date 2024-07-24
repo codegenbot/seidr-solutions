@@ -5,6 +5,7 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
+
 threshold = 5
 numbers = [1, 6, 10, 4]
 result = check_numbers(numbers, threshold)
