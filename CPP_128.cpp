@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
-#include <limits>
 
 int main() {
-    int prod_signs(vector<int> arr) {
+    int prod_signs(std::vector<int> arr) {
         int product = 1;
         long sum = 0;
         for (int x : arr) {
@@ -12,11 +12,13 @@ int main() {
             product *= abs(x);
             sum += abs(x);
         }
-        return (product * sum > INT_MAX) ? -32768 : product * sum;
+        return product * sum > INT_MAX ? -32768 : product * sum;
     }
-    
-    int main() {
-        vector<int> arr = {1,2,3,4,5};
-        cout << prod_signs(arr) << endl;
-        return 0;
-    }
+
+    // example usage
+    std::vector<int> input = {1, -2, 3, 4};
+    int output = prod_signs(input);
+    std::cout << "Product of signs is: " << output << std::endl;
+
+    return 0;
+}
