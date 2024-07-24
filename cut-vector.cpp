@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector> 
+#include <vector>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
