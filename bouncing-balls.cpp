@@ -1,5 +1,5 @@
-#include <iostream>
-#include <cmath>
+#include <iostream> // for cin, cout
+#include <cmath>    // for pow
 
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance;
