@@ -6,13 +6,15 @@ int main() {
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (capitalize) {
-            cout << (char)toupper(c);
+        } else if (capitalize && islower(c)) {
+            c = toupper(c);
             capitalize = false;
-        } else {
-            cout << c;
+        } else if (c == ' ') {
+            capitalize = true;
         }
     }
+
+    cout << input << endl;
 
     return 0;
 }
