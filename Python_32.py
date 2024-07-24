@@ -13,10 +13,10 @@ def find_zero(xs: list):
     return round(x, 2)
 
 
+def main():
+    xs = list(map(float, input("Enter coefficients: ").split()))
+    print(find_zero(xs))
+
+
 if __name__ == "__main__":
-    coefficients = input("Enter coefficients: ")
-    try:
-        xs = [int(x) for x in coefficients.split()]
-        print(find_zero(xs))
-    except ValueError as e:
-        print(e)
+    main()
