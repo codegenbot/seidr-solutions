@@ -1,13 +1,22 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-total_sum = sum(arr)
-left_sum = 0
-for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
-        (left_sum - arr[i]) - (right_sum + arr[i])
-    ):
-        print(*arr[: i + 1])
-        print(*arr[i + 1 :])
-        break
+v = [int(input()) for _ in range(n)]
+
+total_sum = sum(v)
+half_sum = total_sum // 2
+current_sum = 0
+idx = 0
+
+while current_sum < half_sum:
+    current_sum += v[idx]
+    idx += 1
+
+if current_sum == half_sum:
+    print(*v[:idx])
+    print(*v[idx:])
+else:
+    if current_sum - half_sum < half_sum - current_sum + v[idx]:
+        print(*v[:idx])
+        print(*v[idx:])
+    else:
+        print(*v[: idx - 1])
+        print(*v[idx - 1 :])
