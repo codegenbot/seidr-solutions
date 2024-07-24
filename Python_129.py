@@ -1,14 +1,14 @@
-```
+Here is the complete Python function:
+
+```python
 def minPath(grid, k):
     N = len(grid)
     queue = [(0, 0, [])]
     res = None
     while queue:
         row, col, path = queue.pop(0)
-        if len(path) <= k:
-            for p in set(frozenset(path)):
-                if not res or not any(p < r for r in res[0]):
-                    res = (tuple(sorted(set([r for r in path]))),) or res
+        if len(path) == k:
+            res = tuple(sorted(set(path)))
         else:
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nr, nc = row + dr, col + dc
