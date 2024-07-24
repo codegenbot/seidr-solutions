@@ -1,15 +1,12 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int calculateFuelCost(vector<int> &vec) {
-    int total = 0;
-    for (int i : vec) {
+int fuelCost(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
         int result = (i / 3);
-        if (result < 1) {
-            result = 0;
-        } else {
-            result--;
-        }
-        total += result;
+        result = (result > 0 ? result - 1 : 0);
+        sum += result;
     }
-    return total;
+    return sum;
 }
