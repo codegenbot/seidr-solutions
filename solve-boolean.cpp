@@ -38,7 +38,7 @@ bool evaluateBooleanExpression(string expression) {
                 operand += expression[i];
                 i++;
             }
-            i--; 
+            i--; // backtrack
             operandStack.push(operand);
         }
     }
