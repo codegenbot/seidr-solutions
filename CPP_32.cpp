@@ -1,15 +1,12 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coeffs, double x) {
-    double result = 0;
-    for(int i=0; i<coeffs.size(); i++) {
-        result += coeffs[i]*std::pow(x, i);
-    }
+double poly(std::vector<double> xs, double x) {
+    double result = xs[0] * pow(x,2) + xs[1]*x + xs[2];
     return result;
 }
 
-std::abs(double d);
+std::vector<double> coeffs; 
 
 double find_zero(std::vector<double> xs){
     double x = -xs[1] / (2*xs[0]);
@@ -17,7 +14,7 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs; // Declare coeffs
-    double solution = find_zero(coeffs); // Pass xs to find_zero
+    coeffs = {1.0, -3.5, 2.25}; 
+    double solution = find_zero(coeffs); 
     assert (abs(poly(coeffs, solution))< 1e-3);
 }
