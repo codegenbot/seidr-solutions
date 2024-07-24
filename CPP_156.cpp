@@ -1,6 +1,7 @@
-```
+```c++
 #include <vector>
 #include <string>
+#include <initializer_list>
 #include <cassert>
 
 struct Roman {
