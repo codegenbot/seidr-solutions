@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <assert.h>
 #include <vector>
+#include <algorithm>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -12,14 +11,11 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 
 bool order_by_points(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size() - 1; i++) {
-        if (same({arr[i]}, {arr[i + 1]}) && (arr[i] > arr[i + 1])) return false;
-    }
-    return true;
+    return same({arr[0]}, {arr[1]});
 }
 
 int mainFunction() {
-    std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-    assert(std::equal(result.begin(), result.end(), {-76, -21, 0, 4, 23, 6, 6}) && result.size() == 7);
-    return 0;
+    int result = 0;
+    if (!(order_by_points({0, 6, 6, -76, -21, 23, 4}) == ({-76, -21, 0, 4, 23, 6, 6}))) result = 1; 
+    return result;
 }
