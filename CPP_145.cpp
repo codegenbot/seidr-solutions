@@ -1,11 +1,11 @@
-```
 #include <algorithm>
 using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        pairs.push_back(make_pair(getDigitSum(nums[i]), i));
+        int sum = getDigitSum(nums[i]);
+        pairs.push_back(make_pair(sum, i));
     }
     sort(pairs.begin(), pairs.end());
     vector<int> result;
