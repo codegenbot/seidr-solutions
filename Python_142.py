@@ -1,6 +1,9 @@
 ```
 def sum_squares(n):
-    return sum(i**2 for i in range(1, n+1))
+    try:
+        return sum(i**2 for i in range(1, n+1))
+    except TypeError:
+        return "Invalid input. Please enter a positive integer."
 
 while True:
     try:

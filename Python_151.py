@@ -1,10 +1,10 @@
-def double_the_difference(input_list):
+```
+def calculate_double_the_difference(input_list):
     if len(input_list) < 2:
         return 0
     avg = sum(input_list) / len(input_list)
     diff = abs(max(input_list) - min(input_list)) - abs(avg - min(input_list))
     return 2 * diff
-
 
 while True:
     try:
@@ -17,4 +17,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter numbers separated by space.")
 
-print(double_the_difference(input_list))
+print(calculate_double_the_difference(input_list))
