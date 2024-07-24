@@ -1,15 +1,16 @@
 Here is the completed code:
 
-bool is_sorted(vector<int> lst) {
-    if (lst.size() <= 1)
-        return true;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] >= lst[i - 1])
-            continue;
-        else if (count(lst.begin(), lst.end(), lst[i]) > 1)
+bool is_sorted(vector<int> lst){
+    bool flag = true;
+    for(int i=0; i<lst.size()-1; i++){
+        if(lst[i] >= lst[i+1]){
+            flag = false;
             break;
-        else
-            return false;
+        }
+        if(i < lst.size() - 2 && lst[i] == lst[i+1]){
+            flag = false;
+            break;
+        }
     }
-    return true;
+    return flag;
 }
