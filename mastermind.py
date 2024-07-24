@@ -7,4 +7,4 @@ def mastermind(code, guess):
             for j, c2 in enumerate(guess)
         ].count(True)
     )
-    return str(white), str(black)
+    return str(black), str(white)
