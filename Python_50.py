@@ -1,6 +1,7 @@
 def decode_shift(encoded_string):
+    """Decode a string encoded with Caesar Cipher (shift of 3)."""
     decoded_string = ""
-    for char in encoded_string:
+    for char in str(encoded_string):  
         if char.isalpha():
             ascii_offset = 65 if char.isupper() else 97
             decoded_char = chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
