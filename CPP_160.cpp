@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +19,8 @@ double do_algebra(const std::vector<std::string>& ops, const std::vector<int>& a
     return result;
 }
 
-int main() {
+int main 
+{
     std::vector<std::string> ops;
     std::vector<int> args;
 
@@ -40,3 +42,4 @@ int main() {
     double output = do_algebra(ops, args);
     std::cout << "Output: " << output << std::endl;
     return 0;
+}
