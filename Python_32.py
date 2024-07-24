@@ -1,16 +1,20 @@
 ```
 def find_zero():
-    coefficients = list(map(float, input("Enter the polynomial coefficients (space-separated): ").split()))
-    if len(coefficients) % 2 != 0:
-        raise ValueError("The number of coefficients must be even.")
-    a = coefficients[-1]
-    b_sum = sum(x for x in coefficients[:-1] if isinstance(x, (int, float)))
-    c_sum = sum(x*y for x, y in zip(coefficients[:-1], range(len(coefficients)-1)) if isinstance(x, (int, float)) and isinstance(y, int))
-    d_sum = sum(x*math.pow(y, 2) for x, y in zip(coefficients[:-1], range(len(coefficients)-1)) if isinstance(x, (int, float)) and isinstance(y, int))
+    x = float(input("Enter coefficient of degree 1: "))
+    y = float(input("Enter constant term: "))
+    n = int(input("Enter the highest power of x in your polynomial (i.e., the degree): "))
     
-    if a == 0:
-        return "a cannot be zero"
-    if b_sum == 0:
-        b_sum = -sum(x*y for x, y in zip(coefficients[:-1], range(len(coefficients)-1)))
-    x = (-b_sum + math.sqrt(b_sum**2 - 4*a*c_sum)) / (2*a)
-    return round(x, 2)
+    a = [0] * (n + 1)
+    for i in range(n, -1, -1):
+        a[i] = float(input(f"Enter coefficient of x^{i}: "))
+        
+    if n < 2:
+        return "Polynomial must be quadratic or higher."
+    elif a[n] == 0:
+        raise ValueError("The coefficient of the highest power must not be zero.")
+    
+    result = sum([a[i]*x**i for i in range(n + 1)])
+    if result == y:
+        print(f"The polynomial {sum(['{}*x^{}'.format(a[i], i) for i in range(n+1) if a[i]] + [str(y)])} has a root at x = 0.")
+    else:
+        print(f"The polynomial {sum(['{}*x^{}'.format(a[i], i) for i in range(n+1) if a[i]] + [str(y)])} does not have a root at x = 0.")
