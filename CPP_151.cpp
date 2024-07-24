@@ -15,6 +15,6 @@ long long double_the_difference(std::vector<long double> lst){
 int main() {
     std::vector<long double> myVector = {1.5, 2.7, 3.8}; 
     long long odd_sum = double_the_difference(myVector); 
-    std::cout << "The result is: " << odd_sum << std::endl; 
+    std::cout << "Sum of squares of positive integers is: " << odd_sum << std::endl;
     return 0;
 }
