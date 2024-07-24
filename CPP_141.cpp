@@ -1,30 +1,28 @@
-bool hasDigit = false;
-int dotCount = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!hasDigit) {
-            hasDigit = true;
+string file_name_check(string file_name){
+    int count = 0;
+    bool dotFound = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            count++;
         }
-        else {
+        else if(file_name[i] == '.'){
+            dotFound = true;
+        }
+        else if(!dotFound && (file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
             return "No";
         }
     }
-    else if (c == '.') {
-        dotCount++;
+    if(count > 3) return "No";
+    string extension = "";
+    for(int i=file_name.length()-1; i>=0; i--){
+        if(file_name[i] == '.'){
+            break;
+        }
+        else{
+            extension = file_name[i]+extension;
+        }
     }
+    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    if(!dotFound) return "No";
+    return "Yes";
 }
-
-if (dotCount != 1 || !file_name.empty()) {
-    return "No";
-}
-
-size_t pos = file_name.find('.');
-string beforeDot = file_name.substr(0, pos);
-string afterDot = file_name.substr(pos + 1);
-
-if (!isalpha(beforeDot[0]) || afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-    return "No";
-}
-
-return "Yes";
