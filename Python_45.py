@@ -9,6 +9,6 @@ try:
     result = triangle_area(a, h)
     print(result)
 except ValueError as e:
-    print("Invalid input. Please enter numeric values.")
+    print("Invalid input. Please enter positive numeric values.")
 except Exception as e:
     print("An error occurred. Please try again.")
