@@ -27,9 +27,9 @@ int main() {
         double y = pow(n, log(x) / log(n));
         std::cout << ((y == x) ? "True" : "False") << std::endl;
         if (is_simple_power(x, n))
-            std::cout << std::to_string(true) << std::endl; 
+            std::cout << "True\n";
         else
-            std::cout << std::to_string(false) << std::endl; 
+            std::cout << "False\n";
     }
     return 0;
 }
