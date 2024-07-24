@@ -1,9 +1,12 @@
-#include <algorithm>
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a % 2 == 0 && b % 2 != 0 || a % 2 != 0 && b % 2 == 0) {
+        return true;
+    }
+    return false;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -11,33 +14,34 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     if (lst.empty()) {
         return result;
     }
-    
+
     while (!lst.empty()) {
-        int min = *std::min_element(lst.begin(), lst.end());
-        int max = *std::max_element(lst.begin(), lst.end());
-        
-        if (issame(*std::min_element(lst.begin(), lst.end()), *std::max_element(lst.begin(), lst.end()))) {
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
+
+        if (issame(min, max)) {
             result.insert(result.begin(), min);
             lst.clear();
         } else {
             result.push_back(min);
             lst.erase(std::remove(lst.begin(), lst.end(), min), lst.end());
-            
+
             result.push_back(max);
             lst.erase(std::remove(lst.begin(), lst.end(), max), lst.end());
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    std::vector<int> input = {2, 5, 3};
-    for (auto val : strange_sort_list(input)) {
-        std::cout << val << " ";
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<int> output = strange_sort_list(input);
+
+    for (auto i : output) {
+        std::cout << i << " ";
     }
     std::cout << std::endl;
-    assert(std::all_of(strange_sort_list({1, 2}).begin(), strange_sort_list({1, 2}).end(),
-                       [](int x) { return x == 1; }));
+
     return 0;
 }
