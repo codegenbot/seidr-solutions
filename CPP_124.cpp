@@ -24,6 +24,7 @@ bool valid_date(string date) {
     else if (month == 2 && day > 29)
         return false;
 
+    // Check for invalid days
     if (day < 1 || day > 30)
         return false;
 
