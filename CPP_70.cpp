@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 std::vector<int> sortList(const std::vector<int>& input) {
     std::vector<int> output(input);
