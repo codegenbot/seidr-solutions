@@ -1,4 +1,3 @@
-```
 def remove_duplicates(numbers: list[int]) -> list[int]:
     result = []
     for num in numbers:
