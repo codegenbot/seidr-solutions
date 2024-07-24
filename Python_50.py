@@ -1,3 +1,4 @@
+```
 def get_user_input():
     encoded_string = input("Enter the encoded string: ")
     return encoded_string
