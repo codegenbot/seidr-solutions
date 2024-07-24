@@ -1,48 +1,27 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::size_t pos = 0;
-    
-    while ((pos = sentence.find(" ")) != std::string::npos) {
-        std::size_t wordEnd = pos;
-        if (wordEnd + 1 < sentence.length() && sentence[wordEnd + 1] == ' ') {
-            wordEnd++;
-        }
-        
-        // Check the length of the word
-        if (wordEnd - pos >= 5) {
-            for (int i = wordEnd; i >= pos; --i) {
-                result += sentence[i];
+string spinWords(string str) {
+    string result = "";
+    int wordStart = 0;
+    for(int i=0; i<=str.length(); i++) {
+        if(i == str.length() || str[i] == ' ') {
+            string word = str.substr(wordStart, i-wordStart);
+            if(word.length() >= 5) {
+                result += reverse(word) + " ";
+            } else {
+                result += word + " ";
             }
-        } else {
-            result += sentence.substr(pos, wordEnd - pos + 1);
+            wordStart = i+1;
         }
-        
-        sentence.erase(0, wordEnd + 1);
     }
-    
-    // Add the last word
-    if (sentence.length() > 0) {
-        if (sentence.length() >= 5) {
-            for (int i = sentence.length() - 1; i >= 0; --i) {
-                result += sentence[i];
-            }
-        } else {
-            result += sentence;
-        }
-    } else {
-        result = sentence;
-    }
-    
-    return result;
+    return result.substr(0, result.length()-1);
 }
 
-int main() {
-    std::string sentence;
-    while (std::cout << "Enter a string: ", std::getline(std::cin, sentence)) {
-        std::cout << "Spin words: " << spinWords(sentence) << std::endl;
+string reverse(string str) {
+    string reversed = "";
+    for(int i=str.length()-1; i>=0; i--) {
+        reversed += str[i];
     }
-    return 0;
+    return reversed;
 }
