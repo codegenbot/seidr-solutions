@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> sortList(const std::vector<int>& input) {
-    std::vector<int> output = input;
+    std::vector<int> output(input);
     std::sort(output.begin(), output.end());
     return output;
 }
