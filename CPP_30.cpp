@@ -1,8 +1,7 @@
-```cpp
+using namespace std;
+
 #include <vector>
 #include <iostream>
-
-using namespace std;
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
