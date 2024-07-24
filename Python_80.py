@@ -1,4 +1,4 @@
-```
+```Python
 def is_happy_number(n):
     if n < 1:
         return False
