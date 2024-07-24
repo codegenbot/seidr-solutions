@@ -13,4 +13,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return {black, white};
+    return std::make_tuple(white, black);
+}
