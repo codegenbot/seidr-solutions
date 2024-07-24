@@ -9,7 +9,7 @@ def decode_cyclic():
         else:
             group = s[i:]
         if len(group) == 3:
-            result += group[1] + group[0] + group[2]
+            result += group[2] + group[1] + group[0]
         else:
             result += group
         i += 1
