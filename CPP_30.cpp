@@ -1,9 +1,9 @@
-Here is the completed code:
+#include <vector>
 
-vector<float> get_positive(vector<float> l){
+std::vector<float> get_positive(std::vector<float> l) {
     vector<float> result;
-    for(float i : l) {
-        if(i > 0) {
+    for (float i : l) {
+        if (i > 0) {
             result.push_back(i);
         }
     }
