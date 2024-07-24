@@ -1,4 +1,3 @@
-```cpp
 using namespace std;
 
 bool is_palindrome(string text) {
@@ -9,4 +8,3 @@ bool is_palindrome(string text) {
         j--;
     }
     return true;
-}
