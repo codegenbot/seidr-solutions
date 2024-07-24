@@ -1,21 +1,18 @@
-if (dict.empty()) {
-    return false;
-}
-
-bool isLower = true;
-bool isUpper = true;
-
-for (const auto& pair : dict) {
-    if (!isLower && !isUpper) {
-        return false;
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
+    
+    bool all_lowercase = true;
+    bool all_uppercase = true;
+    
+    for(const auto& pair : dict){
+        for(char c : pair.first){
+            if(islower(c)){
+                all_uppercase = false;
+            } else if(isupper(c)){
+                all_lowercase = false;
+            }
+        }
     }
-    if (!islower(pair.first[0])) {
-        isLower = false;
-    }
-    if (!isupper(pair.first[0])) {
-        isUpper = false;
-    }
-}
-
-return isLower || isUpper;
+    
+    return all_lowercase || all_uppercase;
 }
