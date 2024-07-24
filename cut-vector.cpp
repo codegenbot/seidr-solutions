@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -16,6 +15,7 @@ int main() {
     for (int num : nums) {
         sum += num;
     }
+    halfSum = sum / 2;
     
     int currSum = 0, start = 0, end = 0;
     int minDiff = INT_MAX, totalSum = sum;
@@ -31,7 +31,7 @@ int main() {
 
     vector<int> subvector1(nums.begin(), nums.begin() + start);
     vector<int> subvector2(nums.begin() + start, nums.end());
-    
+
     for (int num : subvector1) {
         cout << num << endl;
     }
