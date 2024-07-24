@@ -6,6 +6,5 @@ def add_numbers():
         if x.isdigit() and y.isdigit():
             return int(x) + int(y)
 
-
 result = add_numbers()
 print(result)
