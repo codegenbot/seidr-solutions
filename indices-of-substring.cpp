@@ -9,10 +9,9 @@ int main() {
         }
     }
 
-    for (int idx : indices) {
-        cout << idx << " ";
+    for (int index : indices) {
+        cout << index << " ";
     }
-    cout << endl;
-
+    
     return 0;
 }
