@@ -1,3 +1,6 @@
+#include <vector>
+#include <utility>
+
 std::vector<std::pair<int, int>> make_a_pile(int n) {
     std::vector<std::pair<int, int>> pile;
     for (int i = 1; i <= n; i++) {
