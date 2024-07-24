@@ -1,21 +1,18 @@
+```cpp
 #include <string>
-#include <sstream>
 
 int main() {
     int x;
-    std::cout << "Enter an integer: ";
     std::cin >> x;
-
-    std::string result = "";
     
     if (x % 3 == 0 && x % 5 == 0)
-        result = "FizzBuzz";
+        std::cout << "FizzBuzz";
     else if (x % 3 == 0)
-        result = "Fizz";
+        std::cout << "Fizz";
     else if (x % 5 == 0)
-        result = "Buzz";
+        std::cout << "Buzz";
     else
-        std::to_string(x);
-
+        std::cout << x;
+    
     return 0;
 }
