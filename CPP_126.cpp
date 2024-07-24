@@ -1,20 +1,16 @@
-Here's the solution:
-
-bool is_sorted(vector<int> lst) {
-    if (lst.size() <= 1) return true;
-
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1]) return false;
-    }
-
-    bool has_duplicates = false;
-    for (int i = 0; i < lst.size(); i++) {
-        int count = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[i] == lst[j]) count++;
+bool is_sorted(vector<int> lst){
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] >= lst[i+1]){
+            vector<int> dup;
+            for(int j = 0; j < lst.size(); j++){
+                if(find(dup.begin(), dup.end(), lst[j]) == dup.end()){
+                    dup.push_back(lst[j]);
+                } else {
+                    return false;
+                }
+            }
+            return true;
         }
-        if (count > 1) has_duplicates = true;
     }
-
-    return !has_duplicates;
+    return true;
 }
