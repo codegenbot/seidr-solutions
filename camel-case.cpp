@@ -2,27 +2,31 @@
 #include <string>
 
 std::string camelCase(std::string s) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : s) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
-        }
+    std::vector<std::string> words;
+    for (const auto& word : s.split(" ")) {
+        words.push_back(word);
     }
-    
+
+    std::string result = "";
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
+        }
+        result += word;
+    }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    int numCases;
+    cin >> numCases;
+
+    while (numCases--) {
+        std::string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
     }
+
     return 0;
 }
