@@ -1,5 +1,2 @@
-def probability(p, q):
-    if p <= q:
-        return 0.0
-    else:
-        return (q + 1) / (p + q)
+def dice_game(n, m):
+    return (n - 1) / (n * m - n - m)
