@@ -1,16 +1,22 @@
-```cpp
-std::string result(std::string cipher2, std::string text) {
-    std::string deciphered = "";
-    for (char c : text) {
-        int index = 0;
-        while (index < cipher2.size() && cipher2[index] != c) {
-            index++;
-        }
-        if (index < cipher2.size()) {
-            deciphered += cipher2.substr(index, 1);
+#include <string>
+
+std::string cipher2;
+std::string result(cipher2.size(), ' ');
+
+int main() {
+    std::cin >> cipher2;
+    std::string cipher1;
+    std::cin >> cipher1;
+    std::cin.ignore();
+    std::string message;
+    std::getline(std::cin, message);
+    for(int i = 0; i < message.length(); i++) {
+        int index = cipher1.find(message[i]);
+        if(index != std::string::npos) {
+            result[i] = cipher2[index];
         } else {
-            deciphered += c;
+            result[i] = message[i];
         }
     }
-    return deciphered;
+    return 0;
 }
