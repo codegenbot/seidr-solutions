@@ -1,6 +1,5 @@
 #include <string>
 #include <sstream>
-#include <iomanip>
 #include <openssl/md5.h>
 
 using namespace std;
@@ -17,7 +16,8 @@ string string_to_md5(string text) {
     MD5_Final(md, &ctx);
 
     for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)md[i];
+        sprintf(ss.str().c_str(), "%02x", md[i]);
+        ss.seekp(0);
     }
 
     return ss.str();
