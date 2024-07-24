@@ -1,6 +1,7 @@
+```c++
 #include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
 auto findIndices(string text, string target) -> vector<int> {
     vector<int> indices;
@@ -19,7 +20,7 @@ int main() {
     string target;
     cin >> target;
 
-    vector<int> indices = findIndices(text, target);
+    auto indices = findIndices(text, target);
     for (int i : indices) {
         cout << i << " ";
     }
