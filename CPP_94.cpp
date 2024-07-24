@@ -26,3 +26,4 @@ int sumOfDigits(int num){
         num /= 10;
     }
     return sum;
+}
