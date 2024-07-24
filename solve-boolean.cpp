@@ -1,47 +1,36 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    bool result = false;
-    int i = 0;
+bool solveBoolean(string expression) {
+    stack<char> s;
     
-    while(i < expression.length()) {
-        if(expression[i] == 'T') {
-            result = true;
-            break;
-        } else if(expression[i] == 'F') {
-            result = false;
-            break;
-        } else if(expression[i] == '|') {
-            i++;
-            bool left = (expression[i] == 'T');
-            while(i < expression.length() && expression[i] != '&') i++;
-            i++; // skip &
-            bool right = (expression[i] == 'T');
-            result = (result || left) && (result || right);
-        } else if(expression[i] == '&') {
-            i++;
-            bool left = (expression[i] == 'T');
-            while(i < expression.length() && expression[i] != '|') i++;
-            i++; // skip |
-            bool right = (expression[i] == 'T');
-            result = (result && left) || (result && right);
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            s.push(expression[i]);
         }
     }
     
-    return result;
+    return s.top() == 't';
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
-    bool output = solveBoolean(input);
-    if(output)
-        std::cout << "True\n";
+    string input;
+    cout << "Enter a Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    if (result)
+        cout << "True" << endl;
     else
-        std::cout << "False\n";
-    
+        cout << "False" << endl;
     return 0;
 }
