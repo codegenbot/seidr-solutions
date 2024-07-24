@@ -1,4 +1,8 @@
-def factorize(n: int) -> list:
+```
+from typing import List
+
+def factorize() -> List[int]:
+    n = int(input("Enter a number: "))
     factors = []
     i = 2
     while i * i <= n:
