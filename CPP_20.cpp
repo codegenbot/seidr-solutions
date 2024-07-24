@@ -24,6 +24,9 @@ int main() {
     int inputCount = 0;
     
     float num;
+    vec1.reserve(maxInputCount);
+    vec2.reserve(maxInputCount);
+
     while(inputCount < maxInputCount) {
         if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter a valid number.\n";
