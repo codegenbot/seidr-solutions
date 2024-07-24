@@ -1,32 +1,38 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int minDiff = INT_MAX;
-    int idx = -1;
+vector<vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int pos = -1;
     
-    for (int i = 0; i < n; ++i) {
-        int sumLeft = 0, sumRight = 0;
-        
-        for (int j = 0; j <= i; ++j)
-            sumLeft += v[j];
-        for (int j = i + 1; j < n; ++j)
-            sumRight += v[j];
-        
-        if (sumLeft == sumRight) {
-            return {{}, {v.begin(), v.end()}};
-        }
-        
-        int diff = abs(sumLeft - sumRight);
-        if (diff < minDiff) {
-            minDiff = diff;
-            idx = i;
+    for(int i=0; i<v.size()-1; i++) {
+        int diff = abs(v[i] - v[i+1]);
+        if(diff < min_diff) {
+            min_diff = diff;
+            pos = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + idx);
-    vector<int> right(v.begin() + idx, v.end());
+    vector<vector<int>> result(2);
+    result[0].assign(v.begin(), v.begin() + pos + 1);
+    result[1].assign(v.begin() + pos + 1, v.end());
     
-    return {left, right};
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n+1);
+    for(int i=0; i<=n; i++) {
+        cin >> v[i];
+    }
+    vector<vector<int>> res = cutVector(v);
+    for(auto &v : res) {
+        for(int x : v) {
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
