@@ -1,3 +1,3 @@
 ```
 def words_string(s):
-    return [x.strip() for x in s.split(", | ")]
+    return s.replace(", ", ",").replace("  |  ", " | ").replace("  |", " |").split("|")
