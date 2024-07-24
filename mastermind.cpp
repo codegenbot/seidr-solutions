@@ -1,14 +1,9 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
-    int blackPegs = 0;
+int getMastermindClue(string code, string guess) {
     int whitePegs = 0;
+    int blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            // Black peg
             blackPegs++;
         }
     }
@@ -20,11 +15,12 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        if (count > 1 || count == 1 && c != guess[0]) {
-            // White peg
+        if (count > 1 && c != guess[0]) {
+            whitePegs += count - 1;
+        } else if (count == 1) {
             whitePegs++;
         }
     }
 
-    return blackPegs, whitePegs;
+    return blackPegs + whitePegs;
 }
