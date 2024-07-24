@@ -1,8 +1,8 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-std::string match_parens(std::vector<std::string> lst) {
+std::string match_parens(const std::vector<std::string>& lst) {
     int count_open = 0, count_close = 0;
 
     for (const string& s : lst) {
@@ -27,6 +27,7 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> input = {");", "("};  
-    cout << match_parens(input);
+    std::vector<std::string> lst = {")", "("};
+    assert(match_parens(lst) == "Yes");
+    return 0;
 }
