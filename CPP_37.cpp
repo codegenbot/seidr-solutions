@@ -10,7 +10,7 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     sort(even_indices.begin(), even_indices.end());
-    
+
     vector<float> result;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
