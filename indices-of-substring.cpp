@@ -16,17 +16,20 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
+    // Your code to read input and print output
     string text;
-    cin >> text;
-    string target;
-    cin >> target;
+    int numTargets;
+    cin >> text >> numTargets;
 
-    vector<int> res = indicesOfSubstring(text, target);
-
-    for (int i : res) {
-        cout << i << " ";
+    for (int i = 0; i < numTargets; i++) {
+        string target;
+        cin >> target;
+        vector<int> indices = indicesOfSubstring(text, target);
+        for (int j = 0; j < indices.size(); j++) {
+            cout << indices[j] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }
