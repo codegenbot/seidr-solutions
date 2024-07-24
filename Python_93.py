@@ -11,7 +11,6 @@ def encode(message):
                     if char.islower()
                     else chr((ord(char) + 3 - ord("A")) % 26 + ord("A")
                 )
-            )
         else:
             encoded_message += char
     return encoded_message
