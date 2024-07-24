@@ -1,1 +1,1 @@
-float snowfall = rate - (snow * melt);
+float snowfall = rate - (melt * snow);
