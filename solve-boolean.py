@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == 't':
         return True
@@ -15,6 +16,5 @@ def solve_boolean(expression):
             elif expression[i] == '|':
                 result |= (expression[i+1] == 't')
                 i += 2
-            else:
-                i += 1
+            i += 1
         return result
