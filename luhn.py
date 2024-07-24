@@ -1,1 +1,2 @@
-return sum(int(x) for x in str(sum((2*int(d) if i%2 else int(d)) for i, d in enumerate(card))) if int(x)>9 else int(x)-9)
+def luhn(card):
+    return sum(int(digit) if int(digit) * (i % 2 == 0) * 2 > 9 else int(digit) * (i % 2 == 0) * 2 else int(digit) for i, digit in enumerate(str(card)))
