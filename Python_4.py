@@ -2,7 +2,14 @@
 from typing import List
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    if len(numbers) == 0:
+    if not numbers:
         return 0
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers)
+    total = 0
+    count = 0
+    for num in numbers:
+        if isinstance(num, (int, float)):
+            total += abs(num - sum(numbers) / len(numbers))
+            count += 1
+        else:
+            return 0
+    return total / count if count > 0 else 0
