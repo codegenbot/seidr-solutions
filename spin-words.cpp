@@ -1,21 +1,26 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i <= str.length()) {
-        if (str.find(" ", i) == -1 || i + 1 >= str.length())
-            result += str.substr(i);
-        else {
-            string word = str.substr(i, str.find(" ", i) - i);
-            if (word.length() >= 5)
-                for (int j = word.length() - 1; j >= 0; --j)
-                    result += word[j];
-            else
-                result += word;
+std::string spinWords(const std::string& input) {
+    std::string output;
+    std::stringstream ss(input);
+    std::string word;
+
+    while (ss >> word) {
+        if (word.size() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
-        i = str.find(" ", i) + 1;
+        output += word + " ";
     }
-    return result;
+
+    return output.substr(0, output.size() - 1); // remove the extra space at the end
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    return 0;
 }
