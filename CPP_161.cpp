@@ -1,18 +1,13 @@
-int n = s.size();
-    for(int i = 0; i < n; i++){
-        if(isalpha(s[i])){
-            if(islower(s[i])){
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+for(char &c : s){
+        if(isalpha(c)){
+            c = isupper(c) ? tolower(c) : toupper(c);
         }
     }
-    int start = 0, end = n-1;
-    while(start < end){
-        swap(s[start], s[end]);
-        start++;
-        end--;
+    
+    size_t n = s.size();
+    if(n == 0){
+        reverse(s.begin(), s.end());
     }
+
     return s;
 }
