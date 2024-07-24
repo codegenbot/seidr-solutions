@@ -3,17 +3,15 @@ def decode_cyclic():
     result = ""
     i = 0
     while i < len(s):
-        if i + 3 <= len(s):
-            group = s[i:i+3]
+        if i + 2 <= len(s): 
+            group = s[i:i+2]
         else:
             group = s[i:]
-        if len(group) == 3 and (group == 'abc' or group == 'bcd'):
+        if len(group) == 2:
+            result += group[1] + group[0]
+        elif len(group) == 1:
             result += group
-        elif len(group) > 1:
-            result += group[2] + group[1] + group[0]
-        else:
-            result += group
-        i += 3
+        i += 1
     return result
 
 print(decode_cyclic())
