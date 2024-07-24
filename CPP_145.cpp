@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <utility>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -22,4 +23,4 @@ vector<int> order_by_points(vector<int> nums) {
         result.push_back(nums[pairs[i].second]);
     }
     return result;
-}
+};
