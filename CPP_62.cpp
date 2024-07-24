@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -31,9 +32,9 @@ int main() {
     std::vector<float> result = derivative(input);
     
     if (issame(result, expected_output)) {
-        // Output matches expected result
+        std::cout << "Output matches expected result";
     } else {
-        // Output does not match expected result
+        std::cout << "Output does not match expected result";
     }
     
     return 0;
