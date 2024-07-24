@@ -1,19 +1,23 @@
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string result;
-    bool capitalize = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
+void toCamelCase(std::string input) {
+    result = "";
+    size_t pos = 0;
+    
+    while ((pos = input.find("-")) != std::string::npos) {
+        result += input.substr(0, pos);
+        
+        if (input.length() > pos + 1) {
+            result += toupper(input[pos + 1]);
         }
+        
+        input.erase(0, pos + 1);
     }
-
-    return result;
+    
+    if (!input.empty()) {
+        result += toupper(input[0]);
+        result += input.substr(1);
+    } else {
+        result = "Error";
+    }
 }
