@@ -1,5 +1,6 @@
-```
-def fruit_distribution(s, n):
+def fruit_distribution():
+    s = input()
+    n = int(input())
     s = s.replace("apples", "1 apple").replace("oranges", "1 orange")
     total_fruit = 0
     for word in s.lower().split():
