@@ -33,23 +33,14 @@ int main() {
     while(true) {
         std::cout << "Enter an operator (+, -, * or / or 'q' to quit): ";
         std::string op;
-        std::cin >> op;
-        
+        int arg;
+        std::cin >> op >> std::ws >> arg;
+
         if(op == "q") break;
         
-        int arg;
-        std::cout << "Enter the argument: ";
-        std::cin >> arg;
-        
-        // Check if the input operator is not empty and valid
-        if (!op.empty() && (op == "+" || op == "-" || op == "*" || op == "/")) {
-            ops.push_back(op);
-            args.push_back(arg);
-        } else {
-            // If the input is invalid, ask for input again
-            std::cout << "Invalid operator. Please try again." << std::endl;
-        }
-   
+        ops.push_back(op);
+        args.push_back(arg);
+    }
     
     double output = do_algebra(ops, args);
 
