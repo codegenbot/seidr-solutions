@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cmath>
 #include <vector>
 
@@ -13,13 +14,19 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst;
-    float num;
-    cout << "Enter numbers separated by spaces: ";
-    while (cin >> num) {
-        lst.push_back(num);
+    int n;
+    cin >> n;
+
+    for(int i=0; i<n; i++) {
+        float temp;
+        cin >> temp;
+        lst.push_back(temp);
     }
 
-    long long odd_sum = double_the_difference(lst);
+    float odd_sum = 0;
+    long long result = double_the_difference(lst);
+
+    cout << "The sum of squares of even numbers is: " << result << endl;
 
     return 0;
 }
