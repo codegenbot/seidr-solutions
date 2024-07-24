@@ -1,4 +1,7 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
+#include <iostream>
+#include <vector>
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int total_water = 0;
     for (const auto& row : grid) {
         for (int col : row) {
@@ -13,4 +16,6 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
 int main() {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    std::cout << max_fill({{1,1,1,1}, {1,1,1,1}}, 9) << std::endl;
+    return 0;
 }
