@@ -8,13 +8,13 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while(std::cin >> num) {
+    while(std::cin >> num && num != -1) {
         nums.push_back(num);
     }
     
     int n = nums.size();
     int cutIndex = 0;
-    int minDiff = INT_MAX;
+    int minDiff = std::numeric_limits<int>::max();
 
     for (int i = 1; i < n; i++) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
