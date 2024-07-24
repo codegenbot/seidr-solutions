@@ -1,34 +1,32 @@
 ```cpp
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 int main() {
-    int nums[100]; // array to store numbers
-    int n; // number of elements in the array
-    int max_val = INT_MIN; // initialize maximum value as negative infinity
-    std::string str;
+    int nums[100]; 
+    int n; 
+    int max_val = INT_MIN; 
+    int sum = 0; 
 
-    // ask for number of elements in the array
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // read and store numbers from user
     for (int i = 0; i < n; i++) {
+        std::string input;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
+        std::getline(std::cin, input);
+        nums[i] = std::stoi(input); 
     }
 
-    // print all elements as a string
-    str = "The elements are: ";
     for (int i = 0; i < n; i++) {
-        str += std::to_string(nums[i]);
-        if(i < n-1) {
-            str +=" ";
-        }
+        if (nums[i] > max_val)
+            max_val = nums[i];
     }
 
-    // print result
-    std::cout << str << std::endl;
+    int abs_max_val = std::abs(max_val);
+
+    std::cout << "The absolute maximum value is: " << abs_max_val << std::endl;
 
     return 0;
 }
