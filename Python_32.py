@@ -1,5 +1,3 @@
-Here is the completed code:
-
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs) // 2
     return -xs[n-1] / xs[-1]
