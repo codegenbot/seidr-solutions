@@ -1,9 +1,18 @@
 #include <sstream>
 #include <string>
 
+void main() {
+    string text;
+    cout << "Enter a string: ";
+    cin >> text;
+
+    string result = string_to_md5(text);
+    cout << "MD5 sum: " << result << endl;
+}
+
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     MD5_CTX md5ctx;
     unsigned char result[16];
     MD5_Init(&md5ctx);
@@ -16,14 +25,4 @@ string string_to_md5(string text) {
     }
     
     return ss.str();
-}
-
-#include <iostream>
-
-int main() {
-    string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "MD5 of the string is: " << string_to_md5(input) << std::endl;
-    return 0;
 }
