@@ -1,21 +1,21 @@
 #include <iostream>
-#include <cassert>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-std::vector<int> unique(const std::vector<int>& nums) {
-    std::vector<int> result = nums;
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
-    return result;
+template <typename T>
+std::vector<T> unique(std::vector<T> input) {
+    std::sort(input.begin(), input.end());
+    input.erase(std::unique(input.begin(), input.end()), input.end());
+    return input;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+template <typename T>
+bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
     return v1 == v2;
 }
 
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-    
+    assert(issame(unique(std::vector<int>{5, 3, 5, 2, 3, 3, 9, 0, 123}), std::vector<int>{0, 2, 3, 5, 9, 123}));
     return 0;
 }
