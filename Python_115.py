@@ -1,3 +1,5 @@
+```
+print(max_fill([[1, 1, 1, 1], [1, 1, 1, 1]]))
 def max_fill(grid):
     total_water = 0
     left = 0
@@ -13,6 +15,3 @@ def max_fill(grid):
             else:
                 right -= 1
     return total_water
-
-
-print(max_fill([[0, 1, 0, 1], [1, 1, 1, 1]]))
