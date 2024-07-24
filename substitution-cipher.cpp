@@ -1,23 +1,6 @@
 ```cpp
-#include <iostream>
-#include <string>
-
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message);
-
-int main() {
-    std::string cipher1, cipher2, message;
-    if(std::getline(std::cin, cipher1) && 
-       std::getline(std::cin, cipher2) &&
-       std::getline(std::cin, message)) { 
-        std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl; 
-    } else {
-        std::cerr << "Invalid input." << std::endl;
-    }
-    return 0;
-}
-
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result = "";
+    std::string result;
     for (char c : message) {
         int offset = isupper(c) ? 0 : tolower(c) - 'a';
         if(isalpha(c)) {
