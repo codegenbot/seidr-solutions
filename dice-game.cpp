@@ -1,17 +1,5 @@
-#include <vector>
-#include <iostream>
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double sum = 1.0;
-    for (int i = 1; i <= m && i < n; i++) {
-        sum += 1.0 / n;
-    }
-    return sum;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(6) << diceGame(n, m);
-    return 0;
+double game(int n, int m) {
+    return (double)(n - 1) / (n * m);
 }
