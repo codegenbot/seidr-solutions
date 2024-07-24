@@ -19,7 +19,7 @@ int main() {
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
-            idx = abs(prefixSum - target) < abs(prefixSum - nums[idx] - target) ? i : idx;
+            idx = i;
             break;
         }
     }
