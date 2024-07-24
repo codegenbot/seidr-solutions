@@ -8,7 +8,7 @@ int main() {
             sum += digits[i] - '0';
         }
     }
-
+    
     cout << sum << endl;
     
     return 0;
