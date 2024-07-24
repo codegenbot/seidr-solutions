@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,10 +16,11 @@ bool solveBoolean(string expression) {
         string left = expression.substr(0, pos);
         string right = expression.substr(pos + 1);
 
-        if (solveBoolean(left) || solveBoolean(right))
+        if (solveBoolean(left) && solveBoolean(right))
             return true;
 
-        pos = expression.find('|', pos);
+        expression = right;
+        pos = expression.find('|');
     }
 
     pos = expression.find('&');
@@ -29,7 +31,8 @@ bool solveBoolean(string expression) {
         if (solveBoolean(left) && solveBoolean(right))
             return true;
 
-        pos = expression.find('&', pos);
+        expression = right;
+        pos = expression.find('&');
     }
 
     if (expression.size() > 0 && (expression[0] == 'T' || expression[0] == 't'))
