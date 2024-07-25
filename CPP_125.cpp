@@ -1,31 +1,26 @@
-vector<string> split_words(string txt){
-    vector<string> result;
-    string temp = "";
-    bool hasWhitespace = false;
+vector<string> res;
+    string word = "";
     for(char c : txt){
-        if(c == ' '){
-            result.push_back(temp);
-            temp = "";
-            hasWhitespace = true;
-        } else if(c == ','){
-            result.push_back(temp);
-            temp = "";
-            hasWhitespace = true;
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                res.push_back(word);
+                word = "";
+            }
         } else {
-            temp += c;
+            word += c;
         }
     }
-    if(temp != ""){
-        result.push_back(temp);
+    if(!word.empty()){
+        res.push_back(word);
     }
-    if(result.empty()){
-        int oddLowercaseCount = 0;
+    if(res.empty()){
+        int odd_lowercase_count = 0;
         for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
-                oddLowercaseCount++;
+                odd_lowercase_count++;
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
+        res.push_back(to_string(odd_lowercase_count));
     }
-    return result;
+    return res;
 }
