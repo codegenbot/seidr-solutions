@@ -1,4 +1,4 @@
-double num = stod(value);
+float num = stof(value);
     int closestInt = round(num);
     if (num - closestInt == 0.5) {
         closestInt = ceil(num);
