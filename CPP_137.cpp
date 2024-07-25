@@ -1,18 +1,30 @@
+```cpp
 #include <any>
 #include <string>
 
-std::string compare_one(const std::string& s, int i) {
-    if (i > stoi(s)) {
-        return s;
-    } else if (i < stoi(s)) {
-        return std::to_string(i);
+std::string compare_one(const std::string& s, int i);
+
+int main() {
+    string str;
+    int x, y;
+
+    cout << "Enter first number: ";
+    cin >> x;
+    cout << "Enter second number: ";
+    cin >> y;
+
+    a = any(x);
+    b = any(y);
+
+    if (any_cast<int>(a) > any_cast<int>(b)) {
+        return any_cast<string>(a) + " is greater";
+    } else if (any_cast<int>(a) < any_cast<int>(b)) {
+        return any_cast<string>(b) + " is greater";
     } else {
-        return s;
+        return "Both numbers are equal";
     }
 }
 
-int main() {
-    string a, b;
-    cin >> a >> b;
-    cout << compare_one(a,stoi(b)) << endl;
+std::string compare_one(const std::string& s, int i) {
+    // Code here...
 }
