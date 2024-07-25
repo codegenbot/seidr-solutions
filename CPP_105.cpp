@@ -1,13 +1,16 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool issame(vector<string> a);
+bool issame(std::vector<std::string> a) {
+    if(a.size()<=1) return true;
+    for(int i=0;i<a.size()-1;i++){
+        if(a[i]>=a[i+1]) return false;
+    }
+    return true;
+}
 
-vector<string> by_length(vector<int> arr);
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(to_string(num));
@@ -19,15 +22,6 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     return numbers;
-}
-
-bool issame(vector<string> a) {
-    int size = a.size();
-    for(int i=0;i<size;i++){
-        if(a[i]=="Nine") a[i] = "Eight";
-        else if(a[i].compare(0,"Four",4)!=0) return false;
-    }
-    return true;
 }
 
 int main() {
