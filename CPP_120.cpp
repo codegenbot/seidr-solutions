@@ -2,18 +2,22 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> maximum(const std::vector<int>& arr, int n) {
+using namespace std;
+
+vector<int> maximum(vector<int> arr, int n) {
+    vector<int> result;
     for(int i = 0; i < n; i++){
-        auto it = std::max_element(arr.begin(), arr.end());
+        auto it = max_element(arr.begin(), arr.end());
+        result.push_back(*it);
         arr.erase(it);
     }
-    return arr;
+    return result;
 }
 
 int main() {
-    std::vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 7);
-    for(int i : result) {
-        std::cout << i << " ";
+    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 7);
+    for(int x : result) {
+        cout << x << " ";
     }
     return 0;
 }
