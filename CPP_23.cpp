@@ -6,6 +6,6 @@ int myStrLen(string str){
 }
 
 int main() {
-    assert(myStrLen("asdasnakj") == 11); 
+    assert(myStrLen("asdasnakj") == 12);
     return 0;
 }
