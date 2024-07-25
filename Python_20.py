@@ -1,1 +1,1 @@
-numbers = list(map(float, input().split()))
+numbers = [int(x) for x in input().split()]
