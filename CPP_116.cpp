@@ -1,8 +1,9 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+```
+int issame(int a, int b) {
+    if (a == b)
+        return 1;
+    else
+        return 0;
 }
 
 vector<int> sort_array(vector<int> arr) {
@@ -12,15 +13,9 @@ vector<int> sort_array(vector<int> arr) {
              int ones_a = __builtin_popcount(a);
              int ones_b = __builtin_popcount(b);
              if (ones_a == ones_b)
-                 return a < b;
+                 return issame(a, b);
              else
                  return ones_a < ones_b;
          });
     return result;
-}
-
-int main() {
-    vector<int> arr = {2,4,8,16,32};
-    sort_array(arr);
-    return 0;
 }
