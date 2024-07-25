@@ -1,15 +1,6 @@
-// Convert N to binary string
-    string binaryStr = bitset<32>(N).to_string();
-
-    // Count total sum of digits in binary
-    int sum = 0;
-    for(char digit : binaryStr)
-    {
-        if(digit == '1')
-        {
-            sum++;
-        }
+int sum = 0;
+    while (N > 0) {
+        sum += N % 2;
+        N /= 2;
     }
-
-    // Return the sum of digits in binary as a string
-    return bitset<32>(sum).to_string();
+    return bitset<15>(sum).to_string().substr(15 - (int)log2(sum));
