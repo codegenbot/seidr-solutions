@@ -4,12 +4,13 @@
 int calculateBowlingScore(std::string s) {
     int total = 0, frame = 0, frameScore = 0;
     bool isSpare = false, isStrike = false;
+    char c;
 
-    for (char c : s) {
+    for (c : s) {
         if (c == 'X') {
             total += 10 + frameScore;
             if (isStrike) total += 10 + (c - '0') + (s[(frame + 1) * 2] - '0');
-            if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (s[frame * 2] - '0');
+            if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (c - '0');
             isStrike = true;
             frameScore = 0;
             frame++;
@@ -20,6 +21,7 @@ int calculateBowlingScore(std::string s) {
             } else {
                 total += s[frame * 2 + 1] - '0';
             }
+            if (isStrike) total += 10;
             isSpare = false; // Update isSpare flag
             frameScore = 0;
             frame++;
@@ -29,18 +31,18 @@ int calculateBowlingScore(std::string s) {
         } else {
             frameScore += c - '0';
             if (frameScore == 10) {
-                total += 10;
-                if (s[(frame + 1) * 2] != 'X') {
-                    total += s[(frame + 1) * 2] - '0';
-                }
+                total += 10 + (s[(frame + 1) * 2] - '0');
+                if (s[(frame + 1) * 2] == 'X') total += 10;
                 frameScore = 0;
                 frame++;
                 isStrike = true;
+            } else {
+                isStrike = false;
             }
         }
     }
 
-    if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (s[frame * 2] - '0');
+    if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (c - '0');
     total += frameScore;
 
     return total;
