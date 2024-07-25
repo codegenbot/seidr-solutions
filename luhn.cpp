@@ -1,18 +1,31 @@
-int luhn(std::vector<int> digits) {
-    int sum = 0;
-    bool isSecondDigit = true;
+#include <vector>
+using namespace std;
 
-    for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
-        if (isSecondDigit) {
+int Luhn(int n) {
+    int sum = 0;
+    bool alt = true;
+    while (n > 0) {
+        int digit = n % 10;
+        if (!alt) {
             digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
+            if (digit > 9) digit -= 9;
         }
         sum += digit;
-        isSecondDigit = !isSecondDigit;
+        alt = !alt;
+        n /= 10;
     }
-
     return sum;
+}
+
+int main() {
+    vector<int> v;
+    int size;
+    cin >> size;
+    for(int i=0; i<size; i++) {
+        int num;
+        cin >> num;
+        v.push_back(num);
+    }
+    cout << Luhn(0) << endl;
+    return 0;
 }
