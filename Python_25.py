@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -24,14 +25,20 @@ def factorize(n: int) -> List[int]:
 def main():
     print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
     while True:
-        print("Please enter a number: ")
-        user_input = input()
-        if user_input.lower() == "quit":
-            break
-        try:
-            user_input = int(user_input)
-            if user_input > 0:
-                result = factorize(user_input)
-                print(f"The prime factors of {user_input} are: {result}")
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+        while True:
+            print("Please enter a number: ")
+            user_input = input()
+            if user_input.lower() == "quit":
+                break
+            try:
+                user_input = int(user_input)
+                if user_input > 0:
+                    result = factorize(user_input)
+                    print(f"The prime factors of {user_input} are: {result}")
+                    break
+                else:
+                    print(
+                        f"Invalid input. Please enter an integer greater than zero."
+                    )
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
