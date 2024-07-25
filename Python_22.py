@@ -1,18 +1,14 @@
-```Python
+```
 from typing import List
 
-def filter_integers() -> List[int]:
-    values = []
+def get_names() -> List[str]:
+    names = []
     while True:
-        user_input = input("Enter an integer or type 'done' to finish: ")
-        if user_input.lower() == "done":
+        first_name = input("Enter your first name (or 'stop' to finish): ")
+        if first_name.lower() == 'stop':
             break
-        try:
-            value = int(user_input)
-            values.append(value)  # added condition here 
-        except ValueError:
-            print("Invalid input. Please enter a number or 'done'. Try again!")
-    return values
+        last_name = input("Enter your last name: ")
+        names.append(f"{first_name} {last_name}")
+    return names
 
-
-print(filter_integers())
+print(get_names())
