@@ -6,4 +6,4 @@ except ValueError:
 except EOFError:
     print("Error: Insufficient input provided. Please enter 3 integers separated by spaces.")
 except:
-    print("Error: Unexpected input or insufficient values provided. Please enter 3 integers separated by spaces.")
+    print("Error: An unexpected error occurred.")
