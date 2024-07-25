@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+vector<int> largest_smallest_integers(vector<int> lst);
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0, smallest_positive = 0;
     for(int num : lst){
