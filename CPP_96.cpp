@@ -1,13 +1,13 @@
 vector<int> primes;
     for (int i = 2; i < n; ++i) {
-        bool is_prime = true;
+        bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
             if (i % j == 0) {
-                is_prime = false;
+                isPrime = false;
                 break;
             }
         }
-        if (is_prime) {
+        if (isPrime) {
             primes.push_back(i);
         }
     }
