@@ -1,12 +1,7 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    if (ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == bi + ci)
+    if (abs(a - (b + c)) < 1e-9 || abs(b - (a + c)) < 1e-9 || abs(c - (a + b)) < 1e-9)
         return true;
-    else
-        return false;
+    return false;
 }
