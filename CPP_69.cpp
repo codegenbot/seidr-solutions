@@ -1,12 +1,15 @@
-#include <vector>
-using namespace std;
-
-int search(vector<int> lst) {
-    int max = 0;
-    for (int i : lst) {
-        if (i > 0 && i >= count(i, lst.begin(), lst.end())) {
-            max = i;
+int search(vector<int> lst){
+    map<int, int> freqMap;
+    for (auto num : lst) {
+        if (!freqMap.count(num)) {
+            freqMap[num] = 1;
+        } else {
+            freqMap[num]++;
         }
     }
-    return max == 0 ? -1 : max;
-}
+    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
+        if (it->second >= it->first && it->first > 0) {
+            return it->first;
+        }
+    }
+    return -1;
