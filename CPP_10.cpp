@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <iostream>
 using namespace std;
@@ -18,4 +18,3 @@ int main() {
     output = make_palindrome(input);
     cout << "Palindrome of the given string is: " << output << endl;
     return 0;
-}
