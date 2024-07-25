@@ -1,5 +1,6 @@
+#include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
 string anti_shuffle(string s) {
     string result = "";
@@ -16,4 +17,15 @@ string anti_shuffle(string s) {
     sort(word.begin(), word.end());
     result += word;
     return result;
+}
+
+int main() {
+    // Test cases
+    string input1 = "hello world";
+    string input2 = "cpp contest";
+    
+    cout << anti_shuffle(input1) << endl;
+    cout << anti_shuffle(input2) << endl;
+    
+    return 0;
 }
