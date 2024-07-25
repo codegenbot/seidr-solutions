@@ -1,7 +1,7 @@
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    maximum = float('-inf')
+    max_num = float("-inf")
     for num in numbers:
-        maximum = max(maximum, num)
-        result.append(maximum)
+        max_num = max(max_num, num)
+        result.append(max_num)
     return result
