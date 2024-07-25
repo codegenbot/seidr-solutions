@@ -1,8 +1,10 @@
-def solve_task(s):
+def make_palindrome(s):
     result = ""
     i, j = 0, len(s) - 1
     while i <= j:
-        if s[i].isalpha() and s[j].isalpha():
+        if i == j:
+            result += s[i]
+        elif s[i].isalpha() and s[j].isalpha():
             if s[i].lower() == s[j].lower():
                 result += s[i] * 2
                 i += 1
@@ -25,10 +27,16 @@ def solve_task(s):
                 return "Invalid input"
             i += 1
             j -= 1
-    if s[i].isalpha() and not s[j].isalpha():
+    if i == j:
+        result += s[i]
+    elif s[i].isalpha() and not s[j].isalpha():
         result += s[i]
         i += 1
-    elif not s[i].isalpha() and s[j].isalpha():
-        result += s[j]
-        j -= 1
+    else:
+        if s[i].isalpha():
+            result += s[i]
+            i += 1
+        else:
+            result += s[j]
+            j -= 1
     return result
