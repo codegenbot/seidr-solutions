@@ -33,7 +33,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (boost::any_cast<double>(a) > stod(strB)) ? a : b;
     }
     if (boost::any_cast<int>(a) == boost::any_cast<int>(b)) {
-        return boost::any("None");
+        return "None";
     }
     return a > b ? a : b;
 }
