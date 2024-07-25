@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string input) {
+int bowlingScore(string input) {
     int score = 0;
     int roll1 = 0, roll2 = 0;
 
