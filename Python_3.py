@@ -1,4 +1,8 @@
+Here is the modified code:
+
 ```
+from typing import List
+
 def below_zero() -> None:
     cont = "yes"
     balance = 0
@@ -43,7 +47,6 @@ def below_zero() -> None:
         if below_zero_operations > len(operations) // 2:
             print(f"More than half of the operations were below zero.")
 
-        while True:
-            cont = input("Continue? (yes/no): ")
-            if cont.lower() == "no":
-                break
+        cont = input("Continue? (yes/no): ")
+        if cont.lower() == "no":
+            break
