@@ -4,9 +4,7 @@ string find_max(vector<string> words){
     
     for (const string& word : words) {
         int unique_chars = set<char>(word.begin(), word.end()).size();
-        
-        if (unique_chars > max_unique_chars || 
-            (unique_chars == max_unique_chars && word < result)) {
+        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < result)) {
             max_unique_chars = unique_chars;
             result = word;
         }
