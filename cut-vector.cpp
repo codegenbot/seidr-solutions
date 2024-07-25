@@ -1,12 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <climits>
 
 int main() {
     std::vector<int> nums;
-    int num = 0;
+    int num;
 
     while (std::cin >> num) {
         nums.push_back(num);
+    }
+
+    if (std::cin.bad()) {
+        std::cerr << "Input error\n";
+        return 1;
     }
 
     int n = nums.size();
@@ -23,7 +29,7 @@ int main() {
         }
 
         int currentDiff = std::abs(leftSum - rightSum);
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
         }
