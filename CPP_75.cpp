@@ -1,39 +1,16 @@
-#include <iostream>
-
-using namespace std;
-
-bool is_prime(int n) {
-    if (n < 2) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-bool is_multiply_prime(int a){
-    for (int i = 2; i <= a / 3; i++) {
-        if (is_prime(i) && a % i == 0) {
-            int b = a / i;
-            for (int j = i + 1; j <= b / 2; j++) {
-                if (is_prime(j) && b % j == 0 && is_prime(b / j)) {
-                    return true;
+if(a < 30) return false;
+    for(int i=2; i<=a/3; i++){
+        if(a%i == 0){
+            int b = a/i;
+            for(int j=2; j<=b/2; j++){
+                if(b%j == 0){
+                    int c = b/j;
+                    if(c >= 2 && c <= 97 && i != j && j != c && i != c){
+                        return true;
+                    }
                 }
             }
         }
     }
     return false;
-}
-
-int main() {
-    int num;
-    cout << "Enter a number less than 100: ";
-    cin >> num;
-
-    if (is_multiply_prime(num)) {
-        cout << "true" << endl;
-    } else {
-        cout << "false" << endl;
-    }
-
-    return 0;
 }
