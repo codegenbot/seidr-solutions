@@ -1,7 +1,4 @@
 ```
-from typing import List
-
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -10,7 +7,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == " ":
             if temp:  
-                temp += char
+                result.append(temp)
+                temp = ""
         elif char == "(":
             stack.append(char)
             temp += char
@@ -21,6 +19,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 if not stack and temp:
                     result.append(temp)
                     temp = ""
+            else:
+                temp += char
 
     if not stack and temp:
         result.append(temp)
