@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return std::all_of(a.begin(), a.end(),
