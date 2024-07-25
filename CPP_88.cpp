@@ -1,13 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-vector<int> sort_array(vector<int> array) {
+std::vector<int> sort_array(std::vector<int> array) {
     int sum = array[0] + array.back();
     if (sum % 2 == 1) {
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     } else {
-        sort(array.rbegin(), array.rend());
+        std::sort(array.rbegin(), array.rend());
     }
     return array;
 }
