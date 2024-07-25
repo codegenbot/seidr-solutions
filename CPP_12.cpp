@@ -1,6 +1,8 @@
 ```cpp
+#ifndef __cpp_initializer_list
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::string longest(const std::vector<std::string>& strings) {
     std::string result = strings[0];
@@ -27,3 +29,4 @@ int main() {
 
     return 0;
 }
+#endif
