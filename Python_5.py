@@ -1,6 +1,6 @@
 result = []
-for num in numbers[:-1]:
-    result.extend([num, delimeter])
-if numbers:
-    result.append(numbers[-1])
+for num in numbers:
+    result.append(num)
+    result.append(delimeter)
+result.pop()
 return result
