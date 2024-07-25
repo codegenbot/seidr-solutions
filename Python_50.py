@@ -1,10 +1,6 @@
-```Python
+```
 def decode_shift():
     encoded_string = input("Enter the encoded string: ")
-    shift = int(input("Enter the shift value (0-25): "))
-    if shift < 0 or shift > 25:
-        return "Invalid shift value. No decoding occurred."
-
     result = ""
     prev_shift = None
     for char in encoded_string:
@@ -16,21 +12,18 @@ def decode_shift():
                 shift = int(result[-1])
             else: 
                 shift = -1
+            if char.isdigit() and (len(result) == 0 or not result[-1].isalpha()):
+                shift = int(char)
             char_code = ord(char) - ascii_offset
+            if char_code < 0:
+                char_code += 26
             decoded_char_code = (char_code - shift) % 26
             if decoded_char_code < 0:
                 decoded_char_code += 26
-
-            # Validate the decoded character exists before converting to ASCII
-            valid_encoded_char_code = (decoded_char_code - 1) % 26
-            if char.islower():
-                result += chr(ord("a") + valid_encoded_char_code)
-            else:
-                result += chr(ord("A") + valid_encoded_char_code)
-
+            result += chr(decoded_char_code + ascii_offset)
         else:
             result += char
-        prev_shift = None
+        prev_shift = shift
     return result
 
 print(decode_shift())
