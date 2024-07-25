@@ -8,7 +8,7 @@ bool match_parens(const std::vector<std::string>& lst) {
     for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
 
