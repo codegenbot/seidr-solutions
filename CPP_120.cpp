@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,7 +11,7 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> maxResult(std::vector<int> arr, int k) {
+std::vector<int> maximumResult(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -22,26 +21,13 @@ std::vector<int> maxResult(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    int n, k;
-    std::cout << "Enter the number of elements in array: ";
-    std::cin >> n;
-    std::vector<int> test(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> test[i];
+int findMaximum(int n, int num)
+{
+    int max=-10000;
+    for (int i = 1; i <= n; ++i)
+    {
+        if (i > max && i < num)
+            max=i;
     }
-    k = 5;
-    std::vector<int> result = maxResult(test, k);
-    std::cout << "Maximum " << k << " elements are: ";
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    if (same(result, {3,243,0,-23,-400})) {
-        std::cout << "The expected output matches." << std::endl;
-    } else {
-        std::cout << "The expected output does not match." << std::endl;
-    }
-    return 0;
+    return max;
 }
