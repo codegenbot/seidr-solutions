@@ -1,31 +1,41 @@
-Here is the completed code:
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-
-    size_t pos = 0;
-    while ((pos = txt.find(" ")) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-
-    if (txt.empty()) return result;
-
-    if (txt.find(",") == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count & 1)) {
-                    result.push_back(to_string(count));
-                    break;
-                }
-                count++;
+    string word = "";
+    
+    for (char c : txt) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
             }
+        } else if (c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
         }
-    } else {
-        result.push_back(txt);
     }
-
+    
+    if (!word.empty()) {
+        result.push_back(word);
+    } else {
+        int count = 0;
+        for (char c = 'a'; c <= 'z'; ++c) {
+            if (count % 2 == 1 && txt.find(c) != string::npos) {
+                result.push_back(to_string(count));
+                break;
+            }
+            count++;
+        }
+    }
+    
     return result;
 }
