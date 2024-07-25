@@ -3,30 +3,31 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        indices.push_back(pos);
-        pos += 1; // Don't forget this line
+    int index = 0;
+    
+    while (index <= text.length() - target.length()) {
+        if (text.substr(index, target.length()).compare(target) == 0) {
+            indices.push_back(index);
+            index += target.length();
+        } else {
+            index++;
+        }
     }
     return indices;
 }
 
 int main() {
-    int n;
-    cin >> n;
     string text;
-    for (int i = 0; i < n; ++i) {
-        cin.ignore();
-        getline(cin, text);
-        if (i == 0)
-            cout << text.size() - 1 << endl;
-        else
-            cout << endl;
-        vector<int> indices = findIndices(text, target);
-        for (int index : indices) {
-            cout << index << " ";
-        }
-        cout << endl;
+    cin >> text;
+    string target;
+    cin >> target;
+    
+    vector<int> result = findIndices(text, target);
+    
+    for (int i : result) {
+        cout << i << " ";
     }
+    cout << endl;
+
     return 0;
 }
