@@ -1,5 +1,11 @@
-```
-string file_name_check(string file_name) {
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string file_name;
+    std::cout << "Enter a file name: ";
+    std::getline(std::cin, file_name);
+
     bool has_digits = false;
     int dot_count = 0;
 
@@ -11,21 +17,21 @@ string file_name_check(string file_name) {
             if (has_digits && has_digits < 3) {
                 has_digits++;
             } else {
-                return "No";
+                return 0;
             }
         } else if (c == '.') {
             dot_count++;
             if (dot_count > 1) {
-                return "No";
+                return 0;
             }
         }
     }
 
     if (!has_digits || dot_count != 1) {
-        return "No";
+        return 0;
     }
 
-    string ext = "";
+    std::string ext = "";
     int i = file_name.find('.');
     for (; i < file_name.size(); i++) {
         ext += file_name[i];
@@ -36,10 +42,10 @@ string file_name_check(string file_name) {
     }
 
     if (i > 0) {
-        return "Yes";
+        return 1;
     } else if (ext == "txt" || ext == "exe" || ext == "dll") {
-        return "Yes";
+        return 1;
     } else {
-        return "No";
+        return 0;
     }
 }
