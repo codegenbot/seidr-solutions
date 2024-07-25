@@ -1,6 +1,3 @@
-```
-from typing import List
-
 from typing import List
 
 def get_names() -> List[str]:
