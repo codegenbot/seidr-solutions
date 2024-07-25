@@ -1,6 +1,4 @@
-```cpp
 #include <openssl/evp.h>
-#include <openssl/hmac.h>
 #include <string>
 
 std::string string_to_md5(std::string text) {
