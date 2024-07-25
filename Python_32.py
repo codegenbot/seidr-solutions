@@ -1,6 +1,9 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -a / b
-    return x
+    if n % 2 != 0:
+        return None
+    max_coeff = max(xs, key=abs)
+    for x in range(-1000, 1000):
+        if round(poly(xs, x), 5) == 0:
+            return x
+    return None
