@@ -1,11 +1,3 @@
 ```
-def camel_case(input_str):
-    return ''.join(word.capitalize() for word in input_str.replace('-', ' ').split()) if ' ' in input_str else input_str
-
-
-while True:
-    try:
-        user_input = input("input: ")
-        print(f"output: {camel_case(user_input)}")
-    except EOFError:
-        break
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.split(' ')) if ' ' in s else s.replace('-', '')
