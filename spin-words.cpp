@@ -1,3 +1,5 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,39 +8,29 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength;
+    int start = 0;
+    
     for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(wordLength, i - wordLength) + " ";
-            wordLength = i + 1;
-        }
-        else if (i == str.length()) {
-            result += str.substr(wordLength);
-        }
-    }
-
-    for (int i = 0; i < result.length(); i++) {
-        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
-            int j = i;
-            while (j > 0 && (result[j-1] >= 'a' && result[j-1] <= 'z' || result[j-1] >= 'A' && result[j-1] <= 'Z')) {
-                j--;
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            string temp = result.substr(i, j - i + 1);
-            reverse(temp.begin(), temp.end());
-            result.replace(i, j - i + 1, temp);
-            i += temp.length() - 1;
+            
+            result += word + " ";
+            start = i + 1;
         }
     }
-
+    
     return result;
 }
 
 int main() {
+    // Your code here
     string str;
-    cout << "Enter a string: ";
+    cout << "Enter a sentence: ";
     getline(cin, str);
-
-    cout << "Result: " << spinWords(str) << endl;
-
+    cout << spinWords(str) << endl;
     return 0;
 }
