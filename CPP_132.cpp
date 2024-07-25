@@ -1,10 +1,10 @@
-int count = 0;
-    for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+int open_brackets = 0;
+    for(char c : str){
+        if(c == '['){
+            open_brackets++;
+        } else if(c == ']' && open_brackets > 0){
+            open_brackets--;
         }
     }
-    return count < 0;
+    return open_brackets < 0 ? false : true;
 }
