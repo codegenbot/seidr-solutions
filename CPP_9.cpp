@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <iostream>
@@ -27,13 +26,31 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-int main() {
-    vector<int> nums = {3, 2, 3, 100, 3};
-    vector<int> expected = {3, 3, 3, 100, 100};
+bool testRollingMax() {
+    int n;
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
 
-    if (issame(rolling_max(nums), expected)) {
-        std::cout << "Test passed";
-    } else {
-        std::cout << "Test failed";
+    vector<int> numbers(n);
+
+    for (int i = 0; i < n; ++i) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> numbers[i];
     }
+
+    vector<int> result = rolling_max(numbers);
+    vector<int> expected;
+    
+    int currMax = INT_MIN;
+
+    for (int num : numbers) {
+        if (num > currMax)
+            currMax = num;
+        expected.push_back(currMax);
+    }
+
+    if (issame(result, expected)) 
+        return true;
+    else
+        return false;
 }
