@@ -26,7 +26,7 @@ std::vector<float> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 1.0)
             letterGrades.push_back(1.3);
         else
-            letterGrades.push_back(1.0);
+            letterGrades.push_back(0.0);
     }
     return letterGrades;
 }
