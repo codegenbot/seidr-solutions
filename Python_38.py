@@ -1,4 +1,4 @@
-input_str = input("Enter a string: ").lower().strip()
+input_str = input("Enter a string: ").strip().lower()
 if not input_str.isalnum() or len(input_str) % 3 != 0:
     print("Invalid input. Please enter a non-empty string with a length multiple of 3 containing only alphanumeric characters.")
 else:
