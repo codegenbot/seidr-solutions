@@ -9,6 +9,7 @@ for num in numbers_str.split():
         start_num, end_num = map(float, num.split("-"))
         numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
     else:
-        numbers.append(float(num))
-
-print(numbers)
+        try:
+            numbers.append(float(num))
+        except ValueError:
+            print("Program did not receive expected input")
