@@ -13,21 +13,20 @@ if __name__ == "__main__":
                 break
             elif item_name:
                 while True:
+                    quantity_str = input(f"Enter the quantity of {item_name}: ")
+                    price_str = input(f"Enter the price of {item_name}: ")
+
                     try:
-                        quantity = int(input(f"Enter the quantity of {item_name}: "))
-                        price = float(input(f"Enter the price of {item_name}: "))
-                        user_input.append(
-                            {"name": item_name, "quantity": quantity, "price": price}
-                        )
+                        quantity = int(quantity_str)
+                        price = float(price_str)
+                        user_input.append({"name": item_name, "quantity": quantity, "price": price})
                         break
                     except ValueError:
                         print("Invalid input. Please enter valid integer for quantity and price.")
-                else:
-                    continue
             else:
                 print("Please enter a non-empty string.")
         except ValueError:
-            print("Invalid input. Please enter valid data for item name.")
+            print("Invalid input. Please enter valid inputs.")
 
     tax_rate = float(input("Enter the tax rate (or press Enter for 0.08): ") or 0.08)
     if not user_input:
