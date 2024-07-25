@@ -1,12 +1,11 @@
-#include <vector>
-using namespace std;
-
-int findNegativeIndex(const vector<int>& vec) {
-    int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-        if (sum < 0)
-            return i;
+int basement(const vector<int>& v) {
+    for (int i = 0; i < v.size(); i++) {
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += v[j];
+            if (sum < 0)
+                return i;
+        }
     }
     return -1;
 }
