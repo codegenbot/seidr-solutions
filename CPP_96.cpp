@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::std::vector<int> a, std::std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,13 +14,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> count_up_to(int n) {
-    std::vector<int> result;
+std::std::vector<int> count_up_to(int n) {
+    std::std::vector<int> result;
     if (n < 2) {
         return result;
     }
 
-    std::vector<bool> isPrime(n, true);
+    std::std::vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
 
     for (int i = 2; i * i < n; ++i) {
