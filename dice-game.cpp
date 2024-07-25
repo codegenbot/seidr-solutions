@@ -2,15 +2,14 @@
 using namespace std;
 
 double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= min(n, m); i++) {
-        total += pow(1.0 / max(n, m), max(n, m));
+    double total = (double)n * m;
+    int peterWins = 0;
+    
+    for (int i = 1; i <= m; i++) {
+        peterWins += min(n, i);
     }
-    if (n > m) {
-        return 1 - total;
-    } else {
-        return total;
-    }
+    
+    return (double)peterWins / total;
 }
 
 int main() {
