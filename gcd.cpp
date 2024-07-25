@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <string> 
+#include <string> // Include string header here
 using namespace std;
 
 vector<int> indicesOfSubstring(std::string text, std::string target) {
@@ -16,7 +16,6 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
     return result;
-
 }
 
 int gcd(int a, int b) {
