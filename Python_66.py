@@ -1,3 +1,4 @@
+```
 def digitSum(s):
     total = 0
     for char in s.lower():
@@ -6,7 +7,7 @@ def digitSum(s):
         elif char == 'e':
             total += 2
         elif char == 'o':
-            total += 2
+            total += 1
         elif char == 'a' or char == 'i':
             total += 3  
     return total
