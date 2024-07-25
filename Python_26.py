@@ -1,5 +1,5 @@
-def find_numbers_appeared_only_once(numbers):
-    return [num for num in numbers if numbers.count(num) == 1]
+from typing import List
 
-# Call the function with the list of numbers as input
-print(find_numbers_appeared_only_once([1, 2, 2, 3, 4, 4, 5, 6, 6]))
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return [num for num in numbers if numbers.count(num) == 1]
