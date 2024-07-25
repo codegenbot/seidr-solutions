@@ -1,19 +1,11 @@
-#include <iostream>
-#include <string>
-
-std::string solve(std::string s) {
-    std::string result = "";
+Str solve(Str s) {
+    Str result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = toupper(c);
-            if (c >= 'A' && c <= 'Z') {
-                c = tolower(c);
-            }
+            result += tolower(c) == c ? toupper(c) : tolower(c);
         } else {
-            c = tolower(c);
+            result += c;
         }
-        result += c;
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return result.empty() ? s.reverse() : result;
 }
