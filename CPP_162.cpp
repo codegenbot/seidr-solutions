@@ -1,21 +1,31 @@
-#include<string>
-#include<openssl/md5.h>
+```cpp
+#include <openssl/ssl.h>
+#include <openssl/x509v3.h>
+#include <string>
 
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
+std::string string_to_md5(std::string text) {
     MD5_CTX ctx;
-    unsigned char mdValue[16];
+    unsigned char md[16];
+    const char* str = text.c_str();
+    size_t len = text.length();
+
+    if (len == 0)
+        return "";
+
     MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(mdValue, &ctx);
+    MD5_Update(&ctx, str, len);
+    MD5_Final(md, &ctx);
 
-    stringstream ss;
+    std::string result;
     for (int i = 0; i < 16; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)mdValue[i];
+        char buffer[3];
+        sprintf(buffer, "%02x", md[i]);
+        result += buffer;
     }
+    return result;
+}
 
-    return ss.str();
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
