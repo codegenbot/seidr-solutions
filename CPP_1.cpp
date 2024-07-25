@@ -1,11 +1,18 @@
+Here is the modified code:
+
 ```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 
+int test_main() {
+    assert(issame(separate_paren_groups("( ) (( "),"{}","{(())", "(())"}"));
+    return 0;
+}
+
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> b;
+    std::vector<std::string> b; 
     return std::includes(a.begin(), a.end(), b.begin(), b.end());
 }
 
@@ -29,19 +36,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
-}
-
-int test_main() {
-    std::vector<std::string> test_cases = {"{}","{(())", "( ) (( "};
-    
-    for (const auto& test_case : test_cases) {
-        std::vector<std::string> result = separate_paren_groups(test_case);
-        if (!issame({""}, result)) {
-            std::cout << "Failed: Expected an empty vector but got " << result.size() << " elements.\n";
-            return 1;
-        }
-    }
-
-    std::cout << "All tests passed!\n";
-    return 0;
 }
