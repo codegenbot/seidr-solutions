@@ -1,6 +1,7 @@
 #include <vector>
 #include <climits>
 #include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -29,7 +30,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -43,5 +44,5 @@ pair<vector<int>, vector<int>> main() {
     for (const auto &x : res.second) cout << x << " ";
     cout << "]\n";
 
-    return make_pair(res.first, res.second);
+    return 0;
 }
