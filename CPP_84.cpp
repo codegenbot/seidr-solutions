@@ -8,7 +8,7 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return std::bitset<32>(sum).to_string().substr(32 - sum);
+    return bitset<32>(sum).to_string().substr(32 - sum);
 }
 
 int main() {
