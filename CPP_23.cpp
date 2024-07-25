@@ -1,2 +1,2 @@
 #include <cstring>
-return str.length();
+return strlen(str.c_str());
