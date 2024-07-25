@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
         return "Program did not receive expected input"
