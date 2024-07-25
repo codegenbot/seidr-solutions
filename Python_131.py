@@ -1,4 +1,3 @@
-```
 def count_even_digits(n):
     total = 0
     for digit in str(n):
@@ -12,5 +11,5 @@ def check():
         if n == -1:
             break
         print(count_even_digits(n))
-        pass
+
 check()
