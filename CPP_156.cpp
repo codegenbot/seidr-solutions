@@ -1,10 +1,9 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
-std::string int_to_mini_romank(int number){
-    std::string result = "";
-    std::vector<std::pair<int, std::string>> romanNumerals = {
+string int_to_mini_romank(int number){
+    string result = "";
+    vector<pair<int, string>> romanNumerals = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
         {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
         {5, "v"}, {4, "iv"}, {1, "i"}
@@ -22,9 +21,7 @@ std::string int_to_mini_romank(int number){
 
 int main() {
     int number;
-    std::cout << "Enter a number: ";
     std::cin >> number;
-    std::cout << "Roman numeral equivalent: " << int_to_mini_romank(number) << std::endl;
-
+    std::cout << int_to_mini_romank(number) << std::endl;
     return 0;
 }
