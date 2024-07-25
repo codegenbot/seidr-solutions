@@ -1,12 +1,12 @@
 def calculate_sum():
     while True:
+        print("Please enter two integers separated by a space.")
         try:
-            choice = input("Do you want to calculate sum (yes/no/exit)? ")
-            if choice.lower() == 'exit':
-                break
-            x = int(input("Enter first number: "))
-            y = int(input("Enter second number: "))
+            x, y = map(int, input("Enter first and second numbers: ").split())
             print(f"Sum is: {x + y}")
+            choice = input("Do you want to continue? (yes/no): ")
+            if choice.lower() != 'yes':
+                break
         except ValueError:
             print("Invalid input. Please enter valid integers.")
 
