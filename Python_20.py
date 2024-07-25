@@ -1,6 +1,6 @@
 while True:
     try:
-        numbers_input = input("Enter space-separated floating-point numbers: ")
+        numbers_input = input("Enter floating-point numbers separated by spaces: ")
         if not numbers_input:
             print("Input should not be empty")
             continue
