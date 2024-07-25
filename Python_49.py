@@ -1,20 +1,5 @@
 ```
-def main():
-    print(
-        "Please enter a series of integers to check if they're prime, or '0' to quit."
-    )
-    while True:
-        prompt = input("Enter a number (or 0 to quit): ")
-        if prompt == "0":
-            break
-        try:
-            num = int(prompt)
-            print(str(num) + (" is a prime number" if is_prime(num) else " is not a prime number"))
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
-
-def is_prime(num: int) -> bool:
+def is_prime(num):
     if num < 2:
         return False
     for i in range(2, int(num**0.5) + 1):
@@ -22,6 +7,13 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-
-if __name__ == "__main__":
-    main()
+def main():
+    while True:
+        prompt = input("Enter a series of integers to check if they're prime, or '0' to quit.")
+        if prompt == "0":
+            break
+        try:
+            num = int(prompt)
+            print(is_prime(num))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
