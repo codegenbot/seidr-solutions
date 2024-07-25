@@ -1,30 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(const string& text, const string& target) {
-    vector<int> indices;
-    int start = 0;
-    while ((start = text.find(target, start)) != string::npos) {
-        indices.push_back(start);
-        start += target.size();
-    }
-    return indices;
-}
-
-int main() {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++) {
-        string str;
-        cin >> str;
-        int pos = 0;
-        cin >> pos;
-        vector<int> res = findIndices(str, to_string(pos));
-        cout << "output: ";
-        for (auto x : res) {
-            cout << x << " ";
+class Solution {
+public:
+    vector<int> findIndices(string text, string target) {
+        vector<int> indices;
+        int start = 0;
+        while (start <= text.length() - target.length()) {
+            int pos = text.find(target, start);
+            if (pos != -1) {
+                indices.push_back(pos);
+                start = pos + 1;
+            } else {
+                break;
+            }
         }
-        cout << endl;
+        return indices;
     }
-    return 0;
-}
+};
