@@ -1,2 +1,1 @@
-print("Please enter numbers separated by spaces:")
-numbers = list(map(int, input().split()))
+numbers = list(map(int, input().strip().split()))
