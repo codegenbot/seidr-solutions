@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,4 +12,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     
     return true;
+}
+
+int main() {
+    assert(issame(vector<int>{1, 2, 3, -23, 243, -400, 0}, vector<int>{}));
+    
+    return 0;
 }
