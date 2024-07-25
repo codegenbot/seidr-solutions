@@ -27,16 +27,32 @@ def main():
         user_input = input("Enter a number: ")
         if user_input.lower() == "quit":
             break
-        try:
-            result = int(user_input)
-            if 2 <= result:
-                print(f"The prime factors of {result} are: {factorize(result)}")
-            else:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+        if not user_input.isdigit():
+            while True:
+                try:
+                    user_input = int(user_input)
+                    if 2 <= user_input:
+                        result = factorize(user_input)
+                        print(f"The prime factors of {user_input} are: {result}")
+                        break
+                    else:
+                        print(
+                            "Invalid input. Please enter an integer greater than or equal to 2."
+                        )
+                except ValueError:
+                    print("Invalid input. Please enter a valid integer.")
+        else:
+            try:
+                user_input = int(user_input)
+                if 2 <= user_input:
+                    result = factorize(user_input)
+                    print(f"The prime factors of {user_input} are: {result}")
+                else:
+                    print(
+                        "Invalid input. Please enter an integer greater than or equal to 2."
+                    )
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
 
 
 if __name__ == "__main__":
