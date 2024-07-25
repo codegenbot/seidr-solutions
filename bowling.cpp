@@ -1,39 +1,29 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int currentRolls = 0;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (input[i] == 'X') {
             score += 30;
-            currentRolls = 2;
-        } else if (c == '/') {
-            score += 10 + getRemainingRolls(s, s.find(c));
-            currentRolls = 0;
-        } else {
-            int roll = c - '0';
-            score += roll;
-            currentRolls--;
-            if (currentRolls > 0) {
-                getRemainingRolls(s, s.find(c));
+        } else if (input[i] != '/') {
+            int frameScore = 0;
+            if (input[i] == '5') {
+                frameScore = 5;
+            } else {
+                frameScore = input[i] - '0';
             }
+            if (i < 8 && input[i + 1] == '/') {
+                score += frameScore;
+            } else {
+                score += frameScore;
+                if (input[i + 1] != 'X') {
+                    int nextRoll = input[i + 2] - '0';
+                    score += nextRoll;
+                }
+            }
+        } else {
+            int firstRoll = input[i - 1] - '0';
+            int secondRoll = input[i + 1] - '0';
+            score += firstRoll + secondRoll;
         }
     }
     return score;
-}
-
-int getRemainingRolls(string s, int index) {
-    int rolls = 0;
-    while (index < s.size() && currentRolls > 0) {
-        if (s[index] == 'X') {
-            rolls += 30;
-            break;
-        } else if (s[index] == '/') {
-            rolls += 10 + getRemainingRolls(s, index + 1);
-            break;
-        }
-        int roll = s[index] - '0';
-        rolls += roll;
-        currentRolls--;
-        index++;
-    }
-    return rolls;
 }
