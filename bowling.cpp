@@ -1,30 +1,33 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < bowls.length(); i++) {
-        if (bowls[i] == 'X') {
+    int roll1, roll2, roll3;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
             score += 30;
-            currentFrame++;
-        } else if (isdigit(bowls[i])) {
-            int count = 0;
-            while (i + 1 < bowls.length() && isdigit(bowls[i + 1])) {
+        } else if (isdigit(s[i])) {
+            if (s[i+1] == '/') {
+                score += (roll1 = s[i] - '0');
+                score += (roll2 = s[i+1] - '0');
                 i++;
-                count++;
+            } else {
+                roll1 = s[i] - '0';
+                if (i < 8) {
+                    roll2 = s[i+1] - '0';
+                    roll3 = s[i+2] - '0';
+                }
             }
-            score += (10 - count);
-            currentFrame++;
-        } else if (bowls[i] == '/') {
-            int firstCount = 0;
-            while (i + 1 < bowls.length() && isdigit(bowls[i + 1])) {
-                i++;
-                firstCount++;
+        }
+        if (roll1 + roll2 >= 10) {
+            score += 10 + (roll1 + roll2);
+        } else {
+            score += roll1 + roll2;
+            if (i < 8 && roll3 > 0) {
+                if (s[i+2] == 'X') {
+                    score += 10 + roll3;
+                } else {
+                    score += roll3;
+                }
             }
-            int secondCount = 10 - firstCount;
-            score += firstCount + secondCount;
-            currentFrame++;
         }
     }
     return score;
