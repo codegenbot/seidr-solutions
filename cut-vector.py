@@ -1,20 +1,21 @@
-# Read input
-numbers = []
-for _ in range(2):
-    numbers.append(int(input()))
+n = int(input())
+nums = [int(num) for num in input().split()]
 
-# Find the spot to cut the vector
-total_sum = sum(numbers)
-current_sum = 0
-index = 0
-min_diff = total_sum
-for i in range(len(numbers)):
-    current_sum += numbers[i]
-    diff = abs(current_sum - (total_sum - current_sum))
+total_sum = sum(nums)
+half_sum = total_sum // 2
+prefix_sum = 0
+min_diff = float("inf")
+cut_index = -1
+
+for i in range(n):
+    prefix_sum += nums[i]
+    diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
         min_diff = diff
-        index = i
+        cut_index = i
 
-# Return the two resulting subvectors
-print(numbers[: index + 1])
-print(numbers[index + 1 :])
+subvector1 = nums[: cut_index + 1]
+subvector2 = nums[cut_index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
