@@ -14,10 +14,6 @@ std::vector<int> pluck(std::vector<int> arr) {
     }
 
     result.push_back(smallest_even_value);
-    if (!arr.empty()) {
-        result.push_back(index);
-    } else {
-        result.push_back(-1); // Add this line
-    }
+    result.push_back(index);
 
     return result;
