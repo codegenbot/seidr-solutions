@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
@@ -12,14 +11,10 @@ if __name__ == "__main__":
                 break; 
         except ValueError:
             print("Error! Please enter a number between 1 and 9.")
-    if num_strings < 1 or num_strings > 9:
-        print("Error! Please enter a number between 1 and 9.")
-    else: 
-        strings = []
+    
+    for i in range(num_strings):
+        s = input(f"Enter string {i+1}: ")
         
-        for i in range(num_strings):
-            s = input(f"Enter string {i+1}: ")
-            strings.append(s)
-        
-        result = concatenate(strings)
-        print(result)
+    strings = [s for _ in range(num_strings)]
+    result = concatenate(strings)
+    print(result)
