@@ -30,8 +30,11 @@ if __name__ == "__main__":
             except ValueError:
                 print("Error! Please enter a valid string.")
 
-    result_string = concatenate(strings)
-    print("You entered the following strings:")
-    for i in range(len(strings)):
-        print(f"String {i+1}: {strings[i]}")
-    print("Concatenated output: ", result_string)
+    if len(strings) != strings_num:
+        print("Error! Program did not receive expected input.")
+    else:
+        result_string = concatenate(strings)
+        print("You entered the following strings:")
+        for i in range(len(strings)):
+            print(f"String {i+1}: {strings[i]}")
+        print("Concatenated output: ", result_string)
