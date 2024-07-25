@@ -1,4 +1,3 @@
-```
 def car_race_collision(n):
     total_distance = (n * (n + 1)) // 2
     collision_points = []
@@ -11,5 +10,6 @@ def car_race_collision(n):
             return len(collision_points) + 1
         collision_points.append(collisions)
 
-n = int(input("Enter the number of cars: "))
-print(car_race_collision(n))
+n = int(input("Enter the value of n: "))
+number_of_cars = int(input("Enter the number of cars: "))
+print(car_race_collision(number_of_cars))
