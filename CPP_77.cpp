@@ -5,4 +5,4 @@ bool iscuber(int a) {
     return a == cube_root * cube_root * cube_root;
 }
 
-int main() {
+int main() {}
