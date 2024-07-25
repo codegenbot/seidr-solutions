@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string get_closest_vowel(string word){
     int n = word.size();
@@ -15,9 +15,4 @@ string get_closest_vowel(string word){
         }
     }
     return "";
-}
-
-int main(){
-    cout << get_closest_vowel("Above") << endl;
-    return 0;
 }
