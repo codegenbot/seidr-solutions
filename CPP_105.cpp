@@ -2,17 +2,27 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<int> nums;
     for (int num : arr) {
-        string str = "";
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
+        }
+    }
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    vector<string> result;
+    for (int num : nums) {
+        string str; // Define the missing declaration
         switch (num) {
             case 1:
                 str = "One";
@@ -45,4 +55,9 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    return 0;
 }
