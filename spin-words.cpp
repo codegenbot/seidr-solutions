@@ -5,18 +5,30 @@ std::string spinWords(std::string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5) {
-                word = std::string(word.rbegin(), word.rend());
-            }
-            result += word + ' ';
+                char temp[word.length() + 1];
+                int i = word.length();
+                do {
+                    temp[i--] = word[i];
+                } while(i >= 0);
+                temp[word.length()] = '\0';
+                result += temp;
+            } else
+                result += word + ' ';
             word = "";
         } else
             word += c;
     }
     
     if (word.length() >= 5) {
-        word = std::string(word.rbegin(), word.rend());
-    }
-    result += word;
+        char temp[word.length() + 1];
+        int i = word.length();
+        do {
+            temp[i--] = word[i];
+        } while(i >= 0);
+        temp[word.length()] = '\0';
+        result += temp;
+    } else
+        result += word;
     
     return result;
 }
