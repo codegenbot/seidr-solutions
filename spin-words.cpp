@@ -1,4 +1,9 @@
+Here is the solution:
+
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
@@ -8,20 +13,25 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             string word = str.substr(wordStart, i - wordStart);
             if (word.length() >= 5) {
-                result += (reverse(word)) + " ";
+                result += reverse(word) + " ";
             } else {
                 result += word + " ";
             }
             wordStart = i + 1;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 string reverse(string str) {
-    string revStr = "";
+    string rev = "";
     for (int i = str.length() - 1; i >= 0; i--) {
-        revStr += str[i];
+        rev += str[i];
     }
-    return revStr;
+    return rev;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
