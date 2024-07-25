@@ -1,17 +1,13 @@
+````
 #include <string>
 #include <vector>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
 
 int main() {
-    std::string class_name;
-    std::vector<std::string> extensions;
-
-    // Your input handling code here...
-    
-    int result = Strongest_Extension(class_name, extensions);
-    
-    return 0;
+    std::vector<std::string> my_extensions = {"jpg", "png", "jpeg"};
+    std::string result = Strongest_Extension("Image", my_extensions);
+    //...
 }
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
@@ -32,3 +28,4 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
     return class_name + "." + result;
 }
+```
