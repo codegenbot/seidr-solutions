@@ -1,6 +1,8 @@
-int count_upper(string s) {
+Here is the completed code:
+
+int count_upper(string s){
     int count = 0;
-    for (int i = 1; i < s.length(); i += 2) {
+    for(int i = 1; i < s.length(); i += 2) {
         if (isupper(s[i])) {
             if ('A' <= s[i] && s[i] <= 'E') {
                 count++;
