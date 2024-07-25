@@ -1,13 +1,13 @@
+bool hasOdd(int x) {
+    return x % 2 != 0;
+}
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int i = 0; i < lst1.size(); i++) {
-        for (int j = 0; j < lst2.size(); j++) {
-            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
-                int temp = lst1[i];
-                lst1[i] = lst2[j];
-                lst2[j] = temp;
-                return "YES";
-            }
+    int oddCount = 0;
+    for (int x : lst1) {
+        if (hasOdd(x)) {
+            oddCount++;
         }
     }
-    return "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
