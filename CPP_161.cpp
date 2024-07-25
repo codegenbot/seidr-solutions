@@ -1,8 +1,8 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             c = toupper(c);
@@ -16,3 +16,4 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
+}
