@@ -1,34 +1,28 @@
 ```cpp
 #include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> pairs;
+    vector<int> result = {};
+    if (arr.empty()) return result;
+
+    int smallest_even_value = INT_MAX;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            pairs.push_back({arr[i], i});
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even_value) {
+            smallest_even_value = arr[i];
         }
     }
-    
-    if (pairs.empty()) {
-        return {};
+
+    bool found_smallest_even = false;
+    int smallest_even_index = -1;
+    for (int i = 0; i < arr.size(); i++) {
+        if (!found_smallest_even && arr[i] == smallest_even_value) {
+            smallest_even_index = i;
+            found_smallest_even = true;
+        }
     }
-    
-    sort(pairs.begin(), pairs.end());
-    vector<int> result;
-    result.push_back(pairs[0].first);
-    result.push_back(pairs[0].second);
+
+    result.push_back(smallest_even_value);
+    if (found_smallest_even)
+        result.push_back(smallest_even_index);
+
     return result;
-}
