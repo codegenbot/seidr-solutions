@@ -10,7 +10,7 @@ int main() {
     for (int i = n - 1; i >= 0; --i) {
         if ((n - i) % 2 == 0) {
             int doubled = digits[i] * 2;
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
+            sum += (doubled > 9) ? doubled - 9 : doubled;
         } else {
             sum += digits[i];
         }
