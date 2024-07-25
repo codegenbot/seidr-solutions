@@ -26,10 +26,10 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
                 }
             }
         } else if (operator_[i] == "**") {
-            int temp = 1;
+            int temp = pow(operand[i + 1], 1);
             for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "**") {
-                    temp = pow(operand[j + 1], temp);
+                    temp = pow(temp, operand[j + 1]);
                 } else if (operator_[j] == "+") {
                     result += temp;
                     break;
