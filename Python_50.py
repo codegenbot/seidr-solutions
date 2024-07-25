@@ -1,5 +1,5 @@
-def decode_shift(s: str):
-    s = decode_shift(s)
+def decode_shift():
+    s = input("Enter the string: ")
     result = ""
     for ch in s:
         if ch.isalpha():
