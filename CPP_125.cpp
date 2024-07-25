@@ -1,28 +1,30 @@
-vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word;
+    bool hasWhitespace = false;
+    for(char c : txt){
+        if(c == ' '){
+            hasWhitespace = true;
+            result.push_back(word);
+            word = "";
+        } else if(c == ','){
+            hasWhitespace = true;
+            result.push_back(word);
+            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    
-    if (result.size() == 1) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
+    if(!hasWhitespace){
+        if(word.empty()){
+            result.push_back(to_string(26/2));
+        } else {
+            result.push_back(word);
         }
-        result[0] = to_string(count);
+    } else {
+        if(!word.empty()){
+            result.push_back(word);
+        }
     }
-    
     return result;
 }
