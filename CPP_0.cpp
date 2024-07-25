@@ -1,19 +1,18 @@
 #include <vector>
 #include <assert.h>
 
-bool hasCloseElements(std::vector<float> v, float epsilon) {
-    for (int i = 1; i < v.size(); ++i) {
-        if (std::abs(v[i] - v[i-1]) > epsilon)
-            return false;
+bool hasCloseElements(const std::vector<float>& vec) {
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        if (std::abs(vec[i] - vec[i + 1]) < 0.01f)
+            return true;
     }
-    return true;
+    return false;
 }
 
 int main() {
     std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    if (hasCloseElements(a, 0.1f)) {
-        std::cout << "The vector has close elements.\n";
-    } else {
-        std::cout << "The vector does not have close elements.\n";
-    }
+    if (hasCloseElements(a))
+        printf("Vector has close elements.\n");
+    else
+        printf("Vector does not have close elements.\n");
 }
