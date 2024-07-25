@@ -21,6 +21,8 @@ def below_zero() -> None:
             except ValueError:
                 print("Error: Invalid input. Please enter a list of integers.")
 
+        below_zero_in_sequence = False
+
         for operation in operations:
             if isinstance(operation, int):
                 balance += operation
@@ -28,7 +30,8 @@ def below_zero() -> None:
                     print(f"Below zero at {balance}.")
                     below_zero_found = True
                     below_zero_operations += 1
-                elif operation >= 0 and balance < 0:
+                    below_zero_in_sequence = True
+                elif operation >= 0 and not below_zero_in_sequence:
                     balance = 0
             else:
                 print("Error: Invalid input. Please enter a list of integers.")
@@ -52,6 +55,8 @@ def below_zero() -> None:
                     balance = 0
                     below_zero_found = False
                     below_zero_operations = 0
+                    below_zero_in_sequence = False
+
                     for operation in operations:
                         if isinstance(operation, int):
                             balance += operation
@@ -59,7 +64,8 @@ def below_zero() -> None:
                                 print(f"Below zero at {balance}.")
                                 below_zero_found = True
                                 below_zero_operations += 1
-                            elif operation >= 0 and balance < 0:
+                                below_zero_in_sequence = True
+                            elif operation >= 0 and not below_zero_in_sequence:
                                 balance = 0
                         else:
                             print(
