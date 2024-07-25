@@ -1,26 +1,34 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-double calculateEuclideanDistance(const vector<float>& vec1, const vector<float>& vec2) {
+double vector_distance(vector<float> v1, vector<float> v2) {
+    int n = v1.size();
     double distance = 0;
-    for (int i = 0; i < vec1.size(); ++i) {
-        distance += pow((vec1[i] - vec2[i]), 2);
+    
+    for (int i = 0; i < n; i++) {
+        distance += pow(v1[i] - v2[i], 2);
     }
+    
     return sqrt(distance);
 }
 
 int main() {
-    int n;
-    cin >> n;
-
-    vector<float> vec1(n), vec2(n);
-
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i] >> vec2[i];
+    int N;
+    cin >> N;
+    
+    vector<float> v1(N);
+    for (float &x : v1) {
+        cin >> x;
     }
-
-    double result = calculateEuclideanDistance(vec1, vec2);
-    cout << fixed << setprecision(10) << result << endl;
-
+    
+    vector<float> v2(N);
+    for (float &x : v2) {
+        cin >> x;
+    }
+    
+    cout << fixed << setprecision(10) << vector_distance(v1, v2) << endl;
+    
     return 0;
 }
