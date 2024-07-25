@@ -1,24 +1,14 @@
 int main() {
-    string input;
+    string input, word;
     getline(cin, input);
-
-    stringstream ss(input);
-    string word;
-    vector<string> words;
-
-    while (ss >> word) {
-        if (word.length() >= 5) {
+    
+    istringstream iss(input);
+    while (iss >> word) {
+        if (word.size() >= 5) {
             reverse(word.begin(), word.end());
         }
-        words.push_back(word);
+        cout << word << " ";
     }
-
-    for (int i = 0; i < words.size(); ++i) {
-        cout << words[i];
-        if (i != words.size() - 1) {
-            cout << " ";
-        }
-    }
-
+    
     return 0;
 }
