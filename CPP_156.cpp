@@ -1,4 +1,6 @@
+```
 #include <string>
+#include <cassert>
 
 std::string int_to_mini_roman(int n) {
     std::string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
@@ -14,3 +16,4 @@ std::string int_to_mini_roman(int n) {
     
     return result;
 }
+assert(int_to_mini_roman(4) == "IV");
