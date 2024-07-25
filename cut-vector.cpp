@@ -6,16 +6,14 @@
 int main() {
     std::vector<int> nums;
     int num;
-    const int NUM_INPUTS = 5; // Change this to the desired number of input integers
 
-    // Read and store fixed number of input numbers
-    for (int i = 0; i < NUM_INPUTS; ++i) {
-        std::cin >> num;
+    // Read and store input numbers
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
-    if (nums.size() != NUM_INPUTS) {
-        std::cerr << "Invalid input. Please provide " << NUM_INPUTS << " positive integers." << std::endl;
+    if (nums.empty()) {
+        std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
         return 1;
     }
 
