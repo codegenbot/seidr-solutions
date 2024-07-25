@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <openssl/evp.h>
 
 std::string string_to_md5(std::string text) {
@@ -29,5 +28,4 @@ std::string string_to_md5(std::string text) {
 
 int main() {
     std::cout << string_to_md5("password") << std::endl;
-    return 0;
-}
+    //std::string_to_md5();
