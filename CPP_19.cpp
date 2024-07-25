@@ -13,16 +13,23 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers){
     string result = "";
-    string temp;
-    for (int i = 0; i < numbers.length(); i++){
-        if (numbers[i] != ' '){
-            temp += numbers[i];
-        } else {
-            result += to_string(num_map[temp]) + " ";
-            temp = "";
+    map<int, string> sorted_numbers;
+
+    string num;
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] == ' ') {
+            sorted_numbers[num_map[num]] = num;
+            num = "";
+        }
+        else {
+            num += numbers[i];
         }
     }
-    result += to_string(num_map[temp]);
-    
+    sorted_numbers[num_map[num]] = num;
+
+    for (auto it = sorted_numbers.begin(); it != sorted_numbers.end(); it++) {
+        result += it->second + " ";
+    }
+
     return result;
 }
