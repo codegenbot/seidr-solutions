@@ -1,6 +1,5 @@
-return (
-    [x for pair in zip(numbers, [delimeter] * (len(numbers) - 1)) for x in pair]
-    + numbers[-1:]
-    if numbers
-    else []
-)
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    return result[:-1]
