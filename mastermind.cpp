@@ -8,13 +8,17 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
+    for (char c : guess) {
         int count = 0;
-        for (char d : guess) {
-            if (c == d && code.find(d) != code.find(c)) {
-                white++;
-                break;
+        for (char d : code) {
+            if (c == d) {
+                count++;
             }
+        }
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            black--;
         }
     }
 
