@@ -1,14 +1,14 @@
-vector<int> countPalindromes(int n) {
-        vector<int> result(2);
+vector<int> even_odd_palindrome(int n) {
+        vector<int> result(2, 0);
         for (int i = 1; i <= n; ++i) {
-            string str = to_string(i);
-            string rev = str;
-            reverse(rev.begin(), rev.end());
-            if (str == rev) {
-                if (i % 2 == 0) {
-                    ++result[0];
+            string num = to_string(i);
+            string rev_num = num;
+            reverse(rev_num.begin(), rev_num.end());
+            if (num == rev_num) {
+                if (num.length() % 2 == 0) {
+                    result[0]++;
                 } else {
-                    ++result[1];
+                    result[1]++;
                 }
             }
         }
