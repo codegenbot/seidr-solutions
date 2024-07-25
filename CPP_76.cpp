@@ -1,12 +1,10 @@
-if (x == 1) {
-        return true;
-    }
-    int power = 0;
-    while (pow(n, power) <= x) {
-        if (pow(n, power) == x) {
-            return true;
+if (x == 1) return true;
+    for (int i = 2; i * i <= x; ++i) {
+        int p = i;
+        while (p <= x) {
+            p *= i;
+            if (p == x) return true;
         }
-        power++;
     }
     return false;
 }
