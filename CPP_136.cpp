@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
