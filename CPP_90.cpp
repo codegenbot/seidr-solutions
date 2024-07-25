@@ -4,14 +4,21 @@
 
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
-    std::vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
-    for (auto it = sorted.begin(); ++it != sorted.end(); ) {
-        if (*it > sorted[0]) {
-            return *it;
+    int result = -1;
+    for(int i=0;i<lst.size();i++){
+        bool flag=true;
+        for(int j=0;j<i;j++){
+            if(lst[i]<lst[j]) {
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
+            result=lst[i];
+            break;
         }
     }
-    return -1; 
+    return result; 
 }
 
 int main() {
