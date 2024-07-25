@@ -17,9 +17,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 }
 
 int main(){
-    std::vector<std::string> result = reverse_delete("examplestring", "aeiou");
-    for(const auto& str : result){
-        std::cout << str << " ";
+    std::vector<std::string> result = reverse_delete("example string", "aeiou");
+    for(const std::string& str : result){
+        std::cout << str << std::endl;
     }
     return 0;
 }
