@@ -3,17 +3,18 @@
 #include <string>
 #include <vector>
 
-vector<string> separate_paren_groups(string);
-bool issame(vector<string>, vector<string>);
+std::vector<std::string> separate_paren_groups(std::string);
+
+bool issame(std::vector<std::string>, std::vector<std::string>);
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group = "";
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group = "";
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -33,7 +34,6 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string>, vector<string>) {
-    // implementation of the function
-    return true; 
+bool issame(std::vector<std::string>, std::vector<std::string>) {
+    // Code to check if two vectors are the same
 }
