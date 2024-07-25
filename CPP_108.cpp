@@ -2,13 +2,18 @@ int count_nums(vector<int> n){
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int temp = num;
-        if (num < 0) temp = -num;
-        while (temp != 0) {
-            sum += temp % 10;
-            temp /= 10;
+        int numCopy = num;
+        if (num < 0) {
+            sum -= num % 10;
+            numCopy /= -10;
         }
-        if (sum > 0) count++;
+        while (numCopy != 0) {
+            sum += numCopy % 10;
+            numCopy /= 10;
+        }
+        if (sum > 0) {
+            count++;
+        }
     }
     return count;
 }
