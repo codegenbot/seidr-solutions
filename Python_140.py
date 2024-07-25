@@ -1,10 +1,13 @@
 def fix_spaces(text):
     new_text = ""
     prev_was_space = False
-    for i, char in enumerate(text):
-        if char == " " and (i == len(text) - 1 or not text[i+1].isspace()):
+    for char in text:
+        if char == " " and (text.index(char) == len(text) - 1 or not text[text.index(char)+1].isspace()):
             new_text += "_"
         else:
             new_text += char
-        prev_was_space = char == " "
+        if char == " ":
+            prev_was_space = True
+        else:
+            prev_was_space = False
     return new_text
