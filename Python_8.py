@@ -12,3 +12,4 @@ for num in numbers_str.split():
             numbers.append(float(num))
         except ValueError:
             print("Program did not receive expected input")
+print(numbers)
