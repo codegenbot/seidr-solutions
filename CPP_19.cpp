@@ -15,18 +15,18 @@ string sort_numbers(string numbers){
     string result = "";
     map<int, string> sorted_numbers;
     
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string num_str = numbers.substr(0, pos);
+    size_t start = 0, end = numbers.find(" ");
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
         sorted_numbers[number_map[num_str]] = num_str;
-        numbers.erase(0, pos + 1);
+        start = end + 1;
+        end = numbers.find(" ", start);
     }
-    sorted_numbers[number_map[numbers]] = numbers;
+    sorted_numbers[number_map[numbers.substr(start)]] = numbers.substr(start);
     
     for (const auto& pair : sorted_numbers) {
         result += pair.second + " ";
     }
     
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+    return result.substr(0, result.size() - 1);
 }
