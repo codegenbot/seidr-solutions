@@ -1,28 +1,51 @@
-#include <string>
 #include <vector>
-#include <map>
+#include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> num_arr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            num_arr.push_back(i);
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> nums;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
+        }
     }
-    sort(num_arr.begin(), num_arr.end());
-    reverse(num_arr.begin(), num_arr.end());
-    vector<string> result;
-    map<int, string> num_map = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-                                 {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    for (int i : num_arr) {
-        result.push_back(num_map[i]);
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    std::vector<std::string> result;
+    for (int num : nums) {
+        std::string str = "";
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+        }
+        result.push_back(str);
     }
+
     return result;
 }
