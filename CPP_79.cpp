@@ -1,8 +1,5 @@
-#include <iostream>
-#include <string>
-
-std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+string decimal_to_binary(int decimal){
+    string binary = "";
     while(decimal > 0) {
         int remainder = decimal % 2;
         if(remainder == 1)
@@ -16,6 +13,5 @@ std::string decimal_to_binary(int decimal){
 
 int main() {
     assert (decimal_to_binary(15) == "db1111db");
-    // Your code to test the function goes here...
     return 0;
 }
