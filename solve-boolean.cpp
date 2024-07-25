@@ -1,82 +1,51 @@
 #include <vector>
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operationStack;
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c == 'T' || c == 't') {
-            return true;
-        }
-        else if (c == 'F' || c == 'f') {
-            return false;
-        }
-        else if (c == '|') {
-            operationStack.push('|');
-        }
-        else if (c == '&') {
-            while (!operationStack.empty() && operationStack.top() == '&') {
+    stack<string> operandStack;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operationStack.empty() && operationStack.top() == '|')
                 operationStack.pop();
-            }
+            string op1 = operandStack.top(); operandStack.pop();
+            string op2 = operandStack.top(); operandStack.pop();
+            operandStack.push((op1[0] == 'T' && op2[0] == 'T') ? "T" : "F");
             operationStack.push('&');
         }
-    }
-    while (!operationStack.empty()) {
-        char c = operationStack.top(); 
-        operationStack.pop();
-        if (c == '|') {
-            bool firstOperand = true;
-            int result1 = 0, result2 = 0;
-            while (!expression.empty() && expression[0] != ' ') {
-                if (expression[0] == 'T' || expression[0] == 't')
-                    result1 = 1;
-                else if (expression[0] == 'F' || expression[0] == 'f')
-                    result1 = 0;
-                expression = expression.substr(1);
-            }
-            while (!expression.empty() && expression[0] != ' ') {
-                if (expression[0] == 'T' || expression[0] == 't')
-                    result2 = 1;
-                else if (expression[0] == 'F' || expression[0] == 'f')
-                    result2 = 0;
-                expression = expression.substr(1);
-            }
-            return static_cast<bool>(result1 | result2);
+        else if (expression[i] == '|') {
+            while (!operationStack.empty()) 
+                operationStack.pop();
+            string op1 = operandStack.top(); operandStack.pop();
+            string op2 = operandStack.top(); operandStack.pop();
+            operandStack.push((op1[0] == 'T' || op2[0] == 'T') ? "T" : "F");
+            operationStack.push('|');
         }
-        else if (c == '&') {
-            bool firstOperand = true;
-            int result1 = 0, result2 = 0;
-            while (!expression.empty() && expression[0] != ' ') {
-                if (expression[0] == 'T' || expression[0] == 't')
-                    result1 = 1;
-                else if (expression[0] == 'F' || expression[0] == 'f')
-                    result1 = 0;
-                expression = expression.substr(1);
+        else if (expression[i] != '&' && expression[i] != '|') {
+            string operand = "";
+            while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
+                operand += expression[i];
+                i++;
             }
-            while (!expression.empty() && expression[0] != ' ') {
-                if (expression[0] == 'T' || expression[0] == 't')
-                    result2 = 1;
-                else if (expression[0] == 'F' || expression[0] == 'f')
-                    result2 = 0;
-                expression = expression.substr(1);
-            }
-            return static_cast<bool>(result1 & result2);
+            i--;
+            operandStack.push(operand);
         }
     }
-    return true; // default to True
+
+    return operandStack.top()[0] == 'T';
 }
 
 int main() {
-    string expression;
-    cout << "Enter Boolean Expression: ";
-    cin >> expression;
-    if (expression.length() > 0) {
-        bool result = evaluateBooleanExpression(expression);
-        if (result)
-            cout << "True";
-        else
-            cout << "False";
-    }
+    // Test cases
+    cout << (evaluateBooleanExpression("t")) << endl;  // True
+    cout << (evaluateBooleanExpression("f")) << endl;  // False
+    cout << (evaluateBooleanExpression("f&f")) << endl; // False
+    cout << (evaluateBooleanExpression("f&t")) << endl; // False
+    cout << (evaluateBooleanExpression("t&f")) << endl; // False
+
     return 0;
 }
