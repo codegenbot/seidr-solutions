@@ -3,16 +3,16 @@
 #include <map>
 #include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b){
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test);
+map<char, int> histogram(string test);
 
-std::map<char, int> histogram(std::string test){
-    std::map<char, int> result;
-    std::istringstream iss(test);
-    std::string word;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
@@ -20,9 +20,9 @@ std::map<char, int> histogram(std::string test){
     }
     int maxCount = 0;
     for (const auto& pair : result) {
-        maxCount = std::max(maxCount, pair.second);
+        maxCount = max(maxCount, pair.second);
     }
-    std::map<char, int> maxChars;
+    map<char, int> maxChars;
     for (const auto& pair : result) {
         if (pair.second == maxCount) {
             maxChars[pair.first] = pair.second;
