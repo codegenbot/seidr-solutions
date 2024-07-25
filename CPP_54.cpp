@@ -1,7 +1,7 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <ostream>
 #include <cassert>
 
 bool same_chars(string s0, string s1) {
@@ -11,6 +11,6 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    cout << (same_chars("abcde", "edcba") ? "True" : "False") << endl;
+    assert (same_chars("aabb", "baac") == false);  
+    std::cout << (same_chars("abcde", "edcba") ? "True" : "False") << std::endl;  
 }
