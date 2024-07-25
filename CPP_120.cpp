@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -23,10 +24,11 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
-    if (issame(test, {3, 243, 0, -23, -400})) {
-        std::cout << "Test passed.\n";
-    } else {
-        std::cout << "Test failed.\n";
-    }
+    std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
+    int k = 5;
+    if (issame(maximum(arr,k), {3,243,0,-23,-400})) 
+        std::cout << "Test passed." << std::endl; 
+    else
+        std::cout << "Test failed." << std::endl; 
+
 }
