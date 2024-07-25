@@ -4,14 +4,11 @@
 int main() {
     std::vector<int> nums;
     int n;
-
-    while (std::cin >> n) {
-        if (std::cin.eof()) {
-            break;
-        }
+    
+    while (std::cin >> n && !std::cin.eof()) {
         nums.push_back(n);
     }
-
+    
     int sum = 0;
     for (int num : nums) {
         sum += num;
