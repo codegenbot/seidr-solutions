@@ -1,34 +1,51 @@
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    for (int i : arr) {
-        string s;
-        switch (i) {
-            case 1: s = "One"; break;
-            case 2: s = "Two"; break;
-            case 3: s = "Three"; break;
-            case 4: s = "Four"; break;
-            case 5: s = "Five"; break;
-            case 6: s = "Six"; break;
-            case 7: s = "Seven"; break;
-            case 8: s = "Eight"; break;
-            case 9: s = "Nine"; break;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> nums;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
         }
-        result.push_back(s);
     }
-    sort(result.begin(), result.end());
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    std::vector<std::string> result;
+    for (int num : nums) {
+        std::string str = "";
+        switch (num) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+        }
+        result.push_back(str);
+    }
+
     return result;
 }
