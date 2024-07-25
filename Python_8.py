@@ -8,4 +8,5 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 numbers = list(map(int, input().split()))
-print(*sum_product(numbers))
+result = sum_product(numbers)
+print(result)
