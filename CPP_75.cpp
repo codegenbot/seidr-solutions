@@ -10,10 +10,10 @@ bool is_prime(int n) {
 
 bool is_multiply_prime(int a) {
     for (int i = 2; i <= a / 3; ++i) {
-        if (a % i == 0 && is_prime(i)) {
+        if (is_prime(i) && a % i == 0) {
             int remaining = a / i;
             for (int j = i + 1; j <= remaining / 2; ++j) {
-                if (remaining % j == 0 && is_prime(j) && is_prime(remaining / j)) {
+                if (is_prime(j) && remaining % j == 0 && is_prime(remaining / j)) {
                     return true;
                 }
             }
@@ -26,12 +26,6 @@ int main() {
     int num;
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
-    
-    if (is_multiply_prime(num)) {
-        std::cout << "true\n";
-    } else {
-        std::cout << "false\n";
-    }
-    
+    std::cout << (is_multiply_prime(num) ? "true" : "false") << std::endl;
     return 0;
 }
