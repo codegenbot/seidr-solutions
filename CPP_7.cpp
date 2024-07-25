@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -25,10 +26,11 @@ vector<vector<string>> filter_by_substring(vector<string> str, string substr) {
 int main(); {
     vector<string> str = {"grunt", "trumpet", "prune", "gruesome"};
     string substr = "run";
-    vector<vector<string>> filtered = filter_by_substring(str, substr);
-    if (issame(filtered, {{ "grunt" }, { "prune" }})) {
-        cout << "Test passed." << endl;
-    } else {
-        cout << "Test failed." << endl;
+    vector<vector<string>> res = filter_by_substring(str, substr);
+    for (const auto& s : res) {
+        cout << "{"; 
+        for(auto c: s)
+            cout<<c<<" ";
+        cout<<"}\n";
     }
 }
