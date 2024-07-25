@@ -1,6 +1,5 @@
+```
 import math
-
-grid = [[0 for _ in range(10)] for _ in range(10)]
 
 def max_fill(grid, capacity):
     rows = len(grid)
