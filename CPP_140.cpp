@@ -1,18 +1,26 @@
-string result = "";
-    bool consecutive = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (consecutive) {
-                result.pop_back();
-                result += '-';
-            } else {
-                result += '_';
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string fix_spaces(const std::string &text) {
+    std::string result = text;
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i] == ' ') {
+            int count = 1;
+            for (int j = i + 1; j < result.size() && result[j] == ' '; j++) {
+                count++;
             }
-            consecutive = true;
-        } else {
-            result += c;
-            consecutive = false;
+            if (count > 2) {
+                result.replace(i, count, "-");
+            } else {
+                result.replace(i, count, "_");
+            }
         }
     }
     return result;
+}
+
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
 }
