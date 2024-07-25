@@ -1,4 +1,11 @@
-int skjkasdkd(vector<int> lst){
+Here is the completed code:
+
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -7,11 +14,13 @@ int skjkasdkd(vector<int> lst){
             }
         }
     }
+
     int sumOfDigits = 0;
     while (maxPrime > 0) {
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
     }
+
     return sumOfDigits;
 }
 
