@@ -23,6 +23,6 @@ std::vector<int> sortArray(std::vector<int> array) {
 }
 
 int main() {
-    assert(isSame(sortArray({int x; std::vector<int> array = (x=21, x=14, x=23, x=11); return array;}),(23, 21, 14, 11)));
+    assert(isSame(sortArray({int x; std::vector<int> array = (x=21, x=14, x=23, x=11); return array;}), {23, 21, 14, 11}));
     return 0;
 }
