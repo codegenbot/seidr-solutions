@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -8,8 +7,8 @@ def remove_duplicates(numbers: List[int]) -> List[str]:
     for num in numbers:
         if str(num) not in seen:
             seen.add(str(num))
-            result.append(str(num))
-    return [str(num) for num in result]
+            result.append(str(num).join(','))
+    return result
 
 
 if __name__ == "__main__":
