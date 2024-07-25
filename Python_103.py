@@ -2,7 +2,9 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = (n + m) // 2  
-    avg = round(avg) % 2 == 1 and "1" or "0"
-    bin_avg = format(int(avg), 'b')  
-    return "0b" + bin_avg
+    avg = (n + m) / 2.0
+    round_avg = round(avg)
+    if round_avg.is_integer():
+        return f"0b{format(int(round_avg), 'b').zfill(8)}"
+    else:
+        return "0b1"
