@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,9 +11,7 @@ def below_zero() -> None:
     while True:
         operations = []
         while True:
-            ops = input(
-                "Enter a list of integers (space separated) or 'end' to finish: "
-            )
+            ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
             if ops.lower() == "end":
                 break
             try:
@@ -24,31 +23,25 @@ def below_zero() -> None:
         for operation in operations:
             if isinstance(operation, int):
                 balance += operation
-                if balance < 0:
+                if operation < 0 and balance < 0: 
                     print(f"Below zero at {balance}.")
                     below_zero_found = True
                     below_zero_operations += 1
+                elif operation >= 0 and balance < 0:
+                    balance = 0
             else:
                 print("Error: Invalid input. Please enter a list of integers.")
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
 
-        while True:
-            cont = input("Continue? (yes/no): ")
-            if cont.lower() in ["yes", "no"]:
-                break
-            else:
-                print("Error: Invalid input. Please enter 'yes' or 'no'.")
-
+        cont = input("Continue? (yes/no): ")
         if cont.lower() == "no":
             break
 
         if below_zero_operations / len(operations) > 0.5:
             while True:
-                ops = input(
-                    "Enter a list of integers (space separated) or 'end' to finish: "
-                )
+                ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
                 if ops.lower() == "end":
                     break
                 try:
@@ -59,14 +52,14 @@ def below_zero() -> None:
                     for operation in operations:
                         if isinstance(operation, int):
                             balance += operation
-                            if balance < 0:
+                            if operation < 0 and balance < 0: 
                                 print(f"Below zero at {balance}.")
                                 below_zero_found = True
                                 below_zero_operations += 1
+                            elif operation >= 0 and balance < 0:
+                                balance = 0
                         else:
-                            print(
-                                "Error: Invalid input. Please enter a list of integers."
-                            )
+                            print("Error: Invalid input. Please enter a list of integers.")
 
                     if not below_zero_found:
                         print(f"No below zero at {balance}.")
