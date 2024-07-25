@@ -33,6 +33,6 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
     return letter_grades;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
