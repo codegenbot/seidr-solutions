@@ -5,8 +5,8 @@ using namespace std;
 
 double vectorDistance(int n) {
     double sum = 0.0;
+    double x1, y1;
     for (int i = 0; i < n; ++i) {
-        double x1, y1;
         cin >> x1 >> y1;
         double diff = (x1 - y1) * (x1 - y1);
         sum += diff;
