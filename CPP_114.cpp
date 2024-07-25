@@ -2,7 +2,7 @@
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums){
-    long long minSum = LLONG_MAX;
+    long long minSum = LONG_LONG_MAX;
     long long currentSum = 0;
 
     for(long long num : nums){
@@ -15,6 +15,7 @@ long long minSubArraySum(vector<long long> nums){
 }
 
 int main() {
+    // use the function here
     assert (minSubArraySum({1, -1}) == -1);
     return 0;
 }
