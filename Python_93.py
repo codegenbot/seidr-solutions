@@ -5,7 +5,10 @@ def encode(message):
             result += ' '
         elif char.isalnum():
             if char.isalpha():
-                result += chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a')) if char.islower() else chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a'))
+                if char.islower():
+                    result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+                else:
+                    result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
             elif char.isdigit():
                 result += str(int(char) + 3)
         else:
