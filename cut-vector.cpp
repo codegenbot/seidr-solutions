@@ -1,32 +1,29 @@
 int main() {
-    vector<int> vec;
-    int n;
-    while (cin >> n) {
-        vec.push_back(n);
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
-    
-    int sum = accumulate(vec.begin(), vec.end(), 0);
-    int half_sum = sum / 2;
-    
-    int curr_sum = 0;
+
+    int n = nums.size();
     int idx = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        curr_sum += vec[i];
-        if (curr_sum >= half_sum) {
+    int minDiff = INT_MAX;
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < minDiff) {
+            minDiff = diff;
             idx = i;
-            break;
         }
     }
-    
-    vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
-    vector<int> subvec2(vec.begin() + idx + 1, vec.end());
-    
-    for (int i = 0; i < subvec1.size(); i++) {
-        cout << subvec1[i] << endl;
+
+    for (int i = 0; i < idx; ++i) {
+        cout << nums[i] << endl;
     }
-    for (int i = 0; i < subvec2.size(); i++) {
-        cout << subvec2[i] << endl;
+    cout << 0 << endl;
+    for (int i = idx; i < n; ++i) {
+        cout << nums[i] << endl;
     }
-    
+    cout << 0 << endl;
+
     return 0;
 }
