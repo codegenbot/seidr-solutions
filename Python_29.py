@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
@@ -9,4 +10,5 @@ if __name__ == "__main__":
         prefix = input("Enter prefix: ")
         if prefix:
             break
-    print(filter_by_prefix(input_list, prefix))
+    expected_output = input("Enter expected output: ")
+    print("Actual output: " + str(filter_by_prefix(input_list, prefix)) + ", Expected output: " + expected_output)
