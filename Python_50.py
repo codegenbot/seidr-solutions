@@ -1,4 +1,3 @@
-```
 def decode_shift():
     shift = int(input("Enter the shift value (0-25): "))
     if shift < 0 or shift > 25:
