@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::string longest(const std::vector<std::string>& strings) {
     std::string result = strings[0];
@@ -23,7 +23,10 @@ int main() {
         std::getline(std::cin, strings[i]);
     }
 
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Werror"
     std::cout << "The longest string is: " << longest(strings) << std::endl;
+    #pragma GCC diagnostic pop
 
     return 0;
 }
