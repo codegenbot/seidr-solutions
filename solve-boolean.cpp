@@ -1,32 +1,23 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-            st.push('|');
-        } else if (s[i] != 'T' && s[i] != 'F') {
-            cout << "Invalid input. Please enter T, F, &, or |." << endl;
-            return false;
-        } else {
-            st.push(s[i]);
+bool solveBoolean(string expression) {
+    stack<char> operation;
+    for (char c : expression) {
+        if (c == '&') {
+            while (!operation.empty() && operation.top() == '|')
+                operation.pop();
+            if (!operation.empty() && operation.top() == '&')
+                return false;
+        } else if (c == '|') {
+            while (!operation.empty())
+                operation.pop();
+            operation.push(c);
+        } else if (c == 't' || c == 'f') {
+            if (c == 'f')
+                return false;
+            return true;
         }
     }
-    while (!st.empty()) {
-        if (st.top() == '&') return false;
-        if (st.top() == '|') return true;
-        st.pop();
-    }
-    return st.top() == 'T';
+    return true;
 }
