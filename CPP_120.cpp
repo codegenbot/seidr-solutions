@@ -1,15 +1,11 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
+std::vector<int> maximum(const std::vector<int>& a, const int value){
+    std::vector<int> result = a;
+    std::replace_if(result.begin(), result.end(), [&value](const int x) { return x < value; }, value);
+    return result;
+}
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> maximum(const std::vector<int>& a, const int value){
-    std::vector<int> result = a;
-    std::replace_if(result.begin(), result.end(), [value](int x) { return x < value; }, value);
-    return result;
 }
 
 int main(){
