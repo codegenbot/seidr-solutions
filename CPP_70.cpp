@@ -1,28 +1,6 @@
 #include <algorithm>
 #include <vector>
-
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) {
-        return result;
-    }
-    
-    std::sort(lst.begin(), lst.end());
-    while (!lst.empty()) {
-        result.push_back(*std::min_element(lst.begin(), lst.end()));
-        lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
-        
-        if (!lst.empty()) {
-            std::sort(lst.begin(), lst.end());
-            while (*std::min_element(lst.begin(), lst.end()) == *std::max_element(lst.begin(), lst.end())) {
-                result.push_back(*std::min_element(lst.begin(), lst.end()));
-                lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
-            }
-        }
-    }
-    
-    return result;
-}
+#include <iterator>
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size())
@@ -32,4 +10,39 @@ bool issame(vector<int> a,vector<int>b){
             return false;
     }
     return true;
+
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
+    if (lst.empty()) {
+        return result;
+    }
+    
+    std::sort(lst.begin(), lst.end());
+    result.push_back(*std::min_element(lst.begin(), lst.end()));
+    lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
+    
+    if (!lst.empty()) {
+        std::sort(lst.begin(), lst.end());
+        result.push_back(*std::max_element(lst.begin(), lst.end()));
+        lst.erase(std::remove(lst.begin(), lst.end(), *std::max_element(lst.begin(), lst.end())), lst.end());
+    }
+    
+    while (!lst.empty()) {
+        std::sort(lst.begin(), lst.end());
+        result.push_back(*std::min_element(lst.begin(), lst.end()));
+        lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
+        
+        if (!lst.empty()) {
+            std::sort(lst.begin(), lst.end());
+            result.push_back(*std::max_element(lst.begin(), lst.end()));
+            lst.erase(std::remove(lst.begin(), lst.end(), *std::max_element(lst.begin(), lst.end())), lst.end());
+        }
+    }
+    
+    return result;
+}
+
+int main(){
+    assert(issame(strange_sort_vector({111111}), {111111}));
+    return 0;
 }
