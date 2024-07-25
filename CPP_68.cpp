@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
