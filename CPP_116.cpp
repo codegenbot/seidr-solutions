@@ -1,39 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <bitset>
+#include <functional>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> sort_array(const std::vector<int>& arr) {
     std::vector<int> temp = arr;
     std::sort(temp.begin(), temp.end(), [](int a, int b) {
-        return __builtin_popcount(a) < __builtin_popcount(b) ||
-               (__builtin_popcount(a) == __builtin_popcount(b) && a < b);
+        return std::bitset<32>(a).count() < std::bitset<32>(b).count() ||
+               (std::bitset<32>(a).count() == std::bitset<32>(b).count() && a < b);
     });
     return temp;
 }
 
 int main() {
-    std::vector<int> input_arr;
-    int n, num;
-    std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        input_arr.push_back(num);
-    }
-
-    std::vector<int> sorted_arr = sort_array(input_arr);
+    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
     for (int num : sorted_arr) {
         std::cout << num << " ";
     }
