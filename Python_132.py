@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def is_nested(string):
     stack = []
@@ -15,3 +13,7 @@ def is_nested(string):
                 stack.append('[')
             stack.pop()
     return len(stack) > 0
+
+if __name__ == '__main__':
+    string = input("Enter a string: ")
+    print(is_nested(string))
