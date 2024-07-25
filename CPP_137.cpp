@@ -1,31 +1,24 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    int y = boost::any_cast<int>(b);
-    if (x > y)
-        return a;
-    else if (y > x)
-        return b;
-    else
-        return boost::any("None");
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    float x = boost::any_cast<float>(a);
-    float y = boost::any_cast<float>(b);
-    if (x > y)
-        return a;
-    else if (y > x)
-        return b;
-    else
-        return boost::any("None");
-} else if ((a.type() == typeid(string) && b.type() != typeid(int)) ||
-           (a.type() != typeid(string) && b.type() == typeid(string))) {
-    return boost::any("None");
-} else {
-    string x = boost::any_cast<string>(a);
-    string y = boost::any_cast<string>(b);
-    if (stof(y) > stof(x))
-        return a;
-    else if (stof(x) > stof(y))
-        return b;
-    else
-        return boost::any("None");
+Here is the completed code:
+
+#include <boost/any.hpp>
+
+using namespace boost;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_same_type<double>(a)) {
+        if (is_same_type<double>(b)) {
+            return greater<double>()(get<double>(a), get<double>(b)) ? a : b;
+        } else if (is_same_type<string>(b)) {
+            string str = to_string(get<double>(a));
+            return greater<string>()(str, get<string>(b)) ? a : b;
+        }
+    } else if (is_same_type<string>(a)) {
+        if (is_same_type<string>(b)) {
+            return greater<string>()(get<string>(a), get<string>(b)) ? a : b;
+        } else if (is_same_type<double>(b)) {
+            double val = stod(get<string>(a));
+            return greater<double>()(val, get<double>(b)) ? a : b;
+        }
+    }
+    return boost::any_cast<string>("None");
 }
