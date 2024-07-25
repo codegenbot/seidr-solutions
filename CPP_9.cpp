@@ -1,6 +1,6 @@
-```cpp
 #include <initializer_list>
 #include <vector>
+#include <iostream>
 
 bool issame(vector<int> a, vector<int> b);
 vector<int> rolling_max(vector<int> numbers);
@@ -27,6 +27,12 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> testNumbers = {3, 2, 3, 100, 3};
-    assert(issame(testNumbers, rolling_max(testNumbers)) && "Expected the same sequence");
+    vector<int> nums = {3, 2, 3, 100, 3};
+    vector<int> expected = {3, 3, 3, 100, 100};
+
+    if (issame(rolling_max(nums), expected)) {
+        std::cout << "Test passed";
+    } else {
+        std::cout << "Test failed";
+    }
 }
