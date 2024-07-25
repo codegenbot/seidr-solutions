@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string int_to_mini_roman(int n) {
@@ -13,4 +14,18 @@ std::string int_to_mini_roman(int n) {
     }
 
     return result;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+
+    if(num < 1 || num > 3999) {
+        std::cout << "Please enter a number between 1 and 3999.\n";
+        return 0;
+    }
+
+    std::cout << int_to_mini_roman(num);
+    return 0;
 }
