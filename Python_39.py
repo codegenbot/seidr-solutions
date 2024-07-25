@@ -1,3 +1,1 @@
-n = int(input().strip())
-result = prime_fib(n)
-print(result)
+if n < len(prime_fib_seq):
