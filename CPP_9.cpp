@@ -1,6 +1,6 @@
-```
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
@@ -10,7 +10,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> rolling_max(vector<int> numbers) {
+vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
     int max = INT_MIN;
 
@@ -22,9 +22,9 @@ vector<int> rolling_max(vector<int> numbers) {
     }
 
     return result;
-
 }
+
 int main() {
-    // your code here
+    // Your code here
     return 0;
 }
