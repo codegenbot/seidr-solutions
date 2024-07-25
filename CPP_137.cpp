@@ -1,25 +1,23 @@
-```cpp
 #include <iostream>
 #include <any>
-#include <string>
 
 std::any compare_one(std::string str, int i) {
-    if (i > 1) {
-        return std::any(str);
-    } else if (i < 1) {
-        return std::any("None");
+    if (i > 5) {
+        return str + " is greater than 5";
+    } else if (i == 5) {
+        return "Value is equal to 5";
     } else {
-        return std::any(str);
+        return str + " is less than or equal to 5";
     }
 }
 
 int main() {
-    if (true) {
-        if (std::any_cast<std::string>(compare_one("1", 0)) == "None") {
-            std::cout << "The output is None." << std::endl;
-        } else {
-            std::cout << "The output is not None." << std::endl;
-        }
+    std::any result = compare_one("Any", 3);
+    try {
+        std::string output = std::any_cast<std::string>(result);
+        std::cout << output << std::endl;
+    } catch (const std::bad_any_cast& e) {
+        std::cerr << "Bad any cast: " << e.what() << std::endl;
     }
     return 0;
 }
