@@ -2,28 +2,26 @@
 #include <string>
 #include <cassert>
 
-string anti_shuffle(string s) {
-    string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+namespace Contest {
+    std::string anti_shuffle(std::string s) {
+        std::string result = "";
+        std::string word = "";
+        for (char c : s) {
+            if (c == ' ') {
+                std::sort(word.begin(), word.end());
+                result += word + ' ';
+                word = "";
+            } else {
+                word += c;
+            }
         }
+        std::sort(word.begin(), word.end());
+        result += word;
+        return result;
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
 }
 
-string anti_shuffle(string s);
-
 int main() {
-    assert(anti_shuffle("hello world") == "ehllo dlorw");
-    assert(anti_shuffle("cpp contest") == "cpp cnotst");
-    assert(anti_shuffle("algorithm problem") == "aaghiilmnopr belmoprr");
+    assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
