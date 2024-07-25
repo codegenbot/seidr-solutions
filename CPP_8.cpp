@@ -1,9 +1,12 @@
+#include <vector>
+#include <cassert>
+
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -26,5 +29,4 @@ std::vector<int> toVector() const {
 
 int main() {
     assert(issame(sum_product({10}).toVector(), {10, 10}));
-    return 0;
 }
