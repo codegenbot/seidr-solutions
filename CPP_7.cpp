@@ -2,7 +2,7 @@ bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i=0; i<a.size(); i++){
+    for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
         }
@@ -21,6 +21,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    // Main function code here
+    // Your main function code here
     return 0;
 }
