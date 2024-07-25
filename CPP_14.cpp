@@ -27,16 +27,12 @@ vector<string> all_prefixes(string str){
 }
 
 int main() {
-    string input_str;
-    cout << "Enter a string: ";
-    cin >> input_str;
-
-    vector<string> prefixes = all_prefixes(input_str);
-
-    for (const string& prefix : prefixes) {
+    string input;
+    cin >> input;
+    vector<string> prefixes = all_prefixes(input);
+    for (string prefix : prefixes) {
         cout << prefix << " ";
     }
     cout << endl;
-
     return 0;
 }
