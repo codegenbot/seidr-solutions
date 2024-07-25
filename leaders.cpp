@@ -2,17 +2,17 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> res;
     int n = arr.size();
-    for (int i = 0; i < n; i++) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
+    vector<int> res;
+    for(int i=n-1; i>=0; i--){
+        bool flag = true;
+        for(int j=i+1; j<n; j++){
+            if(arr[i] < arr[j]){
+                flag = false;
                 break;
             }
         }
-        if (leader) res.push_back(arr[i]);
+        if(flag)res.push_back(arr[i]);
     }
     return res;
 }
