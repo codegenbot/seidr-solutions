@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 int calculateBowlingScore(std::string s) {
@@ -36,4 +37,12 @@ int calculateBowlingScore(std::string s) {
     }
 
     return total;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    int score = calculateBowlingScore(input);
+    std::cout << score << std::endl;
+    return 0;
 }
