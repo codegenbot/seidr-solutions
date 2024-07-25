@@ -1,8 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<cassert>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
@@ -35,10 +35,6 @@ namespace my_namespace {
 
         return result;
     }
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
 }
 
 int main() {
