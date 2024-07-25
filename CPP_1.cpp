@@ -15,7 +15,7 @@ vector<string> separate_paren_groups(string paren_string) {
                 current_group += c;
             } else if (open_braces == 0) {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
             }
         }
     }
