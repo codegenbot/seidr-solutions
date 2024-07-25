@@ -1,20 +1,24 @@
+Here is the solution:
+
+```cpp
+#include<string>
+using namespace std;
+
 string fix_spaces(string text){
     string result = "";
-    bool lastCharWasSpace = false;
-
-    for(char c : text) {
-        if(c == ' ') {
-            if(lastCharWasSpace) {
-                result += "-";
-            } else {
-                result += "_";
+    for(int i=0; i < text.length(); i++){
+        if(text[i] == ' ' && (i==0 || text[i-1] != ' ')){
+            result += '_';
+        } else if(text[i] == ' '){
+            int j=i;
+            while(j > 0 && text[j-1] == ' '){
+                j--;
             }
-            lastCharWasSpace = true;
-        } else {
-            result += c;
-            lastCharWasSpace = false;
+            i = j;
+            result += '-';
+        }else{
+            result += text[i];
         }
     }
-
     return result;
 }
