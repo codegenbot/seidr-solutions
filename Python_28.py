@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -28,3 +29,6 @@ if __name__ == "__main__":
                     break
                 except ValueError:
                     print("Error! Please enter a valid string.")
+
+        concatenated_string = concatenate(strings)
+        print("The concatenated string is: ", concatenated_string)
