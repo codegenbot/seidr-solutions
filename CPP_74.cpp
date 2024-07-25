@@ -9,6 +9,7 @@ int totalChars(const vector<string>& lst) {
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (totalChars(lst1) < totalChars(lst2)) {
         return lst1;
+    } else {
+        return lst2;
     }
-    return lst2;
 }
