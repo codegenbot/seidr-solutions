@@ -1,47 +1,47 @@
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    int rolls[21] = {0};
-    
-    for(int i=0; i < s.size(); i++) {
-        if(s[i] == 'X') {
-            rolls[frame] = 10;
-            frame++;
-        }
-        else if(s[i] == '/') {
-            rolls[frame] = 10 - rolls[frame-1];
-            frame++;
-        }
-        else if(s[i] == '-') {
-            rolls[frame] = 0;
-            frame++;
-        }
-        else {
-            rolls[frame] = s[i] - '0';
-            frame++;
-        }
-    }
-    
-    for(int i=0, r=0; i<10; i++) {
-        if(rolls[r] == 10) {
-            total += 10 + rolls[r+1] + rolls[r+2];
-            r++;
-        }
-        else if(rolls[r] + rolls[r+1] == 10) {
-            total += 10 + rolls[r+2];
-            r += 2;
-        }
-        else {
-            total += rolls[r] + rolls[r+1];
-            r += 2;
+int getBowlingScore(string bowls) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+
+    for (int i = 0; i < bowls.size(); ++i) {
+        char c = bowls[i];
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                if (bowls[i + 2] == '/')
+                    score += 10;
+                else {
+                    score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
+                    score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
+                }
+            }
+            if (++frame == 10)
+                break;
+        } else if (c == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (frame == 10)
+                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
+        } else {
+            score += (c == '-') ? 0 : (c - '0');
+            if (++ball % 2 == 0) {
+                if (frame < 10 && bowls[i - 1] != '/') {
+                    if (bowls[i - 1] == 'X')
+                        score += (c == 'X') ? 10 : (c - '0');
+                    if (frame == 10 && i + 1 == bowls.size() && c == 'X')
+                        score += 10;
+                }
+                ++frame;
+            }
         }
     }
-    return total;
+
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+    int score = getBowlingScore(bowls);
+    cout << score << endl;
     return 0;
 }
