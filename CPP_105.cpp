@@ -1,63 +1,27 @@
-```cpp
+```c++
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string>b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
-        }
+    vector<string> result;
+    map<int, string> mapping{{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, 
+                                {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}};
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            result.push_back(mapping[i]);
     }
-
-    sort(numbers.begin(), numbers.end());
-
-    reverse(numbers.begin(), numbers.end());
-
-    for (string &s : numbers) {
-        if (s.length() == 1) {
-            switch (stoi(s)) {
-                case 1:
-                    s = "One";
-                    break;
-                case 2:
-                    s = "Two";
-                    break;
-                case 3:
-                    s = "Three";
-                    break;
-                case 4:
-                    s = "Four";
-                    break;
-                case 5:
-                    s = "Five";
-                    break;
-                case 6:
-                    s = "Six";
-                    break;
-                case 7:
-                    s = "Seven";
-                    break;
-                case 8:
-                    s = "Eight";
-                    break;
-                case 9:
-                    s = "Nine";
-            }
-        }
-    }
-
-    return numbers;
-}
-
-int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    return 0;
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
+    return result;
 }
