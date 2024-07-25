@@ -1,10 +1,8 @@
-```python
-import re
-
 def digitSum(s):
     total = 0
-    for match in re.finditer(r'\d+', s):
-        total += int(match.group())
+    for char in s.lower():
+        if char.isdigit():
+            total += int(char)
     return total
 
 print(digitSum("You arE Very Smart"))
