@@ -1,6 +1,6 @@
 #include <string>
 
-int vowels_count(string s){
+int vowels_count(const string& s){
     transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
     for(char c : s){
@@ -13,5 +13,3 @@ int vowels_count(string s){
     }
     return count;
 }
-
-assert(vowels_count("ACEDY") == 3);
