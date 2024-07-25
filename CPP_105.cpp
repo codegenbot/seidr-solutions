@@ -1,18 +1,11 @@
-#include <vector>
+#include <algorithm>
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a, vector<string> result);
-
-vector<string> by_length(vector<int> arr);
-
-int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
-}
-
-bool issame(vector<string> a, vector<string> result) {
-    if(a.size()!=result.size()) return false;
+bool issame(vector<string> a, vector<string> c) {
+    if(a.size()!=c.size()) return false;
     for(int i=0;i<a.size();i++){
-        if(a[i]!=result[i]) return false;
+        if(a[i]!=c[i]) return false;
     }
     return true;
 }
