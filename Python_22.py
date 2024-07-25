@@ -10,4 +10,4 @@ def filter_integers():
         except ValueError:
             if input("Enter 'done' if you want to finish: ") == 'done':
                 break
-    return [value for value in values if isinstance(value, int)]
+    return [value for value in values]
