@@ -24,4 +24,4 @@ int main() {
     std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
-}  
+}
