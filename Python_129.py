@@ -1,4 +1,3 @@
-```
 def shortest_paths(paths):
     min_path = min(paths, key=sum)
     return ", ".join(str(x) for x in min_path)
