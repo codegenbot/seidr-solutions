@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <functional>
 
 namespace ArrayUtils {
