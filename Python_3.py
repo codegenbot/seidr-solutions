@@ -28,14 +28,13 @@ def below_zero() -> None:
                     below_zero_operations += 1
             else:
                 print("Error: Invalid input. Please enter a list of integers.")
-                return
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
 
         cont = input("Continue? (yes/no): ")
-        if cont.lower() != "yes":
-            return
-
-        if below_zero_operations > len(operations) / 2:
-            print("Expected input: A mix of positive and negative integers.")
+        while True:
+            if cont.lower() != "yes":
+                break
+            if below_zero_operations > len(operations) / 2:
+                print("Expected input: A mix of positive and negative integers.")
