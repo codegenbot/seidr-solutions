@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.replace("apples", "1").replace("oranges", "0")
     parts = s.split()
