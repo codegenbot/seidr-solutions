@@ -1,26 +1,62 @@
-int bowlingScore(string s) {
-    int score = 0, frame = 0, throwIndex = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[throwIndex] == 'X') {
-            score += 10 + (s[throwIndex + 1] == 'X' ? 10 : (isdigit(s[throwIndex + 1]) ? s[throwIndex + 1] - '0' : 10));
-            score += (s[throwIndex + 2] == 'X' ? 10 : (isdigit(s[throwIndex + 2]) ? s[throwIndex + 2] - '0' : 10));
-            throwIndex += 1;
-        } else if (s[throwIndex + 1] == '/') {
-            score += 10;
-            score += (isdigit(s[throwIndex + 2]) ? s[throwIndex + 2] - '0' : 10);
-            throwIndex += 2;
+int bowlingScore(string input) {
+    int score = 0;
+    int frame = 0;
+    int ball = 0;
+    vector<int> rolls;
+
+    for (char c : input) {
+        if (c == 'X') {
+            rolls.push_back(10);
+            frame++;
+            if (frame == 10) break;
+            continue;
+        }
+
+        if (c == '/') {
+            rolls.push_back(10 - rolls.back());
+            frame++;
+            ball = 0;
+            if (frame == 10) break;
+            continue;
+        }
+
+        if (c == '-') {
+            rolls.push_back(0);
         } else {
-            score += (isdigit(s[throwIndex]) ? s[throwIndex] - '0' : 0);
-            score += (isdigit(s[throwIndex + 1]) ? s[throwIndex + 1] - '0' : 0);
-            throwIndex += 2;
+            rolls.push_back(c - '0');
+        }
+
+        ball++;
+        if (ball == 2) {
+            ball = 0;
+            frame++;
+            if (frame == 10) break;
         }
     }
+
+    frame = 0;
+
+    for (int i = 0; i < rolls.size(); i++) {
+        int cur = rolls[i];
+        if (cur == 10) {
+            score += 10 + rolls[i + 1] + rolls[i + 2];
+            frame++;
+        } else {
+            score += cur;
+            if (frame < 10 && (i + 1 < rolls.size() && i + 2 < rolls.size()) && rolls[i] + rolls[i + 1] == 10) {
+                score += rolls[i + 2];
+            }
+            i++;
+            frame++;
+        }
+    }
+
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
+    string input;
+    cin >> input;
+    cout << bowlingScore(input) << endl;
     return 0;
 }
