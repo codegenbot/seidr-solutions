@@ -23,8 +23,8 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
     return std::make_pair(sum, product);
 }
 
-std::vector<int> toVector(const std::pair<int, int>& p) {
-    return {p.first, p.second};
+std::vector<int> toVector(std::pair<int, int> pair) {
+    return {pair.first, pair.second};
 }
 
 int main() {
