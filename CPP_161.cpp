@@ -1,3 +1,7 @@
+#include <string>
+#include <algorithm>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
