@@ -13,14 +13,14 @@ vector<string> words;
     if (!word.empty()) {
         words.push_back(word);
     }
-    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
-        int count_odd_lowercase = 0;
-        for (char c : words[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count_odd_lowercase++;
+    if (words.empty()) {
+        int odd_lowercase = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                odd_lowercase++;
             }
         }
-        words[0] = to_string(count_odd_lowercase);
+        words.push_back(to_string(odd_lowercase));
     }
     return words;
 }
