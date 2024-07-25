@@ -4,7 +4,7 @@ def tri(n):
     elif n == 1:
         return [3]
     else:
-        tribonacci = [3, 1]
+        tribonacci = [0, 3]
         for i in range(2, n + 1):
             if i % 2 == 0:
                 tribonacci.append(1 + i // 2)
