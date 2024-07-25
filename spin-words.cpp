@@ -3,25 +3,25 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordStart = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(wordStart, i - wordStart);
-            if (word.length() >= 5) {
-                result += reverse(word) + " ";
-            } else {
-                result += word + " ";
+    int i = 0;
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += " ";
+            i++;
+        } else if(i + 4 >= str.length() || isalpha(str[i+4])) {
+            for(int j = i; j <= (i+4); j++) {
+                if(j < str.length())
+                    result = str[j] + result;
+                else
+                    break;
             }
-            wordStart = i + 1;
+            i += 5;
+        } else {
+            for(int j = i; j < str.length(); j++) {
+                result = str[j] + result;
+            }
+            i = str.length();
         }
     }
-    return result.substr(0, result.length() - 1);
-}
-
-string reverse(string str) {
-    string reversed = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        reversed += str[i];
-    }
-    return reversed;
+    return result;
 }
