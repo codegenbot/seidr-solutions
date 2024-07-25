@@ -1,11 +1,13 @@
+```python
 def digitSum(s):
     total = 0
-    for char in s.lower():
+    s = s.lower()
+    for char in s:
         if char.isdigit():
             total += int(char)
-        elif char == 'e':
+        elif char == 'a' or char == 'e' or char == 'i' or char == 'o' or char == 'l' or char == 'm':
             total += 3
-        elif char == 'o':
+        else:
             total += 0
     return total
 
