@@ -1,8 +1,10 @@
 while True:
     try:
         numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-        if len(numbers) < 2:
-            raise ValueError("Please provide at least two numbers")
+        if not all(isinstance(num, int) for num in numbers):
+            raise ValueError("Non-integer value provided")
+        if not numbers:
+            raise ValueError("No numbers provided")
         
         total = sum(numbers)
         print("Sum of the numbers:", total)
