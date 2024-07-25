@@ -1,74 +1,55 @@
+#include <iostream>
 #include <any>
 #include <string>
-#include <locale>
-using namespace std;
+#include <memory>
 
-namespace std {
-
-any a;
-any b;
-
-bool compareAny(const any& x) {
-    if (x.type() == typeid(int)) {
-        int value = any_cast<int>(x);
-        return &compareAnyImpl<int>;
-    } else if (x.type() == typeid(double)) {
-        double value = any_cast<double>(x);
-        return &compareAnyImpl<double>;
-    } else if (x.type() == typeid(string) || x.type() == typeid(wstring)) {
-        string value = any_cast<string>(x);
-        return &compareAnyImpl<string>;
+std::any get_larger(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = std::any_cast<int>(a);
+        int y = std::any_cast<int>(b);
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a;
+    } 
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double x = std::any_cast<double>(a);
+        double y = std::any_cast<double>(b);
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a;
+    } 
+    else if ((a.type() == typeid(std::string) || a.type() == typeid(char*)) &&
+             (b.type() == typeid(std::string) || b.type() == typeid(char*))) {
+        std::string x = std::any_cast<std::string>(a);
+        std::string y = std::any_cast<std::string>(b);
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a;
+    } 
+    else if ((a.type() == typeid(std::string) || a.type() == typeid(char*)) &&
+             (b.type() == typeid(double))) {
+        std::string x = std::any_cast<std::string>(a);
+        double y = std::any_cast<double>(b);
+        if (std::stod(x) > y) return a;
+        else if (std::stod(x) < y) return b;
+        else return a;
+    } 
+    else if ((a.type() == typeid(double)) &&
+             (b.type() == typeid(std::string) || b.type() == typeid(char*))) {
+        double x = std::any_cast<double>(a);
+        std::string y = std::any_cast<std::string>(b);
+        if (x > std::stod(y)) return a;
+        else if (x < std::stod(y)) return b;
+        else return a;
+    } 
+    else {
+        return a;
     }
-
-    // default case
-    return &compareAnyImpl<int>;
-}
-
-template<typename T>
-bool compareAnyImpl(T value) {
-    if (!a.type() || !b.type()) {
-        return false;
-    }
-
-    bool isInt = (a.type() == typeid(int)) && (b.type() == typeid(int));
-    bool isDouble = (a.type() == typeid(double)) && (b.type() == typeid(double));
-    bool isString = ((a.type() == typeid(string)) || (a.type() == typeid(wstring))) &&
-                    ((b.type() == typeid(string)) || (b.type() == typeid(wstring)));
-
-    if (isInt) {
-        int x = any_cast<int>(a);
-        int y = any_cast<int>(b);
-        return x > y;
-    } else if (isDouble) {
-        double x = any_cast<double>(a);
-        double y = any_cast<double>(b);
-        return x > y;
-    } else if (isString) {
-        string x = any_cast<string>(a);
-        string y = any_cast<string>(b);
-        return x > y;
-    }
-
-    // default case
-    return true;
 }
 
 int main() {
-    // read input from user
-    cout << "Enter two values to compare: ";
-    cin >> a >> b;
-
-    if (compareAny(a) && compareAny(b)) {
-        if (a > b) {
-            return 1;
-        } else if (a < b) {
-            return -1;
-        }
-        return 0;
-    }
-
-    // handle invalid input
-    cout << "Invalid input. Please enter two values of the same type." << endl;
-
-    return 2;
+    std::any a, b; // variables declared here
+    // your logic goes here
+    // you may want to get the user input in this place.
+    std::cout << "Larger Value: " << get_larger(a, b) << std::endl;
 }
