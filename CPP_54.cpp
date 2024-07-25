@@ -1,27 +1,15 @@
+```
 #include <algorithm>
 #include <string>
 #include <iostream>
 
-bool same_chars() {
-    std::vector<char> s;
-    int count = 0;
-
-    // read input from user
-    char c;
-    while (std::cin >> c) {
-        for (char ch : s) {
-            if (c == ch)
-                return false;
-        }
-        s.push_back(c);
-        ++count;
-    }
-
-    // return true if all characters are same, else false
-    return count > 0 && std::count(s.begin(), s.end(), s[0]) == s.size();
+bool same_chars(std::string s0, std::string s1) {
+    std::sort(s0.begin(), s0.end());
+    std::sort(s1.begin(), s1.end());
+    return s0 == s1;
 }
 
 int main() {
-    assert(!same_chars('a', 'a', 'b', 'b'));
-    std::cout << (same_chars('a', 'c', 'd', 'e') ? "True" : "False") << std::endl;
+    assert(same_chars("aabb", "aaccc") == false);
+    std::cout << (same_chars("abcde", "edcba") ? "True" : "False") << std::endl;
 }
