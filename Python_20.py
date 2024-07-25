@@ -1,6 +1,11 @@
-for _ in range(5):
+while True:
     try:
-        numbers = list(map(float, input().split()))
+        line = input()
+        if not line:
+            break
+        numbers = list(map(float, line.split()))
         print(numbers)
     except ValueError:
-        print("Error: Input format is incorrect. Please provide space-separated numbers.")
+        print(
+            "Error: Input format is incorrect. Please provide space-separated numbers."
+        )
