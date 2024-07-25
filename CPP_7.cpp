@@ -2,9 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { 
-    return a == b; 
-}
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substr) {
     std::vector<std::string> result;
@@ -16,6 +14,10 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
     }
 
     return result;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 int main() {
