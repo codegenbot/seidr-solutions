@@ -12,15 +12,8 @@ def fruit_distribution(s):
     return (
         "mixed"
         if fruit_counts["apple"] > 0 and fruit_counts["banana"] > 0
-        else (
-            "apples"
-            if "apple" in fruit_counts and fruit_counts["apple"] > 0
-            else (
-                "bananas"
-                if "banana" in fruit_counts and fruit_counts["banana"] > 0
-                else "unknown"
-            )
-        )
+        else "apples" if "apple" in fruit_counts and fruit_counts["apple"] > 0 \
+            else ("bananas" if "banana" in fruit_counts and fruit_counts["banana"] > 0 else "unknown")
     )
 
 print(fruit_distribution("1 apples and 100 oranges"))
