@@ -1,24 +1,16 @@
 vector<string> by_length(vector<int> arr){
-    vector<int> sortedArr;
-    vector<string> result;
-    map<int, string> digitMap = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-    };
-
+    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+            filtered.push_back(num);
         }
     }
-
-    sort(sortedArr.begin(), sortedArr.end());
-
-    reverse(sortedArr.begin(), sortedArr.end());
-
-    for (int num : sortedArr) {
-        result.push_back(digitMap[num]);
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
+    vector<string> result;
+    for (int num : filtered) {
+        result.push_back(names[num - 1]);
     }
-
     return result;
 }
