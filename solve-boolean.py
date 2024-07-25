@@ -1,11 +1,16 @@
-Here's the Python solution for the problem:
+def solve_boolean(expression):
+    def evaluate_expression(expression):
+        if expression == "T":
+            return True
+        elif expression == "F":
+            return False
+        elif len(expression) > 1:
+            a = expression[0]
+            op = expression[1]
+            b = expression[2:]
+            if op == "|":
+                return evaluate_expression(a) or evaluate_expression(b)
+            elif op == "&":
+                return evaluate_expression(a) and evaluate_expression(b)
 
-def solve_boolean(s):
-    if s == 'T':
-        return True
-    elif s == 'F':
-        return False
-    elif s[0] in ['f', 't'] and s[1] in ['&', '|']:
-        return eval(s)
-    else:
-        raise ValueError("Invalid input")
+    return evaluate_expression(expression)
