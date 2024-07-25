@@ -1,4 +1,4 @@
-map<string, int> number_map = {
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,21 +11,23 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-multimap<int, string> sorted_numbers;
-string result;
-
-size_t pos = 0;
-size_t found;
-while ((found = numbers.find(' ', pos)) != string::npos) {
-    string num = numbers.substr(pos, found - pos);
-    sorted_numbers.insert({number_map[num], num});
-    pos = found + 1;
+string sort_numbers(string numbers){
+    string result = "";
+    vector<string> num_list;
+    stringstream ss(numbers);
+    string token;
+    
+    while (ss >> token) {
+        num_list.push_back(token);
+    }
+    
+    sort(num_list.begin(), num_list.end(), [&](const string &a, const string &b) {
+        return num_map[a] < num_map[b];
+    });
+    
+    for (const string &num : num_list) {
+        result += num + " ";
+    }
+    
+    return result;
 }
-string num = numbers.substr(pos);
-sorted_numbers.insert({number_map[num], num});
-
-for (const auto& pair : sorted_numbers) {
-    result += pair.second + " ";
-}
-
-return result.substr(0, result.size() - 1);
