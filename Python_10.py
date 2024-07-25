@@ -1,7 +1,7 @@
-def make_palindrome(s: str) -> str:
-    s = s.lower()
-    for i in range(len(s)):
-        new_s = s[:i] + (s[i] * 2) + s[:i][::-1] + s[i+1:]
-        if new_s == s and new_s != s[::-1]:
-            return new_s
-    return ""
+palindrome = "".join(c for c in s if c.isalpha()) + "".join(
+    c for c in s[-1::-1] if c.isalpha()
+)
+new_s = ""
+for char in palindrome:
+    new_s += char * 2
+return new_s
