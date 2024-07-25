@@ -4,7 +4,7 @@ def max_fill(grid, capacity):
     cols = len(grid[0])
     total_water = sum(cell for row in grid for cell in row if cell > 0)
 
-    for i in range(cols):
+       for i in range(cols):
         for j in range(rows):
             if grid[j][i] > 0 and grid[j][i] <= capacity:
                 amount_to_fill = min(grid[j][i], capacity)
