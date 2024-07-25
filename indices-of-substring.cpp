@@ -1,20 +1,33 @@
 #include <vector>
 using namespace std;
 
-class Solution {
-public:
-    vector<int> findIndices(string text, string target) {
-        vector<int> indices;
-        int start = 0;
-        while (start <= text.length() - target.length()) {
-            int pos = text.find(target, start);
-            if (pos != -1) {
-                indices.push_back(pos);
-                start = pos + 1;
-            } else {
-                break;
-            }
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int start = 0;
+    
+    while (start < text.length()) {
+        size_t pos = text.find(target, start);
+        
+        if (pos == string::npos) {
+            break;
         }
-        return indices;
+        
+        result.push_back(pos);
+        start = pos + 1;
     }
-};
+    
+    return result;
+}
+
+int main() {
+    // Your test cases here
+    string text, target;
+    cin >> text >> target;
+    vector<int> res = indicesOfSubstring(text, target);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
