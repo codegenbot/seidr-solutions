@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -14,12 +20,17 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
+    
+    string reverseTemp = "";
+    for(int i = temp.length() - 1; i >= 0; i--) {
+        reverseTemp += temp[i];
+    }
+    
+    if (temp == reverseTemp) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
+    
     return result;
 }
