@@ -1,16 +1,12 @@
 #include <iostream>
 #include <vector>
 
-bool issame(float a, float b) {
-    return a == b;
-}
-
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
-        if (issame(gpa, 4.0)) {
+        if (gpa == 4.0) {
             letter_grades.push_back("A+");
         } else if (gpa > 3.7) {
             letter_grades.push_back("A");
