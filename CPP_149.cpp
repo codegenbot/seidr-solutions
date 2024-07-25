@@ -4,6 +4,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> sorted_lst = lst;
+    
     sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), sorted_lst.end());
     sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b){
         if (a.length() == b.length()) {
@@ -11,12 +12,13 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
         }
         return a.length() < b.length();
     });
+    
     return sorted_lst;
 }
 
 int main() {
     vector<string> lst = {"apple", "banana", "orange", "kiwi", "pear"};
     vector<string> result = sorted_list_sum(lst);
-    cout << issame(lst, result) << endl;
+    
     return 0;
 }
