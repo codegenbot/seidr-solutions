@@ -1,18 +1,17 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
 int test_main() {
     assert(issame(separate_paren_groups("( ) (( "),"{}","{(())", "(())"}"));
     return 0;
 }
 
-bool issame(vector a, vector b) {
-    for (string s : a) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    for (std::string s : a) {
         bool found = false;
-        for (string t : b) {
+        for (std::string t : b) {
             if (s == t) {
                 found = true;
                 break;
@@ -25,23 +24,30 @@ bool issame(vector a, vector b) {
     return true;
 }
 
-vector separate_paren_groups(string paren_string) {
-    vector result;
-    string current_group = "";
-    int open_count = 0;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group = "";
 
     for (char c : paren_string) {
-        if (c == '(') {
-            open_count++;
+        if (c == '(' || c == ')') {
             current_group += c;
-        } else if (c == ')') {
-            open_count--;
-            current_group += c;
-            if (open_count == 0) {
+        } else {
+            if (!current_group.empty()) {
+                current_group += " ";
+            }
+        }
+
+        if (c == ')') {
+            if (!current_group.empty() && current_group.back() == '(') {
                 result.push_back(current_group);
                 current_group = "";
             }
         }
+    }
+
+    // Push the last group into the result
+    if (!current_group.empty()) {
+        result.push_back(current_group);
     }
 
     return result;
