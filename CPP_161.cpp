@@ -1,33 +1,24 @@
-#include <string>
-#include <algorithm>
-#include <cctype>
-
-using namespace std;
-
-string solve(string s){
-    int n = s.size();
-    bool hasLetter = false;
-    
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            hasLetter = true;
-            if(islower(s[i])){
-                s[i] = toupper(s[i]);
-            } else{
-                s[i] = tolower(s[i]);
+std::string solve(const std::string& s) {
+    std::string result = s;
+    for (int i = 0; i < result.length(); i++) {
+        if (isalpha(result[i])) {
+            if (islower(result[i])) {
+                result[i] = toupper(result[i]);
+            } else {
+                result[i] = tolower(result[i]);
             }
         }
     }
-    
-    if(!hasLetter){
-        reverse(s.begin(), s.end());
+    int left = 0, right = result.length() - 1;
+    while (left < right) {
+        std::swap(result[left], result[right]);
+        left++;
+        right--;
     }
-    
-    return s;
+    return result;
 }
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-    // Add more test cases here
     return 0;
 }
