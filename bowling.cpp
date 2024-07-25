@@ -1,27 +1,39 @@
-int score(string input) {
-    int total_score = 0;
-    int frame = 1;
-    int i = 0;
-    while (frame <= 10 && i < input.size()) {
-        if (input[i] == 'X') {
-            total_score += 10;
-            total_score += (input[i + 2] == 'X') ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] - '0') : input[i + 1] - '0' + input[i + 2] - '0');
-            i++;
-        } else if (input[i + 1] == '/') {
-            total_score += 10;
-            total_score += (input[i + 2] == 'X') ? 10 : input[i + 2] - '0';
-            i += 2;
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    int f[30];
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            f[frame] = 10;
+            frame++;
+        } else if (s[i] == '/') {
+            f[frame] = 10 - f[frame-1];
+            frame++;
+        } else if (s[i] == '-') {
+            f[frame] = 0;
+            frame++;
         } else {
-            total_score += (input[i] == '-' ? 0 : input[i] - '0') + (input[i + 1] == '-' ? 0 : input[i + 1] - '0');
-            i += 2;
+            f[frame] = s[i] - '0';
+            frame++;
         }
-        frame++;
     }
-    return total_score;
+    for (int i = 0; i < 10; i++) {
+        if (f[i] == 10) {
+            total += 10 + f[i+1] + f[i+2];
+        } else if (f[i] + f[i+1] == 10) {
+            total += 10 + f[i+2];
+            i++;
+        } else {
+            total += f[i] + f[i+1];
+            i++;
+        }
+    }
+    return total;
 }
+
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
