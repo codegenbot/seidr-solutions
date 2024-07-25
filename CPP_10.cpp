@@ -1,22 +1,19 @@
+```cpp
 #include <string>
 #include <iostream>
+using namespace std;
 
-std::string make_palindrome(std::string input) {
-    std::string output = input;
-    for(int i=0; i<input.length()/2; i++) {
-        int j = input.length() - i - 1;
-        char temp = output[j];
-        output[j] = output[i];
-        output[i] = temp;
-    }
-    return output;
+string make_palindrome(string input) {
+    string output = input;
+    reverse(output.begin(), output.end());
+    return input + output;
 }
 
 int main() {
-    std::string input, output;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
+    string input, output;
+    cout << "Enter a string: ";
+    cin >> input;
     output = make_palindrome(input);
-    std::cout << "Palindrome of the given string is: " << output << std::endl;
+    cout << "Palindrome of the given string is: " << output << endl;
     return 0;
 }
