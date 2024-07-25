@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 from typing import list
 
 def remove_duplicates(numbers: list) -> list:
