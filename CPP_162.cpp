@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
@@ -9,7 +10,7 @@ std::string string_to_md5(std::string text) {
     EVP_MD_CTX* mdctx;
     unsigned char md[16];
     string str = text;  
-    size_t len = str.length();
+    unsigned int len = str.length();
 
     if (len == 0)
         return "";
@@ -21,7 +22,7 @@ std::string string_to_md5(std::string text) {
     if (1 != EVP_DigestUpdate(mdctx, str.c_str(), len))
         return "";
     unsigned char mdSig[EVP_MAX_BLOCK_LENGTH];
-    int len_output = EVP_DigestFinal_ex(mdctx, mdSig, (unsigned int*)&len);
+    unsigned int len_output = EVP_DigestFinal_ex(mdctx, mdSig, &len);
     EVP_MD_CTX_free(mdctx);
 
     string result;
@@ -34,6 +35,9 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
-    cout << string_to_md5("password") << endl;
+    cout << "Enter a text: ";
+    string input;
+    cin >> input;
+    cout << "MD5 of the input is : " << string_to_md5(input) << endl;
     return 0;
 }
