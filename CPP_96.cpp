@@ -1,14 +1,20 @@
-vector<int> result;
-    for (int i = 2; i < n; ++i) {
-        bool isPrime = true;
-        for (int j = 2; j * j <= i; ++j) {
-            if (i % j == 0) {
-                isPrime = false;
-                break;
+vector<int> count_up_to(int n){
+    vector<int> result;
+    if(n < 2){
+        return result;
+    }
+    vector<bool> isPrime(n, true);
+    for(int p = 2; p * p < n; p++){
+        if(isPrime[p]){
+            for(int i = p * p; i < n; i += p){
+                isPrime[i] = false;
             }
         }
-        if (isPrime) {
+    }
+    for(int i = 2; i < n; i++){
+        if(isPrime[i]){
             result.push_back(i);
         }
     }
     return result;
+}
