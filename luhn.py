@@ -1,8 +1,13 @@
-Here is the solution:
-
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[1:]]
-    result = sum([d*2 if i%2 else d for i,d in enumerate(card_number)])
-    return str(result % 10)
-
-print(luhn(int(input("16\n"))))
+```
+def luhn(card_num):
+    card_num = [int(i) for i in str(card_num).split()]
+    total_sum = 0
+    is_second = False
+    for digit in card_num:
+        if is_second:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        is_second = not is_second
+        total_sum += digit
+    return total_sum
