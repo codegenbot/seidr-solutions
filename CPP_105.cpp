@@ -6,7 +6,13 @@
 
 bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2);
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(std::vector<int> arr);
+
+bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
+    return vec1.size() == vec2.size() && std::equal(vec1.begin(), vec1.end(), vec2.begin());
+}
+
+std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<int> sorted_arr;
     std::vector<std::string> result;
     std::map<int, std::string> num_to_word = {
