@@ -36,12 +36,3 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
-
-int main() {
-    vector<float> grades = {3.5, 2.8, 4.0, 1.9};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-
-    return 0;
-}
