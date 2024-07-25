@@ -1,14 +1,10 @@
-```
-def digitSum(s):
-    def get_digit_sum(sub_s):
-        total = 0
-        for char in sub_s:
-            if char.isdigit():
-                total += int(char)
-            else:
-                total += ord(char.lower()) - 96 if char.islower() else ord(char.lower()) - 64
-        return total
+```python
+import re
 
-    return get_digit_sum(s.lower())
+def digitSum(s):
+    total = 0
+    for match in re.finditer(r'\d+', s):
+        total += int(match.group())
+    return total
 
 print(digitSum("You arE Very Smart"))
