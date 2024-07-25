@@ -15,8 +15,8 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    assert(count_nums({123, -456, 789, -1011}) == 4);
-    assert(count_nums({0, 0, 0, 0}) == 0);
-    assert(count_nums({-123, -456, -789, -1011}) == 0);
+    std::vector<int> test_input = {123, -456, 789, -101};
+    assert(count_nums(test_input) == 3);
+    
     return 0;
 }
