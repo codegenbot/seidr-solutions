@@ -1,10 +1,11 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int strongest = 0;
-    string strongest_ext = "";
+    std::string strongest_ext = "";
     for(auto ext : extensions){
         int cap = 0, sm = 0;
         for(char c : ext){
@@ -22,5 +23,6 @@ int Strongest_Extension(string class_name,vector<string> extensions){
 
 int main() {
     assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
     return 0;
 }
