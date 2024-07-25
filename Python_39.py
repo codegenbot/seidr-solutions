@@ -1,1 +1,3 @@
-print(prime_fib(n))
+n = int(input())
+result = prime_fib(n)
+print(result)
