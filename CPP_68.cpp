@@ -1,26 +1,23 @@
 #include <vector>
-#include <climits>
+#include <cassert>
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     int minEven = INT_MAX;
     int minIndex = INT_MAX;
-
+    
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
             minEven = arr[i];
             minIndex = i;
         }
     }
-
+    
     if (minEven != INT_MAX) {
         result.push_back(minEven);
         result.push_back(minIndex);
     }
-
+    
     return result;
 }
