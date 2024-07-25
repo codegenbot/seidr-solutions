@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -19,9 +19,14 @@ std::string int_to_roman(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> num;
 
-    std::cout << "The mini Roman representation of the number is: " << int_to_roman(num) << std::endl;
+    if(num < 1 || num > 3999) {
+        std::cout << "Please enter a number between 1 and 3999.\n";
+        return 0;
+    }
+
+    std::cout << int_to_roman(num);
     return 0;
 }
