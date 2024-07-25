@@ -19,8 +19,12 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter valid integer for quantity and price.")
 
-    tax_rate = float(input("Enter the tax rate (or press Enter for 0.08): ") or 0.08)
     if not user_input:
         print("No items entered. Exiting program.")
     else:
+        last_item_name = input("Enter the name of the last item: ")
+        last_quantity = int(input(f"Enter the quantity of {last_item_name}: "))
+        last_price = float(input(f"Enter the price of {last_item_name}: "))
+        user_input.append({"name": last_item_name, "quantity": last_quantity, "price": last_price})
+        tax_rate = float(input("Enter the tax rate (or press Enter for 0.08): ") or 0.08)
         print(calculate_total_cost(user_input, tax_rate))
