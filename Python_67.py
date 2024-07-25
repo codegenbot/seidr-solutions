@@ -1,4 +1,5 @@
 ```
+import re
 def fruit_distribution(s): 
     s = s.lower() 
     if "and" in s: 
