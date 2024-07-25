@@ -6,3 +6,5 @@ bool iscuber(int a) {
 }
 
 int main() {
+    return 0;
+}
