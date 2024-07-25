@@ -1,11 +1,14 @@
-Here is the solution:
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
-```cpp
 vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for (float x : l) {
-        if(x > 0)
-            result.push_back(x);
+    for (float n : l) {
+        if (n > 0) {
+            result.push_back(n);
+        }
     }
     return result;
 }
