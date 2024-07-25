@@ -1,51 +1,30 @@
-#include <iostream>
 #include <string>
 
-int main() {
-    bool has_digits = false;
-    int dot_count = 0;
-
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
 
     for (char c : file_name) {
-        if (isdigit(c)) {
-            if (!has_digits) {
-                has_digits = true;
-            }
-            if (has_digits && has_digits < 3) {
-                has_digits++;
-            } else {
-                return 0;
-            }
+        if (c >= '0' && c <= '9') {
+            digit_count++;
         } else if (c == '.') {
-            dot_count++;
-            if (dot_count > 1) {
-                return 0;
-            }
+            found_dot = true;
+        } else if (!found_dot) {
+            return "No";
         }
     }
 
-    if (!has_digits || dot_count != 1) {
-        return 0;
+    if (digit_count > 3 || !found_dot) {
+        return "No";
     }
 
-    std::string ext = "";
-    int i = file_name.find('.');
-    for (; i < file_name.size(); i++) {
-        ext += file_name[i];
-    }
-    i = 0;
-    while (i < ext.size() && (ext[i] == 't' || ext[i] == 'T' || ext[i] == 'x' || ext[i] == 'X')) {
-        i++;
+    size_t dot_pos = file_name.find('.');
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!before_dot.empty() && (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) {
+        return "No";
     }
 
-    if (i > 0) {
-        return 1;
-    } else if (ext == "txt" || ext == "exe" || ext == "dll") {
-        return 1;
-    } else {
-        return 0;
-    }
+    return "Yes";
 }
