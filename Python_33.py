@@ -1,3 +1,4 @@
+```
 def sort_third(l):
     result = []
     while len(l) > 0:
@@ -7,7 +8,6 @@ def sort_third(l):
             temp.sort()
             result.append(tuple(temp))
         else:
-            temp = tuple(sorted(l))
-            del l[:]
-            result.append(temp)
+            result.append(tuple(sorted(l)))
+            break
     return tuple(result)
