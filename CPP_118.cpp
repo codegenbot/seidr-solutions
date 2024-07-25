@@ -1,10 +1,18 @@
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
+    int left = 0;
+    for (int right = word.size() - 1; right >= 0; --right) {
+        if (!isalpha(word[right])) continue;
+        if (ispunct(word[right]) || isupper(word[right])) continue;
+        if (vowels.find(toupper(word[right])) != string::npos) {
+            return string(1, toupper(word[right]));
+        }
+    }
+    for (int i = 0; i < word.size(); ++i) {
         if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return string(1, tolower(word[i]));
-        while (!isalpha(word[i-1]) && i-- > 0);
-        if (isvowel(word[i-1])) return string(1, tolower(word[i-1]));
+        if (ispunct(word[i]) || isupper(word[i])) continue;
+        if (vowels.find(toupper(word[i])) != string::npos) {
+            return string(1, toupper(word[i]));
+        }
     }
     return "";
 }
