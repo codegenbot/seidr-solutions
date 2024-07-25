@@ -1,3 +1,4 @@
+```
 def solve_task(s):
     result = ""
     i, j = 0, len(s) - 1
@@ -8,12 +9,10 @@ def solve_task(s):
                 i += 1
                 j -= 1
             else:
-                if s[i].isupper():
-                    result += s[i]
-                    i += 1
-                else:
-                    result += s[j]
-                    j -= 1
+                result += s[i]
+                i += 1
+                result += s[j]
+                j -= 1
         elif s[i].isalpha():
             result += s[i]
             i += 1
@@ -32,3 +31,7 @@ def solve_task(s):
         result += s[j]
         j -= 1
     return result
+
+
+input_str = input("Enter a string: ")
+print(solve_task(input_str))
