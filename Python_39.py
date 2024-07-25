@@ -1,9 +1,17 @@
-mem = {0: 0, 1: 1, 2: 1}
+def is_prime(num):
+    if num < 2:
+        return False
+    if num == 2:
+        return True
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
-def fibonacci(num):
+def fibonacci(num, mem={0: 0, 1: 1}):
     if num in mem:
         return mem[num]
-    mem[num] = fibonacci(num - 1) + fibonacci(num - 2)
+    mem[num] = fibonacci(num - 1, mem) + fibonacci(num - 2, mem)
     return mem[num]
 
 def prime_fib(num):
@@ -11,7 +19,7 @@ def prime_fib(num):
     return is_prime(fib_num)
 
 def check(func):
-    for i in range(0, 11):
+    for i in range(0, 12):  # Add 12 to account for the 10th Fibonacci number used in the test
         if func(i):
             print(f"{i}: Prime Fibonacci")
         else:
