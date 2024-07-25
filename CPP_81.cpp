@@ -1,11 +1,19 @@
 #include <string>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
