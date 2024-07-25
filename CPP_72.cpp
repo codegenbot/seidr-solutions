@@ -7,8 +7,8 @@ int sum = 0;
         return false;
     }
     
-    vector<int> reversed_q = q;
-    reverse(reversed_q.begin(), reversed_q.end());
+    vector<int> reverse_q = q;
+    reverse(reverse_q.begin(), reverse_q.end());
     
-    return q == reversed_q;
+    return q == reverse_q;
 }
