@@ -1,9 +1,10 @@
-#include <openssl/md5.h>
+```cpp
+#include <openssl/evp.h>
+#include <openssl/hmac.h>
 #include <string>
-#include <cassert>
 
 std::string string_to_md5(std::string text) {
-    MD5_CTX ctx;
+    EVP_MD_CTX ctx;
     unsigned char md[16];
     const char* str = text.c_str();
     size_t len = text.length();
@@ -11,9 +12,9 @@ std::string string_to_md5(std::string text) {
     if (len == 0)
         return "";
 
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, str, len);
-    MD5_Final(md, &ctx);
+    EVP_DigestInit_ex(&ctx, EVP_md5(), 0);
+    EVP_DigestUpdate(&ctx, str, len);
+    EVP_DigestFinal_ex(&ctx, md, NULL);
 
     std::string result;
     for (int i = 0; i < 16; i++) {
