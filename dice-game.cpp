@@ -4,14 +4,16 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     
-    double probability = 0.0;
-    if (n > m) {
-        probability = 1.0;
-    } else if (n < m) {
-        probability = 1.0 * n / m;
+    double total_outcomes = n * m;
+    double favorable_outcomes = 0;
+
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j < i && j <= m; ++j) {
+            favorable_outcomes++;
+        }
     }
-    
-    std::cout << probability << std::endl;
-    
+
+    std::cout << favorable_outcomes / total_outcomes << std::endl;
+
     return 0;
 }
