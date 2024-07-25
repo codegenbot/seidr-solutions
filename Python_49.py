@@ -7,4 +7,5 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-print(is_prime(int(input("Enter a number:"))))
+modp = int(input("Enter a number to check if it's prime: "))
+print(is_prime(modp))
