@@ -9,9 +9,11 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(!found_dot && !isalpha(file_name[i])) return "No";
+        else if(found_dot && (file_name[i] != 't' && file_name[i] != 'x' && file_name[i] != 'e' && file_name[i] != 'd' && file_name[i] != 'l')){
+            return "No";
+        }
     }
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
+    if(!found_dot) return "No";
     string extension = file_name.substr(file_name.find('.')+1);
     if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
     return "Yes";
