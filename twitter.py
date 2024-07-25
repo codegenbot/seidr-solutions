@@ -1,6 +1,4 @@
-```
 tweet = input("Enter a tweet: ").strip()
-tweet = tweet.replace(" ", "")
 if not tweet:
     print("You didn't type anything")
 elif len(tweet) > 140:
