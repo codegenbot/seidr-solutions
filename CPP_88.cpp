@@ -1,9 +1,10 @@
 if(array.empty()) return array;
-    vector<int> sorted_array = array;
-    if((sorted_array[0] + sorted_array.back()) % 2 == 0){
-        sort(sorted_array.rbegin(), sorted_array.rend());
+    
+    if((array.front() + array.back()) % 2 == 0){
+        sort(array.begin(), array.end(), greater<int>());
     } else {
-        sort(sorted_array.begin(), sorted_array.end());
+        sort(array.begin(), array.end());
     }
-    return sorted_array;
+    
+    return array;
 }
