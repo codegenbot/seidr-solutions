@@ -1,10 +1,4 @@
-def process_string(input_str: str) -> str:
-    if len(input_str) == 0:
-        return "Error: Input string is empty."
-    result = ""
-    for char in input_str:
-        if not char.isalnum():
-            return "Error: Input contains non-alphanumeric characters."
-    for i in range(0, len(input_str), 3):
-        result += input_str[(i+1) % len(input_str)] + input_str[(i+2) % len(input_str)] + input_str[i]
-    return result
+input_str = input("Enter a string: ").lower().strip()
+while len(input_str) % 3 != 0 or not input_str.isalnum() or len(input_str) == 0:
+    print("Invalid input. Please enter a non-empty string with a length multiple of 3 containing only alphanumeric characters.")
+    input_str = input("Enter a string: ").lower().strip()
