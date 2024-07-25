@@ -9,13 +9,13 @@ struct Solution {
         if (a.size() != b.size()) {
             return false;
         }
-        
+
         for (size_t i = 0; i < a.size(); ++i) {
             if (a[i] != b[i]) {
                 return false;
             }
         }
-        
+
         return true;
     }
 
@@ -39,7 +39,7 @@ struct Solution {
 };
 
 int main() {
-    assert(Solution::issame(Solution::generate_integers(17, 89), {}));
+    assert(Solution::issame(Solution::generate_integers(17, 89), Solution::generate_integers(17, 89)));
     
     return 0;
 }
