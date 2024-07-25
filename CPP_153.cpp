@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <vector>
+#include <string>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
