@@ -1,12 +1,11 @@
 #include <vector>
-#include <string>
 #include <cassert>
 
 std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string group;
     int balance = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -23,17 +22,16 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             }
         }
     }
-    
+
     return result;
 }
 
-void test_separate_paren_groups() {
-    std::string input = "((group1)(group2)(group3))";
-    std::vector<std::string> expected = {"(group1)", "(group2)", "(group3)"};
-    assert(separate_paren_groups(input) == expected);
-}
-
 int main() {
-    test_separate_paren_groups();
+    std::vector<std::string> expected_result = {"(())", "()"};
+    std::string input = "(())()";
+    std::vector<std::string> output = separate_paren_groups(input);
+    
+    assert(output == expected_result);
+
     return 0;
 }
