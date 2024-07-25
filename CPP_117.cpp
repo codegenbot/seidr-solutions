@@ -1,26 +1,29 @@
 vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int consonantCount = 0;
-
+    vector<string> words;
+    string word;
+    
     for (char c : s) {
-        if (c == ' ') {
-            if (consonantCount == n) {
-                result.push_back(word);
+        if (isalpha(c)) {
+            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
+                word += c;
+            } else {
+                word += c;
+                if (count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+                    words.push_back(word);
+                }
+                word = "";
+            }
+        } else if (!word.empty()) {
+            if (count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+                words.push_back(word);
             }
             word = "";
-            consonantCount = 0;
-        } else {
-            if (isalpha(c) && strchr("aeiouAEIOU", c) == nullptr) {
-                consonantCount++;
-            }
-            word += c;
         }
     }
-
-    if (consonantCount == n) {
-        result.push_back(word);
+    
+    if (!word.empty() && count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+        words.push_back(word);
     }
-
-    return result;
+    
+    return words;
 }
