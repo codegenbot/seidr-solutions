@@ -4,7 +4,19 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> by_length(std::vector<int> arr){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -19,7 +31,6 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(filtered_arr.begin(), filtered_arr.end());
-
     std::reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
@@ -29,10 +40,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+
+    return 0;
 }
