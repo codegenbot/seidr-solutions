@@ -1,26 +1,42 @@
+#include <vector>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
+    vector<int> frames;
     for (char c : s) {
         if (c == 'X') {
-            score += 30;
-            frame++;
+            frames.push_back(10);
         } else if (c == '/') {
-            score += 10;
-            frame++;
-        } else if (isdigit(c)) {
-            int pins = c - '0';
-            if (frame < 9 && s[s.size() - 3] == 'X' || s[s.size() - 2] == '/') {
-                score += 10 + pins;
-                frame++;
-            } else {
-                score += pins;
-                frame++;
-                if (s[s.size() - 1] != c) {
-                    frame++;
+            int spare = 10 - stoi(string({c}).c_str());
+            frames.push_back(10 + spare);
+        } else {
+            int frameScore = 0;
+            for (char d : string({c})) {
+                if (d == 'X') {
+                    frameScore += 10;
+                    break;
+                } else if (d == '/') {
+                    int lastRoll = 10 - stoi(string({d}).c_str());
+                    frameScore += 10 + lastRoll;
+                    break;
+                } else {
+                    frameScore += stoi(string({d})) * 1;
                 }
             }
+            frames.push_back(frameScore);
         }
     }
+    
+    for (int i = 0; i < frames.size(); i++) {
+        score += frames[i];
+        if (i < 9) {
+            if (frames[i] == 10) continue;
+            else if (frames[i] + frames[i+1] > 10) 
+                score += 10 - frames[i]; 
+            else score += frames[i]; 
+        }
+    }
+    
     return score;
 }
