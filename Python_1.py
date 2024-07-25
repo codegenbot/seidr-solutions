@@ -1,4 +1,4 @@
-```python
+```
 def separate_paren_groups(paren_string: str) -> List[str]:
     if ' ' in paren_string:
         paren_string = paren_string.replace(' ', '')
