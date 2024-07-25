@@ -22,8 +22,9 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // Add code to populate the dictionary
-    bool result = check_dict_case(dict);
-    cout << "The result is: " << (result ? "True" : "False") << endl;
+    // Add your test cases here
+    bool result1 = check_dict_case(dict);
+    cout << "Result 1: " << (result1 ? "true" : "false") << endl;
+
     return 0;
 }
