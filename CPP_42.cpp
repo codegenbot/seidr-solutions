@@ -1,16 +1,14 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-vector<int> incr_list(vector<int> l) {
+std::vector<int> incr_list(std::vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
         l[i]++;
     }
     return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
