@@ -1,17 +1,22 @@
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int a_copy = abs(a), b_copy = abs(b);
-    while (a_copy > 0) {
-        sum_a += a_copy % 10;
-        a_copy /= 10;
+    int sum_a = abs(a);
+    while (abs(a) > 0) {
+        sum_a += abs(a) % 10;
+        a /= 10;
     }
-    while (b_copy > 0) {
-        sum_b += b_copy % 10;
-        b_copy /= 10;
+    
+    int sum_b = abs(b);
+    while (abs(b) > 0) {
+        sum_b += abs(b) % 10;
+        b /= 10;
     }
+    
     if (sum_a == sum_b) {
-        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+        return a < b;
     }
+    
     return sum_a < sum_b;
 });
+
 return nums;
+}
