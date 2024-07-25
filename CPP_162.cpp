@@ -28,5 +28,7 @@ std::string string_to_md5(std::string text) {
     return result;
 }
 
-std::cout << string_to_md5("password") << std::endl;
-return 0;
+int main() {
+    std::cout << string_to_md5("password") << std::endl;
+    return 0;
+}
