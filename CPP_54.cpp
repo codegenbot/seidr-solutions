@@ -3,15 +3,14 @@
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <initializer_list>
 
-bool same_chars(std::initializer_list<char> chars) {
-    std::vector<char> s(chars.begin(), chars.end());
-    sort(s.begin(), s.end());
-    return s == vector<char>(chars.begin(), chars.end());
+bool same_chars(string s0, string s1) {
+    sort(s0.begin(), s0.end());
+    sort(s1.begin(), s1.end());
+    return s0 == s1;
 }
 
 int main() {
-    assert(!same_chars({'a', 'a', 'b', 'b'}));
-    cout << (same_chars('a', 'c', 'd', 'e') ? "True" : "False") << endl;
+    assert(same_chars("aabb", "aaccc") == false);
+    cout << (same_chars("abcde", "edcba") ? "True" : "False") << endl;
 }
