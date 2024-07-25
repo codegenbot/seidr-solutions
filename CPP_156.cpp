@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 string int_to_mini_roman(int number) {
