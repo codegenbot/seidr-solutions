@@ -1,4 +1,3 @@
-```
 def rescale_to_unit(input_numbers=None):
     input_numbers = (
         input("Enter space-separated float numbers: ")
@@ -12,7 +11,9 @@ def rescale_to_unit(input_numbers=None):
             if x.replace(".", "", 1).replace("-", 1).isnumeric()
         ]
     else:
-        raise ValueError("Invalid input. Please enter space-separated numbers.")
+        number_list = [float(x) for x in input_numbers]
+    if isinstance(number_list[0], str):
+        raise ValueError("Invalid input. Please enter numbers.")
     while True:
         try:
             result = [
