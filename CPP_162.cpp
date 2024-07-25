@@ -1,7 +1,9 @@
 #include <openssl/md5.h>
 #include <string>
+#include <cassert>
 
 std::string string_to_md5(std::string text) {
+    MD5_CTX ctx;
     unsigned char md[16];
     const char* str = text.c_str();
     size_t len = text.length();
@@ -9,7 +11,6 @@ std::string string_to_md5(std::string text) {
     if (len == 0)
         return "";
 
-    MD5_CTX ctx;
     MD5_Init(&ctx);
     MD5_Update(&ctx, str, len);
     MD5_Final(md, &ctx);
