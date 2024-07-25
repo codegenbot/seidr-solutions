@@ -1,13 +1,15 @@
-string ordered_word = s;
-    string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.size(); ++i) {
-        if (s[i] == ' ' || i == s.size()) {
-            string word = ordered_word.substr(start, i - start);
+string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + " ";
-            start = i + 1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
