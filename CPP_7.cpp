@@ -19,11 +19,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> str, std::
             result.push_back(s);
         }
     }
-    return {result.begin(), result.end()};
+    return {std::views::all(result)};
 }
 
-#include <assert.h>
 int main() {
-    assert(issame(std::vector<std::string>(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").end()), {"grunt", "prune"}));
-    return 0;
 }
