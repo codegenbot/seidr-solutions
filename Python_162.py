@@ -1,10 +1,9 @@
 import hashlib
-import sys
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
-text = sys.argv[1]
+text = input().strip()
 if len(text) < 1:
     raise ValueError("Input text must contain at least one character")
 
