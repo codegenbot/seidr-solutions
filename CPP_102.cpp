@@ -1,13 +1,10 @@
-Here is the solution:
-
-```cpp
 int choose_num(int x, int y) {
-    if (x > y) {
-        swap(x, y);
-    }
-    for (int i = x; i <= y; i++) {
-        if (i % 2 == 0) {
-            return i;
+    if (x % 2 == 0 && y % 2 == 0) {
+        return max(x, y);
+    } else if ((x % 2 != 0 && y % 2 == 0) || (x % 2 == 0 && y % 2 != 0)) {
+        for (int i = x; i <= y; i++) {
+            if (i % 2 == 0)
+                return i;
         }
     }
     return -1;
