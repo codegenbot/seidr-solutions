@@ -1,3 +1,11 @@
 def fruit_distribution(s, n):
-    s = s.replace("apples", "a").replace("oranges", "o")
-    return n - int(s.split()[2].split(" ")[0].lstrip("0123456789")) if 'and' not in s.split()[2].split(" ")[0] else n
+    s = s.replace("apples", "1").replace("oranges", "0")
+    parts = s.split()
+    count = 0
+    for i in range(len(parts)):
+        if i < 2:
+            continue
+        if 'and' not in parts[i]:
+            if parts[i].lstrip("0123456789") and parts[i].lstrip("0123456789").isalpha():
+                count += int(parts[i].lstrip("0123456789").replace('a', '1').replace('o', '0'))
+    return n - count
