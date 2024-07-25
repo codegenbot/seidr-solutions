@@ -6,10 +6,9 @@ bool is_happy(string s) {
         bool unique = true;
         for (char c : temp) {
             int count = 0;
-            for (int j = i; j < i + 3; j++) {
+            for (int j = i; j < i + 3; j++)
                 if (s[j] == c)
                     count++;
-            }
             if (count > 1) {
                 unique = false;
                 break;
