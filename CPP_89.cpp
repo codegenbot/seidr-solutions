@@ -1,12 +1,12 @@
-string encrypt(string s) {
+string encrypt(string s){
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
     string result = "";
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            int pos = ((int)c - 97 + 2 * 2) % 26;
-            result += (char)(pos + 97);
-        } else if (c >= 'A' && c <= 'Z') {
-            int pos = ((int)c - 65 + 2 * 2) % 26;
-            result += (char)(pos + 65);
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            int index = (int)(c - 'a');
+            index = (index + 2*2) % 26;
+            result += alphabet[index];
         } else {
             result += c;
         }
