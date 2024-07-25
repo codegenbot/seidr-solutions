@@ -1,10 +1,11 @@
-vector<int> filter_integers(list-any values) {
+#include <boost/lexical_cast.hpp>
+
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).none()) {
-            continue;
+        if (any_cast<int>(value)) {
+            result.push_back(any_cast<int>(value));
         }
-        result.push_back(any_cast<int>(value));
     }
     return result;
 }
