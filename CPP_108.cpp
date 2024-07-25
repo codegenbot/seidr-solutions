@@ -1,31 +1,29 @@
-Here is the solution:
-
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
+        bool has_positive_sum = false;
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
-                sum += num % 10;
+                int digit = num % 10;
+                sum += digit;
                 num /= 10;
             }
-            if (sum > 0)
-                count++;
+            has_positive_sum = sum > 0;
         } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            bool is_negative = true;
-            while (num > 0) {
-                if (is_negative) {
-                    sum -= num % 10;
-                    is_negative = false;
-                } else {
-                    sum += num % 10;
+            int sum = 0, i = 1;
+            do {
+                int digit = abs(num) % 10;
+                if (digit != 0 || i == 1) {
+                    sum += digit;
                 }
                 num /= 10;
-            }
-            if (sum > 0)
-                count++;
+                i *= 10;
+            } while (num > 0);
+            has_positive_sum = sum > 0;
+        }
+        if (has_positive_sum) {
+            count++;
         }
     }
     return count;
