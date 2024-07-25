@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 bool areSame(std::vector<int> a, std::vector<int> b) {
