@@ -1,4 +1,3 @@
-```
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -7,5 +6,5 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-modp = int(input("Enter a number to check if it's prime: "))
-print(is_prime(modp))
+num = int(input("Enter a number: "))
+print(is_prime(num))
