@@ -2,12 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b){
+        if(a.size() != b.size()) return false;
+        for(int i = 0; i < a.size(); ++i){
+            if(a[i] != b[i]) return false;
+        }
+        return true;
     }
-    return true;
 }
 
 std::vector<int> sort_array(std::vector<int> array){
@@ -19,5 +21,7 @@ std::vector<int> sort_array(std::vector<int> array){
     return array;
 }
 
-assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-return 0;
+int main() {
+    assert(std::issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    return 0;
+}
