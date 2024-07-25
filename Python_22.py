@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -15,6 +14,4 @@ def filter_integers() -> List[int]:
             values.extend([int(i) for i in value])
         except ValueError:
             print("Invalid input. Please enter integers separated by spaces or 'done'.")
-    return values
-
-print(filter_integers())
+    return [i for i in values if isinstance(i, int)]
