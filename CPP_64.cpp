@@ -1,12 +1,15 @@
-transform(s.begin(), s.end(), s.begin(), ::tolower);
+#include <string>
+using namespace std;
+
+int vowels_count(string s){
     int count = 0;
     for(char c : s){
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
             count++;
         }
     }
-    if(!s.empty() && (s.back() == 'y' || s.back() == 'Y')){
-        count--;
+    if(!s.empty() && (tolower(s.back()) == 'y')){
+        count++;
     }
     return count;
 }
