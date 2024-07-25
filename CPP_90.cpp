@@ -1,13 +1,8 @@
 sort(lst.begin(), lst.end());
-int count = 0;
-int prev = lst[0];
-for (int i = 1; i < lst.size(); i++) {
-    if (lst[i] != prev) {
-        count++;
+    int uniqueCount = unique(lst.begin(), lst.end()) - lst.begin();
+    if (uniqueCount > 1) {
+        return lst[1];
+    } else {
+        return -1;
     }
-    if (count == 1) {
-        return lst[i];
-    }
-    prev = lst[i];
 }
-return None;
