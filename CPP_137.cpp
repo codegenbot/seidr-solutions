@@ -1,50 +1,46 @@
-```cpp
 #include <boost/any.hpp>
 namespace boost;
 
-boost::any a;
-boost::any b;
-
-int main() {
+any greaterThanEqual(const any& a, const any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
-        if (x > y) return 1;
-        else if (x < y) return -1;
-        else return 0; 
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a; 
     } 
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double x = boost::any_cast<double>(a);
         double y = boost::any_cast<double>(b);
-        if (x > y) return 1;
-        else if (x < y) return -1;
-        else return 0; 
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a; 
     } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(boost::wstring)) &&
-           (b.type() == typeid(std::string) || b.type() == typeid(boost::wstring))) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        if (x > y) return 1;
-        else if (x < y) return -1;
-        else return 0; 
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+           (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        if (x > y) return a;
+        else if (x < y) return b;
+        else return a; 
     } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(boost::wstring)) &&
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
            (b.type() == typeid(double))) {
-        std::string x = boost::any_cast<std::string>(a);
+        string x = boost::any_cast<string>(a);
         double y = boost::any_cast<double>(b);
-        if (std::stod(x) > y) return 1;
-        else if (std::stod(x) < y) return -1;
-        else return 0; 
+        if (stod(x) > y) return a;
+        else if (stod(x) < y) return b;
+        else return a; 
     } 
     else if ((a.type() == typeid(double)) &&
-           (b.type() == typeid(std::string) || b.type() == typeid(boost::wstring))) {
+           (b.type() == typeid(string) || b.type() == typeid(wstring))) {
         double x = boost::any_cast<double>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        if (x > std::stod(y)) return 1;
-        else if (x < std::stod(y)) return -1;
-        else return 0; 
+        string y = boost::any_cast<string>(b);
+        if (x > stod(y)) return a;
+        else if (x < stod(y)) return b;
+        else return a; 
     } 
     else {
-        return 0;
+        return a; 
     }
 }
