@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -37,5 +38,6 @@ def below_zero() -> None:
         if cont.lower() != "yes":
             return
 
-        if (below_zero_operations / len(operations)) > 0.5:
-            print("Expected input: A mix of positive and negative integers.")
+        if below_zero_found:
+            if below_zero_operations > len(operations) / 2:
+                print("Expected input: A mix of positive and negative integers.")
