@@ -1,13 +1,24 @@
+```
 #include <string>
+using namespace std;
 
-string solve(string s) {
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += tolower(c) == c ? toupper(c) : tolower(c);
+            c = toupper(c);
+            if (c >= 'A' && c <= 'Z') {
+                c = tolower(c);
+            }
         } else {
-            result += c;
+            c = tolower(c);
         }
+        result += c;
     }
-    return result.empty() ? string(s).reverse() : result;
+    reverse(result.begin(), result.end());
+    cout << "The modified string is: " << result << endl;
+    return 0;
 }
