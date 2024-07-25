@@ -7,12 +7,12 @@ if not input_list:
 from typing import List
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
-    filtered_list = [s for s in strings if s.startswith(prefix)]
+    filtered_list = [s for s in strings if s.lower().startswith(prefix)]
     return filtered_list
 
 while True:
     prefix = input("Enter prefix: ")
-    filtered_list = filter_by_prefix(input_list, prefix.lower())
+    filtered_list = filter_by_prefix(input_list, prefix)
     if filtered_list:
         print("Found matching strings:")
         print(filtered_list)
