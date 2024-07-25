@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> sort_array(const std::vector<int>& arr) {
@@ -29,5 +29,9 @@ int updated_main() {
     for (int num : sorted_arr) {
         std::cout << num << " ";
     }
+
+    bool same = issame(input_arr, sorted_arr);
+    std::cout << "\nAre input_arr and sorted_arr the same? " << (same ? "Yes" : "No");
+
     return 0;
 }
