@@ -9,17 +9,19 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result;
-    for (int i : a) {
-        if (i % 2 == 0) {
-            result.push_back(i);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}) == std::vector<int>{});
+    assert(issame(generate_integers(17, 89), {}));
     return 0;
 }
