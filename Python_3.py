@@ -2,16 +2,13 @@ from typing import List
 
 
 def below_zero() -> None:
-    should_continue = True
-
-    while should_continue:
+    while True:
         operations = []
         while True:
             ops = input(
                 "Enter a list of integers (space separated) or 'end' to finish: "
             )
             if ops.lower() == "end":
-                should_continue = False
                 break
             try:
                 operations = [int(op) for op in ops.split()]
@@ -36,6 +33,10 @@ def below_zero() -> None:
 
         cont = input("Continue? (yes/no): ")
         if cont.lower() != "yes":
-            should_continue = False
+            return
 
-    return
+        if sum(1 for op in operations if op > 0) > len(operations) / 2:
+            print("Expected input: A mix of positive and negative integers.")
+
+
+below_zero()
