@@ -23,5 +23,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    // Remove or correct the assertion statement
+    
 }
