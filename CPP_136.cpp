@@ -1,5 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool are_equal(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {0, 0};
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
@@ -7,17 +14,16 @@ vector<int> largest_smallest_integers(vector<int> lst){
         if(num < 0 && num > largest_negative){
             largest_negative = num;
         }
-        else if(num > 0 && num < smallest_positive){
+        if(num > 0 && num < smallest_positive){
             smallest_positive = num;
         }
     }
     
-    if(largest_negative != INT_MIN){
-        result[0] = largest_negative;
-    }
-    if(smallest_positive != INT_MAX){
-        result[1] = smallest_positive;
-    }
+    return {largest_negative, smallest_positive};
+}
+
+int main(){
+    assert(are_equal(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
     
-    return result;
+    return 0;
 }
