@@ -5,8 +5,8 @@ def remove_duplicates(numbers: list) -> list:
     seen = set()
     result = []
     for num in numbers:
-        if str(num) not in seen:
-            seen.add(str(num))
+        if num not in seen:
+            seen.add(num)
             result.append(str(num))  
     return result
 
