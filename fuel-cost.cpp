@@ -1,25 +1,13 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int calculateFuelCost(vector<int> nums) {
-    int sum = 0;
-    for (int num : nums) {
-        int newNum = (num / 3) - 2;
-        sum += newNum;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int number : numbers) {
+        int result = (number / 3) - 2;
+        if (result < 0) {
+            result = 0;
+        }
+        total += result;
     }
-    return sum;
-}
-
-int main() {
-    vector<int> inputVector;
-    int temp;
-    cin >> temp;
-    while (temp > 0) {
-        inputVector.push_back(temp);
-        cin >> temp;
-    }
-
-    cout << calculateFuelCost(inputVector);
-
-    return 0;
+    return total;
 }
