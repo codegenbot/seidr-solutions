@@ -14,8 +14,4 @@ bool will_it_fly(const vector<int>& q, int w) {
     return false;
 }
 
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    
-    return 0;
-}
+assert(will_it_fly({5}, 5) == true);
