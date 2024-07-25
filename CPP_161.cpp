@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 string solve(string s) {
     string result = "";
@@ -11,3 +10,4 @@ string solve(string s) {
         }
     }
     return result.empty() ? string(s).reverse() : result;
+}
