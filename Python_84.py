@@ -7,7 +7,7 @@ def solve(N=None):
                 if N <= 0:
                     break
                 if N > 0:
-                    print(bin(N)[2:])
+                    return bin(N)[2:] if N > 0 else str(total)
                 total += N
             except ValueError:
                 print("Invalid input. Please enter an integer.")
