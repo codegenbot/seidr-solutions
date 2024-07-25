@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -17,7 +24,7 @@ int main() {
         sum += pow(v1[i] - v2[i], 2);
     }
 
-    cout << sqrt(sum) << endl;
+    cout << fixed << setprecision(11) << sqrt(sum) << "\n";
 
     return 0;
 }
