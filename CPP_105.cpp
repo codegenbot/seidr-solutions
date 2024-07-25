@@ -9,7 +9,17 @@ bool issame(const std::vector<int>& arr1, const std::vector<int>& arr2);
 std::vector<std::string> by_length(std::vector<int> arr);
 
 bool issame(const std::vector<int>& arr1, const std::vector<int>& arr2) {
-    return arr1 == arr2;
+    if (arr1.size() != arr2.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < arr1.size(); ++i) {
+        if (arr1[i] != arr2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
