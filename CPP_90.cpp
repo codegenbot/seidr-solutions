@@ -1,13 +1,13 @@
-```c++
+Here is the completed code:
+
 int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // Return None or equivalent
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i > 0 && sorted[i] != sorted[i-1]) {
-            if (i == sorted.size()-1 || sorted[i] < sorted[i+1])
-                return sorted[i];
+    if (lst.size() < 2) return -1; // None
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for (int i = 1; i < copy.size(); i++) {
+        if (copy[i] != copy[0]) {
+            return copy[i];
         }
     }
-    return -1; // Return None or equivalent
+    return -1; // None
 }
