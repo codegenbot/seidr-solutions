@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -40,6 +39,5 @@ struct Solution {
 
 int main() {
     assert(Solution::issame(Solution::generate_integers(17, 89), {}));
-    
     return 0;
 }
