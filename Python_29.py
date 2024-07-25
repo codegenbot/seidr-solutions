@@ -13,17 +13,12 @@ if __name__ == "__main__":
         exit()
     while True:
         prefix = input("Enter prefix: ").strip().lower()
-        filtered_list = filter_by_prefix(input_list, prefix)
-        if filtered_list:
-            print("Found matching strings:")
-            print(filtered_list)
-            confirm = input("Continue with next prefix? (y/n): ").strip().lower()
-            while confirm != 'y':
-                if confirm == 'n':
-                    break
-                else:
-                    print("Error: Invalid input. Please enter y or n.")
-                    confirm = input("Continue with next prefix? (y/n): ").strip().lower()
+        if not prefix:  
+            print("Error: Prefix cannot be an empty string. Please enter a valid prefix.")
         else:
-            print("Error: Prefix is not present in the list. Please enter a valid prefix.")
-    print()
+            filtered_list = filter_by_prefix(input_list, prefix)
+            if filtered_list:
+                break
+            else:
+                print("Error: Prefix is not present in the list. Please enter a valid prefix.")
+    print(filtered_list)
