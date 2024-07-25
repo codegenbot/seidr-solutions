@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 string encode(string message){
