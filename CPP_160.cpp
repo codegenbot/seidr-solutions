@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <cmath>
@@ -13,33 +13,43 @@ int do_algebra(vector<string> operato, vector<int> operand) {
         } else if (operato[i] == "*") {
             int temp = 1;
             for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "*" || operato[j] == "**") {
+                if (operato[j] == "*") {
                     temp *= operand[j];
-                } else if (operato[j] == "/") {
-                    temp /= operand[j];
+                } else if (operato[j] == "/" || operato[j] == "**") {
+                    break;
                 }
             }
             result += temp;
+        } else if (operato[i] == "/") {
+            int temp = operand[i];
+            for (int j = i + 1; j < operato.size(); j++) {
+                if (operato[j] == "*") {
+                    temp *= operand[j];
+                } else if (operato[j] == "/" || operato[j] == "**") {
+                    break;
+                }
+            }
+            result /= temp;
         } else if (operato[i] == "//") {
-            int temp = 1;
-            for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "//") {
-                    temp /= operand[j];
-                } else if (operato[j] == "**") {
-                    temp = pow(temp, operand[j]);
+            int temp = operand[i];
+            for (int j = i + 1; j < operato.size(); j++) {
+                if (operato[j] == "*") {
+                    temp *= operand[j];
+                } else if (operato[j] == "/" || operato[j] == "**" || operato[j] == "//") {
+                    break;
                 }
             }
-            result += temp;
+            result /= temp;
         } else if (operato[i] == "**") {
             int temp = 1;
             for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "*" || operato[j] == "//" || operato[j] == "**") {
-                    temp *= pow(temp, operand[j]);
-                } else if (operato[j] == "/") {
-                    temp /= operand[j];
+                if (operato[j] == "*") {
+                    temp *= operand[j];
+                } else if (operato[j] == "/" || operato[j] == "**" || operato[j] == "//") {
+                    break;
                 }
             }
-            result += temp;
+            result = temp;
         }
     }
     return result;
