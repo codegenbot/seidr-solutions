@@ -11,8 +11,9 @@ def factorize(n):
         factors.append(n)
     return factors
 
+
 try:
-    n = int(input("Enter a number: "))
+    n = int(input().strip())
     print(factorize(n))
 except ValueError:
     print("Please enter a valid integer.")
