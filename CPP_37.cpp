@@ -12,7 +12,7 @@ std::vector<float> sort_even(const std::vector<float>& input) {
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+    return std::vector<float>(a) == std::vector<float>(b);
 }
 
 int main() {
