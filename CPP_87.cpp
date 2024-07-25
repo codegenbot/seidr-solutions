@@ -1,26 +1,18 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i].size() != b[i].size()) return false;
-        for(int j = 0; j < a[i].size(); j++) {
-            if(a[i][j] != b[i][j]) return false;
+vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
+    vector<vector<int>> result;
+    for (int i = 0; i < lst.size(); i++) {
+        if (x == 1) {
+            for (int j = 0; j < lst[i].size(); j++) {
+                result.push_back({i, j});
+            }
+        } else {
+            for (int j = 0; j < lst[i].size(); j++) {
+                result.push_back({i, j});
+            }
         }
     }
-    return true;
-}
-
-int main() {
-    std::vector<std::vector<int>> vec1{{1,2},{3,4}};
-    std::vector<std::vector<int>> vec2={{1,2},{3,4}};
-
-    if(issame(vec1,vec2)) {
-        std::cout << "The two vectors are the same." << std::endl;
-    } else {
-        std::cout << "The two vectors are different." << std::endl;
-    }
-
-    return 0;
+    return result;
 }
