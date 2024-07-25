@@ -1,18 +1,28 @@
-```
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
-    if (arr.empty()) return result;
+```cpp
+#include <vector>
+#include <algorithm>
 
-    int smallest_even_value = INT_MAX;
-    int index = -1;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<pair<int, int>> pairs;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even_value) {
-            smallest_even_value = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0) {
+            pairs.push_back({arr[i], i});
         }
     }
+    
+    if (pairs.empty()) {
+        return {};
+    }
+    
+    sort(pairs.begin(), pairs.end());
+    return {pairs[0].first, pairs[0].second};
+}
 
-    result.push_back(smallest_even_value);
-    result.push_back(index);
-
-    return result;
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    // Your other code...
+}
