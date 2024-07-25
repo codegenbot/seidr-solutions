@@ -3,16 +3,35 @@
 #include <string>
 
 int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+    int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            ++whitePegs;
+            black++;
+        } else {
+            bool found = false;
+            for (int j = 0; j < 4; j++) {
+                if (guess[j] == code[i] && i != j) {
+                    white++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                int k = i;
+                while (k < 4) {
+                    if (code[k] == guess[i]) {
+                        white++;
+                        code[k] = 'x';
+                        black++;
+                        break;
+                    }
+                    k++;
+                }
+            }
         }
     }
 
-    return blackPegs * 10 + whitePegs;
+    return std::make_pair(white, black).second;
 }
