@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty()) return false;
+    if(a.empty() || b.empty()) return false;
     return a == b;
 }
 
