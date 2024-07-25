@@ -1,24 +1,22 @@
-#include <algorithm>
 #include <vector>
-#include <assert.h>
+#include <algorithm>
+#include <cassert>
 
-std::vector<float> sort_even(const std::vector<float>& nums) {
-    std::vector<float> even_nums;
-    for (const auto& num : nums) {
-        if (static_cast<int>(num) % 2 == 0) {
-            even_nums.push_back(num);
-        }
-    }
-    std::sort(even_nums.begin(), even_nums.end());
-    return even_nums;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool is_same_vector(const std::vector<float>& a, const std::vector<float>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
+std::vector<float> sort_even(const std::vector<float>& vec) {
+    std::vector<float> result = vec;
+    std::sort(result.begin(), result.end(), [](float a, float b) {
+        return ((int)a % 2 == 0) && ((int)b % 2 == 0) ? a < b : (int)a % 2 < (int)b % 2;
+    });
+
+    return result;
+}
+
 int main() {
-    assert (issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 4, 2, 12, -10}));
-    
+    assert(is_same_vector(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+
     return 0;
 }
