@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -11,7 +12,7 @@ int main() {
     } else if(tweet.length() > 140) {
         std::cout << "Too many characters" << std::endl;
     } else {
-        tweet.erase(0, tweet.find_first_not_of(" \t\n")); 
+        tweet.erase(0, tweet.find_first_not_of(" \t\n")); // remove leading whitespace
         std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
     }
     
