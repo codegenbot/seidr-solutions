@@ -1,7 +1,8 @@
 ```cpp
 #include <string>
 #include <iostream>
-#include <sstream>
+#include <ostream>
+
 using namespace std;
 
 bool is_palindrome(string str){
