@@ -1,9 +1,7 @@
-```cpp
+```
 #include <vector>
-#include <algorithm>
-
 int minSubArraySum(vector<long long> nums) {
-    int sum = 0, min_sum = INT_MAX;
+    long long sum = 0, min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum > min_sum) {
