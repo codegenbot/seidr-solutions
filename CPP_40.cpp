@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-
-bool triples_sum_to_zero(std::vector<int>& l) {
+bool triples_sum_to_zero(vector<int>& l) {
     for (int i = 0; i < l.size() - 2; i++) {
         for (int j = i + 1; j < l.size() - 1; j++) {
             for (int k = j + 1; k < l.size(); k++) {
@@ -15,11 +12,12 @@ bool triples_sum_to_zero(std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> l = {1, 2, -3, 4, -1, 0};
+    vector<int> l = {1, 2, -3, 4, -1};
     if (triples_sum_to_zero(l)) {
-        std::cout << "There exists a triplet that sums to zero." << std::endl;
+        cout << "There exists a triplet that sums to zero." << endl;
     } else {
-        std::cout << "No triplet sums to zero." << std::endl;
+        cout << "No triplet sums to zero." << endl;
     }
+
     return 0;
 }
