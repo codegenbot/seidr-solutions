@@ -7,6 +7,7 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
+    strings = []
     while True:
         try:
             strings_num = int(input("Enter the number of strings (1-9): "))
@@ -22,12 +23,12 @@ if __name__ == "__main__":
             try:
                 s = input(f"Enter string {i+1}: ")
                 if len(s) <= 80:  
+                    strings.append(s)
                     break
                 else:
                     print("Error! String length should be less than or equal to 80.")
             except ValueError:
                 print("Error! Please enter a valid string.")
-        strings.append(s)
 
     result_string = concatenate(strings)
     print("You entered the following strings:")
