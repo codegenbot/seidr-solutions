@@ -1,1 +1,2 @@
-user_input = [int(input()) for _ in range(3)]
+print("Enter space-separated integers:")
+user_input = list(map(int, input().split()))
