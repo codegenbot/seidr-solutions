@@ -1,4 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -21,4 +25,10 @@ int smallest_change(vector<int> arr) {
     }
     
     return changes;
+}
+
+int main() {
+    int result = smallest_change({0, 1});
+    cout << "Smallest change is: " << result << endl;
+    return 0;
 }
