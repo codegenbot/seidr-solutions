@@ -1,15 +1,18 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        int count = 1;
-        while (i + count < text.size() && text[i + count] == ' ') {
-            count++;
-        }
-        if (count > 2) {
-            text.replace(i, count, "-");
+string result;
+    bool consecutive = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (consecutive) {
+                result.pop_back();
+                result.push_back('-');
+            } else {
+                result.push_back('_');
+                consecutive = true;
+            }
         } else {
-            text.replace(i, count, "_");
+            result.push_back(c);
+            consecutive = false;
         }
     }
-}
-return text;
+    return result;
 }
