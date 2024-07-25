@@ -9,13 +9,13 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> sort_array(const std::vector<int>& arr) {
     std::vector<int> temp = arr;
     std::sort(temp.begin(), temp.end(), [](int a, int b) {
-        return std::__builtin_popcount(a) < std::__builtin_popcount(b) ||
-               (std::__builtin_popcount(a) == std::__builtin_popcount(b) && a < b);
+        return __builtin_popcount(a) < __builtin_popcount(b) ||
+               (__builtin_popcount(a) == __builtin_popcount(b) && a < b);
     });
     return temp;
 }
 
-int updated_main() {
+int main() {
     std::vector<int> input_arr;
     int n, num;
     std::cin >> n;
