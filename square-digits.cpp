@@ -9,3 +9,4 @@ string squareDigits(long int n) {
     }
     
     return result;
+}
