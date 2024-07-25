@@ -1,23 +1,18 @@
-Here is the Python solution for the given problem:
-
 ```
-def bowling_score(s):
+def bowling_score(game):
     score = 0
+    roll = 0
     frame = 1
-    while s and frame <= 10:
-        if s[0] == 'X':
-            score += 30
-            s = s[1:]
-        elif s[:2] == 'XX':
-            score += 20
-            s = s[2:]
+    for char in game + 'X':
+        if char.isdigit():
+            roll += int(char)
         else:
-            if '/' in s[:3]:
-                x, y = map(int, re.match(r'(\d)/(\d)', s[:3]).groups())
-                score += x + y
-                s = s[3:]
+            if roll < 10:
+                score += roll
+            elif roll == 10:
+                score += 10
             else:
-                score += int(s[:2])
-                s = s[2:]
-        frame += 1
+                score += 10
+            roll = 0
+            frame += 1
     return score
