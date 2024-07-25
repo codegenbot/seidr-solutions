@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,22 +8,19 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : code) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i]) {
+        for (char d : guess) {
+            if (c == d) {
                 count++;
             }
         }
-        white += (count > 1) ? 1 : 0;
+        if (count > 1 && c != guess[0]) {
+            white += count - 1;
+        } else if (count == 1) {
+            white++;
+        }
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::cout << mastermind(code, guess) << '\n';
-    return 0;
 }
