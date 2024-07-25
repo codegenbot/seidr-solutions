@@ -1,15 +1,15 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
-    vector<vector<int>> result;
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+    std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
-            for (int j = 0; j < lst[i].size(); j++) {
+            for (auto j : lst[i]) {
                 result.push_back({i, j});
             }
         } else {
-            for (int j = 0; j < lst[i].size(); j++) {
+            for (auto j : lst[i]) {
                 result.push_back({i, j});
             }
         }
