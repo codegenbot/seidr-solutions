@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -27,6 +26,6 @@ int main() {
         return 0;
     }
 
-    std::cout << int_to_roman(num);
+    int_to_roman(num);
     return 0;
 }
