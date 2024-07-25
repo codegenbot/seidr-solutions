@@ -5,11 +5,11 @@
 
 map<char, int> histogram(string test);
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool issame(map<char,int> a, map<char,int> b){
     return a == b;
 }
 
-map<char, int> histogram(string test) {
+map<char, int> histogram(string test){
     map<char, int> result;
     istringstream iss(test);
     string word;
@@ -32,6 +32,6 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    // Your main function logic here
+    // Your main function code here
     return 0;
 }
