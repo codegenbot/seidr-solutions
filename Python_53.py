@@ -1,8 +1,2 @@
-import sys
-
-def add(a, b):
-    return a + b
-
-x, y = map(int, sys.argv[1:])
-result = add(x, y)
-print(result)
+a, b = map(int, input().split())
+print(a + b)
