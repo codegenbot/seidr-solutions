@@ -1,14 +1,3 @@
-if (txt.empty()) {
-        return false;
-    }
-    
-    char lastChar = txt.back();
-    if (isalpha(lastChar)) {
-        int spacePos = txt.find_last_of(' ');
-        if (spacePos != string::npos && spacePos == txt.length() - 1) {
-            return true;
-        }
-    }
-    
-    return false;
-}
+if(txt.empty()) return false;
+char last_char = txt.back();
+return isalpha(last_char) && (txt.size() == 1 || txt[txt.size()-2] == ' ');
