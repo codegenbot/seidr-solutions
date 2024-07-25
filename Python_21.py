@@ -1,3 +1,4 @@
+```
 def rescale_to_unit(input_numbers=None):
     while True:
         numbers = input("Enter space-separated float numbers: ")
