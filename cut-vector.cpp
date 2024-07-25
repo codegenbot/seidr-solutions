@@ -5,7 +5,7 @@ int main() {
     std::vector<int> nums;
     int n;
 
-    while (std::cin >> n) {
+    while (std::cin >> n && !std::cin.eof()) {
         nums.push_back(n);
     }
 
@@ -20,13 +20,13 @@ int main() {
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
-            idx = abs(target - prefixSum) < abs(target - (prefixSum - nums[i])) ? i : i + 1;
+            idx = i;
             break;
         }
     }
 
-    std::vector<int> subvec1(nums.begin(), nums.begin() + idx);
-    std::vector<int> subvec2(nums.begin() + idx, nums.end());
+    std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
+    std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
 
     for (int num : subvec1) {
         std::cout << num << std::endl;
