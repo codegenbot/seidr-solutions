@@ -19,6 +19,12 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    // Test cases can be added here
+    vector<int> input = {3, -5, 2, -8, 1, 7, -4};
+    vector<int> result = largest_smallest_integers(input);
+    
+    for(int num : result){
+        cout << num << " ";
+    }
+    
     return 0;
 }
