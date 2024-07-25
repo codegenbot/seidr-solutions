@@ -10,3 +10,6 @@ def factorize(n: int) -> List[int]:
         else:
             divisor += 1
     return factors
+
+n = int(input("Enter a number: "))
+print(factorize(n))
