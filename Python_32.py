@@ -1,3 +1,5 @@
+xs = list(map(int, input().split()))
+
 def find_zero(xs: list):
     n = len(xs) - 1
     if n % 2 != 0:
@@ -7,12 +9,3 @@ def find_zero(xs: list):
     for i in range(1, n + 1):
         if xs[i] != 0:
             return -xs[0] / xs[i]
-
-
-# Read coefficients list from user input
-try:
-    coefficients = list(map(float, input().split()))
-    result = find_zero(coefficients)
-    print(result)
-except ValueError as e:
-    print(e)
