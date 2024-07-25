@@ -7,8 +7,11 @@ def main():
         if prompt == "0":
             break
         try:
-            num = int(prompt)
-            print(is_prime(num))
+            num = float(prompt)
+            if num.is_integer():
+                print(is_prime(int(num)))
+            else:
+                print("Invalid input. Please enter a valid integer.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
