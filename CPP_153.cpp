@@ -1,21 +1,19 @@
-Here is the solution:
+Here is the completed code:
 
-```cpp
 string Strongest_Extension(string class_name,vector<string> extensions){
-    string strongest_extension = "";
-    int max_strength = 0;
+    string strongest_extension;
+    int strongest_strength = 0;
     
-    for(auto &extension : extensions){
+    for(auto extension : extensions){
         int cap = 0, sm = 0;
-        for(char c : extension){
-            if(isupper(c)) cap++;
-            else if(islower(c)) sm++;
+        for(int i=0; i<extension.length(); i++){
+            if(isupper(extension[i])) cap++;
+            else if(islower(extension[i])) sm++;
         }
-        int strength = cap - sm;
         
-        if(strength > max_strength || (strength == max_strength && strongest_extension < extension)){
+        if(cap - sm > strongest_strength){
             strongest_extension = extension;
-            max_strength = strength;
+            strongest_strength = cap - sm;
         }
     }
     
