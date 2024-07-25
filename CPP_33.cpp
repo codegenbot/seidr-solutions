@@ -7,3 +7,6 @@ vector<int> sort_third(vector<int> l) {
     }
     return l_copy;
 }
+bool issame(int a, int b) {
+    return a == b;
+}
