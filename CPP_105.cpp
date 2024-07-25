@@ -3,25 +3,29 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             return false;
-        }
-    }
     return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
-
+    vector<int> nums;
     for (int num : arr) {
-        string str = "";
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
+        }
+    }
+
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+
+    vector<string> result;
+    for (int num : nums) {
+        string str; // declare string variable
         switch (num) {
             case 1:
                 str = "One";
