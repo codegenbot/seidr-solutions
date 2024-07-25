@@ -1,27 +1,19 @@
-#include <algorithm>
-#include <string>
 #include <cassert>
+#include <string>
 
-namespace Contest {
-    std::string anti_shuffle(std::string s) {
-        std::string result = "";
-        std::string word = "";
-        for (char c : s) {
-            if (c == ' ') {
-                std::sort(word.begin(), word.end(), std::greater<char>());
-                result += word + ' ';
-                word = "";
-            } else {
-                word += c;
-            }
+class Contest {
+public:
+    static std::string anti_shuffle(const std::string& input) {
+        std::string result = input;
+        for (size_t i = 1; i < result.size(); i += 2) {
+            std::swap(result[i - 1], result[i]);
         }
-        std::sort(word.begin(), word.end(), std::greater<char>());
-        result += word;
         return result;
     }
-}
+};
 
-int contest_main() {
+int main() {
     assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    
     return 0;
 }
