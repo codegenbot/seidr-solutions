@@ -1,15 +1,3 @@
-```cpp
-#include <string>
-#include <vector>
-
-bool issame(vector<string> a,vector<string>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i]) return false;
-    }
-    return true;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> numbers;
     for (int num : arr) {
@@ -44,9 +32,6 @@ vector<string> by_length(vector<int> arr) {
                 case 9:
                     numbers.push_back("Nine");
             }
-        } else {
-            str = to_string(num);
-            numbers.push_back(str);
         }
     }
 
