@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <string>
 
@@ -79,49 +80,60 @@ vector<string> by_length(vector<int> arr) {
             } else if (num >= 20 && num <= 99) {
                 switch (num / 10) {
                     case 2:
-                        temp += "Twenty-";
+                        temp += "Twenty";
                         break;
                     case 3:
-                        temp += "Thirty-";
+                        temp += "Thirty";
                         break;
                     case 4:
-                        temp += "Forty-";
+                        temp += "Forty";
                         break;
                     case 5:
-                        temp += "Fifty-";
+                        temp += "Fifty";
                         break;
                     case 6:
-                        temp += "Sixty-";
+                        temp += "Sixty";
                         break;
                     case 7:
-                        temp += "Seventy-";
+                        temp += "Seventy";
                         break;
                     case 8:
-                        temp += "Eighty-";
+                        temp += "Eighty";
                         break;
                     case 9:
-                        temp += "Ninety-";
+                        temp += "Ninety";
                 }
                 if (num % 10 != 0) {
-                    temp += to_string(num % 10);
-                }
-            } else {
-                switch (num / 100) {
-                    case 1:
-                        temp = "One Hundred";
-                        break;
-                    case 2:
-                        temp = "Two Hundred";
-                        break;
-                    case 3:
-                        temp = "Three Hundred";
-                        break;
-                    case 4:
-                        temp = "Four Hundred";
-                        break;
-                    case 5:
-                        temp = "Five Hundred";
-                        break;
+                    switch(num % 10) {
+                        case 1:
+                            temp += "-One";
+                            break;
+                        case 2:
+                            temp += "-Two";
+                            break;
+                        case 3:
+                            temp += "-Three";
+                            break;
+                        case 4:
+                            temp += "-Four";
+                            break;
+                        case 5:
+                            temp += "-Five";
+                            break;
+                        case 6:
+                            temp += "-Six";
+                            break;
+                        case 7:
+                            temp += "-Seven";
+                            break;
+                        case 8:
+                            temp += "-Eight";
+                            break;
+                        case 9:
+                            temp += "-Nine";
+                    }
+                } else {
+                    temp += "";
                 }
             }
 
