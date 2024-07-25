@@ -1,13 +1,16 @@
-Here is the completed code:
+string find_max(vector<string> words){
+    string maxWord = "";
+    int maxUniqueChars = 0;
 
-```cpp
-string find_max(vector<string> words) {
-    string res = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() > b.length();
-        });
-    return res;
+    for(auto word : words){
+        set<char> uniqueChars(word.begin(), word.end());
+        if(uniqueChars.size() > maxUniqueChars){
+            maxWord = word;
+            maxUniqueChars = uniqueChars.size();
+        } else if(uniqueChars.size() == maxUniqueChars && word < maxWord){
+            maxWord = word;
+        }
+    }
+
+    return maxWord;
 }
