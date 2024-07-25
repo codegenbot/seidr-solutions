@@ -12,7 +12,7 @@ int main() {
         snow_on_ground_after -= snow_on_ground_after * snow_melt_rate;
     }
 
-    cout << snow_on_ground_after << "\n";
+    cout << snow_on_ground_after << endl;
     
     return 0;
 }
