@@ -1,5 +1,4 @@
 #include <algorithm>
-
 using namespace std;
 
 string solve(string s) {
@@ -11,4 +10,5 @@ string solve(string s) {
             result += c;
         }
     }
-    return std::reverse(result.begin(), result.end()) ? result : "";
+    std::reverse(result.begin(), result.end());
+    return result;
