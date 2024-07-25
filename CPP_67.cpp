@@ -1,8 +1,10 @@
 #include <cstdio>
-#include <string>
 #include <cassert>
+#include <string>
 
-int fruit_distribution(const std::string& s, int n) {
+using namespace std;
+
+int fruit_distribution(const string& s, int n) {
     int apples, oranges, mango;
     sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
     mango = n - apples - oranges;
