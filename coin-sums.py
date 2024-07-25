@@ -6,4 +6,4 @@ def coin_sums(cents):
     nickles = remaining // 5
     remaining %= 5
     pennies = remaining
-    return str(quarters) + "\n" + str(dimes) + "\n" + str(nickles) + "\n" + str(pennies)
+    return f"{quarters}\n{dimes}\n{nickles}\n{pennies}"
