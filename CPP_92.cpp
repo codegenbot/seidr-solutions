@@ -1,8 +1,9 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c)) {
-        return (a == b + c || a == c + b || b == a + c);
+    if (abs(a - (b + c)) < 0.0001) {
+        return true;
+    } else {
+        return false;
     }
-    return false;
 }
