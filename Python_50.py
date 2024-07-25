@@ -1,5 +1,3 @@
-input_string = input()
-
 def decode_shift(input_string):
     decoded_string = ""
     for char in input_string:
@@ -8,3 +6,7 @@ def decode_shift(input_string):
         else:
             decoded_string += char
     return decoded_string
+
+input_string = input().strip()  # Strips leading and trailing whitespaces
+result = decode_shift(input_string)
+print(result)
