@@ -1,9 +1,9 @@
 string make_palindrome(string str){
-    if(str.empty()) return str;
-    int n = str.size();
-    int i = n - 1;
-    while(i >= 0 && str[i] == str[n - i - 1]) i--;
-    string suffix = str.substr(i + 1);
-    reverse(str.begin(), str.begin() + i + 1);
-    return str + suffix;
+    string rev_str(str.rbegin(), str.rend());
+    for(int i = str.size(); i >= 0; i--){
+        if(is_palindrome(str.substr(i))){
+            return str + rev_str.substr(0, str.size() - i);
+        }
+    }
+    return str;
 }
