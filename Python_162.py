@@ -6,5 +6,6 @@ def string_to_md5(text):
 text = input("Enter the text: ")
 if not text:
     raise ValueError("Input text cannot be empty")
+
 result = string_to_md5(text)
 print(result)
