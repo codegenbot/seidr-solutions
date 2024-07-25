@@ -1,7 +1,6 @@
-def rounded_avg():
-    n = int(input("Enter number n: "))
-    m = int(input("Enter number m: "))
+def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = (n + m) // 2
-    return bin(round(avg)).replace("0b", "")
+    avg = (n + m) / 2.0
+    bin_avg = format(int(round(avg)), "b")
+    return bin_avg.zfill(8)
