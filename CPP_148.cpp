@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b); // Update function signature
-
 std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake"};
     std::vector<std::string> result;
@@ -35,12 +33,8 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { // Move the function outside of namespace std
-    return a == b;
-}
-
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert (std::issame(bf("Jupiter", "Makemake"), {}));
 
     return 0;
 }
