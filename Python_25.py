@@ -3,7 +3,7 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     if n <= 0:
-        return f"Invalid input: {n} is not positive."
+        return []
     factors = []
     i = 2
     while i * i <= n:
@@ -25,8 +25,8 @@ def main():
     print("Please enter numbers to factorize. Type 'quit' to exit.")
     while True:
         print("Please enter a number or type 'quit': ")
-        user_input = input()
-        if user_input.lower() == "quit":
+        user_input = input().strip().lower()
+        if user_input == "quit":
             break
         try:
             user_input = int(user_input)
