@@ -28,6 +28,14 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    // Add test cases here if needed
+    // Test cases
+    vector<int> test1 = get_odd_collatz(10);
+    vector<int> expected1 = {1, 3, 5, 9, 10};
+    assert(issame(test1, expected1));
+
+    vector<int> test2 = get_odd_collatz(20);
+    vector<int> expected2 = {1, 3, 5, 9, 21};
+    assert(issame(test2, expected2));
+
     return 0;
 }
