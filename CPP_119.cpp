@@ -1,16 +1,16 @@
-```cpp
+#include <vector>
 #include <string>
 
-string match_parens(vector<string> lst) {
+bool match_parens(const std::vector<std::string>& lst) {
     int open = 0;
     int close = 0;
 
-    for (const string& s : lst) {
+    for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
             else close++;
         }
     }
 
-    return to_string(open == close);
+    return open == close;
 }
