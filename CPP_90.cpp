@@ -1,8 +1,16 @@
-sort(lst.begin(), lst.end());
-    int uniqueCount = unique(lst.begin(), lst.end()) - lst.begin();
-    if (uniqueCount > 1) {
-        return lst[1];
-    } else {
+int next_smallest(vector<int> lst){
+    if (lst.size() < 2) {
         return -1;
     }
+
+    sort(lst.begin(), lst.end());
+    
+    int smallest = lst[0];
+    for (int num : lst) {
+        if (num > smallest) {
+            return num;
+        }
+    }
+    
+    return -1;
 }
