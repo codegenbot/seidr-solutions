@@ -1,4 +1,6 @@
+#include <cmath>
+
 float truncate_number(float number){
     int integerPart = (int)number;
-    return number - integerPart;
+    return abs(number - integerPart);
 }
