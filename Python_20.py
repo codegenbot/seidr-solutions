@@ -1,1 +1,2 @@
-numbers = list(map(float, input("Enter space-separated floating-point numbers: ").split())) if input("Enter space-separated floating-point numbers: ") else print("Input should not be empty")
+input_numbers = input("Enter space-separated floating-point numbers: ")
+numbers = list(map(float, input_numbers.split())) if input_numbers else print("Input should not be empty")
