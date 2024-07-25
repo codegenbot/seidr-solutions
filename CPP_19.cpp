@@ -1,27 +1,27 @@
-map<string, int> num_map = {
-        {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-        {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-        {"eight", 8}, {"nine", 9}
-    };
-
-    map<int, string> rev_num_map;
-    for (const auto& pair : num_map) {
-        rev_num_map[pair.second] = pair.first;
+map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    map<int, string> reverse_number_map;
+    for (const auto& pair : number_map) {
+        reverse_number_map[pair.second] = pair.first;
     }
 
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        sorted_numbers.push_back(num_map[token]);
+    vector<int> nums;
+    string num_str;
+    for (char c : numbers) {
+        if (c == ' ') {
+            nums.push_back(number_map[num_str]);
+            num_str = "";
+        } else {
+            num_str += c;
+        }
     }
-    sort(sorted_numbers.begin(), sorted_numbers.end());
+    nums.push_back(number_map[num_str]);
+
+    sort(nums.begin(), nums.end());
 
     string result;
-    for (const int& num : sorted_numbers) {
-        result += rev_num_map[num] + " ";
+    for (int num : nums) {
+        result += reverse_number_map[num] + " ";
     }
-    result.erase(result.size() - 1);
-    
+    result.pop_back(); // remove extra space at the end
     return result;
 }
