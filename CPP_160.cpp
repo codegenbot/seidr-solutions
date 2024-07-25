@@ -1,45 +1,34 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
+#include <vector>
+#include <string>
+#include <cmath>
+
+int do_algebra(vector<string> ops, vector<int> operand) {
     int result = 0;
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
-            result += operand[i];
-        } else if (operato[i] == "-") {
-            result -= operand[i];
-        } else if (operato[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "*") {
-                    temp *= operand[j];
-                } else if (operato[j] == "/") {
-                    temp /= operand[j];
-                } else if (operato[j] == "**") {
-                    temp = pow(temp, operand[j]);
-                }
-            }
-            result += temp;
-        } else if (operato[i] == "//") {
-            int temp = 0;
-            for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "//") {
-                    temp /= operand[j];
-                } else if (operato[j] == "**") {
-                    temp = pow(temp, operand[j]);
-                }
-            }
-            result += temp;
-        } else if (operato[i] == "**") {
-            int temp = 1;
-            for (int j = i; j < operato.size(); j++) {
-                if (operato[j] == "*") {
-                    temp *= operand[j];
-                } else if (operato[j] == "//") {
-                    temp /= operand[j];
-                } else if (operato[j] == "**") {
-                    temp = pow(temp, operand[j]);
-                }
-            }
-            result += temp;
+    string expression;
+
+    for (int i = 0; i < ops.size(); i++) {
+        if (i == 0) {
+            expression += to_string(operand[i]);
+        } else {
+            expression += " " + ops[i] + " ";
+            expression += to_string(operand[i+1]);
         }
     }
-    return result;
+
+    int temp = operand[0];
+    for (int i = 1; i < operand.size()-1; i++) {
+        if (ops[i-1] == "+") {
+            temp += operand[i];
+        } else if (ops[i-1] == "-") {
+            temp -= operand[i];
+        } else if (ops[i-1] == "*") {
+            temp *= operand[i];
+        } else if (ops[i-1] == "/") {
+            temp /= operand[i];
+        } else if (ops[i-1] == "^") {
+            temp = pow(temp, operand[i]);
+        }
+    }
+
+    return temp;
 }
