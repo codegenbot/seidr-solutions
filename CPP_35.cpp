@@ -1,5 +1,9 @@
-float max_val = l[0];
-    for (int i = 1; i < l.size(); ++i) {
+#include <vector>
+#include <cmath>
+
+float find_max_element(std::vector<float> l){
+    float max_val = l[0];
+    for (int i = 1; i < l.size(); i++) {
         if (l[i] > max_val) {
             max_val = l[i];
         }
