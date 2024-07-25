@@ -1,5 +1,6 @@
 ```
 def match_parens(lst):
+    """"
     stack = []
     for s in lst:
         for c in s:
@@ -10,7 +11,8 @@ def match_parens(lst):
                     continue
                 else:
                     return "No"
-    if not bool(stack):
+    if not stack:
         return "Yes"
     else:
         return "No"
+    """
