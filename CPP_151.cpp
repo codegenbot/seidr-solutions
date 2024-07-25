@@ -1,19 +1,20 @@
 #include <iostream>
-#include <list>
+#include <vector>
+#include <cassert>
 
-double double_the_difference(std::list<double> lst) {
+long long double_the_difference(const std::vector<int>& lst) {
     long long sum = 0;
     for (auto num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
             sum += (long long)num * num;
         }
     }
-    return sum * 2.0;
+    return sum;
 }
 
 int main() {
-    std::list<double> lst = {1.5, 2.0, 3.0, 4.5, 5.0};
-    double odd_sum = double_the_difference(lst);
-    std::cout << "Double the sum of squares of odd integers in the list: " << odd_sum << std::endl;
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == your_expected_output); // Define your_expected_output based on the problem description
     return 0;
 }
