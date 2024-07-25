@@ -1,14 +1,13 @@
+#include <string>
+using namespace std;
 string circular_shift(int x, int shift) {
-    string num = to_string(x);
-    int n = num.size();
+    string str = to_string(x);
+    int n = str.size();
     shift %= n;
     if (shift == 0) {
-        return num;
+        return str;
+    } else {
+        string shifted = str.substr(n - shift) + str.substr(0, n - shift);
+        return shifted;
     }
-    if (shift > n) {
-        reverse(num.begin(), num.end());
-        return num;
-    }
-    string result = num.substr(n - shift) + num.substr(0, n - shift);
-    return result;
 }
