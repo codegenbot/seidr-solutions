@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> sort_array(std::vector<int> array){
     int sum = array[0] + array[array.size()-1];
     if(sum % 2 == 0)
