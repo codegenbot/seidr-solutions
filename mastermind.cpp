@@ -1,22 +1,16 @@
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
-        }
-    }
-
+    vector<char> code_chars(code.begin(), code.end());
     for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
+        if (code_chars.count(c)) {
+            code_chars.erase(remove(code_chars.begin(), code_chars.end(), c), code_chars.end());
+            if (count(code.begin(), code.end(), c) > 0) {
+                black++;
+            } else {
+                white++;
             }
         }
-        white += (count > 1 ? 1 : 0);
     }
-
-    return black + white - black;
+    return make_pair(white, black).second;
 }
