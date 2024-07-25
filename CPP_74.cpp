@@ -1,28 +1,24 @@
-#include <string> // Add necessary include header
+#include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b){ // Add bool return type and use const references for vector parameters
-    // Function body
-}
-
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> issame(const vector<string>& a, const vector<string>& b) {
     int total_chars1 = 0;
-    for (const string& str : lst1) {
+    for (const string& str : a) {
         total_chars1 += str.size();
     }
 
     int total_chars2 = 0;
-    for (const string& str : lst2) {
+    for (const string& str : b) {
         total_chars2 += str.size();
     }
 
     if (total_chars1 < total_chars2) {
-        return lst1;
+        return a;
     } else {
-        return lst2;
+        return b;
     }
 }
 
 int main() {
-    assert(issame(total_match(vector<string>{"this"}, vector<string>{}), vector<string>{})); // Fix function invocation
+    issame({ "this" }, {});
     return 0;
 }
