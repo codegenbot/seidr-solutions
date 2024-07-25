@@ -1,18 +1,19 @@
-```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
 if __name__ == "__main__":
-    num_strings = int(input("Enter the number of strings: "))
-    strings = []
+    num_strings = int(input("Enter the number of strings (1-9): ") or 1)
     
-    for i in range(num_strings):
-        s = input(f"Enter string {i+1}: ")
-        strings.append(s)
-    
-    user_input = input("Do you want to see concatenated string? (y/n): ")
-    if user_input.lower() == 'y':
+    if not 1 <= num_strings <= 9:
+        print("Error! Please enter a number between 1 and 9.")
+    else:
+        strings = []
+        
+        for i in range(num_strings):
+            s = input(f"Enter string {i+1}: ")
+            strings.append(s)
+        
         result = concatenate(strings)
         print(result)
