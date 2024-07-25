@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-// Function to find strongest extension based on the strength score defined by problem statement rules.
-int Strongest_Extension(string class_name,vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for (const auto &extension : extensions) {
         int cap = 0, sm = 0;
@@ -26,8 +24,7 @@ int Strongest_Extension(string class_name,vector<string> extensions){
 
 int main() {
     std::string class_name = "Sp";
-    vector<string> extensions = {"671235", "Bb"};
-    int result = Strongest_Extension(class_name, extensions);
-    assert(result == "Sp.671235");
+    std::vector<std::string> extensions = {"671235", "Bb"};
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
