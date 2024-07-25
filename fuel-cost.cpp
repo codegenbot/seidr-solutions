@@ -2,9 +2,12 @@
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
-    int sum = 0;
+    int total = 0;
     for (int num : numbers) {
-        sum += (num / 3 - 2);
+        int result = (num / 3);
+        result = min(result, 0); // round down to nearest integer
+        result -= 2; // subtract 2
+        total += result;
     }
-    return sum;
+    return total;
 }
