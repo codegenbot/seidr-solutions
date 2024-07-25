@@ -5,20 +5,14 @@
 class Solution {
 public:
     static std::vector<int> generate_integers(int start, int end) {
-        std::vector<int> result;
-        for (int i = start; i <= end; ++i) {
-            result.push_back(i);
-        }
-        return result;
+        std::vector<int> nums(end - start + 1);
+        std::iota(nums.begin(), nums.end(), start); 
+        return nums;
     }
 
     static std::vector<int> filter_even_numbers(const std::vector<int> &nums) {
         std::vector<int> result;
-        for (int num : nums) {
-            if (num % 2 == 0) {
-                result.push_back(num);
-            }
-        }
+        std::copy_if(nums.begin(), nums.end(), std::back_inserter(result), [](int num) { return num % 2 == 0; });
         return result;
     }
 
