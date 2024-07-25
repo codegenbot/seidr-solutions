@@ -2,7 +2,7 @@
 
 int skjkasdkd(vector<int> lst) {
     int max_prime = 0;
-    for (int num : lst) {
+    for (auto num : lst) {
         if (isPrime(num)) {
             if (num > max_prime) {
                 max_prime = num;
@@ -31,4 +31,3 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
-}
