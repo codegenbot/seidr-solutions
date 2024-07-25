@@ -1,28 +1,22 @@
-#include <vector>
-#include <algorithm>
-
-int sum_of_digits(int num) {
-    int sum = 0;
-    num = abs(num);
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
-bool compare(int a, int b) {
-    int sum_a = sum_of_digits(a);
-    int sum_b = sum_of_digits(b);
+sort(nums.begin(), nums.end(), [](int a, int b) {
+    int sumA = 0, sumB = 0;
+    int numA = abs(a), numB = abs(b);
     
-    if (sum_a == sum_b) {
+    while (numA > 0) {
+        sumA += numA % 10;
+        numA /= 10;
+    }
+    
+    while (numB > 0) {
+        sumB += numB % 10;
+        numB /= 10;
+    }
+    
+    if (sumA == sumB) {
         return a < b;
     }
     
-    return sum_a < sum_b;
-}
+    return sumA < sumB;
+});
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), compare);
-    return nums;
-}
+return nums;
