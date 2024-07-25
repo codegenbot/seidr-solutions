@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -20,6 +19,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
         }
     }
     return result;
+
 }
 
 int main() {
