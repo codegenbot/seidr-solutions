@@ -1,6 +1,6 @@
 #include <string>
-#include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <openssl/evp.h>
 #include <assert.h>
 
 std::string string_to_md5(const std::string& text) {
@@ -13,7 +13,9 @@ std::string string_to_md5(const std::string& text) {
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
 
-    md = EVP_md5();
+    OpenSSL_add_all_algorithms(); // Add this line
+
+    md = EVP_get_digestbyname("md5");
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
