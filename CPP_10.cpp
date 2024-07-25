@@ -1,17 +1,14 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <iostream>
 using namespace std;
 
-bool is_palindrome(string str){
-    string s((string(str.begin(),str.end())).reverse());
-    return s==str;
-}
-
-string make_palindrome(string str){
-    if(is_palindrome(str))return str;
-    for(int i=str.length()-1;i>=0;--i)
-        if(!is_palindrome(str.substr(0,i)+str.substr(i)))
-            return str+string(str.begin(),str.end()).reverse().substr(i)+string(str.begin()+i, str.end());
+string make_palindrome(string input) {
+    string reversed = "";
+    for(int i=input.length()-1; i>=0; i--) {
+        reversed += input[i];
+    }
+    return input + reversed;
 }
 
 int main() {
