@@ -1,4 +1,11 @@
-def decode_shift(s: str):
+```
+def decode_shift():
+    shift = int(input("Enter the shift value (0-25): "))
+    if shift < 0 or shift > 25:
+        return "Invalid input. Please enter a shift value between 0 and 25."
+
+    s = input("Enter the encoded string: ")
+    
     result = ""
     i = 0
     while i < len(s):
