@@ -1,5 +1,6 @@
 n = int(input("Enter the value of 'n': "))
 
+
 def prime_fib(n):
     def is_prime(num):
         if num < 2:
@@ -10,7 +11,9 @@ def prime_fib(n):
         return True
 
     def is_fib(num):
-        return (5*num*num + 4)**0.5 % 1 == 0 or (5*num*num - 4)**0.5 % 1 == 0
+        return (5 * num * num + 4) ** 0.5 % 1 == 0 or (
+            5 * num * num - 4
+        ) ** 0.5 % 1 == 0
 
     count = 0
     current_num = 2
@@ -20,6 +23,7 @@ def prime_fib(n):
         current_num += 1
 
     return current_num - 1
+
 
 result = prime_fib(n)
 print(result)
