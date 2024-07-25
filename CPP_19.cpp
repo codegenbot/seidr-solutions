@@ -11,10 +11,22 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-vector<string> number_strings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+string sort_numbers(string numbers) {
+    map<int, string> sorted_numbers;
+    string result = "";
 
-sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
-    return number_map[a] < number_map[b];
-});
+    size_t start = 0, end = 0;
+    while ((end = numbers.find(" ", start)) != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        sorted_numbers[number_map[num_str]] = num_str;
+        start = end + 1;
+    }
+    sorted_numbers[number_map[numbers.substr(start))] = numbers.substr(start);
 
-return numbers;
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
+    }
+
+    result.pop_back(); // Remove the extra space at the end
+    return result;
+}
