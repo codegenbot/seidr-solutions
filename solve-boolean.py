@@ -4,10 +4,12 @@ def solve.Boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid expression')
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return not bool(left) or not bool(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return bool(left) or bool(right)
+        raise ValueError("Invalid Boolean operation")
+    else:
+        result = True
+        for char in expression:
+            if char == '&':
+                result = result and (expression[expression.index(char) + 1] == 'T')
+            elif char == '|':
+                result = result or (expression[expression.index(char) + 1] == 'T')
+        return result
