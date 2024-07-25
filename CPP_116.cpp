@@ -20,18 +20,7 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int n;
-    cin >> n;
-    for(int i=0; i<n;i++){
-        int x;
-        cin >>x;
-        arr.push_back(x);
-    }
-    cout << "Sorted array: ";
-    for (int &i : sort_array(arr))
-        cout << i << " ";
-    cout << endl;
-    
+    vector<int> arr = {2,4,8,16,32};
+    sort_array(arr);
     return 0;
 }
