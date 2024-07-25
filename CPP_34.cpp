@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 #include <cassert>
@@ -18,7 +17,6 @@ bool issame(vector<int> v) {
             if (i == j) {
                 found = true;
                 break;
-            }
         }
         if (!found)
             uniqueV.push_back(i);
