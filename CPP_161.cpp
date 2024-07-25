@@ -1,15 +1,22 @@
-for (char &c : s) {
-    if (isalpha(c)) {
-        if (islower(c)) {
-            c = toupper(c);
+string result = "";
+    bool hasLetter = false;
+    
+    for (char &c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            if (isupper(c)) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+            }
         } else {
-            c = tolower(c);
+            result += c;
         }
     }
+    
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
+    }
+    
+    return result;
 }
-
-if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-    reverse(s.begin(), s.end());
-}
-
-return s;
