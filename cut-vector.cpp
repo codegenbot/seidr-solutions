@@ -5,24 +5,19 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int minDiff = INT_MAX;
-    int cutIndex = 1;
-    if (nums.size() > 1 && abs(nums[1]-nums[0]) < minDiff) {
-        minDiff = abs(nums[1] - nums[0]);
-        cutIndex = 1;
-    }
+    int minDiff = abs(nums[1] - nums[0]);
+    int cutIndex = 0;
+    
     for (int i = 2; i < nums.size(); ++i) {
-        if (i >= 2 && abs(nums[i] - nums[0]) < minDiff) {
-            minDiff = abs(nums[i] - nums[0]);
-            cutIndex = i;
-        } else if (i > 1 && abs(nums[i-1] - nums[0]) < minDiff) {
-            minDiff = abs(nums[i-1] - nums[0]);
-            cutIndex = i - 1;
-        }
         if (abs(nums[i] - nums[0]) >= minDiff) {
             break;
         }
+        if (abs(nums[i] - nums[0]) < minDiff) {
+            minDiff = abs(nums[i] - nums[0]);
+            cutIndex = i;
+        }
     }
+    
     return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
 }
 
