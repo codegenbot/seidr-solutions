@@ -1,9 +1,10 @@
 ```cpp
-#include <iostream>
-#include <string>
-#include <vector>
+int rename_me() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ") , {"()", "(())", "(()())"}));
+    return 0;
+}
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     for (string s : a) {
         bool found = false;
         for (string t : b) {
@@ -19,9 +20,9 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group = "";
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group = "";
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -32,16 +33,11 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             open_count--;
             current_group += c;
             if (open_count == 0) {
-                result.push_back(current_group);
+                result.push_back(std::string(current_group));
                 current_group = "";
             }
         }
     }
 
     return result;
-}
-
-int test_main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
