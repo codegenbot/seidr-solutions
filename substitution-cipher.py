@@ -1,10 +1,13 @@
 ```
-def substitution_cipher(cipher1, cipher2, message):
-    deciphered_message = ""
+def decipher_cipher(cipher1, cipher2, message):
+    mapping = {}
+    for char1, char2 in zip(cipher1, cipher2):
+        if char1 != char2:
+            mapping[char1] = char2
+    result = ""
     for char in message:
-        if char in cipher1:
-            index = cipher1.index(char)
-            deciphered_message += cipher2[index]
+        if char in mapping:
+            result += mapping[char]
         else:
-            deciphered_message += char
-    return deciphered_message
+            result += char
+    return result
