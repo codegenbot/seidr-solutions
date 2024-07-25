@@ -24,7 +24,4 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-int main() {
-    assert(areSame(tri(1), std::vector<int>{1, 3}));
-    return 0;
-}
+assert(areSame(tri(1), std::vector<int>{1, 3}));
