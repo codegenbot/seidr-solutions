@@ -1,11 +1,3 @@
-```cpp
-#include <vector>
-using namespace std;
-
-bool issame(vector<string>, vector<string>) {
-    // implementation of your issame function
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -30,4 +22,8 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+bool issame(vector<string> b, vector<string> c) {
+    return b == c;
 }
