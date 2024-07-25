@@ -1,5 +1,5 @@
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
+```
+def car_race_collision(n):
     total_distance = 0
     for _ in range(n):
         speed = int(input("Enter the speed of a car (in km/h): "))
