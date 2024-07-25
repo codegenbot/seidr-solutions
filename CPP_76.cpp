@@ -1,9 +1,14 @@
-if (n == 1) {
-        return x == 1;
+if (n == 1 && x == 1) {
+        return true;
     }
+    
     int power = 1;
-    while (power < x) {
-        power *= n;
+    while (pow(n, power) <= x) {
+        if (pow(n, power) == x) {
+            return true;
+        }
+        power++;
     }
-    return power == x;
+    
+    return false;
 }
