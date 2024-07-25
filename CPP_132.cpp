@@ -1,10 +1,14 @@
-int opened = 0;
+int count = 0;
     for (char c : str) {
-        if (c == '[') {
-            opened++;
-        } else if (c == ']' && opened > 0) {
-            opened--;
+        if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return true;
+            }
+        } else {
+            count++;
         }
     }
-    return opened < 0 ? true : false;
+    return false;
 }
