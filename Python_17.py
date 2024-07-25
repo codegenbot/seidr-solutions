@@ -1,2 +1,1 @@
-print("Enter space-separated integers:")
-user_input = list(map(int, input().split()))
+user_input = [int(input()) for _ in range(3)]
