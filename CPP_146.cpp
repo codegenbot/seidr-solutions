@@ -1,5 +1,7 @@
-#include <iostream>
 #include <vector>
+
+#include <iostream>
+using namespace std;
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -12,7 +14,7 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> numbers = {11, 12, 15, 16, 20};
-    cout << "Number of special integers: " << specialFilter(numbers) << endl;
+    vector<int> numbers = {12,15,17,20};
+    cout << "Special numbers: " << specialFilter(numbers) << endl;
     return 0;
 }
