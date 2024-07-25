@@ -1,6 +1,9 @@
-bool any_int(float a, float b, float c){
-    if (abs(a - (b + c)) < 0.001 || abs(b - (a + c)) < 0.001 || abs(c - (a + b)) < 0.001) {
-        return true;
-    }
-    return false;
+Here is the completed code:
+
+bool any_int(float a, float b, float c) {
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+
+    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
