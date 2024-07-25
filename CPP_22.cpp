@@ -1,16 +1,15 @@
-#include<vector>
-#include<sstream>
+#include <vector>
+#include <sstream>
+#include <any>
 
-bool issame(const std::any& a, const std::type_info& t) {
-    return a.type() == t;
+bool issame(const std::any& val) {
+    return val.type() == typeid(int);
 }
 
-vector<int> filter_integers(std::any values){
-    vector<int> result;
-    for (const auto& val : values) {
-        if (issame(val, typeid(int))) {
-            result.push_back(std::any_cast<int>(val));
-        }
+std::vector<int> filter_integers(std::any values){
+    std::vector<int> result;
+    if (values.has_value() && issame(values)) {
+        result.push_back(std::any_cast<int>(values));
     }
     return result;
 }
