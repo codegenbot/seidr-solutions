@@ -1,30 +1,37 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
+bool issame(vector<int> a,vector<int>b){
+    vector<int> c = a;
+    sort(c.begin(), c.end());
+    vector<int> d = b;
+    sort(d.begin(), d.end());
+    return c == d;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        if (!lst.empty())
-            result.push_back(*max_element(lst.begin(), lst.end()));
-        lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
+    if (lst.empty()) return result;
+
+    vector<int> min_max;
+    for (int num : lst) {
+        if (num < *min_max.begin() || min_max.empty())
+            min_max.push_back(num);
+        else if (*min_max.rbegin() > num)
+            min_max.push_back(num);
     }
-    return result;
-}
 
-int main() {
-    std::cout << (issame(strange_sort_vector({111111}), {111111}) ? "Pass" : "Fail") << std::endl;
-    return 0;
+    while (!lst.empty()) {
+        result.push_back(*min_max.begin());
+        lst.erase(std::remove(lst.begin(), lst.end(), *min_max.begin()), lst.end());
+        min_max.clear();
+        for (int num : lst) {
+            if (num < *min_max.begin() || min_max.empty())
+                min_max.push_back(num);
+            else if (*min_max.rbegin() > num)
+                min_max.push_back(num);
+        }
+    }
+
+    return result;
 }
