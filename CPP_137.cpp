@@ -1,9 +1,6 @@
 #include <boost/any.hpp>
 namespace boost;
 
-boost::any a;
-boost::any b;
-
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
     int x = boost::any_cast<int>(a);
     int y = boost::any_cast<int>(b);
@@ -44,4 +41,3 @@ else if ((a.type() == typeid(double)) &&
 } 
 else {
     return a;
-}
