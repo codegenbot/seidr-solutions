@@ -19,5 +19,5 @@ std::vector<float> derivative(const std::vector<float>& v) {
 }
 
 int main() {
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
+    assert(issame(derivative({1.0f}), {}));
 }
