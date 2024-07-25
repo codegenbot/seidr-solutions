@@ -1,22 +1,20 @@
-Here is the solution:
-
-int fuelCost(vector<int> v) {
-    int total = 0;
-    for (int x : v) {
-        int y = (x / 3);
-        y = (y > 0)? y - 2: 0;
-        total += y;
+int getFuelCost(vector<int> fuelCosts) {
+    int sum = 0;
+    for (int i : fuelCosts) {
+        int result = (i / 3) - 2;
+        sum += result;
     }
-    return total;
+    return sum;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++){
-        cin >> v[i];
+    vector<int> costs(n);
+    for(int i = 0; i < n; ++i){
+        cin >> costs[i];
     }
-    cout << fuelCost(v) << endl;
+    
+    cout << getFuelCost(costs) << endl;
     return 0;
 }
