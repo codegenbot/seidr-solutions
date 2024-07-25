@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-
 using namespace std;
 
 bool is_palindrome(string str){
@@ -14,7 +14,11 @@ string make_palindrome(string str){
             return str+string(str.substr(0,i))+string(str.substr(i)).reverse();
 }
 
-int main() {
-    assert (make_palindrome("jerry") == "jerryyejr");
+int main(){
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    string output = make_palindrome(input);
+    cout << "Palindrome: " << output << endl;
     return 0;
 }
