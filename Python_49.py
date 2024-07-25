@@ -7,11 +7,10 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-print("Please enter a positive integer to check if it's prime.")
 num = None
 while num is None or (num and num < 2):
     try:
-        num = int(input("Enter a number: "))
+        num = int(input("3"))
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 if not isinstance(num, int):
