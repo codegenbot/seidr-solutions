@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     while True:
         s = input("Enter a cyclically encoded string: ")
