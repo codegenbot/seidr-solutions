@@ -11,5 +11,6 @@ string result = "";
     }
     sort(word.begin(), word.end());
     result += word;
+
     return result;
 }
