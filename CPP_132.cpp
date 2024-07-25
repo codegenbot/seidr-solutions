@@ -1,5 +1,4 @@
-int is_nested(string str) {
-    int count = 0;
+int count = 0;
     for (char c : str) {
         if (c == '[') {
             count++;
@@ -7,5 +6,5 @@ int is_nested(string str) {
             count--;
         }
     }
-    return count < 0 ? false : true;
+    return count < 0;
 }
