@@ -29,19 +29,19 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> v(n);
-    for (auto &x : v) std::cin >> x;
+    for (auto &x : v) cin >> x;
 
     pair<vector<int>, vector<int>> res = cutVector(v);
 
-    std::cout << "[";
-    for (const auto &x : res.first) std::cout << x << " ";
-    std::cout << "]\n[";
-    for (const auto &x : res.second) std::cout << x << " ";
-    std::cout << "]\n";
+    cout << "[";
+    for (const auto &x : res.first) cout << x << " ";
+    cout << "]\n[";
+    for (const auto &x : res.second) cout << x << " ";
+    cout << "]\n";
 
-    return 0;
+    return make_pair(res.first, res.second);
 }
