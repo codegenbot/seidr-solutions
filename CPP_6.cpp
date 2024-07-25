@@ -35,4 +35,5 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     return depths;
 }
 
-assert(issame(parse_nested_parens("( ) ( ( ) )"), {1, 2, 1}));
+std::vector<int> expected_output = {1, 2, 1};
+assert(issame(parse_nested_parens("( ) ( ( ) )"), expected_output));
