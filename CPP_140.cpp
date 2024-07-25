@@ -1,22 +1,22 @@
+char prev = ' ';
 int count = 0;
-    string result = "";
-    
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
+string result = "";
+for(char& c : text){
+    if(c == ' '){
+        count++;
+        if(count > 2){
+            if(prev != '-'){
                 result.pop_back();
                 result += '-';
-                count = 1;
-            } else {
-                result += '_';
             }
         } else {
-            result += c;
-            count = 0;
+            result += '_';
         }
+    } else {
+        result += c;
+        count = 0;
     }
-    
-    return result;
+    prev = c;
+}
+return result;
 }
