@@ -1,4 +1,4 @@
-map<string, int> numMap = {
+map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -12,18 +12,23 @@ map<string, int> numMap = {
 };
 
 string sort_numbers(string numbers) {
-    map<int, string> revMap;
+    map<int, string> reverse_map;
     string result = "";
     
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string token = numbers.substr(0, pos);
-        revMap[numMap[token]] = token;
-        numbers.erase(0, pos + 1);
+    size_t start = 0;
+    size_t end = numbers.find(" ");
+    
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        reverse_map[number_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
     }
-    revMap[numMap[numbers]] = numbers;
-
-    for (const auto& pair : revMap) {
+    
+    string last_num_str = numbers.substr(start);
+    reverse_map[number_map[last_num_str]] = last_num_str;
+    
+    for (const auto& pair : reverse_map) {
         result += pair.second + " ";
     }
     
