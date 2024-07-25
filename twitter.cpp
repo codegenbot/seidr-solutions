@@ -8,18 +8,20 @@ string validateTweet(string tweet) {
         return "You didn't type anything";
     }
     
-    string cleanedTweet = "";
+    int pos = 0;
     for (int i = 0; i < tweet.length(); i++) {
         if (tweet[i] >= 'A' && tweet[i] <= 'Z' || tweet[i] >= 'a' && tweet[i] <= 'z') {
-            cleanedTweet += tweet[i];
+            pos++;
+        } else if (tweet[i] == ' ') {
+            pos++;
         }
     }
     
-    if (cleanedTweet.length() > 140) {
+    if (pos > 140) {
         return "Too many characters";
-    } else {
-        return "Your tweet has " + to_string(cleanedTweet.length()) + " characters";
     }
+    
+    return "Your tweet has " + to_string(pos) + " characters";
 }
 
 int main() {
