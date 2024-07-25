@@ -14,5 +14,5 @@ string flip_case(string str){
             result += c;
     }
     return result;
-}
+
 assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
