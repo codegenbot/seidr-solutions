@@ -16,10 +16,7 @@ int fibfib(int n) {
         c = result;
     }
 
-    return result;
-}
+    assert(result == 927);
 
-int main() {
-    assert(fibfib(14) == 927);
-    return 0;
+    return result;
 }
