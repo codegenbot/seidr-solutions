@@ -13,13 +13,14 @@ vector<string> result;
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.empty()) {
+    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
         int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+        for (char c : result[0]) {
+            if ((c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result[0] = to_string(count);
     }
     return result;
+}
