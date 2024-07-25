@@ -1,17 +1,21 @@
-```
-def bowling_score(frames):
+Here is the solution:
+
+def bowling(score):
+    frames = score.split('/')
     score = 0
-    roll = [int(x) for x in re.sub('[/-]', '', frames).split()]
-    for i in range(0, 10):
-        if len(roll) > i:
-            if roll[i] == 10:
-                score += 10 + (0 if i < 9 else 0)
-            elif sum(roll[i:i+2]) <= 10:
-                score += sum(roll[i:i+2])
-                del roll[:i+2]
-            else:
-                score += roll[i] + roll[i+1]
-                del roll[:i+2]
+    for i in range(len(frames)):
+        if len(frames[i]) == 1:
+            score += int(frames[i])
+        elif len(frames[i]) == 2:
+            score += int(frames[i][0]) + int(frames[i][1])
         else:
-            break
+            first_roll = int(frames[i][0])
+            second_roll = int(frames[i][1])
+            third_roll = int(frames[i][2])
+            if first_roll + second_roll == 10:
+                score += first_roll + third_roll
+            elif second_roll == 10:
+                score += first_roll + 10
+            else:
+                score += first_roll + second_roll
     return score
