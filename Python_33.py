@@ -1,10 +1,7 @@
-```
 def sort_third(lst):
     result = []
-    while len(lst) >= 3:
-        temp = sorted(tuple(lst[:3]))
-        del lst[:3]
-        result.append(temp)
-    if len(lst) > 0:
-        result.append(sorted(tuple(lst)))
+    while len(lst) > 0:
+        temp = [i for i in sorted([i for _ in range(len(lst)), i])]
+        del lst[:]
+        result.append(tuple(temp))
     return tuple(result)
