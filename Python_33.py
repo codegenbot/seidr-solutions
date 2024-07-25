@@ -9,4 +9,4 @@ def sort_third(l: list):
         )
         if sub_list else []
         for sub_list in tuples_list
-   ]
+    ]
