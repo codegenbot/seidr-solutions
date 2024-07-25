@@ -1,8 +1,6 @@
-def luhn_algorithm(card):
-    card = list(map(int, card[1:]))
-    for i in range(len(card)):
-        if i % 2 == 0:
-            card[i] *= 2
-            if card[i] > 9:
-                card[i] -= 9
-    return sum(card)
+def luhn(card_number):
+    card_number = list(map(int, card_number))
+    odd_sum = sum([num * 2 if i % 2 != 0 else num for i, num in enumerate(card_number)])
+    return (odd_sum // 9) * 9 + sum(
+        [num for i, num in enumerate(card_number) if i % 2 == 0]
+    )
