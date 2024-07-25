@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> findCommonElements(vector<int>& l1, vector<int>& l2) {
+vector<int> solve(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
