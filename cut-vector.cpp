@@ -10,11 +10,6 @@ int main() {
         nums.push_back(num);
     }
 
-    if (nums.empty()) {
-        std::cerr << "No input values provided." << std::endl;
-        return 1;
-    }
-
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
