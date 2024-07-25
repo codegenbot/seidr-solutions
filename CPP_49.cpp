@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 namespace Solution {
     int modp(int n, int p) {
