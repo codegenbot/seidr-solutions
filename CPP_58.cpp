@@ -1,21 +1,28 @@
 #include <vector>
 #include <algorithm>
+#include <iterator>
+#include <iostream>
+#include <cassert>
 
-void issame(vector<int>& l1, vector<int>& l2) {
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
-
-    vector<int> result;
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
-
-    result.erase(unique(result.begin(), result.end()), result.end());
-
-    for (int num : result) {
-        cout << num << " ";
-    }
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Your implementation
 }
 
 int main() {
-    // Main function implementation
+    std::vector<int> l1 = {2, 3, 5, 7, 11};
+    std::vector<int> l2 = {3, 5, 7, 11, 13};
+
+    std::sort(l1.begin(), l1.end());
+    std::sort(l2.begin(), l2.end());
+
+    std::vector<int> result;
+    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
+
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    
     return 0;
 }
