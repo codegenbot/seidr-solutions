@@ -1,55 +1,57 @@
-#include <iostream>
+```
 #include <any>
 #include <string>
-#include <memory>
+using namespace std;
 
-std::any get_larger(std::any a, std::any b) {
+namespace std {
+
+any a;
+any b;
+
+int compare() {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = std::any_cast<int>(a);
-        int y = std::any_cast<int>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;
-    } 
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = std::any_cast<double>(a);
-        double y = std::any_cast<double>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;
-    } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(char*)) &&
-             (b.type() == typeid(std::string) || b.type() == typeid(char*))) {
-        std::string x = std::any_cast<std::string>(a);
-        std::string y = std::any_cast<std::string>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;
-    } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(char*)) &&
-             (b.type() == typeid(double))) {
-        std::string x = std::any_cast<std::string>(a);
-        double y = std::any_cast<double>(b);
-        if (std::stod(x) > y) return a;
-        else if (std::stod(x) < y) return b;
-        else return a;
-    } 
-    else if ((a.type() == typeid(double)) &&
-             (b.type() == typeid(std::string) || b.type() == typeid(char*))) {
-        double x = std::any_cast<double>(a);
-        std::string y = std::any_cast<std::string>(b);
-        if (x > std::stod(y)) return a;
-        else if (x < std::stod(y)) return b;
-        else return a;
-    } 
-    else {
-        return a;
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        if (x > y) return 1;
+        else if (x < y) return -1;
+        else return 0;
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        if (x > y) return 1;
+        else if (x < y) return -1;
+        else return 0;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+           (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string x = any_cast<string>(a);
+        string y = any_cast<string>(b);
+        if (x > y) return 1;
+        else if (x < y) return -1;
+        else return 0;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+           (b.type() == typeid(double))) {
+        string x = any_cast<string>(a);
+        double y = any_cast<double>(b);
+        if (stod(x) > y) return 1;
+        else if (stod(x) < y) return -1;
+        else return 0;
+    } else if ((a.type() == typeid(double)) &&
+           (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        double x = any_cast<double>(a);
+        string y = any_cast<string>(b);
+        if (x > stod(y)) return 1;
+        else if (x < stod(y)) return -1;
+        else return 0;
+    } else {
+        return 0;
     }
+}
 }
 
 int main() {
-    std::any a, b; // variables declared here
-    // your logic goes here
-    // you may want to get the user input in this place.
-    std::cout << "Larger Value: " << get_larger(a, b) << std::endl;
+    std::any a(std::make_any<int>(4));
+    std::any b(std::make_any<int>(2));
+    int result = compare();
+    cout << "The result is: " << result << endl;
+    return 0;
 }
