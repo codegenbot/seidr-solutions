@@ -1,16 +1,44 @@
 int do_algebra(vector<string> operato, vector<int> operand) {
-    int result = operand[0];
+    int result = 0;
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
-            result += operand[i + 1];
+            result += operand[i];
         } else if (operato[i] == "-") {
-            result -= operand[i + 1];
+            result -= operand[i];
         } else if (operato[i] == "*") {
-            result *= operand[i + 1];
+            int temp = 0;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "*") {
+                    temp *= operand[j];
+                } else if (operato[j] == "/") {
+                    temp /= operand[j];
+                } else if (operato[j] == "**") {
+                    temp = pow(temp, operand[j]);
+                }
+            }
+            result += temp;
         } else if (operato[i] == "//") {
-            result = result / operand[i + 1];
+            int temp = 0;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "//") {
+                    temp /= operand[j];
+                } else if (operato[j] == "**") {
+                    temp = pow(temp, operand[j]);
+                }
+            }
+            result += temp;
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+            int temp = 1;
+            for (int j = i; j < operato.size(); j++) {
+                if (operato[j] == "*") {
+                    temp *= operand[j];
+                } else if (operato[j] == "//") {
+                    temp /= operand[j];
+                } else if (operato[j] == "**") {
+                    temp = pow(temp, operand[j]);
+                }
+            }
+            result += temp;
         }
     }
     return result;
