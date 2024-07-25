@@ -1,5 +1,7 @@
+```cpp
 #include <algorithm>
 #include <string>
+#include <ostream>
 
 bool same_chars(std::string s0, std::string s1) {
     std::sort(s0.begin(), s0.end());
@@ -9,5 +11,5 @@ bool same_chars(std::string s0, std::string s1) {
 
 int main() {
     assert (same_chars("aabb", "aaccc") == false);
-    std::cout << same_chars("abcde", "edcba") << std::endl;
+    std::cout << (same_chars("abcde", "edcba") ? true : false) << std::endl;
 }
