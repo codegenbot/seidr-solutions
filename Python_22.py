@@ -5,7 +5,7 @@ def filter_integers() -> List[int]:
     values = []
     while True:
         user_input = input("Are you done? (yes/no): ").lower()
-        if user_input == 'yes':
+        if user_input == "yes":
             break
         try:
             value = input(
@@ -14,4 +14,7 @@ def filter_integers() -> List[int]:
             values.extend([int(i) for i in value])
         except ValueError:
             print("Invalid input. Please enter integers separated by spaces or 'done'.")
-    return [i for i in values if isinstance(i, int)]
+    return [i for i in values if i % 2 == 0]
+
+
+print(filter_integers())
