@@ -1,11 +1,12 @@
-#include <algorithm>
-#include <string>
+```cpp
 #include <vector>
+#include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> c) {
-    if(a.size()!=c.size()) return false;
+bool issame(vector<string> a, vector<string> result) {
+    if(a.size()!=result.size()) return false;
     for(int i=0;i<a.size();i++){
-        if(a[i]!=c[i]) return false;
+        if(a[i]!=result[i]) return false;
     }
     return true;
 }
@@ -23,4 +24,8 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     return numbers;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
