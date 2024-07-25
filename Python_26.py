@@ -1,9 +1,4 @@
-seen = set()
-result = []
+from typing import List
 
-for num in numbers:
-    if num not in seen:
-        result.append(num)
-        seen.add(num)
-
-return result
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return [num for num in numbers if numbers.count(num) == 1]
