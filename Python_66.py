@@ -2,8 +2,11 @@
 def digitSum(s):
     total = 0
     for char in s.lower():
-        if char.isdigit() or (char.isalpha() and char in '0123456789'):
-            total += int(char)
+        if char.isalnum():
+            if char.isdigit():
+                total += int(char)
+            else:
+                total += ord(char) - 96
     return total
 
 print(digitSum("You arE Very Smart"))
