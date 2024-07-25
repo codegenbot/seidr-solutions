@@ -2,6 +2,7 @@
 #include <climits>
 #include <vector>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -35,19 +36,22 @@ int main() {
 
         if (diff < minDiff) { 
             minDiff = diff; 
-            cutIndex = i+1; 
+            cutIndex = i; 
         } 
     } 
 
-    for (int i = 0; i < cutIndex; i++) { 
+    for (int i = 0; i <= cutIndex; i++) { 
         cout << nums[i] << ' '; 
     } 
-    cout << '\n'; 
+    cout << '\n';
 
-    for (int i = cutIndex; i < n; i++) { 
-        cout << nums[i] << ' '; 
+    for (int i = cutIndex + 1; i < n; i++) { 
+        if (i != cutIndex + 1) { 
+            cout << ' '; 
+        }
+        cout << nums[i]; 
     } 
-    cout << '\n'; 
+    cout << '\n';
 
     return 0;
 }
