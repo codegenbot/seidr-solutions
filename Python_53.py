@@ -3,12 +3,15 @@ def calculate_sum():
     while True:
         try:
             x = int(input("Enter first number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    
+    while True:
+        try:
             y = int(input("Enter second number: "))
-            if x and y:
-                print(x + y)
-                break
-            else:
-                print("Both numbers are required. Please enter two valid integers.")
+            print(x + y)
+            return
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
