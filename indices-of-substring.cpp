@@ -2,16 +2,18 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> res;
-    for(int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for(int j = 0; j < target.size(); j++) {
-            if(text[i + j] != target[j]) {
-                found = false;
+    vector<int> result;
+    for(int i = 0; i <= text.size() - target.size(); i++){
+        int j = 0;
+        while(j < target.size()){
+            if(text[i+j] != target[j]){
                 break;
             }
+            j++;
         }
-        if(found) res.push_back(i);
+        if(j == target.size()){
+            result.push_back(i);
+        }
     }
-    return res;
+    return result;
 }
