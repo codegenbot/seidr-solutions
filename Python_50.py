@@ -3,7 +3,7 @@ def decode_shift(s: str):
 
 input_str = input("Enter the string to decode in lowercase: ").strip().lower()
 
-if input_str.isalpha() and input_str.islower():
+if input_str.isalpha():
     decoded_str = decode_shift(input_str)
     print(decoded_str)
 else:
