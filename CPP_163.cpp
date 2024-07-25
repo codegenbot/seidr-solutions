@@ -14,13 +14,7 @@ std::vector<int> generate_integers(int a, int b) {
 }
 
 std::vector<int> filter_even_numbers(std::vector<int> a) {
-    std::vector<int> result;
-    for (int i : a) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
-    }
-    return result;
+    return {};
 }
 
 int main() {
