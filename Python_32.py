@@ -5,4 +5,4 @@ def find_zero(xs: list):
     for i in range(n, -1, -1):
         if xs[i] != 0:
             return -xs[i - 1] / xs[i]
-    return None  # Add this line to handle the case where zero is not found
+    return None  
