@@ -6,7 +6,7 @@ string solve(string s) {
     for (char c : s) {
         if (isalpha(c)) {
             c = toupper(c);
-            if (c >= 'A' && c <= 'Z') {
+            if (c >= 'a' && c <= 'z') {
                 c = tolower(c);
             }
         } else {
@@ -16,3 +16,4 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
+}
