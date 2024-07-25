@@ -4,5 +4,5 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < n; i++) {
         total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
     }
-    return total_water / capacity + ((total_water % capacity) ? 1 : 0);
+    return total_water / capacity + (total_water % capacity != 0);
 }
