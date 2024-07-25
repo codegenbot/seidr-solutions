@@ -1,6 +1,11 @@
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_closest_elements(numbers):
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise ValueError("Input must be a list of numbers")
+    if len(numbers) < 2:
+        return (0.0, 0.0)
     min_diff = float("inf")
-    closest_pair = ()
+    closest_pair = (0, 0)
 
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
