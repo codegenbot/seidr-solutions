@@ -1,9 +1,8 @@
-Here is the completed code:
+Here's the solution:
 
 string concatenate(vector<string> strings){
     string result = "";
-    for (const auto& str : strings) {
-        result += str;
+    for (const auto& s : strings) {
+        result += s;
     }
     return result;
-}
