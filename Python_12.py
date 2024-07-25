@@ -1,3 +1,4 @@
+```
 input_strs = input("Enter some strings (separated by spaces): ")
 if not input_strs.strip():
     print(f"No strings were entered.")
