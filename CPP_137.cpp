@@ -1,24 +1,31 @@
-Here is the completed code:
-
-#include <boost/any.hpp>
-
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_same_type<double>(a)) {
-        if (is_same_type<double>(b)) {
-            return greater<double>()(get<double>(a), get<double>(b)) ? a : b;
-        } else if (is_same_type<string>(b)) {
-            string str = to_string(get<double>(a));
-            return greater<string>()(str, get<string>(b)) ? a : b;
-        }
-    } else if (is_same_type<string>(a)) {
-        if (is_same_type<string>(b)) {
-            return greater<string>()(get<string>(a), get<string>(b)) ? a : b;
-        } else if (is_same_type<double>(b)) {
-            double val = stod(get<string>(a));
-            return greater<double>()(val, get<double>(b)) ? a : b;
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-    return boost::any_cast<string>("None");
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return boost::any_cast<string>(b);
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(a);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
+            return a;
+        else if (boost::any_cast<string>(a) < boost::any_cast<string>(b))
+            return b;
+        else
+            return boost::any("None");
+    }
+    else {
+        if (boost::any_cast<double>(a) > boost::any_cast<double>(b))
+            return a;
+        else if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
+            return b;
+        else
+            return boost::any("None");
+    }
 }
