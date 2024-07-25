@@ -1,4 +1,3 @@
-```
 def calculate_sum():
     while True:
         try:
@@ -14,3 +13,5 @@ def calculate_sum():
             return
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+calculate_sum()
