@@ -16,9 +16,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> count_up_to(int n);
 
-int main() {
+void main() {
     // Your main function code here
-    return 0;
 }
 
 std::vector<int> count_up_to(int n) {
