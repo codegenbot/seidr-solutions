@@ -4,8 +4,6 @@
 #include <any>
 #include <cassert>
 
-using namespace std;
-
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& val : values) {
