@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -30,3 +31,4 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
     
     return result;
+}
