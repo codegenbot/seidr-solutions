@@ -1,5 +1,4 @@
-````
-"""
+```
 from typing import List
 
 
@@ -12,11 +11,9 @@ def below_zero() -> None:
     while True:
         operations = []
         while True:
-            ops = input(
-                "Enter a list of integers (space separated) or 'end' to finish: "
-            )
+            ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
             if ops.lower() == "end":
-                break
+                break)
             try:
                 operations = [int(op) for op in ops.split()]
                 break
@@ -49,10 +46,11 @@ def below_zero() -> None:
         below_zero_found = False
         below_zero_operations = 0
 
-        if below_zero_operations / len(operations) > 0.5:
+        if below_zero_operations > 0:
             print(f"More than half of the operations were below zero.")
 
         cont = input("Continue? (yes/no): ")
         if cont.lower() == "no":
             break
-"""
+    }
+}
