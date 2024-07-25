@@ -1,3 +1,9 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
