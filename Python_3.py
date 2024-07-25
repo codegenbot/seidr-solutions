@@ -1,7 +1,3 @@
-```
-from typing import List
-
-
 def below_zero() -> None:
     cont = "yes"
     balance = 0
@@ -11,7 +7,9 @@ def below_zero() -> None:
     while True:
         operations: List[int] = []
         while True:
-            ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
+            ops = input(
+                "Enter a list of integers (space separated) or 'end' to finish: "
+            )
             if ops.lower() == "end":
                 break
             try:
@@ -46,6 +44,7 @@ def below_zero() -> None:
         if below_zero_operations > len(operations) // 2:
             print(f"More than half of the operations were below zero.")
 
-        cont = input("Continue? (yes/no): ")
-        if cont.lower() == "no":
-            break
+        while True:
+            cont = input("Continue? (yes/no): ")
+            if cont.lower() == "no":
+                break
