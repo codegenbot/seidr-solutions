@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -5,9 +6,7 @@ def below_zero() -> None:
     while True:
         operations = []
         while True:
-            ops = input(
-                "Enter a list of integers (space separated) or 'end' to finish: "
-            )
+            ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
             if ops.lower() == "end":
                 break
             try:
