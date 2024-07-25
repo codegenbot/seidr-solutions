@@ -1,11 +1,6 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    return -b / a
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
+    return round((-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a), 2)
