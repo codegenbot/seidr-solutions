@@ -1,3 +1,11 @@
+from scipy.optimize import fsolve
+
+
 def find_zero(xs: list):
-    x = -xs[0] / xs[-1]
-    return x
+    def f(x):
+        return sum([coeff * x**i for i, coeff in enumerate(xs)])
+
+    if len(xs) % 2 != 0:
+        return None
+
+    return fsolve(f, 0)[0]
