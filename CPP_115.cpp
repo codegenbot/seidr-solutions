@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     int count = 0;
     while (true) {
         bool filled = false;
@@ -39,13 +39,27 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 1, 1}, {0, 0, 0}};
-    int capacity = 3;
-    int maxFilled = max_fill(grid, capacity);
-    if (maxFilled != -1) {
-        std::cout << "The maximum number of times the grid can be filled is: " << maxFilled << std::endl;
-    } else {
-        std::cout << "The grid cannot be fully filled." << std::endl;
+    int n, m;
+    std::cout << "Enter number of rows: ";
+    std::cin >> n;
+    std::cout << "Enter number of columns: ";
+    std::cin >> m;
+
+    std::vector<std::vector<int>> grid(n, std::vector<int>(m));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            std::cout << "Enter value for [" << i << "][" << j << "]: ";
+            std::cin >> grid[i][j];
+        }
     }
+
+    int capacity;
+    std::cout << "Enter the water tank's capacity: ";
+    std::cin >> capacity;
+
+    std::cout << "Maximum number of times the water tank can be filled: "
+              << max_fill(grid, capacity);
+
     return 0;
 }
