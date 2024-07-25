@@ -1,2 +1,4 @@
-a, b, c = map(int, input().strip().split())
+a = int(input())
+b = int(input())
+c = int(input())
 print(max(a, b, c))
