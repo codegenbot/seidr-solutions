@@ -1,2 +1,3 @@
-return str.length();
-}
+#include <cstring>
+return strlen(str.c_str());
+```
