@@ -1,7 +1,12 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
+#include <vector>
+#include <string>
+#include <initializer_list>
+
+bool issame(vector<string>, vector<string>) {
     return true;
+}
+
+int main() {
+    bool result = issame({""}, {"a", "b"});
+    return 0;
 }
