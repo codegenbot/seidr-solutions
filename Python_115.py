@@ -1,8 +1,9 @@
-```
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
-    total_water = sum(1 for row in grid for cell in row if cell > 0)
+    total_water = sum(
+        cell if 0 < cell <= capacity else 0 for row in grid for cell in row
+    )
 
     for i in range(cols):
         for j in range(rows):
@@ -11,4 +12,6 @@ def max_fill(grid, capacity):
                 grid[j][i] -= amount_to_fill
                 capacity -= amount_to_fill
 
-    return math.ceil(total_water / (capacity + rows * cols - total_water))
+    return math.ceil(
+        total_water / (capacity + sum(1 for row in grid for _ in row) - total_water)
+    )
