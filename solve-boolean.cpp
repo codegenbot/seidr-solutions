@@ -1,4 +1,7 @@
-string solveBoolean(string s) {
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -6,27 +9,18 @@ string solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) {
-                return "False";
+                return false;
             }
-            st.push('&');
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) {
-                return "True";
+                return true;
             }
-            st.push('|');
         } else {
             st.push(s[i]);
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    if (st.size() > 0) {
-        return "True";
-    } else {
-        return "False";
-    }
+    return st.top() == 'T';
 }
