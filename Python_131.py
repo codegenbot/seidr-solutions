@@ -12,5 +12,5 @@ def check():
         if n == -1:
             break
         print(count_even_digits(n))
-        pass
+
 check()
