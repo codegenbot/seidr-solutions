@@ -1,14 +1,9 @@
-````
+```
+#include <iostream>
 #include <string>
 #include <vector>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
-
-int main() {
-    // ...
-}
-
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+int strongest_extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
     std::string result;
     for(auto& extension:extensions){
@@ -26,4 +21,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
     return class_name + "." + result;
 }
-```
+
+int main() {
+    // code here
+}
