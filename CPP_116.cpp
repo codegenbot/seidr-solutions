@@ -15,7 +15,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     return temp;
 }
 
-int updated_main() {
+int main() {
     std::vector<int> input_arr;
     int n, num;
     std::cin >> n;
