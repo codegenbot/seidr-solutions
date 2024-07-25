@@ -1,5 +1,8 @@
 Here is the solution:
 
+#include <string>
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     string word = "";
