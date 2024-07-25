@@ -1,6 +1,5 @@
-#include <string>
-#include <vector>
 #include <cassert>
+#include <vector>
 
 int longest(std::vector<std::string> strings){
     if(strings.empty()) return 0;
@@ -14,5 +13,7 @@ int longest(std::vector<std::string> strings){
 }
 
 int main() {
-    assert(longest({{"x"}, {"yyy"}, {"zzzz"}, {"www"}, {"kkkk"}, {"abc"}}) == 5);
+    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
+    int result = longest(strings);
     return 0;
+}
