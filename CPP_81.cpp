@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return isSameOrder(a) && isSameOrder(b);
@@ -12,10 +11,10 @@ bool isSameOrder(vector<string> v) {
     return v;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
-        std::string letter_grade;
+        string letter_grade;
         if (grade >= 4.0) {
             letter_grade = "A+";
         } else if (grade > 3.7) {
@@ -47,7 +46,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0f, 0.7f};
-    std::vector<std::string> result = numerical_letter_grade(grades);
+    vector<float> grades = {0.0f, 0.7f};
+    vector<string> result = numerical_letter_grade(grades);
+    // Do something with the result.
     assert(isSameOrder(result) && isSameOrder({"E", "D-"}));
 }
