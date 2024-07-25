@@ -1,10 +1,10 @@
-string res = "";
+string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
-            res += ch;
+            result += ch;
         }
     }
-    string resCopy = res;
-    reverse(resCopy.begin(), resCopy.end());
-    return {res, res == resCopy ? "True" : "False"};
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    return {result, (result == reversed) ? "True" : "False"};
 }
