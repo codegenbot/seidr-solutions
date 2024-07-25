@@ -1,7 +1,6 @@
-a, b, c = map(int, input("Enter three numbers separated by spaces: ").split())
-
-def is_pythagorean_triple(a, b, c):
+def is_pythagorean_triple():
+    a, b, c = map(int, input().split())
     return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
 
-result = is_pythagorean_triple(a, b, c)
+result = is_pythagorean_triple()
 print(result)
