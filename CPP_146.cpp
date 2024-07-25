@@ -10,4 +10,3 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
