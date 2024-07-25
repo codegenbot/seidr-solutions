@@ -1,36 +1,39 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t pos = 0;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.size() && s[i] == ' ') {
-                i++; // skip the spaces
-            }
-            result += toupper(s[i]); // convert to uppercase
-        } else if (s[i] != ' ') {
-            if (!result.empty()) {
-                result += towupper(s[i]); // convert to uppercase
-            } else {
-                result += tolower(s[i]); // convert to lowercase
-            }
-        }
+    while ((pos = str.find(" ")) != std::string::npos) {
+        words.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
+
+    if (!str.empty()) {
+        words.push_back(str);
+    }
+
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (i > 0)
+            words[i][0] = toupper(words[i][0]);
+    }
+
+    std::string result;
+    for (const auto& word : words) {
+        result += word;
+        if (i + 1 < words.size())
+            result += " ";
+        ++i;
+    }
+
     return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        string s;
-        cin >> s;
-        cout << camelCase(s) << endl;
-    }
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
     return 0;
 }
