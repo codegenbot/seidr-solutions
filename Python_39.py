@@ -4,10 +4,3 @@ def fibonacci(num):
         return mem[num]
     mem[num] = fibonacci(num - 1) + fibonacci(num - 2)
     return mem[num]
-
-def check():
-    num = int(input())
-    result = fibonacci(num)
-    print(result)
-
-check()
