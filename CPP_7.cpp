@@ -24,4 +24,22 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
 }
 
 int main() {
+    int x;
+    std::cin >> x; // Read the number of strings to be entered from user
+    std::vector<std::string> str(x);
+    
+    for(int i = 0; i < x; i++) {
+        std::cin >> str[i];
+    }
+    
+    std::string substr;
+    std::cin >> substr;
+
+    std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
+
+    if (issame(filtered, {{"grunt"}, {"prune"}})) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
 }
