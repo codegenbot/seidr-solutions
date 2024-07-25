@@ -19,11 +19,20 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, -5, 2, -1, 7, -4};
+    // Sample code to test the functions
+    vector<int> input = {3, -5, 7, -2, 8, -1};
     vector<int> result = largest_smallest_integers(input);
     
-    for(int num : result){
-        cout << num << " ";
+    cout << "Largest Negative: " << result[0] << endl;
+    cout << "Smallest Positive: " << result[1] << endl;
+    
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    
+    if(issame(a, b)){
+        cout << "Vectors are the same" << endl;
+    } else {
+        cout << "Vectors are different" << endl;
     }
     
     return 0;
