@@ -1,16 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i)
         if (a[i] != b[i]) return false;
     return true;
 }
 
-vector<int> rolling_max(const vector<int>& numbers) {
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int max = INT_MIN;
 
@@ -25,6 +24,6 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    // Your code here
+    assert(same(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
     return 0;
 }
