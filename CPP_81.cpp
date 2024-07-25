@@ -1,11 +1,6 @@
-#include <vector>
 #include <string>
 
-bool issame(const vector<string> &a, const vector<string> &b) {
-    return a == b;
-}
-
-vector<string> numerical_letter_grade(vector<float> grades){
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) letter_grades.push_back("A+");
@@ -23,13 +18,4 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-int main() {
-    vector<float> grades = {3.8, 2.5, 4.0, 1.2};
-    vector<string> result = numerical_letter_grade(grades);
-    for (const string& grade : result) {
-        cout << grade << " ";
-    }
-    return 0;
 }
