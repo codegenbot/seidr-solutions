@@ -1,4 +1,6 @@
-def leaders(input):
+def leaders(nums):
     return [
-        i for i in reversed(input) if all(i >= j for j in input[input.index(i) + 1 :])
+        n
+        for i, n in reversed(list(enumerate(nums)))
+        if all(n >= nums[j] for j in range(i + 1, len(nums)))
     ]
