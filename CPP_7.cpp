@@ -13,25 +13,25 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring) {
+vector<vector<string>> filter_by_substring(vector<string> list, string target) {
     vector<vector<string>> result;
-    for (const auto& s : strings) {
-        if (std::count(s.begin(), s.end(), substring) > 0)
-            result.push_back(s);
+    for(string s : list) {
+        if(s.find(target) != string::npos) {
+            vector<string> temp = {s};
+            result.push_back(temp);
+        }
     }
     return result;
 }
 
 int main() {
-    vector<vector<string>> strings = {{"grunt", "trumpet", "prune", "gruesome"}, {"hello", "world"}};
-    string substring = "run";
-    vector<vector<string>> filteredStrings = filter_by_substring(strings, substring);
+    std::vector<std::string> input_list = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string target_string = "run";
     
-    for (const auto& s : filteredStrings) {
-        if(issame(s, {"grunt", "prune"})) {
-            // remove this line
-        }
-    }
+    // Use the filter_by_substring function
+    vector<vector<string>> output = filter_by_substring(input_list, target_string);
     
+    bool result = issame(output[0], {"grunt", "prune"});
+    assert(result);
     return 0;
 }
