@@ -1,18 +1,20 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
+using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
+std::pair<int, int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = std::min(total, remaining);
+    int left = std::max(0, total - remaining);
+    return {eaten, left};
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> eat(int number, int need, int remaining){
-    int totalCarrots = number + need;
-    int eatenCarrots = min(totalCarrots, remaining);
-    int leftCarrots = max(0, remaining - totalCarrots);
-    return {eatenCarrots, leftCarrots};
-}
-
-int main(){
+int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
-    
     return 0;
 }
