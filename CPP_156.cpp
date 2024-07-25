@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -17,14 +16,14 @@ std::string int_to_roman(int n) {
     return result;
 }
 
-int main() {
+int mainHelper() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
 
     if(num < 1 || num > 3999) {
         std::cout << "Please enter a number between 1 and 3999.\n";
-        return 0;
+        mainHelper();
     }
 
     std::cout << int_to_roman(num);
