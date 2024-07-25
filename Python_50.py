@@ -7,6 +7,7 @@ def decode_shift(input_string):
             decoded_string += char
     return decoded_string
 
+
 input_string = raw_input("Enter the string to decode: ")
 result = decode_shift(input_string)
 print(result)
