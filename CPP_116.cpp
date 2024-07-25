@@ -15,17 +15,19 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     return temp;
 }
 
-std::vector<int> input_arr;
-int n, num;
-std::cin >> n;
+int main() {
+    std::vector<int> input_arr;
+    int n, num;
+    std::cin >> n;
 
-for (int i = 0; i < n; ++i) {
-    std::cin >> num;
-    input_arr.push_back(num);
-}
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        input_arr.push_back(num);
+    }
 
-std::vector<int> sorted_arr = sort_array(input_arr);
-for (int num : sorted_arr) {
-    std::cout << num << " ";
+    std::vector<int> sorted_arr = sort_array(input_arr);
+    for (int num : sorted_arr) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
-return 0;
