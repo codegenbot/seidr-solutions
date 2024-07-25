@@ -1,13 +1,13 @@
 string encrypt(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2)%26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2)%26 + 'A';
+        if(s[i] >= 'a' && s[i] <= 'm'){
+            result += (char)(s[i] - 2);
+        } else if(s[i] >= 'n' && s[i] <= 'z'){
+            result += (char)(s[i] + 20);
+        } else {
+            result += s[i];
         }
-        result += c;
     }
     return result;
 }
