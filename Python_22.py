@@ -1,21 +1,7 @@
-from typing import List
+def get_names() -> List[str]:
+    first_name = input("Enter your first name: ")
+    last_name = input("Enter your last name: ")
+    return [first_name, last_name]
 
 
-def filter_integers() -> List[int]:
-    values = []
-    while True:
-        user_input = input("Enter an integer or type 'done' to finish: ").lower()
-        if user_input == "done":
-            break
-        try:
-            value = int(user_input)
-            if not isinstance(value, int):
-                print("Invalid input. Please enter an integer or 'done'.")
-                continue
-            values.append(value)
-        except ValueError:
-            print("Invalid input. Please enter an integer or 'done'.")
-    return [i for i in values if i % 2 == 0]
-
-
-print(filter_integers())
+print(get_names())
