@@ -1,25 +1,36 @@
-#include <string>
-using namespace std;
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operators;
+    stack<bool> values;
 
-bool solveBoolean(string expr) {
-    bool res = true;
-    for (int i = 0; i < expr.length(); i++) {
-        if (expr[i] == 'f') return false;
-        else if (expr[i] == '&') {
-            res &= solveBoolean(expr.substr(i + 1));
-            i = expr.find('&', i + 1) - 1;
-        }
-        else if (expr[i] == '|') {
-            res |= solveBoolean(expr.substr(i + 1));
-            i = expr.find('|', i + 1) - 1;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
+        } else if (expression[i] == '|') {
+            operators.push('|');
+        } else if (expression[i] == '&') {
+            operators.push('&');
         }
     }
-    return res;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    bool result = values.top();
+    values.pop();
+
+    while (!operators.empty()) {
+        char op = operators.top();
+        operators.pop();
+        bool right = values.top();
+        values.pop();
+        bool left = values.top();
+        values.pop();
+
+        if (op == '|') {
+            result = left || right;
+        } else {
+            result = left && right;
+        }
+    }
+
+    return result;
 }
