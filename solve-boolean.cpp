@@ -1,49 +1,25 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = false;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 't') {
-            res = true;
-            break;
-        }
-        else if (s[i] == 'f') {
-            res = false;
-            break;
-        }
-        else if (s[i] == '&') {
-            i++;
-            bool left = false;
-            while (i < s.length() && s[i] != '&') {
-                if (s[i] == 't')
-                    left = true;
-                else
-                    left = false;
-                i++;
-            }
-            res &= left;
-        }
-        else if (s[i] == '|') {
-            i++;
-            bool left = false;
-            while (i < s.length() && s[i] != '|') {
-                if (s[i] == 't')
-                    left = true;
-                else
-                    left = false;
-                i++;
-            }
-            res |= left;
+    stack<char> operation;
+    stack<bool> value;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T' || s[i] == 't') {
+            value.push(true);
+        } else if (s[i] == 'F' || s[i] == 'f') {
+            value.push(false);
+        } else if (s[i] == '&') {
+            bool b1 = value.top(); value.pop();
+            bool b2 = value.top(); value.pop();
+            value.push(b1 && b2);
+        } else if (s[i] == '|') {
+            bool b1 = value.top(); value.pop();
+            bool b2 = value.top(); value.pop();
+            value.push(b1 || b2);
         }
     }
-    return res;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    return value.top();
 }
