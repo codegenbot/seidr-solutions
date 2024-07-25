@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) {
         return false;
     }
@@ -28,5 +28,5 @@ std::vector<int> toVector(const std::pair<int, int>& p) {
 }
 
 int main() {
-    assert(toVector(sum_product({10})) == std::vector<int>{10, 10});
+    assert(issame(toVector(sum_product({10})), {10, 10}));
 }
