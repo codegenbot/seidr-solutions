@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 std::string substitutionCipher(const std::string& cipherKey1, const std::string& cipherKey2, const std::string& message) {
     std::string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
