@@ -23,9 +23,9 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
+    print("Please enter numbers to factorize. Type 'quit' to exit.")
     while True:
-        print("Please enter a number: ")
+        print("Please enter a number or type 'quit': ")
         user_input = input()
         if user_input.lower() == "quit":
             break
@@ -36,4 +36,3 @@ def main():
                 print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-            continue
