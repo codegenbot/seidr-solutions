@@ -1,4 +1,4 @@
-```
+```python
 def digitSum(s):
     total = 0
     for char in s.lower():
@@ -7,5 +7,3 @@ def digitSum(s):
         else:
             break
     return total
-
-print(digitSum("123abc"))
