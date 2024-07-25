@@ -4,6 +4,4 @@ while True:
         print(a, b, c)
         break
     except (ValueError, EOFError):
-        print(
-            "Error: Input format is incorrect. Please provide three space-separated numbers."
-        )
+        print("Error: Input format is incorrect. Please provide three space-separated numbers.")
