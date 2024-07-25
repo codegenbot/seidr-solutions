@@ -3,16 +3,16 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
+}
+
 std::vector<float> sort_even(const std::vector<float>& input) {
     std::vector<float> result = input;
     std::sort(result.begin(), result.end(), [](float a, float b) {
         return (int)a % 2 == 0 ? ((int)b % 2 == 0 ? a < b : true) : false;
     });
     return result;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::vector<float>(a) == std::vector<float>(b);
 }
 
 int main() {
