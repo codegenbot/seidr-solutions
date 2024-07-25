@@ -1,11 +1,13 @@
 ```
-from typing import List
-
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
-
 def main():
     print("Welcome to this string concatenation program! Are you ready to enter some strings? (Yes/No): ")
+    from typing import List
+    from typing import Dict
+    from collections import OrderedDict
+
+    def concatenate(strings: List[str]) -> str:
+        return "".join(strings)
+
     if __name__ == "__main__":
         print("Welcome to this string concatenation program! Are you ready to enter some strings? (Yes/No): ")
         ready = input().lower()
