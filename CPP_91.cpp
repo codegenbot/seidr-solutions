@@ -1,11 +1,11 @@
-int is_bored(string S){
-    int count = 0;
+int is_bored(string S) {
+    int boredomCount = 0;
     size_t pos = 0;
-    while((pos = S.find("I", pos)) != string::npos) {
-        if (S.substr(pos).find_first_of(".!?") == string::npos) {
-            count++;
+    while ((pos = S.find(". ", pos)) != string::npos || (pos = S.find("?!")) != string::npos) {
+        if (S.substr(0, 2) == "I ") {
+            boredomCount++;
         }
-        pos += 1;
+        pos += 3; // skip the dot and a space
     }
-    return count;
+    return boredomCount;
 }
