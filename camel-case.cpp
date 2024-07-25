@@ -1,29 +1,35 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            result += c;
-        } else if (c == ' ') {
-            continue;
-        } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.length() && s[i] == ' ') {
+                i++; // skip the spaces
             }
-            result += tolower(c);
+            if (result != "") {
+                result += std::toupper(s[i]);
+            } else {
+                result = std::toupper(s[i]);
+            }
+        } else if (s[i] != ' ') {
+            if (result != "") {
+                result += s[i];
+            } else {
+                result = s[i];
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }
