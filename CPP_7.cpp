@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
@@ -16,7 +14,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
     std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({{s}});
+            result.push_back({{s}});  // Use initializer list
         }
     }
     return result;
