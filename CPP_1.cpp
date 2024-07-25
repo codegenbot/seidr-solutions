@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,10 +22,12 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             current_group += c;
         } else if (c == ')') {
             open_count--;
-            current_group += (c == ')' ? '' : std::string(1, c));
+            current_group += c;
             if (open_count == 0) {
-                result.push_back(current_group);
-                current_group = "";
+                if (current_group != "") {
+                    result.push_back(current_group);
+                    current_group = "";
+                }
             }
         }
     }
