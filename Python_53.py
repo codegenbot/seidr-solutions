@@ -1,3 +1,4 @@
+x, y = input().split()
 def add(x, y):
     x = int(x)
     y = int(y)
