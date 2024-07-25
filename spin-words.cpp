@@ -1,21 +1,20 @@
 int main() {
     string input;
     getline(cin, input);
-
+    istringstream iss(input);
     string word;
-    stringstream ss(input);
-    string result = "";
-    
-    while (ss >> word) {
-        if (word.length() >= 5) {
+    bool first = true;
+    while (iss >> word) {
+        if (word.size() >= 5) {
             reverse(word.begin(), word.end());
         }
-        result += word + " ";
+        if (!first) {
+            cout << " ";
+        } else {
+            first = false;
+        }
+        cout << word;
     }
-    
-    result.pop_back(); // remove last space
-    
-    cout << result << endl;
-    
+    cout << endl;
     return 0;
 }
