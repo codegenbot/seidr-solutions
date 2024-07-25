@@ -1,6 +1,7 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
 
-int skjkasdkd(vector<int> lst) {
+int skjkasdkd(std::vector<int> lst) {
     int max_prime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -12,19 +13,28 @@ int skjkasdkd(vector<int> lst) {
     return sumOfDigits(max_prime);
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
     }
     return true;
 }
 
-int sumOfDigits(int num) {
+int sumOfDigits(int n) {
     int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
     return sum;
+}
+
+int main() {
+    assert(skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
