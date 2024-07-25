@@ -1,27 +1,50 @@
-int score(string s) {
-    int idx = 0, res = 0, frame = 1;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            res += 10;
-            if (frame < 10) res += (s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10));
-            if (frame < 9) res += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 0)));
+int getScore(string input) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> frames(10, 0);
+
+    for (char c : input) {
+        if (c == 'X') {
+            frames[frame] = 10;
+            if (frame >= 1 && frames[frame - 1] == 10) {
+                score += 10 + frames[frame + 1];
+            }
+            if (frame >= 2 && frames[frame - 1] == 10 && frames[frame - 2] == 10) {
+                score += 10;
+            }
             frame++;
-        } else if (isdigit(s[i])) {
-            res += s[i] - '0';
-            if (s[i + 1] == '/') res += 10 - (s[i] - '0');
-            else if (s[i + 1] == 'X') res += 10;
+        } else if (c == '/') {
+            frames[frame] = 10 - frames[frame - 1];
+            score += 10 + frames[frame + 1];
             frame++;
-        } else if (s[i] == '/') {
-            res += 10 - (s[i - 1] - '0');
-            res += (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
+        } else if (c == '-') {
+            frames[frame] = 0;
+        } else {
+            frames[frame] = c - '0';
+            score += frames[frame];
+            if (frame >= 1 && frames[frame - 1] + frames[frame] == 10) {
+                score += frames[frame + 1];
+            }
             frame++;
         }
+
+        if (++ball % 2 == 0) {
+            ball = 0;
+        }
+
+        if (frame > 10) {
+            break;
+        }
     }
-    return res;
+
+    return score;
 }
+
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s);
+    string input;
+    cin >> input;
+    int result = getScore(input);
+    cout << result << endl;
     return 0;
 }
