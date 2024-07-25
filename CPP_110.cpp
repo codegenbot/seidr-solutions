@@ -1,15 +1,14 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int i = 0; i < lst1.size(); i++) {
-        for (int j = 0; j < lst2.size(); j++) {
-            if (lst1[i] % 2 == 1) {
-                int temp = lst1[i];
-                lst1[i] = lst2[j];
-                lst2[j] = temp;
-                return "YES";
-            }
+    set<int> s(lst1);
+    for (int num : lst2) {
+        if (s.find(num % 2) == s.end()) {
+            return "NO";
         }
+        s.insert(num % 2);
     }
-    return "NO";
+    return "YES";
 }
