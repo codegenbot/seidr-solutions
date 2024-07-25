@@ -17,20 +17,20 @@ string sort_numbers(string numbers){
         rev_map[pair.second] = pair.first;
     }
 
-    vector<int> sorted_nums;
+    vector<int> nums;
     stringstream ss(numbers);
     string token;
     while (ss >> token) {
-        sorted_nums.push_back(num_map[token]);
+        nums.push_back(num_map[token]);
     }
 
-    sort(sorted_nums.begin(), sorted_nums.end());
+    sort(nums.begin(), nums.end());
 
     string result;
-    for (const auto& num : sorted_nums) {
+    for (const auto& num : nums) {
         result += rev_map[num] + " ";
     }
 
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
