@@ -5,7 +5,7 @@ int main() {
     int black = 0, white = 0;
     map<char, int> codeFreq, guessFreq;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         } else {
@@ -14,7 +14,7 @@ int main() {
         }
     }
 
-    for (auto it : codeFreq) {
+    for (auto& it : codeFreq) {
         white += min(it.second, guessFreq[it.first]);
     }
 
