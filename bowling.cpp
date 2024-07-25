@@ -1,28 +1,29 @@
-int bowlingScore(string s) {
+int bowlingScore(string str) {
     int score = 0;
-    bool spare = false;
-    int prevFrameScore = 0;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + prevFrameScore;
-            prevFrameScore = 0;
-            spare = false;
-        } else if (s[i] == '/') {
-            score += 10 - (i % 2 == 1);
-            prevFrameScore = 0;
-            spare = true;
+    for (int i = 0; i < 10; ++i) {
+        if (str[i] == 'X') { // strike
+            score += 10 + getExtra(str, i);
+        } else if (str[i] == '/') { // spare
+            int bonus = 10 - str[i+1]-'0'-'0';
+            score += 10 + bonus;
+            i++;
         } else {
-            int currentRoll = s[i] - '0';
-            score += currentRoll + prevFrameScore;
-            prevFrameScore = 0;
-            if (!spare) {
-                if (s[i+1] == '/') {
-                    i++;
-                }
+            int framescore = str[i] - '0' * 2 + str[i+1] - '0';
+            score += framescore;
+            if (framescore < 10) {
+                int extra = getExtra(str, i);
+                score += extra;
             }
         }
     }
-    
     return score;
+}
+
+int getExtra(string str, int start) {
+    int sum = 0;
+    for (int i = start+2; i <= 17; ++i) {
+        if (str[i] == 'X' || str[i] == '/') break;
+        sum += str[i] - '0';
+    }
+    return sum;
 }
