@@ -3,13 +3,13 @@
 
 std::string validateTweet(std::string tweet) {
     size_t len = std::count(tweet.begin(), tweet.end(), '\0');
-    if (len > 140) {
-        return "Too many characters";
-    }
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
+    if (len > 140) {
+        return "Too many characters";
+    }
+    return "Your tweet has " + std::to_string(len) + " characters";
 }
 
 int main() {
