@@ -1,4 +1,7 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
+#include <iostream>
+#include <vector>
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int count = 0;
     while (true) {
         bool filled = false;
@@ -33,4 +36,16 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 1, 1}, {0, 0, 0}};
+    int capacity = 3;
+    int maxFilled = max_fill(grid, capacity);
+    if (maxFilled != -1) {
+        std::cout << "The maximum number of times the grid can be filled is: " << maxFilled << std::endl;
+    } else {
+        std::cout << "The grid cannot be fully filled." << std::endl;
+    }
+    return 0;
 }
