@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 
@@ -12,7 +13,6 @@ def filter_integers() -> List[int]:
                 value = int(user_input)
                 if value % 2 == 0:
                     values.append(value)
-                break
             except ValueError:
                 print("Invalid input. Please enter a number or 'done'. Try again!")
         if user_input.lower() == "done":
