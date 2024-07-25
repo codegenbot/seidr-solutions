@@ -1,4 +1,4 @@
-def generate_output(numbers, delimiter):
+def generate_output(numbers, delimeter):
     result = []
     for num in numbers[:-1]:
         result.extend([num, delimiter])
