@@ -2,15 +2,10 @@
 #include <string>
 #include <cassert>
 
-bool are_same(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades);
 
-int main() {
-    // Main function logic here
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
