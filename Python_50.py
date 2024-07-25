@@ -1,12 +1,22 @@
+```
 def decode_shift(s: str):
-    while True:
-        result = ""
-        for ch in s:
-            if ch.isalpha():
-                ascii_offset = ord("a") if ch.islower() else ord("A")
-                result += chr(((ord(ch) - ascii_offset) % 26) + ascii_offset)
+    result = ""
+    i = 0
+    while i < len(s):
+        if s[i].isalpha():
+            ascii_offset = ord("a") if s[i].islower() else ord("A")
+            if i > 0 and s[i-1].isdigit():
+                shift = int(s[i-1])
+                i -= 1
+            elif i > 0:
+                shift = int(result[-1])
+            else: 
+                shift = -1
+            if ((ord(s[i]) - ascii_offset - shift) % 26) <= 0:
+                result += chr(((ord(s[i]) - ascii_offset - shift + 26) % 26) + ascii_offset)
             else:
-                result += ch
-        if "end" not in result:
-            return result
-        s = result.replace("end", "")
+                result += chr(((ord(s[i]) - ascii_offset - shift) % 26) + ascii_offset)
+        else:
+            result += s[i]
+        i += 1
+    return result
