@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 
@@ -13,8 +14,13 @@ def main():
     n = int(input("Enter the number of strings: "))
     strings = []
     for i in range(n):
-        string = input(f"Enter string {i+1}: ")
-        strings.append(string)
+        while True:
+            string = input(f"Enter string {i+1}: ")
+            if len(string) > 0:
+                strings.append(string)
+                break
+            else:
+                print("Please enter a non-empty string. Try again.")
     result = longest(strings)
     print("The longest strings are:", result)
 
