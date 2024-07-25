@@ -2,9 +2,6 @@
 #include <vector>
 #include <iostream>
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> rolling_max(vector<int> numbers);
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i)
@@ -26,31 +23,21 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-bool testRollingMax() {
+int main() {
+    std::vector<int> numbers;
     int n;
-    cout << "Enter the number of elements in the vector: ";
     cin >> n;
-
-    vector<int> numbers(n);
-
     for (int i = 0; i < n; ++i) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> numbers[i];
+        int x;
+        cin >> x;
+        numbers.push_back(x);
     }
-
-    vector<int> result = rolling_max(numbers);
-    vector<int> expected;
-    
-    int currMax = INT_MIN;
-
-    for (int num : numbers) {
-        if (num > currMax)
-            currMax = num;
-        expected.push_back(currMax);
+    vector<int> res = rolling_max(numbers);
+    vector<int> expected = numbers;
+    sort(expected.begin(), expected.end());
+    if (issame(res, expected)) {
+        std::cout << "Test passed";
+    } else {
+        std::cout << "Test failed";
     }
-
-    if (issame(result, expected)) 
-        return true;
-    else
-        return false;
 }
