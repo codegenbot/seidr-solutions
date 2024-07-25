@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::string longest(const std::vector<std::string>& strings) {
     std::string result = strings[0];
@@ -10,11 +9,21 @@ std::string longest(const std::vector<std::string>& strings) {
             result = s;
         }
     }
-    return result;
+    return result;  
 }
 
-int main() {
-    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    assert(longest(strings) == "zzzz");
+int main() { 
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+
+    std::vector<std::string> strings(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, strings[i]);
+    }
+
+    std::cout << "The longest string is: " << longest(strings) << std::endl;
+
     return 0;
 }
