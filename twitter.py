@@ -1,5 +1,3 @@
-Here is the Python solution for the problem:
-
 ```
 def validate_tweet(tweet):
     if len(tweet) > 140:
