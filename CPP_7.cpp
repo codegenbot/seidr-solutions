@@ -1,4 +1,7 @@
-```cpp
+#include <vector>
+#include <string>
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
@@ -9,18 +12,19 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<vector<string>> filter_by_substring(vector<string> str, string substr) {
-    vector<vector<string>> result;
-    for (const auto& s : str) {
-        if (s.find(substr) != std::string::npos) {
-            result.push_back({s});
-        }
+vector<string> filter_by_substring(vector<string> input, string substring) {
+    vector<string> result;
+    for (string s : input) {
+        if (s.find(substring) != string::npos)
+            result.push_back(s);
     }
     return result;
-
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    vector<string> testInput = {"grunt", "trumpet", "prune", "gruesome"};
+    string filterSubstring = "run";
+    vector<string> filteredResult = filter_by_substring(testInput, filterSubstring);
+    assert(issame(filteredResult, {"grunt", "prune"}));
     return 0;
 }
