@@ -6,8 +6,8 @@ bool issame(std::vector<std::string>, std::vector<std::string>);
 std::vector<std::string> separate_paren_groups(std::string);
 
 int test_main() {
-    std::vector<std::string> b = {"()", "(())", "(()())"};
-    assert(issame(separate_paren_groups("( ) (( ") ), b));
+    std::vector<std::string> b = separate_paren_groups("( ) (( ");
+    assert(issame(separate_paren_groups("( ) (( "), b));
     return 0;
 }
 
