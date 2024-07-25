@@ -1,10 +1,11 @@
+```
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
-        return "Program did not receive expected input"
+        return s[:-1] + " " + s[-1]
     result = ""
     i = 0
     while i < len(s):
-        if (i + 3) <= len(s):
+        if (i + 2) <= len(s):  
             group = s[i : i + 3]
         else:
             group = s[i:]
