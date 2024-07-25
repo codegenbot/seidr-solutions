@@ -23,8 +23,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
 int main() {
     std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
-    for (auto i : test) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
+    assert(issame(test, {3,243,0,-23,-400}));
 }
