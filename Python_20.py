@@ -1,2 +1,2 @@
-a, b, c = map(int, input("Enter three numbers to calculate their sum: ").split())
+a, b, c = map(int, input().split())
 print(a + b + c)
