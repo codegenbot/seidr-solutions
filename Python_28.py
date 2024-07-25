@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -13,22 +13,22 @@ if __name__ == "__main__":
             if not 1 <= strings_num <= 9:
                 print("Error! Please enter a number between 1 and 9.")
             else:
+                print("You entered:", strings_num)
                 break
         except ValueError:
             print("Error! Please enter a valid integer.")
 
-    while True:
-        try:
-            strings = []
+    if strings_num > 0:
+        strings = []
 
-            for i in range(min(9, strings_num)):
-                while True:
+        for i in range(min(9, strings_num)):
+            while True:
+                try:
                     s = input(f"Enter string {i+1}: ")
                     strings.append(s)
-                    if len(strings) == strings_num:
-                        break
-                break
-            print(concatenate(strings))
-            break
-        except ValueError:
-            print("Error! Please enter a valid string.")
+                    break
+                except ValueError:
+                    print("Error! Please enter a valid string.")
+
+        concatenated_string = concatenate(strings)
+        print("The concatenated string is: ", concatenated_string)
