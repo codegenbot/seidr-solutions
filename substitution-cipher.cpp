@@ -1,13 +1,13 @@
 #include <string>
 
 std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
-    std::string decipheredMessage; 
+    std::string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
         if (message[i] != ' ') {
             int index = 0;
             while (index < cipherKey1.length()) {
                 if (message[i] == cipherKey1[index]) {
-                    decipheredMessage += cipherKey2[index]; 
+                    decipheredMessage += cipherKey2[index];
                     break;
                 }
                 index++;
@@ -16,4 +16,4 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
             decipheredMessage += ' ';
         }
     }
-    return decipheredMessage;
+}
