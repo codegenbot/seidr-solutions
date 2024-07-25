@@ -1,14 +1,13 @@
-```
+```python
 from typing import List, Any
 
 def filter_integers():
     values = []
     while True:
         try:
-            value = input("Enter an integer (or 'done' if finished): ")
-            if value == 'done':
-                break
-            values.append(int(value))
+            value = int(input("Enter an integer (or 'done' if finished): "))
+            values.append(value)
         except ValueError:
-            pass
-    return [value for value in values if isinstance(value, int)]
+            if input("Enter 'done' if you want to finish: ") == 'done':
+                break
+    return [value for value in values]
