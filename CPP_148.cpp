@@ -1,8 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-#include <algorithm>
-
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
