@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -9,26 +8,21 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         return result;
     }
     
-    sort(lst.begin(), lst.end());
-    result.push_back(*min_element(lst.begin(), lst.end()));
-    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-    
-    if (!lst.empty()) {
-        sort(lst.begin(), lst.end());
-        result.push_back(*max_element(lst.begin(), lst.end()));
-        lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
-    }
+    int min_value = *min_element(lst.begin(), lst.end());
+    int max_value = *max_element(lst.begin(), lst.end());
     
     while (!lst.empty()) {
-        sort(lst.begin(), lst.end());
-        result.push_back(*min_element(lst.begin(), lst.end()));
-        lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-        
-        if (!lst.empty()) {
-            sort(lst.begin(), lst.end());
-            result.push_back(*max_element(lst.begin(), lst.end()));
-            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
+        auto it = lst.begin();
+        while (*it != min_value) {
+            ++it;
         }
+        lst.erase(it);
+        
+        it = lst.begin();
+        while (*it != max_value) {
+            ++it;
+        }
+        lst.erase(it);
     }
     
     return result;
