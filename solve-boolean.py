@@ -1,9 +1,15 @@
-def solve_boolean(bool_expr):
-    if bool_expr == "t":
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif bool_expr == "f":
+    elif expression == 'F':
         return False
-    elif "&" in bool_expr and "|" in bool_expr:
+    elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        return eval("bool({})".format(bool_expr.replace("&", "&").replace("|", "|")))
+        result = True
+        for operation, value in zip(['&', '|'], expression.replace('T', 'True').replace('F', 'False').split()):
+            if operation == '&':
+                result &= eval(value)
+            elif operation == '|':
+                result |= eval(value)
+        return result
