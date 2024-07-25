@@ -1,4 +1,7 @@
-int is_bored(string S){
+#include <string>
+using namespace std;
+
+int is_bored(std::string S){
     int count = 0;
     bool is_boredom = false;
     for (int i = 0; i < S.size(); ++i) {
@@ -10,4 +13,9 @@ int is_bored(string S){
         }
     }
     return count;
+}
+
+int main() {
+    assert(is_bored("I am bored. Are you bored? Let's do something!")==2);
+    return 0;
 }
