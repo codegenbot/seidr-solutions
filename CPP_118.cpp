@@ -9,7 +9,7 @@ bool isvowel(char c) {
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-std::string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int left = 0, right = word.size() - 1;
     while (left < right) {
         if (!isvowel(word[left])) {
@@ -24,9 +24,9 @@ std::string get_closest_vowel(string word) {
 }
 
 int main() {
-    std::string word;
-    cout << "Enter a word: ";
-    cin >> word;
-    cout << "The closest vowel to the first non-vowel character is: " << get_closest_vowel(word) << endl;
+    std::string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    std::cout << get_closest_vowel(input) << endl;
     return 0;
 }
