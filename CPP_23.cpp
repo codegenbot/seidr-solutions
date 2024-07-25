@@ -1,6 +1,9 @@
 #include <cstring>
+#include <iostream>
 #include <string>
 
-std::string str;
-std::cin >> str;
-return strlen(str.c_str());
+int main() {
+    std::string str;
+    std::cin >> str;
+    return strlen(str.c_str());
+}
