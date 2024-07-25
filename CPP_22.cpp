@@ -1,11 +1,15 @@
-#include <boost/variant.hpp>
+#include<vector>
+#include<string>
+#include<boost/any.hpp>
+#include<list>
+typedef std::list<boost::any> list_any;
+using namespace std;
 
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::apply_visitor(boost::is_integer(value), value)) {
-            int i = boost::get<boost::integer>(value);
-            result.push_back(i);
+        if (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
     }
     return result;
