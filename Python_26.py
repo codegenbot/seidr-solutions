@@ -1,3 +1,4 @@
+```
 from typing import list
 
 def remove_duplicates(numbers: list) -> list:
@@ -13,6 +14,6 @@ if __name__ == "__main__":
     while True:
         user_input = input("Enter a list of numbers (separated by spaces) or use commas to separate: ")
         numbers = [int(num) for num in user_input.replace(',', ' ').split()]
-        if len(numbers) > 0:
+        if len(set(map(int, user_input.replace(',', ' ').split()))) > 0:
             break
     print(remove_duplicates(numbers))
