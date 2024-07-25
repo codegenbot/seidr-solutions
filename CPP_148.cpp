@@ -23,7 +23,3 @@ vector<string> bf(string planet1, string planet2) {
 
     return result;
 }
-
-bool issame(vector<string> b, vector<string> c) {
-    return b == c;
-}
