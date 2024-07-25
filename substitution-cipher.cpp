@@ -11,8 +11,6 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
                 }
                 index++;
             }
-            if (decipheredMessage.back() == '\0')
-                decipheredMessage += ' ';
         } else {
             decipheredMessage += ' ';
         }
