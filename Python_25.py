@@ -39,3 +39,7 @@ def main():
                 )
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+
+if __name__ == "__main__":
+    main()
