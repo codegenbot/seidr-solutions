@@ -1,34 +1,33 @@
 #include <vector>
 using namespace std;
 
-double totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
-    double totalPrice = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        double price = prices[i];
-        double discount = discounts[i] / 100.0; // convert percent to decimal
-        double discountedPrice = price * (1 - discount);
-        totalPrice += discountedPrice;
+double shoppingList(double price[], double discount[], int n) {
+    double total = 0;
+    for (int i = 0; i < n; i++) {
+        double discountedPrice = price[i] * (1 - discount[i] / 100.0);
+        total += discountedPrice;
     }
-    return totalPrice;
+    return total;
 }
 
 int main() {
     int n;
     cin >> n;
-
-    vector<float> prices(n);
-    for (float& price : prices) {
-        cin >> price;
+    
+    vector<double> price(n), discount(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> price[i];
     }
-
-    vector<float> discounts(n);
-    for (float& discount : discounts) {
-        cin >> discount;
+    for (int i = 0; i < n; i++) {
+        cin >> discount[i];
     }
-
-    double result = totalPriceAfterDiscount(prices, discounts);
-
-    cout << fixed << setprecision(1) << result << endl;
+    
+    double result = shoppingList(&price[0], &discount[0], n);
+    
+    cout << fixed;
+    cout.precision(1);
+    cout << result << endl;
 
     return 0;
 }
