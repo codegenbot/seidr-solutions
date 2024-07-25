@@ -1,11 +1,11 @@
 #include <vector>
-using namespace std;
 
-int basement(vector<int>& arr) {
+int basement(std::vector<int> vec) {
     int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
-        if (sum < 0) return i;
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
+        if (sum < 0)
+            return i;
     }
-    return -1;
+    return -1; // Not found
 }
