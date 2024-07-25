@@ -7,6 +7,7 @@ def fibonacci(num):
 
 def prime_fib(num):
     fib_num = fibonacci(num)
+    
     if fib_num <= 1:
         return False
     for i in range(2, int(fib_num ** 0.5) + 1):
