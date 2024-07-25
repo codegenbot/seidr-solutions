@@ -2,7 +2,7 @@ try:
     try:
         input_func = input
     except NameError:
-        input_func = raw_input
+        input_func = input
     
     numbers_input = input_func("Enter space-separated floating-point numbers: ")
     numbers = list(map(float, numbers_input.split()))
