@@ -1,16 +1,11 @@
-Here is the completed code:
+int is_prime(int n) {
+    if (n <= 1) return 0;
+    for (int i = 2; i * i <= n; ++i)
+        if (n % i == 0) return 0;
+    return 1;
+}
 
 bool prime_length(string str){
-    for(int p=2; ; ++p) {
-        bool is_prime = true;
-        for(int i=2; i*i<=p; ++i) {
-            if(p%i == 0) {
-                is_prime = false;
-                break;
-            }
-        }
-        if(is_prime) {
-            return str.length() == p;
-        }
-    }
+    int len = str.length();
+    return is_prime(len);
 }
