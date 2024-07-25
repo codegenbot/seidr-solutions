@@ -1,49 +1,37 @@
-using namespace std;
+```
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string input) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            string first = s.substr(0, i);
-            string second = s.substr(i + 1);
-            int firstPart = 0;
-            if (first[0] != 'X') {
-                for (char c : first) {
-                    firstPart += c - '0';
-                }
-            } else {
-                firstPart = 10;
+    int roll1 = 0, roll2 = 0;
+
+    for (int i = 0; i < 10; ++i) {
+        if (input[i] == 'X') { 
+            score += 10;
+            if(i < 9) {
+                if(input[i+1] == 'X' || input[i+1] == '/') 
+                    score += 10;
+                else
+                    score += roll1 + roll2;
             }
-            int secondPart = 0;
-            if (second[0] != 'X') {
-                for (char c : second) {
-                    secondPart += c - '0';
-                }
-            } else {
-                secondPart = 10;
+        } 
+        else if (input[i] == '/') { 
+            roll1 = input[i+1] - '0';
+            score += 10;
+            i++; 
+        } 
+        else {
+            roll1 = input[i] - '0';
+            roll2 = input[i+1] - '0';
+            if (i < 8 && input[i+2] == '/') { 
+                score += roll1 + 10;
+                i++; // move to the next frame
+            } 
+            else {
+                score += roll1 + roll2;
             }
-            score += getScore(firstPart, secondPart);
-        } else {
-            int frame = 0;
-            if (s[i] == 'X') {
-                frame = 10;
-            } else if (s[i] - '0' + s[i+1] - '0' > 10) {
-                frame = 10;
-                i++;
-            } else {
-                frame = s[i] - '0' + s[i+1] - '0';
-                i++;
-            }
-            score += frame;
         }
     }
-    return score;
-}
 
-int getScore(int first, int second) {
-    if (first + second > 10) {
-        return 10 + second;
-    } else {
-        return first + second;
-    }
+    return score;
 }
