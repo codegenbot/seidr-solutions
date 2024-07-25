@@ -23,6 +23,6 @@ std::vector<int> parse_nested_parens(std::string s) {
 int main() {
     assert(issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
     assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
-
+    
     return 0;
 }
