@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 
+// Declare the function here
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
 
 int main() {
