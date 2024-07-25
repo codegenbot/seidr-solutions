@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <initializer_list>
