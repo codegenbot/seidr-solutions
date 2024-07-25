@@ -1,10 +1,12 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<cassert>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
 namespace my_namespace {
     std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
@@ -37,12 +39,8 @@ namespace my_namespace {
     }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(my_namespace::bf("Jupiter", "Makemake"), {}));
+    assert(issame(my_namespace::bf("Jupiter", "Makemake"), std::vector<std::string>{}));
 
     return 0;
 }
