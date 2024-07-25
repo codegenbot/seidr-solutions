@@ -5,6 +5,7 @@ def process_numbers(numbers, delimiter):
     result.pop()
     return result
 
+# Call the function with input arguments
 numbers = [1, 2, 3, 4]
 delimiter = ','
 output = process_numbers(numbers, delimiter)
