@@ -1,4 +1,4 @@
-def calculate_sum():
+def solve(N=None):
     total = 0
     while True:
         if N is None:
@@ -10,12 +10,5 @@ def calculate_sum():
             except ValueError:
                 print("Invalid input. Please enter an integer.")
         else:
-            return str(total)
-
-
-def binary_conversion(N):
-    return bin(N)[2:]
-
-
-N = None
-print(calculate_sum())
+            return str(total) if N < 0 else bin(N)[2:]
+    return str(total)
