@@ -1,7 +1,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()) {
         return false;
     }
@@ -13,18 +15,18 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::pair<int, int> sum_product(std::vector<int> numbers) {
+pair<int, int> sum_product(vector<int> numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
         sum += num;
         product *= num;
     }
-    return std::make_pair(sum, product);
+    return make_pair(sum, product);
 }
 
-std::vector<int> toVector(std::pair<int, int> pair) {
-    return {pair.first, pair.second};
+vector<int> toVector(const pair<int, int>& p) {
+    return {p.first, p.second};
 }
 
 int main() {
