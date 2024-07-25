@@ -1,12 +1,9 @@
-def rescale_to_unit(input_numbers=None):
+def rescale_to_unit(numbers):
     while True:
-        numbers = input("Enter space-separated float numbers: ")
         try:
+            numbers = input("Enter space-separated float numbers: ")
             result = [(float(x) - min(map(float, numbers.split()))) / (max(map(float, numbers.split())) - min(map(float, numbers.split())))
                       for x in numbers.split()]
-            if input_numbers is None:
-                return result
-            else:
-                return [i for i in result if i not in input_numbers]
+            return result
         except ValueError:
             print("Invalid input. Try again!")
