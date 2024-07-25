@@ -9,7 +9,7 @@ vector<int> strange_sort_list(vector<int> lst);
 bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b; // Compares two vectors for equality
+    return a == b;
 }
 
 vector<int> strange_sort_list(vector<int> lst){
