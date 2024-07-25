@@ -6,6 +6,6 @@ def sort_third(l):
         if (i + 1) % 3 == 0:
             result.append(sorted(temp))
             temp = []
-    if temp:
-        result.append(sorted(temp))
+    if temp: 
+        result.append(sorted(temp)) 
     return [item for sublist in result for item in sublist]
