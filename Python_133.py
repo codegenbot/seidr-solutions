@@ -1,5 +1,10 @@
-def sum_squares():
-    lst = list(map(int, input("Enter numbers separated by spaces: ").split()))
-    return round(sum([round(x)**2 for x in lst]))
+```
+def sum_squares(lst):
+    return round(sum([round(int(x))**2 for x in lst if type(x) == int]))
 
-print(sum_squares())
+input_str = "Enter numbers (separated by commas): "
+user_input = input(input_str)
+
+numbers = [x for x in user_input.split(",") if x.replace("-","").replace(".","").isdigit()]
+
+print(f"The sum of squares is: {sum_squares(numbers)}")
