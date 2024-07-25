@@ -17,6 +17,9 @@ std::vector<int> parse_nested_parens(std::string s) {
             count--;
         }
     }
+    if (count > 0) {
+        result.push_back(count);
+    }
     return result;
 }
 
