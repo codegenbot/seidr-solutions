@@ -1,10 +1,14 @@
-#include <iostream>
 #include <cassert>
+#include <string>
 
 class Contest {
 public:
     static std::string anti_shuffle(const std::string& input) {
-        // Implement the anti_shuffle logic here
+        std::string result = input;
+        for (size_t i = 1; i < result.size(); i += 2) {
+            std::swap(result[i - 1], result[i]);
+        }
+        return result;
     }
 };
 
