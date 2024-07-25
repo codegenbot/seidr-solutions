@@ -1,27 +1,45 @@
-int score_of_round(string s) {
-    int score = 0, frame = 0, i = 0;
-    while (frame < 10 && i < s.size()) {
-        if (s[i] == 'X') {
-            score += 10;
-            if (s[i + 2] == 'X') score += 10;
-            else if (s[i + 1] == '/') score += 10;
-            else score += s[i + 1] - '0' + s[i + 2] - '0';
-            i++;
-        } else if (s[i + 1] == '/') {
-            score += 10;
-            score += s[i + 2] - '0';
+int score(string input) {
+    int totalScore = 0;
+    int frame = 1;
+    int roll = 0;
+    vector<int> scores(22, 0);
+    
+    for(char c : input) {
+        if(c == 'X') {
+            scores[roll] = 10;
+            roll++;
+            frame++;
+        } else if(c == '/') {
+            scores[roll] = 10 - scores[roll - 1];
+            roll++;
+        } else if(c == '-') {
+            scores[roll] = 0;
+            roll++;
         } else {
-            score += s[i] - '0' + s[i + 1] - '0';
+            scores[roll] = c - '0';
+            roll++;
+            if(frame % 2 == 0 || c == '9') {
+                frame++;
+            }
         }
-        frame++;
-        i += 2;
     }
-    return score;
+    
+    for(int i = 0; i < 10; i++) {
+        if(scores[i * 2] == 10) {
+            totalScore += 10 + scores[i * 2 + 2] + scores[i * 2 + 4];
+        } else if(scores[i * 2] + scores[i * 2 + 1] == 10) {
+            totalScore += 10 + scores[i * 2 + 2];
+        } else {
+            totalScore += scores[i * 2] + scores[i * 2 + 1];
+        }
+    }
+    
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score_of_round(s) << endl;
+    string input;
+    getline(cin, input);
+    cout << score(input) << endl;
     return 0;
 }
