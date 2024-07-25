@@ -1,6 +1,5 @@
-float sides[3] = {a, b, c};
-    sort(sides, sides + 3);
-    if (pow(sides[0], 2) + pow(sides[1], 2) == pow(sides[2], 2))
+if((a*a == b*b + c*c) || (b*b == a*a + c*c) || (c*c == a*a + b*b)){
         return true;
+    }
     return false;
 }
