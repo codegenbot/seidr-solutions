@@ -1,5 +1,5 @@
 ```
-from math import ceil
+import math
 
 def max_fill(grid, capacity):
     rows = len(grid)
@@ -13,4 +13,4 @@ def max_fill(grid, capacity):
                 grid[j][i] -= amount_to_fill
                 capacity -= amount_to_fill
 
-    return ceil(total_water / (capacity + rows * cols - total_water))
+    return math.ceil(total_water / (capacity + rows * cols - total_water))
