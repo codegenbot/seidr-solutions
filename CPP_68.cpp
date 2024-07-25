@@ -1,4 +1,4 @@
-using namespace std;
+#include <vector>
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result = {};
@@ -14,6 +14,9 @@ vector<int> pluck(vector<int> arr) {
     }
 
     result.push_back(smallest_even_value);
-    result.push_back(index);
+    if (!arr.empty()) {
+        result.push_back(index);
+    }
 
     return result;
+}
