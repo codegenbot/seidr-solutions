@@ -1,21 +1,25 @@
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    for (char c : expression) {
-        if (c == 'T' || c == 't') return true;
-        if (c == 'F' || c == 'f') return false;
-        if (c == '|') {
-            opStack.push(c);
-        } else if (c == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
+bool solveBoolean(string &s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (!opStack.empty()) {
-                opStack.push('&');
+            if (st.empty()) {
+                return false;
             }
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    while (!opStack.empty()) {
-        opStack.pop();
-    }
-    return false;
+    return !st.empty();
 }
