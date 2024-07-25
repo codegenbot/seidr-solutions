@@ -13,16 +13,17 @@ int specialFilter(vector<int> nums) {
     return count;
 }
 
-void readInput(vector<int>& input) {
+int readInput() {
+    vector<int> input;
     int num;
     while(cin >> num) {
         input.push_back(num);
     }
+    cout << specialFilter(input) << endl;
+    return 0;
 }
 
 int main() {
-    vector<int> input;
-    readInput(input);
-    cout << specialFilter(input) << endl;
+    readInput();
     return 0;
 }
