@@ -24,8 +24,8 @@ int mainHelper() {
     if(num < 1 || num > 3999) {
         std::cout << "Please enter a number between 1 and 3999.\n";
         mainHelper();
+    } else {
+        std::cout << int_to_roman(num) << "\n";
     }
-
-    std::cout << int_to_roman(num);
     return 0;
 }
