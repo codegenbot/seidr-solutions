@@ -1,50 +1,37 @@
-```cpp
-#include <string>
-#include <vector>
-
-bool issame(vector<string> a,vector<string>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i]) return false;
-    }
-    return true;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> numbers;
     for (int num : arr) {
-        string str = to_string(num);
+        string str = to_string(num);  
         if (str.length() >= 1 && str.length() <= 9) {
             switch (stoi(str)) {
                 case 1:
-                    str = "One";
+                    numbers.push_back("One");
                     break;
                 case 2:
-                    str = "Two";
+                    numbers.push_back("Two");
                     break;
                 case 3:
-                    str = "Three";
+                    numbers.push_back("Three");
                     break;
                 case 4:
-                    str = "Four";
+                    numbers.push_back("Four");
                     break;
                 case 5:
-                    str = "Five";
+                    numbers.push_back("Five");
                     break;
                 case 6:
-                    str = "Six";
+                    numbers.push_back("Six");
                     break;
                 case 7:
-                    str = "Seven";
+                    numbers.push_back("Seven");
                     break;
                 case 8:
-                    str = "Eight";
+                    numbers.push_back("Eight");
                     break;
                 case 9:
-                    str = "Nine";
+                    numbers.push_back("Nine");
             }
         }
-        numbers.push_back(str);
     }
 
     return numbers;
