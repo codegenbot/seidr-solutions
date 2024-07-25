@@ -2,7 +2,7 @@ bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(size_t i=0; i<a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -15,11 +15,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring);
 int main() {
     vector<string> strings = {"apple", "banana", "cherry", "date"};
     string substring = "an";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-    
-    vector<string> expected_result = {"banana", "cherry"};
-    assert(issame(filtered_strings, expected_result));
-    
+    vector<string> filtered = filter_by_substring(strings, substring);
+    vector<string> expected = {"banana", "date"};
+    assert(issame(filtered, expected));
     return 0;
 }
 
