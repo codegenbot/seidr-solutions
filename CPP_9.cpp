@@ -1,5 +1,8 @@
 #include <vector>
-#include <algorithm>
+#include <assert.h>
+
+bool issame(vector<int> a, vector<int> b);
+vector<int> rolling_max(vector<int> numbers);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -20,4 +23,8 @@ vector<int> rolling_max(vector<int> numbers) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), vector<int>({3, 3, 3, 100, 100})));
 }
