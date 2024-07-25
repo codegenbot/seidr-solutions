@@ -1,3 +1,7 @@
-double result = pow(x, 1.0/n);
-    return result == floor(result);
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+
+    float res = log(x) / log(n);
+    return (res == (int)res);
 }
