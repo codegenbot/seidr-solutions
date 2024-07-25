@@ -1,22 +1,18 @@
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sumA = 0, sumB = 0;
-    int numA = abs(a), numB = abs(b);
-    
-    while (numA > 0) {
-        sumA += numA % 10;
-        numA /= 10;
+    int sum_a = 0, sum_b = 0;
+    if (a < 0) a = -a;
+    if (b < 0) b = -b;
+    while (a > 0) {
+        sum_a += a % 10;
+        a /= 10;
     }
-    
-    while (numB > 0) {
-        sumB += numB % 10;
-        numB /= 10;
+    while (b > 0) {
+        sum_b += b % 10;
+        b /= 10;
     }
-    
-    if (sumA == sumB) {
+    if (sum_a == sum_b) {
         return a < b;
     }
-    
-    return sumA < sumB;
+    return sum_a < sum_b;
 });
-
 return nums;
