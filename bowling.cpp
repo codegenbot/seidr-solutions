@@ -1,19 +1,17 @@
 #include <iostream>
-#include <string>
 
-int calculateBowlingScore(std::string s) {
+int calculateBowlingScore(const std::string& s) {
     int total = 0;
-    for (int i = 0; i < s.size(); i++) {
-        total += 10 - (s[i] - '0');
-    }
+    total += 10 - (s[1] - '0');
     return total;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
+    std::string input;
+    std::cin >> input;
 
-    std::cout << calculateBowlingScore(s) << std::endl;
+    int score = calculateBowlingScore(input);
+    std::cout << "Score: " << score << std::endl;
 
     return 0;
 }
