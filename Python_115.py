@@ -4,7 +4,9 @@ import math
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
-    total_water = sum(sum(row) for row in grid)
+    total_water = sum(
+        grid[i].count(c) for i in range(rows) for c in range(cols) if grid[i][c] > 0
+    )
 
     for i in range(cols):
         for j in range(rows):
