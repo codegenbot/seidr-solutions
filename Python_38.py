@@ -1,7 +1,7 @@
 def decode_cyclic(input_str):
     decoded_str = ""
-    for char in input_str:
-        decoded_str += chr((ord(char) - 3) % 26 + ord('a'))
+    for char in input_str.lower():
+        decoded_str += chr((ord(char) - 3) % 26 + ord('a') - 97)
     return decoded_str
 
 def get_valid_string():
