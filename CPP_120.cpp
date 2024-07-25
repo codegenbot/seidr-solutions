@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a,vector<int> b){
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -22,10 +21,24 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
+vector<int> input(vector<int> v, int k){
+    cout<<"Enter the array: ";
+    for(auto& num:v)
+        cin>>num;
+    cout<<"Enter k value: ";
+    cin>>k;
+    vector<int> result = maximum(v,k);
+    return result;
+}
+
 int main() {
-    int k = 5;
-    vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    vector<int> result = maximum(arr, k);
-    assert(issame(result , {3,243,0,-23,-400}));
+    vector<int> arr={1, 2, 3, -23, 243, -400, 0};
+    int k=5;
+    vector<int> result=input(arr,k);
+    if(issame(result,{3,243,0,-23,-400}))
+        cout<<"Output is correct"<<endl;
+    else
+        cout<<"Output is incorrect"<<endl;
+
     return 0;
 }
