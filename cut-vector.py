@@ -1,5 +1,4 @@
-n = int(input())
-arr = list(map(int, input().split()))
+arr = list(map(int, input().split()))  # Split the input by spaces and convert each part to int
 
 total_sum = sum(arr)
 left_sum = 0
@@ -7,7 +6,7 @@ right_sum = total_sum
 min_diff = float("inf")
 cut_index = -1
 
-for i in range(n):
+for i in range(len(arr)):
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
