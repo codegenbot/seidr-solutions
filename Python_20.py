@@ -4,3 +4,4 @@ for _ in range(5):
         print(a, b, c)
     except (ValueError, EOFError):
         print("Error: Input format is incorrect. Please provide three space-separated numbers.")
+        break
