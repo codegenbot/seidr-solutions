@@ -1,2 +1,3 @@
-int cubeRoot = cbrt(a);
-    return (cubeRoot * cubeRoot * cubeRoot == a);
+int root = round(cbrt(abs(a)));
+    return a != 0 && a == root * root * root;
+}
