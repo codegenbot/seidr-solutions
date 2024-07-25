@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 
-int specialFilter(vector<int> nums){
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for(int num : nums){
         if(num > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0){
@@ -11,7 +12,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> numbers = {11,20,32,45,67};
-    cout << specialFilter(numbers) << endl;
+    std::vector<int> numbers = {11, 12, 13, 14, 15};
+    int result = specialFilter(numbers);
+    std::cout << "The count of special numbers is: " << result << std::endl;
     return 0;
 }
