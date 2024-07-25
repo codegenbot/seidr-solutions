@@ -2,11 +2,13 @@ string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            int newCharIndex = ((int)c - 97 + 2 * 2) % 26;
-            result += (char)(newCharIndex + 97);
+            char base = 'a';
+            int shift = 2 * 2;
+            result += (char)((c - base + shift) % 26 + base);
         } else if (c >= 'A' && c <= 'Z') {
-            int newCharIndex = ((int)c - 65 + 2 * 2) % 26;
-            result += (char)(newCharIndex + 65);
+            char base = 'A';
+            int shift = 2 * 2;
+            result += (char)((c - base + shift) % 26 + base);
         } else {
             result += c;
         }
