@@ -1,18 +1,11 @@
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
-    set<int> result;
-    
-    for (int i : s1) {
-        if (s2.count(i)) {
-            result.insert(i);
-        }
-    }
-    
-    vector<int> res;
-    for (int i : result) {
-        res.push_back(i);
-    }
-    sort(res.begin(), res.end());
-    return res;
+    vector<int> result;
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(),
+            inserter(result, result.begin()));
+    sort(result.begin(), result.end());
+    return result;
 }
