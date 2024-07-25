@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b){
+bool areEqual(vector<int> a, vector<int> b) {
     return a == b;
 }
 
