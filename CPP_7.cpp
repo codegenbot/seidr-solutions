@@ -26,7 +26,7 @@ int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
     std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
-    if (issame({filtered.begin(), filtered.end()}, {{"grunt"}, {"prune"}})) {
+    if (issame(filtered, {{ "grunt" }, { "prune" }})) {
         std::cout << "Test passed." << std::endl;
     } else {
         std::cout << "Test failed." << std::endl;
