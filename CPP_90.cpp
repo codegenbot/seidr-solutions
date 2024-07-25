@@ -1,13 +1,16 @@
+```
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
-    vector<int> copy = lst;
-    sort(copy.begin(), copy.end());
-    for (int i = 0; i < copy.size(); i++) {
-        if (i == 0 || copy[i] != copy[i-1]) {
-            if (copy[i] != lst[0] && i + 1 < copy.size()) {
-                return copy[i];
-            }
-        }
-    }
-    return -1; // Return None
+    if (lst.size() < 2)
+        return -1;
+
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    auto it = unique(sorted.begin(), sorted.end(), std::greater<int>());
+    sorted.erase(it, sorted.end());
+
+    if (sorted.size() < 2)
+        return -1;
+
+    return sorted[1];
 }
