@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,7 +15,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-int main_test() {
-    assert(isSame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+int cpp_main() {
+    assert(same(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
 }
