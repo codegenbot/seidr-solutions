@@ -1,15 +1,17 @@
 vector<int> f(int n){
-    vector<int> result(n);
-    result[0] = 1;
-    int sum = 1, fact = 1;
-    for (int i = 1; i < n; ++i) {
+    vector<int> result;
+    int sum = 0;
+    int fact = 1;
+    
+    for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
             fact *= i;
-            result[i] = fact;
+            result.push_back(fact);
         } else {
             sum += i;
-            result[i] = sum;
+            result.push_back(sum);
         }
     }
+    
     return result;
 }
