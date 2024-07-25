@@ -1,4 +1,7 @@
-vector<int> result;
+#include <vector>
+
+vector<int> tri(int n) {
+    vector<int> result;
     if (n >= 0) {
         result.push_back(3);
         if (n > 0) {
@@ -14,3 +17,5 @@ vector<int> result;
     }
     return result;
 }
+
+issame({1, 3}, tri(1));
