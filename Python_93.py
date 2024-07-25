@@ -9,10 +9,10 @@ def encode(message):
                 result += str((int(char) + 3) % 10)  
             else:
                 if char.isupper():
-                    result += chr((((ord(char) - ord('A')) + 1) % 26) + ord('A'))
+                    result += chr(((ord(char) - ord('A')) + 3) % 26 + ord('A'))
                 else:
-                    result += chr((((ord(char) - ord('a')) + 1) % 26) + ord('a'))
-        else:
+                    result += chr(((ord(char) - ord('a')) + 3) % 26 + ord('a'))
+        else:  # non-alphanumeric, leave unchanged
             result += char  
     return result
 
