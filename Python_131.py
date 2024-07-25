@@ -4,3 +4,4 @@ def digits(n):
         if int(digit) % 2 == 0:
             count_even_digits += 1
     return count_even_digits
+print(digits(12345))
