@@ -1,8 +1,13 @@
-int calculateFuelCost(vector<int> prices) {
-    int totalFuel = 0;
-    for (int price : prices) {
-        int cost = floor((double)price / 3) - 2;
-        totalFuel += cost;
+Here is the solution:
+
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int number : numbers) {
+        int result = (number / 3) - 2;
+        if (result < 0) {
+            result = 0;
+        }
+        total += result;
     }
-    return totalFuel;
+    return total;
 }
