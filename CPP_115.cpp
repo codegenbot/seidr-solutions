@@ -39,23 +39,8 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    int rows, cols, capacity;
-    std::cout << "Enter number of rows: ";
-    std::cin >> rows;
-    std::cout << "Enter number of columns: ";
-    std::cin >> cols;
-    std::vector<std::vector<int>> grid(rows, std::vector<int>(cols));
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            std::cout << "Enter value at (" << i << ", " << j << "): ";
-            std::cin >> grid[i][j];
-        }
-    }
-    std::cout << "Enter capacity: ";
-    std::cin >> capacity;
-    
-    int result = max_fill(grid, capacity);
-    std::cout << "Maximum number of times the tank can be filled is: " << result << std::endl;
-
+    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 1}, {1, 0, 1}};
+    int capacity = 2;
+    std::cout << "Maximum number of times the tank can be filled: " << max_fill(grid, capacity) << std::endl;
     return 0;
 }
