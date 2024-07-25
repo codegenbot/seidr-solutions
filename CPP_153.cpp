@@ -1,6 +1,4 @@
 #include <string>
-#include <vector>
-
 using namespace std;
 
 int strongest_Extension(string class_name, vector<string> extensions) {
