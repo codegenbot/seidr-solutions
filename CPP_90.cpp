@@ -1,13 +1,11 @@
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None as per problem description
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    auto it = prev(std::unique(sorted.begin(), sorted.end()), sorted.end());
-    for(int i : sorted){
-        if(i==*it) continue;
-        else {
-            return i;
+    if (sorted.size() < 2) return -1; // Return None as per the problem statement
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
         }
     }
-    return -1; // Return None as per problem description
+    return -1; // If no two distinct elements are found, return None
 }
