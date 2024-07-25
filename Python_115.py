@@ -1,4 +1,14 @@
+```
 def max_fill(grid, capacity):
+    """Calculate the maximum number of buckets that can be filled with water.
+
+    Args:
+        grid (list): A 2D list representing the height of each bucket.
+        capacity (int): The total capacity of all buckets.
+
+    Returns:
+        int: The maximum number of buckets that can be filled with water.
+    """
     rows = len(grid)
     cols = len(grid[0])
     total_water = sum(1 for row in grid for cell in row if cell > 0)
