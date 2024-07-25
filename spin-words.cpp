@@ -1,40 +1,28 @@
-```
-std::string newWord(std::string s);
+#include <iostream>
+#include <string>
+#include <sstream>
+
 std::string spinWords(std::string str) {
+    std::stringstream ss(str);
+    std::string word;
     std::string result = "";
-    std::string word = "";
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5)
-                result += newWord(word);
-            else
-                result += word + " ";
-            word = "";
-        } else {
-            word += str[i];
-        }
+    while (ss >> word) {
+        if (word.length() >= 5)
+            for (int i = word.length() - 1; i >= 0; --i)
+                result += word[i];
+        else
+            result += word + " ";
     }
-
-    if (word.length() >= 5)
-        result += newWord(word);
-    else
-        result += word;
 
     return result;
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
     std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
     return 0;
-}
-
-std::string newWord(std::string s) {
-    std::string rev = "";
-    for (int i = s.length() - 1; i >= 0; i--)
-        rev += s[i];
-    return rev;
 }
