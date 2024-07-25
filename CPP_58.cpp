@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,11 +13,29 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    vector<int> v1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> v2 = {5, 7, 1, 5, 9, 653, 121};
+    int n1, n2;
+    cout << "Enter the size of first array: ";
+    cin >> n1;
+    vector<int> v1(n1);
+    cout << "Enter elements of first array: ";
+    for (auto &i : v1) 
+        cin >> i;
+
+    cout << "Enter the size of second array: ";
+    cin >> n2;
+    vector<int> v2(n2);
+    cout << "Enter elements of second array: ";
+    for (auto &i : v2)
+        cin >> i;
+    
     vector<int> commonElements = common(v1, v2);
-    for (int i : commonElements) {
-        cout << i << " ";
+    if(commonElements.empty()) 
+        cout << "No common elements found.\n";
+    else {
+        cout << "Common elements are: ";
+        for (int i : commonElements) {
+            cout << i << " ";
+        }
     }
     return 0;
 }
