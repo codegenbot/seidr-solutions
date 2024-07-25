@@ -1,3 +1,7 @@
+import sys
+
+n = int(sys.stdin.readline().strip())
+
 def prime_fib(n):
     fib_seq = [0, 1]
     while len(fib_seq) <= n:
@@ -18,6 +22,5 @@ def prime_fib(n):
 
     return None
 
-n = int(input())
 result = prime_fib(n)
 print(result)
