@@ -23,12 +23,20 @@ def main():
                 for num in numbers_str.split()
                 if num.replace("-", "").replace(".", "").isdigit()
             ]
-            if numbers:
-                break
+            break
         except ValueError:
             print("Invalid input. Please enter a list of integers separated by space.")
-    result = sum_product(numbers)
-    print(f"Sum is {result[0]} and Product is {result[1]}")
+    while True:
+        try:
+            result = sum_product(numbers)
+            print(f"Sum is {result[0]} and Product is {result[1]}")
+            break
+        except ZeroDivisionError:
+            print(
+                "Error! Division by zero is not allowed. Please enter a valid list of numbers."
+            )
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
