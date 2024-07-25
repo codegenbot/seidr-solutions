@@ -1,8 +1,8 @@
-#include <string>
+#include <boost/any.hpp>
 #include <vector>
+#include <string>
 
 using namespace std;
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(int.class)) {
@@ -13,9 +13,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         double x = any_cast<double>(a);
         double y = any_cast<double>(b);
         return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(boost::any_cast<std::string>::type())) {
-        string x = boost::any_cast<string>(a).str();
-        string y = boost::any_cast<string>(b).str();
+    } else if (is_any_of<a>(boost::type_id<std::string>())) {
+        string x = any_cast<string>(a);
+        string y = any_cast<string>(b);
         double ax = stod(x);
         double ay = stod(y);
         return (ax > ay) ? a : ((ax < ay) ? b : boost::any("None"));
