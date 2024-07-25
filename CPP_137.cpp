@@ -1,48 +1,27 @@
-#include <string>
-#include <algorithm>
-#include <boost/any.hpp>
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_same<boost::any_tag_float>(a.type()) && is_same<boost::any_tag_float>(b.type())) {
-        float fa = boost::any_cast<float>(a);
-        float fb = boost::any_cast<float>(b);
-        return fb > fa ? b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        istringstream iss(str2);
+        float num2;
+        iss >> num2;
+        return (num1 > num2 ? a : b).type() == typeid(float) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return (str1 > str2 ? a : b).type() == typeid(int) ? boost::any(int(0)) : a;
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int num1 = boost::any_cast<int>(a);
+        int num2 = boost::any_cast<int>(b);
+        return (num1 > num2 ? a : b).type() == typeid(float) ? boost::any(0.0f) : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+        return (num1 > num2 ? a : b).type() == typeid(string) ? boost::any("None") : a;
     }
-    else if (is_same<boost::any_tag_double>(a.type()) && is_same<boost::any_tag_double>(b.type())) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        return db > da ? b : a;
-    }
-    else if (is_same<boost::any_tag_string>(a.type()) && is_same<boost::any_tag_string>(b.type())) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        return sb > sa ? b : a;
-    }
-    else if (is_same<boost::any_tag_float>(a.type())) {
-        float fa = boost::any_cast<float>(a);
-        double db = boost::any_cast<double>(b);
-        return db > fa ? b : a;
-    }
-    else if (is_same<boost::any_tag_double>(a.type())) {
-        double da = boost::any_cast<double>(a);
-        string sb = boost::any_cast<string>(b);
-        return compare_string(da, sb) ? b : a;
-    }
-    else {
-        double da = boost::any_cast<double>(a);
-        float fb = boost::any_cast<float>(b);
-        return fb > da ? b : a;
-    }
-
-    bool compare_string(double a, string b) {
-        size_t pos = b.find(',');
-        if (pos != string::npos) {
-            double ba = stod(b.substr(0, pos));
-            double bb = stod(b.substr(pos + 1));
-            return bb > ba ? true : false;
-        }
-        else {
-            return stod(b) > a ? true : false;
-        }
-    }
+    return boost::any("None");
+}
