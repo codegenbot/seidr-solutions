@@ -19,17 +19,17 @@ def solve_task(s):
         elif s[j].isalpha():
             result += s[j]
             j -= 1
-        else:
-            if s[i] != s[j]:
+        elif not s[i].isalpha() and not s[j].isalpha():
+            if i < j:
+                result += s[i]
+                i += 1
+            elif i == j:
                 return "Invalid input"
-            i += 1
-            j -= 1
-    if s[i].isalpha() and not s[j].isalpha():
-        result += s[i]
-        i += 1
-    elif not s[i].isalpha() and s[j].isalpha():
-        result += s[j]
-        j -= 1
+            else:
+                i += 1
+            if i <= j:
+                result += s[j]
+                j -= 1
     return result
 
 
