@@ -1,25 +1,10 @@
-#include <vector>
-using namespace std;
-
-int solve(vector<int>& v) {
-    int sum = 0;
-    for (int num : v) {
-        int new_num = (num / 3 - 2);
-        if(new_num<0)
-            new_num=0;
-        sum += new_num;
+int calculateFuelCost(vector<int>& nums) {
+    int total = 0;
+    for (int num : nums) {
+        int newNum = (num / 3);
+        newNum = min(newNum, 0); // round down to nearest integer
+        newNum--; // subtract 2
+        total += newNum; // add to the total sum
     }
-    return sum;
-}
-
-int main() {
-    vector<int> v;
-    int n, temp;
-    cin >> n;
-    while(n--) {
-        cin >> temp;
-        v.push_back(temp);
-    }
-    cout << solve(v) << endl;
-    return 0;
+    return total;
 }
