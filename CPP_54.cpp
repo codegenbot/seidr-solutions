@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <iostream>
