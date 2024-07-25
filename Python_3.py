@@ -3,6 +3,11 @@ from typing import List
 
 
 def below_zero() -> None:
+    cont = "yes"
+    balance = 0
+    below_zero_found = False
+    below_zero_operations = 0
+
     while True:
         operations = []
         while True:
@@ -15,9 +20,6 @@ def below_zero() -> None:
             except ValueError:
                 print("Error: Invalid input. Please enter a list of integers.")
 
-        balance = 0
-        below_zero_found = False
-        below_zero_operations = 0
         for operation in operations:
             if isinstance(operation, int):
                 balance += operation
