@@ -1,13 +1,13 @@
-Here is the solution:
-
 int next_smallest(vector<int> lst) {
-    vector<int> v(lst);
-    if(v.size() < 2)
-        return -1;
-    sort(v.begin(),v.end());
-    for(int i = 1; i < v.size(); i++){
-        if(v[i] != v[0])
-            return v[i];
+    if (lst.empty()) return -1; // Return None as per problem description
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    auto it = prev(std::unique(sorted.begin(), sorted.end()), sorted.end());
+    for(int i : sorted){
+        if(i==*it) continue;
+        else {
+            return i;
+        }
     }
-    return -1;
+    return -1; // Return None as per problem description
 }
