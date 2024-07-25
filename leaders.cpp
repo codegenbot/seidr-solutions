@@ -1,16 +1,17 @@
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& v) {
-    int n = v.size();
-    std::vector<int> leaders;
-    
-    if (n == 1) return {v[0]};
-    
-    for (int i = n - 2; i >= 0; --i) {
-        if (v[i] >= v[i + 1]) leaders.push_back(v[i]);
+vector<int> leaders(vector<int>& vec) {
+    int n = vec.size();
+    vector<int> res;
+    for(int i=n-1; i>=0; i--){
+        while(i<n-1 && vec[i] >= vec[i+1]){
+            i--;
+        }
+        if(i == n - 1 || (i > 0 && vec[i] > vec[i-1])){
+            res.push_back(vec[i]);
+        }
     }
-    
-    leaders.push_back(v[n - 1]);
-    
-    return leaders;
+    reverse(res.begin(),res.end());
+    return res;
 }
