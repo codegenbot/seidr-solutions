@@ -1,1 +1,1 @@
-user_input = list(map(int, input("Enter a series of notes separated by space: ").split()))
+user_input = input("Enter a series of notes separated by space: ").split()
