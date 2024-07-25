@@ -5,10 +5,9 @@ double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
     
-    if(n > m)
-        p += (n - m) / total;
-    else if(n < m)
-        p += (m - n) / total;
+    for(int i = 1; i <= min(n, m); i++) {
+        p += (n - i) / total;
+    }
     
     return p;
 }
@@ -16,6 +15,6 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
 }
