@@ -1,25 +1,35 @@
-if(a.type() == typeid(int)){
-    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
-    else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)) return b;
-    else return "None";
-}
-else if(a.type() == typeid(float)){
-    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)) return a;
-    else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)) return b;
-    else return "None";
-}
-else if(a.type() == typeid(string)){
-    string sa = boost::any_cast<string>(a);
-    string sb = boost::any_cast<string>(b);
-    if(sa.find('.') != string::npos || sa.find(',') != string::npos){
-        replace(sa.begin(), sa.end(), ',', '.');
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int val_a = boost::any_cast<int>(a);
+        int val_b = boost::any_cast<int>(b);
+        if (val_a > val_b) {
+            return val_a;
+        } else if (val_a < val_b) {
+            return val_b;
+        } else {
+            return "None";
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float val_a = boost::any_cast<float>(a);
+        float val_b = boost::any_cast<float>(b);
+        if (val_a > val_b) {
+            return val_a;
+        } else if (val_a < val_b) {
+            return val_b;
+        } else {
+            return "None";
+        }
+    } else {
+        string val_a = boost::any_cast<string>(a);
+        string val_b = boost::any_cast<string>(b);
+        // Replace ',' with '.' to handle European number format
+        replace(val_a.begin(), val_a.end(), ',', '.');
+        replace(val_b.begin(), val_b.end(), ',', '.');
+        if (stof(val_a) > stof(val_b)) {
+            return val_a;
+        } else if (stof(val_a) < stof(val_b)) {
+            return val_b;
+        } else {
+            return "None";
+        }
     }
-    if(sb.find('.') != string::npos || sb.find(',') != string::npos){
-        replace(sb.begin(), sb.end(), ',', '.');
-    }
-    if(stof(sa) > stof(sb)) return a;
-    else if(stof(sa) < stof(sb)) return b;
-    else return "None";
-}
-return "None";
 }
