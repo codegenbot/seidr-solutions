@@ -7,14 +7,14 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            string word = "";
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
-                word += s[j];
+            int start = i;
+            while (i < s.length() && s[i] != ' ') {
+                i++;
             }
-            i = j;
+            string word = s.substr(start, i - start);
             sort(word.begin(), word.end());
             result += word + " ";
         }
     }
-    return result.substr(0, result.length() - 1);
+    return result;
 }
