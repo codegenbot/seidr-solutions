@@ -4,6 +4,7 @@ bool operator==(const vector<vector<int>>& a, const vector<vector<int>>& b){
     return a == b;
 }
 
+// Existing function
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
