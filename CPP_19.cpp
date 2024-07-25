@@ -12,10 +12,21 @@ string sort_numbers(const string &numbers) {
         {"nine", 9}
     };
 
-    vector<string> nums = split(numbers, ' ');
-    sort(nums.begin(), nums.end(), [&](const string &a, const string &b) {
+    vector<string> numVec;
+    istringstream iss(numbers);
+    string word;
+    while (iss >> word) {
+        numVec.push_back(word);
+    }
+
+    sort(numVec.begin(), numVec.end(), [&](const string &a, const string &b) {
         return numberMap[a] < numberMap[b];
     });
 
-    return join(nums, ' ');
+    string sortedNumbers;
+    for (const auto &num : numVec) {
+        sortedNumbers += num + ' ';
+    }
+
+    return sortedNumbers;
 }
