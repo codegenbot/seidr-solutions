@@ -1,12 +1,5 @@
-def leaders(arr):
-    n = len(arr)
-    leader = [arr[n - 1]]
+Here is the solution:
 
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leader.append(arr[i])
-            last_leader = arr[i]
-        else:
-            leader.append(last_leader)
-
-    return leader[::-1]
+def leaders(input):
+    result = [max(input[i:]) for i in range(len(input))]
+    return result
