@@ -3,10 +3,11 @@ from typing import List
 def rolling_max():
     numbers = []
     while True:
-        input_line = input().split()
-        if len(input_line) == 0 or input_line[0].lower() == 'stop':
+        command = input().split()
+        if len(command) == 0 or command[0].lower() == 'stop':
             break
-        numbers.append(list(map(int, input_line)))
+        num_input = [int(i) for i in command]
+        numbers.append(num_input)
 
     result = [max(row) for row in zip(*numbers)]
     return result
