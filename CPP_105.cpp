@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2);
+bool issame(std::vector<int> arr1, std::vector<int> arr2){
+    return arr1 == arr2;
+}
 
 std::vector<std::string> by_length(std::vector<int> arr);
 
