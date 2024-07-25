@@ -1,9 +1,10 @@
-```
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) {
         return result;
     }
