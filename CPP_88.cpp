@@ -1,11 +1,11 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(std::vector<int> a,std::vector<int>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
     }
     return true;
 }
@@ -23,6 +23,14 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-bool main() {
+bool issame(std::vector<int> a,std::vector<int>b){ 
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
+    }
+    return true;
+}
+
+void main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
 }
