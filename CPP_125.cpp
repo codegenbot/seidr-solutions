@@ -13,13 +13,16 @@ vector<string> words;
     if (!word.empty()) {
         words.push_back(word);
     }
-    if (words.size() == 1 && !isalpha(words[0][0])) {
-        int count = 0;
-        for (char c : words[0]) {
+    
+    if (words.empty()) {
+        int oddCount = 0;
+        for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 != 0) {
-                count++;
+                oddCount++;
             }
         }
-        words[0] = to_string(count);
+        words.push_back(to_string(oddCount));
     }
+    
     return words;
+}
