@@ -6,8 +6,17 @@ int main() {
     std::vector<int> nums;
     int num;
 
-    while (std::cin >> num || !std::cin.eof()) {
+    while (std::cin.good()) {
+        std::cin >> num;
+        if (std::cin.fail()) {
+            break;
+        }
         nums.push_back(num);
+    }
+
+    if (std::cin.bad()) {
+        std::cerr << "Input error\n";
+        return 1;
     }
 
     int n = nums.size();
