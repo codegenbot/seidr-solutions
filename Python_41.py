@@ -1,3 +1,4 @@
+```
 def car_race_collision(n):
     total_distance = (n * (n + 1)) // 2
     collision_points = []
