@@ -5,9 +5,8 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
-n = input("Enter a number: ")
-if n.isdigit() and int(n) > 0:
-    print(factorize(int(n)))
+n = int(input("Enter a number: "))
+if n > 0:
+    print(factorize(n))
 else:
     print("Please enter a positive integer.")
