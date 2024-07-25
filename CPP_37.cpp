@@ -1,4 +1,4 @@
-vector<float> sort_even(vector<float> l) {
+vector<float> fix_even_values(vector<float> l) {
     vector<float> even_values;
     vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); ++i) {
