@@ -2,13 +2,15 @@
 #include <vector>
 #include <string>
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> all_prefixes(string str);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -30,7 +32,7 @@ int main() {
     string input;
     cin >> input;
     vector<string> prefixes = all_prefixes(input);
-    for (string prefix : prefixes) {
+    for (const string& prefix : prefixes) {
         cout << prefix << " ";
     }
     cout << endl;
