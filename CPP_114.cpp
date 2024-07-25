@@ -1,4 +1,6 @@
+```
 #include <vector>
+
 int minSubArraySum(vector<long long> nums) {
     int sum = 0, min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); ++i) {
