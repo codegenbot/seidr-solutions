@@ -1,28 +1,32 @@
-vector<string> words;
+vector<string> split_words(string txt){
+    vector<string> result;
     string word = "";
+    int count_odd_lower_case = 0;
+    
     for (char c : txt) {
-        if (c == ' ' || c == ',') {
+        if (isalpha(c)) {
+            if (islower(c)) {
+                int pos = c - 'a';
+                if (pos % 2 != 0) {
+                    count_odd_lower_case++;
+                }
+            }
+            word += c;
+        } else if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
-        } else {
-            word += c;
         }
     }
+    
     if (!word.empty()) {
-        words.push_back(word);
+        result.push_back(word);
     }
     
-    if (words.empty()) {
-        int oddCount = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                oddCount++;
-            }
-        }
-        words.push_back(to_string(oddCount));
+    if (result.empty()) {
+        result.push_back(to_string(count_odd_lower_case));
     }
     
-    return words;
+    return result;
 }
