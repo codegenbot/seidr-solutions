@@ -1,10 +1,15 @@
 int main {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    if(num % 2 == 0) {
-        cout << "The number is even.";
-    } else {
-        cout << "The number is odd.";
+    vector<int> userInput;
+    cout << "Enter numbers separated by spaces: ";
+    for (string input; cin >> input;) {
+        if (input.find(',') != string::npos) {
+            break;
+        }
+        int num = stoi(input);
+        userInput.push_back(num);
     }
+    
+    vector<int> result = pluck(userInput);
+    cout << "Smallest even number: " << result[0] << endl;
+    cout << "Index of smallest even number: " << result[1] << endl;
 }
