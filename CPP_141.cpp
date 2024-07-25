@@ -1,13 +1,10 @@
-#include <iostream>
-#include <string>
-
 int main() {
-    std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
-
     bool has_digits = false;
     int dot_count = 0;
+
+    string file_name;
+    cout << "Enter a filename: ";
+    cin >> file_name;
 
     for (char c : file_name) {
         if (isdigit(c)) {
@@ -31,7 +28,7 @@ int main() {
         return 0;
     }
 
-    std::string ext = "";
+    string ext = "";
     int i = file_name.find('.');
     for (; i < file_name.size(); i++) {
         ext += file_name[i];
