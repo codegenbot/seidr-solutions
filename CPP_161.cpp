@@ -7,8 +7,10 @@ for (char &c : s) {
             }
         }
     }
-    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
+
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
         reverse(s.begin(), s.end());
     }
+
     return s;
 }
