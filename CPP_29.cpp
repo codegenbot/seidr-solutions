@@ -13,12 +13,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> input = {"apple", "banana", "apricot", "orange"};
-    string prefix = "ap";
+    vector<string> input = {"apple", "banana", "orange", "apricot"};
+    vector<string> expected = {"apple", "apricot"};
     
-    vector<string> expected_output = {"apple", "apricot"};
+    vector<string> output = filter_by_prefix(input, "ap");
     
-    assert(filter_by_prefix(input, prefix) == expected_output);
+    assert(output == expected);
     
     return 0;
 }
