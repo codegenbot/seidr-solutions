@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,7 +8,7 @@ using namespace std;
 string validateTweet(string tweet) {
     // Remove whitespace and non-alphanumeric characters
     tweet.erase(remove_if(tweet.begin(), tweet.end(), ::isspace), tweet.end());
-    tweet.erase(remove_if(tweet.begin(), tweet.end(), [](char c){return !isalnum(c);}), tweet.end());
+    tweet.erase(remove_if(tweet.begin(), tweet.end(), ::isalnum), tweet.end());
 
     if (tweet.empty()) {
         return "You didn't type anything";
