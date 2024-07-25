@@ -1,7 +1,2 @@
-Here is the Python solution for the problem:
-
 def camel_case(s):
-    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.split('-')))
-
-input_str = input()
-print(camel_case(input_str))
+    return ''.join(word.capitalize() if idx > 0 else word for idx, word in enumerate(s.replace('-', ' ').split()))
