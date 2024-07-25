@@ -1,18 +1,16 @@
-int even_palindrome_count = 0;
-    int odd_palindrome_count = 0;
-
+vector<int> even_odd_palindrome(int n){
+    vector<int> result(2, 0);
     for(int i = 1; i <= n; ++i){
-        string str_num = to_string(i);
-        string rev_str_num = str_num;
-        reverse(rev_str_num.begin(), rev_str_num.end());
-        if(str_num == rev_str_num){
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        if(s == rev){
             if(i % 2 == 0){
-                even_palindrome_count++;
+                result[0]++;
             } else {
-                odd_palindrome_count++;
+                result[1]++;
             }
         }
     }
-
-    return {even_palindrome_count, odd_palindrome_count};
+    return result;
 }
