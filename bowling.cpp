@@ -1,50 +1,25 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 int score(string s) {
     int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> points(22, 0);
-    
-    for (int i = 0; i < s.size(); i++) {
+    int frame = 0;
+    for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'X') {
-            points[ball] = 10;
-            points[ball+1] = 0;
-            ball += 2;
+            total += 10;
+            total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
+            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
             frame++;
         } else if (s[i] == '/') {
-            points[ball] = 10 - points[ball-1];
-            ball++;
+            total += 10 - (s[i - 1] - '0');
+            total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
             frame++;
-        } else if (s[i] == '-') {
-            points[ball] = 0;
-            ball++;
-        } else {
-            points[ball] = s[i] - '0';
-            ball++;
-            if (ball % 2 == 0) {
-                if (points[ball-1] + points[ball-2] == 10) {
-                    frame++;
-                } else {
-                    frame += 2;
-                }
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            total += s[i] - '0';
+            if (s[i + 1] == '/') {
+                total += 10 - (s[i] - '0');
             }
+            frame++;
         }
+        if (frame == 10) break;
     }
-    
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
-            total += 10 + points[2*i+2] + points[2*i+3];
-        } else if (s[i] == '/') {
-            total += 10 + points[2*i+2];
-        } else {
-            total += points[2*i] + points[2*i+1];
-        }
-    }
-    
     return total;
 }
 
