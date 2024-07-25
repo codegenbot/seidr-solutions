@@ -19,6 +19,6 @@ namespace Solution {
 int main() {
     int n, p;
     std::cin >> n >> p;
-    std::cout << Solution::modp(n, p) << std::endl;
+    assert(Solution::modp(n, p) == Solution::modp(31, 5));
     return 0;
 }
