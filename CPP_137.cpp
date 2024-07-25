@@ -15,18 +15,11 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
         return "None";
     }
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    float num_a, num_b;
-    if((a.type() == typeid(string)) && (b.type() == typeid(string))){
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        str_a.erase(std::remove(str_a.begin(), str_a.end(), ','), str_a.end());
-        str_b.erase(std::remove(str_b.begin(), str_b.end(), ','), str_b.end());
-        num_a = stof(str_a);
-        num_b = stof(str_b);
-    }
-    if(num_a > num_b){
+    float val_a = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float val_b = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(val_a > val_b){
         return a;
-    } else if(num_a < num_b){
+    } else if(val_a < val_b){
         return b;
     } else {
         return "None";
