@@ -7,3 +7,5 @@ def digitSum(s):
         else:
             break
     return total
+
+print(digitSum("123abc"))
