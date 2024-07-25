@@ -1,14 +1,15 @@
-int luhn(const std::vector<int>& digits) {
+int luhn(vector<int>& creditCardNumber) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
+    for (int i : creditCardNumber) {
         if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
+            i *= 2;
+            if (i > 9) {
+                i -= 9;
+            }
         }
-        sum += digit;
+        sum += i;
         doubleNext = !doubleNext;
     }
 
