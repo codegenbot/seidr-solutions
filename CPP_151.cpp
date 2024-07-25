@@ -1,12 +1,20 @@
 #include <iostream>
-#include <list>
+#include <vector>
+#include <cassert>
 
-double double_the_difference(std::list<double> lst) {
-    double odd_sum = 0;
+long long double_the_difference(const std::vector<int>& lst) {
+    long long sum = 0;
     for (auto num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            odd_sum += num * num;
+            sum += (long long)num * num;
         }
     }
-    return odd_sum;
+    return sum;
+}
+
+int main() {
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == your_expected_output); // Define your_expected_output based on the problem description
+    return 0;
 }
