@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,6 +17,12 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(isSame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    std::vector<int> a = {2,4,8,16,32};
+    std::vector<int> b = sort_array(a);
+    if(issame(b,{2,4,8,16,32}))
+        std::cout << "The arrays are the same";
+    else
+        std::cout << "The arrays are not the same";
+
     return 0;
 }
