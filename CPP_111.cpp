@@ -9,7 +9,7 @@ bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-map<char, int> histogram(string test) {
+map<char, int> histogram(string test){
     map<char, int> result;
     istringstream iss(test);
     string word;
@@ -29,14 +29,4 @@ map<char, int> histogram(string test) {
         }
     }
     return maxChars;
-}
-
-int main() {
-    // Test the histogram function
-    map<char, int> result = histogram("hello world");
-    map<char, int> expected = {{'l', 3}};
-    
-    assert(issame(result, expected));
-    
-    return 0;
 }
