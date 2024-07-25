@@ -17,6 +17,10 @@ def below_zero() -> None:
             except ValueError:
                 print("Error: Invalid input. Please enter a list of integers.")
 
+        if not operations:
+            print("No operations entered before 'end'.")
+            return
+
         balance = 0
         below_zero_found = False
         below_zero_operations = 0
@@ -29,13 +33,14 @@ def below_zero() -> None:
                     below_zero_operations += 1
             else:
                 print("Error: Invalid input. Please enter a list of integers.")
+                return
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
 
         cont = input("Continue? (yes/no): ")
         if cont.lower() != "yes":
-            break
+            return
 
         if (below_zero_operations / len(operations)) > 0.5:
             while True:
@@ -60,6 +65,7 @@ def below_zero() -> None:
                             print(
                                 "Error: Invalid input. Please enter a list of integers."
                             )
+                            return
 
                     if not below_zero_found:
                         print(f"No below zero at {balance}.")
@@ -67,3 +73,4 @@ def below_zero() -> None:
                     cont = input("Continue? (yes/no): ")
                 except ValueError:
                     print("Error: Invalid input. Please enter a list of integers.")
+            return
