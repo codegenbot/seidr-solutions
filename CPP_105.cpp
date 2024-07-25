@@ -1,23 +1,27 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a);
+bool issame(vector<string> a, vector<string> result);
 
-std::vector<std::string> by_length(std::vector<int> arr);
+vector<string> by_length(vector<int> arr);
 
-bool issame(std::vector<std::string> a) {
-    if(a.size()==0) return true;
-    for(int i=1;i<a.size();i++){
-        if(a[i-1].size()!=a[i].size()) return false;
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+}
+
+bool issame(vector<string> a, vector<string> result) {
+    if(a.size()!=result.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=result[i]) return false;
     }
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(std::to_string(num));
+            numbers.push_back(to_string(num));
         }
     }
 
@@ -26,8 +30,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     return numbers;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
