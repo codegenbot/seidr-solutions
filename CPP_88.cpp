@@ -3,11 +3,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_array(vector<int> array){
-    int sum = array[0] + array[array.size()-1];
+std::vector<int> sort_array(std::vector<int> array){
+    int sum = 0;
+    for(int i=0; i<array.size();i++){
+        sum += array[i];
+    }
     if(sum % 2 == 0)
         return array;
     else
-        reverse(array.begin(), array.end());
+        std::reverse(array.begin(), array.end());
     return array;
 }
