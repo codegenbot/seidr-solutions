@@ -1,4 +1,5 @@
-```
+Here is the Python function that solves the problem:
+
 def middle_character(s):
     length = len(s)
     if length % 2 == 0:
