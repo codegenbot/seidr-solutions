@@ -16,8 +16,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 def main():
     while True:
-        numbers_str = input("Enter a list of integers separated by space: ")
         try:
+            numbers_str = input("Enter a list of integers separated by space: ")
             numbers = [
                 int(num)
                 for num in numbers_str.split()
