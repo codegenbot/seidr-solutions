@@ -5,7 +5,6 @@ int main() {
     string word;
     string result;
     istringstream iss(input);
-
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
@@ -13,7 +12,7 @@ int main() {
         result += word + " ";
     }
 
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back(); // remove extra space at the end
     cout << result << endl;
 
     return 0;
