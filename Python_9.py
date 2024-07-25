@@ -3,8 +3,7 @@ def rolling_max(numbers):
         return numbers
 
     return [
-        max(numbers[i], numbers[i + 1], numbers[i + 2]) for i in range(len(numbers) - 2)
-    ] + [max(numbers[-2], numbers[-1])]
+        max(numbers[i], numbers[i + 1], numbers[i + 2]) for i in range(len(numbers) - 2 + 1)
+    ]
 
-
-print(rolling_max([3, 2, 3, 100, 3]))  # Output: [3, 100, 100, 100, 3]
+print(rolling_max([3, 2, 3, 100, 3]))  # Output: [3, 3, 3, 100, 100]
