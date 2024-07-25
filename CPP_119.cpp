@@ -1,15 +1,16 @@
-int cnt = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
-            if (c == '(') {
-                cnt++;
+int open = 0, close = 0;
+for (string s : lst) {
+    for (char c : s) {
+        if (c == '(') {
+            open++;
+        } else {
+            if (open > 0) {
+                open--;
             } else {
-                if (cnt == 0) {
-                    return "No";
-                }
-                cnt--;
+                close++;
             }
         }
     }
-    return cnt == 0 ? "Yes" : "No";
 }
+
+return (open == 0 && close <= 1) ? "Yes" : "No";
