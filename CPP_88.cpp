@@ -1,6 +1,12 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
@@ -9,13 +15,4 @@ vector<int> sort_array(vector<int> array) {
     else
         sort(array.begin(), array.end());
     return array;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    // Main function implementation
-    return 0;
 }
