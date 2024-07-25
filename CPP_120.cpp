@@ -1,18 +1,19 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size()!=b.size())
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i]!=b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
     }
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
@@ -22,10 +23,10 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
-    if(issame(result, {3,243,0,-23,-400})){
-        cout << "The output is correct." << endl;
-    }else{
-        cout << "The output is incorrect." << endl;
+    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
+    if (issame(test, {3, 243, 0, -23, -400})) {
+        std::cout << "Test passed.\n";
+    } else {
+        std::cout << "Test failed.\n";
     }
 }
