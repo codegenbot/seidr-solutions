@@ -1,8 +1,7 @@
 vector<string> by_length(vector<int> arr) {
     vector<string> numbers;
     for (int num : arr) {
-        string str = "";
-        str = to_string(num);
+        string str = to_string(num);  
         if (str.length() >= 1 && str.length() <= 9) {
             switch (stoi(str)) {
                 case 1:
