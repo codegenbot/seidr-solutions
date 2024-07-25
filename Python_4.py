@@ -1,9 +1,11 @@
+```
 from typing import List
 import statistics
 
-def mean_absolute_deviation():
-    while True:
+def mean_absolute_deviation(again=False):
+    if not again:
         print("Please enter the numbers you want to calculate Mean Absolute Deviation (MAD) for, separated by a space: ")
+    while True:
         user_input = input()
         if user_input.strip() == "":
             print("Please enter some numbers.")
@@ -21,6 +23,9 @@ def mean_absolute_deviation():
                         print("Would you like to calculate Mean Absolute Deviation again? (yes/no): ")
                         response = input().strip()
                         if response.lower() == "no":
-                            break
+                            return  # Stop recursion
                         elif response.lower() != "yes":
                             print("Invalid input. Please enter 'yes' or 'no'.")
+            except ValueError:
+                print("Invalid input. Please enter valid numbers.")
+    mean_absolute_deviation(True)
