@@ -10,7 +10,7 @@ int bowlingScore(string s) {
             score += 10;
             i++;
             if (i < s.size() && s[i] != '/') {
-                score += 10;
+                score += s[i+1] - '0';
                 i++;
             }
         } else if (s[i] - '0' + s[i+1] - '0' > 10) {
@@ -21,8 +21,7 @@ int bowlingScore(string s) {
             score += frame;
             i+=2;
         } else {
-            int frame = s[i] - '0' + s[i+1] - '0';
-            score += frame;
+            score += s[i] - '0' + s[i+1] - '0';
             i+=2;
         }
     }
