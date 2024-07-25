@@ -1,34 +1,43 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(const string& text, const string& target) {
-    vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        indices.push_back(pos);
-        pos += target.size();
+vector<int> findSubstring(string text, string target) {
+    int m = text.length(), n = target.length();
+    vector<int> result;
+    
+    for (int i = 0; i <= m - n; i++) {
+        bool found = true;
+        for (int j = 0; j < n; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        
+        if (found) {
+            result.push_back(i);
+            
+            // Check the remaining part of the text
+            for (int i2 = i + n; i2 < m; i2 += n) {
+                found = true;
+                for (int j = 0; j < n; j++) {
+                    if (text[i2 + j] != target[j]) {
+                        found = false;
+                        break;
+                    }
+                }
+                
+                if (!found)
+                    break;
+            }
+        }
     }
-    return indices;
-}
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    
+    return result;
 }
 
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result)
-        cout << i << " ";
-    return 0;
+    cout << *max_element(gcd(num1, num2), gcd(num2, num1)) << endl;
 }
