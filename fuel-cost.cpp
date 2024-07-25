@@ -1,12 +1,16 @@
 #include <vector>
 using namespace std;
 
-int fuelCost(vector<int> arr) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : arr) {
-        int val = (i / 3);
-        val = max(0, val - 2);
-        sum += val;
+    for (int num : nums) {
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result--;
+        }
+        sum += result;
     }
     return sum;
 }
@@ -14,10 +18,10 @@ int fuelCost(vector<int> arr) {
 int main() {
     int n;
     cin >> n;
-    vector<int> arr(n);
-    for (int &x : arr) {
-        cin >> x;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-    cout << fuelCost(arr) << endl;
+    cout << fuelCost(nums) << endl;
     return 0;
 }
