@@ -12,14 +12,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 int main(){
     std::vector<std::string> result = reverse_delete("example string", "aeiou");
-    for(const std::string& str : result){
-        std::cout << str << std::endl;
-    }
+    // Add any further processing or output here
     return 0;
 }
