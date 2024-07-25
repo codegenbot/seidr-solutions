@@ -20,7 +20,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
     int target;
@@ -28,5 +28,6 @@ int main() {
     vector<int> result = findPair(nums, target);
     cout << result[0] << endl;
     cout << result[1] << endl;
+    
     return 0;
 }
