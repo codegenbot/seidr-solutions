@@ -2,22 +2,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int test_main() {
-    assert(assert_same(separate_paren_groups("( ) (( ))"), {"", "( "}, {" (")));
-    return 0;
-}
-
-bool assert_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
+    std::vector<std::string> expected = {"", "( "}, {" ("};
+    if (separate_paren_groups("( ) (( ")) == expected) {
+        return 0;
+    } else {
+        return -1;
     }
-
-    return true;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
