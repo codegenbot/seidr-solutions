@@ -1,15 +1,12 @@
-if (lst.size() < 2) {
+sort(lst.begin(), lst.end());
+    if (lst.size() < 2) {
         return -1;
     }
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    
-    int smallest = sorted_lst[0];
-    for (int num : sorted_lst) {
+    int smallest = lst[0];
+    for (int num : lst) {
         if (num > smallest) {
             return num;
         }
     }
-    
     return -1;
 }
