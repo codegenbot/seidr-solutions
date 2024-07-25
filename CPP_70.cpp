@@ -3,6 +3,10 @@
 #include <iostream>
 #include <initializer_list>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
+}
+
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) {
@@ -32,10 +36,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     }
     
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
 }
 
 int testMain() {
