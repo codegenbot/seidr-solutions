@@ -1,12 +1,8 @@
-#include <cmath>
-
-int closest_integer(const std::string& value) {
+int closest_integer(const string& value) {
     double num = stod(value);
-    int lower = std::floor(num);
-    int upper = std::ceil(num);
-    return (num - lower < upper - num) ? lower : upper;
-}
-
-int main() {
-    // Add test cases to validate the function
+    int closestInt = round(num);
+    if (fabs(num - closestInt) == 0.5) {
+        closestInt = (num - closestInt > 0) ? ceil(num) : floor(num);
+    }
+    return closestInt;
 }
