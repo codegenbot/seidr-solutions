@@ -1,7 +1,7 @@
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool issame(const string &a, const string &b) {
-    return a == b;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
