@@ -2,21 +2,21 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> all_prefixes(string str){
-    vector<string> prefixes;
-    for (int i = 1; i <= str.size(); ++i) {
-        prefixes.push_back(str.substr(0, i));
+std::vector<std::string> all_prefixes(std::string str){
+    std::vector<std::string> result;
+    std::string prefix = "";
+    for (char c : str) {
+        prefix += c;
+        result.push_back(prefix);
     }
-    return prefixes;
+    return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-int main() {
+int main(){
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
