@@ -1,11 +1,12 @@
-Here is the solution:
-
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents "None"
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) return sorted[i + 1];
+int next_smallest(vector<int> lst){
+    vector<int> copy = lst;
+    if(copy.empty()) return -1; // None in Python's sense
+    sort(copy.begin(), copy.end());
+    for(int i=0; i<copy.size()-1; i++){
+        if(copy[i] < copy[i+1]) {
+            if(i == 0) return copy[i+1];
+            else return copy[i];
+        }
     }
-    return -1; // or any other value that represents "None"
+    return -1; // None in Python's sense
 }
