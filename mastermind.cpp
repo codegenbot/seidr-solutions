@@ -1,25 +1,43 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            count++;
+        }
+    }
+    return count;
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
+    vector<char> guessArray(guess.begin(), guess.end());
+
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] == guessArray[i]) {
+            codeArray[i] = ' ';
+            guessArray[i] = ' ';
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
-            }
+    for (char c : codeArray) {
+        if (c != ' ') {
+            count++;
         }
-        if (count > 1 || count == 1 && black > 0) {
-            continue;
-        }
-        white += min(count, 4 - black);
     }
 
-    return make_pair(white, black).second;
+    return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+
+    int whitePeg = whitePegs(code, guess);
+    int blackPeg = blackPegs(code, guess);
+
+    cout << whitePeg << endl;
+    cout << blackPeg << endl;
+
+    return 0;
 }
