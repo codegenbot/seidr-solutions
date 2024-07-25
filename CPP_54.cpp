@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <cassert>
+#include <initializer_list>
 
 bool same_chars(std::string s0, std::string s1) {
     std::sort(s0.begin(), s0.end());
@@ -10,8 +12,5 @@ bool same_chars(std::string s0, std::string s1) {
 
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
-    if (same_chars("abcde", "edcba")) 
-        std::cout << "True" << std::endl; 
-    else  
-        std::cout << "False" << std::endl;
+    std::cout << (same_chars("abcde", "edcba") ? "True" : "False") << std::endl;
 }
