@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -36,5 +35,3 @@ struct Solution {
         return result;
     }
 };
-
-return 0;
