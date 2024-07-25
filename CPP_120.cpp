@@ -1,24 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-using namespace std;
+std::vector<int> maximum(const std::vector<int>& nums, int n) {
+    if (nums.empty()) {
+        return {};
+    }
+    std::vector<int> result(nums.begin(), nums.begin() + std::min(n, static_cast<int>(nums.size())));
+    std::sort(result.begin(), result.end(), std::greater<int>());
+    return result;
+}
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int maximum(vector<int> nums, int start){
-    int max_element = nums[start];
-    for(int i = start + 1; i < nums.size(); i++){
-        if(nums[i] > max_element){
-            max_element = nums[i];
-        }
-    }
-    return max_element;
-}
+int main() {
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
 
-int main(){
-    assert(issame(vector<int>{1, 2, 3, -23, 243, -400, 0}, vector<int>{243}));
     return 0;
 }
