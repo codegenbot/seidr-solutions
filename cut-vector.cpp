@@ -9,7 +9,7 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-    if (cin.fail() && cin.eof()) {
+    if (!cin.eof()) {
         int sum = 0, halfSum = 0;
         for (int num : nums) {
             sum += num;
