@@ -4,8 +4,8 @@ if (txt.empty()) {
     
     char lastChar = txt.back();
     if (isalpha(lastChar)) {
-        int spacePos = txt.find_last_of(' ');
-        if (spacePos == string::npos || spacePos < txt.size() - 1) {
+        size_t lastSpacePos = txt.find_last_of(' ');
+        if (lastSpacePos == string::npos || lastSpacePos < txt.size() - 1) {
             return true;
         }
     }
