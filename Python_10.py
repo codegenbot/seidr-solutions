@@ -1,4 +1,5 @@
-def make_palindrome(s):
+```
+def solve_task(s):
     palindrome = "".join(c for c in s if c.isalpha()) + "".join(
         c for c in s[::-1] if c.isalpha()
     )
@@ -7,4 +8,5 @@ def make_palindrome(s):
         new_s += char * 2
     return new_s
 
-print(make_palindrome("hello"))
+input_str = input("Enter a string: ")
+print(solve_task(input_str))
