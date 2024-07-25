@@ -3,12 +3,11 @@ def calculate_sum():
         print("Please enter two integers separated by a space.")
         try:
             x, y = map(int, input("Enter first and second numbers: ").split())
-            if len(str(x)) > 1 or len(str(y)) > 1:  
-                raise ValueError
             print(f"Sum is: {x + y}")
             choice = input("Do you want to continue? (yes/no): ")
             if choice.lower() != 'yes':
                 break
+            input("Press Enter when ready for the next calculation...")
         except ValueError:
             print("Invalid input. Please enter valid integers.")
 
