@@ -1,12 +1,16 @@
+import math
+
+mem = {0: 0, 1: 1}
+
 def is_prime(num):
-    if num < 2:
+    if num == 2:
+        return True
+    if num <= 1 or num % 2 == 0:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(3, int(math.sqrt(num)) + 1):
         if num % i == 0:
             return False
     return True
-
-mem = {0: 0, 1: 1}
 
 def fibonacci(num):
     if num in mem:
@@ -16,7 +20,7 @@ def fibonacci(num):
 
 def prime_fib(num):
     fib_num = fibonacci(num)
-    return is_prime(fib_num)
+    return is_prime(fib_num) and fib_num != 0
 
 def check(func):
     for i in range(0, 11):
