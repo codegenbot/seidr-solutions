@@ -1,6 +1,5 @@
-```
-from typing import List
+from typing import list
 
-def rolling_max(numbers: List[List[int]]) -> List[int]:
+def rolling_max(numbers: list[list[int]]) -> list[int]:
     result = [max(row) for row in zip(*numbers)]
     return result
