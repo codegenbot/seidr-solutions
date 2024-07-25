@@ -5,15 +5,14 @@ end_num = None
 
 for num in numbers_str.split():
     if "-" in num:
-        try:
-            start_num, end_num = map(float, num.split("-"))
-            for i in [round(j, 1) for j in (int(start_num), int(end_num))]:
-                numbers.extend([i])
-        except ValueError:
-            print("Invalid range: " + num)
+        start_num, end_num = map(float, num.split("-"))
+        numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
     else:
         try:
-            numbers.append(float(num))
+            if start_num is not None and end_num is not None:
+                numbers.append(f"{start_num}-{end_num}")
+            else:
+                numbers.append(float(num))
         except ValueError:
-            print("Invalid number: " + num)
+            print(f"Program did not receive expected input: {num}")
 print(numbers)
