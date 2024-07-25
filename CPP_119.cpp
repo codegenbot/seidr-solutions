@@ -1,10 +1,20 @@
+#include <vector>
+#include <stack>
+#include <string>
+
+using namespace std;
+
 string match_parens(vector<string> lst) {
-    int open = 0, close = 0;
-    for (const auto& s : lst) {
-        for (char c : s) {
-            if (c == '(') open++;
-            else if (c == ')') close++;
+    stack<char> s;
+    for (int i = 0; i < lst.size(); ++i) {
+        for (char c : lst[i]) {
+            if (c == '(') {
+                s.push(c);
+            } else if (c == ')') {
+                if (s.empty()) return "No";
+                s.pop();
+            }
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return s.empty() ? "Yes" : "No";
 }
