@@ -1,9 +1,12 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
+#include <cassert>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::map<char, int> count;
+using namespace std;
+
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
+    unordered_map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
@@ -13,7 +16,9 @@ std::map<char, int> histogram(std::string test) {
 
     int maxCount = 0;
     for (const auto& entry : count) {
-        maxCount = std::max(maxCount, entry.second);
+        if (entry.second > maxCount) {
+            maxCount = entry.second;
+        }
     }
 
     for (const auto& entry : count) {
@@ -25,7 +30,12 @@ std::map<char, int> histogram(std::string test) {
     return result;
 }
 
+bool issame(const unordered_map<char, int>& a, const unordered_map<char, int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(histogram("a") == std::map<char, int>{{'a', 1}});
+    assert(issame(histogram("a"), {{'a', 1}}));
+    
     return 0;
 }
