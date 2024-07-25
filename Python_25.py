@@ -35,8 +35,3 @@ def main():
                 print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-    return
-
-
-if __name__ == "__main__":
-    main()
