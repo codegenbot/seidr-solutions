@@ -1,12 +1,22 @@
-```
 def substitution_cipher(cipher, message):
-    deciphered_message = ""
+    deciphered = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                deciphered_message += chr((ord(cipher[0].upper()) - 65 + ord(char) - 65) % 26 + 65)
+                deciphered += chr(
+                    (ord(cipher[0].upper()) - ord("A") + ord(char.upper())) % 26
+                    + ord("A")
+                )
             else:
-                deciphered_message += chr((ord(cipher[1].lower()) - 97 + ord(char.lower()) - 97) % 26 + 97)
+                deciphered += chr(
+                    (ord(cipher[1].lower()) - ord("a") + ord(char.lower())) % 26
+                    + ord("a")
+                )
         else:
-            deciphered_message += char
-    return deciphered_message
+            deciphered += char
+    return deciphered
+
+
+cipher = input().strip()
+message = input().strip()
+print(substitution_cipher(cipher, message))
