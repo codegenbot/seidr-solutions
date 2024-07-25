@@ -1,4 +1,7 @@
-```
+```Python
+def add(x, y):
+    return x + y
+
 def calculate_sum():
     while True:
         try:
@@ -10,7 +13,10 @@ def calculate_sum():
     while True:
         try:
             y = int(input("Enter second number: "))
-            print(x + y)
+            result = add(x, y)
+            print(result)
             return
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+calculate_sum()
