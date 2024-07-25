@@ -22,3 +22,5 @@ def fruit_distribution(s):
             )
         )
     )
+
+print(fruit_distribution("1 apples and 100 oranges"))
