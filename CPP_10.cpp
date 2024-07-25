@@ -1,7 +1,6 @@
-```cpp
+#include <algorithm>
 #include<stdio.h>
 #include<string>
-#include<algorithm>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -15,5 +14,5 @@ string make_palindrome(string str){
         i--;
     }
     if(i<0) return str+str; // if the input string is already a palindrome
-    return str.substr(0,i+1)+string(reverse(str.substr(i+1)).begin(), reverse(str.substr(i+1)).end());
+    return str.substr(0,i+1)+std::string(reverse(str.substr(i+1))).substr(0, std::string(reverse(str.substr(i+1))).length());
 }
