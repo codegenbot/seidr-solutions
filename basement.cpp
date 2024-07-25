@@ -10,3 +10,8 @@ int basement(vector<int>& arr) {
     }
     return -1;
 }
+
+int main() {
+    // Your code to read input from user and test the function
+    return 0;
+}
