@@ -1,19 +1,19 @@
-def program(input_string):
-    def encode(message):
-        result = ""
-        for char in message:
-            if char == ' ':
-                result += ' '
-            elif char.isalnum():
-                if char.isalpha():
-                    if char.islower():
-                        result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
-                    else:
-                        result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
-                else: 
-                    result += char
-            else:
+```
+def encode(message):
+    result = ""
+    for char in message:
+        if char == ' ':
+            result += ' '
+        elif char.isalnum():
+            if char.isalpha():
+                if char.islower():
+                    result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+                else:
+                    result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
+            else: 
                 result += char
-        return result
+        else:
+            result += char
+    return result
 
-    print(encode(input_string))
+print(encode("I DoNt KnOw WhAt tO WrItE"))
