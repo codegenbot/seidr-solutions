@@ -1,16 +1,12 @@
-Here is the solution:
-
+```
 string remove_vowels(string text){
     string result = "";
     for (char c : text) {
-        if (!isvowel(c)) {
+        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+              || toupper(c) == 'A' || tolower(c) == 'E' || tolower(c) == 'I' 
+              || tolower(c) == 'O' || tolower(c) == 'U')) {
             result += c;
         }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    char lowerCase = tolower(c);
-    return (lowerCase == 'a' || lowerCase == 'e' || lowerCase == 'i' || lowerCase == 'o' || lowerCase == 'u');
 }
