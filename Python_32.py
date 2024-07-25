@@ -1,7 +1,7 @@
 try:
     print("Enter space-separated integers:")
-    numbers = [int(num) for num in input().split() if num]
-        
+    numbers = list(map(lambda x: int(x), input().split()))
+    
     total = sum(numbers)
     print(total)
     
