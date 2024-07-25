@@ -17,7 +17,7 @@ vector<string> split_words(string txt){
     if(result.empty()){
         int oddCount = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 != 0){
                 oddCount++;
             }
         }
