@@ -1,7 +1,10 @@
-#include <string>
-#include <cassert>
+#include <iostream>
 #include <cstring>
+
 int main() {
-    std::string str = "example";
-    assert(str.length() == 7);
+    char str[100];
+    std::cin >> str;
+    std::cout << strlen(str);
+
+    return 0;
 }
