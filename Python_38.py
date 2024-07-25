@@ -5,6 +5,8 @@ def decode_cyclic(s: str):
     i = 0
     while i < len(s):
         group = s[i:i+min(len(s)-i, 3)]
-        result += group[1] + (group[0] if len(group) > 1 else '')
+        if i + 2 >= len(s):  
+            group = group[:-1]  
+        result += chr(int(group[0]+group[1]+group[-1], 3))  
         i += len(group)
     return result
