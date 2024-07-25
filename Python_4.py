@@ -16,9 +16,9 @@ while True:
     try:
         numbers = [float(i) for i in user_input.split()]
         if len(numbers) > 0:
+            print(mean_absolute_deviation(numbers))
             break
         else:
             print("Invalid input. Please enter at least one number.")
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
-print(mean_absolute_deviation(numbers))
