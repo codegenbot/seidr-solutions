@@ -1,19 +1,18 @@
-```
-def solve_boolean(expression):
+def solveBoolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid Expression")
+        raise ValueError('Invalid expression')
     else:
-        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-        result = True
-        operator = ''
+        result = None
         for char in expression:
-            if char in ['&', '|']:
-                result = operators[operator](result, eval(char + '1'))
-                operator = char
-            else:
-                result = (result and char == 'T') or (result or char == 'F')
+            if char == '&':
+                result = result and (expression[expression.index(char) + 1] == 'T')
+            elif char == '|':
+                if not result:
+                    result = expression[expression.index(char) + 1] == 'T'
+                else:
+                    result = result or (expression[expression.index(char) + 1] == 'T')
         return result
