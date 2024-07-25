@@ -1,31 +1,24 @@
+```
 #include <iostream>
 #include <vector>
 
 std::vector<char> numerical_letter_grade(std::vector<char> grades) {
     std::vector<char> letterGrades;
     for (char grade : grades) {
-        if (grade >= 'D' + 1)
-            letterGrades.push_back('A');
-        else if (grade > 'D')
-            letterGrades.push_back('-');
-        else if (grade > 'C')
-            letterGrades.push_back('+');
-        else if (grade > 'B-')
-            letterGrades.push_back('B');
-        else if (grade > 'B')
-            letterGrades.push_back('-');
-        else if (grade > 'A-')
-            letterGrades.push_back('A');
-        else if (grade > 'A')
-            letterGrades.push_back('+');
-        else
+        if (grade >= 'A' && grade <= 'D')
             letterGrades.push_back('F');
+        else if (grade == '+') 
+            letterGrades.push_back('+');
+        else if (grade == '-') 
+            letterGrades.push_back('-');
+        else
+            letterGrades.push_back(grade);
     }
     return letterGrades;
 }
 
 int main() {
-    std::vector<char> grades = {'C', '+', '-'};
+    std::vector<char> grades = {'B', '-', 'C'};
     std::cout << "The letter grades for these numerical grades are: ";
     for (const auto& grade : numerical_letter_grade(grades)) {
         switch (grade) {
