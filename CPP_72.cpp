@@ -3,15 +3,9 @@ int sum = 0;
         sum += num;
     }
     
-    if (q.size() % 2 != 0) {
+    if (sum > w || q != vector<int>(q.rbegin(), q.rend())) {
         return false;
     }
     
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - 1 - i]) {
-            return false;
-        }
-    }
-    
-    return sum <= w;
+    return true;
 }
