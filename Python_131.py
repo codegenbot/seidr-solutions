@@ -1,9 +1,7 @@
+```
 def digits(n):
-    product = 1
-    has_zero = False
+    count_even_digits = 0
     for digit in str(n):
-        if int(digit) == 0:
-            has_zero = True
-        else:
-            product *= int(digit)
-    return 0 if has_zero else product
+        if int(digit) % 2 == 0:
+            count_even_digits += 1
+    return count_even_digits
