@@ -1,10 +1,12 @@
+// Include necessary header files
 #include <iostream>
 #include <string>
 #include <cassert>
 
+// Define a function to fix spaces in the input text
 std::string fix_spaces(const std::string& text) {
-    std::string result = text;
-    int count = 0;
+    std::string result = text; // make a copy to modify
+    int count = 0; // counter for consecutive spaces
 
     for (int i = 0; i < result.size(); ++i) {
         if (result[i] == ' ') {
