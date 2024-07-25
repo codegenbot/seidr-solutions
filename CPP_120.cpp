@@ -1,23 +1,20 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<int> maximum(vector<int> arr, int n) {
-    vector<int> result;
-    for(int i = 0; i < n; i++){
-        auto it = max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
-    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 7);
-    for(int x : result) {
-        cout << x << " ";
-    }
-    return 0;
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
+    return result;
 }
