@@ -1,11 +1,11 @@
+Here is the completed code:
+
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; // Return None
-    vector<int> copy = lst;
-    sort(copy.begin(), copy.end());
-    for (int i = 0; i < copy.size() - 1; i++) {
-        if (copy[i] != copy[i+1]) {
-            return copy[i+1];
-        }
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    for (auto i = v.begin(); ++i != v.end(); ) {
+        if (*i > lst[0]) return *prev(i); // Return the 2nd smallest element
     }
     return -1; // Return None
 }
