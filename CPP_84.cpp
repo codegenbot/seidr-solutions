@@ -1,9 +1,8 @@
 #include <iostream>
-#include <bitset>
 #include <string>
-using namespace std;
+#include <bitset>
 
-string solve(int N) {
+std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
         sum += N % 2;
