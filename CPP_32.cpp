@@ -20,7 +20,7 @@ double poly(const std::vector<double>& coeffs, double x){
 int main(){
     std::vector<double> coeffs = {1, -3, 2}; // Example coefficients
     double solution = find_zero(coeffs);
-    assert (std::abs(poly(coeffs, solution)) < 1e-3);
+    assert (std::abs(poly(coeffs, solution))< 1e-3);
     
     return 0;
 }
