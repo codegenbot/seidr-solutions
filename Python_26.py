@@ -1,3 +1,4 @@
-```
+Here is the corrected code:
+
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    return [x for x in set(numbers)]
+    return list(set(numbers))
