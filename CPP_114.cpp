@@ -19,5 +19,16 @@ long long minSubArraySum(std::vector<long long> nums){
 
 int main(){
     assert(minSubArraySum({1, -1}) == -1);
-    return 0;
+    std::vector<long long> numbers; 
+    int n; 
+    std::cout << "Enter the number of elements in your array: ";
+    std::cin >> n;
+    for(int i = 0; i < n; ++i){
+        long long num; 
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num; 
+        numbers.push_back(num);
+    }
+    long long result = minSubArraySum(numbers); 
+    std::cout << "Minimum subarray sum: " << result << std::endl;
 }
