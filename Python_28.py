@@ -5,7 +5,7 @@ def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
 
 if __name__ == "__main__":
-    num_strings = int(input("Enter the number of strings (1-9): ") or 1)
+    num_strings = int(input("Enter the number of strings (1-9): "))
     
     if not 1 <= num_strings <= 9:
         print("Error! Please enter a number between 1 and 9.")
@@ -13,7 +13,11 @@ if __name__ == "__main__":
         strings = []
         
         for i in range(num_strings):
-            s = input(f"Enter string {i+1}: ")
+            while True:
+                s = input(f"Enter string {i+1}: ")
+                if len(s) > 0:
+                    break
+                print("Error! String cannot be empty. Please try again.")
             strings.append(s)
         
         result = concatenate(strings)
