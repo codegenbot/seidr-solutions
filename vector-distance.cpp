@@ -7,7 +7,7 @@ using namespace std;
 double vectorDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        double a = 0, b = 0;
+        double a, b;
         cin >> a >> b;
         sum += pow(b - a, 2);
     }
