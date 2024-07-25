@@ -1,43 +1,30 @@
-Here's the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
-    vector<int> wells(n);
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < grid[i].size(); ++j) {
-            if (grid[i][j] == 1) {
-                wells[i]++;
+    int total_water = 0;
+    for (vector<int> well : grid) {
+        for (int unit : well) {
+            if (unit == 1) {
+                total_water++;
             }
         }
     }
 
-    int fill_count = 0;
-    while (true) {
-        bool changed = false;
-        vector<int> new_wells(wells);
-        
-        for (int i = 0; i < n; ++i) {
-            if (wells[i] >= capacity) {
-                wells[i] -= capacity;
-                fill_count++;
-            } else if (new_wells[i] > 0) {
-                new_wells[i] -= capacity;
-                changed = true;
+    int max_fill = 0;
+    while (total_water > 0) {
+        int remaining_capacity = capacity;
+        for (int i = 0; i < n; i++) {
+            if (grid[i].size() > 0 && grid[i][0] == 1) {
+                for (; remaining_capacity > 0 && i < n; i--) {
+                    if (i >= grid.size() || grid[i].size() == 0 || grid[i][0] != 1) {
+                        break;
+                    }
+                    remaining_capacity--;
+                    grid[i].erase(grid[i].begin());
+                }
             }
         }
-        
-        for (int i = 0; i < n; ++i) {
-            if (new_wells[i] > wells[i]) {
-                wells = new_wells;
-                fill_count++;
-                break;
-            }
-        }
-        
-        if (!changed)
-            break;
+        total_water -= capacity;
+        max_fill++;
     }
-    
-    return fill_count;
+    return max_fill;
 }
