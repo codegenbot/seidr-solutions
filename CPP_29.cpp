@@ -6,11 +6,13 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
+    
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -25,17 +27,17 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "apricot", "orange", "grape"};
+    vector<string> strings = {"apple", "banana", "apricot", "orange"};
     string prefix = "ap";
     
-    vector<string> filtered_result = filter_by_prefix(strings, prefix);
+    vector<string> filtered_output = filter_by_prefix(strings, prefix);
     
-    vector<string> expected_result = {"apple", "apricot"};
+    vector<string> expected_output = {"apple", "apricot"};
     
-    if (issame(filtered_result, expected_result)) {
-        std::cout << "Output matches expected result." << std::endl;
+    if (issame(filtered_output, expected_output)) {
+        cout << "Output matches the expected result." << endl;
     } else {
-        std::cout << "Output does not match expected result." << std::endl;
+        cout << "Output does not match the expected result." << endl;
     }
     
     return 0;
