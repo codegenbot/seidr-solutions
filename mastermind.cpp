@@ -3,22 +3,23 @@ int main() {
     cin >> code >> guess;
     
     int white = 0, black = 0;
-    map<char, int> codeFreq, guessFreq;
+    vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeFreq[code[i]];
-            ++guessFreq[guess[i]];
+            ++codeFreq[code[i] - 'A'];
+            ++guessFreq[guess[i] - 'A'];
         }
     }
     
-    for (auto& pair : codeFreq) {
-        white += min(pair.second, guessFreq[pair.first]);
+    for (int i = 0; i < 6; ++i) {
+        white += min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << white << "\n" << black << "\n";
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
