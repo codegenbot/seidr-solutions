@@ -1,29 +1,39 @@
-#include <iostream>
 #include <string>
 
 int calculateBowlingScore(std::string s) {
-    int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; i++) {
-        if (s[i] == 'X') {
-            total += 10 + ((s[i + 2] == 'X') ? 10 : (s[i + 1] - '0') + (s[i + 2] - '0'));
+    int total = 0, frame = 0, frameScore = 0;
+    bool isSpare = false, isStrike = false;
+
+    for (char c : s) {
+        if (c == 'X') {
+            total += 10 + frameScore;
+            if (isStrike) total += 10; 
+            if (isSpare) total += 10; 
+            isStrike = true;
+            frameScore = 0;
             frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + (s[i + 1] - '0');
+        } else if (c == '/') {
+            total += 10 - (s[frame * 2] - '0') + frameScore;
+            if (isStrike) total += 10; 
+            isSpare = true;
+            frameScore = 0;
+            frame++;
+        } else if (c == '-') {
+            frameScore = 0;
             frame++;
         } else {
-            total += s[i] - '0';
-            if (s[i] == '-') frame++;
+            frameScore += c - '0';
+            if (frameScore == 10) {
+                total += 10 + (s[(frame + 1) * 2] - '0');
+                if (isStrike) total += 10; 
+                frameScore = 0;
+                frame++;
+                isStrike = true;
+            } else {
+                isStrike = false;
+            }
         }
     }
+
     return total;
-}
-
-int main() {
-    std::string s;
-    std::cin >> s;
-
-    std::cout << calculateBowlingScore(s) << std::endl;
-
-    return 0;
 }
