@@ -1,10 +1,6 @@
 #include <vector>
 #include <climits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     int minEven = INT_MAX;
