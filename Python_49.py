@@ -1,3 +1,4 @@
+```
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -6,13 +7,16 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-num = None
-while num is None or (num and num < 2):
+while True:
     try:
         num = int(input("Enter a number: "))
+        if not isinstance(num, int):
+            print("Please enter an integer.")
+            continue
+        if num < 2:
+            print("Please enter a number greater than or equal to 2.")
+            continue
+        print(is_prime(num))
+        break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
-if not isinstance(num, int):
-    print("Please enter an integer.")
-else:
-    print(is_prime(num))
