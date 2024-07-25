@@ -1,20 +1,20 @@
-int consecutive_spaces = 0;
 string result = "";
-for (char c : text) {
-    if (c == ' ') {
-        consecutive_spaces++;
-        if (consecutive_spaces > 2) {
-            result.pop_back();
-            result.pop_back();
-            result.push_back('-');
-            consecutive_spaces = 1;
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += '-';
+                count = 1;
+            } else {
+                result += '_';
+            }
         } else {
-            result.push_back('_');
+            count = 0;
+            result += c;
         }
-    } else {
-        consecutive_spaces = 0;
-        result.push_back(c);
     }
-}
-return result;
+    return result;
 }
