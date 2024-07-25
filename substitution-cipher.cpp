@@ -1,20 +1,18 @@
-#include <string>
-
-std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
-    string decipheredMessage;
+```cpp
+std::string substitutionCipher(const std::string& cipherKey1, const std::string& cipherKey2, const std::string& message) {
+    std::string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        if (c != ' ') {
+        if (cipherKey1[i] != ' ') {
             int index = 0;
-            while (index < cipherKey1.length()) {
-                if (c == cipherKey1[index]) {
-                    decipheredMessage += cipherKey2[index];
+            while (index < cipherKey2.length()) {
+                if (cipherKey1[i] == cipherKey2[index]) {
+                    decipheredMessage += cipherKey1[i];
                     break;
                 }
                 index++;
             }
         } else {
-            decipheredMessage += c;
+            decipheredMessage += ' ';
         }
     }
     return decipheredMessage;
