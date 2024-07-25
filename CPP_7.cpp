@@ -1,23 +1,34 @@
-```cpp
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool filter_and_check(vector<string> str, string substr) {
-    vector<vector<string>> result;
-    for (const auto& s : str) {
-        if (s.find(substr) != std::string::npos) {
-            if (!issame({s}, result)) {
-                result.push_back({s});
-            }
-        }
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
     }
     return true;
+}
+
+std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::string> str, std::string substr) {
+    std::vector<std::vector<std::string>> result;
+    for (const auto& s : str) {
+        if (s.find(substr) != std::string::npos) {
+            result.push_back({s});
+        }
+    }
+    return result;
 
 }
 
 int main() {
-    assert(filter_and_check({"grunt", "trumpet", "prune", "gruesome"}, "run"));
-    return 0;
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string substr = "run";
+    std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
+    if (issame(filtered, {{ "grunt" }, { "prune" }})) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
 }
