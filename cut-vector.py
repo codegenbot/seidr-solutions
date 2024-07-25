@@ -1,16 +1,12 @@
 n = int(input())
-
-nums = []
-for i in range(n):
-    nums.append(int(input()))
-
-min_diff = float("inf")
-cut_index = None
+a = [int(input()) for _ in range(n)]
+diff = float("inf")
+index = -1
 for i in range(1, n):
-    diff = abs(sum(nums[:i]) - sum(nums[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-print(*nums[:cut_index])
-print(*nums[cut_index:])
+    left_sum = sum(a[:i])
+    right_sum = sum(a[i:])
+    if abs(left_sum - right_sum) < diff:
+        diff = abs(left_sum - right_sum)
+        index = i
+print(*a[:index])
+print(*a[index:])
