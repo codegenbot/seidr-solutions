@@ -12,7 +12,7 @@ int main() {
     int min_diff = INT_MAX;
     int cut_index = -1;
     for (int i = 1; i < n; ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
