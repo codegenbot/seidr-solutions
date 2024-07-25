@@ -1,8 +1,25 @@
-string solve(int N){
+```cpp
+#include <iostream>
+#include <string>
+
+std::string solve(int N) {
     int sum = 0;
-    while(N > 0){
+    while (N > 0) {
         sum += N % 2;
         N /= 2;
     }
-    return to_string(sum);
+    std::string res = "";
+    while (sum > 0) {
+        if (sum & 1)
+            res.push_back('1');
+        else
+            res.push_back('0');
+        sum >>= 1;
+    }
+    return res;
+}
+
+int main() {
+    assert (solve(963) == "10010");
+    return 0;
 }
