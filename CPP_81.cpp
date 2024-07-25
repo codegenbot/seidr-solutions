@@ -39,17 +39,3 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     }
     return letter_grades;
 }
-
-int main() {
-    vector<float> grades = {4.2, 3.9, 2.8};
-    vector<string> letterGrades = numerical_letter_grade(grades);
-    
-    // Now you can use the `issame` function
-    if (issame(letterGrades, {"A+", "A", "B-"})) {
-        cout << "The grades are correct." << endl;
-    } else {
-        cout << "The grades are incorrect." << endl;
-    }
-    
-    return 0;
-}
