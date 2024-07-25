@@ -1,20 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <cmath>
-
 int main() {
     std::vector<int> nums;
     int num;
 
-    // Read and store input numbers until no more integers are entered
+    // Read and store input numbers until end of file
     while (std::cin >> num) {
         nums.push_back(num);
-    }
-
-    if (nums.empty()) {
-        std::cerr << "Invalid input. Please provide at least one positive integer." << std::endl;
-        return 1;
     }
 
     int n = nums.size();
@@ -22,8 +12,13 @@ int main() {
     int cutIndex = -1;
 
     for (int i = 1; i < n; ++i) {
-        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
 
         int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
