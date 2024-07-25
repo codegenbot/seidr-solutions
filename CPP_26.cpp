@@ -3,13 +3,14 @@
 #include <cassert>
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> unique_numbers;
-    for (int num : numbers) {
-        if (std::count(numbers.begin(), numbers.end(), num) == 1) {
-            unique_numbers.push_back(num);
-        }
-    }
-    return unique_numbers;
+    std::vector<int> result = numbers;
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
