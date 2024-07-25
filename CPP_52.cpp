@@ -11,7 +11,5 @@ bool below_threshold(const std::vector<int>& l, int t) {
     return true;
 }
 
-int main() {
-    assert(!below_threshold({1, 8, 4, 10}, 10));
-    return 0;
-}
+assert(!below_threshold({1, 8, 4, 10}, 10));
+assert(below_threshold({2, 4, 6, 8}, 10));
