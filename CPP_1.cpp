@@ -1,20 +1,11 @@
 #include <vector>
 #include <string>
 
-int test_main();
-
-bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
-
-std::vector<std::string> separate_paren_groups(std::string);
-
-int test_main() {
-    std::string s = "((()))(())";
-    std::vector<std::string> result = separate_paren_groups(s);
-    for (const auto& group : result) {
-        if (issame({group}, {s}) && s.find(group) == 0) {
-            std::cout << group << "\n";
-        }
-    }
+int main() {
+    std::vector<std::string> a = {"( )","(( "};
+    std::vector<std::string> b = { "{}", "( { })" };
+    assert(std::includes(a.begin(), a.end(), b.begin(), b.end()));
+    
     return 0;
 }
 
@@ -37,6 +28,17 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
+            }
+        } else {
+            while (open_count > 0 && !current_group.empty()) {
+                char last_c = current_group.back();
+                if (last_c == '(') {
+                    open_count--;
+                    current_group.pop_back();
+                } else if (last_c == ')') {
+                    open_count++;
+                    current_group.pop_back();
+                }
             }
         }
     }
