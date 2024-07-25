@@ -1,2 +1,2 @@
-strings = input().split()
-print(strings)
+words = input().strip().split()
+print(words)
