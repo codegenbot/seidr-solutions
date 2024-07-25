@@ -1,7 +1,6 @@
 ```cpp
-#include <string>
 #include <iostream>
-#include <sstream>
+#include <string>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -16,10 +15,11 @@ string make_palindrome(string str){
             return str+string(str.substr(0,i))+string(str.substr(i)).reverse();
 }
 
-int main() {
+int main {
     string input, output;
     cout << "Enter a string: ";
     cin >> input;
     output = make_palindrome(input);
-    cout << "Palindrome of the entered string is: " << output << endl;
+    cout << "Palindrome of the given string is: " << output << endl;
+    return 0;
 }
