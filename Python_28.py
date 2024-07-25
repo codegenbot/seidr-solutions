@@ -1,15 +1,12 @@
+```
 from typing import List
 
-def concatenate(strings: List[str]) -> str:
+def concatenate():
+    user_input = input("Enter some strings (separated by space or comma): ")
+    
+    # Split the input string based on space or comma
+    strings = [s.strip() for s in user_input.split(",") if s]
+    
     return ''.join(strings)
 
-if __name__ == "__main__":
-    num_strings = int(input("Enter the number of strings: "))
-    strings = []
-    
-    for i in range(num_strings):
-        s = input(f"Enter string {i+1}: ")
-        strings.append(s)
-    
-    result = concatenate(strings)
-    print(result)
+print(concatenate())
