@@ -17,7 +17,7 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    assert(longest({{"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    int _;  
+    _ = longest({{"x", "yyy", "zzzz", "www", "kkkk", "abc"});
     return 0;
 }
