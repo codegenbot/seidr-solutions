@@ -4,11 +4,11 @@
 std::string encode(std::string message){
     std::string encodedMessage = "";
     for(char c : message){
-        if(std::isalpha(c)){
-            if(std::islower(c)){
-                c = std::toupper(c);
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
             } else {
-                c = std::tolower(c);
+                c = tolower(c);
             }
             if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
                 encodedMessage += char(c + 2);
@@ -22,6 +22,6 @@ std::string encode(std::string message){
     return encodedMessage;
 }
 
-std::string encode(std::string message);
+std::string encode(std::string message); 
 
 assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
