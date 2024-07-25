@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+
 vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
