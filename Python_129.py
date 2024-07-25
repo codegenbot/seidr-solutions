@@ -7,6 +7,7 @@ def minPath(grid, k):
     while len(path) < n * n and len(visited) < n * n:
         current_pos = (path[-1] // n, path[-1] % n)
         valid_moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        valid_moves.sort(key=lambda move: grid[move[0]][move[1]])
         next_move = None
         min_val = float('inf')
 
