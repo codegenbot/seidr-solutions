@@ -1,15 +1,15 @@
-vector<int> countPalindromes(int n) {
-        vector<int> res(2, 0);
+int even = 0, odd = 0;
         for (int i = 1; i <= n; ++i) {
-            string s = to_string(i);
-            string rev(s.rbegin(), s.rend());
-            if (s == rev) {
+            string str = to_string(i);
+            string rev = str;
+            reverse(rev.begin(), rev.end());
+            if (str == rev) {
                 if (i % 2 == 0) {
-                    res[0]++;
+                    even++;
                 } else {
-                    res[1]++;
+                    odd++;
                 }
             }
         }
-        return res;
+        return {even, odd};
     }
