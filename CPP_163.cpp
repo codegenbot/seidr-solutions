@@ -7,7 +7,7 @@ class Solution {
 public:
     static std::vector<int> generate_integers(int start, int end) {
         std::vector<int> nums(end - start + 1);
-        std::iota(nums.begin(), nums.end(), start); 
+        std::iota(nums.begin(), nums.end(), start);
         return nums;
     }
 
