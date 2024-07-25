@@ -5,9 +5,9 @@
 class Solution {
 public:
     static std::vector<int> generate_integers(int start, int end) {
-        std::vector<int> nums(end - start + 1);
-        std::iota(nums.begin(), nums.end(), start); 
-        return nums;
+        std::vector<int> result(end - start + 1);
+        std::iota(result.begin(), result.end(), start);
+        return result;
     }
 
     static std::vector<int> filter_even_numbers(const std::vector<int> &nums) {
@@ -22,6 +22,6 @@ public:
 };
 
 int main() {
-    assert(Solution::is_same(Solution::generate_integers(17, 89), Solution::filter_even_numbers(Solution::generate_integers(17, 89)));
+    assert(Solution::is_same(Solution::generate_integers(17, 89), Solution::filter_even_numbers(Solution::generate_integers(17, 89))));
     return 0;
 }
