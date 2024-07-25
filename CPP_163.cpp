@@ -1,21 +1,19 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 class Solution {
 public:
-    static vector<int> generate_integers(int start, int end) {
-        vector<int> result;
+    static std::vector<int> generate_integers(int start, int end) {
+        std::vector<int> result;
         for (int i = start; i <= end; ++i) {
             result.push_back(i);
         }
         return result;
     }
 
-    static vector<int> filter_even_numbers(const vector<int>& nums) {
-        vector<int> result;
-        for (int num : nums) {
+    static std::vector<int> filter_even_numbers(const std::vector<int>& numbers) {
+        std::vector<int> result;
+        for (int num : numbers) {
             if (num % 2 == 0) {
                 result.push_back(num);
             }
@@ -23,8 +21,8 @@ public:
         return result;
     }
 
-    static bool issame(const vector<int>& a, const vector<int>& b) {
-        return (a == b);
+    static bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
     }
 };
 
