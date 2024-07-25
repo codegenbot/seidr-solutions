@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -14,10 +13,11 @@ string make_palindrome(string str){
             return str+string(str.substr(0,i))+string(str.substr(i)).reverse();
 }
 
-int main() {
-    string input, output;
+int main(){
+    string input;
     cout << "Enter a string: ";
-    cin >> input;
-    output = make_palindrome(input);
-    cout << "Palindrome of the entered string is: " << output << endl;
+    getline(cin, input);
+    string output = make_palindrome(input);
+    cout << "Palindrome: " << output << endl;
+    return 0;
 }
