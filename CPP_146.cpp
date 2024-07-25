@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -21,5 +20,4 @@ int main() {
         input.push_back(num);
     }
     cout << specialFilter(input) << endl;
-    return 0;
 }
