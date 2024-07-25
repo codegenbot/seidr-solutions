@@ -1,3 +1,10 @@
 ```
 def car_race_collision(n):
-    return sum(i**2 for i in range(1, n+1))
+    total_distance = 0
+    for _ in range(n):
+        print("Enter the speed of a car (in km/h): ")
+        speed = int(input())
+        time = 100 / speed  
+        distance = speed * time
+        total_distance += distance
+    return total_distance
