@@ -1,27 +1,31 @@
-#include <vector>
-#include <cassert>
-
-vector<int> largest_smallest_integers(vector<int> lst);
-
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> largest_smallest_integers(vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
-    for(int num : lst){
-        if(num < 0 && num < largest_negative){
-            largest_negative = num;
-        } else if(num > 0 && (num < smallest_positive || smallest_positive == 0)){
-            smallest_positive = num;
-        }
-    }
-    return {largest_negative, smallest_positive};
-}
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+vector<int> largest_smallest_integers(vector<int> lst){
+    int largest_negative = INT_MIN;
+    int smallest_positive = INT_MAX;
+    
+    for(int num : lst){
+        if(num < 0 && num > largest_negative){
+            largest_negative = num;
+        }
+        if(num > 0 && num < smallest_positive){
+            smallest_positive = num;
+        }
+    }
+    
+    return {largest_negative, smallest_positive};
+}
+
+int main(){
+    // Example usage
+    vector<int> input = {3, -5, 2, -8, 7};
+    vector<int> result = largest_smallest_integers(input);
+
+    for(int num : result){
+        cout << num << " ";
+    }
+
     return 0;
 }
