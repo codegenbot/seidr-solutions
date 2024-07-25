@@ -1,4 +1,3 @@
-n = int(input("Enter the value of n: "))
 def is_prime(num):
     if num < 2:
         return False
@@ -22,6 +21,3 @@ def prime_fib(n: int):
             if num == fibonacci(count):
                 count += 1
     return num
-
-result = prime_fib(n)
-print(result)
