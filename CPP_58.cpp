@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-
+// Given code snippet starts here
 sort(l1.begin(), l1.end());
 sort(l2.begin(), l2.end());
 vector<int> result;
