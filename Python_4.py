@@ -13,7 +13,7 @@ def mean_absolute_deviation():
                 average = statistics.mean(numbers)
                 total = sum(abs(num - average) for num in numbers)
                 result = total / len(numbers)
-                print(f"The Mean Absolute Deviation is: {result}")
+                print(result)
                 break
         except ValueError:
             print("Invalid input. Please enter valid numbers.")
