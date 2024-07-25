@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -20,14 +19,14 @@ int main() {
     vector<string> strings = {"apple", "banana", "apricot", "orange"};
     string prefix = "ap";
     
-    vector<string> filtered_output = filter_by_prefix(strings, prefix);
+    vector<string> filtered_result = filter_by_prefix(strings, prefix);
     
-    vector<string> expected_output = {"apple", "apricot"};
+    vector<string> expected_result = {"apple", "apricot"};
     
-    if (issame(filtered_output, expected_output)) {
-        cout << "Output matches expected result." << endl;
+    if (issame(filtered_result, expected_result)) {
+        // Output matches expected result
     } else {
-        cout << "Output does not match expected result." << endl;
+        // Output does not match expected result
     }
     
     return 0;
