@@ -1,18 +1,19 @@
-```cpp
-#include<vector>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-vector<int> maximum(vector<int> arr) {
-    vector<int> result;
-    for(int i = 0; i < arr.size(); i++){
-        auto it = max_element(arr.begin(), arr.end());
-        result.push_back(*it);
+std::vector<int> maximum(const std::vector<int>& arr, int n) {
+    for(int i = 0; i < n; i++){
+        auto it = std::max_element(arr.begin(), arr.end());
         arr.erase(it);
     }
-    return result;
+    return arr;
 }
 
 int main() {
-    vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0});
+    std::vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 7);
+    for(int i : result) {
+        std::cout << i << " ";
+    }
     return 0;
 }
