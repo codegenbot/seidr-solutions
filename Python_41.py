@@ -8,7 +8,7 @@ def car_race_collision(n):
             total_distance += (i * (i + 1)) // 2 - (
                 (i - collisions) * (i - collisions + 1)
             ) // 2
-    return total_distance + (n * (n + 1)) // 2
+    return total_distance
 
 
 n = int(input("Enter the number of cars: "))
