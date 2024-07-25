@@ -7,7 +7,7 @@ void remove_duplicates(vector<int>& numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 2, 3, 3, 4, 5};
+    vector<int> numbers = {1, 2, 2, 3, 4, 4, 5};
     remove_duplicates(numbers);
     return numbers;
 }
