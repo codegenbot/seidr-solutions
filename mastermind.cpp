@@ -1,42 +1,27 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-int getBlackPegs(const string& code, const string& guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++blackPegs;
-        }
-    }
-    return blackPegs;
-}
-
-int getWhitePegs(const string& code, const string& guess) {
+int masterMind(string code, string guess) {
     int whitePegs = 0;
-    vector<char> codeChar(6);
-    for (int i = 0; i < 4; ++i) {
-        codeChar[code[i]]++;
+    int blackPegs = 0;
+    
+    // count occurrences of each color in the guess
+    vector<int> guessCounts(6, 0);
+    for (char c : guess) {
+        guessCounts[c - 'A']++;
     }
+    
+    // count correct colors at wrong places and correct places
+    int codeCounts[6] = {0};
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            --codeChar[guess[i]];
+            blackPegs++;
         } else {
-            codeChar[guess[i]]--;
+            codeCounts[code[i] - 'A']++;
         }
     }
-    for (char c = 'A'; c <= 'F'; ++c) {
-        whitePegs += min(codeChar[c], 0);
+    
+    // count correct colors at wrong places
+    for (int i = 0; i < 6; ++i) {
+        whitePegs += min(guessCounts[i], codeCounts[i]);
     }
-    return whitePegs;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << getWhitePegs(code, guess) << endl;
-    cout << getBlackPegs(code, guess) << endl;
-    return 0;
+    
+    return make_pair(whitePegs, blackPegs).second;
 }
