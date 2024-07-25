@@ -1,16 +1,24 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (frames[i] == 'X') { // strike
-            score += 10 + bowlingScore(frames.substr(i+1, 2));
-        } else if (frames[i] == '/') { // spare
-            score += 10 - frames[i+1]-'0'-'0';
-            i++;
-        } else {
-            int framePoints = frames[i]-'0'*10 + frames[i+1]-'0';
-            score += framePoints;
-            if (i < 8 && frames[i+2] != 'X' && frames[i+2] != '/') { // open frame
-                score += min(frames[i]-'0',frames[i+1]-'0');
+    int frame = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            frame++;
+        } else if (c == '/') {
+            score += 10;
+            frame++;
+        } else if (isdigit(c)) {
+            int pins = c - '0';
+            if (frame < 9 && s[s.size() - 3] == 'X' || s[s.size() - 2] == '/') {
+                score += 10 + pins;
+                frame++;
+            } else {
+                score += pins;
+                frame++;
+                if (s[s.size() - 1] != c) {
+                    frame++;
+                }
             }
         }
     }
