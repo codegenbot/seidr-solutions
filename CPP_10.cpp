@@ -1,8 +1,10 @@
 string make_palindrome(string str){
-    if(str.empty()) return "";
-    int n = str.size();
-    int i = n - 1;
-    while(i >= 0 && str[i] == str[n - 1]) i--;
-    string prefix = str.substr(0, i + 1);
-    return prefix + string(str.rbegin(), str.rend());
+    string palindrome = str;
+    for(int i = str.size() - 1; i >= 0; --i){
+        if(is_palindrome(str.substr(i))){
+            palindrome += str.substr(0, i);
+            break;
+        }
+    }
+    return palindrome;
 }
