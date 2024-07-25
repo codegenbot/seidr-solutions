@@ -10,5 +10,6 @@ int fruit_distribution(const std::string& s, int n) {
 
 int main() {
     assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
+    
     return 0;
 }
