@@ -3,16 +3,7 @@
 
 using namespace std;
 
-bool is_prime(int n);
 bool is_multiply_prime(int a);
-
-int main() {
-    int num;
-    cout << "Enter a number less than 100: ";
-    cin >> num;
-    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
-    return 0;
-}
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -37,4 +28,12 @@ bool is_multiply_prime(int a) {
         }
     }
     return false;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number less than 100: ";
+    cin >> num;
+    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
+    return 0;
 }
