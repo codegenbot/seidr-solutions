@@ -1,12 +1,6 @@
-if (x == 1) {
-        return true;
-    }
-    int power = 0;
-    while (pow(n, power) <= x) {
-        if (pow(n, power) == x) {
-            return true;
-        }
-        power++;
-    }
-    return false;
+if (x <= 0 || n <= 0)
+        return false;
+
+    double power = log(x) / log(n);
+    return fabs(power - round(power)) < 1e-9;
 }
