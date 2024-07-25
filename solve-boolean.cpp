@@ -1,43 +1,82 @@
-#include <string>
+#include <vector>
+#include <iostream>
 using namespace std;
 
-bool evaluateBoolean(string expression) {
-    stack<char> opStack;
-    stack<string> valStack;
-
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
     for (int i = 0; i < expression.size(); i++) {
         char c = expression[i];
-        
-        if (c == '&' || c == '|') {
-            string operand1 = valStack.top();
-            valStack.pop();
-            string operand2;
-            while (!opStack.empty() && opStack.top() != '(') {
-                operand2 += opStack.top();
-                opStack.pop();
+        if (c == 'T' || c == 't') {
+            return true;
+        }
+        else if (c == 'F' || c == 'f') {
+            return false;
+        }
+        else if (c == '|') {
+            operationStack.push('|');
+        }
+        else if (c == '&') {
+            while (!operationStack.empty() && operationStack.top() == '&') {
+                operationStack.pop();
             }
-            opStack.pop(); // Pop the parenthesis
-            
-            if (c == '&') {
-                valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
-            } else {
-                valStack.push((operand1 == "True" || operand2 == "True") ? "True" : "False");
-            }
-        } 
-        else if (c != '(' && c != ')') {
-            string s;
-            while (i < expression.size() && expression[i] != ' ' && expression[i] != '&' && expression[i] != '|' && expression[i] != '(') {
-                s += expression[i];
-                i++;
-            }
-            i--;
-            if (s == "t") valStack.push("True");
-            else if (s == "f") valStack.push("False");
-        } 
-        else {
-            opStack.push(c);
+            operationStack.push('&');
         }
     }
+    while (!operationStack.empty()) {
+        char c = operationStack.top(); 
+        operationStack.pop();
+        if (c == '|') {
+            bool firstOperand = true;
+            int result1 = 0, result2 = 0;
+            while (!expression.empty() && expression[0] != ' ') {
+                if (expression[0] == 'T' || expression[0] == 't')
+                    result1 = 1;
+                else if (expression[0] == 'F' || expression[0] == 'f')
+                    result1 = 0;
+                expression = expression.substr(1);
+            }
+            while (!expression.empty() && expression[0] != ' ') {
+                if (expression[0] == 'T' || expression[0] == 't')
+                    result2 = 1;
+                else if (expression[0] == 'F' || expression[0] == 'f')
+                    result2 = 0;
+                expression = expression.substr(1);
+            }
+            return static_cast<bool>(result1 | result2);
+        }
+        else if (c == '&') {
+            bool firstOperand = true;
+            int result1 = 0, result2 = 0;
+            while (!expression.empty() && expression[0] != ' ') {
+                if (expression[0] == 'T' || expression[0] == 't')
+                    result1 = 1;
+                else if (expression[0] == 'F' || expression[0] == 'f')
+                    result1 = 0;
+                expression = expression.substr(1);
+            }
+            while (!expression.empty() && expression[0] != ' ') {
+                if (expression[0] == 'T' || expression[0] == 't')
+                    result2 = 1;
+                else if (expression[0] == 'F' || expression[0] == 'f')
+                    result2 = 0;
+                expression = expression.substr(1);
+            }
+            return static_cast<bool>(result1 & result2);
+        }
+    }
+    return true; // default to True
+}
 
-    return valStack.top() == "True";
+int main() {
+    string expression;
+    cout << "Enter Boolean Expression: ";
+    cin >> expression;
+    if (expression.length() > 0) {
+        bool result = evaluateBooleanExpression(expression);
+        if (result)
+            cout << "True";
+        else
+            cout << "False";
+    }
+    return 0;
 }
