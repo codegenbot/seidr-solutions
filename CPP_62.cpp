@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 std::vector<float> derivative(std::vector<float> xs) {
     std::vector<float> result;
