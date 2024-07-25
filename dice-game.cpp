@@ -8,8 +8,8 @@ int main() {
     double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            favorable_outcomes += 1;
+        for (int j = 1; j < i && j <= m; ++j) {
+            favorable_outcomes += 1.0;
         }
     }
     
