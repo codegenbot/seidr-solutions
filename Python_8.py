@@ -1,6 +1,10 @@
-```
-import re
-
 numbers_str = input("Enter a string of numbers (e.g., 1-2.3 4 5-6): ")
-pattern = r"(-?\d+(?:\.\d+)?|-?\.\d+)"
-numbers = [float(num) for num in re.findall(pattern, numbers_str)]
+numbers = [
+    float(num)
+    for num in numbers_str.split()
+    if (
+        num.replace("-", "", 1).replace(".", "").isdigit()
+        or num.startswith((-"."))
+        and num[2:].replace(".", "").isdigit()
+    )
+]
