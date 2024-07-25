@@ -34,18 +34,18 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
+    for (int i = 0; i <= cutIndex + 1; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
     
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 2; i < n; i++) {
         cout << nums[i] << ' ';
     }
     cout << '\n';
