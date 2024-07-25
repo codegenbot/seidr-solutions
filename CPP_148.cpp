@@ -1,38 +1,37 @@
+```cpp
 #include <vector>
-#include <string>
-
 using namespace std;
+
+bool issame(vector<string>, vector<string>) {
+    // implementation of your issame function
+}
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    if (find(planets.begin(), planets.end(), planet1) == planets.end() || 
-        find(planets.begin(), planets.end(), planet2) == planets.end()) {
-        return {};
-    }
-    
-    int index1 = distance(planets.begin(), find(planets.begin(), planets.end(), planet1));
-    int index2 = distance(planets.begin(), find(planets.begin(), planets.end(), planet2));
-    
-    if (index1 > index2) {
-        swap(index1, index2);
-    }
-    
     vector<string> result;
-    for (int i = 0; i < planets.size(); ++i) {
-        if (i >= index1 && i <= index2) continue;
-        if (i < index1) {
-            result.push_back(planets[i]);
-        } else {
-            result.push_back(planets[i-1]);
-            break;
+
+    int index1 = -1, index2 = -1;
+    for (int i = 0; i < planets.size(); i++) {
+        if (planets[i] == planet1) {
+            index1 = i;
+        } else if (planets[i] == planet2) {
+            index2 = i;
         }
     }
-    
-    for (int i = planets.size() - 1; i > index2; --i) {
-        if (i <= index1) continue;
-        result.push_back(planets[i]);
+
+    if (index1 == -1 || index2 == -1) {
+        return result;
     }
-    
+
+    for (int i = 0; i < planets.size(); i++) {
+        if (i > index1 && i < index2) {
+            result.push_back(planets[i]);
+        }
+    }
+
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Makemake") == {});
 }
