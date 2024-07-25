@@ -7,18 +7,10 @@ string substitutionCipher(string cipherKey1, string cipherKey2, string message) 
             decipheredMessage += message[i];
         } else {
             int index = 0;
-            while (index < cipherKey2.length() && index != string::npos) {
-                if (cipherKey2[index] == message[i]) {
-                    decipheredMessage += cipherKey1[index];
-                    break;
-                }
+            while (index < cipherKey2.length() && index != cipherKey2.find(cipherKey2[i])) {
                 index++;
             }
-            if (index == cipherKey2.length()) {
-                decipheredMessage += message[i];
-            } else {
-                decipheredMessage += cipherKey2[index];
-            }
+            decipheredMessage += cipherKey2[index];
         }
     }
     return decipheredMessage;
