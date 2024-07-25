@@ -1,38 +1,40 @@
 #include <vector>
 #include <iostream>
-using namespace std;
+#include <string>
 
-int countBlackPegs(string code, string guess) {
+int countBlackPegs(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            ++blackPegs;
         }
     }
     return blackPegs;
 }
 
-int countWhitePegs(string code, string guess) {
+int countWhitePegs(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
-
-    for (char c : guessArray) {
-        if (find(codeArray.begin(), codeArray.end(), c) != codeArray.end()) {
+    for (char c : code) {
+        int occurrences = 0;
+        for (char d : guess) {
+            if (c == d) {
+                ++occurrences;
+            }
+        }
+        if (occurrences > 1) {
+            whitePegs += occurrences - 1;
+        } else if (occurrences == 1) {
             whitePegs++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), c), codeArray.end());
         }
     }
-
     return whitePegs;
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    cout << countWhitePegs(code, guess) << endl;
-    cout << countBlackPegs(code, guess) << endl;
-
+    std::string code, guess;
+    std::cin >> code >> guess;
+    int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = countWhitePegs(code, guess);
+    std::cout << whitePegs << "\n" << blackPegs << "\n";
     return 0;
 }
