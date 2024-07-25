@@ -1,20 +1,21 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
 
-using namespace std;
-
-bool isSame(vector<vector<int>> v1, vector<vector<int>> v2) {
+bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
     if (v1.size() != v2.size())
         return false;
     for (int i = 0; i < v1.size(); i++) {
-        if (v1[i].size() != v2[i].size() || v1[i] != v2[i])
+        if (v1[i].size() != v2[i].size())
             return false;
+        for (int j = 0; j < v1[i].size(); j++) {
+            if (v1[i][j] != v2[i][j])
+                return false;
+        }
     }
     return true;
 }
 
-vector<vector<int>> getRow(vector<vector<int>>& lst, int x) {
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
@@ -31,6 +32,7 @@ vector<vector<int>> getRow(vector<vector<int>>& lst, int x) {
 }
 
 int main() {
-    assert(isSame(getRow({}, {1}, {1, 2, 3}), {{2, 2}}));
+    vector<vector<int>> lst = {{}, {1}, {1, 2, 3}};
+    assert(issame(get_row(lst, 3), {{0, 2}}));
     return 0;
 }
