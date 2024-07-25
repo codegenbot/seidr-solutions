@@ -14,8 +14,10 @@ bool is_palindrome(std::string text) {
 
 int main() {
     assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("madam") == true);
+    assert(is_palindrome("level") == true);
     assert(is_palindrome("racecar") == true);
-    // Add more test cases here
+    assert(is_palindrome("hello") == false);
+    assert(is_palindrome("madam") == true);
+    
     return 0;
 }
