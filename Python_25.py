@@ -2,8 +2,6 @@ from typing import List
 
 
 def factorize(n: int) -> List[int]:
-    if n <= 0:
-        return []
     factors = []
     i = 2
     while i * i <= n:
@@ -30,12 +28,10 @@ def main():
             break
         try:
             user_input = int(user_input)
-            if 0 < user_input: 
+            if 0 < user_input:
                 result = factorize(user_input)
                 print(f"The prime factors of {user_input} are: {result}")
             else:
-                print(
-                    f"Invalid input. Please enter an integer greater than zero."
-                )
+                print(f"Invalid input. Please enter an integer greater than zero.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
