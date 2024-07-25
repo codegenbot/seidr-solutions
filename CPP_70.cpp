@@ -2,32 +2,40 @@
 #include <vector>
 #include <limits>
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) return false;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
     return true;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
-    while (!lst.empty()) {
-        auto it = std::min_element(lst.begin(), lst.end());
-        result.push_back(*it);
-        lst.erase(it);
-
-        if (issame({*it}, result)) {
-            while (issame(result, {result[0]})) {
-                it = std::min_element(lst.begin(), lst.end());
-                result.push_back(*it);
-                lst.erase(it);
-            }
-        } else {
-            auto max_it = std::max_element(lst.begin(), lst.end());
-            result.push_back(*max_it);
-            lst.erase(max_it);
+    if (lst.empty()) {
+        return result;
+    }
+    
+    sort(lst.begin(), lst.end());
+    result.push_back(*min_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+    
+    if (!lst.empty()) {
+        sort(lst.begin(), lst.end());
+        result.push_back(*max_element(lst.begin(), lst.end()));
+        lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
+    }
+    
+    while (!lst.empty() && !issame({*min_element(lst.begin(), lst.end())}, result)) {
+        sort(lst.begin(), lst.end());
+        result.push_back(*min_element(lst.begin(), lst.end()));
+        lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        
+        if (!lst.empty() && !issame({*max_element(lst.begin(), lst.end())}, &result[result.size()-1])) {
+            sort(lst.begin(), lst.end());
+            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
         }
     }
+    
     return result;
 }
