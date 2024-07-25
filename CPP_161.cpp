@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cctype>
 #include <string>
+#include <cassert>
 
 std::string solve(std::string s) {
     for (char &c : s) {
