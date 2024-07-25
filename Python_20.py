@@ -1,5 +1,9 @@
 try:
-    numbers_input = raw_input("Enter space-separated floating-point numbers: ")
+    numbers_input = input("Enter space-separated floating-point numbers: ")
+
+    if not numbers_input:
+        raise ValueError("No numbers provided. Please enter at least 2 floating-point numbers")
+
     numbers = list(map(float, numbers_input.split()))
 
     if len(numbers) < 2:
