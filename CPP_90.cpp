@@ -1,11 +1,30 @@
-Here is the solution:
+int main() {
+    vector<int> input;
+
+    // Read input from user
+    while (true) {
+        int x;
+        cin >> x;
+        if (!cin || x == -1)
+            break;
+        input.push_back(x);
+    }
+
+    // Solve the problem
+    int nextSmallest = next_smallest(input);
+
+    cout << "The 2nd smallest element of the vector is: " << nextSmallest << endl;
+
+    return 0;
+}
 
 int next_smallest(vector<int> lst) {
-    vector<int> v = lst;
-    sort(v.begin(), v.end());
-    if (v.size() < 2 || v[1] == v[0]) return -1; // Return None
-    for (int i = 1; i < v.size(); ++i)
-        if (v[i] != v[0])
-            return v[i];
+    if (lst.size() < 2)
+        return -1; // Return None
+    sort(lst.begin(), lst.end());
+    for (auto it = lst.begin(); std::next(it) != lst.end(); ++it) {
+        if (*it > *std::prev(it))
+            return *it;
+    }
     return -1; // Return None
 }
