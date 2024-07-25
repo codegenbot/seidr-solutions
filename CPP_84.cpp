@@ -7,7 +7,7 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return bitset<8>(sum).to_string().substr(4);
+    return bitset<8>(sum).to_string().substr(4); // Fix: changed (8 - 4) to (4)
 }
 
 int main() {
