@@ -10,4 +10,7 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 
-print(rolling_max([-5, -2, 0, 3, -1, 10]))
+numbers = input("Enter a list of integers (separated by spaces): ")
+numbers = [int(x) for x in numbers.split()]
+
+print(rolling_max(numbers))
