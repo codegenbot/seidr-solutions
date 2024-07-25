@@ -1,4 +1,3 @@
-````
 from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
@@ -7,4 +6,3 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 print(rolling_max([1, 2, 3, 4, 5]))
-```
