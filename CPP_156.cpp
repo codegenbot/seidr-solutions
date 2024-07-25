@@ -1,17 +1,19 @@
-```
-string int_to_mini_roman(int number) {
-    vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                         {400, "CD"}, {100, "C"}, {90, "XC"},
-                                         {50, "L"}, {40, "XL"}, {10, "X"},
-                                         {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+#include <cassert>
 
-    string roman_num = "";
-    for (const auto& p : roman) {
-        while (number >= p.first) {
-            number -= p.first;
-            roman_num += p.second;
+string main(int number) {
+    string roman = "";
+    vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
+                                            {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            roman += pair.second;
+            number -= pair.first;
         }
     }
+    return roman;
+}
 
-    return roman_num;
+int main() {
+    assert(main(1000) == "M");
+    return 0;
 }
