@@ -14,9 +14,9 @@ def minPath(grid, k):
             new_pos = path[-1] + di * n + dj
             if 0 <= new_pos < n * n and new_pos not in path:
                 x, y = new_pos // n, new_pos % n
-                if (x, y) not in visited and grid[x][y] <= min_val:
+                if (x, y) not in visited and grid[x][y] + 1 < min_val:
                     next_move = new_pos
-                    min_val = grid[x][y]
+                    min_val = grid[x][y] + 1
 
         if next_move is None:
             break
