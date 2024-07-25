@@ -1,17 +1,7 @@
-from collections import deque
-from typing import List, Tuple
-
-
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    queue = deque()
-
+    max_so_far = float('-inf')
     for num in numbers:
-        while queue and queue[-1] < num:
-            queue.pop()
-        queue.append(num)
-        if queue[0] == num - 3:
-            queue.popleft()
-        result.append(queue[0])
-
+        max_so_far = max(max_so_far, num)
+        result.append(max_so_far)
     return result
