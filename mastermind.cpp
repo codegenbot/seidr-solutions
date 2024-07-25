@@ -1,22 +1,23 @@
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
+    map<char, int> codeMap;
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    // Count the frequency of each character in the code
+    for (char c : code) {
+        codeMap[c]++;
+    }
+
+    // Count the correct and incorrect positions of characters in the guess
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) { // Correct position
             black++;
+            codeMap[code[i]]--;
+        } else if (codeMap[guess[i]] > 0) { // Incorrect position but correct character
+            white++;
+            codeMap[guess[i]]--;
         }
     }
 
-    for(int i=0; i<6; i++) {
-        int count = 0;
-        for(int j=0; j<4; j++) {
-            if(guess[j] == 'A'+i) {
-                count++;
-            }
-        }
-        if(count > 1) white += count - 1;
-    }
-
-    return black + white;
+    return make_pair(white, black).second;
 }
