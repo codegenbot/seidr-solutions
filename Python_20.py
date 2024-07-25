@@ -1,2 +1,5 @@
-a, b, c = map(int, input("Enter three integers separated by space: ").split())
+print("Enter three numbers to calculate their sum")
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
 print(a + b + c)
