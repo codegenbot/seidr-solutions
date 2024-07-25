@@ -15,8 +15,8 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_any_of<a>(std::string.class)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
-        double ax = std::stod(x);
-        double ay = std::stod(y);
+        double ax = stod(x);
+        double ay = stod(y);
         return (ax > ay) ? a : ((ax < ay) ? b : boost::any(std::string("None")));
     }
     return a;
