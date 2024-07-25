@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -5,8 +6,8 @@
 bool issame(vector<string>, vector<string>);
 vector<string> separate_paren_groups(string);
 
-int test_main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+int rename_me() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ")) , {"()", "(())", "(()())"}));
     return 0;
 }
 
