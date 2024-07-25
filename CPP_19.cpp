@@ -11,21 +11,26 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-multimap<int, string> sorted_numbers;
-string result;
-
-size_t pos = 0;
-size_t found;
-while ((found = numbers.find(' ', pos)) != string::npos) {
-    string num = numbers.substr(pos, found - pos);
-    sorted_numbers.insert({number_map[num], num});
-    pos = found + 1;
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
+    string result = "";
+    
+    size_t start = 0;
+    size_t end = numbers.find(" ");
+    
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        reverse_map[number_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
+    }
+    
+    string last_num_str = numbers.substr(start);
+    reverse_map[number_map[last_num_str]] = last_num_str;
+    
+    for (const auto& pair : reverse_map) {
+        result += pair.second + " ";
+    }
+    
+    return result.substr(0, result.size() - 1);
 }
-string num = numbers.substr(pos);
-sorted_numbers.insert({number_map[num], num});
-
-for (const auto& pair : sorted_numbers) {
-    result += pair.second + " ";
-}
-
-return result.substr(0, result.size() - 1);
