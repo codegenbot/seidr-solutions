@@ -9,7 +9,7 @@ long long minSubArraySum(std::vector<long long> nums) {
             break;
         }
         if (i == nums.size() - 1 || nums[i] < nums[i + 1]) {
-            min_sum = min(min_sum, sum);
+            min_sum = std::min(min_sum, sum);
         }
     }
     return min_sum;
