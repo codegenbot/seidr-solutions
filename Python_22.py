@@ -1,3 +1,4 @@
+```python
 from typing import List, Any
 
 def filter_integers():
@@ -7,6 +8,6 @@ def filter_integers():
             value = int(input("Enter an integer (or 'done' if finished): "))
             values.append(value)
         except ValueError:
-            if input("Enter 'done' if finished: ") == 'done':
+            if input("Enter 'done' if you want to finish: ") == 'done':
                 break
     return [value for value in values if isinstance(value, int)]
