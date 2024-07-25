@@ -1,18 +1,14 @@
-string get_closest_vowel(string word){
-    int left = 0, right = word.size() - 1;
-    while(left < right) {
-        if (!isvowel(word[right])) {
-            --right;
-        } else if (!isvowel(word[left])) {
-            ++left;
-        } else {
-            return word.substr(left + 1, right - left - 1);
-        }
+Here is the completed code:
+
+string get_closest_vowel(string word) {
+    int n = word.size();
+    for (int i = n - 2; i >= 0; --i) {
+        if (!isVowel(word[i])) continue;
+        if (isConsonant(word[i-1]) && isConsonant(word[i-2]))
+            return string(1, word[i]);
     }
     return "";
 }
 
-bool isvowel(char ch) {
-    ch = tolower(ch);
-    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
-}
+bool isVowel(char c) { return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'); }
+bool isConsonant(char c) { return !isVowel(c); }
