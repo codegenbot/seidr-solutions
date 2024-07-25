@@ -1,4 +1,5 @@
-```
+#include <iostream>
+#include <vector>
 #include <string>
 
 int strongest_extension(std::string class_name, std::vector<std::string> extensions) {
