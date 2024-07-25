@@ -14,7 +14,7 @@ int calculateBowlingScore(std::string s) {
             frameScore = 0;
             frame++;
         } else if (c == '/') {
-            total += 10 - (s[frame * 2] - '0') + frameScore;
+            total += 10 - (s[frame * 2 + 1] - '0') + frameScore;
             if (isStrike) total += 10; 
             isSpare = true;
             frameScore = 0;
@@ -41,12 +41,8 @@ int calculateBowlingScore(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter the bowling string: ";
     std::cin >> input;
-    
     int score = calculateBowlingScore(input);
-    
-    std::cout << "Bowling score: " << score << std::endl;
-    
+    std::cout << score << std::endl;
     return 0;
 }
