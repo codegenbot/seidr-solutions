@@ -2,6 +2,12 @@ from typing import List
 
 
 def below_zero() -> None:
+    """
+    This code snippet checks for transactions that go below zero. It continues
+    asking the user to input transactions until they decide to stop. If half
+    or more transactions have gone below zero, it asks again and resets all
+    counters.
+    """
     cont = "yes"
     balance = 0
     below_zero_found = False
