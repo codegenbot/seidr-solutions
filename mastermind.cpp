@@ -1,39 +1,39 @@
 #include <vector>
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (code[i] == guess[j]) {
-                count++;
-                break;
+int solveMastermind(string masterCode, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+    
+    for (int i = 0; i < 4; ++i) {
+        char c = masterCode[i];
+        if (c == guess[i]) {
+            blackPegs++;
+        } else {
+            bool found = false;
+            for (int j = 0; j < 4; ++j) {
+                if (guess[j] == c && i != j) {
+                    whitePegs++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                whitePegs++;
             }
         }
     }
-    return count - 4;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
+    
+    return make_pair(whitePegs, blackPegs).first - blackPegs;
 }
 
 int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter a guess: ";
-    cin >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << white << endl;
-    cout << black << endl;
+    string masterCode, guess;
+    cin >> masterCode >> guess;
+    int result = solveMastermind(masterCode, guess);
+    cout << result << endl;
     return 0;
 }
