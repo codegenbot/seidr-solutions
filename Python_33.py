@@ -1,9 +1,11 @@
-def sort_third(l):
+```
+def sort_third(lst):
     result = []
-    for i in range(0, len(l), 3):
-        temp = [l[i], l[i+1]]
-        if i + 2 < len(l):
-            temp.append(l[i+2])
-        temp.sort()
-        result.append(temp[0])
+    if len(lst) % 3 != 0:
+        return [result]
+    while len(lst) > 0:
+        lst = [list(map(int, i.split(','))) for i in [i for i in (str(j) for j in lst) if isinstance(j, int)]]
+        temp = [int(i[2]) for i in sorted(lst)]
+        del lst[:]
+        result.append(temp)
     return tuple(result)
