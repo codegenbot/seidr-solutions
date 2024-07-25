@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> maximum(const std::vector<int>& a, const int value){
     std::vector<int> result = a;
-    std::replace_if(result.begin(), result.end(), [value](const int x) { return x < value; }, value);
+    std::replace_if(result.begin(), result.end(), [&value](const int x) { return x < value; }, value);
     return result;
 }
 
