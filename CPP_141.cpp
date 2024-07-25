@@ -3,11 +3,11 @@
 
 int main() {
     std::string file_name;
-    std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
-
     bool has_digits = false;
     int dot_count = 0;
+
+    std::cout << "Enter the file name: ";
+    std::cin >> file_name;
 
     for (char c : file_name) {
         if (isdigit(c)) {
