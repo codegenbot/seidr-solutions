@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
-
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+```
+int max_fill(vector<vector<int>> grid, int capacity) {
     int count = 0;
     while (true) {
         bool filled = false;
@@ -36,11 +34,4 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         }
     }
     return count;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 1}, {1, 0, 1}};
-    int capacity = 2;
-    std::cout << "Maximum number of times the tank can be filled: " << max_fill(grid, capacity) << std::endl;
-    return 0;
 }
