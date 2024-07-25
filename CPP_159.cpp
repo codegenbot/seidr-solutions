@@ -1,13 +1,13 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){ 
-    return a == b;
+vector<int> eat(int number, int need, int remaining) {
+    int totalEaten = number + remaining;
+    int carrotsLeft = max(0, remaining - (need - number));
+    return {totalEaten, carrotsLeft};
 }
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int totalEaten = number + remaining;
-    int carrotsLeft = std::max(0, remaining - (need - number));
-    return {totalEaten, carrotsLeft};
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
