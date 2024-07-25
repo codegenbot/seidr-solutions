@@ -1,8 +1,5 @@
 #include <vector>
 
-#include <iostream>
-using namespace std;
-
 int specialFilter(vector<int> nums){
     int count = 0;
     for(int num : nums){
@@ -14,7 +11,7 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> numbers = {12,15,17,20};
-    cout << "Special numbers: " << specialFilter(numbers) << endl;
+    vector<int> numbers = {11,20,32,45,67};
+    cout << specialFilter(numbers) << endl;
     return 0;
 }
