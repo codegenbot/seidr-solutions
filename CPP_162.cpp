@@ -1,7 +1,4 @@
-#include <openssl/errstack.h>
 #include <openssl/evp.h>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
 #include <string>
 
 std::string string_to_md5(std::string text) {
@@ -27,4 +24,3 @@ std::string string_to_md5(std::string text) {
         result += buffer;
     }
     return result;
-}
