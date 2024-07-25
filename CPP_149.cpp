@@ -1,8 +1,15 @@
-lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-    if (a.length() == b.length()) {
-        return a < b;
+vector<string> sorted_list_sum(vector<string> lst){
+    vector<string> result;
+    for (const string& word : lst) {
+        if (word.size() % 2 == 0) {
+            result.push_back(word);
+        }
     }
-    return a.length() < b.length();
-});
-return lst;
+    sort(result.begin(), result.end(), [](const string& a, const string& b) {
+        if (a.size() == b.size()) {
+            return a < b;
+        }
+        return a.size() < b.size();
+    });
+    return result;
+}
