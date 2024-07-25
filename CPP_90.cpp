@@ -1,10 +1,18 @@
+Here is the completed code:
+
 int next_smallest(vector<int> lst){
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=1; i<sorted.size(); i++){
-        if(sorted[i] != sorted[0]){
-            return sorted[i];
+    vector<int> vec(lst);
+    sort(vec.begin(), vec.end());
+    
+    if (vec.size() < 2) {
+        return -1; // or you can print "None" 
+    }
+    
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[i] != vec[0]) {
+            return vec[i];
         }
     }
-    return -1;
+    
+    return -1; // or you can print "-1" 
 }
