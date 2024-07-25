@@ -25,9 +25,8 @@ vector<int> rolling_max(vector<int> numbers) {
 
     return result;
 }
-vector<int>({3, 2, 3, 100, 3}), vector<int>({3, 3, 3, 100, 100})) 
-    cout << "The rolling max for this input is: " << endl;
-    vector<int> result = rolling_max(user_input);
-    for (int i : result) {
-        cout << i << " ";
-    }
+
+int main() {
+    vector<int> testNumbers = {3, 2, 3, 100, 3};
+    assert(issame(testNumbers, rolling_max(testNumbers)) && "Expected the same sequence");
+}
