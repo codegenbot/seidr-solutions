@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool compare(vector<int> v1, vector<int> v2) {
+bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
     if (v1.size() != v2.size())
         return false;
     for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i])
+        if (v1[i].size() != v2[i].size() || v1[i] != v2[i])
             return false;
     }
     return true;
@@ -31,12 +31,6 @@ vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
 }
 
 int main() {
-    vector<vector<int>> v1 = {{1, 2}, {3, 4}};
-    vector<vector<int>> v2 = {{3, 4}, {1, 2}};
-    assert(compare(v1, v2));
-    
-    vector<vector<int>> lst;
-    int x = 1;
-    vector<vector<int>> result = get_row(lst, x);
+    assert(issame(get_row({}, {1}, {1, 2, 3}), {{2, 2}}));
     return 0;
 }
