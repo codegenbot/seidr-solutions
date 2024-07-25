@@ -11,6 +11,5 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; 
-    assert(double_the_difference(lst) == 0); 
-}
+    vector<float> lst;
+    assert(double_the_difference(lst) == 0);
