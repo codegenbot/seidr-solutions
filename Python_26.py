@@ -1,5 +1,4 @@
-```
-from collections import OrderedDict
+```Python
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    seen = OrderedDict()
-    return [seen.setdefault(x, x) for x in numbers if x not in seen]
+    seen = set()
+    return [x for x in numbers if not (x in seen or seen.add(x))]
