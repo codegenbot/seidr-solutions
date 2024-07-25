@@ -3,10 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> l_divisible_by_three;
-    std::vector<int> l_not_divisible_by_three;
-    std::vector<int> l_sorted_divisible_by_three;
+vector<int> sort_third(vector<int> l) {
+    vector<int> l_divisible_by_three;
+    vector<int> l_not_divisible_by_three;
+    vector<int> l_sorted_divisible_by_three;
 
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
@@ -17,7 +17,7 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
 
-    std::sort(l_sorted_divisible_by_three.begin(), l_sorted_divisible_by_three.end());
+    sort(l_sorted_divisible_by_three.begin(), l_sorted_divisible_by_three.end());
 
     int j = 0, k = 0;
     for (int i = 0; i < l.size(); ++i) {
@@ -31,7 +31,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return l_not_divisible_by_three;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
