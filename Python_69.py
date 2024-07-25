@@ -1,7 +1,4 @@
 ```
-n = int(input())
-if n <= 0:
-    print(None)
-else:
-    input_lst = list(map(int, input().split()))
-    print(search(input_lst))
+lst = [int(x) for x in input().split()]
+n = int(lst[0])
+print(search(lst[1:]))
