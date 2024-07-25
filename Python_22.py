@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -12,4 +13,9 @@ def get_names() -> List[str]:
         names.append(f"{first_name} {last_name}")
 
 
-print(get_names())
+names = get_names()
+while True:
+    print(f"Names: {', '.join(names)}")
+    input("Press Enter to continue... ")
+    if input("Enter 'stop' to finish (any key to continue): ").lower() == "stop":
+        break
