@@ -1,8 +1,11 @@
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
+    if n <= 0:
+        return []
     factors = []
     i = 2
     while i * i <= n:
