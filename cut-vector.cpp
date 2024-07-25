@@ -6,16 +6,14 @@
 int main() {
     std::vector<int> nums;
     int num;
-    const int NUM_INPUTS = 7; // Update this to the desired number of input integers
 
-    // Read and store fixed number of input numbers
-    for (int i = 0; i < NUM_INPUTS; ++i) {
-        std::cin >> num;
+    // Read and store input numbers until no more integers are entered
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
-    if (nums.size() != NUM_INPUTS) {
-        std::cerr << "Invalid input. Please provide " << NUM_INPUTS << " positive integers." << std::endl;
+    if (nums.empty()) {
+        std::cerr << "Invalid input. Please provide at least one positive integer." << std::endl;
         return 1;
     }
 
@@ -24,13 +22,8 @@ int main() {
     int cutIndex = -1;
 
     for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
-        }
+        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
 
         int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
