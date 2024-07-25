@@ -1,3 +1,4 @@
+```Python
 while True:
     tweet = input("Enter a tweet: ").strip()
     if not tweet:
