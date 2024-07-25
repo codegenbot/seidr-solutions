@@ -1,3 +1,5 @@
+using namespace std;
+
 #include <vector>
 
 vector<int> pluck(vector<int> arr) {
