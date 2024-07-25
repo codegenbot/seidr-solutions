@@ -1,20 +1,16 @@
-Here is the completed code:
-
 int skjkasdkd(vector<int> lst){
-    int max_prime = 0;
+    int maxPrime = 0;
     for(int i : lst){
-        if(i > 1 && isPrime(i)){
-            if(max_prime < i)max_prime = i;
-        }
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
     }
-    return sumOfDigits(max_prime);
+    return sumOfDigits(maxPrime);
 }
 
 bool isPrime(int n){
-    if(n <= 1)return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0)return false;
-    }
+    if(n <= 1) return false;
+    for(int i = 2; i*i <= n; i++)
+        if(n % i == 0) return false;
     return true;
 }
 
