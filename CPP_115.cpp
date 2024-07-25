@@ -1,13 +1,10 @@
 int count = 0;
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
-                if (grid[i][j] > 0) {
-                    count += grid[i][j] / capacity;
-                    if (grid[i][j] % capacity != 0) {
-                        count++;
-                    }
-                }
+        for (int j = 0; j < grid[0].size(); j++) {
+            int sum = 0;
+            for (int i = 0; i < grid.size(); i++) {
+                sum += grid[i][j];
             }
+            count += (sum + capacity - 1) / capacity;
         }
         return count;
     }
