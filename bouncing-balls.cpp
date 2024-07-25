@@ -12,7 +12,7 @@ int main() {
         total_distance += 2 * first_bounce_height * std::pow(bounciness_index, i - 1);
     }
     
-    std::cout << total_distance << std::endl;
+    std::cout<< total_distance << std::endl;
     
     return 0;
 }
