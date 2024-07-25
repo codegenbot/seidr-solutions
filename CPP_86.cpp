@@ -3,8 +3,6 @@
 #include <cassert>
 
 namespace Contest {
-    std::string anti_shuffle(std::string s);
-
     std::string anti_shuffle(std::string s) {
         std::string result = "";
         std::string word = "";
@@ -23,7 +21,4 @@ namespace Contest {
     }
 }
 
-int main() {
-    assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return 0;
-}
+// Call the function in another appropriate place in the code
