@@ -1,5 +1,7 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double probability(int n, int m) {
-    return (n - 1.0) / (n * m);
+double getProbability(int n, int m) {
+    double total = (double)n * m;
+    return 1.0 - (n / total);
 }
