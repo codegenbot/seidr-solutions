@@ -1,20 +1,12 @@
 #include <iostream>
-#include <vector>
-#include <climits>
-#include <cmath>
 
 int main() {
     std::vector<int> nums;
     int num;
 
-    // Read and store input numbers until there's no more input
+    // Read and store input numbers until end of file
     while (std::cin >> num) {
         nums.push_back(num);
-    }
-
-    if (nums.empty()) {
-        std::cerr << "Invalid input. Please provide at least one positive integer." << std::endl;
-        return 1;
     }
 
     int n = nums.size();
