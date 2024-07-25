@@ -5,5 +5,5 @@ try:
     total = sum(numbers)
     print(total)
 
-except ValueError as e:
+except (ValueError, EOFError) as e:
     print(f"Invalid input: {e}")
