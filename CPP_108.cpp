@@ -1,34 +1,44 @@
-Here is the completed code:
-
-int count_nums(vector<int> v) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : v) {
-        if (num >= 0) {
-            int sum = 0;
-            int temp = num;
-            while (temp > 0) {
-                sum += temp % 10;
-                temp /= 10;
-            }
-            if (sum > 0) {
-                count++;
-            }
-        } else {
-            int sum = 0;
-            int temp = -num;
-            bool isNegative = false;
-            while (temp > 0) {
-                if (!isNegative && temp % 10 < 0) {
-                    isNegative = true;
-                    sum -= temp % 10;
-                } else {
-                    sum += temp % 10;
+    for (int num : nums) {
+        if (num > 0) {
+            int sum_of_digits = 0;
+            bool is_negative = false;
+            long abs_num = labs(num);
+            while (abs_num > 0) {
+                int digit = abs_num % 10;
+                if (digit != 0 || !is_negative)
+                    sum_of_digits += digit;
+                else
+                    sum_of_digits -= digit;
+                abs_num /= 10;
+                is_negative = false;
+                if (abs_num == 0 && digit < 0) {
+                    is_negative = true;
+                    break;
                 }
-                temp /= 10;
             }
-            if (sum > 0) {
+            if (sum_of_digits > 0)
                 count++;
+        } else if (num < 0) {
+            int sum_of_digits = 0;
+            bool is_negative = true;
+            long abs_num = labs(num);
+            while (abs_num > 0) {
+                int digit = abs_num % 10;
+                if (digit != 0 || !is_negative)
+                    sum_of_digits += digit;
+                else
+                    sum_of_digits -= digit;
+                abs_num /= 10;
+                is_negative = false;
+                if (abs_num == 0 && digit < 0) {
+                    is_negative = true;
+                    break;
+                }
             }
+            if (sum_of_digits > 0)
+                count++;
         }
     }
     return count;
