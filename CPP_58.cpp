@@ -9,8 +9,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    std::vector<int> l1 = {3, 1, 5, 2, 4};
-    std::vector<int> l2 = {5, 2, 7, 3, 1};
+    std::vector<int> l1 = {1, 2, 3, 4, 5};
+    std::vector<int> l2 = {3, 4, 5, 6, 7};
 
     std::sort(l1.begin(), l1.end());
     std::sort(l2.begin(), l2.end());
