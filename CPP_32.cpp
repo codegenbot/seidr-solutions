@@ -17,7 +17,7 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {1, 2, 1};  // Example coefficients for x^2 + 2x + 1
+    std::vector<double> coeffs = {1, -3, 2};  // Example coefficients for x^2 - 3x + 2
     double solution;
     solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
