@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <numeric>
-#include <climits>
+#include <cstdlib>
 using namespace std;
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
     
     for (int i = 0; i < n; ++i) {
         prefixSum += nums[i];
-        int diff = std::abs(sum - 2 * prefixSum);
+        int diff = abs(sum - 2 * prefixSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
