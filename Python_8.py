@@ -15,14 +15,27 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 def main():
-    input_numbers = input("Enter a list of integers separated by space: ").strip()
-    numbers = [int(num) for num in input_numbers.split() if num.isdigit()]
-    if not numbers:
-        print("No valid numbers entered.")
+    input_numbers = input("Enter a list of integers separated by space: ")
+    if not input_numbers.strip():
+        print("No numbers entered. Please enter some.")
     else:
-        result = sum_product(numbers)
-        print(f"Sum is {result[0]} and Product is {result[1]}")
+        numbers = []
+        for num in input_numbers.split():
+            try:
+                number = int(num)
+                numbers.append(number)
+            except ValueError:
+                print(f"Invalid input '{num}'")
+        if not numbers:
+            print("No valid numbers entered.")
+        else:
+            result = sum_product(numbers)
+            print(f"Sum is {result[0]} and Product is {result[1]}")
 
 
 if __name__ == "__main__":
-    main()
+    user_input = input("Enter a list of integers separated by space: ")
+    if not user_input.strip():
+        print("No numbers entered. Please enter some.")
+    else:
+        main()
