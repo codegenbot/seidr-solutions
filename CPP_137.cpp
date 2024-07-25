@@ -1,26 +1,64 @@
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
+#include <iostream>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().erase(0, 1).erase(stof(b.convert_to<string>().erase(0, 1)).size())));
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (stof(a.convert_to<string>().erase(0, 1).erase(stof(a.convert_to<string>().erase(0, 1)).size())) > stof(b.convert_to<string>().erase(0, 1).erase(stof(b.convert_to<string>().erase(0, 1)).size()))) ? a : b;
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+
+        int num1 = std::stoi(str1.substr(0, str1.find(',')));
+        int num2 = std::stoi(str2.substr(0, str2.find(',')));
+
+        if (num1 > num2) {
+            return a;
+        }
+        else if (num1 < num2) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a.convert_to<int>() > (int)b.convert_to<int>() ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string str = any_cast<string>(a);
+        int num = std::stoi(str.substr(0, str.find(',')));
+        double d = any_cast<double>(b);
+
+        if (num > d) {
+            return a;
+        }
+        else if (num < d) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
-    else if ((int)a.convert_to<int>() == (int)b.convert_to<int>()) {
-        return boost::any("None");
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double d = any_cast<double>(a);
+        string str = any_cast<string>(b);
+
+        int num = std::stoi(str.substr(0, str.find(',')));
+        if (d > num) {
+            return a;
+        }
+        else if (d < num) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
-    else {
-        return max(a, b);
-    }
+
+    // If none of the above conditions match
+    return boost::any("None");
 }
