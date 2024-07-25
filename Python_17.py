@@ -1,14 +1,3 @@
-def parse_music(music_input):
-    if music_input.startswith("Title:"):
-        return music_input.replace("Title:", "").strip()
-    return None
-
-
-try:
-    while True:
-        music_input = input()
-        result = parse_music(music_input.strip())
-        if result is not None:
-            print(result)
-except EOFError:
-    pass
+def parse_music(music_string: str) -> List[int]:
+    notes = {"o": 4, "o|": 2, ".|": 1}
+    return [notes[note] for note in music_string.split()]
