@@ -37,8 +37,12 @@ namespace my_namespace {
     }
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(my_namespace::bf("Jupiter", "Makemake"), {}));
+    assert(issame(my_namespace::bf("Jupiter", "Makemake"), std::vector<std::string>{}));
 
     return 0;
 }
