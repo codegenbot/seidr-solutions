@@ -6,20 +6,8 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-
-    vector<string> groups = separate_paren_groups(input);
-
-    for (const string& group : groups) {
-        cout << group << endl;
-    }
-
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -46,6 +34,16 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+int main() {
+    string input;
+    cout << "Enter a string of parentheses: ";
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+
+    for (const string& group : groups) {
+        cout << group << " ";
+    }
+
+    return 0;
 }
