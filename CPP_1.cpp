@@ -27,16 +27,11 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
     return result;
 }
 
-void issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    assert(a == b);
-}
-
 int main() {
-    std::string input = "((group1)(group2)(group3))";
+    std::string input = "((group1)(group2))(group3)";
     std::vector<std::string> expected_output = {"(group1)", "(group2)", "(group3)"};
     
-    auto output = separate_paren_groups(input);
-    issame(output, expected_output);
+    assert(separate_paren_groups(input) == expected_output);
     
     return 0;
 }
