@@ -1,7 +1,5 @@
-if (a > b && a > c)
-        return (a * a == b * b + c * c);
-    else if (b > a && b > c)
-        return (b * b == a * a + c * c);
+if(a*a + b*b == c*c || b*b + c*c == a*a || a*a + c*c == b*b)
+        return true;
     else
-        return (c * c == a * a + b * b);
+        return false;
 }
