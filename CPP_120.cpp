@@ -1,12 +1,11 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
 #include <cassert>
 
 using namespace std;
 
 vector<int> maximum(const vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
+    sort(arr.begin(), arr.end(), less<int>());
     return vector<int>(arr.begin(), arr.begin() + k);
 }
 
