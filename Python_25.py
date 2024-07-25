@@ -3,7 +3,7 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     if n <= 0:
-        return []
+        return [n]
     factors = []
     i = 2
     while i * i <= n:
@@ -25,8 +25,8 @@ def main():
     print("Please enter numbers to factorize. Type 'quit' to exit.")
     while True:
         print("Please enter a number or type 'quit': ")
-        user_input = input().strip().lower()
-        if user_input == "quit":
+        user_input = input()
+        if user_input.strip().lower() == "quit":
             break
         try:
             user_input = int(user_input)
@@ -35,7 +35,6 @@ def main():
                 print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-    return
 
 
 if __name__ == "__main__":
