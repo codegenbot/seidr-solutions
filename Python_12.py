@@ -1,7 +1,7 @@
 ```
 result = []  
-input_strs = input("Enter some strings (separated by spaces): ")
-result = [s.strip() for s in input_strs.split()]
+input_strs = input().splitlines()
+result = [s.strip() for s in input_strs]
 if result:  
     print("The longest strings are:")
     for s in result:
