@@ -1,3 +1,4 @@
+```
 def solve(N=None):
     total = 0
     if N is not None:
@@ -5,18 +6,11 @@ def solve(N=None):
             return str(total)
     while True:
         try:
-            while True:
-                N = input("Enter an integer (0 or less to stop): ")
-                try:
-                    N = int(N)
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid integer.")
+            N = int(input("Enter an integer (0 or less to stop): "))
             if N <= 0:
                 break
-            if N > 0:
-                print(bin(N)[2:])
+            print(bin(N)[2:])
             total += N
-        except KeyboardInterrupt:
-            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
     return str(total)
