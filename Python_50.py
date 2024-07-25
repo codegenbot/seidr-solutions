@@ -6,6 +6,8 @@ def decode_shift(s: str):
             ascii_offset = ord("a") if s[i].islower() else ord("A")
             if i > 0 and s[i-1].isdigit():
                 shift = int(s[i-1])
+                if shift > 25 or shift < 0:
+                    return "Invalid input. Please enter a shift value between 0 and 25."
                 i -= 1
             elif i > 0:
                 shift = int(result[-1]) % 26
