@@ -1,7 +1,7 @@
-vector<int> even_digits;
-    for (int i = a; i <= b; ++i) {
-        if (i % 2 == 0) {
-            even_digits.push_back(i);
+vector<int> result;
+    for(int i = a; i <= b; i++){
+        if(i % 2 == 0){
+            result.push_back(i);
         }
     }
-    return even_digits;
+    return result;
