@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,7 +27,7 @@ bool issame(vector a, vector b) {
 
 vector separate_paren_groups(string paren_string) {
     vector result;
-    string current_group = ""; 
+    string current_group = "";
     int open_count = 0;
 
     for (char c : paren_string) {
