@@ -1,6 +1,6 @@
 ```
 def solve():
-    N = int(input("Enter an integer: "))
+    N = int(input("Enter a number: "))
     if N <= 0:
         return "Error"
     else:
