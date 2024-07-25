@@ -1,24 +1,19 @@
-Here is the solution:
-
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
+    for (int num : nums) {
         bool has_positive_sum = false;
-        if (num < 0) {
-            num = -num;
-        }
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit != 0 && digit != 1) {
+        long abs_num = labs(num);
+        while (abs_num > 0) {
+            int digit = abs_num % 10;
+            if (digit != 0 || num < 0) {
                 has_positive_sum = true;
                 break;
-            } else if (digit == 1) {
-                has_positive_sum = true;
             }
-            num /= 10;
+            abs_num /= 10;
         }
         if (has_positive_sum) {
             count++;
         }
     }
     return count;
+}
