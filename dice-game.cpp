@@ -1,24 +1,21 @@
 #include <iostream>
 using namespace std;
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double count = 0;
-    
-    for(int i = 1; i <= n; i++) {
-        for(int j = 1; j <= m; j++) {
-            if(i > j) count++;
-            else if(i == j) continue;
-            else break;
-        }
+double getProbability(int n, int m) {
+    if (n == 1 || m == 1) {
+        return 0;
     }
-    
-    return count / total;
+    double totalPossible = pow(n + m - 1, 2);
+    double peterWins = 0.0;
+    for (int i = 1; i < n; i++) {
+        peterWins += (double)(m - i + 1) / totalPossible;
+    }
+    return peterWins;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << setprecision(6) << fixed << diceGame(n, m);
+    cout << fixed << setprecision(4) << getProbability(n, m);
     return 0;
 }
