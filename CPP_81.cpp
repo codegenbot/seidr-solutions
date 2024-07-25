@@ -3,7 +3,7 @@
 #include <vector>
 
 std::vector<float> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<float> letterGrades = {};
+    std::vector<float> letterGrades;
     for (float grade : grades) {
         if (grade >= 4.0)
             letterGrades.push_back(4.3);
@@ -26,13 +26,13 @@ std::vector<float> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 1.0)
             letterGrades.push_back(1.3);
         else
-            letterGrades.push_back(1.0);
+            letterGrades.push_back(0.0);
     }
     return letterGrades;
 }
 
 int main() {
-    std::vector<float> grades = {3.9, 4.1, 2.8};
+    std::vector<float> grades = {3.9f, 4.1f, 2.8f};
     std::cout << "The letter grades for these numerical grades are: ";
     for (const auto& grade : numerical_letter_grade(grades)) {
         if (grade >= 4.0)
@@ -55,6 +55,8 @@ int main() {
             std::cout << "C- ";
         else if (grade > 1.0)
             std::cout << "D+ ";
+        else if (grade > 0.7)
+            std::cout << "D ";
         else
             std::cout << "E ";
     }
