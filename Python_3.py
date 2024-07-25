@@ -49,5 +49,6 @@ def below_zero() -> None:
         if below_zero_operations > 0:
             print(f"More than half of the operations were below zero.")
 
-        if cont.lower() != "yes":
+        cont = input("Continue? (yes/no): ")
+        if cont.lower() == "no":
             break
