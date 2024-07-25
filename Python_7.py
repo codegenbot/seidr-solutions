@@ -26,12 +26,12 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter valid data for item name.")
 
-    tax_rate_input = input("Enter the tax rate (or press Enter for 0.08): ")
-    if tax_rate_input == "":
-        tax_rate = 0.08
-    else:
-        tax_rate = float(tax_rate_input)
     if not user_input:
-        print("No items entered. Exiting program.")
+        print("No items entered. Please enter at least one item.")
     else:
+        tax_rate_input = input("Enter the tax rate (or press Enter for 0.08): ")
+        if tax_rate_input == "":
+            tax_rate = 0.08
+        else:
+            tax_rate = float(tax_rate_input)
         print(calculate_total_cost(user_input, tax_rate))
