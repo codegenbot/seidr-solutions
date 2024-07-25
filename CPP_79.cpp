@@ -1,13 +1,13 @@
-Here is the solution:
+#include <sstream>
+#include <string>
 
-string decimal_to_binary(int decimal){
-    string binary = "";
-    while(decimal > 0) {
-        if (decimal % 2 == 0)
-            binary.insert(0,"0");
-        else
-            binary.insert(0,"1");
+std::string decimal_to_binary(int decimal) {
+    std::ostringstream oss;
+    oss << "db";
+    while (decimal > 0) {
+        oss << (decimal % 2 == 0 ? "0" : "1");
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    oss << "db";
+    return oss.str();
 }
