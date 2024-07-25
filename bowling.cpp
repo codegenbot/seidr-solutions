@@ -41,8 +41,12 @@ int calculateBowlingScore(std::string s) {
 
 int main() {
     std::string input;
+    std::cout << "Enter the bowling string: ";
     std::cin >> input;
+    
     int score = calculateBowlingScore(input);
-    std::cout << score << std::endl;
+    
+    std::cout << "Bowling score: " << score << std::endl;
+    
     return 0;
 }
