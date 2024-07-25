@@ -1,11 +1,17 @@
 def solveBoolean(expression):
-    if expression == "t":
-        return True
-    elif expression == "f":
-        return False
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return solveBoolean(a) and solveBoolean(b)
-    elif "|" in expression:
-        a, b = expression.split("|")
-        return solveBoolean(a) or solveBoolean(b)
+    def evaluate(expression):
+        stack = []
+        for char in reversed(expression):
+            if char == '|':
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a or b)
+            elif char == '&':
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a and b)
+            else:
+                stack.append(char == 'T')
+        return stack[0]
+
+    return evaluate(expression)
