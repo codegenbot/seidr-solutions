@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -13,7 +12,7 @@ if __name__ == "__main__":
             user_string = input("Enter a string (or 'stop' to finish): ")
             if user_string.lower() == 'stop':
                 break
-            user_input.append(user_string or '')
+            user_input.append(user_string)
         substring = input("Enter the substring: ")
         print(filter_by_substring(user_input, substring))
     except EOFError:
