@@ -1,3 +1,4 @@
+```
 def calculate_mad():
     from typing import List
     import statistics
