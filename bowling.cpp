@@ -1,4 +1,9 @@
-int bowlingScore(std::string s) {
+Here is the modified code:
+
+#include <string>
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     int i = 0;
     while (i < s.size()) {
