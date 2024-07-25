@@ -13,16 +13,14 @@ vector<string> result;
     if (!word.empty()) {
         result.push_back(word);
     }
-    
-    if (result.size() == 1) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    if (result.empty()) {
+        int oddLowerCaseCount = 0;
+        for (char c : txt) {
+            if (islower(c) && ((c - 'a') % 2 == 1)) {
+                oddLowerCaseCount++;
             }
         }
-        result[0] = to_string(count);
+        result.push_back(to_string(oddLowerCaseCount));
     }
-    
     return result;
 }
