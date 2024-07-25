@@ -1,6 +1,3 @@
-if (n <= 1 || x <= 0) {
-        return false;
-    }
-    double root = pow(x, 1.0 / n);
-    return (pow(round(root), n) == x);
+double root = pow(x, 1.0 / n);
+    return round(root) == root;
 }
