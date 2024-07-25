@@ -6,10 +6,13 @@ def filter_integers() -> List[int]:
     values = []
     while True:
         try:
-            value = input("Enter an integer (space-separated) or type 'done' to finish: ").split()
-            if value[0].lower() == "done":
+            value = input("Enter an integer (or 'done' if finished): ")
+            if value.lower() == "done":
                 break
-            values.extend([int(i) for i in value])
+            elif value.isdigit():  
+                values.append(int(value))
+            else:
+                print("Invalid input. Please enter an integer or 'done'.")
         except ValueError:
-            print("Invalid input. Please enter integers separated by spaces or 'done'.")
+            print("Invalid input. Please enter an integer or 'done'.")
     return values
