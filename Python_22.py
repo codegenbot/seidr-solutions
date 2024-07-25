@@ -11,4 +11,4 @@ def filter_integers() -> List[int]:
             values.append(int(value))
         except ValueError:
             print("Invalid input. Please enter an integer or 'done'.")
-    return values
+    return [value for value in values]
