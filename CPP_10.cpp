@@ -1,19 +1,24 @@
 ```cpp
 #include <string>
-#include <iostream>
 using namespace std;
 
-string make_palindrome(string input) {
-    string output = input;
-    reverse(output.begin(), output.end());
-    return input + output;
+void make_palindrome_to(string &output, string input) {
+    int i = 0;
+    int j = input.size() - 1;
+    
+    while (j >= i) {
+        if (i != j)
+            output += input[i++];
+        output += input[j--];
+    }
 }
 
 int main() {
-    string input, output;
+    string input;
     cout << "Enter a string: ";
     cin >> input;
-    output = make_palindrome(input);
-    cout << "Palindrome of the given string is: " << output << endl;
+    string result;
+    make_palindrome_to(result, input);
+    cout << "Palindrome of the given string is: " << result << endl;
     return 0;
 }
