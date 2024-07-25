@@ -4,8 +4,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 }
 
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end());
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; ++i) {
         if ((arr[i] & (arr[i + 1] - 1)) != 0)
             return {};
@@ -16,4 +16,3 @@ vector<int> sort_array(vector<int> arr) {
 int main() {
     assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
-}
