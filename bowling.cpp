@@ -4,13 +4,13 @@
 int calculateBowlingScore(std::string s) {
     int total = 0, frame = 0, frameScore = 0;
     bool isSpare = false, isStrike = false;
-    char c;
+    char lastChar = '0'; // Declare a new variable to store the last character parsed
 
-    for (c : s) {
+    for (char c : s) {
         if (c == 'X') {
             total += 10 + frameScore;
             if (isStrike) total += 10 + (c - '0') + (s[(frame + 1) * 2] - '0');
-            if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (c - '0');
+            if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (lastChar - '0'); // Use lastChar instead of c
             isStrike = true;
             frameScore = 0;
             frame++;
@@ -40,9 +40,10 @@ int calculateBowlingScore(std::string s) {
                 isStrike = false;
             }
         }
+        lastChar = c; // Update lastChar with the current character
     }
 
-    if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (c - '0');
+    if (isSpare) total += 10 - (s[(frame - 1) * 2] - '0') + (lastChar - '0'); // Use lastChar instead of c
     total += frameScore;
 
     return total;
