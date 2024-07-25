@@ -1,7 +1,6 @@
-```
-import re
-
 def fruit_distribution(s, n):
+    if not (s.lower().find("apples") != -1 and s.lower().find("oranges") != -1):
+        return None
     s = s.replace("apples", "1").replace("oranges", "0")
     parts = [x for x in re.split(r"(\d+|\band\))", s) if x.isdigit() or x == 'and']
     ones = int(s.count('1'))
