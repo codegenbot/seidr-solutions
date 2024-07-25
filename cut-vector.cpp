@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Add this header for INT_MAX
-#include <cmath> // Add this header for abs function
+#include <climits>
+#include <cmath>
 
 using namespace std;
 
