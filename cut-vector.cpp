@@ -2,19 +2,13 @@
 #include <vector>
 #include <climits>
 #include <cmath>
-#include <sstream>
 
 int main() {
     std::vector<int> nums;
     int num;
-    std::string input;
 
     // Read and store input numbers
-    while (std::getline(std::cin, input) && !input.empty()) {
-        std::stringstream ss(input);
-        if (!(ss >> num)) {
-            break;
-        }
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
@@ -45,11 +39,11 @@ int main() {
 
     // Output the two resulting subvectors
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
 
     return 0;
