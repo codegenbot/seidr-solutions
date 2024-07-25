@@ -1,31 +1,32 @@
 #include <vector>
 #include <iostream>
 
-double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) {
-        std::cerr << "Vectors must be of the same size." << std::endl;
-        return -1.0; // or some other error value
-    }
+using namespace std;
 
-    double sum = 0.0;
-    for (int i = 0; i < v1.size(); ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+double vectorDistance(vector<float> v1, vector<float> v2) {
+    double distance = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        distance += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(sum);
+    return sqrt(distance);
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<float> v1(n), v2(n);
+    vector<float> v1(n), v2(n);
 
-    for (int i = 0; i < n; ++i) {
-        std::cin >> v1[i] >> v2[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
 
-    double distance = vectorDistance(v1, v2);
-    std::cout << distance << std::endl;
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
+    }
+
+    double result = vectorDistance(v1, v2);
+    cout << fixed << setprecision(10) << result << endl;
 
     return 0;
 }
