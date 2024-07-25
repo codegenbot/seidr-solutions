@@ -6,18 +6,14 @@ def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
 if __name__ == "__main__":
     input_str = input("Enter space-separated string: ")
     input_list = [i.strip().lower() for i in input_str.split() if i]
-    
     if not any(input_list):
         print("Please enter at least one string.")
         exit()
-
     while True:
         prefix = input("Enter prefix: ").strip().lower()
         if len(prefix) > 0:
             break
-
     if prefix not in [s for s in input_list]:
         print("Error: Prefix is not present in the list. Please enter a valid prefix.")
         prefix = input("Enter prefix: ").strip().lower()
-
     print(filter_by_prefix(input_list, prefix))
