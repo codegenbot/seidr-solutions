@@ -1,10 +1,11 @@
-int open_brackets = 0;
-    for(char c : str){
-        if(c == '['){
-            open_brackets++;
-        } else if(c == ']' && open_brackets > 0){
-            open_brackets--;
+int is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return open_brackets < 0 ? false : true;
+    return count < 2 && count > 0;
 }
