@@ -14,5 +14,5 @@ string make_palindrome(string str){
         i--;
     }
     if(i<0) return str+str; // if the input string is already a palindrome
-    return str.substr(0,i+1)+std::string(reverse(str.substr(i+1))).substr(0, std::string(reverse(str.substr(i+1))).length());
+    return str.substr(0,i+1)+reverse(str.substr(i+1)).toString();
 }
