@@ -1,3 +1,4 @@
+```
 def solve(N=None):
     total = 0
     if N is not None:
