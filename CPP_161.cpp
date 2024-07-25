@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 string solve(string s) {
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
@@ -21,11 +15,4 @@ string solve(string s) {
         right--;
     }
     return s;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << solve(input) << endl;
-    return 0;
 }
