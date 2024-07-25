@@ -1,9 +1,5 @@
-return (
-    [
-        item
-        for sublist in [[num, delimeter] for num in numbers[:-1]] + [[numbers[-1]]]
-        for item in sublist
-    ]
-    if numbers
-    else []
-)
+result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    result.pop()  # Remove the last delimiter added
+    return result
