@@ -12,8 +12,8 @@ int main() {
         result += word + " ";
     }
     
-    result.pop_back(); // Remove extra space at the end
-    cout << result << endl;
+    result.pop_back(); // remove the extra space at the end
+    cout << result;
     
     return 0;
 }
