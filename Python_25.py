@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -24,6 +23,7 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
+    print()
     print("Enter a number (at least 2): ")
     while True:
         try:
@@ -31,11 +31,11 @@ def main():
             if user_input >= 2:
                 break
             else:
-                print("Invalid input. Please enter an integer greater than or equal to 2.")
+                print(
+                    "Invalid input. Please enter an integer greater than or equal to 2."
+                )
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    result = factorize(user_input)
-    print(result)
 
 
 if __name__ == "__main__":
