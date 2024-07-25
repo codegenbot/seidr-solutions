@@ -1,3 +1,5 @@
+Here is your modified code:
+
 Str solve(Str s) {
     Str result = "";
     for (char c : s) {
@@ -7,5 +9,5 @@ Str solve(Str s) {
             result += c;
         }
     }
-    return result.empty() ? s.reverse() : result;
+    return result.empty() ? Str(s).reverse() : result;
 }
