@@ -1,15 +1,15 @@
-```cpp
+```
 #include <string>
-using namespace std;
+#include <cctype>
 
-string solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        if (std::isalpha(c)) {
+            result += (std::cctype(c) >= 'a' && std::cctype(c) <= 'z') ? std::toupper(c) : std::tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result.empty() ? s : result;
 }
