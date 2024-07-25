@@ -1,22 +1,12 @@
-#include <vector>
-using namespace std;
-
-int Luhn(vector<int> cardNumber) {
+int luhn(vector<int> card) {
     int sum = 0;
-    bool isSecond = false;
-    
-    for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        int num = cardNumber[i];
-        
-        if (!isSecond) {
-            num *= 2;
-            if (num > 9)
-                num -= 9;
+    for (int i = card.size() - 1; i >= 0; i--) {
+        if ((card[i] * 2) > 9) {
+            sum += (card[i] * 2) - 9;
+        } else {
+            sum += card[i] * 2;
         }
-        
-        sum += num;
-        isSecond = !isSecond;
+        sum += card[i-1];
     }
-    
     return sum;
 }
