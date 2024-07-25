@@ -1,14 +1,15 @@
+```cpp
 #include <string>
-#include <cctype>
+using namespace std;
 
 string solve(string s) {
     string result = "";
     for (char c : s) {
-        if (std::isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : std::tolower(c);
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    return result.empty() ? string(s).reverse() : result;
 }
