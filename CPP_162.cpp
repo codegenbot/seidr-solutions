@@ -1,7 +1,8 @@
 #include <iostream>
-#include <fstream>
+#include <sstream>
 #include <string>
 #include <openssl/md5.h>
+#include <openssl/err.h>
 
 std::string string_to_md5(std::string text) {
     EVP_MD_CTX mdctx;
@@ -28,4 +29,7 @@ std::string string_to_md5(std::string text) {
     return result;
 }
 
-std::cout << string_to_md5("password") << std::endl;
+int main() {
+    std::cout << string_to_md5("password") << std::endl;
+    return 0;
+}
