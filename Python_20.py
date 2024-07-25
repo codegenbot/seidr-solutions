@@ -1,9 +1,10 @@
 while True:
     try:
-        numbers = list(map(float, input("Enter space-separated floating-point numbers: ").split()))
-        if not numbers:
+        numbers_input = input("Enter space-separated floating-point numbers: ")
+        if not numbers_input:
             print("Input should not be empty")
             continue
+        numbers = list(map(float, numbers_input.split()))
         result = sum(numbers) / len(numbers)
         print(f"Average of numbers: {result}")
         break
