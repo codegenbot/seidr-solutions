@@ -8,4 +8,4 @@ def sort_third(l):
             temp = []
     if temp: 
         result.append(sorted(temp)) 
-    return [item for sublist in result for item in sublist]
+    return result
