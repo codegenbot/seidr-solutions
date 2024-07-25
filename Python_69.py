@@ -1,5 +1,6 @@
+```
 n = int(input())
-input_lst = [int(num) for num in input().split()]
+input_lst = list(map(int, (input().split() for _ in range(n))))
 print(search(input_lst))
 
 def search(lst):
