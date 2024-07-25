@@ -1,33 +1,30 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(const string &expression) {
-    int T = 1, F = 0;
-    
-    if (expression == "t") return T == 1;
-    if (expression == "f") return F == 1;
-    
-    for (int i = 0; expression[i]; ++i) {
-        if (expression[i] == '&') {
-            int left = evaluateBooleanExpression(expression.substr(0, i));
-            int right = evaluateBooleanExpression(expression.substr(i + 1));
-            return left && right;
-        }
-        if (expression[i] == '|') {
-            int left = evaluateBooleanExpression(expression.substr(0, i));
-            int right = evaluateBooleanExpression(expression.substr(i + 1));
-            return left || right;
+bool solveBoolean(string s) {
+    bool result = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T') {
+            return true;
+        } else if (s[i] == 'F') {
+            return false;
+        } else if (s[i] == '|') {
+            continue;
+        } else if (s[i] == '&') {
+            break;
         }
     }
     
-    return false;  // This line should not be reached
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression (t/f, |, &): ";
-    cin >> expression;
-    cout << evaluateBooleanExpression(expression) << endl;
-    return 0;
+    while (i < s.length()) {
+        if (s[i] == '&') {
+            result &= solveBoolean(s.substr(i + 1));
+        } else if (s[i] == '|') {
+            i++;
+            result = true;
+        } else if (s[i] == 'F' || s[i] == 'f') {
+            return false;
+        }
+    }
+    
+    return result;
 }
