@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool std::issame(const std::vector<int>& a,const std::vector<int>& b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i]) return false;
@@ -9,7 +10,7 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sort_array(std::vector<int> array) {
+std::vector<int> std::sort_array(std::vector<int> array) {
     int sum = 0;
     for(auto x : array){
         sum += x;
@@ -20,9 +21,4 @@ std::vector<int> sort_array(std::vector<int> array) {
         std::sort(array.rbegin(), array.rend());
     }
     return array;
-}
-
-int originalMain() {
-    assert(same(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    return 0;
 }
