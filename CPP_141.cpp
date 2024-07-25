@@ -1,3 +1,4 @@
+```
 string file_name_check(string file_name) {
     bool has_digits = false;
     int dot_count = 0;
