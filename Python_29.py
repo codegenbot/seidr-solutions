@@ -1,7 +1,9 @@
+```
 from typing import List
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
-    return [s for s in strings if s.startswith(prefix)]
+    filtered_list = [s for s in strings if s.startswith(prefix)]
+    return filtered_list
 
 if __name__ == "__main__":
     input_str = input("Enter space-separated string: ")
@@ -13,7 +15,15 @@ if __name__ == "__main__":
         prefix = input("Enter prefix: ").strip().lower()
         filtered_list = filter_by_prefix(input_list, prefix)
         if filtered_list:
-            break
+            print("Found matching strings:")
+            print(filtered_list)
+            confirm = input("Continue with next prefix? (y/n): ").strip().lower()
+            while confirm != 'y':
+                if confirm == 'n':
+                    break
+                else:
+                    print("Error: Invalid input. Please enter y or n.")
+                    confirm = input("Continue with next prefix? (y/n): ").strip().lower()
         else:
             print("Error: Prefix is not present in the list. Please enter a valid prefix.")
-    print(filtered_list)
+    print()
