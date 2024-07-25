@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     while True:
         s = input("Enter a cyclically encoded string: ")
@@ -14,9 +15,8 @@ def decode_cyclic():
                     + ord(s[i + 2])
                 )
             return decoded_str
-        print(
-            "Invalid input! Please enter a string that can be divided evenly into groups of 3, where the first two characters are letters and the third character is either a letter or a number."
-        )
+        else:
+            continue
 
 result = decode_cyclic()
 if result is not None:
