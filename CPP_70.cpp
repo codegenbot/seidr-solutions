@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
-    
     if (lst.empty()) {
         return result;
     }
@@ -14,22 +14,14 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
     
     while (!lst.empty()) {
-        if (lst.size() > 1) {
+        sort(lst.begin(), lst.end());
+        result.push_back(*min_element(lst.begin(), lst.end()));
+        lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        
+        if (!lst.empty()) {
             sort(lst.begin(), lst.end());
             result.push_back(*max_element(lst.begin(), lst.end()));
             lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
-        }
-        
-        sort(lst.begin(), lst.end());
-        while (!lst.empty()) {
-            result.push_back(*min_element(lst.begin(), lst.end()));
-            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-            
-            if (!lst.empty()) {
-                sort(lst.begin(), lst.end());
-                result.push_back(*max_element(lst.begin(), lst.end()));
-                lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
-            }
         }
     }
     
