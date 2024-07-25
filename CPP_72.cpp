@@ -3,12 +3,13 @@ for (int num : q) {
     sum += num;
 }
 
-if (sum > w) {
-    return false;
+if (sum <= w) {
+    vector<int> reversed_q = q;
+    reverse(reversed_q.begin(), reversed_q.end());
+    if (q == reversed_q) {
+        return true;
+    }
 }
 
-vector<int> reversed_q = q;
-reverse(reversed_q.begin(), reversed_q.end());
-
-return q == reversed_q;
+return false;
 }
