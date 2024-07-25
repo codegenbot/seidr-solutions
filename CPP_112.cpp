@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 bool issame(const std::string& s1, const std::string& s2) {
     return s1 == s2;
 }
 
-void reverse_delete(std::string s, const std::string& c) {
+void reverse_delete(const std::string& s) {
     std::string result;
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -19,8 +20,9 @@ void reverse_delete(std::string s, const std::string& c) {
 }
 
 int main() {
-    std::string s = "example";
-    std::string c = "aeiou";
-    reverse_delete(s, c);
+    std::string input;
+    std::cin >> input;
+    reverse_delete(input);
+
     return 0;
 }
