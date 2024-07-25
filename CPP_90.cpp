@@ -1,8 +1,7 @@
 sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    for (int num : lst) {
-        if (num > smallest) {
-            return num;
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] > lst[i - 1]) {
+            return lst[i];
         }
     }
     return -1;
