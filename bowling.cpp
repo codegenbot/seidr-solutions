@@ -1,42 +1,51 @@
-#include <vector>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    vector<int> frames;
+    int frames = 0;
     for (char c : s) {
         if (c == 'X') {
-            frames.push_back(10);
+            score += 10 + getBonus(s, frames);
+            frames++;
         } else if (c == '/') {
-            int spare = 10 - stoi(string({c}).c_str());
-            frames.push_back(10 + spare);
+            score += getFirstTwoRolls(s, frames);
+            frames++;
         } else {
-            int frameScore = 0;
-            for (char d : string({c})) {
-                if (d == 'X') {
-                    frameScore += 10;
-                    break;
-                } else if (d == '/') {
-                    int lastRoll = 10 - stoi(string({d}).c_str());
-                    frameScore += 10 + lastRoll;
-                    break;
-                } else {
-                    frameScore += stoi(string({d})) * 1;
+            int roll = c - '0';
+            if (frames < 9) {
+                score += roll;
+                if (frames < 8) {
+                    score += getBonus(s, frames);
                 }
+            } else {
+                score += roll + getFirstTwoRolls(s, frames);
             }
-            frames.push_back(frameScore);
+            frames++;
         }
     }
-    
-    for (int i = 0; i < frames.size(); i++) {
-        score += frames[i];
-        if (i < 9) {
-            if (frames[i] == 10) continue;
-            else if (frames[i] + frames[i+1] > 10) 
-                score += 10 - frames[i]; 
-            else score += frames[i]; 
-        }
-    }
-    
     return score;
+}
+
+int getFirstTwoRolls(string s, int frames) {
+    for (int i = 0; i < 2 && frames < 9; i++) {
+        if (s[frames * 2 + i] == 'X') {
+            return 10 - i;
+        } else if (s[frames * 2 + i] == '/') {
+            int roll1 = s[frames * 2] - '0';
+            int roll2 = s[frames * 2 + 1] - '0';
+            return roll1 + roll2;
+        }
+    }
+    return 0;
+}
+
+int getBonus(string s, int frames) {
+    for (int i = 0; i < 2 && frames < 9; i++) {
+        if (s[frames * 2 + i] == 'X') {
+            return 10 - i;
+        } else if (s[frames * 2 + i] == '/') {
+            int roll1 = s[frames * 2] - '0';
+            int roll2 = s[frames * 2 + 1] - '0';
+            return roll1 + roll2;
+        }
+    }
+    return 0;
 }
