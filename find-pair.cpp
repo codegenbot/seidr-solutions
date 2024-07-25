@@ -23,6 +23,6 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    cout << result.first << "\n" << result.second << "\n";
+    cout << result.first << " " << result.second << endl;
     return 0;
 }
