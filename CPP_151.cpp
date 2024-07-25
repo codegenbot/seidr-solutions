@@ -5,7 +5,7 @@ long long double_the_difference(const std::vector<int>& lst) {
             sum += (long long)num * num;
         }
     }
-    return sum * 2;
+    return 2 * sum;
 }
 
 int main() {
