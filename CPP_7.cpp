@@ -1,15 +1,16 @@
+```cpp
 #include <vector>
 #include <string>
 
 using namespace std;
 
-bool filter_by_substring(vector<string> str, string substr) {
+bool filter_and_check(vector<string> str, string substr) {
     vector<vector<string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({s});
-        } else if (!result.empty() && !issame(result.back(), {s})) {
-            return false;
+            if (!issame({s}, result)) {
+                result.push_back({s});
+            }
         }
     }
     return true;
@@ -17,6 +18,6 @@ bool filter_by_substring(vector<string> str, string substr) {
 }
 
 int main() {
-    cout << boolalpha << filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") << endl;
+    assert(filter_and_check({"grunt", "trumpet", "prune", "gruesome"}, "run"));
     return 0;
 }
