@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same_vector(const std::vector<float>& a, const std::vector<float>& b);
+bool is_same_vector(const std::vector<float>& a, const std::vector<float>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
 
 std::vector<float> sort_even(const std::vector<float>& vec) {
     std::vector<float> result = vec;
