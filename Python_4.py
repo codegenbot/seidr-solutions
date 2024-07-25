@@ -1,8 +1,8 @@
 ```
-from typing import List
-import statistics
+def calculate_mad():
+    from typing import List
+    import statistics
 
-def mean_absolute_deviation():
     while True:
         print("Please enter the numbers you want to calculate Mean Absolute Deviation (MAD) for, separated by a space: ")
         user_input = input()
@@ -14,7 +14,7 @@ def mean_absolute_deviation():
                 average = statistics.mean(numbers)
                 total = sum(abs(num - average) for num in numbers)
                 result = total / len(numbers)
-                print(result)
+                print(f"Mean Absolute Deviation (MAD): {result}")
                 break
         except ValueError:
             print("Invalid input. Please enter valid numbers.")
