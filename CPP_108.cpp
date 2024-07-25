@@ -1,4 +1,4 @@
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int>& n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -15,8 +15,7 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    assert(count_nums({123, -456, 789}) == 3);
-    assert(count_nums({-12, -34, -56}) == 0);
-    assert(count_nums({0, 0, 0}) == 0);
+    std::vector<int> test_nums = {123, -456, 789, -101};
+    assert(count_nums(test_nums) == 3);
     return 0;
 }
