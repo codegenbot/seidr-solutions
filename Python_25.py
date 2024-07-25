@@ -1,3 +1,4 @@
+```Python
 from typing import List
 import math
 
@@ -23,8 +24,8 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    print("Enter a number (at least 2): ")
     while True:
+        print("Enter a number (at least 2): ")
         try:
             user_input = int(input())
             if user_input >= 2:
@@ -32,9 +33,11 @@ def main():
                 print(f"The prime factors of {user_input} are: {result}")
                 break
             else:
-                print("Invalid input. Please enter an integer greater than or equal to 2.")
+                print(
+                    "Invalid input. Please enter an integer greater than or equal to 2."
+                )
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Invalid input. Please enter a valid number.")
 
 
 if __name__ == "__main__":
