@@ -7,13 +7,11 @@ for (int i = 0; i < s.length(); i++) {
             }
         }
     }
-    
     int left = 0, right = s.length() - 1;
     while (left < right) {
         swap(s[left], s[right]);
         left++;
         right--;
     }
-    
     return s;
 }
