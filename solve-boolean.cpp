@@ -1,22 +1,46 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    if (s == "T" || s == "t") return true;
-    if (s == "F" || s == "f") return false;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            return solveBoolean(left) || solveBoolean(right);
-        }
-        else if (s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            return solveBoolean(left) && solveBoolean(right);
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operatorStack;
+    stack<string> operandStack;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == 'T' || expression[i] == 't') {
+            operandStack.push("True");
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            operandStack.push("False");
+        } else if (expression[i] == '&') {
+            operatorStack.push('&');
+        } else if (expression[i] == '|') {
+            operatorStack.push('|');
         }
     }
-    
-    return false;
+
+    while (!operatorStack.empty()) {
+        string op2 = operandStack.top();
+        operandStack.pop();
+        string op1 = operandStack.top();
+        operandStack.pop();
+
+        char op = operatorStack.top();
+        operatorStack.pop();
+
+        if (op == '&') {
+            operandStack.push((op1 == "True" && op2 == "True") ? "True" : "False");
+        } else {
+            operandStack.push((op1 == "True" || op2 == "True") ? "True" : "False");
+        }
+    }
+
+    return (operandStack.top() == "True");
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+
+    cout << evaluateBooleanExpression(expression);
+
+    return 0;
 }
