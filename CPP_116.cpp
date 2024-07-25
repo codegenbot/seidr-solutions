@@ -1,10 +1,12 @@
-namespace std {
-bool issame(const vector<int>& a, const vector<int>& b) {
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
-}
 
-std::vector<int> sort_array(std::vector<int> arr) {
+std::vector<int> sortAndCheckBitwise(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end());
     for (int i = 0; i < arr.size() - 1; ++i) {
         if ((arr[i] & (arr[i + 1] - 1)) != 0)
@@ -13,6 +15,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-int main() {
-    assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+int programMain() {
+    assert(areSame(sortAndCheckBitwise({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
+}
