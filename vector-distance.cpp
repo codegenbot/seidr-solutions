@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> 
-
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -12,7 +11,6 @@ int main() {
         cin >> v1[i];
     }
     
-    cin >> n;
     vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
