@@ -14,8 +14,7 @@ std::string Contest::anti_shuffle(const std::string& input) {
     return result;
 }
 
-int main() {
+int contest_main() {
     assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-
     return 0;
 }
