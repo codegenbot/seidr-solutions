@@ -1,17 +1,13 @@
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    count = 0
-    group = ""
-
+    temp = ''
     for char in paren_string:
-        if char == "(":
-            count += 1
-            group += char
-        elif char == ")":
-            count -= 1
-            group += char
-            if count == 0:
-                result.append(group)
-                group = ""
-
+        if char == '(':
+            temp += char
+        elif char == ')':
+            temp += char
+            result.append(temp)
+            temp = ''
     return result
