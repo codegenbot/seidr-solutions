@@ -1,12 +1,13 @@
+```cpp
 #include <string>
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int left = 0;
     for (int right = word.length() - 1; right >= 0; --right) {
         if (!isvowel(word[right])) {
             ++left;
         } else if (left > 0) {
-            return string(1, tolower(word[right]));
+            return std::string(1, tolower(word[right]));
         }
     }
     return "";
