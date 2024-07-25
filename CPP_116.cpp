@@ -1,12 +1,11 @@
-int __builtin_popcount(int x) {
-    int count = 0;
-    for (int i = 0; i < 32; i++) {
-        count += ((x >> i) & 1);
-    }
-    return count;
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a,vector<int> b){
+    return a == b;
 }
 
-vector<int> sort_array(vector<int> arr) {
+vector<int> sort_vector(vector<int> arr) {
     vector<int> result = arr;
     sort(result.begin(), result.end(),
          [](int a, int b) {
