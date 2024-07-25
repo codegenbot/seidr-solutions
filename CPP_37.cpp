@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool is_same_vector(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<float> sort_even(const std::vector<float>& vec) {
@@ -17,6 +17,6 @@ std::vector<float> sort_even(const std::vector<float>& vec) {
 
 int main() {
     assert(is_same_vector(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-
+    
     return 0;
 }
