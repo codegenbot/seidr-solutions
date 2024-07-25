@@ -1,19 +1,21 @@
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return isSameOrder(a) && isSameOrder(b);
 }
 
-std::vector<std::string> isSameOrder(std::vector<std::string> v) {
+bool isSameOrder(vector<string> v) {
     sort(v.begin(), v.end());
     return v;
 }
 
-std::vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
-        string letter_grade;
+        std::string letter_grade;
         if (grade >= 4.0) {
             letter_grade = "A+";
         } else if (grade > 3.7) {
@@ -45,7 +47,7 @@ std::vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {0.0f, 0.7f};
-    vector<string> result = numerical_letter_grade(grades);
-    assert(issame(result, {"E", "D-"}));
+    std::vector<float> grades = {0.0f, 0.7f};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    assert(isSameOrder(result) && isSameOrder({"E", "D-"}));
 }
