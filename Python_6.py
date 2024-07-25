@@ -1,18 +1,13 @@
-def parse_nested_parens(paren_string: str) -> list:
+def parse_nested_parens(paren_string: str) -> int:
+    max_depth = 0
+    current_depth = 0
     result = []
-    level = 0
-    sub_list = []
     for char in paren_string:
         if char == '(':
-            level += 1
-            if level > 1:
-                sub_list.append(0)
-            else:
-                sub_list = [0]
+            current_depth += 1
         elif char == ')':
-            level -= 1
-        sub_list.append(level)
-        if level == 0 and sub_list[-1] == 0:
-            result.append(sub_list)
-            sub_list = []
-    return result
+            current_depth -= 1
+        if current_depth > max_depth:
+            max_depth = current_depth
+            result.append(max_depth)
+    return [max_depth]
