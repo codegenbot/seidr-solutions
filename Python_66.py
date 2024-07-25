@@ -6,4 +6,4 @@ def digitSum(s):
             total += int(char)
     return total
 
-print(digitSum("You arE Very Smart"))
+print(digitSum('You arE Very Smart'))
