@@ -26,10 +26,6 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-bool isSame(vector<int> a, vector<int> b);
-
-vector<int> rollingMax(vector<int> numbers);
-
 int main() {
     vector<int> nums = {3, 2, 3, 100, 3};
     vector<int> expected = {3, 3, 3, 100, 100};
