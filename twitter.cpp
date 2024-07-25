@@ -15,11 +15,13 @@ string validateTweet(string tweet) {
         }
     }
     
-    if (temp.length() > 140) {
+    int length = temp.length();
+    
+    if (length > 140) {
         return "Too many characters";
     }
     
-    return "Your tweet has " + to_string(temp.length()) + " characters";
+    return "Your tweet has " + to_string(length) + " characters";
 }
 
 int main() {
