@@ -1,3 +1,4 @@
+```python
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -6,5 +7,4 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-num = int(input("Enter a number: "))
-print(is_prime(num))
+print(is_prime(int(input("Enter a number:"))))
