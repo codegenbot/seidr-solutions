@@ -6,7 +6,6 @@ int smallest_change(vector<int> arr) {
 
     while (left < right) {
         if (arr[left] != arr[right]) {
-            changes++;
             break;
         }
         left++;
