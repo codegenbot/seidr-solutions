@@ -45,11 +45,11 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex < n-1) { 
-        for (int i = cutIndex + 1; i < n; i++) { 
+    if (cutIndex < n - 1) { 
+        for (int i = cutIndex + 1; i < n - 1; i++) { 
             cout << nums[i] << ' '; 
         } 
-        cout << '\n'; 
+        cout << nums[n - 1] << '\n'; 
     } else {
         cout << "0\n"; 
     }
