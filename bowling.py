@@ -1,37 +1,23 @@
+Here is the Python solution for the given problem:
+
 ```
-def bowling_score(games):
+def bowling_score(s):
     score = 0
-    game = ''
-    for char in games:
-        if char.isdigit():
-            game += char
+    frame = 1
+    while s and frame <= 10:
+        if s[0] == 'X':
+            score += 30
+            s = s[1:]
+        elif s[:2] == 'XX':
+            score += 20
+            s = s[2:]
         else:
-            if len(game) == 1:
-                score += int(game)
-            elif len(game) > 1:
-                if '-' in game or 'X' in game:
-                    score += calculate_spare_or_strike(int(game))
-                else:
-                    score += sum(map(int, game))
-            game = ''
-    if len(game) > 0:
-        if '-' in game or 'X' in game:
-            score += calculate_spare_or_strike(int(game))
-        else:
-            score += sum(map(int, game))
+            if '/' in s[:3]:
+                x, y = map(int, re.match(r'(\d)/(\d)', s[:3]).groups())
+                score += x + y
+                s = s[3:]
+            else:
+                score += int(s[:2])
+                s = s[2:]
+        frame += 1
     return score
-
-def calculate_spare_or_strike(rolls):
-    total = rolls
-    if total == 10:
-        return total + calculate_spare_or_strike([0]+[1]*9)
-    elif 'X' in str(rolls):
-        return total + 10 + calculate_spare_or_strike([0]+[1]*8)
-    else:
-        return total
-
-print(bowling_score("0")) 
-print(bowling_score("XXXXXXXXXXXX"))
-print(bowling_score("5/5/5/5/5/5/5/5/5/5/5"))
-print(bowling_score("7115XXX548/279-X53"))
-print(bowling_score("532/4362X179-41447/5"))
