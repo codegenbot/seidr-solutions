@@ -1,3 +1,4 @@
+```cpp
 string int_to_mini_roman(int number) {
     vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                          {400, "CD"}, {100, "C"}, {90, "XC"},
