@@ -12,20 +12,22 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
-    vector<string> tokens;
-    istringstream iss(numbers);
+    vector<string> number_list;
+    stringstream ss(numbers);
     string token;
-    while (iss >> token) {
-        tokens.push_back(token);
+    
+    while (ss >> token) {
+        number_list.push_back(token);
     }
-    sort(tokens.begin(), tokens.end(), [&](const string& a, const string& b) {
+    
+    sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
         return number_map[a] < number_map[b];
     });
     
     string result;
-    for (const string& token : tokens) {
-        result += token + " ";
+    for (const string &num : number_list) {
+        result += num + " ";
     }
-    result.pop_back(); // Remove the extra space at the end
+    
     return result;
 }
