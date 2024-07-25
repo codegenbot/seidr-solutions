@@ -1,24 +1,27 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 string validateTweet(string tweet) {
+    // Remove whitespace and non-alphanumeric characters
+    tweet.erase(remove_if(tweet.begin(), tweet.end(), ::isspace), tweet.end());
+    tweet.erase(remove_if(tweet.begin(), tweet.end(), ::isalnum), tweet.end());
+
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    
-    if (tweet.size() > 140) {
+    if (tweet.length() > 140) {
         return "Too many characters";
     }
-    
-    return "Your tweet has " + to_string(tweet.size()) + " characters";
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {
-    string tweet;
+    string input;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
+    getline(cin, input);
+    cout << validateTweet(input) << endl;
     return 0;
 }
