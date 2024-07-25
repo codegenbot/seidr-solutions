@@ -1,14 +1,15 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-
-std::vector<std::string> separate_paren_groups(std::string);
-bool issame(std::vector<std::string>, std::vector<std::string>);
+#include <algorithm>
 
 int test_main() {
-    assert(issame(separate_paren_groups("( ) (( "),"{"},{", "(())"}"));
+    assert(issame(separate_paren_groups("( ) (( "),"{}","{(())", "(())"}"));
     return 0;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::includes(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
@@ -24,29 +25,11 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             open_count--;
             current_group += c;
             if (open_count == 0) {
-                if (current_group != "") {
-                    result.push_back(current_group);
-                    current_group = "";
-                }
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
 
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (std::string s : a) {
-        bool found = false;
-        for (std::string t : b) {
-            if (s == t) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            return false;
-        }
-    }
-    return true;
 }
