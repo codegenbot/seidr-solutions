@@ -1,2 +1,2 @@
-total = sum(map(int, input("Enter space-separated integers: ").rstrip().split()))
+total = sum(map(int, input().split()))
 print(total)
