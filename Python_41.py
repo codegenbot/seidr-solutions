@@ -1,4 +1,4 @@
-```python
+```
 def car_race_collision(n):
     total_distance = 0
     for _ in range(n):
