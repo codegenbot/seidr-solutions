@@ -1,11 +1,13 @@
-#include <climits>
 #include <iostream>
+#include <climits>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
