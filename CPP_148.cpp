@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -37,7 +38,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    assert(is_same(bf("Jupiter", "Makemake"), {}) && "Planets between Jupiter and Makemake should be empty.");
+    assert(is_same(bf("Jupiter", "Makemake"), {}));
     
     return 0;
 }
