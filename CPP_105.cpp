@@ -9,8 +9,8 @@ bool same(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+void by_length(vector<int> arr, vector<string>& numbers) {
+    numbers.clear();
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(to_string(num));
@@ -20,11 +20,11 @@ vector<string> by_length(vector<int> arr) {
     sort(numbers.begin(), numbers.end());
 
     reverse(numbers.begin(), numbers.end());
-
-    return numbers;
 }
 
 int main() { 
-    assert(same(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"})); 
+    vector<string> result;
+    by_length({9, 4, 8}, result);
+    assert(same(result , {"Nine", "Eight", "Four"})); 
     return 0;
 }
