@@ -2,8 +2,12 @@ def add(x: int, y: int):
     return x + y
 
 try:
-    x = int(input("Enter the first integer number: "))
-    y = int(input("Enter the second integer number: "))
+    x = input("Enter the first integer number: ")
+    y = input("Enter the second integer number: ")
+    if not x.isdigit() or not y.isdigit():
+        raise ValueError
+    x = int(x)
+    y = int(y)
     result = add(x, y)
     print("Sum:", result)
 except ValueError:
