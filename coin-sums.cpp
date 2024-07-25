@@ -1,21 +1,24 @@
+#include <iostream>
+
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
-    vector<int> coins = {25, 10, 5, 1};
-    vector<int> coinCounts(4);
+    int quarters = cents / 25;
+    cents %= 25;
 
-    for (int i = 0; i < 4; i++) {
-        while (cents >= coins[i]) {
-            coinCounts[i]++;
-            cents -= coins[i];
-        }
-    }
+    int dimes = cents / 10;
+    cents %= 10;
 
-    cout << coinCounts[3] << endl;
-    cout << coinCounts[2] << endl;
-    cout << coinCounts[1] << endl;
-    cout << coinCounts[0] << endl;
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
+    std::cout << quarters << std::endl;
+    std::cout << dimes << std::endl;
+    std::cout << nickles << std::endl;
+    std::cout << pennies << std::endl;
 
     return 0;
 }
