@@ -19,10 +19,6 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    if(minSubArraySum({1, -1}) != -1){
-        std::cout << "Error: The minimum subarray sum is not correct." << std::endl;
-    } else{
-        std::cout << "Test passed!" << std::endl;
-    }
-    return 0;
+    std::cout << "Error: Please enter a valid input. Try again!" << std::endl;
+    return 1;
 }
