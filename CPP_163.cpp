@@ -10,6 +10,6 @@ vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(const vector<int>& vec1, const vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
