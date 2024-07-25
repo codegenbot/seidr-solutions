@@ -2,23 +2,17 @@
 #include <vector>
 #include <climits>
 #include <cmath>
-#include <sstream>
 
 int main() {
     std::vector<int> nums;
     int num;
-    std::string input;
 
     // Read and store input numbers
-    while (std::getline(std::cin, input)) {
-        std::stringstream ss(input);
-        if (!(ss >> num)) {
-            break;
-        }
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
-    if (nums.empty()) {
+    if (std::cin.fail()) {
         std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
         return 1;
     }
