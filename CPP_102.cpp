@@ -1,3 +1,4 @@
+```cpp
 int choose_num(int x, int y) {
     if (x > y) {
         swap(x, y);
