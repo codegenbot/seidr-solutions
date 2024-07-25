@@ -1,13 +1,8 @@
-```cpp
-#include <vector>
-#include <set>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> common(vector<int> l1, vector<int> l2) {
-    if(l1.empty() && l2.empty()) return {};
-    
+    if(l1.empty() || l2.empty()) {
+        return {}; 
+    }
+
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
 
