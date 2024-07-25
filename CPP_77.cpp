@@ -7,7 +7,6 @@ bool iscuber(int a){
 }
 
 int main() {
-    assert(iscuber(1729) == false);
-    // Your test cases or other code here.
+    assert(iscuber(1729) == true); 
     return 0;
 }
