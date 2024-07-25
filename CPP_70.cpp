@@ -1,15 +1,18 @@
-```
-bool issame(const vector<int> &v1, const vector<int> &v2) {
-    if (v1.size() != v2.size())
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size())
         return false;
-    for (int i = 0; i < v1.size(); i++)
-        if (v1[i] != v2[i])
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             return false;
     return true;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
@@ -19,4 +22,9 @@ vector<int> strange_sort_vector(vector<int> lst) {
         lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
     }
     return result;
+}
+
+int main() {
+    std::cout << (issame(strange_sort_vector({111111}), {111111}) ? "Pass" : "Fail") << std::endl;
+    return 0;
 }
