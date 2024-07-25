@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
