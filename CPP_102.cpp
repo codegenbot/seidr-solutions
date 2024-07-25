@@ -1,7 +1,8 @@
-for (int i = y; i >= x; i--) {
+int max_even = -1;
+    for (int i = y; i >= x; i--) {
         if (i % 2 == 0) {
-            return i;
+            max_even = i;
+            break;
         }
     }
-    return -1;
-}
+    return max_even;
