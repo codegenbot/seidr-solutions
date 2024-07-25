@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 bool issame(const std::string& s1, const std::string& s2) {
@@ -19,7 +20,7 @@ void reverse_delete(std::string s, const std::string& c) {
 }
 
 int main() {
-    std::string s = "example_string";
+    std::string s = "example string";
     std::string c = "aeiou";
     reverse_delete(s, c);
     return 0;
