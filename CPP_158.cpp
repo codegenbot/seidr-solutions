@@ -1,5 +1,4 @@
-string find_max(vector<string> words){
-    string result = "";
+string result;
     int max_unique_chars = 0;
     
     for (const string& word : words) {
