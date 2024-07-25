@@ -1,20 +1,30 @@
-#include <iostream>
+```cpp
 #include <any>
+#include <string>
 
-std::any compare_one(std::string str, int i) {
-    if (i > 0) {
-        return std::any(str + " is positive");
-    } else if (i < 0) {
-        return std::any(str + " is negative");
+std::string compare_one(const std::string& s, int i);
+
+int main() {
+    string str;
+    int x, y;
+
+    cout << "Enter first number: ";
+    cin >> x;
+    cout << "Enter second number: ";
+    cin >> y;
+
+    a = any(x);
+    b = any(y);
+
+    if (any_cast<int>(a) > any_cast<int>(b)) {
+        return any_cast<string>(a) + " is greater";
+    } else if (any_cast<int>(a) < any_cast<int>(b)) {
+        return any_cast<string>(b) + " is greater";
     } else {
-        return std::any(str + " is zero");
+        return "Both numbers are equal";
     }
 }
 
-int main() {
-    if (true) {  
-        std::any a = compare_one("Input: ", 1);
-        std::cout << std::any_cast<std::string>(a) << std::endl;
-    }
-    return 0;
+std::string compare_one(const std::string& s, int i) {
+    // Code here...
 }
