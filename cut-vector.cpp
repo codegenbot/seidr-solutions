@@ -16,7 +16,6 @@ int main() {
     int num;
     while (iss >> num) {
         nums.push_back(num);
-        iss.ignore();
     }
     
     int n = nums.size();
@@ -30,7 +29,7 @@ int main() {
     int minDiff = INT_MAX/2; // Modified initialization
     int cutIndex = -1;
     
-    for (int i = 0; i < n - 1; i++) { // Modified loop condition
+    for (int i = 0; i < n; i++) { 
         prefixSum += nums[i]; 
         int suffixSum = sum - prefixSum; 
         int diff = abs(prefixSum - suffixSum); 
@@ -46,7 +45,7 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex < n - 1) { 
+    if (cutIndex < n) { 
         for (int i = cutIndex + 1; i < n; i++) { // Change <= to <
             cout << nums[i] << ' '; 
         } 
