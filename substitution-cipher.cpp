@@ -1,23 +1,20 @@
-#include <vector>
-#include <iostream>
 #include <string>
 
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string result = "";
+string substitutionCipher(string cipherKey1, string cipherKey2, string message) {
+    string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
-        int index = message[i] - 'a';
-        if (index >= 0 && index < cipher1.length()) {
-            result += cipher2[index];
+        if (cipherKey1[i] != ' ') {
+            int index = 0;
+            while (index < cipherKey2.length()) {
+                if (cipherKey1[i] == cipherKey2[index]) {
+                    decipheredMessage += cipherKey1[i];
+                    break;
+                }
+                index++;
+            }
         } else {
-            result += message[i];
+            decipheredMessage += ' ';
         }
     }
-    return result;
-}
-
-int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
-    return 0;
+    return decipheredMessage;
 }
