@@ -1,13 +1,15 @@
-int isPrime(int n) {
-    if (n <= 1)
-        return 0;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return 0;
-    return 1;
+#include<string>
+
+bool prime_length(string str){
+    int n = str.length();
+    if(n <= 1) return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i==0) return false;
+    }
+    return true;
+
 }
 
-bool prime_length(string str) {
-    int len = str.length();
-    return isPrime(len);
+int main(){
+    assert (prime_length("0") == false);
 }
