@@ -1,2 +1,6 @@
-def leaders(a):
-    return [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= min(a[i + 1 :])]
+def leaders(input):
+    return [
+        x
+        for i, x in enumerate(reversed(input))
+        if all(x >= y for j, y in enumerate(input[i + 1 :]))
+    ]
