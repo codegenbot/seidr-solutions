@@ -1,12 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
     if (arr.empty()) return {};
 
     int minEvenValue = INT_MAX;
