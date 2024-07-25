@@ -1,6 +1,7 @@
-using namespace std;
+#include <algorithm>
+#include <initializer_list>
 
-bool issame(vector<float> a, vector<float> b) { 
+bool issame(std::vector<float> a, std::vector<float> b) {
     return std::all_of(a.begin(), a.end(),
                        [b](float x){ return std::find(b.begin(), b.end(), x) != b.end(); });
 }
