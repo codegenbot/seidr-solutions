@@ -1,33 +1,21 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 bool solveBoolean(string expression) {
-    stack<char> s;
+    stack<char> opStack;
     for (char c : expression) {
-        if (c == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+        if (c == 'T' || c == 't') return true;
+        if (c == 'F' || c == 'f') return false;
+        if (c == '|') {
+            opStack.push(c);
+        } else if (c == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
             }
-            if (s.empty()) return false;
-        } else if (c == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
+            if (!opStack.empty()) {
+                opStack.push('&');
             }
-            if (s.empty()) return true;
-        } else {
-            s.push(c);
         }
     }
-    while (!s.empty()) {
-        s.pop();
+    while (!opStack.empty()) {
+        opStack.pop();
     }
     return false;
-}
-
-int main() {
-    string expression;
-    cin >> expression;
-    cout << (solveBoolean(expression) ? "True" : "False") << endl;
-    return 0;
 }
