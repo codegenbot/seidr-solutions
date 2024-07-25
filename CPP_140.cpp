@@ -1,18 +1,10 @@
-string result = "";
-    bool consecutive = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (consecutive) {
-                result.pop_back();
-                result += '-';
-            } else {
-                result += '_';
-            }
-            consecutive = true;
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        if (i + 2 < text.size() && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text.replace(i, 3, "-");
         } else {
-            result += c;
-            consecutive = false;
+            text[i] = '_';
         }
     }
-    return result;
 }
+return text;
