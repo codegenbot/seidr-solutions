@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -26,13 +27,11 @@ def main():
     while True:
         print("Please enter a number or type 'quit': ")
         user_input = input()
-        if user_input.strip().lower() == "quit":
+        if user_input.lower() == "quit":
             break
         try:
-            user_input = int(user_input)
-            if user_input > 0:
-                result = factorize(user_input)
-                print(f"The prime factors of {user_input} are: {result}")
+            result = factorize(int(user_input))
+            print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
     return
