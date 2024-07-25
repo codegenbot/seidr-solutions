@@ -1,1 +1,5 @@
-return *max_element(l.begin(), l.end());
+Here is the completed code:
+
+int max_element(vector<int> v) {
+    return *max_element(v.begin(), v.end());
+}
