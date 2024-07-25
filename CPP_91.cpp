@@ -1,4 +1,6 @@
-int is_bored(string S){
+#include <string>
+
+int is_bored(std::string S){
     int count = 0;
     int n = S.size();
     for(int i=0; i<n; ++i){
