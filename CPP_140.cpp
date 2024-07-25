@@ -1,18 +1,9 @@
-string result;
-    bool consecutiveSpaces = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (consecutiveSpaces) {
-                result.pop_back();
-                result.push_back('-');
-            } else {
-                result.push_back('_');
-                consecutiveSpaces = true;
-            }
-        } else {
-            result.push_back(c);
-            consecutiveSpaces = false;
+for (size_t i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ' && i < text.size() - 2 && text[i + 1] == ' ' && text[i + 2] == ' ') {
+            text.replace(i, 3, "-");
+        } else if (text[i] == ' ') {
+            text[i] = '_';
         }
     }
-    return result;
+    return text;
 }
