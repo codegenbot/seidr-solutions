@@ -1,9 +1,8 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-double calculateProbability(int n, int m) {
-    double probability = 0;
-    for (int i = 1; i < n; i++) {
-        probability += 1.0 / m;
-    }
-    return probability;
+double diceGame(int n, int m) {
+    double total = pow(n + m - 1, 2);
+    double peter = pow(n, 2);
+    return (peter + m - 1) / total;
 }
