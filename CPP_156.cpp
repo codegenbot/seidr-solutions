@@ -1,3 +1,5 @@
+```
+#include <cassert>
 string int_to_mini_roman(int number) {
     string roman = "";
     vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
@@ -13,4 +15,5 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "M");
+    return 0;
 }
