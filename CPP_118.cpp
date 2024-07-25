@@ -25,13 +25,8 @@ std::string get_closest_vowel(string word) {
 
 int main() {
     std::string word;
-    cout << "Enter a word: ";
-    getline(cin, word);
-    string closestVowel = get_closest_vowel(word);
-    if(closestVowel != "") {
-        cout << "The closest vowel to the first and last characters of the word '" << word << "' is '" << closestVowel[0] << "'.\n";
-    } else {
-        cout << "No vowels are present in the word.\n";
-    }
+    cout << "Enter a string: ";
+    cin >> word;
+    cout << "Closest vowel is: " << get_closest_vowel(word) << endl;
     return 0;
 }
