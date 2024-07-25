@@ -1,9 +1,9 @@
 #include <string>
-using namespace std;
+#include <vector>
 
-int strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
-    string result;
+    std::string result;
     for(auto& extension:extensions){
         int cap = 0;
         int sm = 0;
@@ -21,7 +21,5 @@ int strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    assert (strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    // Your code here
-    return 0;
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
 }
