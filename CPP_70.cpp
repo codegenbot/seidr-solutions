@@ -14,6 +14,7 @@ bool strange_sort_list(const std::vector<int>& list) {
 }
 
 int main() {
-    assert(issame(strange_sort_list({5, 3, 7, 1}), {1, 3, 5, 7}));
+    assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
+    assert(issame(strange_sort_list({5, 3, 7, 1}), std::vector<int>{1, 3, 5, 7}));
     return 0;
 }
