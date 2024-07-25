@@ -20,8 +20,6 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    int number;
-    cin >> number;
-    cout << int_to_mini_romank(number) << endl;
+    // Your main function code here
     return 0;
 }
