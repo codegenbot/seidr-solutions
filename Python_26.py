@@ -1,11 +1,12 @@
+```"""
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[str]:
     seen = set()
     result = []
     for num in numbers:
-        if str(num) not in seen:
-            seen.add(str(num))
+        if num not in seen:
+            seen.add(num)
             result.append(str(num))  
     return result
 
@@ -19,3 +20,4 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter valid numbers separated by spaces or commas.")
     print(remove_duplicates(numbers))
+"""
