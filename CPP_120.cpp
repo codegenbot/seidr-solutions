@@ -16,7 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-bool solveProblem() {
+int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    return true;
+    return 0;
 }
