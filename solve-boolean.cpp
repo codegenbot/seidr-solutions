@@ -2,10 +2,10 @@
 #include <string>
 
 int main() {
-    std::string input;
-    std::cin >> input;
+    std::string expression;
+    std::cin >> expression;
     
-    if (input == "T") {
+    if (expression == "t") {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
