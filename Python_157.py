@@ -1,2 +1,9 @@
 a, b, c = map(int, input().split())
-print(a, b, c)
+
+# Task description here
+if a > b and a > c:
+    print(a)
+elif b > a and b > c:
+    print(b)
+else:
+    print(c)
