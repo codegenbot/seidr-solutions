@@ -22,7 +22,6 @@ std::vector<int> sort_array(std::vector<int> array) {
 
 int main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    // Add more test cases if needed
 
     std::cout << "All test cases passed successfully!" << std::endl;
 
