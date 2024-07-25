@@ -1,4 +1,5 @@
-n, *nums = map(int, input().split())
+n, = map(int, input().split())
+nums = list(map(int, input().split()))
 
 total_sum = sum(nums)
 half_sum = total_sum // 2
