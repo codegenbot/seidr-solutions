@@ -1,20 +1,10 @@
-bool prev_space = false;
-    string result = "";
-    
-    for(char c : text){
-        if(c == ' '){
-            if(prev_space){
-                result.pop_back();
-                result += "-";
-            } else {
-                result += "_";
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            if (i > 0 && text[i - 1] == '_') {
+                text[i] = '-';
             }
-            prev_space = true;
-        } else {
-            result += c;
-            prev_space = false;
         }
     }
-    
-    return result;
+    return text;
 }
