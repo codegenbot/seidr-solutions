@@ -1,8 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
+
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
@@ -19,7 +24,7 @@ int main() {
             rightSum += nums[j];
         }
         
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -27,11 +32,11 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
