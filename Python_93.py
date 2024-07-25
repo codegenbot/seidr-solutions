@@ -13,4 +13,7 @@ def encode(message):
             result += char
     return result
 
-print(encode("Hello World!"))
+if __name__ == "__main__":
+    message = input("Enter the message: ")
+    output = encode(message)
+    print(output)
