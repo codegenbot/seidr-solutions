@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,7 +7,7 @@ std::vector<std::string> separate_paren_groups(std::string);
 bool issame(std::vector<std::string>, std::vector<std::string>);
 
 int test_main() {
-    assert(issame(separate_paren_groups("( ) (( "),"{"},{", "(())"}"));
+    assert(issame(separate_paren_groups("( ) (( ")},{"},{", "(())"}"));
     return 0;
 }
 
@@ -19,10 +19,10 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             open_count++;
-            current_group += c;
+            current_group += (c == ')' ? '' : c);
         } else if (c == ')') {
             open_count--;
-            current_group += (c == ')' ? '' : std::string(1, c));
+            current_group += (c == '(' ? '' : c);
             if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
