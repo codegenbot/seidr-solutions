@@ -6,5 +6,4 @@ def fix_spaces(text):
         )
         else c
         for i, c in enumerate(text)
-    ]) if c != " " or (i == 0 or text[i - 1] != " ")
     ])
