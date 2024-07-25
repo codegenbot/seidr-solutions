@@ -4,7 +4,7 @@ def minPath(grid, k):
     path = [start]
     visited = set((i, j) for i in range(n) for j in range(n) if grid[i][j] == start)
 
-    while len(path) < k:
+    while len(path) < k and len(set(visited)) < n * n:
         current_pos = (path[-1] // n, path[-1] % n)
         valid_moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         next_move = None
