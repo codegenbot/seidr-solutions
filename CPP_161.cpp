@@ -1,24 +1,18 @@
-std::string solve(const std::string& s) {
-    std::string result = s;
-    for (int i = 0; i < result.length(); i++) {
-        if (isalpha(result[i])) {
-            if (islower(result[i])) {
-                result[i] = toupper(result[i]);
+string solve(string s) {
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
             } else {
-                result[i] = tolower(result[i]);
+                s[i] = tolower(s[i]);
             }
         }
     }
-    int left = 0, right = result.length() - 1;
+    int left = 0, right = s.length() - 1;
     while (left < right) {
-        std::swap(result[left], result[right]);
+        swap(s[left], s[right]);
         left++;
         right--;
     }
-    return result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
+    return s;
 }
