@@ -1,6 +1,5 @@
 ```c++
 #include <string>
-#include <iostream>
 
 std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
     std::string decipheredMessage;
@@ -22,7 +21,7 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
 }
 
 int main() {
-    std::string cipherKey1 = "abc";  
+    std::string cipherKey1 = "abc";  // replace with your input strings
     std::string cipherKey2 = "def";
     std::string message = "ghi";
     std::cout << substitutionCipher(cipherKey1, cipherKey2, message) << std::endl;
