@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,6 +13,5 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    // Your test code here
     return 0;
 }
