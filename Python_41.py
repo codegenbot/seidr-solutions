@@ -1,7 +1,9 @@
+```
 def car_race_collision(n):
-    total_distance = sum(range(1, n+1))
+    total_distance = (n * (n + 1)) // 2
+    collision_points = []
     for i in range(1, n+1):
-        distance_covered = sum(range(1, i+1))
+        distance_covered = i
         remaining_cars = n - i
         collisions = min(i, remaining_cars)
         total_distance -= collisions
