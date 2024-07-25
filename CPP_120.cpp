@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -27,5 +28,4 @@ int main() {
     cout << "Enter the number of elements to be extracted: ";
     cin >> input;
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, input) , {3,243,0,-23,-400}));
-    return 0;
 }
