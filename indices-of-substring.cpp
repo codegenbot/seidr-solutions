@@ -1,23 +1,28 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int textSize = text.length();
-    int targetSize = target.length();
-
-    for (int i = 0; i <= textSize - targetSize; i++) {
-        bool match = true;
-        for (int j = 0; j < targetSize; j++) {
-            if (text[i + j] != target[j]) {
-                match = false;
-                break;
-            }
+    vector<int> res;
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        int j = 0;
+        while (j < target.size()) {
+            if (text[i + j] != target[j]) break;
+            j++;
         }
-        if (match) {
-            result.push_back(i);
-        }
+        if (j == target.size()) res.push_back(i);
     }
+    return res;
+}
 
-    return result;
+int main() {
+    string text;
+    cin >> text;
+    string target;
+    cin >> target;
+    
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) cout << i << " ";
+    return 0;
 }
