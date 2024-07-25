@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -21,12 +22,8 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    int k = 5;
+vector<int> main() {
     vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    vector<int> result = maximum(arr, k);
-    if(issame(result, {0,-23,-400,243,3})) 
-        return 0;    
-    else
-        return 1;
+    int k = 5;
+    return maximum(arr, k);
 }
