@@ -4,20 +4,19 @@ using namespace std;
 int main() {
     double startHeight, firstBounce;
     int numBounces;
-    
+
     cin >> startHeight >> firstBounce >> numBounces;
-    
-    if (startHeight == 0 || firstBounce > startHeight) {
-        cout << "Error: invalid input" << endl;
-        return -1;
-    }
-    
+
     double bounciness = firstBounce / startHeight;
-    
-    double totalDistance = 2.0 * (1 + bounciness) * numBounces;
-    
-    cout.setprecision(5);
-    cout << fixed << totalDistance << endl;
-    
+
+    double totalDistance = 0.0;
+    for (int i = 1; i <= numBounces; ++i) {
+        totalDistance += pow(2, i * log2(bounciness)) - pow(2, (i - 1) * log2(bounciness));
+    }
+
+    cout << fixed << setprecision(5);
+    cout << bounciness << endl;
+    cout << totalDistance << endl;
+
     return 0;
 }
