@@ -1,4 +1,3 @@
-```c
 #include <string>
 #include <algorithm>
 
@@ -6,7 +5,7 @@ using namespace std;
 
 bool isvowel(char c) {
     string vowels = "aeiouAEIOU";
-    return find(vowels.begin(), vowels.end(), to_string(c)) != vowels.end();
+    return vowels.find(to_string(1,c)) != string::npos;
 }
 
 string get_closest_vowel(string word) {
