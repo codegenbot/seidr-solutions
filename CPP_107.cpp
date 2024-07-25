@@ -1,20 +1,16 @@
-int count = 0;
-    vector<int> palindromes;
-    
-    for (int i = 1; i <= n; ++i) {
-        string numStr = to_string(i);
-        string revStr = numStr;
-        reverse(revStr.begin(), revStr.end());
-        
-        if (numStr == revStr) {
-            if (i % 2 == 0) {
-                count++;
+vector<int> even_odd_palindrome(int n){
+        vector<int> res(2, 0);
+        for(int i=1; i<=n; i++){
+            string num = to_string(i);
+            string rev_num = num;
+            reverse(rev_num.begin(), rev_num.end());
+            if(num == rev_num){
+                if(i % 2 == 0){
+                    res[0]++;
+                } else {
+                    res[1]++;
+                }
             }
         }
+        return res;
     }
-    
-    palindromes.push_back(count);
-    palindromes.push_back(n - count);
-    
-    return palindromes;
-}
