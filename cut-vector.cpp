@@ -3,8 +3,8 @@
 using namespace std;
 
 int main() {
-    int n;
     vector<int> vec;
+    int n;
     while (cin >> n) {
         vec.push_back(n);
     }
