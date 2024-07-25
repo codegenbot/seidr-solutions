@@ -7,13 +7,13 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> derivative(const std::vector<float>& v) {
-    std::vector<float> result(v.size() - 1);
+    std::vector<float> result;
     for (size_t i = 1; i < v.size(); ++i) {
-        result[i - 1] = v[i] - v[i - 1];
+        result.push_back(v[i] - v[i - 1]);
     }
     return result;
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({1, 3, 5, 7}), {2, 2, 2}));
 }
