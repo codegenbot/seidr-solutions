@@ -16,12 +16,19 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
     std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({s});
+            result.push_back({{s}});
         }
     }
     return result;
-
 }
 
 int main() {
+    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string substr = "run";
+    std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
+    if (issame({filtered.begin(), filtered.end()}, {{"grunt"}, {"prune"}})) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed." << std::endl;
+    }
 }
