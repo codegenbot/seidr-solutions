@@ -1,4 +1,12 @@
-def luhn(card_number):
-    card_number = [int(x) for x in card_number[2:]]
-    total = sum([sum(divmod(d * 2, d)) + d for i, d in enumerate(card_number)][1:])
-    return str(total)
+```
+def luhn(card_num):
+    total = 0
+    for i, n in enumerate(card_num[::-1]):
+        if i % 2 == 0:
+            n *= 1
+        else:
+            n *= 2
+            if n > 9:
+                n -= 9
+        total += n
+    return total
