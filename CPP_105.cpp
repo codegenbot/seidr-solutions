@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -104,7 +103,11 @@ vector<string> by_length(vector<int> arr) {
                     case 9:
                         tens = "Ninety";
                 }
-                temp = tens + (num % 10 > 0 ? "-" + to_string(num % 10) : "");
+                if (num % 10 != 0) {
+                    temp += "-" + to_string(num % 10);
+                } else {
+                    temp = tens;
+                }
             }
 
             result.push_back(temp);
@@ -115,20 +118,11 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3};
-    vector<string> result = by_length(arr);
-    for (const string& str : result) {
-        cout << str << endl;
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<string> res = by_length(arr);
+    for (const string& s : res) {
+        cout << s << endl;
     }
-
-    vector<string> vec1 = {"One", "Two", "Three"};
-    vector<string> vec2 = {"one", "two", "three"};
-
-    if (issame(vec1, vec2)) {
-        cout << "The vectors are the same." << endl;
-    } else {
-        cout << "The vectors are not the same." << endl;
-    }
-
+    // Don't forget to return something from your main function
     return 0;
 }
