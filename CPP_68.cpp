@@ -1,8 +1,17 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> pluck(vector<int> arr) {
@@ -18,5 +27,8 @@ vector<int> pluck(vector<int> arr) {
     }
     
     sort(pairs.begin(), pairs.end());
-    return {pairs[0].first, pairs[0].second};
+    vector<int> result;
+    result.push_back(pairs[0].first);
+    result.push_back(pairs[0].second);
+    return result;
 }
