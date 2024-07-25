@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <functional>
 
-namespace std {
+namespace ArrayUtils {
     bool issame(std::vector<int> a, std::vector<int> b){
         if(a.size() != b.size()) return false;
         for(int i = 0; i < a.size(); ++i){
@@ -10,18 +11,18 @@ namespace std {
         }
         return true;
     }
-}
 
-std::vector<int> sort_array(std::vector<int> array){
-    if(array.empty()) return array;
-    if((array.front() + array.back()) % 2 == 0)
-        std::sort(array.begin(), array.end(), std::greater<int>());
-    else
-        std::sort(array.begin(), array.end());
-    return array;
+    std::vector<int> sort_array(std::vector<int> array){
+        if(array.empty()) return array;
+        if((array.front() + array.back()) % 2 == 0)
+            std::sort(array.begin(), array.end(), std::greater<int>());
+        else
+            std::sort(array.begin(), array.end());
+        return array;
+    }
 }
 
 int main() {
-    assert(std::issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
+    assert(ArrayUtils::issame(ArrayUtils::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
