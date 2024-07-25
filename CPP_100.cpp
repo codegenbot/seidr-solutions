@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <numeric>
 #include <algorithm>
@@ -14,15 +13,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> input = make_a_pile(n);
-    
-    std::vector<int> expected_output(n);
-    std::iota(expected_output.begin(), expected_output.end(), n);
-    
-    assert(issame(input, expected_output));
-    
+int main {
+    assert(issame(make_a_pile(8), std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
