@@ -1,3 +1,1 @@
-int countCharacters(const char* str) {
-    return strlen(str);
-}
+return strlen(str);
