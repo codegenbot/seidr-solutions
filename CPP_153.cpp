@@ -11,9 +11,8 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
                 sm_count++;
             }
         }
-
         int strength = cap_count - sm_count;
-        if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
+        if (strength > max_strength || (strength == max_strength && extension < strongest_extension)) {
             max_strength = strength;
             strongest_extension = extension;
         }
