@@ -1,20 +1,20 @@
-#include <vector>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            roll = 2;
-        } else if (c == '/') {
-            score += (10 - roll);
+        if (c == '/') {
+            if (roll < 10) {
+                score += 10 - roll;
+            }
+            roll = 0;
+        } else if (c == 'X') {
+            score += 10 + (10 - roll);
             roll = 0;
         } else {
-            int val = c - '0';
-            score += val;
-            roll--;
+            roll++;
+            if (c >= '1' && c <= '9') {
+                score += c - '0';
+            }
         }
     }
     return score;
