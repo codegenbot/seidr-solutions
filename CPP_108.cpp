@@ -1,3 +1,5 @@
+Here is the solution:
+
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -10,9 +12,16 @@ int count_nums(vector<int> nums) {
             if (sum > 0)
                 count++;
         } else {
-            int sum = 0, sign = -1;
-            while (num < 0) {
-                sum -= num % 10;
+            num = -num; // convert to positive
+            int sum = 0;
+            bool is_negative = true;
+            while (num > 0) {
+                if (is_negative) {
+                    sum -= num % 10;
+                    is_negative = false;
+                } else {
+                    sum += num % 10;
+                }
                 num /= 10;
             }
             if (sum > 0)
