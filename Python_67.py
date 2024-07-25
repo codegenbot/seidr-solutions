@@ -16,6 +16,3 @@ def fruit_distribution(s):
         return "bananas"
     else:
         return "unknown"
-
-s = input("Enter a string: ")
-print(fruit_distribution(s))
