@@ -1,4 +1,5 @@
 ```
+import re
 def fruit_distribution(s):
     s = s.lower()
     fruit_counts = {"apple": 0, "banana": 0}
