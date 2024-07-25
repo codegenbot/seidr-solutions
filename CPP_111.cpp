@@ -1,37 +1,27 @@
-#include <iostream>
-#include <sstream>
-#include <map>
-#include <cassert>
-
-map<char, int> histogram(string test);
-
-bool issame(map<char,int> a, map<char,int> b){
-    return a == b;
-}
+bool issame(map<char, int> a, map<char, int> b);
 
 map<char, int> histogram(string test){
     map<char, int> result;
-    istringstream iss(test);
+    stringstream ss(test);
     string word;
-    while (iss >> word) {
+    while (ss >> word) {
         for (char c : word) {
             result[c]++;
         }
     }
     int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
+    for (const auto& entry : result) {
+        maxCount = max(maxCount, entry.second);
     }
-    map<char, int> maxChars;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            maxChars[pair.first] = pair.second;
+    map<char, int> mostRepeated;
+    for (const auto& entry : result) {
+        if (entry.second == maxCount) {
+            mostRepeated[entry.first] = entry.second;
         }
     }
-    return maxChars;
+    return mostRepeated;
 }
 
-int main() {
-    // Your main function code here
-    return 0;
+bool issame(map<char, int> a, map<char, int> b){
+    return a == b;
 }
