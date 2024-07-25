@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool same(vector<string> a,vector<string>b){
+bool isSame(vector<string> a,vector<string>b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i]) return false;
@@ -9,22 +10,22 @@ bool same(vector<string> a,vector<string>b){
     return true;
 }
 
-void by_length(vector<int> arr, vector<string>& result) {
+vector<string> by_length(vector<int> arr) {
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            result.push_back(to_string(num));
+            numbers.push_back(to_string(num));
         }
     }
 
-    sort(result.begin(), result.end());
+    sort(numbers.begin(), numbers.end());
 
-    reverse(result.begin(), result.end());
+    reverse(numbers.begin(), numbers.end());
+
+    return numbers;
 }
 
-int main() {
-    vector<int> input = {9, 4, 8};
-    vector<string> output;
-    by_length(input, output);
-    assert(same(output , {"Nine", "Eight", "Four"}));
+int main() { 
+    assert(isSame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"})); 
     return 0;
 }
