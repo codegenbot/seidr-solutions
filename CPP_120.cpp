@@ -23,6 +23,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
+    #pragma comment (compiler, /std:c++11)
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 5;
     if (issame(maximum(arr,k), {3,243,0,-23,-400})) 
