@@ -12,7 +12,7 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 4); 
+    assert(count_upper("EEEE") == 4);
     std::cout << "Test passed!" << std::endl;
     return 0;
 }
