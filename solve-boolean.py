@@ -16,5 +16,5 @@ def solve_boolean(expression):
             elif char == 'T':
                 result &= True
             elif char == 'F':
-                result = False
+                result &= False
         return result
