@@ -1,4 +1,4 @@
-arr = list(map(int, input().split()))  # Split the input by spaces and convert each part to int
+arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
