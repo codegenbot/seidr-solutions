@@ -1,1 +1,2 @@
-return [num for num in numbers if numbers.count(num) == 1]
+def filter_numbers(numbers):
+    return [num for num in numbers if numbers.count(num) == 1]
