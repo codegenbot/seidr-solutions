@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,7 +18,7 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    int _;  
-    _ = longest({{"x", "yyy", "zzzz", "www", "kkkk", "abc"});
+    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
+    assert(longest({strings}) == "zzzz");
     return 0;
 }
