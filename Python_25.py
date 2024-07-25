@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -30,9 +31,7 @@ def main():
             if user_input >= 2:
                 break
             else:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
+                print("Invalid input. Please enter an integer greater than or equal to 2.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
     result = factorize(user_input)
