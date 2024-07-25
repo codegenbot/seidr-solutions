@@ -1,6 +1,6 @@
+```c++
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 bool has_close_elements(std::vector<float> numbers, float threshold){
     for(int i = 0; i < numbers.size(); i++){
@@ -13,9 +13,7 @@ bool has_close_elements(std::vector<float> numbers, float threshold){
 }
 
 int main() {
-    std::vector<float> a({1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f});
-    if (!has_close_elements(a, 0.5))
-        std::cout << "The given array does not have two elements within the given threshold." << std::endl;
-    else
-        std::cout << "The given array has at least two elements that are within the given threshold." << std::endl;
+    float arr[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> a(arr, arr + sizeof(arr) / sizeof(arr[0]));
+    assert (has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5) == false);
 }
