@@ -5,7 +5,8 @@ def sort_third(l: list):
     return [
         sorted(
             sub_list,
-            key=lambda x: x[2] if len(x) >= 3 else float("inf"),
+            key=lambda x: x[2] if isinstance(x, tuple) and len(x) >= 3 else float("inf"),
         )
+        if sub_list else []
         for sub_list in tuples_list
     ]
