@@ -1,3 +1,4 @@
+```
 def calculate_sum():
     while True:
         try:
@@ -8,8 +9,9 @@ def calculate_sum():
     
     while True:
         try:
-            y = int(input("Enter second number: "))
-            print(x + y)
-            return
+            y = float(input("Enter second number: "))  
+            return x + y
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print("Invalid input. Please enter a valid integer or decimal.")
+
+calculate_sum()
