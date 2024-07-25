@@ -17,7 +17,8 @@ def calculate_mad():
             if len(numbers) < 2:
                 print("Please enter at least two numbers.")
             else:
-                print(mean_absolute_deviation(numbers))
+                result = mean_absolute_deviation(numbers)
+                print(result)
                 break
         except ValueError:
             print("Invalid input. Please enter valid numbers.")
