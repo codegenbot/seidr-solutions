@@ -6,13 +6,11 @@ end_num = None
 for num in numbers_str.split():
     if "-" in num:
         start_num, end_num = map(float, num.split("-"))
-        numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
+        if start_num is not None and end_num is not None:
+            numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
     else:
         try:
-            if start_num is not None and end_num is not None:
-                numbers.append(f"{start_num}-{end_num}")
-            else:
-                numbers.append(float(num))
+            numbers.append(float(num))
         except ValueError:
             print(f"Program did not receive expected input: {num}")
 print(numbers)
