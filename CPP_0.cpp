@@ -1,11 +1,11 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool has_close_elements(const std::vector<float>& vec, float epsilon) {
-    for (size_t i = 0; i < vec.size() - 1; ++i) {
-        if (std::abs(vec[i] - vec[i+1]) <= epsilon) {
+    for(int i=1; i<vec.size(); i++) {
+        if(std::abs(vec[i] - vec[i-1]) <= epsilon)
             return true;
-        }
     }
     return false;
 }
