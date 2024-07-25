@@ -1,7 +1,5 @@
 try:
-    a = int(input())
-    b = int(input())
-    c = int(input())
-    print(a + b + c)
+    a, b, c = map(int, input().strip().split())
+    print(a, b, c)
 except ValueError:
-    print("Error: Input format is incorrect. Please provide three integers line by line.")
+    print("Error: Input format is incorrect. Please provide three integers separated by spaces.")
