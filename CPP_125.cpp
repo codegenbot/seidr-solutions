@@ -1,26 +1,26 @@
-vector<string> words;
+vector<string> result;
     string word = "";
     for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
+        if (c == ' ') {
+            result.push_back(word);
+            word = "";
+        } else if (c == ',') {
+            result.push_back(word);
+            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
+    if (word != "") {
+        result.push_back(word);
     }
-    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
-        int count_odd_lowercase = 0;
-        for (char c : words[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count_odd_lowercase++;
+    if (result.size() == 1 && txt.find(',') == string::npos) {
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                count++;
             }
         }
-        words[0] = to_string(count_odd_lowercase);
+        result = {to_string(count)};
     }
-    return words;
-}
+    return result;
