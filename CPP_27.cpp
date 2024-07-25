@@ -1,9 +1,13 @@
-int i = 0;
-while(i < str.length()){
-    if(str[i] >= 'a' && str[i] <= 'z')
-        str[i] -= ('a' - 'A');
-    else if(str[i] >= 'A' && str[i] <= 'Z')
-        str[i] += ('a' - 'A');
-    i++;
+Here is the completed code:
+
+```cpp
+string flip_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        if(str[i]>96 && str[i]<123)
+            result += toupper(str[i]);
+        else 
+            result += tolower(str[i]);
+    }
+    return result;
 }
-return str;
