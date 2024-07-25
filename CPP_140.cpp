@@ -2,14 +2,17 @@
 #include <string>
 #include <cassert>
 
-std::string fix_spaces(const std::string &text) {
+std::string fix_spaces(const std::string& text) {
     std::string result = text;
-    for (int i = 0; i < result.size(); i++) {
+    int count = 0;
+
+    for (int i = 0; i < result.size(); ++i) {
         if (result[i] == ' ') {
-            int count = 1;
-            for (int j = i + 1; j < result.size() && result[j] == ' '; j++) {
+            count = 1;
+            while (i + count < result.size() && result[i + count] == ' ') {
                 count++;
             }
+
             if (count > 2) {
                 result.replace(i, count, "-");
             } else {
@@ -17,6 +20,7 @@ std::string fix_spaces(const std::string &text) {
             }
         }
     }
+
     return result;
 }
 
