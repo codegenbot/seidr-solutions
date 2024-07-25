@@ -1,3 +1,5 @@
+Here is the updated code:
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -18,12 +20,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (comp < 0)
             return b;
         else
-            return a;
+            return boost::any(boost::any_cast<int>(a) == boost::any_cast<int>(b));
     }
     else {
         // If both values are equal, compare their types.
         if (a.type() == typeid(int) && b.type() == typeid(int))
-            return a;
+            return boost::any();
         else
             return boost::any_cast<double>(a) > boost::any_cast<double>(b)
                 ? a : b;
