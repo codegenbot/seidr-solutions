@@ -1,13 +1,16 @@
-string ordered_word = s;
+string anti_shuffle(string s){
     string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.length(); i++) {
-        if (s[i] == ' ' || i == s.length()) {
-            string word = s.substr(start, i - start);
+    string word = "";
+    for(char c : s){
+        if(c == ' '){
             sort(word.begin(), word.end());
-            result += word + " ";
-            start = i + 1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
