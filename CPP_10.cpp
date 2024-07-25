@@ -1,22 +1,20 @@
 #include <string>
+
 using namespace std;
 
 bool is_palindrome(string str){
-    string s(str);
-    for(int i=0;i<s.length()/2;++i)
-        if(s[i]!=s[s.length()-1-i])
-            return false;
-    return true;
+    string s(str.rbegin(),str.rend());
+    return s==str;
 }
 
 string make_palindrome(string str){
     if(is_palindrome(str))return str;
-    for(int i=str.length();i>0;--i)
+    for(int i=str.length()-1;i>=0;--i)
         if(!is_palindrome(str.substr(0,i)+str.substr(i)))
-            return str+string(str.substr(0,(i-1)/2)).reverse()+str.substr((i-1)/2);
+            return str+string(str.substr(0,i))+string(str.substr(i)).reverse();
 }
 
 int main() {
-    assert (make_palindrome("jerry") == "jerryyerri");
+    assert (make_palindrome("jerry") == "jerryyejr");
     return 0;
 }
