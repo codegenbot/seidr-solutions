@@ -1,3 +1,5 @@
+Here is the solution:
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
