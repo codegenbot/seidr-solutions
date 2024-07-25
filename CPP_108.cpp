@@ -7,6 +7,9 @@ int count_nums(vector<int> n){
             sum += temp % 10;
             temp /= 10;
         }
+        if (num < 0) {
+            sum *= -1;
+        }
         if (sum > 0) {
             count++;
         }
