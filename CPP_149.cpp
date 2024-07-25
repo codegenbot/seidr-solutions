@@ -1,4 +1,13 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool same(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -16,4 +25,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
     
     return result;
+}
+
+int renamed_main() {
+    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
