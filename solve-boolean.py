@@ -1,8 +1,8 @@
 ```
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
@@ -13,8 +13,8 @@ def solve_boolean(expression):
                 result &= True
             elif char == '|':
                 result |= True
-            elif char == 't':
+            elif char == 'T':
                 result &= True
-            elif char == 'f':
+            elif char == 'F':
                 result = False
         return result
