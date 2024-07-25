@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 
@@ -13,7 +14,6 @@ int longest(std::vector<std::string> strings){
 }
 
 int main() {
-    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    int result = longest(strings);
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == 5);
     return 0;
 }
