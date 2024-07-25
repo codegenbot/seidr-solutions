@@ -1,4 +1,4 @@
-n = int(input())
+n, = map(int, input().split())
 nums = list(map(int, input().split()))
 
 total_sum = sum(nums)
