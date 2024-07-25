@@ -8,8 +8,8 @@ def process_string(input_str: str) -> str:
     for char in input_str:
         if not char.isalnum():
             return "Error: Input contains non-alphanumeric characters."
-    for i in range(0, len(input_str), 3):
-        result += input_str[(i+1) % len(input_str)] + input_str[(i+2) % len(input_str)] + input_str[i]
+    for i in range(2, len(input_str), 3):
+        result += input_str[i] + input_str[i-1] + input_str[i-2]
     return result
 
 output_str = process_string(input_str)
