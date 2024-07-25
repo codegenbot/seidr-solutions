@@ -7,6 +7,7 @@ int main() {
     std::getline(std::cin, tweet);
     
     tweet.erase(0, tweet.find_first_not_of(" \t\n")); // remove leading whitespace
+    
     if(tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
     } else if(tweet.length() > 140) {
