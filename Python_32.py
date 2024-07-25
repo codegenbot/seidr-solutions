@@ -1,14 +1,11 @@
-while True:
-    try:
-        numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-        if not all(isinstance(num, int) for num in numbers if num != ''):
-            raise ValueError("Non-integer value provided")
-        if len(numbers) == 0:
-            raise ValueError("No numbers provided")
+try:
+    print("Enter space-separated integers:")
+    numbers = list(map(int, input().split()))
+    if not all(isinstance(num, int) for num in numbers if num != ''):
+        raise ValueError("Non-integer value provided")
         
-        total = sum(numbers)
-        print("Sum of the numbers:", total)
-        break
-
-    except ValueError as e:
-        print(f"Invalid input: {e}")
+    total = sum(numbers)
+    print(total)
+    
+except ValueError as e:
+    print(f"Invalid input: {e}")
