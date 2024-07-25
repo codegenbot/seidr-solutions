@@ -1,23 +1,16 @@
+```
 def decode_cyclic():
+    decoded_str = ""
     while True:
-        s = input("Enter a cyclically encoded string (or 'q' to quit): ")
-        if s.lower() == 'q':
+        s = input("Enter a cyclically encoded string (or 'stop' to finish): ")
+        if s.lower() == 'stop':
             break
-        if (
-            len(s) % 3 == 0
-            and all(char.isalpha() for char in s[:2])
-            and all(char.isalnum() for char in s)
-        ):
-            decoded_str = ""
+        if len(s) % 3 == 0 and all(char.isalnum() for char in s):
             for i in range(0, len(s), 3):
-                decoded_str += chr(
-                    (ord(s[i]) - ord("A")) * 3
-                    + (ord(s[i + 1]) - ord("A")) % 26
-                    + ord(s[i + 2])
-                )
-            return decoded_str
+                decoded_str += chr((ord(s[i]) - ord("A")) * 26 + (ord(s[i + 1]) - ord("A")) % 26 + ord(s[i + 2]))
         else:
-            continue
+            print("Invalid input. Please ensure the string is cyclically encoded and has a length that is a multiple of 3.")
+    return decoded_str
 
 result = decode_cyclic()
 if result is not None:
