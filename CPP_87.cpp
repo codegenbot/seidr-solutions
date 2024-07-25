@@ -1,21 +1,20 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
-using namespace std;
-
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(a[i].size() != b[i].size()) return false;
-        for(int j = 0; j<a[i].size(); j++) {
-            if(a[i][j] != b[i][j]) return false;
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) return false;
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) return false;
         }
     }
     return true;
 }
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
-    vector<vector<int>> result;
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+    std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
             for (int j = lst[i].size() - 1; j >= 0; j--) {
@@ -31,6 +30,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 }
 
 int main() {
-    assert(issame(get_row({{} ,{1} , {1, 2, 3}} , 3) , {{0, 2}}));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{0, 2}}));
     return 0;
 }
