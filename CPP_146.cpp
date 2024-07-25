@@ -8,10 +8,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    int count = specialFilter({1, 11, 21, 31, 41, 51});
-    std::cout << "Count: " << count << std::endl;
-    return 0;
-}
