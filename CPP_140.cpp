@@ -1,18 +1,20 @@
 string result = "";
-    bool hasConsecutiveSpaces = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (hasConsecutiveSpaces) {
+    bool isConsecutive = false;
+    
+    for(char c : text){
+        if(c == ' '){
+            if(isConsecutive){
                 result.pop_back();
-                result += '-';
+                result += "-";
             } else {
-                result += '_';
+                result += "_";
             }
-            hasConsecutiveSpaces = true;
+            isConsecutive = true;
         } else {
             result += c;
-            hasConsecutiveSpaces = false;
+            isConsecutive = false;
         }
     }
+    
     return result;
 }
