@@ -6,7 +6,7 @@ std::string get_closest_vowel(std::string word) {
         if (!isvowel(word[right])) {
             ++left;
         } else if (left > 0) {
-            return std::to_string(std::tolower(word[right]));
+            return std::string(1, tolower(word[right]));
         }
     }
     return "";
