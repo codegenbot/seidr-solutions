@@ -12,7 +12,8 @@ def filter_integers() -> List[int]:
             values.append(value)
         except ValueError:
             print("Invalid input. Please enter an integer or 'done'.")
-    return [i for i in values if i % 2 == 0]
+    even_numbers = [i for i in values if i % 2 == 0]
+    return even_numbers
 
 
 print(filter_integers())
