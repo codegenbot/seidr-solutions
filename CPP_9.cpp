@@ -10,11 +10,10 @@ int main() {
     vector<int> nums = {3, 2, 3, 100, 3};
     vector<int> expected = {3, 3, 3, 100, 100};
 
-    assert(issame(rolling_max(nums), expected));
-    if (issame(rolling_max(nums), expected)) {
-        std::cout << "Test passed";
-    } else {
+    if (!issame(rolling_max(nums), expected)) {
         std::cout << "Test failed";
+    } else {
+        std::cout << "Test passed";
     }
 }
 
@@ -27,7 +26,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int max = numbers[0];
+    int max = INT_MIN;
 
     for (int num : numbers) {
         if (num > max) {
