@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,19 +15,17 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     return temp;
 }
 
-int main() {
-    std::vector<int> input_arr;
-    int n, num;
-    std::cin >> n;
+std::vector<int> input_arr;
+int n, num;
+std::cin >> n;
 
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        input_arr.push_back(num);
-    }
-
-    std::vector<int> sorted_arr = sort_array(input_arr);
-    for (int num : sorted_arr) {
-        std::cout << num << " ";
-    }
-    return 0;
+for (int i = 0; i < n; ++i) {
+    std::cin >> num;
+    input_arr.push_back(num);
 }
+
+std::vector<int> sorted_arr = sort_array(input_arr);
+for (int num : sorted_arr) {
+    std::cout << num << " ";
+}
+return 0;
