@@ -1,2 +1,14 @@
-return is_sorted(begin(lst), end(lst)) && adjacent_find(begin(lst), end(lst)) == end(lst);
+for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] >= lst[i + 1]) {
+            return false;
+        }
+    }
+
+    for (int i = 0; i < lst.size(); i++) {
+        if (count(lst.begin(), lst.end(), lst[i]) > 1) {
+            return false;
+        }
+    }
+
+    return true;
 }
