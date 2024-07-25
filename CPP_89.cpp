@@ -1,21 +1,20 @@
-string encrypt(string s){
-    string result = "";
+#include <iostream>
+
+std::string encrypt(std::string s){
+    std::string encrypted = "";
     for(char c : s){
-        if(isalpha(c)){
-            char shifted = c + 2 * 2;
-            if(islower(c)){
-                if(shifted > 'z'){
-                    shifted = 'a' + (shifted - 'z' - 1);
-                }
-            } else {
-                if(shifted > 'Z'){
-                    shifted = 'A' + (shifted - 'Z' - 1);
-                }
-            }
-            result += shifted;
+        if(std::isalpha(c)){
+            char base = std::islower(c) ? 'a' : 'A';
+            char encrypted_char = ((c - base + 2) * 2) % 26 + base;
+            encrypted += encrypted_char;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
+}
+
+int main() {
+    assert (encrypt("a")=="e");
+    return 0;
 }
