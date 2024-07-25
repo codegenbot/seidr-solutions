@@ -1,35 +1,30 @@
+Here is the solution:
+
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    size_t pos = 0;
-
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        result.push_back(pos);
-        pos += target.size();
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    for(int i = 0; i <= text.size() - target.size(); i++) {
+        bool found = true;
+        for(int j = 0; j < target.size(); j++) {
+            if(text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if(found) result.push_back(i);
     }
-
     return result;
 }
 
 int main() {
-    // Your code to read input and print output
-    std::string text;
-    int n;
-    std::cin >> text >> n;
-
-    for (int i = 0; i < n; ++i) {
-        std::string target;
-        std::cin >> target;
-
-        std::vector<int> indices = indicesOfSubstring(text, target);
-
-        for (int index : indices) {
-            std::cout << index << " ";
-        }
-        std::cout << "\n";
-    }
-
+    string text, target;
+    cout << "Enter the text: ";
+    cin >> text;
+    cout << "Enter the target: ";
+    cin >> target;
+    vector<int> res = indicesOfSubstring(text, target);
+    for(int i = 0; i < res.size(); i++) cout << res[i] << " ";
     return 0;
 }
