@@ -9,7 +9,7 @@ def decode_shift(s: str):
                 shift = int(s[i-1])
                 i -= 1
             elif i > 0:
-                shift = int(result[-1])
+                shift = int(result[-1]) % 26
             else: 
                 shift = -1
             if ((ord(s[i]) - ascii_offset - shift) % 26) <= 0:
