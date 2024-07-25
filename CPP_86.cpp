@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -22,9 +21,7 @@ namespace Contest {
     }
 }
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << Contest::anti_shuffle(input) << std::endl;
+int contest_main() {
+    assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
