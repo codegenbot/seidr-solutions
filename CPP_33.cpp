@@ -1,7 +1,3 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> sort_third(vector<int> l) {
     vector<int> l_divisible_by_three;
     vector<int> l_not_divisible_by_three;
