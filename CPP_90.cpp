@@ -1,13 +1,9 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst){
-    vector<int> v = lst;
-    if(v.size() < 2) return -1; // None for empty or single element list
-    sort(v.begin(), v.end());
-    for(int i=1; i<v.size(); i++){
-        if(v[i] != v[0]) {
-            return v[i];
-        }
-    }
-    return -1; // None if all elements are the same (first one)
+vector<int> next_smallest(vector<int> lst) {
+    if (lst.empty()) return vector<int>(); // empty vector
+    sort(lst.begin(), lst.end());
+    auto it = prev(end(lst), 1);
+    if (*it == *(end(lst) - 1)) return vector<int>(); // all elements equal
+    return vector<int>({*it});
 }
