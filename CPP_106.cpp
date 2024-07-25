@@ -1,14 +1,15 @@
 vector<int> f(int n){
     vector<int> result;
-    int sum = 0;
-    int fac = 1;
+    result.push_back(1);  // index 1 is 1
+    int sum = 1;
+    int factorial = 2;
     
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            fac *= i;
-            result.push_back(fac);
+    for(int i = 2; i <= n; i++){
+        if(i % 2 == 0){
+            factorial *= i;  // Calculate factorial
+            result.push_back(factorial);
         } else {
-            sum += i;
+            sum += i;  // Calculate sum
             result.push_back(sum);
         }
     }
