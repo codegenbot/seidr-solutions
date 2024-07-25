@@ -5,8 +5,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     // function body
 }
 
-vector<int> unique_digits(std::vector<int> x) {
-    vector<int> result;
+std::vector<int> unique_digits(std::vector<int> x) {
+    std::vector<int> result;
     for (int num : x) {
         int temp = num;
         bool hasEvenDigit = false;
@@ -25,4 +25,7 @@ vector<int> unique_digits(std::vector<int> x) {
     return result;
 }
 
-assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+int main() {
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    return 0;
+}
