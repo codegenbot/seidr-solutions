@@ -6,7 +6,7 @@ int total_chars(const vector<string>& lst) {
     return total;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return total_chars(a) == total_chars(b);
 }
 
