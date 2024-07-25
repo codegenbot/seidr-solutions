@@ -16,9 +16,6 @@ def prime_fib(n):
     fib_num = fibonacci(n)
     return is_prime(fib_num)
 
-try:
-    n = int(input("Enter a number: "))
-    result = prime_fib(n)
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+n = int(input())
+result = prime_fib(n)
+print(result)
