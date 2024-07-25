@@ -4,4 +4,3 @@ def indices_of_substring(text, target):
         if text[i : i + len(target)] == target:
             indices.append(i)
     return indices
-```
