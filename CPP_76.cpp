@@ -1,6 +1,5 @@
-```cpp
 #include <cmath>
 
 bool is_simple_power(int x, int n) {
-    return pow(n, ceil(log(x)/log(n))) == x;
+    return std::pow(n, std::ceil(std::log(x)/std::log(n))) == x;
 }
