@@ -1,7 +1,7 @@
-def generate_output(numbers, delimeter):
+def generate_output(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     if numbers:
         result.append(numbers[-1])
     return result
