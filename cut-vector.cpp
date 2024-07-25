@@ -6,8 +6,10 @@ int main() {
     std::vector<int> nums;
     int num;
 
-    std::cout << "Enter positive integers separated by spaces (Ctrl + D to terminate input):" << std::endl;
-    while (std::cin >> num) {
+    while (std::cin >> num || !std::cin.eof()) {
+        if (std::cin.fail()) {
+            break;
+        }
         nums.push_back(num);
     }
 
