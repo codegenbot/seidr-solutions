@@ -2,15 +2,16 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(const std::vector<int>& lst) {
-    if (lst.size() < 2) return -1;
-    int smallest = *std::min_element(lst.begin(), lst.end());
-    for (const auto& num : lst) {
-        if (num > smallest) {
-            return num;
+int next_smallest(std::vector<int> lst) {
+    if (lst.size() < 2) return -1; 
+    std::vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (auto it = sorted.begin(); ++it != sorted.end(); ) {
+        if (*it > sorted[0]) {
+            return *it;
         }
     }
-    return -1;
+    return -1; 
 }
 
 int main() {
