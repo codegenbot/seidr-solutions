@@ -1,28 +1,18 @@
-Here is the completed code:
-
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
 int skjkasdkd(vector<int> lst) {
-    int maxPrime = -1;
-    for (int i : lst) {
-        if (isPrime(i)) {
-            if (i > maxPrime) {
-                maxPrime = i;
+    int max_prime = 0;
+    for (int num : lst) {
+        if (isPrime(num)) {
+            if (num > max_prime) {
+                max_prime = num;
             }
         }
     }
-    if (maxPrime == -1) {
-        return 0;
-    } else {
-        return sumOfDigits(maxPrime);
+    int sum_of_digits = 0;
+    while (max_prime > 0) {
+        sum_of_digits += max_prime % 10;
+        max_prime /= 10;
     }
+    return sum_of_digits;
 }
 
 bool isPrime(int num) {
