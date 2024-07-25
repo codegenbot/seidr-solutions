@@ -1,21 +1,28 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    int i = 0;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
 
-    while (i <= text.length() - target.length()) {
-        i = text.find(target, i);
-        if (i == std::string::npos) break;
-        result.push_back(i);
-        i += target.length();
+    for (int i = 0; ; i++) {
+        int j = 0;
+        while (i + j < n && j < m && text[i + j] == target[j]) {
+            if (j == m - 1) {
+                result.push_back(i);
+                i += j; // skip the matched characters to avoid duplicate matches
+                j = 0; // reset j for the next match
+            } else {
+                j++;
+            }
+        }
     }
 
     return result;
 }
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     if (b == 0)
         return a;
     else
@@ -23,13 +30,14 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    int x, y; 
+    cin >> x >> y; 
+    cout << gcd(x, y) << endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
-    for (auto i : indicesOfSubstring(text, target))
-        std::cout << i << " ";
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices)
+        cout << i << " ";
     return 0;
 }
