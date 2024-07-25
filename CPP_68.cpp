@@ -1,27 +1,36 @@
-#include <vector>
-#include <limits>
+```cpp
+using namespace std;
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if(arr.empty()) return result;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
-    int minEvenValue = std::numeric_limits<int>::max();
-    int minIndex = -1;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
 
     for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minIndex = i;
+        int count = 0;
+        for(int j = 0; j < arr.size(); j++) {
+            if(arr[j] % 2 == 0) {
+                count++;
+            }
+        }
+        
+        if(count > 0) {
+            result.push_back(i);
+        } else {
+            result.push_back(-1);
         }
     }
-
-    result.push_back(minEvenValue);
-    result.push_back(minIndex);
 
     return result;
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<int>{}); 
+    assert(issame(pluck({7, 9, 7, 1}) , {});
     return 0;
 }
