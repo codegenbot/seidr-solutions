@@ -1,19 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-bool issame(vector<string>, vector<string>);
-vector<string> separate_paren_groups(string);
-
-int rename_me() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ") ) , {"()", "(())", "(()())"}));
+int test_main() {
+    assert(issame(separate_paren_groups("( ) (( "),"{}","{(())", "(())"}"));
     return 0;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    for (string s : a) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    for (std::string s : a) {
         bool found = false;
-        for (string t : b) {
+        for (std::string t : b) {
             if (s == t) {
                 found = true;
                 break;
@@ -26,9 +24,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group = "";
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group = "";
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -41,13 +39,6 @@ vector<string> separate_paren_groups(string paren_string) {
             if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
-            }
-        } else {
-            while (open_count > 0) {
-                current_group += c;
-                open_count--;
-                if (open_count == 0)
-                    break;
             }
         }
     }
