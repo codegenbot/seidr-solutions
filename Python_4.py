@@ -19,6 +19,6 @@ while True:
             print(mean_absolute_deviation(numbers))
             break
         else:
-            print("Invalid input. Please enter at least one number.")
+            print("Please enter at least one number.")
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
