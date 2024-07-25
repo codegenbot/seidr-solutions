@@ -20,7 +20,7 @@ int count_nums(vector<int> nums) {
                         sum += num % 10;
                         is_negative = false;
                     } else {
-                        break; // no more negative digits
+                        break;
                     }
                 } else {
                     sum += num % 10;
