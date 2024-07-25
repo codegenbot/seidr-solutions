@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
-#include <cassert>
+#include <cassert> // Add this header
 
 using namespace std;
 
@@ -16,6 +16,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert((common({4, 3, 2, 8}, {}) == vector<int>{}));
+    assert(common({4, 3, 2, 8}, {}) == vector<int>{});
     return 0;
 }
