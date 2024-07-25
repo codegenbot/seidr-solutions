@@ -35,6 +35,4 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
-    assert(std::equal(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end(), {31, 135}.begin()));
-}
+assert(std::equal(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end(), {31, 135}.begin()));
