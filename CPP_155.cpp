@@ -18,11 +18,7 @@ vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool areEqual(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(areEqual(even_odd_count(0), {1, 0}));
+    assert(even_odd_count(0) == vector<int>{1, 0});
     return 0;
 }
