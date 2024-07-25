@@ -1,7 +1,6 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
-#include <functional>
 
 namespace ArrayUtils {
     bool issame(std::vector<int> a, std::vector<int> b){
@@ -25,4 +24,8 @@ namespace ArrayUtils {
 using ArrayUtils::issame;
 using ArrayUtils::sort_array;
 
-assert(issame(sort_array(std::vector<int>({21, 14, 23, 11})), std::vector<int>({23, 21, 14, 11}));
+int main() {
+    assert(issame(sort_array(std::vector<int>({21, 14, 23, 11})), std::vector<int>({23, 21, 14, 11}));
+    
+    return 0;
+}
