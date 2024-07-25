@@ -1,9 +1,31 @@
-def rescale_to_unit():
+def rescale_to_unit(input_numbers=None):
+    if input_numbers is None:
+        input_numbers = "Enter space-separated float numbers: "
+    
+    if isinstance(input_numbers, str):
+        number_list = [
+            float(x)
+            for x in input_numbers.split()
+            if x.replace(".", "", 1).replace("-", 1).isnumeric()
+        ]
+    else:
+        number_list = [float(x) for x in input_numbers]
+    
+    if isinstance(number_list[0], str):
+        raise ValueError("Invalid input. Please enter numbers.")
     while True:
-        numbers = input("Enter space-separated float numbers: ")
         try:
-            result = [(float(x) - min(map(float, numbers.split()))) / (max(map(float, numbers.split())) - min(map(float, numbers.split())))
-                      for x in numbers.split()]
-            return result
+            result = [
+                (x - min(number_list)) / (max(number_list) - min(number_list))
+                for x in number_list
+            ]
+            while True:
+                cont = input("Do you want to continue? (yes/no): ")
+                if cont.lower() == "no":
+                    return result
+                elif cont.lower() == "yes":
+                    break
+                else:
+                    print("Invalid input. Please enter yes or no.")
         except ValueError:
             print("Invalid input. Try again!")
