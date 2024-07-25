@@ -1,3 +1,4 @@
+```python
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -5,7 +6,6 @@ def is_prime(num: int) -> bool:
         if num % i == 0:
             return False
     return True
-
 
 def main():
     print("Please enter a positive integer to check if it's prime.")
@@ -19,7 +19,6 @@ def main():
                 break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-
 
 if __name__ == "__main__":
     main()
