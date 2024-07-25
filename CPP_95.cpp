@@ -1,6 +1,5 @@
 #include <map>
 #include <string>
-#include <cctype>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -41,6 +40,12 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // Test your code here
+    
+    // input code here
+    
+    bool result = check_dict_case(dict);
+    
+    cout << (result ? "True" : "False");
+    
     return 0;
 }
