@@ -1,4 +1,4 @@
-```'
+```python
 def digitSum(s):
     total = 0
     for char in s.lower():
@@ -6,4 +6,4 @@ def digitSum(s):
             total += int(char)
     return total
 
-print(digitSum("You arE Very Smart"))'
+print(digitSum("You arE Very Smart"))
