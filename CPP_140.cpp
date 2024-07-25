@@ -1,19 +1,16 @@
-int count = 0;
-    string result = "";
-    for (char c : text) {
-        if (c == ' ') {
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        int count = 1;
+        int j = i + 1;
+        while (j < text.size() && text[j] == ' ') {
             count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += "_";
-            }
+            j++;
+        }
+        if (count > 2) {
+            text.replace(i, count, "-");
         } else {
-            count = 0;
-            result += c;
+            text.replace(i, count, "_");
         }
     }
-    return result;
 }
+return text;
