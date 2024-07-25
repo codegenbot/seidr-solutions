@@ -1,9 +1,9 @@
-long long doubleTheDifference(vector<int> arr) {
-    int pos = 0;
-    for (int n : arr) {
-        if (n % 2 != 0) {
-            pos += n;
+long long doubleTheDifference(vector<int> a) {
+    long long sum = 0;
+    for (int num : a) {
+        if (num > 0 && num % 2 == 0) {
+            sum += pow(num, 2);
         }
     }
-    return abs(pos - (accumulate(arr.begin(), arr.end(), 0) - pos));
+    return abs(sum - 0);
 }
