@@ -1,9 +1,11 @@
-bool correct_bracketing(string brackets){
+int correct_bracketing(string brackets){
     int count = 0;
-    for(char c : brackets){
-        if(c == '(') count++;
-        else if(count > 0) count--;
-        else return false;
+    for(int i=0; i<brackets.length(); i++){
+        if(brackets[i] == '(') 
+            count++;
+        else if(brackets[i] == ')') 
+            count--;
+        if(count < 0) return false;
     }
-    return count == 0;
+    return (count == 0);
 }
