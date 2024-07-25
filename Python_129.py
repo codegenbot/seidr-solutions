@@ -20,8 +20,7 @@ def minPath(grid, k):
 
         if next_move is None:
             break
-
         path.append(next_move)
         visited.add((next_move // n, next_move % n))
 
-    return path
+    return [grid[position // n][position % n] for position in path]
