@@ -1,6 +1,6 @@
+#include <iostream>
 #include <string>
 #include <openssl/evp.h>
-#include <assert.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -25,4 +25,15 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(mdString);
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter text: ";
+    std::cin >> input;
+
+    std::string output = string_to_md5(input);
+    std::cout << "MD5 hash: " << output << std::endl;
+    
+    return 0;
 }
