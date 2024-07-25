@@ -1,9 +1,7 @@
-int result = -1;
-    for(int i = y; i >= x; i--){
-        if(i % 2 == 0){
-            result = i;
-            break;
+for (int i = y; i >= x; i--) {
+        if (i % 2 == 0) {
+            return i;
         }
     }
-    return result;
+    return -1;
 }
