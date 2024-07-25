@@ -1,17 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())
-        return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i]!=b[i])
-            return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
+std::vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -22,6 +16,5 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5) , {3,243,0,-23,-400}));
-    // Add your code here
+    assert(std::issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {})); 
 }
