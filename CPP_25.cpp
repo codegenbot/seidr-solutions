@@ -1,8 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    // your code here
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> factorize(int n) {
     vector<int> factors;
@@ -16,8 +14,4 @@ vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
-}
-
-int main() {
-    // your main function code here
 }
