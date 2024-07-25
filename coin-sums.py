@@ -5,9 +5,9 @@ def coin_sums(cents):
     for i in range(len(coins)):
         while cents >= coins[i]:
             cents -= coins[i]
-            result[i] += 1
+            result[i] += coins[i] // coins[i]
 
-    return result
+    return ['{:03}'.format(i) for i in result]
 
 
 cents = int(input())
