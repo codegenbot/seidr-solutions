@@ -1,4 +1,16 @@
-def decode_cyclic():
+def decode_cyclic(input_str):
+    result = ""
+    for char in input_str:
+        if char.isalpha():
+            if char.islower():
+                result += chr(((ord(char) - 97 - 3) % 26) + 97)
+            else:
+                result += chr(((ord(char) - 65 - 3) % 26) + 65)
+        else:
+            result += char
+    return result
+
+def get_valid_string():
     while True:
         input_str = input("Enter a string: ").lower().strip()
         if len(input_str) % 3 == 0 and input_str.isalnum() and len(input_str) > 0:
