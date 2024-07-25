@@ -1,9 +1,17 @@
-def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        return eval(' '.join(map(lambda x: 'True' if x == 'T' else 'False', expression)))
+def solveBoolean(expression):
+    def evaluate(expression):
+        stack = []
+        for char in reversed(expression):
+            if char == '|':
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a or b)
+            elif char == '&':
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a and b)
+            else:
+                stack.append(char == 'T')
+        return stack[0]
+
+    return evaluate(expression)
