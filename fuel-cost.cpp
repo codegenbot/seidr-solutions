@@ -1,12 +1,10 @@
 int main() {
-    int n;
+    int n, x, total = 0;
     cin >> n;
-    vector<int> nums(n);
-    int sum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-        sum += (nums[i] / 3 - 2);
+        cin >> x;
+        total += max(0, x / 3 - 2);
     }
-    cout << sum << endl;
+    cout << total << endl;
     return 0;
 }
