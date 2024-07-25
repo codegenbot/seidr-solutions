@@ -12,6 +12,11 @@ int main() {
         nums.push_back(num);
     }
 
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(INT_MAX, '\n');
+    }
+
     if (nums.empty()) {
         std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
         return 1;
