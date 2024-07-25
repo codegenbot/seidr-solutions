@@ -1,27 +1,31 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 string spinWords(string str) {
     string result = "";
-    int wordStart = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(wordStart, i - wordStart);
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
-                result += reverse(word) + " ";
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
             } else {
-                result += word + " ";
+                result += word;
             }
-            wordStart = i + 1;
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    return result.substr(0, result.length() - 1);
-}
 
-string reverse(string str) {
-    string reversed = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        reversed += str[i];
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result += word[i];
+        }
+    } else {
+        result += word;
     }
-    return reversed;
+
+    return result;
 }
