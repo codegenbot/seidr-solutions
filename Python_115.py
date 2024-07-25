@@ -1,4 +1,4 @@
-```"""
+```
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
@@ -15,4 +15,3 @@ def max_fill(grid, capacity):
                 max_filled += 1
     
     return math.ceil(total_water / capacity)
-"""
