@@ -1,9 +1,9 @@
 ```cpp
 vector<int> removeDuplicates(vector<int> l){
     sort(l.begin(), l.end());
-    vector<int> temp = l;
-    temp.erase(unique(temp.begin(), temp.end()), temp.end());
-    return temp;
+    vector<int>::iterator it = unique(l.begin(), l.end());
+    l.erase(it, l.end()); // use unique here
+    return l;
 }
 
 bool checkEquality(vector<int> a, vector<int> b) {
