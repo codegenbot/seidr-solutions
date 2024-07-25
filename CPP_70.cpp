@@ -1,27 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) return result;
-
-    int min_val = *min_element(lst.begin(), lst.end());
-    int max_val = *max_element(lst.begin(), lst.end());
+    if (lst.empty()) return result; // handle empty vector
+    
+    sort(lst.begin(), lst.end()); // sort the input vector
 
     while (!lst.empty()) {
-        auto it_min = std::find_if(lst.begin(), lst.end(),
-            [min_val](int x) { return x == min_val; });
-        if (it_min != lst.end()) {
-            result.push_back(*it_min);
-            lst.erase(it_min);
-        }
-
-        if (lst.empty()) break;
-
-        auto it_max = std::find_if(lst.begin(), lst.end(),
-            [max_val](int x) { return x == max_val; });
-        if (it_max != lst.end()) {
-            result.push_back(*it_max);
-            lst.erase(it_max);
+        result.push_back(lst[0]); // add the smallest element
+        lst.erase(lst.begin()); // remove the smallest element from the list
+        
+        if (!lst.empty()) {
+            auto it = max_element(lst.begin(), lst.end()); // find the largest remaining element
+            result.push_back(*it); // add the largest element
+            lst.erase(it); // remove the largest element from the list
         }
     }
 
     return result;
+}
+
+int main() {
+    vector<int> test1 = {1, 2, 3, 4};
+    vector<int> test2 = {5, 5, 5, 5};
+    vector<int> test3 = {};
+
+    cout << "Test 1: ";
+    for (int i : strange_sort_vector(test1)) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "Test 2: ";
+    for (int i : strange_sort_vector(test2)) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "Test 3: ";
+    for (int i : strange_sort_vector(test3)) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
