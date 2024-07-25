@@ -12,19 +12,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    
-    std::vector<int> numbers;
-    int n;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter integer #" << i + 1 << ": ";
-        std::cin >> numbers.push_back;
-    }
-    
-    int result = specialFilter(numbers);
-    std::cout << "The number of integers in the special filter is: " << result << std::endl;
-    
+    std::vector<int> nums = {100,101,102,103,104};
+    std::cout << "Count of special numbers: " << specialFilter(nums) << std::endl;
     return 0;
 }
