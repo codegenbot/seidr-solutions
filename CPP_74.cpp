@@ -1,6 +1,6 @@
 #include <string>
 
-vector<string> issame(vector<string> a, vector<string> b) {
+vector<string> issame(const vector<string>& a, const vector<string>& b) {
     int total_chars1 = 0;
     for (const string& str : a) {
         total_chars1 += str.size();
