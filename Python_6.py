@@ -1,5 +1,7 @@
 ```
 def parse_nested_parens(paren_string: str) -> int:
+    if not paren_string: 
+        return 0
     max_depth = 0
     current_depth = 0
     for char in paren_string:
