@@ -1,30 +1,19 @@
-n = int(input("Enter the value of n: "))
 def prime_fib(n):
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
-
+    fib_seq = [0, 1]
+    while len(fib_seq) <= n:
+        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+    
     def is_prime(num):
-        if num <= 1:
+        if num < 2:
             return False
-        if num <= 3:
-            return True
-        if num % 2 == 0:
-            return False
-        for i in range(3, int(num**0.5) + 1, 2):
+        for i in range(2, int(num ** 0.5) + 1):
             if num % i == 0:
                 return False
         return True
+    
+    prime_fib_seq = [num for num in fib_seq if is_prime(num)]
+    return prime_fib_seq[n]
 
-    count = 0
-    num = 1
-    while count < n:
-        num += 1
-        if is_prime(num) and num == fibonacci(count):
-            count += 1
-    return num
-
+n = int(input())
 result = prime_fib(n)
 print(result)
