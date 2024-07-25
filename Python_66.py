@@ -7,7 +7,7 @@ def digitSum(s):
             total += 2
         elif char == 'o':
             total += 1
-        elif char == 'a' or char == 'i':
+        elif char in ['a', 'i']:
             total += 3  
     return total
 
