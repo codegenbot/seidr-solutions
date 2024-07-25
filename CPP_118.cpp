@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -28,13 +29,9 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    
-    string closestVowel = get_closest_vowel(input);
-    
-    cout << "Closest vowel is: " << closestVowel << endl;
-    
+    string word;
+    cout << "Enter a word: ";
+    cin >> word;
+    cout << "The closest vowel is: " << get_closest_vowel(word) << endl;
     return 0;
 }
