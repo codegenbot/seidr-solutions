@@ -1,14 +1,16 @@
-string int_to_mini_roman(int number){
-        vector<string> roman = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
-        vector<int> values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-        string result = "";
-        
-        for (int i = 12; i >= 0; i--) {
-            while (number >= values[i]) {
-                result += roman[i];
-                number -= values[i];
-            }
+string int_to_mini_romank(int number){
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    vector<string> symbols = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+
+    string roman = "";
+    int i = 0;
+    while (number > 0) {
+        if (number >= values[i]) {
+            roman += symbols[i];
+            number -= values[i];
+        } else {
+            i++;
         }
-        
-        return result;
     }
+    return roman;
+}
