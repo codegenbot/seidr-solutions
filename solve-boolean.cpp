@@ -2,35 +2,38 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operators;
-    stack<bool> values;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'f') {
-            values.push(false);
-        } else if (expression[i] == '&') {
-            while (!operators.empty() && operators.top() != '|') {
-                bool right = values.top(); values.pop();
-                bool left = values.top(); values.pop();
-                values.push(left && right);
-                operators.pop();
-            }
-            operators.push('&');
+    bool result = true;
+    int i = 0;
+    while (i < expression.size()) {
+        if (expression[i] == 'T') {
+            return true;
+        } else if (expression[i] == 'F') {
+            return false;
         } else if (expression[i] == '|') {
-            while (!operators.empty()) {
-                if (operators.top() == '&') {
-                    operators.pop();
-                    break;
-                }
-                bool right = values.top(); values.pop();
-                bool left = values.top(); values.pop();
-                values.push(left || right);
+            result ^= true; // toggle the result
+            i++;  // skip |
+            continue;
+        } else if (expression[i] == '&') {
+            if (!result) {
+                return false;
             }
-            operators.push('|');
+            i++;  // skip &
+            continue;
         }
+        i++;
     }
+    return result;
+}
 
-    return values.top();
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
