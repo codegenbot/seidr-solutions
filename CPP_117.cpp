@@ -38,6 +38,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    // Main function logic can be added here
+    // Main function code goes here
     return 0;
 }
