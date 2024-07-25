@@ -3,10 +3,8 @@ import math
 
 
 def factorize(n: int) -> List[int]:
-    if not isinstance(n, int):
-        print("Error: Input should be an integer.")
-        return None
-    
+    if n <= 0:
+        return []
     factors = []
     i = 2
     while i * i <= n:
