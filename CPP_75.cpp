@@ -1,9 +1,14 @@
 if(a < 30) return false;
     for(int i=2; i<=a/3; i++){
-        for(int j=i+1; j<=a/2; j++){
-            int k = a / (i * j);
-            if(i*j*k == a && k > j && is_prime(i) && is_prime(j) && is_prime(k)){
-                return true;
+        if(a%i == 0){
+            int b = a/i;
+            for(int j=2; j<=b/2; j++){
+                if(b%j == 0){
+                    int c = b/j;
+                    if(c >= 2 && c <= 97 && i != j && j != c && i != c){
+                        return true;
+                    }
+                }
             }
         }
     }
