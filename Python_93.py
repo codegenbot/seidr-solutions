@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -9,15 +8,9 @@ def encode(message):
                 result += str((int(char) + 3) % 10)  
             else:
                 if char.isupper():
-                    shift = (ord(char) - ord('A')) + 3
-                    while shift > 25:
-                        shift -= 26
-                    result += chr(((shift) % 26) + ord('A'))
+                    result += chr(((ord(char) - ord('A')) + 3) % 26 + ord('A'))
                 else:
-                    shift = (ord(char) - ord('a')) + 3
-                    while shift > 25:
-                        shift -= 26
-                    result += chr(((shift) % 26) + ord('a'))
+                    result += chr(((ord(char) - ord('a')) + 3) % 26 + ord('a'))
         else:
             result += char  
     return result
