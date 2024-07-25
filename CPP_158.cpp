@@ -1,16 +1,14 @@
 string find_max(vector<string> words){
-    string result;
-    int maxUniqueChars = 0;
+    string result = "";
+    int max_unique = -1;
+    
     for (const string& word : words) {
-        int uniqueChars = 0;
-        string uniqueWord = word;
-        sort(uniqueWord.begin(), uniqueWord.end());
-        uniqueWord.erase(unique(uniqueWord.begin(), uniqueWord.end()), uniqueWord.end());
-        uniqueChars = uniqueWord.size();
-        if (uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < result)) {
-            maxUniqueChars = uniqueChars;
+        int unique_chars = set<char>(word.begin(), word.end()).size();
+        if (unique_chars > max_unique || (unique_chars == max_unique && word < result)) {
+            max_unique = unique_chars;
             result = word;
         }
     }
+    
     return result;
 }
