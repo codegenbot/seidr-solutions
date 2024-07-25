@@ -1,4 +1,3 @@
-```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
@@ -21,8 +20,13 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    // Add your test code here...
-    map<string, string> dict = {{"hello", "world"}, {"HELLO", "WORLD"}};
-    cout << (check_dict_case(dict) ? "Dictionary has only one case" : "Dictionary has both lower and upper cases");
+    map<string, string> dict;
+    // your code to populate the dictionary
+    // ...
+
+    bool result = check_dict_case(dict);
+
+    cout << "The dictionary has only one case: " << (result ? "lower" : "upper") << endl;
+
     return 0;
 }
