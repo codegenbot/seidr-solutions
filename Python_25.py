@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -24,19 +25,17 @@ def factorize(n: int) -> List[int]:
 def main():
     print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
     while True:
-        user_input = input("Enter a number: ")
+        user_input = input("Enter numbers (at least 2) to factorize. Type 'quit' to exit.\n")
         if user_input.lower() == "quit":
             break
-        try:
+        elif user_input.strip().isdigit(): 
             user_input = int(user_input)
             if user_input >= 2:
                 result = factorize(user_input)
                 print(f"The prime factors of {user_input} are: {result}")
             else:
-                print(
-                    "Invalid input. Please enter an integer greater than or equal to 2."
-                )
-        except ValueError:
+                print("Invalid input. Please enter an integer greater than or equal to 2.")
+        else:
             print("Invalid input. Please enter a valid number.")
 
 
