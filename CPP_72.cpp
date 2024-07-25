@@ -10,5 +10,9 @@ int sum = 0;
     vector<int> reversed_q = q;
     reverse(reversed_q.begin(), reversed_q.end());
     
-    return q == reversed_q;
+    if (q == reversed_q) {
+        return true;
+    } else {
+        return false;
+    }
 }
