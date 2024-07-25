@@ -1,7 +1,5 @@
-```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a,vector<int>b){
     vector<int> c = a;
@@ -36,14 +34,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
 
     return result;
-}
-
-int main(){
-    vector<int> input = {1,2,3,4};
-    // You can sort this array now
-    cout << "Sorted Array: ";
-    for(auto x : strange_sort_vector(input)){
-        cout << x << " ";
-    }
-    
 }
