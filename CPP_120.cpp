@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> maximum(const std::vector<int>& a, const int value){
     std::vector<int> result = a;
