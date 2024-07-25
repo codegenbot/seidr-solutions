@@ -1,11 +1,16 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int int b) {
-        if (bitset<64>(a).count() == bitset<64>(b).count()) {
-            return a < b;
-        }
-        return bitset<64>(a).count() < bitset<64>(b).count();
-    });
-    return arr;
+vector<int> sort_array(vector<int> arr) {
+    vector<int> result = arr;
+    sort(result.begin(), result.end(),
+         [](int a, int b) {
+             int ones_a = __builtin_popcount(a);
+             int ones_b = __builtin_popcount(b);
+             if (ones_a == ones_b)
+                 return a < b;
+             else
+                 return ones_a < ones_b;
+         });
+    return result;
 }
