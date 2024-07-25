@@ -1,7 +1,4 @@
 def prime_fib(n):
-    if n < 0:
-        return False
-
     def is_prime(num):
         if num < 2:
             return False
@@ -10,11 +7,17 @@ def prime_fib(n):
                 return False
         return True
 
+    memo = {}
+
     def fibonacci(num):
+        if num in memo:
+            return memo[num]
         if num <= 1:
             return num
         else:
-            return fibonacci(num - 1) + fibonacci(num - 2)
+            result = fibonacci(num - 1) + fibonacci(num - 2)
+            memo[num] = result
+            return result
 
     fib_num = fibonacci(n)
     return is_prime(fib_num)
