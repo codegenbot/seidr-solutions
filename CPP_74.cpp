@@ -1,14 +1,15 @@
-int sum_chars(const vector<string>& lst) {
-        int sum = 0;
-        for (const string& str : lst) {
-            sum += str.size();
-        }
-        return sum;
+int totalChars(vector<string> lst) {
+    int total = 0;
+    for (string str : lst) {
+        total += str.size();
     }
+    return total;
+}
 
-    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-        if (sum_chars(lst1) < sum_chars(lst2)) {
-            return lst1;
-        }
-        return lst2;
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (totalChars(lst1) < totalChars(lst2)) {
+        return lst1;
+    } else {
+        return totalChars(lst2) < totalChars(lst1) ? lst2 : lst1;
     }
+}
