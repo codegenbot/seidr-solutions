@@ -7,41 +7,64 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    bool in_word = false;
-    
+    string word;
+    int consonants = 0;
+
     for (char c : s) {
-        if (!in_word && isalpha(c)) {
-            in_word = true;
-            word += tolower(c);
-        } else if (in_word && !isalpha(c)) {
-            in_word = false;
-            
-            if (word.length() == n) {
+        if (c == ' ') {
+            if (consonants == n) {
                 result.push_back(word);
             }
-            
-            word = "";
-        } else if (in_word && isalpha(c)) {
-            word += tolower(c);
+            word.clear();
+            consonants = 0;
+        } else {
+            bool isConsonant = false;
+            for (char ch : "bcdfghjklmnpqrstvwxyz") {
+                if (tolower(c) == tolower(ch)) {
+                    isConsonant = true;
+                    break;
+                }
+            }
+            if (isConsonant) {
+                consonants++;
+            }
+            word += c;
         }
     }
-    
-    if (word.length() == n) {
+
+    if (consonants == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
 
 int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> words = select_words(s, n);
-    
-    for (string word : words) {
-        cout << word << endl;
+    cout << "{";
+    for (string s : select_words("Mary had a little lamb", 4)) {
+        cout << "\"" << s << "\"";
     }
-    
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : select_words("Mary had a little lamb", 3)) {
+        cout << "\"" << s << "\"";
+    }
+    cout << "}" << endl;
+
+    cout << "{}" << endl;
+
+    cout << "{";
+    for (string s : select_words("Hello world", 4)) {
+        cout << "\"" << s << "\"";
+    }
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : select_words("Uncle sam", 3)) {
+        cout << "\"" << s << "\"";
+    }
+    cout << "}" << endl;
+
     return 0;
 }
