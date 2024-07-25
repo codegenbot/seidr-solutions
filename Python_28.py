@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 from typing import List
 
@@ -10,7 +8,8 @@ if __name__ == "__main__":
     while True: 
         try: 
             num_strings = int(input("Enter the number of strings (1-9): ") or 1); break; 
-        except ValueError: pass
+        except ValueError:
+            print("Error! Please enter a number between 1 and 9.")
     if not 1 <= num_strings <= 9:
         print("Error! Please enter a number between 1 and 9.")
     else:
