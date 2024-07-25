@@ -6,4 +6,3 @@ for (size_t i = 0; i < numbers.size(); ++i) {
     }
 }
 return false;
-}
