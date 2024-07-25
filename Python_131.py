@@ -1,8 +1,6 @@
+```
 def digits(n):
     product = 1
-    found_odd = False
     for digit in str(n):
-        if int(digit) % 2 != 0:
-            product *= int(digit)
-            found_odd = True
-    return 1 if not found_odd else product
+        product *= int(digit)
+    return product
