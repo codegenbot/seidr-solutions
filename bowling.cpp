@@ -1,36 +1,24 @@
-int bowlingScore(string &s) {
+int bowling(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); ++i) {
+    int current_frame_score = 0;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            int firstRoll = stoi(s.substr(i - 1, 1));
-            int secondRoll = stoi(s.substr(i + 1, 1));
-            score += getFrameScore(firstRoll, secondRoll);
-            currentFrame++;
-            i++; // skip the '/'
+            int first_roll = stoi(s.substr(0, i));
+            int second_roll = stoi(s.substr(i + 1));
+            if (second_roll == 10) {
+                score += 10 + (current_frame_score > 1 ? 0 : 20);
+            } else {
+                score += first_roll + second_roll;
+            }
+            current_frame_score = 0;
+        } else if (s[i] != 'X') {
+            int roll = stoi(s.substr(i, 1));
+            score += roll;
+            current_frame_score += roll;
+        } else {
+            score += 10;
+            current_frame_score = 10;
         }
     }
     return score;
-}
-
-int getFrameScore(int firstRoll, int secondRoll) {
-    if (firstRoll == 10) {
-        return firstRoll + secondRoll;
-    } else if (firstRoll + secondRoll >= 10) {
-        return 10 + strikeBonus();
-    } else {
-        return firstRoll + secondRoll;
-    }
-}
-
-int strikeBonus() {
-    int bonus = 0;
-    for (int i = 0; i < 2; ++i) {
-        if (s[i + 1] == '/') {
-            bonus += getFrameScore(stoi(s.substr(i, 1)), stoi(s.substr(i + 2, 1)));
-        } else {
-            bonus += stoi(s.substr(i, 1));
-        }
-    }
-    return bonus;
 }
