@@ -1,1 +1,2 @@
-print(("Your tweet has " + str(len(input("Enter a tweet: "))) + " characters") if len(input("Enter a tweet: ")) <= 140 else ("Too many characters" if not input("Enter a tweet: ") else "You didn't type anything"))
+tweet = input("Enter a tweet: ")
+print("You didn't type anything" if not tweet else "Too many characters" if len(tweet) > 140 else f"Your tweet has {len(tweet)} characters")
