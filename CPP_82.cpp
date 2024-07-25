@@ -1,3 +1,4 @@
+```cpp
 #include<string>
 
 bool prime_length(string str){
@@ -7,6 +8,8 @@ bool prime_length(string str){
         if(n%i==0) return false;
     }
     return true;
+
+}
 
 int main(){
     assert (prime_length("0") == false);
