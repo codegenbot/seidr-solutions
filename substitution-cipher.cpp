@@ -12,6 +12,8 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
                 }
                 index++;
             }
+            if (decipheredMessage.empty())
+                decipheredMessage += message[i];
         } else {
             decipheredMessage += ' ';
         }
