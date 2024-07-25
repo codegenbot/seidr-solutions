@@ -1,28 +1,51 @@
-bool compare_one(std::any a, std::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return x > y;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = boost::any_cast<double>(a);
-        double y = boost::any_cast<double>(b);
-        return x > y;
-    } else if ((a.type() == typeid(std::string) || a.type() == typeid(std::wstring)) &&
-               (b.type() == typeid(std::string) || b.type() == typeid(std::wstring))) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return x > y;
-    } else if ((a.type() == typeid(std::string) || a.type() == typeid(std::wstring)) &&
-               (b.type() == typeid(double))) {
-        std::string x = boost::any_cast<std::string>(a);
-        double y = boost::any_cast<double>(b);
-        return std::stod(x) > y;
-    } else if ((a.type() == typeid(double)) &&
-               (b.type() == typeid(std::string) || b.type() == typeid(std::wstring))) {
-        double x = boost::any_cast<double>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return x > std::stod(y);
+#include <any>
+#include <string>
+#include <type_traits>
+
+namespace std {
+
+std::any a;
+std::any b;
+
+bool compare_one(const std::any& first, const std::any& second) {
+    if (first.type() == typeid(int) && second.type() == typeid(int)) {
+        int x = any_cast<int>(first);
+        int y = any_cast<int>(second);
+        if (x > y) return true;
+        else if (x < y) return false;
+        else return true; // Tie, returns the first value
+    } else if (first.type() == typeid(double) && second.type() == typeid(double)) {
+        double x = any_cast<double>(first);
+        double y = any_cast<double>(second);
+        if (x > y) return true;
+        else if (x < y) return false;
+        else return true; // Tie, returns the first value
+    } else if ((first.type() == typeid(std::string) || first.type() == typeid(std::wstring)) &&
+               (second.type() == typeid(std::string) || second.type() == typeid(std::wstring)))) {
+        std::string x = any_cast<std::string>(first);
+        std::string y = any_cast<std::string>(second);
+        if (x > y) return true;
+        else if (x < y) return false;
+        else return true; // Tie, returns the first value
+    } else if ((first.type() == typeid(std::string) || first.type() == typeid(std::wstring)) &&
+               (second.type() == typeid(double))) {
+        std::string x = any_cast<std::string>(first);
+        double y = any_cast<double>(second);
+        if (std::stod(x) > y) return true;
+        else if (std::stod(x) < y) return false;
+        else return true; // Tie, returns the first value
+    } else if ((first.type() == typeid(double)) &&
+               (second.type() == typeid(std::string) || second.type() == typeid(std::wstring)))) {
+        double x = any_cast<double>(first);
+        std::string y = any_cast<std::string>(second);
+        if (x > std::stod(y)) return true;
+        else if (x < std::stod(y)) return false;
+        else return true; // Tie, returns the first value
     } else {
-        return false;
+        return true; // In case of mismatched types, consider the first type as larger
     }
+}
+
+bool compare() {
+    return compare_one(a, b);
 }
