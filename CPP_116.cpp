@@ -2,25 +2,16 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> sort_array(std::vector<int> arr) {
+void sort_array(std::vector<int>& arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int count_a = __builtin_popcount(a);
-        int count_b = __builtin_popcount(b);
-        if (count_a == count_b) {
-            return a < b;
-        }
-        return count_a < count_b;
+        return __builtin_popcount(a) < __builtin_popcount(b) || (__builtin_popcount(a) == __builtin_popcount(b) && a < b);
     });
-    return arr;
 }
 
 int main() {
-    std::vector<int> sorted = sort_array({2, 4, 8, 16, 32});
-    for (int num : sorted) {
+    std::vector<int> arr = {2, 4, 8, 16, 32};
+    sort_array(arr);
+    for (int num : arr) {
         std::cout << num << " ";
     }
 
