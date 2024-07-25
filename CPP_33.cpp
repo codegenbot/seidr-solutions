@@ -1,15 +1,30 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return l_copy;
+    return true;
 }
 
-assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+bool sort_third(const vector<int>& l) {
+    vector<int> sorted_indices;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sorted_indices.push_back(i);
+        }
+    }
+    sort(sorted_indices.begin(), sorted_indices.end(), [&l](int a, int b) {
+        return l[a] < l[b];
+    });
+
+    vector<int> result = l;
+    for (int i = 0; i < sorted_indices.size(); ++i) {
+        result[sorted_indices[i]] = l[sorted_indices[i]];
+    }
+
+    return result;
+}
