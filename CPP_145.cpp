@@ -1,9 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -11,26 +8,16 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = 0, sumB = 0;
-        int tempA = abs(a), tempB = abs(b);
-        while (tempA) {
-            sumA += tempA % 10;
-            tempA /= 10;
-        }
-        while (tempB) {
-            sumB += tempB % 10;
-            tempB /= 10;
-        }
-        if (sumA == sumB) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-        }
-        return sumA < sumB;
+        int sum_a = abs(a), sum_b = abs(b);
+        while (sum_a >= 10) sum_a = sum_a / 10 + sum_a % 10;
+        while (sum_b >= 10) sum_b = sum_b / 10 + sum_b % 10;
+        if (sum_a == sum_b) return &a - &b;
+        return sum_a < sum_b;
     });
     return nums;
 }
 
 int main() {
     assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    
     return 0;
 }
