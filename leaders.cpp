@@ -1,22 +1,18 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int n = arr.size();
-    for (int i = n - 1; i >= 0; --i) {
-        bool leader = true;
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
+vector<int> leaders(vector<int>& nums) {
+    vector<int> res;
+    int n = nums.size();
+    for(int i=n-1; i>=0; i--) {
+        bool flag = true;
+        for(int j=i+1; j<n; j++) {
+            if(nums[j] >= nums[i]) {
+                flag = false;
                 break;
             }
         }
-        if (leader) {
-            result.push_back(arr[i]);
-        }
+        if(flag) res.push_back(nums[i]);
     }
-    return result;
+    return res;
 }
