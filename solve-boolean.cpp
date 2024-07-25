@@ -1,45 +1,19 @@
-Here is the solution:
-
-string solveBoolean(string expression) {
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            return "True";
-        } else if (expression[i] == '&') {
-            return "False";
+bool solveBoolean(string s) {
+    bool result = false;
+    int i = 0;
+    
+    while (i < s.size()) {
+        if (s[i] == 't') {
+            return true;
+        } else if (s[i] == 'f') {
+            return false;
+        } else if (s[i] == '|') {
+            result = true;
+            i++;
+        } else if (s[i] == '&') {
+            i++;
         }
     }
-    if (expression == "t") {
-        return "True";
-    } else if (expression == "f") {
-        return "False";
-    } else if (expression[0] == 'f' && expression[1] == '&') {
-        for (int i = 2; i < expression.size(); i++) {
-            if (expression[i] == 't') {
-                return "False";
-            }
-        }
-        return "True";
-    } else if (expression[0] == 'f' && expression[1] == '&') {
-        for (int i = 2; i < expression.size(); i++) {
-            if (expression[i] == 'f') {
-                return "False";
-            }
-        }
-        return "True";
-    } else if (expression[0] == 't' && expression[1] == '&') {
-        for (int i = 2; i < expression.size(); i++) {
-            if (expression[i] == 't') {
-                return "False";
-            }
-        }
-        return "True";
-    } else if (expression[0] == 'f' && expression[1] == '&') {
-        for (int i = 2; i < expression.size(); i++) {
-            if (expression[i] == 't') {
-                return "False";
-            }
-        }
-        return "True";
-    }
-    return "Invalid input";
+    
+    return result;
 }
