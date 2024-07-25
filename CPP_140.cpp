@@ -1,17 +1,24 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result += '-';
+string result;
+    bool prevSpace = false;
+    int spaceCount = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            spaceCount++;
+            if(spaceCount > 2){
+                if(!prevSpace){
+                    result += '-';
+                    prevSpace = true;
+                }
             } else {
                 result += '_';
             }
         } else {
-            count = 0;
             result += c;
+            prevSpace = false;
+            spaceCount = 0;
         }
     }
+    
     return result;
 }
