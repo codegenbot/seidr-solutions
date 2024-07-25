@@ -13,7 +13,7 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(2, -bouncinessIndex) * startingHeight * (2.0 + 1.0);
+        totalDistance += pow(2, -bouncinessIndex) * startingHeight * (2 + 1);
         startingHeight *= bouncinessIndex;
     }
 
