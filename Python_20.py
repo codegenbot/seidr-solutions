@@ -1,9 +1,10 @@
-try:
-    num_elements = int(input("Enter the number of elements: "))
-    numbers = [int(input()) for _ in range(num_elements)]
-    result = min(numbers, key=lambda x: abs(int(x)))
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter valid numbers.")
-except EOFError:
-    print("No input provided. Please enter valid numbers.")
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    numbers.sort()
+    min_diff = float("inf")
+    result = (0.0, 0.0)
+    for i in range(len(numbers) - 1):
+        diff = abs(numbers[i] - numbers[i + 1])
+        if diff < min_diff:
+            min_diff = diff
+            result = (numbers[i], numbers[i + 1])
+    return result
