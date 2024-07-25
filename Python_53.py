@@ -1,3 +1,4 @@
+```
 def calculate_sum():
     while True:
         try:
