@@ -27,11 +27,13 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
     return result;
 }
 
+void test_separate_paren_groups() {
+    std::string input = "((group1)(group2)(group3))";
+    std::vector<std::string> expected = {"(group1)", "(group2)", "(group3)"};
+    assert(separate_paren_groups(input) == expected);
+}
+
 int main() {
-    std::string input = "((group1)(group2))(group3)";
-    std::vector<std::string> expected_output = {"(group1)", "(group2)", "(group3)"};
-    
-    assert(separate_paren_groups(input) == expected_output);
-    
+    test_separate_paren_groups();
     return 0;
 }
