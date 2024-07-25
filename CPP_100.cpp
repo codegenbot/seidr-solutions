@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> stonesGenerator(int n) {
+vector<int> stones(int n) {
     vector<int> stones;
     stones.push_back(n);
     for (int i = 1; i < n; ++i) {
