@@ -1,7 +1,2 @@
-def add(x, y):
+def add(x: str, y: str) -> int:
     return int(x) + int(y)
-
-x = input()
-y = input()
-result = add(x, y)
-print(result)
