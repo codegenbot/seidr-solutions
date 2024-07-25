@@ -1,15 +1,13 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) {
+bool std::operator==(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size())
         return false;
-    }
-    for(size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (size_t i = 0; i < a.size(); ++i)
+        if (std::abs(a[i] - b[i]) > 1e-6f)
             return false;
-        }
-    }
     return true;
 }
 
