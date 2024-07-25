@@ -8,16 +8,13 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 if __name__ == "__main__":
     try:
-        user_input = [input("Enter a string: ") or '']
-        if not user_input:
-            print("No input provided. Please enter the required inputs.")
-        else:
-            while True:
-                user_string = input("Enter a string (or 'stop' to finish): ")
-                if user_string.lower() == 'stop':
-                    break
-                user_input.append(user_string)
-            substring = input("Enter the substring: ")
-            print(filter_by_substring(user_input, substring))
+        user_input = []
+        while True:
+            user_string = input("Enter a string (or 'stop' to finish): ")
+            if user_string.lower() == 'stop':
+                break
+            user_input.append(user_string or '')
+        substring = input("Enter the substring: ")
+        print(filter_by_substring(user_input, substring))
     except EOFError:
         print("No input provided. Please enter the required inputs.")
