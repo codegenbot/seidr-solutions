@@ -2,31 +2,34 @@
 #include <string>
 #include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int b_int = std::stoi(b.convert_to<std::string>());
-        return (int)a > b_int ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (b.convert_to<string>()) > to_string((int)a.convert_to<int>()) ? b : "None";
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b.convert_to<string>();
+        size_t pos = str.find(',');
+        float num = stof(str.substr(0, pos));
+        return (float)a.convert_to<float>() > num ? a : "None";
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        int b_int = (int)b;
-        return std::stoi(a.convert_to<std::string>()) > b_int ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return (string)a.convert_to<string>() > to_string((int)b.convert_to<int>()) ? a : "None";
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        float b_float = (float)b;
-        return std::stoi(a.convert_to<std::string>()) > b_float ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = (string)a.convert_to<string>();
+        size_t pos = str.find(',');
+        float num = stof(str.substr(0, pos));
+        return (float)b.convert_to<float>() > num ? b : "None";
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return std::stoi(a.convert_to<std::string>()) > std::stoi(b.convert_to<std::string>()) ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (string)a.convert_to<string>() > (string)b.convert_to<string>() ? a : "None";
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
