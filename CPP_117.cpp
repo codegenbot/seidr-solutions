@@ -1,48 +1,23 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            if (countVowels(word) == 0 || countConsonants(word) == n) {
-                if (countVowels(word) == 0) {
-                    result.push_back(word);
-                }
-                word = "";
+    string word;
+    for (char c : s + ' ') {
+        if (c == ' ') {
+            if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
+                count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
+                count(word.begin(), word.end(), 'u') <= n) {
+                result.push_back(word);
             }
-        }
-    }
-    if (countVowels(word) == 0 || countConsonants(word) == n) {
-        if (countVowels(word) == 0) {
-            result.push_back(word);
+            word = "";
+        } else {
+            word += tolower(c);
         }
     }
     return result;
-}
-
-int countVowels(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-            || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-            count++;
-        }
-    }
-    return count;
-}
-
-int countConsonants(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (!isVowel(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-bool isVowel(char c) {
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-            || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
