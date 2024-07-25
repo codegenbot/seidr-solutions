@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -7,11 +6,20 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 if __name__ == "__main__":
+    filename = "input.txt"
     try:
-        input_strings = [line.strip() for line in input().splitlines()]
-        substring = input()
-        print(filter_by_substring(input_strings, substring))
-    except EOFError:
+        with open(filename, "r") as f:
+            input_data = f.read().splitlines()
+            if len(input_data) > 0 and len(input_data[-1]) > 0:
+                strings = [s.strip() for s in input_data[:-1]]
+                substring = input_data[-1].strip()
+                print(filter_by_substring(strings, substring))
+            else:
+                print(
+                    "Invalid input. Please provide at least one string and a valid substring."
+                )
+                exit()
+    except FileNotFoundError:
         print(
-            "No input provided. Please enter the required inputs."
+            "File not found. Please run this script from the same directory as the file."
         )
