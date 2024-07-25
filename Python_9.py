@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List, Tuple
 
+
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
     max_deque = deque()
@@ -13,5 +14,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
     return result
 
+# Read input as list of integers
 numbers = list(map(int, input().split()))
+
+# Call the function with the input and print the result
 print(rolling_max(numbers))
