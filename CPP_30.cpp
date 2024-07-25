@@ -1,7 +1,7 @@
-vector<float> result;
-    for(auto num : l){
-        if(num > 0){
-            result.push_back(num);
+vector<float> positive_numbers;
+    for (float num : l) {
+        if (num > 0) {
+            positive_numbers.push_back(num);
         }
     }
-    return result;
+    return positive_numbers;
