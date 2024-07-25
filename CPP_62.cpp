@@ -21,7 +21,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-int main() {
+int main2() {
     assert(issame(std::vector<float>({1}), std::vector<float>{}));
     return 0;
 }
