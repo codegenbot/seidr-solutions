@@ -1,6 +1,6 @@
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
+    for(char c : s){
         switch (tolower(c)) {
             case 'a':
             case 'e':
@@ -10,7 +10,7 @@ int vowels_count(string s) {
                 count++;
                 break;
             case 'y':
-                if (s[s.length() - 1] == c)
+                if(s.find('y') == s.size() - 1)
                     count++;
                 break;
         }
