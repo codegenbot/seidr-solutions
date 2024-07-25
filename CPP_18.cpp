@@ -1,9 +1,11 @@
-int how_many_times(string str, string substring){
-    int count = 0;
-    size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != string::npos) {
-        ++count;
-        pos += 1;
+int count = 0;
+    if (substring.empty()) {
+        return 0;
+    }
+    for (size_t i = 0; i <= str.length() - substring.length(); ++i) {
+        if (str.substr(i, substring.length()) == substring) {
+            ++count;
+        }
     }
     return count;
 }
