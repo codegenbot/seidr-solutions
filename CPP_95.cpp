@@ -8,13 +8,11 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (!isalpha(pair.first[0])) {
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             allLower = false;
             allUpper = false;
             break;
-        }
-
-        if (!allLower && !allUpper) {
+        } else if (!allLower && !allUpper) {
             break;
         }
 
