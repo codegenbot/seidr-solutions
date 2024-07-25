@@ -1,10 +1,11 @@
 #include <iostream>
+#include <vector>
+#include <climits>
 
 int main() {
     std::vector<int> nums;
     int num;
 
-    // Read and store input numbers until end of file
     while (std::cin >> num) {
         nums.push_back(num);
     }
@@ -29,7 +30,6 @@ int main() {
         }
     }
 
-    // Output the two resulting subvectors
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << " ";
     }
