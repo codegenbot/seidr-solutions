@@ -7,19 +7,17 @@ int fruit_distribution(string s, int n) {
     int apples = 0, oranges = 0;
     
     while ((pos = s.find("apples", pos)) != string::npos) {
-        if (s.substr(pos, "apples".length()).find("and") == string::npos) {
-            apples = stoi(s.substr(0, pos).substr(s.find(" ") + 1));
+        if (s.substr(pos).find("and") == string::npos)
             break;
-        }
-        pos = s.find("apples", pos + 1);
+        apples = stoi(s.substr(0, pos - 1));
+        break;
     }
     
     while ((pos = s.find("oranges", pos)) != string::npos) {
-        if (s.substr(pos, "oranges".length()).find("and") == string::npos) {
-            oranges = stoi(s.substr(0, pos).substr(s.find(" ") + 1));
+        if (s.substr(pos).find("and") == string::npos)
             break;
-        }
-        pos = s.find("oranges", pos + 1);
+        oranges = stoi(s.substr(0, pos - 7));
+        break;
     }
     
     return n - apples - oranges;
