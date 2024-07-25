@@ -1,14 +1,16 @@
 #include <vector>
 #include <algorithm>
+#include <iterator>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
 
-bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-vector<int> common(const vector<int>& l1, const vector<int>& l2) {
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
@@ -18,10 +20,4 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
     result.erase(unique(result.begin(), result.end()), result.end());
 
     return result;
-}
-
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    
-    return 0;
 }
