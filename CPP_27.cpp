@@ -1,8 +1,28 @@
-for(int i = 0; i < str.length(); i++) {
-    if(str[i] >= 'a' && str[i] <= 'z') {
-        str[i] -= ('a' - 'A');
-    } else if(str[i] >= 'A' && str[i] <= 'Z') {
-        str[i] += ('a' - 'A');
+Here is the completed code:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+string flip_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        char c = str[i];
+        if(c >= 'a' && c <= 'z')
+            result += (char)(c - 32);
+        else if(c >= 'A' && c <= 'Z')
+            result += (char)(c + 32);
+        else
+            result += c;
     }
+    return result;
 }
-return str;
+
+int main(){
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    string res = flip_case(str);
+    cout << "Flip case of the input string is: " << res << endl;
+    return 0;
+}
