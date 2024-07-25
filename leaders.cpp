@@ -4,15 +4,18 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
+    for (int i = n - 1; i >= 0; i--) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
                 break;
             }
         }
-        if(leader) result.push_back(arr[i]);
+        if (isLeader) {
+            result.push_back(arr[i]);
+        }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
