@@ -1,10 +1,17 @@
+```
 from typing import List
 
 def get_names() -> List[str]:
     names = []
 
     while True:
-        num_names = int(input("Enter the number of names (or 0 to finish): "))
+        num_names = input("Enter the number of names (or 0 to finish): ")
+
+        try:
+            num_names = int(num_names)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
 
         if num_names == 0:
             break
