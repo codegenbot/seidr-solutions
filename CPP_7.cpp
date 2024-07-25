@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
@@ -15,7 +13,7 @@ vector<vector<string>> filter_by_substring(vector<string> str, string substr) {
     vector<vector<string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({s});
+            result.push_back({{s}});
         }
     }
     return result;
