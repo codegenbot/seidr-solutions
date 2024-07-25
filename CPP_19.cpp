@@ -15,16 +15,20 @@ string sort_numbers(string numbers){
     vector<string> num_strings;
     stringstream ss(numbers);
     string token;
+    
     while (ss >> token) {
         num_strings.push_back(token);
     }
+    
     sort(num_strings.begin(), num_strings.end(), [&](const string &a, const string &b) {
         return num_map[a] < num_map[b];
     });
-    string result;
+    
+    string sorted_numbers;
     for (const string &num_str : num_strings) {
-        result += num_str + " ";
+        sorted_numbers += num_str + " ";
     }
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+    
+    sorted_numbers.pop_back(); // Remove extra space at the end
+    return sorted_numbers;
 }
