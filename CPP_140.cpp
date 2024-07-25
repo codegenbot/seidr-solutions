@@ -1,20 +1,18 @@
-bool prev_space = false;
-    string result = "";
-    
-    for(char c : text){
-        if(c == ' '){
-            if(prev_space){
-                result.pop_back(); // remove last space
-                result += "-";
+string result;
+    bool consecutiveSpaces = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (consecutiveSpaces) {
+                result.pop_back();
+                result.push_back('-');
             } else {
-                result += "_";
-                prev_space = true;
+                result.push_back('_');
+                consecutiveSpaces = true;
             }
         } else {
-            result += c;
-            prev_space = false;
+            result.push_back(c);
+            consecutiveSpaces = false;
         }
     }
-    
     return result;
 }
