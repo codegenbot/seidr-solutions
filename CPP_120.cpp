@@ -22,11 +22,10 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main_function() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5) , {3,243,0,-23,-400}));
-}
-
 int main() {
-    main_function();
+    int k = 5;
+    vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
+    vector<int> result = maximum(arr, k);
+    assert(issame(result , {3,243,0,-23,-400}));
     return 0;
 }
