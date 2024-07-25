@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 vector<int> pluck(vector<int> arr) {
