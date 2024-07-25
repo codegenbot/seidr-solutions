@@ -28,6 +28,8 @@ def main():
         user_input = input()
         if user_input.strip().lower() == "quit":
             break
+        if not user_input.strip():
+            continue
         try:
             user_input = int(user_input)
             if user_input > 0:
@@ -35,6 +37,7 @@ def main():
                 print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+    return
 
 
 if __name__ == "__main__":
