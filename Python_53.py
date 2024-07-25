@@ -1,18 +1,10 @@
-Here is the modified code:
-
-```python
 def calculate_sum():
     while True:
         try:
             x = int(input("Enter first number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-    
-    while True:
-        try:
             y = int(input("Enter second number: "))
-            print(x + y)
-            return
+            print(f"Sum is: {x + y}")
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print("Invalid input. Please enter valid integers.")
+
+calculate_sum()
