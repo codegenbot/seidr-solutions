@@ -1,7 +1,4 @@
 ```
-n = int(input())
-input_lst = list(map(int, input().split() for _ in range(n)))
-print(search(input_lst))
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -14,3 +11,10 @@ def search(lst):
         if key > 0 and value >= key:
             max_num = key
     return max_num
+
+input_str = input().strip()
+try:
+    input_lst = list(map(int, input_str.split()))
+    print(search(input_lst))
+except ValueError:
+    print("Invalid input. Please enter a list of integers separated by spaces.")
