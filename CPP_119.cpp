@@ -1,39 +1,16 @@
-int count_open(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            if (count > 0) {
-                count--;
-            } else {
-                return -1; // mismatched parentheses
-            }
-        }
-    }
-    return count;
-}
-
 string match_parens(vector<string> lst) {
-    int open = count_open(lst[0]);
-    int close = count_of(lst, ')') - count_of(lst, '(');
-    if (open + close == 0) {
-        return "Yes";
-    } else if (open == 0 && close % 2 == 1) {
-        return "No";
-    } else {
-        return "Yes";
-    }
-}
+    string s1 = lst[0], s2 = lst[1];
+    int open1 = 0, close1 = 0;
+    int open2 = 0, close2 = 0;
 
-int count_of(vector<string> lst, char c) {
-    int count = 0;
-    for (string s : lst) {
-        for (char ch : s) {
-            if (ch == c) {
-                count++;
-            }
-        }
+    for (char c : s1) {
+        if (c == '(') open1++;
+        else close1++;
     }
-    return count;
+    for (char c : s2) {
+        if (c == '(') open2++;
+        else close2++;
+    }
+
+    return (open1 + close2) == (close1 + open2) ? "Yes" : "No";
 }
