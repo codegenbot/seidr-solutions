@@ -1,9 +1,14 @@
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // None equivalent in C++
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    for (int i = 0; i < sorted_lst.size() - 1; i++) {
-        if (sorted_lst[i] != sorted_lst[i + 1]) return sorted_lst[i + 1];
+    if (lst.empty()) return -1; // or any value that represents None
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
+        }
     }
-    return -1; // No next smallest element, return None equivalent
+    return -1; // or any value that represents None
 }
