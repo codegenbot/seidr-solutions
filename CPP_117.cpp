@@ -3,13 +3,13 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
-    std::string word;
+vector<string> select_words(string s, int n) {
+    vector<string> words;
+    string word;
     
     for (char c : s) {
         if (isalpha(c)) {
@@ -17,20 +17,20 @@ std::vector<std::string> select_words(std::string s, int n) {
                 word += c;
             } else {
                 word += c;
-                if (std::count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+                if (count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
                     words.push_back(word);
                 }
                 word = "";
             }
         } else if (!word.empty()) {
-            if (std::count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+            if (count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
                 words.push_back(word);
             }
             word = "";
         }
     }
     
-    if (!word.empty() && std::count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
+    if (!word.empty() && count_if(word.begin(), word.end(), [](char x) { return isalpha(x) && tolower(x) != 'a' && tolower(x) != 'e' && tolower(x) != 'i' && tolower(x) != 'o' && tolower(x) != 'u'; }) == n) {
         words.push_back(word);
     }
     
@@ -38,6 +38,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    // Main function code goes here
+    // Your main function code here
     return 0;
 }
