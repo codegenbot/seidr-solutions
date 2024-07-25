@@ -1,21 +1,26 @@
-```
 #include <algorithm>
 #include <vector>
 #include <iostream>
 #include <initializer_list>
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
     return true;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
+    if (lst.empty()) {
+        return result;
+    }
     
-    while (!lst.empty()) {
+    sort(lst.begin(), lst.end());
+    result.push_back(*min_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+    
+    while (!issame(lst, {}) && !lst.empty()) {
         sort(lst.begin(), lst.end());
         result.push_back(*min_element(lst.begin(), lst.end()));
         lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
@@ -36,4 +41,5 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
+    return 0;
 }
