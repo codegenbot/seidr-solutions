@@ -1,13 +1,16 @@
+#include <vector>
 #include <algorithm>
+#include <functional>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+using namespace std;
+
+vector<int> maximum(const vector<int>& arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
+    return vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
-    assert (issame(*max_element({1, 2, 3, -23, 243, -400, 0}), {}));
-    
-    sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
+    assert(issame(maximum(vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    return 0;
 }
