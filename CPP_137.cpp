@@ -1,20 +1,18 @@
-#include <iostream>
 #include <any>
+#include <string>
 
-std::any compare_one(std::string str, int i) {
-    if (i > 5) {
-        return std::any(str + " is greater than 5");
-    } else if (i < 2) {
-        return std::any(str + " is less than 2");
+std::string compare_one(const std::string& s, int i) {
+    if (i > stoi(s)) {
+        return s;
+    } else if (i < stoi(s)) {
+        return std::to_string(i);
     } else {
-        return std::any(str + " is between 2 and 5");
+        return s;
     }
 }
 
 int main() {
-    if (true) {  
-        auto result = compare_one("Test", 3);
-        std::cout << "Result: " << std::any_cast<std::string>(result) << std::endl;
-    }
-    return 0;
+    string a, b;
+    cin >> a >> b;
+    cout << compare_one(a,stoi(b)) << endl;
 }
