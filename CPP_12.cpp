@@ -1,19 +1,20 @@
-```cpp
 #include <vector>
 #include <string>
 
 std::string longest(const std::vector<std::string>& strings) {
-    std::string result = strings[0];
-    for (const auto& s : strings) {
-        if (s.length() > result.length()) {
-            result = s;
+    if (strings.empty()) {
+        return "";
+    }
+    std::string longest = strings[0];
+    for (const auto& str : strings) {
+        if (str.length() > longest.length()) {
+            longest = str;
         }
     }
-    return result;
+    return longest;
 }
 
 int main() {
-    std::vector<std::string> strings = {"x", "yyy", "zzzz", "www", "kkkk", "abc"};
-    assert(longest(strings) == "zzzz");
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
