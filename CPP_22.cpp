@@ -1,12 +1,9 @@
-#include <algorithm>
-
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for (const auto& value : values) {
-        if (any_cast<int>(value).none()) {
-            continue;
+    for (auto& value : values) {
+        if (any_cast<int>(value).second) {
+            result.push_back(any_cast<int>(value).first);
         }
-        result.push_back(any_cast<int>(value));
     }
     return result;
 }
