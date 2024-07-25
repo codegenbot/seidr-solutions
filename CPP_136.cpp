@@ -1,15 +1,5 @@
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -29,13 +19,13 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main(){
-    // Sample code to test the functions
-    vector<int> nums = {3, -5, 2, -8, 10, -4};
-    auto result = largest_smallest_integers(nums);
-    
+    // Example usage
+    vector<int> input = {3, -5, 2, -8, 7};
+    vector<int> result = largest_smallest_integers(input);
+
     for(int num : result){
         cout << num << " ";
     }
-    
+
     return 0;
 }
