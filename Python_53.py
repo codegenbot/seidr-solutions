@@ -1,5 +1,7 @@
-x, y = input().split()
 def add(x, y):
-    x = int(x)
-    y = int(y)
-    return x + y
+    return int(x) + int(y)
+
+x = input()
+y = input()
+result = add(x, y)
+print(result)
