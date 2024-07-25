@@ -7,4 +7,5 @@ def rolling_max(numbers):
             max_values.append(max(numbers[i - 1], numbers[i]))
         else:
             max_values.append(max(numbers[i - 1], numbers[i], numbers[i + 1]))
+
     return max_values
