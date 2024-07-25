@@ -12,7 +12,7 @@ int main() {
         nums.push_back(num);
     }
 
-    if (std::cin.fail()) {
+    if (nums.empty()) {
         std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
         return 1;
     }
@@ -39,11 +39,11 @@ int main() {
 
     // Output the two resulting subvectors
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
 
     return 0;
