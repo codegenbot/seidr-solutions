@@ -18,3 +18,7 @@ def decode_shift(s: str):
             result += s[i]
         i += 1
     return result
+
+if __name__ == "__main__":
+    user_input = input("Enter your string: ")
+    print(decode_shift(user_input))
