@@ -43,7 +43,7 @@ vector<string> by_length(vector<int> arr) {
                     result.push_back("Nine");
             }
         } else {
-            string temp = "Zero";
+            string temp = "";
             if (num >= 10 && num <= 19) {
                 switch (num) {
                     case 10:
@@ -77,71 +77,51 @@ vector<string> by_length(vector<int> arr) {
                         temp = "Nineteen";
                 }
             } else if (num >= 20 && num <= 99) {
-                string tens = "";
                 switch (num / 10) {
                     case 2:
-                        tens = "Twenty";
+                        temp += "Twenty-";
                         break;
                     case 3:
-                        tens = "Thirty";
+                        temp += "Thirty-";
                         break;
                     case 4:
-                        tens = "Forty";
+                        temp += "Forty-";
                         break;
                     case 5:
-                        tens = "Fifty";
+                        temp += "Fifty-";
                         break;
                     case 6:
-                        tens = "Sixty";
+                        temp += "Sixty-";
                         break;
                     case 7:
-                        tens = "Seventy";
+                        temp += "Seventy-";
                         break;
                     case 8:
-                        tens = "Eighty";
+                        temp += "Eighty-";
                         break;
                     case 9:
-                        tens = "Ninety";
+                        temp += "Ninety-";
                 }
-                temp += tens;
                 if (num % 10 != 0) {
-                    temp += "-" + to_string(num % 10);
+                    temp += to_string(num % 10);
                 }
-            } else if (num >= 100 && num <= 999) {
-                string hundreds = "";
+            } else {
                 switch (num / 100) {
                     case 1:
-                        hundreds = "One Hundred";
+                        temp = "One Hundred";
                         break;
                     case 2:
-                        hundreds = "Two Hundred";
+                        temp = "Two Hundred";
                         break;
                     case 3:
-                        hundreds = "Three Hundred";
+                        temp = "Three Hundred";
                         break;
                     case 4:
-                        hundreds = "Four Hundred";
+                        temp = "Four Hundred";
                         break;
                     case 5:
-                        hundreds = "Five Hundred";
+                        temp = "Five Hundred";
                         break;
-                    case 6:
-                        hundreds = "Six Hundred";
-                        break;
-                    case 7:
-                        hundreds = "Seven Hundred";
-                        break;
-                    case 8:
-                        hundreds = "Eight Hundred";
-                        break;
-                    case 9:
-                        hundreds = "Nine Hundred";
-                }
-                temp += hundreds;
-                if (num % 100 != 0) {
-                    temp += " and ";
-                    string rest = to_string(num % 100);
-                    temp += by_length({stoi(rest)}).at(0);
                 }
             }
 
@@ -150,19 +130,4 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<string> names = by_length(numbers);
-    for (string name : names) {
-        cout << name << endl;
-    }
-    if (issame(names, {"One", "Two", "Three", "Four", "Five"})) {
-        cout << "The two lists are the same." << endl;
-    } else {
-        cout << "The two lists are not the same." << endl;
-    }
-    
-    return 0;
 }
