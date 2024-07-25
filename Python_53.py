@@ -2,15 +2,27 @@ def calculate_sum():
     while True:
         print("Please enter two integers separated by a space.")
         try:
-            input_str = input("Enter first and second numbers: ")
-            if len(input_str.split()) != 2:
+            x, y = map(int, input("Enter first and second numbers: ").split())
+            if not (isinstance(x, int) and isinstance(y, int)):
                 raise ValueError
-            x, y = map(int, input_str.split())
             print(f"Sum is: {x + y}")
             choice = input("Do you want to continue? (yes/no): ")
-            if choice.lower() != 'yes':
-                break
+            while True:
+                if choice.lower() != "yes":
+                    response = input("Are you sure? (yes/no): ")
+                    if response.lower() == "no":
+                        break
+                    elif response.lower() == "yes":
+                        break
+                    else:
+                        print("Invalid input. Please enter valid inputs.")
+                else:
+                    break
         except ValueError:
             print("Invalid input. Please enter valid integers.")
+        choice = input("Do you want to continue? (yes/no): ")
+        if choice.lower() != "no":
+            break
+
 
 calculate_sum()
