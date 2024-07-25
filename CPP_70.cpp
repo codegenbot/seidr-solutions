@@ -1,22 +1,13 @@
-#include <algorithm>
-#include <vector>
-
-using namespace std;
-
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
-    
+
+    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        auto minIt = min_element(lst.begin(), lst.end());
-        auto maxIt = max_element(lst.begin(), lst.end());
-        
-        result.push_back(*minIt);
-        lst.erase(minIt);
+        result.push_back(lst.back());
+        lst.pop_back();
         if (!lst.empty())
-            result.push_back(*max_element(lst.begin(), lst.end()));
-        lst.erase(max_element(lst.begin(), lst.end()) - lst.begin());
+            sort(lst.begin(), lst.end());
     }
-    
     return result;
 }
