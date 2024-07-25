@@ -1,6 +1,4 @@
-def double_the_difference(lst):
-    return sum(x**2 for x in lst if x > 0 and x % 2 != 0)
+lst = list(map(int, input().split()))
 
-# Example call with a list as input
-odd_sum = double_the_difference([1, 2, -3, 4, 5])
-print(odd_sum)
+def double_the_difference(lst):
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0) if lst else 0
