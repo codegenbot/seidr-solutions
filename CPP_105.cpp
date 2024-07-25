@@ -1,10 +1,11 @@
+```c
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i]) return false;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -43,7 +44,7 @@ vector<string> by_length(vector<int> arr) {
                     result.push_back("Nine");
             }
         } else {
-            string temp = "";
+            string temp = "Zero";
             if (num >= 10 && num <= 19) {
                 switch (num) {
                     case 10:
@@ -75,32 +76,33 @@ vector<string> by_length(vector<int> arr) {
                         break;
                     case 19:
                         temp = "Nineteen";
+                        break;
                 }
             } else if (num >= 20 && num <= 99) {
                 switch (num / 10) {
                     case 2:
-                        temp += "Twenty-";
+                        temp = "Twenty-";
                         break;
                     case 3:
-                        temp += "Thirty-";
+                        temp = "Thirty-";
                         break;
                     case 4:
-                        temp += "Forty-";
+                        temp = "Forty-";
                         break;
                     case 5:
-                        temp += "Fifty-";
+                        temp = "Fifty-";
                         break;
                     case 6:
-                        temp += "Sixty-";
+                        temp = "Sixty-";
                         break;
                     case 7:
-                        temp += "Seventy-";
+                        temp = "Seventy-";
                         break;
                     case 8:
-                        temp += "Eighty-";
+                        temp = "Eighty-";
                         break;
                     case 9:
-                        temp += "Ninety-";
+                        temp = "Ninety-";
                 }
                 if (num % 10 != 0) {
                     temp += to_string(num % 10);
@@ -114,4 +116,8 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
 }
