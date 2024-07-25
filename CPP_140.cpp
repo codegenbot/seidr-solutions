@@ -1,6 +1,5 @@
-string result = "";
-    int consecutive_spaces = 0;
-    
+int consecutive_spaces = 0;
+    string result = "";
     for (char c : text) {
         if (c == ' ') {
             consecutive_spaces++;
@@ -16,6 +15,5 @@ string result = "";
             result += c;
         }
     }
-    
     return result;
 }
