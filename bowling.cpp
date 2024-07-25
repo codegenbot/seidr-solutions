@@ -1,6 +1,5 @@
-using namespace std;
-
-int bowlingScore(string s) {
+```cpp
+int bowlingScore(std::string s) {
     int score = 0;
     int i = 0;
     while (i < s.size()) {
@@ -25,3 +24,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
