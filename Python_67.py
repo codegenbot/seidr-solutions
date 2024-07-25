@@ -3,5 +3,6 @@ def fruit_distribution(s, n):
     parts = s.split()
     total_count = 0
     for i in range(len(parts)):
-        total_count += sum(int(x) for x in parts[i] if x.isdigit())
-    return n - total_count
+        words = [x for x in parts[i].split() if x.isdigit()]
+        total_count += sum(int(word) for word in words)
+    return n - total_count - int(s.count('1')) - int(s.count('0'))
