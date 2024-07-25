@@ -1,18 +1,5 @@
-```cpp
 #include <map>
 #include <string>
-
-int main() {
-    map<string, string> dict;
-    // Add your logic here to populate the dictionary.
-    bool result = check_dict_case(dict);
-    if (result) {
-        cout << "All keys in the dictionary are either all lowercase or all uppercase." << endl;
-    } else {
-        cout << "The dictionary contains a mix of both lowercase and uppercase keys." << endl;
-    }
-    return 0;
-}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -49,4 +36,11 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allLower || allUpper;
+}
+
+int main() {
+    map<string, string> dict;
+    // test your function here
+    cout << check_dict_case(dict);
+    return 0;
 }
