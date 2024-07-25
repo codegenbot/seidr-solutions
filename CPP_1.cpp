@@ -1,13 +1,16 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 
 int test_main() {
-    std::vector<std::string> expected = {"", "( "}, {" (");
-    assert(separate_paren_groups("( ) (( ") == expected);
-    return 0;
+    std::vector<std::string> expected = {"", "( "}, {" ("};
+    if (separate_paren_groups("( ) (( ")) == expected) {
+        return 0;
+    } else {
+        return -1;
+    }
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
