@@ -1,37 +1,18 @@
-int bowlingScore(string s) {
+int bowlingScore(string frames) {
     int score = 0;
-    bool lastRoll = false;
-    
-    for (int frame = 1; frame <= 10; frame++) {
-        if (s.length() >= 2 && s.substr(0, 2) == "X ") {
-            score += 10;
-            s.erase(0, 2);
-            lastRoll = true;
-        } else if (s[0] == '/') {
-            int strikePoints = 10 - (s[1] - '0');
-            score += 10 + strikePoints;
-            s.erase(0, 3);
-            lastRoll = false;
-        } else if (s[0] != 'X') {
-            int points = (s[0] - '0') + (s[1] - '0');
-            score += points;
-            s.erase(0, 2);
-            lastRoll = false;
-        }
-        
-        if (!lastRoll && s.length() > 0) {
-            if (s[0] == 'X') {
-                score += 10;
-                s.erase(0, 1);
-                lastRoll = true;
-            } else if (s[0] != '/') {
-                int points = (s[0] - '0');
-                score += points;
-                s.erase(0, 1);
-                lastRoll = false;
+    for (int i = 0; i < 10; i++) {
+        if (frames[i] == 'X') { // strike
+            score += 10 + bowlingScore(frames.substr(i+1, 2));
+        } else if (frames[i] == '/') { // spare
+            score += 10 - frames[i+1]-'0'-'0';
+            i++;
+        } else {
+            int framePoints = frames[i]-'0'*10 + frames[i+1]-'0';
+            score += framePoints;
+            if (i < 8 && frames[i+2] != 'X' && frames[i+2] != '/') { // open frame
+                score += min(frames[i]-'0',frames[i+1]-'0');
             }
         }
     }
-    
     return score;
 }
