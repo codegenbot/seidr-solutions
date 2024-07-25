@@ -1,10 +1,12 @@
+Here is the Python solution for the problem:
+
+```
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
-    result = 0
-    for i in range(len(card_number)):
+    sum = 0
+    for i in range(15,-1,-1):
         if i % 2 == 1:
             card_number[i] *= 2
             if card_number[i] > 9:
                 card_number[i] -= 9
-        result += card_number[i]
-    return result
+        sum += card_number[i]
+    return sum
