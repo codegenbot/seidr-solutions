@@ -19,14 +19,13 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main(){
-    // Sample test cases
-    vector<int> input1 = {3, -2, 5, -8, 4};
-    vector<int> result1 = largest_smallest_integers(input1);
-    cout << result1[0] << " " << result1[1] << endl; // Output should be -2 3
-    
-    vector<int> input2 = {-1, -5, -3};
-    vector<int> result2 = largest_smallest_integers(input2);
-    cout << result2[0] << " " << result2[1] << endl; // Output should be -1 0
+    // Example usage
+    vector<int> input = {3, -5, 2, -8, 7};
+    vector<int> result = largest_smallest_integers(input);
+
+    for(int num : result){
+        cout << num << " ";
+    }
 
     return 0;
 }
