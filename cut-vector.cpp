@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 int main() {
     int n;
@@ -7,18 +8,17 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-    
-    int min_diff = INT_MAX, cut_index = 0;
+
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     for (int i = 1; i < n; ++i) {
-        int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
-        int diff = std::abs(left_sum - right_sum);
+        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
-    
+
     for (int i = 0; i < cut_index; ++i) {
         std::cout << nums[i] << std::endl;
     }
@@ -27,6 +27,6 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     std::cout << 0 << std::endl;
-    
+
     return 0;
 }
