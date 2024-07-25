@@ -20,5 +20,4 @@ vector<string> issame(vector<string> a, vector<string> b) {
 
 int main() {
     issame({ "this" }, {});
-    return 0;
 }
