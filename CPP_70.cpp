@@ -19,8 +19,11 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     return result;
 }
 
+#ifndef MAINFUN_CPP_70
+#define MAINFUN_CPP_70
 int main() {
     assert(issame(strange_sort_list({111111}), {111111}));
     
     return 0;
 }
+#endif
