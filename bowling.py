@@ -1,25 +1,13 @@
-Here is the solution:
-
-def bowling_score(frames):
+def bowling_score(game):
     score = 0
-    frame = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            score += 30
-            frame += 1
-        elif frames[i:i+2] == '///' or frames[i:i+2].startswith('X/'):
-            score += int(frames[i])
-            frame += 1
+    roll = [int(x) for x in game.replace("/", "00")]
+    for i in range(10):
+        if "/" in str(i + 1) + str(roll[i]):
+            first_roll, second_roll = map(int, str(i + 1) + str(roll[i]).split("/"))
+            score += max(first_roll, 10) + (10 - first_roll) * min(second_roll, 10)
         else:
-            strike = False
-            for j in range(i, i+3):
-                if frames[j] == 'X':
-                    strike = True
-                    break
-            if strike:
-                score += 10 + int(frames[i])
-                frame += 1
-            elif frames[i:i+2].isdigit():
-                score += int(frames[i:i+2])
-                frame += 1
+            if i < 9 and roll[i + 1] == 0:
+                score += sum(roll[: i + 1])
+            else:
+                score += sum(roll[: i + 1]) + (10 - roll[i])
     return score
