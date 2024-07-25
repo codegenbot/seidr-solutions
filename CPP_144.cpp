@@ -1,22 +1,13 @@
-int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
-}
+#include <string>
+#include <sstream>
 
 bool simplify(string x, string n) {
-    int num1 = stoi(x.substr(0, x.find('/')));
-    int den1 = stoi(x.substr(x.find('/') + 1));
-    int num2 = stoi(n.substr(0, n.find('/')));
-    int den2 = stoi(n.substr(n.find('/') + 1));
+    int num1, den1, num2, den2;
+    char slash;
 
-    int num = num1 * num2;
-    int den = den1 * den2;
+    stringstream ss1(x), ss2(n);
+    ss1 >> num1 >> slash >> den1;
+    ss2 >> num2 >> slash >> den2;
 
-    int common = gcd(num, den);
-    num /= common;
-    den /= common;
-
-    return den == 1;
+    return (num1 * num2) % (den1 * den2) == 0;
 }
