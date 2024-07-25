@@ -1,5 +1,7 @@
+Here is the completed code:
+
 int multiply(int a, int b) {
-    int unit_a = a % 10;
-    int unit_b = abs(b) % 10; // Use abs to handle negative numbers
-    return unit_a * unit_b;
+    int digit_a = a % 10;
+    int digit_b = b % 10;
+    return digit_a * digit_b;
 }
