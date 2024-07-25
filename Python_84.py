@@ -1,4 +1,3 @@
-```
 def solve(N=None):
     total = 0
     while True:
