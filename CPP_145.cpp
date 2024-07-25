@@ -1,12 +1,17 @@
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_digits_a = accumulate(to_string(abs(a)).begin(), to_string(abs(a)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
-    int sum_digits_b = accumulate(to_string(abs(b)).begin(), to_string(abs(b)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
-
-    if (sum_digits_a == sum_digits_b) {
-        return distance(nums.begin(), find(nums.begin(), nums.end(), a)) < distance(nums.begin(), find(nums.begin(), nums.end(), b));
+    int sum_a = 0, sum_b = 0;
+    int a_copy = abs(a), b_copy = abs(b);
+    while (a_copy > 0) {
+        sum_a += a_copy % 10;
+        a_copy /= 10;
     }
-
-    return sum_digits_a < sum_digits_b;
+    while (b_copy > 0) {
+        sum_b += b_copy % 10;
+        b_copy /= 10;
+    }
+    if (sum_a == sum_b) {
+        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+    }
+    return sum_a < sum_b;
 });
-
 return nums;
