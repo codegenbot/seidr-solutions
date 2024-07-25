@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def decode_cyclic():
     decoded_str = ""
     while True:
