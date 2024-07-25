@@ -2,9 +2,9 @@ def decode_shift(s: str):
     return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
 input_str = input("Enter the string to decode (lowercase only): ").strip()
-if not input_str.islower():
+while not input_str.strip().islower():
     print("Input should contain lowercase letters only.")
-    exit()
+    input_str = input("Enter the string to decode (lowercase only): ").strip()
 
 decoded_str = decode_shift(input_str)
 print(decoded_str)
