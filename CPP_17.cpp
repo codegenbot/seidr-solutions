@@ -1,36 +1,21 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> parse_music(string music_string) {
-    vector<int> result;
-    string note;
-    
-    for (char c : music_string) {
-        note += c;
-        
-        if (note == "o" || note == "o|") {
-            result.push_back(4);
-            note.clear();
-        } else if (note == ".|" || note == "|") {
-            result.push_back(1);
-            note.clear();
+    vector<int> beats;
+    for (int i = 0; i < music_string.length(); ++i) {
+        if (music_string[i] == 'o') {
+            beats.push_back(4);
+        } else if (music_string[i] == '|') {
+            if (i+1 < music_string.length() && music_string[i+1] == '.') {
+                beats.push_back(1);
+                ++i;
+            } else {
+                beats.push_back(2);
+            }
         }
     }
-    
-    return result;
-}
-
-int main() {
-    string music = "o o| .| o| o| .| .| .| .| o o";
-    vector<int> beats = parse_music(music);
-    
-    for (int beat : beats) {
-        cout << beat << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    return beats;
 }
