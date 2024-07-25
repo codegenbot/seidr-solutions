@@ -1,6 +1,6 @@
 vector<float> sort_even(vector<float> l) {
     vector<float> even_values;
-    vector<float> result(l);
+    vector<float> result(l.size());
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
