@@ -5,10 +5,11 @@ def find_closest_elements(numbers):
         (numbers[i], numbers[i + 1])
         for i in range(len(numbers) - 1)
         if numbers[i + 1] - numbers[i] == min_diff
-    ]
-    return closest_elements[0]
+    ][0]
+    return closest_elements
 
-# Get input from user
-numbers = list(map(int, input().split()))
+
+# Call the function with input numbers
+numbers = [int(x) for x in input().split()]
 result = find_closest_elements(numbers)
 print(result)
