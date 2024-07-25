@@ -20,6 +20,6 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    // Your main function code here
+    // Main function implementation
     return 0;
 }
