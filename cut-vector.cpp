@@ -6,16 +6,12 @@ int main() {
     std::vector<int> nums;
     int num;
 
-    while (std::cin.good() && std::cin.peek() != EOF) {
-        std::cin >> num;
-        if (std::cin.fail()) {
-            break;
-        }
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
-    if (std::cin.bad()) {
-        std::cerr << "Input error\n";
+    if (nums.empty()) {
+        std::cerr << "No input values provided." << std::endl;
         return 1;
     }
 
