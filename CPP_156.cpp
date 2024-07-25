@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,6 +25,6 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "Mini Roman numeral is: " << int_to_mini_roman(num) << endl;
+    cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << endl;
     return 0;
 }
