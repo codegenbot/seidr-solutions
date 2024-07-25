@@ -18,4 +18,4 @@ int bowlingScore(string s) {
             i+=2;
         }
     }
-} // End of bowlingScore function
+}
