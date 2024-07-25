@@ -1,4 +1,2 @@
-a = int(input().strip())
-b = int(input().strip())
-c = int(input().strip())
+a, b, c = map(int, input("Enter three integers separated by spaces: ").strip().split())
 print(max(a, b, c))
