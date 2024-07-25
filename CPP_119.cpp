@@ -1,20 +1,27 @@
 Here is the completed code:
 
-string match_parens(vector<string> lst){
-    string s1 = lst[0], s2 = lst[1];
-    int count = 0;
+string match_parens(vector<string> lst) {
+    string first = lst[0];
+    string second = lst[1];
     
-    for(int i=0; i<s1.size(); i++){
-        if(s1[i] == '(') count++;
-        else if(count > 0) count--;
+    int openCount = 0;
+    int closeCount = 0;
+    
+    for (char c : first) {
+        if (c == '(') {
+            openCount++;
+        } else {
+            closeCount++;
+        }
     }
     
-    for(int i=0; i<s2.size(); i++){
-        if(s2[i] == ')') count--;
-        else if(count < 0) return "No";
-        else count++;
+    for (char c : second) {
+        if (c == '(') {
+            openCount--;
+        } else {
+            closeCount--;
+        }
     }
     
-    if(count == 0) return "Yes";
-    else return "No";
+    return openCount == 0 && closeCount == 0 ? "Yes" : "No";
 }
