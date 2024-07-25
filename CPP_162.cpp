@@ -1,5 +1,6 @@
+```cpp
 #include <openssl/ssl.h>
-#include <openssl/err.h>
+#include <openssl/evp.h>
 
 std::string string_to_md5(std::string text) {
     EVP_MD_CTX mdctx;
@@ -13,15 +14,20 @@ std::string string_to_md5(std::string text) {
     EVP_MD_CTX_init(&mdctx);
     EVP_DigestInit_ex(&mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(&mdctx, str, len);
-    unsigned char mdSig[EVP_MAX_BLOCK_LENGTH];
-    int len_output = EVP_DigestFinal_ex(&mdctx, mdSig, &len);
-    mdctx = EVP_MD_CTX_free(mdctx);
+    unsigned char md_value[16];
+    int len_output = EVP_DigestFinal_ex(&mdctx, md_value, NULL);
+    EVP_MD_CTX_cleanup(&mdctx);
 
     std::string result;
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len_output; i++) {
         char buffer[3];
-        sprintf(buffer, "%02x", mdSig[i]);
+        sprintf(buffer, "%02x", md_value[i]);
         result += buffer;
     }
     return result;
+}
+
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
