@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
@@ -11,9 +12,9 @@ if __name__ == "__main__":
         exit()
     while True:
         prefix = input("Enter prefix: ").strip().lower()
-        if len(prefix) > 0:
+        filtered_list = filter_by_prefix(input_list, prefix)
+        if filtered_list:
             break
-    if prefix not in [s for s in input_list]:
-        print("Error: Prefix is not present in the list. Please enter a valid prefix.")
-        prefix = input("Enter prefix: ").strip().lower()
-    print(filter_by_prefix(input_list, prefix))
+        else:
+            print("Error: Prefix is not present in the list. Please enter a valid prefix.")
+    print(filtered_list)
