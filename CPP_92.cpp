@@ -1,5 +1,6 @@
-Here is the completed code:
-
-bool any_int(float a, float b, float c) {
-    return (a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a);
+bool any_int(float a, float b, float c){
+    if (abs(a - (b + c)) < 0.001 || abs(b - (a + c)) < 0.001 || abs(c - (a + b)) < 0.001) {
+        return true;
+    }
+    return false;
 }
