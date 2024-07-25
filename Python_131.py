@@ -1,3 +1,4 @@
+```
 def count_even_digits(n):
     total = 0
     for digit in str(n):
@@ -6,7 +7,10 @@ def count_even_digits(n):
     return total
 
 def check():
-    n = int(input("Enter a number: "))
-    print(count_even_digits(n))
+    while True:
+        n = int(input("Enter a number (or -1 to stop): "))
+        if n == -1:
+            break
+        print(count_even_digits(n))
 
 check()
