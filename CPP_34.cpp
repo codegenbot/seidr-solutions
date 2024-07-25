@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <set>
-#include <cassert>  // Include this for assert
+#include <cassert>
 
 using namespace std;
 
