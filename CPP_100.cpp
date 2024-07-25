@@ -5,12 +5,11 @@ vector<int> make_a_pile(int n) {
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
-            n += 2;
+            stones = n;
         } else {
             n++;
-            n -= 2;
+            stones = n;
         }
-        stones--;
     }
     return pile;
 }
