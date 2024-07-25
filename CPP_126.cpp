@@ -1,11 +1,17 @@
-Here is the completed code:
+Here's the completed code:
 
-bool is_sorted(vector<int> lst) {
-    if (lst.size() <= 1) return true;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] <= lst[i - 1]) return false;
+bool is_sorted(vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            return false;
+        }
     }
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    return lst.size() == 1 || all_of(lst.begin() + 1, lst.end(), [&](int x) { return x > lst[0]; });
+    bool has_duplicates = false;
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] == lst[i+1]){
+            has_duplicates = true;
+            break;
+        }
+    }
+    return !has_duplicates;
 }
