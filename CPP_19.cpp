@@ -1,4 +1,4 @@
-map<string, int> number_map = {
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -12,22 +12,27 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers) {
+    string result = "";
+    map<int, string> rev_num_map;
+    
+    for (const auto& pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
+    }
+    
+    vector<int> sorted_nums;
     stringstream ss(numbers);
-    string word;
-    vector<string> words;
-
-    while (ss >> word) {
-        words.push_back(word);
+    string num_str;
+    
+    while (ss >> num_str) {
+        sorted_nums.push_back(num_map[num_str]);
     }
-
-    sort(words.begin(), words.end(), [&](const string &a, const string &b) {
-        return number_map[a] < number_map[b];
-    });
-
-    string result;
-    for (const string &w : words) {
-        result += w + " ";
+    
+    sort(sorted_nums.begin(), sorted_nums.end());
+    
+    for (int num : sorted_nums) {
+        result += rev_num_map[num] + " ";
     }
-
+    
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
