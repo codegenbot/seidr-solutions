@@ -1,3 +1,4 @@
+```
 def main():
     print(
         "Please enter a series of integers to check if they're prime, or '0' to quit."
@@ -8,7 +9,7 @@ def main():
             break
         try:
             num = int(prompt)
-            print(is_prime(num))
+            print(str(num) + (" is a prime number" if is_prime(num) else " is not a prime number"))
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
