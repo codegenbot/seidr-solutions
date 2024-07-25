@@ -1,7 +1,6 @@
-#include <string>
-
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
+#include <string>
 
 string string_to_md5(string text) {
     MD5_CTX ctx;
