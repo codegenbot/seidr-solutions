@@ -1,11 +1,9 @@
-while True:
-    try:
-        numbers = [
-            int(x) for x in input("Enter the numbers separated by space: ").split()
-        ]
-        break
-    except (ValueError, TypeError):
-        print("Input error. Please enter valid input.")
+from typing import List, Tuple
 
-res = sum(num for num in numbers if num % 2 == 0)
-print(res)
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    sum_result = sum(numbers)
+    product_result = 1
+    for num in numbers:
+        product_result *= num
+    return sum_result, product_result
