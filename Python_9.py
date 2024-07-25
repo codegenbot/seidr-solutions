@@ -1,12 +1,20 @@
-```
+```python
 from typing import List
 
-def rolling_max(numbers: List[int]) -> List[int]:
+
+def rolling_max(numbers: List[List[int]]) -> List[int]:
     if not numbers:
         return []
 
-    result = [max(numbers[:i+1]) for i in range(len(numbers))]
+    result = [max(lst) for lst in numbers]
+    max_val = result[0]
+    output = [max_val]
 
-    return result
+    for num_list in numbers[1:]:
+        new_max = max(num_list)
+        output.append(max(new_max, max_val))
 
-print(rolling_max([1, 2, 3, 4, 5]))
+    return output
+
+
+print(rolling_max([[-5], [-2], [0], [3], [-1], [10]]))
