@@ -1,17 +1,13 @@
 int sum = 0;
+    bool balanced = true;
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            balanced = false;
+            break;
+        }
+    }
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
     }
-
-    if (q.size() % 2 != 0) {
-        return false;
-    }
-
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            return false;
-        }
-    }
-
-    return sum <= w;
+    return (balanced && sum <= w);
 }
