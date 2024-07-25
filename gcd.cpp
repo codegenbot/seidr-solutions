@@ -3,35 +3,21 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int last = -1;
-    while (true) {
-        size_t pos = text.find(target);
-        if (pos == string::npos) break;
-        result.push_back(pos + 1);
-        last = pos;
+    int targetLength = target.length();
+    for(int i=0; i<=text.length()-targetLength; i++){
+        if(text.substr(i, targetLength) == target){
+            result.push_back(i);
+            while((i+targetLength) <= text.length() && (text.substr(i, targetLength) == target)){
+                i += targetLength;
+            }
+        }
     }
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
+    if(b == 0)
         return a;
     else
-        return gcd(b, a % b);
-}
-
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-    
-    return 0;
+        return gcd(b, a%b);
 }
