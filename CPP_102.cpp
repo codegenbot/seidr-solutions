@@ -1,5 +1,4 @@
 #include <algorithm>
-
 int choose_num(int x, int int y){
     if(x > y) std::swap(x,y);
     for(int i = x; i <= y; i++){
