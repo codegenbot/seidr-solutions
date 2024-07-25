@@ -1,5 +1,5 @@
 #include <string>
-#include <cassert>
+#include <iostream>
 
 int hex_key(std::string num){
     int count = 0;
@@ -13,6 +13,8 @@ int hex_key(std::string num){
 }
 
 int main(){
-    assert(hex_key("") == 0);
+    std::string input;
+    std::cin >> input;
+    std::cout << hex_key(input) << std::endl;
     return 0;
 }
