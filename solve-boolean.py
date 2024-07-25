@@ -1,15 +1,19 @@
-def solve.Boolean(expression):
-    if expression == 'T':
+Here is the solution:
+
+def solve_boolean(s):
+    if s == 'T':
         return True
-    elif expression == 'F':
+    elif s == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid input")
     else:
         result = True
-        for op, val in re.findall(r'([|&])\s*(T|F)', expression):
-            if op == '&':
-                result &= (val == 'T')
-            elif op == '|':
-                result |= (val == 'T')
-        return result
+        for char in s:
+            if char == '&':
+                result &= eval('True' if next_char == 'T' else 'False')
+            elif char == '|':
+                result |= eval('True' if next_char == 'T' else 'False')
+            next_char = char
+
+    return result
