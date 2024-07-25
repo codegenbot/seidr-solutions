@@ -1,4 +1,19 @@
-```cpp
+#include <string>
+#include <vector>
+
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
+int main() {
+    std::string class_name;
+    std::vector<std::string> extensions;
+
+    // Your input handling code here...
+    
+    int result = Strongest_Extension(class_name, extensions);
+    
+    return 0;
+}
+
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
     std::string result;
