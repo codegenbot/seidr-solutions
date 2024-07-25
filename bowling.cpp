@@ -1,46 +1,41 @@
-int score(string input) {
-    int totalScore = 0;
+int bowling(string s) {
+    int score = 0;
     int frame = 1;
-    int bowls = 0;
-    bool spare = false;
-    
-    for (char c : input) {
-        if (frame > 10) break;
-        
+    int bowl = 0;
+    int rolls[21] = {0};
+    for (char c : s) {
         if (c == 'X') {
-            totalScore += 10;
-            if (frame < 10) {
-                totalScore += 10;
-                bowls = 0;
-                frame++;
-            }
-            if (frame == 10) bowls = 2;
+            rolls[bowl++] = 10;
+            rolls[bowl++] = 0;
+            frame++;
         } else if (c == '/') {
-            totalScore += 10 - (input[bowls - 1] - '0');
-            spare = true;
+            rolls[bowl - 1] = 10 - rolls[bowl - 2];
+            frame++;
         } else if (c == '-') {
-            bowls++;
+            rolls[bowl++] = 0;
         } else {
-            totalScore += c - '0';
-            if (spare) {
-                totalScore += c - '0';
-                spare = false;
-            }
-            bowls++;
+            rolls[bowl++] = c - '0';
         }
-        
-        if (!spare && bowls == 2) {
-            bowls = 0;
+    }
+    for (int i = 0; frame <= 10 && i < bowl; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i + 1] + rolls[i + 2];
+            frame++;
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            score += 10 + rolls[i + 2];
+            i++;
+            frame++;
+        } else {
+            score += rolls[i] + rolls[i + 1];
+            i++;
             frame++;
         }
     }
-    
-    return totalScore;
+    return score;
 }
-
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << bowling(s) << endl;
     return 0;
 }
