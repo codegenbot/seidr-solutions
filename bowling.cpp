@@ -1,31 +1,33 @@
-int score(string S) {
-    int res = 0, frame = 0, ball = 0;
-    for (int i = 0; i < S.length(); i++) {
-        if (S[i] == 'X') {
-            res += 10 + (S[i + 1] == 'X' ? 10 : (S[i + 2] == '/' ? 10 : S[i + 2] - '0'));
+int main() {
+    string input;
+    cin >> input;
+    
+    int score = 0;
+    int frame = 0;
+    
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == 'X') {
+            score += 10;
+            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
             frame++;
-            if (frame == 10) break;
-            ball = 0;
-        } else if (S[i] == '/') {
-            res += 10 - (S[i - 1] - '0') + (S[i + 1] == 'X' ? 10 : S[i + 1] - '0');
+        } else if (input[i] == '/') {
+            score += 10 - (isdigit(input[i - 1]) ? input[i - 1] - '0' : 0);
+            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
             frame++;
-            if (frame == 10) break;
-            ball = 0;
-        } else {
-            res += S[i] - '0';
-            ball++;
-            if (ball == 2) {
+        } else if (isdigit(input[i])) {
+            score += input[i] - '0';
+            if (isdigit(input[i + 1]) || input[i + 1] == '/') {
                 frame++;
-                ball = 0;
             }
         }
+        
+        if (frame == 10) {
+            break;
+        }
     }
-    return res;
-}
-
-int main() {
-    string S;
-    cin >> S;
-    cout << score(S) << endl;
+    
+    cout << score << endl;
+    
     return 0;
 }
