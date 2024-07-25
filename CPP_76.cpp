@@ -1,1 +1,8 @@
-return (x > 0 && n > 0 && (x == 1 || (n != 1 && pow(n, round(log(x) / log(n))) == x)));
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+    
+    double power = log(x) / log(n);
+    
+    return (power == int(power));
+}
