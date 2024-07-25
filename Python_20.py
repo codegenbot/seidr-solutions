@@ -9,7 +9,9 @@ def find_closest_elements(numbers):
     return closest_elements
 
 
-# Call the function with input numbers
-numbers = [int(x) for x in input().split()]
+# Take input from user
+numbers = list(map(int, input().split()))
+
+# Call the function with the input numbers
 result = find_closest_elements(numbers)
 print(result)
