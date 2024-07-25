@@ -11,5 +11,5 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
         if not all(isinstance(x, (int, float)) for x in numbers):
             return []
         return [(x - min_val) / (max_val - min_val) for x in numbers]
-    except:
+    except ValueError:
         return []
