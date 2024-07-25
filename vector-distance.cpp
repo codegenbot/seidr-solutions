@@ -6,16 +6,14 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    double x1, y1;
-    vector<double> vec1(n), vec2(n);
-    
+    double x1[n], y1[n];
     for (int i = 0; i < n; ++i) {
-        cin >> vec1[i] >> vec2[i];
+        cin >> x1[i] >> y1[i];
     }
     
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        double diff = (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        double diff = (x1[i] - y1[i]) * (x1[i] - y1[i]);
         sum += diff;
     }
     
@@ -27,4 +25,3 @@ int main() {
     cin >> n;
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
-}
