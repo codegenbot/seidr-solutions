@@ -1,5 +1,5 @@
 ```
-input_list = input("Enter space-separated string: ").split()
+"""input_list = input("Enter space-separated string: ").split()
 if not input_list:
     print("Please enter at least one string.")
     exit()
@@ -24,4 +24,4 @@ while True:
                 print("Error: Invalid input. Please enter y or n.")
                 confirm = input("Continue with next prefix? (y/n): ").strip().lower()
     else:
-        print("Error: Prefix is not present in the list. Please enter a valid prefix.")
+        print("Error: Prefix is not present in the list. Please enter a valid prefix.")"""
