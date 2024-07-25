@@ -2,7 +2,7 @@
 #include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    // Your function implementation here
+    return a == b;
 }
 
 std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
