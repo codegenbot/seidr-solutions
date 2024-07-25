@@ -8,7 +8,7 @@ def concatenate_strings():
                 print("Error! Please enter a valid string.")
 
     print("Welcome to this string concatenation program! Are you ready to enter some strings? (Yes/No): ")
-    if input().lower() != "yes":
+    if get_input().lower() != "yes":
         print("Program terminated. Goodbye!")
     else:
         strings = []
