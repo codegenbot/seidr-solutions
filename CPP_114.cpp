@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <climits>
 #include <cassert>
 
-int minSubArraySum(std::vector<long long> nums){
+long long minSubArraySum(std::vector<long long> nums){
     long long minSum = LLONG_MAX;
     long long currentSum = 0;
 
