@@ -1,11 +1,13 @@
 def car_race_collision(n):
-    total_distance = 0
-    for _ in range(n):
-        speed = int(input("Enter the speed of a car (in km/h): "))
-        time = 100 / speed  
-        distance = speed * time
-        total_distance += distance
-    return total_distance
+    total_distance = (n * (n + 1)) // 2
+    collision_points = []
+    for i in range(1, n+1):
+        distance_covered = i
+        remaining_cars = n - i
+        collisions = min(i, remaining_cars)
+        total_distance -= collisions
+        if total_distance <= 0:
+            return len(collision_points) + 1
 
-number_of_cars = int(input("Enter the number of cars: "))
-print(car_race_collision(number_of_cars))
+n = int(input("Enter the number of cars: "))
+print(car_race_collision(n))
