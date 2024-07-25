@@ -10,6 +10,7 @@ long long minSubArraySum(std::vector<long long> nums){
     for(long long num : nums){
         currentSum += num;
         if(currentSum < minSum) minSum = currentSum;
+        if(currentSum > 0) currentSum = 0;
     }
 
     return minSum;
