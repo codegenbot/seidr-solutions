@@ -1,37 +1,30 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> result;
-    unordered_map<int, int> map;
-    
-    for(int i = 0; i < nums.size(); i++) {
+pair<int, int> findPair(vector<int>& nums, int target) {
+    unordered_map<int, int> numIndex;
+    for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
-        if(map.find(complement) != map.end()) {
+        if (numIndex.find(complement) != numIndex.end()) {
             return {complement, nums[i]};
         }
-        map[nums[i]] = i;
+        numIndex[nums[i]] = i;
     }
-    
-    return result;
+    return {-1, -1};
 }
 
 int main() {
     int n;
     cin >> n;
-    
     vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin >> nums[i];
+    for (auto &num : nums) {
+        cin >> num;
     }
-    
     int target;
     cin >> target;
-    
-    vector<int> result = findPair(nums, target);
-    
-    cout << result[0] << endl;
-    cout << result[1] << endl;
-    
+    pair<int, int> result = findPair(nums, target);
+    cout << result.first << " " << result.second << endl;
     return 0;
 }
