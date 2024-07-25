@@ -8,7 +8,8 @@ def car_race_collision(n):
         total_distance -= collisions
         if total_distance <= 0:
             return total_distance
-        collision_points.append(collisions)
+    else:
+        return total_distance
 
 n = int(input("Enter the number of cars: "))
 print(car_race_collision(n))
