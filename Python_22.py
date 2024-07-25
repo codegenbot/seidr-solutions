@@ -1,17 +1,23 @@
+```
 from typing import List
 
 
 def filter_integers() -> List[int]:
     values = []
     while True:
-        user_input = input("Enter an integer or type 'done' to finish: ").lower()
-        if user_input == "done":
+        user_input = input("Are you done? (yes/no): ").lower()
+        if user_input == "yes":
             break
-        try:
-            value = int(user_input)
-            values.append(value)
-        except ValueError:
-            print("Invalid input. Please enter an integer or 'done'.")
+        elif user_input != "no":
+            print("Invalid input. Please enter 'yes' or 'no'.")
+        else:
+            try:
+                value = input(
+                    "Enter an integer (space-separated) or type 'done' to finish: "
+                ).split()
+                values.extend([int(i) for i in value])
+            except ValueError:
+                print("Invalid input. Please enter integers separated by spaces or 'done'.")
     return [i for i in values if i % 2 == 0]
 
 
