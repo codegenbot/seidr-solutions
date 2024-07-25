@@ -1,19 +1,16 @@
-#include <iostream>
-#include <vector>
-
-double double_the_difference(const std::vector<double>& lst) {
-    double sum = 0;
+long long double_the_difference(const std::vector<int>& lst) {
+    long long sum = 0;
     for (auto num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += num * num;
+            sum += (long long)num * num;
         }
     }
-    return sum;
+    return sum * 2;
 }
 
 int main() {
-    std::vector<double> lst = {1.5, 2.0, 3.3, 4.0, 5.5};
-    double odd_sum = double_the_difference(lst);
-    std::cout << "Odd numbers squared sum: " << odd_sum << std::endl;
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == 35); // Define your_expected_output based on the problem description
     return 0;
 }
