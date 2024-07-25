@@ -20,10 +20,11 @@ int main() {
     vector<string> strings = {"apple", "banana", "apricot", "orange"};
     string prefix = "ap";
     
-    vector<string> expected_output = {"apple", "apricot"};
-    vector<string> output = filter_by_prefix(strings, prefix);
+    vector<string> filtered_output = filter_by_prefix(strings, prefix);
     
-    if (issame(expected_output, output)) {
+    vector<string> expected_output = {"apple", "apricot"};
+    
+    if (issame(filtered_output, expected_output)) {
         cout << "Output matches expected result." << endl;
     } else {
         cout << "Output does not match expected result." << endl;
