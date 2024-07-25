@@ -1,4 +1,6 @@
-```
+Here's the completed `below_zero` function:
+
+```python
 from typing import List
 
 
@@ -9,7 +11,7 @@ def below_zero() -> None:
     below_zero_operations = 0
 
     while True:
-        operations: List[int] = []
+        operations = []
         while True:
             ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
             if ops.lower() == "end":
@@ -23,14 +25,17 @@ def below_zero() -> None:
         below_zero_in_sequence = False
 
         for operation in operations:
-            balance += operation
-            if operation < 0 and balance < 0:
-                print(f"Below zero at {balance}.")
-                below_zero_found = True
-                below_zero_operations += 1
-                below_zero_in_sequence = True
-            elif operation >= 0 and not below_zero_in_sequence:
-                balance = 0
+            if isinstance(operation, int):
+                balance += operation
+                if operation < 0 and balance < 0:
+                    print(f"Below zero at {balance}.")
+                    below_zero_found = True
+                    below_zero_operations += 1
+                    below_zero_in_sequence = True
+                elif operation >= 0 and not below_zero_in_sequence:
+                    balance = 0
+            else:
+                print("Error: Invalid input. Please enter a list of integers.")
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
@@ -43,7 +48,7 @@ def below_zero() -> None:
         below_zero_found = False
         below_zero_operations = 0
 
-        if below_zero_operations > len(operations) // 2:
+        if below_zero_operations > len(operations) / 2:
             print(f"More than half of the operations were below zero.")
 
         cont = input("Continue? (yes/no): ")
