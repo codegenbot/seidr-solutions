@@ -1,15 +1,19 @@
-int count_nums(vector<int> n) {
+#include <vector>
+
+int count_nums(const vector<int>& n) {
     int count = 0;
     for (int num : n) {
-        if (num < 0) {
-            num = -num;
+        bool has_positive_sum = false;
+        int abs_num = abs(num);
+        while (abs_num > 0) {
+            int digit = abs_num % 10;
+            if (digit != 0 || (num < 0 && digit == 5)) {
+                has_positive_sum = true;
+                break;
+            }
+            abs_num /= 10;
         }
-        int sum = 0;
-        while (num > 0) {
-            sum += num % 10;
-            num /= 10;
-        }
-        if (sum > 0) {
+        if (has_positive_sum) {
             count++;
         }
     }
