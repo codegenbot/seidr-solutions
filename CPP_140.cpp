@@ -1,20 +1,20 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
+bool prev_space = false;
+    string result = "";
+    
+    for(char c : text){
+        if(c == ' '){
+            if(prev_space){
                 result.pop_back();
-                result.pop_back();
-                result += '-';
-                count = 1;
+                result += "-";
             } else {
-                result += '_';
+                result += "_";
             }
+            prev_space = true;
         } else {
-            count = 0;
             result += c;
+            prev_space = false;
         }
     }
+    
     return result;
 }
