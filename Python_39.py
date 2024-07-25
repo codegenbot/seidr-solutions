@@ -11,21 +11,16 @@ def prime_fib(n):
         return True
 
     def fibonacci(num):
-        if num < 0:
-            return None
         if num <= 1:
             return num
         else:
             return fibonacci(num - 1) + fibonacci(num - 2)
 
-    if n < 0:
-        return False
-
     fib_num = fibonacci(n)
     return is_prime(fib_num)
 
 try:
-    n = int(input("Enter a number: "))
+    n = int(input("Enter a number: ").rstrip())
     result = prime_fib(n)
     print(result)
 except ValueError:
