@@ -11,21 +11,12 @@ int count_nums(vector<int> nums) {
                 count++;
             }
         } else {
-            int sum = 0, num_copy = abs(num);
-            bool is_negative = true;
-            while (num_copy > 0) {
-                if (is_negative) {
-                    if (num_copy % 10 < 0) {
-                        sum += num_copy % 10 + 10;
-                    } else {
-                        sum += num_copy % 10;
-                    }
-                } else {
-                    sum += num_copy % 10;
-                }
-                num_copy /= 10;
+            int sum = 0, sign = -1;
+            while (num < 0) {
+                sum += abs(num % 10);
+                num /= 10;
             }
-            if (sum > 0) {
+            if (sign * sum > 0) {
                 count++;
             }
         }
