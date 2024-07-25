@@ -1,33 +1,29 @@
-Here is the completed code:
+#include <cmath>
 
-int sumOfDigits(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
-int findLargestPrimeAndSum(vector<int> lst) {
-    int largestPrime = -1;
-    for (int n : lst) {
-        if (isPrime(n)) {
-            if (n > largestPrime)
-                largestPrime = n;
+int skjkasdkd(vector<int> lst) {
+    int max_prime = 0;
+    for (int num : lst) {
+        if (isPrime(num)) {
+            max_prime = num;
+            break;
         }
     }
-    if (largestPrime == -1)
-        return 0; // or some other default value
-    return sumOfDigits(largestPrime);
+
+    if (max_prime == 0) return 0;
+
+    int sum_of_digits = 0;
+    while (max_prime > 0) {
+        sum_of_digits += max_prime % 10;
+        max_prime /= 10;
+    }
+
+    return sum_of_digits;
 }
 
 bool isPrime(int num) {
-    if (num <= 1)
-        return false;
+    if (num <= 1) return false;
     for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
-            return false;
+        if (num % i == 0) return false;
     }
     return true;
 }
