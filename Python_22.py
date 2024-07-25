@@ -9,11 +9,11 @@ def filter_integers() -> List[int]:
             break
         try:
             value = int(user_input)
-            values.append(value)
+            if value % 2 == 0:
+                values.append(value)
         except ValueError:
             print("Invalid input. Please enter an integer or 'done'.")
-    even_numbers = [i for i in values if i % 2 == 0]
-    return even_numbers
+    return values
 
 
 print(filter_integers())
