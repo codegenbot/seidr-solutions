@@ -1,5 +1,5 @@
-n = int(input())
-nums = [int(num) for num in input().split()]
+n = list(map(int, input().split()))
+nums = n
 
 total_sum = sum(nums)
 half_sum = total_sum // 2
@@ -7,7 +7,7 @@ prefix_sum = 0
 min_diff = float("inf")
 cut_index = -1
 
-for i in range(n):
+for i in range(len(n)):
     prefix_sum += nums[i]
     diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
