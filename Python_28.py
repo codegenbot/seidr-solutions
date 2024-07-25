@@ -1,4 +1,4 @@
-````
+```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
@@ -16,7 +16,9 @@ if __name__ == "__main__":
         strings = []
         
         for i in range(num_strings):
-            s = input(f"Enter string {i+1}: ")
+            while True:
+                s = input(f"Enter string {i+1}: ")
+                if len(s) > 0: break
             strings.append(s)
         
         result = concatenate(strings)
