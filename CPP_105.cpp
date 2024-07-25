@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
