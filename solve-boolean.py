@@ -1,13 +1,15 @@
-def solveBoolean(expression):
-    if expression == "T":
+def solve.Boolean(expression):
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid operation")
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return not (solveBoolean(left) and solveBoolean(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solveBoolean(left) or solveBoolean(right)
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for op, val in re.findall(r'([|&])\s*(T|F)', expression):
+            if op == '&':
+                result &= (val == 'T')
+            elif op == '|':
+                result |= (val == 'T')
+        return result
