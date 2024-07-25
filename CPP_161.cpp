@@ -1,13 +1,9 @@
-string solve(string s){
-    bool hasLetter = false;
+string result = "";
     for(char &c : s){
         if(isalpha(c)){
             c = islower(c) ? toupper(c) : tolower(c);
-            hasLetter = true;
         }
+        result = c + result;
     }
-    if(!hasLetter){
-        reverse(s.begin(), s.end());
-    }
-    return s;
+    return result;
 }
