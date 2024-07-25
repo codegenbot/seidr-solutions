@@ -4,8 +4,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        return std::equal(a.begin(), a.end(), b.begin());
+    }
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -22,7 +24,7 @@ int main() {
     std::vector<int> expected_output(n);
     std::iota(expected_output.begin(), expected_output.end(), 1);
     
-    assert(issame(input, expected_output));
+    assert(std::issame(input, expected_output));
     
     return 0;
 }
