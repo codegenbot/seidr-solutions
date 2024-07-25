@@ -20,7 +20,7 @@ int main() {
 
     result.erase(std::unique(result.begin(), result.end()), result.end());
 
-    for (int num : result) {
+    for (const auto& num : result) {
         std::cout << num << " ";
     }
 
