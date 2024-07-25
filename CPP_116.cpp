@@ -20,6 +20,18 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    vector<int> arr;
+    int n;
+    cin >> n;
+    for(int i=0; i<n;i++){
+        int x;
+        cin >>x;
+        arr.push_back(x);
+    }
+    cout << "Sorted array: ";
+    for (int &i : sort_array(arr))
+        cout << i << " ";
+    cout << endl;
+    
     return 0;
 }
