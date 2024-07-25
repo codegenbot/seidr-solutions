@@ -1,9 +1,7 @@
 def solve(N=None):
     total = 0
     if N is not None:
-        if N > 0:
-            return bin(N)[2:]
-        else:
+        if N <= 0:
             return str(total)
     while True:
         try:
