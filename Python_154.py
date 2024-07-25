@@ -1,2 +1,4 @@
 def cycpattern_check(a: str, b: str) -> bool:
-    return len(a) == len(b) and b in (a + a) and a in (b + b) and len(a) == len(set(a))
+    if len(a) != len(b):
+        return False
+    return b in (a + a) and a in (b + b)
