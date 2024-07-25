@@ -3,17 +3,22 @@ using namespace std;
 string substitutionCipher(string cipherKey1, string cipherKey2, string message) {
     string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
-        bool found = false;
-        for (int j = 0; j < cipherKey2.length(); j++) {
-            if (message[i] == cipherKey2[j]) {
-                decipheredMessage += cipherKey1[j];
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        if (cipherKey1[i] == cipherKey2[i]) {
             decipheredMessage += message[i];
+        } else {
+            int index = 0;
+            while (index < cipherKey2.length() && index != string::npos) {
+                if (cipherKey2[index] == message[i]) {
+                    decipheredMessage += cipherKey1[index];
+                    break;
+                }
+                index++;
+            }
+            if (index == cipherKey2.length()) {
+                decipheredMessage += message[i];
+            } else {
+                decipheredMessage += cipherKey2[index];
+            }
         }
     }
     return decipheredMessage;
-}
