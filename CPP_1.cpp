@@ -1,30 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-bool issame(vector<string>, vector<string>);
-vector<string> separate_paren_groups(string);
+bool isSame(vector<string>, vector<string>);
 
-int rename_me() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ")) , {"()", "(())", "(()())"}));
+int main() {
+    if (!isSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}))
+        std::cout << "Error: Invalid Parenthesis Groups." << std::endl;
     return 0;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    for (string s : a) {
-        bool found = false;
-        for (string t : b) {
-            if (s == t) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            return false;
-        }
-    }
-    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
