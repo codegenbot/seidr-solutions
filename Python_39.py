@@ -3,6 +3,11 @@ def fibonacci(num):
     if num in mem:
         return mem[num]
     mem[num] = fibonacci(num - 1) + fibonacci(num - 2)
-    return mem[num}
+    return mem[num]
 
-check(fibonacci)
+def check():
+    num = int(input())
+    result = fibonacci(num)
+    print(result)
+
+check()
