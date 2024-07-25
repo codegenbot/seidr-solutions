@@ -1,4 +1,3 @@
-```
 from typing import List
 import statistics
 
@@ -15,9 +14,12 @@ def mean_absolute_deviation():
                     print("Please enter at least two numbers.")
                 else:
                     average = statistics.mean(numbers)
+                    median = statistics.median(numbers)
                     total = sum(abs(num - average) for num in numbers)
                     result = total / len(numbers)
                     print(f"The Mean Absolute Deviation is: {result}")
+                    print(f"The Mean is: {average}")
+                    print(f"The Median is: {median}")
                     break
             except ValueError:
                 print("Invalid input. Please enter valid numbers.")
