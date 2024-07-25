@@ -18,12 +18,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (comp < 0)
             return b;
         else
-            return a; // Changed "None" to 'a' for clarity.
+            return a;
     }
     else {
         // If both values are equal, compare their types.
         if (a.type() == typeid(int) && b.type() == typeid(int))
-            return a; // Changed "None" to 'a' for clarity.
+            return a;
         else
             return boost::any_cast<double>(a) > boost::any_cast<double>(b)
                 ? a : b;
