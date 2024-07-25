@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <string>
 #include <cassert>
 
 std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
@@ -33,11 +33,10 @@ void issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::string input = "((group1)(group2)(group3))";
-    std::vector<std::string> expected = {"(group1)", "(group2)", "(group3)"};
+    std::vector<std::string> expected_output = {"(group1)", "(group2)", "(group3)"};
     
-    std::vector<std::string> output = separate_paren_groups(input);
-    
-    issame(output, expected);
+    auto output = separate_paren_groups(input);
+    issame(output, expected_output);
     
     return 0;
 }
