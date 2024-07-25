@@ -1,5 +1,7 @@
-string result = "";
+string anti_shuffle(string s){
+    string result = "";
     string word = "";
+    
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
@@ -9,7 +11,9 @@ string result = "";
             word += c;
         }
     }
+    
     sort(word.begin(), word.end());
     result += word;
+    
     return result;
 }
