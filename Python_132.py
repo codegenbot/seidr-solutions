@@ -1,4 +1,4 @@
-```
+```Python
 def is_nested(string):
     stack = []
     for char in string:
@@ -13,3 +13,7 @@ def is_nested(string):
                 stack.append('[')
             stack.pop()
     return len(stack) > 0
+
+if __name__ == '__main__':
+    string = input("Enter a string: ")
+    print(is_nested(string))
