@@ -1,46 +1,32 @@
-#include <string>
-#include <stdexcept>
+```cpp
+#include <boost/any.hpp>
+using namespace boost;
 
-std::any get_larger(const std::any& a, const std::any& b) {
+any compare(const any& a, const any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = std::any_cast<int>(a);
-        int y = std::any_cast<int>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;  // Changed from "None"
-    } 
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = std::any_cast<double>(a);
-        double y = std::any_cast<double>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;  // Changed from "None"
-    } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(wstring)) &&
-           (b.type() == typeid(std::string) || b.type() == typeid(wstring)))) {
-        std::string x = std::any_cast<std::string>(a);
-        std::string y = std::any_cast<std::string>(b);
-        if (x > y) return a;
-        else if (x < y) return b;
-        else return a;  // Changed from "None"
-    } 
-    else if ((a.type() == typeid(std::string) || a.type() == typeid(wstring)) &&
-           (b.type() == typeid(double)))) {
-        std::string x = std::any_cast<std::string>(a);
-        double y = std::any_cast<double>(b);
-        if (std::stod(x) > y) return a;
-        else if (std::stod(x) < y) return b;
-        else return a;  // Changed from "None"
-    } 
-    else if ((a.type() == typeid(double)) &&
-           (b.type() == typeid(std::string) || b.type() == typeid(wstring)))) {
-        double x = std::any_cast<double>(a);
-        std::string y = std::any_cast<std::string>(b);
-        if (x > std::stod(y)) return a;
-        else if (x < std::stod(y)) return b;
-        else return a;  // Changed from "None"
-    } 
-    else {
-        throw std::runtime_error("Invalid type");
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : any(typeid(int)));
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        return x > y ? a : (x < y ? b : any(typeid(double)));
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        wstring x = boost::any_cast<wstring>(a);
+        wstring y = boost::any_cast<wstring>(b);
+        return lexicographical_compare(x.begin(), x.end(), y.begin(), y.end()) ? a : (lexicographical_compare(y.begin(), y.end(), x.begin(), x.end()) ? b : any(typeid(string)));
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(double))) {
+        wstring x = boost::any_cast<wstring>(a);
+        double y = boost::any_cast<double>(b);
+        return stod(x) > y ? a : (stod(x) < y ? b : any(typeid(string)));
+    } else if ((a.type() == typeid(double)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        double x = boost::any_cast<double>(a);
+        wstring y = boost::any_cast<wstring>(b);
+        return x > stod(y) ? a : (x < stod(y) ? b : any(typeid(double)));
+    } else {
+        return any(typeid(void)); // Return void type for incompatible types
     }
 }
