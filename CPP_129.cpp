@@ -1,38 +1,43 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<pair<int, pair<int, int>>> edges;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i > 0) edges.push_back({grid[i][j], {i-1, j}});
-            if (i < n - 1) edges.push_back({grid[i][j], {i+1, j}});
-            if (j > 0) edges.push_back({grid[i][j], {i, j-1}});
-            if (j < n - 1) edges.push_back({grid[i][j], {i, j+1}});
+    vector<vector<vector<int>>> dp(grid.size(), vector<vector<int>>(grid[0].size(), vector<int>(k + 1, -1)));
+    vector<int> res(k);
+
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[0].size(); j++) {
+            if (!dp[i][j][0]) {
+                dp[i][j][0] = 1;
+                vector<int> path;
+                dfs(grid, i, j, k, path, &res);
+                return res;
+            }
         }
     }
 
-    sort(edges.begin(), edges.end());
-    vector<int> path;
-    for (int i = 0; i < k; i++) {
-        int val = grid[edges[i].second.first][edges[i].second.second];
-        path.push_back(val);
-    }
-    return path;
+    return {};
 }
 
-int main() {
-    // Example usage
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int val : result) {
-        cout << val << " ";
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path, int* res) {
+    if (k == 0) {
+        *res = path;
+        return;
     }
-    cout << endl;
-    return 0;
+
+    for (int i = -1; i <= 1; i++) {
+        for (int j = -1; j <= 1; j++) {
+            if (i && j) continue;
+
+            int newX = x + i, newY = y + j;
+            if (newX < 0 || newX >= grid.size() || newY < 0 || newY >= grid[0].size()) continue;
+
+            if (!dp[newX][newY][k - 1]) {
+                dp[newX][newY][k - 1] = 1;
+                path.push_back(grid[newX][newY]);
+                dfs(grid, newX, newY, k - 1, path, res);
+                path.pop_back();
+            }
+        }
+    }
 }
