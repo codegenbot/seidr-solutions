@@ -1,13 +1,21 @@
 string solve(string s){
+    int n = s.length();
     bool hasLetter = false;
-    for(char &c : s){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+    
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
             hasLetter = true;
+            if(islower(s[i])){
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
+    
     if(!hasLetter){
         reverse(s.begin(), s.end());
     }
+    
     return s;
 }
