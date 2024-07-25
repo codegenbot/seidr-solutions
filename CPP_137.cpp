@@ -1,26 +1,25 @@
+#include <boost/any.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)std::max(get<int>(a), get<int>(b)));
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a.convert_to<int>() > (double)b.convert_to<double>() ? b : a;
     }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-             (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return boost::any(std::max(get<float>(a), get<float>(b)));
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        return (int)a.convert_to<int>() > std::stoi(b.convert_to<std::string>()) ? b : a;
     }
-    else if ((a.type() == typeid(string) && (b.type() == typeid(int) ||
-                                             b.type() == typeid(float) || b.type() == typeid(double)))) {
-        return boost::any((string)get<int>(b));
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        return (double)a.convert_to<double>() > std::stod(b.convert_to<std::string>()) ? b : a;
     }
-    else if ((b.type() == typeid(string) && (a.type() == typeid(int) ||
-                                             a.type() == typeid(float) || a.type() == typeid(double)))) {
-        return boost::any((string)a);
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a.convert_to<int>() > (int)b.convert_to<int>() ? &b : &a;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (get<string>(a) > get<string>(b))
-            return a;
-        else
-            return "None";
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return (double)a.convert_to<double>() > (double)b.convert_to<double>() ? &b : &a;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return std::stod(a.convert_to<std::string>()) > std::stod(b.convert_to<std::string>()) ? &b : &a;
     }
     else {
-        return "None";
+        return boost::any("None");
     }
 }
