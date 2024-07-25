@@ -25,6 +25,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    std::cout << (issame(strange_sort_vector({111111}), {111111}) ? "Pass" : "Fail") << std::endl;
+    std::cout << (issame(strange_sort_vector({1, 3, 2}), {2, 3, 1}) ? "Pass" : "Fail") << std::endl;
     return 0;
 }
