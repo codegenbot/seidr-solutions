@@ -5,10 +5,12 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
-    int max_buckets = total_water / capacity;
-    if (total_water % capacity != 0) {
-        max_buckets++;
+    int max_fill_times = -1;
+    while (total_water > 0) {
+        int water_taken = min(total_water, capacity);
+        total_water -= water_taken;
+        max_fill_times++;
     }
     
-    return max_buckets;
+    return max_fill_times;
 }
