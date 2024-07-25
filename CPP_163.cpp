@@ -24,6 +24,6 @@ std::vector<int> filter_even_numbers(std::vector<int> a) {
 }
 
 int main() {
-    assert(issame(filter_even_numbers(generate_integers(17, 89)), std::vector<int>{}));
+    assert(issame(filter_even_numbers(generate_integers(17, 89)), {}));
     return 0;
 }
