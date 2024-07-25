@@ -1,10 +1,10 @@
 def match_parens(lst):
-    stack = []
+    count = 0
     for s in lst:
         if s == '(':
-            stack.append(s)
+            count += 1
         elif s == ')':
-            if not stack:
+            if count == 0:
                 return 'No'
-            stack.pop()
-    return 'Yes' if not stack else 'No'
+            count -= 1
+    return 'Yes' if count == 0 else 'No'
