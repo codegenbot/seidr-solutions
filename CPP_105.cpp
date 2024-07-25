@@ -7,6 +7,8 @@
 
 using namespace std;
 
+vector<string> by_length(vector<int> arr);
+
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
