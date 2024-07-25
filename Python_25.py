@@ -16,7 +16,7 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
+            factors.append(i**count)
             i += 1
     if n > 1:
         factors.append(n)
@@ -25,7 +25,12 @@ def factorize(n: int) -> List[int]:
 
 def main():
     print("Enter a number: ")
-    user_input = int(input())
+    while True:
+        try:
+            user_input = int(input())
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
     result = factorize(user_input)
     print(result)
 
