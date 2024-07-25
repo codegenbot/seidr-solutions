@@ -1,44 +1,44 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
-            // search for overlapping matches
-            int k = i + 1;
-            while (k <= text.size() - target.size()) {
-                found = true;
-                for (int j = 0; j < target.size(); j++) {
-                    if (text[k + j] != target[j]) {
-                        found = false;
-                        break;
-                    }
-                }
-                if (!found) {
-                    break;
-                }
-                result.push_back(k);
-                k++;
-            }
-        }
+vector<int> substringIndices(string text, string target) {
+    vector<int> indices;
+    int len = text.length();
+    int tarLen = target.length();
+
+    for (int i = 0; ; i++) {
+        if (i + tarLen > len)
+            break;
+
+        int j = 0;
+        while (j < tarLen && text[i + j] == target[j])
+            j++;
+
+        if (j == tarLen) {
+            indices.push_back(i);
+            i += j;
+        } else
+            i++;
     }
-    return result;
+
+    return indices;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+int main() {
+    int num1, num2;
+    cin >> num1 >> num2;
+
+    vector<int> indices = substringIndices("text", "target");
+    cout << indices.size() << endl;
+
+    cout << gcd(num1, num2) << endl;
+
+    return 0;
 }
