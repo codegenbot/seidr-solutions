@@ -1,20 +1,21 @@
 from typing import List
-from itertools import zip_longest, repeat
 
 def rolling_max():
+    max_length = 0
     numbers = []
-    k = int(input())  
     while True:
-        input_line = input().split()
-        if len(input_line) == 0 or input_line[0].lower() == 'stop':
+        command = input().split()
+        if len(command) == 0 or command[0].lower() == 'stop':
             break
-        numbers.append(list(map(int, input_line)))
+        num_input = [int(i) for i in command]
+        if max_length == 0:
+            max_length = len(num_input)
+        elif len(num_input) != max_length:
+            print("Invalid input. Please provide the same number of elements in each list.")
+            continue
+        numbers.append(num_input)
 
-    result = []
-    for _ in range(len(numbers[0])):
-        chunk = [row[i] for row in zip_longest(*numbers, fillvalue=0)]
-        result.append(max(map(int, filter(None, chunk))))
-
+    result = [max(row) for row in zip(*numbers)]
     return result
 
 print(rolling_max())
