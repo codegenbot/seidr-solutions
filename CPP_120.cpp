@@ -1,7 +1,7 @@
+```
 #include <vector>
-#include <algorithm>
 
-bool (std::vector<int>, std::vector<int>) issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -11,7 +11,7 @@ bool (std::vector<int>, std::vector<int>) issame(std::vector<int> a, std::vector
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> problemMain(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -21,8 +21,8 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-main() {
-    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
+int main() {
+    std::vector<int> test = problemMain({1, 2, 3, -23, 243, -400, 0}, 5);
     for (auto i : test) {
         std::cout << i << " ";
     }
