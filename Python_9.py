@@ -4,12 +4,13 @@ from typing import List
 def rolling_max():
     numbers = []
     while True:
-        input_line = input().split()
-        if len(input_line) == 0 or input_line[0].lower() == 'stop':
+        num_str = input("Enter a list of integers (or 'stop' to finish): ")
+        if num_str.lower() == 'stop':
             break
-        numbers.append(list(map(int, input_line)))
+        row = list(map(int, num_str.split()))
+        numbers.append(row)
 
-    result = [max(row) for row in zip(*numbers)]
+    result = [max(col) for col in zip(*numbers)]
     return result
 
 print(rolling_max())
