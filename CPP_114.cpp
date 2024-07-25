@@ -1,4 +1,3 @@
-```
 #include <vector>
 int minSubArraySum(vector<long long> nums) {
     int sum = 0, min_sum = INT_MAX;
