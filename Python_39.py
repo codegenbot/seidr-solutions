@@ -12,7 +12,7 @@ def prime_fib(n):
             return True
         if num % 2 == 0:
             return False
-        for i in range(3, int(num ** 0.5) + 1, 2):
+        for i in range(3, int(num**0.5) + 1, 2):
             if num % i == 0:
                 return False
         return True
@@ -21,11 +21,11 @@ def prime_fib(n):
     num = 1
     while count < n:
         num += 1
-        if is_prime(num):
-            if num == fibonacci(count):
-                count += 1
+        if is_prime(num) and num == fibonacci(count):
+            count += 1
     return num
 
-n = int(input("Enter the value of n: "))
+
+n = int(input("Enter the value of n: "))  # Prompt user for input
 result = prime_fib(n)
 print(result)
