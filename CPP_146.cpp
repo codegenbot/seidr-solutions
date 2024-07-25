@@ -13,7 +13,7 @@ int specialFilter(vector<int> nums) {
     return count;
 }
 
-int main() {
+int cpp146(int n) {
     vector<int> input;
     int num;
     while(cin >> num) {
