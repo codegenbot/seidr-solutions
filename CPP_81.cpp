@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -56,7 +56,7 @@ int main() {
         else if (grade > 1.0)
             std::cout << "D+ ";
         else
-            std::cout << "E ";
+            std::cout << "F ";
     }
     return 0;
 }
