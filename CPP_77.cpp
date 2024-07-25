@@ -1,4 +1,6 @@
+#include <iostream>
 #include <cmath>
+using namespace std;
 
 bool iscuber(int a) {
     int cube_root = round(cbrt(a));
@@ -6,5 +8,6 @@ bool iscuber(int a) {
 }
 
 int main() {
+    assert(iscuber(1729) == false);
     return 0;
 }
