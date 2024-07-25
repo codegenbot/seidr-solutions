@@ -1,12 +1,12 @@
-while True:
-    try:
-        numbers_input = input("Enter floating-point numbers separated by spaces: ")
-        if not numbers_input:
-            print("Input should not be empty")
-            continue
-        numbers = list(map(float, numbers_input.split()))
-        result = sum(numbers) / len(numbers)
-        print(f"Average of numbers: {result}")
-        break
-    except ValueError:
-        print("Input should contain valid floating-point numbers")
+try:
+    numbers_input = input("Enter space-separated floating-point numbers: ")
+    numbers = list(map(float, numbers_input.split()))
+
+    if len(numbers) < 2:
+        raise ValueError("At least 2 floating-point numbers are required")
+
+    result = sum(numbers) / len(numbers)
+    print(f"Average of numbers: {result}")
+
+except ValueError as e:
+    print(str(e))
