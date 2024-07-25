@@ -1,7 +1,5 @@
 int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
+    if (b == 0) return a;
     return gcd(b, a % b);
 }
 
@@ -11,10 +9,14 @@ bool simplify(string x, string n) {
     int numerator2 = stoi(n.substr(0, n.find('/')));
     int denominator2 = stoi(n.substr(n.find('/') + 1));
 
-    int numerator_result = numerator1 * numerator2;
-    int denominator_result = denominator1 * denominator2;
+    int num = numerator1 * numerator2;
+    int den = denominator1 * denominator2;
 
-    int common_divisor = gcd(numerator_result, denominator_result);
+    int common = gcd(num, den);
+    if (common != 1) {
+        num /= common;
+        den /= common;
+    }
 
-    return denominator_result / common_divisor == 1;
+    return den == 1;
 }
