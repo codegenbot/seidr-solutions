@@ -3,18 +3,15 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
     std::string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
         if (message[i] != ' ') {
-            int found = 0;
-            char c = message[i];
+            bool found = false;
             for(int j = 0; j < cipherKey1.length(); j++){
-                if(c == cipherKey1[j]){
+                if(message[i] == cipherKey1[j]){
                     decipheredMessage += cipherKey2[j];
-                    found = 1;
+                    found = true;
                     break;
                 }
             }
-            if(!found) {
-                decipheredMessage += c;
-            }
+            if (!found) decipheredMessage += message[i];
         } else {
             decipheredMessage += ' ';
         }
