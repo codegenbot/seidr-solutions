@@ -9,31 +9,31 @@ int score(std::string s) {
             total += 10;
             if (s[i + 1] == 'X') {
                 total += 10;
-                if (s[i + 2] == 'X') {
-                    total += 10;
-                } else if (s[i + 2] == '/') {
-                    total += 10 - (s[i + 1] - '0');
-                } else if (s[i + 2] != '-') {
-                    total += s[i + 2] - '0';
-                }
             } else if (s[i + 1] == '/') {
-                total += 10;
-            } else if (s[i + 1] != '-') {
+                total += 10 - (s[i] - '0');
+            } else {
                 total += s[i + 1] - '0';
+            }
+            if (s[i + 2] == 'X') {
+                total += 10;
+            } else if (s[i + 2] == '/') {
+                total += 10 - (s[i + 1] - '0');
+            } else {
+                total += s[i + 2] - '0';
             }
             frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
-            if (s[i + 1] == 'X') {
+            if (s[i + 1] == 'X' || s[i + 1] == '/') {
                 total += 10;
-            } else if (s[i + 1] != '-') {
+            } else {
                 total += s[i + 1] - '0';
             }
             frame++;
         } else if (s[i] != '-') {
             total += s[i] - '0';
             if (s[i + 1] == '/') {
-                total += 10 - (s[i] - '0');
+                total += 10 - (s[i - 1] - '0');
             }
             frame++;
         }
