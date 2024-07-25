@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
+bool isSame(vector<vector<int>> v1, vector<vector<int>> v2) {
     if (v1.size() != v2.size())
         return false;
     for (int i = 0; i < v1.size(); i++) {
@@ -14,7 +14,7 @@ bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
     return true;
 }
 
-vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
+vector<vector<int>> getRow(vector<vector<int>>& lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
@@ -31,6 +31,6 @@ vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
 }
 
 int main() {
-    assert(issame(get_row({}, {1}, {1, 2, 3}), {{2, 2}}));
+    assert(isSame(getRow({}, {1}, {1, 2, 3}), {{2, 2}}));
     return 0;
 }
