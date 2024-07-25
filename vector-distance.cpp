@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath> 
@@ -10,7 +11,7 @@ double vectorDistance(int n) {
         cin >> x1 >> y1;
         double diff = (x1 - y1) * (x1 - y1);
         sum += diff;
-    }
+   }
     
     return sqrt(sum); 
 }
