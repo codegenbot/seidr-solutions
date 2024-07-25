@@ -19,8 +19,10 @@ void reverse_delete(std::string s, const std::string& c) {
 }
 
 int main() {
-    std::string s = "example_string";
+    std::string s = "example string";
     std::string c = "aeiou";
+
     reverse_delete(s, c);
+
     return 0;
 }
