@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def is_nested(string):
     stack = []
