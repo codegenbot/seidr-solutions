@@ -1,27 +1,26 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(i + 4 >= str.length() || isalpha(str[i+4])) {
-            for(int j = i; j <= (i+4); j++) {
-                if(j < str.length())
-                    result = str[j] + result;
-                else
-                    break;
-            }
-            i += 5;
-        } else {
-            for(int j = i; j < str.length(); j++) {
-                result = str[j] + result;
-            }
-            i = str.length();
-        }
+std::string spinWords(const std::string& str) {
+    std::string result;
+    std::istringstream iss(str);
+    std::string word;
+
+    while (iss >> word) {
+        if (word.length() >= 5)
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
     }
-    return result;
+
+    return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
+    return 0;
 }
