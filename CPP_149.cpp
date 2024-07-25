@@ -16,7 +16,7 @@ vector<string> sorted_list_sum(vector<string> lst){
 }
 
 int main(){
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert (sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
     cout << "Test Passed!" << endl;
     return 0;
 }
