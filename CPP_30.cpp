@@ -1,9 +1,9 @@
-vector<float> get_positive(vector<float> l){
-    vector<float> pos;
-    for(float i : l) {
-        if(i > 0) {
-            pos.push_back(i);
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
         }
     }
-    return pos;
+    return result;
 }
