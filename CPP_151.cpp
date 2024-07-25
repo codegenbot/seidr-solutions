@@ -18,6 +18,6 @@ long long int double_the_difference(const std::vector<double> &lst) {
 
 int main() {
     long long int odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
     cout << "Odd sum: " << odd_sum << endl;
+    assert(double_the_difference(lst) == odd_sum);
 }
