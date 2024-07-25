@@ -7,6 +7,11 @@ bool issame(float a, float b) {
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
+int main() {
+    // Main function code remains unchanged
+    return 0;
+}
+
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
