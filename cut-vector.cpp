@@ -41,7 +41,7 @@ int main() {
     } 
 
     // Adjust the output loop
-    for (int i = 0; i <= cutIndex; i++) { 
+    for (int i = 0; i < cutIndex; i++) { // Change condition here
         cout << nums[i] << ' '; 
     } 
     cout << '\n'; 
