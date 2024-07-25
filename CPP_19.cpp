@@ -11,20 +11,24 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    string result;
-    map<int, string> sorted_numbers;
-
-    size_t start = 0, end;
-    while ((end = numbers.find(" ", start)) != string::npos) {
-        string num_str = numbers.substr(start, end - start);
-        sorted_numbers[num_map[num_str]] = num_str;
-        start = end + 1;
+string sort_numbers(string numbers){
+    map<int, string> rev_num_map;
+    for (auto const &pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
     }
-    sorted_numbers[num_map[numbers.substr(start)]] = numbers.substr(start);
 
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
+    vector<int> nums;
+    stringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        nums.push_back(num_map[word]);
+    }
+
+    sort(nums.begin(), nums.end());
+
+    string result;
+    for (int num : nums) {
+        result += rev_num_map[num] + " ";
     }
 
     result.pop_back(); // Remove the extra space at the end
