@@ -5,8 +5,8 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-input_strings = input().split(' ')
+input_strings = input().strip()
 
-result = longest(input_strings)
+result = longest(input_strings.split())
 
 print(result)
