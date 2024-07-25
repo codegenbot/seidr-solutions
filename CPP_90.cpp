@@ -1,12 +1,11 @@
-```c++
-int next_smallest(vector<int> lst){
-    if (lst.empty()) {
-        return -1; // or any value that represents None
+int next_smallest(vector<int> lst) {
+    vector<int> v = lst; 
+    if (v.empty()) return 0; //return None
+    sort(v.begin(), v.end());
+    for(int i=1; i<v.size(); i++){
+        if(v[i] != v[0]){
+            return v[i];
+        }
     }
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    if (lst.size() < 2) {
-        return -1; // or any value that represents None
-    }
-    return *next(cbegin(lst)); 
+    return 0; // return None if all elements are same
 }
