@@ -1,4 +1,6 @@
-def decode_shift(encoded_string):
+```
+def decode_shift():
+    encoded_string = input("Enter the encoded string: ")
     shift = int(input("Enter the shift value (0-25): "))
     if shift < 0 or shift > 25:
         return str(shift) + " is not a valid shift value. Please enter a shift value between 0 and 25."
@@ -15,10 +17,13 @@ def decode_shift(encoded_string):
                 shift = int(result[-1]) % 26
             else: 
                 shift = -1
-            if ((ord(encoded_string[i]) - ascii_offset - shift) % 26) <= 0:
-                result += chr(((ord(encoded_string[i]) - ascii_offset - shift + 26) % 26) + ascii_offset)
-            else:
-                result += chr(((ord(encoded_string[i]) - ascii_offset - shift) % 26) + ascii_offset)
+            char_code = ord(encoded_string[i]) - ascii_offset
+            if char_code < 0:
+                char_code += 26
+            decoded_char_code = (char_code - shift) % 26
+            if decoded_char_code < 0:
+                decoded_char_code += 26
+            result += chr(decoded_char_code + ascii_offset)
         else:
             result += encoded_string[i]
         i += 1
