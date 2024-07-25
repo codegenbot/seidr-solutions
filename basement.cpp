@@ -1,8 +1,12 @@
-int basement(const vector<int>& v) {
+#include <vector>
+using namespace std;
+
+int basement(vector<int> arr) {
     int sum = 0;
-    for (int i = 0; i < v.size(); ++i) {
-        sum += v[i];
-        if (sum < 0) return i;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+        if (sum < 0)
+            return i;
     }
-    return -1; // return -1 if no such index found
+    return -1; // return -1 if no such index is found
 }
