@@ -1,5 +1,4 @@
 from typing import List
-import math
 
 
 def factorize(n: int) -> List[int]:
@@ -24,8 +23,8 @@ def factorize(n: int) -> List[int]:
 
 def main():
     print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
-    user_input = input()
     while True:
+        user_input = input()
         if user_input.lower() == "quit":
             break
         try:
@@ -39,5 +38,7 @@ def main():
                 )
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-        print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
-        user_input = input()
+
+
+if __name__ == "__main__":
+    main()
