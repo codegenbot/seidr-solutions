@@ -1,17 +1,4 @@
-int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
-    }
-    
-    if (q.size() % 2 != 0) {
-        return false;
-    }
-    
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - 1 - i]) {
-            return false;
-        }
-    }
-    
-    return sum <= w;
+vector<int> reverse_q = q;
+    reverse(reverse_q.begin(), reverse_q.end());
+    return q == reverse_q && accumulate(q.begin(), q.end(), 0) <= w;
 }
