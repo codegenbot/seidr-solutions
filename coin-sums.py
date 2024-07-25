@@ -10,4 +10,4 @@ remaining_cents %= 10
 nickles = remaining_cents // 5
 pennies = remaining_cents % 5
 
-print(f"{quarters} quarters\n{dimes} dimes\n{nickles} nickles\n{pennies} pennies")
+print(f"{quarters} quarters\n{dimes} dimes\n{nickles} nickels\n{pennies} pennies")
