@@ -1,12 +1,14 @@
+```
 from typing import List
 
 def get_names() -> List[str]:
     names = []
     while True:
-        name = input("Enter a name (or 'done' if finished): ")
-        if name.lower() == 'done':
+        first_name = input("Enter your first name (or 'stop' to finish): ")
+        if first_name.lower() == 'stop':
             break
-        names.append(name)
+        last_name = input("Enter your last name: ")
+        names.append(f"{first_name} {last_name}")
     return names
 
 print(get_names())
