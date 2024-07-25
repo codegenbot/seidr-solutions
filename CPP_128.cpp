@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 int prod_signs(vector<int> arr) {
     int sign_product = 1;
     long long sum_of_magnitudes = 0;
@@ -6,8 +9,7 @@ int prod_signs(vector<int> arr) {
         if (num == 0) {
             return 0;
         }
-        int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
-        sign_product *= sign;
+        sign_product *= abs(num);
         sum_of_magnitudes += abs(num);
     }
 
