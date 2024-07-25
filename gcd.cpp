@@ -3,13 +3,21 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0;
-    while (start < text.length()) {
-        size_t found = text.find(target, start);
-        if (found == string::npos) break;
-        result.push_back(found);
-        start = found + 1;
+    int n = text.length();
+    int m = target.length();
+
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m).compare(target) == 0){
+            result.push_back(i);
+            while(i+n-m > n){
+                i++;
+                if(text.substr(i,m).compare(target) == 0){
+                    result.push_back(i);
+                }
+            }
+        }
     }
+
     return result;
 }
 
