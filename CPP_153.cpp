@@ -1,16 +1,24 @@
-```cpp
+````
 #include <string>
 #include <vector>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
+int main() {
+    std::vector<std::string> my_extensions = {"jpg", "png", "jpeg"};
+    std::string result = Strongest_Extension("Image", my_extensions);
+    //...
+}
+
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
     std::string result;
     for(auto& extension:extensions){
         int cap = 0;
         int sm = 0;
         for(char c:extension){
-            if(isupper(c))cap++;
-            else if(islower(c))sm++;
+            if(std::isupper(c))cap++;
+            else if(std::islower(c))sm++;
         }
         int strength = cap - sm;
         if(strength > strongest){
@@ -20,3 +28,4 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
     return class_name + "." + result;
 }
+```

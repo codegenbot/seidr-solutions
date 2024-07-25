@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
