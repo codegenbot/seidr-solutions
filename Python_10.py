@@ -1,4 +1,4 @@
-```python
+```
 def solve_task(s):
     palindrome = "".join(c for c in s if c.isalpha()) + "".join(
         c for c in s[::-1] if c.isalpha()
