@@ -21,4 +21,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 
     result.push_back({minEvenValue, minIndex});
     return result;
-}
