@@ -2,10 +2,12 @@ int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
     }
-    
-    if (q.size() == 1 || (q.size() % 2 == 0 && equal(q.begin(), q.begin() + q.size() / 2, q.rbegin()))) {
-        return sum <= w;
+    if (sum <= w) {
+        vector<int> reversed_q = q;
+        reverse(reversed_q.begin(), reversed_q.end());
+        if (q == reversed_q) {
+            return true;
+        }
     }
-    
     return false;
 }
