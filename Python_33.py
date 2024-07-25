@@ -1,8 +1,8 @@
 def sort_third(lst):
     result = []
     while len(lst) > 0:
-        lst.sort(key=lambda x: (x[2], x))
-        temp = [i[2] for i in lst]
+        lst = [list(i) for i in lst]  
+        temp = [i[2] for i in sorted(lst)]
         del lst[:]
-        result.append(tuple(temp))
+        result.append(temp)
     return tuple(result)
