@@ -1,4 +1,1 @@
-try:
-    numbers = list(map(int, input().strip().split()))
-except ValueError:
-    print("Invalid input. Please enter integers separated by spaces.")
+numbers = list(map(int, input("Enter space separated numbers: ").split()))
