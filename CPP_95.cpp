@@ -18,3 +18,10 @@ bool check_dict_case(map<string, string> dict) {
 
     return allLower || allUpper;
 }
+
+int main() {
+    map<string, string> dict;
+    // Add your code here to fill the dictionary
+    cout << check_dict_case(dict) << endl;
+    return 0;
+}
