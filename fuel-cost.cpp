@@ -1,13 +1,11 @@
-int fuelCost(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        int result = (i / 3);
-        if (result < 1) {
-            result = 0;
-        } else {
-            result--;
+int calculateFuelCost(vector<int> &costs) {
+    int total = 0;
+    for (int cost : costs) {
+        int newCost = (cost / 3);
+        if (newCost > 0) {
+            newCost -= 2;
+            total += newCost;
         }
-        sum += result;
     }
-    return sum;
+    return total;
 }
