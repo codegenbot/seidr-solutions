@@ -1,3 +1,4 @@
+````
 #include <string>
 #include <vector>
 
@@ -25,3 +26,4 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
     return class_name + "." + result;
 }
+```
