@@ -12,6 +12,7 @@ int main() {
         }
         nums.push_back(n);
     }
+    
     int sum = 0, halfSum = 0;
     for (int num : nums) {
         sum += num;
@@ -36,6 +37,6 @@ int main() {
     for (int num : subvector2) {
         cout << num << endl;
     }
-    
+
     return 0;
 }
