@@ -1,12 +1,9 @@
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i] >= lst[i-1]){
-            if(find(lst.begin(), lst.end(), lst[i]) != lst.end() && count(lst.begin(), lst.end(), lst[i]) > 1) {
-                return false;
-            }
-        } else{
+        if(lst[i] >= lst[i-1] && count(lst.begin(), lst.end(), lst[i]) == 1)
+            return true;
+        else 
             return false;
-        }
     }
     return true;
 }
