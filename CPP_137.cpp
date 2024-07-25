@@ -15,21 +15,21 @@ else if(a.type() == typeid(float) && b.type() == typeid(float)){
         return "None";
 }
 else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    float val1 = stof(boost::any_cast<string>(a));
-    float val2 = stof(boost::any_cast<string>(b));
-    if(val1 > val2)
+    float num1 = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float num2 = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(num1 > num2)
         return a;
-    else if(val1 < val2)
+    else if(num1 < num2)
         return b;
     else
         return "None";
 }
 else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
-    float val1 = stof(a.type() == typeid(int) ? to_string(boost::any_cast<int>(a)) : boost::any_cast<string>(a));
-    float val2 = stof(b.type() == typeid(int) ? to_string(boost::any_cast<int>(b)) : boost::any_cast<string>(b));
-    if(val1 > val2)
+    float num1 = (a.type() == typeid(int)) ? boost::any_cast<int>(a) : stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float num2 = (b.type() == typeid(int)) ? boost::any_cast<int>(b) : stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(num1 > num2)
         return a;
-    else if(val1 < val2)
+    else if(num1 < num2)
         return b;
     else
         return "None";
