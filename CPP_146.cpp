@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,7 @@ int specialFilter(vector<int> nums) {
     return count;
 }
 
-void main() {
+int main() {
     vector<int> input;
     int num;
     while(cin >> num) {
