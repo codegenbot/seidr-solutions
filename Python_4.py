@@ -1,3 +1,4 @@
+```
 def calculate_mad():
     from typing import List
     import statistics
@@ -22,3 +23,4 @@ def calculate_mad():
                 break
         except ValueError:
             print("Invalid input. Please enter valid numbers.")
+calculate_mad()
