@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int specialFilter(vector<int> nums) {
+int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
@@ -14,11 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input;
-    int num;
-    while(cin >> num) {
-        input.push_back(num);
-    }
-    cout << specialFilter(input) << endl;
+    assert(specialFilter({}) == 0);
+    std::cout << "Special Filter: " << specialFilter({1, 5, 8, 15, 16, 17}) << std::endl;
     return 0;
 }
