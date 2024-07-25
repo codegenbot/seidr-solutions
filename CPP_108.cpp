@@ -7,21 +7,25 @@ int count_nums(vector<int> nums) {
                 sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         } else {
-            num = -num; // convert to positive
+            num = -num; // make the number positive for calculation
             int sum = 0;
-            bool is_negative = true;
+            bool isNegative = true;
             while (num > 0) {
-                if (!is_negative) {
+                if (isNegative) {
+                    sum -= num % 10;
+                } else {
                     sum += num % 10;
                 }
                 num /= 10;
-                is_negative = !is_negative; // toggle sign
+                isNegative = !isNegative; // toggle the sign
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         }
     }
     return count;
