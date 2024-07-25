@@ -16,9 +16,10 @@ def main():
             break
         try:
             num = int(prompt)
-            if num < 2:
-                print(False)
-            else:
-                print(is_prime(num))
+            print(is_prime(num))
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+
+if __name__ == "__main__":
+    main()
