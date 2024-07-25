@@ -1,3 +1,4 @@
+```
 tweet = input("Enter a tweet: ")
 if not tweet:
     print("You didn't type anything")
