@@ -1,12 +1,12 @@
+Here is the modified code:
+
+```
 import re
 
 def fruit_distribution(s, n):
     s = s.replace("apples", "1").replace("oranges", "0")
     if 'and' in s:
-        parts = []
-        for x in re.split(r"(\d+|\band\))", s):
-            if x.isdigit() or x == 'and':
-                parts.append(x)
+        parts = [x for x in re.split(r"(\d+|\band\))", s) if x.isdigit() or x == 'and']
     else:
         parts = [x for x in re.split(r"\d+", s)]
     ones = int(s.count('1'))
