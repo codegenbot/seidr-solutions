@@ -4,13 +4,11 @@ if (txt.empty()) {
     
     char lastChar = txt.back();
     if (isalpha(lastChar)) {
-        size_t found = txt.find_last_of(" ");
-        if (found == string::npos) {
+        int spacePos = txt.find_last_of(' ');
+        if (spacePos != string::npos && spacePos == txt.length() - 1) {
             return true;
-        } else {
-            return found == txt.size() - 1;
         }
-    } else {
-        return false;
     }
+    
+    return false;
 }
