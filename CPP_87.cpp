@@ -12,13 +12,11 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     for (int i = 0; i < lst.size(); i++) {
         if(x == 1) {
             for (int j = lst[i].size() - 1; j >= 0; j--) {
-                vector<int> temp = {i, j};
-                result.push_back(temp);
+                result.push_back({i, j});
             }
         } else {
             for (int j = 0; j < lst[i].size(); j++) {
-                vector<int> temp = {i, j};
-                result.push_back(temp);
+                result.push_back({i, j});
             }
         }
     }
