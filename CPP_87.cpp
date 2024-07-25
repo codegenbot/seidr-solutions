@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
@@ -17,5 +14,5 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
              if (a.first != b.first) return a.first < b.first;
              else return a.second > b.second;
          });
-    return vector<vector<int>>(result.begin(), result.end());
+    return result;
 }
