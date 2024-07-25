@@ -4,9 +4,11 @@ def decode_cyclic(s: str):
     result = ""
     i = 0
     while i < len(s):
-        group = s[i:i+min(len(s)-i, 3)]
+        group = s[i : i + min(len(s) - i, 3)]
         if i + 2 >= len(s) or not group[-1].isdigit():
             break
-        result += chr(int(f"{group[0]}{group[1]}{int('0' + group[-1]) - int(group[-1])}"), 3)  
+        result += chr(
+            int(group[0] + group[1], 3) ^ (int("0" + group[-1]) - int(group[-1])) * 8
+        )
         i += len(group)
     return result
