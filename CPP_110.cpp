@@ -1,9 +1,9 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int odd_count = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            oddCount++;
+            odd_count++;
         }
     }
-    return (oddCount > 0) ? "NO" : "YES";
+    return (odd_count == 0 || odd_count == lst2.size()) ? "YES" : "NO";
 }
