@@ -1,25 +1,33 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
     return true;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> res(k);
-    std::partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
-    for (int i = 0; i < k; i++) {
-        res[i] = arr[arr.size() - k + i];
+    std::vector<int> result;
+    for (int i = 0; i < k; ++i) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    return res;
+    return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3) , {0, -23, -400}));
-    // Your code here
-    return 0;
+    std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
+    int k = 5;
+    if (issame(maximum(arr,k), {3,243,0,-23,-400})) 
+        std::cout << "Test passed." << std::endl; 
+    else
+        std::cout << "Test failed." << std::endl; 
+
 }
