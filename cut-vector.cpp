@@ -45,13 +45,13 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex < n-1) { 
+    if (cutIndex < n) { // Update condition to handle cutting at the last element
         for (int i = cutIndex + 1; i < n; i++) { 
             cout << nums[i] << ' '; 
         } 
         cout << '\n'; 
     } else {
-        cout << nums[cutIndex + 1] << '\n';
+        cout << "0\n"; 
     }
 
     return 0;
