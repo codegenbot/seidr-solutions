@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
-bool issame(std::vector<int> a,std::vector<int>b){
+bool issame(vector<int> a,vector<int>b){
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -11,16 +13,20 @@ bool issame(std::vector<int> a,std::vector<int>b){
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result;
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
     for (int i = 0; i < k; ++i) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
-        arr.erase(it-1); // Erase the maximum element from array
+        arr.erase(it);
     }
     return result;
 }
 
 int main() {
+    int input;
+    cout << "Enter the number of elements to be extracted: ";
+    cin >> input;
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, input) , {3,243,0,-23,-400}));
     return 0;
 }
