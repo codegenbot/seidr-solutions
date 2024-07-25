@@ -1,3 +1,4 @@
+n = int(input("Enter the value of n: "))
 def is_prime(num):
     if num < 2:
         return False
@@ -22,7 +23,5 @@ def prime_fib(n: int):
                 count += 1
     return num
 
-t = int(input("Enter the number of test cases: "))
-for _ in range(t):
-    n = int(input("Enter the value of n: "))
-    print(prime_fib(n))
+result = prime_fib(n)
+print(result)
