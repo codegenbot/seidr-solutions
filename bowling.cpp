@@ -1,4 +1,3 @@
-```
 int bowlingScore(string s) {
     int score = 0;
     int i = 0;
@@ -10,17 +9,13 @@ int bowlingScore(string s) {
                 score += 10 - (s[i] - '0');
             }
         } else if (s[i] - '0' + s[i+1] - '0' > 10) {
-            int frame = 20 - (s[i] - '0' + s[i+1] - '0');
+            int frame = 10 - (s[i] - '0' + s[i+1] - '0');
             score += frame;
             i+=2;
         } else {
             int frame = s[i] - '0' + s[i+1] - '0';
-            if (frame == 10) {
-                i++;
-            }
             score += frame;
             i+=2;
         }
     }
-    return score;
 }
