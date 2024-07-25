@@ -15,4 +15,3 @@ int main() {
     cout << fixed << setprecision(10) << calculateSnow(hours, initialSnow, snowFallRate, meltingRate) << endl;
 
     return 0;
-}
