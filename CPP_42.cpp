@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b; // Check if vectors a and b are the same
 }
 
 std::vector<int> incr_list(std::vector<int> l) {
