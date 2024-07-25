@@ -1,1 +1,1 @@
-notes = list(map(int, input().split()))
+user_input = list(map(int, input().strip().split()))
