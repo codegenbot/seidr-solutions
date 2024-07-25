@@ -1,35 +1,43 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+bool evaluateBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
+
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        
+        if (c == '&' || c == '|') {
+            string operand1 = valStack.top();
+            valStack.pop();
+            string operand2;
+            while (!opStack.empty() && opStack.top() != '(') {
+                operand2 += opStack.top();
+                opStack.pop();
             }
-            if (s.empty()) {
-                return false;
+            opStack.pop(); // Pop the parenthesis
+            
+            if (c == '&') {
+                valStack.push((operand1 == "True" && operand2 == "True") ? "True" : "False");
+            } else {
+                valStack.push((operand1 == "True" || operand2 == "True") ? "True" : "False");
             }
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+        } 
+        else if (c != '(' && c != ')') {
+            string s;
+            while (i < expression.size() && expression[i] != ' ' && expression[i] != '&' && expression[i] != '|' && expression[i] != '(') {
+                s += expression[i];
+                i++;
             }
-        } else {
-            s.push(expression[i]);
+            i--;
+            if (s == "t") valStack.push("True");
+            else if (s == "f") valStack.push("False");
+        } 
+        else {
+            opStack.push(c);
         }
     }
-    return s.top() == 'T';
-}
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    if (solveBoolean(expression)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
+    return valStack.top() == "True";
 }
