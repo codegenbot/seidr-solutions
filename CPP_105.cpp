@@ -1,6 +1,8 @@
+```
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -53,35 +55,6 @@ vector<string> by_length(vector<int> arr) {
                     break;
                 case 9:
                     result.push_back("Nine");
-            }
-        } else {
-            switch (num) {
-                case 1:
-                    result.push_back("Ten");
-                    break;
-                case 2:
-                    result.push_back("Twenty");
-                    break;
-                case 3:
-                    result.push_back("Thirty");
-                    break;
-                case 4:
-                    result.push_back("Forty");
-                    break;
-                case 5:
-                    result.push_back("Fifty");
-                    break;
-                case 6:
-                    result.push_back("Sixty");
-                    break;
-                case 7:
-                    result.push_back("Seventy");
-                    break;
-                case 8:
-                    result.push_back("Eighty");
-                    break;
-                case 9:
-                    result.push_back("Ninety");
             }
         }
     }
