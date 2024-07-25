@@ -1,6 +1,6 @@
-```Python
+```
 def digitSum(s):
-    s = s.lower()
-    return sum(int(c) if c.isdigit() else (1 if c in 'aeiouy' else 0) for c in s)
+    s = ''.join(c if c.isalnum() else '' for c in s)
+    return sum(int(c) for c in s)
 
 print(digitSum("You arE Very Smart"))
