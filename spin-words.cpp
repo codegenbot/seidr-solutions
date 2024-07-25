@@ -16,7 +16,7 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5)
-                result += newWord(word) + " ";
+                result += newWord(word);
             else
                 result += word + " ";
             word = "";
@@ -26,7 +26,7 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5)
-        result += newWord(word) + " ";
+        result += newWord(word);
     else
         result += word;
 
