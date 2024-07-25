@@ -3,7 +3,7 @@
 #include <cassert>
 
 namespace Contest {
-    std::string Contest::anti_shuffle(std::string s);
+    std::string anti_shuffle(std::string s);
 
     std::string anti_shuffle(std::string s) {
         std::string result = "";
