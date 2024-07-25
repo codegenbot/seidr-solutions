@@ -1,19 +1,24 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-vector<int> unique_digits(vector<int> x) {
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> unique_digits(vector<int> x);
+
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int num : x) {
+    for(int num : x){
         int digit = num;
         bool hasEvenDigit = false;
-        while (digit > 0) {
-            if ((digit % 10) % 2 == 0) {
+        while(digit > 0){
+            if((digit % 10) % 2 == 0){
                 hasEvenDigit = true;
                 break;
             }
             digit /= 10;
         }
-        if (!hasEvenDigit) {
+        if(!hasEvenDigit){
             result.push_back(num);
         }
     }
