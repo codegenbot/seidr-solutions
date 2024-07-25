@@ -1,14 +1,20 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int n, m;
     cin >> n >> m;
-    double result = 0.0;
+
+    double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                result += 1.0 / (n * m);
+                probability += 1.0 / (n * m);
             }
         }
     }
-    cout << fixed << setprecision(2) << result << endl;
+
+    cout << probability << endl;
+
     return 0;
 }
