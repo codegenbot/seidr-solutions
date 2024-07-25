@@ -1,49 +1,25 @@
-using namespace std;
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            string first = s.substr(0, i);
-            string second = s.substr(i + 1);
-            int firstPart = 0;
-            if (first[0] != 'X') {
-                for (char c : first) {
-                    firstPart += c - '0';
-                }
-            } else {
-                firstPart = 10;
-            }
-            int secondPart = 0;
-            if (second[0] != 'X') {
-                for (char c : second) {
-                    secondPart += c - '0';
-                }
-            } else {
-                secondPart = 10;
-            }
-            score += getScore(firstPart, secondPart);
+    int roll1 = 0, roll2 = 0;
+
+    for (int i = 0; i < 10; ++i) {
+        if (input[i] == 'X') { // strike
+            score += 10 + bowlingScore(input.substr(i+1));
+        } else if (input[i] == '/') { // spare
+            roll1 = input[i+2] - '0';
+            score += 10;
+            i++; // move to the next frame
         } else {
-            int frame = 0;
-            if (s[i] == 'X') {
-                frame = 10;
-            } else if (s[i] - '0' + s[i+1] - '0' > 10) {
-                frame = 10;
-                i++;
+            roll1 = input[i] - '0';
+            roll2 = input[i+1] - '0';
+            if (i < 8 && input[i+2] == '/') { // spare in next frame, add it now
+                score += roll1 + roll2;
             } else {
-                frame = s[i] - '0' + s[i+1] - '0';
-                i++;
+                score += roll1 + roll2;
             }
-            score += frame;
         }
     }
-    return score;
-}
 
-int getScore(int first, int second) {
-    if (first + second > 10) {
-        return 10 + second;
-    } else {
-        return first + second;
-    }
-}
+    return score;
