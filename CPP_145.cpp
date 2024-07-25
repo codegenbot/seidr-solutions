@@ -1,32 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), order_by_points);
+    return nums;
+}
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = 0, sumB = 0;
-        int tempA = abs(a), tempB = abs(b);
-        while (tempA) {
-            sumA += tempA % 10;
-            tempA /= 10;
-        }
-        while (tempB) {
-            sumB += tempB % 10;
-            tempB /= 10;
-        }
-        if (sumA == sumB) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-        }
-        return sumA < sumB;
-    });
-    return nums;
 }
 
 int main() {
