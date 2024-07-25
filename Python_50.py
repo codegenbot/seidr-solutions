@@ -1,3 +1,4 @@
+```
 def decode_shift():
     encoded_string = input("Enter the encoded string: ")
     shift = int(input("Enter the shift value (0-25): "))
@@ -27,5 +28,3 @@ def decode_shift():
             result += encoded_string[i]
         i += 1
     return result
-
-print(decode_shift())
