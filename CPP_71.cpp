@@ -1,17 +1,16 @@
-#include <iostream>
 #include <cmath>
 #include <cassert>
 
 float triangle_area(float a, float b, float c) {
-    if(a + b > c && a + c > b && b + c > a) {
+    if(a + b > c && b + c > a && a + c > b) {
         float s = (a + b + c) / 2;
-        return sqrt(s * (s - a) * (s - b) * (s - c));
-    } else {
-        return -1;
+        float area = sqrt(s * (s - a) * (s - b) * (s - c));
+        return round(area * 100) / 100;
     }
+    return -1;
 }
 
 int main() {
-    assert(fabs(triangle_area(2, 2, 10) + 1) < 0.01);
+    assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
     return 0;
 }
