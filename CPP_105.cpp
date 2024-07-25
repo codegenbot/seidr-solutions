@@ -1,8 +1,15 @@
 vector<string> by_length(vector<int> arr){
-    map<int, string> numToWord = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, 
-        {4, "Four"}, {5, "Five"}, {6, "Six"}, 
-        {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
+    vector<string> result;
+    map<int, string> numToString = {
+        {1, "One"},
+        {2, "Two"},
+        {3, "Three"},
+        {4, "Four"},
+        {5, "Five"},
+        {6, "Six"},
+        {7, "Seven"},
+        {8, "Eight"},
+        {9, "Nine"}
     };
 
     vector<int> sortedArr;
@@ -15,9 +22,8 @@ vector<string> by_length(vector<int> arr){
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
 
-    vector<string> result;
     for (int num : sortedArr) {
-        result.push_back(numToWord[num]);
+        result.push_back(numToString[num]);
     }
 
     return result;
