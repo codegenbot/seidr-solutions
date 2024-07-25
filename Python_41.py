@@ -1,3 +1,4 @@
+```
 def car_race_collision(n):
     total_distance = 0
     for i in range(1, n + 1):
@@ -5,9 +6,7 @@ def car_race_collision(n):
         remaining_cars = n - i
         collisions = min(i, remaining_cars)
         if collisions > 0:
-            total_distance += (i * (i + 1)) // 2 - (
-                (i - collisions) * (i - collisions + 1)
-            ) // 2
+            total_distance += (i * (i + 1)) // 2 - ((i - collisions) * (i - collisions + 1)) // 2
 
     return total_distance + (n * (n + 1)) // 2
 
@@ -18,7 +17,7 @@ while True:
         if n > 0:
             break
         else:
-            print("Please enter a positive integer.")
+            print("Please enter a positive integer. Number of cars must be greater than zero.")
     except ValueError:
         print("Invalid input. Please enter an integer.")
 
