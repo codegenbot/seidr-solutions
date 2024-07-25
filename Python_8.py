@@ -7,10 +7,14 @@ def process_numbers():
 
     for num in numbers_str.split():
         if "-" in num:
-            start_num, end_num = map(float, num.split("-"))
-            if start_num is not None and end_num is not None:
-                numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
-            else:
+            parts = num.split("-")
+            try:
+                start_num, end_num = map(float, parts)
+                if start_num is not None and end_num is not None:
+                    numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
+                else:
+                    print(f"Program did not receive expected input: {num}")
+            except ValueError:
                 print(f"Program did not receive expected input: {num}")
         else:
             if num.isdigit():
