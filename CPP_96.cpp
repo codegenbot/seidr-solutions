@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -6,13 +5,19 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
 
     return true;
+}
+
+std::vector<int> count_up_to(int n);
+
+void main() {
+    // Your main function code here
 }
 
 std::vector<int> count_up_to(int n) {
@@ -39,18 +44,4 @@ std::vector<int> count_up_to(int n) {
     }
 
     return result;
-}
-
-int main() {
-    int n = 20; // Example input
-    std::vector<int> numbers1 = count_up_to(n);
-    std::vector<int> numbers2 = count_up_to(n);
-
-    if (issame(numbers1, numbers2)) {
-        std::cout << "The results are the same." << std::endl;
-    } else {
-        std::cout << "The results are not the same." << std::endl;
-    }
-
-    return 0;
 }
