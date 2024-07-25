@@ -15,11 +15,9 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
         return "None";
     }
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    float num1 = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
-    float num2 = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
-    if(num1 > num2){
+    if(stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))){
         return a;
-    } else if(num1 < num2){
+    } else if(stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))){
         return b;
     } else {
         return "None";
