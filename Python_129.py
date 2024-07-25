@@ -9,7 +9,7 @@ def minPath(grid, k):
                 continue
             path = [grid[i][j]]
             dfs(grid, i, j, k-1, visited, path)
-            if not min_path or len(path) < len(min_path):
+            if not min_path or path < min_path:
                 min_path = path
     return min_path
 
