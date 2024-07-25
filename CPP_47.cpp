@@ -1,7 +1,11 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <cmath>
 
-double median(vector<int> l) {
+using namespace std;
+
+double median(std::vector<int> l) {
     sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0) {
