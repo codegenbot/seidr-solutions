@@ -8,7 +8,7 @@ bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& 
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> planets = { "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake" };
     std::vector<std::string> result;
 
     int start = -1, end = -1;
@@ -37,6 +37,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(is_same(bf("Jupiter", "Mars"), {"Saturn"}));
+    assert(is_same(bf("Jupiter", "Makemake"), { "Mars", "Saturn", "Uranus" }));
     return 0;
 }
