@@ -1,6 +1,6 @@
 result = []
-for i, num in enumerate(numbers):
-    result.append(num)
-    if i != len(numbers) - 1:
-        result.append(delimeter)
+for num in numbers[:-1]:
+    result.extend([num, delimeter])
+if numbers:
+    result.append(numbers[-1])
 return result
