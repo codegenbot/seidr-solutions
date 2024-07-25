@@ -1,16 +1,23 @@
 vector<string> by_length(vector<int> arr){
-        vector<string> res;
-        map<int, string> intToString = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}};
-        
-        sort(arr.begin(), arr.end());
-        auto it = remove_if(arr.begin(), arr.end(), [](int n) { return n < 1 || n > 9; });
-        arr.erase(it, arr.end());
-        
-        reverse(arr.begin(), arr.end());
-        
-        for (int num : arr) {
-            res.push_back(intToString[num]);
+    vector<int> sortedArr;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sortedArr.push_back(num);
         }
-        
-        return res;
     }
+    sort(sortedArr.begin(), sortedArr.end());
+
+    reverse(sortedArr.begin(), sortedArr.end());
+
+    map<int, string> numToWord = {
+        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
+        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
+    };
+
+    vector<string> result;
+    for (int num : sortedArr) {
+        result.push_back(numToWord[num]);
+    }
+
+    return result;
+}
