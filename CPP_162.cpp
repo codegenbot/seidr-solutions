@@ -1,6 +1,5 @@
 #include <openssl/evp.h>
 #include <openssl/err.h>
-#include <string>
 
 std::string string_to_md5(std::string text) {
     EVP_MD_CTX mdctx;
@@ -16,7 +15,7 @@ std::string string_to_md5(std::string text) {
     EVP_DigestUpdate(&mdctx, str, len);
     unsigned char mdSig[EVP_MAX_BLOCK_LENGTH];
     int len_output = EVP_DigestFinal_ex(&mdctx, mdSig, &len);
-    mdctx = EVP_MD_CTX_free(mdctx);
+    EVP_MD_CTX_free(&mdctx);
 
     std::string result;
     for (int i = 0; i < len; i++) {
@@ -25,4 +24,3 @@ std::string string_to_md5(std::string text) {
         result += buffer;
     }
     return result;
-}
