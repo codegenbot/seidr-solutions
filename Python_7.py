@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -6,15 +7,9 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    print("Enter the list of strings (one per line):")
-    input_data = []
-    while True:
-        line = input().strip()
-        if not line:
-            break
-        input_data.append(line)
-
-    print("\nEnter the substring to filter:")
-    substring = input().strip()
-
-    print("\nFiltered output:", filter_by_substring(input_data, substring))
+    try:
+        input_strings = [line.strip() for line in input().splitlines()]
+        substring = input()
+        print(filter_by_substring(input_strings, substring))
+    except EOFError:
+        print("No input provided. Please enter the required inputs.")
