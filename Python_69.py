@@ -1,4 +1,3 @@
-```
-lst = [int(x) for x in input().split()]
-n = int(lst[0])
-print(search(lst[1:]))
+n = int(input())
+input_lst = list(map(int, input().split()))
+print(search(input_lst))
