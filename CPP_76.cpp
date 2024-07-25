@@ -1,10 +1,1 @@
-if(x == 1) return true;
-    for(int i = 2; i <= sqrt(x); i++){
-        int p = 1;
-        while(p < x){
-            p *= i;
-            if(p == x && i == n) return true;
-        }
-    }
-    return false;
-}
+return (x > 0 && n > 0 && (x == 1 || (n != 1 && pow(n, round(log(x) / log(n))) == x)));
