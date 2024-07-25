@@ -1,6 +1,1 @@
-sorted(
-    [
-        f"{path[1]}, {path[0]}"
-        for _, path in sorted((sum(path), path) for path in min_paths[:k])
-    ]
-)
+[f"{path[1]}, {path[0]}" for _, path in sorted((sum(path), path) for path in min_paths[:k])] if min_paths else []
