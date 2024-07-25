@@ -1,14 +1,10 @@
-int how_many_times(string str, string substring) {
-    if (substring.empty()) {
-        return 0;
-    }
-    
+int how_many_times(string str, string substring){
     int count = 0;
+    if(substring.empty()) return 0;
     size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != string::npos) {
-        ++count;
-        ++pos;
+    while((pos = str.find(substring, pos)) != string::npos){
+        pos++;
+        count++;
     }
-    
     return count;
 }
