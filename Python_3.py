@@ -13,7 +13,7 @@ def below_zero() -> None:
         while True:
             ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
             if ops.lower() == "end":
-                break)
+                break
             try:
                 operations = [int(op) for op in ops.split()]
                 break
@@ -49,8 +49,5 @@ def below_zero() -> None:
         if below_zero_operations > 0:
             print(f"More than half of the operations were below zero.")
 
-        cont = input("Continue? (yes/no): ")
-        if cont.lower() == "no":
+        if cont.lower() != "yes":
             break
-    }
-}
