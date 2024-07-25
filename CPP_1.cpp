@@ -28,25 +28,15 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::string current_group = "";
 
     for (char c : paren_string) {
-        if (c == '(' || c == ')') {
+        if (c == '(') {
             current_group += c;
-        } else {
-            if (!current_group.empty()) {
-                current_group += " ";
-            }
-        }
-
-        if (c == ')') {
-            if (!current_group.empty() && current_group.back() == '(') {
+        } else if (c == ')') {
+            current_group += c;
+            if (!current_group.empty()) {  // Check if current group is not empty
                 result.push_back(current_group);
                 current_group = "";
             }
         }
-    }
-
-    // Push the last group into the result
-    if (!current_group.empty()) {
-        result.push_back(current_group);
     }
 
     return result;
