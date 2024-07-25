@@ -1,3 +1,4 @@
+```
 from typing import List
 import statistics
 
@@ -14,10 +15,10 @@ while True:
     user_input = input("Enter numbers separated by space: ")
     try:
         numbers = [float(i) for i in user_input.split()]
-        if len(numbers) > 0:
+        if len(numbers) < 2:
+            print("Please enter at least two numbers.")
+        else:
             print(mean_absolute_deviation(numbers))
             break
-        else:
-            print("Please enter at least one number.")
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
