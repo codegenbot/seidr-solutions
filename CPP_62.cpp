@@ -12,15 +12,13 @@ vector<float> derivative(vector<float> xs){
 }
 
 bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-assert(issame(vector<float>{}, vector<float>{}));
+int main() {
+    vector<float> test1 = {1.0, 2.0, 3.0};
+    vector<float> test2 = {1.0, 4.0, 9.0};
+    assert(issame(derivative(test1), test2));
+    assert(issame(derivative(vector<float>{}), vector<float>{}));
+    return 0;
+}
