@@ -1,3 +1,4 @@
+```cpp
 int search(vector<int> lst){
     map<int, int> freqMap;
     for (auto num : lst) {
