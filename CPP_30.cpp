@@ -21,6 +21,6 @@ namespace std {
 }
 
 int main(){
-    assert(std::issame(std::get_positive({}) , {}));
+    assert (std::issame(std::get_positive({}) , {}));
     return 0;
 }
