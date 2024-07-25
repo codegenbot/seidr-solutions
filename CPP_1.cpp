@@ -5,7 +5,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
     std::vector<std::string> result;
     std::string group;
     int balance = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -22,20 +22,17 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             }
         }
     }
-
+    
     return result;
 }
 
-void issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    assert(a == b);
-}
-
 int main() {
-    std::string input = "((group1)(group2)(group3))";
-    std::vector<std::string> expected_output = {"(group1)", "(group2)", "(group3)"};
+    std::string input = "(()())((()))";
+    std::vector<std::string> expected_output = {"()()", "(())"};
     
-    auto result = separate_paren_groups(input);
-    issame(result, expected_output);
-
+    std::vector<std::string> output = separate_paren_groups(input);
+    
+    assert(output == expected_output);
+    
     return 0;
 }
