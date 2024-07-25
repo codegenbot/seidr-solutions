@@ -1,4 +1,4 @@
-def make_palindrome(s):
+def solve_task(s):
     result = ""
     i, j = 0, len(s) - 1
     while i <= j:
