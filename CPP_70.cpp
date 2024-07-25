@@ -1,12 +1,10 @@
-```
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-bool issame(int a, int b) {
-    if (a == b)
+bool issame(int x, int y) {
+    if (x <= y)
         return true;
-    else
-        return false;
+    return false;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
