@@ -106,7 +106,44 @@ vector<string> by_length(vector<int> arr) {
                 if (num % 10 != 0) {
                     temp += "-" + to_string(num % 10);
                 } else {
-                    temp = tens;
+                    temp += "";
+                }
+            }
+
+            if (num >= 100 && num <= 999) {
+                string hundreds = "";
+                switch (num / 100) {
+                    case 1:
+                        hundreds = "One Hundred ";
+                        break;
+                    case 2:
+                        hundreds = "Two Hundred ";
+                        break;
+                    case 3:
+                        hundreds = "Three Hundred ";
+                        break;
+                    case 4:
+                        hundreds = "Four Hundred ";
+                        break;
+                    case 5:
+                        hundreds = "Five Hundred ";
+                        break;
+                    case 6:
+                        hundreds = "Six Hundred ";
+                        break;
+                    case 7:
+                        hundreds = "Seven Hundred ";
+                        break;
+                    case 8:
+                        hundreds = "Eight Hundred ";
+                        break;
+                    case 9:
+                        hundreds = "Nine Hundred ";
+                }
+                if (num % 100 != 0) {
+                    temp += hundreds + to_string(num % 100) + " ";
+                } else {
+                    temp += hundreds;
                 }
             }
 
@@ -115,14 +152,4 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 2, 3, 4, 5};
-    vector<string> res = by_length(arr);
-    for (const string& s : res) {
-        cout << s << endl;
-    }
-    // Don't forget to return something from your main function
-    return 0;
 }
