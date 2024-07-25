@@ -1,16 +1,20 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
+bool solveBoolean(string input) {
     bool res = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'F') return false;
-        else if (s[i] == '&') {
-            res &= (i+1<s.length() && s[i+1] != 'T');
-        }
-        else if (s[i] == '|') {
-            res |= (i+1<s.length() && s[i+1] != 'F');
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == 'f') {
+            res = false;
+            break;
         }
     }
     return res;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << (solveBoolean(input) ? "True" : "False") << endl;
+    return 0;
 }
