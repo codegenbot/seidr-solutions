@@ -20,9 +20,9 @@ int main() {
 
     result.erase(std::unique(result.begin(), result.end()), result.end());
 
-    for (const auto& num : result) {
+    for (int num : result) {
         std::cout << num << " ";
     }
-
+    
     return 0;
 }
