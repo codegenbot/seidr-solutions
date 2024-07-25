@@ -11,4 +11,4 @@ try:
     numbers = list(map(int, input('Enter space-separated numbers: ').split()))
     print(*sum_product(numbers))
 except ValueError:
-    print("Please enter valid integers separated by spaces, e.g., '1 2 3'.")
+    print("Please enter valid integers separated by spaces.")
