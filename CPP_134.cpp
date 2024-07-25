@@ -1,0 +1,1 @@
+return !isalpha(txt.back()) && !isalnum(txt[txt.length() - 2]);
