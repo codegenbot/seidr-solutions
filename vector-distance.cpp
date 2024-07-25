@@ -18,11 +18,16 @@ int main() {
     vector<float> v1(n), v2(n);
 
     for (int i = 0; i < n; ++i) {
-        cin >> v1[i] >> v2[i];
+        cin >> v1[i];
     }
 
-    double result = calculateEuclideanDistance(v1, v2);
-    cout << fixed << setprecision(10) << result << endl;
+    for (int i = 0; i < n; ++i) {
+        cin >> v2[i];
+    }
+
+    double distance = calculateEuclideanDistance(v1, v2);
+
+    cout << fixed << setprecision(10) << distance << endl;
 
     return 0;
 }
