@@ -1,10 +1,7 @@
-def convert_kebab_to_camel(s):
-    return (
-        "".join(word.capitalize() for word in s.split(" "))
-        if "-" not in s
-        else " ".join([word.title() for word in s.split("-")])
-    )
+Here is the Python solution for the problem:
 
+def camel_case(s):
+    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.split('-')))
 
-s = input()
-print(convert_kebab_to_camel(s))
+input_str = input()
+print(camel_case(input_str))
