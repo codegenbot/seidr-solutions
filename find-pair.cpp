@@ -4,7 +4,7 @@ using namespace std;
 vector<int> findPair(vector<int>& nums, int target) {
     vector<int> result;
     unordered_map<int, int> numMap;
-
+    
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
@@ -14,7 +14,7 @@ vector<int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-
+    
     return result;
 }
 
@@ -25,8 +25,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+    int target;
     cin >> target;
-    vector<int> res = findPair(nums, target);
-    cout << res[0] << " " << res[1] << endl;
+    vector<int> pair = findPair(nums, target);
+    cout << pair[0] << " " << pair[1] << endl;
     return 0;
 }
