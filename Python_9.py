@@ -1,18 +1,15 @@
 ```
 from typing import List
 
-def rolling_max() -> List[int]:
+def rolling_max():
     numbers = []
-    
     while True:
-        user_input = input("Enter space-separated numbers (or 'q' to quit): ")
-        
-        if user_input.lower() == 'q':
+        input_line = input().split()
+        if len(input_line) == 0 or input_line[0].lower() == 'stop':
             break
-            
-        try:
-            numbers.append([int(num) for num in user_input.split()])
-        except ValueError:
-            print("Invalid input. Please enter integers separated by spaces or type 'q' to quit.")
-    
-    return [max(row) for row in zip(*numbers)]
+        numbers.append(list(map(int, input_line)))
+
+    result = [max(row) for row in zip(*numbers)]
+    return result
+
+print(rolling_max())
