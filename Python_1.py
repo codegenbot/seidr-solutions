@@ -1,3 +1,7 @@
+```
+from typing import List
+
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     if " " in paren_string:
         paren_string = paren_string.replace(" ", "")
@@ -22,7 +26,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 else:
                     return []
 
-    if not stack and temp:
+    if not stack and temp: 
         result.append(temp.strip())
 
+    # Check for extra closing parenthesis that is not matched with an opening one
+    if stack or (temp and temp[-1] in [")", ")"]):
+        return []
     return [group for group in result if group]
