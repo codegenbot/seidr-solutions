@@ -5,7 +5,7 @@ bool iscuber(int a){
     while (true) {
         if (pow(i, 3) == a)
             return true;
-        if (i * i > a)
+        else if (i * i > a)
             return false;
         i++;
     }
