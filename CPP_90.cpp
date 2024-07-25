@@ -1,10 +1,14 @@
+Here is the solution:
+
 int next_smallest(vector<int> lst){
-    vector<int> v = lst;
-    sort(v.begin(), v.end());
-    for(int i=1; i<v.size(); i++){
-        if(v[i-1] != v[i]){
-            return v[i];
+    if(lst.empty()) return 0; // None in Python
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    for(int i=1; i<sorted.size(); i++){
+        if(sorted[i] != sorted[0]){
+            return sorted[i];
         }
     }
-    return -1; // Return None as per problem description
+    return 0; // None in Python
 }
