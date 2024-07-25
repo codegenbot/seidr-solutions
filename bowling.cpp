@@ -1,35 +1,31 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-
-    int score = 0;
-    int frame = 1;
-    int rolls = 0;
-
-    for (char c : bowls) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[rolls + 1] == 'X') ? 10 : (bowls[rolls + 1] - '0');
-                score += (bowls[rolls + 2] == 'X') ? 10 : (bowls[rolls + 2] == '/' ? 10 - (bowls[rolls + 1] - '0') : (bowls[rolls + 2] - '0'));
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
+            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
+            frame++;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i - 1] - '0');
+            total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+            frame++;
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            total += s[i] - '0';
+            if (s[i + 1] == '/') {
+                total += 10 - (s[i] - '0');
             }
-            rolls++;
             frame++;
-        } else if (c == '/') {
-            score += 10 - (bowls[rolls - 1] - '0');
-            score += (bowls[rolls + 1] == 'X') ? 10 : (bowls[rolls + 1] - '0');
-            rolls += 2;
-            frame++;
-        } else if (c == '-') {
-            // do nothing
-        } else {
-            score += c - '0';
-            frame = (c == '1' && frame < 10) ? frame + 1 : frame;
-            rolls++;
         }
+        if (frame == 10) break;
     }
+    return total;
+}
 
-    cout << score << endl;
-
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
