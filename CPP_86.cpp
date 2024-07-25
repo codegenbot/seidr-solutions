@@ -1,20 +1,19 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
 
-string anti_shuffle(string s) {
-    string result;
-    int start = 0;
-    for (int i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
+    for(char c : s){
+        if(c != ' '){
+            word += c;
+        }
+        else{
             sort(word.begin(), word.end());
-            result += word;
-            if (i != s.size()) {
-                result += ' ';
-            }
-            start = i + 1;
+            result += word + ' ';
+            word = "";
         }
     }
+    sort(word.begin(), word.end());
+    result += word;
+
     return result;
 }
