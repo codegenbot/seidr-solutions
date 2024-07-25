@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -21,14 +20,19 @@ if __name__ == "__main__":
     if strings_num > 0:
         strings = []
 
-        for i in range(min(9, strings_num)):
-            while True:
-                try:
-                    s = input(f"Enter string {i+1}: ")
-                    strings.append(s)
-                    break
-                except ValueError:
-                    print("Error! Please enter a valid string.")
-
-        concatenated_string = concatenate(strings)
-        print("The concatenated string is: ", concatenated_string)
+        while len(strings) < strings_num:
+            for i in range(min(9, strings_num)):
+                while True:
+                    try:
+                        s = input(f"Enter string {i+1}: ")
+                        if s:
+                            strings.append(s)
+                            break
+                        else:
+                            print("Error! Please enter a non-empty string.")
+                    except ValueError:
+                        print("Error! Please enter a valid string.")
+        print("You entered the following strings:")
+        for i in range(len(strings)):
+            print(f"String {i+1}: {strings[i]}")
+        print("Concatenated strings: " + concatenate(strings))
