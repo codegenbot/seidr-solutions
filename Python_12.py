@@ -1,3 +1,4 @@
+```
 result = []  
 input_strs = input("Enter some strings (separated by spaces): ")
 result = [s.strip() for s in input_strs.split()]
