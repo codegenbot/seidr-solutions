@@ -39,7 +39,7 @@ struct Solution {
 };
 
 int main() {
-    assert(Solution::issame(Solution::generate_integers(17, 89), Solution::generate_integers(17, 89)));
+    assert(Solution::issame(Solution::generate_integers(17, 89), Solution::filter_even_numbers({})));
     
     return 0;
 }
