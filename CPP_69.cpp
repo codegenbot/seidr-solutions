@@ -1,8 +1,9 @@
 #include <vector>
+#include <map> 
 using namespace std;
 
 int search(vector<int> lst) {
-    map<int, int> freq;
+    map<int, int> freq; 
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
