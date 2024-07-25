@@ -14,7 +14,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> make_a_pile(int n) {
-    assert(n > 0);
     vector<int> stones;
     stones.push_back(n);
     for(int i=1; i<n; i++){
