@@ -6,22 +6,17 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    
     while (cin >> n) {
         nums.push_back(n);
     }
-
     if (cin.eof() || cin.fail()) {
         int sum = 0, halfSum = 0;
-        
         for (int num : nums) {
             sum += num;
         }
-        
         halfSum = sum / 2;
         
         int currSum = 0, idx = 0;
-        
         for (int i = 0; i < nums.size(); i++) {
             currSum += nums[i];
             if (currSum >= halfSum) {
@@ -40,6 +35,6 @@ int main() {
             cout << num << endl;
         }
     }
-
+    
     return 0;
 }
