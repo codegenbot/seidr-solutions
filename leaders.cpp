@@ -1,17 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
-    vector<int> result;
-    for(int i = nums.size() - 1; i >= 0; i--){
-        bool isLeader = true;
-        for(int j = i + 1; j < nums.size(); j++){
-            if(nums[j] >= nums[i]){
-                isLeader = false;
-                break;
-            }
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> leaders;
+    
+    // Rightmost element is always a leader
+    leaders.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; --i){
+        if(arr[i]>=arr[i+1]){
+            leaders.push_back(arr[i]);
         }
-        if(isLeader) result.push_back(nums[i]);
     }
-    return result;
+    
+    reverse(leaders.begin(), leaders.end());
+    
+    return leaders;
 }
