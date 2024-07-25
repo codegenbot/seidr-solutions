@@ -1,8 +1,9 @@
+```
 from typing import List
 
 def get_names() -> List[str]:
     names = []
-    while first_name.lower() != 'stop':
+    while True:
         first_name = input("Enter your first name (or 'stop' to finish): ")
         if first_name.lower() == 'stop':
             break
