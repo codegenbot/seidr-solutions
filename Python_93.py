@@ -12,3 +12,8 @@ def encode(message):
         else:
             result += char
     return result
+
+if __name__ == "__main__":
+    message = input("Enter the message: ")
+    output = encode(message)
+    print(output)
