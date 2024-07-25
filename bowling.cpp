@@ -1,17 +1,30 @@
-int bowlingScore(string bowline) {
+#include <vector>
+using namespace std;
+
+int bowlingScore(string bowls) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < 10; ++i) {
-        if (isdigit(bowline[2*i])) {
-            roll1 = roll2 = stoi(bowline.substr(2*i, 2));
-            score += roll1 + roll2;
-        } else {
-            roll1 = stoi(bowline.substr(2*i, 1));
-            if (bowine[2*i+1] == '/') {
-                score += 10;
-            } else {
-                score += roll1 + 10;
+    int currentFrame = 1;
+    for (int i = 0; i < bowls.length(); i++) {
+        if (bowls[i] == 'X') {
+            score += 30;
+            currentFrame++;
+        } else if (isdigit(bowls[i])) {
+            int count = 0;
+            while (i + 1 < bowls.length() && isdigit(bowls[i + 1])) {
+                i++;
+                count++;
             }
+            score += (10 - count);
+            currentFrame++;
+        } else if (bowls[i] == '/') {
+            int firstCount = 0;
+            while (i + 1 < bowls.length() && isdigit(bowls[i + 1])) {
+                i++;
+                firstCount++;
+            }
+            int secondCount = 10 - firstCount;
+            score += firstCount + secondCount;
+            currentFrame++;
         }
     }
     return score;
