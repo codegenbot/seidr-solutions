@@ -1,28 +1,17 @@
 int main() {
     string text, target;
-    cin >> target >> text;
+    cin >> text >> target;
 
-    int n = text.length();
-    int m = target.length();
-
-    vector<int> indices;
-    for (int i = 0; i <= n - m; ++i) {
-        bool found = true;
-        for (int j = 0; j < m; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
+    vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos++;
     }
 
-    for (int idx : indices) {
-        cout << idx << " ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
-    cout << endl;
 
     return 0;
 }
