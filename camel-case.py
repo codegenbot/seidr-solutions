@@ -1,10 +1,4 @@
-def camel_case(input_str):
-    output_str = ""
-    for word in input_str.split():
-        if "-" in word:
-            output_str += word.replace("-", "").capitalize()
-        else:
-            if output_str:
-                output_str += " "
-            output_str += word.capitalize()
-    return output_str
+Here is a Python function that solves the problem:
+
+def kebab_to_camel(s):
+    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.replace('-', ' ').split()))
