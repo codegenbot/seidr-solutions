@@ -27,3 +27,5 @@ def decode_shift():
             result += encoded_string[i]
         i += 1
     return result
+
+print(decode_shift())
