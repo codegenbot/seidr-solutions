@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <climits>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -11,19 +14,26 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
+    if(arr.empty()) {
+        result.push_back(-1);
+        result.push_back(-1);
+        return result;
+    }
+
+    int evenValue = -1;
+    for(int i = 0; i < arr.size(); i++) {
+        if(arr[i] % 2 == 0 && (evenValue == -1 || arr[i] < evenValue)) {
+            evenValue = arr[i];
+        }
+    }
+
+    result.push_back(evenValue);
+    result.push_back(-1);
 
     for(int i = 0; i < arr.size(); i++) {
-        int count = 0;
-        for(int j = 0; j < arr.size(); j++) {
-            if(arr[j] % 2 == 0) {
-                count++;
-            }
-        }
-        
-        if(count > 0) {
+        if(arr[i] % 2 == 0 && arr[i] == evenValue) {
             result.push_back(i);
-        } else {
-            result.push_back(-1);
+            break;
         }
     }
 
@@ -31,6 +41,6 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {});
+    assert(issame(pluck({7, 9, 7, 1}) , {}));
     return 0;
 }
