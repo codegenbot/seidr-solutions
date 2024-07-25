@@ -1,13 +1,13 @@
-int count1 = 0, count2 = 0;
-    for (string s : lst1) {
-        count1 += s.length();
+int len1 = 0;
+    int len2 = 0;
+    for (string str : lst1) {
+        len1 += str.length();
     }
-    for (string s : lst2) {
-        count2 += s.length();
+    for (string str : lst2) {
+        len2 += str.length();
     }
-
-    if (count1 < count2) {
+    if (len1 < len2) {
         return lst1;
     } else {
-        return count1 == count2 ? lst1 : lst2;
+        return (len1 == len2) ? lst1 : lst2;
     }
