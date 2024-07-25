@@ -1,5 +1,7 @@
-bool issame(char a, char b) {
-    return tolower(a) == tolower(b);
+bool issame(string s1, string s2) {
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    return s1 == s2;
 }
 
 vector<string> select_words(string s, int n) {
@@ -9,7 +11,7 @@ vector<string> select_words(string s, int n) {
 
     for (char c : s) {
         if (c != ' ') {
-            if (!issame(c, 'a') && !issame(c, 'e') && !issame(c, 'i') && !issame(c, 'o') && !issame(c, 'u')) {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
                 consonantCount++;
             }
             currentWord += c;
