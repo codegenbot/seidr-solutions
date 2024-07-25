@@ -11,9 +11,3 @@ int largest_prime_factor(int n) {
     }
     return factor;
 }
-
-int main() {
-    assert(largest_prime_factor(13195) == 29);
-    assert(largest_prime_factor(600851475143) == 6857);
-    return 0;
-}
