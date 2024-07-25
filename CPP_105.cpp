@@ -1,47 +1,25 @@
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
+    }
+    return true;
+}
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            nums.push_back(num);
+            numbers.push_back(to_string(num));
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    sort(numbers.begin(), numbers.end());
 
-    vector<string> result;
-    for (int num : nums) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-        }
-        result.push_back(str);
-    }
+    reverse(numbers.begin(), numbers.end());
 
-    return result;
+    return numbers;
 }
