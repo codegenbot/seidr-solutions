@@ -1,10 +1,7 @@
-````
-def digitSum(s):
+```
+def digitSum(n):
     total = 0
-    for char in s.lower():
+    for char in str(n):
         if char.isdigit():
             total += int(char)
-        else:
-            break
     return total
-```
