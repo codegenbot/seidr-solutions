@@ -11,7 +11,7 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
         b /= 10;
     }
     if (sum_a == sum_b) {
-        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+        return a < b;
     }
     return sum_a < sum_b;
 });
