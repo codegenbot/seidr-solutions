@@ -1,15 +1,17 @@
 vector<int> f(int n){
     vector<int> result(n);
-    for(int i=0; i<n; i++){
-        if((i+1) % 2 == 0){
-            int factorial = 1;
-            for(int j=1; j<=i+1; j++){
-                factorial *= j;
+    result[0] = 1;
+    for(int i = 1; i < n; ++i){
+        if(i % 2 == 0){
+            int fact = 1;
+            for(int j = 1; j <= i; ++j){
+                fact *= j;
             }
-            result[i] = factorial;
-        } else {
+            result[i] = fact;
+        }
+        else{
             int sum = 0;
-            for(int j=1; j<=i+1; j++){
+            for(int j = 1; j <= i; ++j){
                 sum += j;
             }
             result[i] = sum;
