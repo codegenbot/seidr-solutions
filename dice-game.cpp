@@ -1,16 +1,13 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double getProbability(int n, int m) {
-    if(n <= m)
-        return 1.0 - (n * 1.0 / (m + m));
-    else
-        return n * 1.0 / (m + m);
-}
+double probability(int n, int m) {
+    if (n < 1 || m < 1)
+        return -1;
+    double total = static_cast<double>(n + m);
+    double p = 0.0;
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(4) << getProbability(n, m) << endl;
-    return 0;
+    for (int i = 1; i <= min(n, m); ++i) {
+        p += static_cast<double>(min(n, m) - i + 1) / total;
+    }
+    return p;
 }
