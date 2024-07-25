@@ -1,6 +1,6 @@
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
-    if(numbers.empty()){
+    if(numbers.empty()) {
         return result;
     }
     result.push_back(numbers[0]);
