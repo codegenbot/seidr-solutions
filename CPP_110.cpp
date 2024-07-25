@@ -1,23 +1,18 @@
-Here is the completed code:
+Here is the solution:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool foundOdd = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            foundOdd = true;
-            break;
-        }
-    }
-    if (!foundOdd) return "YES";
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            int toMove = num;
-            auto it = find(lst1.begin(), lst1.end(), toMove);
-            if (it != lst1.end()) {
-                lst1.erase(it);
-                break;
+            bool found = false;
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0) {
+                    swap(lst1.back(), vector<int>::iterator(lst2.begin() + (lst2.size() - 1)));
+                    found = true;
+                    break;
+                }
             }
+            if (!found) return "NO";
         }
     }
-    return "NO";
+    return "YES";
 }
