@@ -1,4 +1,4 @@
-```
+```cpp
 #include <initializer_list>
 #include <vector>
 
@@ -27,12 +27,6 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> a = {3, 2, 3, 100, 3};
-    vector<int> b = {3, 3, 3, 100, 100};
-
-    if (issame(a, rolling_max(a))) {
-        cout << "The two arrays are the same" << endl;
-    } else {
-        cout << "The two arrays are not the same" << endl;
-    }
+    vector<int> testNumbers = {3, 2, 3, 100, 3};
+    assert(issame(testNumbers, rolling_max(testNumbers)) && "Expected the same sequence");
 }
