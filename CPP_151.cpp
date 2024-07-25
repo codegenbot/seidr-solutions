@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <assert.h> 
 #include <iostream>
 
 using namespace std;
@@ -20,5 +21,6 @@ int main() {
     vector<float> lst = {1.5f, 3.0f, 4.0f, 5.5f};
     long long result = double_the_difference(lst);
     cout << "The result is: " << result << endl;
+    assert(result == 15); 
     return 0;
 }
