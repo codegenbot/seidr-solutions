@@ -1,12 +1,19 @@
-string s = to_string(x);
-    int n = s.size();
+#include <stdio.h>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string circular_shift(int x, int shift) {
+    string str = to_string(x);
+    int n = str.size();
     shift %= n;
+    
     if (shift == 0) {
-        return s;
+        return str;
+    } else {
+        reverse(str.begin(), str.end());
+        reverse(str.begin(), str.begin() + shift);
+        reverse(str.begin() + shift, str.end());
+        return str;
     }
-    if (shift > n / 2) {
-        reverse(s.begin(), s.end());
-        return s;
-    }
-    return s.substr(n - shift) + s.substr(0, n - shift);
 }
