@@ -8,7 +8,7 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i - start);
             if (word.length() >= 5) {
-                result += std::string(reversed(word)) + " ";
+                result += std::string(word).reverse() + " ";
             } else {
                 result += word + " ";
             }
@@ -16,12 +16,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-string reversed(string s) {
-    string rev = "";
-    for (int i = s.length() - 1; i >= 0; i--) {
-        rev += s[i];
-    }
-    return rev;
 }
