@@ -8,5 +8,5 @@ double double_the_difference(std::list<double> lst) {
             odd_sum += num * num;
         }
     }
-    return odd_sum;
+    return 2 * odd_sum;
 }
