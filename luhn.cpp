@@ -1,19 +1,16 @@
-#include <vector>
-
-int luhn(std::vector<int>& digits) {
+int luhn(int n) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
-        if (doubleNext) {
-            *it *= 2;
-            if (*it > 9) {
-                *it -= 9;
+    for (int i = 0; i < 16; i++) {
+        if ((n / pow(10, 15 - i)) % 10 != 0) {
+            int digit = (n / pow(10, 15 - i)) % 10;
+            if (i % 2 == 1) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
             }
+            sum += digit;
         }
-        sum += *it;
-        doubleNext = !doubleNext;
     }
-
     return sum;
 }
