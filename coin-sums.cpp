@@ -1,24 +1,24 @@
 #include <iostream>
-using namespace std;
+#include <vector>
 
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
-    vector<int> coins = {25, 10, 5, 1};
-    vector<int> coinCounts(4);
+    std::vector<int> coins = {25, 10, 5, 1};
+    std::vector<int> coinCounts(4);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 3; i >= 0; i--) {
         while (cents >= coins[i]) {
             coinCounts[i]++;
             cents -= coins[i];
         }
     }
 
-    cout << "Quarters: " << coinCounts[3] << endl;
-    cout << "Nickels: " << coinCounts[2] << endl;
-    cout << "Dimes: " << coinCounts[1] << endl;
-    cout << "Pennies: " << coinCounts[0] << endl;
+    std::cout << coinCounts[3] << " Quarters" << std::endl;
+    std::cout << coinCounts[2] << " Dimes" << std::endl;
+    std::cout << coinCounts[1] << " Nickels" << std::endl;
+    std::cout << coinCounts[0] << " Pennies" << std::endl;
 
     return 0;
 }
