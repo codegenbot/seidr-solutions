@@ -1,26 +1,48 @@
 vector<string> by_length(vector<int> arr) {
-    vector<int> toSort;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            toSort.push_back(i);
-    }
-    sort(toSort.begin(), toSort.end());
-    reverse(toSort.begin(), toSort.end());
-    vector<string> result;
-    for (int i : toSort) {
-        string numName = "";
-        switch (i) {
-            case 1: numName = "One"; break;
-            case 2: numName = "Two"; break;
-            case 3: numName = "Three"; break;
-            case 4: numName = "Four"; break;
-            case 5: numName = "Five"; break;
-            case 6: numName = "Six"; break;
-            case 7: numName = "Seven"; break;
-            case 8: numName = "Eight"; break;
-            case 9: numName = "Nine"; break;
+    vector<int> sortedArr;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sortedArr.push_back(num);
         }
-        result.push_back(numName);
     }
+
+    sort(sortedArr.begin(), sortedArr.end());
+    reverse(sortedArr.begin(), sortedArr.end());
+
+    vector<string> result;
+    for (int num : sortedArr) {
+        string name = "";
+        switch (num) {
+            case 1:
+                name = "One";
+                break;
+            case 2:
+                name = "Two";
+                break;
+            case 3:
+                name = "Three";
+                break;
+            case 4:
+                name = "Four";
+                break;
+            case 5:
+                name = "Five";
+                break;
+            case 6:
+                name = "Six";
+                break;
+            case 7:
+                name = "Seven";
+                break;
+            case 8:
+                name = "Eight";
+                break;
+            case 9:
+                name = "Nine";
+                break;
+        }
+        result.push_back(name);
+    }
+
     return result;
 }
