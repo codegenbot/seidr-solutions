@@ -5,6 +5,7 @@
 using namespace std;
 
 std::vector<double> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
+long long int odd_sum;
 
 long long int double_the_difference(std::vector<double> lst) {
     long long int sum = 0;
@@ -17,7 +18,7 @@ long long int double_the_difference(std::vector<double> lst) {
 }
 
 int main() {
-    long long int odd_sum = double_the_difference(lst);
+    odd_sum = double_the_difference(lst);
     assert(double_the_difference(lst) == odd_sum);
     cout << "Odd sum: " << odd_sum << endl;
     return 0;
