@@ -1,2 +1,2 @@
-total = sum(map(int, input().split()))
+total = sum(map(int, input("Enter numbers separated by spaces: ").split()))
 print(total)
