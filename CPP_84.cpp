@@ -1,15 +1,15 @@
-int sum = 0;
-    while (N > 0) {
-        sum += N % 2;
-        N /= 2;
+// Convert N to binary string
+    string binaryStr = bitset<32>(N).to_string();
+
+    // Count total sum of digits in binary
+    int sum = 0;
+    for(char digit : binaryStr)
+    {
+        if(digit == '1')
+        {
+            sum++;
+        }
     }
-    string result;
-    while (sum > 0) {
-        result = to_string(sum % 2) + result;
-        sum /= 2;
-    }
-    if (result.empty()) {
-        return "0";
-    }
-    return result;
-}
+
+    // Return the sum of digits in binary as a string
+    return bitset<32>(sum).to_string();
