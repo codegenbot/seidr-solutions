@@ -1,4 +1,4 @@
-def get_valid_string():
+def decode_cyclic():
     while True:
         input_str = input("Enter a string: ").lower().strip()
         if len(input_str) % 3 == 0 and input_str.isalnum() and len(input_str) > 0:
