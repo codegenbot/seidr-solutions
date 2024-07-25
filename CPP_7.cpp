@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(const auto& str : strings){
@@ -19,7 +15,12 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
+void test_filter_by_substring(){
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
+}
+
 int main(){
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));    
+    test_filter_by_substring();
+    
     return 0;
 }
