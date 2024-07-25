@@ -12,9 +12,9 @@ if __name__ == "__main__":
                 break; 
         except ValueError:
             print("Error! Please enter a number between 1 and 9.")
-    if not 1 <= num_strings <= 9:
+    if num_strings < 1 or num_strings > 9:
         print("Error! Please enter a number between 1 and 9.")
-    else:
+    else: 
         strings = []
         
         for i in range(num_strings):
