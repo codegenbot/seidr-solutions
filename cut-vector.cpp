@@ -6,11 +6,7 @@ int main() {
     std::vector<int> nums;
     int num;
 
-    while (std::cin.good()) {
-        std::cin >> num;
-        if (std::cin.fail()) {
-            break;
-        }
+    while (std::cin >> num && std::cin.good()) {
         nums.push_back(num);
     }
 
