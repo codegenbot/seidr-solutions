@@ -14,13 +14,8 @@ int calculateBowlingScore(std::string s) {
             frameScore = 0;
             frame++;
         } else if (c == '/') {
-            total += 10 - (s[frame * 2 + 1] - '0');
+            total += 10 - (s[frame * 2 + 1] - '0') + frameScore;
             if (isStrike) total += 10; 
-            if (s[(frame + 1) * 2] != 'X') {
-                total += s[(frame + 1) * 2] - '0';
-            } else {
-                total += 10;
-            }
             isSpare = true;
             frameScore = 0;
             frame++;
@@ -28,7 +23,12 @@ int calculateBowlingScore(std::string s) {
             frameScore = 0;
             frame++;
         } else {
-            frameScore += c - '0';
+            if (c == '/') {
+                frameScore = 10 - (s[frame * 2 + 1] - '0');
+            } else {
+                frameScore = c - '0';
+            }
+
             if (frameScore == 10) {
                 total += 10 + (s[(frame + 1) * 2] - '0');
                 if (isStrike) total += 10; 
