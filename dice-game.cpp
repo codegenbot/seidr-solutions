@@ -1,18 +1,20 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-
-    double probability = 0.0;
-
-    if (n > m) {
-        probability = 1.0;
-    } else if (n < m) {
-        probability = static_cast<double>(n) / m;
+    
+    double total_outcomes = n * m;
+    double favorable_outcomes = 0;
+    
+    for (int i = 1; i <= n; ++i) {
+        favorable_outcomes += (double)(i - 1) / n;
     }
-
-    std::cout << probability << std::endl;
-
+    
+    double probability = favorable_outcomes / total_outcomes;
+    
+    std::cout << std::fixed << std::setprecision(2) << probability << std::endl;
+    
     return 0;
 }
