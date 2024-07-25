@@ -1,4 +1,9 @@
-vector<int> result;
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -15,4 +20,12 @@ vector<int> result;
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    // issame function implementation    
+}
+
+int main(){
+    // main function implementation
 }
