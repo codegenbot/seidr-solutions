@@ -5,6 +5,9 @@ while True:
             print("Input should not be empty")
             continue
         numbers = list(map(float, numbers_input.split()))
+        if not numbers:
+            print("Input should contain valid floating-point numbers")
+            continue
         result = sum(numbers) / len(numbers)
         print(f"Average of numbers: {result}")
         break
