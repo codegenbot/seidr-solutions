@@ -4,4 +4,4 @@ if not tweet.strip().lstrip():
 elif len(tweet.strip()) > 140:
     print("Too many characters")
 else:
-    print(f"Your tweet has {len(tweet) if tweet else 0} characters")
+    print(f"Your tweet has {len(tweet.strip())} characters")
