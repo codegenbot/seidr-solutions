@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -22,7 +22,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 #ifndef MAINFUN_CPP_70
 #define MAINFUN_CPP_70
 int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
+    assert(std::vector<int>::issame(strange_sort_list({111111}), {111111}));
     
     return 0;
 }
