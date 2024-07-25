@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cassert>
 
 int sum_to_n(int n) {
