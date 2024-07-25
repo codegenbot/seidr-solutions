@@ -1,19 +1,15 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back(); // Remove the last space
-                result.pop_back(); // Remove the space before last
-                result += '-'; // Replace with a single dash
-            } else {
-                result += '_'; // Replace with underscore
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int space_count = 1;
+            while (i + space_count < text.length() && text[i + space_count] == ' ') {
+                space_count++;
             }
-        } else {
-            result += c;
-            count = 0; // Reset consecutive spaces count
+            if (space_count > 2) {
+                text.replace(i, space_count, "-");
+                i += (space_count - 1);
+            }
         }
     }
-    return result;
+    return text;
 }
