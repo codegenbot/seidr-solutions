@@ -1,30 +1,25 @@
-int main() {
-    vector<int> input;
+Here is the completed code:
 
-    // Read input from user
-    while (true) {
-        int x;
-        cin >> x;
-        if (!cin || x == -1)
+vector<int> next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return vector<int>();
+
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    for(int i = 0; i < sorted.size(); ++i){
+        if(i+1 < sorted.size() && sorted[i] == sorted[i+1]){
+            return vector<int>();
+        }
+    }
+
+    int secondSmallestIndex = -1;
+    for(int i = 1; i < sorted.size(); ++i){
+        if(secondSmallestIndex == -1 || sorted[i] > sorted[secondSmallestIndex]){
+            secondSmallestIndex = i;
+        } else {
             break;
-        input.push_back(x);
+        }
     }
 
-    // Solve the problem
-    int nextSmallest = next_smallest(input);
-
-    cout << "The 2nd smallest element of the vector is: " << nextSmallest << endl;
-
-    return 0;
-}
-
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2)
-        return -1; // Return None
-    sort(lst.begin(), lst.end());
-    for (auto it = lst.begin(); std::next(it) != lst.end(); ++it) {
-        if (*it > *std::prev(it))
-            return *it;
-    }
-    return -1; // Return None
+    return vector<int>{sorted[secondSmallestIndex]};
 }
