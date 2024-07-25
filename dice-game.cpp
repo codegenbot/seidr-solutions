@@ -1,13 +1,23 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-double probability(int n, int m) {
-    if (n < 1 || m < 1)
-        return -1;
-    double total = static_cast<double>(n + m);
-    double p = 0.0;
-
-    for (int i = 1; i <= min(n, m); ++i) {
-        p += static_cast<double>(min(n, m) - i + 1) / total;
+double diceGame(int n, int m) {
+    double sum1 = 0;
+    double sum2 = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        sum1 += 1.0 / n;
+        if (i > m) {
+            sum2 += 1.0 / m;
+        }
     }
-    return p;
+    
+    return sum2;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
+    return 0;
 }
