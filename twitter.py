@@ -1,3 +1,4 @@
+```
 tweet = input("Enter a tweet: ")
 tweet = tweet.strip()  
 if not tweet:
