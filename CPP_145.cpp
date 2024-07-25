@@ -1,4 +1,4 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
@@ -15,7 +15,7 @@ vector<int> order_by_points(vector<int> nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+            return a < b;
         }
         return sum_a < sum_b;
     });
