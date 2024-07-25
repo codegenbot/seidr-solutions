@@ -10,18 +10,6 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    // Test code
-    vector<string> test_strings = {"apple", "banana", "orange", "grape"};
-    vector<string> filtered_strings = filter_by_substring(test_strings, "an");
-    vector<string> expected_result = {"banana", "orange"};
-    assert(issame(filtered_strings, expected_result));
-    
-    return 0;
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(auto str : strings){
@@ -30,4 +18,17 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
         }
     }
     return result;
+}
+
+int main() {
+    vector<string> test1 = {"apple", "banana", "orange"};
+    vector<string> test2 = {"apple", "banana", "kiwi"};
+    
+    vector<string> filtered = filter_by_substring(test1, "a");
+    assert(issame(filtered, vector<string>{"apple", "banana"}));
+    
+    filtered = filter_by_substring(test2, "a");
+    assert(issame(filtered, vector<string>{"apple"}));
+    
+    return 0;
 }
