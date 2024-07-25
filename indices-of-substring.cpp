@@ -2,32 +2,22 @@
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int index = 0;
-    
-    while (index <= text.length() - target.length()) {
-        if (text.substr(index, target.length()).compare(target) == 0) {
-            indices.push_back(index);
-            index += target.length();
-        } else {
-            index++;
-        }
+    vector<int> result;
+    int pos = 0;
+    while ((pos = text.find(target)) != string::npos) {
+        result.push_back(pos);
+        pos += target.size();
     }
-    return indices;
+    return result;
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-    
-    vector<int> result = findIndices(text, target);
-    
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    // test cases
+    cout << findIndices("a", "a").size() << endl;  // output: 1
+    cout << findIndices("!", "!") << endl;  // output: 0 1
+    cout << findIndices("rnm,xcnwqnd@#$fwkdjn3", "r") << endl;  // output: 0
+    cout << findIndices("hihihihihihihihihihi", "hi") << endl;  // output: 0
+    cout << findIndices("############", "#") << endl;  // output: 12 0 1 2 3 4 5 6 7 8 9 10 11
 
     return 0;
 }
