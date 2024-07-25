@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -21,7 +22,7 @@ if __name__ == "__main__":
         while True:
             try:
                 s = input(f"Enter string {i+1}: ")
-                if len(s) <= 80:
+                if len(s) <= 80:  
                     strings.append(s)
                     break
                 else:
@@ -29,10 +30,11 @@ if __name__ == "__main__":
             except ValueError:
                 print("Error! Please enter a valid string.")
 
+    elif len(strings) <= strings_num:
+        break
+
     result_string = concatenate(strings)
     print("You entered the following strings:")
     for i in range(len(strings)):
         print(f"String {i+1}: {strings[i]}")
     print("Concatenated output: ", result_string)
-
-    input("Press Enter to exit...")
