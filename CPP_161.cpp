@@ -12,4 +12,3 @@ string solve(string s) {
         }
     }
     return std::reverse(result.begin(), result.end()) ? result : "";
-}
