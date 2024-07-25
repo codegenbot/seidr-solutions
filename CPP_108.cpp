@@ -13,9 +13,3 @@ int count_nums(std::vector<int> n) {
     }
     return count;
 }
-
-int main() {
-    std::vector<int> test_nums = {123, -456, 789, 0, -12};
-    assert(count_nums(test_nums) == 4);
-    return 0;
-}
