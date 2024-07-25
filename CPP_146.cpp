@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -6,4 +11,14 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
+}
+
+int cpp146(int n) {
+    vector<int> input;
+    int num;
+    while(cin >> num) {
+        input.push_back(num);
+    }
+    cout << specialFilter(input) << endl;
+    return 0;
 }
