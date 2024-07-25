@@ -1,36 +1,44 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+using namespace std;
+
+struct Solution {
+    static bool issame(vector<int> a, vector<int> b) {
+        if (a.size() != b.size()) {
             return false;
         }
+        
+        for (size_t i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        
+        return true;
     }
-    
-    return true;
-}
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
-    for(int i = a; i <= b; ++i) {
-        result.push_back(i);
-    }
-    return result;
-}
-
-std::vector<int> filter_even_numbers(std::vector<int> a) {
-    std::vector<int> result;
-    for(int i : a) {
-        if (i % 2 == 0) {
+    static vector<int> generate_integers(int a, int b) {
+        vector<int> result;
+        for (int i = a; i <= b; ++i) {
             result.push_back(i);
         }
+        return result;
     }
-    return result;
-}
 
-assert(issame(filter_even_numbers(generate_integers(17, 89)), std::vector<int>{}));
+    static vector<int> filter_even_numbers(vector<int> a) {
+        vector<int> result;
+        for (int i : a) {
+            if (i % 2 == 0) {
+                result.push_back(i);
+            }
+        }
+        return result;
+    }
+};
+
+int main() {
+    assert(Solution::issame(Solution::filter_even_numbers(Solution::generate_integers(17, 89)), vector<int>{}));
+    
+    return 0;
+}
