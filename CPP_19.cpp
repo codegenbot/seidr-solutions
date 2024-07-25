@@ -11,22 +11,12 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    map<int, string> reverse_map;
-    string result;
-    string temp;
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] == ' ') {
-            reverse_map[number_map[temp]] = temp;
-            temp = "";
-        } else {
-            temp += numbers[i];
-        }
-    }
-    reverse_map[number_map[temp]] = temp;
-    for (auto const& [key, val] : reverse_map) {
-        result += val + " ";
-    }
-    result.pop_back(); // Remove the extra space at the end
-    return result;
-}
+vector<string> number_strings = {
+    "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+};
+
+sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    return number_map[a] < number_map[b];
+});
+
+return numbers;
