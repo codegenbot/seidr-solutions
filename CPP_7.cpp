@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,7 +16,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
     std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({s});
+            result.push_back({{s}});
         }
     }
     return result;
