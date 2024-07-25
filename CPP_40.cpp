@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Include assert header
 
 bool triples_sum_to_zero(const std::vector<int>& l) {
     int n = l.size();
@@ -16,6 +16,6 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(triples_sum_to_zero({100, 3, 5, -100}) == false); // Use assert function
     return 0;
 }
