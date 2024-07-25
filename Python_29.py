@@ -10,4 +10,7 @@ if __name__ == "__main__":
         prefix = input("Enter prefix: ").strip().lower()
         if len(prefix) > 0:
             break
+    if prefix not in [s for s in input_list]:
+        print("Error: Prefix is not present in the list. Please enter a valid prefix.")
+        prefix = input("Enter prefix: ").strip().lower()
     print(filter_by_prefix(input_list, prefix))
