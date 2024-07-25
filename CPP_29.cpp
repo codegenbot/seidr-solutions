@@ -17,12 +17,13 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "apricot", "kiwi"};
+    vector<string> strings = {"apple", "banana", "apricot", "orange"};
+    string prefix = "ap";
+    
     vector<string> expected_output = {"apple", "apricot"};
+    vector<string> output = filter_by_prefix(strings, prefix);
     
-    vector<string> output = filter_by_prefix(strings, "ap");
-    
-    if (issame(output, expected_output)) {
+    if (issame(expected_output, output)) {
         cout << "Output matches expected result." << endl;
     } else {
         cout << "Output does not match expected result." << endl;
