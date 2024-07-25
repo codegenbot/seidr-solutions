@@ -10,7 +10,8 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
         if (lst[i].size() > 0) {
             for (int j = 0; j < lst[i].size(); j++) {
                 if (lst[i][j] == x) {
-                    result.push_back({i, j});
+                    vector<int> temp = {i, j};
+                    result.push_back(temp);
                 }
             }
         }
