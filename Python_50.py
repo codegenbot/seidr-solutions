@@ -1,8 +1,9 @@
+# Get user input as a string
+input_string = input("Enter the string to decode: ")
+
+# Define the decode_shift function to shift each character by -1
 def decode_shift(input_string):
-    decoded_string = ""
-    for char in input_string:
-        if char.isalpha():
-            decoded_string += chr((ord(char) - 3 - ord("a")) % 26 + ord("a"))
-        else:
-            decoded_string += char
-    return decoded_string
+    return ''.join(chr(ord(char) - 1) for char in input_string)
+
+# Decode the entered string and print the result
+print(decode_shift(input_string))
