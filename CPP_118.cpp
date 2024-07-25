@@ -24,9 +24,6 @@ std::string get_closest_vowel(string word) {
 }
 
 int main() {
-    std::string word;
-    cout << "Enter a string: ";
-    cin >> word;
-    cout << "Closest vowel is: " << get_closest_vowel(word) << endl;
+    assert(get_closest_vowel("Above") == "o");
     return 0;
 }
