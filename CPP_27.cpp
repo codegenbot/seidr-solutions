@@ -1,5 +1,5 @@
-#include<string>
-using namespace std;
+#include <string>
+#include <cctype>
 
 string flip_case(string str){
     string result = "";
@@ -15,10 +15,7 @@ string flip_case(string str){
     return result;
 }
 
-int main(){
-    string s;
-    cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << "Flipped case: " << flip_case(s) << endl;
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHEse ViOLent DeliGhTs HaVe ViOLent EnDs");
     return 0;
 }
