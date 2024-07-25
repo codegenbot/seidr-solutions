@@ -21,9 +21,9 @@ int main() {
     string target;
     cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> res = indicesOfSubstring(text, target);
 
-    for (int i : indices) {
+    for (int i : res) {
         cout << i << " ";
     }
     cout << endl;
