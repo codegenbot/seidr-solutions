@@ -11,30 +11,23 @@ map<string, int> number_map = {
         {"nine", 9}
     };
 
-    map<int, string> reverse_map;
-    for (auto &pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+    vector<pair<string, int>> number_pairs;
+    stringstream ss(numbers);
+    string token;
+    while (ss >> token) {
+        number_pairs.push_back({token, number_map[token]});
     }
 
-    string result;
-    for (auto &pair : number_map) {
-        size_t pos = numbers.find(pair.first);
-        while (pos != string::npos) {
-            result += pair.first + " ";
-            numbers.replace(pos, pair.first.length(), "");
-            pos = numbers.find(pair.first);
-        }
+    sort(number_pairs.begin(), number_pairs.end(), 
+         [](const pair<string, int>& a, const pair<string, int>& b) {
+             return a.second < b.second;
+         });
+
+    string sorted_numbers;
+    for (const auto& pair : number_pairs) {
+        sorted_numbers += pair.first + " ";
     }
 
-    string sorted_result;
-    for (auto &pair : reverse_map) {
-        size_t pos = result.find(pair.second);
-        while (pos != string::npos) {
-            sorted_result += pair.second + " ";
-            result.replace(pos, pair.second.length(), "");
-            pos = result.find(pair.second);
-        }
-    }
+    sorted_numbers.pop_back(); // Remove extra space at the end
 
-    return sorted_result;
-}
+    return sorted_numbers;
