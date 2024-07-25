@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
@@ -25,4 +24,3 @@ std::string string_to_md5(std::string text) {
         result += buffer;
     }
     return result;
-}
