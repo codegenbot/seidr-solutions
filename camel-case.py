@@ -1,7 +1,8 @@
-```
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.split('-'))).replace('-', ' ').strip().title()
+def camel_case(s):
+    return "".join(word.capitalize() for word in s.split(" ")) + "".join(
+        word[0].upper() + word[1:] for word in s.split("-") if len(word) > 1
+    )
 
-while True:
-    s = input()
-    print(kebab_to_camel(s))
+
+s = input()
+print(camel_case(s))
