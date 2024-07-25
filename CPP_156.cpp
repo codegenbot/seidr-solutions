@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ std::string int_to_roman(int n) {
     std::string result = "";
 
     for (int i = 0; i < 13; i++) {
-        while (n >= value[i]) {
+        while (n > value[i] - 1) { 
             n -= value[i];
             result += roman[i];
         }
@@ -16,16 +17,16 @@ std::string int_to_roman(int n) {
     return result;
 }
 
-int mainHelper() {
+int main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
 
     if(num < 1 || num > 3999) {
         std::cout << "Please enter a number between 1 and 3999.\n";
-        mainHelper();
-    } else {
-        std::cout << int_to_roman(num) << "\n";
+        return 0;
     }
+
+    std::cout << int_to_roman(num);
     return 0;
 }
