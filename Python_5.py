@@ -1,13 +1,7 @@
-def complete_code(numbers, delimiter):
+def generate_output(numbers, delimeter):
     result = []
     for num in numbers[:-1]:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     if numbers:
         result.append(numbers[-1])
     return result
-
-# Call the function with input data
-numbers = [1, 2, 3, 4, 5]
-delimiter = ","
-output = complete_code(numbers, delimiter)
-print(output)
