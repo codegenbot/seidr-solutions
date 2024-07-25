@@ -1,15 +1,19 @@
-int count_nums(vector<int> nums) {
+Here is the solution:
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
+    for (int num : n) {
         bool has_positive_sum = false;
         if (num < 0) {
-            num = -num; // convert to positive
+            num = -num;
         }
         while (num > 0) {
             int digit = num % 10;
-            if (digit != 0 || (num / 10 == 0 && digit == -1)) { // check if it's not zero or the number is single-digit negative
+            if (digit != 0 && digit != 1) {
                 has_positive_sum = true;
                 break;
+            } else if (digit == 1) {
+                has_positive_sum = true;
             }
             num /= 10;
         }
@@ -18,4 +22,3 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
-}
