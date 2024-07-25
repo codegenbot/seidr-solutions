@@ -1,5 +1,2 @@
-try:
-    a, b, c = map(int, input("Enter 3 integers separated by spaces: ").split())
-    print(a + b + c)
-except ValueError:
-    print("Invalid input. Please enter 3 integers separated by spaces.")
+a, b, c = map(int, input("Enter three integers separated by space: ").split())
+print(a + b + c)
