@@ -1,30 +1,27 @@
-Here is the solution:
-
-def bowling_score(frames):
+```
+def bowling_score(rolls):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i].isdigit():
-            strike = False
-            if i + 1 < len(frames) and frames[i+1].isdigit():
-                spare = False
-                for j in range(i+2, min(len(frames), i+3)):
-                    if not frames[j].isdigit():
-                        break
-                if j == i+2:
-                    score += 10 + int(frames[i]) + int(frames[i+1])
-                else:
-                    score += 10 + int(frames[i]) + int(frames[i+1])
-            elif i + 1 < len(frames):
-                score += 10 + int(frames[i])
+    roll_index = 0
+    for frame in range(1, 11):
+        if rolls[roll_index] == 'X':
+            score += 30
+            roll_index += 1
+        elif rolls[roll_index:roll_index+2].count('/'):
+            first_roll, second_roll = map(int, rolls[roll_index:roll_index+2].split('/'))
+            score += first_roll + second_roll
+            roll_index += 2
         else:
-            strike = True
-            for j in range(i, min(len(frames), i+2)):
-                if not frames[j].isdigit():
-                    break
-            if j == i:
-                score += 10
-            elif j == i+1:
-                score += 20
+            first_roll = int(rolls[roll_index])
+            score += first_roll
+            if first_roll < 10:
+                roll_index += 1
+                if rolls[roll_index] == 'X':
+                    score += 10
+                    roll_index += 1
+                elif rolls[roll_index:roll_index+2].count('/'):
+                    second_roll = int(rolls[roll_index:].split('/')[0])
+                    score += second_roll
+                    roll_index += len(str(second_roll))
             else:
-                score += 30
+                roll_index += 1
     return score
