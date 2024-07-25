@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <openssl/evp.h>
+#include <assert.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -11,6 +11,8 @@ std::string string_to_md5(const std::string& text) {
     const EVP_MD *md;
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
+
+    OpenSSL_add_all_algorithms(); // Add this line
 
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
@@ -25,15 +27,4 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(mdString);
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter text: ";
-    std::cin >> input;
-
-    std::string output = string_to_md5(input);
-    std::cout << "MD5 hash: " << output << std::endl;
-    
-    return 0;
 }
