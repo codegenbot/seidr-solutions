@@ -1,10 +1,8 @@
-Here is the corrected code:
-
-```python
 from typing import List
 
 def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
-    return [s for s in strings if s.startswith(prefix)]
+    filtered_list = [s for s in strings if s.startswith(prefix)]
+    return filtered_list
 
 if __name__ == "__main__":
     input_str = input("Enter space-separated string: ")
