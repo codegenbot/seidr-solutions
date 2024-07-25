@@ -1,23 +1,26 @@
 using namespace std;
 
-string get_closest_vowel(string word) {
+string get_closest_vowel(string word){
     int n = word.size();
-    for(int i=n-1; i>0; --i){
+    string closestVowel = "";
+    
+    for(int i=n-1; i>=0; --i){
         if(!isalpha(word[i])) continue;
-        if(isvowel(tolower(word[i]))){
-            return string(1, tolower(word[i]));
+        char c = tolower(word[i]);
+        
+        if(isvowel(c)){
+            return string(1, c);
         }
         while(i > 0 && !isalpha(word[i-1])){
             i--;
         }
         if(isvowel(tolower(word[i-1]))){
-            return string(1, tolower(word[i-1]));
+            closestVowel = to_string(word[i-1]);
+            break;
         }
     }
-    return "";
-}
-
-int main() {
-    cout << get_closest_vowel("Above") << endl;
-    return 0;
-}
+    
+    if(closestVowel == "")
+        return string(1, 'a');
+    else
+        return closestVowel;
