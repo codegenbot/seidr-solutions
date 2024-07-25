@@ -1,11 +1,14 @@
-def solveBoolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression:
-        return all(x in expression and x != "&" for x in ["T", "&"]) 
-    elif "|" in expression:
-        return any(x in expression and x != "|" for x in ["T", "|"])
-    else:
-        return None
+def solve_boolean(boolean_expression):
+    result = True if boolean_expression else False
+
+    for char in boolean_expression:
+        if char == "&":
+            result = result and (
+                boolean_expression[boolean_expression.index(char) + 1 :] or "t"
+            )
+        elif char == "|":
+            result = result or (
+                boolean_expression[boolean_expression.index(char) + 1 :] or "t"
+            )
+
+    return result
