@@ -1,21 +1,23 @@
 #include <string>
 #include <vector>
-#include <any>
 
-using namespace std;
+using namespace boost;
 
-any compare_one(any a, any b) {
-    if (any_cast<int>(a) > any_cast<int>(b)) {
-        return a;
-    } else if (any_cast<int>(a) < any_cast<int>(b)) {
-        return b;
-    } else if (any_cast<string>(a) > any_cast<string>(b)) {
-        return a;
-    } else if (any_cast<string>(a) < any_cast<string>(b)) {
-        return b;
-    } else if (stod(any_cast<string>(a)) > stod(any_cast<string>(b))) {
-        return a;
-    } else {
-        return boost::any("None");
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_any_of<a>(int.class)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any(std::make_shared<int>(0)));
+    } else if (is_any_of<a>(double.class)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any(std::make_shared<int>(0)));
+    } else if (is_any_of<a>(std::string.class)) {
+        std::string x = any_cast<std::string>(a);
+        std::string y = any_cast<std::string>(b);
+        double ax = std::stod(x);
+        double ay = std::stod(y);
+        return (ax > ay) ? a : ((ax < ay) ? b : boost::any(std::make_shared<int>(0)));
     }
+    return a;
 }
