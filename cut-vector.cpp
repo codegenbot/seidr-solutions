@@ -2,35 +2,35 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <climits>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::ios_base::sync_with_stdio(false);
+
+    std::vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-    
+
     int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+    size_t cut_index = 0;
+
+    for (size_t i = 1; i < nums.size(); ++i) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
-    
-    for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << endl;
+
+    for (size_t i = 0; i < cut_index; ++i) {
+        std::cout << nums[i] << std::endl;
     }
-    cout << 0 << endl;
-    for (int i = cut_index; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+    std::cout << 0 << std::endl;
+    for (size_t i = cut_index; i < nums.size(); ++i) {
+        std::cout << nums[i] << std::endl;
     }
-    cout << 0 << endl;
-    
+    std::cout << 0 << std::endl;
+
     return 0;
 }
