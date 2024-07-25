@@ -1,4 +1,4 @@
-Here is the solution:
+Here's the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
@@ -7,9 +7,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    if (oddCount > 0 && find(lst2.begin(), lst2.end(), oddCount) != lst2.end()) {
-        return "YES";
-    } else {
-        return "NO";
-    }
+    return oddCount == 0 ? "YES" : "NO";
 }
