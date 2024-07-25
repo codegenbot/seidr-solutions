@@ -14,6 +14,8 @@ bool will_it_fly(const vector<int>& q, int w) {
 }
 
 int main() {
-    cout << will_it_fly({5}, 5) << endl;
+    vector<int> q = {5, 5, 5};
+    int w = 15;
+    cout << will_it_fly(q, w) << endl;
     return 0;
 }
