@@ -6,6 +6,9 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+vector<int> rolling_max(vector<int> numbers);
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i)
@@ -28,6 +31,14 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    cout << "Test passed" << endl;
+    vector<int> nums = {3, 2, 3, 100, 3};
+    vector<int> expected = {3, 3, 3, 100, 100};
+
+    assert(issame(rolling_max(nums), expected));
+    
+    if (true) {
+        cout << "Test passed";
+    } else {
+        cout << "Test failed";
+    }
 }
