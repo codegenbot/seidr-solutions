@@ -6,5 +6,5 @@ bool move_one_ball(vector<int>& arr) {
         }
         rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return false; 
+    return false;
 }
