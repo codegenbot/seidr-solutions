@@ -4,7 +4,7 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool areSame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -24,7 +24,7 @@ int main() {
     std::vector<int> expected_output(n);
     std::iota(expected_output.begin(), expected_output.end(), 1);
 
-    assert(issame(input, expected_output));
+    assert(areSame(input, expected_output));
 
     return 0;
 }
