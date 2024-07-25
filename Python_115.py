@@ -1,4 +1,5 @@
 ```
+import math
 def max_fill(grid, capacity):
     total_water = 0
     for i in range(len(grid)):
@@ -16,5 +17,5 @@ def max_fill(grid, capacity):
                 right_max[j] = max(right_max[j], grid[i][j])
         for j in range(len(grid[0])):
             h = min(left_max[j], right_max[j])
-            total_water += (h - grid[i][j]) if h > grid[i][j] else 0
+            total_water += h - grid[i][j]
     return math.ceil(total_water / capacity)
