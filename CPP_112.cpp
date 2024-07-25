@@ -21,6 +21,6 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main(){
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
     return 0;
 }
