@@ -1,8 +1,7 @@
-if (x <= 0 || n <= 0) {
-        return false;
-    }
+if(x <= 0 || n <= 0) return false;
     
-    double power = log(x) / log(n);
+    double root = pow(x, 1.0/n);
+    int intPart = static_cast<int>(root);
     
-    return (power == int(power));
+    return pow(intPart, n) == x;
 }
