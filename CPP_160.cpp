@@ -1,26 +1,28 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cmath>
+#include <string>
 
-int do_algebra(vector<string> operators, vector<int> operands) {
-    int result = operands[0];
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == "+") {
-            result += operands[i + 1];
-        } else if (operators[i] == "-") {
-            result -= operands[i + 1];
-        } else if (operators[i] == "*") {
-            result *= operands[i + 1];
-        } else if (operators[i] == "//") {
-            result = result / operands[i + 1];
-        } else if (operators[i] == "**") {
-            result = pow(result, operands[i + 1]);
+int do_algebra(vector<std::string> operato, vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i <= operato.size(); i++) {
+        if (operato[i-1] == "+") {
+            result += operand[i];
+        } else if (operato[i-1] == "-") {
+            result -= operand[i];
+        } else if (operato[i-1] == "*") {
+            result *= operand[i];
+        } else if (operato[i-1] == "//") {
+            result = result / operand[i];
+        } else if (operato[i-1] == "**") {
+            result = pow(result, operand[i]);
         }
     }
     return result;
 }
 
 int main() {
-    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
-    // Your code to test the function goes here
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    std::cout << "Testing successful." << std::endl;
+    return 0;
 }
