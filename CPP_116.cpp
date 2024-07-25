@@ -2,6 +2,10 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
+std::vector<int> sort_array(const std::vector<int>& arr);
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
@@ -16,7 +20,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    auto sorted_arr = sort_array({2, 4, 8, 16, 32});
+    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
     for (int num : sorted_arr) {
         std::cout << num << " ";
     }
