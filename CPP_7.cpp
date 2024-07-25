@@ -21,6 +21,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    // Main function implementation
+    // Main function logic here
     return 0;
 }
