@@ -1,32 +1,24 @@
-string sort_numbers(const string &numbers) {
-    map<string, int> numberMap = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+#include <iostream>
+#include <map>
+#include <string>
 
-    vector<string> numVec;
-    istringstream iss(numbers);
-    string word;
-    while (iss >> word) {
-        numVec.push_back(word);
+std::string sort_numbers(const std::string &numbers) {
+    std::map<std::string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    std::map<int, std::string> rev_map;
+    for (auto const& pair : num_map) {
+        rev_map[pair.second] = pair.first;
     }
 
-    sort(numVec.begin(), numVec.end(), [&](const string &a, const string &b) {
-        return numberMap[a] < numberMap[b];
-    });
-
-    string sortedNumbers;
-    for (const auto &num : numVec) {
-        sortedNumbers += num + ' ';
+    std::string result;
+    for (int i = 0; i < numbers.size(); i += 5) {
+        result += rev_map[num_map[numbers.substr(i, 4)]] + " ";
     }
+    result.pop_back(); // Remove extra space at the end
+    return result;
+}
 
-    return sortedNumbers;
+int main() {
+    // Example usage and assertion
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
