@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```
+```Python
 from typing import List
 
 
@@ -12,7 +10,9 @@ if __name__ == "__main__":
     print("Welcome to this string concatenation program! Are you ready to enter some strings? (Yes/No): ")
     ready = input().lower()
     
-    if ready == "yes":
+    if ready != "yes":
+        print("Program terminated. Goodbye!")
+    else:
         strings = []
         while True:
             try:
