@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -18,12 +18,10 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
-    vector<string> filtered = filter_by_substring(strings, "an");
-
-    vector<string> expected = {"banana", "orange"};
+    vector<string> strings = {"apple", "banana", "cherry", "date"};
+    vector<string> filtered = filter_by_substring(strings, "ap");
+    vector<string> expected = {"apple", "grape"};
     assert(issame(filtered, expected));
-
     return 0;
 }
 
