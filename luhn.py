@@ -1,11 +1,7 @@
-```
 def luhn(card):
-    card = list(map(int, card.split()))
-    total = 0
-    for i in range(len(card)):
-        if i % 2 == 1:
-            card[i] *= 2
-            if card[i] > 9:
-                card[i] -= 9
-        total += card[i]
-    return total
+    card = [int(x) for x in card[1:]]
+    doubled = [
+        (2 * d) % 10 + (2 * d) // 10 if i % 2 else d
+        for i, d in enumerate(reversed(card))
+    ]
+    return sum(doubled)
