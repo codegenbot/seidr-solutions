@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -5,7 +6,7 @@ using namespace std;
 int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
-        if (i > 0 && i >= count(i, begin(lst), end(lst))) {
+        if (i > 0 && i >= count(i, lst.begin(), lst.end())) {
             max = i;
         }
     }
