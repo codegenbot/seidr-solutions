@@ -29,7 +29,7 @@ int main() {
     
     for (const auto& s : filteredStrings) {
         if(issame(s, {"grunt", "prune"})) {
-            assert(true); // remove this line
+            // remove this line
         }
     }
     
