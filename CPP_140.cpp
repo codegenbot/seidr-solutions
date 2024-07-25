@@ -1,19 +1,20 @@
-string result;
-    int consecutiveSpaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
-                result.pop_back(); // remove the last space
-                result.push_back('-'); // add a dash
-                consecutiveSpaces = 1; // reset consecutive spaces count
+bool prev_space = false;
+    string result = "";
+    
+    for(char c : text){
+        if(c == ' '){
+            if(prev_space){
+                result.pop_back(); // remove last space
+                result += "-";
             } else {
-                result.push_back('_'); // add an underscore
+                result += "_";
+                prev_space = true;
             }
         } else {
-            result.push_back(c); // add the character to the result
-            consecutiveSpaces = 0; // reset consecutive spaces count
+            result += c;
+            prev_space = false;
         }
     }
+    
     return result;
 }
