@@ -6,5 +6,4 @@ int count = 0;
             count--;
         }
     }
-    return count < 0 || count >= 2;
-}
+    return count < 0;
