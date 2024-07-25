@@ -1,33 +1,31 @@
 int score(string s) {
-    int total = 0;
-    int frame = 0;
-    int f[30];
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            f[frame] = 10;
+    int total = 0, frame = 0, ball = 0;
+    vector<int> points(21, 0);
+
+    for (char c : s) {
+        if (c == 'X') {
+            points[ball++] = 10;
             frame++;
-        } else if (s[i] == '/') {
-            f[frame] = 10 - f[frame-1];
+        } else if (c == '/') {
+            points[ball-1] = 10 - points[ball-1];
             frame++;
-        } else if (s[i] == '-') {
-            f[frame] = 0;
+        } else if (c == '-') {
+            points[ball++] = 0;
             frame++;
         } else {
-            f[frame] = s[i] - '0';
+            points[ball++] = c - '0';
             frame++;
         }
-    }
-    for (int i = 0; i < 10; i++) {
-        if (f[i] == 10) {
-            total += 10 + f[i+1] + f[i+2];
-        } else if (f[i] + f[i+1] == 10) {
-            total += 10 + f[i+2];
-            i++;
-        } else {
-            total += f[i] + f[i+1];
-            i++;
+
+        if (frame == 2 || c == 'X') {
+            for (int i = 0; i < ball; i++) {
+                total += points[i];
+            }
+
+            frame = 0;
         }
     }
+
     return total;
 }
 
