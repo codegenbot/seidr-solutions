@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 namespace my_namespace {
     std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
@@ -37,7 +37,7 @@ namespace my_namespace {
     }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
