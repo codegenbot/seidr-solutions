@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+#include <cctype>
 #include <initializer_list>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
