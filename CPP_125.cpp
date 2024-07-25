@@ -16,11 +16,10 @@ vector<string> result;
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
         result.push_back(to_string(count));
     }
     return result;
-}
