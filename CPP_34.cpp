@@ -10,18 +10,7 @@ bool sameSets(vector<int> a, vector<int> b) {
     return s1 == s2;
 }
 
-vector<int> unique(vector<int> vec) {
-    set<int> s(vec.begin(), vec.end());
+vector<int> unique(vector<int> v) {
+    set<int> s(v.begin(), v.end());
     return vector<int>(s.begin(), s.end());
-}
-
-int main() {
-    assert(sameSets({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
-    vector<int> a = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> b = unique(a);
-    cout << "Unique set: ";
-    for(int x : b) {
-        cout << x << " ";
-    }
-    cout << endl;
 }
