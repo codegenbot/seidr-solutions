@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -27,7 +26,11 @@ def main():
             break
         except ValueError:
             print("Invalid input. Please enter a list of integers separated by space.")
-    result = sum_product(numbers)
+    if not numbers:
+        print("Expected input: Enter some numbers, e.g., 1 2 3")
+        result = (0, 1)
+    else:
+        result = sum_product(numbers)
     print(f"Sum is {result[0]} and Product is {result[1]}")
 
 
