@@ -1,6 +1,7 @@
-def leaders(vector):
-    return [
-        vector[i]
-        for i in range(len(vector) - 1, -1, -1)
-        if all(x <= vector[i] for x in vector[i + 1 :])
-    ]
+def leaders(integers):
+    leaders = [integers[-1]]
+    for i in range(len(integers) - 2, -1, -1):
+        if integers[i] >= integers[-1]:
+            leaders.append(integers[i])
+            leaders[-1] = integers[i]
+    return list(reversed(leaders))
