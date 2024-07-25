@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def compare_one(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
