@@ -32,10 +32,6 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
     string input;
     cout << "Enter a string with parentheses: ";
@@ -43,10 +39,8 @@ int main() {
 
     vector<string> groups = separate_paren_groups(input);
 
-    if (issame(groups, groups)) {
-        cout << "The groups are the same." << endl;
-    } else {
-        cout << "The groups are different." << endl;
+    for (string group : groups) {
+        cout << group << endl;
     }
 
     return 0;
