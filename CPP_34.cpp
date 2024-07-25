@@ -1,7 +1,6 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <set>
+using namespace std;
 
 bool isSameSet(vector<int> a, vector<int> b) {
     set<int> s1(a.begin(), a.end());
@@ -9,9 +8,8 @@ bool isSameSet(vector<int> a, vector<int> b) {
     return s1 == s2;
 }
 
-std::vector<int> removeDuplicates(std::vector<int> l) {
+vector<int> removeDuplicates(vector<int> l){
     sort(l.begin(), l.end());
-    auto it = unique(l.begin(), l.end());
-    l.erase(it, l.end());
+    unique_copy(l.begin(), unique(l.begin(), l.end()), l.end());
     return l;
 }
