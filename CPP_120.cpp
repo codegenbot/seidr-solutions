@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
@@ -21,7 +20,7 @@ std::vector<int> problemMain(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
+int problemMain2() {
     std::vector<int> test = problemMain({1, 2, 3, -23, 243, -400, 0}, 5);
     for (auto i : test) {
         std::cout << i << " ";
