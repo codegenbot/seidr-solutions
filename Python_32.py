@@ -1,3 +1,5 @@
 def find_zero(xs: list):
-    x = -xs[0] / xs[1]
-    return x
+    for i, num in enumerate(xs):
+        if num == 0:
+            return i
+    return -1
