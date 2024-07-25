@@ -20,8 +20,6 @@ int main() {
     int n, p;
     std::cin >> n >> p;
     std::cout << Solution::modp(n, p) << std::endl;
-    
     assert(Solution::modp(31, 5) == 3);
-
     return 0;
 }
