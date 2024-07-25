@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def remove_duplicates(numbers: list[int]) -> list[int]:
     seen = set()
     result = []
