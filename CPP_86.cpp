@@ -1,6 +1,6 @@
-#include <cassert>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <cassert>
 
 namespace Contest {
     std::string anti_shuffle(std::string s);
@@ -23,8 +23,4 @@ namespace Contest {
     }
 }
 
-int main() {
-    assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-
-    return 0;
-}
+assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
