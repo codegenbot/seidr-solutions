@@ -1,13 +1,16 @@
 mem = {0: 0, 1: 1}
+
 def fibonacci(num):
     if num in mem:
         return mem[num]
-    if num == 0:
-        return 0
+    if num <= 1:
+        return num
     mem[num] = fibonacci(num - 1) + fibonacci(num - 2)
     return mem[num]
 
 def prime_fib(num):
+    if num <= 1:
+        return False
     fib_num = fibonacci(num)
     if fib_num <= 1:
         return False
