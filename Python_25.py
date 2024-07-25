@@ -3,7 +3,7 @@ from typing import List
 def factorize(n: int) -> List[int]:
     factors = []
     divisor = 2
-    while n > 1:
+    while n > 1 and n != 0:
         if n % divisor == 0:
             factors.append(divisor)
             n //= divisor
@@ -11,10 +11,8 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-while True:
-    try:
-        n = int(input("Enter a number: "))
-        print(factorize(n))
-        break
-    except ValueError:
-        print("Please enter a valid number.")
+try:
+    n = int(input("Enter a number: "))
+    print(factorize(n))
+except ValueError:
+    print("Please enter a valid integer.")
