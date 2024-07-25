@@ -1,5 +1,10 @@
-if (arr.empty()) {
-        return -32768;
+#include <vector>
+#include <cstdlib>
+#include <cassert>
+
+int prod_signs(const std::vector<int>& arr) {
+    if (arr.empty()) {
+        return 0;
     }
     
     int product = 1;
@@ -10,11 +15,9 @@ if (arr.empty()) {
             product *= 1;
         } else if (num < 0) {
             product *= -1;
-        } else {
-            product *= 0;
         }
         
-        sum += abs(num);
+        sum += std::abs(num);
     }
     
     return product * sum;
