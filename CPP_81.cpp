@@ -20,7 +20,7 @@ std::vector<char> numerical_letter_grade(std::vector<float> grades) {
         else if (grade >= 2.0)
             letterGrades.push_back('D');
         else if (grade >= 1.7)
-            letterGrades.push_back('-');
+            letterGrades.push_back('D');
         else
             letterGrades.push_back('F');
     }
@@ -39,22 +39,16 @@ int main() {
                 std::cout << "B  ";
                 break;
             case '-':
-                if(grade == '-')
+                if(grade == 'A'- || grade == 'B'- || grade == 'C'-)
                     std::cout << "A- ";
-                else 
-                    std::cout << "-  ";
+                else
+                    std::cout << "D- ";
                 break;
             case '+':
-                if(grade == '+')
+                if(grade == 'B'+ || grade == 'C'+ || grade == 'D'+)
                     std::cout << "B+ ";
-                else 
-                    std::cout << "+  ";
-                break;
-            case 'C':
-                std::cout << "C  ";
-                break;
-            case 'D':
-                std::cout << "D  ";
+                else
+                    std::cout << "D+ ";
                 break;
             default:
                 std::cout << "F  ";
