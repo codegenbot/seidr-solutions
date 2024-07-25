@@ -1,19 +1,20 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        if (i+1 < text.size() && text[i+1] == ' ') {
-            int j = i + 1;
-            while (j < text.size() && text[j] == ' ') {
-                ++j;
-            }
-            if (j - i > 2) {
-                text.replace(i, j - i, "-");
-            } else {
-                text[i] = '_';
-            }
-            i = j - 1;
+int consecutive_spaces = 0;
+string result = "";
+for (char c : text) {
+    if (c == ' ') {
+        consecutive_spaces++;
+        if (consecutive_spaces > 2) {
+            result.pop_back();
+            result.pop_back();
+            result.push_back('-');
+            consecutive_spaces = 1;
         } else {
-            text[i] = '_';
+            result.push_back('_');
         }
+    } else {
+        consecutive_spaces = 0;
+        result.push_back(c);
     }
 }
-return text;
+return result;
+}
