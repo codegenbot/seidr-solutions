@@ -1,22 +1,19 @@
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
+#include <string>
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
             if (word.length() >= 5) {
-                word = std::string(word.rbegin(), word.rend());
+                result += std::string(word).reverse() + " ";
+            } else {
+                result += word + " ";
             }
-            result += word + ' ';
-            word = "";
-        } else
-            word += c;
+            start = i + 1;
+        }
     }
-    
-    if (word.length() >= 5) {
-        word = std::string(word.rbegin(), word.rend());
-    }
-    result += word;
-    
     return result;
 }
