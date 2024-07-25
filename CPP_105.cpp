@@ -1,7 +1,6 @@
-```cpp
+#include <string>
 #include <vector>
 #include <map>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
