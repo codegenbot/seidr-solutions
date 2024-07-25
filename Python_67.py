@@ -1,8 +1,13 @@
+```
+import re
+
 def fruit_distribution(s, n):
     s = s.replace("apples", "1").replace("oranges", "0")
-    parts = s.split()
+    parts = [x for x in re.split(r"(\d+|\band\))", s) if x.isdigit() or x == 'and']
+    ones = int(s.count('1'))
+    zeros = int(s.count('0'))
     total_count = 0
     for i in range(len(parts)):
-        words = [x for x in parts[i].split() if x.isdigit()]
-        total_count += sum(int(word) for word in words)
-    return n - total_count - int(s.count('1')) - int(s.count('0'))
+        if parts[i].isdigit():
+            total_count += int(parts[i])
+    return n - total_count - ones - zeros
