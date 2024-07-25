@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -15,12 +16,10 @@ std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float x : l) {
         if (x > 0) {
-            try {
-                result.push_back(x);
-            } catch (...) {
-                std::cerr << "An error occurred: ";
-                throw;
-            }
+            result.push_back(x);
+        } else if (x < 0 && !result.empty()) {
+            std::cout << "Error: Negative numbers found in the input.\n";
+            return result;
         }
     }
     return result;
