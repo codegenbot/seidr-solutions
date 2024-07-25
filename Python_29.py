@@ -12,10 +12,9 @@ if __name__ == "__main__":
         exit()
     while True:
         prefix = input("Enter prefix: ").strip().lower()
-        for s in input_list:
-            if s.startswith(prefix):
-                break
+        filtered_list = filter_by_prefix(input_list, prefix)
+        if filtered_list:
+            break
         else:
             print("Error: Prefix is not present in the list. Please enter a valid prefix.")
-            prefix = input("Enter prefix: ").strip().lower()
-    print(filter_by_prefix(input_list, prefix))
+    print(filtered_list)
