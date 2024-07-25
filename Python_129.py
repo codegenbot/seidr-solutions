@@ -1,1 +1,1 @@
-`return "[path for _, path in sorted((sum(path), path) for path in min_paths[:k])] if min_paths else []"`
+`return """[path for _, path in sorted((sum(path), path) for path in min_paths[:k])] if min_paths else []"""`
