@@ -1,9 +1,1 @@
-def find_zero(numbers):
-    for num in numbers:
-        if num == 0:
-            return "Zero found"
-    return "Zero not found"
-
-numbers = raw_input("Enter space-separated numbers: ")
-result = find_zero([float(num) for num in numbers.split()])
-print(result)
+numbers = list(map(int, input("Enter space-separated numbers: ").split()))
