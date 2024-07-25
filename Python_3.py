@@ -1,7 +1,4 @@
 ```
-from typing import List
-
-
 def below_zero() -> None:
     cont = "yes"
     balance = 0
