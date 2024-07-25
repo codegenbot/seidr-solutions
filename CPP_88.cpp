@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -10,9 +9,4 @@ std::vector<int> &sort_array(std::vector<int>& array) {
         std::sort(array.rbegin(), array.rend());
     }
     return array;
-}
-
-int main() {
-    assert(sort_array({21, 14, 23, 11}) == {23, 21, 14, 11});
-    return 0;
 }
