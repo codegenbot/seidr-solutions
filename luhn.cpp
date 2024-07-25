@@ -1,31 +1,19 @@
 #include <vector>
-using namespace std;
 
-int luhnCheck(vector<int> cardNumber) {
+int luhn(std::vector<int>& digits) {
     int sum = 0;
-    bool alternate = false;
+    bool doubleNext = false;
 
-    for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        int digit = cardNumber[i];
-        if (alternate) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
+    for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+        if (doubleNext) {
+            *it *= 2;
+            if (*it > 9) {
+                *it -= 9;
+            }
         }
-        sum += digit;
-        alternate = !alternate;
+        sum += *it;
+        doubleNext = !doubleNext;
     }
 
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> cardNumber(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> cardNumber[i];
-    }
-    cout << luhnCheck(cardNumber) << endl;
-
-    return 0;
 }
