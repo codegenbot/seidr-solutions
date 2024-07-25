@@ -1,5 +1,4 @@
 try:
     numbers = list(map(float, input("Enter space-separated numbers: ").split()))
-    print(numbers)
 except ValueError:
     print("Error: Input format is incorrect. Please provide space-separated numbers.")
