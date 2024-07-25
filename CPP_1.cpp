@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
 
 int test_main() {
-    assert(assert_same(separate_paren_groups("( ) (( ))"), {"", "( ", " (")});
+    assert(assert_same(separate_paren_groups("( ) (( ))"), {"", "( "}, {" (")));
     return 0;
 }
 
