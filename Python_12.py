@@ -7,10 +7,14 @@ if ' ' in input_strs:
             result.append((s, len(s)))
 else:
     if input_strs:  
-        result.append((" ".join(input_strs), len(" ".join(input_strs))))
+        if input_strs.strip() == input_strs: 
+            result.append((" ".join(input_strs), len(" ".join(input_strs))))
 if result:  
     print("The longest strings are:")
     for s, length in sorted(result, key=lambda x:x[1], reverse=True):
         print(f"'{s}' with {length} characters")
 else:
-    print("No strings were entered.")
+    if input_strs.strip() == input_strs: 
+        print("No strings were entered.")
+    else:
+        print(f"Single string '{input_strs}' with {len(input_strs)} characters.")
