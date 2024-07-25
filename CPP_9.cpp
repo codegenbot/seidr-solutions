@@ -1,7 +1,6 @@
 ```cpp
 #include <initializer_list>
 #include <vector>
-#include <iostream>
 
 bool issame(vector<int> a, vector<int> b);
 vector<int> rolling_max(vector<int> numbers);
@@ -26,14 +25,9 @@ vector<int> rolling_max(vector<int> numbers) {
 
     return result;
 }
-
-int main() {
-    vector<int> nums = {3, 2, 3, 100, 3};
-    vector<int> expected = {3, 3, 3, 100, 100};
-
-    if (issame(rolling_max(nums), expected)) {
-        std::cout << "Test passed";
-    } else {
-        std::cout << "Test failed";
+vector<int>({3, 2, 3, 100, 3}), vector<int>({3, 3, 3, 100, 100})) 
+    cout << "The rolling max for this input is: " << endl;
+    vector<int> result = rolling_max(user_input);
+    for (int i : result) {
+        cout << i << " ";
     }
-}
