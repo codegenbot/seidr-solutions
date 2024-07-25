@@ -1,31 +1,32 @@
-#include <string>
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    int i = 0;
-    
-    while (i < expression.length()) {
-        if (expression[i] == 't') {
-            return true;
-        } else if (expression[i] == 'f') {
-            return false;
-        } else if (expression[i] == '&') {
-            i++;
-            result &= evaluateBooleanExpression(substring(expression, i));
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            if (!s.empty()) {
+                s.push('&');
+            } else {
+                s.push(expression[i]);
+            }
         } else if (expression[i] == '|') {
-            i++;
-            result = result || evaluateBooleanExpression(substring(expression, i));
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if (!s.empty()) {
+                s.push('|');
+            } else {
+                s.push(expression[i]);
+            }
+        } else {
+            s.push(expression[i]);
         }
     }
-    
-    return result;
-}
-
-string substring(string s, int start) {
     string result = "";
-    for (int i = start; i < s.length(); i++) {
-        result += s[i];
+    while (!s.empty()) {
+        result += s.top();
+        s.pop();
     }
-    return result;
+    return (result == "T") ? "True" : (result == "F") ? "False" : "Invalid Expression";
 }
