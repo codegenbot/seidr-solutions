@@ -7,5 +7,5 @@ int is_nested(string str) {
             count--;
         }
     }
-    return count < 2 && str.front() == '[' && str.back() == ']';
+    return count < 2 && count > 0;
 }
