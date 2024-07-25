@@ -8,13 +8,8 @@ int main() {
     int num;
 
     // Read and store input numbers
-    while (std::cin >> num && !std::cin.eof()) {
+    while (std::cin >> num) {
         nums.push_back(num);
-    }
-
-    if (std::cin.fail()) {
-        std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
-        return 1;
     }
 
     int n = nums.size();
@@ -39,11 +34,11 @@ int main() {
 
     // Output the two resulting subvectors
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
 
     return 0;
