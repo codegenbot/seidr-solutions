@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```cpp
 #include <iostream>
 #include <cmath>
 
