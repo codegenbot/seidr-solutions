@@ -7,5 +7,8 @@ def fruit_distribution(s, n):
             continue
         if 'and' not in parts[i]:
             if parts[i].lstrip("0123456789"):
-                count += int(parts[i].lstrip("0123456789"))
+                try:
+                    count += int(parts[i].lstrip("0123456789"))
+                except ValueError:
+                    pass
     return n - count
