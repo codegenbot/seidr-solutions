@@ -8,7 +8,7 @@ using namespace std;
 std::string string_to_md5(std::string text) {
     EVP_MD_CTX* mdctx;
     unsigned char md[16];
-    std::string str = text;  
+    string str = text;  
     size_t len = str.length();
 
     if (len == 0)
@@ -24,8 +24,8 @@ std::string string_to_md5(std::string text) {
     int len_output = EVP_DigestFinal_ex(mdctx, mdSig, (unsigned int*)&len);
     EVP_MD_CTX_free(mdctx);
 
-    std::string result;
-    for (int i = 0; i < len_output; i++) {
+    string result;
+    for (int i = 0; i < len; i++) {
         char buffer[3];
         sprintf(buffer, "%02x", mdSig[i]);
         result += string(buffer);
