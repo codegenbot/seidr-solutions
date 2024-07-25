@@ -6,5 +6,5 @@ def search(lst):
     return max_num if max_num != -1 else None
 
 n = int(input())
-input_lst = [int(num) for num in input().split()]
+input_lst = list(map(int, input().split()))
 print(search(input_lst))
