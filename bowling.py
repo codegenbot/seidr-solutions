@@ -1,18 +1,28 @@
-```
 def bowling_score(frames):
     score = 0
     for i in range(10):
-        if frames[i] == 'X':
-            score += 30
-        elif re.match('^[1-9]/[1-9]', frames[i]):
-            first_roll, second_roll = map(int, frames[i].split('/'))
-            score += first_roll + second_roll
-        else:
-            first_roll, second_roll = map(int, frames[i])
-            if first_roll == 10:
-                score += 10 + second_roll
-            elif first_roll + second_roll >= 10:
-                score += first_roll + second_roll
+        if "/" in frames[i * 2 : i * 2 + 2]:
+            strike = False
+            spare = False
+            if frames[i * 2 : i * 2 + 1] == "X":
+                strike = True
+            elif frames[i * 2 : i * 2 + 2].count("/"):
+                spare = True
             else:
-                score += first_roll + second_roll
+                score += int(frames[i * 2 : i * 2 + 1])
+        else:
+            if frames[i * 2 : i * 2 + 2].count("/"):
+                score += 10 - int(frames[i * 2 : i * 2 + 1])
+            elif frames[i * 2 : i * 2 + 2] == "X":
+                score += 10
+                strike = True
+            else:
+                score += int(frames[i * 2 : i * 2 + 1]) + int(
+                    frames[i * 2 + 1 : i * 2 + 2]
+                )
+        if i < 9 and (strike or spare):
+            for j in range(i + 1, 10):
+                if "/" in frames[j * 2 : j * 2 + 2]:
+                    break
+                score += int(frames[j * 2 : j * 2 + 1])
     return score
