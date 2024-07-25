@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <iostream>
@@ -13,15 +12,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
         cutIndex = 1;
     }
     for (int i = 2; i < nums.size(); ++i) {
-        if (abs(nums[i] - nums[0]) >= minDiff) {
-            break;
-        }
         if (i >= 2 && abs(nums[i] - nums[0]) < minDiff) {
             minDiff = abs(nums[i] - nums[0]);
             cutIndex = i;
         } else if (i > 1 && abs(nums[i-1] - nums[0]) < minDiff) {
             minDiff = abs(nums[i-1] - nums[0]);
             cutIndex = i - 1;
+        }
+        if (abs(nums[i] - nums[0]) >= minDiff) {
+            break;
         }
     }
     return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
