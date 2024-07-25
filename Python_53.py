@@ -1,13 +1,7 @@
-def add(a, b):
-    return a + b
+def add(x, y):
+    return x + y
 
-while True:
-    try:
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        break
-    except ValueError:
-        print("Please enter integer values only.")
-
+x = int(input())
+y = int(input())
 result = add(x, y)
 print(result)
