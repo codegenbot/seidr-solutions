@@ -1,4 +1,8 @@
-def leaders(input):
-    return [
-        i for i in reversed(input) if all(j <= i for j in input[input.index(i) + 1 :])
-    ]
+Here is the solution:
+
+def leaders(arr):
+    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+
+# Example usage:
+input_array = list(map(int, input().split()))
+print(leaders(input_array))
