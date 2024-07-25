@@ -1,4 +1,3 @@
-```
 def hex_key(num):
     primes = {'B': '11', 'D': '13'}
     count = 0
