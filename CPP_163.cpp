@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -35,3 +37,9 @@ struct Solution {
         return result;
     }
 };
+
+int main() {
+    assert(Solution::issame(Solution::generate_integers(17, 89), {}));
+    
+    return 0;
+}
