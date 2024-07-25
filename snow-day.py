@@ -1,4 +1,2 @@
-Here is the solution to the problem:
-
-def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
-    return initial_snow + rate_of_fall * hours - melting_rate * hours
+def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
+    return initial_snow + hours * rate_of_snowfall - hours * melting_rate
