@@ -19,10 +19,11 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
+    // Test
     std::vector<int> sorted = sort_array({2, 4, 8, 16, 32});
     for (int num : sorted) {
         std::cout << num << " ";
     }
-
+    
     return 0;
 }
