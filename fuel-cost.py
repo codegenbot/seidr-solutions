@@ -1,7 +1,2 @@
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        x = int(input())
-        total += x // 3 - 2
-    print(total)
+def fuel_cost(vector):
+    return sum((i // 3 - 2) for i in vector)
