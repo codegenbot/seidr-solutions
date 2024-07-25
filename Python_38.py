@@ -1,6 +1,8 @@
 def decode_cyclic():
     while True:
-        s = input("Enter a cyclically encoded string: ")
+        s = input("Enter a cyclically encoded string (or 'q' to quit): ")
+        if s.lower() == 'q':
+            break
         if (
             len(s) % 3 == 0
             and all(char.isalpha() for char in s[:2])
