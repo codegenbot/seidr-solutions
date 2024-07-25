@@ -2,14 +2,25 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <sstream>
 
 int main() {
     std::vector<int> nums;
     int num;
+    std::string input;
 
     // Read and store input numbers
-    while (std::cin >> num) {
+    while (std::getline(std::cin, input)) {
+        std::stringstream ss(input);
+        if (!(ss >> num)) {
+            break;
+        }
         nums.push_back(num);
+    }
+
+    if (nums.empty()) {
+        std::cerr << "Invalid input. Please provide valid positive integers." << std::endl;
+        return 1;
     }
 
     int n = nums.size();
@@ -34,11 +45,11 @@ int main() {
 
     // Output the two resulting subvectors
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << " ";
+        std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << " ";
+        std::cout << nums[i] << std::endl;
     }
 
     return 0;
