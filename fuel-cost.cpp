@@ -1,10 +1,10 @@
 int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int i : v) {
-        if (i % 3 == 1)
-            sum += (i / 3 - 2);
-        else
-            sum += (i / 3 - 1);
+    for (int num : v) {
+        int temp = num / 3;
+        temp = floor(temp);
+        temp -= 2;
+        sum += temp;
     }
     return sum;
 }
