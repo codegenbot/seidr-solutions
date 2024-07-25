@@ -11,3 +11,7 @@ def indices_of_substring(text, target):
         if text[i:i+len(target)] == target:
             result.append(i)
     return result
+
+# Test cases
+print(gcd(1, 1)) 
+print(indices_of_substring("banana", "ana"))
