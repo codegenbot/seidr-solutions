@@ -1,8 +1,15 @@
+Here is the solution:
+
 string find_max(vector<string> words){
-    string res = *max_element(words.begin(), words.end(),
-            [](const string& a, const string& b) {
-                return (a.size() << 31 | count(a.begin(), a.end(), ' ') ) <
-                       (b.size() << 31 | count(b.begin(), b.end(), ' ') );
-            });
-    return res;
+    string max_word;
+    int max_unique = 0;
+    for(string word : words){
+        int unique_count = 0;
+        set<char> char_set(word.begin(), word.end());
+        if(char_set.size() > max_unique){
+            max_unique = char_set.size();
+            max_word = word;
+        }
+    }
+    return max_word;
 }
