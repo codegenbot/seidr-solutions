@@ -1,7 +1,14 @@
+```
 def solve():
     while True:
-        N = int(input("Enter an integer: "))
-        if N <= 0:
-            return
-        else:
-            return "0b" + bin(N)[2:]
+        try:
+            N = int(input("Enter an integer: "))
+            if N <= 0:
+                return "Error"
+            else:
+                return "0b" + bin(N)[2:]
+
+        except ValueError:
+            print("Invalid input! Please enter an integer.")
+
+print(solve())
