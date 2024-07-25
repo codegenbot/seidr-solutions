@@ -1,3 +1,4 @@
+```
 input_list = input("Enter space-separated string: ").split()
 if not input_list:
     print("Please enter at least one string.")
