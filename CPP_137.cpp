@@ -3,10 +3,10 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b);
+        return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a);
+        return a;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
@@ -18,12 +18,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (comp < 0)
             return b;
         else
-            return a; // Changed "None" to 'a' for clarity.
+            return "None";
     }
     else {
         // If both values are equal, compare their types.
         if (a.type() == typeid(int) && b.type() == typeid(int))
-            return a; // Changed "None" to 'a' for clarity.
+            return "None";
         else
             return boost::any_cast<double>(a) > boost::any_cast<double>(b)
                 ? a : b;
