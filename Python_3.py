@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 from typing import List
 
 
@@ -8,7 +5,9 @@ def below_zero() -> None:
     while True:
         operations = []
         while True:
-            ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
+            ops = input(
+                "Enter a list of integers (space separated) or 'end' to finish: "
+            )
             if ops.lower() == "end":
                 break
             try:
@@ -39,9 +38,10 @@ def below_zero() -> None:
             return
 
         if (below_zero_operations / len(operations)) > 0.5:
-            print("Expected input: A mix of positive and negative integers.")
             while True:
-                ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
+                ops = input(
+                    "Enter a list of integers (space separated) or 'end' to finish: "
+                )
                 if ops.lower() == "end":
                     break
                 try:
@@ -57,7 +57,9 @@ def below_zero() -> None:
                                 below_zero_found = True
                                 below_zero_operations += 1
                         else:
-                            print("Error: Invalid input. Please enter a list of integers.")
+                            print(
+                                "Error: Invalid input. Please enter a list of integers."
+                            )
                             return
 
                     if not below_zero_found:
