@@ -1,9 +1,8 @@
-```
 def remove_duplicates(numbers: list[int]) -> list[int]:
     seen = set()
     result = []
-    for x in reversed(numbers):
-        if x not in seen:
+    for x in numbers:
+        if x not in seen and x not in result:
             seen.add(x)
             result.append(x)
-    return list(reversed(result))
+    return result
