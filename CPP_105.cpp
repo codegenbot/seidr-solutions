@@ -19,6 +19,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(filtered_arr.begin(), filtered_arr.end());
+
     std::reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
@@ -34,6 +35,4 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-
-    return 0;
 }
