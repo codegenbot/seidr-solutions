@@ -1,3 +1,16 @@
+#include <vector>
+#include <string>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return isSameOrder(a) && isSameOrder(b);
+}
+
+bool isSameOrder(vector<string> v) {
+    sort(v.begin(), v.end());
+    return v;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
@@ -30,4 +43,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         letter_grades.push_back(letter_grade);
     }
     return letter_grades;
+}
+
+int main() {
+    vector<float> grades = {0.0f, 0.7f};
+    vector<string> result = numerical_letter_grade(grades);
+    // Do something with the result.
+    assert(isSameOrder(result) && isSameOrder({"E", "D-"}));
 }
