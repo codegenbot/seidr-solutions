@@ -4,13 +4,15 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> arr1, std::vector<int> arr2){
-    return arr1 == arr2;
-}
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2);
 
 std::vector<std::string> by_length(std::vector<int> arr);
 
-std::vector<std::string> by_length(std::vector<int> arr){
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
+
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sorted_arr;
     std::vector<std::string> result;
     std::map<int, std::string> num_to_word = {
