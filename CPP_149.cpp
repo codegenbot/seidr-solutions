@@ -1,21 +1,13 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
-
-vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> sorted_lst = lst;
-    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), sorted_lst.end());
-    sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b){
+vector<string> solve(vector<string>& lst) {
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
+    sort(lst.begin(), lst.end(), [](const string& a, const string& b){
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return sorted_lst;
-}
-
-int main() {
-    vector<string> lst = {"apple", "banana", "orange", "kiwi", "pear"};
-    vector<string> result = sorted_list_sum(lst);
-    return 0;
+    return lst;
 }
