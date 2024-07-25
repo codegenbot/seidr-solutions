@@ -8,14 +8,19 @@ def minPath(grid, k):
         current_pos = (path[-1] // n, path[-1] % n)
         valid_moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         next_move = None
+        min_val = float("inf")
+
         for di, dj in valid_moves:
             new_pos = path[-1] + di * n + dj
-            if 0 <= new_pos < n * n and new_pos not in visited:
-                next_move = new_pos
-                break
+            if 0 <= new_pos < n * n:
+                x, y = new_pos // n, new_pos % n
+                if (x, y) in visited and grid[x][y] < min_val:
+                    next_move = new_pos
+                    min_val = grid[x][y]
+
         if next_move is None:
             break
         path.append(grid[next_move // n][next_move % n])
-        visited.add(next_move)
+        visited.remove((next_move // n, next_move % n))
 
     return path
