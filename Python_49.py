@@ -1,23 +1,16 @@
 ```
-def is_prime(n):
-    if n <= 1:
+def is_prime(num):
+    if num < 2:
         return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    max_divisor = int(n**0.5) + 1
-    for d in range(3, max_divisor, 2):
-        if n % d == 0:
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
             return False
     return True
 
 def main():
     while True:
-        prompt = input(
-            "Enter a series of integers to check if they're prime, or '0' to quit."
-        )
-        if prompt == "0":
+        prompt = input("Enter a series of integers to check if they're prime, or 'q' to quit.")
+        if prompt.lower() == "q":
             break
         try:
             num = int(prompt)
