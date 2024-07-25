@@ -5,11 +5,11 @@
 
 map<char, int> histogram(string test);
 
-bool issame(map<char,int> a, map<char,int> b){
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-map<char, int> histogram(string test){
+map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
     string word;
@@ -32,8 +32,11 @@ map<char, int> histogram(string test){
 }
 
 int main() {
-    assert(issame(histogram("hello world"), histogram("world hello")));
-    assert(issame(histogram("aaa bbb ccc"), histogram("ccc bbb aaa")));
+    // Test the histogram function
+    map<char, int> result = histogram("hello world");
+    map<char, int> expected = {{'l', 3}};
+    
+    assert(issame(result, expected));
     
     return 0;
 }
