@@ -1,20 +1,22 @@
-char prev = ' ';
 string result = "";
-for (char c : text) {
-    if (c == ' ') {
-        if (prev == ' ') {
-            result.pop_back();
-            result.push_back('-');
+    bool prev_space = false;
+    int space_count = 0;
+    
+    for(char c : text){
+        if(c == ' '){
+            space_count++;
+            if(space_count > 2){
+                if(!prev_space) result += "-";
+            } else {
+                result += '_';
+            }
+            prev_space = true;
         } else {
-            result.push_back('_');
+            result += c;
+            prev_space = false;
+            space_count = 0;
         }
-    } else {
-        result.push_back(c);
     }
-    prev = c;
-}
-if (result.back() == '-') {
-    result.pop_back();
-}
-return result;
+    
+    return result;
 }
