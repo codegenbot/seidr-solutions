@@ -19,7 +19,6 @@ vector<vector<string>> filter_by_substring(vector<string> str, string substr) {
         }
     }
     return result;
-
 }
 
 int main() {
