@@ -1,5 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
+
+bool issame(vector<string> a, vector<string> b);
+vector<vector<string>> filter_by_substring(vector<string> str, string substr);
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
