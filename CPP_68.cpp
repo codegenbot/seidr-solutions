@@ -1,15 +1,19 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
+    int smallestEven = INT_MAX;
+    int smallestIndex = -1;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            nodes.push_back({arr[i], i});
+        if (arr[i] % 2 == 0 && arr[i] < smallestEven) {
+            smallestEven = arr[i];
+            smallestIndex = i;
         }
     }
-    if (nodes.empty()) {
-        return {};
-    }
-    sort(nodes.begin(), nodes.end());
-    return {{nodes[0].first, nodes[0].second}};
+
+    result.push_back({smallestEven, smallestIndex});
+    return result;
 }
