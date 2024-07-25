@@ -8,14 +8,16 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    string line;
     
-    getline(cin, line);
-    istringstream iss(line);
+    cin.ignore();
     
     int num;
-    while (iss >> num) {
+    while (cin >> num) {
         nums.push_back(num);
+        char comma;
+        if(!(cin >> comma) || comma == '\n') {
+            break;
+        }
     }
     
     int n = nums.size();
@@ -26,15 +28,15 @@ int main() {
     }
     
     int prefixSum = 0;
-    int minDiff = INT_MAX/2; // Modified initialization
-    int cutIndex = -1;
+    int minDiff = INT_MAX/2; 
+    int cutIndex = 0;
     
     for (int i = 0; i < n; i++) { 
         prefixSum += nums[i]; 
         int suffixSum = sum - prefixSum; 
         int diff = abs(prefixSum - suffixSum); 
 
-        if (diff < minDiff) { // Change <= to <
+        if (diff < minDiff) { 
             minDiff = diff; 
             cutIndex = i; 
         } 
@@ -45,12 +47,10 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex < n) { 
-        for (int i = cutIndex + 1; i < n; i++) { 
-            cout << nums[i] << ' '; 
-        } 
-        cout << '\n'; 
+    for (int i = cutIndex + 1; i < n; i++) { 
+        cout << nums[i] << ' '; 
     } 
+    cout << '\n'; 
 
     return 0;
 }
