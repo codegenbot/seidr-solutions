@@ -1,8 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-#include <algorithm>
-
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -45,6 +40,6 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    assert(is_same(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
+    assert(is_same(bf("Jupiter", "Makemake"), {}));
     return 0;
 }
