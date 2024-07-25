@@ -1,15 +1,14 @@
 ```
 def digitSum(s):
     total = 0
-    for char in s.lower():
+    s = s.lower()
+    for char in s:
         if char.isdigit():
             total += int(char)
-        elif char == 'e':
-            total += 2
-        elif char == 'o':
-            total += 1
-        elif char == 'a' or char == 'i':
-            total += 3  
+        elif char == 'a' or char == 'e' or char == 'i' or char == 'o' or char == 'l' or char == 'm':
+            total += 3
+        else:
+            total += 0
     return total
 
 print(digitSum("You arE Very Smart"))
