@@ -15,10 +15,10 @@ while True:
     user_input = input("Enter numbers separated by space: ")
     try:
         numbers = [float(i) for i in user_input.split()]
-        if len(numbers) > 0:
-            break
-        else:
-            print("Invalid input. Please enter at least one number.")
+        if not numbers:
+            print("Invalid input. Please enter valid numbers.")
+            continue
+        break
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
 print(mean_absolute_deviation(numbers))
