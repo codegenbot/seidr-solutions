@@ -1,6 +1,9 @@
-string concatenate(vector<string> strings){
+Here is the completed code:
+
+string concatenate(vector<string> strings) {
     string result = "";
-    for(auto s : strings)
-        result += s;
+    for (const auto& str : strings) {
+        result += str;
+    }
     return result;
 }
