@@ -1,11 +1,6 @@
-Here is the completed code:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int i : lst1) {
-        if (i % 2 != 0) {
-            oddCount++;
-        }
+    for (int x : lst1) {
+        if (x % 2 != 0) return "NO";
     }
-    return oddCount > 0 ? "NO" : "YES";
+    return "YES";
 }
