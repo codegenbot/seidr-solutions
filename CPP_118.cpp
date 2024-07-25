@@ -4,7 +4,7 @@ string get_closest_vowel(string word) {
         if (!isvowel(word[right])) {
             ++left;
         } else if (left > 0) {
-            return string(1, word[right]);
+            return string(1, tolower(word[right]));
         }
     }
     return "";
