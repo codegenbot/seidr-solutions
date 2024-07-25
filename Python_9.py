@@ -1,6 +1,7 @@
 def rolling_max(numbers):
     if len(numbers) < 3:
         return numbers
+    
     max_values = []
     for i in range(len(numbers)):
         if i == 0:
