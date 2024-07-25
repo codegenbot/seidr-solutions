@@ -1,11 +1,10 @@
-```cpp
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
 #include <string>
 #include <cassert>
 
 std::string string_to_md5(std::string text) {
-    MD5_CTX ctx;
+    EVP_MD_CTX mdctx;
     unsigned char md[16];
     const char* str = text.c_str();
     size_t len = text.length();
@@ -13,12 +12,12 @@ std::string string_to_md5(std::string text) {
     if (len == 0)
         return "";
 
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, str, len);
-    MD5_Final(md, &ctx);
+    EVP_MD_CTX_init(&mdctx);
+    EVP_DigestUpdate(&mdctx, str, len);
+    int len_output = EVP_DigestFinal(&mdctx, md, NULL);
 
     std::string result;
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < len_output; i++) {
         char buffer[3];
         sprintf(buffer, "%02x", md[i]);
         result += buffer;
@@ -26,7 +25,7 @@ std::string string_to_md5(std::string text) {
     return result;
 }
 
-int main_test() {
+int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
