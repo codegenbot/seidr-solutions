@@ -16,6 +16,9 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a) {
+    if (a < 6) {
+        return false;
+    }
     vector<int> primes;
     for (int i = 2; i <= a; i++) {
         if (is_prime(i)) {
@@ -41,6 +44,10 @@ int main() {
     int num;
     cout << "Enter a number less than 100: ";
     cin >> num;
-    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
+    if (is_multiply_prime(num)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
     return 0;
 }
