@@ -1,4 +1,3 @@
-```
 from typing import List
 import statistics
 
@@ -12,13 +11,18 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 while True:
-    user_input = input("Enter numbers separated by space: ")
+    four_space_indented_input = (
+        '    user_input = input("Enter numbers separated by space: ")'
+    )
     try:
-        numbers = [float(i) for i in user_input.split()]
-        if len(numbers) > 0:
+        four_space_indented_numbers = (
+            "    numbers = [float(i) for i in user_input.split()]"
+        )
+        if len(four_space_indented_numbers) > 0:
             break
         else:
             print("Invalid input. Please enter at least one number.")
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
+    four_space_indented_print = "    print(mean_absolute_deviation(numbers))"
 print(mean_absolute_deviation(numbers))
