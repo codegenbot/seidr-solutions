@@ -3,24 +3,19 @@ int main() {
     cin >> code >> guess;
     
     int blackPegs = 0, whitePegs = 0;
+    map<char, int> codeCount, guessCount;
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
-            code[i] = guess[i] = ' '; // mark as visited
+            blackPegs++;
+        } else {
+            codeCount[code[i]]++;
+            guessCount[guess[i]]++;
         }
     }
     
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != ' ') {
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == guess[i]) {
-                    ++whitePegs;
-                    code[j] = ' '; // mark as visited
-                    break;
-                }
-            }
-        }
+    for (auto& p : codeCount) {
+        whitePegs += min(p.second, guessCount[p.first]);
     }
     
     cout << whitePegs << endl << blackPegs << endl;
