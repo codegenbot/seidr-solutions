@@ -3,27 +3,27 @@ Here is the solution:
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
+std::string camelCase(const std::string& s) {
+    std::string result;
+    bool capitalize = true;
+
     for (char c : s) {
         if (c == '-') {
-            result += c + c;
-        } else if (c == ' ') {
-            result += c;
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
             result += tolower(c);
         }
     }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
