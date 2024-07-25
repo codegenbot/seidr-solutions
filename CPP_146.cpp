@@ -14,12 +14,11 @@ int specialFilter(vector<int> nums) {
     return count;
 }
 
-int main() {
+void main() {
     vector<int> input;
     int num;
     while(cin >> num) {
         input.push_back(num);
     }
     cout << specialFilter(input) << endl;
-    return 0;
 }
