@@ -1,28 +1,19 @@
-Here is the solution:
-
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if (!isvowel(word[i])) {
-            continue;
+    string result = "";
+    for (int i = word.length() - 1; i > 0; --i) {
+        if (ispunct(word[i])) continue;
+        if (!isalpha(word[i])) continue;
+        bool isVowel = false;
+        for (char c : "aeiouAEIOU") {
+            if (word[i] == c) {
+                isVowel = true;
+                break;
+            }
         }
-        int j = i - 1;
-        while (j >= 0 && !isconsonant(word[j])) {
-            --j;
-        }
-        if (j >= 0) {
-            return word.substr(j + 1, i - j - 1);
+        if (isVowel) {
+            result = word.substr(i, 1);
+            return result;
         }
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(char c) {
-    c = tolower(c);
-    return !isvowel(c);
 }
