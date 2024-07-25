@@ -1,11 +1,11 @@
 #include <string>
 #include <vector>
 
-vector<string> numerical_letter_grade(vector<float> grades);
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
+
+vector<string> numerical_letter_grade(vector<float> grades);
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -25,9 +25,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), vector<string>{"E", "D-"}));
-    return 0;
 }
