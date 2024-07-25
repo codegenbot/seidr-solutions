@@ -1,9 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> unique_digits(vector<int> b){
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for(int num : b){
+    for(int num : x){
         int digit = num;
         bool hasEvenDigit = false;
         while(digit > 0){
