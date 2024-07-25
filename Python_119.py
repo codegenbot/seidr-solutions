@@ -4,6 +4,4 @@ def match_parens(lst):
         count += 1 if s == '(' else -1
         if count < 0:
             return 'No'
-        if count == 0 and s != lst[-1]:
-            return 'No'
-    return 'Yes' if count == 0 else 'No'
+    return 'No' if count != 0 else 'Yes'
