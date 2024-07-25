@@ -1,37 +1,42 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int getBlackPegs(const string& code, const string& guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            ++blackPegs;
         }
     }
-    return count;
+    return blackPegs;
 }
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeCount, guessCount;
-
-    for (int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
+int getWhitePegs(const string& code, const string& guess) {
+    int whitePegs = 0;
+    vector<char> codeChar(6);
+    for (int i = 0; i < 4; ++i) {
+        codeChar[code[i]]++;
     }
-
-    for (int i = 0; i < 6; i++) {
-        if (codeCount.count((char)(i + 'A')) && codeCount[(char)(i + 'A')] == guessCount[(char)(i + 'A')]) {
-            count++;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            --codeChar[guess[i]];
+        } else {
+            codeChar[guess[i]]--;
         }
     }
-
-    return count;
+    for (char c = 'A'; c <= 'F'; ++c) {
+        whitePegs += min(codeChar[c], 0);
+    }
+    return whitePegs;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    cout << blackPegs(code, guess) << endl;
-    cout << whitePegs(code, guess) << endl;
-
+    cout << getWhitePegs(code, guess) << endl;
+    cout << getBlackPegs(code, guess) << endl;
     return 0;
 }
