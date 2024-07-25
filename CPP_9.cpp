@@ -1,7 +1,9 @@
+```
 #include <vector>
-#include <assert.h>
+#include <algorithm>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i)
         if (a[i] != b[i]) return false;
@@ -20,8 +22,9 @@ vector<int> rolling_max(vector<int> numbers) {
     }
 
     return result;
-}
 
+}
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    // your code here
+    return 0;
 }
