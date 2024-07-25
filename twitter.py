@@ -1,9 +1,7 @@
-```
 tweet = input("Enter a tweet: ")
-tweet = tweet.strip()  
-if not tweet:
+if not tweet.strip().lstrip():
     print("You didn't type anything")
 elif len(tweet) > 140:
     print("Too many characters")
 else:
-    print("Your tweet has {} characters".format(len(tweet)))
+    print(f"Your tweet has {len(tweet)} characters")
