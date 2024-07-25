@@ -23,22 +23,21 @@ def below_zero() -> None:
         balance = 0
         below_zero_found = False
         for operation in operations:
-            if isinstance(operation, int):
+            try:
                 balance += operation
                 if balance < 0:
                     print(f"Below zero at {balance}.")
                     below_zero_found = True
                     break
-            else:
+            except ValueError:
                 print("Error: Invalid input. Please enter a list of integers.")
                 return
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
 
-        cont = input("Continue? (yes/no): ")
-        if cont.lower() != "yes":
-            return
-
-
-below_zero()
+        while True:
+            cont = input("Continue? (yes/no): ")
+            if cont.lower() == "no":
+                break
+        below_zero()
