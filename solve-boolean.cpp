@@ -1,39 +1,33 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            while (!st.empty() && st.top() != '&') {
-                st.pop();
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (char c : expression) {
+        if (c == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (st.empty()) {
-                return true;
-            } else if (st.top() == 'F') {
-                st.pop();
-                return false;
+            if (s.empty()) return false;
+        } else if (c == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
-        } else if (s[i] == '&') {
-            st.push('&');
-        } else if (s[i] == 'T') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            return true;
-        } else if (s[i] == 'F') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            return false;
+            if (s.empty()) return true;
+        } else {
+            s.push(c);
         }
     }
-    while (!st.empty()) {
-        st.pop();
+    while (!s.empty()) {
+        s.pop();
     }
-    if (st.empty()) {
-        return true;
-    } else {
-        return false;
-    }
+    return false;
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+    cout << (solveBoolean(expression) ? "True" : "False") << endl;
+    return 0;
 }
