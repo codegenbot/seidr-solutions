@@ -7,7 +7,7 @@ std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encrypted = c + 4; 
+            char encrypted = c + 4; // 2 * 2 = 4
             if (islower(c)) {
                 if (encrypted > 'z') {
                     encrypted = 'a' + (encrypted - 'z' - 1);
@@ -23,8 +23,4 @@ std::string encrypt(std::string s) {
         }
     }
     return result;
-}
-
-void main() {
-    assert(encrypt("a") == "e");
 }
