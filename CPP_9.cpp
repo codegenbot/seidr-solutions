@@ -1,7 +1,5 @@
-```
+#include <initializer_list>
 #include <vector>
-#include <assert.h>
-#include <iostream>
 
 bool issame(vector<int> a, vector<int> b);
 vector<int> rolling_max(vector<int> numbers);
@@ -28,14 +26,5 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> test_numbers = {3, 2, 3, 100, 3};
-    vector<int> expected_result = {3, 3, 3, 100, 100};
-
-    if (issame(rolling_max(test_numbers), expected_result)) {
-        std::cout << "Test passed!" << std::endl;
-    } else {
-        std::cout << "Test failed." << std::endl;
-    }
-
-    return 0;
+    assert(issame(vector<int>({3, 2, 3, 100, 3}), vector<int>({3, 3, 3, 100, 100})));
 }
