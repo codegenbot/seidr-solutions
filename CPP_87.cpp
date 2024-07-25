@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm> // Include algorithm header for sort and reverse
 using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
@@ -26,7 +26,7 @@ int main() {
     int x = 1;
     vector<vector<int>> result = get_row(lst, x);
     for (auto &vec : result) {
-        cout << "{" << vec[0] << ", " << vec[1] << "}" << endl;
+        cout << "{" << vec[0] << ", " << vec[1] << "}\n";
     }
     return 0;
 }
