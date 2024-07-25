@@ -1,16 +1,20 @@
 int count = 0;
-    vector<int> res(2, 0);
+    vector<int> palindromes;
+    
     for (int i = 1; i <= n; ++i) {
-        string s = to_string(i);
-        string rev = s;
-        reverse(rev.begin(), rev.end());
-        if (s == rev) {
+        string numStr = to_string(i);
+        string revStr = numStr;
+        reverse(revStr.begin(), revStr.end());
+        
+        if (numStr == revStr) {
             if (i % 2 == 0) {
-                res[0]++;
-            } else {
-                res[1]++;
+                count++;
             }
         }
     }
-    return res;
+    
+    palindromes.push_back(count);
+    palindromes.push_back(n - count);
+    
+    return palindromes;
 }
