@@ -1,10 +1,17 @@
 int sum = 0;
-    for (int val : q) {
-        sum += val;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
     }
     
-    vector<int> reverse_q = q;
-    reverse(reverse_q.begin(), reverse_q.end());
+    if (sum > w) {
+        return false;
+    }
     
-    return (sum <= w && q == reverse_q);
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
