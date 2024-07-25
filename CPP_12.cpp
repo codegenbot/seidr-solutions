@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::string longest(const std::vector<std::string>& strings) {
     std::string result = strings[0];
