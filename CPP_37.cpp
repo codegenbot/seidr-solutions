@@ -1,8 +1,14 @@
-for(int i=0; i<l.size(); i+=2){
-    if(i+1 < l.size()){
-        l[i] = l[i+1];
+vector<float> even_indices;
+    for (int i = 1; i < l.size(); i += 2) {
+        even_indices.push_back(l[i]);
     }
-}
-sort(l.begin(), l.end(), greater<float>());
-return l;
+    sort(even_indices.begin(), even_indices.end());
+    int j = 0;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            l[i] = even_indices[j];
+            j++;
+        }
+    }
+    return l;
 }
