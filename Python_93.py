@@ -6,9 +6,11 @@ def encode(message):
             result += ' '
         elif char.isalpha():
             if char.islower():
-                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+                result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
             elif char.isupper():
-                result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
+                result += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
         else:
             result += char
     return result
+
+print(encode("Hello World!"))
