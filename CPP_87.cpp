@@ -16,6 +16,6 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
 }
 
 int main() {
-    assert(issame(get_row({}, 1) , {}));
+    assert(issame(get_row({},{1},{1,2,3}),{{0,2}}));
     return 0;
 }
