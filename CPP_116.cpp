@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool checkEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,6 +16,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(checkEqual(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    assert(areSame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
 }
