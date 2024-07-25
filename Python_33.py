@@ -1,10 +1,10 @@
-```
 def sort_third(lst):
     result = []
-    while len(lst) >= 3:
-        triplets = [tuple(sorted([x[2], x[1], x[0]])) for x in zip(*[iter(lst)]*3)]
-        del lst[:3]
-        result.append([int(x[-1]) for x in sorted(triplets)])
-    if len(lst) > 0:
-        result.append([int(i[2]) for i in sorted([(i,) for i in lst])])
+    if len(lst) % 3 != 0:
+        return 
+    while len(lst) > 0:
+        lst = [list(map(int, i.split(','))) for i in [i for i in (str(j) for j in lst) if isinstance(j, int)]]
+        temp = [int(i[2]) for i in sorted(lst)]
+        del lst[:]
+        result.append(temp)
     return tuple(result)
