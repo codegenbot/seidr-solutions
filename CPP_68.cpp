@@ -1,24 +1,15 @@
-Here is the modified code:
-
-```cpp
-#include <vector>
-
-using namespace std;
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
-    if (arr.empty()) return result;
-
-    int smallest_even_value = INT_MAX;
-    int index = -1;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even_value) {
-            smallest_even_value = arr[i];
-            index = i;
+int main {
+    vector<int> userInput;
+    cout << "Enter numbers separated by spaces: ";
+    for (string input; cin >> input;) {
+        if (input.find(',') != string::npos) {
+            break;
         }
+        int num = stoi(input);
+        userInput.push_back(num);
     }
-
-    result.push_back(smallest_even_value);
-    result.push_back(index);
-
-    return result;
+    
+    vector<int> result = pluck(userInput);
+    cout << "Smallest even number: " << result[0] << endl;
+    cout << "Index of smallest even number: " << result[1] << endl;
+}

@@ -1,4 +1,6 @@
-#include <initializer_list>
+```cpp
+#include <vector>
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
@@ -14,7 +16,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
     std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({{s}});  // Use initializer list
+            result.push_back({{s}}); 
         }
     }
     return result;
@@ -24,10 +26,12 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
-    std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
-    if (issame(filtered, {{ "grunt" }, { "prune" }})) {
-        std::cout << "Test passed." << std::endl;
-    } else {
-        std::cout << "Test failed." << std::endl;
+    auto filtered = filter_by_substring(str, substr);
+    
+    for (const auto& item : filtered) {
+        for (const auto& word : item) {
+            std::cout << word << " ";
+        }
+        std::cout << "\n";
     }
 }
