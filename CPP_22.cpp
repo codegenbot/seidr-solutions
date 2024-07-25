@@ -1,9 +1,8 @@
-#include <vector>
-#include <any>
-#include <sstream>
+#include<vector>
+#include<sstream>
 
-bool issame(const std::any& val) {
-    return val.type() == typeid(int);
+bool issame(const std::any& value) {
+    return value.type() == typeid(int);
 }
 
 std::vector<int> filter_integers(std::any values) {
