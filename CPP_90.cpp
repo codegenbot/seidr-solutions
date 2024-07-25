@@ -1,12 +1,6 @@
 sort(lst.begin(), lst.end());
-    int count = 1;
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] > lst[i - 1]) {
-            count++;
-        }
-        if (count == 2) {
-            return lst[i];
-        }
-    }
-    return None;
+    lst.erase(unique(lst.begin(), lst.end()), lst.end());
+    if(lst.size() < 2)
+        return -1;
+    return lst[1];
 }
