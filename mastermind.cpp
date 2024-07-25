@@ -8,17 +8,19 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
-            }
-        }
-        if (count > 1 || count == 1) {
-            white -= count;
+    map<char, int> code_count;
+    map<char, int> guess_count;
+
+    for (int i = 0; i < 4; ++i) {
+        code_count[code[i]]++;
+        guess_count[guess[i]]++;
+    }
+
+    for (int i = 0; i < 6; ++i) {
+        if (code_count[char('A' + i)] > 0 && guess_count[char('A' + i)] > 0 && code_count[char('A' + i)] != guess_count[char('A' + i)]) {
+            white += min(code_count[char('A' + i)], guess_count[char('A' + i)]);
         }
     }
 
-    return black + white;
+    return to_string(white) + "\n" + to_string(black);
 }
