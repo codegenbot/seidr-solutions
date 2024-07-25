@@ -5,6 +5,7 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
+print("Enter space-separated strings:")
 input_strings = input().strip().split()
 
 result = longest(input_strings)
