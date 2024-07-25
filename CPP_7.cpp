@@ -1,23 +1,29 @@
 ```cpp
-#include <vector>
-#include <string>
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    result.push_back(b);
+    if(result.size() > 1) 
+        return false;
+    for(const auto& s : b) {
+        if(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").size() > 1)
+            return false;
+        else if(!issame({s}, filter_by_substring({s}, "run"))) 
+            return false;    
+    }
+    return true;
+}
 
-using namespace std;
-
-bool filter_and_check(vector<string> str, string substr) {
+vector<vector<string>> filter_by_substring(vector<string> str, string substr) {
     vector<vector<string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            if (!issame({s}, result)) {
-                result.push_back({s});
-            }
+            result.push_back({s});
         }
     }
-    return true;
-
-}
-
-int main() {
-    assert(filter_and_check({"grunt", "trumpet", "prune", "gruesome"}, "run"));
-    return 0;
+    return result;
 }
