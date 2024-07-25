@@ -1,4 +1,5 @@
 from typing import List
+import sys
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_numbers = []
@@ -9,12 +10,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return max_numbers
 
 numbers = []
-while True:
-    try:
-        num = int(input())
-        numbers.append(num)
-    except EOFError:
-        break
+for line in sys.stdin:
+    numbers.append(int(line))
 
 result = rolling_max(numbers)
 print(result)
