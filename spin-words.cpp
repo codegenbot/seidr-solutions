@@ -2,28 +2,37 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::istringstream iss(sentence);
-    std::string word;
-    
-    std::string result = "";
-    
-    while (iss >> word) {
-        if(word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
+using namespace std;
+
+string spinWords(string input) {
+    string output = "";
+    int wordLength = 0;
+    bool inWord = false;
+
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            if (inWord) {
+                if (wordLength >= 5) {
+                    reverse(output.begin(), output.end());
+                }
+                output += " ";
+                wordLength = 0;
+                inWord = false;
+            }
+        } else {
+            output += input[i];
+            wordLength++;
+            inWord = true;
+        }
     }
-    
-    return result.substr(0, result.size()-1);
+
+    return output.substr(1);
 }
 
 int main() {
-    // test cases
-    cout << spinWords("a") << endl;  // a
-    cout << spinWords("this is a test") << endl;  // this is a test
-    cout << spinWords("this is another test") << endl;  // this is rehtona test
-    cout << spinWords("hi") << endl;  // hi
-
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
