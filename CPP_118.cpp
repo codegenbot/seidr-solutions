@@ -1,17 +1,28 @@
+Here is the solution:
+
 string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    int i = 0;
-    
-    while(i < word.length()) {
-        if(vowels.find(word[i]) != std::string::npos)
-            break;
-        i++;
+    int n = word.size();
+    for (int i = n - 1; i > 0; --i) {
+        if (!isvowel(word[i])) {
+            continue;
+        }
+        int j = i - 1;
+        while (j >= 0 && !isconsonant(word[j])) {
+            --j;
+        }
+        if (j >= 0) {
+            return word.substr(j + 1, i - j - 1);
+        }
     }
-    
-    for(int j = i; j < word.length(); j++) {
-        if(vowels.find(word[j]) != std::string::npos) 
-            return word.substr(i, j - i);
-    }
-    
     return "";
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+bool isconsonant(char c) {
+    c = tolower(c);
+    return !isvowel(c);
 }
