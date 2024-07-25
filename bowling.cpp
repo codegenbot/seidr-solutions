@@ -1,4 +1,3 @@
-```c++
 int bowlingScore(string s) {
     int score = 0;
     int i = 0;
@@ -19,5 +18,4 @@ int bowlingScore(string s) {
             i+=2;
         }
     }
-    return score;
-}
+} // End of bowlingScore function
