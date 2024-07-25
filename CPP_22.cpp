@@ -1,13 +1,10 @@
-#include <boost/any.hpp>
-
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list-any values) {
     vector<int> result;
     for (const auto& value : values) {
-        boost::any any = value;
-        int val = any.cast<int>();
-        if (!val.empty()) {
-            result.push_back(val);
+        if (any_cast<int>(value).none()) {
+            continue;
         }
+        result.push_back(any_cast<int>(value));
     }
     return result;
 }
