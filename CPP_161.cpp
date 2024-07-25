@@ -1,4 +1,6 @@
-#include <string>
+#include <algorithm>
+
+using namespace std;
 
 string solve(string s) {
     string result = "";
@@ -9,5 +11,4 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
-}
+    return std::reverse(result.begin(), result.end()) ? result : "";
