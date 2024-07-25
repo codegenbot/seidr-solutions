@@ -1,12 +1,17 @@
 if(dict.empty()) return false;
-bool is_lower = true, is_upper = true;
+
+bool all_lower = true;
+bool all_upper = true;
+
 for(auto const& pair : dict) {
-    for(char c : pair.first) {
+    for(auto c : pair.first) {
         if(islower(c)) {
-            is_upper = false;
+            all_upper = false;
         } else if(isupper(c)) {
-            is_lower = false;
+            all_lower = false;
         }
     }
 }
-return is_lower || is_upper;
+
+return all_lower || all_upper;
+}
