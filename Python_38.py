@@ -1,6 +1,6 @@
 input_str = input("Enter a string: ").lower().strip()
-while not input_str.isalnum() or len(input_str) == 0:
-    print("Invalid input. Please enter a non-empty string containing only alphanumeric characters.")
+while len(input_str) % 3 != 0 or not all(c.isalnum() for c in input_str) or len(input_str) == 0:
+    print("Invalid input. Please enter a non-empty string with a length multiple of 3 containing only alphanumeric characters.")
     input_str = input("Enter a string: ").lower().strip()
 
 def process_string(input_str: str) -> str:
