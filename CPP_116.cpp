@@ -3,7 +3,15 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> sort_array(const std::vector<int>& arr) {
@@ -16,7 +24,16 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
+    std::vector<int> input_arr;
+    int n, num;
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        input_arr.push_back(num);
+    }
+
+    std::vector<int> sorted_arr = sort_array(input_arr);
     for (int num : sorted_arr) {
         std::cout << num << " ";
     }
