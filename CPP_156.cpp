@@ -1,23 +1,21 @@
+```cpp
 #include <string>
-using namespace std;
+#include <vector>
+#include <utility>
 
-string int_to_mini_roman(int number) {
-    string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    int value[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    
-    string result;
-    
-    for (int i = 0; i < 13; ++i) {
-        while (number >= value[i]) {
-            number -= value[i];
-            result += roman[i];
+std::string int_to_mini_roman(int number) {
+    std::vector<std::pair<int, std::string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
+                                                           {400, "CD"}, {100, "C"}, {90, "XC"},
+                                                           {50, "L"}, {40, "XL"}, {10, "X"},
+                                                           {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+
+    std::string roman = "";
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            roman += pair.second;
         }
     }
-    
-    return result;
-}
 
-int main() {
-    cout << int_to_mini_roman(1000) << endl;
-    return 0;
+    return roman;
 }
