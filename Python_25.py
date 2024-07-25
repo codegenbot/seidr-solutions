@@ -23,18 +23,10 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    while True:
-        try:
-            user_input = int(input("Enter a number: "))
-            if user_input <= 0:
-                print("Please enter a positive integer.")
-            else:
-                break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+    print("Enter a number: ")
+    user_input = int(input())
     result = factorize(user_input)
-    while True:
-        print(result)
+    print(result)
 
 
 if __name__ == "__main__":
