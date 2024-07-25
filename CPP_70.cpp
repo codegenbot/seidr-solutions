@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -9,40 +8,37 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         return result;
     }
     
-    sort(lst.begin(), lst.end());
-    int min_val = *min_element(lst.begin(), lst.end());
-    lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+    int first = *min_element(lst.begin(), lst.end());
+    int second = *max_element(lst.begin(), lst.end());
+    size_t fIndex, sIndex;
     
-    if (!lst.empty()) {
-        sort(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
-    }
-    
-    while (!lst.empty()) {
-        sort(lst.begin(), lst.end());
-        min_val = *min_element(lst.begin(), lst.end());
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        
-        if (!lst.empty()) {
-            sort(lst.begin(), lst.end());
-            max_val = *max_element(lst.begin(), lst.end());
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+    for (size_t i = 0; i < lst.size(); ++i) {
+        if (*lst.rbegin() == first) {
+            fIndex = i;
+            break;
         }
     }
     
-    result.push_back(min_val);
-    while (!lst.empty()) {
-        min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        
-        if (!lst.empty()) {
-            max_val = *max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+    for (size_t i = 0; i < lst.size(); ++i) {
+        if (*lst.begin() == second) {
+            sIndex = i;
+            break;
         }
     }
+    
+    std::vector<int> temp(lst);
+    temp.erase(temp.begin() + fIndex, temp.end());
+    result.insert(result.end(), temp.begin(), temp.end());
+    result.push_back(first);
+    
+    temp.assign(lst);
+    temp.erase(temp.begin() + sIndex, temp.end());
+    for (int i : temp) {
+        if (i < first) {
+            result.insert(result.begin(), i);
+        }
+    }
+    result.push_back(second);
     
     return result;
 }
