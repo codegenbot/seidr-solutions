@@ -1,6 +1,6 @@
 #include <vector>
-#include <cmath>  // for pow function
-#include <cassert>  // for assert function
+#include <cmath>
+#include <cassert>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
