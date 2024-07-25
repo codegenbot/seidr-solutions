@@ -1,3 +1,19 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [max([paren_string.count('(' * i) for i in range(1, len(paren_string) // 2 + 1])]
-            for paren_string in paren_string.split()]
+    depths = []
+    max_depth = 0
+    current_depth = 0
+
+    for c in paren_string:
+        if c == '(':
+            current_depth += 1
+            max_depth = max(max_depth, current_depth)
+        elif c == ')':
+            current_depth -= 1
+
+        if c == ' ':
+            depths.append(max_depth)
+            max_depth = 0
+
+    depths.append(max_depth)
+
+    return depths
