@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
@@ -24,7 +24,6 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
 }
 
 int main() {
-    // #include <initializer_list>
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
     std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
