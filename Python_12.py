@@ -1,2 +1,2 @@
-words = input().strip().split()
-print(words)
+numbers = list(map(int, input().strip().split()))
+print(numbers)
