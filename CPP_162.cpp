@@ -1,4 +1,8 @@
+```c++
 #include <iostream>
+#include <string>
+#include <openssl/evp.h>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -31,9 +35,9 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
+    cout << "Enter a text: ";
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    cout << "MD5 sum: " << string_to_md5(input) << endl;
+    cout << "MD5 of the input is : " << string_to_md5(input) << endl;
     return 0;
 }
