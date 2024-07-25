@@ -2,7 +2,7 @@
 #include <vector>
 #include <climits>
 
-long long minSubArraySum(std::vector<long long> nums){
+int minSubArraySum(std::vector<long long> nums){
     long long minSum = LLONG_MAX;
     long long currentSum = 0;
 
