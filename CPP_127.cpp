@@ -6,7 +6,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
     int len = end - start + 1;
 
-    for (int i = 2; i * i <= len; i++) {
+    for (int i = 2; i * i <= len; ++i) {
         if (len % i == 0) return "NO";
     }
 
