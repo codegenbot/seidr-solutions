@@ -1,12 +1,12 @@
-def sort_third(lst):
+def sort_third(l):
     result = []
-    while len(lst) > 0:
-        if len(lst) >= 3:
-            temp = lst[:3]
-            del lst[:3]
+    while len(l) > 0:
+        if len(l) >= 3:
+            temp = l[:3]
+            del l[:3]
             temp.sort()
             result.append(tuple(temp))
         else:
-            result.append(tuple(sorted(lst)))
+            result.append(tuple(sorted(l)))
             break
     return tuple(result)
