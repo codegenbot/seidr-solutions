@@ -1,22 +1,13 @@
-```
-cents = int(input("Enter the amount in cents: "))
-quarters = 0
-dimes = 0
-nickles = 0
-pennies = 0
+Python
+cents = int(input("Enter the number of cents: "))
 
-while cents > 25:
-    quarters += 1
-    cents -= 25
+quarters = cents // 25
+remaining_cents = cents % 25
 
-while cents >= 10:
-    dimes += 1
-    cents -= 10
+dimes = remaining_cents // 10
+remaining_cents %= 10
 
-while cents >= 5:
-    nickles += 1
-    cents -= 5
+nickles = remaining_cents // 5
+pennies = remaining_cents % 5
 
-pennies = cents
-
-print(f"Quarters: {quarters}\nDimes: {dimes}\nNickles: {nickles}\nPennies: {pennies}")
+print(f"{quarters} quarters\n{dimes} dimes\n{nickles} nickles\n{pennies} pennies")

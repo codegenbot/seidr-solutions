@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 
 int main() {
@@ -16,10 +15,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << std::endl;
-    std::cout << dimes << std::endl;
-    std::cout << nickles << std::endl;
-    std::cout << pennies << std::endl;
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickels: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
