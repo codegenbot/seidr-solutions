@@ -1,8 +1,7 @@
-def solve(N):
+def solve(N=None):
     while True:
-        N = int(input("Enter an integer: "))
-        if 0 <= N:
-            return "0b" + bin(N)[2:]
+        if N is None:
+            N = int(input("Enter an integer (0 to stop): "))
+        if N < 0:
             break
-        else:
-            print("Please enter a non-negative integer.")
+        print("0b" + bin(N)[2:])
