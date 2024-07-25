@@ -1,6 +1,7 @@
 string solve(int N) {
     while (N > 0) {
-        N -= N & -N;
+        sum += N % 2;
+        N /= 2;
     }
-    return bitset<32>(N).to_string().substr(32 - N);
+    return bitset<32>(sum).to_string().substr(32 - sum);
 }
