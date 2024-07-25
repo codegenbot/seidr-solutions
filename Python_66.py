@@ -4,9 +4,9 @@ def digitSum(s):
         if char.isdigit():
             total += int(char)
         elif char == 'e':
-            total += 1 if char.isdigit() else 1
+            total += 1
         elif char == 'o':
-            total += 1 if char.isdigit() else 1
+            total += 1
         elif char == 'a' or char == 'i':
             total += 2
     return total
