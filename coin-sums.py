@@ -1,7 +1,9 @@
-```
+cents = int(input("Enter the number of cents: "))
 quarters = cents // 25
-dimes = (cents % 25) // 10
-nickles = ((cents % 25) % 10) // 5
-pennies = (cents % 25) % 10
+cents %= 25
+dimes = cents // 10
+cents %= 10
+nickles = cents // 5
+pennies = cents % 5
 
-print(f"{quarters} quarters\n{dimes} dimes\n{nickles} nickels\n{pennies} pennies")
+print(f"{quarters} quarters\n{dimes} dimes\n{nickles} nickles\n{pennies} pennies")
