@@ -1,14 +1,9 @@
-#include<vector>
-#include<string>
-#include<boost/any.hpp>
-#include<list>
-typedef std::list<boost::any> list_any;
-using namespace std;
-
 vector<int> filter_integers(list_any values){
     vector<int> result;
-    for (const auto& value : values) {
-        boost::any_cast<int>(value) ? result.push_back(boost::any_cast<int>(value)) : 0;
+    for(const auto& value : values){
+        if(is_arithmetic(value) && static_cast<bool>(std::is_same< decltype(std::get<int>(value)), int>::type)){
+            result.push_back(std::get<int>(value));
+        }
     }
     return result;
 }
