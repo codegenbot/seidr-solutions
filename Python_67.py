@@ -1,16 +1,18 @@
 ```
+import re
 def fruit_distribution(s):
-    if not isinstance(s, str) or len(s.strip()) == 0:
-        return "unknown"
     s = s.lower()
-    if "and" in s: 
-        if "not" in s and "bad" not in s and "rotten" not in s:
-            return "apples"
-        elif "bad" in s or "rotten" in s:
-            return "none"
-    else: 
-        pattern = re.compile(r"((?:(?:and|,|, )?1(,(?!1))*|(?:and|,|, )?0(,(?!0))*)*((?:(?:and|,|, )?1(,(?!1))*|(?:and|,|, )?0(,(?!0))*)*))")
-        match = pattern.match(s)
-        if match:
-            return "mixed"
-    return "unknown"
+    fruit_counts = {"apple": 0, "banana": 0}
+    
+    for fruit in fruit_counts:
+        if re.search(fruit, s):
+            fruit_counts[fruit] += re.findall(fruit, s).__len__()
+    
+    if fruit_counts["apple"] > 0 and fruit_counts["banana"] > 0:
+        return "mixed"
+    elif "apple" in fruit_counts and fruit_counts["apple"] > 0:
+        return "apples"
+    elif "banana" in fruit_counts and fruit_counts["banana"] > 0:
+        return "bananas"
+    else:
+        return "unknown"
