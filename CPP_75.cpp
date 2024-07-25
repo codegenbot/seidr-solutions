@@ -8,15 +8,13 @@ bool is_prime(int n) {
     return true;
 }
 
-bool is_multiply_prime(int a){
+bool is_multiply_prime(int a) {
     for (int i = 2; i <= a / 3; ++i) {
-        if (is_prime(i) && a % i == 0) {
-            for (int j = i + 1; j <= a / 2; ++j) {
-                if (is_prime(j) && a % j == 0) {
-                    int k = a / (i * j);
-                    if (is_prime(k) && i * j * k == a) {
-                        return true;
-                    }
+        if (a % i == 0 && is_prime(i)) {
+            int remaining = a / i;
+            for (int j = i + 1; j <= remaining / 2; ++j) {
+                if (remaining % j == 0 && is_prime(j) && is_prime(remaining / j)) {
+                    return true;
                 }
             }
         }
@@ -28,6 +26,12 @@ int main() {
     int num;
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
-    std::cout << (is_multiply_prime(num) ? "true" : "false") << std::endl;
+    
+    if (is_multiply_prime(num)) {
+        std::cout << "true\n";
+    } else {
+        std::cout << "false\n";
+    }
+    
     return 0;
 }
