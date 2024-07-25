@@ -1,10 +1,12 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<string> numerical_letter_grade(const vector<float>& grades) {
     vector<string> letter_grades;
+    
     for (float grade : grades) {
         if (grade >= 4.0) {
             letter_grades.push_back("A");
@@ -30,10 +32,11 @@ vector<string> numerical_letter_grade(const vector<float>& grades) {
             letter_grades.push_back("E");
         }
     }
+    
     return letter_grades;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
