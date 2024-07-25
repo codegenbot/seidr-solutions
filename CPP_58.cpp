@@ -4,13 +4,11 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    // implement your comparison logic here
+    set<int> s1(a.begin(), a.end());
+    set<int> s2(b.begin(), b.end());
+    
+    return s1 == s2;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -27,4 +25,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     }
     sort(res.begin(), res.end());
     return res;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    return 0;
 }
