@@ -2,6 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -14,6 +15,6 @@ bool will_it_fly(const vector<int>& q, int w) {
 }
 
 int main() {
-    cout << will_it_fly({5}, 5) << endl;
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }
