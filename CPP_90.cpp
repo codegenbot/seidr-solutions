@@ -1,17 +1,12 @@
-sort(lst.begin(), lst.end());
-    int count = 1, result = -1;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] > lst[i - 1]) {
-            count++;
-            if (count == 2) {
-                result = lst[i];
-                break;
-            }
+if(lst.size() < 2){
+        return -1;
+    }
+    sort(lst.begin(), lst.end());
+    int smallest = lst[0];
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] > smallest){
+            return lst[i];
         }
     }
-    if (count < 2) {
-        return -1;
-    } else {
-        return result;
-    }
+    return -1;
 }
