@@ -12,7 +12,8 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 while True:
-    user_input = input("Enter numbers separated by space: ")
+    print("Please enter the numbers you want to calculate Mean Absolute Deviation (MAD) for, separated by a space: ")
+    user_input = input()
     try:
         numbers = [float(i) for i in user_input.split()]
         if len(numbers) < 2:
