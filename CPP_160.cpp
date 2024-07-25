@@ -1,28 +1,48 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <cmath>
 #include <string>
+#include <cmath>
 
-int do_algebra(vector<std::string> operato, vector<int> operand) {
-    int result = operand[0];
+int do_algebra(vector<string> operato, vector<int> operand) {
+    int result = 0;
+    int temp = 0;
+    string prevOp = "+";
+    
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
-            result += operand[i + 1];
+            if (prevOp == "*")
+                result += temp * operand[i];
+            else if (prevOp == "/")
+                result += temp / (double)operand[i];
+            else
+                result += operand[i];
+            prevOp = "+";
+            temp = 0;
         } else if (operato[i] == "-") {
-            result -= operand[i + 1];
+            if (prevOp == "*")
+                result -= temp * operand[i];
+            else if (prevOp == "/")
+                result -= temp / (double)operand[i];
+            else
+                result -= operand[i];
+            prevOp = "-";
+            temp = 0;
         } else if (operato[i] == "*") {
-            result *= operand[i + 1];
+            temp *= operand[i];
+            prevOp = "*";
+        } else if (operato[i] == "/") {
+            if(prevOp == "**")
+                result /= pow(temp, (double)operand[i]);
+            else
+                temp /= operand[i];
+            prevOp = "/";
         } else if (operato[i] == "//") {
-            result = result / operand[i + 1];
+            while(operand[i--]) 
+                temp /= *(operand.begin() + i);
         } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+            temp = pow(temp, operand[i]);
+            prevOp = "**";
         }
     }
     return result;
-}
-
-int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    std::cout << "Testing successful." << std::endl;
-    return 0;
 }
