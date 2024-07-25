@@ -9,10 +9,3 @@ int can_arrange(std::vector<int> arr){
     }
     return index;
 }
-
-int main() {
-    if (can_arrange({}) == -1) {
-        // Handle the case where the return value is -1
-    }
-    return 0;
-}
