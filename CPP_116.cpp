@@ -1,11 +1,3 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> sort_vector(vector<int> arr) {
     vector<int> result = arr;
     sort(result.begin(), result.end(),
