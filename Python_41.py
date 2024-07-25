@@ -8,7 +8,5 @@ def car_race_collision(n):
         total_distance += distance
     return total_distance
 
-if __name__ == "__main__":
-    n = int(input("Enter the number of cars: "))
-    result = car_race_collision(n)
-    print(result)
+number_of_cars = int(input("Enter the number of cars: "))
+print(car_race_collision(number_of_cars))
