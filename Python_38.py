@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
         return s
@@ -7,6 +8,6 @@ def decode_cyclic(s: str):
         group = s[i:i+min(len(s)-i, 3)]
         if i + 2 >= len(s) or not group[-1].isdigit():
             break
-        result += chr(int(group[0]+group[1]+group[-1], 3))  
+        result += chr(int(f"{group[0]}{group[1]}{int('0' + group[-1]) - int(group[-1])}"), 3)  
         i += len(group)
     return result
