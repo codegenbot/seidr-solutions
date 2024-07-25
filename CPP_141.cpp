@@ -7,7 +7,7 @@ int main() {
 
     std::string file_name;
     std::cout << "Enter a file name: ";
-    std::getline(std::cin, file_name);
+    std::cin >> file_name;
 
     for (char c : file_name) {
         if (isdigit(c)) {
