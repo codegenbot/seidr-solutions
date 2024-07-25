@@ -1,13 +1,15 @@
-#include <cmath>
-using namespace std;
-
+```cpp
 bool iscuber(int a){
-    int c = (int)cbrt(a);
-    return c*c*c == a;
+    int i = 1;
+    while (true) {
+        if (pow(i, 3) == a)
+            return true;
+        else if (pow(i, 3) > a)
+            return false;
+        i++;
+    }
 }
 
 int main() {
     assert(iscuber(1729) == false);
-    // Your test cases or other code here.
-    return 0;
 }
