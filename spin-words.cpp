@@ -4,35 +4,39 @@
 
 using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int wordLength = 0;
-    bool inWord = false;
-
-    for (int i = 0; i <= input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
-            if (inWord) {
-                if (wordLength >= 5) {
-                    reverse(output.begin(), output.end());
-                }
-                output += " ";
-                wordLength = 0;
-                inWord = false;
-            }
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += str.substr(i, str.find(' ', i + 1) - i) + " ";
+            i = str.find(' ', i + 1);
+        } else if (i == str.length() - 1) {
+            result += str.substr(i, str.length());
         } else {
-            output += input[i];
-            wordLength++;
-            inWord = true;
+            int j = i;
+            while (j < str.length() && isalnum(str[j])) {
+                j++;
+            }
+            if (j - i >= 5) {
+                string word = str.substr(i, j - i);
+                reverse(word.begin(), word.end());
+                result += word + " ";
+            } else {
+                result += str.substr(i, j - i) + " ";
+            }
+            i = j;
         }
     }
-
-    return output.substr(1);
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << spinWords(input) << endl;
+    string s;
+    while (true) {
+        cout << "Enter a sentence: ";
+        cin >> s;
+        cout << "Spin words: " << spinWords(s) << endl;
+    }
     return 0;
 }
