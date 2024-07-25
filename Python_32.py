@@ -1,1 +1,2 @@
-numbers = list(map(int, input().strip().split()))
+import sys
+numbers = list(map(int, sys.stdin.readline().strip().split()))
