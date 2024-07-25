@@ -1,19 +1,13 @@
-#include <vector>
-
-std::vector<int> maximum(const std::vector<int>& nums, int n) {
-    if (nums.empty()) {
-        return {};
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    std::vector<int> result(nums.begin(), nums.begin() + std::min(n, static_cast<int>(nums.size())));
-    std::sort(result.begin(), result.end(), std::greater<int>());
-    return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-bool solveProblem() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
     return true;
 }
