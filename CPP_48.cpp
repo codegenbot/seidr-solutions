@@ -17,6 +17,5 @@ int main() {
     assert(is_palindrome("racecar") == true);
     assert(is_palindrome("level") == true);
     assert(is_palindrome("hello") == false);
-    
     return 0;
 }
