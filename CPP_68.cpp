@@ -1,25 +1,22 @@
 #include <vector>
+
 using namespace std;
 
-vector<vector<int>> pluck(vector<int> arr) {
-    vector<vector<int>> result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
-    int smallest = INT_MAX;
-    int index = -1;
+    int minEvenValue = INT_MAX;
+    int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minIndex = i;
         }
     }
 
-    if (smallest != INT_MAX) {
-        result.push_back({smallest, index});
-    } else {
-        result.push_back({});
-    }
+    result.push_back({minEvenValue, minIndex});
 
     return result;
 }
