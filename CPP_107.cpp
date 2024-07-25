@@ -1,15 +1,15 @@
-vector<int> counts = {0, 0};
+vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num_str = to_string(i);
-        string rev_num_str(num_str);
-        reverse(rev_num_str.begin(), rev_num_str.end());
-        if (num_str == rev_num_str) {
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        if (s == rev) {
             if (i % 2 == 0) {
-                counts[0]++;
+                result[0]++;
             } else {
-                counts[1]++;
+                result[1]++;
             }
         }
     }
-    return counts;
+    return result;
 }
