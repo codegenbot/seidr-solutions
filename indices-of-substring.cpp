@@ -1,8 +1,7 @@
 int main() {
     string text, target;
-    cin >> target;
-    cin >> text;
-
+    cin >> target >> text;
+    
     vector<int> indices;
     int pos = text.find(target, 0);
     while (pos != string::npos) {
@@ -10,11 +9,8 @@ int main() {
         pos = text.find(target, pos + 1);
     }
 
-    for (int i = 0; i < indices.size(); ++i) {
-        cout << indices[i];
-        if (i != indices.size() - 1) {
-            cout << " ";
-        }
+    for (int i = 0; i < indices.size(); i++) {
+        cout << indices[i] << " ";
     }
 
     return 0;
