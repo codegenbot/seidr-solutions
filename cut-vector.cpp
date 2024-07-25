@@ -43,10 +43,9 @@ int main() {
     for (int i = 0; i < cutIndex; i++) { 
         cout << nums[i] << ' '; 
     } 
-    cout << ' '; // Add space after the last number
     cout << '\n'; 
 
-    if (cutIndex <= n) { // Change < to <=
+    if (cutIndex < n) { 
         for (int i = cutIndex; i < n; i++) { 
             cout << nums[i] << ' '; 
         } 
