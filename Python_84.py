@@ -13,10 +13,8 @@ def solve(N=None):
             except ValueError:
                 print("Invalid input. Please enter an integer.")
         else:
-            if N <= 0:
+            if N < 0:
                 return str(total)
             elif N > 0:
                 return bin(N)[2:]
-            else:
-                return str(total)
     return str(total)
