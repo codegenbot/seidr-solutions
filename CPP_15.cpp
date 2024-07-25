@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 
 string string_sequence(int n) {
     ostringstream oss;
