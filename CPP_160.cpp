@@ -11,22 +11,22 @@ int do_algebra(vector<string> ops, vector<int> operand) {
             expression += to_string(operand[i]);
         } else {
             expression += " " + ops[i] + " ";
-            expression += to_string(operand[i]);
+            expression += to_string(operand[i+1]);
         }
     }
 
     int temp = operand[0];
-    for (int i = 1; i < operand.size(); i++) {
+    for (int i = 1; i < ops.size(); i++) {
         if (ops[i-1] == "+") {
-            temp += operand[i];
+            temp += operand[i+1];
         } else if (ops[i-1] == "-") {
-            temp -= operand[i];
+            temp -= operand[i+1];
         } else if (ops[i-1] == "*") {
-            temp *= operand[i];
+            temp *= operand[i+1];
         } else if (ops[i-1] == "/") {
-            temp /= operand[i];
+            temp /= operand[i+1];
         } else if (ops[i-1] == "**") {
-            temp = pow(temp, operand[i]);
+            temp = pow(temp, operand[i+1]);
         }
     }
 
