@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```c
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,13 +10,12 @@ int test_main() {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> b; 
     return std::includes(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
-    std::string current_group = "";
+    std::string current_group = ""; 
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -32,6 +29,14 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
                 result.push_back(current_group);
                 current_group = "";
             }
+        } else { 
+            while(open_count > 0) {
+                current_group += c;
+                if(c == '(') open_count++;
+                else if (c == ')') open_count--;
+            }
+            result.push_back(current_group);
+            current_group = "";
         }
     }
 
