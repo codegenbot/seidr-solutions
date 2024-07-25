@@ -9,4 +9,3 @@ vector<int> factors;
         factors.push_back(n);
     }
     return factors;
-}
