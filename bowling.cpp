@@ -1,56 +1,35 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> points(22, 0);
-    
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            points[ball] = 10;
-            points[ball+1] = 0;
-            ball += 2;
-            frame++;
-        } else if (s[i] == '/') {
-            points[ball] = 10 - points[ball-1];
-            ball++;
-            frame++;
-        } else if (s[i] == '-') {
-            points[ball] = 0;
-            ball++;
-        } else {
-            points[ball] = s[i] - '0';
-            ball++;
-            if (ball % 2 == 0) {
-                if (points[ball-1] + points[ball-2] == 10) {
-                    frame++;
-                } else {
-                    frame += 2;
-                }
-            }
-        }
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
-            total += 10 + points[2*i+2] + points[2*i+3];
-        } else if (s[i] == '/') {
-            total += 10 + points[2*i+2];
-        } else {
-            total += points[2*i] + points[2*i+1];
-        }
-    }
-    
-    return total;
-}
-
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+
+    int score = 0;
+    int frame = 1;
+    int rolls = 0;
+
+    for (char c : bowls) {
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (bowls[rolls + 1] == 'X') ? 10 : (bowls[rolls + 1] - '0');
+                score += (bowls[rolls + 2] == 'X') ? 10 : (bowls[rolls + 2] == '/' ? 10 - (bowls[rolls + 1] - '0') : (bowls[rolls + 2] - '0'));
+            }
+            rolls++;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (bowls[rolls - 1] - '0');
+            score += (bowls[rolls + 1] == 'X') ? 10 : (bowls[rolls + 1] - '0');
+            rolls += 2;
+            frame++;
+        } else if (c == '-') {
+            // do nothing
+        } else {
+            score += c - '0';
+            frame = (c == '1' && frame < 10) ? frame + 1 : frame;
+            rolls++;
+        }
+    }
+
+    cout << score << endl;
+
     return 0;
 }
