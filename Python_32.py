@@ -1,2 +1,3 @@
-total = sum(map(int, input().split()))
+import sys
+total = sum(map(int, sys.argv[1:]))
 print(total)
