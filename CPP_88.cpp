@@ -1,3 +1,5 @@
+#include <initializer_list>
+
 #include <vector>
 #include <algorithm>
 
@@ -9,17 +11,20 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sortArray(std::vector<int> array) {
+std::vector<int> sortArray(std::initializer_list<int> array) {
     int sum = 0;
     for (auto x : array) {
         sum += x;
     }
     if (sum % 2 == 1) {
-        std::sort(array.begin(), array.end());
+        std::vector<int> vec(array);
+        std::sort(vec.begin(), vec.end());
+        return vec;
     } else {
-        std::sort(array.rbegin(), array.rend());
+        std::vector<int> vec(array);
+        std::sort(vec.rbegin(), vec.rend());
+        return vec;
     }
-    return array;
 }
 
 int main() {
