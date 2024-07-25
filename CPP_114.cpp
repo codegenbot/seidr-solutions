@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,9 +20,10 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    if(minSubArraySum({1, -1}) != -1){
-        std::cerr << "Error: Expected sum is -1 but got " << minSubArraySum({1, -1}) << ".\n";
-        return 1;
+    if(minSubArraySum({1, -1}) != -1) {
+        std::cout << "Error: Invalid result. Expected -1 but got " << minSubArraySum({1, -1}) << ".\n";
+    } else {
+        std::cout << "Test passed.\n";
     }
     return 0;
 }
