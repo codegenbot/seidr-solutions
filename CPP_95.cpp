@@ -1,19 +1,20 @@
-Here is the completed code:
+bool check_dict_case(map<string,string> dict){
+    bool all_lower = true;
+    bool all_upper = true;
 
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-    
-    bool allLower = true;
-    bool allUpper = true;
-    
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            return false;
+    for(auto &pair : dict) {
+        if(dict.empty()) return false; // Check if map is empty
+        string key = pair.first;
+        if((!islower(key[0])) && (!isupper(key[0]))) {
+            all_lower = false;
+            all_upper = false;
+            break;
         }
-        
-        if (allLower) allLower &= islower(pair.first[0]);
-        if (allUpper) allUpper &= isupper(pair.first[0]);
+        else if(islower(key[0]))
+            all_lower &= true;
+        else 
+            all_upper &= true;
     }
-    
-    return allLower || allUpper;
+
+    return (all_lower || all_upper);
 }
