@@ -1,4 +1,3 @@
-```
 def solve(N=None):
     total = 0
     while True:
@@ -10,5 +9,8 @@ def solve(N=None):
                 total += N
             except ValueError:
                 print("Invalid input. Please enter an integer.")
-        else:
-            return bin(N)[2:]
+        elif isinstance(N, int):
+            if N <= 0:
+                return total
+            total += N
+    return str(bin(total)[2:])
