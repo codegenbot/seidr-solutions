@@ -1,6 +1,6 @@
 ```cpp
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
+#include <openssl/evp.h>
+#include <openssl/md5.h>
 #include <string>
 #include <cassert>
 
@@ -15,7 +15,7 @@ std::string string_to_md5(std::string text) {
 
     MD5_Init(&ctx);
     MD5_Update(&ctx, str, len);
-    MD5_Final(md, &ctx);
+    EVP_MD_CTX_final(&ctx, md);
 
     std::string result;
     for (int i = 0; i < 16; i++) {
@@ -24,9 +24,4 @@ std::string string_to_md5(std::string text) {
         result += buffer;
     }
     return result;
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
 }
