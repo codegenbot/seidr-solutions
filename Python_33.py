@@ -1,11 +1,12 @@
 def sort_third(l):
     result = []
     temp = []
-    for i, x in enumerate(l):
+    for x in l:
         temp.append(x)
-        if (i + 1) % 3 == 0:
-            result.append(sorted(temp))
+        if len(temp) == 3:
+            result.append(temp)
             temp = []
     if temp: 
-        result.append(sorted(temp)) 
-    return result
+        result.append(temp) 
+    result.sort(key=lambda x: x[2])
+    return tuple(map(int, *map(map, lambda x: str(x), result)))
