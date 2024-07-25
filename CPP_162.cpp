@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
@@ -9,8 +8,8 @@ using namespace std;
 std::string string_to_md5(std::string text) {
     EVP_MD_CTX* mdctx;
     unsigned char md[16];
-    string str = text;  
-    unsigned int len = str.length();
+    std::string str = text;  
+    size_t len = str.length();
 
     if (len == 0)
         return "";
@@ -22,11 +21,11 @@ std::string string_to_md5(std::string text) {
     if (1 != EVP_DigestUpdate(mdctx, str.c_str(), len))
         return "";
     unsigned char mdSig[EVP_MAX_BLOCK_LENGTH];
-    unsigned int len_output = EVP_DigestFinal_ex(mdctx, mdSig, &len);
+    int len_output = EVP_DigestFinal_ex(mdctx, mdSig, (unsigned int*)&len);
     EVP_MD_CTX_free(mdctx);
 
-    string result;
-    for (int i = 0; i < len; i++) {
+    std::string result;
+    for (int i = 0; i < len_output; i++) {
         char buffer[3];
         sprintf(buffer, "%02x", mdSig[i]);
         result += string(buffer);
