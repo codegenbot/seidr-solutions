@@ -1,4 +1,3 @@
-```cpp
 #include<string>
 
 bool prime_length(string str){
