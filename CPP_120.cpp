@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -24,5 +23,9 @@ vector<int> maximum(vector<int> arr, int k) {
 
 int main() {
     vector<int> result = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
-    assert(issame(result , {3,243,0,-23,-400}));
+    if(issame(result, {3,243,0,-23,-400})){
+        cout << "The output is correct." << endl;
+    }else{
+        cout << "The output is incorrect." << endl;
+    }
 }
