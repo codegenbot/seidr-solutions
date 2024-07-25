@@ -1,35 +1,33 @@
-string sort_numbers(string numbers){
-    map<string, int> num_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
-    
-    string result = "";
-    map<int, string> rev_num_map;
-    
-    for(auto it: num_map){
-        rev_num_map[it.second] = it.first;
-    }
-    
-    string temp;
-    for(char c: numbers){
-        if(c == ' '){
-            result += rev_num_map[num_map[temp]] + " ";
-            temp = "";
-        }
-        else{
-            temp += c;
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
+    string result;
+    map<int, string> reverse_map;
+    string word;
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (numbers[i] == ' ') {
+            reverse_map[number_map[word]] = word;
+            word.clear();
+        } else {
+            word += numbers[i];
         }
     }
-    result += rev_num_map[num_map[temp]];
-    
+    reverse_map[number_map[word]] = word;
+
+    for (auto const& pair : reverse_map) {
+        result += pair.second + " ";
+    }
+
     return result;
 }
