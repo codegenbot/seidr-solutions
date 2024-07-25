@@ -7,10 +7,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    vector<int> result;
+    std::vector<int> result;
     if (lst.empty()) return result;
 
-    vector<int> minMax;
+    std::vector<int> minMax;
     while (!lst.empty()) {
         int min = *min_element(lst.begin(), lst.end());
         int max = *max_element(lst.begin(), lst.end());
@@ -24,5 +24,5 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_vector({111111}), {111111}));
+    assert(issame(strange_sort_vector({1, 2, 3}), {1, 3, 2}));
 }
