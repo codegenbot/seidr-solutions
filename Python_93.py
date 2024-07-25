@@ -10,7 +10,7 @@ def encode(message):
                     result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
                 else:
                     result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
-            else:
+            else: 
                 result += char
         else:
             result += char

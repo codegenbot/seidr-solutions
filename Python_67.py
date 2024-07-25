@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 import re
 
@@ -9,11 +11,6 @@ def fruit_distribution(s):
         if re.search(fruit, s):
             fruit_counts[fruit] += len(re.findall(fruit, s))
 
-    return (
-        "mixed"
-        if fruit_counts["apple"] > 0 and fruit_counts["banana"] > 0
-        else "apples" if "apple" in fruit_counts and fruit_counts["apple"] > 0 \
-            else ("bananas" if "banana" in fruit_counts and fruit_counts["banana"] > 0 else "unknown")
-    )
+    return "mixed" if fruit_counts["apple"] > 0 and fruit_counts["banana"] > 0 else ("apples" if "apple" in fruit_counts and fruit_counts["apple"] > 0 else ("bananas" if "banana" in fruit_counts and fruit_counts["banana"] > 0 else "unknown"))
 
 print(fruit_distribution("1 apples and 100 oranges"))
