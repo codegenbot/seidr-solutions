@@ -1,2 +1,10 @@
-#include <cstring>
-return strlen(str.c_str());
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string str;
+    std::cin >> str;
+    std::cout << str.length();
+    
+    return 0;
+}
