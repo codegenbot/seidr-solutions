@@ -9,7 +9,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sort_array(std::vector<int> array) {
+std::vector<int> sortArray(std::vector<int> array) {
     int sum = 0;
     for (auto x : array) {
         sum += x;
@@ -23,6 +23,6 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    assert(isSame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(isSame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
