@@ -1,4 +1,6 @@
 #include <cmath>
+#include <string>
+using namespace std;
 
 string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -11,12 +13,11 @@ string rounded_avg(int n, int m) {
     while (avg > 0) {
         if (avg >= 2) {
             avg /= 2;
-            binary.push_back('1');
+            binary = "1" + binary;
         } else {
             avg++;
-            binary.push_back('0');
+            binary = "0" + binary;
         }
     }
-    reverse(binary.begin(), binary.end());
     return binary;
 }
