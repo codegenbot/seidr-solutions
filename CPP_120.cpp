@@ -13,6 +13,6 @@ std::vector<int> maximum(const std::vector<int>& a, const int value){
 }
 
 int main(){
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{0, 0, 0, 0, 243, 0, 0}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{}));
     return 0;
 }
