@@ -18,4 +18,3 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(minEven);
     result.push_back(minIndex);
     return result;
-}
