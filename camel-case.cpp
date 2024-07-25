@@ -1,9 +1,9 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
+    if (str.empty()) return str;
+
     std::string result;
     bool capitalize = true;
 
@@ -11,10 +11,10 @@ std::string kebabToCamel(const std::string& str) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
@@ -22,11 +22,9 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "Resulting camelCase string: " << kebabToCamel(input) << std::endl;
-
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
+    }
     return 0;
 }
