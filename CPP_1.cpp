@@ -1,6 +1,13 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+bool issame(vector<string>, vector<string>);
+vector<string> separate_paren_groups(string);
+
 int rename_me() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ") , {"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( "), {"()", "(())", "(()())"}));
     return 0;
 }
 
@@ -33,8 +40,15 @@ vector<string> separate_paren_groups(string paren_string) {
             open_count--;
             current_group += c;
             if (open_count == 0) {
-                result.push_back(std::string(current_group));
+                result.push_back(current_group);
                 current_group = "";
+            }
+        } else {
+            while (open_count > 0) {
+                current_group += c;
+                open_count--;
+                if (open_count == 0)
+                    break;
             }
         }
     }
