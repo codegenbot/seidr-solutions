@@ -1,11 +1,15 @@
-def solveBoolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all(c == 'T' for c in expression)
-    else:
-        return any(c == 'T' for c in expression)
+```
+def solve_boolean(expression):
+    def evaluate_subexpression(subexpr):
+        if 'T' in subexpr or 't' in subexpr:
+            return True
+        elif 'F' in subexpr or 'f' in subexpr:
+            return False
+        elif '&' in subexpr:
+            left, right = subexpr.split('&')
+            return evaluate_subexpression(left) and evaluate_subexpression(right)
+        else:
+            left, right = subexpr.split('|')
+            return evaluate_subexpression(left) or evaluate_subexpression(right)
+
+    return evaluate_subexpression(expression)
