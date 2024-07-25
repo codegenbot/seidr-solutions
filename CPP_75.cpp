@@ -3,6 +3,8 @@
 
 using namespace std;
 
+bool is_multiply_prime(int a);
+
 bool is_prime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
