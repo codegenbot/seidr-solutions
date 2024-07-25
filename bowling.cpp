@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <string>
 using namespace std;
 
@@ -28,3 +26,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
