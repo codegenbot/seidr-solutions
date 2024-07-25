@@ -1,11 +1,10 @@
-bool is_nested(string str){
-    int balance = 0;
-    for(char c : str){
-        if(c == '['){
-            balance++;
-        } else if(c == ']' && balance > 0){
-            balance--;
+int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return balance > 0;
+    return count < 0 ? false : true;
 }
