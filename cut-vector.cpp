@@ -9,13 +9,13 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-    if (cin.eof() || cin.fail()) {
+    if (cin.fail() && cin.eof()) {
         int sum = 0, halfSum = 0;
         for (int num : nums) {
             sum += num;
         }
         halfSum = sum / 2;
-        
+
         int currSum = 0, idx = 0;
         for (int i = 0; i < nums.size(); i++) {
             currSum += nums[i];
@@ -24,10 +24,10 @@ int main() {
                 break;
             }
         }
-        
+
         vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
         vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-        
+
         for (int num : subvector1) {
             cout << num << endl;
         }
@@ -35,6 +35,6 @@ int main() {
             cout << num << endl;
         }
     }
-    
+
     return 0;
 }
