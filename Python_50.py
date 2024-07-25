@@ -1,4 +1,3 @@
-```
 def decode_shift(s: str):
     result = ""
     i = 0
