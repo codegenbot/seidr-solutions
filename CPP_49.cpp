@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 
 namespace Solution {
     int modp(int n, int p) {
@@ -19,7 +18,6 @@ namespace Solution {
 int main() {
     int n, p;
     std::cin >> n >> p;
-    assert(Solution::modp(31, 5) == 3);
     std::cout << Solution::modp(n, p) << std::endl;
     return 0;
 }
