@@ -1,16 +1,17 @@
 string get_closest_vowel(string word) {
     int n = word.size();
-    for(int i=n-1; i>0; --i){
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U'){
-            if(i<n-1 && !isVowel(word[i+1]))
-                return string(1,word[i]);
+    for (int i = n - 1; i > 0; --i) {
+        if (!isalpha(word[i])) continue;
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (word[i] == 'Y' || word[i] == 'y') continue;
+        for (int j = i - 1; j >= 0; --j) {
+            if (!isalpha(word[j])) continue;
+            if (ispunct(word[j]) || isdigit(word[j])) continue;
+            if (word[j] == 'Y' || word[j] == 'y') continue;
+            if ("AEIOUaeiou".find(toupper(word[i])) != string::npos) {
+                return word.substr(j, i - j);
+            }
         }
     }
     return "";
-}
-
-bool isVowel(char c){
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
