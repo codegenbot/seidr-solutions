@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -8,27 +9,38 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         return result;
     }
     
-    int minVal = *min_element(lst.begin(), lst.end());
-    int maxVal = *max_element(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
+    int min_val = *min_element(lst.begin(), lst.end());
+    lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+    
+    if (!lst.empty()) {
+        sort(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+    }
     
     while (!lst.empty()) {
-        while (*std::find(lst.begin(), lst.end(), minVal) != std::numeric_limits<int>::min()) {
-            result.push_back(minVal);
-            auto it = std::find(lst.begin(), lst.end(), minVal);
-            lst.erase(it);
-        }
-        
-        while (!lst.empty() && *std::find(lst.begin(), lst.end(), maxVal) != std::numeric_limits<int>::max()) {
-            result.push_back(maxVal);
-            auto it = std::find(lst.begin(), lst.end(), maxVal);
-            lst.erase(it);
-        }
+        sort(lst.begin(), lst.end());
+        min_val = *min_element(lst.begin(), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
         
         if (!lst.empty()) {
-            minVal = *min_element(lst.begin(), lst.end());
-            maxVal = *max_element(lst.begin(), lst.end());
-        } else {
-            break;
+            sort(lst.begin(), lst.end());
+            max_val = *max_element(lst.begin(), lst.end());
+            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+        }
+    }
+    
+    result.push_back(min_val);
+    while (!lst.empty()) {
+        min_val = *min_element(lst.begin(), lst.end());
+        result.push_back(min_val);
+        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+        
+        if (!lst.empty()) {
+            max_val = *max_element(lst.begin(), lst.end());
+            result.push_back(max_val);
+            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
     
