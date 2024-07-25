@@ -15,11 +15,11 @@ bool triples_sum_to_zero(std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> l = {1, -2, 3, 0, -1};
+    std::vector<int> l = {1, 2, -3, 4, -1, 0};
     if (triples_sum_to_zero(l)) {
-        std::cout << "There exists a triple that sums to zero." << std::endl;
+        std::cout << "There exists a triplet that sums to zero." << std::endl;
     } else {
-        std::cout << "No triple sums to zero." << std::endl;
+        std::cout << "No triplet sums to zero." << std::endl;
     }
     return 0;
 }
