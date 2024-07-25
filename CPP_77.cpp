@@ -1,3 +1,13 @@
-int cube_root = round(cbrt(a));
-    return cube_root * cube_root * cube_root == a;
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool iscuber(int a) {
+    int cube_root = round(cbrt(a));
+    return a == cube_root * cube_root * cube_root;
+}
+
+int main() {
+    assert(iscuber(1729) == false);
+    return 0;
 }
