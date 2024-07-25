@@ -1,14 +1,8 @@
-int count = 0;
+int is_nested(string str){
+    int count = 0;
     for (char c : str) {
-        if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return true;
-            }
-        } else {
-            count++;
-        }
+        if (c == '[') count++;
+        else if (c == ']' && count > 0) count--;
     }
-    return false;
+    return count < 0 ? true : false;
 }
