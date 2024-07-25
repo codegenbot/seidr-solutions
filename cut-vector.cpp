@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <numeric>
+#include <climits>
+using namespace std;
+
 int main() {
     vector<int> nums;
     int num;
@@ -6,28 +12,26 @@ int main() {
     }
     
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int prefixSum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    int half_sum = sum / 2;
-    int prefix_sum = 0;
-    int cut_index = -1;
-    
-    for (int i = 0; i < n; i++) {
-        prefix_sum += nums[i];
-        if (prefix_sum >= half_sum) {
-            cut_index = i;
-            break;
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        int diff = std::abs(sum - 2 * prefixSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    cout << "1" << endl;
-    for (int i = 0; i <= cut_index; i++) {
+    for (int i = 0; i <= cutIndex; ++i) {
         cout << nums[i] << endl;
     }
-    cout << "0" << endl;
+    for (int i = cutIndex + 1; i < n; ++i) {
+        cout << nums[i] << endl;
+    }
     
     return 0;
 }
