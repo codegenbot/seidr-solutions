@@ -1,14 +1,1 @@
-if (x == 1) {
-        return true;
-    }
-    for (int i = 2; i * i <= x; i++) {
-        int p = i;
-        while (p <= x) {
-            if (p == x) {
-                return true;
-            }
-            p *= i;
-        }
-    }
-    return false;
-}
+return (x > 0 && n > 0 && (x == 1 || (n != 1 && pow(n, round(log(x) / log(n))) == x)));
