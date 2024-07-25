@@ -1,14 +1,14 @@
-vector<int> intersperse(vector<int> numbers, int delimeter){ 
+vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
-    if (numbers.empty()) {
+    if(numbers.empty()) {
         return result;
     }
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        result.push_back(numbers[i]);
+    result.push_back(numbers[0]);
+    for(size_t i = 1; i < numbers.size(); ++i) {
         result.push_back(delimeter);
+        result.push_back(numbers[i]);
     }
-    result.push_back(numbers.back());
 
     return result;
 }
