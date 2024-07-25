@@ -1,5 +1,7 @@
-bool is_palindrome(string text) {
-    string s = text;
-    reverse(s.begin(), s.end());
-    return (s == text);
+int length = text.length();
+for(int i = 0; i < length/2; i++){
+    if(text[i] != text[length-i-1]){
+        return false;
+    }
 }
+return true;
