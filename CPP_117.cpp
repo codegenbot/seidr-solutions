@@ -36,8 +36,3 @@ vector<string> select_words(string s, int n) {
     
     return words;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
