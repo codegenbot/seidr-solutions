@@ -1,7 +1,9 @@
 #include <string>
-#include <cassert>
+#include <algorithm>
+#include <cctype>
+using namespace std;
 
-std::string solve(std::string s){
+string solve(string s){
     int n = s.size();
     bool hasLetter = false;
     
@@ -21,4 +23,10 @@ std::string solve(std::string s){
     }
     
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    // Add more test cases here
+    return 0;
 }
