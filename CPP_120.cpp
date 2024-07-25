@@ -1,16 +1,15 @@
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <cassert>
 
-using namespace std;
-
-vector<int> maximum(const vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
-}
-
-int main() {
-    assert(maximum(vector<int>{1, 2, 3, -23, 243, -400, 0}, 3) == vector<int>{243, 3, 2});
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
