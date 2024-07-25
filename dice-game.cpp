@@ -1,13 +1,13 @@
-Here is the solution:
+#include <iostream>
 
-double diceGame(int n, int m) {
-    double total = (n + m);
-    return ((n - m) / static_cast<double>(total));
+double probability(int n, int m) {
+    double total = (n + m - 1);
+    return (m * 1.0 / total) * (total - m) / (n * 1.0);
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(5) << diceGame(n, m) << endl;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(4) << probability(n, m) << std::endl;
     return 0;
 }
