@@ -6,5 +6,7 @@ def fruit_distribution(s, n):
         if "and" not in parts[i]:
             continue
         words = [x for x in parts[i].split() if x.isdigit()]
+        if len(words) == 1 and words[0] == "and":
+            continue
         count += sum(int(word) for word in words)
     return n - count
