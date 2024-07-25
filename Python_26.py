@@ -1,2 +1,3 @@
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    return [i for i in set(numbers)]
+    seen = set()
+    return [x for x in numbers if not (x in seen or seen.add(x)) == 1]
