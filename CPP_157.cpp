@@ -1,5 +1,6 @@
-if(a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a){
+if (a * a + b * b == c * c || b * b + c * c == a * a || a * a + c * c == b * b) {
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
