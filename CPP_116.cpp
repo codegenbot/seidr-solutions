@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
     return a == b;
 }
 
@@ -15,7 +15,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
     return temp;
 }
 
-int updated_main() {
+int solve_task() {
     std::vector<int> input_arr;
     int n, num;
     std::cin >> n;
