@@ -1,10 +1,11 @@
-#include <initializer_list>
+#include <vector>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::vector<std::string>> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
+        if(b[i].size() != 1 || b[i][0] != a[i])
             return false;
     }
     return true;
@@ -14,7 +15,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::strin
     std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back({{s}});  // Use initializer list
+            result.push_back({{s}});
         }
     }
     return result;
