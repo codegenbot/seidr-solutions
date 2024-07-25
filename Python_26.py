@@ -1,4 +1,3 @@
-```"""
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[str]:
@@ -20,4 +19,3 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter valid numbers separated by spaces or commas.")
     print(remove_duplicates(numbers))
-"""
