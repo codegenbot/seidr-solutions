@@ -8,6 +8,7 @@ def find_closest_elements(numbers):
     ]
     return closest_elements[0]
 
-input_values = list(map(int, input().split()))
-result = find_closest_elements(input_values)
+# Get input from user
+numbers = list(map(int, input().split()))
+result = find_closest_elements(numbers)
 print(result)
