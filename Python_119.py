@@ -4,6 +4,10 @@ def match_parens(lst):
         if s == '(':
             stack.append(s)
         elif s == ')':
-            if not stack or stack.pop() != '(':
+            if not stack:
                 return 'No'
+            if stack[-1] != '(':
+                return 'No'
+            else:
+                stack.pop()
     return 'Yes' if not stack else 'No'
