@@ -1,18 +1,15 @@
-#include <stdio.h>
-#include <string>
+#include<string>
 using namespace std;
 
 string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
-        int rem = x % base;
-        if (rem >= 10) {
-            res += ((char)(48 + rem));
-        } else {
-            res += (char)(48 + rem);
-        }
+        int r = x % base;
+        if (r < 10)
+            res = to_string(r) + res;
+        else
+            res = 'A' + (r - 10) + res;
         x /= base;
     }
-    reverse(res.begin(), res.end());
     return res;
 }
