@@ -20,6 +20,8 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    // Add your code logic here to test the int_to_mini_romank function
+    int number;
+    std::cin >> number;
+    std::cout << int_to_mini_romank(number) << std::endl;
     return 0;
 }
