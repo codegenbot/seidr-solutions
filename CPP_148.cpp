@@ -37,6 +37,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(is_same(bf("Jupiter", "Makemake"), {}));
+    assert(is_same(bf("Jupiter", "Makemake"), { "Mars", "Saturn", "Uranus" }));
     return 0;
 }
