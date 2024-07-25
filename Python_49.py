@@ -1,3 +1,4 @@
+```
 def is_prime(num: int) -> bool:
     if num < 2:
         return False
@@ -6,6 +7,7 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
+print("Please enter a positive integer to check if it's prime.")
 num = None
 while num is None or (num and num < 2):
     try:
