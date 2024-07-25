@@ -1,14 +1,16 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <climits>
 
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -20,8 +22,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (i > 0) dp[i][j] = std::min(dp[i][j], dp[i - 1][j] + grid[i][j]);
-            if (j > 0) dp[i][j] = std::min(dp[i][j], dp[i][j - 1] + grid[i][j]);
+            if (i > 0) dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
+            if (j > 0) dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
         }
     }
 
@@ -48,6 +50,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
+
     return 0;
 }
