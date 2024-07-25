@@ -1,26 +1,18 @@
-using namespace std;
+#include <string>
 
 string get_closest_vowel(string word){
     int n = word.size();
-    string closestVowel = "";
-    
-    for(int i=n-1; i>=0; --i){
+    for(int i=n-1; i>0; --i){
         if(!isalpha(word[i])) continue;
-        char c = tolower(word[i]);
-        
-        if(isvowel(c)){
-            return string(1, c);
+        if(isvowel(tolower(word[i]))){
+            return string(1, tolower(word[i]));
         }
         while(i > 0 && !isalpha(word[i-1])){
             i--;
         }
         if(isvowel(tolower(word[i-1]))){
-            closestVowel = to_string(word[i-1]);
-            break;
+            return string(1, tolower(word[i-1]));
         }
     }
-    
-    if(closestVowel == "")
-        return string(1, 'a');
-    else
-        return closestVowel;
+    return "";
+}
