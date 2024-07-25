@@ -1,26 +1,30 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> new_lst = lst;
-    new_lst.erase(remove_if(new_lst.begin(), new_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), new_lst.end());
-    sort(new_lst.begin(), new_lst.end(), [](const string& a, const string& b){
+    vector<string> result = lst;
+    
+    result.erase(remove_if(result.begin(), result.end(), [](const string& s){ return s.length() % 2 != 0; }), result.end());
+    sort(result.begin(), result.end(), [](const string& a, const string& b){
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return new_lst;
+    
+    return result;
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "orange", "grape", "kiwi"};
+    vector<string> lst = {"apple", "banana", "orange", "kiwi", "pear"};
     vector<string> result = sorted_list_sum(lst);
+    
     if (issame(lst, result)) {
-        cout << "Lists are the same" << endl;
+        cout << "The sorted list is the same as the original list." << endl;
     } else {
-        cout << "Lists are different" << endl;
+        cout << "The sorted list is different from the original list." << endl;
     }
+    
     return 0;
 }
