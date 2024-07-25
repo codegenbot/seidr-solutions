@@ -29,26 +29,27 @@ int main() {
     int minDiff = INT_MAX/2; // Modified initialization
     int cutIndex = -1;
     
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
-        }
-    }
-    
-    for (int i = 0; i <= cutIndex + 1; i++) {
-        cout << nums[i] << ' ';
+    for (int i = 0; i < n; i++) { 
+        prefixSum += nums[i]; 
+        int suffixSum = sum - prefixSum; 
+        int diff = abs(prefixSum - suffixSum); 
+
+        if (diff <= minDiff) { // Change < to <= 
+            minDiff = diff; 
+            cutIndex = i; 
+        } 
+    } 
+
+    // Adjust the output loop
+    for (int i = 0; i <= cutIndex; i++) { 
+        cout << nums[i] << ' '; 
+    } 
+    cout << '\n'; 
+
+    for (int i = cutIndex + 1; i < n; i++) { 
+        cout << nums[i] << ' '; 
     }
     cout << '\n';
-    
-    for (int i = cutIndex + 2; i < n; i++) {
-        cout << nums[i] << ' ';
-    }
-    cout << '\n';
-    
+
     return 0;
 }
