@@ -1,4 +1,4 @@
-```
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
@@ -10,4 +10,7 @@ def match_parens(lst):
                     continue
                 else:
                     return "No"
-    return "Yes" if not stack else "No"
+    if not bool(stack):
+        return "Yes"
+    else:
+        return "No"
