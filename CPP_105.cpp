@@ -1,6 +1,7 @@
+```
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
