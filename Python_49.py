@@ -1,7 +1,14 @@
-def is_prime(num: int) -> bool:
-    if num < 2:
-        return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
+```
+def modp(n: int, p: int):
+    if n == 0:
+        return 0
+    res = pow((n ** ((p - 1) // 2)), p, p)
+    if n % 2 != 0:
+        return res * n % p
+    else:
+        return (res ** 2) % p
+
+n = int(input("Enter the value of n: "))
+p = int(input("Enter the value of p: "))
+
+print(modp(n, p))
