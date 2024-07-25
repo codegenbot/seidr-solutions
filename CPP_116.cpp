@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -13,7 +12,6 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
         return __builtin_popcount(a) < __builtin_popcount(b) ||
                (__builtin_popcount(a) == __builtin_popcount(b) && a < b);
     });
-    assert(issame(temp, arr));
     return temp;
 }
 
