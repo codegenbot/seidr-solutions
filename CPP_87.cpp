@@ -19,11 +19,21 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
             for (int j = lst[i].size() - 1; j >= 0; j--) {
-                result.push_back({{i, j}}); // Corrected this line
+                vector<int> temp;
+                for (int k = 0; k < lst[i].size(); k++) {
+                    temp.push_back(i);
+                    temp.push_back(j-k);
+                }
+                result.push_back(temp);
             }
         } else {
             for (int j = 0; j < lst[i].size(); j++) {
-                result.push_back({{i, j}});
+                vector<int> temp;
+                for (int k = 0; k < lst[i].size(); k++) {
+                    temp.push_back(i);
+                    temp.push_back(j);
+                }
+                result.push_back(temp);
             }
         }
     }
