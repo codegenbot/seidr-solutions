@@ -13,9 +13,18 @@ int modp(int n, int p) {
     return result;
 }
 
-int main() {
+int solveProblem() {
     int n, p;
-    std::cin >> n >> p;
+    if (!(std::cin >> n >> p)) {
+        std::cerr << "Error reading input." << std::endl;
+        return 1;
+    }
+
+    if (n < 1 || n > 1000 || p < 1 || p > 1000) {
+        std::cerr << "Input values are out of bounds." << std::endl;
+        return 1;
+    }
+
     std::cout << modp(n, p) << std::endl;
     return 0;
 }
