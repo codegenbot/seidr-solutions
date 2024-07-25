@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a, vector<int> b) {
     vector<int> c = a;
     sort(c.begin(), c.end());
     vector<int> d = b;
