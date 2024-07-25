@@ -8,13 +8,13 @@ std::string get_closest_vowel(std::string word) {
         left++;
     }
     if (left == word.length()) return "";
-
+    
     int right = word.length();
     while (right > 0 && !isvowel(word[right - 1])) {
         right--;
     }
     if (right == 0) return "";
-
+    
     for (int i = left; i < right; i++) {
         if (isvowel(word[i])) {
             return word.substr(i, 1);
