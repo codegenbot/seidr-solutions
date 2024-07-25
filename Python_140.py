@@ -1,2 +1,5 @@
 def fix_spaces(text):
-    return re.sub(r'\s{3,}', '-', text.replace(' ', '_'))
+    text = text.replace(" ", "_")
+    text = text.replace("___", "-")
+    text = text.replace("__", "-")
+    return text
