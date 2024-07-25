@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -10,10 +9,10 @@ def encode(message):
                     result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
                 else:
                     result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
-            else:
-                result += char.lower()
+            elif char.isdigit():
+                result += str(int(char) + 3)
         else:
-            result += char.lower()
+            result += char
     return result
 
 print(encode("I DoNt KnOw WhAt tO WrItE"))
