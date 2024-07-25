@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -17,16 +18,33 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    vector<int> l1, l2;
-    int n1, n2;
-    while (cin >> n1) {
-        l1.push_back(n1);
-        if (n1 == -1) break;  
+    vector<int> l1;
+    int n;
+    cout << "Enter the number of elements for the first list: ";
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        l1.push_back(x);
     }
-    while (cin >> n2) {
-        l2.push_back(n2);
-        if (n2 == -1) break;
+
+    vector<int> l2;
+    cout << "\nEnter the number of elements for the second list: ";
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        l2.push_back(x);
     }
+
     vector<int> result = common(l1, l2);
+    cout << "\nCommon elements: ";
+    for(int x : result) {
+        cout << x << " ";
+    }
     return 0;
 }

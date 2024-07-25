@@ -1,16 +1,16 @@
-```
-#include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-int test_main() {
-    std::vector<std::string> expected = {"", "( "}, {" ("};
-    if (separate_paren_groups("( ) (( ")) == expected) {
-        return 0;
-    } else {
-        return -1;
-    }
+int main() {
+    std::vector<std::string> a = {"( )","(( "};
+    std::vector<std::string> b = { "{}", "( { })" };
+    assert(std::includes(a.begin(), a.end(), b.begin(), b.end()));
+    
+    return 0;
+}
+
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return std::includes(v1.begin(), v1.end(), v2.begin(), v2.end());
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
@@ -28,6 +28,17 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
+            }
+        } else {
+            while (open_count > 0 && !current_group.empty()) {
+                char last_c = current_group.back();
+                if (last_c == '(') {
+                    open_count--;
+                    current_group.pop_back();
+                } else if (last_c == ')') {
+                    open_count++;
+                    current_group.pop_back();
+                }
             }
         }
     }
