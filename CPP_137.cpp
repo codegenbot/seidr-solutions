@@ -1,36 +1,43 @@
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b) > boost::any_cast<int>(a) ? b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : boost::any_cast<int>(b);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a), strB = boost::any_cast<string>(b);
+        return strB > strA ? b : a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) >= boost::any_cast<string>(a) ? b : a;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        double num = boost::any_cast<double>(a);
-        return num > stod(str) ? a : b;
+        int numA = boost::any_cast<int>(a), numB = 0;
+        if (boost::any_cast<string>(b).find(',') != string::npos) {
+            size_t commaPos = boost::any_cast<string>(b).find(',');
+            numB = stoi(boost::any_cast<string>(b).substr(0, commaPos));
+        }
+        else {
+            numB = stoi(boost::any_cast<string>(b));
+        }
+        return numA > numB ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
-        int num = boost::any_cast<int>(b);
-        return stod(str) >= num ? a : b;
+        int numA = 0, numB = boost::any_cast<int>(b);
+        if (boost::any_cast<string>(a).find(',') != string::npos) {
+            size_t commaPos = boost::any_cast<string>(a).find(',');
+            numA = stoi(boost::any_cast<string>(a).substr(0, commaPos));
+        }
+        else {
+            numA = stoi(boost::any_cast<string>(a));
+        }
+        return numA > numB ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string str = boost::any_cast<string>(a);
-        double num = boost::any_cast<double>(b);
-        return stod(str) > num ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float fltA = boost::any_cast<float>(a), fltB = boost::any_cast<int>(b);
+        return fltA > fltB ? a : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num1 = boost::any_cast<int>(a);
-        int num2 = boost::any_cast<int>(b);
-        return num1 > num2 ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        float fltA = boost::any_cast<int>(a), fltB = boost::any_cast<float>(b);
+        return fltA > fltB ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double num1 = boost::any_cast<double>(a);
-        double num2 = boost::any_cast<double>(b);
-        return num1 > num2 ? a : b;
-    }
-    else {
-        return "None";
-    }
+    return "None";
 }
