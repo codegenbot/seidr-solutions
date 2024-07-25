@@ -1,33 +1,33 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    int score = 0;
+int score(string input) {
+    int total = 0;
     int frame = 0;
     
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == 'X') {
-            score += 10;
-            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
-            score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
+            total += 10;
+            total += (input[i+1] == 'X') ? 10 : (input[i+1] == '/' ? 10 - (input[i+2] - '0') : input[i+1] - '0');
+            total += (input[i+2] == 'X') ? 10 : (input[i+2] == '/' ? 10 - (input[i+3] - '0') : input[i+2] - '0');
             frame++;
         } else if (input[i] == '/') {
-            score += 10 - (isdigit(input[i - 1]) ? input[i - 1] - '0' : 0);
-            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+            total += 10 - (input[i-1] - '0');
+            total += (input[i+1] == 'X') ? 10 : input[i+1] - '0';
             frame++;
-        } else if (isdigit(input[i])) {
-            score += input[i] - '0';
-            if (isdigit(input[i + 1]) || input[i + 1] == '/') {
-                frame++;
+        } else if (input[i] >= '0' && input[i] <= '9') {
+            total += input[i] - '0';
+            if (frame < 10 && input[i+1] == '/') {
+                total += 10 - (input[i] - '0');
             }
+            frame++;
         }
-        
-        if (frame == 10) {
-            break;
-        }
+        if (frame == 10) break;
     }
     
-    cout << score << endl;
-    
+    return total;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
