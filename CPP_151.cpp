@@ -1,8 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
 long long double_the_difference(const std::vector<int>& lst) {
     long long sum = 0;
     for (auto num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += 2 * (long long)num * num;
+            sum += (long long)num * num;
         }
     }
     return sum;
