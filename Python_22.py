@@ -1,13 +1,15 @@
+```
 from typing import List
 
-def filter_integers():
+
+def filter_integers() -> List[int]:
     values = []
     while True:
         try:
-            value = int(input("Enter an integer (or 'done' if finished): "))
-            values.append(value)
-        except ValueError:
-            user_input = input("Enter 'done' if you want to finish: ")
-            if user_input == 'done':
+            value = input("Enter an integer (or 'done' if finished): ")
+            if value.lower() == "done":
                 break
-    return [value for value in set(values)]
+            values.append(int(value))
+        except ValueError:
+            print("Invalid input. Please enter an integer or 'done'.")
+    return [value for value in values]
