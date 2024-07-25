@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <string>
 #include <iostream>
@@ -11,6 +12,6 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    assert (same_chars("aabb", "aaccc") == false);
-    std::cout << same_chars(string("abcde"), string("edcba")) << std::endl; 
+    assert(same_chars("aabb", "aaccc") == false);
+    cout << same_chars("abcde", "edcba") << endl;
 }
