@@ -1,6 +1,1 @@
-numbers = []
-while True:
-    try:
-        numbers.append(int(input()))
-    except:
-        break
+numbers = list(map(int, input("Enter the numbers separated by spaces and press Enter key: ").split()))
