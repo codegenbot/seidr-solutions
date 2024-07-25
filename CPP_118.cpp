@@ -1,14 +1,14 @@
-Here is the completed code:
+#include <string>
+using namespace std;
 
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 2; i >= 0; --i) {
-        if (!isVowel(word[i])) continue;
-        if (isConsonant(word[i-1]) && isConsonant(word[i-2]))
-            return string(1, word[i]);
+    for(int i = word.size() - 1; i >= 2; i--) {
+        if("aeiouAEIOU".find(tolower(word[i])) != string::npos && isalpha(word[i-1]) && !isvowel(word[i-1])) 
+            return tolower(word[i]);
     }
     return "";
 }
 
-bool isVowel(char c) { return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'); }
-bool isConsonant(char c) { return !isVowel(c); }
+bool isvowel(char ch) {
+    return "aeiou".find(tolower(ch)) != string::npos;
+}
