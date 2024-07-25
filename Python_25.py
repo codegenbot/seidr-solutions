@@ -29,13 +29,13 @@ def main():
             break
         try:
             user_input = int(user_input)
-            if 2 <= user_input:
-                result = factorize(user_input)
-                print(f"The prime factors of {user_input} are: {result}")
-            else:
+            if not isinstance(user_input, int) or (user_input < 2 and user_input != 0):
                 print(
                     "Invalid input. Please enter an integer greater than or equal to 2."
                 )
+            elif user_input >= 2:
+                result = factorize(user_input)
+                print(f"The prime factors of {user_input} are: {result}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
