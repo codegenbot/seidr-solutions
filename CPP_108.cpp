@@ -1,20 +1,34 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num < 0) {
-            num = -num; // make it positive to calculate signed digits
-        }
-        bool has_positive_sum = false;
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit != 0 || num / 10 == 0) { // check if the number is not zero
-                has_positive_sum = true;
-                break;
+        if (num > 0) {
+            int sum = 0;
+            bool sign = false;
+            while (num != 0) {
+                int digit = abs(num) % 10;
+                if (sign || digit > 0) {
+                    sum += digit;
+                }
+                num /= 10;
+                sign = !sign;
             }
-            num /= 10;
-        }
-        if (has_positive_sum) {
-            count++;
+            if (sum > 0) {
+                count++;
+            }
+        } else if (num < 0) {
+            int sum = 0;
+            bool sign = true;
+            while (num != 0) {
+                int digit = abs(num) % 10;
+                if (!sign || digit > 0) {
+                    sum += digit;
+                }
+                num /= 10;
+                sign = !sign;
+            }
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
