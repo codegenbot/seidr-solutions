@@ -2,26 +2,10 @@ def find_zero(xs: list):
     n = len(xs) - 1
     a = xs[0]
     b = xs[1]
+    if n == 2:
+        return -b / a
     c = xs[2]
-    d = xs[3]
-
-    discriminant = (
-        18 * a * b * c * d
-        - 4 * b**3 * d
-        + b**2 * c**2
-        - 4 * a * c**3
-        - 27 * a**2 * d**2
-    )
-
-    if discriminant < 0:
-        return round((-b + (b**2 - 3 * a * c) ** 0.5) / (3 * a), 2)
-    else:
-        return round(
-            (-1 / (3 * a))
-            * (
-                b
-                + (discriminant) ** 0.5
-                + 2 * (b**2 - 3 * a * c) / (b - (discriminant) ** 0.5)
-            ),
-            2,
-        )
+    D = b**2 - 4 * a * c
+    x1 = (-b + math.sqrt(D)) / (2 * a)
+    x2 = (-b - math.sqrt(D)) / (2 * a)
+    return x1 if round(x1, 10) == round(x2, 10) else x1 if x1 < x2 else x2
