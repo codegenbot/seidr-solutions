@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -27,10 +26,8 @@ def main():
     print("Enter a number (at least 2): ")
     while True:
         try:
-            user_input = int(input())
+            user_input = int(input().strip())
             if user_input >= 2:
-                result = factorize(user_input)
-                print(f"The prime factors of {user_input} are: {result}")
                 break
             else:
                 print(
@@ -38,6 +35,8 @@ def main():
                 )
         except ValueError:
             print("Invalid input. Please enter an integer.")
+    result = factorize(user_input)
+    print(result)
 
 
 if __name__ == "__main__":
