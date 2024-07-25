@@ -7,4 +7,3 @@ def check():
                 count += 1
         return count
     print(count_even_digits(n))
-check()
