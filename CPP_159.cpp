@@ -1,7 +1,5 @@
-vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = (total < remaining) ? total : remaining;
-    int left = (total < remaining) ? 0 : total - remaining;
-    
+int total = number + remaining;
+    int eaten = total >= need ? need : total;
+    int left = total >= need ? total - need : 0;
     return {eaten, left};
 }
