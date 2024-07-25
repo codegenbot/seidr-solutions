@@ -1,10 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-using namespace std;
-
-bool match_parens(vector<string> lst) {
+std::string matchParens(const std::vector<std::string>& lst) {
     int countOpen = 0, countClose = 0;
 
     for (const string& s : lst) {
@@ -14,11 +12,15 @@ bool match_parens(vector<string> lst) {
         }
     }
 
-    return countOpen == countClose;
+    if (countOpen == countClose)
+        return "Yes";
+    else
+        return "No";
 }
 
 int main() {
-    vector<string> inputs = {")("};
-    cout << boolalpha << match_parens(inputs);
+    std::vector<std::string> lst = {")", "("};
+    assert(matchParens(lst) == "Yes");
+    
     return 0;
 }
