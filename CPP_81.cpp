@@ -7,7 +7,7 @@ bool issame(const vector<string>& a, const vector<string>& b);
 vector<string> numerical_letter_grade(vector<float> grades);
 
 int main() {
-    // Main function implementation
+    // Main function code here
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
