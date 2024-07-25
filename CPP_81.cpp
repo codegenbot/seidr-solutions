@@ -6,13 +6,6 @@ bool are_same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades);
-
-int main() {
-    // Sample main function code
-    return 0;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
