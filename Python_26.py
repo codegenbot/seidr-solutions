@@ -1,25 +1,24 @@
 from typing import List
 
 
-def remove_duplicates(numbers: List[int]) -> List[str]:
-    seen = set()
-    result = []
-    for num in numbers:
-        if str(num) not in seen:
-            seen.add(str(num))
-            result.append(str(num))
-    return [str(num) for num in result]
+def find_longest_word(sentence: str) -> str:
+    words = sentence.split()
+    longest_word = ""
+    max_length = 0
+    for word in words:
+        if len(word) > max_length:
+            max_length = len(word)
+            longest_word = word
+    return longest_word
 
 
 if __name__ == "__main__":
     while True:
-        user_input = input(" Enter a list of numbers (separated by spaces or commas) : ")
+        user_input = input("Enter a sentence : ")
         try:
-            numbers = [int(num) for num in user_input.replace(",", " ").split()]
-            if len(numbers) > 0:
-                break
+            print(find_longest_word(user_input))
+            break
         except ValueError:
             print(
-                "Invalid input. Please enter valid numbers separated by spaces or commas."
+                "Invalid input. Please enter a valid sentence."
             )
-    print(remove_duplicates(numbers))
