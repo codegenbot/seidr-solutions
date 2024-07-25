@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a,const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> sort_array(const std::vector<int>& arr) {
