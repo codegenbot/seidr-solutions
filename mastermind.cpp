@@ -5,18 +5,16 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && c != guess[guess.find(c)]) {
-                white++;
-                break;
+        } else {
+            bool found = false;
+            for (int j = 0; j < 4; ++j) {
+                if (guess[j] == code[i] && !found) {
+                    found = true;
+                }
             }
+            if (!found) white++;
         }
     }
 
-    return black + white;
+    return black + white - 2;
 }
