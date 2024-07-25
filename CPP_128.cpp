@@ -1,4 +1,5 @@
-if (arr.empty()) {
+int prod_signs(vector<int>& arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
