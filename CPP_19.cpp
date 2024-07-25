@@ -1,33 +1,43 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cassert>
 
-string sort_numbers(string numbers){
-    vector<string> number_list;
-    stringstream ss(numbers);
-    string token;
-    
-    while (ss >> token) {
-        number_list.push_back(token);
+std::string sort_numbers(const std::string &input) {
+    std::map<std::string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4},
+                                    {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    std::map<int, std::string> rev_num_map;
+
+    for (const auto &pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
     }
-    
-    sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
-        return number_map[a] < number_map[b];
+
+    std::vector<std::string> numbers;
+    std::string num_str;
+    for (const char &c : input) {
+        if (c == ' ') {
+            numbers.push_back(num_str);
+            num_str.clear();
+        } else {
+            num_str += c;
+        }
+    }
+    numbers.push_back(num_str);
+
+    std::sort(numbers.begin(), numbers.end(), [&](const std::string &a, const std::string &b) {
+        return num_map[a] < num_map[b];
     });
-    
-    string result;
-    for (const string &num : number_list) {
+
+    std::string result;
+    for (const auto &num : numbers) {
         result += num + " ";
     }
-    
+
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
