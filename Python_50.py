@@ -1,6 +1,6 @@
 def decode_shift(input_string):
     decoded_string = ""
-    for char in input_string:
+    for char in input_string.lower():
         if char.isalpha():
             decoded_string += chr((ord(char) - 3 - ord("a")) % 26 + ord("a"))
         else:
