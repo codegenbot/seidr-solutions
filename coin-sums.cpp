@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 int main() {
     int cents;
     std::cin >> cents;
