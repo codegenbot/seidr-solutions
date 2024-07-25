@@ -1,23 +1,29 @@
 #include <vector>
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (!(find(b.begin(), b.end(), a[i]) != b.end())) {
             return false;
         }
     }
     return true;
 }
 
-vector<int> sort_array(vector<int> arr){
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (bitset<64>(a).count() == bitset<64>(b).count()) {
-            return a < b;
+vector<int> sort_array(vector<int> arr) {
+    vector<int> result;
+    while (!issame(result, arr)) {
+        bool swapped = false;
+        for (int i = 0; i < arr.size() - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                swap(arr[i], arr[i + 1]);
+                swapped = true;
+            }
         }
-        return bitset<64>(a).count() < bitset<64>(b).count();
-    });
+        if (!swapped) break;
+    }
     return arr;
 }
