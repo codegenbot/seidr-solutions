@@ -39,8 +39,9 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    map<string, string> dict;
-    // test your function here
-    cout << check_dict_case(dict);
+    map<string, string> dict = {{"hello", "Hello"}, {"world", "WORLD"}};
+    bool result = check_dict_case(dict);
+    cout << (result ? "Yes" : "No") << endl;
+
     return 0;
 }
