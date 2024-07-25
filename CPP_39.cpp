@@ -14,12 +14,16 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) {
+        return 0;
+    }
     if (n == 1) {
         return 2;
     }
     if (n == 2) {
         return 3;
     }
+    
     int prev = 2, curr = 3, next;
     for (int i = 3; i <= n; i++) {
         next = prev + curr;
