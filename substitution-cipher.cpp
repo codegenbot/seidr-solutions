@@ -1,8 +1,11 @@
-```cpp
+```
 #include <string>
+#include <algorithm>
+
+using namespace std;
 
 std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
-    std::string decipheredMessage;
+    string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
         if (cipherKey1[i] != ' ') {
             int index = 0;
