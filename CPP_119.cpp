@@ -18,9 +18,7 @@ bool match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> inputs = {"(())", "()()", "((()))", "()"};
-    for (const string& s : inputs) {
-        cout << s << ": " << (match_parens({s}) ? "Yes" : "No") << endl;
-    }
+    vector<string> inputs = {")("};
+    cout << boolalpha << match_parens(inputs);
     return 0;
 }
