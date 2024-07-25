@@ -1,18 +1,14 @@
-#include <vector>
-using namespace std;
-
-int luhnAlgorithm(vector<int> digits) {
+int Luhn(int* creditCardNum) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2) == 1) { // double every other digit starting with the second digit
-            digits[i] *= 2;
-            if (digits[i] > 9) { // if any of the results are over 9, subtract 9 from them
-                digits[i] -= 9;
+    for (int i = 0; i < 16; i++) {
+        int digit = creditCardNum[i];
+        if ((i % 2 == 1)) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
         }
-    }
-    for (int i = 0; i < digits.size(); i++) {
-        sum += digits[i];
+        sum += digit;
     }
     return sum;
 }
