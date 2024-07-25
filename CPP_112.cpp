@@ -1,26 +1,27 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c){
-    std::string result = "";
-    for(char ch : s){
-        if(c.find(ch) == std::string::npos){
+vector<string> reverse_delete(string s, string c){
+    string result;
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    std::string reversed = result;
-    std::reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    string palindrome_check = result;
+    reverse(palindrome_check.begin(), palindrome_check.end());
+    return {result, result == palindrome_check ? "True" : "False"};
 }
 
-int main(){
-    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
