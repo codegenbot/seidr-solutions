@@ -11,18 +11,13 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
 
 
 while True:
-    four_space_indented_input = (
-        '    user_input = input("Enter numbers separated by space: ")'
-    )
+    user_input = input("Enter numbers separated by space: ")
     try:
-        four_space_indented_numbers = (
-            "    numbers = [float(i) for i in user_input.split()]"
-        )
-        if len(four_space_indented_numbers) > 0:
+        numbers = [float(i) for i in user_input.split()]
+        if len(numbers) > 0:
+            print(mean_absolute_deviation(numbers))
             break
         else:
             print("Invalid input. Please enter at least one number.")
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
-    four_space_indented_print = "    print(mean_absolute_deviation(numbers))"
-print(mean_absolute_deviation(numbers))
