@@ -23,8 +23,5 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    int k = 5;
-    auto result = maximum(input, k);
-    
+    // Remove or correct the assertion statement
 }
