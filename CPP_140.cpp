@@ -1,20 +1,22 @@
-string fix_spaces(string text){
-    string result;
-    int consecutiveSpaces = 0;
-    for(char c : text){
-        if(c == ' '){
-            consecutiveSpaces++;
-            if(consecutiveSpaces > 2){
-                result.pop_back(); // Remove last space
-                result.pop_back(); // Remove second last space
-                result.push_back('-');
+int count = 0;
+    string result = "";
+    
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += '-';
+                count = 1;
             } else {
-                result.push_back('_');
+                result += '_';
             }
         } else {
-            result.push_back(c);
-            consecutiveSpaces = 0;
+            result += c;
+            count = 0;
         }
     }
+    
     return result;
 }
