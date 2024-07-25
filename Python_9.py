@@ -9,10 +9,8 @@ def rolling_max():
         if len(command) == 0 or command[0].lower() == 'stop':
             break
         num_input = [int(i) for i in command[1:]]
-        if len(num_input) >= 3:
-            result.append(max(num_input[-3:]))
-        else:
-            result.append(max(num_input))
+        start_index = int(command[0])
+        result.append(max([numbers[i] for i in range(start_index-1, min(len(numbers), start_index+ len(num_input)))]))
     
     return result
 
