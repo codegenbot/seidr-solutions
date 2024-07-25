@@ -1,6 +1,6 @@
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
-    if (arr.empty()) return result;
+    if (arr.empty()) return {};
 
     int minEven = INT_MAX;
     int minIndex = -1;
