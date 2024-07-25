@@ -1,16 +1,8 @@
-#include <algorithm>
-using namespace std;
-
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = tolower(c);
-            if (c == 'z' || c == 'Z') {
-                c = isupper(c) ? 'a' : 'A';
-            } else {
-                c = isupper(c) ? 'z' : 'Z';
-            }
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
