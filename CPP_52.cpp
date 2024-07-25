@@ -1,14 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool below_threshold(const std::vector<int>& numbers, int threshold) {
-    for (int num : numbers) {
-        if (num >= threshold) {
-            return false;
-        }
-    }
-    return true;
+bool below_threshold(const std::vector<int>& nums, int threshold) {
+    return std::any_of(nums.begin(), nums.end(), [threshold](int num) { return num < threshold; });
 }
 
 int main() {
