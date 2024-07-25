@@ -1,3 +1,4 @@
 ```
 def remove_duplicates(numbers: list[int]) -> list[int]:
-    return [x for x in set(numbers)]
+    seen = {}
+    return [seen.setdefault(x, x) for x in numbers if x not in seen]
