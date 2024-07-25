@@ -1,11 +1,19 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        if (i >= 2 && text[i-1] == ' ' && text[i-2] == ' ') {
-            text.replace(i-2, 3, "-");
-            i -= 2;
+string result = "";
+    int consecutive_spaces = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
+                result.pop_back();
+                result.pop_back();
+                result.push_back('-');
+            } else {
+                result.push_back('_');
+            }
         } else {
-            text[i] = '_';
+            consecutive_spaces = 0;
+            result.push_back(c);
         }
     }
+    return result;
 }
-return text;
