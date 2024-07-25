@@ -1,5 +1,18 @@
-```cpp
 string words_in_sentence(string sentence){
     string result = "";
     string word = "";
-    bool is_prime_length[101] = {false, false, true, true, false, true, false, true, false, false, false, true, false, true, false, false, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false,
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (is_prime(word.length())) {
+                result += word + " ";
+            }
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    if (is_prime(word.length())) {
+        result += word;
+    }
+    return result;
+}
