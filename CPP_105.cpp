@@ -103,47 +103,45 @@ vector<string> by_length(vector<int> arr) {
                     case 9:
                         tens = "Ninety";
                 }
+                temp += tens;
                 if (num % 10 != 0) {
                     temp += "-" + to_string(num % 10);
-                } else {
-                    temp += "";
                 }
-            }
-
-            if (num >= 100 && num <= 999) {
+            } else if (num >= 100 && num <= 999) {
                 string hundreds = "";
                 switch (num / 100) {
                     case 1:
-                        hundreds = "One Hundred ";
+                        hundreds = "One Hundred";
                         break;
                     case 2:
-                        hundreds = "Two Hundred ";
+                        hundreds = "Two Hundred";
                         break;
                     case 3:
-                        hundreds = "Three Hundred ";
+                        hundreds = "Three Hundred";
                         break;
                     case 4:
-                        hundreds = "Four Hundred ";
+                        hundreds = "Four Hundred";
                         break;
                     case 5:
-                        hundreds = "Five Hundred ";
+                        hundreds = "Five Hundred";
                         break;
                     case 6:
-                        hundreds = "Six Hundred ";
+                        hundreds = "Six Hundred";
                         break;
                     case 7:
-                        hundreds = "Seven Hundred ";
+                        hundreds = "Seven Hundred";
                         break;
                     case 8:
-                        hundreds = "Eight Hundred ";
+                        hundreds = "Eight Hundred";
                         break;
                     case 9:
-                        hundreds = "Nine Hundred ";
+                        hundreds = "Nine Hundred";
                 }
+                temp += hundreds;
                 if (num % 100 != 0) {
-                    temp += hundreds + to_string(num % 100) + " ";
-                } else {
-                    temp += hundreds;
+                    temp += " and ";
+                    string rest = to_string(num % 100);
+                    temp += by_length({stoi(rest)}).at(0);
                 }
             }
 
@@ -152,4 +150,19 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
+}
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<string> names = by_length(numbers);
+    for (string name : names) {
+        cout << name << endl;
+    }
+    if (issame(names, {"One", "Two", "Three", "Four", "Five"})) {
+        cout << "The two lists are the same." << endl;
+    } else {
+        cout << "The two lists are not the same." << endl;
+    }
+    
+    return 0;
 }
