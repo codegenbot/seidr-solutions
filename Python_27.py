@@ -1,7 +1,5 @@
-def swap_case(string):
-    return "".join([char.lower() if char.isupper() else char.upper() for char in string]) 
+def flip_case(string):
+    return string.swapcase()
 
-def check(string):
-    return swap_case(string)
 
-check("flip_case")
+check(input("Enter a string: "))
