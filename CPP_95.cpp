@@ -1,3 +1,4 @@
+```cpp
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
@@ -17,4 +18,21 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allLower || allUpper;
+}
+
+int main() {
+    map<string, string> dict;
+    // Add your code here to populate the dictionary
+    // For example:
+    dict["hello"] = "world";
+    dict["HELLO"] = "WORLD";
+
+    bool result = check_dict_case(dict);
+    if (result) {
+        cout << "The dictionary contains both lowercase and uppercase keys." << endl;
+    } else {
+        cout << "The dictionary contains only one type of case for its keys." << endl;
+    }
+
+    return 0;
 }
