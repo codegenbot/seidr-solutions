@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 int main() {
     std::string text, target;
@@ -13,9 +13,9 @@ int main() {
         pos = text.find(target, pos + 1);
     }
 
-    for (int i = 0; i < indices.size(); i++) {
+    for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
-
+    
     return 0;
 }
