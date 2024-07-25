@@ -13,4 +13,4 @@ int main() {
     std::cout << total_distance << '\n';
     
     return 0;
-}
+}  
