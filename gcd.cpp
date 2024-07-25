@@ -1,34 +1,35 @@
-Here is the solution:
-
-#include <vector>
-using namespace std;
-
-vector<int> findIndices(const string& text, const string& target) {
-    vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        indices.push_back(pos);
-        pos += target.size();
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> result;
+    int textSize = text.length(), targetSize = target.length();
+    for (int i = 0; ; i++) {
+        int j = 0;
+        while (i + j < textSize && j < targetSize && text[i + j] == target[j]) {
+            j++;
+        }
+        if (j == targetSize) {
+            result.push_back(i);
+            i += j - 1;
+        } else break;
     }
-    return indices;
+    return result;
 }
 
 int gcd(int a, int b) {
     if (b == 0)
         return a;
-    else
-        return gcd(b, a % b);
+    return gcd(b, a % b);
 }
 
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
     cout << gcd(num1, num2) << endl;
-
+    
     string text, target;
     cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result)
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
         cout << i << " ";
+    }
     return 0;
 }
