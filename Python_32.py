@@ -8,7 +8,6 @@ def find_zero(xs: list):
         if xs[i] != 0:
             return -xs[0] / xs[i]
 
-
 # Read coefficients list from user input
 try:
     coefficients = list(map(float, input().split()))
