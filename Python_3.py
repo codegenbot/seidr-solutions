@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -34,6 +35,3 @@ def below_zero() -> None:
         cont = input("Continue? (yes/no): ")
         if cont.lower() != "yes":
             return
-
-
-below_zero()
