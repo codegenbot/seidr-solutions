@@ -1,4 +1,3 @@
-```Python
 from typing import List
 import math
 
@@ -37,7 +36,7 @@ def main():
                     "Invalid input. Please enter an integer greater than or equal to 2."
                 )
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print("Invalid input. Please try again.")
 
 
 if __name__ == "__main__":
