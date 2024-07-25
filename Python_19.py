@@ -1,0 +1,1 @@
+return " ".join([k for k, v in num_dict.items() if v == i for i in sorted_nums])
