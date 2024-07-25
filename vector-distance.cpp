@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> // for pow and sqrt functions
+#include <cmath>
 using namespace std;
 
 int main() {
