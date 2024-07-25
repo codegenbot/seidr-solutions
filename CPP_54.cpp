@@ -1,9 +1,8 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 #include <cassert>
+#include <initializer_list>
 
 bool same_chars(std::string s0, std::string s1) {
     std::sort(s0.begin(), s0.end());
