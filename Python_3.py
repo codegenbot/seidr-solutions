@@ -23,15 +23,13 @@ def below_zero() -> None:
         balance = 0
         below_zero_found = False
         for operation in operations:
-            try:
-                balance += operation
-                if balance < 0:
+            balance += operation
+            if balance < 0:
+                while balance < 0:
                     print(f"Below zero at {balance}.")
-                    below_zero_found = True
-                    break
-            except ValueError:
-                print("Error: Invalid input. Please enter a list of integers.")
-                return
+                    balance += int(input("Enter an amount to add: "))
+                below_zero_found = True
+                break
 
         if not below_zero_found:
             print(f"No below zero at {balance}.")
