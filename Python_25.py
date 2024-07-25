@@ -38,3 +38,4 @@ def main():
                 )
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+        user_input = input("Please enter a number (or type 'quit' to exit): ")
