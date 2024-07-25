@@ -17,10 +17,10 @@ int count_nums(vector<int> nums) {
             while (num > 0) {
                 if (is_negative) {
                     if (num % 10 < 0) {
-                        sum += num % 10 + 10;
+                        sum += num % 10;
                         is_negative = false;
                     } else {
-                        sum += num % 10;
+                        break; // no more negative digits
                     }
                 } else {
                     sum += num % 10;
