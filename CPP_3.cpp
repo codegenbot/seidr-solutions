@@ -1,6 +1,6 @@
 #include <vector>
 
-bool below_zero(vector<int> operations) {
+bool below_zero(vector<int> operations){
     int balance = 0;
     for(int operation : operations){
         balance += operation;
@@ -8,4 +8,3 @@ bool below_zero(vector<int> operations) {
             return true;
     }
     return false;
-}
