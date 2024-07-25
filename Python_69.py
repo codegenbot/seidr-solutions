@@ -1,3 +1,5 @@
-n = int(input())
-input_lst = list(map(int, input().split()))
-print(search(input_lst))
+def search(lst):
+    for i in range(len(lst)):
+        if lst[i] == 1:
+            return i
+    return -1
