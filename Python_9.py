@@ -1,21 +1,15 @@
-```
-    from typing import List
+from typing import List
 
-    def rolling_max():
-        numbers = [int(i) for i in input().split()]
-        max_length = len(numbers)
-        result = [max(row) for row in zip(*[numbers])]
-        
-        while True:
-            command = input().split()
-            if len(command) == 0 or command[0].lower() == 'stop':
-                break
-            num_input = [int(i) for i in command]
-            if len(num_input) != max_length:
-                print("Invalid input. Please provide the same number of elements in each list.")
-                continue
-            numbers.extend(num_input)
-        
-        return result
+def rolling_max():
+    numbers = [int(i) for i in input().split()]
+    result = []
+    while True:
+        command = input().split()
+        if len(command) == 0 or command[0].lower() == 'stop':
+            break
+        num_input = [int(i) for i in command]
+        result.append(max(num_input))
+    
+    return result
 
-    print(rolling_max())
+print(rolling_max())
