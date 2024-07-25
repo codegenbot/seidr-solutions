@@ -1,30 +1,25 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
-    int total_water = 0;
-    for (vector<int> well : grid) {
-        for (int unit : well) {
-            if (unit == 1) {
-                total_water++;
-            }
+    vector<vector<int>> sum(n, vector<int>(grid[0].size()));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
+            if (i == 0)
+                sum[i][j] = grid[i][j];
+            else
+                sum[i][j] += sum[i - 1][j] + grid[i][j];
         }
     }
-
-    int max_fill = 0;
-    while (total_water > 0) {
-        int remaining_capacity = capacity;
-        for (int i = 0; i < n; i++) {
-            if (grid[i].size() > 0 && grid[i][0] == 1) {
-                for (; remaining_capacity > 0 && i < n; i--) {
-                    if (i >= grid.size() || grid[i].size() == 0 || grid[i][0] != 1) {
-                        break;
-                    }
-                    remaining_capacity--;
-                    grid[i].erase(grid[i].begin());
-                }
-            }
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        int curr_water = sum[n - 1][i];
+        int remain = capacity;
+        while (remain > 0) {
+            if (curr_water >= remain)
+                curr_water -= remain;
+            else
+                res++, remain -= curr_water, curr_water = capacity;
         }
-        total_water -= capacity;
-        max_fill++;
     }
-    return max_fill;
-}
+    return res;
