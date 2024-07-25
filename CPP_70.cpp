@@ -2,36 +2,38 @@
 #include <vector>
 #include <limits>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    assert(issame(strange_sort_vector({1,2,3}), {1,2,3}));
+    return 0;
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
-    
     if (lst.empty()) {
         return result;
     }
     
     sort(lst.begin(), lst.end());
-    for(int i = 0; i < 2; i++) {
-        if(!i){
+    result.push_back(*min_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+    
+    while (!lst.empty()) {
+        sort(lst.begin(), lst.end());
+        if (lst.size() > 1) {
             result.push_back(*min_element(lst.begin(), lst.end()));
-        } else {
-            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
         }
-        auto it = remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end()));
-        lst.erase(it, lst.end());
         
         if (!lst.empty()) {
             sort(lst.begin(), lst.end());
+            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
         }
     }
     
     return result;
-}
-
-int main() {
-    assert(issame(strange_sort_vector({11111}) , {1,2,3,4,5}));
-    return 0;
 }
