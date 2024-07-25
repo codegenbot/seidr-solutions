@@ -21,6 +21,8 @@ def process_numbers():
                     numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
                 except ValueError:
                     print(f"Program did not receive expected input: {num}")
+    if len(numbers) > 0 and start_num is None and end_num is None:
+        numbers.sort()
     print(numbers)
 
 process_numbers()
