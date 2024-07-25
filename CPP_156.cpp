@@ -1,5 +1,8 @@
+#include <iostream>
 #include <string>
 #include <vector>
+
+using namespace std;
 
 string int_to_mini_romank(int number){
     string result = "";
@@ -20,6 +23,7 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    // Add your code logic here to test the int_to_mini_romank function
+    assert (int_to_mini_romank(1000) == "m");
+
     return 0;
 }
