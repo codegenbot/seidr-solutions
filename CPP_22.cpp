@@ -1,9 +1,12 @@
-vector<int> filter_integers(list_any values) {
+#include <algorithm>
+
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for (auto& value : values) {
-        if (boost::any_cast<boost::optional<int>>(value).is_valid()) {
-            result.push_back(boost::any_cast<boost::optional<int>>(value).get());
+    for (const auto& value : values) {
+        if (any_cast<int>(value).none()) {
+            continue;
         }
+        result.push_back(any_cast<int>(value));
     }
     return result;
 }
