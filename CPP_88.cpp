@@ -1,3 +1,6 @@
+#ifndef ARRAY_UTILS_H
+#define ARRAY_UTILS_H
+
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -22,6 +25,4 @@ namespace ArrayUtils {
     }
 }
 
-using ArrayUtils::issame;
-using ArrayUtils::sort_array;
-assert(issame(sort_array(std::vector<int>({21, 14, 23, 11})), std::vector<int>({23, 21, 14, 11}));
+#endif // ARRAY_UTILS_H
