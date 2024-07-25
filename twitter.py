@@ -1,6 +1,4 @@
-```
 def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet if e in '@# ' or e.isalnum())
     if not tweet:
         return "You didn't type anything"
     elif len(tweet) > 140:
