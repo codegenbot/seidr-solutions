@@ -2,8 +2,13 @@ def add(x: int, y: int):
     return x + y
 
 try:
-    x, y = map(int, input("Enter two numbers separated by space: ").split())
+    x = input("Enter the first integer number: ")
+    y = input("Enter the second integer number: ")
+    if not x.isdigit() or not y.isdigit():
+        raise ValueError
+    x = int(x)
+    y = int(y)
     result = add(x, y)
     print("Sum:", result)
 except ValueError:
-    print("Please enter integers only.")
+    print("Please make sure to enter integers only.")
