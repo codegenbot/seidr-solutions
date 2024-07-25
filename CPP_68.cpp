@@ -1,19 +1,23 @@
+```cpp
+#include <iostream>
 #include <vector>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {};
+bool issame(int a, int b) {
+    return a == b;
+}
 
-    int minEvenValue = INT_MAX;
-    int minIndex = -1;
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minIndex = i;
+int main() {
+    std::vector<int> arr = {};
+    
+    if (arr.empty()) {
+        std::cout << "Array is empty." << std::endl;
+    } else {
+        for (auto i : arr) {
+            if (issame(i, 0)) {
+                std::cout << "The array contains the number 0." << std::endl;
+            }
         }
     }
-
-    result.push_back({minEvenValue, minIndex});
-    return result;
+    
+    return 0;
 }
