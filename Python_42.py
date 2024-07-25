@@ -1,5 +1,5 @@
+def check(func):
+    assert func([1, 2, 3]) == [2, 3, 4]
+
 def increment_list(l):
     return [x + 1 for x in l]
-
-# Fix the function call
-result = increment_list(input_list)
