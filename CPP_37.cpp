@@ -5,17 +5,17 @@ vector<float> even_indices;
         }
     }
     sort(even_indices.begin(), even_indices.end());
-    
-    vector<float> result;
+
+    vector<float> l_prime;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_indices[even_index]);
+            l_prime.push_back(even_indices[even_index]);
             even_index++;
         } else {
-            result.push_back(l[i]);
+            l_prime.push_back(l[i]);
         }
     }
-    
-    return result;
+
+    return l_prime;
 }
