@@ -22,11 +22,9 @@ std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, s
 }
 
 int main() {
-    std::string cipherKey1 = "your_cipher_key_1"; 
-    std::string cipherKey2 = "your_cipher_key_2";
-    std::string message = "your_message";
-
+    std::string cipherKey1 = "abc";  
+    std::string cipherKey2 = "def";
+    std::string message = "ghi";
     std::cout << substitutionCipher(cipherKey1, cipherKey2, message) << std::endl;
-
     return 0;
 }
