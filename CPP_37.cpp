@@ -1,10 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-        return std::equal(a.begin(), a.end(), b.begin(), b.end());
-    }
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<float> sort_even(std::vector<float> vec) {
