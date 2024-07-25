@@ -1,4 +1,4 @@
-```
+```Python
 cents = int(input("Enter the number of cents: "))
 
 quarters = cents // 25
