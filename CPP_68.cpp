@@ -1,22 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-std::pair<int, int> pluck(std::vector<int> arr) {
-    std::pair<int, int> result;
-    if (arr.empty()) {
-        return result;
-    }
+bool issame(int a, int b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<int> arr = {};
     
-    int minEven = INT_MAX;
-    int minIndex = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+    if (arr.empty()) {
+        std::cout << "Array is empty." << std::endl;
+    } else {
+        for (auto i : arr) {
+            if (issame(i, 0)) {
+                std::cout << "The array contains the number 0." << std::endl;
+            }
         }
     }
     
-    result.first = minEven;
-    result.second = minIndex;
-    return result;
+    return 0;
 }
