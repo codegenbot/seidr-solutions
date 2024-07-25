@@ -1,11 +1,10 @@
-```
 def validate_tweet(tweet):
-    elif not all(tweet[i].isalnum() or tweet[i] == ' ' for i in range(len(tweet))):
+    if not tweet:
         return "You didn't type anything"
-    elif len(''.join(char for char in tweet if char.isalnum() or char == ' ')) > 140:
+    elif len(tweet.replace(' ', '')) > 140:
         return "Too many characters"
     else:
-        return f"Your tweet has {len(''.join(char for char in tweet if char.isalnum() or char == ' '))} characters"
+        return f"Your tweet has {len(tweet)} characters"
 
 print(validate_tweet("")) 
 print(validate_tweet("1")) 
