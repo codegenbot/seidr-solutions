@@ -7,9 +7,7 @@ def concatenate(strings: List[str]) -> str:
 if __name__ == "__main__":
     while True: 
         try: 
-            num_strings = int(input("Enter the number of strings (1-9): "))
-            if 1 <= num_strings <= 9:
-                break; 
+            num_strings = int(input("Enter the number of strings (1-9): ") or 1); break; 
         except ValueError:
             print("Error! Please enter a number between 1 and 9.")
     if not 1 <= num_strings <= 9:
@@ -18,7 +16,9 @@ if __name__ == "__main__":
         strings = []
         
         for i in range(num_strings):
-            s = input(f"Enter string {i+1}: ")
+            while True:
+                s = input(f"Enter string {i+1}: ")
+                if len(s) > 0: break
             strings.append(s)
         
         result = concatenate(strings)
