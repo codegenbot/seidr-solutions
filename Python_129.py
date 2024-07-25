@@ -1,5 +1,5 @@
 ```
-def minPathSum(grid, k):
+def minPath(grid, k):
     n = len(grid)
     visited = [[False]*n for _ in range(n)]
     min_path = []
@@ -9,7 +9,7 @@ def minPathSum(grid, k):
                 continue
             path = [grid[i][j]]
             dfs(grid, i, j, k-1, visited, path)
-            if not min_path or len(path) < len(min_path):
+            if not min_path or path < min_path:
                 min_path = path
     return min_path
 
