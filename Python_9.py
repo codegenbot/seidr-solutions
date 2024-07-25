@@ -2,7 +2,7 @@
 from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = [max(nums[i:]) for nums, i in zip([*numbers], range(len(numbers)))]
+    result = [max(current, previous) for current, previous in zip([num for num in numbers], [0] + numbers[:-1])]
     
     return result
 
