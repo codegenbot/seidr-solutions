@@ -1,18 +1,17 @@
-string result;
-    bool consecutive = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (consecutive) {
-                result.pop_back();
-                result.push_back('-');
-            } else {
-                result.push_back('_');
-                consecutive = true;
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int count = 1;
+            while (i + count < text.length() && text[i + count] == ' ') {
+                count++;
             }
-        } else {
-            result.push_back(c);
-            consecutive = false;
+            if (count > 2) {
+                for (int j = i + 1; j < i + count; ++j) {
+                    text[j] = '-';
+                }
+            }
+            i += count - 1;
         }
     }
-    return result;
+    return text;
 }
