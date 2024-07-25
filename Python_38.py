@@ -1,5 +1,5 @@
 def decode_cyclic(s: str):
-    if len(s) < 3 or len(s) % 3 != 0:
+    if len(s.strip()) < 3 or len(s.strip()) % 3 != 0:
         return "Please enter a string with a length multiple of 3 and at least 3 characters."
 
     groups = [
@@ -9,6 +9,6 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 
-input_str = input().rstrip()
+input_str = input("Enter a string with a length multiple of 3 and at least 3 characters: ").rstrip()
 result = decode_cyclic(input_str)
 print(result)
