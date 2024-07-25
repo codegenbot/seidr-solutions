@@ -8,7 +8,7 @@ int main() {
     while (std::cin >> n && !std::cin.eof()) {
         nums.push_back(n);
     }
-    
+
     int sum = 0;
     for (int num : nums) {
         sum += num;
