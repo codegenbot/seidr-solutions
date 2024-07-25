@@ -1,4 +1,5 @@
 #include <string>
+
 using namespace std;
 
 bool is_palindrome(string str){
@@ -14,6 +15,6 @@ string make_palindrome(string str){
 }
 
 int main() {
-    assert (make_palindrome("jerry") == "jerryyerri");
+    assert (make_palindrome("jerry") == "jerryyejr");
     return 0;
 }
