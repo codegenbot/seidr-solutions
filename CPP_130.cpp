@@ -33,7 +33,7 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-int main() {
+int contestMain() {
     assert(issame(tri(1), std::vector<int>{3, 1}));
 
     return 0;
