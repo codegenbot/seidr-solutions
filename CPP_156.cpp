@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -8,7 +8,7 @@ std::string int_to_roman(int n) {
     std::string result = "";
 
     for (int i = 0; i < 13; i++) {
-        while (n > value[i]) { 
+        while (n > value[i] - 1) { 
             n -= value[i];
             result += roman[i];
         }
