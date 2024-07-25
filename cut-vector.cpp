@@ -40,13 +40,13 @@ int main() {
         } 
     } 
 
-    for (int i = 0; i <= cutIndex; i++) { 
+    for (int i = 0; i < cutIndex; i++) { 
         cout << nums[i] << ' '; 
     } 
     cout << '\n'; 
 
-    if (cutIndex + 1 <= n) { 
-        for (int i = cutIndex + 1; i < n; i++) { 
+    if (cutIndex < n) { 
+        for (int i = cutIndex; i < n; i++) { 
             cout << nums[i] << ' '; 
         } 
         cout << '\n'; 
