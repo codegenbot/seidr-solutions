@@ -3,12 +3,14 @@
 #include <cmath>
 #include <iostream>
 
-long long double_the_difference(std::vector<float> lst) {
+using namespace std;
+
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
+        if (num > 0 && floor(num) == num) { 
             if (num % 2 != 0) { 
-                sum += std::pow(num, 2);
+                sum += pow(num, 2);
             }
         }
     }
@@ -16,10 +18,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    float arr[] = {1.0f, 3.5f, 7.0f};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    std::vector<float> lst(arr, arr+n);
-    long long result = double_the_difference(lst); 
-    std::cout << "The sum of the squares of odd integers in the list is: " << result << std::endl;
+    vector<float> lst = {1.5f, 3.0f, 4.0f, 5.5f};
+    long long result = double_the_difference(lst);
+    cout << "The result is: " << result << endl;
     return 0;
 }
