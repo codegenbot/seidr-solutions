@@ -1,33 +1,26 @@
-vector<string> split_words(string txt){
-    vector<string> result;
-    size_t found = txt.find(" ");
-    if (found != string::npos) {
-        size_t start = 0;
-        while (found != string::npos) {
-            result.push_back(txt.substr(start, found - start));
-            start = found + 1;
-            found = txt.find(" ", start);
-        }
-        result.push_back(txt.substr(start, txt.size() - start));
-    } else {
-        found = txt.find(",");
-        if (found != string::npos) {
-            size_t start = 0;
-            while (found != string::npos) {
-                result.push_back(txt.substr(start, found - start));
-                start = found + 1;
-                found = txt.find(",", start);
+vector<string> words;
+    string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
             }
-            result.push_back(txt.substr(start, txt.size() - start));
         } else {
-            int odd_lower_count = 0;
-            for (char c : txt) {
-                if (islower(c) && (c - 'a') % 2 == 1) {
-                    odd_lower_count++;
-                }
-            }
-            result.push_back(to_string(odd_lower_count));
+            word += c;
         }
     }
-    return result;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+        int count_odd_lowercase = 0;
+        for (char c : words[0]) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                count_odd_lowercase++;
+            }
+        }
+        words[0] = to_string(count_odd_lowercase);
+    }
+    return words;
 }
