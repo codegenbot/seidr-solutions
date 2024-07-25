@@ -14,5 +14,3 @@ vector<float> derivative(vector<float> xs){
 bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
-
-assert(issame(vector<float>{}, vector<float>{}));
