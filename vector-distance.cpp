@@ -13,7 +13,7 @@ double vectorDistance(int n) {
     
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        double diff = (x1[i] - y1[i]) * (x1[i] - y1[i]);
+        double diff = pow((x1[i] - y1[i]), 2);
         sum += diff;
     }
     
