@@ -11,8 +11,8 @@ string result = "";
                 result += "_";
             }
         } else {
-            consecutiveSpaces = 0;
             result += c;
+            consecutiveSpaces = 0;
         }
     }
     return result;
