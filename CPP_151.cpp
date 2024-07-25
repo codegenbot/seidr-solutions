@@ -1,31 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(const std::vector<float>& lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
-            }
+long long doubleTheDifference(vector<int> arr) {
+    int pos = 0;
+    for (int n : arr) {
+        if (n % 2 != 0) {
+            pos += n;
         }
     }
-    return sum;
-}
-
-int main() {
-    std::vector<float> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        float x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
-    }
-    long long result = double_the_difference(lst);
-    std::cout << "The sum of the squares of odd positive integers is: " << result << std::endl;
-    return 0;
+    return abs(pos - (accumulate(arr.begin(), arr.end(), 0) - pos));
 }
