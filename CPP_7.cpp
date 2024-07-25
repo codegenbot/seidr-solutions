@@ -12,14 +12,15 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> str, std::string substr) {
-    std::vector<std::string> result;
+std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::string> str, std::string substr) {
+    std::vector<std::vector<std::string>> result;
     for (const auto& s : str) {
         if (s.find(substr) != std::string::npos) {
-            result.push_back(s);
+            result.push_back({s});
         }
     }
-    return {std::views::all(result)};
+    return result;
+
 }
 
 int main() {
