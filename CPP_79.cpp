@@ -1,13 +1,14 @@
+#include <iostream>
 #include <string>
-#include <assert.h>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
     while(decimal > 0) {
-        if (decimal % 2 == 0)
-            binary.insert(0,"0");
-        else
+        int remainder = decimal % 2;
+        if(remainder == 1)
             binary.insert(0,"1");
+        else
+            binary.insert(0,"0");
         decimal /= 2;
     }
     return "db" + binary + "db";
@@ -15,5 +16,6 @@ std::string decimal_to_binary(int decimal){
 
 int main() {
     assert (decimal_to_binary(15) == "db1111db");
+    // Your code to test the function goes here...
     return 0;
 }
