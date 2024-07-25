@@ -1,26 +1,19 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
-string substitutionCipher(string cipherKey1, string cipherKey2, string message) {
+std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
     string decipheredMessage;
     for (int i = 0; i < message.length(); i++) {
-        if (cipherKey1[i] == cipherKey2[i]) {
-            decipheredMessage += message[i];
-        } else {
+        if (message[i] != ' ') {
             int index = 0;
-            while (index < cipherKey2.length() && index != string::npos) {
-                if (cipherKey2[index] == message[i]) {
-                    decipheredMessage += cipherKey1[index];
+            while (index < cipherKey1.length()) {
+                if (message[i] == cipherKey1[index]) {
+                    decipheredMessage += cipherKey2[index];
                     break;
                 }
                 index++;
             }
-            if (index == cipherKey2.length()) {
-                decipheredMessage += message[i];
-            } else {
-                decipheredMessage += cipherKey2[index];
-            }
+        } else {
+            decipheredMessage += ' ';
         }
     }
     return decipheredMessage;
