@@ -40,7 +40,16 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-    // test your function here
-    cout << check_dict_case(dict);
+    
+    // Add elements to the dictionary
+    dict["key1"] = "value1";
+    dict["KEY2"] = "VALUE2";
+
+    if (check_dict_case(dict)) {
+        cout << "The dictionary contains at least one key that is either all lowercase or all uppercase." << endl;
+    } else {
+        cout << "The dictionary does not contain any keys that are either all lowercase or all uppercase." << endl;
+    }
+
     return 0;
 }
