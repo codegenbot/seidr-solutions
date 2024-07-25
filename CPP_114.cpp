@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <limits>
 
@@ -26,12 +27,6 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    // testing the function
-    std::vector<long long> test(5);
-    for(int i=1; i<=5; i++)
-        test.push_back(i*10);
-
-    std::cout << "Minimum sum of all subarrays: " << minSubArraySum(test) << "\n";
-
+    // add your code here
     return 0;
 }
