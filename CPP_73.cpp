@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -13,8 +14,12 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<int> numbers;
+    int num;
+    while (std::cin >> num) {
+        numbers.push_back(num);
+    }
     int result = smallest_change(numbers);
-    assert(smallest_change({0, 1}) == 1);
+    std::cout << result << std::endl;
     return 0;
 }
