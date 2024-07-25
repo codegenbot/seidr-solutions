@@ -3,22 +3,22 @@
 #include <cassert>
 
 namespace Contest {
-    using namespace std;
-
-    string anti_shuffle(string s) {
-        string result = "";
-        string word = "";
+    std::string anti_shuffle(std::string s) {
+        std::string result = "";
+        std::string word = "";
         for (char c : s) {
             if (c == ' ') {
-                sort(word.begin(), word.end());
+                std::sort(word.begin(), word.end());
                 result += word + ' ';
                 word = "";
             } else {
                 word += c;
             }
         }
-        sort(word.begin(), word.end());
+        std::sort(word.begin(), word.end());
         result += word;
         return result;
     }
 }
+
+assert(Contest::anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
