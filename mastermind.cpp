@@ -2,23 +2,25 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int blackPegs = 0, whitePegs = 0;
-    map<char, int> codeCount, guessCount;
+    int white = 0, black = 0;
+    vector<int> count(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            ++black;
         } else {
-            codeCount[code[i]]++;
-            guessCount[guess[i]]++;
+            ++count[code[i] - 'A'];
         }
     }
     
-    for (auto& p : codeCount) {
-        whitePegs += min(p.second, guessCount[p.first]);
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && count[guess[i] - 'A'] > 0) {
+            ++white;
+            --count[guess[i] - 'A'];
+        }
     }
     
-    cout << whitePegs << endl << blackPegs << endl;
+    cout << white << endl << black << endl;
     
     return 0;
 }
