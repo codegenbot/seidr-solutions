@@ -2,9 +2,9 @@ int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (auto it = sorted.rbegin(); ++it != sorted.rend(); ) {
+    for (auto it = sorted.begin(); ++it != sorted.end(); ) {
         if (*it > sorted[0]) {
-            return *it + sorted[0];
+            return *it;
         }
     }
     return -1; 
