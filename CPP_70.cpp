@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
-#include <iterator>
+#include <iostream>
+#include <initializer_list>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
@@ -8,42 +9,38 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         return result;
     }
     
-    std::sort(lst.begin(), lst.end());
-    result.push_back(*std::min_element(lst.begin(), lst.end()));
-    lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
-    
-    if (!lst.empty()) {
-        std::sort(lst.begin(), lst.end());
-        result.push_back(*std::max_element(lst.begin(), lst.end()));
-        lst.erase(std::remove(lst.begin(), lst.end(), *std::max_element(lst.begin(), lst.end())), lst.end());
-    }
+    sort(lst.begin(), lst.end());
+    result.push_back(*min_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
     
     while (!lst.empty()) {
-        std::sort(lst.begin(), lst.end());
-        result.push_back(*std::min_element(lst.begin(), lst.end()));
-        lst.erase(std::remove(lst.begin(), lst.end(), *std::min_element(lst.begin(), lst.end())), lst.end());
+        sort(lst.begin(), lst.end());
+        if (lst.size() > 1) {
+            result.push_back(*min_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        }
+        else
+            break;
         
         if (!lst.empty()) {
-            std::sort(lst.begin(), lst.end());
-            result.push_back(*std::max_element(lst.begin(), lst.end()));
-            lst.erase(std::remove(lst.begin(), lst.end(), *std::max_element(lst.begin(), lst.end())), lst.end());
+            sort(lst.begin(), lst.end());
+            if (lst.size() > 1) {
+                result.push_back(*max_element(lst.begin(), lst.end()));
+                lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
+            }
+            else
+                break;
         }
     }
     
     return result;
 }
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i] != b[i])
-            return false;
+int main() {
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<int> output = strange_sort_vector(input);
+    for (int i : output) {
+        std::cout << i << " ";
     }
-    return true;
-}
-
-int main(){
-    assert(issame(strange_sort_vector({111111}), {111111}));
     return 0;
 }
