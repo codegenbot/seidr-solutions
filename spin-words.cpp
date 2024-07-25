@@ -1,31 +1,37 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-
+std::string spinWords(std::string str) {
+    std::string result = "";
+    int length = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
+            if (length >= 5) {
+                for (int j = i - 1; j >= i - length - 1; j--) {
+                    result += str[j];
                 }
             } else {
-                result += word;
+                result += str.substr(i - length, 1);
             }
-            word = "";
+            length = 0;
         } else {
-            word += str[i];
+            length++;
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
+    if (length >= 5) {
+        for (int i = str.length() - 1; i >= str.length() - length - 1; i--) {
+            result += str[i];
         }
     } else {
-        result += word;
+        result += str;
     }
-
     return result;
+}
+
+int main() {
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << spinWords(s) << std::endl;
+    }
+    return 0;
 }
