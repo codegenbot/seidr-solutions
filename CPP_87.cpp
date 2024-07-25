@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,11 +19,11 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
             for (int j = lst[i].size() - 1; j >= 0; j--) {
-                result.push_back({vector<int>{i, j}});
+                result.push_back({{i, j}}); // Corrected this line
             }
         } else {
             for (int j = 0; j < lst[i].size(); j++) {
-                result.push_back({vector<int>{i, j}});
+                result.push_back({{i, j}});
             }
         }
     }
@@ -32,6 +31,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 }
 
 int main() {
-    assert(issame(get_row({}, {1}, {1, 2, 3}), {{2, 2}}));
+    assert(issame(get_row({},{1},{1,2,3}),{{2,2}}));
     return 0;
 }
