@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
