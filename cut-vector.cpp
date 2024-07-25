@@ -46,11 +46,11 @@ int main() {
     cout << '\n'; 
 
     if (cutIndex < n-1) { 
-        for (int i = cutIndex + 1; i < n; i++) {
+        for (int i = cutIndex + 1; i < n; i++) { 
             cout << nums[i] << ' '; 
         } 
         cout << '\n'; 
-    }
+    } 
 
     return 0;
 }
