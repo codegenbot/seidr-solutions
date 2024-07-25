@@ -10,7 +10,7 @@ def match_parens(lst):
                     continue
                 else:
                     return "No"
-    if len(stack) == 0:
+    if not bool(stack):
         return "Yes"
     else:
         return "No"
