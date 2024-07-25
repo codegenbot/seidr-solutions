@@ -1,5 +1,6 @@
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
-    assert max(xs, key=abs) != 0
-    a, b = xs[0], xs[1]
-    return -a / b
+    n = len(xs) - 1
+    a, b = xs[0], max(xs[1:])
+    if n % 2 == 0 and b != 0:
+        return -a / b
+    return None
