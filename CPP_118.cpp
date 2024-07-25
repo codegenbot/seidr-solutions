@@ -2,19 +2,19 @@
 #include <string>
 #include <cctype>
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int left = 0;
     while (left < word.length() && !isvowel(word[left])) {
         left++;
     }
     if (left == word.length()) return "";
-    
+
     int right = word.length();
     while (right > 0 && !isvowel(word[right - 1])) {
         right--;
     }
     if (right == 0) return "";
-    
+
     for (int i = left; i < right; i++) {
         if (isvowel(word[i])) {
             return word.substr(i, 1);
