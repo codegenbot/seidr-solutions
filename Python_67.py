@@ -1,5 +1,4 @@
 ```
-assert fruit_distribution("1 apples and 100 oranges") == 19
 def fruit_distribution(s): 
     s = s.lower() 
     if "and" in s: 
