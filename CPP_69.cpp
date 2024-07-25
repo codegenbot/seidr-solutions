@@ -1,5 +1,4 @@
-```
-int search(vector<int> lst) {
+int search(vector<int> lst){
     map<int, int> freqMap;
     for (auto num : lst) {
         if (!freqMap.count(num)) {
