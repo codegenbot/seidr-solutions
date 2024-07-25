@@ -1,28 +1,28 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <string>
 
 using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string temp;
-    
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            numVec.push_back(temp);
-            temp = "";
+    vector<string> nums;
+    string num;
+    for (char c : numbers) {
+        if (c == ' ') {
+            nums.push_back(num);
+            num = "";
         } else {
-            temp += numbers[i];
+            num += c;
         }
     }
-    numVec.push_back(temp);
+    nums.push_back(num);
 
-    sort(numVec.begin(), numVec.end());
-    
-    string result;
-    for (string s : numVec) {
-        result += s + " ";
+    sort(nums.begin(), nums.end());
+
+    string result = "";
+    for (string n : nums) {
+        result += n + " ";
     }
-    
-    return result.substr(0, result.length() - 1);
+
+    return result;
 }
