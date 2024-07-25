@@ -1,18 +1,19 @@
 #include <vector>
-using namespace std;
 
-int luhn(vector<int> numbers) {
+int luhn(std::vector<int>& digits) {
     int sum = 0;
-    for(int i = 0; i < numbers.size(); i++) {
-        if(i % 2 == 1) {
-            int temp = numbers[i] * 2;
-            if(temp > 9) {
-                temp -= 9;
+    bool doubleNext = false;
+
+    for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+        if (doubleNext) {
+            *it *= 2;
+            if (*it > 9) {
+                *it -= 9;
             }
-            sum += temp;
-        } else {
-            sum += numbers[i];
         }
+        sum += *it;
+        doubleNext = !doubleNext;
     }
+
     return sum;
 }
