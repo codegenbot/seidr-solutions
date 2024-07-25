@@ -1,15 +1,19 @@
-int Strongest_Extension(string class_name, vector<string> extensions){
-    int strongest = 0;
+string Strongest_Extension(string class_name, vector<string> extensions){
+    int strongest = -1;
     string strongest_extension;
-
-    for (string extension : extensions) {
-        int cap = count_if(extension.begin(), extension.end(), ::isupper);
-        int sm = extension.size() - cap;
-        if ((cap - sm) > strongest) {
-            strongest = cap - sm;
+    for(auto extension : extensions){
+        int cap = 0, sm = 0;
+        for(int i=0; i<extension.size(); i++){
+            if(isupper(extension[i]))
+                cap++;
+            else
+                sm++;
+        }
+        int strength = cap-sm;
+        if(strength > strongest || (strength == strongest && extension < strongest_extension)){
+            strongest = strength;
             strongest_extension = extension;
         }
     }
-
-    return strongest_extension + "." + class_name;
+    return class_name + "." + strongest_extension;
 }
