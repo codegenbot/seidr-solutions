@@ -1,1 +1,3 @@
-user_input = list(map(int, input().strip().split()))
+import sys
+
+user_input = list(map(int, sys.stdin.readline().strip().split()))
