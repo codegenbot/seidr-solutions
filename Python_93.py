@@ -6,11 +6,8 @@ def encode(message):
         elif char.isalnum():
             if char.isdigit():  
                 result += str((int(char) + 3) % 10)  
-            else:
-                if char.isupper():
-                    result += chr(((ord(char) - ord('A')) + 25) % 26 + ord('A'))
-                else:
-                    result += chr(((ord(char) - ord('a')) + 3) % 26 + ord('a'))
+            elif char.isalpha():
+                result += chr((ord(char.upper()) - ord('A') + 3) % 26 + ord('A')) if char.isupper() else chr((ord(char.lower()) - ord('a') + 3) % 26 + ord('a'))
         else:
             result += char
     return result
