@@ -5,10 +5,6 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> numerical_letter_grade(vector<float> grades);
 
-int main() {
-    // main function code here
-}
-
 bool issame(vector<string> a, vector<string> b){
     // your comparison logic here
 }
