@@ -16,7 +16,7 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     }
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
-    return { result, (result == result_reverse) ? "True" : "False" };
+    return { result, result == result_reverse ? "True" : "False" };
 }
 
 int main() {
