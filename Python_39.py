@@ -21,8 +21,9 @@ def prime_fib(n):
     num = 1
     while count < n:
         num += 1
-        if is_prime(num) and num == fibonacci(count):
-            count += 1
+        if is_prime(num):
+            if num == fibonacci(count):
+                count += 1
     return num
 
 n = int(input("Enter the value of n: "))
