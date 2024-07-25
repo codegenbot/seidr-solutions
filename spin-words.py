@@ -1,5 +1,10 @@
-import re
-
-def spin_words(s):
-    words = re.split('(?<=[^A-Za-z])|(?=[^A-Za-z])', s)
-    return ' '.join(word[::-1] if len(word.strip()) >= 5 else word for word in words)
+```
+def spin_words(sentence):
+    words = sentence.split()
+    result = []
+    for word in words:
+        if len(word) >= 5:
+            result.append(word[::-1])
+        else:
+            result.append(" ".join(word))
+    return " ".join(result)
