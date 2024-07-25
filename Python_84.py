@@ -1,7 +1,16 @@
 def solve(N=None):
+    total = 0
     while True:
         if N is None:
-            N = int(input("Enter an integer (0 to stop): "))
-        if N < 0:
-            break
-        print("0b" + bin(N)[2:])
+            try:
+                N = int(input("Enter an integer (0 or less to stop): "))
+                if N <= 0: 
+                    break
+                total += N
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
+        elif isinstance(N, int):
+            if N <= 0:
+                return total
+            total += N
+    return str(bin(total)[2:])
