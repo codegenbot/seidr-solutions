@@ -11,10 +11,14 @@ if __name__ == "__main__":
                 break; 
         except ValueError:
             print("Error! Please enter a number between 1 and 9.")
-    
-    for i in range(num_strings):
-        s = input(f"Enter string {i+1}: ")
+    if num_strings < 1 or num_strings > 9:
+        print("Error! Please enter a number between 1 and 9.")
+    else: 
+        strings = []
         
-    strings = [s for _ in range(num_strings)]
-    result = concatenate(strings)
-    print(result)
+        for i in range(num_strings):
+            s = input(f"Enter string {i+1}: ")
+            strings.append(s)
+        
+        result = concatenate(strings)
+        print(result)
