@@ -4,15 +4,25 @@
 class Solution {
 public:
     static std::vector<int> generate_integers(int start, int end) {
-        // Your implementation here
+        std::vector<int> result;
+        for (int i = start; i <= end; ++i) {
+            result.push_back(i);
+        }
+        return result;
     }
-    
+
     static std::vector<int> filter_even_numbers(const std::vector<int>& numbers) {
-        // Your implementation here
+        std::vector<int> result;
+        for (int num : numbers) {
+            if (num % 2 == 0) {
+                result.push_back(num);
+            }
+        }
+        return result;
     }
-    
+
     static bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-        // Your implementation here
+        return a == b;
     }
 };
 
