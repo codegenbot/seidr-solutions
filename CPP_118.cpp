@@ -1,18 +1,32 @@
+#include <iostream>
 #include <string>
+#include <cctype>
 
-string get_closest_vowel(string word){
-    int n = word.size();
-    for(int i=n-1; i>0; --i){
-        if(!isalpha(word[i])) continue;
-        if(isvowel(tolower(word[i]))){
-            return string(1, tolower(word[i]));
-        }
-        while(i > 0 && !isalpha(word[i-1])){
-            i--;
-        }
-        if(isvowel(tolower(word[i-1]))){
-            return string(1, tolower(word[i-1]));
+using namespace std;
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+std::string get_closest_vowel(string word) {
+    int left = 0, right = word.size() - 1;
+    while (left < right) {
+        if (!isvowel(word[left])) {
+            left++;
+        } else if (!isvowel(word[right])) {
+            right--;
+        } else {
+            return word.substr(left + 1, right - left - 1);
         }
     }
     return "";
+}
+
+int main() {
+    std::string word;
+    cout << "Enter a word: ";
+    cin >> word;
+    cout << "The closest vowel to the first non-vowel character is: " << get_closest_vowel(word) << endl;
+    return 0;
 }
