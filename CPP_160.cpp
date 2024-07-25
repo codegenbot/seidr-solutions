@@ -1,34 +1,27 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cmath>
 
-int do_algebra(vector<string> operators, vector<int> operand) {
-    int result = 0;
-    string expression;
-
+int do_algebra(vector<string> operators, vector<int> operands) {
+    int result = operands[0];
     for (int i = 0; i < operators.size(); i++) {
-        if (i == 0) {
-            expression += to_string(operand[i]);
-        } else {
-            expression += " " + operators[i] + " ";
-            expression += to_string(operand[i]);
+        if (operators[i] == "+") {
+            result += operands[i + 1];
+        } else if (operators[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operators[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operators[i] == "//") {
+            result = result / operands[i + 1];
+        } else if (operators[i] == "**") {
+            result = pow(result, operands[i + 1]);
         }
     }
+    return result;
+}
 
-    int temp = operand[0];
-    for (int i = 1; i < operand.size(); i++) {
-        if (operators[i-1] == "+") {
-            temp += operand[i];
-        } else if (operators[i-1] == "-") {
-            temp -= operand[i];
-        } else if (operators[i-1] == "*") {
-            temp *= operand[i];
-        } else if (operators[i-1] == "//") {
-            temp /= operand[i];
-        } else if (operators[i-1] == "**") {
-            temp = pow(temp, operand[i]);
-        }
-    }
-
-    return temp;
+int main() {
+    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
+    // Your code to test the function goes here
 }
