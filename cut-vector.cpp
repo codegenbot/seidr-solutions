@@ -45,7 +45,7 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex + 1 < n) { 
+    if (cutIndex < n-1) { 
         for (int i = cutIndex + 1; i < n; i++) { 
             cout << nums[i] << ' '; 
         } 
