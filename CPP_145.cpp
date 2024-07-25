@@ -17,3 +17,4 @@ vector<int> order_by_points(vector<int> nums) {
     });
     return nums;
 }
+order_by_points({0, 6, 6, -76, -21, 23, 4});
