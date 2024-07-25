@@ -1,9 +1,14 @@
 int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
-        }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+    if (n == 0) {
+        return true;
     }
-    return false;
+    
+    int min_idx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[min_idx]) {
+            min_idx = i;
+        }
+    }
+    
+    return (min_idx == n - 1 || arr[0] <= arr[n - 1]);
 }
