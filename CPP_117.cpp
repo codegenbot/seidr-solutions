@@ -8,41 +8,40 @@ using namespace std;
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
+    bool in_word = false;
+    
     for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                bool has_n_consonants = false;
-                int consonant_count = 0;
-                for (char ch : word) {
-                    if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u' && ch != ' ') {
-                        consonant_count++;
-                    }
-                }
-                if (consonant_count == n) {
-                    has_n_consonants = true;
-                }
-                if (has_n_consonants) {
-                    result.push_back(word);
-                }
-                word = "";
+        if (!in_word && isalpha(c)) {
+            in_word = true;
+            word += tolower(c);
+        } else if (in_word && !isalpha(c)) {
+            in_word = false;
+            
+            if (word.length() == n) {
+                result.push_back(word);
             }
-        } else {
-            word += c;
+            
+            word = "";
+        } else if (in_word && isalpha(c)) {
+            word += tolower(c);
         }
     }
+    
+    if (word.length() == n) {
+        result.push_back(word);
+    }
+    
     return result;
 }
 
 int main() {
-    string s;
-    int n;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Enter the number of consonants: ";
-    cin >> n;
-    vector<string> result = select_words(s, n);
-    for (string word : result) {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> words = select_words(s, n);
+    
+    for (string word : words) {
         cout << word << endl;
     }
+    
     return 0;
 }
