@@ -1,7 +1,7 @@
 def fix_spaces(text):
     new_text = ""
     prev_was_space = False
-    for char in text:
+    for char in text.replace(" ", "").replace("\t", ""):
         if char == " ":
             if not prev_was_space: 
                 new_text += "_"
