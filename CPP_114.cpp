@@ -19,9 +19,7 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    if (minSubArraySum({1, -1}) != -1) {
-        std::cerr << "Error: Expected result is -1 but got " << minSubArraySum({1, -1}) << std::endl;
-        return 1;
-    }
+    assert(minSubArraySum({1, -1}) == -1);
+    std::cout << "Error: The minimum subarray sum must be at least 1." << std::endl;
     return 0;
 }
