@@ -1,4 +1,3 @@
-```
 def process_numbers():
     numbers_str = input("Enter a string of numbers (e.g., 1-2.3 4 5-6): ")
     numbers = []
@@ -21,8 +20,6 @@ def process_numbers():
                     numbers.extend([round(i, 1) for i in [float(j) for j in (str(int(start_num)), str(int(end_num)),)]])
                 except ValueError:
                     print(f"Program did not receive expected input: {num}")
-    if len(numbers) > 0 and start_num is None and end_num is None:
-        numbers.sort()
     print(numbers)
 
 process_numbers()
