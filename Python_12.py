@@ -1,4 +1,3 @@
-```
 from typing import List, Optional
 
 
@@ -22,8 +21,9 @@ def main():
             else:
                 print("Please enter a non-empty string. Try again.")
     result = longest(strings)
-    print("The longest strings are:", result)
-
-
-if __name__ == "__main__":
-    main()
+    if result is not None:
+        print("The longest strings are:")
+        for s in result:
+            print(s)
+    else:
+        print("No strings were entered.")

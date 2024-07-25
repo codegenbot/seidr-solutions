@@ -1,5 +1,4 @@
-```
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_closest_elements(numbers):
     for num in numbers:
         if not isinstance(num, (int, float)):
             raise ValueError("Input must be a list of numbers")
