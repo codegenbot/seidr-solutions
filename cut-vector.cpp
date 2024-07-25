@@ -2,7 +2,6 @@
 #include <climits>
 #include <vector>
 #include <sstream>
-#include <algorithm>
 
 using namespace std;
 
@@ -16,7 +15,6 @@ int main() {
     int num;
     while (iss >> num) {
         nums.push_back(num);
-        iss.ignore();
     }
     
     int n = nums.size();
@@ -27,7 +25,7 @@ int main() {
     }
     
     int prefixSum = 0;
-    int minDiff = INT_MAX/2; 
+    int minDiff = INT_MAX; 
     int cutIndex = -1;
     
     for (int i = 0; i < n; i++) { 
@@ -46,12 +44,10 @@ int main() {
     } 
     cout << '\n'; 
 
-    if (cutIndex < n - 1) { 
-        for (int i = cutIndex + 1; i <= n - 1; i++) { 
-            cout << nums[i] << ' '; 
-        } 
-        cout << '\n'; 
+    for (int i = cutIndex + 1; i < n; i++) { 
+        cout << nums[i] << ' '; 
     } 
+    cout << '\n'; 
 
     return 0;
 }
