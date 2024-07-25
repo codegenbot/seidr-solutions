@@ -25,18 +25,10 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
         } else if (c == ')') {
             open_count--;
             current_group += c;
-            if (open_count == 0) {
+            if (open_count == 0 && !current_group.empty()) { 
                 result.push_back(current_group);
                 current_group = "";
             }
-        } else { 
-            while(open_count > 0) {
-                current_group += c;
-                if(c == '(') open_count++;
-                else if (c == ')') open_count--;
-            }
-            result.push_back(current_group);
-            current_group = "";
         }
     }
 
