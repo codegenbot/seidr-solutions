@@ -1,4 +1,5 @@
-bool is_palindrome(string text) {
+#include <string>
+bool is_palindrome(std::string text) {
     int i = 0, j = text.length() - 1;
     while (i < j) {
         if (text[i] != text[j])
