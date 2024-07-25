@@ -2,7 +2,9 @@
 #include <cassert>
 
 string string_to_md5(const string& text) {
-    assert(!text.empty());
+    if (text.empty()) {
+        return "None";
+    }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5((unsigned char*)text.c_str(), text.length(), digest);
