@@ -1,6 +1,6 @@
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool issame(string s1, string s2) {
+bool issame(const string& s1, const string& s2) {
     return s1 == s2;
 }
 
