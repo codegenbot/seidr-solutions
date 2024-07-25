@@ -11,6 +11,6 @@ vector<int> maximum(const vector<int>& arr, int k) {
 }
 
 int main() {
-    assert(maximum(vector<int>{1, 2, 3, -23, 243, -400, 0}, 1) == vector<int>{243});
+    assert(maximum(vector<int>{1, 2, 3, -23, 243, -400, 0}, 3) == vector<int>{243, 3, 2});
     return 0;
 }
