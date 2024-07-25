@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 int smallest_change(const vector<int>& arr) {
     int n = arr.size();
     int changes = 0;
@@ -7,4 +10,3 @@ int smallest_change(const vector<int>& arr) {
         }
     }
     return changes;
-}
