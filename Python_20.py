@@ -1,5 +1,2 @@
-print("Enter three numbers to calculate their sum")
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-c = int(input("Enter third number: "))
+a, b, c = map(int, input().split())
 print(a + b + c)
