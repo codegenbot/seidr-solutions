@@ -1,9 +1,7 @@
 def decode_cyclic():
-    while True:
-        s = input("Enter a cyclically encoded string: ")
-        if len(s) % 3 == 0:
-            break
-        print("Invalid input! Please enter a string that can be divided evenly into groups of 3.")
+    s = input("Enter the cyclic string: ")
+    if len(s) % 3 != 0:
+        return s
     result = ""
     i = 0
     while i < len(s):
@@ -15,3 +13,5 @@ def decode_cyclic():
         result += chr(int(f"{group[0]}{group[1]}{int('0' + group[-1]) - int(group[-1])}"), 3)  
         i += len(group)
     return result
+
+print(decode_cyclic())
