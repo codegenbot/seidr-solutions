@@ -39,13 +39,22 @@ int main() {
                 std::cout << "B  ";
                 break;
             case '-':
-                if (grade == '-')
+                if(grade == '-')
                     std::cout << "A- ";
-                else
-                    std::cout << "C- ";
+                else 
+                    std::cout << "-  ";
                 break;
             case '+':
-                std::cout << "D+ ";
+                if(grade == '+')
+                    std::cout << "B+ ";
+                else 
+                    std::cout << "+  ";
+                break;
+            case 'C':
+                std::cout << "C  ";
+                break;
+            case 'D':
+                std::cout << "D  ";
                 break;
             default:
                 std::cout << "F  ";
