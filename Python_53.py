@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```python
+```
 def calculate_sum():
     while True:
         try:
