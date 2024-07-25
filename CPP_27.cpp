@@ -1,8 +1,7 @@
 int main(){
     string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    string result = flip_case(str);
-    cout << "The flipped case is: " << result << endl;
+    cout<<"Enter a string: ";
+    cin>>str;
+    cout << "String after flipping case: " << flip_case(str) << endl;
     return 0;
 }
