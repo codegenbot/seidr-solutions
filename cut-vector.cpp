@@ -2,6 +2,7 @@
 #include <climits>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,8 +14,12 @@ int main() {
     istringstream iss(line);
     
     int num;
+    char comma;
     while (iss >> num) {
         nums.push_back(num);
+        if (!(iss >> comma)) {
+            break;
+        }
     }
     
     int n = nums.size();
@@ -25,7 +30,7 @@ int main() {
     }
     
     int prefixSum = 0;
-    int minDiff = INT_MAX; 
+    int minDiff = INT_MAX/2; 
     int cutIndex = -1;
     
     for (int i = 0; i < n; i++) { 
@@ -40,14 +45,22 @@ int main() {
     } 
 
     for (int i = 0; i <= cutIndex; i++) { 
-        cout << nums[i] << ' '; 
+        cout << nums[i];
+        if (i < cutIndex) {
+            cout << ' ';
+        }
     } 
     cout << '\n'; 
 
-    for (int i = cutIndex + 1; i < n; i++) { 
-        cout << nums[i] << ' '; 
+    if (cutIndex < n - 1) { 
+        for (int i = cutIndex + 1; i <= n - 1; i++) { 
+            cout << nums[i];
+            if (i < n - 1) {
+                cout << ' ';
+            }
+        } 
+        cout << '\n'; 
     } 
-    cout << '\n'; 
 
     return 0;
 }
