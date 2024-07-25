@@ -1,3 +1,3 @@
 ```
 def solve(N): 
-    return "0b" + bin(N)[2:]
+    return "0b" + bin(N)
