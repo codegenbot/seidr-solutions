@@ -1,16 +1,17 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
 
-bool isSame(vector<string>, vector<string>);
-
+bool issame(vector<string>, vector<string>);
 vector<string> separate_paren_groups(string);
 
-int main() {
-    if (separate_paren_groups("( ) (( )) (( )( ")) != expected_result) {
-        cout << "Error: Separate Paren Groups didn't work correctly." << endl;
+bool issame(vector<string> groups1, vector<string> groups2) {
+    if (groups1.size() != groups2.size()) return false;
+    for (int i = 0; i < groups1.size(); i++) {
+        if (groups1[i] != groups2[i]) return false;
     }
-    return 0;
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -33,4 +34,9 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
 }
