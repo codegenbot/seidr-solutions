@@ -1,8 +1,9 @@
-Here's the corrected code:
+Here is the modified code:
 
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
