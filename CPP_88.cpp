@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool sameVector(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -23,6 +24,6 @@ std::vector<int> sortArray(std::vector<int> array) {
 }
 
 int main() {
-    assert(sameVector(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(isSame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
