@@ -1,9 +1,9 @@
-int main(int argc, char* argv[]) {
-    // Your input handling logic here
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for (auto &i : lst) cin >> i;
+vector<int>::iterator it;
 
-    return 0;
-}
+if(lst.size() < 2) return NULL; 
+
+it = min_element(lst.begin(), lst.end());
+
+it++;
+
+return *it;
