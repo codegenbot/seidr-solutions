@@ -8,9 +8,7 @@ int main() {
     int n;
     while (!cin.eof()) {
         cin >> n;
-        if (!cin.eof()) {
-            nums.push_back(n);
-        }
+        nums.push_back(n);
     }
     
     int sum = 0, halfSum = 0;
