@@ -1,26 +1,35 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
+bool areEqual(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
 
-vector<int> intersperse(vector<int> numbers, int delimiter){
-    vector<int> result;
-    for(size_t i = 0; i < numbers.size(); ++i){
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
+    std::vector<int> result;
+    for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
-        if(i != numbers.size() - 1){
+        if(i < numbers.size() - 1){
             result.push_back(delimiter);
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    int delimiter = 0;
+    std::vector<int> output = intersperse(input, delimiter);
+    for(int num : output){
+        std::cout << num << " ";
+    }
     return 0;
 }
