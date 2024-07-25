@@ -16,14 +16,15 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 def main():
     while True:
+        numbers_str = input("Enter a list of integers separated by space: ")
         try:
-            numbers_str = input("Enter a list of integers separated by space: ")
             numbers = [
                 int(num)
                 for num in numbers_str.split()
                 if num.replace("-", "").replace(".", "").isdigit()
             ]
-            break
+            if numbers:
+                break
         except ValueError:
             print("Invalid input. Please enter a list of integers separated by space.")
     result = sum_product(numbers)
