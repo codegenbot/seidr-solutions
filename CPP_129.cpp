@@ -1,44 +1,38 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<pair<int, pair<int, int>>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    vector<int> result;
-    
-    for (int i = 0; i < k; ++i) {
-        int minVal = INT_MAX;
-        int minRow, minCol;
-        
-        for (int j = 0; j < grid.size(); ++j) {
-            for (int col = 0; col < grid[j].size(); ++col) {
-                if (!result.empty() && result.back() == grid[j][col]) continue;
-                
-                int val = grid[j][col];
-                bool isMin = true;
-                
-                for (const auto& dir : directions) {
-                    int newRow = j + dir.first, newCol = col + dir.second;
-                    
-                    if (newRow >= 0 && newRow < grid.size() && newCol >= 0 && newCol < grid[0].size()) {
-                        isMin &= val <= grid[newRow][newCol];
-                    } else {
-                        isMin = false;
-                        break;
-                    }
-                }
-                
-                if (isMin && val < minVal) {
-                    minVal = val;
-                    minRow = j;
-                    minCol = col;
-                }
-            }
+    int n = grid.size();
+    vector<pair<int, pair<int, int>>> edges;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i > 0) edges.push_back({grid[i][j], {i-1, j}});
+            if (i < n - 1) edges.push_back({grid[i][j], {i+1, j}});
+            if (j > 0) edges.push_back({grid[i][j], {i, j-1}});
+            if (j < n - 1) edges.push_back({grid[i][j], {i, j+1}});
         }
-        
-        result.push_back(minVal);
     }
-    
-    return result;
+
+    sort(edges.begin(), edges.end());
+    vector<int> path;
+    for (int i = 0; i < k; i++) {
+        int val = grid[edges[i].second.first][edges[i].second.second];
+        path.push_back(val);
+    }
+    return path;
+}
+
+int main() {
+    // Example usage
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int val : result) {
+        cout << val << " ";
+    }
+    cout << endl;
+    return 0;
 }
