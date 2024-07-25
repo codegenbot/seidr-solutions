@@ -3,7 +3,7 @@
 #include <cassert>
 #include <functional>
 
-bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i){
         if(a[i] != b[i]) return false;
@@ -19,3 +19,5 @@ std::vector<int> sort_array(std::vector<int> array){
         std::sort(array.begin(), array.end());
     return array;
 }
+
+assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
