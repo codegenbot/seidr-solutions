@@ -12,21 +12,21 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers) {
-    map<int, string> sorted_numbers;
-    string result = "";
-
-    size_t start = 0, end = 0;
-    while ((end = numbers.find(" ", start)) != string::npos) {
-        string num_str = numbers.substr(start, end - start);
-        sorted_numbers[number_map[num_str]] = num_str;
-        start = end + 1;
+    map<int, string> reverse_map;
+    string result;
+    string temp;
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (numbers[i] == ' ') {
+            reverse_map[number_map[temp]] = temp;
+            temp = "";
+        } else {
+            temp += numbers[i];
+        }
     }
-    sorted_numbers[number_map[numbers.substr(start))] = numbers.substr(start);
-
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
+    reverse_map[number_map[temp]] = temp;
+    for (auto const& [key, val] : reverse_map) {
+        result += val + " ";
     }
-
     result.pop_back(); // Remove the extra space at the end
     return result;
 }
