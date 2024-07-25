@@ -31,3 +31,4 @@ int do_algebra(vector<string> operators, vector<int> operand) {
     }
 
     return temp;
+}
