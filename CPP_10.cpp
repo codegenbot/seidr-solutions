@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <iostream>
 using namespace std;
@@ -8,7 +8,7 @@ string make_palindrome(string input) {
     for(int i=input.length()-1; i>=0; i--) {
         reversed += input[i];
     }
-    return input + string(input);
+    return input + std::string(reversed);
 }
 
 int main() {
