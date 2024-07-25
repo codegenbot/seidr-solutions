@@ -2,7 +2,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-bool sort_third(const vector<int>& l) {
+void sort_third(vector<int>& l) {
     vector<int> sorted_indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
@@ -18,5 +18,5 @@ bool sort_third(const vector<int>& l) {
         result[sorted_indices[i]] = l[sorted_indices[i]];
     }
 
-    return result;
+    l = result;
 }
