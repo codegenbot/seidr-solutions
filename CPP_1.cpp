@@ -4,9 +4,12 @@
 
 bool isSame(vector<string>, vector<string>);
 
+vector<string> separate_paren_groups(string);
+
 int main() {
-    if (!isSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}))
-        std::cout << "Error: Invalid Parenthesis Groups." << std::endl;
+    if (separate_paren_groups("( ) (( )) (( )( ")) != expected_result) {
+        cout << "Error: Separate Paren Groups didn't work correctly." << endl;
+    }
     return 0;
 }
 
