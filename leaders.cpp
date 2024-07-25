@@ -2,19 +2,19 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> res;
     int n = arr.size();
+    vector<int> result;
     
-    // The rightmost element is always a leader.
-    res.push_back(arr.back());
+    if (n == 0) return result;
     
-    for(int i = n - 2; i >= 0; i--) {
-        if(arr[i] >= arr.back()) {
-            res.push_back(arr[i]);
-        }
+    result.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= arr[i+1])
+            result.push_back(arr[i]);
     }
     
-    reverse(res.begin(), res.end());
+    reverse(result.begin(), result.end());
     
-    return res;
+    return result;
 }
