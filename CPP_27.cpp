@@ -1,20 +1,16 @@
-Here is the completed code:
-
-```cpp
-#include <string>
-
+#include<string>
 using namespace std;
 
-string flip_case(string str) {
+string flip_case(string str){
     string result = "";
-    for (char c : str) {
-        if (islower(c)) {
+    for(int i=0; i<str.length(); i++){
+        char c = str[i];
+        if(islower(c))
             result += toupper(c);
-        } else if (isupper(c)) {
+        else if(isupper(c))
             result += tolower(c);
-        } else {
+        else
             result += c;
-        }
     }
     return result;
 }
