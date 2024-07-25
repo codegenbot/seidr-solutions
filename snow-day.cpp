@@ -11,7 +11,7 @@ int main() {
         snow -= snow * melt;
     }
 
-    cout << snow << "\n";
+    cout << snow << endl;
 
     return 0;
 }
