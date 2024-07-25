@@ -19,4 +19,5 @@ def prime_fib(n: int):
         if is_prime(fibonacci(i)):
             count += 1
         i += 1
+
     return fibonacci(i - 1)
