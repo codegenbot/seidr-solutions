@@ -10,11 +10,12 @@ if __name__ == "__main__":
     except ValueError:
         print("Invalid input. Please enter space-separated strings.")
         exit()
+    if not input_list:  # Check if the list is empty
+        print("Error: List is empty.")
+        exit()
     while True:
         prefix = input("Enter prefix: ").strip().lower()
         if len(prefix) > 0:
             break
-    if prefix not in [s for s in input_list]:
-        print("Error: Prefix is not present in the list. Please enter a valid prefix.")
-        prefix = input("Enter prefix: ").strip().lower()
+    print("Please enter a valid prefix" if prefix not in input_list else "") 
     print(filter_by_prefix(input_list, prefix))
