@@ -3,7 +3,7 @@
 #include <string>
 #include <initializer_list>
 
-bool issame(const float &a, const vector<float> &b) {
+bool issame(const float &a, const std::vector<float> &b) {
     for (float grade : b) {
         if (grade == a)
             return true;
@@ -11,8 +11,8 @@ bool issame(const float &a, const vector<float> &b) {
     return false;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letterGrades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letterGrades;
     for (float grade : grades) {
         if (grade >= 4.0)
             letterGrades.push_back("A+");
