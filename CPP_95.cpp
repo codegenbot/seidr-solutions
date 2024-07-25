@@ -1,23 +1,30 @@
 #include <iostream>
+#include <string>
 #include <unordered_map>
-#include <cctype>
+#include <cassert>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
-    bool is_lower = true, is_upper = true;
-    for(auto const& pair : dict) {
+
+    bool all_lower = true;
+    bool all_upper = true;
+
+    for(const auto& pair : dict) {
         for(char c : pair.first) {
-            if(std::islower(c)) {
-                is_upper = false;
-            } else if(std::isupper(c)) {
-                is_lower = false;
+            if(islower(c)) {
+                all_upper = false;
+            } else if(isupper(c)) {
+                all_lower = false;
             }
         }
     }
-    return is_lower || is_upper;
+
+    return all_lower || all_upper;
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    assert(check_dict_case({{"abc", 1}, {"DEF", 2}}) == false);
+    assert(check_dict_case({{"abc", 1}, {"def", 2}}) == true);
+
     return 0;
 }
