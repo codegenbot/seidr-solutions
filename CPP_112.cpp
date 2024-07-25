@@ -4,7 +4,7 @@ string result = "";
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    string resultReversed = result;
+    reverse(resultReversed.begin(), resultReversed.end());
+    return {result, result == resultReversed ? "True" : "False"};
 }
