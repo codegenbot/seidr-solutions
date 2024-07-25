@@ -1,9 +1,11 @@
-if (lst.size() < 2) {
-    return -1;
-}
+Here is the solution:
 
-vector<int>::iterator it = unique(lst.begin(), lst.end());
-if (it == lst.begin()) {
-    return -1;
+int next_smallest(vector<int> lst){
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    
+    if(v.size() < 2 || (v[0] == v[1]))
+        return -1;
+    else
+        return v[1];
 }
-return *prev(it);
