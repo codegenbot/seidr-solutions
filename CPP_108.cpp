@@ -6,30 +6,29 @@ int count_nums(vector<int> n) {
         if (num >= 0) {
             int sum = 0;
             bool negative = false;
-            while (num > 0) {
-                int digit = num % 10;
-                if (!negative && digit < 5) {
-                    sum += digit;
-                } else {
-                    sum += (digit - 4);
+            while (num > 0 || (!negative && num < 0)) {
+                int digit = abs(num) % 10;
+                if (num < 0) {
+                    negative = true;
+                    digit *= -1;
                 }
+                sum += digit;
                 num /= 10;
             }
-            if (sum >= 2) count++;
+            if (sum > 0) count++;
         } else {
             int sum = 0;
-            bool negative = true;
-            while (num < 0) {
-                int digit = abs(num) % 10;
-                if (!negative && digit < 5) {
-                    sum += digit;
-                } else {
-                    sum += (digit - 4);
+            bool negative = false;
+            while (abs(num) > 0 || (!negative && abs(num) < 0)) {
+                int digit = abs(abs(num)) % 10;
+                if (abs(num) < 0) {
+                    negative = true;
+                    digit *= -1;
                 }
+                sum += digit;
                 num /= 10;
             }
-            if (sum >= 2) count++;
+            if (sum > 0) count++;
         }
     }
     return count;
-}
