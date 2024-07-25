@@ -1,40 +1,22 @@
-int sumOfDigitsOfLargestPrime(int val) {
-    if(val < 2)
-        return 0;
-    int i=2;
-    while(i*i<=val){
-        if(val%i==0) return 0;
-        i++;
-    }
-    return val;
-}
+Here is the completed code:
 
-int skjkasdkd(vector<int> lst) {
-    int maxPrime = 0;
-    for(int num : lst) {
-        if(num > 1 && isPrime(num)) {
-            maxPrime = num;
-            break;
+int skjkasdkd(vector<int> lst){
+    int max_prime = 0;
+    for(int i=2; i<=1000000; i++){
+        bool is_prime = true;
+        for(int j=2; j*j<=i; j++){
+            if(i%j == 0){
+                is_prime = false;
+                break;
+            }
         }
+        if(is_prime && i > max_prime)
+            max_prime = i;
     }
-
-    if(maxPrime == 0) return 0;
-
     int sum = 0;
-    while(maxPrime > 0) {
-        sum += maxPrime % 10;
-        maxPrime /= 10;
+    while(max_prime > 0){
+        sum += max_prime % 10;
+        max_prime /= 10;
     }
-
     return sum;
-}
-
-bool isPrime(int val) {
-    if(val < 2)
-        return false;
-    for(int i=2; i*i<=val; i++){
-        if(val%i==0)
-            return false;
-    }
-    return true;
 }
