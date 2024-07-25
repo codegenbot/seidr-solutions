@@ -1,4 +1,9 @@
-Here is the Python function that solves the problem:
+Here is the solution to the problem:
 
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split(' ')) if ' ' in s else s.capitalize()
+def camel_case(s):
+    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.replace('-', ' ').split()))
+
+print(camel_case("nospaceordash"))
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
