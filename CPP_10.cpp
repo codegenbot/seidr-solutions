@@ -6,7 +6,7 @@ using namespace std;
 string make_palindrome(string input) {
     string output = input;
     reverse(output.begin(), output.end());
-    return input.replace(' ', '') + output.replace(' ', '');
+    return input.replace(" ", "") + output.replace(" ", "");
 }
 
 int main() {
