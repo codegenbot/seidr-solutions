@@ -1,22 +1,18 @@
-#include <string>
-using namespace std;
-
 bool solveBoolean(string s) {
-    string operation = "";
-    bool result = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&' || s[i] == '|') {
-            if (operation == "and") {
-                result = (result && (s[i] == '&' ? true : false));
-            } else if (operation == "or") {
-                result = (result || (s[i] == '&' ? false : true));
+    stack<char> st;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '&' || s[i] == '|') {
+            while(!st.empty() && (s[i-1] == '&' || s[i-1] == '|')) {
+                st.pop();
             }
-            operation = s[i];
-        } else if (s[i] == 't') {
-            result = true;
-        } else if (s[i] == 'f') {
-            result = false;
         }
+        else if(st.size() >= 2) {
+            char a = st.top(); st.pop();
+            char b = st.top(); st.pop();
+            if(s[i] == '&') st.push((a == 'T' && b == 'T') ? 'T' : 'F');
+            else st.push((a == 'T' || b == 'T') ? 'T' : 'F');
+        }
+        else st.push(s[i]);
     }
-    return result;
+    return st.top() == 'T';
 }
