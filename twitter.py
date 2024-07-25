@@ -1,4 +1,3 @@
-```
 tweet = input("Enter a tweet: ").strip()
 tweet = tweet.replace(" ", "")
 if not tweet:
