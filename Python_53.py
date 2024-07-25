@@ -9,9 +9,8 @@ def calculate_sum():
     
     while True:
         try:
-            y = float(input("Enter second number: "))  
-            return x + y
+            y = int(input("Enter second number: "))
+            print(x + y)
+            return
         except ValueError:
-            print("Invalid input. Please enter a valid integer or decimal.")
-
-calculate_sum()
+            print("Invalid input. Please enter a valid integer.")
