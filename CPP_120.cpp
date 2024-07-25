@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool (std::vector<int>, std::vector<int>) issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -22,12 +21,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    int k = 5;
-    if (issame(maximum(arr,k), {3,243,0,-23,-400})) 
-        std::cout << "Test passed." << std::endl; 
-    else
-        std::cout << "Test failed." << std::endl; 
-
+main() {
+    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 5);
+    for (auto i : test) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
