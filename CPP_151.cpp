@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
 long long double_the_difference(const std::vector<int>& lst) {
     long long sum = 0;
     for (auto num : lst) {
@@ -9,12 +5,12 @@ long long double_the_difference(const std::vector<int>& lst) {
             sum += (long long)num * num;
         }
     }
-    return sum;
+    return sum * 2;
 }
 
 int main() {
     std::vector<int> lst = {1, 2, 3, 4, 5};
     long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == your_expected_output); // Define your_expected_output based on the problem description
+    assert(odd_sum == 35); // Define your_expected_output based on the problem description
     return 0;
 }
