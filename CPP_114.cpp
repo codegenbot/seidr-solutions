@@ -20,9 +20,8 @@ long long minSubArraySum(std::vector<long long> nums) {
 
 int main() {
     if(minSubArraySum({1, -1}) != -1) {
-        std::cout << "Error: The minimum subarray sum is not correct." << std::endl;
-    } else {
-        std::cout << "The code is working correctly." << std::endl;
+        std::cerr << "Error: Expected sum of subarray to be -1, but got " << minSubArraySum({1, -1}) << std::endl;
+        return 1;
     }
     return 0;
 }
