@@ -40,16 +40,19 @@ int main() {
         } 
     } 
 
-    // Adjust the output loop
-    for (int i = 0; i < cutIndex; i++) { // Change condition here
+    for (int i = 0; i <= cutIndex; i++) { 
         cout << nums[i] << ' '; 
     } 
     cout << '\n'; 
 
-    for (int i = cutIndex + 1; i < n; i++) { 
-        cout << nums[i] << ' '; 
+    if (cutIndex + 1 < n) { 
+        for (int i = cutIndex + 1; i < n; i++) { 
+            cout << nums[i] << ' '; 
+        } 
+        cout << '\n'; 
+    } else {
+        cout << "0\n"; 
     }
-    cout << '\n';
 
     return 0;
 }
