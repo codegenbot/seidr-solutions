@@ -1,8 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <climits>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) {
         return result;
     }
@@ -19,4 +22,3 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(minEven);
     result.push_back(minIndex);
     return result;
-}
