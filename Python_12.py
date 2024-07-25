@@ -1,3 +1,4 @@
+```
 def longest_strings():
     input_strs = input("Enter some strings (separated by spaces): ")
     if not input_strs.strip():
@@ -16,3 +17,6 @@ def longest_strings():
                 print(f"'{s}' with {length} characters")
         else:
             print(f"Single string '{input_strs}' with {len(input_strs)} characters.")
+
+if __name__ == "__main__":
+    check(longest_strings())
