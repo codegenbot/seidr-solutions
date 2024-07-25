@@ -1,8 +1,7 @@
 Here is the solution:
 
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+def leaders(input_list):
+    return [x for x in input_list[::-1] if all(x >= y for y in input_list[input_list.index(x) + 1:][::-1])]
 
-# Example usage:
-input_array = list(map(int, input().split()))
-print(leaders(input_array))
+input_list = list(map(int, input().split()))
+print(' '.join(str(i) for i in leaders(input_list)))
