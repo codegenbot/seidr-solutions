@@ -1,5 +1,12 @@
 from typing import List, Any
 
-def filter_integers(values: List[Any]) -> List[int]:
-    filtered_values = [value for value in values if isinstance(value, int)]
-    return filtered_values
+def filter_integers():
+    values = []
+    while True:
+        try:
+            value = int(input("Enter an integer (or 'done' if finished): "))
+            values.append(value)
+        except ValueError:
+            if input("Enter 'done' if finished: ") == 'done':
+                break
+    return [value for value in values if isinstance(value, int)]
