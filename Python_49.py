@@ -7,5 +7,10 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-modp = int(input("Enter a number to check if it's prime: "))
-print(is_prime(modp))
+num = None
+while num is None:
+    try:
+        num = int(input("Enter a number: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+print(is_prime(num))
