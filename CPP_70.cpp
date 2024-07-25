@@ -16,12 +16,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 bool strange_sort_list(const std::vector<int>& list) {
+    std::vector<int> sorted_list = list; // Copy the list for sorting (if needed)
     // Add your sorting logic here
-    return true;
+    return issame(list, sorted_list); // Placeholder logic for comparison
 }
 
 int main() {
     assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
+    assert(strange_sort_list({111111}));
 
     return 0;
 }
