@@ -1,20 +1,19 @@
-string result = "";
-    bool isConsecutive = false;
-    
-    for(char c : text){
-        if(c == ' '){
-            if(isConsecutive){
-                result.pop_back();
-                result += "-";
+string result;
+    int consecutiveSpaces = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
+                result.pop_back(); // remove the last space
+                result.push_back('-'); // add a dash
+                consecutiveSpaces = 1; // reset consecutive spaces count
             } else {
-                result += "_";
+                result.push_back('_'); // add an underscore
             }
-            isConsecutive = true;
         } else {
-            result += c;
-            isConsecutive = false;
+            result.push_back(c); // add the character to the result
+            consecutiveSpaces = 0; // reset consecutive spaces count
         }
     }
-    
     return result;
 }
