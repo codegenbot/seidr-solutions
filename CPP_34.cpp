@@ -1,8 +1,8 @@
 ```cpp
 vector<int> removeDuplicates(vector<int> l){
     sort(l.begin(), l.end());
-    vector<int>::iterator it = unique(l.begin(), l.end());
-    l.erase(it, l.end()); // use unique here
+    auto it = unique(l.begin(), l.end());
+    l.erase(it, l.end());
     return l;
 }
 
