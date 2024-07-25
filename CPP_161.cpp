@@ -1,12 +1,12 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
 
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             c = toupper(c);
-            if (c >= 'A' && c <= 'Z') {
+            if (c >= 'a' && c <= 'z') {
                 c = tolower(c);
             }
         } else {
@@ -16,4 +16,3 @@ std::string solve(std::string s) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
