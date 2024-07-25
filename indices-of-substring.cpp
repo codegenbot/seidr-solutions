@@ -2,26 +2,29 @@
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
-    vector<int> indices;
+    vector<int> result;
     int start = 0;
     while (start < text.size()) {
-        size_t found = text.find(target, start);
-        if (found == string::npos) break;
-        indices.push_back(found);
-        start = found + 1;
+        size_t pos = text.find(target, start);
+        if (pos == string::npos) break;
+        result.push_back(pos);
+        start = pos + 1;
     }
-    return indices;
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    vector<int> indices = findIndices(s, s.substr(0, n));
+    string text;
+    cout << "Enter the text: ";
+    getline(cin, text);
+
+    string target;
+    cout << "Enter the target: ";
+    cin >> target;
+
+    vector<int> indices = findIndices(text, target);
     for (int i : indices) {
-        cout << i << " ";
+        cout << i << endl;
     }
-    cout << endl;
     return 0;
 }
