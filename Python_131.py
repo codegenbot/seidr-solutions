@@ -1,13 +1,16 @@
 ```
-def check():
-    n = int(input("Enter a number: "))
-    print(count_even_digits(n))
-
 def count_even_digits(n):
-    count = 0
+    total = 0
     for digit in str(n):
         if int(digit) % 2 == 0:
-            count += 1
-    return count
+            total += 1
+    return total
+
+def check():
+    while True:
+        n = int(input("Enter a number (or -1 to stop): "))
+        if n == -1:
+            break
+        print(count_even_digits(n))
 
 check()
