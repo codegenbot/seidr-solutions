@@ -1,6 +1,6 @@
 ```
-def solve(N): 
+def solve(N):
     if N <= 0:
         return "Error"
-    else: 
+    else:
         return "0b" + bin(N)[2:]
