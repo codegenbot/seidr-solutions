@@ -3,17 +3,6 @@ def fruit_distribution(s, n):
     parts = s.split()
     count = 0
     for i in range(len(parts)):
-        if "and" not in parts[i]:
-            if (
-                parts[i]
-                .lstrip("0123456789abcdefghijklmnopqrstuvwxyz")
-                .replace("a", "1")
-                .replace("o", "0")
-            ):
-                count += int(
-                    parts[i]
-                    .lstrip("0123456789abcdefghijklmnopqrstuvwxyz")
-                    .replace("a", "1")
-                    .replace("o", "0")
-                )
+        if parts[i].startswith('1'):
+            count += int(parts[i].lstrip('0123456789abcdefghijklmnopqrstuvwxyz'))
     return n - count
