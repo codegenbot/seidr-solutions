@@ -1,6 +1,11 @@
-int open = 0;
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::string match_parens(const std::vector<std::string>& lst) {
+    int open = 0;
     int close = 0;
-    for (string s : lst) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 open++;
@@ -14,4 +19,10 @@ int open = 0;
         }
     }
     return (open == 0 && close <= 1) ? "Yes" : "No";
+}
+
+int main() {
+    std::vector<std::string> lst = {"()", "(())", "())"};
+    std::cout << match_parens(lst) << std::endl;
+    return 0;
 }
