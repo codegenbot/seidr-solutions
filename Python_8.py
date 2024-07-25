@@ -1,1 +1,1 @@
-numbers = list(map(int, input("Enter the numbers separated by spaces and press Enter key: ").split()))
+numbers = list(map(int, input().split()))
