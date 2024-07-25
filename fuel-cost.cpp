@@ -1,28 +1,15 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
-int totalFuelCost(vector<int> distances) {
-    int total = 0;
-    for (int distance : distances) {
-        int newDistance = static_cast<int>(distance / 3);
-        newDistance -= 2;
-        total += newDistance;
+int fuelCost(vector<int> &v) {
+    int sum = 0;
+    for (int i : v) {
+        int temp = i / 3;
+        if (temp > 1)
+            temp--;
+        else
+            temp = 0;
+        sum += temp - 2;
     }
-    return total;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> distances(n);
-    for (int i = 0; i < n; i++) {
-        cin >> distances[i];
-    }
-    
-    cout << totalFuelCost(distances) << endl;
-    
-    return 0;
+    return sum;
 }
