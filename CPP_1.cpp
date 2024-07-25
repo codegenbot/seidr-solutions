@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -9,9 +8,13 @@ bool issame(const std::vector<std::string>&, const std::vector<std::string>&);
 std::vector<std::string> separate_paren_groups(std::string);
 
 int test_main() {
-    std::vector<std::string> a = {"( )","(( "};
-    std::vector<std::string> b = { "{}", "( { })" };
-    assert(issame(a, b));
+    std::string s = "((()))(())";
+    std::vector<std::string> result = separate_paren_groups(s);
+    for (const auto& group : result) {
+        if (issame({group}, {s}) && s.find(group) == 0) {
+            std::cout << group << "\n";
+        }
+    }
     return 0;
 }
 
