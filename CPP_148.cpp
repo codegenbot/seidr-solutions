@@ -4,7 +4,15 @@
 #include <algorithm>
 
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -37,6 +45,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(is_same(bf("Jupiter", "Makemake"), { "Mars", "Saturn", "Uranus" }));
+    assert(is_same(bf("Jupiter", "Makemake"), {}));
     return 0;
 }
