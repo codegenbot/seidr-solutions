@@ -1,11 +1,5 @@
-```
-from typing import List
-
-def rolling_max():
-    numbers = [int(i) for i in input().split()]
-    max_length = len(numbers)
-    result = [max(row) for row in zip(*[numbers])]
-    
+def rolling_max(numbers: List[List[int]]) -> List[int]:
+    max_length = len(numbers[0])
     while True:
         command = input().split()
         if len(command) == 0 or command[0].lower() == 'stop':
@@ -14,8 +8,7 @@ def rolling_max():
         if len(num_input) != max_length:
             print("Invalid input. Please provide the same number of elements in each list.")
             continue
-        numbers.extend(num_input)
-    
-    return result
+        numbers.append(num_input)
 
-print(rolling_max())
+    result = [max(row) for row in zip(*numbers)]
+    return result
