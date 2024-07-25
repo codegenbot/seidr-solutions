@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> maximum(const vector<int>& arr, int k) {
+vector<int> maximum(const vector<int>& arr, unsigned k) {
     sort(arr.begin(), arr.end(), greater<int>());
     return vector<int>(arr.begin(), arr.begin() + k);
 }
