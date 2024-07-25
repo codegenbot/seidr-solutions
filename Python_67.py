@@ -1,4 +1,5 @@
-```
+import re
+
 def fruit_distribution(s, n):
     s = s.replace("apples", "1").replace("oranges", "0")
     parts = [x for x in re.split(r"(\d+|\band\))", s) if x.isdigit() or x == 'and']
