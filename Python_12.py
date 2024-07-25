@@ -1,16 +1,9 @@
-from typing import List, Optional
-
-
-def longest(strings: List[str]) -> Optional[List[str]]:
-    if not strings:
-        return None
-    max_len = len(max(strings, key=len))
-    longest_strs = [s for s in strings if len(s) == max_len]
-    return longest_strs
-
-
-def main():
-    n = int(input("Enter the number of strings: "))
+```
+n = int(input("Enter the number of strings: "))
+if n <= 0:
+    print("Expected a positive integer for the number of strings. Please try again.")
+    result = None
+else:
     strings = []
     for i in range(n):
         while True:
@@ -21,8 +14,9 @@ def main():
             else:
                 print("Please enter a non-empty string. Try again.")
     result = longest(strings)
-    print("The longest strings are:", result)
-
-
-if __name__ == "__main__":
-    main()
+    if result is not None:
+        print("The longest strings are:")
+        for s in result:
+            print(s)
+    else:
+        print("No strings were entered.")
