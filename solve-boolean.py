@@ -1,11 +1,11 @@
-Here's the Python solution for the problem:
-
-def solve_boolean(s):
-    if s == 'T':
+def solveBoolean(expression):
+    if expression == "T":
         return True
-    elif s == 'F':
+    elif expression == "F":
         return False
-    elif s[0] in ['f', 't'] and s[1] in ['&', '|']:
-        return eval(s)
+    elif "&" in expression:
+        return all(x in expression and x != "&" for x in ["T", "&"]) 
+    elif "|" in expression:
+        return any(x in expression and x != "|" for x in ["T", "|"])
     else:
-        raise ValueError("Invalid input")
+        return None
