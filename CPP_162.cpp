@@ -1,9 +1,9 @@
+```cpp
 #include <openssl/evp.h>
 #include <string>
-#include <cassert>
 
 std::string string_to_md5(std::string text) {
-    EVP_MD_CTX* md_ctx;
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     unsigned char md[16];
     const char* str = text.c_str();
     size_t len = text.length();
@@ -11,10 +11,9 @@ std::string string_to_md5(std::string text) {
     if (len == 0)
         return "";
 
-    md_ctx = EVP_MD_CTX_new(NULL);
-    EVP_DigestInit_ex(md_ctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(md_ctx, str, len);
-    EVP_DigestFinal_ex(md_ctx, md, &len);
+    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(ctx, str, len);
+    EVP_DigestFinal_ex(ctx, md, NULL);
 
     std::string result;
     for (int i = 0; i < 16; i++) {
@@ -22,7 +21,7 @@ std::string string_to_md5(std::string text) {
         sprintf(buffer, "%02x", md[i]);
         result += buffer;
     }
-    EVP_MD_CTX_free(md_ctx);
+    EVP_MD_CTX_free(ctx);
     return result;
 }
 
