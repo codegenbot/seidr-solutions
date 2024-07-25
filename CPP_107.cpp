@@ -1,19 +1,12 @@
 #include <vector>
-#include <string>
-
-using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; ++i) {
         string str = to_string(i);
-        bool isEven = (i % 2 == 0);
-        if (str == reverse(str)) {
-            if (isEven)
-                result[0]++;
-            else
-                result[1]++;
-        }
+        if (str == reverse(str).s)
+            if (stoi(str) % 2 == 0) result[0]++;
+            else result[1]++;
     }
     return result;
 }
