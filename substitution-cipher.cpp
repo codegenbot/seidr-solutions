@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string substitutionCipher(std::string cipherKey1, std::string cipherKey2, std::string message) {
