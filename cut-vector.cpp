@@ -26,7 +26,7 @@ int main() {
     }
     
     int prefixSum = 0;
-    int minDiff = INT_MAX/2; // Modified initialization
+    int minDiff = INT_MAX;
     int cutIndex = -1;
     
     for (int i = 0; i < n; i++) {
@@ -34,7 +34,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
