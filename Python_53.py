@@ -4,6 +4,9 @@ def calculate_sum():
             x = int(input("Enter first number: "))
             y = int(input("Enter second number: "))
             print(f"Sum is: {x + y}")
+            choice = input("Do you want to continue? (yes/no): ")
+            if choice.lower() != 'yes':
+                break
         except ValueError:
             print("Invalid input. Please enter valid integers.")
 
