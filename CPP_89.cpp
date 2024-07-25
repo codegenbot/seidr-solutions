@@ -1,13 +1,17 @@
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm'){
-            c = (c - 'a' + 2) % 26 + 'a';
-        } else if(c >= 'n' && c <= 'z'){
-            c = (c - 'n' + 14) % 26 + 'n';
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            int pos = (int)c - 97;
+            pos = (pos + 2 * 26) % 26;
+            result += (char)(pos + 97);
+        } else if (c >= 'A' && c <= 'Z') {
+            int pos = (int)c - 65;
+            pos = (pos + 2 * 26) % 26;
+            result += (char)(pos + 65);
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
