@@ -1,1 +1,2 @@
+```c++
 ss << std::hex << std::setfill('0') << std::setw(2) << (int)mdValue[i];
