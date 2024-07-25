@@ -1,13 +1,16 @@
-vector<int> result(2, 0);
+int count = 0;
+    vector<int> res(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        if (str == string(str.rbegin(), str.rend())) {
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        if (s == rev) {
             if (i % 2 == 0) {
-                result[0]++;
+                res[0]++;
             } else {
-                result[1]++;
+                res[1]++;
             }
         }
     }
-    return result;
+    return res;
 }
