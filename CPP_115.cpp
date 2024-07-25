@@ -1,4 +1,3 @@
-```
 int max_fill(vector<vector<int>> grid, int capacity) {
     int count = 0;
     while (true) {
