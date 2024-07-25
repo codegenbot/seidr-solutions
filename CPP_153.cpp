@@ -1,7 +1,5 @@
-```
-#include <iostream>
 #include <string>
-#include <vector>
+#include <cctype>
 
 int strongest_extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
@@ -20,8 +18,4 @@ int strongest_extension(std::string class_name, std::vector<std::string> extensi
         }
     }
     return class_name + "." + result;
-}
-
-int main() {
-    // code here
 }
