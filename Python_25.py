@@ -11,12 +11,11 @@ def factorize(n):
         factors.append(n)
     return factors
 
-
 try:
     n = int(input("Enter a number: "))
-    if isinstance(n, int) and n > 0:
+    if n > 0:
         print(factorize(n))
     else:
         print("Please enter a positive integer.")
 except ValueError:
-    print("Please enter a valid integer.")
+    print("Invalid input. Please enter a valid integer.")
