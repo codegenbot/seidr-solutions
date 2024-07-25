@@ -4,24 +4,26 @@ using namespace std;
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
     int start = 0;
-    while (true) {
+    while (start < text.length()) {
         size_t pos = text.find(target, start);
-        if (pos == string::npos)
+        if (pos != string::npos) {
+            indices.push_back(pos);
+            start = pos + target.length();
+        } else {
             break;
-        indices.push_back(pos);
-        start = pos + 1;
+        }
     }
     return indices;
 }
 
 int main() {
-    string text;
     int n;
-    cin >> text >> n;
-    vector<int> result = findIndices(text, to_string(n));
+    cin >> n;
+    string text;
+    cin >> text;
+    vector<int> result = findIndices(text, text.substr(0, n));
     for (int i : result) {
         cout << i << " ";
     }
-    cout << endl;
     return 0;
 }
