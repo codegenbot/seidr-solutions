@@ -19,5 +19,5 @@ def minPath(grid, k):
                 paths.extend(new_path)
         return paths
 
-    visited = set()
-    return min(dfs(0, 0, [], visited, [grid[0][0]]), key=len)
+    min_paths = dfs(0, 0, [], set(), [grid[0][0]])
+    return min(min_paths) if min_paths else []
