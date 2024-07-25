@@ -1,18 +1,25 @@
-bool check_map_case(map<string,string> dict){
-    bool allLower = true;
-    bool allUpper = true;
+Here is the completed code:
 
-    if(dict.empty()) return false;
+bool check_map_case(map<string, string> dict) {
+    if (dict.empty())
+        return false;
 
-    for(auto &it : dict){
-        string key = it.first;
-        for(char &c: key){
-            if(isupper(c)) allLower = false;
-            else if(islower(c)) allUpper = false;
-            else break;
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        string key = it->first;
+        bool allLower = true;
+        bool allUpper = true;
+
+        for (char c : key) {
+            if ((c >= 'a' && c <= 'z') ? allUpper : (c >= 'A' && c <= 'Z')) {
+                allLower = false;
+                allUpper = false;
+                break;
+            }
         }
-        if(!allLower && !allUpper) return false;
+
+        if (!allLower && !allUpper)
+            return false;
     }
 
-    return allLower || allUpper;
+    return true;
 }
