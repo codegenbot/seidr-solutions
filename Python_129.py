@@ -20,4 +20,4 @@ def minPath(grid, k):
         return paths
 
     visited = set()
-    return dfs(0, 0, [], visited, [])
+    return min(dfs(0, 0, [], visited, [grid[0][0]]), key=len)
