@@ -6,7 +6,8 @@ def sort_third(l):
             del l[:3]
             temp.sort()
             result.append(tuple(temp))
-        else:
-            result.append(tuple(sorted(l)))
-            break
+        elif len(l) > 0: 
+            temp = tuple(sorted(l))
+            del l[:]
+            result.append(temp)
     return tuple(result)
