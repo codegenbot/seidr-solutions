@@ -1,5 +1,5 @@
 try:
-    n = int(input("Enter a number: ").strip())
+    n = int(input())
     print(factorize(n))
 except ValueError:
     print("Please enter a valid integer.")
