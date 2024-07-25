@@ -1,8 +1,8 @@
-int calculateFuelCost(vector<int> prices) {
-    int totalFuel = 0;
-    for (int price : prices) {
-        int cost = floor((double)price / 3) - 2;
-        totalFuel += cost;
+int fuelCost(vector<int> nums) {
+    int sum = 0;
+    for (int num : nums) {
+        int result = static_cast<int>(num / 3.0);
+        sum += result - 2;
     }
-    return totalFuel;
+    return sum;
 }
