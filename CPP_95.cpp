@@ -1,14 +1,5 @@
-```cpp
 #include <map>
 #include <string>
-
-int main() {
-    map<string, string> dict;
-    // Your code here to populate the dictionary
-    bool result = check_dict_case(dict);
-    cout << "The output is: " << (result ? "True" : "False") << endl;
-    return 0;
-}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -45,4 +36,10 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allLower || allUpper;
+}
+
+int main() {
+    map<string, string> dict;
+    // Add your code here to test the function
+    return 0;
 }
