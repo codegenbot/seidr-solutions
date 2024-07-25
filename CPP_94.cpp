@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -35,6 +36,8 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    assert(skjkasdkd({127, 97, 8192}) == 10);
+    std::vector<int> lst = {127, 97, 8192};
+    int result = skjkasdkd(lst);
+    std::cout << "The largest prime number is: " << result << std::endl;
     return 0;
 }
