@@ -15,7 +15,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "apricot", "orange"};
+    vector<string> strings = {"apple", "banana", "apricot", "avocado"};
     string prefix = "ap";
     
     vector<string> filtered_strings = filter_by_prefix(strings, prefix);
