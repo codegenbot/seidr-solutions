@@ -2,10 +2,6 @@
 #include <cassert>
 #include <string>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
     std::vector<int> result;
