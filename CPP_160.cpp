@@ -16,17 +16,17 @@ int do_algebra(vector<string> ops, vector<int> operand) {
     }
 
     int temp = operand[0];
-    for (int i = 1; i < operand.size()-1; i++) {
+    for (int i = 1; i < ops.size(); i++) {
         if (ops[i-1] == "+") {
-            temp += operand[i];
+            temp += operand[i+1];
         } else if (ops[i-1] == "-") {
-            temp -= operand[i];
+            temp -= operand[i+1];
         } else if (ops[i-1] == "*") {
-            temp *= operand[i];
+            temp *= operand[i+1];
         } else if (ops[i-1] == "/") {
-            temp /= operand[i];
-        } else if (ops[i-1] == "^") {
-            temp = pow(temp, operand[i]);
+            temp /= operand[i+1];
+        } else if (ops[i-1] == "**") {
+            temp = pow(temp, operand[i+1]);
         }
     }
 
