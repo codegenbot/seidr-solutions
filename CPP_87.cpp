@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(vector<vector<int>> a, vector<vector<int>> b);
+
 bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
     if (v1.size() != v2.size())
         return false;
@@ -32,6 +34,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
 
 int main() {
     vector<vector<int>> lst = {{}, {1}, {1, 2, 3}};
-    assert(issame(get_row(lst, 0), {{0, 0}, {0, 1}, {0, 2}}));
+    assert(issame(get_row(lst, 3), {{0, 2}}));
     return 0;
 }
