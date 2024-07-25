@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
         int min = *min_element(lst.begin(), lst.end());
         result.push_back(min);
