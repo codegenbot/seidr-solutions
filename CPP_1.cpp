@@ -3,10 +3,16 @@
 #include <string>
 #include <vector>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end()) {
+bool issame(const vector<string>& a, const vector<string>& b) {
+    for (string s : a) {
+        bool found = false;
+        for (string t : b) {
+            if (s == t) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
             return false;
         }
     }
