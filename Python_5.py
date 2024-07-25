@@ -1,6 +1,6 @@
 result = []
-for num in numbers:
+for i, num in enumerate(numbers):
     result.append(num)
-    result.append(delimeter)
-result.pop()
+    if i != len(numbers) - 1:
+        result.append(delimeter)
 return result
