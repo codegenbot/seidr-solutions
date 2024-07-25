@@ -1,5 +1,7 @@
 bool issame(int a, int b) {
-    return a == b;
+    vector<int> v = {a, b};
+    sort(v.begin(), v.end());
+    return (v[0] == v[1]);
 }
 
 vector<int> sort_array(vector<int> arr){
