@@ -1,15 +1,16 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-std::vector<std::string> separate_paren_groups(std::string);
-
-bool issame(std::vector<std::string>, std::vector<std::string>);
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (std::find(b.begin(), b.end(), a[i]) == b.end()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
@@ -34,6 +35,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-bool issame(std::vector<std::string>, std::vector<std::string>) {
-    // Code to check if two vectors are the same
+int test_main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
 }
