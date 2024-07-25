@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool areSame(std::vector<int> a, std::vector<int> b) {
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
