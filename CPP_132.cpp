@@ -1,12 +1,15 @@
-int balance = 0;
+int is_nested(string str) {
+    int depth = 0;
+    int max_depth = 0;
+    
     for (char c : str) {
         if (c == '[') {
-            balance++;
+            depth++;
+            max_depth = max(max_depth, depth);
         } else if (c == ']') {
-            if (balance > 0) {
-                balance--;
-            }
+            depth--;
         }
     }
-    return balance < 0;
+    
+    return max_depth >= 2;
 }
