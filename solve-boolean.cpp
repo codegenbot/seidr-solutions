@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
@@ -6,17 +9,24 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) return false;
+            st.push('&');
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return true;
+            st.push('|');
+        } else if (s[i] != 'T' && s[i] != 'F') {
+            cout << "Invalid input. Please enter T, F, &, or |." << endl;
+            return false;
         } else {
             st.push(s[i]);
         }
     }
     while (!st.empty()) {
+        if (st.top() == '&') return false;
+        if (st.top() == '|') return true;
         st.pop();
     }
-    return st.empty();
+    return st.top() == 'T';
 }
