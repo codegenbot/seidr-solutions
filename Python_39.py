@@ -2,22 +2,24 @@ def prime_fib(n):
     def is_prime(num):
         if num < 2:
             return False
-        for i in range(2, int(num ** 0.5) + 1):
+        for i in range(2, int(num**0.5) + 1):
             if num % i == 0:
                 return False
         return True
 
     def is_fib(num):
-        return ((5 * num * num + 4) ** 0.5).is_integer() or ((5 * num * num - 4) ** 0.5).is_integer()
+        return (5*num*num + 4)**0.5 % 1 == 0 or (5*num*num - 4)**0.5 % 1 == 0
 
-    prime_fib_list = []
-    i = 2
-    while len(prime_fib_list) < n:
-        if is_prime(i) and is_fib(i):
-            prime_fib_list.append(i)
-        i += 1
+    count = 0
+    num = 2
+    fib_list = []
+    while count < n:
+        if is_prime(num) and is_fib(num):
+            fib_list.append(num)
+            count += 1
+        num += 1
 
-    return prime_fib_list
+    return fib_list
 
 n = int(input("Enter the value of 'n': "))
 result = prime_fib(n)
