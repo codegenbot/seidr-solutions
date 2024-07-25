@@ -1,11 +1,14 @@
-```cpp
 #include <string>
 #include <iostream>
 
 std::string make_palindrome(std::string input) {
     std::string output = input;
-    for(int i = input.length() -1; i >=0 ; --i)
-        output += input[i];
+    for(int i=0; i<input.length()/2; i++) {
+        int j = input.length() - i - 1;
+        char temp = output[j];
+        output[j] = output[i];
+        output[i] = temp;
+    }
     return output;
 }
 
