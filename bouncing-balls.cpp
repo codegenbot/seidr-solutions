@@ -1,17 +1,14 @@
 int main() {
-    double h0, h, bi;
-    int n;
-    cin >> h0 >> h >> n;
+    double start_height, first_bounce_height, bounciness_index, total_distance;
+    int num_bounces;
 
-    bi = h / h0;
-    double total_distance = h0;
+    cin >> start_height >> first_bounce_height >> num_bounces;
 
-    for (int i = 0; i < n; ++i) {
-        total_distance += h + h * bi;
-        h *= bi;
-    }
+    bounciness_index = first_bounce_height / start_height;
+
+    total_distance = start_height + start_height * (1 + bounciness_index) * (pow(bounciness_index, num_bounces) - 1) / (bounciness_index - 1);
 
     cout << total_distance << endl;
-    
+
     return 0;
 }
