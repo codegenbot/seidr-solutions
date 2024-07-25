@@ -7,6 +7,6 @@ def decode_shift(input_string):
             decoded_string += char
     return decoded_string
 
-input_string = input().strip()  # Strips leading and trailing whitespaces
+input_string = input().strip()
 result = decode_shift(input_string)
 print(result)
