@@ -1,4 +1,3 @@
-```python
 numbers_str = input("Enter a string of numbers (e.g., 1-2.3 4 5-6): ")
 numbers = []
 start_num = None
@@ -12,5 +11,5 @@ for num in numbers_str.split():
         try:
             numbers.append(float(num))
         except ValueError:
-            print("Program did not receive expected input")
+            print(f"Program did not receive expected input: {num}")
 print(numbers)
