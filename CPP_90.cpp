@@ -1,9 +1,11 @@
-Here is the solution:
-
-vector<int> next_smallest(vector<int> lst) {
-    if (lst.empty()) return vector<int>(); // empty vector
-    sort(lst.begin(), lst.end());
-    auto it = prev(end(lst), 1);
-    if (*it == *(end(lst) - 1)) return vector<int>(); // all elements equal
-    return vector<int>({*it});
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // returning None as per problem description
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size() - 1; ++i) {
+        if (v[i] != v[i+1]) {
+            return v[i+1];
+        }
+    }
+    return -1;
 }
