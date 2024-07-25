@@ -2,12 +2,14 @@
 def decode_shift(s: str):
     result = ""
     i = 0
-    shift = -1 
     while i < len(s):
-        if s[i].isalpha() and not ('z' == s[i] or 'Z' == s[i]):
+        if s[i].isalpha():
             ascii_offset = ord("a") if s[i].islower() else ord("A")
-            if i > 0:
+            if i > 0 and s[i-1].isdigit():
                 shift = int(s[i-1])
+                i -= 1
+            elif i > 0:
+                shift = int(result[-1])
             else: 
                 shift = -1
             if ((ord(s[i]) - ascii_offset - shift) % 26) <= 0:
@@ -18,7 +20,3 @@ def decode_shift(s: str):
             result += s[i]
         i += 1
     return result
-
-if __name__ == "__main__":
-    user_input = input("Enter your string: ")
-    print(decode_shift(user_input))
