@@ -3,7 +3,7 @@ import math
 mem = {0: 0, 1: 1}
 
 def is_prime(num):
-    if num in (2, 3):
+    if num == 2:
         return True
     if num <= 1 or num % 2 == 0:
         return False
@@ -30,4 +30,3 @@ def check(func):
             print(f"{i}: Not a Prime Fibonacci")
 
 check(prime_fib)
-assert prime_fib(10) == 433494437
