@@ -4,6 +4,21 @@
 
 bool issame(const vector<string>& a, const vector<string>& b);
 
+vector<string> numerical_letter_grade(vector<float> grades);
+
+int main() {
+    vector<float> grades = {3.8, 2.5, 4.0, 1.7};
+    vector<string> letter_grades = numerical_letter_grade(grades);
+
+    for (const string& grade : letter_grades) {
+        cout << grade << " ";
+    }
+
+    assert(issame(letter_grades, {"A", "B", "A+", "C"}));
+
+    return 0;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
@@ -24,7 +39,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-int main() {
-    // Your main function code here
-    return 0;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
