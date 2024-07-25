@@ -1,8 +1,15 @@
-```
+Here is the corrected code:
+
+```Python
 from typing import List
 
 
 def below_zero() -> None:
+    cont = "yes"
+    balance = 0
+    below_zero_found = False
+    below_zero_operations = 0
+
     while True:
         operations = []
         while True:
@@ -17,16 +24,15 @@ def below_zero() -> None:
             except ValueError:
                 print("Error: Invalid input. Please enter a list of integers.")
 
-        balance = 0
-        below_zero_found = False
-        below_zero_operations = 0
         for operation in operations:
             if isinstance(operation, int):
                 balance += operation
-                if balance < 0:
+                if operation < 0 and balance < 0:
                     print(f"Below zero at {balance}.")
                     below_zero_found = True
                     below_zero_operations += 1
+                elif operation >= 0 and balance < 0:
+                    balance = 0
             else:
                 print("Error: Invalid input. Please enter a list of integers.")
 
@@ -34,36 +40,32 @@ def below_zero() -> None:
             print(f"No below zero at {balance}.")
 
         cont = input("Continue? (yes/no): ")
-        if cont.lower() != "yes":
+        if cont.lower() == "no":
             break
 
-        if (below_zero_operations / len(operations)) > 0.5:
-            while True:
-                ops = input(
-                    "Enter a list of integers (space separated) or 'end' to finish: "
+        while True:
+            if below_zero_operations / len(operations) > 0.5:
+                print(
+                    "Half or more operations went below zero, resetting counters."
                 )
-                if ops.lower() == "end":
+                balance = 0
+                below_zero_found = False
+                below_zero_operations = 0
+                for operation in operations:
+                    if isinstance(operation, int):
+                        balance += operation
+                        if operation < 0 and balance < 0:
+                            print(f"Below zero at {balance}.")
+                            below_zero_found = True
+                            below_zero_operations += 1
+                        elif operation >= 0 and balance < 0:
+                            balance = 0
+                    else:
+                        print("Error: Invalid input. Please enter a list of integers.")
+                if not below_zero_found:
+                    print(f"No below zero at {balance}.")
+                cont = input("Continue? (yes/no): ")
+                if cont.lower() == "no":
                     break
-                try:
-                    operations = [int(op) for op in ops.split()]
-                    balance = 0
-                    below_zero_found = False
-                    below_zero_operations = 0
-                    for operation in operations:
-                        if isinstance(operation, int):
-                            balance += operation
-                            if balance < 0:
-                                print(f"Below zero at {balance}.")
-                                below_zero_found = True
-                                below_zero_operations += 1
-                        else:
-                            print(
-                                "Error: Invalid input. Please enter a list of integers."
-                            )
-
-                    if not below_zero_found:
-                        print(f"No below zero at {balance}.")
-
-                    cont = input("Continue? (yes/no): ")
-                except ValueError:
-                    print("Error: Invalid input. Please enter a list of integers.")
+            else:
+                break
