@@ -15,7 +15,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-long long gcd(long long a, long long b) {
+int gcd(int a, int b) {
     if (b == 0)
         return a;
     else
