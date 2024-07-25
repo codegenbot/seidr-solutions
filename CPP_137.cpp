@@ -1,5 +1,6 @@
+```cpp
 #include <boost/any.hpp>
-#include <string>
+#include <boost/converter.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -34,7 +35,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (boost::any_cast<double>(a) > std::stod(strB)) ? a : b;
     }
     if (boost::any_cast<int>(a) == boost::any_cast<int>(b)) {
-        return typeid(std::string)("None");
+        return "None";
     }
     return a > b ? a : b;
 }
