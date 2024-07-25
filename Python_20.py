@@ -1,1 +1,1 @@
-numbers = list(map(float, input("Enter space-separated floating-point numbers: ").split()))
+numbers = list(map(float, input("Enter numbers separated by spaces: ").split()))
