@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 int bowlingScore(string s) {
@@ -10,19 +9,15 @@ int bowlingScore(string s) {
             score += 10;
             i++;
             if (i < s.size() && s[i] != '/') {
-                score += 10;
+                score += s[i] - '0' + s[i+1] - '0';
                 i++;
             }
         } else if (s[i] - '0' + s[i+1] - '0' > 10) {
-            int frame = 10;
-            if (i+2 < s.size()) {
-                frame = 10 - (s[i] - '0' + s[i+1] - '0');
-            }
+            int frame = 10 - (s[i] - '0' + s[i+1] - '0');
             score += frame;
             i+=2;
         } else {
-            int frame = s[i] - '0' + s[i+1] - '0';
-            score += frame;
+            score += s[i] - '0' + s[i+1] - '0';
             i+=2;
         }
     }
