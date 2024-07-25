@@ -1,2 +1,2 @@
-total = sum(map(int, input().strip().split()))
+total = sum(map(int, input().split()))
 print(total)
