@@ -13,10 +13,10 @@ def main():
     )
     while True:
         prompt = input("Enter a number (or 0 to quit): ")
-        if prompt == "0":
-            break
         try:
             num = int(prompt)
+            if prompt == "0":
+                break
             print(is_prime(num))
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
