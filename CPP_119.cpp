@@ -10,18 +10,17 @@ bool match_parens(vector<string> lst) {
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') countOpen++;
-            else countClose++;
+            else if (c == ')') countClose++;
         }
     }
 
-    if (countOpen == countClose)
-        return true;
-    else
-        return false;
+    return countOpen == countClose;
 }
 
 int main() {
-    vector<string> inputs = {")", "("};
-    assert(match_parens(inputs));
+    vector<string> inputs = {"(())", "()()", "((()))", "()"};
+    for (const string& s : inputs) {
+        cout << s << ": " << (match_parens({s}) ? "Yes" : "No") << endl;
+    }
     return 0;
 }
