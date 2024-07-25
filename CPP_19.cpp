@@ -1,20 +1,36 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_num_map;
-for (const auto& pair : num_map) {
-    rev_num_map[pair.second] = pair.first;
-}
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-vector<int> sorted_nums;
-stringstream ss(numbers);
-string num_str;
-while (ss >> num_str) {
-    sorted_nums.push_back(num_map[num_str]);
-}
-sort(sorted_nums.begin(), sorted_nums.end());
+vector<string> number_strings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
+vector<int> nums;
 string result;
-for (int num : sorted_nums) {
-    result += rev_num_map[num] + " ";
+
+size_t pos = 0;
+string token;
+while ((pos = numbers.find(" ")) != string::npos) {
+    token = numbers.substr(0, pos);
+    nums.push_back(number_map[token]);
+    numbers.erase(0, pos + 1);
 }
-result.pop_back(); // Remove the extra space at the end
+nums.push_back(number_map[numbers]);
+
+sort(nums.begin(), nums.end());
+
+for (int num : nums) {
+    result += number_strings[num] + " ";
+}
+
+result.pop_back(); // Remove extra space at the end
 return result;
+}
