@@ -1,2 +1,2 @@
-a, b, c = map(int, input().strip().split())
+a, b, c = map(int, input("Enter three integers separated by spaces: ").split())
 print(a, b, c)
