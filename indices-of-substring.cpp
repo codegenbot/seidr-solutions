@@ -14,3 +14,18 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     return result;
 }
+
+int main() {
+    string text;
+    cin >> text;
+    string target;
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int i : indices) {
+        cout << i << endl;
+    }
+
+    return 0;
+}
