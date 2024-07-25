@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> maximum(const std::vector<int>& a, int value){
