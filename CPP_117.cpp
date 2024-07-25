@@ -1,19 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(char a, char b) {
-    return std::tolower(a) == std::tolower(b);
+bool issame(string a, string b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (tolower(a[i]) != tolower(b[i])) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
-    std::string currentWord;
+vector<string> select_words(string s, int n) {
+    vector<string> words;
+    string currentWord;
     int consonantCount = 0;
 
     for (char c : s) {
         if (c != ' ') {
-            if (!issame(c, 'a') && !issame(c, 'e') && !issame(c, 'i') && !issame(c, 'o') && !issame(c, 'u')) {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
                 consonantCount++;
             }
             currentWord += c;
