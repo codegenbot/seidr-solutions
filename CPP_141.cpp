@@ -1,29 +1,29 @@
-int digitCount = 0;
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool valid = true;
+    
     for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
+        if (isdigit(c)) {
             digitCount++;
+        } else if (c == '.') {
+            if (digitCount > 3 || file_name.find('.') != file_name.rfind('.') || file_name.find('.') == 0 || file_name.find('.') == file_name.size() - 1) {
+                valid = false;
+                break;
+            }
+            string ext = file_name.substr(file_name.find('.') + 1);
+            if (ext != "txt" && ext != "exe" && ext != "dll") {
+                valid = false;
+                break;
+            }
         }
     }
-
-    if (digitCount > 3) {
+    
+    if (digitCount > 3 || !valid) {
         return "No";
     }
-
-    size_t dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
-        return "No";
-    }
-
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
-
-    if (!isalpha(beforeDot[0])) {
-        return "No";
-    }
-
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-        return "No";
-    }
-
+    
     return "Yes";
 }
