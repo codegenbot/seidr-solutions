@@ -9,10 +9,10 @@ bool iscuber(int a){
         i++;
     }
     return false;
-
 }
 
 int main() {
     assert(iscuber(1729) == false);
-    
+    // Other test cases...
+    return 0;
 }
