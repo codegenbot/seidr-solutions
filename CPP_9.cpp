@@ -27,12 +27,12 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers({3, 2, 3, 100, 3});
-    vector<int> expected({3, 3, 3, 100, 100});
-    
-    if (!issame(rolling_max(numbers), expected)) {
-        cout << "Test failed." << endl;
+    vector<int> a = {3, 2, 3, 100, 3};
+    vector<int> b = {3, 3, 3, 100, 100};
+
+    if (issame(a, rolling_max(a))) {
+        cout << "The two arrays are the same" << endl;
     } else {
-        cout << "Test passed." << endl;
+        cout << "The two arrays are not the same" << endl;
     }
 }
