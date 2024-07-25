@@ -12,7 +12,7 @@ std::vector<float> derivative(const std::vector<float>& a) {
 
     std::vector<float> result;
     for (size_t i = 1; i < a.size(); ++i) {
-        result.push_back(a[i] - a[i-1]);
+        result.push_back(a[i] * i);
     }
 
     return result;
@@ -21,6 +21,6 @@ std::vector<float> derivative(const std::vector<float>& a) {
 int main() {
     assert(issame(std::vector<float>{1}, std::vector<float>{1}));
     assert(issame(derivative(std::vector<float>{1}), std::vector<float>{}));
-  
+
     return 0;
 }
