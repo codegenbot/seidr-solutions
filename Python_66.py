@@ -1,15 +1,9 @@
+```
 def digitSum(s):
     total = 0
-    temp = ""
     for char in s:
         if char.isdigit():
-            temp += char
-        else:
-            if temp != "":
-                total += int(temp)
-                temp = ""
-    if temp != "":
-        total += int(temp)
+            total += int(char)
     return total
 
 print(digitSum("You arE Very Smart"))
