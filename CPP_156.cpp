@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -22,6 +22,6 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
 
-    std::cout << "The Roman representation of the number is: " << int_to_roman(num) << std::endl;
+    std::cout << "The mini Roman representation of the number is: " << int_to_roman(num) << std::endl;
     return 0;
 }
