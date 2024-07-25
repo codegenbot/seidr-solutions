@@ -1,7 +1,8 @@
+import sys
+
 def add(x, y):
     return x + y
 
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
+x, y = map(int, sys.stdin.readline().strip().split())
 result = add(x, y)
 print(result)
