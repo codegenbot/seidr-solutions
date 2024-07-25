@@ -12,7 +12,7 @@ def encode(message):
                 else:
                     result += chr(((ord(char) - ord('a')) + 3) % 26 + ord('a'))
         else:
-            result += char  
+            result += char
     return result
 
 print(encode("I DoNt KnOw WhAt tO WrItE"))
