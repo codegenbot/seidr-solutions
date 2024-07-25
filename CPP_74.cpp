@@ -1,6 +1,6 @@
-#include <string>
+#include <string> 
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const vector<string>& a, const vector<string>& b){ 
     // Function body
 }
 
