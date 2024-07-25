@@ -1,21 +1,15 @@
-from typing import List
-
-def factorize(n: int) -> List[int]:
-    if n <= 1:
-        return "Please enter a number greater than 1."
-
+def factorize(n):
     factors = []
-    divisor = 2
-    while n > 1 and n != 0:
-        if n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        else:
-            divisor += 1
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
     return factors
 
 try:
     n = int(input("Enter a number: "))
-    print(factorize(n))
+    if n <= 0:
+        print("Please enter a positive integer.")
+    else:
+        print(factorize(n))
 except ValueError:
     print("Please enter a valid integer.")
