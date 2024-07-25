@@ -18,14 +18,12 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> input;
     int n;
     cin >> n;
-    for(int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        input.push_back(x);
+    vector<int> digits(n);
+    for (int i = 0; i < n; i++) {
+        cin >> digits[i];
     }
-    cout << luhn(input) << endl;
+    cout << luhn(digits) << endl;
     return 0;
 }
