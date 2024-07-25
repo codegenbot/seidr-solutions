@@ -1,10 +1,10 @@
-#include <string>
 #include <vector>
+#include <string>
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(const string& str1, const string& str2) {
+    return str1 == str2;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
