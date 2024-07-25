@@ -28,5 +28,5 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    assert(issame({3, 2, 3, 100, 3}, {3, 3, 3, 100, 100}) == rolling_max({3, 2, 3, 100, 3}) == vector<int>({3, 3, 3, 100, 100}));
 }
