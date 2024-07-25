@@ -1,10 +1,8 @@
 def bowling_score(frames):
     score = 0
     for frame in frames.split("/"):
-        if len(frame) == 1:
-            score += 10
-        elif frame[0] == "X":
-            score += 30
+        if len(frame) == 1 or (len(frame) > 1 and int(frame[0]) + int(frame[1]) <= 10):
+            score += sum(map(int, frame))
         else:
-            score += int(frame[0]) * 2 + (int(frame[-1]) if frame[-1].isdigit() else 10)
+            score += 10 + sum(map(int, frame[2:]))
     return score
