@@ -13,14 +13,16 @@ vector<string> words;
     if (!word.empty()) {
         words.push_back(word);
     }
+    
     if (words.empty()) {
-        int odd_lowercase = 0;
+        int oddLowerCaseCount = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                odd_lowercase++;
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddLowerCaseCount++;
             }
         }
-        words.push_back(to_string(odd_lowercase));
+        words.push_back(to_string(oddLowerCaseCount));
     }
+    
     return words;
 }
