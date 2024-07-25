@@ -1,10 +1,11 @@
-int fuelCost(vector<int> numbers) {
+#include <vector>
+using namespace std;
+
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int num : numbers) {
-        int result = (num / 3);
-        result = std::floor(result);
-        result -= 2;
-        sum += result;
+    for(int i = 0; i < v.size(); i++) {
+        int x = (v[i] / 3);
+        sum += (x - 2);
     }
     return sum;
 }
