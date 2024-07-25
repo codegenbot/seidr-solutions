@@ -1,5 +1,2 @@
-x, y = input().split()
-def add(x, y):
-    x = int(x)
-    y = int(y)
-    return x + y
+def add(x: str, y: str) -> int:
+    return int(x) + int(y)
