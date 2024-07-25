@@ -1,8 +1,10 @@
+```c
 #include <string>
 #include <vector>
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    string result = Strongest_Extension("Sp", {"671235", "Bb"});
+    assert(result == "Sp.671235");
     return 0;
 }
 
