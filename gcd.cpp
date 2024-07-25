@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
-#include <string> // Include string header here
+#include <string> 
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int targetLength = target.length();
     for(int i = 0; i <= text.length() - targetLength; i++){
@@ -16,6 +15,7 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
     return result;
+
 }
 
 int gcd(int a, int b) {
