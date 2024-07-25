@@ -11,6 +11,7 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst; 
-    assert(double_the_difference(lst) == 0); 
+    vector<float> lst;
+    long long odd_sum = double_the_difference(lst);
+    cout << "The sum of the squares of all odd positive integers is: " << odd_sum << endl;
 }
