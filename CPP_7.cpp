@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::vector<std::string>> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
-        if(b[i].size() != 1 || b[i][0] != a[i])
+        if(a[i] != b[i])
             return false;
     }
     return true;
@@ -26,9 +26,11 @@ int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
     std::vector<std::vector<std::string>> filtered = filter_by_substring(str, substr);
-    if (issame(filtered, {{ "grunt" }, { "prune" }})) {
-        std::cout << "Test passed." << std::endl;
-    } else {
-        std::cout << "Test failed." << std::endl;
+    for (const auto& vec : filtered) {
+        if (!issame(vec, {{vec[0]}})) {
+            std::cout << "Test failed." << std::endl;
+            return 1;
+        }
     }
+    std::cout << "Test passed." << std::endl;
 }
