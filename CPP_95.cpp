@@ -23,7 +23,6 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 }
 
 int main() {
-    // Test cases
     assert(check_dict_case({{"abc", 1}, {"DEF", 2}}) == false);
     assert(check_dict_case({{"abc", 1}, {"def", 2}}) == true);
 
