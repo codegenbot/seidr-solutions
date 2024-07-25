@@ -18,5 +18,3 @@ int total_chars(const vector<string> &lst) {
     
     return total;
 }
-
-assert(total_match({"this"}, {}) == vector<string>{});
