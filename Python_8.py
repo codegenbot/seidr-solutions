@@ -1,1 +1,6 @@
-numbers = list(map(int, input().split()))
+numbers = []
+while True:
+    try:
+        numbers.append(int(input()))
+    except:
+        break
