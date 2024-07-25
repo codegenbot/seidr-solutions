@@ -6,14 +6,15 @@ def filter_by_substring(strings: List[str], substring: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    filename = "input.txt"
-    try:
-        with open(filename, "r") as f:
-            input_data = f.read().splitlines()
-            strings = [line.strip() for line in input_data[:-1]]
-            substring = input_data[-1].strip()
-            print(filter_by_substring(strings, substring))
-    except FileNotFoundError:
-        print(
-            "File not found. Please run this script from the same directory as the file."
-        )
+    print("Enter the list of strings (one per line):")
+    input_data = []
+    while True:
+        line = input().strip()
+        if not line:
+            break
+        input_data.append(line)
+
+    print("\nEnter the substring to filter:")
+    substring = input().strip()
+
+    print("\nFiltered output:", filter_by_substring(input_data, substring))
