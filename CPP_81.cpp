@@ -6,27 +6,27 @@ std::vector<float> numerical_letter_grade(std::vector<float> grades) {
     std::vector<float> letterGrades;
     for (float grade : grades) {
         if (grade >= 4.0)
-            letterGrades.push_back(4.3);
+            letterGrades.push_back(4.3f);
         else if (grade > 3.7)
-            letterGrades.push_back(4.0);
+            letterGrades.push_back(4.0f);
         else if (grade > 3.3)
-            letterGrades.push_back(3.7);
+            letterGrades.push_back(3.7f);
         else if (grade > 3.0)
-            letterGrades.push_back(3.3);
+            letterGrades.push_back(3.3f);
         else if (grade > 2.7)
-            letterGrades.push_back(3.0);
+            letterGrades.push_back(3.0f);
         else if (grade > 2.3)
-            letterGrades.push_back(2.7);
+            letterGrades.push_back(2.7f);
         else if (grade > 2.0)
-            letterGrades.push_back(2.3);
+            letterGrades.push_back(2.3f);
         else if (grade > 1.7)
-            letterGrades.push_back(2.0);
+            letterGrades.push_back(2.0f);
         else if (grade > 1.3)
-            letterGrades.push_back(1.7);
+            letterGrades.push_back(1.7f);
         else if (grade > 1.0)
-            letterGrades.push_back(1.3);
+            letterGrades.push_back(1.3f);
         else
-            letterGrades.push_back(0.0);
+            letterGrades.push_back(1.0f);
     }
     return letterGrades;
 }
