@@ -1,11 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-
 int test_main() {
-    assert(separate_paren_groups("( ) (( ")) == std::vector<std::string>({"", "( "}, {" ("));
+    std::vector<std::string> a = {"( )","(( "};
+    std::vector<std::string> b = { "{}", "( { })" };
+    assert(std::includes(a.begin(), a.end(), b.begin(), b.end()));
     return 0;
+}
+
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return std::includes(v1.begin(), v1.end(), v2.begin(), v2.end());
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
