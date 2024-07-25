@@ -3,10 +3,10 @@ int sum = 0;
         sum += q[i];
     }
     
-    if (sum <= w) {
-        vector<int> reversed_q = q;
-        reverse(reversed_q.begin(), reversed_q.end());
-        return q == reversed_q;
+    if (q.size() == 1 || equal(q.begin(), q.end(), q.rbegin(), q.rend())) {
+        if (sum <= w) {
+            return true;
+        }
     }
     
     return false;
