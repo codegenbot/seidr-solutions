@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
+    
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
@@ -27,7 +29,12 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             result.push_back("D");
         else
-            result.push_back("F");
+            result.push_back("E");
     }
-    return result;
+    
+    if(result.size() == 0) {
+        return {"Error: No valid grades provided."};
+    } else {
+        return result;
+    }
 }
