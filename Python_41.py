@@ -1,3 +1,4 @@
+```
 def car_race_collision(n):
     total_distance = 0
     for _ in range(n):
@@ -6,3 +7,8 @@ def car_race_collision(n):
         distance = speed * time
         total_distance += distance
     return total_distance
+
+if __name__ == "__main__":
+    n = int(input("Enter the number of cars: "))
+    result = car_race_collision(n)
+    print(result)
