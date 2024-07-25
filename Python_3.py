@@ -36,8 +36,7 @@ def below_zero() -> None:
         if cont.lower() != "yes":
             return
 
-        if (below_zero_operations / len(operations)) > 0.5:
-            print("Expected input: A mix of positive and negative integers.")
+        if below_zero_operations / len(operations) > 0.5:
             while True:
                 ops = input("Enter a list of integers (space separated) or 'end' to finish: ")
                 if ops.lower() == "end":
@@ -64,4 +63,5 @@ def below_zero() -> None:
                     cont = input("Continue? (yes/no): ")
                 except ValueError:
                     print("Error: Invalid input. Please enter a list of integers.")
+        else:
             return
