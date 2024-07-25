@@ -1,7 +1,5 @@
-```cpp
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
-    string result;
     for(auto& extension:extensions){
         int cap = 0;
         int sm = 0;
@@ -12,8 +10,8 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
         int strength = cap - sm;
         if(strength > strongest){
             strongest = strength;
-            result = extension;
+            class_name += "." + extension;
         }
     }
-    return class_name + "." + result;
+    return class_name;
 }
