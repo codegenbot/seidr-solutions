@@ -24,7 +24,6 @@ std::string string_to_md5(std::string text) {
         result += buffer;
     }
     return result;
-
 }
 
 int main_test() {
