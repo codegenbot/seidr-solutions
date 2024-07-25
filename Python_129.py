@@ -14,13 +14,13 @@ def minPath(grid, k):
             new_pos = path[-1] + di * n + dj
             if 0 <= new_pos < n * n:
                 x, y = new_pos // n, new_pos % n
-                if (x, y) in visited and grid[x][y] > min_val:
+                if (x, y) in visited and grid[x][y] < min_val:
                     next_move = new_pos
                     min_val = grid[x][y]
 
         if next_move is None:
             break
-        path.append(grid[x][y])
-        visited.remove((x, y))
+        path.append(next_move)
+        visited.remove((next_move // n, next_move % n))
 
     return path
