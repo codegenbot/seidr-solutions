@@ -1,26 +1,24 @@
-vector<string> result;
+vector<string> words;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ') {
-            result.push_back(word);
-            word = "";
-        } else if (c == ',') {
-            result.push_back(word);
-            word = "";
+    
+    for (char& c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if (word != "") {
-        result.push_back(word);
+    
+    if (!word.empty()) {
+        words.push_back(word);
     }
-    if (result.size() == 1 && txt.find(',') == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
-                count++;
-            }
-        }
-        result = {to_string(count)};
+    
+    if (words.empty()) {
+        string count = to_string(count_if(txt.begin(), txt.end(), [](char c) { return islower(c) && (c - 'a') % 2 == 1; }));
+        words.push_back(count);
     }
-    return result;
+    
+    return words;
