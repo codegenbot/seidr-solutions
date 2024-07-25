@@ -1,28 +1,30 @@
-int digitCount = 0;
-    bool dotFound = false;
-    bool letterFound = false;
-    string extension;
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    int dot_count = 0;
+    string substr_before_dot, substr_after_dot;
 
     for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digitCount++;
+        if (isdigit(c)) {
+            digit_count++;
         } else if (c == '.') {
-            if (dotFound || !letterFound) {
-                return "No";
-            }
-            dotFound = true;
-        } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-            if (!dotFound) {
-                letterFound = true;
-            } else {
-                extension += c;
-            }
-        } else {
+            dot_count++;
+        } else if (c == ' ') {
             return "No";
+        } else if (dot_count == 0) {
+            substr_before_dot += c;
+        } else if (dot_count == 1) {
+            substr_after_dot += c;
         }
     }
 
-    if (digitCount > 3 || !dotFound || extension != "txt" && extension != "exe" && extension != "dll") {
+    if (digit_count > 3 || dot_count != 1 || substr_before_dot.empty() || !isalpha(substr_before_dot[0])) {
+        return "No";
+    }
+
+    if (substr_after_dot != "txt" && substr_after_dot != "exe" && substr_after_dot != "dll") {
         return "No";
     }
 
