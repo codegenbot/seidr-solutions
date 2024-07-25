@@ -1,5 +1,4 @@
-#include <cstring>
 #include <string>
-std::string str;
-std::cin >> str;
+#include <cassert>
+#include <cstring>
 return strlen(str.c_str());
