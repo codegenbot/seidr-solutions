@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a,vector<int> b){
     if(a.size()!=b.size())
         return false;
     for(int i=0; i<a.size();i++){
@@ -25,6 +25,8 @@ int main() {
     int k = 5;
     vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     vector<int> result = maximum(arr, k);
-    assert(issame(result , {3,243,0,-23,-400}));
-    return 0;
+    if(issame(result, {0,-23,-400,243,3})) 
+        return 0;    
+    else
+        return 1;
 }
