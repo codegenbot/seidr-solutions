@@ -1,4 +1,3 @@
-```
 def rescale_to_unit(input_numbers=None):
     while True:
         numbers = input("Enter space-separated float numbers: ")
@@ -9,10 +8,7 @@ def rescale_to_unit(input_numbers=None):
             while True:
                 cont = input("Do you want to continue? (yes/no): ")
                 if cont.lower() == 'no':
-                    if input_numbers is None:
-                        return result
-                    else:
-                        return [i for i in result if i not in input_numbers]
+                    return result
                 elif cont.lower() == 'yes':
                     break
                 else:
