@@ -1,6 +1,5 @@
-def swap_case(string):
+def modify_string(string):
     return "".join(char.lower() if char.isupper() else char.upper() for char in string)
 
 # Call the function with the required input
-result = swap_case("Hello, World!")
-print(result)
+print(modify_string("Hello World"))
