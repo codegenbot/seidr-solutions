@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool issame(vector<string> a, vector<string> b) { return a == b; }
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
