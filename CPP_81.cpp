@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -32,13 +30,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             letterGrades.push_back("E");
     }
     return letterGrades;
-}
-
-int main() {
-    std::vector<float> grades = {3.9, 4.1, 2.8};
-    std::cout << "The letter grades for these numerical grades are: ";
-    for (const auto& grade : numerical_letter_grade(grades)) {
-        std::cout << grade << " ";
-    }
-    return 0;
 }
