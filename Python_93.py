@@ -7,13 +7,19 @@ def encode(message):
         elif char.isalnum():
             if char.isdigit():  
                 result += str((int(char) + 3) % 10)  
-            elif char.isalpha():
-                if char.islower():
-                    result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+            else:
+                if char.isupper():
+                    shift = (ord(char) - ord('A')) + 3
+                    while shift > 25:
+                        shift -= 26
+                    result += chr(((shift) % 26) + ord('A'))
                 else:
-                    result += chr((ord(char) - ord('A') + 25) % 26 + ord('A'))
+                    shift = (ord(char) - ord('a')) + 3
+                    while shift > 25:
+                        shift -= 26
+                    result += chr(((shift) % 26) + ord('a'))
         else:
-            result += char
+            result += char  
     return result
 
 print(encode("I DoNt KnOw WhAt tO WrItE"))

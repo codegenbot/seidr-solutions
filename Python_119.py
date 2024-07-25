@@ -9,6 +9,6 @@ def match_parens(lst):
                     continue
                 else:
                     return "No"
-    if not stack:
+    if all(x != "(" for x in stack):
         return "Yes"
     return "No"
