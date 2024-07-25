@@ -1,2 +1,1 @@
-```
 print(', '.join(['{}, {}'.format(*path) for path in sorted(min_paths[:k], key=sum)]))
