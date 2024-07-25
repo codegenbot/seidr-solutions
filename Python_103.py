@@ -1,8 +1,5 @@
-```
 def rounded_avg(n, m):
     if n > m:
         return -1
     avg = (n + m) // 2  
-    avg = round(avg) % 2 == 1 and "1" or "0"
-    bin_avg = format(int(avg), 'b')  
-    return "0b" + bin_avg
+    return '0' if avg % 2 == 0 else '1'
