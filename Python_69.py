@@ -1,7 +1,6 @@
-```
 n = int(input())
-input_lst = list(map(int, (input().split() for _ in range(n))))
-print(search(input_lst))
+input_lst = [int(num) for num in input().split()]
+print(search([num for num in input().split()]))
 
 def search(lst):
     freq_dict = {}
