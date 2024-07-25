@@ -6,20 +6,21 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    for (int i = 1; i < nums.size(); ++i) {
-        int leftSum = 0;
-        int rightSum = 0;
-        for (int j = 1; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i + 1; j < nums.size(); ++j) {
-            rightSum += nums[j];
-        }
-        int diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
-            minDiff = diff;
+    int cutIndex = 1;
+    if (nums.size() > 1 && abs(nums[1]-nums[0]) < minDiff) {
+        minDiff = abs(nums[1] - nums[0]);
+        cutIndex = 1;
+    }
+    for (int i = 2; i < nums.size(); ++i) {
+        if (i >= 2 && abs(nums[i] - nums[0]) < minDiff) {
+            minDiff = abs(nums[i] - nums[0]);
             cutIndex = i;
+        } else if (i > 1 && abs(nums[i-1] - nums[0]) < minDiff) {
+            minDiff = abs(nums[i-1] - nums[0]);
+            cutIndex = i - 1;
+        }
+        if (abs(nums[i] - nums[0]) >= minDiff) {
+            break;
         }
     }
     return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
