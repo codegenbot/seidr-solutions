@@ -1,4 +1,6 @@
 #include <vector>
+#include <set>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
