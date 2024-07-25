@@ -1,21 +1,21 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
-using namespace std;
-
-bool issame(vector<vector<int>>& v1, vector<vector<int>>& v2) {
+bool issame(vector<vector<int>> v1, vector<vector<int>> v2) {
     if (v1.size() != v2.size())
         return false;
     for (int i = 0; i < v1.size(); i++) {
-        if (v1[i].size() != v2[i].size() || v1[i] != v2[i])
+        if (v1[i].size() != v2[i].size())
             return false;
+        for (int j = 0; j < v1[i].size(); j++) {
+            if (v1[i][j] != v2[i][j])
+                return false;
+        }
     }
     return true;
 }
 
-vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
+vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
         if (x == 1) {
@@ -32,6 +32,8 @@ vector<vector<int>> get_row(vector<vector<int>>& lst, int x) {
 }
 
 int main() {
-    assert(issame(get_row({}, {1}, {1, 2, 3}), {{2, 2}}));
+    vector<vector<int>> lst = {{}, {1}, {1, 2, 3}};
+    assert(issame(get_row(lst, 0), {{0, 0}, {1, 0}}));
+    assert(issame(get_row(lst, 1), {{0, 0}, {1, 0}, {2, 0}}));
     return 0;
 }
