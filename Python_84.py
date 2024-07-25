@@ -1,9 +1,9 @@
-def solve(N=None):
+def solve():
     while True:
-        if N is None:
-            try:
-                N = int(input("Enter an integer (0 or less to stop): "))
-                if N <= 0: 
-                    break
-            except ValueError:
-                print("Invalid input. Please enter an integer.")
+        try:
+            N = int(input("Enter an integer (0 or less to stop): "))
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+        if N <= 0:
+            break
+        print("0b" + bin(N)[2:])
