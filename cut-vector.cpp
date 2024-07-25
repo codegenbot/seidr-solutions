@@ -37,6 +37,6 @@ int main() {
     for (int num : subvector2) {
         cout << num << endl;
     }
-
+    
     return 0;
 }
