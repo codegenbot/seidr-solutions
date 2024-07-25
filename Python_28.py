@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -14,7 +15,7 @@ if __name__ == "__main__":
             else:
                 break
         except ValueError:
-            print("Error! Please enter a valid integer.")
+            print("Error! Please enter a valid integer. Try again.")
 
     if strings_num > 0:
         strings = []
