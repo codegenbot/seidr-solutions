@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -16,17 +15,28 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 def main():
-    numbers_str = input("Enter a list of integers separated by space: ")
-    try:
-        numbers = [int(num) for num in numbers_str.split() if num.replace('-', '').replace('.', '').isdigit()]
-        if len(numbers) > 1:
+    while True:
+        numbers_str = input("Enter a list of integers separated by space: ")
+        try:
+            numbers = [
+                int(num)
+                for num in numbers_str.split()
+                if num.replace("-", "").replace(".", "").isdigit()
+            ]
+            break
+        except ValueError:
+            print("Invalid input. Please enter a list of integers separated by space.")
+    while True:
+        try:
             result = sum_product(numbers)
             print(f"Sum is {result[0]} and Product is {result[1]}")
-        else:
-            print("Program did not receive expected input.")
-    except ValueError:
-        print("Invalid input. Please enter a list of integers separated by space.")
-        exit()
+            break
+        except ZeroDivisionError:
+            print(
+                "Error! Division by zero is not allowed. Please enter a valid list of numbers."
+            )
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
