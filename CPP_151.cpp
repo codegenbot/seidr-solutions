@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -7,7 +8,7 @@ long long double_the_difference(std::vector<float> lst) {
     for (float num : lst) {
         if (num > 0 && std::floor(num) == num) { 
             if (num % 2 != 0) { 
-                sum += pow(num, 2);
+                sum += std::pow(num, 2);
             }
         }
     }
@@ -16,7 +17,8 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1.5f, 3.8f, -2.2f, 4.9f, 0.7f};
-    long long odd_sum = double_the_difference(lst);
+    long long odd_sum = double_the_difference(lst); 
+    assert(double_the_difference(lst) == odd_sum);
     std::cout << "The result is: " << odd_sum << std::endl;
     
     return 0;
