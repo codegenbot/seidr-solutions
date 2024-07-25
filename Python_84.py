@@ -16,6 +16,4 @@ def solve(N=None):
                 return str(total)
             elif N > 0:
                 return bin(N)[2:]
-            else:
-                return str(total)
     return str(total)
