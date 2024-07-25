@@ -14,29 +14,28 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) {
+        return -1;
+    }
     if (n == 1) {
         return 2;
     }
     if (n == 2) {
         return 3;
     }
-    int prev = 2, curr = 3, next;
-    for (int i = 3; i <= n; i++) {
-        next = prev + curr;
-        while (!isPrime(next)) {
-            next = prev + curr;
-            prev = curr;
-            curr = next;
+
+    int prev = 2;
+    int curr = 3;
+    int count = 2;
+
+    while (count < n) {
+        int next = prev + curr;
+        if (isPrime(next)) {
+            count++;
         }
         prev = curr;
         curr = next;
     }
-    return next;
-}
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << prime_fib(n) << std::endl;
-    return 0;
+    return curr;
 }
