@@ -1,4 +1,4 @@
-def solve(N):
+def solve():
     while True:
         N = int(input("Enter an integer: "))
         if N <= 0:
