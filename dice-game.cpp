@@ -1,7 +1,9 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return ((n - 1) / n) * (m / total);
+double calculateProbability(int n, int m) {
+    double probability = 0;
+    for (int i = 1; i < n; i++) {
+        probability += 1.0 / m;
+    }
+    return probability;
 }
