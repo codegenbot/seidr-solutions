@@ -1,26 +1,48 @@
 vector<string> by_length(vector<int> arr) {
-    vector<int> toSort;
+    vector<int> numbers;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            toSort.push_back(i);
-    }
-    sort(toSort.begin(), toSort.end());
-    reverse(toSort.begin(), toSort.end());
-    vector<string> result;
-    for (int i : toSort) {
-        string numName = "";
-        switch (i) {
-            case 1: numName = "One"; break;
-            case 2: numName = "Two"; break;
-            case 3: numName = "Three"; break;
-            case 4: numName = "Four"; break;
-            case 5: numName = "Five"; break;
-            case 6: numName = "Six"; break;
-            case 7: numName = "Seven"; break;
-            case 8: numName = "Eight"; break;
-            case 9: numName = "Nine"; break;
+        if (i >= 1 && i <= 9) {
+            numbers.push_back(i);
         }
-        result.push_back(numName);
     }
+    
+    sort(numbers.begin(), numbers.end());
+    
+    reverse(numbers.begin(), numbers.end());
+    
+    vector<string> result;
+    for (int i : numbers) {
+        string str = "";
+        switch (i) {
+            case 1:
+                str = "One";
+                break;
+            case 2:
+                str = "Two";
+                break;
+            case 3:
+                str = "Three";
+                break;
+            case 4:
+                str = "Four";
+                break;
+            case 5:
+                str = "Five";
+                break;
+            case 6:
+                str = "Six";
+                break;
+            case 7:
+                str = "Seven";
+                break;
+            case 8:
+                str = "Eight";
+                break;
+            case 9:
+                str = "Nine";
+        }
+        result.push_back(str);
+    }
+    
     return result;
 }
