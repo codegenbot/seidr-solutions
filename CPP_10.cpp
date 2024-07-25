@@ -1,12 +1,13 @@
-```cpp
 #include <string>
 #include <iostream>
 using namespace std;
 
 string make_palindrome(string input) {
-    string output = input;
-    reverse(output.begin(), output.end());
-    return input.replace(" ", "") + output.replace(" ", "");
+    string reversed = "";
+    for(int i=input.length()-1; i>=0; i--) {
+        reversed += input.substr(i, 1);
+    }
+    return input + reversed;
 }
 
 int main() {
