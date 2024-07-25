@@ -5,15 +5,11 @@ bool is_sorted(vector<int> lst){
         if(lst[i] <= lst[i-1]){
             return false;
         }
-        int count = 0;
-        for(int j = 0; j < lst.size(); j++){
-            if(lst[j] == lst[i]){
-                count++;
-            }
-        }
-        if(count > 1){
+    }
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(std::distance(it, lst.end()) > 1)
             return false;
-        }
     }
     return true;
 }
