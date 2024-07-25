@@ -8,9 +8,7 @@ def prime_fib(n):
         return True
 
     def is_fib(num):
-        return (5 * num * num + 4) ** 0.5 % 1 == 0 or (
-            5 * num * num - 4
-        ) ** 0.5 % 1 == 0
+        return (5*num*num + 4)**0.5 % 1 == 0 or (5*num*num - 4)**0.5 % 1 == 0
 
     count = 0
     num = 2
@@ -22,7 +20,6 @@ def prime_fib(n):
         num += 1
 
     return fib_list
-
 
 n = int(input("Enter the value of 'n': "))
 result = prime_fib(n)
