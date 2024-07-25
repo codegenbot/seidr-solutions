@@ -1,4 +1,6 @@
-#include <cassert>
+#include <cassert> // Add this line to include cassert header for the assert macro
+
+// Rest of the code remains the same
 #include <vector>
 #include <algorithm>
 
@@ -21,7 +23,7 @@ namespace ArrayUtils {
     }
 }
 
-int main() {
-    assert(ArrayUtils::issame(ArrayUtils::sort_array(std::vector<int>{21, 14, 23, 11}), std::vector<int>{23, 21, 14, 11}));
-    return 0;
-}
+using ArrayUtils::issame;
+using ArrayUtils::sort_array;
+
+assert(issame(sort_array(std::vector<int>({21, 14, 23, 11})), std::vector<int>({23, 21, 14, 11}));
