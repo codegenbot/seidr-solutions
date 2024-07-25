@@ -1,8 +1,6 @@
 def digits(n):
-    product = 1
-    while n > 0:
-        digit = n % 10
-        if digit % 2 != 0:
-            product *= digit
-        n //= 10
-    return product
+    return (
+        0
+        if all(int(d) % 2 == 0 for d in str(n))
+        else eval("*".join(d for d in str(n) if int(d) % 2 != 0))
+    )
