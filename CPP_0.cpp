@@ -1,14 +1,8 @@
-```cpp
 #include <vector>
 #include <assert.h>
 
 bool has_close_elements(std::vector<float> v, float tol) {
-    for(int i = 0; i < v.size()-1; i++) {
-        if(abs(v[i]-v[i+1]) <= tol) {
-            return true;
-        }
-    }
-    return false;
+    // implementation of has_close_elements function
 }
 
 int main() {
