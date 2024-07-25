@@ -1,19 +1,4 @@
 #include <string>
-#include <iostream>
-#include <algorithm>
-#include <vector>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
 
 std::vector<std::string> reverse_delete(std::string s, std::string c){
     std::string result = "";
@@ -27,12 +12,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
     return {result, result == reversed ? "True" : "False"};
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 int main(){
-    std::string s = "examplestring";
-    std::string c = "aeiou";
-    std::vector<std::string> result = reverse_delete(s, c);
-    for(const auto& str : result){
-        std::cout << str << " ";
-    }
+    std::vector<std::string> result = reverse_delete("example string", "aeiou");
     return 0;
 }
