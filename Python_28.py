@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -6,11 +7,12 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    input("Press Enter to start...")
     print("Welcome to this string concatenation program! Are you ready to enter some strings? (Yes/No): ")
     ready = input().lower()
     
-    if ready == "yes":
+    if ready != "yes":
+        print("Program terminated. Goodbye!")
+    else:
         strings = []
         while True:
             try:
