@@ -1,5 +1,3 @@
-#include <string>
-
 using namespace std;
 
 bool is_palindrome(string str){
@@ -15,6 +13,10 @@ string make_palindrome(string str){
 }
 
 int main() {
-    assert (make_palindrome("jerry") == "jerryyejr");
+    string input, output;
+    cout << "Enter a string: ";
+    cin >> input;
+    output = make_palindrome(input);
+    cout << "Palindrome of the given string is: " << output << endl;
     return 0;
 }
