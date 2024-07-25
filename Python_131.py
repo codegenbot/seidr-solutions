@@ -5,4 +5,4 @@ def digits(n):
         if digit % 2 != 0:
             product *= digit
         n //= 10
-    return product
+    return 1
