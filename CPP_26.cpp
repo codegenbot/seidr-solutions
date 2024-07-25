@@ -1,12 +1,12 @@
-#include <set>
+#include <unordered_map>
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    set<int> seen;
+    unordered_map<int, bool> seen;
     vector<int> result;
 
     for (int num : numbers) {
-        if (seen.find(num) == seen.end()) {
-            seen.insert(num);
+        if (!seen.count(num) || !seen[num]) {
+            seen[num] = true;
             result.push_back(num);
         }
     }
