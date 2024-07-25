@@ -7,5 +7,5 @@ int is_nested(string str) {
             count--;
         }
     }
-    return count < 2 && count > 0;
+    return count < 0 ? false : true;
 }
