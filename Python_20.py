@@ -1,9 +1,7 @@
-while True:
-    try:
-        a, b, c = map(int, input("Enter three space-separated numbers: ").split())
-        if len([a, b, c]) != 3:
-            raise ValueError
-        print(a, b, c)
-        break
-    except (ValueError, EOFError):
-        print("Error: Input format is incorrect. Please provide exactly three space-separated numbers.")
+try:
+    a = int(input())
+    b = int(input())
+    c = int(input())
+    print(a, b, c)
+except ValueError:
+    print("Error: Input format is incorrect. Please provide three integers line by line.")
