@@ -1,7 +1,8 @@
-int closest_integer(const string& value) {
-    double num = stod(value);
-    int res = round(num);
-    if (num - res == 0.5) res = ceil(num);
-    else if (num - res == -0.5) res = floor(num);
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    int res = std::round(num);
+    if (std::abs(num - res) == 0.5) {
+        res = (num - res > 0) ? std::ceil(num) : std::floor(num);
+    }
     return res;
 }
