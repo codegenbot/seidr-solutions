@@ -1,14 +1,18 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int> v) {
-    vector<int> result;
-    int max = v.back();
-    for (int i = v.size() - 2; i >= 0; i--) {
-        if (v[i] >= max) {
-            max = v[i];
-            result.push_back(max);
+vector<int> leaders(vector<int>& nums) {
+    vector<int> res;
+    int n = nums.size();
+    for(int i=n-1; i>=0; i--) {
+        bool flag = true;
+        for(int j=i+1; j<n; j++) {
+            if(nums[j] >= nums[i]) {
+                flag = false;
+                break;
+            }
         }
+        if(flag) res.push_back(nums[i]);
     }
-    return result;
+    return res;
 }
