@@ -1,5 +1,6 @@
-vector<vector<int>> getRow(vector<vector<int>> lst, int x) {
-    vector<vector<int>> result;
+```cpp
+vector<vector<int>> get_coordinates(vector<vector<int>>& lst, int x) {
+    vector<pair<int,int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
@@ -8,9 +9,13 @@ vector<vector<int>> getRow(vector<vector<int>> lst, int x) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const vector<int>& a, const vector<int>& b) {
-             if (a[0] != b[0]) return a[0] < b[0];
-             else return a[1] > b[1];
+         [](const pair<int,int>& a, const pair<int,int>& b) {
+             if (a.first != b.first) return a.first < b.first;
+             else return a.second > b.second;
          });
-    return result;
+    vector<vector<int>> coordinates;
+    for(auto &p : result) {
+        coordinates.push_back({p.first,p.second});
+    }
+    return coordinates;
 }
