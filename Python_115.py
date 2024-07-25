@@ -1,17 +1,20 @@
-```
+import math
+
+
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
-    total_water = sum(sum(row) for row in grid)
-    max_filled = 0
-    curr_capacity = capacity
-    
+    total_water = sum(
+        grid[i].count(c) for i in range(rows) for c in range(cols) if grid[i][c] > 0
+    )
+
     for i in range(cols):
         for j in range(rows):
-            if curr_capacity > 0 and grid[j][i] > 0:
-                amount_to_fill = min(grid[j][i], curr_capacity)
+            if grid[j][i] > 0:
+                amount_to_fill = min(grid[j][i], capacity)
                 grid[j][i] -= amount_to_fill
-                curr_capacity -= amount_to_fill
-                max_filled += 1
-    
-    return math.ceil(total_water / capacity)
+                capacity -= amount_to_fill
+
+    return math.ceil(
+        total_water / (capacity + sum(1 for row in grid for _ in row) - total_water)
+    )
