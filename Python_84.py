@@ -1,4 +1,2 @@
-def solve(N): 
-    if N <= 0:
-        return "Error"
-    return "0b" + bin(N)[2:]
+def solve(N):
+    return "0b" + format(N, 'b').zfill(len(str(N)))
