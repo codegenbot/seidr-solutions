@@ -9,7 +9,3 @@ def skjkasdkd(lst):
 
     max_prime = max([i for i in lst if is_prime(i)])
     return sum(int(digit) for digit in str(max_prime))
-
-input_lst = input("Enter a list of numbers separated by spaces: ")
-lst = [int(x) for x in input_lst.split()]
-print(skjkasdkd(lst))
