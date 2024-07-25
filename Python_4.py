@@ -8,9 +8,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     total = sum(abs(num - average) for num in numbers)
     return total / len(numbers)
 
-numbers = input("Enter numbers separated by space: ")
-try:
-    numbers = [float(i) for i in numbers.split()]
-    print(mean_absolute_deviation(numbers))
-except ValueError:
-    print("Invalid input. Please enter valid float numbers.")
+while True:
+    try:
+        numbers = [float(i) for i in input("Enter numbers separated by space: ").split()]
+        break
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+print(mean_absolute_deviation(numbers))
