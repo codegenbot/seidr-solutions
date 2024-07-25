@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,17 +15,17 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> generate_integers(int a, int b) {
-    vector<int> result;
-    for (int i = a; i <= b; ++i) {
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
+    for(int i = a; i <= b; ++i) {
         result.push_back(i);
     }
     return result;
 }
 
-vector<int> filter_even_numbers(vector<int> a) {
-    vector<int> result;
-    for (int i : a) {
+std::vector<int> filter_even_numbers(std::vector<int> a) {
+    std::vector<int> result;
+    for(int i : a) {
         if (i % 2 == 0) {
             result.push_back(i);
         }
@@ -35,4 +33,4 @@ vector<int> filter_even_numbers(vector<int> a) {
     return result;
 }
 
-assert(issame(filter_even_numbers(generate_integers(17, 89)), vector<int>{}));
+assert(issame(filter_even_numbers(generate_integers(17, 89)), std::vector<int>{}));
