@@ -1,6 +1,4 @@
-```
 def fix_spaces(text):
-    """Your code here"""
     new_text = ""
     prev_was_space = False
     for i, char in enumerate(text):
