@@ -16,9 +16,10 @@ int main() {
     vector<string> input = {"apple", "banana", "orange", "pear", "peach"};
     string prefix = "pe";
     
-    vector<string> expected_output = {"pear", "peach"};
+    vector<string> expected = {"pear", "peach"};
+    vector<string> output = filter_by_prefix(input, prefix);
     
-    assert(filter_by_prefix(input, prefix) == expected_output);
+    assert(output == expected);
     
     return 0;
 }
