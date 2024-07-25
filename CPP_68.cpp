@@ -1,13 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
+    
     if (arr.empty()) {
         return result;
     }
@@ -27,6 +23,17 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    std::vector<int> input;
+    int num;
+    while(std::cin >> num) {
+        input.push_back(num);
+    }
+    if(input.size() == 1) {
+        std::cout << "You entered one element." << std::endl;
+    } else {
+        std::vector<int> output = pluck(input);
+        std::cout << "Min even number: " << output[0] << ", Index of min even number: " << output[1] << std::endl;
+    }
+    
     return 0;
 }
