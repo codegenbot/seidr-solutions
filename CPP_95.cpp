@@ -11,11 +11,10 @@ bool check_dict_case(map<string, string> dict) {
             allLower = false;
             allUpper = false;
             break;
-        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
-            allLower = false;
-            allUpper = false;
-            break;
         }
+        if (!allLower && !allUpper) continue;
+        if (!allLower) allUpper = isupper(pair.first[0]);
+        else allLower = islower(pair.first[0]);
     }
 
     return allLower || allUpper;
