@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     return std::all_of(a.begin(), a.end(),
                        [b](float x){ return std::find(b.begin(), b.end(), x) != b.end(); });
