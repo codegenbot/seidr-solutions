@@ -1,4 +1,3 @@
-```
 input_strs = input("Enter some strings (separated by spaces): ")
 result = []
 if ' ' in input_strs:
