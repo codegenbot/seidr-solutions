@@ -1,4 +1,3 @@
-```
 def digits(n):
     count_even_digits = 0
     for digit in str(n):
