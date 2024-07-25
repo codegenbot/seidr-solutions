@@ -1,23 +1,37 @@
-#include <string>
-#include <vector>
-
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int x = any_cast<int>(a);
-        int y = any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(double.class)) {
-        double x = any_cast<double>(a);
-        double y = any_cast<double>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(string.class)) {
-        string x = any_cast<string>(a);
-        string y = any_cast<string>(b);
-        double ax = stod(x);
-        double ay = stod(y);
-        return (ax > ay) ? a : ((ax < ay) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-    return a;
+    if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        size_t pos = strB.find(',');
+        if (pos != string::npos) {
+            strB.erase(pos, 1);
+        }
+        return (stod(strA) > stod(strB)) ? a : b;
+    }
+    if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string strA = boost::any_cast<string>(a);
+        size_t pos = strA.find(',');
+        if (pos != string::npos) {
+            strA.erase(pos, 1);
+        }
+        return (stod(strA) > boost::any_cast<double>(b)) ? a : b;
+    }
+    if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(string)) {
+        string strB = boost::any_cast<string>(b);
+        size_t pos = strB.find(',');
+        if (pos != string::npos) {
+            strB.erase(pos, 1);
+        }
+        return (boost::any_cast<double>(a) > stod(strB)) ? a : b;
+    }
+    if (boost::any_cast<int>(a) == boost::any_cast<int>(b)) {
+        return boost::any("None");
+    }
+    return a > b ? a : b;
 }
