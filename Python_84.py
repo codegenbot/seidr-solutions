@@ -4,3 +4,5 @@ def solve():
         return "Error"
     else:
         return "0b" + bin(N)[2:]
+
+print(solve())
