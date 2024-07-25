@@ -12,9 +12,10 @@ string make_palindrome(string input) {
 }
 
 int main() {
-    string input;
+    string input, output;
     cout << "Enter a string: ";
     cin >> input;
-    string output = make_palindrome(input);
+    output = make_palindrome(input);
     cout << "Palindrome of the given string is: " << output << endl;
     return 0;
+}
