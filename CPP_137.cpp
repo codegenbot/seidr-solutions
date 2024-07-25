@@ -1,22 +1,48 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
-#include <vector>
+#include <boost/any.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a > (int)b ? a : (int)b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return (double)a > (double)b ? a : (double)b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return (std::string)a > (std::string)b ? a : b;
-    } else if ((a.type() == typeid(int) || a.type() == typeid(double)) &&
-               (b.type() == typeid(std::string))) {
-        return (int)a > std::stoi((std::string)b) ? a : b;
-    } else if ((a.type() == typeid(std::string)) && (b.type() == typeid(int) ||
-                                                      b.type() == typeid(double))) {
-        return std::stoi((std::string)a) > (int)b ? a : b;
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-    return boost::any("None");
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+
+        double num1 = stod(str1);
+        double num2 = stod(str2);
+
+        if (num1 > num2)
+            return a;
+        else if (num1 < num2)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string str = any_cast<string>(a);
+        double num = stod(str);
+
+        if (num > any_cast<double>(b))
+            return a;
+        else
+            return boost::any("None");
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(string)) {
+        double num = any_cast<double>(a);
+
+        if (num > stod(any_cast<string>(b)))
+            return a;
+        else
+            return boost::any("None");
+    }
+    else {
+        return boost::any("None");
+    }
 }
