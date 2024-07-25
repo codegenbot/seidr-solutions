@@ -3,11 +3,11 @@ import math
 mem = {0: 0, 1: 1}
 
 def is_prime(num):
-    if num == 2:
+    if num in (2, 3):
         return True
     if num <= 1 or num % 2 == 0:
         return False
-    for i in range(3, int(math.sqrt(num)) + 2, 2):
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
         if num % i == 0:
             return False
     return True
@@ -30,3 +30,4 @@ def check(func):
             print(f"{i}: Not a Prime Fibonacci")
 
 check(prime_fib)
+assert prime_fib(10) == 433494437
