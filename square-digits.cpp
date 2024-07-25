@@ -4,15 +4,16 @@
 
 string squareDigits(string input) {
     string output = "";
-    for(int i=0; i<input.length(); i++) {
-        int digit = (int)(input[i] - '0'); // convert char to int
-        output += to_string(digit*digit); // square the digit and concatenate
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
     return output;
 }
 
 int main() {
     string input;
+    cout << "Enter a positive integer: ";
     cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
