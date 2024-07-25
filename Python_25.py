@@ -24,7 +24,7 @@ def factorize(n: int) -> List[int]:
 def main():
     print("Enter numbers (at least 2) to factorize. Type 'quit' to exit.")
     while True:
-        user_input = input()
+        user_input = input("Enter a number: ")
         if user_input.lower() == "quit":
             break
         try:
