@@ -1,16 +1,34 @@
-map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> reverse_map;
-for (auto const &pair : number_map) {
-    reverse_map[pair.second] = pair.first;
-}
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-string result;
-for (int i = 0; i <= 9; ++i) {
-    if (numbers.find(reverse_map[i]) != string::npos) {
-        result += reverse_map[i] + " ";
+string sort_numbers(string numbers){
+    vector<string> num_strings;
+    stringstream ss(numbers);
+    string token;
+    
+    while (ss >> token) {
+        num_strings.push_back(token);
     }
-}
-
-result.pop_back(); // Remove the extra space at the end
-return result;
+    
+    sort(num_strings.begin(), num_strings.end(), [&](const string &a, const string &b) {
+        return num_map[a] < num_map[b];
+    });
+    
+    string sorted_numbers;
+    for (const string &num_str : num_strings) {
+        sorted_numbers += num_str + " ";
+    }
+    
+    sorted_numbers.pop_back(); // Remove extra space at the end
+    return sorted_numbers;
 }
