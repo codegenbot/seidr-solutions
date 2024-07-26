@@ -1,5 +1,9 @@
-int contestProblem(int x, int y) {
-    // Add your code for the contest problem here
+#include <iostream>
+#include <cstdlib>
+#include <cassert>
+
+int add(int x, int y) {
+    return x + y;
 }
 
 int main() {
@@ -8,8 +12,6 @@ int main() {
     int y = rand() % 1000;
     
     assert(add(x, y) == x + y);
-    
-    contestProblem(x, y);
     
     return 0;
 }
