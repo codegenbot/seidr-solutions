@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -9,8 +7,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     int n = text.size(), m = target.size();
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
@@ -27,20 +25,4 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
         }
     }
     return indices;
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int idx : result) {
-        cout << idx << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
