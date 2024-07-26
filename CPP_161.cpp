@@ -1,10 +1,17 @@
 for(char &c : s){
         if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
-        reverse(s.begin(), s.end());
+    int left = 0, right = s.size() - 1;
+    while(left < right){
+        swap(s[left], s[right]);
+        left++;
+        right--;
     }
     return s;
 }
