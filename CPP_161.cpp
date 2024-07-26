@@ -20,13 +20,10 @@ string solve(string s){
     return s;
 }
 
-int main() {
+int main(){
     string input;
     cout << "Enter a string: ";
     cin >> input;
-
-    string result = solve(input);
-    cout << "Result: " << result << endl;
-
+    cout << "Output: " << solve(input) << endl;
     return 0;
 }
