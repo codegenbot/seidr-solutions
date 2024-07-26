@@ -4,10 +4,7 @@ int count = 0;
             count++;
         } else if (c == ']' && count > 0) {
             count--;
-            if (count == 0) {
-                return true;
-            }
         }
     }
-    return false;
+    return count < 0;
 }
