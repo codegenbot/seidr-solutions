@@ -1,15 +1,15 @@
-#include <iostream>
-#include <cassert>
-#include <cstdlib>
-
-int add(int x, int y) {
-    return x + y;
+int contestProblem(int x, int y) {
+    // Add your code for the contest problem here
 }
 
 int main() {
-    int x = std::rand() % 1000;
-    int y = std::rand() % 1000;
+    srand(time(0));
+    int x = rand() % 1000;
+    int y = rand() % 1000;
+    
     assert(add(x, y) == x + y);
-
+    
+    contestProblem(x, y);
+    
     return 0;
 }
