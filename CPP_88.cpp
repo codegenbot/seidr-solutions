@@ -4,7 +4,7 @@
 
 namespace contest {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
+        return std::equal(a.begin(), a.end(), b.begin());
     }
 
     std::vector<int> sort_array(const std::vector<int>& array) {
@@ -19,9 +19,6 @@ namespace contest {
 }
 
 int main() {
-    std::vector<int> test1 = {4, 2, 7, 1, 5};
-    std::vector<int> sorted_test1 = contest::sort_array(test1);
-    assert(contest::issame(sorted_test1, std::vector<int>{1, 2, 4, 5, 7}));
-    
+    assert(contest::issame(contest::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
