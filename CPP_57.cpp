@@ -1,11 +1,6 @@
-bool increasing = true;
-    bool decreasing = true;
-    for (int i = 1; i < l.size(); i++) {
-        if (l[i] > l[i - 1]) {
-            decreasing = false;
-        } else if (l[i] < l[i - 1]) {
-            increasing = false;
-        }
+if (is_sorted(l.begin(), l.end()) || is_sorted(l.rbegin(), l.rend())) {
+        return true;
+    } else {
+        return false;
     }
-    return increasing || decreasing;
 }
