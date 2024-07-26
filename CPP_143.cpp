@@ -1,6 +1,8 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+#include <string>
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for(char c : sentence){
         if(c != ' '){
             word += c;
