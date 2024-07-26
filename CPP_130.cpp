@@ -3,8 +3,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-   return a == b;
+bool compare(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> tri(int a) {
@@ -12,6 +12,6 @@ vector<int> tri(int a) {
 }
 
 int main() {
-    assert(issame(tri(1), vector<int>{1, 3}));
+    assert(compare(tri(1), vector<int>{1, 3}));
     return 0;
 }
