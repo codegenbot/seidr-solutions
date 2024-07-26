@@ -17,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(tri(1), std::vector<int>{3, 1}));
+    assert(issame(tri(1), std::vector<int>{3, 1, 2}));
     return 0;
 }
 
