@@ -11,8 +11,6 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    if (target.empty()) return result;
-    
     size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         result.push_back(pos);
