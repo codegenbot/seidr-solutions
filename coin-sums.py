@@ -1,3 +1,4 @@
+"""
 def coin_sum(cents):
     denominations = [25, 10, 5, 1]
     coins = [0, 0, 0, 0]
@@ -7,6 +8,5 @@ def coin_sum(cents):
             cents = cents % denominations[i]
     return coins
 
-cents = int(input("Enter the number of cents: "))
-result = coin_sum(cents)
+result = coin_sum(1779)
 print(result)
