@@ -1,3 +1,7 @@
-nums = list(map(int, input().split()))
-total = sum(map(lambda x: max(x // 3 - 2, 0), nums))
-print(total)
+def fuel_cost(arr):
+    return sum([(num // 3 - 2) for num in arr])
+
+
+# Read input from user
+arr = list(map(int, input().split()))
+print(fuel_cost(arr))
