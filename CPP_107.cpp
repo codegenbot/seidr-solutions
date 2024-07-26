@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // for assert
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -12,7 +12,7 @@ std::vector<int> even_odd_palindrome(int n) {
         palindrome.push_back(i);
     }
 
-    for (int i = n - 1; i > 0; --i) {
+    for (int i = n - 1; i >= 0; --i) {
         palindrome.push_back(i);
     }
 
