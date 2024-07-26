@@ -1,21 +1,17 @@
-vector<string> bf(string planet1, string planet2){
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-    bool found1 = false, found2 = false;
     
-    for (const auto &planet : planets) {
-        if (planet == planet1)
-            found1 = true;
-        if (found1 && planet != planet1 && planet != planet2)
-            result.push_back(planet);
-        if (planet == planet2) {
-            found2 = true;
-            break;
-        }
+    if(find(planets.begin(), planets.end(), planet1) == planets.end() || find(planets.begin(), planets.end(), planet2) == planets.end())
+        return result;
+    
+    int start = min(distance(planets.begin(), find(planets.begin(), planets.end(), planet1)),
+                    distance(planets.begin(), find(planets.begin(), planets.end(), planet2)));
+    int end = max(distance(planets.begin(), find(planets.begin(), planets.end(), planet1)),
+                  distance(planets.begin(), find(planets.begin(), planets.end(), planet2)));
+    
+    for(int i=start+1; i<end; i++){
+        result.push_back(planets[i]);
     }
-    
-    if (!found1 || !found2)
-        result.clear();
     
     return result;
 }
