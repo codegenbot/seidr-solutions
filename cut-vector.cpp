@@ -1,25 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cstdlib>
-using namespace std;
+#include <climits>
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
 
-    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
     int prefix_sum = 0;
     int min_diff = INT_MAX;
     int cut_idx = -1;
 
     for (int i = 0; i < n; ++i) {
         prefix_sum += nums[i];
-        int diff = abs(prefix_sum - (sum - prefix_sum));
+        int diff = std::abs(prefix_sum - (sum - prefix_sum));
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
@@ -27,10 +26,10 @@ int main() {
     }
 
     for (int i = 0; i <= cut_idx; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     for (int i = cut_idx + 1; i < n; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
 
     return 0;
