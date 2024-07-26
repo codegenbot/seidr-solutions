@@ -26,5 +26,5 @@ string file_name_check(string file_name) {
         return "No";
     }
     
-    return result;
+    return "Yes";
 }
