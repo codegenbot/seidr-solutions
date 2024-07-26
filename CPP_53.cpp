@@ -3,7 +3,7 @@
 #include <ctime>
 
 int contestProblem(int x, int y) {
-    // Add your code for the contest problem here
+    return x + y; // Add your code for the contest problem here
 }
 
 int main() {
@@ -11,9 +11,7 @@ int main() {
     int x = rand() % 1000;
     int y = rand() % 1000;
     
-    assert(x + y == x + y);
-    
-    contestProblem(x, y);
+    assert(contestProblem(x, y) == x + y);
     
     return 0;
 }
