@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> issame(std::vector<int> a, std::vector<int> b){
     std::vector<int> result;
     result.push_back(3);
