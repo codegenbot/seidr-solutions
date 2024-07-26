@@ -5,17 +5,19 @@
 #include <cassert>
 #include <sstream>
 
-std::vector<std::string> words_string(const std::string& input) {
-    std::istringstream iss(input);
-    std::vector<std::string> tokens;
-    std::string word;
+using namespace std;
+
+vector<string> words_string(const string& input) {
+    istringstream iss(input);
+    vector<string> tokens;
+    string word;
     while (iss >> word) {
         tokens.push_back(word);
     }
     return tokens;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
