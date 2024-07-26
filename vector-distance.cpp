@@ -1,29 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
+#include <iomanip>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
+
     vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
-    cin.ignore();
-    string line;
-    getline(cin, line);
-    istringstream iss(line);
+    cin >> n;
+
     vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        iss >> vec2[i];
-
-        char comma;
-        if (i < n - 1) {
-            iss >> comma;
-        }
+        cin >> vec2[i];
     }
 
     double sum = 0.0;
@@ -32,7 +26,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << result << endl;
+    cout << fixed << setprecision(17) << result << endl;
 
     return 0;
 }
