@@ -8,17 +8,17 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 std::map<char, int> histogram(std::string test);
 
 int main() {
-    std::string test = "hello world";
+    std::string test = "cpp contest problem";
     std::map<char, int> result = histogram(test);
-
+    
     for (const auto& pair : result) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+        std::cout << pair.first << " : " << pair.second << std::endl;
     }
 
     return 0;
 }
 
-std::map<char, int> histogram(std::string test){
+std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     std::map<char, int> count;
 
