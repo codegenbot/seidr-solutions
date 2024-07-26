@@ -6,7 +6,7 @@ using namespace std;
 
 vector<string> select_words(string s, int n);
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
@@ -37,4 +37,6 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+int main() {
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+}
