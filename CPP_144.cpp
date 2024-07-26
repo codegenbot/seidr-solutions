@@ -1,4 +1,4 @@
-int simplify(string x, string n) {
+bool simplify(string x, string n) {
     int x_num = stoi(x.substr(0, x.find("/")));
     int x_den = stoi(x.substr(x.find("/") + 1));
     int n_num = stoi(n.substr(0, n.find("/")));
