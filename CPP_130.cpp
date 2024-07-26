@@ -35,3 +35,5 @@ vector<int> tri(int n) {
     }
     return result;
 }
+
+issame(tri(5), {3, 1, 2, 2, 6});

@@ -23,9 +23,6 @@ string solve(string s){
 int main() {
     string input;
     cin >> input;
-
-    string result = solve(input);
-    cout << result << endl;
-
+    cout << solve(input) << endl;
     return 0;
 }
