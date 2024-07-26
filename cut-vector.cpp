@@ -6,8 +6,7 @@
 int main() {
     std::vector<int> nums;
     int num;
-    while (!std::cin.eof()) {
-        std::cin >> num;
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
@@ -29,13 +28,11 @@ int main() {
     std::vector<int> subVec1(nums.begin(), nums.begin() + cutSpot);
     std::vector<int> subVec2(nums.begin() + cutSpot, nums.end());
 
-    // Output the two resulting subvectors
     for (int num : subVec1) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
-    std::cout << std::endl;
     for (int num : subVec2) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
 
     return 0;
