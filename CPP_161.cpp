@@ -1,9 +1,10 @@
 #include <iostream>
+#include <algorithm>
 #include <cassert>
+#include <cctype>
 
-std::string solve(const std::string &s) {
-    std::string result = s;
-    for(char &c : result){
+std::string solve(std::string s) {
+    for(char& c : s){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
@@ -12,13 +13,10 @@ std::string solve(const std::string &s) {
             }
         }
     }
-    int left = 0, right = result.size() - 1;
-    while(left < right){
-        std::swap(result[left], result[right]);
-        left++;
-        right--;
+    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
+        reverse(s.begin(), s.end());
     }
-    return result;
+    return s;
 }
 
 int main() {
