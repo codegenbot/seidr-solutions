@@ -9,9 +9,6 @@ int main() {
     
     while (cin >> num) {
         nums.push_back(num);
-        if(cin.peek() == '\n'){ // Check for end of input
-            break;
-        }
     }
     
     int n = nums.size();
