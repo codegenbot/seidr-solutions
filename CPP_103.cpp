@@ -3,11 +3,11 @@ if (n > m) {
     }
     
     int sum = 0;
-    for (int i = n; i <= m; ++i) {
+    for (int i = n; i <= m; i++) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = sum / (m - n + 1);
     
-    return bitset<sizeof(int)*8>(avg).to_string();
+    return bitset<32>(avg).to_string().substr(0, log2(avg) + 1);
 }
