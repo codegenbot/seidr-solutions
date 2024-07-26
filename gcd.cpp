@@ -11,6 +11,7 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
+    if (target.empty()) return result; // Handle empty target string
     size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         result.push_back(pos);
@@ -21,11 +22,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
+    if (!(cin >> a >> b)) return 1; // Input error handling
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin >> text >> target;
+    if (!(cin >> text >> target)) return 1; // Input error handling
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
         cout << i << " ";
