@@ -1,15 +1,13 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        count = cents // (coins[i] // 100)
-        if count > 0:
-            cents %= (coins[i] // 100)
-            result[i] = str(count)
+        while cents >= coins[i]:
+            cents -= coins[i]
+            result[i] += 1
 
-    return [str(i) for i in result]
+    return result
 
 
 cents = int(input())
