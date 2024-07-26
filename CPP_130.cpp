@@ -35,11 +35,3 @@ vector<int> tri(int n) {
     }
     return result;
 }
-
-vector<int> result = tri(n);
-vector<int> expected = tri(n);
-if (issame(result, expected)) {
-    cout << "Result is correct." << endl;
-} else {
-    cout << "Result is incorrect." << endl;
-}
