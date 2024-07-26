@@ -1,8 +1,5 @@
-string solve(string s){
-    bool hasLetter = false;
-    for (char &c : s) {
+for (char &c : s) {
         if (isalpha(c)) {
-            hasLetter = true;
             if (islower(c)) {
                 c = toupper(c);
             } else {
@@ -11,7 +8,7 @@ string solve(string s){
         }
     }
     
-    if (!hasLetter) {
+    if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
         reverse(s.begin(), s.end());
     }
     
