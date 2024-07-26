@@ -1,5 +1,4 @@
-int total = number + need;
-    int eaten = min(total, remaining);
-    int left = max(0, total - remaining);
+int eaten = number + remaining;
+    int left = max(0, remaining - (need - number));
     return {eaten, left};
 }
