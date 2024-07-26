@@ -1,14 +1,11 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
-    if(issame(array.front(), array.back()) || (array.front() + array.back()) % 2 == 0)
-        sort(array.begin(), array.end(), std::greater<int>());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.empty()) return a;
+    if((a.front() + a.back()) % 2 == 0)
+        std::sort(a.begin(), a.end(), std::greater<int>());
     else
-        sort(array.begin(), array.end());
-    return array;
+        std::sort(a.begin(), a.end());
+    return a;
 }
