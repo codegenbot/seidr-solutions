@@ -13,10 +13,13 @@ int modp(int n, int p) {
     return result;
 }
 
-int main() {
+void solve() {
     int n, p;
     std::cin >> n >> p;
     std::cout << modp(n, p) << std::endl;
-    
+}
+
+int main() {
+    solve();
     return 0;
 }
