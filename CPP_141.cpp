@@ -1,28 +1,25 @@
 int digitCount = 0;
+    bool dotFound = false;
+    bool validPrefix = false;
+    bool validExtension = false;
+    
     for (char c : file_name) {
         if (isdigit(c)) {
             digitCount++;
+        } else if (c == '.') {
+            dotFound = true;
+        } else if (isalpha(c) && !dotFound) {
+            validPrefix = true;
         }
     }
-    if (digitCount > 3) {
+    
+    if (file_name.substr(file_name.find('.') + 1) == "txt" || file_name.substr(file_name.find('.') + 1) == "exe" || file_name.substr(file_name.find('.') + 1) == "dll") {
+        validExtension = true;
+    }
+    
+    if (digitCount <= 3 && dotFound && validPrefix && validExtension) {
+        return "Yes";
+    } else {
         return "No";
     }
-    
-    size_t dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
-        return "No";
-    }
-    
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
-    
-    if (!isalpha(beforeDot[0])) {
-        the return "No";
-    }
-    
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-        return "No";
-    }
-    
-    return "Yes";
 }
