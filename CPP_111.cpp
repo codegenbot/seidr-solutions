@@ -12,7 +12,7 @@ int main() {
     std::map<char, int> result = histogram(test);
 
     for (const auto& pair : result) {
-        std::cout << pair.first << " : " << pair.second << std::endl;
+        std::cout << pair.first << ": " << pair.second << std::endl;
     }
 
     return 0;
