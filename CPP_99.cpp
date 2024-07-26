@@ -1,4 +1,3 @@
-double num = stod(value);
-int closest = static_cast<int>(round(num));
-int next = static_cast<int>(num < 0 ? ceil(num) : floor(num));
-return abs(num - closest) < abs(num - next) ? closest : next;
+float num = std::stof(value);
+    return num >= 0 ? std::floor(num + 0.5) : std::ceil(num - 0.5);
+}
