@@ -1,9 +1,3 @@
-int closest_integer(string value){
-    double number = stod(value);
-    int rounded = round(number);
-    if (number - rounded > 0) {
-        return ceil(number);
-    } else {
-        return floor(number);
-    }
+float num = stof(value);
+    return num < 0 ? ceil(num - 0.5) : floor(num + 0.5);
 }
