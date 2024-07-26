@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 std::vector<int> sort_array(std::vector<int> arr) {
@@ -19,8 +19,9 @@ int main() {
     vector<int> arr = {3, 6, 2, 9, 10};
     vector<int> sorted_arr = sort_array(arr);
     for (int num : sorted_arr) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
+    
     return 0;
 }
