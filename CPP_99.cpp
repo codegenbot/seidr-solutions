@@ -1,6 +1,4 @@
-double num = stod(value);
-    int closestInt = round(num);
-    if (closestInt > num) closestInt = floor(num);
-    else if (closestInt < num) closestInt = ceil(num);
-    return closestInt;
-}
+double val = stod(value);
+int lower = floor(val);
+int higher = ceil(val);
+return abs(lower - val) < abs(higher - val) ? lower : higher;
