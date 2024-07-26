@@ -1,7 +1,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,6 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{1}, std::vector<int>{1}));
+    assert(issame(vector<int>{1}, vector<int>{1}));
+    assert(issame(vector<int>{1, 3}, vector<int>{1, 3}));
     return 0;
 }
