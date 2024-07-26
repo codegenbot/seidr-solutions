@@ -1,10 +1,9 @@
 string solve(string s){
-    int n = s.size();
     bool hasLetter = false;
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
+    for(char &c : s){
+        if(isalpha(c)){
             hasLetter = true;
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
     if(!hasLetter){
