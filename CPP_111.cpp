@@ -1,21 +1,18 @@
-map<char, int> histogram(string test) {
+map<char, int> hist;
+    int maxFreq = 0;
+    for (char c : test) {
+        if (islower(c)) {
+            hist[c]++;
+            maxFreq = max(maxFreq, hist[c]);
+        }
+    }
+
     map<char, int> result;
-    stringstream ss(test);
-    string word;
-    while (ss >> word) {
-        for (char c : word) {
-            result[c]++;
+    for (auto it = hist.begin(); it != hist.end(); ++it) {
+        if (it->second == maxFreq) {
+            result[it->first] = it->second;
         }
     }
-    int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        maxCount = max(maxCount, it->second);
-    }
-    map<char, int> ans;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second == maxCount) {
-            ans[it->first] = it->second;
-        }
-    }
-    return ans;
+
+    return result;
 }
