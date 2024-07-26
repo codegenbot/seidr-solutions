@@ -1,6 +1,6 @@
 ```
 def coin_sum(cents):
-    denominations = [25, 10, 5, 1]
+    denominations = [1, 5, 10, 25]
     coins = [0, 0, 0, 0]
     for i in range(len(denominations)-1, -1, -1):
         while cents >= denominations[i]:
