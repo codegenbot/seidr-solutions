@@ -1,4 +1,9 @@
-if (arr.empty()) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+int prod_signs(std::vector<int> arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
