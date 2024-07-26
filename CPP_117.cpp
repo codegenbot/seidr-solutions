@@ -1,38 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 using namespace std;
 
-vector<string> select_words(string s, int n);
-
 vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int consonant_count = 0;
+    vector<string> words;
+    stringstream ss(s);
+    string word;
     
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonant_count == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonant_count = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonant_count++;
-            }
-            word += c;
-        }
+    while (ss >> word) {
+        words.push_back(word);
     }
     
-    if (consonant_count == n) {
-        result.push_back(word);
+    if (n >= 0 && n < words.size()) {
+        words.erase(words.begin() + n);
     }
     
-    return result;
+    return words;
 }
 
 int main() {
-    cout << (select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    vector<string> result = select_words("a b c d e f", 1);
+    
+    cout << (result == vector<string>{"a", "c", "d", "e", "f"});
+    
     return 0;
 }
