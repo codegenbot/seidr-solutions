@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    // Function implementation here
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> tri(int n) {
     vector<int> result;
@@ -21,4 +19,23 @@ vector<int> tri(int n) {
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    vector<int> expected = {3, 1, 2, 4, 7};
+    vector<int> result = tri(4);
+    assert(issame(expected, result));
+    return 0;
 }
