@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <sstream>
 
 using namespace std;
 
@@ -9,11 +8,12 @@ int main() {
     vector<int> nums;
     int num;
 
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
-    while (iss >> num) {
+    while (cin >> num) {
         nums.push_back(num);
+    }
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     int n = nums.size();
