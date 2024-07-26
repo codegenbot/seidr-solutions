@@ -4,8 +4,11 @@ def coin_sum(cents):
     coins = [0, 0, 0, 0]
     for i in range(len(denominations)-1, -1, -1):
         while cents >= denominations[i]:
-            coins[i] += denominations[i] // denominations[i-1]
-            cents -= denominations[i] // denominations[i-1] * denominations[i-1]
+            remaining_cents = cents - denominations[i]
+            coins[i] += 1
+            if remaining_cents < denominations[i-1]:
+                break
+            cents = remaining_cents
     return coins
 
 result = coin_sum(1779)
