@@ -3,7 +3,7 @@
 #include <ctime>
 
 int contestProblem(int x, int y) {
-    return x + y;
+    return x + y; // Add your code for the contest problem here
 }
 
 int main() {
