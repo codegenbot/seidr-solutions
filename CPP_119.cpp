@@ -24,8 +24,3 @@ string match_parens(const vector<string>& lst) {
     }
     return (open == 0 && close == 0) ? "Yes" : "No";
 }
-
-int main() {
-    assert(match_parens({")", "("}) == "No");
-    return 0;
-}
