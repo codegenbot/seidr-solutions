@@ -27,13 +27,17 @@ int main() {
         }
     }
 
-    // Print the two resulting subvectors
-    for (int i = 0; i <= cut_idx; ++i) {
-        cout << nums[i] << endl;
-    }
-    cout << nums[cut_idx] << endl; // prints the cut boundary
-    for (int i = cut_idx + 1; i < n; ++i) {
-        cout << nums[i] << endl;
+    if (cut_idx == n - 1) {
+        cout << 1 << endl; // Output 1 before nums[cut_idx]
+        cout << nums[cut_idx] << endl;
+        cout << 0 << endl;
+    } else {
+        for (int i = 0; i <= cut_idx; ++i) {
+            cout << nums[i] << endl;
+        }
+        for (int i = cut_idx + 1; i < n; ++i) {
+            cout << nums[i] << endl;
+        }
     }
 
     return 0;
