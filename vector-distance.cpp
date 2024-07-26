@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
 using namespace std;
 
 int main() {
@@ -12,20 +11,18 @@ int main() {
         cin >> vec1[i];
     }
 
-    string temp;
-    getline(cin, temp);
-    stringstream ss(temp);
+    cin >> n;
     vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        ss >> vec2[i];
+        cin >> vec2[i];
     }
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = sqrt(sum);
+    double result = std::sqrt(sum);
     cout << result << endl;
 
     return 0;
