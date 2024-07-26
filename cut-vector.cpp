@@ -8,6 +8,15 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
+    if (n == 1) {
+        cout << 1 << endl;
+        vector<int> nums(1);
+        cin >> nums[0];
+        cout << nums[0] << endl;
+        cout << 0 << endl;
+        return 0;
+    }
+    
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
@@ -27,7 +36,7 @@ int main() {
         }
     }
 
-    if (cut_idx == n) {
+    if (cut_idx == n - 1) {
         cout << 1 << endl;
         cout << nums[cut_idx] << endl;
         cout << 0 << endl;
