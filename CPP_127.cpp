@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
 
 int isPrime(int n) {
     if (n <= 1) return 0;
@@ -11,7 +8,7 @@ int isPrime(int n) {
     return 1;
 }
 
-string intersection(vector<int> interval1, vector<int> interval2) {
+std::string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
@@ -31,10 +28,4 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     } else {
         return "NO";
     }
-}
-
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-
-    return 0;
 }
