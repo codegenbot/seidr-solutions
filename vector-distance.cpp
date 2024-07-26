@@ -2,13 +2,11 @@
 #include <vector>
 #include <cmath>
 #include <sstream>
-
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-
     vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
@@ -16,7 +14,6 @@ int main() {
 
     cin.ignore();
     string line;
-
     getline(cin, line);
     istringstream iss(line);
     vector<double> vec2(n);
