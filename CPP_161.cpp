@@ -1,4 +1,4 @@
-for(char &c : s){
+for(char& c : s){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
@@ -7,11 +7,8 @@ for(char &c : s){
             }
         }
     }
-    int left = 0, right = s.size() - 1;
-    while(left < right){
-        swap(s[left], s[right]);
-        left++;
-        right--;
+    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
+        reverse(s.begin(), s.end());
     }
     return s;
 }
