@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
-
-vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -32,4 +31,15 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-cout << (select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+int main() {
+    vector<string> expected_result = {"b", "c", "d", "f"};
+    vector<string> result = select_words("a b c d e f", 1);
+
+    if (result == expected_result) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
+
+    return 0;
+}
