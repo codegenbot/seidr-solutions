@@ -1,8 +1,9 @@
-int current_balance = 0;
-for (int op : operations) {
-    current_balance += op;
-    if (current_balance < 0) {
-        return true;
+int balance = 0;
+    for (int op : operations) {
+        balance += op;
+        if (balance < 0) {
+            return true;
+        }
     }
+    return false;
 }
-return false;
