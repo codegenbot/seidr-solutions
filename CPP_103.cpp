@@ -7,7 +7,7 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = sum / (m - n + 1);
+    int avg = round(sum / (m - n + 1.0));
     
     return bitset<32>(avg).to_string().substr(0, log2(avg) + 1);
 }
