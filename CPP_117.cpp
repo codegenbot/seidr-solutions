@@ -3,29 +3,23 @@
 #include <string>
 using namespace std;
 
-vector<string> select_words(string s, int n);
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    int consonant_count = 0;
-    
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonant_count == n) {
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            if (n == 0) {
                 result.push_back(word);
+            } else {
+                n--;
             }
             word = "";
-            consonant_count = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonant_count++;
-            }
-            word += c;
+        } else {
+            word += s[i];
         }
     }
-    
-    if (consonant_count == n) {
+
+    if (n == 0 && !word.empty()) {
         result.push_back(word);
     }
     
@@ -33,6 +27,9 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    cout << (select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    vector<string> result = select_words("a b c d e f", 1);
+    
+    cout << (result == vector<string>{"b", "c", "d", "f"});
+    
     return 0;
 }
