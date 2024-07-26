@@ -15,7 +15,9 @@ namespace contest {
 }
 
 int main() {
-    assert (contest::issame(contest::sort_array({21, 14, 23, 11}), std::vector<int>{11, 14, 21, 23}));
+    assert(contest::issame(contest::sort_array({21, 14, 23, 11}), std::vector<int>{11, 14, 21, 23}) == true);
+
     std::cout << "Arrays are the same" << std::endl;
+
     return 0;
 }
