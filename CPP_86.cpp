@@ -1,19 +1,15 @@
-string anti_shuffle(string s){
-    string ordered_str = "";
-    string word = "";
-    
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == ' '){
+string ordered_word = "";
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == ' ') {
+            string word = s.substr(start, i - start);
             sort(word.begin(), word.end());
-            ordered_str += word + " ";
-            word = "";
-        } else {
-            word += s[i];
+            ordered_word += word;
+            if (i < s.size()) {
+                ordered_word += ' ';
+            }
+            start = i + 1;
         }
     }
-    
-    sort(word.begin(), word.end());
-    ordered_str += word;
-    
-    return ordered_str;
+    return ordered_word;
 }
