@@ -3,16 +3,24 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-#include <sstream>
 
-std::vector<std::string> words_string(const std::string& input) {
-    std::istringstream iss(input);
-    std::vector<std::string> tokens;
+std::vector<std::string> words_string(std::string str) {
+    std::vector<std::string> words;
     std::string word;
-    while (iss >> word) {
-        tokens.push_back(word);
+    for (char c : str) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
     }
-    return tokens;
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    return words;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
