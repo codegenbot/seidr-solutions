@@ -1,18 +1,48 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (is_prime(word.size())) {
+#include <string>
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
+    for(char c : sentence){
+        if(c != ' '){
+            word += c;
+        } else {
+            int len = word.size();
+            bool is_prime = true;
+            if(len <= 1){
+                is_prime = false;
+            } else {
+                for(int i=2; i*i<=len; i++){
+                    if(len % i == 0){
+                        is_prime = false;
+                        break;
+                    }
+                }
+            }
+            if(is_prime){
                 result += word + " ";
             }
             word = "";
-        } else {
-            word += c;
         }
     }
-    if (is_prime(word.size())) {
+    int len = word.size();
+    bool is_prime = true;
+    if(len <= 1){
+        is_prime = false;
+    } else {
+        for(int i=2; i*i<=len; i++){
+            if(len % i == 0){
+                is_prime = false;
+                break;
+            }
+        }
+    }
+    if(is_prime){
         result += word;
     }
     return result;
+}
+
+int main() {
+    assert (words_in_sentence("here is") == "is");
 }
