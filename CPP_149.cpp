@@ -1,24 +1,26 @@
-bool issame(vector<string> a, const vector<string>& b) {
-    return a == b;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::string& a, const std::string& b) {
+    return a.length() == b.length();
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> result = lst;
-    result.erase(remove_if(result.begin(), result.end(), [](const string& s){ return s.length() % 2 != 0; }), result.end());
-    sort(result.begin(), result.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
+int sorted_list_sum(const std::vector<std::string>& lst) {
+    int sum = 0;
+    for (const auto& str : lst) {
+        sum += std::stoi(str);
+    }
+    return sum;
+}
+
+std::vector<std::string> fix_code(const std::vector<std::string>& lst) {
+    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
+    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+        if (issame(a, b)) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return result;
-}
-
-int main() {
-    vector<string> input = {"apple", "banana", "orange", "grape", "kiwi"};
-    vector<string> output = sorted_list_sum(input);
-    for (const string& s : output) {
-        cout << s << " ";
-    }
-    return 0;
+    return lst;
 }
