@@ -1,15 +1,22 @@
-vector<int> result(2, 0);
-    for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
-            if (i % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
-            }
-        }
-    }
-    return result;
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> palindrome;
+
+    for (int i = 0; i <= n; ++i) {
+        palindrome.push_back(i);
+    }
+
+    for (int i = n - 1; i > 0; --i) {
+        palindrome.push_back(i);
+    }
+
+    return palindrome;
+}
+
+assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1, 0}));
