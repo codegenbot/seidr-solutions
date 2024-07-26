@@ -1,4 +1,4 @@
-vector<string> bf(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -16,10 +16,11 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int start = min(idx1, idx2);
-    int end = max(idx1, idx2);
+    if (idx1 > idx2) {
+        swap(idx1, idx2);
+    }
 
-    for (int i = start + 1; i < end; ++i) {
+    for (int i = idx1 + 1; i < idx2; ++i) {
         result.push_back(planets[i]);
     }
 
