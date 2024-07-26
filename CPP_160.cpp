@@ -24,6 +24,7 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand) {
 
 int main() {
     assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    // Additional test cases can be added here
 
     return 0;
 }
