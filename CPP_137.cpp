@@ -1,45 +1,14 @@
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-        return a;
-    } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-        return b;
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
+        if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) return b;
     }
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-        return a;
-    } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-        return b;
+    if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) return a;
+        if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) return b;
     }
-} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    std::string str_a = boost::any_cast<std::string>(a);
-    std::string str_b = boost::any_cast<std::string>(b);
-    if (str_a.find_first_of(".,")) {
-        std::replace(str_a.begin(), str_a.end(), ',', '.');
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) return a;
+        if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) return b;
     }
-    if (str_b.find_first_of(".,")) {
-        std::replace(str_b.begin(), str_b.end(), ',', '.');
-    }
-    if (std::stod(str_a) > std::stod(str_b)) {
-        return a;
-    } else if (std::stod(str_a) < std::stod(str_b)) {
-        return b;
-    }
-} else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-    if (std::to_string(boost::any_cast<int>(a)) == boost::any_cast<std::string>(b)) {
-        return "None";
-    } else if (std::to_string(boost::any_cast<int>(a)) > boost::any_cast<std::string>(b)) {
-        return a;
-    } else {
-        return b;
-    }
-} else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-    if (boost::any_cast<std::string>(a) == std::to_string(boost::any_cast<int>(b))) {
-        return "None";
-    } else if (boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<int>(b))) {
-        return a;
-    } else {
-        return b;
-    }
-}
-return "None";
+    return "None";
 }
