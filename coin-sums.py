@@ -7,5 +7,6 @@ def coin_sum(cents):
             cents = cents % denominations[i]
     return coins
 
-result = coin_sum(1779)
+cents = int(input("Enter the number of cents: "))
+result = coin_sum(cents)
 print(result)
