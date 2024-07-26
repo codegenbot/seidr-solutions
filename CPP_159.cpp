@@ -1,5 +1,3 @@
-#include <algorithm>
-#include <cassert>
 #include <vector>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
