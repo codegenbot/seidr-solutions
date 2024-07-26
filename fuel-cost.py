@@ -1,3 +1,6 @@
-numbers = list(map(int, input().split()))
-result = sum(map(lambda x: max(0, x // 3 - 2), numbers))
-print(result)
+n = int(input())
+total = 0
+for i in range(n):
+    num = int(input())
+    total += max(0, num // 3 - 2)
+print(total)
