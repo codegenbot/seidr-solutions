@@ -1,7 +1,8 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-bool simplify(std::string x, std::string n) {
+bool simplify(const std::string& x, const std::string& n) {
     int x_num = std::stoi(x.substr(0, x.find('/')));
     int x_denom = std::stoi(x.substr(x.find('/') + 1));
     int n_num = std::stoi(n.substr(0, n.find('/')));
@@ -12,6 +13,7 @@ bool simplify(std::string x, std::string n) {
 
 int main() {
     assert(simplify("1/5", "1/5") == false);
+    // Add more test cases here
 
     return 0;
 }
