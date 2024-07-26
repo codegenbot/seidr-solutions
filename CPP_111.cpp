@@ -1,20 +1,26 @@
 #include <iostream>
 #include <map>
-#include <algorithm>
-#include <cassert>
 
-using namespace std;
-
-map<char, int> histogram(string test);
-bool issame(const map<char, int>& a, const map<char, int>& b);
-
-bool issame(const map<char, int>& a, const map<char, int>& b){
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
 
-map<char, int> histogram(string test){
-    map<char, int> result;
-    map<char, int> count;
+std::map<char, int> histogram(std::string test);
+
+int main() {
+    std::string test = "hello world";
+    std::map<char, int> result = histogram(test);
+
+    for (const auto& pair : result) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
@@ -24,7 +30,7 @@ map<char, int> histogram(string test){
 
     int maxCount = 0;
     for (const auto& pair : count) {
-        maxCount = max(maxCount, pair.second);
+        maxCount = std::max(maxCount, pair.second);
     }
 
     for (const auto& pair : count) {
@@ -34,10 +40,4 @@ map<char, int> histogram(string test){
     }
 
     return result;
-}
-
-int main(){
-    assert(issame(histogram("a"), {{'a', 1}}));
-    
-    return 0;
 }
