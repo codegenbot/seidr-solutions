@@ -1,7 +1,7 @@
-int balance = 0;
+int current_balance = 0;
 for (int op : operations) {
-    balance += op;
-    if (balance < 0) {
+    current_balance += op;
+    if (current_balance < 0) {
         return true;
     }
 }
