@@ -14,7 +14,7 @@ int main() {
     std::string x = "2/4";
     std::string n = "1/2";
 
-    std::cout << simplify(x, n);
+    std::cout << simplify(x, n) << std::endl;
 
     return 0;
 }
