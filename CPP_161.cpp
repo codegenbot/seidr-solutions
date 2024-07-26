@@ -22,9 +22,10 @@ string solve(string s){
 
 int main() {
     string input;
-    cout << "Enter a string: ";
     cin >> input;
-    cout << "Output: " << solve(input) << endl;
-    
+
+    string result = solve(input);
+    cout << result << endl;
+
     return 0;
 }
