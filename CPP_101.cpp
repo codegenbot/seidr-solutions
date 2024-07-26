@@ -17,11 +17,7 @@ vector<string> words_string(const string& input) {
     return tokens;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
     return 0;
 }
