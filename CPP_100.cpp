@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
-using namespace std;
-
-std::vector<int> make_a_pile(int n) {
+std::vector<int> make_a_pile() {
+    int n;
+    std::cin >> n;
+    
     std::vector<int> stones;
     stones.push_back(n);
     while (n % 2 == 0) {
@@ -13,16 +12,4 @@ std::vector<int> make_a_pile(int n) {
         stones.push_back(n);
     }
     return stones;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    std::vector<int> result = make_a_pile(n);
-    
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
-    }
-    
-    return 0;
 }
