@@ -3,6 +3,14 @@
 #include <string>
 using namespace std;
 
+int main() {
+    vector<string> result = select_words("a b c d e f", 1);
+    
+    cout << (result == vector<string>{"b", "c", "d", "f"});
+    
+    return 0;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -24,12 +32,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-int main() {
-    vector<string> result = select_words("a b c d e f", 1);
-    
-    cout << (result == vector<string>{"b", "c", "d", "f"});
-    
-    return 0;
 }
