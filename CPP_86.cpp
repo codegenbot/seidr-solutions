@@ -1,28 +1,14 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-using namespace std;
-
-string anti_shuffle(string s){
-    string result = "";
-    string word = "";
-    for(char c : s){
-        if(c == ' '){
+for (int i = 0; i < s.size(); ++i) {
+        if (s[i] != ' ') {
+            string word = "";
+            while (i < s.size() && s[i] != ' ') {
+                word += s[i++];
+            }
             sort(word.begin(), word.end());
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+            cout << word;
+        }
+        if (i < s.size() && s[i] == ' ') {
+            cout << ' ';
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
-    return result;
-}
-
-int main(){
-    string input;
-    getline(cin, input);
-    cout << anti_shuffle(input) << endl;
-    return 0;
 }
