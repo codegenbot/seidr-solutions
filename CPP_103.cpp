@@ -1,20 +1,19 @@
-int sum = 0;
-int count = 0;
 if (n > m) {
     return "-1";
 }
+
+int sum = 0;
 for (int i = n; i <= m; i++) {
     sum += i;
-    count++;
 }
-int avg = round((double)sum / count);
-string binary_avg = bitset<32>(avg).to_string();
-int nearest_int = 0;
-for (int i = 0; i < binary_avg.size(); i++) {
-    if (binary_avg[i] == '1') {
-        nearest_int = i;
-        break;
-    }
+
+int avg = round(sum / (m - n + 1.0));
+
+string binary_avg = "";
+while (avg > 0) {
+    binary_avg = to_string(avg % 2) + binary_avg;
+    avg /= 2;
 }
-return binary_avg.substr(0, nearest_int + 1);
+
+return binary_avg;
 }
