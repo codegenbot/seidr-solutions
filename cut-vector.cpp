@@ -27,15 +27,14 @@ int main() {
         }
     }
 
-    // Print the two resulting subvectors
     for (int i = 0; i <= cut_idx; ++i) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
+    cout << 0 << endl; // Print the cut element
+
     for (int i = cut_idx + 1; i < n; ++i) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
 
     return 0;
 }
