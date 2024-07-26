@@ -10,16 +10,13 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
+    std::cin.clear();
+    std::cin.ignore();
 
     if (nums.empty()) {
         std::cerr << "No input values provided." << std::endl;
         return 1;
     }
-
-    if (std::cin.eof()) {
-        std::cin.clear();
-    }
-    std::cin.ignore();
 
     int n = nums.size();
     int diff = INT_MAX;
