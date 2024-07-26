@@ -8,8 +8,3 @@ int closest_integer(std::string value) {
     int upper = std::ceil(num);
     return (num - lower < upper - num) ? lower : upper;
 }
-
-int main() {
-    assert(closest_integer("0") == 0);
-    return 0;
-}
