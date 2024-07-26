@@ -8,12 +8,12 @@ if (n > m) {
     }
     
     int avg = round((double)sum / (m - n + 1));
+    string binary_avg = bitset<32>(avg).to_string();
     
-    string binary;
-    while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
-        avg /= 2;
+    size_t found = binary_avg.find('1');
+    if (found != string::npos) {
+        return binary_avg.substr(found);
     }
     
-    return binary;
+    return "0";
 }
