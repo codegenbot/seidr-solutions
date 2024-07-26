@@ -35,6 +35,3 @@ vector<int> tri(int n) {
     }
     return result;
 }
-
-// Update the issame call with correct arguments
-bool same = issame(tri(5), tri(5));
