@@ -10,10 +10,6 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
-    if (cin.eof()) {
-        cin.clear();
-    }
     
     int n = nums.size();
     int diff = INT_MAX;
