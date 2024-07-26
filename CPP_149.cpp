@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <string>
 
 bool issame(const std::string& a, const std::string& b) {
     return a.length() == b.length();
@@ -8,13 +9,13 @@ bool issame(const std::string& a, const std::string& b) {
 
 int sorted_list_sum(const std::vector<std::string>& lst) {
     int sum = 0;
-    for (const auto& str : lst) {
-        sum += std::stoi(str);
+    for (const auto& s : lst) {
+        sum += std::stoi(s);
     }
     return sum;
 }
 
-std::vector<std::string> fix_code(const std::vector<std::string>& lst) {
+std::vector<std::string> modified_function(std::vector<std::string> lst) {
     lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
     std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
         if (issame(a, b)) {
