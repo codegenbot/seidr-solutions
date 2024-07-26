@@ -9,6 +9,9 @@ int main() {
     
     while (cin >> num) {
         nums.push_back(num);
+        if (cin.eof()) {
+            break;
+        }
     }
     
     int n = nums.size();
