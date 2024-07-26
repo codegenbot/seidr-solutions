@@ -1,9 +1,9 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string squareDigits(int n) {
-    string s = to_string(n);
-    string result;
-    for (char c : s) {
+string squareDigits(string input) {
+    string result = "";
+    for (char c : input) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
