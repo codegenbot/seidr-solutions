@@ -1,16 +1,15 @@
 def coin_sum(cents):
-    coins = [0, 0, 0, 0]
-    denominations = [1, 5, 10, 25]
+    quarters = cents // 25
+    cents %= 25
+    dimes = cents // 10
+    cents %= 10
+    nickles = cents // 5
+    cents %= 5
+    pennies = cents
 
-    for i in range(len(denominations)):
-        count = cents // denominations[i]
-        if count > 0:
-            coins[i] = count
-        cents -= denominations[i] * count
-
-    print(f"{coins[3]} quarters")
-    print(f"{coins[2]} dimes")
-    print(f"{coins[1]} nickles")
-    print(f"{coins[0]} pennies")
+    print(f"{quarters} quarters")
+    print(f"{dimes} dimes")
+    print(f"{nickles} nickles")
+    print(f"{pennies} pennies")
 
 coin_sum(1779)
