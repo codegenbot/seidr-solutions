@@ -28,7 +28,7 @@ void solve() {
     assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
 }
 
-int main() {
+int contest_main() {
     solve();
     return 0;
 }
