@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <sstream>
 
 using namespace std;
 
@@ -8,7 +9,10 @@ int main() {
     vector<int> nums;
     int num;
 
-    while (cin >> num) {
+    string input;
+    getline(cin, input);
+    istringstream iss(input);
+    while (iss >> num) {
         nums.push_back(num);
     }
 
