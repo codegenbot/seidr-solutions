@@ -1,15 +1,16 @@
-string ordered_word = "";
-    size_t start = 0;
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            ordered_word += word;
-            if (i < s.size()) {
-                ordered_word += ' ';
-            }
-            start = i + 1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return ordered_word;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
