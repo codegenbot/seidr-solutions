@@ -9,11 +9,11 @@ if (n > m) {
     
     int avg = round((double)sum / (m - n + 1));
     
-    string binaryAvg = "";
+    string binary = "";
     while (avg > 0) {
-        binaryAvg = to_string(avg % 2) + binaryAvg;
+        binary = to_string(avg % 2) + binary;
         avg /= 2;
     }
     
-    return binaryAvg;
+    return binary;
 }
