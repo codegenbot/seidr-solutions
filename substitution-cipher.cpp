@@ -2,13 +2,19 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher, const std::string& map) {
-    std::string result = "";
-    for (char c : cipher) {
-        for (int i = 0; i < map.length(); ++i) {
-            if (map[i] == c) {
-                result += char(i + 97); // ASCII value of 'a' is 97
-                break;
+std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    std::string result;
+    for (int i = 0; i < message.length(); i++) {
+        if (cipher_map1[i] == cipher_map2[i]) {
+            result += cipher_map2[i];
+        } else {
+            int j = 0;
+            while (j < cipher_map1.length()) {
+                if (cipher_map1[j] == message[i]) {
+                    result += cipher_map2[j];
+                    break;
+                }
+                j++;
             }
         }
     }
@@ -16,10 +22,8 @@ std::string decipher(const std::string& cipher, const std::string& map) {
 }
 
 int main() {
-    std::string cipher, map, output;
-    std::cin >> cipher >> map >> output;
-
-    std::cout << decipher(output, map) << std::endl;
-
+    std::string map1, map2, message;
+    std::cin >> map1 >> map2 >> message;
+    std::cout << decipher(map1, map2, message) << "\n";
     return 0;
 }
