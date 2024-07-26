@@ -1,2 +1,6 @@
- thei theibe a  a it  a  a it  more theiously  instance theised a an itit a it  the ing  his .ing 
- a it  instance the  the
+text = input()
+target = input()
+
+indices = [i for i in range(len(text) - len(target) + 1) if text[i:i+len(target)] == target]
+for index in indices:
+    print(index)
