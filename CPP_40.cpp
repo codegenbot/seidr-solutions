@@ -1,15 +1,17 @@
 sort(l.begin(), l.end());
-    for (int i = 0; i < l.size() - 2; i++) {
-        int j = i + 1;
-        int k = l.size() - 1;
-        while (j < k) {
-            int sum = l[i] + l[j] + l[k];
-            if (sum == 0) {
-                return true;
-            } else if (sum < 0) {
-                j++;
+    for (int i = 0; i < l.size(); ++i) {
+        int target = -l[i];
+        int front = i + 1;
+        int back = l.size() - 1;
+        
+        while (front < back) {
+            int sum = l[front] + l[back];
+            if (sum < target) {
+                front++;
+            } else if (sum > target) {
+                back--;
             } else {
-                k--;
+                return true;
             }
         }
     }
