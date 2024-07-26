@@ -1,6 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
@@ -13,8 +16,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     }
     return true;
 }
-
-std::vector<int> unique_digits(std::vector<int> x);
 
 std::vector<int> unique_digits(std::vector<int> x){
     std::vector<int> result;
