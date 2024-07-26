@@ -24,15 +24,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     return result;
 }
 
-bool issame(vector<int> v1, vector<int> v2){
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); ++i){
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
-}
-
 int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
     return 0;
 }
