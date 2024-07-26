@@ -1,6 +1,15 @@
 #include <iostream>
 #include <climits>
 
+int modp(int n, int p);
+
+int main() {
+    int n, p;
+    std::cin >> n >> p;
+    std::cout << modp(n, p) << std::endl;
+    return 0;
+}
+
 int modp(int n, int p) {
     if (p == 1) return 0;
     int result = 1;
@@ -12,11 +21,4 @@ int modp(int n, int p) {
         n = (n * n) % p;
     }
     return result;
-}
-
-int main() {
-    int n, p;
-    std::cin >> n >> p;
-    std::cout << modp(n, p) << std::endl;
-    return 0;
 }
