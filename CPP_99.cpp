@@ -3,6 +3,6 @@ double num = stod(value);
     if (num - rounded == 0.5) {
         return (num > 0) ? ceil(num) : floor(num);
     } else {
-        return round(num);
+        return static_cast<int>(num);
     }
 }
