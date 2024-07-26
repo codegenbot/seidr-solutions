@@ -1,20 +1,11 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string squareDigits(std::string input) {
-    std::string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+int squareDigits(int n) {
+    string s = to_string(n);
+    for (char &c : s) {
+        c -= '0';
+        c *= c;
+        c += '0';
     }
-    return output;
-}
-
-int main() {
-    string s;
-    cout << "Enter a positive integer: ";
-    cin >> s;
-    cout << squareDigits(s) << endl;
-    return 0;
+    return stoi(s);
 }
