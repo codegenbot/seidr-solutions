@@ -13,14 +13,13 @@ int modp(int n, int p) {
     return result;
 }
 
-int main() {
+int calculateModp() {
     int n, p;
-    std::cout << "Enter two integers n and p: ";
     std::cin >> n >> p;
-    
-    int result = modp(n, p);
-    
-    std::cout << "Result: " << result << std::endl;
-    
+    return modp(n, p);
+}
+
+int main() {
+    std::cout << calculateModp() << std::endl;
     return 0;
 }
