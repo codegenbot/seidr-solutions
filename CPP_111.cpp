@@ -8,14 +8,14 @@ map<char, int> histogram(string test) {
         }
     }
     int maxCount = 0;
-    for (const auto &entry : result) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto& pair : result) {
+        maxCount = max(maxCount, pair.second);
     }
-    map<char, int> maxLetters;
-    for (const auto &entry : result) {
-        if (entry.second == maxCount) {
-            maxLetters[entry.first] = entry.second;
+    map<char, int> maxCountLetters;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxCountLetters[pair.first] = pair.second;
         }
     }
-    return maxLetters;
+    return maxCountLetters;
 }
