@@ -1,10 +1,13 @@
-int count = 0;
-    for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+int left_count = 0;
+    int right_count = 0;
+    
+    for(char c : str){
+        if(c == '['){
+            left_count++;
+        } else {
+            right_count++;
         }
     }
-    return count < 0;
+    
+    return left_count > 0 && right_count > 0;
 }
