@@ -2,12 +2,20 @@ def coin_sum(cents):
     coins = [0, 0, 0, 0]
     denominations = [25, 10, 5, 1]
 
-    denominations.sort(reverse=True)
+    denominations.reverse()
 
     for i in range(len(denominations)):
-        while cents >= denominations[i]:
-            count = cents // denominations[i]
-            coins[i] += count
-            cents -= denominations[i] * count
+        count = cents // denominations[i]
+        if count > 0:
+            print(f"{denominations[i] / 100} quarters")
+            print(f"{count % (cents // denominations[i + 1])} dimes")
+            print(f"{(count % (cents // denominations[i + 1])) * 2} nickels")
+            print(
+                f"and {((count % (cents // denominations[i + 1])) * 20) % 100} pennies"
+            )
 
-    return coins[3], coins[2], coins[1], coins[0]
+        coins[i] = count
+        cents -= denominations[i] * count
+
+
+coin_sum(1779)
