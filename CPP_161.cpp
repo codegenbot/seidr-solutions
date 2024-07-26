@@ -1,4 +1,5 @@
-for (char &c : s) {
+string solve(string s){
+    for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
                 c = toupper(c);
