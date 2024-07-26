@@ -9,5 +9,5 @@ def coin_sum(cents):
     return coins[3], coins[2], coins[1], coins[0]
 
 cents = int(input("Enter the number of cents: "))
-pennies, nickels, dimes, quarters = coin_sum(cents)
+pennies, dimes, nickels, quarters = coin_sum(cents)
 print(f"{quarters} quarters, {dimes} dimes, {nickels} nickels, and {pennies} pennies")
