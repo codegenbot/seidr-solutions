@@ -1,22 +1,38 @@
-int count_digits = 0;
-    int dot_position = file_name.find(".");
-    if (dot_position == string::npos || dot_position == 0 || dot_position == file_name.length() - 1) {
-        return "No";
-    }
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count_digits++;
+int digitCount = 0;
+    int dotCount = 0;
+    int dotIndex = -1;
+    string validExtensions[] = {"txt", "exe", "dll"};
+
+    for (int i = 0; i < file_name.size(); i++) {
+        if (isdigit(file_name[i])) {
+            digitCount++;
+        } else if (file_name[i] == '.') {
+            dotCount++;
+            dotIndex = i;
         }
     }
-    if (count_digits > 3) {
+
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size() - 1) {
         return "No";
     }
-    string extension = file_name.substr(dot_position + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+
+    string extension = file_name.substr(dotIndex + 1);
+    bool isValidExtension = false;
+    for (const string &ext : validExtensions) {
+        if (extension == ext) {
+            isValidExtension = true;
+            break;
+        }
+    }
+
+    if (!isValidExtension) {
         return "No";
     }
-    if (!isalpha(file_name[0])) {
+
+    char firstChar = file_name[0];
+    if (!(isalpha(firstChar))) {
         return "No";
     }
+
     return "Yes";
 }
