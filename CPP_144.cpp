@@ -13,7 +13,6 @@ bool simplify(const std::string& x, const std::string& n) {
 
 int main() {
     assert(simplify("1/5", "1/5") == false);
-    // Add more test cases here
 
     return 0;
 }
