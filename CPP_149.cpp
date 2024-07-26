@@ -3,25 +3,30 @@
 #include <algorithm>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
-int sorted_list_sum(const vector<int>& lst) {
-    int sum = 0;
-    for (int num : lst) {
-        sum += num;
-    }
-    return sum;
+vector<int> sorted_list_sum(vector<int> lst1, vector<int> lst2) {
+    vector<int> result = lst1;
+    result.insert(result.end(), lst2.begin(), lst2.end());
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    vector<int> v1 = {1, 2, 3, 4, 5};
-    vector<int> v2 = {1, 2, 3, 4, 5};
+    vector<int> v1 = {1, 3, 5};
+    vector<int> v2 = {2, 4, 6};
+    
+    vector<int> sum = sorted_list_sum(v1, v2);
     
     if (issame(v1, v2)) {
-        sort(v1.begin(), v1.end());
-        int sum = sorted_list_sum(v1);
-        cout << "Sum of sorted list: " << sum << endl;
+        cout << "Equal" << endl;
+    } else {
+        cout << "Not Equal" << endl;
+    }
+    
+    for (int num : sum) {
+        cout << num << " ";
     }
     
     return 0;
