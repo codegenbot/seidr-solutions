@@ -12,7 +12,7 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     if (start == -1 || end == -1) {
-        return {};
+        return result;
     }
     
     if (start > end) {
