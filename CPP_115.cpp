@@ -1,5 +1,3 @@
-#ifndef TESTING
-#define TESTING
 #include <vector>
 #include <cassert>
 
@@ -14,7 +12,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     }
     return count;
 }
-#endif
 
 int main() {
     assert(max_fill(std::vector<std::vector<int>>{{1,1,1,1}, {1,1,1,1}}, 9) == 2);
