@@ -1,3 +1,31 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-        // Your code here
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    if (grid.empty()) return {};
+
+    int m = grid.size();
+    int n = grid[0].size();
+
+    vector<int> result;
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            result.push_back(grid[i][j]);
+            if (k > 0 && j < n - 1) {
+                result.push_back(grid[i][j]);
+                k--;
+            }
+        }
     }
+
+    return result;
+}
+
+void solve() {
+    vector<int> expected = {1, 3, 1, 3, 3, 2};
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    assert(result == expected);
+}
