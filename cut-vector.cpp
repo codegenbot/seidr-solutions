@@ -1,21 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 int main() {
     vector<int> nums;
     int num;
-  
-    // Maximum number of elements to read
-    const int MaxNumElements = 1000;
 
-    for (int i = 0; i < MaxNumElements; ++i) {
+    while (cin.good()) {
         cin >> num;
-        if (cin.fail()) {
-            break; // End loop if input fails
-        }
         nums.push_back(num);
     }
 
