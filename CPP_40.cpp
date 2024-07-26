@@ -1,15 +1,9 @@
-sort(l.begin(), l.end());
-    for (int i = 0; i < l.size()-2; ++i) {
-        int left = i + 1;
-        int right = l.size() - 1;
-        while (left < right) {
-            int sum = l[i] + l[left] + l[right];
-            if (sum == 0) {
-                return true;
-            } else if (sum < 0) {
-                left++;
-            } else {
-                right--;
+for (size_t i = 0; i < l.size() - 2; ++i) {
+        for (size_t j = i + 1; j < l.size() - 1; ++j) {
+            for (size_t k = j + 1; k < l.size(); ++k) {
+                if (l[i] + l[j] + l[k] == 0) {
+                    return true;
+                }
             }
         }
     }
