@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <cmath>
 
 double calculateTotalPrice(const std::vector<double>& prices, const std::vector<double>& discounts) {
     double total_price = 0.0;
