@@ -1,10 +1,8 @@
-Here is the solution:
-
-string squareDigits(int n) {
-    string str = to_string(n);
-    for (int i = 0; i < str.length(); i++) {
-        int digit = str[i] - '0';
-        str[i] = to_string(digit * digit);
+string squareDigits(string input) {
+    string result = "";
+    for (char c : input) {
+        int digit = c - '0';
+        result += to_string(digit * digit);
     }
-    return str;
+    return result;
 }
