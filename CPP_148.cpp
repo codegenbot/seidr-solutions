@@ -1,4 +1,4 @@
-vector<string> bf(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -9,13 +9,14 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int idx1 = distance(planets.begin(), it1);
-    int idx2 = distance(planets.begin(), it2);
+    int start = distance(planets.begin(), it1);
+    int end = distance(planets.begin(), it2);
 
-    int start_idx = min(idx1, idx2);
-    int end_idx = max(idx1, idx2);
+    if (start > end) {
+        swap(start, end);
+    }
 
-    for (int i = start_idx + 1; i < end_idx; ++i) {
+    for (int i = start + 1; i < end; i++) {
         result.push_back(planets[i]);
     }
 
