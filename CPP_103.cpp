@@ -1,19 +1,10 @@
-if (n > m) {
+if(n > m) {
         return "-1";
     }
-    
     int sum = 0;
-    for (int i = n; i <= m; i++) {
+    for(int i = n; i <= m; i++) {
         sum += i;
     }
-    
-    int avg = round(sum / (m - n + 1.0));
-    
-    string binary_avg = bitset<32>(avg).to_string();
-    size_t found = binary_avg.find('1');
-    if (found != string::npos) {
-        return binary_avg.substr(found);
-    }
-    
-    return "0";
+    int avg = round((double)sum / (m - n + 1));
+    return bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
