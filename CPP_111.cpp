@@ -1,15 +1,15 @@
-bool issame(const map<char, int> &histogram1, const map<char, int> &histogram2);
+bool issame(map<char, int> &a, map<char, int> &b);
 
 map<char, int> histogram(string test);
 
 int main() {
-    // main function code here
+    // main function implementation
 }
 
-bool issame(const map<char, int> &histogram1, const map<char, int> &histogram2) {
-    // issame function code here
+bool issame(map<char, int> &a, map<char, int> &b) {
+    // issame function implementation
 }
 
 map<char, int> histogram(string test) {
-    // histogram function code here
+    // histogram function implementation
 }
