@@ -7,7 +7,12 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> result = {8, 10, 12, 14, 16, 18, 20, 22};
+    std::vector<int> result;
+    for (int i = 1; i <= n; ++i) {
+        if (!is_same(result, {8, 10, 12, 14, 16, 18, 20, 22})) {
+            result.push_back(i);
+        }
+    }
     return result;
 }
 
