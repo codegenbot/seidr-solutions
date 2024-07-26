@@ -1,4 +1,3 @@
-```
 def coin_sum(cents):
     quarters = cents // 25
     cents %= 25
@@ -12,5 +11,3 @@ def coin_sum(cents):
     print(f"{dimes} dimes")
     print(f"{nickles} nickles")
     print(f"{pennies} pennies")
-
-coin_sum(1779)
