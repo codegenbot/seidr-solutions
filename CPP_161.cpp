@@ -22,11 +22,10 @@ string solve(string s){
 
 int main() {
     string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    
+    getline(cin, input);
+
     string result = solve(input);
-    cout << "Output: " << result << endl;
-    
+    cout << result << endl;
+
     return 0;
 }
