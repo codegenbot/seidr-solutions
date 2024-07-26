@@ -38,8 +38,11 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    if (issame(tri(1), {1, 3})) {
-        // Do something
+    vector<int> result = tri(2);
+    if (issame(result, {1, 3})) {
+        cout << "Test case passed!";
+    } else {
+        cout << "Test case failed!";
     }
     return 0;
 }
