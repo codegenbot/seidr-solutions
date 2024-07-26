@@ -1,10 +1,12 @@
-int balance = 0;
-    for (char c : str) {
-        if (c == '[') {
-            balance++;
-        } else if (c == ']' && balance > 0) {
-            balance--;
+int count = 0;
+    for (char bracket : str) {
+        if (bracket == '[') {
+            count++;
+        } else if (bracket == ']') {
+            if (count > 0) {
+                count--;
+            }
         }
     }
-    return balance < 0 && (str.find("[]") != string::npos);
+    return count < 0;
 }
