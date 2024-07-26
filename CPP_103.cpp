@@ -7,9 +7,9 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
-
-    string binary = "";
+    int avg = round(sum / (m - n + 1.0));
+    
+    string binary;
     while (avg > 0) {
         binary = to_string(avg % 2) + binary;
         avg /= 2;
