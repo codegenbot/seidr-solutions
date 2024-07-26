@@ -18,6 +18,3 @@ int calculateModp() {
     std::cin >> n >> p;
     return modp(n, p);
 }
-
-std::cout << calculateModp() << std::endl;
-return 0;
