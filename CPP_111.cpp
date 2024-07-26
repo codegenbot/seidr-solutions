@@ -1,27 +1,24 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    stringstream ss(test);
-    string token;
-    
-    while (ss >> token) {
-        for (char& c : token) {
-            if (islower(c)) {
-                result[c]++;
-            }
+    map<int, vector<char>, greater<int>> count_map;
+
+    for (char& c : test) {
+        if (c != ' ') {
+            count_map[c]++;
         }
     }
-    
-    map<char, int> max_occurrences;
+
     int max_count = 0;
-    for (const auto& pair : result) {
-        if (pair.second > max_count) {
-            max_count = pair.second;
-            max_occurrences.clear();
-            max_occurrences.insert(pair);
-        } else if (pair.second == max_count) {
-            max_occurrences.insert(pair);
+    for (auto& pair : count_map) {
+        if (pair.first >= max_count) {
+            max_count = pair.first;
+            for (char& c : pair.second) {
+                result[c] = pair.first;
+            }
+        } else {
+            break; // Once the count decreases, break the loop
         }
     }
-    
-    return max_occurrences;
+
+    return result;
 }
