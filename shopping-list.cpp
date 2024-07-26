@@ -1,23 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <iomanip>
 
-float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float total_price = 0.0f;
+double calculateTotalPrice(const std::vector<double>& prices, const std::vector<double>& discounts) {
+    double total_price = 0.0;
     for (int i = 0; i < prices.size(); ++i) {
-        total_price += prices[i] * (1.0f - (discounts[i] / 100.0f));
+        total_price += prices[i] * (1.0 - (discounts[i] / 100.0));
     }
-    total_price = round(total_price * 100.0) / 100.0;
     return total_price;
 }
 
 int main() {
-    std::vector<float> prices = {10.0, 20.0, 30.0};
-    std::vector<float> discounts = {10.0, 15.0, 20.0};
+    std::vector<double> prices = {49.01, 48.92, 5.26, 2.97, 45.13, 27.93, 30.89, 22.65, 28.26, 5.11, 6.68};
+    std::vector<double> discounts = {37.1, 0.55, 73.93, 45.95, 6.37, 53.46, 11.91, 60.74, 40.9, 5.62, 66.44};
 
-    float total_price = calculateTotalPrice(prices, discounts);
+    double total_price = calculateTotalPrice(prices, discounts);
 
-    std::cout << "Total price after applying discounts: $" << total_price << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << "Total price after applying discounts: $" << total_price << std::endl;
 
     return 0;
 }
