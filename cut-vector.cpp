@@ -1,20 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <sstream>
 
 int main() {
     std::vector<int> nums;
 
-    std::cout << "Enter positive integers separated by spaces:" << std::endl;
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::stringstream ss(input);
+    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
     int num;
-    while (ss >> num) {
+    while (!std::cin.eof()) {
+        if (!(std::cin >> num)) {
+            break;
+        }
         nums.push_back(num);
     }
+    std::cin.clear();
+    std::cin.ignore();
 
     if (nums.empty()) {
         std::cerr << "No input values provided." << std::endl;
