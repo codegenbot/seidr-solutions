@@ -1,13 +1,17 @@
-#include <string>
-
 string solve(string s){
-    for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+    int n = s.size();
+    bool containsLetter = false;
+    
+    for(int i = 0; i < n; i++){
+        if(isalpha(s[i])){
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            containsLetter = true;
         }
     }
-    if (std::all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })) {
-        std::reverse(s.begin(), s.end());
+    
+    if(!containsLetter){
+        reverse(s.begin(), s.end());
     }
+    
     return s;
 }
