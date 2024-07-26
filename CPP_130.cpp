@@ -1,8 +1,8 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b); // Function prototype
+bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> tri(int n) { // Define tri function
+std::vector<int> tri(int n) {
     std::vector<int> result;
     if (n == 0) {
         return result;
@@ -26,7 +26,7 @@ std::vector<int> tri(int n) { // Define tri function
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Function definition
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -39,6 +39,6 @@ bool issame(std::vector<int> a, std::vector<int> b) { // Function definition
 }
 
 int main() {
-    assert(issame(tri(1), {1, 3})); // Testing the code
+    assert(issame(tri(1), {1, 3}));
     return 0;
 }
