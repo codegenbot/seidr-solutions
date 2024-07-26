@@ -25,9 +25,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 void solve() {
-    vector<int> expected = {1, 3, 1, 3, 3, 2};
-    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
-    assert(result == expected);
+    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 3, 2});
 }
 
 int main() {
