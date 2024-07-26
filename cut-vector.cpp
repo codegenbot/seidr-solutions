@@ -7,11 +7,8 @@ int main() {
 
     std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
     int num;
-    while (!std::cin.eof()) {
-        std::cin >> num;
-        if (!std::cin.fail()) {
-            nums.push_back(num);
-        }
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
 
     if (nums.empty()) {
