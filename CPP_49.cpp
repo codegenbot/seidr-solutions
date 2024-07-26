@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+#include <limits>
 
 int modp(int n, int p) {
     if (p == 1) return 0;
@@ -14,9 +15,9 @@ int modp(int n, int p) {
     return result;
 }
 
-int main() {
+int calculateModp() {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     int n, p;
     std::cin >> n >> p;
-    std::cout << modp(n, p) << std::endl;
-    return 0;
+    return modp(n, p);
 }
