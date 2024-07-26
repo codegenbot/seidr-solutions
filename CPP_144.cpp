@@ -1,4 +1,6 @@
 bool simplify(string x, string n) {
+    int stoi(const string& str);
+
     int x_num = stoi(x.substr(0, x.find("/")));
     int x_den = stoi(x.substr(x.find("/") + 1));
     int n_num = stoi(n.substr(0, n.find("/")));
