@@ -1,8 +1,5 @@
-double val = stod(value);
-int lower = floor(val);
-int upper = ceil(val);
-if (abs(val - lower) < abs(val - upper)) {
-    return lower;
-} else {
-    return upper;
+double num = stod(value);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
+    return (num - floor_num < ceil_num - num) ? floor_num : ceil_num;
 }
