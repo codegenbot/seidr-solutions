@@ -1,20 +1,22 @@
-map<char, int> hist;
-    istringstream iss(test);
-    string word;
-    while (iss >> word) {
-        for (char c : word) {
-            hist[c]++;
+map<char, int> result;
+    map<char, int> count;
+
+    for (char c : test) {
+        if (c != ' ') {
+            count[c]++;
         }
     }
+
     int maxCount = 0;
-    for (const auto& entry : hist) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto& pair : count) {
+        maxCount = max(maxCount, pair.second);
     }
-    map<char, int> result;
-    for (const auto& entry : hist) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
+
+    for (const auto& pair : count) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
         }
     }
+
     return result;
 }
