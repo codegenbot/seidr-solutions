@@ -1,20 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return equal(a.begin(), a.end(), b.begin());
+bool issame(vector<string> a, const vector<string>& b) {
+    return a == b;
 }
 
-int sorted_list_sum(const vector<int>& lst) {
-    int sum = 0;
-    for (int num : lst) {
-        sum += num;
-    }
-    return sum;
-}
-
-int main() {
-    // Main function code here
-    return 0;
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
+    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
+    });
+    return lst;
 }
