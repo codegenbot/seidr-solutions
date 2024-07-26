@@ -1,23 +1,27 @@
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    vector<string>::iterator it1 = find(planets.begin(), planets.end(), planet1);
-    vector<string>::iterator it2 = find(planets.begin(), planets.end(), planet2);
-
-    if (it1 != planets.end() && it2 != planets.end()) {
-        int idx1 = distance(planets.begin(), it1);
-        int idx2 = distance(planets.begin(), it2);
-
-        int startIdx = min(idx1, idx2) + 1;
-        int endIdx = max(idx1, idx2);
-
-        for (int i = startIdx; i < endIdx; i++) {
-            result.push_back(planets[i]);
+    int idx1 = -1, idx2 = -1;
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planets[i] == planet1) {
+            idx1 = i;
         }
+        if (planets[i] == planet2) {
+            idx2 = i;
+        }
+    }
 
+    if (idx1 == -1 || idx2 == -1) {
         return result;
     }
 
-    return {};
+    if (idx1 > idx2) {
+        swap(idx1, idx2);
+    }
+
+    for (int i = idx1 + 1; i < idx2; ++i) {
+        result.push_back(planets[i]);
+    }
+
+    return result;
 }
