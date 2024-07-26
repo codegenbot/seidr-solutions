@@ -1,16 +1,23 @@
-vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     
-    if(find(planets.begin(), planets.end(), planet1) == planets.end() || find(planets.begin(), planets.end(), planet2) == planets.end())
-        return result;
+    int pos1 = -1, pos2 = -1;
+    for (int i = 0; i < 8; ++i) {
+        if (planet1 == planets[i]) pos1 = i;
+        if (planet2 == planets[i]) pos2 = i;
+    }
     
-    int start = min(distance(planets.begin(), find(planets.begin(), planets.end(), planet1)),
-                    distance(planets.begin(), find(planets.begin(), planets.end(), planet2)));
-    int end = max(distance(planets.begin(), find(planets.begin(), planets.end(), planet1)),
-                  distance(planets.begin(), find(planets.begin(), planets.end(), planet2)));
+    if (pos1 == -1 || pos2 == -1) return {};
     
-    for(int i=start+1; i<end; i++){
-        result.push_back(planets[i]);
+    if (pos1 < pos2) {
+        for (int i = pos1 + 1; i < pos2; ++i) {
+            result.push_back(planets[i]);
+        }
+    } else {
+        for (int i = pos2 + 1; i < pos1; ++i) {
+            result.push_back(planets[i]);
+        }
     }
     
     return result;
