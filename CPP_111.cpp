@@ -1,33 +1,17 @@
-bool issame(string s1, string s2);
+bool issame(const map<char, int> &hist1, const map<char, int> &hist2);
+
 map<char, int> histogram(string test);
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
+int main() {
+    // main function code here
+}
+
+bool issame(const map<char, int> &hist1, const map<char, int> &hist2) {
+    // issame function implementation here
+    return false;
 }
 
 map<char, int> histogram(string test) {
-    map<char, int> result;
-    istringstream iss(test);
-    string word;
-    while (iss >> word) {
-        for (char c : word) {
-            result[c]++;
-        }
-    }
-    int maxCount = 0;
-    for (const auto &entry : result) {
-        maxCount = max(maxCount, entry.second);
-    }
-    map<char, int> maxOccurrences;
-    for (const auto &entry : result) {
-        if (entry.second == maxCount) {
-            maxOccurrences[entry.first] = entry.second;
-        }
-    }
+    // histogram function implementation here
     return maxOccurrences;
-}
-
-int main() {
-    // Main function implementation
-    return 0;
 }
