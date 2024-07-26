@@ -1,4 +1,3 @@
-double num = stod(value);
-    int rounded_num = static_cast<int>(round(num));
-    return (num - rounded_num > 0) ? ceil(num) : floor(num);
+float num = stof(value);
+    return num < 0 ? ceil(num - 0.5) : floor(num + 0.5);
 }
