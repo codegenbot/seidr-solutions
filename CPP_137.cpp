@@ -10,10 +10,10 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
         return b;
     }
-} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    if (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b)) {
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    if (stod(boost::any_cast<string>(a)) > stod(boost::any_cast<string>(b))) {
         return a;
-    } else if (boost::any_cast<std::string>(a) < boost::any_cast<std::string>(b)) {
+    } else if (stod(boost::any_cast<string>(a)) < stod(boost::any_cast<string>(b)) {
         return b;
     }
 }
