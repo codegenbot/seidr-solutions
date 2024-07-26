@@ -1,17 +1,12 @@
-string solve(string s){
-    int n = s.size();
-    bool hasLetter = false;
-    for(int i = 0; i < n; i++){
-        if(isalpha(s[i])){
-            hasLetter = true;
-            if(islower(s[i])){
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+int n = s.size();
+    bool has_letter = false;
+    for (int i = 0; i < n; ++i) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            has_letter = true;
         }
     }
-    if(!hasLetter){
+    if (!has_letter) {
         reverse(s.begin(), s.end());
     }
     return s;
