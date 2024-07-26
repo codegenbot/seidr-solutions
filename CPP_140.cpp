@@ -1,20 +1,22 @@
 string result = "";
-    bool prev_space = false;
-    int space_count = 0;
+    bool isSpace = false;
+    int spaceCount = 0;
     
-    for(char c : text){
-        if(c == ' '){
-            space_count++;
-            if(space_count > 2){
-                if(!prev_space) result += "-";
-                prev_space = true;
+    for (char c : text) {
+        if (c == ' ') {
+            spaceCount++;
+            if (spaceCount > 2) {
+                if (!isSpace) {
+                    result += '-';
+                    isSpace = true;
+                }
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
-            prev_space = false;
-            space_count = 0;
+            isSpace = false;
+            spaceCount = 0;
         }
     }
     
