@@ -6,23 +6,28 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-int sorted_list_sum(const vector<int>& lst) {
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    return accumulate(sorted_lst.begin(), sorted_lst.end(), 0);
+vector<int> sorted_list_sum(vector<int> lst1, vector<int> lst2) {
+    vector<int> result = lst1;
+    result.insert(result.end(), lst2.begin(), lst2.end());
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    vector<int> v1 = {3, 1, 4, 1, 5, 9};
-    vector<int> v2 = {2, 7, 1, 8, 2, 8};
-
+    vector<int> v1 = {1, 3, 5};
+    vector<int> v2 = {2, 4, 6};
+    
+    vector<int> sum = sorted_list_sum(v1, v2);
+    
     if (issame(v1, v2)) {
-        cout << "Vectors are the same." << endl;
+        cout << "Equal" << endl;
     } else {
-        cout << "Vectors are different." << endl;
+        cout << "Not Equal" << endl;
     }
-
-    cout << "Sum of sorted list: " << sorted_list_sum(v1) << endl;
-
+    
+    for (int num : sum) {
+        cout << num << " ";
+    }
+    
     return 0;
 }
