@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-
-using namespace std;
+#include <cmath>
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
@@ -24,7 +23,7 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int diff = abs(prefixSum - (sum - prefixSum));
+        int diff = std::abs(prefixSum - (sum - prefixSum));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -32,10 +31,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << '\n';
+        std::cout << nums[i] << "\n";
     }
     
-    cout << 0 << '\n';
+    std::cout << 0 << "\n";
     
     return 0;
 }
