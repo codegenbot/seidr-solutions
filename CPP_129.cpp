@@ -29,5 +29,3 @@ void solve() {
     vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
     assert(result == expected);
 }
-
-solve();
