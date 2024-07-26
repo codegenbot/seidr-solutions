@@ -30,7 +30,4 @@ void solve() {
     assert(result == expected);
 }
 
-int main() {
-    solve();
-    return 0;
-}
+solve();
