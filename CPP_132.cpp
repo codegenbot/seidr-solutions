@@ -6,5 +6,5 @@ int count = 0;
             count--;
         }
     }
-    return count < 0;
+    return count < str.size() / 2 && count > 0;
 }
