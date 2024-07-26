@@ -1,13 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <sstream>
 
 int main() {
     std::vector<int> nums;
 
-    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
+    std::cout << "Enter positive integers separated by spaces:" << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream ss(input);
     int num;
-    while (std::cin >> num) {
+    while (ss >> num) {
         nums.push_back(num);
     }
 
