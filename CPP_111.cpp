@@ -18,7 +18,7 @@ int main() {
     return 0;
 }
 
-std::map<char, int> histogram(std::string test){
+std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     std::map<char, int> count;
 
