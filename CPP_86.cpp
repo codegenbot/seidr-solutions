@@ -1,20 +1,16 @@
-string ordered_word = s;
-    int start = 0;
-    int end = 0;
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == ' ' || i == s.length() - 1) {
-            if (i == s.length() - 1) {
-                end = i;
-            } else {
-                end = i - 1;
-            }
-            string word = s.substr(start, end - start + 1);
+string anti_shuffle(string s){
+    string result = "";
+    string word = "";
+    for(char c : s){
+        if(c == ' '){
             sort(word.begin(), word.end());
-            for (int j = 0; j < word.length(); ++j) {
-                ordered_word[start + j] = word[j];
-            }
-            start = i + 1;
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return ordered_word;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
