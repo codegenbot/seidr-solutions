@@ -10,8 +10,7 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-
-    if (nums.empty()) {
+    if (nums.empty() && std::cin.eof()) {
         std::cerr << "No input values provided." << std::endl;
         return 1;
     }
