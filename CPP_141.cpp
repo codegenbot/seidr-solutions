@@ -1,25 +1,23 @@
-int digitCount = 0;
-    bool dotFound = false;
-    bool validPrefix = false;
-    bool validExtension = false;
-    
+int digit_count = 0;
+    int dot_count = 0;
+    string before_dot = "";
+    string after_dot = "";
+
     for (char c : file_name) {
-        if (isdigit(c)) {
-            digitCount++;
+        if (c >= '0' && c <= '9') {
+            digit_count++;
         } else if (c == '.') {
-            dotFound = true;
-        } else if (isalpha(c) && !dotFound) {
-            validPrefix = true;
+            dot_count++;
+        } else if (dot_count == 0) {
+            before_dot += c;
+        } else if (dot_count == 1) {
+            after_dot += c;
         }
     }
-    
-    if (file_name.substr(file_name.find('.') + 1) == "txt" || file_name.substr(file_name.find('.') + 1) == "exe" || file_name.substr(file_name.find('.') + 1) == "dll") {
-        validExtension = true;
-    }
-    
-    if (digitCount <= 3 && dotFound && validPrefix && validExtension) {
-        return "Yes";
-    } else {
+
+    if (digit_count > 3 || dot_count != 1 || before_dot.empty() || !isalpha(before_dot[0]) || (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) {
         return "No";
     }
+
+    return "Yes";
 }
