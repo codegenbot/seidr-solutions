@@ -1,15 +1,17 @@
 string solve(string s){
-    int n = s.size();
-    bool containsLetter = false;
+    if(s.empty()) {
+        return "";
+    }
     
-    for(int i = 0; i < n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-            containsLetter = true;
+    bool hasLetter = false;
+    for(char& c : s) {
+        if(isalpha(c)) {
+            hasLetter = true;
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
     
-    if(!containsLetter){
+    if(!hasLetter) {
         reverse(s.begin(), s.end());
     }
     
