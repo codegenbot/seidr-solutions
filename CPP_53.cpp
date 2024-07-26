@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
-int contestProblem(int x, int y) {
-    return x + y; // Add your code for the contest problem here
+int add(int x, int y) {
+    return x + y;
 }
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
     int x = rand() % 1000;
     int y = rand() % 1000;
     
-    assert(contestProblem(x, y) == x + y);
+    assert(add(x, y) == x + y);
     
     return 0;
 }
