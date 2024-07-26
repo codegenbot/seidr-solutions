@@ -1,12 +1,26 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+string result = s;
+    int n = s.size();
+    bool hasLetter = false;
+
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            hasLetter = true;
+            if (islower(s[i])) {
+                result[i] = toupper(s[i]);
+            } else {
+                result[i] = tolower(s[i]);
+            }
         }
     }
-    
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-        reverse(s.begin(), s.end());
+
+    if (!hasLetter) {
+        int left = 0, right = n - 1;
+        while (left < right) {
+            swap(result[left], result[right]);
+            left++;
+            right--;
+        }
     }
-    
-    return s;
+
+    return result;
 }
