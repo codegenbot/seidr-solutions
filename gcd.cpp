@@ -4,16 +4,16 @@
 
 int main() {
     int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
