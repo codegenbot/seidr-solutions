@@ -22,7 +22,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = sqrt(static_cast<double>(sum)); // Cast sum to double before taking square root
+    double result = sqrt(static_cast<double>(sum));
     cout << result << endl;
 
     return 0;
