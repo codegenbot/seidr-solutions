@@ -1,17 +1,9 @@
-sort(l.begin(), l.end());
-    for (int i = 0; i < l.size(); ++i) {
-        int target = -l[i];
-        int front = i + 1;
-        int back = l.size() - 1;
-        
-        while (front < back) {
-            int sum = l[front] + l[back];
-            if (sum < target) {
-                front++;
-            } else if (sum > target) {
-                back--;
-            } else {
-                return true;
+for (int i = 0; i < l.size(); ++i) {
+        for (int j = i + 1; j < l.size(); ++j) {
+            for (int k = j + 1; k < l.size(); ++k) {
+                if (l[i] + l[j] + l[k] == 0) {
+                    return true;
+                }
             }
         }
     }
