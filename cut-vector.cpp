@@ -5,15 +5,12 @@
 int main() {
     std::vector<int> nums;
 
-    std::cout << "Enter positive integers separated by spaces:" << std::endl;
+    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
     int num;
     while (!std::cin.eof()) {
-        if (std::cin >> num) {
+        std::cin >> num;
+        if (!std::cin.fail()) {
             nums.push_back(num);
-        } else {
-            std::cin.clear();
-            std::cin.ignore();
-            break;
         }
     }
 
