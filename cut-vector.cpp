@@ -12,15 +12,17 @@ int main() {
         std::cin >> nums[i];
     }
     
+    if (n == 2) {
+        std::cout << nums[0] << std::endl << nums[1] << std::endl;
+        return 0;
+    }
+    
     int minDiff = std::numeric_limits<int>::max();
     int cutSpot = -1;
     
-    for (int i = 1; i < n; ++i) {
-        int sum1 = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int sum2 = std::accumulate(nums.begin() + i, nums.end(), 0);
-        int diff = std::abs(sum1 - sum2);
-
-        if (diff <= minDiff) {
+    for (int i = 1; i < n - 1; ++i) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < minDiff) {
             minDiff = diff;
             cutSpot = i;
         }
