@@ -1,13 +1,7 @@
-int main() {
-    vector<int> v;
-    int n;
-    while (cin >> n) {
-        v.push_back(n / 3 - 2);
-    }
+int fuel_cost(const vector<int>& nums) {
     int sum = 0;
-    for (int num : v) {
-        sum += num;
+    for (int i = 0; i < nums.size(); ++i) {
+        sum += (nums[i] / 3) - 2;
     }
-    cout << sum << endl;
-    return 0;
+    return sum;
 }
