@@ -4,15 +4,15 @@
 
 int main() {
     std::vector<int> nums;
-    int num;
 
-    std::cout << "Enter positive integers separated by spaces (Ctrl + D to terminate input):" << std::endl;
-    while (!std::cin.eof()) {
-        if (!(std::cin >> num)) {
-            break;
-        }
+    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
+    int num;
+    while (std::cin >> num) {
         nums.push_back(num);
     }
+
+    std::cin.clear();
+    std::cin.ignore();
 
     if (nums.empty()) {
         std::cerr << "No input values provided." << std::endl;
