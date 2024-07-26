@@ -1,9 +1,8 @@
 #include <vector>
-#include <cassert>
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 
-int count_nums(std::vector<int> n){
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -16,18 +15,7 @@ int count_nums(std::vector<int> n){
             count++;
         }
     }
+    // assert(count_nums({1}) == 1);
+    std::cout << count;
     return count;
-}
-
-int main() {
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-    
-    int result = count_nums(input);
-    std::cout << result << std::endl;
-    
-    return 0;
 }
