@@ -30,6 +30,17 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    // Your code to read input and call functions goes here
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int idx : result) {
+        cout << idx << " ";
+    }
+    cout << endl;
+
     return 0;
 }
