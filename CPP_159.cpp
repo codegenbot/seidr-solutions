@@ -1,4 +1,9 @@
 int total = number + need;
-    int eaten = total > remaining ? remaining : total;
-    return {eaten, max(0, remaining - eaten)};
+    int eaten = 0;
+    if (total <= remaining) {
+        eaten = total;
+    } else {
+        eaten = remaining;
+    }
+    return {eaten, remaining - eaten};
 }
