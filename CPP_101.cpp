@@ -4,25 +4,29 @@
 #include <cassert>
 #include <sstream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+using namespace std;
+
+namespace contest {
+    bool issame(vector<string> a, vector<string> b) {
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        return a == b;
+    }
 }
 
-std::vector<std::string> words_string(const std::string &str) {
-    std::vector<std::string> words;
-    std::string word;
-    std::istringstream iss(str);
-
+vector<string> words_string(const string &str) {
+    vector<string> words;
+    string word;
+    istringstream iss(str);
+    
     while (iss >> word) {
         words.push_back(word);
     }
-
+    
     return words;
 }
 
 int main() {
-    assert(issame(words_string("ahmed gamal"), {"ahmed", "gamal"}));
+    assert(contest::issame(words_string("ahmed gamal"), words_string("ahmed gamal")));
     return 0;
 }
