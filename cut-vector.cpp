@@ -6,15 +6,18 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
-    while (cin >> num) {
+
+    for (;;) {
+        if (!(cin >> num)) {
+            break;
+        }
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
-    
+
     for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; ++j) {
@@ -23,14 +26,14 @@ int main() {
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-        
+
         int currentDiff = abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
@@ -38,6 +41,6 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    
+
     return 0;
 }
