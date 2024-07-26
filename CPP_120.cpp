@@ -11,3 +11,8 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
     std::sort(arr_copy.begin(), arr_copy.end(), std::greater<int>());
     return std::vector<int>(arr_copy.begin(), arr_copy.begin() + k);
 }
+
+int main() {
+    assert(issame(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{}));
+    return 0;
+}
