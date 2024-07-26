@@ -1,7 +1,6 @@
+#include <iostream>
 #include <string>
 #include <cassert>
-
-std::string get_closest_vowel(const std::string& word);
 
 std::string get_closest_vowel(const std::string& word) {
     const std::string vowels = "aeiouAEIOU";
