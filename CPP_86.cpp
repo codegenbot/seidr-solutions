@@ -1,11 +1,17 @@
-int i = 0;
-    while(i < s.length()) {
-        int j = i;
-        while(j < s.length() && s[j] != ' ') {
-            j++;
+string anti_shuffle(string s){
+        int start = 0;
+        vector<string> words;
+        for (int i = 0; i <= s.size(); ++i) {
+            if (i == s.size() || s[i] == ' ') {
+                string word = s.substr(start, i - start);
+                sort(word.begin(), word.end());
+                words.push_back(word);
+                start = i + 1;
+            }
         }
-        sort(s.begin() + i, s.begin() + j);
-        i = j + 1;
+        string result;
+        for (int i = 0; i < words.size(); ++i) {
+            result += words[i] + (i == words.size() - 1 ? "" : " ");
+        }
+        return result;
     }
-    return s;
-}
