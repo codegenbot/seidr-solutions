@@ -1,19 +1,13 @@
-for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+string solve(string s){
+    bool hasLetter = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetter = true;
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    int left = 0, right = s.length() - 1;
-    while (left < right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
+    if(!hasLetter){
+        reverse(s.begin(), s.end());
     }
-    
     return s;
 }
