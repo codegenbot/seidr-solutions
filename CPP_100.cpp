@@ -28,6 +28,5 @@ int solve_problem_cpp100() {
 }
 
 int main() {
-    solve_problem_cpp100();
-    return 0;
+    return solve_problem_cpp100();
 }
