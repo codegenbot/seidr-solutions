@@ -1,25 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-
 int main() {
-    std::vector<int> nums;
-
-    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    
+    while (cin >> num) {
         nums.push_back(num);
     }
-
-    if (nums.empty()) {
-        std::cerr << "No input values provided." << std::endl;
-        return 1;
-    }
-
+    
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
-
+    
     for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; ++j) {
@@ -28,21 +18,21 @@ int main() {
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-
-        int currentDiff = std::abs(leftSum - rightSum);
+        
+        int currentDiff = abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
         }
     }
-
+    
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
