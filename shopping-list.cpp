@@ -16,7 +16,8 @@ int main() {
 
     double total_price = calculateTotalPrice(prices, discounts);
 
-    std::cout << std::fixed << std::setprecision(2) << "Total price after applying discounts: $" << total_price << std::endl;
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Total price after applying discounts: $" << total_price << std::endl;
 
     return 0;
 }
