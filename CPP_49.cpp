@@ -19,7 +19,5 @@ int calculateModp() {
     return modp(n, p);
 }
 
-int main() {
-    std::cout << calculateModp() << std::endl;
-    return 0;
-}
+std::cout << calculateModp() << std::endl;
+return 0;
