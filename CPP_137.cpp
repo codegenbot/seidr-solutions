@@ -1,30 +1,33 @@
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-        return a;
-    } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-        return b;
+    int int_a = boost::any_cast<int>(a);
+    int int_b = boost::any_cast<int>(b);
+    if (int_a > int_b) {
+        return int_a;
+    } else if (int_b > int_a) {
+        return int_b;
+    } else {
+        return "None";
     }
 } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-        return a;
-    } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-        return b;
+    float float_a = boost::any_cast<float>(a);
+    float float_b = boost::any_cast<float>(b);
+    if (float_a > float_b) {
+        return float_a;
+    } else if (float_b > float_a) {
+        return float_b;
+    } else {
+        return "None";
     }
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string str_a = boost::any_cast<string>(a);
-    string str_b = boost::any_cast<string>(b);
-    if (str_a.find_first_of(".,") != string::npos) {
-        replace(str_a.begin(), str_a.end(), ',', '.');
+    string string_a = boost::any_cast<string>(a);
+    string string_b = boost::any_cast<string>(b);
+    if (string_a > string_b) {
+        return string_a;
+    } else if (string_b > string_a) {
+        return string_b;
+    } else {
+        return "None";
     }
-    if (str_b.find_first_of(".,") != string::npos) {
-        replace(str_b.begin(), str_b.end(), ',', '.');
-    }
-    if (stof(str_a) > stof(str_b)) {
-        return a;
-    } else if (stof(str_a) < stof(str_b)) {
-        return b;
-    }
-}
-
-return "None";
+} else {
+    return "None";
 }
