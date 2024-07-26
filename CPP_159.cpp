@@ -7,11 +7,11 @@ vector<int> eat(int number, int need, int remaining) {
     return {totalEatenCarrots, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     // compare vectors a and b elements and return true if they are the same, otherwise false
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert (issame(eat(4, 5, 1), {5, 0}));
     // other code
 }
