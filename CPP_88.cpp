@@ -16,9 +16,13 @@ namespace contest {
             std::sort(temp.begin(), temp.end());
         return temp;
     }
+
+    int solve_problem() {
+        assert (issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+        return 0;
+    }
 }
 
 int main() {
-    assert(contest::issame(contest::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    return 0;
+    return contest::solve_problem();
 }
