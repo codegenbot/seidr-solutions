@@ -1,20 +1,20 @@
-bool issame(map<char, int> a, map<char, int> b);
+bool issame(map<char, int> m1, map<char, int> m2);
 
 map<char, int> histogram(string test);
 
-bool issame(map<char, int> a, map<char, int> b) {
-    if (a.size() != b.size()) {
+bool issame(map<char, int> m1, map<char, int> m2) {
+    if (m1.size() != m2.size()) {
         return false;
     }
-    for (const auto& pair : a) {
-        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+    for (const auto& pair : m1) {
+        if (m2.find(pair.first) == m2.end() || m2[pair.first] != pair.second) {
             return false;
         }
     }
     return true;
 }
 
-map<char, int> histogram(string test) {
+map<char,int> histogram(string test){
     map<char, int> counts;
     for (char c : test) {
         if (c != ' ') {
