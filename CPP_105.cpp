@@ -3,9 +3,10 @@
 #include <map>
 #include <algorithm>
 #include <cassert>
-#include <assert.h>
 
 using namespace std;
+
+vector<string> by_length(vector<int> arr);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -17,17 +18,6 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-vector<string> by_length(vector<int> arr);
-
-void main() {
-    vector<int> input = {3, 1, 4, 2, 5, 9};
-    vector<string> expected_output = {"Nine", "Five", "Four", "Three", "Two", "One"};
-
-    vector<string> result = by_length(input);
-
-    assert(issame(result, expected_output));
 }
 
 vector<string> by_length(vector<int> arr){
@@ -45,7 +35,6 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
-
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
@@ -53,4 +42,15 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
+}
+
+int main() {
+    vector<int> input = {3, 1, 4, 2, 5, 9};
+    vector<string> expected_output = {"Nine", "Five", "Four", "Three", "Two", "One"};
+
+    vector<string> result = by_length(input);
+
+    assert(issame(result, expected_output));
+
+    return 0;
 }
