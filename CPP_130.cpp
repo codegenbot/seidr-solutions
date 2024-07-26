@@ -1,8 +1,24 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
+std::vector<int> tri(int n);
+
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(tri(1), std::vector<int>{1, 3}));
+    return 0;
 }
 
 std::vector<int> tri(int n) {
@@ -21,9 +37,4 @@ std::vector<int> tri(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(tri(1), {1, 3}));
-    return 0;
 }
