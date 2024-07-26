@@ -1,10 +1,12 @@
-int cnt = 0;
+int count = 0;
     for (char c : str) {
         if (c == '[') {
-            cnt++;
-        } else if (c == ']' && cnt > 0) {
-            cnt--;
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            }
         }
     }
-    return cnt < 0;
+    return count < 0;
 }
