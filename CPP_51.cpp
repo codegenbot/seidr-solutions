@@ -8,9 +8,13 @@ std::string remove_vowels(std::string text) {
     return text;
 }
 
-int main() {
+void solution() {
     std::string input;
     std::getline(std::cin, input);
     std::cout << remove_vowels(input) << std::endl;
+}
+
+int main() {
+    solution();
     return 0;
 }
