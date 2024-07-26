@@ -1,26 +1,34 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
 
-    int min_diff = INT_MAX;
-    int cut_index = 0;
-    for (int i = 1; i < n; ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int sum = 0;
+    for (int n : nums) {
+        sum += n;
+    }
+
+    int target = sum / 2;
+    int prefixSum = 0;
+    int idx = -1;
+    for (int i = 0; i < nums.size(); ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
 
-    for (int i = 0; i < n; ++i) {
-        cout << nums[i] << endl;
-        if (i == cut_index) {
-            cout << 0 << endl;
-        }
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+
+    for (int n : subvector1) {
+        cout << n << endl;
+    }
+    for (int n : subvector2) {
+        cout << n << endl;
     }
 
     return 0;
