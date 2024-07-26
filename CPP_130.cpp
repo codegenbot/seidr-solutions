@@ -1,19 +1,7 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> tri(int n) {
-    vector<int> result;
+std::vector<int> issame(std::vector<int> a, std::vector<int> b){
+    std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
         return result;
@@ -34,12 +22,4 @@ vector<int> tri(int n) {
         }
     }
     return result;
-}
-
-vector<int> result = tri(n);
-vector<int> expected = tri(n);
-if (issame(result, expected)) {
-    cout << "Result is correct." << endl;
-} else {
-    cout << "Result is incorrect." << endl;
 }
