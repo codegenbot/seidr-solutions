@@ -16,5 +16,6 @@ int modp(int n, int p) {
 int calculateModp() {
     int n, p;
     std::cin >> n >> p;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return modp(n, p);
 }
