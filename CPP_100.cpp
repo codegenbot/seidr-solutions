@@ -15,7 +15,7 @@ std::vector<int> make_a_pile(int n) {
     return stones;
 }
 
-int main() {
+int solve_problem_cpp100() {
     int n;
     cin >> n;
     std::vector<int> result = make_a_pile(n);
@@ -24,5 +24,10 @@ int main() {
         cout << result[i] << " ";
     }
     
+    return 0;
+}
+
+int main() {
+    solve_problem_cpp100();
     return 0;
 }
