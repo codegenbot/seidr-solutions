@@ -1,6 +1,6 @@
 int sum = 0;
-    for (float num : lst) {
-        sum += ceil(num) * ceil(num);
+    for (int i = 0; i < lst.size(); i++) {
+        int rounded = ceil(lst[i]);
+        sum += rounded * rounded;
     }
     return sum;
-}
