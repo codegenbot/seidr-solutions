@@ -14,8 +14,7 @@ int main() {
     std::string x = "2/3";
     std::string n = "4/6";
 
-    bool result = simplify(x, n);
-    std::cout << std::boolalpha << result << std::endl;
+    std::cout << simplify(x, n);
 
     return 0;
 }
