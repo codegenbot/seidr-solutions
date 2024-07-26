@@ -1,18 +1,16 @@
-#include <vector>
 #include <cassert>
+#include <vector>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
     int totalCarrots = number + need;
     int eatenCarrots = (totalCarrots <= remaining) ? totalCarrots : remaining;
     int carrotsLeft = (remaining >= totalCarrots) ? remaining - totalCarrots : 0;
     
     return {eatenCarrots, carrotsLeft};
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
