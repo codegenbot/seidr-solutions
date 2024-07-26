@@ -11,10 +11,10 @@ bool simplify(std::string x, std::string n) {
 }
 
 int main() {
-    std::string x = "2/4";
-    std::string n = "1/2";
+    std::string x = "2/3";
+    std::string n = "4/6";
 
-    std::cout << simplify(x, n) << std::endl;
+    std::cout << simplify(x, n);
 
     return 0;
 }
