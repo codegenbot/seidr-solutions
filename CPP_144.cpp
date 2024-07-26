@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 
-bool simplify(std::string x, std::string)
-{
+bool simplify(std::string x, std::string n) {
     int num1 = std::stoi(x.substr(0, x.find('/')));
     int den1 = std::stoi(x.substr(x.find('/') + 1));
     int num2 = std::stoi(n.substr(0, n.find('/')));
@@ -11,8 +10,7 @@ bool simplify(std::string x, std::string)
     return (num1 * den2 == num2 * den1);
 }
 
-int main()
-{
+int main() {
     std::string x = "2/4";
     std::string n = "1/2";
 
