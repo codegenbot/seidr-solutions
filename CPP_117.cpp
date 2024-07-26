@@ -1,14 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 using namespace std;
 
 vector<string> select_words(string s, int n);
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -37,6 +32,4 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-}
+cout << (select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
