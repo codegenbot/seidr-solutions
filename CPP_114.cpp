@@ -1,4 +1,7 @@
-long long minSubArraySum(vector<long long> nums){
+#include <vector>
+using namespace std;
+
+long long minSubArraySum(std::vector<long long> nums){
     long long min_sum = nums[0];
     long long current_sum = 0;
     
