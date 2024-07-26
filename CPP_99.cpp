@@ -1,13 +1,7 @@
 double num = stod(value);
-    int closestInt = round(num);
-    if (num - closestInt == 0.5) {
-        closestInt = ceil(num);
-    } else if (num - closestInt == -0.5) {
-        closestInt = floor(num);
-    } else if (num - closestInt > 0.5) {
-        closestInt = ceil(num);
-    } else if (num - closestInt < -0.5) {
-        closestInt = floor(num);
+    if (num < 0) {
+        return floor(num - 0.5);
+    } else {
+        return ceil(num + 0.5);
     }
-    return closestInt;
 }
