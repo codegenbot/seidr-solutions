@@ -1,9 +1,13 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -35,10 +39,11 @@ vector<int> tri(int n) {
 
 int main() {
     vector<int> expected = {1, 3};
-    vector<int> actual = tri(2);
-    if (issame(expected, actual)) {
-        return 0;
+    vector<int> result = tri(2);
+    if (issame(result, expected)) {
+        // Code is correct
     } else {
-        return 1;
+        // Code needs modification
     }
+    return 0;
 }
