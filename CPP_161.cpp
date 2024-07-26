@@ -1,4 +1,4 @@
-for (int i = 0; i < s.length(); i++) {
+for (int i = 0; i < s.size(); ++i) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
                 s[i] = toupper(s[i]);
@@ -8,7 +8,7 @@ for (int i = 0; i < s.length(); i++) {
         }
     }
     
-    int left = 0, right = s.length() - 1;
+    int left = 0, right = s.size() - 1;
     while (left < right) {
         swap(s[left], s[right]);
         left++;
