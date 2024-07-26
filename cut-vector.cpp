@@ -8,9 +8,7 @@ int main() {
     vector<int> nums;
     int num;
 
-    // Modify the while loop to read input until EOF is reached
-    while (cin >> num || !cin.eof()) {
-        if (cin.eof()) break;
+    while (cin >> num) {
         nums.push_back(num);
     }
 
