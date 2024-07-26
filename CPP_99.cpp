@@ -1,10 +1,6 @@
-float num = stof(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    
-    if (num - lower < upper - num) {
-        return lower;
-    } else {
-        return upper;
-    }
+double num = stod(value);
+    int closestInt = round(num);
+    if (closestInt > num) closestInt = floor(num);
+    else if (closestInt < num) closestInt = ceil(num);
+    return closestInt;
 }
