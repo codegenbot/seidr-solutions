@@ -1,15 +1,12 @@
-string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
-        }
+replace(s.begin(), s.end(), ' ', '\n');
+    istringstream is(s);
+
+    string word;
+    string result = "";
+    while(is >> word) {
+        sort(word.begin(), word.end());
+        result += word + ' ';
     }
-    sort(word.begin(), word.end());
-    result += word;
+
     return result;
 }
