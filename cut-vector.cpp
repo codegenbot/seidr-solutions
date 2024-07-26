@@ -7,8 +7,11 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num && !cin.eof()) {
+    while (cin >> num) {
         nums.push_back(num);
+        if(cin.peek() == '\n'){ // Check for end of input
+            break;
+        }
     }
     
     int n = nums.size();
