@@ -1,24 +1,31 @@
-int digitCount = 0;
-    int dotCount = 0;
-    string beforeDot = "";
-    string afterDot = "";
-
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digitCount++;
-        } else if (c == '.') {
-            dotCount++;
-        } else if (dotCount == 0) {
-            beforeDot += c;
-        } else if (dotCount == 1) {
-            afterDot += c;
+int count_digits = 0;
+    int dot_index = -1;
+    
+    for (int i = 0; i < file_name.size(); ++i) {
+        if (isdigit(file_name[i])) {
+            count_digits++;
+        } else if (file_name[i] == '.') {
+            if (dot_index != -1) {
+                return "No";
+            }
+            dot_index = i;
         }
     }
-
-    if (digitCount > 3 || dotCount != 1 || beforeDot.empty() || !isalpha(beforeDot[0]) ||
-        (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")) {
+    
+    if (count_digits > 3 || dot_index == -1 || dot_index == 0 || dot_index == file_name.size() - 1) {
         return "No";
     }
-
+    
+    string prefix = file_name.substr(0, dot_index);
+    string suffix = file_name.substr(dot_index + 1);
+    
+    if (!isalpha(prefix[0])) {
+        return "No";
+    }
+    
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
+        return "No";
+    }
+    
     return "Yes";
 }
