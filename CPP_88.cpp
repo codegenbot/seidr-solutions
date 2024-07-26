@@ -8,8 +8,7 @@ namespace contest {
     }
 
     std::vector<int> sort_array(const std::vector<int>& array) {
-        if (array.empty())
-            return array;
+        if (array.empty()) return array;
         auto temp = array;
         if (contest::issame(std::vector<int>{temp.front()}, std::vector<int>{temp.back()}) || (temp.front() + temp.back()) % 2 == 0)
             std::sort(temp.begin(), temp.end(), std::greater<int>());
