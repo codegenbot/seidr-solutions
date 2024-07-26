@@ -1,33 +1,34 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> sorted_list_sum(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result = a;
-    result.insert(result.end(), b.begin(), b.end());
-    std::sort(result.begin(), result.end());
-    return result;
+int sorted_list_sum(const std::vector<int>& lst) {
+    int sum = 0;
+    for (int num : lst) {
+        sum += num;
+    }
+    return sum;
 }
 
 int main() {
-    std::vector<int> vec1 = {3, 1, 4, 1, 5};
-    std::vector<int> vec2 = {2, 7, 1, 8, 2};
-    
-    std::vector<int> sorted_sum = sorted_list_sum(vec1, vec2);
-    
-    for (const auto& num : sorted_sum) {
-        std::cout << num << " ";
-    }
-    
+    std::vector<int> vec1 = {1, 2, 3, 4, 5};
+    std::vector<int> vec2 = {1, 2, 3, 4, 5};
+
     if (issame(vec1, vec2)) {
-        std::cout << "Vectors are the same." << std::endl;
+        std::cout << "Vectors are the same\n";
     } else {
-        std::cout << "Vectors are different." << std::endl;
+        std::cout << "Vectors are different\n";
     }
-    
+
+    std::vector<int> nums = {5, 2, 8, 1, 3};
+    std::sort(nums.begin(), nums.end());
+
+    std::cout << "Sorted list sum: " << sorted_list_sum(nums) << std::endl;
+
     return 0;
 }
