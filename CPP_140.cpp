@@ -1,22 +1,18 @@
-string result = "";
-    bool prev_space = false;
-    int space_count = 0;
-    
-    for(char c : text){
-        if(c == ' '){
-            space_count++;
-            if(space_count > 2){
-                if(!prev_space) result += "-";
-                prev_space = true;
-            } else {
-                result += "_";
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int count = 1;
+            while (i + 1 < text.length() && text[i + 1] == ' ') {
+                text[i + 1] = '-';
+                ++i;
+                ++count;
             }
-        } else {
-            result += c;
-            prev_space = false;
-            space_count = 0;
+            if (count > 2) {
+                for (int j = i - count + 1; j <= i; ++j) {
+                    text[j] = '-';
+                }
+            }
         }
     }
-    
-    return result;
+    return text;
 }
