@@ -10,13 +10,15 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> words_string(std::string input) {
+std::vector<std::string> words_string(const std::string &str) {
     std::vector<std::string> words;
-    std::istringstream iss(input);
     std::string word;
+    std::istringstream iss(str);
+    
     while (iss >> word) {
         words.push_back(word);
     }
+    
     return words;
 }
 
