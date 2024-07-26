@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cstdlib>
 #include <climits>
 using namespace std;
 
@@ -20,17 +19,16 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         prefix_sum += nums[i];
-        int diff = abs(prefix_sum - (sum - prefix_sum));
+        int diff = prefix_sum - (sum - prefix_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
     }
 
-    // Print the two resulting subvectors
-    if (cut_idx == n - 1) {
-        cout << nums[cut_idx] << endl;
-        cout << 0 << endl;
+    if (cut_idx == -1) {
+        cout << nums[0] << endl;
+        cout << nums[1] << endl;
     } else {
         for (int i = 0; i <= cut_idx; ++i) {
             cout << nums[i] << endl;
