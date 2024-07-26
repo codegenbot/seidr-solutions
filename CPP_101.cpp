@@ -3,26 +3,26 @@
 #include <sstream>
 #include <cassert>
 
-using string = std::basic_string<char>;
+using namespace std;
 
-std::vector<string> words_string(string s){
-    std::vector<string> words;
-    std::stringstream ss(s);
+vector<string> words_string(string s){
+    vector<string> words;
+    stringstream ss(s);
     string word;
-    while (std::getline(ss, word, ' ')) {
+    while (getline(ss, word, ' ')) {
         if (word.find(',') != string::npos) {
-            word.erase(std::remove(word.begin(), word.end(), ','), word.end());
+            word.erase(remove(word.begin(), word.end(), ','), word.end());
         }
         words.push_back(word);
     }
     return words;
 }
 
-bool issame(std::vector<string> a, std::vector<string> b){
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-int main() {
-    assert(words_string("ahmed     , gamal") == std::vector<string>{"ahmed", "gamal"});
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
