@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 using namespace std;
 
@@ -23,5 +22,6 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
+    
     return 0;
 }
