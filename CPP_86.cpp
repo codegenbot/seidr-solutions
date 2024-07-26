@@ -1,19 +1,17 @@
-string ordered_word = "";
-    string ordered_sentence = "";
+string result = "";
     string word = "";
-
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            ordered_sentence += word + ' ';
+            result += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
-
-    sort(word.begin(), word.end());
-    ordered_sentence += word;
-
-    return ordered_sentence;
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        result += word;
+    }
+    return result;
 }
