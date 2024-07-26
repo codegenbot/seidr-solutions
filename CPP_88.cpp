@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -7,7 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> sort_array(const std::vector<int>& array) {
     if (array.empty()) return array;
     auto temp = array;
-    if (issame({temp.front()}, {temp.back()}) || (temp.front() + temp.back()) % 2 == 0)
+    if (issame(std::vector<int>{temp.front()}, std::vector<int>{temp.back()}) || (temp.front() + temp.back()) % 2 == 0)
         std::sort(temp.begin(), temp.end(), std::greater<int>());
     else
         std::sort(temp.begin(), temp.end());
