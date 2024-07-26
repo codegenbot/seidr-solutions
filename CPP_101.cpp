@@ -1,16 +1,27 @@
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <cassert>
 #include <sstream>
 
-vector<string> words_string(string s){
+using namespace std;
+
+namespace contest {
+    bool issame(vector<string> a, vector<string> b) {
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        return a == b;
+    }
+}
+
+vector<string> words_string(const string &str) {
     vector<string> words;
-    stringstream ss(s);
     string word;
-    while (getline(ss, word, ' ')) {
-        if (word.find(',') != string::npos) {
-            word.erase(remove(word.begin(), word.end(), ','), word.end());
-        }
+    istringstream iss(str);
+    
+    while (iss >> word) {
         words.push_back(word);
     }
+    
     return words;
 }
