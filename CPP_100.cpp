@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -8,14 +9,14 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
-        if (is_same(result, {8, 10, 12, 14, 16, 18, 20, 22})) {
+        if (!is_same(result, {8, 10, 12, 14, 16, 18, 20, 22})) {
             result.push_back(i);
         }
     }
     return result;
 }
 
-int solve_problem_cpp100() {
+void solve_problem_cpp100() {
     int n;
     std::cin >> n;
     std::vector<int> result = make_a_pile(n);
@@ -24,12 +25,11 @@ int solve_problem_cpp100() {
         std::cout << result[i] << " ";
     }
     
-    std::cout << std::endl;
-    
-    return 0;
+    std::cout << "\n";
 }
 
 int main() {
+    assert(is_same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     solve_problem_cpp100();
     return 0;
 }
