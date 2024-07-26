@@ -38,12 +38,8 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    vector<int> expected = {1, 3};
-    vector<int> result = tri(2);
-    if (issame(result, expected)) {
-        // Code is correct
-    } else {
-        // Code needs modification
+    if (issame(tri(1), {1, 3})) {
+        // Do something
     }
     return 0;
 }
