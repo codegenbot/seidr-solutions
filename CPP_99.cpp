@@ -1,5 +1,6 @@
 #include <iostream>
-#include <cassert> // Include the header for assert
+#include <cmath>
+#include <cassert>
 
 int closest_integer(std::string value) {
     double num = std::stod(value);
@@ -8,7 +9,7 @@ int closest_integer(std::string value) {
     return (num - lower < upper - num) ? lower : upper;
 }
 
-int main(){
-    assert(closest_integer("0") == 0); // Use assert for testing
+int main() {
+    assert(closest_integer("0") == 0);
     return 0;
 }
