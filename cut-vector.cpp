@@ -27,8 +27,8 @@ int main() {
         }
     }
 
-    if (cut_idx == n) {
-        cout << 1 << endl; // Output 1 before nums[cut_idx]
+    if (cut_idx == n - 1) {
+        cout << 1 << endl;
         cout << nums[cut_idx] << endl;
         cout << 0 << endl;
     } else {
