@@ -10,8 +10,8 @@ def coin_sum(cents):
             coins[i] += count
             cents -= denominations[i] * count
 
-    quarters = coins[0]
-    dimes = coins[1]
-    nickels = coins[2]
-    pennies = coins[3]
-    return quarters, dimes, nickels, pennies
+    return coins[0], coins[1], coins[2], coins[3]
+
+cents = int(input("Enter the number of cents: "))
+quarters, dimes, nickels, pennies = coin_sum(cents)
+print(f"{quarters} quarters, {dimes} dimes, {nickels} nickels, and {pennies} pennies")
