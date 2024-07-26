@@ -1,10 +1,6 @@
-# This program calculates the fewest number of US coins needed to make a given amount in cents
-
-denominations = [25, 10, 5, 1]
-coins = [0, 0, 0, 0]
-
-
 def coin_sum(cents):
+    denominations = [25, 10, 5, 1]
+    coins = [0, 0, 0, 0]
     for i in range(len(denominations) - 1, -1, -1):
         while cents >= denominations[i]:
             count = cents // denominations[i]
