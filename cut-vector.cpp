@@ -2,17 +2,15 @@
 #include <vector>
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+    std::vector<int> nums;
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
     }
-    
-    int cut_idx = 0; // Assuming cut_idx is already calculated
-    
-    // Print the two resulting subvectors
+
+    int cut_idx = 2; // Example cut index
+    int n = nums.size();
+
     if (cut_idx == 0) {
         std::cout << nums[0] << std::endl;
         std::cout << nums[1] << std::endl;
