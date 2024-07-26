@@ -1,21 +1,30 @@
 #include <iostream>
-#include <algorithm>
+#include <string>
+#include <cctype>
 #include <cassert>
 
-std::string solve(const std::string &s) {
+std::string solve(std::string s){
     for(char &c : s){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+        if(std::isalpha(c)){
+            if(std::islower(c)){
+                c = std::toupper(c);
+            } else {
+                c = std::tolower(c);
+            }
         }
     }
-    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
-        reverse(s.begin(), s.end());
+
+    int left = 0, right = s.size() - 1;
+    while(left < right){
+        std::swap(s[left], s[right]);
+        left++;
+        right--;
     }
     return s;
 }
 
-int main() {
+int main(){
     assert(solve("#ccc") == "#CCC");
-    
+    std::cout << "All assertions passed.\n";
     return 0;
 }
