@@ -1,24 +1,25 @@
 vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-  vector<string> result;
-  
-  bool found1 = false, found2 = false;
-  for (int i = 0; i < planets.size(); ++i) {
-      if (planet1 == planets[i]) {
-          found1 = true;
-      } else if (planet2 == planets[i]) {
-          found2 = true;
-      }
-      
-      if (found1 && !found2) {
-          result.push_back(planets[i]);
-      } else if (found2 && !found1) {
-          result.insert(result.begin(), planets[i]);
-      }
-  }
-  
-  if (result.size() == 1 || result.size() == 2) {
-      result.clear();
-  }
-  
-  return result;
+
+    int idx1 = -1, idx2 = -1;
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planets[i] == planet1) {
+            idx1 = i;
+        } else if (planets[i] == planet2) {
+            idx2 = i;
+        }
+    }
+
+    if (idx1 == -1 || idx2 == -1) {
+        return {};
+    }
+
+    vector<string> result;
+    int startIdx = min(idx1, idx2) + 1;
+    int endIdx = max(idx1, idx2);
+
+    for (int i = startIdx; i < endIdx; ++i) {
+        result.push_back(planets[i]);
+    }
+
+    return result;
 }
