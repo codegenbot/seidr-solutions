@@ -1,10 +1,9 @@
 double num = stod(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    
-    if (num - lower < upper - num) {
-        return lower;
-    } else {
-        return upper;
+    int closestInt = round(num);
+    if (num - closestInt == 0.5) {
+        closestInt = ceil(num);
+    } else if (num - closestInt == -0.5) {
+        closestInt = floor(num);
     }
+    return closestInt;
 }
