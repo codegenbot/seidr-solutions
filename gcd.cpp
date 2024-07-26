@@ -1,37 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-    int n = text.size(), m = target.size();
-    for (int i = 0; i <= n - m; ++i) {
-        bool found = true;
-        for (int j = 0; j < m; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            for (int j = 0; j < m; ++j) {
-                indices.push_back(i + j);
-            }
-        }
-    }
-    return indices;
-}
-
 int main() {
+    // Calculate and output the gcd of 175443 and 398651
     cout << "GCD: " << gcd(175443, 398651) << endl;
 
+    // Find and output the indices of substring "398651" in "175443"
     vector<int> result = indicesOfSubstring("175443", "398651");
     cout << "Indices of Substring: ";
     for (int idx : result) {
