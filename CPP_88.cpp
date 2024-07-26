@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 namespace contest {
     std::vector<int> sort_array(std::vector<int> arr) {
@@ -14,7 +14,10 @@ namespace contest {
 }
 
 int main() {
-    assert(contest::issame(contest::sort_array({21, 14, 23, 11}), std::vector<int>({23, 21, 14, 11})); // Complete the missing closing parenthesis ")"
-    
+    if (contest::issame(contest::sort_array({21, 14, 23, 11}), std::vector<int>{11, 14, 21, 23})) {
+        std::cout << "Arrays are the same" << std::endl;
+    } else {
+        std::cout << "Arrays are different" << std::endl;
+    }
     return 0;
 }
