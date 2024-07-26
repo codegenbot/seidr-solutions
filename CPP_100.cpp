@@ -2,8 +2,10 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace std {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
+    }
 }
 
 std::vector<int> make_a_pile(int n) {
