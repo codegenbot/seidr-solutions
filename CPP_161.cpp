@@ -3,8 +3,8 @@ for (char& c : s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-
-    reverse(s.begin(), s.end());
-
+    if (none_of(s.begin(), s.end(), ::isalpha)) {
+        reverse(s.begin(), s.end());
+    }
     return s;
 }
