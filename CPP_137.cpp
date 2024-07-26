@@ -1,28 +1,45 @@
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int int_a = boost::any_cast<int>(a);
-    int int_b = boost::any_cast<int>(b);
-    if (int_a > int_b)
-        return int_a;
-    else if (int_b > int_a)
-        return int_b;
-    else
+    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+        return a;
+    } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+        return b;
+    }
+} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+        return a;
+    } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+        return b;
+    }
+} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+    std::string str_a = boost::any_cast<std::string>(a);
+    std::string str_b = boost::any_cast<std::string>(b);
+    if (str_a.find_first_of(".,")) {
+        std::replace(str_a.begin(), str_a.end(), ',', '.');
+    }
+    if (str_b.find_first_of(".,")) {
+        std::replace(str_b.begin(), str_b.end(), ',', '.');
+    }
+    if (std::stod(str_a) > std::stod(str_b)) {
+        return a;
+    } else if (std::stod(str_a) < std::stod(str_b)) {
+        return b;
+    }
+} else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+    if (std::to_string(boost::any_cast<int>(a)) == boost::any_cast<std::string>(b)) {
         return "None";
-} else if (a.type() == typeid(float) || b.type() == typeid(float)) {
-    float float_a = stof(boost::any_cast<string>(a));
-    float float_b = stof(boost::any_cast<string>(b));
-    if (float_a > float_b)
-        return float_a;
-    else if (float_b > float_a)
-        return float_b;
-    else
+    } else if (std::to_string(boost::any_cast<int>(a)) > boost::any_cast<std::string>(b)) {
+        return a;
+    } else {
+        return b;
+    }
+} else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+    if (boost::any_cast<std::string>(a) == std::to_string(boost::any_cast<int>(b))) {
         return "None";
-} else {
-    string string_a = boost::any_cast<string>(a);
-    string string_b = boost::any_cast<string>(b);
-    if (string_a > string_b)
-        return string_a;
-    else if (string_b > string_a)
-        return string_b;
-    else
-        return "None";
+    } else if (boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<int>(b))) {
+        return a;
+    } else {
+        return b;
+    }
+}
+return "None";
 }
