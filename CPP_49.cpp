@@ -1,3 +1,5 @@
+#include <iostream>
+
 int modp(int n, int p) {
     if (p == 1) return 0;
     int result = 1;
@@ -13,8 +15,8 @@ int modp(int n, int p) {
 
 int main() {
     int n, p;
-    cin >> n >> p;
-    int ans = modp(n, p);
-    cout << ans;
+    std::cin >> n >> p;
+    std::cout << modp(n, p) << std::endl;
+    
     return 0;
 }
