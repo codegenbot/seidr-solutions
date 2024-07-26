@@ -1,3 +1,2 @@
-```
 cents = int(input())
-print(*coin_sums(cents))
+print(*coin_sums(cents), sep=' ')
