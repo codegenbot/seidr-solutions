@@ -7,14 +7,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-  
-    // Maximum number of elements to read
-    const int MaxNumElements = 1000;
 
-    for (int i = 0; i < MaxNumElements; ++i) {
-        if (!(cin >> num)) {
-            break; // End loop if input fails
-        }
+    while (cin >> num) {
         nums.push_back(num);
     }
 
