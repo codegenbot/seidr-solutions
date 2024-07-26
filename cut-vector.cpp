@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <cstdlib>
 #include <climits>
 using namespace std;
 
