@@ -1,14 +1,19 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 int main() {
-    int a = 175443, b = 398651;
-    cout << gcd(a, b) << endl;
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
 
-    string text = "175443", target = "398651";
-    vector<int> result = indicesOfSubstring(text, target);
-
-    for (int idx : result) {
-        cout << idx << " ";
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
