@@ -1,4 +1,11 @@
 #include <algorithm>
+#include <string>
+
+std::string remove_vowels(std::string text);
+
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+}
 
 std::string remove_vowels(std::string text) {
     text.erase(std::remove_if(text.begin(), text.end(), 
