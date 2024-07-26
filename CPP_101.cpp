@@ -1,16 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <cassert>
 #include <sstream>
 
-vector<string> words_string(string s){
-    vector<string> words;
-    stringstream ss(s);
+using namespace std;
+
+vector<string> words_string(const string& input) {
+    istringstream iss(input);
+    vector<string> tokens;
     string word;
-    while (getline(ss, word, ' ')) {
-        if (word.find(',') != string::npos) {
-            word.erase(remove(word.begin(), word.end(), ','), word.end());
-        }
-        words.push_back(word);
+    while (iss >> word) {
+        tokens.push_back(word);
     }
-    return words;
+    return tokens;
+}
+
+void main() {
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 }
