@@ -1,4 +1,4 @@
-bool issame(const map<char, int>& a, const map<char, int>& b);
+bool issame(const map<char, int>& m1, const map<char, int>& m2);
 
 map<char, int> histogram(string test);
 
@@ -23,6 +23,6 @@ map<char,int> histogram(string test){
     return result;
 }
 
-bool issame(const map<char, int>& a, const map<char, int>& b){
-    return a == b;
+bool issame(const map<char, int>& m1, const map<char, int>& m2) {
+    return m1 == m2;
 }
