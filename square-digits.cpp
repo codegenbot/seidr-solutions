@@ -1,8 +1,11 @@
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+Here is the solution:
+
+string squareDigits(int n) {
+    string res = "";
+    while(n > 0){
+        int digit = n % 10;
+        res = to_string(digit * digit) + res;
+        n /= 10;
     }
-    return output;
+    return res;
 }
