@@ -1,9 +1,16 @@
-for (int i = 0; i < s.length(); i++) {
+int n = s.length();
+    bool hasLetter = false;
+    for (int i = 0; i < n; ++i) {
         if (isalpha(s[i])) {
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            hasLetter = true;
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
-    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
+    if (!hasLetter) {
         reverse(s.begin(), s.end());
     }
     return s;
