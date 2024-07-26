@@ -1,23 +1,24 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
+map<char, int> histogram(string test){
+    map<char, int> countMap;
     istringstream iss(test);
     string word;
     while (iss >> word) {
-        for (char& c : word) {
-            result[c]++;
+        for (char c : word) {
+            countMap[c]++;
         }
     }
+    
+    map<char, int> result;
     int maxCount = 0;
-    for (const auto& pair : result) {
+    for (const auto& pair : countMap) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
+            result.clear();
+            result[pair.first] = pair.second;
+        } else if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
         }
     }
-    map<char, int> mostRepeatingLetters;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            mostRepeatingLetters.emplace(pair.first, pair.second);
-        }
-    }
-    return mostRepeatingLetters;
+    
+    return result;
 }
