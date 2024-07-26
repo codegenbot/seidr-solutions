@@ -1,20 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-vector<int> stones;
-stones.push_back(n);
-for(int i = 1; i < n; ++i){
-    if(n % 2 == 0){
-        n += 2;
-    } else {
-        n += 1;
-    }
-    stones.push_back(n);
-}
-return stones;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+using namespace std;
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -30,6 +18,10 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
 int main(){
     vector<int> pile1 = make_a_pile(5);
     vector<int> pile2 = make_a_pile(7);
@@ -39,6 +31,8 @@ int main(){
     } else {
         cout << "Piles are different" << endl;
     }
+    
+    assert (issame(make_a_pile(8) , vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
     
     return 0;
 }
