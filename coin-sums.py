@@ -1,4 +1,3 @@
-```
 def coin_sum(cents):
     quarters = cents // 25
     cents %= 25
