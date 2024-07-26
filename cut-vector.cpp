@@ -5,6 +5,7 @@
 int main() {
     std::vector<int> nums;
 
+    std::cout << "Enter positive integers separated by spaces (Ctrl + Z for Windows, Ctrl + D for Unix-like systems to terminate input):" << std::endl;
     int num;
     while (std::cin >> num) {
         nums.push_back(num);
