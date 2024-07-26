@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     quarters = cents // 25
     remaining_cents = cents % 25
@@ -7,4 +8,7 @@ def coin_sums(cents):
     remaining_cents %= 5
     pennies = remaining_cents
 
-    return quarters, dimes, nickles, (pennies,)
+    return quarters, dimes, nickles, pennies
+
+cents = int(input())
+print(*coin_sums(cents), sep=' ')
