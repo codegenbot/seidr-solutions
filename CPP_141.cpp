@@ -1,6 +1,5 @@
 string file_name_check(string file_name) {
     string result = "Yes";
-    
     int digitCount = 0;
     for (char c : file_name) {
         if (isdigit(c)) {
