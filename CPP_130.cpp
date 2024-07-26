@@ -12,6 +12,6 @@ vector<int> tri(int a) {
 }
 
 int main() {
-    assert(compare(tri(1), vector<int>{1, 2, 3})); // Corrected output {1, 2, 3}
+    assert(compare(tri(1), vector<int>{1, 3}));
     return 0;
 }
