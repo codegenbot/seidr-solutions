@@ -2,7 +2,7 @@
 
 std::map<char, int> histogram(std::string test);
 
-std::map<char, int> histogram(std::string test) {
+std::map<char, int> histogram(std::string test){
     std::map<char, int> counts;
     for (char c : test) {
         if (c != ' ') {
