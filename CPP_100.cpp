@@ -16,17 +16,15 @@ std::vector<int> make_a_pile(int n) {
     return stones;
 }
 
-int main() {
-    std::vector<int> pile1 = make_a_pile(5);
-    std::vector<int> pile2 = make_a_pile(7);
+std::vector<int> pile1 = make_a_pile(5);
+std::vector<int> pile2 = make_a_pile(7);
 
-    if (issame(pile1, pile2)) {
-        std::cout << "Piles are the same" << std::endl;
-    } else {
-        std::cout << "Piles are different" << std::endl;
-    }
-
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-
-    return 0;
+if (issame(pile1, pile2)) {
+    std::cout << "Piles are the same" << std::endl;
+} else {
+    std::cout << "Piles are different" << std::endl;
 }
+
+assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+
+return 0;
