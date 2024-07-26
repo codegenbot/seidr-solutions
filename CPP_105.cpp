@@ -3,11 +3,24 @@
 #include <map>
 #include <algorithm>
 #include <cassert>
-#include <assert.h>
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -37,7 +50,7 @@ int main() {
 
     vector<string> result = by_length(input);
 
-    assert(result == expected_output);
+    assert(issame(result, expected_output));
 
     return 0;
 }
