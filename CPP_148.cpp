@@ -1,21 +1,24 @@
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
-
-    if (find(planets.begin(), planets.end(), planet1) == planets.end() || find(planets.begin(), planets.end(), planet2) == planets.end()) {
-        return result;
-    }
-
-    int idx1 = find(planets.begin(), planets.end(), planet1) - planets.begin();
-    int idx2 = find(planets.begin(), planets.end(), planet2) - planets.begin();
-
-    if (idx1 > idx2) {
-        swap(idx1, idx2);
-    }
-
-    for (int i = idx1 + 1; i < idx2; ++i) {
-        result.push_back(planets[i]);
-    }
-
-    return result;
+vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+  vector<string> result;
+  
+  bool found1 = false, found2 = false;
+  for (int i = 0; i < planets.size(); ++i) {
+      if (planet1 == planets[i]) {
+          found1 = true;
+      } else if (planet2 == planets[i]) {
+          found2 = true;
+      }
+      
+      if (found1 && !found2) {
+          result.push_back(planets[i]);
+      } else if (found2 && !found1) {
+          result.insert(result.begin(), planets[i]);
+      }
+  }
+  
+  if (result.size() == 1 || result.size() == 2) {
+      result.clear();
+  }
+  
+  return result;
 }
