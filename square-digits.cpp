@@ -1,11 +1,19 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string squareDigits(int n) {
-    string res = "";
-    while(n > 0){
-        int digit = n % 10;
-        res = to_string(digit * digit) + res;
-        n /= 10;
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-    return res;
+    return output;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
 }
