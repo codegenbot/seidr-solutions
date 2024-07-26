@@ -1,10 +1,11 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    sort(a.begin(), a.end(), greater<int>());
+    return std::vector<int>(a.begin(), a.begin() + b);
 }
 
-vector<int> maximum(vector<int>& arr, int k) {
+std::vector<int> maximum(std::vector<int> arr, int k){
     sort(arr.begin(), arr.end(), greater<int>());
-    return vector<int>(arr.begin(), arr.begin() + k);
+    return std::vector<int>(arr.begin(), arr.begin() + k);
 }
