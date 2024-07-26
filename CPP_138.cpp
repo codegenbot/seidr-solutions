@@ -1,5 +1,2 @@
-if(n % 2 != 0 || n < 8)
-        return false;
-    else
-        return true;
+return (n % 4 == 0);
 }
