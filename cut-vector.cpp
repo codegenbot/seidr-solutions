@@ -2,27 +2,29 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <climits>
+#include <limits>
+
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
     
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
-    int total_sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int total_sum = accumulate(nums.begin(), nums.end(), 0);
     int left_sum = 0;
     int right_sum = total_sum;
-    int min_diff = INT_MAX;
+    int min_diff = numeric_limits<int>::max();
     int cut_index = 0;
     
     for (int i = 0; i < nums.size(); ++i) {
         left_sum += nums[i];
         right_sum -= nums[i];
         
-        int current_diff = std::abs(left_sum - right_sum);
+        int current_diff = abs(left_sum - right_sum);
         if (current_diff < min_diff) {
             min_diff = current_diff;
             cut_index = i;
@@ -30,16 +32,16 @@ int main() {
     }
     
     for (int i = 0; i <= cut_index; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
-    std::cout << 0 << std::endl;
+    cout << 0 << endl;
     
     for (int i = cut_index + 1; i < nums.size(); ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
-    std::cout << 0 << std::endl;
+    cout << 0 << endl;
     
     return 0;
 }
