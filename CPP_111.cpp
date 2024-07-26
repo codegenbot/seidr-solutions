@@ -1,11 +1,23 @@
-bool issame(const map<char, int>& map1, const map<char, int>& map2);
+bool issame(string s1, string s2);
 map<char, int> histogram(string test);
+
 int main() {
-    // main function code here
+    string test;
+    getline(cin, test);
+    map<char, int> result = histogram(test);
+    for (const auto &entry : result) {
+        cout << entry.first << " " << entry.second << endl;
+    }
+    return 0;
 }
 
-bool issame(const map<char, int>& map1, const map<char, int>& map2) {
-    return map1 == map2;
+bool issame(string s1, string s2) {
+    if (s1.size() != s2.size()) {
+        return false;
+    }
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    return s1 == s2;
 }
 
 map<char, int> histogram(string test) {
