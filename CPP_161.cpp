@@ -24,9 +24,7 @@ int main() {
     string input;
     cout << "Enter a string: ";
     cin >> input;
-    
-    string result = solve(input);
-    cout << "Output: " << result << endl;
+    cout << "Output: " << solve(input) << endl;
     
     return 0;
 }
