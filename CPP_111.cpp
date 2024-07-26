@@ -11,11 +11,11 @@ map<char, int> histogram(string test) {
     for (const auto& entry : result) {
         maxCount = max(maxCount, entry.second);
     }
-    map<char, int> maxChars;
+    map<char, int> maxCountChars;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
-            maxChars[entry.first] = entry.second;
+            maxCountChars[entry.first] = entry.second;
         }
     }
-    return maxChars;
+    return maxCountChars;
 }
