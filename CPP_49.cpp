@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 int modp(int n, int p) {
     if (p == 1) return 0;
@@ -16,6 +17,6 @@ int modp(int n, int p) {
 int calculateModp() {
     int n, p;
     std::cin >> n >> p;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // to ignore the trailing newline character
     return modp(n, p);
 }
