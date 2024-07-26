@@ -15,7 +15,7 @@ int digitCount = 0;
         return "No";
     }
     
-    string extension = file_name.substr(dotIndex + 1  );
+    string extension = file_name.substr(dotIndex + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
