@@ -7,5 +7,5 @@ def coin_sum(cents):
             coins[i] += 1
     return coins
 
-result = coin_sum(47)  
+result = coin_sum(1779)  
 print(result)
