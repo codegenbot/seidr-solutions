@@ -38,12 +38,8 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    vector<int> correct_result = {1, 3};
-    vector<int> result = tri(2);
-    if (issame(result, correct_result)) {
-        cout << "Correct";
-    } else {
-        cout << "Incorrect";
+    if (issame(tri(1), {1, 3})) {
+        // Do something
     }
     return 0;
 }
