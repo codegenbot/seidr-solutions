@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 using namespace std;
 
@@ -15,9 +16,12 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-vector<int> arr = {3, 6, 2, 9, 10};
-vector<int> sorted_arr = sort_array(arr);
-for (int num : sorted_arr) {
-    cout << num << " ";
+int main() {
+    vector<int> arr = {3, 6, 2, 9, 10};
+    vector<int> sorted_arr = sort_array(arr);
+    for (int num : sorted_arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
-cout << endl;
