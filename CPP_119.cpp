@@ -26,6 +26,6 @@ string match_parens(const vector<string>& lst) {
 }
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
+    assert(match_parens({")", "("}) == "No");
     return 0;
 }
