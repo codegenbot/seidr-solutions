@@ -30,9 +30,8 @@ int main() {
     for (int i = 0; i <= cut_idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << 0 << endl; // Print the separator between the two subvectors
-    for (int i = cut_idx + 1; i < n; ++i) {
-        cout << nums[i] << endl;
+    if (cut_idx < n - 1) {
+        cout << endl;
     }
 
     return 0;
