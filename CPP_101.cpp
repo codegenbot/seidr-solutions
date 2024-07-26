@@ -4,7 +4,7 @@
 #include <cassert>
 #include <algorithm>
 
-using string = std::basic_string<char>;
+using string = std::string;
 
 std::vector<string> words_string(string s){
     std::vector<string> words;
@@ -21,4 +21,9 @@ std::vector<string> words_string(string s){
 
 bool issame(std::vector<string> a, std::vector<string> b){
     return a == b;
+}
+
+int main(){
+    assert(words_string("ahmed     , gamal") == std::vector<string>{"ahmed", "gamal"});
+    return 0;
 }
