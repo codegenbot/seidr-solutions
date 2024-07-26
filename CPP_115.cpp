@@ -1,4 +1,6 @@
-int max_fill(vector<vector<int>>& grid, int capacity) {
+#include <vector>
+
+int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     int count = 0;
     for (int j = 0; j < grid[0].size(); j++) {
         int sum = 0;
@@ -8,4 +10,11 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
         count += (sum / capacity) + (sum % capacity != 0);
     }
     return count;
+}
+
+int main() {
+    std::vector<std::vector<int>> grid = {{1, 1, 1, 1}, {1, 1, 1, 1}};
+    int capacity = 2;
+    int result = max_fill(grid, capacity);
+    return 0;
 }
