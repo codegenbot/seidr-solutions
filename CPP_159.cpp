@@ -1,5 +1,5 @@
-if(number + remaining < need){
-        return {number + remaining, 0};
-    }
-    return {number + need, remaining - (need - number)};
+int total = number + need;
+    int eaten = total > remaining ? remaining : total;
+    int left = remaining - eaten;
+    return {eaten, left};
 }
