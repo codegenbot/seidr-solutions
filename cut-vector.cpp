@@ -3,6 +3,7 @@
 #include <numeric>
 #include <cstdlib>
 #include <climits>
+
 using namespace std;
 
 int main() {
@@ -31,7 +32,8 @@ int main() {
     for (int i = 0; i <= cut_idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << nums[cut_idx] << endl; // prints the cut boundary
+    // Print the cut boundary
+    cout << "0" << endl;
     for (int i = cut_idx + 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
