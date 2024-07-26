@@ -44,5 +44,9 @@ std::string words_in_sentence(std::string sentence){
 }
 
 int main() {
-    assert (words_in_sentence("here is") == "is");
+    std::string input_sentence;
+    std::getline(std::cin, input_sentence);
+    std::string output = words_in_sentence(input_sentence);
+    std::cout << output;
+    return 0;
 }
