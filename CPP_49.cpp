@@ -13,13 +13,9 @@ int modp(int n, int p) {
     return result;
 }
 
-int calculateModp() {
+int main() {
     int n, p;
     std::cin >> n >> p;
-    return modp(n, p);
-}
-
-int main() {
-    std::cout << calculateModp() << std::endl;
+    std::cout << modp(n, p) << std::endl;
     return 0;
 }
