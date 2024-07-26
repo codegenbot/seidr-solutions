@@ -1,3 +1,10 @@
-float num = std::stof(value);
-    return num >= 0 ? std::floor(num + 0.5) : std::ceil(num - 0.5);
+double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    
+    if (num - lower < upper - num) {
+        return lower;
+    } else {
+        return upper;
+    }
 }
