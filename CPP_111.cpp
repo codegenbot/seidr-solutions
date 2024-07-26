@@ -1,21 +1,21 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    map<char, int> freq;
+    map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
-            freq[c]++;
+            count[c]++;
         }
     }
 
-    int maxFreq = 0;
-    for (const auto& entry : freq) {
-        maxFreq = max(maxFreq, entry.second);
+    int maxCount = 0;
+    for (const auto& pair : count) {
+        maxCount = max(maxCount, pair.second);
     }
 
-    for (const auto& entry : freq) {
-        if (entry.second == maxFreq) {
-            result[entry.first] = entry.second;
+    for (const auto& pair : count) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
         }
     }
 
