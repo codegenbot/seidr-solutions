@@ -7,4 +7,9 @@ def coin_sum(cents):
     cents %= 5
     pennies = cents
 
-    return f"{quarters} quarters\n{dimes} dimes\n{nickles} nickles\n{pennies} pennies"
+    print(f"{quarters} quarter{'s' if quarters > 1 else ''}")
+    print(f"{dimes} dime{'s' if dimes > 1 else ''}")
+    print(f"{nickles} nickel{'s' if nickles > 1 else ''}")
+    print(f"{pennies} penny{'s' if pennies > 1 else ''}")
+
+coin_sum(1779)
