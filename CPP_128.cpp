@@ -1,4 +1,9 @@
-if (arr.empty()) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+int prod_signs(std::vector<int> arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
@@ -18,4 +23,10 @@ if (arr.empty()) {
     }
     
     return product * sum;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    
+    return 0;
 }
