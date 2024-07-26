@@ -1,4 +1,6 @@
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 string solve(string s){
@@ -21,12 +23,6 @@ string solve(string s){
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    
-    string result = solve(input);
-    cout << "Result: " << result << endl;
-    
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
