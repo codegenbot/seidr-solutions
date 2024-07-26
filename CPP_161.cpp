@@ -1,7 +1,7 @@
 string solve(string s) {
-    for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+    for (int i = 0; i < s.length(); ++i) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
 
