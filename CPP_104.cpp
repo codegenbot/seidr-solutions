@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <unordered_set>
 #include <cassert>
@@ -27,6 +26,8 @@ std::vector<int> unique_digits(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>{1, 3, 5}));
+    std::vector<int> expected = {1, 3, 5};
+    std::vector<int> result = unique_digits({135, 103, 31});
+    assert(issame(result, expected));
     return 0;
 }
