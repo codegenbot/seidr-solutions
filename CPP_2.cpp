@@ -1,2 +1,4 @@
-return number - floor(number);
+int integerPart = (int)number;
+    float decimalPart = number - integerPart;
+    return decimalPart;
 }
