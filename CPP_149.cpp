@@ -1,33 +1,25 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
+#include <numeric>
 #include <vector>
-#include <string>
 
 bool issame(const std::string& a, const std::string& b) {
     return a.length() == b.length();
 }
 
-int sorted_list_sum(const std::vector<std::string>& lst) {
-    int sum = 0;
-    for (const std::string& s : lst) {
-        sum += std::stoi(s);
-    }
-    return sum;
-}
-
-int main() {
-    std::vector<std::string> lst = {"123", "45", "6789", "12", "345"};
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<std::string> sorted_list = lst;
     
-    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
+    sorted_list.erase(std::remove_if(sorted_list.begin(), sorted_list.end(), [](const std::string& s) {
+        return s.length() % 2 != 0;
+    }), sorted_list.end());
     
-    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+    std::sort(sorted_list.begin(), sorted_list.end(), [](const std::string& a, const std::string& b) {
         if (issame(a, b)) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    
-    int sum = sorted_list_sum(lst);
-    
-    return 0;
+
+    return sorted_list;
 }
