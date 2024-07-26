@@ -12,7 +12,4 @@ std::vector<int> maximum_k(const std::vector<int>& arr, int k) {
     return std::vector<int>(arr_copy.begin(), arr_copy.begin() + k);
 }
 
-int main() {
-    assert(issame(maximum_k(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{}));
-    return 0;
-}
+assert(issame(maximum_k(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{});
