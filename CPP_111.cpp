@@ -1,8 +1,16 @@
-bool issame(string s1, string s2);
+bool issame(const map<char, int> &m1, const map<char, int> &m2);
 map<char, int> histogram(string test);
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
+bool issame(const map<char, int> &m1, const map<char, int> &m2) {
+    if (m1.size() != m2.size()) {
+        return false;
+    }
+    for (const auto &p : m1) {
+        if (m2.find(p.first) == m2.end() || m2.at(p.first) != p.second) {
+            return false;
+        }
+    }
+    return true;
 }
 
 map<char, int> histogram(string test) {
@@ -25,9 +33,4 @@ map<char, int> histogram(string test) {
         }
     }
     return maxOccurrences;
-}
-
-int main() {
-    // Main function implementation
-    return 0;
 }
