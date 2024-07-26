@@ -36,5 +36,10 @@ vector<int> tri(int n) {
     return result;
 }
 
-// Update the issame call with correct arguments
-bool same = issame(tri(5), tri(5));
+vector<int> result = tri(n);
+vector<int> expected = tri(n);
+if (issame(result, expected)) {
+    cout << "Result is correct." << endl;
+} else {
+    cout << "Result is incorrect." << endl;
+}
