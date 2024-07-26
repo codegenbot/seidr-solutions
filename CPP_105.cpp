@@ -1,8 +1,25 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+#include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cassert>
+#include <assert.h>
+
+using namespace std;
 
 vector<string> by_length(vector<int> arr);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -27,4 +44,15 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
+}
+
+int main() {
+    vector<int> input = {3, 1, 4, 2, 5, 9};
+    vector<string> expected_output = {"Nine", "Five", "Four", "Three", "Two", "One"};
+
+    vector<string> result = by_length(input);
+
+    assert(issame(result, expected_output));
+
+    return 0;
 }
