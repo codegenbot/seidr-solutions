@@ -1,13 +1,9 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -41,10 +37,8 @@ int main() {
     vector<int> expected = {1, 3};
     vector<int> actual = tri(2);
     if (issame(expected, actual)) {
-        cout << "Test Passed" << endl;
+        return 0;
     } else {
-        cout << "Test Failed" << endl;
+        return 1;
     }
-
-    return 0;
 }
