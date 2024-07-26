@@ -1,19 +1,20 @@
 string result = "";
-    bool consecutive = false;
+    bool prev_space = false;
+    int space_count = 0;
     
     for(char c : text){
         if(c == ' '){
-            if(!consecutive){
-                result += '_';
-                consecutive = true;
+            space_count++;
+            if(space_count > 2){
+                if(!prev_space) result += "-";
+                prev_space = true;
+            } else {
+                result += "_";
             }
-            else{
-                result += '-';
-            }
-        }
-        else{
+        } else {
             result += c;
-            consecutive = false;
+            prev_space = false;
+            space_count = 0;
         }
     }
     
