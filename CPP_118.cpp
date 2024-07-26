@@ -1,7 +1,5 @@
 #include <cassert>
 
-string get_closest_vowel(const string& word);
-
 string get_closest_vowel(const string& word) {
     const string vowels = "aeiouAEIOU";
     int n = word.size();
@@ -11,4 +9,9 @@ string get_closest_vowel(const string& word) {
         }
     }
     return ""; // Return empty string if no vowel found
+}
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
