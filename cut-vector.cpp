@@ -27,8 +27,8 @@ int main() {
         }
     }
 
-    if (cut_idx == n || cut_idx == 0) {
-        cout << cut_idx << endl;
+    if (cut_idx == n || cut_idx == 0 || min_diff == 0) {
+        cout << 1 << endl;
         cout << nums[cut_idx] << endl;
         cout << 0 << endl;
     } else {
