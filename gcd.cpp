@@ -14,13 +14,11 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     int n = text.size(), m = target.size();
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        int k = i; // Modified line
-        for (int j = 0; j < m; ++j) {
-            if (text[k] != target[j]) { // Modified line
+        for (int j = 0, k = i; j < m; ++j, ++k) {
+            if (text[k] != target[j]) {
                 found = false;
                 break;
             }
-            ++k; // Modified line
         }
         if (found) {
             for (int j = 0; j < m; ++j) {
