@@ -15,9 +15,7 @@ int modp(int n, int p) {
 }
 
 int calculateModp() {
-    std::cin.clear();
-    std::cin.ignore(INT_MAX, '\n');
     int n, p;
-    std::cin >> n >> p;
+    scanf("%d %d", &n, &p);
     return modp(n, p);
 }
