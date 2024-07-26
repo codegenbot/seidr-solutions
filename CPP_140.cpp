@@ -1,4 +1,10 @@
-string result = "";
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string fix_spaces(const string& text) {
+    string result = "";
     bool prev_space = false;
     int space_count = 0;
     
