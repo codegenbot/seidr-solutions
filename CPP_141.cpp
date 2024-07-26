@@ -1,36 +1,18 @@
-int digitCount = 0;
-    bool dotFound = false;
-    string prefix = "";
-    string suffix = "";
+if(file_name.empty())
+    return "No";
 
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digitCount++;
-        } else if (c == '.') {
-            if (dotFound || prefix.empty()) {
-                return "No";
-            }
-            dotFound = true;
-        } else if (c == ' ') {
-            return "No";
-        } else if (!dotFound) {
-            prefix += c;
-        } else {
-            suffix += c;
-        }
-    }
+int dotIndex = file_name.find('.');
+if(dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.size() - 1)
+    return "No";
 
-    if (digitCount > 3 || !dotFound || prefix.empty() || suffix.empty()) {
-        return "No";
-    }
+string beforeDot = file_name.substr(0, dotIndex);
+string afterDot = file_name.substr(dotIndex + 1);
 
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return "No";
-    }
+if(beforeDot.find_first_of("0123456789") != string::npos || beforeDot.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos)
+    return "No";
 
-    if ((prefix[0] < 'a' || prefix[0] > 'z') && (prefix[0] < 'A' || prefix[0] > 'Z')) {
-        return "No";
-    }
+if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll")
+    return "No";
 
-    return "Yes";
+return "Yes";
 }
