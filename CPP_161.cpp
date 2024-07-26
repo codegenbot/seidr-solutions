@@ -1,12 +1,14 @@
 string solve(string s){
-    bool hasLetters = false;
     for(char &c : s){
         if(isalpha(c)){
-            hasLetters = true;
-            c = islower(c) ? toupper(c) : tolower(c);
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    if(!hasLetters){
+    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
         reverse(s.begin(), s.end());
     }
     return s;
