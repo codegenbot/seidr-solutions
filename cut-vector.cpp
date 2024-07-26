@@ -27,12 +27,10 @@ int main() {
         }
     }
 
-    if (cut_idx == n || cut_idx == 0) {
-        cout << 0 << endl;
+    if (cut_idx == n) {
+        cout << 1 << endl;
         cout << nums[cut_idx] << endl;
-        for (int i = 0; i < n; ++i) {
-            cout << nums[i] << endl;
-        }
+        cout << 0 << endl;
     } else {
         for (int i = 0; i <= cut_idx; ++i) {
             cout << nums[i] << endl;
