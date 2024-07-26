@@ -1,3 +1,7 @@
-double num = stod(value);
-    return num >= 0 ? floor(num + 0.5) : ceil(num - 0.5);
+float num = stof(value);
+int closestInt = round(num);
+if (num - closestInt == 0.5) {
+    closestInt = num > 0 ? ceil(num) : floor(num);
+}
+return closestInt;
 }
