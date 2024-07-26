@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,8 +12,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int main() {
-    std::vector<int> result;
+vector<int> tri(int n) {
+    vector<int> result;
     if (n == 0) {
         result.push_back(0);
         return result;
@@ -35,4 +35,16 @@ int main() {
         }
     }
     return result;
+}
+
+int main() {
+    vector<int> expected = {1, 3};
+    vector<int> actual = tri(2);
+    if (issame(expected, actual)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
+    return 0;
 }
