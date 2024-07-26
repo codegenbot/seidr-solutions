@@ -12,14 +12,6 @@ int isPrime(int n) {
     return 1;
 }
 
-std::string intersection(std::vector<int> interval1, std::vector<int> interval2);
-
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-
-    return 0;
-}
-
 std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
@@ -40,4 +32,9 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
     } else {
         return "NO";
     }
+}
+
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
