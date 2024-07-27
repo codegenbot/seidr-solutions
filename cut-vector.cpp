@@ -4,13 +4,13 @@
 #include <limits>
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
 
-    int n = nums.size();
     int minDiff = std::numeric_limits<int>::max();
     int cutSpot = -1;
 
