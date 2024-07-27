@@ -20,7 +20,7 @@ int main() {
         int sum2 = std::accumulate(nums.begin() + i, nums.end(), 0);
         int diff = std::abs(sum1 - sum2);
 
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutSpot = i;
         }
@@ -28,6 +28,9 @@ int main() {
 
     std::vector<int> subVec1(nums.begin(), nums.begin() + cutSpot);
     std::vector<int> subVec2(nums.begin() + cutSpot, nums.end());
+
+    int sum1 = std::accumulate(subVec1.begin(), subVec1.end(), 0);
+    int sum2 = std::accumulate(subVec2.begin(), subVec2.end(), 0);
 
     for (int num : subVec1) {
         std::cout << num << " ";
