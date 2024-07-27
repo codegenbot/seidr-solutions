@@ -13,7 +13,7 @@ int main() {
 
     int best_spot = 0;
     int min_diff = abs(vec[0] - vec[n-1]);
-    for (int i = 0; i < n-1; ++i) {
+    for (int i = 1; i < n-1; ++i) {
         int diff = abs(vec[i] - vec[i+1]);
         if (diff < min_diff) {
             min_diff = diff;
