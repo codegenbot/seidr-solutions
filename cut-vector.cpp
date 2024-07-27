@@ -4,19 +4,18 @@
 #include <limits>
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num || !std::cin.eof()) {
-        if (!std::cin.fail()) {
-            nums.push_back(num);
-        }
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
 
-    int n = nums.size();
     int minDiff = std::numeric_limits<int>::max();
     int cutSpot = -1;
 
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i < n - 1; ++i) {
         int sum1 = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int sum2 = std::accumulate(nums.begin() + i, nums.end(), 0);
         int diff = std::abs(sum1 - sum2);
