@@ -15,7 +15,7 @@ int main() {
     int minDiff = std::numeric_limits<int>::max();
     int cutSpot = -1;
 
-    for (int i = 2; i < n; ++i) {
+    for (int i = 1; i < n-1; ++i) {
         int sum1 = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int sum2 = std::accumulate(nums.begin() + i, nums.end(), 0);
         int diff = std::abs(sum1 - sum2);
