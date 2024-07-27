@@ -12,8 +12,8 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int minDiff = std::abs(std::accumulate(nums.begin(), nums.end(), 0) - nums[0]);
-    int cutSpot = 1;
+    int minDiff = std::numeric_limits<int>::max();
+    int cutSpot = 0;
 
     for (int i = 1; i < n; ++i) {
         int sum1 = std::accumulate(nums.begin(), nums.begin() + i, 0);
