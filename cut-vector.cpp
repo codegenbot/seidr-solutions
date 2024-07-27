@@ -27,7 +27,7 @@ int main() {
     }
 
     std::vector<int> subVec1(nums.begin(), nums.begin() + cutSpot);
-    std::vector<int> subVec2(nums.begin() + cutSpot + 1, nums.end());
+    std::vector<int> subVec2(nums.begin() + cutSpot, nums.end());
 
     for (int num : subVec1) {
         std::cout << num << " ";
