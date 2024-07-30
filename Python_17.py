@@ -1,1 +1,5 @@
-music_string = input("Enter music string: ").strip()
+music_string = """ 
+first line
+second line
+third line
+"""
