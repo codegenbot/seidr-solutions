@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> parse_nested_parens(const std::string& str) {
-    std::vector<int> result = {0};
+    std::vector<int> result = {};
     return result;
 }
 
