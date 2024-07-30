@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(parens: str) -> List[str]:
     stack = []
     groups = []
@@ -17,3 +18,8 @@ def separate_paren_groups(parens: str) -> List[str]:
                 current_group = ""
 
     return groups
+
+
+parens = input().strip()
+result = separate_paren_groups(parens)
+print(result)
