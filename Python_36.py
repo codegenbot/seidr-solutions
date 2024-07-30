@@ -1,7 +1,7 @@
 def fizz_buzz(n):
     return [
-        ("Fizz" * (n % 3 == 0) + "Buzz" * (n % 5 == 0)) or str(n)
-        for n in range(n)
+        ("Fizz" * (num % 3 == 0) + "Buzz" * (num % 5 == 0)) or str(num)
+        for num in range(1, n + 1)
     ]
 
 if __name__ == "__main__":
@@ -10,7 +10,7 @@ if __name__ == "__main__":
         if n < 1:
             print("Input should be a positive integer.")
         else:
-            result = fizz_buzz(n)
+            result = fizz_buzz(int(n))
             print(result)
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
