@@ -17,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
+int main();
     assert(issame(sum_product({10}), {10, 10}));
     return 0;
 }
