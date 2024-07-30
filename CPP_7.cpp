@@ -15,7 +15,7 @@ vector<string> filter_by_substring(vector<string> strings, const string& substri
     return filtered_strings;
 }
 
-void test_filter_by_substring() {
+void test_filter_by_substring() { 
     vector<string> input = { "apple", "banana", "cherry", "date" };
     vector<string> expected_output = { "apple", "date" };
     assert(filter_by_substring(input, "a") == expected_output);
@@ -23,5 +23,9 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
+    
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(result == vector<string>{"grunt", "prune"});
+
     return 0;
 }
