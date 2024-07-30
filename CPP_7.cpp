@@ -1,16 +1,18 @@
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
+bool issame(const vector<string>& vec1, const vector<string>& vec2){
+    if(vec1.size() != vec2.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-void test_filter_by_substring() {
-    vector<string> input = { "apple", "banana", "cherry", "date" };
-    vector<string> expected_output = { "apple", "date" };
-    assert(filter_by_substring(input, "a") == expected_output);
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+vector<string> filter_by_substring(const vector<string>& strings, const string& substring){
     vector<string> filtered_strings;
     for (const string& str : strings) {
         if (str.find(substring) != string::npos) {
@@ -20,7 +22,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
     return filtered_strings;
 }
 
-int main() {
-    test_filter_by_substring();
-    return 0;
-}
+```
