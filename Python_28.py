@@ -1,3 +1,5 @@
-strings = input("Enter strings separated by spaces: ").split()  
-strings.sort()  
-print(" ".join(strings))  
+import sys
+
+strings = sys.stdin.readline().strip().split()
+strings.sort()
+print(" ".join(strings))
