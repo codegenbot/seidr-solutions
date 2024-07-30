@@ -23,5 +23,9 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
+    
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(result == vector<string>{"grunt", "prune"});
+
     return 0;
 }
