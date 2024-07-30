@@ -1,27 +1,24 @@
-#include <algorithm>
 #include <vector>
-#include <stack>
+#include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<int> parse_nested_parens(const std::string& str) {
-    std::stack<int> st;
-    std::vector<int> res;
-    int depth = 0;
+std::string parse_nested_parens(std::string s) {
+    int depth = 0, maxDepth = 0;
 
-    for (char c : str) {
+    for (char c : s) {
         if (c == '(') {
-            depth++;
+            ++depth;
+            maxDepth = std::max(maxDepth, depth);
         } else if (c == ')') {
-            res.push_back(depth);
-            depth--;
+            --depth;
         }
     }
 
-    return res;
+    return std::to_string(maxDepth);
 }
 
 int main() {
