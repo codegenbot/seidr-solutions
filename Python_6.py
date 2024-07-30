@@ -1,3 +1,5 @@
+import sys
+
 def parse_nested_parens(paren_string: str) -> int:
     balance = 0
     max_balance = 0
@@ -12,5 +14,6 @@ def parse_nested_parens(paren_string: str) -> int:
     return max_balance
 
 if __name__ == "__main__":
-    paren_string = input()
-    print(parse_nested_parens(paren_string))
+    input_lines = sys.stdin.readlines()
+    for paren_string in input_lines:
+        print(parse_nested_parens(paren_string.strip()))
