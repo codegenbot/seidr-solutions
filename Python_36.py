@@ -4,10 +4,9 @@ def fizz_buzz(n):
         for n in range(1, n + 1)
     ]
 
-
 if __name__ == "__main__":
     try:
-        n = int(input())
+        n = int(input().strip())
         if n < 1:
             print("Input should be a positive integer.")
         else:
