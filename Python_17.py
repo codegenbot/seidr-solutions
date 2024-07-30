@@ -1,7 +1,9 @@
-while True:
-    music_string = input("Enter the music string (e.g. 'CDEFGAB'): ").strip()
-    if music_string:
-        break
-    print("No input provided. Please enter a valid music string.")
-
-# Continue with the rest of your code here
+music_notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+output = []
+for note in music_string:
+    if note in music_notes:
+        output.append(note)
+    else:
+        print("Invalid note '{}' found in the music string.".format(note))
+        exit()
+print("Valid music string:", ''.join(output))
