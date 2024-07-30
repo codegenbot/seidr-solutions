@@ -18,6 +18,6 @@ def separate_paren_groups(parens: str) -> List[str]:
 
     return groups
 
-parens = input().strip()
+parens = input().strip().replace(" ", "")
 result = separate_paren_groups(parens)
 print(result)
