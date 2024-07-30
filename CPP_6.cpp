@@ -1,29 +1,30 @@
-#include <stack>
+#include <algorithm>
 #include <vector>
+#include <stack>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<int> parse_nested_parens(std::string input) {
-    std::stack<char> st;
-    std::vector<int> counts;
-    
-    int count = 0;
-    for (char c : input) {
+std::vector<int> parse_nested_parens(const std::string& str) {
+    std::stack<int> st;
+    std::vector<int> res;
+    int depth = 0;
+
+    for (char c : str) {
         if (c == '(') {
-            st.push(c);
+            depth++;
         } else if (c == ')') {
-            count++;
-            st.pop();
-        }
-        
-        if (st.empty()) {
-            counts.push_back(count);
-            count = 0;
+            res.push_back(depth);
+            depth--;
         }
     }
-    
-    return counts;
+
+    return res;
+}
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
 }
