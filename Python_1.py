@@ -7,13 +7,14 @@ def separate_paren_groups(s):
         if char == '(':
             if count > 0:
                 result.append(current_group)
+                current_group = ""
             count += 1
-            current_group = ""
         elif char == ')':
             count -= 1
-            current_group += char
-            if count == 0:
-                result.append(current_group)
-                current_group = ""
+            if count > 0:
+                current_group += char
+        if count == 0 and current_group:
+            result.append(current_group)
+            current_group = ""
 
     return result
