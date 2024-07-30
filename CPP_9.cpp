@@ -3,10 +3,6 @@
 
 vector<int> rolling_max(vector<int> numbers);
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int maxNum = numbers[0];
@@ -16,6 +12,10 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(maxNum);
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main(){
