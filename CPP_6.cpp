@@ -6,20 +6,19 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> parse_nested_parens(std::string s){
-    std::vector<int> count_stack;
-    int current_depth = 0;
+    std::vector<int> result;
+    int count = 0;
 
     for(char c : s){
-        if(c == '('){
-            current_depth++;
-        } 
-        else if(c == ')'){
-            count_stack.push_back(current_depth);
-            current_depth--;
+        if(c == '(') {
+            count++;
+        } else if(c == ')') {
+            result.push_back(count);
+            count--;
         }
     }
 
-    return count_stack;
+    return result;
 }
 
 int main() {
