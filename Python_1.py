@@ -1,20 +1,4 @@
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
-    current_group = ""
-    for char in paren_string:
-        if char in "()":
-            current_group += char
-        else:
-            if current_group:
-                result.append(current_group)
-                current_group = ""
-            else:
-                current_group += char
-    if current_group:
-        result.append(current_group)
-    return result
-
-result = separate_paren_groups("Your_input_text_here")
-print(result)
+test_cases = [input().strip() for _ in range(int(input()))]
+for test_case in test_cases:
+    result = separate_paren_groups(test_case)
+    print(result)
