@@ -12,7 +12,4 @@ def separate_paren_groups(s):
             result.append(current_group)
             current_group = ""
 
-    if current_group:
-        result.append(current_group)
-
     return result
