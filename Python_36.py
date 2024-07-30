@@ -6,7 +6,7 @@ def fizz_buzz(n):
 
 if __name__ == "__main__":
     try:
-        n = int(input().strip())
+        n = int(input())
         if n < 1:
             print("Input should be a positive integer.")
         else:
