@@ -1,2 +1,4 @@
-return number - floor(number);
+float intPart;
+    float decPart = modf(number, &intPart);
+    return decPart;
 }
