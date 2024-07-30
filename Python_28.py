@@ -1,5 +1,3 @@
-import sys
-
-strings = sys.stdin.readline().strip().split()
-strings.sort()
+strings = input().split()
+strings.sort(key=len)
 print(" ".join(strings))
