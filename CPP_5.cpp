@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> // Include the <cassert> header file
+#include <cassert> 
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
     std::vector<int> result;
@@ -14,7 +14,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
 }
 
 int main(){
-    std::assert(intersperse({2, 2, 2}, 2) == std::vector<int>{2, 2, 2, 2, 2});
+    assert(intersperse({2, 2, 2}, 2) == std::vector<int>{2, 2, 2, 2, 2});
     
     return 0;
 }
