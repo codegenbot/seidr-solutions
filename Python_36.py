@@ -1,7 +1,7 @@
 def fizz_buzz(n):
     return [
-        ("Fizz" * (num % 3 == 0) + "Buzz" * (num % 5 == 0)) or str(num)
-        for num in range(1, n + 1)
+        ("Fizz" * (n % 3 == 0) + "Buzz" * (n % 5 == 0)) or str(n)
+        for n in range(n)
     ]
 
 if __name__ == "__main__":
