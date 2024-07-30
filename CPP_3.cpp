@@ -1,4 +1,7 @@
-bool below_zero(const std::vector<int>& operations) {
+#include <iostream>
+#include <vector>
+
+bool below_zero(std::vector<int> operations){
     int sum = 0;
     for (int op : operations) {
         sum += op;
@@ -10,11 +13,7 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    std::vector<int> operations = {1, 2, -3, 4, 5};
-    if (below_zero(operations)) {
-        std::cout << "Sum goes below zero." << std::endl;
-    } else {
-        std::cout << "Sum stays above or equal to zero." << std::endl;
-    }
+    assert (below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+  
     return 0;
 }
