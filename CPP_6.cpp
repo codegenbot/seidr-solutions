@@ -1,14 +1,7 @@
 #include <stack>
 #include <vector>
-#include <cassert>
 #include <string>
 #include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b);
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
 
 std::vector<int> parse_nested_parens(std::string input) {
     std::stack<char> st;
