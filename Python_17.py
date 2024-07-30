@@ -4,10 +4,11 @@ def parse_music(music_string: str) -> List[int]:
     notes = {"o": 4, "o|": 2, ".": 1}
     if not music_string:
         return []
-    if not all(note.replace(" ", "") in notes for note in music_string.split(",")):
+    if not all(note in notes for note in music_string.split(",")):
         return []
-    return [notes[note.replace(" ", "")] for note in music_string.split(",")]
+    return [notes[note] for note in music_string.split(",")]
 
-input_lines = input("Enter music notes separated by comma: ").split(",")
-result = parse_music(",".join(input_lines))
+input_lines = ["o", "o|", "."]
+input_string = ",".join(input_lines)
+result = parse_music(input_string)
 print(result)
