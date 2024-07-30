@@ -1,10 +1,20 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+using namespace std;
 
-int squareDigits(int n) {
-    string str = to_string(n);
-    for (char &c : str) {
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        c = '0' + sqrt(digit) * sqrt(digit);
+        output += to_string(digit * digit);
     }
-    return stoi(str);
+    return output;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << "Square digits of the number is: " << squareDigits(input) << endl;
+    return 0;
 }
