@@ -4,7 +4,8 @@ def fizz_buzz(n):
         for n in range(1, n + 1)
     ]
 
-if __name__ == "__main__":
+
+while True:
     try:
         n = int(input().strip())
         if n < 1:
@@ -12,5 +13,6 @@ if __name__ == "__main__":
         else:
             result = fizz_buzz(n)
             print(result)
+            break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
