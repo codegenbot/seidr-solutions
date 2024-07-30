@@ -8,6 +8,5 @@ def parse_music(music_string: str) -> List[int]:
         return []
     return [notes[note.strip()] for note in music_string.split(",")]
 
-input_lines = input("Enter music notes separated by comma: ").strip()
-result = parse_music(input_lines)
+result = parse_music(input("Enter music notes separated by comma: ").strip())
 print(result)
