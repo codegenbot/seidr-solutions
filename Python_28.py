@@ -1,6 +1,9 @@
 try:
-    n = int(input())
-    strings = [input() for _ in range(n)]
+    strings = []
+    num_strings = int(input())
+    for _ in range(num_strings):
+        strings.append(input())
+
     strings.sort()
     print(" ".join(strings))
 except ValueError:
