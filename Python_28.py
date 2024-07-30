@@ -1,3 +1,3 @@
-strings = input("Enter strings separated by spaces: ").split()  
-strings.sort()  
-print(" ".join(strings))  
+strings = input().split()
+strings.sort()
+print(" ".join(strings))
