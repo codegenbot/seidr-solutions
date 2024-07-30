@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> int:
@@ -14,9 +13,5 @@ def parse_nested_parens(paren_string: str) -> int:
     
     return max_balance
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python filename.py 'paren_string'")
-    else:
-        paren_string = sys.argv[1]
-        print(parse_nested_parens(paren_string))
+paren_string = input("Enter the string of nested parentheses: ").strip()
+print(parse_nested_parens(paren_string))
