@@ -1,11 +1,10 @@
 def fizz_buzz(n):
     return [
         ("Fizz" * (n % 3 == 0) + "Buzz" * (n % 5 == 0)) or str(n)
-        for n in range(1, n + 1)
+        for n in range(n)
     ]
 
-
-while True:
+if __name__ == "__main__":
     try:
         n = int(input().strip())
         if n < 1:
@@ -13,6 +12,5 @@ while True:
         else:
             result = fizz_buzz(n)
             print(result)
-            break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
