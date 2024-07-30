@@ -1,11 +1,21 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string squareDigits(long long n) {
-    string s = to_string(n);
-    string result;
-    for (char c : s) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
+        int num = c - '0';
+        output += to_string(num * num);
     }
-    return result;
+    return output;
+}
+
+int main() {
+    std::cout << squareDigits("0") << std::endl; 
+    std::cout << squareDigits("1") << std::endl; 
+    std::cout << squareDigits("2") << std::endl; 
+    std::cout << squareDigits("3") << std::endl; 
+    std::cout << squareDigits("4") << std::endl;
+    return 0;
 }
