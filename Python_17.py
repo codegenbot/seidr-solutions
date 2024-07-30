@@ -1,5 +1,1 @@
-music_string = """ 
-first line
-second line
-third line
-"""
+music_string = input().strip()
