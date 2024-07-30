@@ -1,18 +1,8 @@
-def separate_paren_groups(s):
-    result = []
-    count = 0
-    current_group = ""
-    
-    for char in s:
-        if char == '(':
-            count += 1
-        elif char == ')':
-            count -= 1
-        
-        current_group += char
-        
-        if count == 0:
-            result.append(current_group)
-            current_group = ""
-    
-    return result
+def separate_paren_groups(s: str) -> str:
+    # Implement your logic here to separate parentheses groups
+    return ""
+
+test_cases = [input().strip() for _ in range(int(input("Enter number of test cases: ")))]
+for test_case in test_cases:
+    result = separate_paren_groups(test_case)
+    print(result)
