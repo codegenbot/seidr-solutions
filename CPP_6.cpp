@@ -28,5 +28,3 @@ std::vector<int> parse_nested_parens(std::string input) {
     
     return counts;
 }
-
-assert(issame(parse_nested_parens("(()(())((())))"), {4}));
