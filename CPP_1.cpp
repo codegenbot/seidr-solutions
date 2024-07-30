@@ -29,9 +29,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-std::vector<std::string> a_vec;
-std::vector<std::string> b_vec;
-
+#include <vector>
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
