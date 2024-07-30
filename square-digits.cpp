@@ -1,11 +1,21 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string squareDigits(int n) {
-    string s = to_string(n);
-    string result;
-    for (char c : s) {
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        result += to_string(digit * digit);
+        output += to_string(digit * digit);
     }
-    return result;
+    return output;
+}
+
+int main() {
+    std::cout << squareDigits("0") << std::endl;  // Output: 0
+    std::cout << squareDigits("1") << std::endl;  // Output: 1
+    std::cout << squareDigits("2") << std::endl;  // Output: 4
+    std::cout << squareDigits("3") << std::endl;  // Output: 9
+    std::cout << squareDigits("4") << std::endl;  // Output: 16
+
+    return 0;
 }
