@@ -1,40 +1,35 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-std::vector<std::string> separate_paren_groups(std::string paren_string);
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
-    std::string current_group;
-    int open_count = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_count > 0) {
-                current_group += c;
-            }
-            open_count++;
-        } else if (c == ')') {
-            open_count--;
-            if (open_count == 0) {
-                result.push_back(current_group);
-                current_group.clear();
-            } else {
-                current_group += c;
+    std::stringstream ss(paren_string);
+    std::string temp;
+    while (getline(ss, temp, '(')) {
+        if (temp.empty()) continue;
+        temp = "(" + temp;
+        size_t pos = temp.find(')');
+        if (pos != std::string::npos) {
+            result.push_back(temp.substr(0, pos + 1));
+            if (pos + 1 < temp.size()) {
+                result.push_back(temp.substr(pos + 1));
             }
         }
     }
-
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), { "()", "(())", "(()())" }));
+    return 0;
 }
