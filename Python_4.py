@@ -1,1 +1,2 @@
-numbers = list(map(float, input().strip().split()))
+import sys
+numbers = list(map(float, sys.stdin.readline().strip().split()))
