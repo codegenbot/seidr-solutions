@@ -1,11 +1,19 @@
-#include <string>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 string squareDigits(string input) {
     string output = "";
-    for (char c : input) {
-        int digit = c - '0';
+    for (int i = 0; i < input.length(); i++) {
+        int digit = input[i] - '0';
         output += to_string(digit * digit);
     }
     return output;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
 }
