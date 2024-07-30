@@ -1,13 +1,10 @@
-import sys
-
 try:
-    lines = sys.stdin.readlines()
-    num_strings = int(lines[0])
+    num_strings = int(input().strip())
     if num_strings < 1:
         raise ValueError("Please enter a positive integer for the number of strings.")
-    strings = lines[1:]  # Skip the first line which contains the integer input
+    strings = [input().strip() for _ in range(num_strings)]
 
     strings.sort()
-    print(*strings, sep="")
+    print(*strings, sep="\n")
 except ValueError as e:
     print(e)
