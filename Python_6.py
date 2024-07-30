@@ -1,5 +1,3 @@
-paren_string = input()
-
 def parse_nested_parens(paren_string: str) -> int:
     balance = 0
     max_balance = 0
@@ -13,4 +11,6 @@ def parse_nested_parens(paren_string: str) -> int:
 
     return max_balance
 
+
+paren_string = input("Enter a string of parentheses: ")
 print(parse_nested_parens(paren_string))
