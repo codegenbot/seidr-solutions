@@ -5,13 +5,6 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), { "()", "(())", "(()())" }));
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     stringstream ss(paren_string);
@@ -28,4 +21,9 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), { "()", "(())", "(()())" }));
+    return 0;
 }
