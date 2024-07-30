@@ -1,7 +1,7 @@
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
-    notes = {"note": 4, "note|": 2, ".": 1}
+    notes = {"o": 4, "o|": 2, ".": 1}
     if not music_string:
         return []
     music_string = music_string.replace(" ", "").replace("|", "").replace(", ", ",")
@@ -9,5 +9,6 @@ def parse_music(music_string: str) -> List[int]:
         return []
     return [notes[note.strip().lower()] for note in music_string.split(",")]
 
-result = parse_music("note1,note2,note3")
+music_string = input("Enter the music notes separated by commas: ").strip()
+result = parse_music(music_string)
 print(result)
