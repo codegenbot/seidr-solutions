@@ -1,7 +1,6 @@
 try:
     strings = []
-    print("Enter the number of strings:")
-    num_strings = int(input().strip())
+    num_strings = int(input("Enter the number of strings: "))
     for _ in range(num_strings):
         strings.append(input().rstrip())
 
