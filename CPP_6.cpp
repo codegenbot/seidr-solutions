@@ -3,19 +3,19 @@
 #include <cassert>
 
 std::vector<int> parse_nested_parens(std::string str) {
-    std::vector<int> depths;
-    int current_depth = 0;
+    std::vector<int> result;
     
-    for (char ch : str) {
-        if (ch == '(') {
-            current_depth++;
-        } else if (ch == ')') {
-            depths.push_back(current_depth);
-            current_depth--;
+    int count = 0;
+    for (char c : str) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+            result.push_back(count + 1);
         }
     }
     
-    return depths;
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
