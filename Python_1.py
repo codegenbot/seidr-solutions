@@ -1,27 +1,17 @@
-def separate_paren_groups(s):
-    result = []
+def separate_paren_groups(parens: str) -> List[str]:
+    stack = []
+    groups = []
     current_group = ""
-    open_count = 0
 
-    for char in s:
+    for char in parens:
         if char == "(":
-            if open_count == 0:
-                if current_group:
-                    result.append(current_group)
-                current_group = "("
-            else:
-                current_group += "("
-            open_count += 1
-        elif char == ")":
-            current_group += ")"
-            open_count -= 1
-            if open_count == 0:
-                result.append(current_group)
-                current_group = ""
-        else:
+            stack.append("(")
             current_group += char
+        elif char == ")":
+            stack.pop()
+            current_group += char
+            if not stack:
+                groups.append(current_group)
+                current_group = ""
 
-    if current_group:
-        result.append(current_group)
-
-    return result
+    return groups
