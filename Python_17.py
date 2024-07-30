@@ -8,14 +8,7 @@ def parse_music(music_string: str) -> List[int]:
         return []
     return [notes[note.replace(" ", "")] for note in music_string.split(",")]
 
-input_lines = []
-while True:
-    line = input()
-    if line:
-        input_lines.append(line)
-    else:
-        break
-
+input_lines = ["o", "o|", "."]
 input_string = ",".join(input_lines)
 result = parse_music(input_string)
 print(result)
