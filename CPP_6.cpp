@@ -1,32 +1,34 @@
-
 #include <vector>
 #include <cassert>
-#include <string>
-#include <algorithm>
 
 std::vector<int> parse_nested_parens(std::string s) {
-    int depth = 0;
     std::vector<int> depths;
+    int current_depth = 0;
+
     for (char c : s) {
         if (c == '(') {
-            depth++;
+            current_depth++;
         } else if (c == ')') {
-            depth--;
-        }
-        depths.push_back(depth);
-    }
-    std::vector<int> result;
-    int max_depth = *std::max_element(depths.begin(), depths.end());
-    for (int d : depths) {
-        if (d == max_depth) {
-            result.push_back(d);
+            depths.push_back(current_depth);
+            current_depth--;
         }
     }
-    return result;
+
+    return depths;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
