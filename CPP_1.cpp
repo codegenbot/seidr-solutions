@@ -3,8 +3,9 @@
 #include <string>
 #include <sstream>
 #include <cassert>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
 
     for (size_t i = 0; i < a.size(); ++i) {
@@ -14,16 +15,16 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::stringstream ss(paren_string);
-    std::string temp;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    stringstream ss(paren_string);
+    string temp;
     
-    while (std::getline(ss, temp, '(')) {
+    while (getline(ss, temp, '(')) {
         if (temp.empty()) continue;
         temp = '(' + temp;
         size_t pos = temp.find(')');
-        if (pos != std::string::npos) {
+        if (pos != string::npos) {
             result.push_back(temp.substr(0, pos + 1));
             if (pos + 1 < temp.size()) {
                 result.push_back(temp.substr(pos + 1));
