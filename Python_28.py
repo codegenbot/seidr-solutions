@@ -1,6 +1,3 @@
-strings = []
-for _ in range(int(input())):
-    strings.append(input())
-
+strings = input().strip().split()
 strings.sort()
 print(" ".join(strings))
