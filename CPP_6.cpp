@@ -3,8 +3,6 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
@@ -29,4 +27,9 @@ std::vector<int> parse_nested_parens(std::string input) {
     }
     
     return counts;
+}
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
 }
