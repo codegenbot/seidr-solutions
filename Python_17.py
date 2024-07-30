@@ -8,5 +8,5 @@ def parse_music(music_string: str) -> List[int]:
         return []
     return [notes[note.strip().lower().replace(" ", "").replace("|", "")] for note in music_string.split(",")]
 
-result = parse_music("note1, note2, note3")
+result = parse_music("note1,note2,note3")
 print(result)
