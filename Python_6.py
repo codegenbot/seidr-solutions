@@ -1,6 +1,4 @@
-import sys
-
-paren_string = next(sys.stdin).strip()
+paren_string = input()
 
 def parse_nested_parens(paren_string: str) -> int:
     balance = 0
