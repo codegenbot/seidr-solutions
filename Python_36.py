@@ -5,14 +5,13 @@ def fizz_buzz(n):
     ]
 
 
-while True:
+if __name__ == "__main__":
     try:
-        n = int(input().strip())
+        n = int(input())
         if n < 1:
             print("Input should be a positive integer.")
         else:
             result = fizz_buzz(n)
             print(result)
-            break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
