@@ -10,11 +10,11 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    std::vector<int> operations = {1, -2, 3, -5, 2};
+    std::vector<int> operations = {1, 2, -3, 4, 5};
     if (below_zero(operations)) {
-        std::cout << "Sum went below zero." << std::endl;
+        std::cout << "Sum goes below zero." << std::endl;
     } else {
-        std::cout << "Sum stayed non-negative." << std::endl;
+        std::cout << "Sum stays above or equal to zero." << std::endl;
     }
     return 0;
 }
