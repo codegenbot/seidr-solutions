@@ -1,3 +1,11 @@
-strings = input().split()
-strings.sort()
-print(" ".join(strings))
+try:
+    strings = []
+    print("Enter the number of strings:")
+    num_strings = int(input().strip())
+    for _ in range(num_strings):
+        strings.append(input().rstrip())
+
+    strings.sort()
+    print(" ".join(strings))
+except ValueError:
+    print("Invalid input. Please provide the input in the correct format.")
