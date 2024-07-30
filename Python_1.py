@@ -18,13 +18,13 @@ def separate_paren_groups(parens: str) -> List[str]:
                 groups.append(current_group)
                 current_group = ""
 
-    if len(stack) > 0:
+    if stack:
         return ["Invalid input"]
 
     return groups
 
 parens = input("Enter a string containing parentheses: ").strip()
-if "(" in parens and ")" in parens:
+if "(" in parens and ")" in parens and parens.count("(") == parens.count(")"):
     result = separate_paren_groups(parens)
     print(result)
 else:
