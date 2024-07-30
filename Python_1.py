@@ -1,6 +1,9 @@
 from typing import List
 
 def separate_paren_groups(parens: str) -> List[str]:
+    if set(parens) != {"(", ")"}:
+        return ["Invalid input"]
+
     stack = []
     groups = []
     current_group = ""
