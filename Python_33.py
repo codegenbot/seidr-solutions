@@ -1,5 +1,4 @@
 def sort_third(l: list):
-    sorted_list = []
-    for i in range(0, len(l), 3):
-        sorted_list.extend(sorted(l[i:i+3]))
-    return sorted_list
+    for i in range(2, len(l), 3):
+        l[i-2:i+1] = sorted(l[i-2:i+1], reverse=True)
+    return l
