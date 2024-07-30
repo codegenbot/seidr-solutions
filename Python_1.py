@@ -4,7 +4,7 @@ def separate_paren_groups(s):
 
     for char in s:
         if char == "(":
-            if current_group and "(" not in current_group:
+            if current_group:
                 result.append(current_group)
             current_group = "("
         elif char == ")":
