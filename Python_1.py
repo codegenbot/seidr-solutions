@@ -14,6 +14,6 @@ def separate_paren_groups(s):
         if count == 0:
             result.append(current_group)
             current_group = ""
-            count = 0  # Reset count to 0
-        
+            count = 0
+    
     return result
