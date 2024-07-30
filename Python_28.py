@@ -1,6 +1,6 @@
 strings = []
 try:
-    num_strings = int(input("Enter the number of strings:"))
+    num_strings = int(input())
     strings = [input() for _ in range(num_strings)]
 
     strings.sort()
