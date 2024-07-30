@@ -1,14 +1,4 @@
 def fizz_buzz(limit=100):
-    output = []
-    for i in range(1, limit + 1):
-        if i % 3 == 0 and i % 5 == 0:
-            output.append("FizzBuzz")
-        elif i % 3 == 0:
-            output.append("Fizz")
-        elif i % 5 == 0:
-            output.append("Buzz")
-        else:
-            output.append(str(i))
-    return '\n'.join(output)
+    return ['FizzBuzz' if i % 15 == 0 else 'Fizz' if i % 3 == 0 else 'Buzz' if i % 5 == 0 else i for i in range(1, limit + 1)]
 
-result = fizz_buzz(100000)
+print('\n'.join(str(i) for i in fizz_buzz(100)) )
