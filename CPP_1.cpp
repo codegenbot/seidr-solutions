@@ -1,23 +1,22 @@
-bool issame(vector<string> a, vector<string> b) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string);
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
 int main() {
-    string input;
-    cin >> input;
-    
-    vector<string> expected_output = separate_paren_groups(input);
-
-    assert(issame(expected_output, {"(abc)(def)", "(ghi)"}));
-    
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_count = 0;
 
     for (char c : paren_string) {
