@@ -2,9 +2,9 @@ try:
     strings = []
     num_strings = int(input())
     for _ in range(num_strings):
-        strings.append(input().rstrip())
+        strings.append(input().strip())
 
-    strings.sort()
+    strings.sort(key=lambda x: (len(x), x))
     print(" ".join(strings))
 except ValueError:
     print("Invalid input. Please provide the input in the correct format.")
