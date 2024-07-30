@@ -1,9 +1,20 @@
-try:
-    n = int(input())
-    if n <= 0:
-        print("Input should be a positive integer.")
-    else:
-        result = fizz_buzz(n)
-        print(result)
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+from typing import List
+
+def fizz_buzz(n: int) -> List[str]:
+    result = []
+    
+    for i in range(1, n+1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(str(i))
+    
+    return result
+
+n = int(input())
+output = fizz_buzz(n)
+print(output)
