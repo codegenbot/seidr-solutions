@@ -1,9 +1,6 @@
-music_notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
-output = []
-for note in music_string:
-    if note in music_notes:
-        output.append(note)
-    else:
-        print("Invalid note '{}' found in the music string.".format(note))
-        exit()
-print("Valid music string:", ''.join(output))
+valid_notes = set('ABCDEFG')
+while True:
+    music_string = input("Enter the music string (e.g. 'CDEFGAB'): ").strip().upper()
+    if all(note in valid_notes for note in music_string):
+        break
+    print("Invalid input. Please enter a valid music string with notes from 'ABCDEFG'.")
