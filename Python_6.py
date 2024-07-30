@@ -12,5 +12,5 @@ def parse_nested_parens(paren_string: str) -> int:
     return max_balance
 
 if __name__ == "__main__":
-    for paren_string in input().strip().split():
+    for paren_string in input().split():
         print(parse_nested_parens(paren_string))
