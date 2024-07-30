@@ -1,3 +1,4 @@
-strings = input("Enter strings separated by spaces: ").split()
+print("Enter strings separated by spaces:")
+strings = input().split()
 strings.sort()
 print(" ".join(strings))
