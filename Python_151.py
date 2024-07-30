@@ -1,4 +1,3 @@
-
 lst = list(map(int, input().split()))
 
 def double_the_difference(lst):
