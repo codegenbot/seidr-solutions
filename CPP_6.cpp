@@ -9,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     // Implement the comparison logic
 }
 
-int main() {
+bool main() {
     assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    return 0;
+    return true;
 }
