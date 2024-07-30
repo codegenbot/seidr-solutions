@@ -1,15 +1,18 @@
-def fizz_buzz(n: int) -> int:
+from typing import List
+
+def fizz_buzz(n: int) -> List[str]:
+    result = []
     count = 0
     
     for i in range(1, n+1):
         if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz")
+            result.append("FizzBuzz")
             count += 1
         elif i % 3 == 0:
-            print("Fizz")
+            result.append("Fizz")
         elif i % 5 == 0:
-            print("Buzz")
+            result.append("Buzz")
         else:
-            print(i)
+            result.append(str(i))
     
-    return count
+    return result, count

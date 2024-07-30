@@ -16,5 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
     return result
 
-result = separate_paren_groups(input().strip())
+result = separate_paren_groups("Your_input_text_here")
 print(result)
