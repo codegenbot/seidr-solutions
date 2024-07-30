@@ -2,20 +2,22 @@ def separate_paren_groups(parens):
     groups = []
     count = 0
     current_group = ""
-    
+
     for char in parens:
-        if char == '(':
+        if char == "(":
             count += 1
-        elif char == ')':
+        elif char == ")":
             count -= 1
-        
+
         current_group += char
-        
+
         if count == 0:
             groups.append(current_group)
             current_group = ""
 
     return groups
 
-parens = int(input().strip())
+
+parens = input("Enter a string of parentheses: ")
 result = separate_paren_groups(parens)
+print(result)
