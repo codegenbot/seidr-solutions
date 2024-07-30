@@ -1,13 +1,18 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-std::vector<int> rolling_max(std::vector<int> numbers){
-    std::vector<int> result;
+vector<int> rolling_max(vector<int> numbers);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> rolling_max(vector<int> numbers){
+    vector<int> result;
     int maxNum = numbers[0];
     result.push_back(maxNum);
     for(int i = 1; i < numbers.size(); i++){
-        maxNum = std::max(maxNum, numbers[i]);
+        maxNum = max(maxNum, numbers[i]);
         result.push_back(maxNum);
     }
     return result;
