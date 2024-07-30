@@ -1,2 +1,3 @@
-import sys
-numbers = list(map(float, sys.stdin.readline().strip().split()))
+numbers = list(
+    map(float, input("Enter a list of numbers separated by spaces: ").strip().split())
+)
