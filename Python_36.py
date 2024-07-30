@@ -1,3 +1,3 @@
 def fizz_buzz(n: int):
-    count = n // 11 + n // 13 - n // (11 * 13) + n // (11 * 13)
+    count = n // 11 + n // 13 - 2 * (n // (11 * 13))
     return count
