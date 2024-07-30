@@ -18,7 +18,7 @@ vector<string> filter_by_substring(vector<string> strings, const string& substri
 void test_filter_by_substring() {
     vector<string> input = { "apple", "banana", "cherry", "date" };
     vector<string> expected_output = { "apple", "date" };
-    assert(filter_by_substring(input, "a") == expected_output);
+    assert(issame(filter_by_substring(input, "a"), expected_output));
 }
 
 int main() {
