@@ -17,4 +17,4 @@ def separate_paren_groups(s):
     if current_group:
         result.append(current_group)
 
-    return result
+    return [group for group in result if group.count('(') == group.count(')')]
