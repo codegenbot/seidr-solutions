@@ -8,7 +8,6 @@ def parse_music(music_string: str) -> List[int]:
         return []
     return [notes[note.replace(" ", "")] for note in music_string.split(",")]
 
-input_lines = ["o", "o|", "."]
-input_string = ",".join(input_lines)
+input_string = input("Enter a list of music notes separated by comma: ")
 result = parse_music(input_string)
 print(result)
