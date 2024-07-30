@@ -2,7 +2,7 @@ try:
     strings = []
     num_strings = int(input())
     for _ in range(num_strings):
-        strings.append(input())
+        strings.append(input().rstrip())
 
     strings.sort()
     print(" ".join(strings))
