@@ -1,16 +1,18 @@
 def fizz_buzz(n):
     return [
-        ("Fizz" * (num % 3 == 0) + "Buzz" * (num % 5 == 0)) or str(num)
-        for num in range(1, n + 1)
+        ("Fizz" * (n % 3 == 0) + "Buzz" * (n % 5 == 0)) or str(n)
+        for n in range(1, n + 1)
     ]
 
 
-try:
-    n = int(input("Enter a positive integer: "))
-    if n < 1:
-        print("Input should be a positive integer.")
-    else:
-        result = fizz_buzz(n)
-        print(result)
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+while True:
+    try:
+        n = int(input())
+        if n < 1:
+            print("Input should be a positive integer.")
+        else:
+            result = fizz_buzz(n)
+            print(result)
+            break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
