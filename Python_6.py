@@ -11,7 +11,6 @@ def parse_nested_parens(paren_string: str) -> int:
 
     return max_balance
 
-
 if __name__ == "__main__":
-    paren_string = input("Enter the parentheses string: ").strip().replace(" ", "")
-    print(parse_nested_parens(paren_string))
+    for paren_string in input().split():
+        print(parse_nested_parens(paren_string))
