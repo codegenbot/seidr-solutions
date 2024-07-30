@@ -1,21 +1,21 @@
-parens = input().strip()
-
 def separate_paren_groups(parens):
-    stack = []
-    result = []
+    groups = []
+    count = 0
+    current_group = ""
     
     for char in parens:
         if char == '(':
-            stack.append('(')
+            count += 1
         elif char == ')':
-            if stack:
-                stack.pop()
-            else:
-                result.append(')')
-    
-    result = result + stack
-    
-    return ''.join(result)
+            count -= 1
+        
+        current_group += char
+        
+        if count == 0:
+            groups.append(current_group)
+            current_group = ""
 
+    return groups
+
+parens = input().strip()
 result = separate_paren_groups(parens)
-print(result)
