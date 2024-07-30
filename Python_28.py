@@ -1,8 +1,8 @@
 try:
-    n = int(input())
     strings = []
-    for _ in range(n):
-        strings.append(input())
+    num_strings = int(input())
+    for _ in range(num_strings):
+        strings.append(input().strip())
 
     strings.sort()
     print(" ".join(strings))
