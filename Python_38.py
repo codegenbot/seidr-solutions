@@ -9,11 +9,12 @@ def decode_cyclic(s: str):
         [
             (group[-1] + group[:-1]) if len(group) == 3 else group
             for group in [
-                s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)
+                s[(3 * i) : min((3 * i + 3), len(s)] for i in range((len(s) + 2) // 3)
             ]
         ]
     )
 
+# Input and Output lines
 if __name__ == "__main__":
     s = input()
     encoded_output = encode_cyclic(s)
