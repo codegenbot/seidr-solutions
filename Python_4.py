@@ -1,4 +1,6 @@
-print("Enter space-separated numbers:")
-numbers = list(map(float, input().strip().split()))
-result = mean_absolute_deviation(numbers)
-print(f"Mean Absolute Deviation: {result}")
+from statistics import mean
+
+def mean_absolute_deviation(numbers):
+    mean_value = mean(numbers)
+    deviations = [abs(num - mean_value) for num in numbers]
+    return mean(deviations)
