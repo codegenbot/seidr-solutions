@@ -15,8 +15,12 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
     return result;
 }
 
-int main(){
+int runCode(){
     assert(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
     
     return 0;
+}
+
+int main(){
+    return runCode();
 }
