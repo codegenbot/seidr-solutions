@@ -2,17 +2,19 @@
 #include <iostream>
 #include <string>
 
-std::string squareDigits(std::string input) {
-    std::string output = "";
+string squareDigits(string input) {
+    string result = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        result += to_string(digit * digit);
     }
-    return output;
+    return result;
 }
 
 int main() {
-    // Your code here
-    std::cout << squareDigits("9") << std::endl;  // Output: "81"
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << squareDigits(input) << endl;
     return 0;
 }
