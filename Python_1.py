@@ -18,14 +18,7 @@ def separate_paren_groups(parens: str) -> List[str]:
                 groups.append(current_group)
                 current_group = ""
 
-    if stack:
+    if len(stack) > 0:
         return ["Invalid input"]
 
-    return groups
-
-parens = input("Enter a string containing parentheses: ").strip()
-if "(" in parens and ")" in parens:
-    result = separate_paren_groups(parens)
-    print(result)
-else:
-    print("Invalid input. Please provide a string containing both opening and closing parentheses.")
+    return groups if groups else ["Invalid input"]
