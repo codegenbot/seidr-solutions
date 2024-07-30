@@ -1,7 +1,7 @@
 try:
+    n = int(input())
     strings = []
-    num_strings = int(input())
-    for _ in range(num_strings):
+    for _ in range(n):
         strings.append(input())
 
     strings.sort()
