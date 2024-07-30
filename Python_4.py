@@ -5,18 +5,12 @@ def stdev(numbers):
 
 while True:
     try:
-        user_input = input("Enter numbers separated by spaces: ")
-        
-        if not user_input:
-            raise Exception("Please enter at least two valid numbers separated by spaces.")
-            
-        numbers = list(map(float, user_input.split()))
-        
+        numbers = list(map(float, input("Enter numbers separated by spaces: ").strip().split()))
         if len(numbers) < 2:
-            raise Exception("Please enter at least two valid numbers separated by spaces.")
-            
+            print("Please enter at least two valid numbers separated by spaces.")
+            continue
         result = stdev(numbers)
         print("Standard Deviation:", result)
         break
-    except (ValueError, Exception) as e:
-        print("Error:", e)
+    except ValueError as e:
+        print("Error: Please enter valid numbers separated by spaces.")
