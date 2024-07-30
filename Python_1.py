@@ -6,10 +6,15 @@ def separate_paren_groups(s):
         if char == "(":
             if current_group:
                 result.append(current_group)
-            current_group = ""
-        current_group += char
-        if char == ")":
+            current_group = "("
+        elif char == ")":
+            current_group += ")"
             result.append(current_group)
             current_group = ""
+        else:
+            current_group += char
+
+    if current_group:
+        result.append(current_group)
 
     return result
