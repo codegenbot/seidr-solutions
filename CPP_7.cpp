@@ -27,9 +27,6 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
-    vector<string> assert_input = { "grunt", "trumpet", "prune", "gruesome" };
-    vector<string> assert_expected_output = { "grunt", "prune" };
-    assert(issame(filter_by_substring(assert_input, "run"), assert_expected_output));
-    
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
