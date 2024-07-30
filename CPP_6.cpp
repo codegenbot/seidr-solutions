@@ -23,3 +23,15 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     depths.push_back(max_depth);
     return depths;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
