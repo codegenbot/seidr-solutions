@@ -5,8 +5,6 @@ def stdev(numbers):
 
 try:
     numbers = list(map(float, input("Enter space-separated numbers: ").strip().split()))
-    if not numbers:
-        raise Exception("Please enter at least two valid numbers separated by spaces.")
     if len(numbers) < 2:
         raise Exception("Please enter at least two valid numbers separated by spaces.")
     result = stdev(numbers)
