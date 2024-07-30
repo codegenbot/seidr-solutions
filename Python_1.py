@@ -23,11 +23,9 @@ def separate_paren_groups(parens: str) -> List[str]:
 
     return groups
 
-parens = input().strip().replace(" ", "")
-
-while parens.count("(") != parens.count(")"):
-    print("Invalid input. Please provide a string containing balanced parentheses.")
-    parens = input().strip().replace(" ", "")
-
-result = separate_paren_groups(parens)
-print(result)
+parens = input("Enter a string containing parentheses: ").strip()
+if "(" in parens and ")" in parens:
+    result = separate_paren_groups(parens)
+    print(result)
+else:
+    print("Invalid input. Please provide a string containing both opening and closing parentheses.")
