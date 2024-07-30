@@ -1,12 +1,12 @@
 def fizz_buzz(n):
     return [
         ("Fizz" * (n % 3 == 0) + "Buzz" * (n % 5 == 0)) or str(n)
-        for n in range(n)
+        for n in range(1, n + 1)
     ]
 
 if __name__ == "__main__":
     try:
-        n = int(input().strip())
+        n = int(input())
         if n < 1:
             print("Input should be a positive integer.")
         else:
