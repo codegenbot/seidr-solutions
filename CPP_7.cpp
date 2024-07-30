@@ -27,6 +27,6 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, filter_by_substring("run")));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, filter_by_substring("run"), {"grunt", "prune"}));
     return 0;
 }
