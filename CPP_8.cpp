@@ -17,7 +17,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-int main() {
+int contest_main() {
     assert(issame(sum_product({10}), {10, 1}));
     return 0;
 }
