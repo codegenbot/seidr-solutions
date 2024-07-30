@@ -13,7 +13,7 @@ std::vector<int> sum_product(std::vector<int> numbers) {
     return {sum, product};
 }
 
-bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
