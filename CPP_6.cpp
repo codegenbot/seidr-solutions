@@ -2,14 +2,14 @@
 #include <cassert>
 #include <string>
 
-std::vector<int> parse_nested_parens(std::string s) {
+std::vector<int> parse_nested_parens(const std::string& s) {
     // Implement the parsing logic
-    return {}; // Placeholder return
+    return {};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     // Implement the comparison logic
-    return a == b; // Placeholder comparison
+    return false;
 }
 
 int main() {
