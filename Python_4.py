@@ -1,10 +1,11 @@
-from statistics import stdev
+from statistics import mean, stdev
 
 try:
-    numbers = list(map(float, input("Enter space-separated numbers: ").strip().split()))
+    print("Enter space-separated numbers:")
+    numbers = list(map(float, input().strip().split()))
     if len(numbers) < 2:
         raise Exception("Please enter at least two numbers.")
     result = stdev(numbers)
     print(f"Standard Deviation: {result}")
 except Exception as e:
-    print("Error: Please enter valid numbers separated by spaces.")
+    print("Error reading input. Please enter valid numbers separated by spaces.")
