@@ -10,7 +10,7 @@ def decode_cyclic(s: str):
             for group in [
                 s[(3 * i): min((3 * i + 3), len(s)) for i in range((len(s) + 2) // 3)
             ]
-        )
+    )
 
 if __name__ == "__main__":
     s = input("Enter string to encode:").strip()
