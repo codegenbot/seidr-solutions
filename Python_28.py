@@ -1,3 +1,3 @@
 strings = input().split()
-strings.sort(reverse=True)
+strings.sort()
 print("".join(strings))
