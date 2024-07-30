@@ -18,10 +18,4 @@ def separate_paren_groups(parens: str) -> List[str]:
                 groups.append(current_group)
                 current_group = ""
 
-    if stack:
-        return ["Invalid input"]
-
-    return groups if groups else ["Invalid input"]
-
-input_string = "((())())"
-print(separate_paren_groups(input_string))
+    return groups
