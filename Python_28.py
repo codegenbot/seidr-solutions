@@ -1,3 +1,4 @@
-strings = [input() for _ in range(int(input()))]
+n = int(input())
+strings = [input() for _ in range(n)]
 strings.sort()
 print("".join(strings))
