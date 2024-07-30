@@ -10,14 +10,15 @@ def separate_paren_groups(parens: str) -> List[str]:
             stack.append("(")
             current_group += char
         elif char == ")":
-            stack.pop()
-            current_group += char
-            if not stack:
-                groups.append(current_group)
-                current_group = ""
+            if stack:
+                stack.pop()
+                current_group += char
+                if not stack:
+                    groups.append(current_group)
+                    current_group = ""
 
     return groups
 
-parens = input().strip()
+parens = input("Enter a string of parentheses: ").strip()
 result = separate_paren_groups(parens)
 print(result)
