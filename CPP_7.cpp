@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Include the <cassert> header for assert function
 
 using namespace std;
 
@@ -23,9 +23,7 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
-    
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(result == vector<string>{"grunt", "prune"});
-
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == 
+     vector<string>{"grunt", "prune"}); // Correct the assert parameters
     return 0;
 }
