@@ -2,10 +2,12 @@
 #include <vector>
 #include <cmath>
 
-bool has_close_elements(const std::vector<int>& numbers, int threshold) {
-    std::sort(numbers.begin(), numbers.end());
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
+using namespace std;
+
+bool has_close_elements(vector<int>& numbers, int threshold) {
+    sort(numbers.begin(), numbers.end());
+    for(int i = 0; i < numbers.size() - 1; i++){
+        if(abs(numbers[i] - numbers[i+1]) < threshold){
             return true;
         }
     }
@@ -13,8 +15,15 @@ bool has_close_elements(const std::vector<int>& numbers, int threshold) {
 }
 
 int main() {
-    std::vector<int> numbers = {3, 1, 7, 5, 2};
-    int threshold = 2;
-    std::cout << std::boolalpha << has_close_elements(numbers, threshold) << std::endl;
+    // Test the function here
+    vector<int> test_numbers = {3, 6, 9, 2, 5};
+    int test_threshold = 3;
+    
+    if (has_close_elements(test_numbers, test_threshold)) {
+        cout << "Close elements found!" << endl;
+    } else {
+        cout << "No close elements found." << endl;
+    }
+    
     return 0;
 }
