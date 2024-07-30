@@ -1,12 +1,29 @@
+#include <stack>
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size())
-        return false;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+std::vector<int> parse_nested_parens(std::string input) {
+    std::stack<char> st;
+    std::vector<int> counts;
     
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
+    int count = 0;
+    for (char c : input) {
+        if (c == '(') {
+            st.push(c);
+        } else if (c == ')') {
+            count++;
+            st.pop();
+        }
+        
+        if (st.empty()) {
+            counts.push_back(count);
+            count = 0;
+        }
     }
-    return true;
+    
+    return counts;
 }
