@@ -14,11 +14,12 @@ def decode_cyclic(s: str):
         ]
     )
 
+
 if __name__ == "__main__":
-    s = input().strip()
+    s = input("Enter string to encode: ").strip()
     encoded_output = encode_cyclic(s)
     print(encoded_output)
 
-    s = input().strip()
+    s = input("Enter string to decode: ").strip()
     decoded_output = decode_cyclic(s)
     print(decoded_output)
