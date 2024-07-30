@@ -4,7 +4,7 @@
 #include <cmath>
 #include <cassert>
 
-bool has_close_elements(const std::vector<float> &numbers, float threshold) {
+bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     std::vector<float> sortedNumbers = numbers;
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
     for (int i = 0; i < sortedNumbers.size() - 1; ++i) {
