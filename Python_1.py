@@ -17,5 +17,5 @@ def separate_paren_groups(parens):
 
     return groups
 
-parens = input()
+parens = int(input().strip())
 result = separate_paren_groups(parens)
