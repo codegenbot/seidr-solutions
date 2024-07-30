@@ -1,8 +1,4 @@
 def fizz_buzz(limit=100):
-    fizzbuzz_count = 0
-    for i in range(1, limit + 1):
-        if i % 15 == 0:
-            fizzbuzz_count += 1
-    return fizzbuzz_count
+    return ['FizzBuzz' if (i) % 15 == 0 else 'Fizz' if (i) % 3 == 0 else 'Buzz' if (i) % 5 == 0 else i for i in range(limit)]
 
-print(fizz_buzz(100000))
+print('\n'.join(str(i) for i in fizz_buzz(100)))
