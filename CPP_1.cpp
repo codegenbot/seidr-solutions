@@ -1,17 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
-
     return true;
 }
 
@@ -19,10 +17,9 @@ vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     stringstream ss(paren_string);
     string temp;
-    
     while (getline(ss, temp, '(')) {
         if (temp.empty()) continue;
-        temp = '(' + temp;
+        temp = "(" + temp;
         size_t pos = temp.find(')');
         if (pos != string::npos) {
             result.push_back(temp.substr(0, pos + 1));
@@ -31,11 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
             }
         }
     }
-    
     return result;
 }
 
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
-}
+assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), { "()", "(())", "(()())" }));
