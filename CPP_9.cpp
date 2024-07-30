@@ -2,18 +2,23 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<int> rolling_max(vector<int> numbers);
 
 int main() {
-    // Sample test case
-    vector<int> input = {1, 3, -1, -3, 5, 3, 6, 7};
-    vector<int> result = rolling_max(input);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
+    // Main function logic here
     return 0;
 }
 
