@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> strings, const string& substring) {
