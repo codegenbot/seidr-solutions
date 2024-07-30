@@ -1,5 +1,3 @@
-n = int(input())
-
 from typing import List
 
 def fizz_buzz(n: int) -> List[str]:
@@ -16,3 +14,6 @@ def fizz_buzz(n: int) -> List[str]:
             result.append(str(i))
     
     return result
+
+n = int(input("Enter a number: "))
+print(fizz_buzz(n))
