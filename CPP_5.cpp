@@ -16,11 +16,7 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
 }
 
 int main(){
-    if(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2}){
-        cout << "Test passed" << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
+    assert(intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
     
-    return 0;
+    return (intersperse({2, 2, 2}, 2) == vector<int>{2, 2, 2, 2, 2});
 }
