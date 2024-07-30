@@ -1,1 +1,1 @@
-music_string = input("Enter the music string (e.g. 'CDEFGAB'): ").strip()
+music_string = input("Enter the music string (e.g. 'CDEFGAB'): ").replace(" ", "")
