@@ -1,5 +1,3 @@
-print("Enter space-separated strings:")
-strings = input()
-strings = strings.split()
-strings.sort(reverse=True)
+strings = input("Enter space-separated strings: ").split()
+strings.sort()
 print("".join(strings))
