@@ -1,2 +1,2 @@
-def calculate_difference(number: float) -> float:
+def decimal_part(number):
     return number - int(number)
