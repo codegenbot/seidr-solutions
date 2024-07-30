@@ -4,8 +4,7 @@ def stdev(numbers):
     return statistics.stdev(numbers)
 
 try:
-    numbers = input("Enter numbers separated by spaces: ").split()
-    numbers = list(map(float, numbers))
+    numbers = list(map(float, input("Enter numbers separated by spaces: ").split()))
     if len(numbers) < 2:
         raise Exception("Please enter at least two valid numbers separated by spaces.")
     if any(not isinstance(num, (int, float)) for num in numbers):
