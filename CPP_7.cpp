@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(const vector<string>& v1, const vector<string>& v2) {
+    return v1 == v2;
 }
 
 vector<string> filter_by_substring(vector<string> strings, const string& substring) {
@@ -27,6 +27,9 @@ void test_filter_by_substring() {
 
 int main() {
     test_filter_by_substring();
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    vector<string> assert_input = { "grunt", "trumpet", "prune", "gruesome" };
+    vector<string> assert_expected_output = { "grunt", "prune" };
+    assert(issame(filter_by_substring(assert_input, "run"), assert_expected_output));
+    
     return 0;
 }
