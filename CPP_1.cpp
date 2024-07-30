@@ -1,7 +1,40 @@
-// Update function signature with correct spacing
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <cassert>
 
-// Add the missing parameter name 'b' in the function definition
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
 
-// Remove the extra 'int main()' function definition
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+
+    return true;
+}
+
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::stringstream ss(paren_string);
+    std::string temp;
+    
+    while (std::getline(ss, temp, '(')) {
+        if (temp.empty()) continue;
+        temp = '(' + temp;
+        size_t pos = temp.find(')');
+        if (pos != std::string::npos) {
+            result.push_back(temp.substr(0, pos + 1));
+            if (pos + 1 < temp.size()) {
+                result.push_back(temp.substr(pos + 1));
+            }
+        }
+    }
+    
+    return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
+}
