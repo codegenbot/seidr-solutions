@@ -11,3 +11,5 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     }
     return filtered_strings;
 }
+
+assert(issame(filter_by_substring({"apple", "banana", "orange", "grape"}, "an"), {"banana", "orange"}));
