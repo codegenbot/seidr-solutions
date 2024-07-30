@@ -1,23 +1,24 @@
 def separate_paren_groups(s):
     result = []
     current_group = ""
-    opening_bracket_count = 0
 
     for char in s:
         if char == "(":
-            if opening_bracket_count > 0:
-                current_group += char
-            opening_bracket_count += 1
+            if current_group.count('(') == current_group.count(')'):
+                if current_group:
+                    result.append(current_group)
+                current_group = "("
+            else:
+                current_group += "("
         elif char == ")":
-            opening_bracket_count -= 1
-            current_group += char
-            if opening_bracket_count == 0:
+            current_group += ")"
+            if current_group.count('(') == current_group.count(')'):
                 result.append(current_group)
                 current_group = ""
         else:
-            if opening_bracket_count > 0:
-                current_group += char
-            else:
-                result.append(char)
+            current_group += char
+
+    if current_group:
+        result.append(current_group)
 
     return result
