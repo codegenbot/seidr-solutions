@@ -1,3 +1,6 @@
-strings = input().split()  
-strings.sort()  
-print("\n".join(strings))
+strings = []
+for _ in range(int(input())):
+    strings.append(input())
+
+strings.sort()
+print(" ".join(strings))
