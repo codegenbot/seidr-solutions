@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
