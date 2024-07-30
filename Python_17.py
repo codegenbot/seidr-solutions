@@ -1,1 +1,1 @@
-music_string = input("Enter the music string: ").strip()
+music_string = input().strip()
