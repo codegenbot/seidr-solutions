@@ -25,4 +25,4 @@ int main() {
     test_filter_by_substring();
     assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
     return 0;
-}
+}  
