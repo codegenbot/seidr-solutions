@@ -18,7 +18,7 @@ def separate_paren_groups(parens: str) -> List[str]:
                 groups.append(current_group)
                 current_group = ""
 
-    if stack:
+    if len(stack) > 0:
         return ["Invalid input"]
 
     return groups if groups else ["Invalid input"]
