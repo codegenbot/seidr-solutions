@@ -24,8 +24,10 @@ def separate_paren_groups(parens: str) -> List[str]:
     return groups
 
 parens = input().strip().replace(" ", "")
-if "(" not in parens or ")" not in parens:
-    print("Invalid input. Please provide a string containing parentheses.")
-else:
-    result = separate_paren_groups(parens)
-    print(result)
+
+while parens.count("(") != parens.count(")"):
+    print("Invalid input. Please provide a string containing balanced parentheses.")
+    parens = input().strip().replace(" ", "")
+
+result = separate_paren_groups(parens)
+print(result)
