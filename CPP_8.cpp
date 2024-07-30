@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> sum_product(std::vector<int> numbers) {
     int sum = 0;
