@@ -1,2 +1,5 @@
-def remove_duplicates(numbers: list) -> list:
-    return list(set(numbers))
+from typing import List
+
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return sorted(list(set(numbers)))
