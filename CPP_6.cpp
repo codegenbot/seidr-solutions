@@ -1,5 +1,6 @@
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+#include <vector>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
