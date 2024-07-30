@@ -1,22 +1,19 @@
-parens = input("Enter parentheses: ")
-result = separate_paren_groups(parens)
-print(result)
-
-def separate_paren_groups(input_str):
+def separate_paren_groups(parens):
     stack = []
     groups = []
-    current_group = ""
     
-    for char in input_str:
+    for char in parens:
         if char == "(":
             stack.append(char)
         elif char == ")":
-            stack.pop()
-            if not stack:
-                groups.append(current_group)
-                current_group = ""
-        else:
             if stack:
-                current_group += char
+                stack.pop()
+            else:
+                groups.append(")".join(stack))
+                stack = []
     
+    groups.extend(stack)
     return groups
+
+parens = input("Enter parentheses: ")
+result = separate_paren_groups(parens)
