@@ -14,7 +14,6 @@ def decode_cyclic(s: str):
         ]
     )
 
-
 if __name__ == "__main__":
     s = input("Enter string to encode: ").strip()
     encoded_output = encode_cyclic(s)
