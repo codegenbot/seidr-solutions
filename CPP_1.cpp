@@ -30,6 +30,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), { "()", "(())", "(()())" }));
+    auto result = separate_paren_groups("( ) (( )) (( )( ))");
+    assert(issame(result, { "()", "(())", "(()())" }));
     return 0;
 }
