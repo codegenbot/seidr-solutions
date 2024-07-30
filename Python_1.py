@@ -16,8 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
     return result
 
-# Input format: a string containing parentheses
-# Output format: a list of strings containing groups of parentheses
-paren_string = input()
-result = separate_paren_groups(paren_string)
+result = separate_paren_groups(input("Enter the parenthesis string: "))
 print(result)
