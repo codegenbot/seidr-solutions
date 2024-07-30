@@ -1,3 +1,5 @@
+n = int(input())
+
 from typing import List
 
 def fizz_buzz(n: int) -> List[str]:
