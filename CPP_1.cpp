@@ -1,13 +1,17 @@
-bool issame(string a, string b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert((issame("abc", "abc")));
-    assert((!issame("abc", "def")));
+    string input;
+    cin >> input;
+    
+    vector<string> expected_output = separate_paren_groups(input);
 
+    assert(issame(expected_output, {"(abc)(def)", "(ghi)"}));
+    
     return 0;
 }
 
