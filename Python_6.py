@@ -8,15 +8,9 @@ def parse_nested_parens(paren_string: str) -> int:
             max_balance = max(max_balance, balance)
         elif char == ")":
             balance -= 1
-            if balance < 0:  # Check for invalid parenthesis
-                return -1
 
-    if balance != 0:  # Check for unbalanced parenthesis
-        return -1
-
-    return max_balance if balance == 0 else -1
-
+    return max_balance
 
 if __name__ == "__main__":
-    paren_string = input().strip()
-    print(parse_nested_parens(paren_string))
+    for paren_string in input().strip().split():
+        print(parse_nested_parens(paren_string))
