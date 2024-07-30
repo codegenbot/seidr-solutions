@@ -4,21 +4,17 @@ def separate_paren_groups(s):
 
     for char in s:
         if char == "(":
-            if current_group.count('(') == current_group.count(')'):
-                if current_group:
-                    result.append(current_group)
-                current_group = "("
-            else:
-                current_group += "("
+            if current_group:
+                result.append(current_group)
+            current_group = "("
         elif char == ")":
             current_group += ")"
-            if current_group.count('(') == current_group.count(')'):
-                result.append(current_group)
-                current_group = ""
+            result.append(current_group)
+            current_group = ""
         else:
             current_group += char
 
     if current_group:
         result.append(current_group)
 
-    return result
+    return [group for group in result if group.count('(') == group.count(')') and group.count('(') > 0 and group.count(')') > 0]
