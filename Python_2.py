@@ -1,2 +1,2 @@
-def decimal_part(number):
+def truncate_number(number: float) -> float:
     return number - int(number)
