@@ -1,12 +1,12 @@
 ```
 def parse_music(music_string: str) -> List[int]:
-    music_list = []
-    note_dict = {'o': 4, 'o|': 2, '.|': 1}
+    notes = ['o', 'o|', '.|']
+    beats = [4, 2, 1]
+    result = []
     
-    for char in music_string:
-        if char == '|':
-            music_list.append(note_dict.get(char + '', note_dict['o']))
-        else:
-            music_list.append(note_dict[char])
+    for note in music_string.split():
+        if note not in notes:
+            return []  # or raise an exception
+        result.append(beats[notes.index(note)])
     
-    return music_list
+    return result
