@@ -6,9 +6,11 @@ double truncate_number(double number) {
     return number - static_cast<int>(number);
 }
 
-double solve(double number) {
+int main() {
+    double number;
+    std::cin >> number;
     double fractionalPart = truncate_number(number);
-    return fractionalPart;
+    std::cout << fractionalPart << std::endl;
+    assert (std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+    return 0;
 }
-
-assert (std::abs(truncate_number(123.456) - 0.456) < 1e-4);
