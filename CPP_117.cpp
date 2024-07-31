@@ -26,7 +26,6 @@ std::vector<std::string> select_words(std::string s, int n) {
     if (consonant_count == n) {
         result.push_back(word);
     }
-
     return result;
 }
 
