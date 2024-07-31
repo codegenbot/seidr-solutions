@@ -1,14 +1,8 @@
-int result = -1;
+int res = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int elem : lst) {
-            if (elem == num) {
-                freq++;
-            }
-        }
-        if (num > 0 && freq >= num) {
-            result = max(result, num);
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            res = max(res, num);
         }
     }
-    return result;
+    return res;
 }
