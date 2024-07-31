@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> sort_array(std::vector<int> array);
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -16,7 +19,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     } else {
         std::sort(array.begin(), array.end());
     }
-
+    
     return array;
 }
 
