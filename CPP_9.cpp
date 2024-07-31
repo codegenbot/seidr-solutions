@@ -18,6 +18,6 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert( is_same(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    assert(is_same(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
