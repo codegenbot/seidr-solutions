@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
