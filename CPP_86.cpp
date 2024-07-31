@@ -3,8 +3,8 @@
 #include <string>
 using namespace std;
 
-string anti_shuffle(const string str) {
-    string result = "";
+std::string anti_shuffle(std::string str) {
+    std::string result = "";
     int i = str.length() - 1;
     while (i >= 0) {
         int j = i;
@@ -17,9 +17,9 @@ string anti_shuffle(const string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
+    std::string str;
+    std::cout << "Enter a sentence: ";
     getline(cin, str);
-    cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    std::cout << "Anti-shuffled sentence: " << anti_shuffle(str) << std::endl;
     return 0;
 }
