@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
