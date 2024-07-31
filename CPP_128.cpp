@@ -1,12 +1,13 @@
-int prod_signs(vector<int> arr) {
-    int product = 1;
-    long long sum = 0;
-    for (int num : arr) {
-        if (num == 0) {
-            return 0;
-        }
-        product *= (num > 0 ? 1 : -1);
-        sum += abs(num);
+int prod_signs(vector<int> arr){
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
+
+    for(int num : arr){
+        if(num == 0) continue;
+        int sign = (num > 0)? 1: ((num < 0)? -1: 0);
+        sign_product *= sign;
+        sum_of_magnitudes += abs(num);
     }
-    return product * sum;
+
+    return (arr.empty())? -32768: sign_product * sum_of_magnitudes;
 }
