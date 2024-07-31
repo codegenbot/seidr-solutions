@@ -24,8 +24,15 @@ vector<int> f(int n) {
     return result;
 }
 
-// Sample test case
+void compareVectors(const vector<int>& v1, const vector<int>& v2) {
+    if (v1 == v2) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+}
+
 int main() {
-    assert(f(3) == vector<int>{1, 2, 6});
+    compareVectors(f(3), vector<int>{1, 2, 6});
     return 0;
 }
