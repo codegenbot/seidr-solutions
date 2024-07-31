@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 void readInput(std::vector<int>& input) {
     std::cout << "Enter the number of elements: ";
@@ -17,7 +18,7 @@ void readInput(std::vector<int>& input) {
     }
 }
 
-int program() { 
+int main() { 
     std::vector<int> input;
     readInput(input);
 
@@ -26,6 +27,8 @@ int program() {
     } else {
         auto maxElement = *std::max_element(input.begin(), input.end()); 
         std::cout << "Maximum element is: " << maxElement << std::endl;
+
+        assert(std::abs(maxElement - 124) < 1e-4);
     }
 
     return 0;
