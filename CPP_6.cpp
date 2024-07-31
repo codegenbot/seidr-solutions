@@ -1,5 +1,4 @@
-using namespace std;
-
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,7 +19,7 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size();
 }
 
