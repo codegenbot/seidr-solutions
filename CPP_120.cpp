@@ -1,4 +1,11 @@
-sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b){
+    // Your implementation here
+    return false;
+}
+
+int main(){
+    assert(issame(max({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
+    return 0;
 }
