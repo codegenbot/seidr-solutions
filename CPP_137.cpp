@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <boost/any.hpp>
 
 template <typename T>
-std::string compare_one(const T& a, const T& b) {
+std::string compare_one(const std::string& a, const std::string& b) {
     if (a > b) {
         return a;
     } else if (a < b) {
