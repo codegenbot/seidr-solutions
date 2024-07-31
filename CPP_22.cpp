@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-bool issame(const std::vector<int>& arr) {
+bool issame(std::vector<int> arr) {
     for (int i = 0; i < arr.size() - 1; i++) {
         if (arr[i] != arr[i + 1]) {
             return false;
@@ -11,15 +11,12 @@ bool issame(const std::vector<int>& arr) {
 }
 
 std::vector<int> filter_integers(const std::vector<int>& arr) {
-    std::vector<int> result;
-    for (int val : arr) {
-        if (std::is_integral(val)) { 
-            result.push_back(val);
-        } else {
-            return {};  // or modify this to suit your requirement
+    for (int i = 0; i < arr.size(); i++) {
+        if (!std::is_integral(arr[i]).is_always()) { 
+            return {};
         }
     }
-    return result;
+    return arr;
 }
 
 int main() {
@@ -32,7 +29,11 @@ int main() {
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        // your original code here
+        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
+        std::vector<int> testArr2 = {3, 3, 3};
+
+        assert(issame(std::vector<int>(testArr1.begin(), testArr1.end())));
+        assert(issame(testArr2));
     }
     return 0;
 }
