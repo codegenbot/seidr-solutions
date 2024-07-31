@@ -13,3 +13,8 @@ int odd_count(std::vector<std::string> lst) {
     }
     return total_count;
 }
+
+int main() {
+    assert(odd_count({"271", "137", "314"}) == 5);
+    return 0;
+}
