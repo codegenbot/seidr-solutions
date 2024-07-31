@@ -1,3 +1,12 @@
+bool issame(vector<float> a, vector<float> b) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
@@ -7,16 +16,4 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         rescaled_numbers.push_back(rescaled_num);
     }
     return rescaled_numbers;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
