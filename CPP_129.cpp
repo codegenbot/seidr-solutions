@@ -5,6 +5,19 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k);
 
+int main() {
+    vector<vector<int>> grid = {{1, 3, 2}, {6, 5, 4}, {7, 8, 9}};
+    int k = 4;
+    
+    vector<int> result = minPath(grid, k);
+    
+    for(int val : result){
+        cout << val << " ";
+    }
+    
+    return 0;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
