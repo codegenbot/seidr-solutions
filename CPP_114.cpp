@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <cassert>
 
 using namespace std;
 
@@ -19,8 +20,6 @@ int minSubArraySum(vector<int> nums) {
 }
 
 int main() {
-    if (minSubArraySum({1, -1}) != 0) {
-        assert(false);
-    }
+    assert(minSubArraySum({1, -1}) == 0);
     return 0;
 }
