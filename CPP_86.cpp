@@ -6,9 +6,9 @@ string anti_shuffle(const string& str) {
     if (str.length() <= 1) {
         return "";
     }
-    for(int i = 1; i < str.length(); ++i) {
-        if (str[i] == str[0]) {
-            return "";
+    for(auto it = 1; it < str.length(); ++it) {
+        if (str[it] == str[0]) {
+            return str;
         }
     }
     return str;
