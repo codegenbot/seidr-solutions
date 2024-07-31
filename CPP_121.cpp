@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 using namespace std;
 
 int solve(vector<int> lst) {
@@ -22,20 +21,12 @@ int main() {
     getline(cin, str);
     
     for (char c : str) {
-        if (!isdigit(c)) {
+        if (isdigit(c)) {
+            int num = c - '0';
+            lst.push_back(num);
+        } else {
             break; 
         }
-        string numStr = "";
-        while (c != ' ') {
-            numStr += c;
-            if ((str[str.find(c) + 1] >= '0' && str[str.find(c) + 1] <= '9')) {
-                c = str[str.find(c) + 1];
-            } else {
-                break; 
-            }
-        }
-        int num = stoi(numStr);
-        lst.push_back(num);
     }
     
     cout << "Sum of odd numbers: " << solve(lst) << endl;
