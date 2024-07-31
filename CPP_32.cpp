@@ -7,7 +7,6 @@ using namespace std;
 vector<double> coeffs = {1, -2, 1};
 
 double find_zero(const vector<double>& coeffs) {
-    // Implementation to find zero
     return 0.0;
 }
 
