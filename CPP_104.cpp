@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::std::vector<int> a, std::std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,8 +12,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
-    std::vector<int> result;
+std::std::vector<int> unique_digits(std::std::vector<int> x){
+    std::std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
