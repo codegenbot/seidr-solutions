@@ -1,9 +1,10 @@
+```cpp
 #include <initializer_list>
 #include <stack>
 #include <string>
 #include <iostream>
 
-bool correct_bracketing(std::string brackets) {
+std::string correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
 
     for (char bracket : brackets) {
@@ -11,7 +12,7 @@ bool correct_bracketing(std::string brackets) {
             bracket_stack.push(bracket);
         } else if (bracket == ')' || bracket == '}' || bracket == ']') {
             if (bracket_stack.empty()) {
-                return false;
+                return "Invalid input";
             }
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
@@ -19,34 +20,35 @@ bool correct_bracketing(std::string brackets) {
             if ((opening_bracket == '(' && bracket != ')') ||
                 (opening_bracket == '{' && bracket != '}') ||
                 (opening_bracket == '[' && bracket != ']')) {
-                return false;
+                return "Invalid input";
             }
         }
     }
 
     if (!bracket_stack.empty()) {
+        std::string output;
         while (!bracket_stack.empty()) {
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
             switch (opening_bracket) {
                 case '(':
-                    return false;
+                    output += ')';
+                    break;
                 case '{':
-                    return false;
+                    output += '}';
+                    break;
                 case '[':
-                    return false;
+                    output += ']';
+                    break;
             }
         }
+        return output;
     } else {
-        return true;
+        return "Valid input";
     }
 }
 
 int main() {
-    if (!correct_bracketing("<><><<><>><>>><>") ) { 
-        assert(false); 
-    }
-    
     std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
     
     return 0;
