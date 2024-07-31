@@ -1,12 +1,7 @@
 vector<string> words;
     string word = "";
     for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
+        if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
                 word = "";
@@ -28,3 +23,4 @@ vector<string> words;
         words.push_back(to_string(count));
     }
     return words;
+}
