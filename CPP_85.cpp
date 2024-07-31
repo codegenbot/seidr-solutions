@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,7 +18,7 @@ int main() {
 
     std::vector<size_t> lst;
     for(size_t i = 0; i < n; i++){
-        long unsigned int num;
+        size_t num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
             std::cout << "Enter element " << i+1 << ": ";
