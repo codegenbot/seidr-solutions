@@ -1,24 +1,14 @@
-// Complete the code below
-
-    int consecutive_spaces = 0;
-    string result;
-
-    for (char c : text) {
-        if (c == ' ') {
-            consecutive_spaces++;
-
-            if (consecutive_spaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+for (int i = 0; i < text.length(); ++i) {
+        if (text[i] == ' ') {
+            if (i > 0 && text[i - 1] == ' ') {
+                text.replace(i, 1, "-");
+                while (i < text.length() && text[i] == ' ') {
+                    text.erase(i, 1);
+                }
             } else {
-                result += '_';
+                text.replace(i, 1, "_");
             }
-        } else {
-            result += c;
-            consecutive_spaces = 0;
         }
     }
-
-    return result;
+    return text;
 }
