@@ -17,7 +17,10 @@ void readInput() {
     }
 }
 
-int calculateMax() { 
+int main() { 
+    std::vector<int> input;
+    int n;
+    
     readInput();
 
     if(input.size() == 0) {
@@ -29,10 +32,5 @@ int calculateMax() {
         assert(std::abs(max_element - 124) < 1e-4);
     }
 
-    return 0;
-}
-
-int main() { 
-    calculateMax();
     return 0;
 }
