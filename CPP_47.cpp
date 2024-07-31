@@ -3,18 +3,18 @@
 #include <algorithm>
 #include <cassert>
 
-double median(const std::vector<int>& l) {
-    std::vector<int> sortedList = l;
-    std::sort(sortedList.begin(), sortedList.end());
-    int n = sortedList.size();
+double median(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    int n = l.size();
     if (n % 2 == 0) {
-        return (sortedList[n / 2 - 1] + sortedList[n / 2]) / 2.0;
+        return (l[n / 2 - 1] + l[n / 2]) / 2.0;
     } else {
-        return sortedList[n / 2];
+        return l[n / 2];
     }
 }
 
 int main() {
-    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    assert(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    // Add more test cases if needed
     return 0;
 }
