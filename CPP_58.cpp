@@ -6,10 +6,10 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
-    result.erase(unique(result.begin(), result.end()), result.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
+    result.erase(std::unique(result.begin(), result.end()), result.end());
     return result.empty();
 }
 
