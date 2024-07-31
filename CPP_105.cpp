@@ -4,9 +4,8 @@
 #include <map>
 #include <cassert>
 
-vector<string> by_length(const vector<int>& arr); // Forward declaration for by_length
-
-bool issame(const vector<string>& a, const vector<string>& b); // Forward declaration for issame
+vector<string> by_length(const vector<int>& arr); 
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> by_length(const vector<int>& arr){
     vector<int> sorted_arr;
