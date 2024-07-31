@@ -1,5 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
+#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -25,4 +27,3 @@ int main() {
     }
     cout << solve(lst) << endl;
     return 0;
-}
