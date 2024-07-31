@@ -1,15 +1,20 @@
-#include <cassert>
-#include <algorithm>
+#include <iostream>
 #include <string>
+#include <algorithm>
+#include <cassert>
 
-bool same_chars(const std::string& s0, const std::string& s1) {
-    std::string t0 = s0, t1 = s1;
-    sort(t0.begin(), t0.end());
-    sort(t1.begin(), t1.end());
-    return t0 == t1;
+using namespace std;
+
+bool same_chars(const string& s0, const string& s1) {
+    string str1 = string(s0);
+    string str2 = string(s1);
+    sort(str1.begin(), str1.end());
+    sort(str2.begin(), str2.end());
+    return str1 == str2;
 }
 
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
+    
     return 0;
 }
