@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -9,13 +8,17 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> path;
+    vector<int> result;
+    
     for (int i = 0; i < k; ++i) {
         for (const auto& row : grid) {
-            path.insert(path.end(), row.begin(), row.end());
+            for (const auto& val : row) {
+                result.push_back(val);
+            }
         }
     }
-    return path;
+    
+    return result;
 }
 
 int main(){
