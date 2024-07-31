@@ -1,6 +1,15 @@
-```cpp
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wc++0x-compat"
+#include <initializer_list>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
@@ -14,7 +23,6 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    assert(issame(remove_duplicates(numbers), vector<int>{1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1,4,5}));
     return 0;
 }
