@@ -1,8 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -27,11 +25,14 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> input = {"apple", "banana", "cherry", "date"};
-    vector<string> expected_output = {"cherry"};
-    vector<string> output = filter_by_substring(input, "che");
+    vector<string> test_input = {"apple", "banana", "grape", "orange"};
+    vector<string> expected_output = {"apple", "grape"};
+    
+    vector<string> result = filter_by_substring(test_input, "ap");
 
-    assert(issame(output, expected_output));
+    assert(result == expected_output);
+    
+    cout << "All tests passed successfully!\n";
 
     return 0;
 }
