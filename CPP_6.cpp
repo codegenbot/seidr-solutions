@@ -20,6 +20,8 @@ std::vector<int> parse_nested_parens(std::string paren_string);
 
 int main() {
     assert(std::issame({1, 2, 3}, {1, 2, 3}));
+    assert(!std::issame({1, 2, 3}, {1, 2, 4}));
+    assert(!std::issame({1, 2, 3}, {1, 2, 3, 4}));
     
     return 0;
 }
