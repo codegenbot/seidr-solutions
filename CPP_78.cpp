@@ -1,8 +1,7 @@
-```cpp
-#include <cassert>
 #include <string>
+#include <cassert>
 
-int stringToHex(std::string input) {
+int stringToHex(const std::string& input) { 
     if(input.empty()) {
         return 0;
     }
@@ -13,7 +12,7 @@ int stringToHex(std::string input) {
     return result;
 }
 
-int main() {
+int testMain() {
     assert(stringToHex("") == 0);
     return 0;
 }
