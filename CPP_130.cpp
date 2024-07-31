@@ -19,3 +19,7 @@ std::vector<int> tri(int n) {
     }
     return result;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your implementation here
+}
