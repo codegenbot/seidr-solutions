@@ -19,7 +19,7 @@ int main() {
     float num;
     while (std::cin >> num) {
         if(input.size()>1000){ 
-            input.reserve(input.size()*2); 
+            input.reserve(1024); 
         }
         input.push_back(num);
     }
