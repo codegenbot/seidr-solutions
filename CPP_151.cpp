@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -38,7 +39,7 @@ int main_func() {
         }
     }
 
-    cout << "The difference is: " << double_the_difference(lst) << endl;
+    cout << "The difference is: " << double_the_difference(lst) - odd_sum << endl;
 
     return 0;
 }
