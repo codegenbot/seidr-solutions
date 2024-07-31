@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if len(numbers) == 0:
+    if not numbers:
         return 0, 1
     total_sum = 0
     product = 1
