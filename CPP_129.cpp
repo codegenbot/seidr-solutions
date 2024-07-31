@@ -1,33 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 4;
-
-    vector<int> result = minPath(grid, k);
-
-    for (auto val : result) {
-        cout << val << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k){
+std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
     int n = grid.size();
-    vector<int> path;
-    vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    std::vector<int> path;
+    std::vector<std::vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
     auto isValid = [&](int x, int y){
         return x >= 0 && x < n && y >= 0 && y < n;
@@ -61,4 +40,8 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     }
     
     return path;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }

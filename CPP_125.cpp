@@ -33,7 +33,7 @@ std::vector<std::string> split_words(std::string txt){
     if(result.size() == 0){
         int count = 0;
         for(char c : txt){
-            if(std::islower(c) && ((c - 'a') % 2 == 1)){
+            if(islower(c) && ((c - 'a') % 2 == 1)){
                 count++;
             }
         }
