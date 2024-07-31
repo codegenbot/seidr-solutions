@@ -1,3 +1,8 @@
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
