@@ -1,22 +1,19 @@
 #include <vector>
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> parse_nested_parens(string paren_string);
 
-int main() {
-    string input;
-    getline(cin, input);
-    
-    vector<int> result = parse_nested_parens(input);
-    
-    for (int depth : result) {
-        cout << depth << " ";
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    
-    return 0;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> parse_nested_parens(string paren_string){
