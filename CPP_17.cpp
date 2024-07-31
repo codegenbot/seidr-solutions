@@ -14,14 +14,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> parse_music(std::string music_string);
-
-int main() {
-    std::vector<int> expected = {4, 1, 2, 4};
-    assert(issame(parse_music("o|.o|"), expected));
-    return 0;
-}
-
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int length = music_string.size();
@@ -35,4 +27,10 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}  
+}
+
+int main() {
+    std::vector<int> expected = {4, 1, 2, 4};
+    assert(issame(parse_music("o|.o|"), expected));
+    return 0;
+}
