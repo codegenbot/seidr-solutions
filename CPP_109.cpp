@@ -24,3 +24,13 @@ bool move_one_ball(vector<int> arr) {
     
     return true;
 }
+
+int main() {
+    vector<int> test1 = {1, 2, 3, 4, 5};
+    vector<int> test2 = {5, 1, 2, 3, 4};
+    
+    bool result1 = move_one_ball(test1);
+    bool result2 = move_one_ball(test2);
+    
+    return 0;
+}
