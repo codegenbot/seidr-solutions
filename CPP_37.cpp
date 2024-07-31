@@ -31,15 +31,14 @@ void sort_even(vector<float>& l) {
     l = result;
 }
 
-int main()
-{
-    vector<float> vec1 = {4.5, 2.3, 1.2, 3.7, 5.2, 6.1};
-    vector<float> vec2 = {3.2, 2.8, 1.4, 4.5, 7.1, 6.9};
-    
+int main() {
+    vector<float> vec1 = {3.4, 1.2, 5.6, 7.8, 2.3};
+    vector<float> vec2 = {1.2, 3.4, 5.6, 7.8, 2.3};
+
     sort_even(vec1);
     sort_even(vec2);
-    
-    bool result = issame(vec1, vec2);
+
+    bool output = issame(vec1, vec2);
     
     return 0;
 }
