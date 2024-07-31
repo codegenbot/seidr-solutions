@@ -1,17 +1,13 @@
-#include <cmath>
+#include <algorithm>
+#include <vector>
 
-int prod_signs(vector<int> arr) {
-    if (arr.empty()) return -32768;
-
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     for (int num : arr) {
-        product *= (num >= 0) ? 1 : -1;
+        if (num != 0) {
+            product *= (num > 0 ? 1 : -1);
+        }
     }
-
-    long long sum_of_magnitudes = 0;
-    for (int num : arr) {
-        sum_of_magnitudes += abs(num);
-    }
-
-    return product * sum_of_magnitudes;
+    
+    return arr.empty() ? INT_MIN : product * std::accumulate(arr.begin(), arr.end(), 0, [](int sum, int num) { return sum + abs(num); });
 }
