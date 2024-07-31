@@ -20,9 +20,7 @@ int main() {
 
     vector<int> res = issame(l1, l2);
 
-    if (res == vector<int>()) {
-        cout << "No common elements found" << endl;
-    } else {
+    if (res == vector<int>{1, 3, 5}) {
         for (int num : res) {
             cout << num << " ";
         }
