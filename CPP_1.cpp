@@ -37,6 +37,6 @@ namespace std {
 }
 
 int main() {
-    assert(::std::issame(::std::separate_paren_groups("( ) (( )) (( )( ))"), ::std::vector<std::string>{"()", "(())", "(()())"}));
+    assert(std::issame(std::separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
     return 0;
 }
