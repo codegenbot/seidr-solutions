@@ -11,5 +11,7 @@ std::string solve(int N) {
     return std::bitset<8>(sum).to_string();
 }
 
-assert(solve(963) == "10010");
-return 0;
+int main() {
+    assert(solve(963) == "10010");
+    return 0;
+}
