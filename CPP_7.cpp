@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -24,7 +24,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-int solution(int n) {
+int solution(int numStrings) {
+    int n;
     std::cin >> n;
 
     std::vector<std::string> strings;
@@ -38,7 +39,7 @@ int solution(int n) {
     std::getline(std::cin, substring);
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
-    std::vector<std::string> result2 = filter_by_substring(strings, substring);
+    std::vector<std::string> result2 = filter_by_substring(std::vector<std::string>(strings.begin(), strings.end()), substring);
 
     if (issame(result1, result2)) {
         for (const auto& s : result1) {
