@@ -6,12 +6,12 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const std::vector<string>& a, const std::vector<string>& b){
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+std::vector<string> separate_paren_groups(string paren_string) {
+    std::vector<string> result;
     string current_group;
     int open_braces = 0;
 
