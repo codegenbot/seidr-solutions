@@ -8,13 +8,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3, 4};
-    std::vector<int> b = {4, 3, 2, 1};
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {3, 2, 1};
 
     if (issame(a, b)) {
-        std::cout << "The vectors are the same after sorting." << std::endl;
+        std::cout << "Vectors contain same elements." << std::endl;
     } else {
-        std::cout << "The vectors are different after sorting." << std::endl;
+        std::cout << "Vectors do not contain same elements." << std::endl;
     }
 
     return 0;
