@@ -1,64 +1,71 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
+    vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(i);
         }
     }
 
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
 
     vector<string> result;
-    for (string str : numbers) {
-        string newStr = "";
-        switch (stoi(str)) {
+    for (int i : temp) {
+        string str = "";
+        switch (i) {
             case 1:
-                newStr = "One";
+                str = "One";
                 break;
             case 2:
-                newStr = "Two";
+                str = "Two";
                 break;
             case 3:
-                newStr = "Three";
+                str = "Three";
                 break;
             case 4:
-                newStr = "Four";
+                str = "Four";
                 break;
             case 5:
-                newStr = "Five";
+                str = "Five";
                 break;
             case 6:
-                newStr = "Six";
+                str = "Six";
                 break;
             case 7:
-                newStr = "Seven";
+                str = "Seven";
                 break;
             case 8:
-                newStr = "Eight";
+                str = "Eight";
                 break;
             case 9:
-                newStr = "Nine";
+                str = "Nine";
                 break;
         }
-        result.push_back(newStr);
+        result.push_back(str);
     }
 
     return result;
 }
 
 int main() {
-    vector<int> testArr = {9, 4, 8};
-    vector<string> result = by_length(testArr);
-
-    assert(result == {"Nine", "Eight", "Four"});
+    vector<int> arr = {9, 4, 8};
+    vector<string> res = by_length(arr);
+    assert(issame(res, {"Nine", "Four", "Eight"}));
+    cout << "Test passed" << endl;
     return 0;
 }
