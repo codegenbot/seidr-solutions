@@ -25,7 +25,7 @@ int maxPrimeSum(vector<int> lst){
     return sumOfDigits;
 }
 
-int main(){
+int main() {
     int result = maxPrimeSum({127, 97, 8192});
     return 0;
 }
