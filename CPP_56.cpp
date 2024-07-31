@@ -1,8 +1,8 @@
+```cpp
 #include <initializer_list>
 #include <stack>
 #include <string>
 #include <iostream>
-#include <cassert>
 
 std::string correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
@@ -49,7 +49,7 @@ std::string correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    if (correct_bracketing("<><><<><>><>>><>") != "Invalid input") { 
+    if (correct_bracketing("<><><<><>><>>><>" != "Invalid input") { 
         assert(false); 
     }
     
