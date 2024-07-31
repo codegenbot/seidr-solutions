@@ -1,12 +1,14 @@
 #include <vector>
-#include <cassert> // Include for assert
-#include <climits> // Include for INT_MAX
+#include <climits>
+#include <cassert>
 
-using namespace std; // Add this line
+using namespace std;
 
-vector<int> pluck(vector<int> arr); // Declare pluck function before issame
+bool issame(vector<int> a, vector<int> b); 
 
-bool issame(vector<int> a, vector<int> b) { // Correct signature of function
+vector<int> pluck(vector<int> arr);
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -40,7 +42,6 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-int main() { // Added main function as per error message
-    assert(issame(pluck({7, 9, 7, 1}), {})); // Correct function call syntax
-    return 0;
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
