@@ -16,9 +16,9 @@ int calculateAverage(int n, int m) {
 }
 
 int main() {
-    int n = 3, m = 7;
+    int n = 3;
+    int m = 7;
     std::string expected_result = "5";
-    std::string output = calculateAverage(n, m);
-    assert(output == expected_result);
+    assert(calculateAverage(n, m) == expected_result);
     return 0;
 }
