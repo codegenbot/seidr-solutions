@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-std::string longest(std::vector<std::string> strings) {
+std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
     std::string result = strings[0];
     for(auto s : strings) {
