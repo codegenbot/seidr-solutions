@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -13,6 +13,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
 }
 
 int main(){
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
