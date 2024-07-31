@@ -44,9 +44,9 @@ int main() {
     }
 
     if(v.size() > 1) {
-        bool same = true;
+        bool same = issame(v[0], v[1]);  // check if the first two lists are the same
         for(int i=2; i<v.size(); i++) {
-            same &= issame(v[0], v[i]);
+            same &= (issame(v[0], v[i]) && same);  // and then check all subsequent lists
         }
 
         if(same) {
