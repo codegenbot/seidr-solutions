@@ -1,24 +1,38 @@
-#include <openssl/evp.h>
+```cpp
 #include <string>
+#include <openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    if (text.empty()) return "";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX ctx;
-    EVP_MD *md5 = EVP_md5();
-    unsigned char buffer[text.length()];
-    for (int i = 0; i < text.length(); i++) {
-        buffer[i] = text[i];
+    unsigned char buffer[1024];
+    MD5_CTX mdContext;
+    MD5Init(&mdContext);
+    const char* p = text.c_str();
+    size_t len = text.size();
+    size_t bytesLeft = len;
+
+    while(bytesLeft > 0) {
+        size_t bytesToProcess = (bytesLeft > sizeof(buffer)) ? sizeof(buffer) : bytesLeft;
+        memcpy(buffer, p, bytesToProcess);
+        MD5Update(&mdContext, buffer, bytesToProcess);
+        p += bytesToProcess;
+        bytesLeft -= bytesToProcess;
     }
-    EVP_DigestInit_ex(&ctx, md5, NULL);
-    EVP_DigestUpdate(&ctx, buffer, text.length());
-    EVP_DigestFinal_ex(&ctx, md, &ctx);
-    string str;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buf[3];
-        sprintf(buf, "%02x", (int)md[i]);
-        str += buf;
+
+    unsigned char result[16];
+    MD5Final(result,&mdContext);
+
+    string str = "";
+    for(int i=0; i<16; ++i) {
+        char c = (char)(result[i]);
+        if(c>47&&c<58)
+            str+=c;
+        else
+            str += "0";
     }
+
     return str;
 }
