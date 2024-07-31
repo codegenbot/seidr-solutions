@@ -6,7 +6,7 @@
 using namespace std;
 
 bool issame(char a, char b) {
-    return std::tolower(a) == std::tolower(b);
+    return tolower(a) == tolower(b);
 }
 
 vector<string> split_words(string txt);
