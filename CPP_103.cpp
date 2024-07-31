@@ -2,7 +2,7 @@
 #include <bitset>
 #include <cmath>
 
-std::string function_name(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -15,6 +15,6 @@ std::string function_name(int n, int m) {
 }
 
 int main() {
-    assert(function_name(5, 5) == "101");
+    assert(rounded_avg(5, 5) == "101");
     return 0;
 }
