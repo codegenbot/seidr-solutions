@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -14,8 +15,10 @@ bool has_close_elements(vector<double> elements, double threshold) {
 
 int main() {
     vector<double> elements(100);  
-    double num_elements;
-    cin >> num_elements;
+    int num_elements;
+    string temp;
+    cin >> temp;
+    num_elements = stoi(temp);
     
     for(int i = 0; i < num_elements; i++) {
         double element;
