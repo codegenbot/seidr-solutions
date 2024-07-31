@@ -27,7 +27,9 @@ void printResult() {
         input.push_back(num);
     }
 
-    if (!input.empty()) input.reserve(input.size());
+    if (!input.empty()) {
+        input.shrink_to_fit();
+    }
     std::vector<float> positive = getPositive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
         std::cout << "All numbers are positive." << std::endl;
@@ -41,5 +43,4 @@ void printResult() {
 
 int main() {
     printResult();
-    return 0;
 }
