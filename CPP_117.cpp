@@ -3,18 +3,16 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
     
     for (char c : s) {
         if (c == ' ') {
-            int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
-                return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
+            int consonant_count = count_if(word.begin(), word.end(), [](char x) {
+                return !strchr("aeiouAEIOU", x) && isalpha(x);
             });
             if (consonant_count == n) {
                 result.push_back(word);
@@ -25,8 +23,8 @@ std::vector<std::string> select_words(std::string s, int n) {
         }
     }
     
-    int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
-        return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
+    int consonant_count = count_if(word.begin(), word.end(), [](char x) {
+        return !strchr("aeiouAEIOU", x) && isalpha(x);
     });
     if (consonant_count == n) {
         result.push_back(word);
@@ -36,13 +34,13 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    std::string s;
+    string s;
     int n;
-    std::cin >> s >> n;
+    cin >> s >> n;
     
-    std::vector<std::string> words = select_words(s, n);
-
-    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+    vector<string> words = select_words(s, n);
+    
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
     
     return 0;
 }
