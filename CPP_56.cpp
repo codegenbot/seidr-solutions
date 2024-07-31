@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
@@ -20,10 +21,9 @@ bool correct_bracketing(std::string brackets){
 int main() {
     std::string brackets;
     std::cout << "Enter a string of brackets: ";
-    
-    // Use getline to read the entire line
-    std::getline(std::cin, brackets);
-    
+    std::cin >> brackets;  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     if(correct_bracketing(brackets)) {
         std::cout << "The bracketing is correct." << std::endl;
     } else {
