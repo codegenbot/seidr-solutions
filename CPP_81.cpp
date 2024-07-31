@@ -29,3 +29,8 @@ vector<string> numerical_letter_grade(vector<float> grades){
     }
     return letter_grades;
 }
+
+int main() {
+    // Add test cases here
+    return 0;
+}
