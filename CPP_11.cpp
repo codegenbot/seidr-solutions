@@ -8,4 +8,3 @@ string string_xor(const string& a, const string& b) {
         }
     }
     return result;
-}
