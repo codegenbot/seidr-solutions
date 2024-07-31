@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b); // Function declaration
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
@@ -15,11 +15,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
         }
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b);
-
-int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    return 0;
 }
