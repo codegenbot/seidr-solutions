@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-bool isSame(vector<string> a, vector<string> b){
+bool isSame(const vector<string>& a, const vector<string>& b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size();i++){
         if(a[i] != b[i]) return false;
@@ -28,7 +28,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return {temp, std::to_string(temp == rev)}; 
+    return {temp, (temp == rev)}; 
 }
 
 int main() {
