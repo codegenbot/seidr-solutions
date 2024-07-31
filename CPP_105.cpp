@@ -7,10 +7,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers.push_back(to_string(num));
         }
     }
 
@@ -18,38 +18,38 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
+    for (string str : numbers) {
+        string newStr = "";
+        switch (stoi(str)) {
             case 1:
-                str = "One";
+                newStr = "One";
                 break;
             case 2:
-                str = "Two";
+                newStr = "Two";
                 break;
             case 3:
-                str = "Three";
+                newStr = "Three";
                 break;
             case 4:
-                str = "Four";
+                newStr = "Four";
                 break;
             case 5:
-                str = "Five";
+                newStr = "Five";
                 break;
             case 6:
-                str = "Six";
+                newStr = "Six";
                 break;
             case 7:
-                str = "Seven";
+                newStr = "Seven";
                 break;
             case 8:
-                str = "Eight";
+                newStr = "Eight";
                 break;
             case 9:
-                str = "Nine";
+                newStr = "Nine";
                 break;
         }
-        result.push_back(str);
+        result.push_back(newStr);
     }
 
     return result;
