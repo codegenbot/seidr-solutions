@@ -1,9 +1,4 @@
 bool issame(string a, string b) {
-    if (a.length() != b.length()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -35,7 +30,15 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    string a = "hello world";
-    vector<string> b = select_words(a, 2);
+    string a, b;
+    getline(cin, a);
+    cin >> b;
+
+    vector<string> words = select_words(a, b);
+
+    for (string word : words) {
+        cout << word << endl;
+    }
+
     return 0;
 }
