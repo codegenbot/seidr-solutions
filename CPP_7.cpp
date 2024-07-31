@@ -1,9 +1,19 @@
-bool is_same(string a, string b){
-    return a == b;
+bool is_same(string s1, string s2) {
+    return s1 == s2;
 }
+
+vector<string> filter_by_substring(vector<string> strings, string substring);
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
-    copy_if(strings.begin(), strings.end(), back_inserter(result), [&substring](const string& str){ return str.find(substring) != string::npos; });
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
+            result.push_back(str);
+        }
+    }
     return result;
+}
+
+int main() {
+    // Main function code
 }
