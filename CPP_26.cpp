@@ -11,7 +11,5 @@ std::vector<int> remove_duplicates(const std::vector<int>& arr) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
-
-return 0;
