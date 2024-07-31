@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,7 +12,7 @@ bool reverse_delete(const std::string& str1, const std::string& str2) {
 }
 
 int main() {
-    std::pair<std::string, bool> result = reverse_delete("mamma", "mia");
+    std::pair<std::string, bool> result = reverse_delete("mamma", "amma");
     if (result.second) {
         assert(true);
     } else {
