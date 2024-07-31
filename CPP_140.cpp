@@ -1,14 +1,25 @@
-for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == ' ') {
-            if (i > 0 && text[i - 1] == ' ') {
-                text.replace(i, 1, "-");
-                while (i < text.length() && text[i] == ' ') {
-                    text.erase(i, 1);
-                }
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
+    bool consecutive = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (!consecutive) {
+                result += '_';
+                consecutive = true;
             } else {
-                text.replace(i, 1, "_");
+                result += '-';
             }
+        } else {
+            result += c;
+            consecutive = false;
         }
     }
-    return text;
+    return result;
+}
+
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
 }
