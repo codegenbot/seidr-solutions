@@ -7,7 +7,7 @@ int main() {
     std::cin >> str;
     std::cout << str.length();
     
-    assert (strlen("asdasnakj") == 9);
+    assert(strlen("asdasnakj") == 9);
 
     return 0;
 }
