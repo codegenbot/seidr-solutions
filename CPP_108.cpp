@@ -1,22 +1,19 @@
+#include <iostream>
 #include <vector>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
-            int sum = 0;
             bool has_negative = false;
             while (num > 0 || (!has_negative && num < 0)) {
                 int digit = abs(num) % 10;
                 if (digit != 0) {
-                    sum += digit;
+                    count++;
                 } else {
                     has_negative = !has_negative;
                 }
                 num /= 10;
-            }
-            if (sum > 0) {
-                count++;
             }
         }
     }
@@ -24,7 +21,7 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1};
-    int result = count_nums(nums);
+    std::vector<int> test = {1};
+    assert(count_nums(test) == 1);
     return 0;
 }
