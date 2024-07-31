@@ -23,7 +23,7 @@ void sort_even(std::vector<float> l) {
        }
    }
    std::sort(even_elems.begin(), even_elems.end());
-
+   
    std::vector<float> result;
    int j = 0;
    for(size_t i=0; i<l.size(); i++){
@@ -34,6 +34,6 @@ void sort_even(std::vector<float> l) {
            result.push_back(l[i]);
        }
    }
-
+   
    assert(issame(result, { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
