@@ -4,12 +4,12 @@ bool issame(int a, int b){
 
 vector<int> count_up_to(int n);
 
-int main(){
-    int number;
-    cin >> number;
-    vector<int> result = count_up_to(number);
-    for(int num : result){
-        cout << num << " ";
+int main() {
+    int num;
+    cin >> num;
+    vector<int> result = count_up_to(num);
+    for(int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
@@ -25,10 +25,7 @@ vector<int> count_up_to(int n){
             }
         }
         if(is_prime){
-            bool same = issame(i, n);
-            if(!same){
-                primes.push_back(i);
-            }
+            primes.push_back(i);
         }
     }
     return primes;
