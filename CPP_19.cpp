@@ -32,7 +32,7 @@ string sort_numbers(string numbers){
     for (const auto& pair : sortedNumbers) {
         result += pair.second + " ";
     }
-    
+
     return result;
 }
 
