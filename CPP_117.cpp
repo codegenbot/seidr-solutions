@@ -1,31 +1,52 @@
-bool issame(vector<string> v1, vector<string> v2) {
-    return v1 == v2;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-bool select_words(string s, int n) {
-    vector<string> result;
-    string word;
-    int consonantCount = 0;
-    
-    for (char c : s) {
-        if (c == ' ') {
-            if (consonantCount == n) {
-                result.push_back(word);
-            }
-            word.clear();
-            consonantCount = 0;
-        } else if (isalpha(c)) {
-            char lc = tolower(c);
-            if (lc != 'a' && lc != 'e' && lc != 'i' && lc != 'o' && lc != 'u') {
-                consonantCount++;
-            }
-        }
-        word += c;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    if (s.empty()) {
+        return result;
     }
     
-    if (!word.empty() && consonantCount == n) {
+    std::string word = "";
+    int consonant_count = 0;
+    
+    for (char c : s) {
+        if (isalpha(c)) {
+            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
+                if (!word.empty()) {
+                    if (consonant_count == n) {
+                        result.push_back(word);
+                    }
+                    word = "";
+                    consonant_count = 0;
+                }
+            } else {
+                word += c;
+                consonant_count++;
+            }
+        } else {
+            if (!word.empty() && consonant_count == n) {
+                result.push_back(word);
+            }
+            word = "";
+            consonant_count = 0;
+        }
+    }
+    
+    if (!word.empty() && consonant_count == n) {
         result.push_back(word);
     }
     
-    return !result.empty();
+    return result;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }
