@@ -1,5 +1,9 @@
+#include <cassert>
+#include <stack>
+using namespace std;
+
 bool correct_bracketing(std::string brackets) {
-    std::stack<char> bracket_stack;
+    stack<char> bracket_stack;
 
     for (char bracket : brackets) {
         if (bracket == '(' || bracket == '{' || bracket == '[') {
@@ -35,4 +39,10 @@ bool correct_bracketing(std::string brackets) {
     } else {
         return true;
     }
+}
+
+int main() {
+    assert(!correct_bracketing("<><><<><>><>>><>"));
+    
+    return 0;
 }
