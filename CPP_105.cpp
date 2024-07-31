@@ -4,9 +4,7 @@
 #include <algorithm>
 
 vector<string> by_length(vector<int> arr);
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -26,4 +24,8 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
