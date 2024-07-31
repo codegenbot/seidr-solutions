@@ -17,10 +17,8 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-    
-    bool same = is_same(a, b);
-    
+    std::vector<int> nums = {2, 5, 1, 7, 3};
+    std::vector<int> expected_result = {2, 5, 5, 7, 7};
+    assert(is_same(rolling_max(nums), expected_result));
     return 0;
 }
