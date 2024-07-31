@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a.size() != b.size();
-}
+using namespace std;
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
@@ -23,4 +21,10 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     return result;
+}
+
+int main(){
+    std::vector<int> empty;
+    assert(pluck({7, 9, 7, 1}) == empty);
+    return 0;
 }
