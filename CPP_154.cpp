@@ -1,5 +1,8 @@
-int n = a.size(), m = b.size();
-if (n != m) return false;
-string temp = b + b;
-return (temp.find(a) != string::npos);
+int n = a.size();
+    int m = b.size();
+    if (n != m) return false;
+    
+    a += a;
+    
+    return (a.find(b) != string::npos);
 }
