@@ -1,19 +1,16 @@
 ```cpp
-#include <string>
-#include <iostream>
 #include <cassert>
+#include <string>
 
-int stringToHex(const std::string& s) {
+int stringToHex(string s) {
     int result = 0;
     for (char c : s) {
-        if (isdigit(c)) {
-            result = result * 16 + (c - '0');
-        } else if (isupper(c)) {
-            result = result * 16 + (c - 'A' + 10);
+        if (!isxdigit(c)) {
+            return -1; // invalid character in the string
         }
+        result = result * 16 + static_cast<int>(c);
     }
     return result;
-
 }
 
 int testMain() {
