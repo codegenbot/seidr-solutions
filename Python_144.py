@@ -1,3 +1,4 @@
+```
 import math
 
 def simplify():
@@ -5,10 +6,10 @@ def simplify():
     denominator1 = int(input(f"Enter first fraction denominator: "))
 
     numerator2 = int(input(f"Enter second fraction numerator: "))
-    denominator2 = int(input(f"Enter second fraction numerator: "))
+    denominator22 = int(input(f"Enter second fraction denominator: "))
 
-    new_numerator = numerator1*denominator2
-    new_denominator = denominator1 * denominator2
+    new_numerator = numerator1*denominator22
+    new_denominator = denominator1 * denominator22
 
     greatest_common_divisor = math.gcd(new_numerator, new_denominator)
 
