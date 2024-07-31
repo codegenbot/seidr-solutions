@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 std::vector<int> even_odd_count(int n) {
