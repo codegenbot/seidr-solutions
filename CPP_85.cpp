@@ -41,7 +41,7 @@ int main() {
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
-    std::cout << "Sum of even elements: " << add({1, 2, 3}) << std::endl;
+    std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
     return 0;
 }
