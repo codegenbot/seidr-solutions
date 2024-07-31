@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto &value : values) {
         if (auto ptr = boost::any_cast<int>(&value)) {
@@ -16,7 +16,7 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
