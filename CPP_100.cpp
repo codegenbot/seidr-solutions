@@ -1,12 +1,12 @@
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    for (int i = 0; ; i++) {
-        if ((n & 1)) // check if n is odd
-            pile.push_back(2 * i + 1);
+    int current = n;
+    for (int i = 0; i < n; ++i) {
+        pile.push_back(current);
+        if (current % 2 == 1)
+            current += 2;
         else
-            pile.push_back(2 * i + 2);
-        if (++n > i) continue;
-        break;
+            current += 1;
     }
     return pile;
 }
