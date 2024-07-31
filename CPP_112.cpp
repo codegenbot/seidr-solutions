@@ -2,7 +2,13 @@
 #include <string>
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 pair<vector<string>, bool> reverse_delete(string s1, string s2) {
     int i=0,j=s2.size()-1;
@@ -17,6 +23,6 @@ pair<vector<string>, bool> reverse_delete(string s1, string s2) {
 
 int main() {
     auto res = reverse_delete("mamma", "mia");
-    assert(issame({res.first}, {{"", res.second ? "True" : "False"}}));
+    assert(issame(vector<string>{res.first}, res.second ? vector<string>({"True"}) : vector<string>({"False"})));
     return 0;
 }

@@ -9,19 +9,16 @@ int main() {
     int k = 0;
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
-    if(k > std::numeric_limits<int>::max() / sizeof(int)) {
+    if(sizeof(int) == 4 && k > std::numeric_limits<int>::max() || sizeof(int) == 8 && k > std::numeric_limits<long long>::max()) {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
-    int count;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> count;
-    std::vector<int> input(count); // Initialize with a fixed size
-    for (int i = 0; i < count; i++) {
+    std::vector<int> input; // Initialize with 0 size
+    for (int i = 0; i < k; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        input[i] = num;
+        input.push_back(num);
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
     return 0;
