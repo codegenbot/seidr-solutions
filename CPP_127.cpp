@@ -32,7 +32,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     if (isPrime(length)) {
         return "YES";
     } else {
-        return "NO";
+        return "NO"; 
     }
 }
 
