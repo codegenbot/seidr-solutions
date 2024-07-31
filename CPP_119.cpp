@@ -1,15 +1,3 @@
-#include <iostream>
-#include <vector>
-
-bool match_parens(const std::vector<char>& lst) {
-    int open = 0, close = 0;
-    for (char c : lst) {
-        if (c == '(') open++;
-        else if (c == ')') close++;
-    }
-    return open == close;
-}
-
 int main_test() {
     std::string input;
     std::cout << "Enter parentheses sequence: ";
@@ -22,14 +10,7 @@ int main_test() {
 
     bool result = match_parens(lst);
     
-    if(result)
-    {
-        std::cout << "Yes\n";
-        return 0; 
-    }
-    else
-    {
-        std::cout << "No\n";
-        return 0; 
-    }
+    return 0;
+
+    std::cout << (result ? "Yes" : "No");
 }
