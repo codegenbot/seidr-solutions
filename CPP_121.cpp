@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int solve(vector<int> lst) {
