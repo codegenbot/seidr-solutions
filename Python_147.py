@@ -10,3 +10,6 @@ def solution(n):
                 count += 1
                 max_sum = max(max_sum, total)
     return count, max_sum
+
+n = int(input("Enter a number: "))
+print(solution(n))
