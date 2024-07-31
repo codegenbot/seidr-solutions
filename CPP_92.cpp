@@ -1,6 +1,12 @@
-bool check_triangle_inequality(float a, float b, float c) {
-    if(a < b + c && b < a + c && c < a + b){
+#include <iostream>
+
+bool any_int(double a, int b, int c) {
+    if(static_cast<int>(a) == b + c || static_cast<int>(b) == a + c || static_cast<int>(c) == a + b){
         return true;
     }
     return false;
+}
+
+int main() {
+    assert(any_int(3.01, 4, 7) == false);
 }
