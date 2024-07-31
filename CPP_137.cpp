@@ -3,17 +3,17 @@
 #include <boost/any.hpp>
 
 template <typename T>
-boost::any compare_one(const T& a, const T& b) {
-    if (a > b) {
-        return boost::any(a);
-    } else if (a < b) {
-        return boost::any(b);
+T compare_one(const boost::any& a, const boost::any& b) {
+    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(a);
+    } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(b);
     }
-    return boost::any();
+    return T();
 }
 
 int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::to_string(1))) == "");
-    
+    assert(compare_one<int>(std::string("1"), std::to_string(1)).empty());
+
     return 0;
 }
