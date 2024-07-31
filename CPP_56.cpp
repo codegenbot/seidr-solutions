@@ -36,11 +36,3 @@ bool correct_bracketing(std::string brackets) {
         return true;
     }
 }
-
-int main() {
-    if (!correct_bracketing("<><><<><>><>>><>") ) { 
-        assert(false); 
-    }
-    
-    return 0;
-}
