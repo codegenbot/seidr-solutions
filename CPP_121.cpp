@@ -1,9 +1,7 @@
 #include <vector>
-using namespace std;
+#include <cassert>
 
-int solutions(vector<int> lst) {
-    return solve(lst);
-}
+using namespace std;
 
 int solve(vector<int> lst) {
     int sum = 0;
@@ -14,6 +12,10 @@ int solve(vector<int> lst) {
     }
     
     return sum;
+}
+
+int solutions(vector<int> lst) {
+    return solve(lst);
 }
 
 int main() {
