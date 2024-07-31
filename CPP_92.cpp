@@ -7,4 +7,6 @@ bool any_int(int a, int b, int c) {
 
 int main() {
     assert(any_int(3, 4, 7) == false);
+
+    return 0;
 }
