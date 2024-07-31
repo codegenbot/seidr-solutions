@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
