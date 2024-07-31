@@ -1,12 +1,22 @@
-string num_str = to_string(x);
-    int n = num_str.size();
+#include <iostream>
+#include <algorithm>
+
+std::string circular_shift(int x, int shift) {
+    std::string str = std::t	o_string(x);
+    int n = str.size();
     shift %= n;
     if (shift == 0) {
-        return num_str;
+        return str;
     }
     if (shift > n) {
-        reverse(num_str.begin(), num_str.end());
-        return num_str;
+        std::reverse(str.begin(), str.end());
+        return str;
     }
-    return num_str.substr(n - shift) + num_str.substr(0, n - shift);
+    std::string shifted = str.substr(n - shift) + str.substr(0, n - shift);
+    return shifted;
+}
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    return 0;
 }
