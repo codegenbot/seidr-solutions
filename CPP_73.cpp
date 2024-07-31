@@ -1,4 +1,9 @@
-int smallest_change(std::vector<int> arr) {
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+int smallest_change(const vector<int>& arr) {
     int n = arr.size();
     int changes = 0;
     for (int i = 0; i < n / 2; ++i) {
@@ -10,8 +15,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 3, 2, 1};
-    int result = smallest_change(arr);
-    std::cout << result << std::endl;
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
