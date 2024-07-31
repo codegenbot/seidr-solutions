@@ -1,17 +1,12 @@
-#include <vector>
-
-bool move_one_ball(std::vector<int> arr) {
-    if (arr.empty()) {
+int n = arr.size();
+    if (n == 0) {
         return true;
     }
-    
-    int n = arr.size();
+    int min_index = min_element(arr.begin(), arr.end()) - arr.begin();
     for (int i = 0; i < n; ++i) {
-        if (std::is_sorted(arr.begin(), arr.end())) {
-            return true;
+        if (arr[(min_index + i) % n] != i + 1) {
+            return false;
         }
-        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    
-    return false;
+    return true;
 }
