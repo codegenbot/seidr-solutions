@@ -19,7 +19,4 @@ vector<int> count_up_to(int n) {
     }
     return primes;
 }
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+```
