@@ -19,11 +19,13 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    int n = 5;
+    int n;
+    cin >> n;
     vector<int> result = make_a_pile(n);
-    for (int i : result) {
-        if (issame(i, n)) {
-            cout << "Same number: " << i << endl;
+    for(int i = 0; i < result.size(); i++){
+        if(issame(result[i], n)){
+            cout << i << endl;
+            break;
         }
     }
     return 0;
