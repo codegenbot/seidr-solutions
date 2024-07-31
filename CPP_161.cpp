@@ -1,3 +1,4 @@
+#include <string>
 using namespace std;
 
 std::string solve(std::string s) {
