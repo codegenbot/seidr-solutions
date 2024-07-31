@@ -1,15 +1,5 @@
-bool issame(vector<float> v1, vector<float> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (abs(v1[i] - v2[i]) > 1e-6) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(const vector<float>& v1, const vector<float>& v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
 
 vector<float> rescale_to_unit(vector<float> numbers) {
