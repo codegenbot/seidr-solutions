@@ -1,27 +1,10 @@
 #include <vector>
-#include <string>
 #include <cassert>
+#include <string>
+#include <algorithm>
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-std::vector<int> parse_nested_parens(std::string paren_string);
-
-int main() {
-    assert(std::issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
-    
-    return 0;
+bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
+    return v1 == v2;
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
@@ -45,4 +28,10 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     result.push_back(max_depth);
     
     return result;
+}
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    
+    return 0;
 }
