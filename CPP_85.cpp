@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int add(const std::vector<unsigned int>& v) {
+int add(std::vector<unsigned int> v) {
     int sum = 0;
     for (unsigned int i : v) {
         sum += i;
