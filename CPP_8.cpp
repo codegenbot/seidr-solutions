@@ -1,4 +1,4 @@
-#include <vector>
+#include <vector> // Add this header file
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
@@ -17,6 +17,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({10}), {10, 10})); // Update the function call syntax
     return 0;
 }
