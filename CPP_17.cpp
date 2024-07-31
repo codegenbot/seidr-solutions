@@ -1,8 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 vector<int> parse_music(string music_string);
+
+int main() {
+    string input;
+    cout << "Enter music string: ";
+    getline(cin, input);
+    
+    vector<int> result = parse_music(input);
+    
+    cout << "Parsed music beats: ";
+    for (int beat : result) {
+        cout << beat << " ";
+    }
+    
+    return 0;
+}
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
