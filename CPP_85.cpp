@@ -16,12 +16,13 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst;
+    std::vector<int> lst(n); // Initialize the vector with 'n' elements
+
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        lst.push_back(num);
+        lst[i] = num;
     }
 
     int sum = 0;
