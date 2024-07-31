@@ -1,18 +1,18 @@
-#include <iostream>
+string intersection(vector<int> interval1, vector<int> interval2);
 
-bool isPrime(int n) {
-    if (n <= 1) {
+bool isPrime(int num) {
+    if (num < 2) {
         return false;
     }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
             return false;
         }
     }
     return true;
 }
 
-std::string checkIntervalIntersection(int* interval1, int* interval2) {
+string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
