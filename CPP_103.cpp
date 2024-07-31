@@ -1,24 +1,10 @@
 #include <cmath>
 #include <bitset>
 
-int calculateAverage(int n, int m) {
-    if (n > m) {
-        return "-1";
-    }
-
-    int sum = 0;
-    for (int i = n; i <= m; i++) {
-        sum += i;
-    }
-
-    int avg = static_cast<int>(round((double)sum / (m - n + 1)));
-    return std::to_string(avg);
+int sum = 0;
+for (int i = n; i <= m; i++) {
+    sum += i;
 }
 
-int main() {
-    int n = 3;
-    int m = 7;
-    std::string expected_result = "5";
-    assert(calculateAverage(n, m) == expected_result);
-    return 0;
-}
+int avg = static_cast<int>(round((double)sum / (m - n + 1)));
+return std::to_string(avg);
