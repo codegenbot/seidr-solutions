@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -21,6 +20,7 @@ int main() {
     }
 
     int sum = 0; 
+    std::vector<int> input;
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
