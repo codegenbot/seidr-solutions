@@ -2,10 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> temp_a = a;
+    std::sort(temp_a.begin(), temp_a.end());
+    std::vector<int> temp_b = b;
+    std::sort(temp_b.begin(), temp_b.end());
+    return temp_a == temp_b;
 }
 
 int main() {
