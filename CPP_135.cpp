@@ -1,10 +1,11 @@
-#include <bits/stdc++.h>
-#include <assert>
+```cpp
+#include <iostream>
+#include <vector>
+#include <cassert>
 
-int can_arrange(std::vector<int> arr) {
+int can_arrange(std::vector<int> arr = {}) {
     for (int i = 1; i < arr.size(); i++) {
         if (arr[i] <= arr[i - 1]) {
-            std::cout << "Error: The array is not in ascending order." << std::endl;
             return i - 1;
         }
     }
