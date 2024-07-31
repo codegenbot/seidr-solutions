@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -11,15 +12,13 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<int> arr(n);
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        int x;
-        std::cin >> x;
-        arr.push_back(x);
+        std::cin >> arr[i];
     }
     int result = prod_signs(arr);
     if(result == 0) {
