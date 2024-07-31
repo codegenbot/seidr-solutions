@@ -6,6 +6,8 @@
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> by_length(vector<int> arr);
 
 vector<string> by_length(vector<int> arr){
@@ -40,11 +42,7 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main(){
-    vector<string> expected = {"Nine", "Eight", "Four"};
-    vector<string> actual = by_length({9, 4, 8});
-    sort(actual.begin(), actual.end());
-    sort(expected.begin(), expected.end());
-    assert(equal(actual.begin(), actual.end(), expected.begin()));
+    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 
     return 0;
 }
