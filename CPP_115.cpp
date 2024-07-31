@@ -1,4 +1,5 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
+#include <vector>
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int totalWater = 0;
     int moves = 0;
     
