@@ -1,4 +1,6 @@
-```
+Here is the corrected code:
+
+```cpp
 #include <algorithm>
 #include <set>
 #include <vector>
@@ -26,7 +28,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() { 
+int main() {
     int n; cin >> n;
 
     vector<vector<int>> v(n);
@@ -78,5 +80,5 @@ int main() {
         cout << "At least two lists required to find common elements." << endl; 
     } 
 
-    return 0; 
+    return 0;
 }
