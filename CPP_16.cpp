@@ -1,18 +1,28 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <set>
+#include <unordered_set>
 
-int count_distinct_characters(string str) {
-    string temp;
+int count_distinct_characters(const std::string& str) {
+    std::unordered_set<char> distinctChars;
     for (char c : str) {
-        if (isalpha(c)) {
-            temp = tolower(temp);
-            if (!temp.empty() && !temp.back() == c) {
-                temp += c;
-            }
-        }
+        if (!distinctChars.insert(c).second) 
+            ; 
+        else 
+            ; 
     }
-    return temp.size();
+    return distinctChars.size();
+}
+
+int mainFunc() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    while ((std::cin >> std::ws).peek() == '\n') 
+        std::cin.ignore();
+    char buffer[256];
+    std::cin.getline(buffer, 256); 
+    str = std::string(buffer);
+    int result = count_distinct_characters(str);
+    std::cout << "Number of distinct characters: " << result << std::endl;
+    return 0;
 }
