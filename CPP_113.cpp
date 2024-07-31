@@ -2,10 +2,10 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> odd_count(const std::vector<std::string>& lst)
+std::vector<std::string> odd_count(std::vector<std::string> lst)
 {
     std::vector<std::string> result;
-    for (const std::string& str : lst)
+    for (std::string str : lst)
     {
         int odd_count = 0;
         for (char c : str)
@@ -22,14 +22,10 @@ std::vector<std::string> odd_count(const std::vector<std::string>& lst)
 
 int main()
 {
-    std::vector<std::string> expected = {
+    assert(odd_count({"271", "137", "314"}) == std::vector<std::string>({
         "the number of odd elements 1 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
-    };
-
-    std::vector<std::string> result = odd_count({"271", "137", "314"});
-    assert(result == expected);
-
-    return 0; // indicate successful completion
+    }));
+    return 0;
 }
