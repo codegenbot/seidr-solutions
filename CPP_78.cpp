@@ -18,4 +18,5 @@ int main() {
     std::cin >> input;
     int output = hex_key_value(input);
     std::cout << "The result is: " << output << std::endl;
+    return 0;
 }
