@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 
@@ -29,4 +28,5 @@ map<char, int> histogram(string test) {
 
 int main() {
     assert(histogram("a") == ({{'a', 1}}));
+    return 0;
 }
