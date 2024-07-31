@@ -9,7 +9,7 @@ vector<int> strange_sort_vector(vector<int> lst);
 
 int main() {
     // You can use this function to test the output
-    vector<int> result = strange_sort_vector({1, 2, 3, 4, 5});
+    vector<int> result = strange_sort_vector({1, 2, 3});
     for (int i : result) {
         cout << i << " ";
     }
