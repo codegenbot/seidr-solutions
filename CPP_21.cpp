@@ -1,10 +1,10 @@
-bool issame(const vector<float>& v1, const vector<float>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (abs(v1[i] - v2[i]) > 1e-6) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-6) {
             return false;
         }
     }
@@ -26,6 +26,8 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
 int main() {
     assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    
+    // rest of the code
     
     return 0;
 }
