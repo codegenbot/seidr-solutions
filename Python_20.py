@@ -1,2 +1,4 @@
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    return tuple(sorted(set(numbers))[:1] + sorted(set(numbers))[1:1])
+    return min((a, b) for a in numbers for b in numbers if a != b), min(
+        (a, b) for a in numbers for b in numbers if a != b and a < b
+    )
