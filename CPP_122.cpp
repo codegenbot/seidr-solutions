@@ -10,19 +10,21 @@ int main() {
     while (!(std::cin >> k && k >= 1)) {
         std::cout << "Error: invalid input. Please enter a positive integer: ";
         std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ' ');
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     int num;
-    int max_val = std::numeric_limits<int>::max();
-    int min_val = std::numeric_limits<int>::min();
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
-        while (!(std::cin >> num && num >= min_val && num <= max_val)) {
+        while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
+                std::abs(num) >= std::numeric_limits<int>::min())) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << min_val << " and " << max_val
+                      << std::numeric_limits<int>::min() << " and "
+                      << std::numeric_limits<int>::max()
                       << ": ";
             std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ' ');
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         numbers.push_back(num);
