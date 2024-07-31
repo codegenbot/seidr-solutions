@@ -32,9 +32,4 @@ bool valid_date(string date) {
     }
 
     return true;
-} 
-
-int main() {
-    assert(valid_date("04-2003") == false);
-    return 0;
 }
