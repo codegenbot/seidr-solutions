@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```c++
 #include <algorithm>
 #include <set>
 #include <vector>
@@ -26,7 +29,8 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
+int main 
+{
     int n;
     cin >> n;
 
