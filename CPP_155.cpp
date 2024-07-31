@@ -3,18 +3,14 @@
 #include <string>
 #include <cmath>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> even_odd_count(int num);
 
-int main() {
-    int num;
-    cin >> num;
-    vector<int> result = even_odd_count(num);
-    cout << result[0] << " " << result[1] << endl;
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> even_odd_count(int num){
@@ -30,4 +26,16 @@ vector<int> even_odd_count(int num){
     }
     
     return result;
+}
+
+int main() {
+    // Test the even_odd_count function
+    int num;
+    cin >> num;
+    vector<int> counts = even_odd_count(num);
+    for(int count : counts){
+        cout << count << " ";
+    }
+    
+    return 0;
 }
