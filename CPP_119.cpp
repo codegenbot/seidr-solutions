@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cstring>
 
@@ -16,10 +15,9 @@ bool match_parens(const char* parens) {
 }
 
 int main() {
-    char* input = new char[100];
+    std::string input;
     std::cout << "Enter a string of parentheses: ";
-    std::cin.getline(input, 100);
-    delete[] input; 
-    std::cout << (match_parens(input)) ? "Valid" : "Invalid";
+    std::getline(std::cin, input);
+    std::cout << (match_parens(input.c_str())) ? "Valid" : "Invalid";
     return 0;
 }
