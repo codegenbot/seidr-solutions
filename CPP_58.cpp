@@ -39,28 +39,40 @@ int main() {
         }
     }
 
-    vector<int> l1, l2;
+    bool same = true;
 
-    for(auto &x : v) {
-        if(x.size() > 0) {
-            l1.insert(l1.end(), x.begin(), x.end());
+    if(n > 1) {
+        same = issame(v[0], v[1]);
+        for(int i=2; i<n; i++) {
+            same &= issame(v[0], v[i]);
         }
     }
 
-    for(int i=n-1; i>=0; i--) {
-        if(v[i].size() > 0) {
-            l2.push_back(i);
-            break;
+    if(same) {
+        vector<int> commonList;
+        for(int i=0; i<v[0].size(); i++) {
+            bool found = true;
+
+            for(int j=1; j<n; j++) {
+                if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                    found = false;
+                    break;
+                }
+            }
+
+            if(found) {
+                commonList.push_back(v[0][i]);
+            }
         }
+
+        cout << "Common elements: ";
+        for(int i=0; i<commonList.size(); i++) {
+            cout << commonList[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No common elements." << endl;
     }
 
-    vector<int> result = common(l1, l2);
-
-    cout << "Common elements: ";
-    for(auto x : result) {
-        cout << x << " ";
-    }
-    cout << endl;
-
-    return 0; 
+    return 0;
 }
