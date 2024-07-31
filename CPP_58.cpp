@@ -26,15 +26,13 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
-    int n;
-    cin >> n;
+{ 
+    int n; cin >> n;
 
     vector<vector<int>> v(n);
 
     for(int i=0; i<n; i++) {
-        int m;
-        cin >> m;
+        int m; cin >> m;
 
         v[i].resize(m);
 
@@ -75,8 +73,10 @@ int main() {
         } else {
             cout << "No common elements." << endl;
         }
-    } else {
-        cout << "At least two lists required to find common elements." << endl;
-    }
+    } 
+    else { 
+        cout << "At least two lists required to find common elements." << endl; 
+    } 
 
-    return 0;
+    return 0; 
+}
