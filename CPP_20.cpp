@@ -10,29 +10,15 @@ std::vector<float> find_closest_elements(const std::vector<float>& nums) {
         return result;
     }
 
-    float average = 0;
-    for (const auto& num : nums) {
-        average += num;
-    }
-    average /= nums.size();
-
-    float min_diff = std::abs(nums[0] - average);
-    float closest1 = nums[0];
-    float closest2 = nums[1];
-
-    for (size_t i = 1; i < nums.size(); ++i) {
-        float diff = std::abs(nums[i] - average);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest1 = nums[i];
-        }
-        else if (diff == min_diff) {
-            closest2 = nums[i];
-        }
+    std::vector<std::pair<float, float>> diff_nums;
+    for (size_t i = 0; i < nums.size() - 1; ++i) {
+        diff_nums.emplace_back(fabs(nums[i] - nums[i + 1]), nums[i]);
     }
 
-    result.push_back(closest1);
-    result.push_back(closest2);
+    std::sort(diff_nums.begin(), diff_nums.end());
+
+    result.push_back(diff_nums[0].second);
+    result.push_back(diff_nums[1].second);
 
     return result;
 }
@@ -42,7 +28,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1});
 
     return 0;
 }
