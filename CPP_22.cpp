@@ -27,8 +27,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    if (filter_integers(arr, n) == 1) {
-        assert(issame(arr, arr, n));
+    assert(filter_integers(arr, n) == 1);
+    if (n > 0) {
+        bool same = issame(arr, arr, n);
+        cout << "Array is " << (same ? "" : "not ") << "the same." << endl;
     }
     return 0;
 }
