@@ -4,15 +4,37 @@
 
 using namespace std;
 
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+
+    vector<vector<int>> grid(n, vector<int>(n));
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < n; ++j){
+            cin >> grid[i][j];
+        }
+    }
+
+    vector<int> result = minPath(grid, k);
+
+    for(int val : result){
+        cout << val << " ";
+    }
+
+    return 0;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
     vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    
+
     auto isValid = [&](int x, int y){
         return x >= 0 && x < n && y >= 0 && y < n;
     };
-    
+
     auto dfs = [&](int x, int y, int len){
         path.push_back(grid[x][y]);
         if(len == k){
@@ -33,12 +55,12 @@ vector<int> minPath(vector<vector<int>> grid, int k){
             dfs(neighbor.first, neighbor.second, len + 1);
         }
     };
-    
+
     for(int i = 0; i < n; ++i){
         for(int j = 0; j < n; ++j){
             dfs(i, j, 1);
         }
     }
-    
+
     return path;
 }
