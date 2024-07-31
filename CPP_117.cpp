@@ -1,14 +1,26 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 
-std::vector<std::string> select_words(std::string s, int n) {
-    // Implementation of select_words function
+std::vector<std::string> select_words(const std::string &s, int n) {
+    std::vector<std::string> words;
+    std::istringstream iss(s);
+    std::string word;
+    int count = 0;
+    
+    while (iss >> word) {
+        if (count != n) {
+            words.push_back(word);
+        }
+        count++;
+    }
+    
+    return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Implementation of issame function
+bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
+    return a == b;
 }
 
 int main() {
