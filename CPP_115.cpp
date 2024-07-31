@@ -1,11 +1,9 @@
 int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
     int total_water = 0;
     int total_buckets = 0;
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
             total_water += grid[i][j];
         }
     }
