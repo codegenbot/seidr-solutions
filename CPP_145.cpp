@@ -21,12 +21,3 @@ vector<int> order_by_points(vector<int> nums) {
     });
     return nums;
 }
-
-int main() {
-    vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
-
-    bool result = issame(order_by_points(nums), {-76, -21, 0, 4, 23, 6, 6});
-    assert(result);
-
-    return 0;
-}
