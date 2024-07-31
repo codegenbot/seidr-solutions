@@ -40,11 +40,11 @@ int main() {
     }
     cout << endl;
 
-    vector<int> result1 = sort_third(l1);
+    vector<int> result = sort_third(l1);
     vector<int> result2 = sort_third(l2);
 
     cout << "result1: ";
-    for (int i : result1) {
+    for (int i : result) {
         cout << i << " ";
     }
     cout << endl;
@@ -54,4 +54,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+
+    return 0;
 }
