@@ -1,44 +1,53 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+#include <vector>
+#include <string>
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
-    string current_group;
-    int count = 0;
+bool issame(const std::string& group) {
+    if (group.empty()) {
+        return false;
+    }
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (count > 0) {
-                current_group += c;
-            }
-            count++;
-        } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                current_group += c;
-            } else if (count == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+    char first_char = group[0];
+    for (char ch : group) {
+        if (ch != first_char) {
+            return false;
         }
     }
 
-    return groups;
+    return true;
 }
 
-int main() {
-    string input;
-    cin >> input;
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
-    vector<string> groups = separate_paren_groups(input);
-    vector<string> test_groups = separate_paren_groups(input);
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
+    bool in_group = false;
 
-    if (issame(groups, test_groups)) {
-        cout << "Groups are the same\n";
-    } else {
-        cout << "Groups are different\n";
+    for (char ch : paren_string) {
+        if (ch == '(') {
+            if (in_group) {
+                if (issame(current_group)) {
+                    current_group = "";
+                } else {
+                    result.push_back(current_group);
+                    current_group = "";
+                }
+            }
+            in_group = true;
+        } else if (ch == ')') {
+            in_group = false;
+            if (!issame(current_group)) {
+                result.push_back(current_group);
+            }
+            current_group = "";
+        } else if (in_group) {
+            current_group += ch;
+        }
     }
 
-    return 0;
+    if (!current_group.empty() && !issame(current_group)) {
+        result.push_back(current_group);
+    }
+
+    return result;
 }
