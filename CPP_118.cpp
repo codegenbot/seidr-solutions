@@ -13,7 +13,4 @@ std::string get_closest_vowel(const std::string& word) {
     return "";
 }
 
-int main() {
-    assert(get_closest_vowel("Above") == "e");
-    return 0;
-}
+assert(get_closest_vowel("Above") == "o");
