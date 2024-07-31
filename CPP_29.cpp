@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -40,9 +41,18 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 
 int main() {
     assert(issame({{ "xxx", "xxx" }, { "xxxxAA", "xxxAAA" } }));
-    vector<string> strings = {"hello", "hell", "world"};
-    vector<string> filteredStrings = filter_by_prefix(strings, "hel");
-    for (const auto& s : filteredStrings) {
+    vector<pair<string, string>> pairs = {{ "xxx", "xxx" }, { "xxxxAA", "xxxAAA" }};
+    if (!issame(pairs)) {
+        cout << "Strings are not the same." << endl;
+    }
+    else {
+        cout << "Strings are the same." << endl;
+    }
+    
+    vector<string> strings = {"apple", "banana", "orange"};
+    string prefix = "app";
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+    for (const auto& s : filtered_strings) {
         cout << s << endl;
     }
     return 0;
