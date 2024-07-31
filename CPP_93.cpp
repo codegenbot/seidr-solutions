@@ -1,19 +1,13 @@
 string encode(string message){
-    for(int i=0; i<message.length(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
-                if(message[i] == 'a' || message[i] == 'e' || message[i] == 'i' || message[i] == 'o' || message[i] == 'u'){
-                    message[i] = toupper((message[i] + 2 - 'a') % 26 + 'a');
-                } else {
-                    message[i] = toupper(message[i]);
-                }
+    transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if(isalpha(c)) {
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
+                return isupper(c) ? toupper(((c - 'A' + 2) % 26) + 'A') : tolower(((c - 'a' + 2) % 26) + 'a');
             } else {
-                if(message[i] == 'A' || message[i] == 'E' || message[i] == 'I' || message[i] == 'O' || message[i] == 'U'){
-                    message[i] = (message[i] + 2 - 'A') % 26 + 'A';
-                }
+                return isupper(c) ? tolower(c) : toupper(c);
             }
-            message[i] = isupper(message[i]) ? tolower(message[i]) : toupper(message[i]);
         }
-    }
+        return c;
+    });
     return message;
 }
