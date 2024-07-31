@@ -23,16 +23,7 @@ bool issame(vector<int> a, vector<int> b) {
     return odd_numbers;
 }
 
-vector<int> get_odd_collatz(int n) {
-    return issame(n);
-}
-
 int main() {
-    int n;
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    for (int num : result) {
-        cout << num << " ";
-    }
+    // Function calls and logic here
     return 0;
 }
