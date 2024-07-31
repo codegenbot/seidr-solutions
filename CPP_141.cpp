@@ -1,7 +1,9 @@
 string file_name_check(string file_name) {
     if (file_name.empty()) return "No";
+    
     int dotIndex = file_name.find(".");
     if (dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length() - 1) return "No";
+    
     string beforeDot = file_name.substr(0, dotIndex);
     string afterDot = file_name.substr(dotIndex + 1);
 
