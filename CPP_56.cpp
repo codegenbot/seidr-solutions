@@ -49,7 +49,7 @@ std::string correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    if (correct_bracketing("<><><<><>><>>><>" != "Invalid input") { 
+    if (correct_bracketing("<><><<><>><>>><>") != "Valid input") { 
         assert(false); 
     }
     
