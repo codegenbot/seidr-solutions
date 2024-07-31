@@ -1,8 +1,15 @@
+#include <iostream>
 #include <cmath>
 
 int closest_integer(std::string value) {
     double num = std::stod(value);
     int lower = std::floor(num);
     int upper = std::ceil(num);
-    return (num - lower < upper - num) ? lower : upper;
+    return std::abs(num - lower) < std::abs(num - upper) ? lower : upper;
+}
+
+int main() {
+    assert (closest_integer("0") == 0);
+    // Add more test cases here if needed
+    return 0;
 }
