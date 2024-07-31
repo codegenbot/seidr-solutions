@@ -1,5 +1,14 @@
 ```
-def simplify(x, n):
+import math
+
+
+def simplify():
+    if x.count('/') != 2 or n.count('/') != 2:
+        return False
+
+    x = input("Enter a fraction (e.g., 1/2): ")
+    n = input("Enter another fraction: ")
+
     x_parts = list(map(int, [0] + x.split("/")[1:]))
     n_parts = list(map(int, [0] + n.split("/")[1:]))
 
@@ -9,3 +18,6 @@ def simplify(x, n):
         return True
     else:
         return False
+
+
+print(simplify())
