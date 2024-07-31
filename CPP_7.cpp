@@ -35,7 +35,7 @@ int main() {
     std::getline(std::cin, substring);
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
-
+    
     if (issame(strings, result1)) {
         for (const auto& s : strings) {
             std::cout << s << std::endl;
