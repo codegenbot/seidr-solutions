@@ -1,12 +1,13 @@
+```
 #include <vector>
 #include <algorithm>
 
 using namespace std;
-typedef int size_type;
+typedef long size_type;
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    std::vector<std::vector<size_type>> dp(n+1, std::vector<size_type>(n+1));
+    vector<vector<size_type>> dp(n+1, vector<size_type>(n+1));
 
     for (int i = 0; i <= n; i++) {
         dp[i][i] = 0;
@@ -19,13 +20,13 @@ int smallest_change(std::vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i+1][j-1].size();
             } else {
-                std::vector<size_type> options;
+                vector<size_type> options;
                 for(int k = 0; k < 3; k++) {
                     options.push_back(dp[i+1][j].size() + (k == 0));
                     options.push_back(dp[i][j-1].size() + (k == 1));
                     options.push_back(dp[i+1][j-1].size() + 2);
                 }
-                dp[i][j] = *std::min_element(options.begin(), options.end());
+                dp[i][j] = *min_element(options.begin(), options.end());
             }
         }
     }
