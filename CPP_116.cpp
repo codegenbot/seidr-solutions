@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Include the <cassert> header
+
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) { // Update function signature
     return a == b;
 }
 
@@ -22,8 +23,8 @@ vector<int> sort_array(const vector<int>& arr) {
     return sorted_arr;
 }
 
-int main() {
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+int main() { // Changed function name to 'main'
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32})); // Updated the function call
     cout << "Test passed!" << endl;
     return 0;
 }
