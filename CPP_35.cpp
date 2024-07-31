@@ -5,10 +5,10 @@
 
 void readInput(std::vector<int>& input) {
     std::cout << "Enter the number of elements: ";
-    unsigned long n;
+    size_t n;
     std::cin >> n;
 
-    input.resize(n, 0);
+    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
