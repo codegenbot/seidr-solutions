@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 int solve(vector<int> lst) {
@@ -21,12 +23,18 @@ int main() {
     
     for (char c : str) {
         if (isdigit(c)) {
-            int num = 0;
-            while (c != ' ' && isdigit(c)) { 
-                num = num * 10 + c - '0';
-                c = next(c, str.length());
+            try {
+                int num =stoi(string(1,c));  // This will work for single-digit integers
+                if(num != 0)
+                    lst.push_back(num);
+                else {
+                    cout << "Invalid input. Please enter numbers only." << endl;
+                    return 1; 
+                }
+            } catch(invalid_argument& e) {
+                cout << "Invalid input. Please enter numbers only." << endl;
+                return 1; 
             }
-            lst.push_back(num);
         } else {
             break; 
         }
