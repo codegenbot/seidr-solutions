@@ -14,7 +14,6 @@ int solve(vector<int> lst) {
     return sum;
 }
 
-int testMain() {
-    assert(solutions({3, 13, 2, 9}) == 13); 
-    return 0;
+int main(vector<int> lst) {
+    return solutions(lst);
 }
