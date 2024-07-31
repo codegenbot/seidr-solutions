@@ -17,10 +17,10 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
-    return result;
+    return result; 
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), std::vector<int>{1}));
     return 0;
 }
