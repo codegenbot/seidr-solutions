@@ -1,4 +1,4 @@
-```python
+```
 def solution(n):
     count = 0
     max_sum = 0
