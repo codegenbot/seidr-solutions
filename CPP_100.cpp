@@ -1,11 +1,9 @@
 #include <vector>
 
-bool issame(std::vector<int> vec1, std::vector<int> vec2){
-    return (vec1 == vec2);
-}
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> stones;
+vector<int> make_a_pile(int n) {
+    vector<int> stones;
     stones.push_back(n);
     for (int i = 1; i < n; i++) {
         if (n % 2 == 0) {
@@ -16,4 +14,21 @@ std::vector<int> make_a_pile(int n) {
         stones.push_back(n);
     }
     return stones;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // Test the functions here
+    return 0;
 }
