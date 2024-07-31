@@ -1,15 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonant_count = 0;
 
     for (char c : s) {
@@ -32,4 +39,10 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    
+    return 0;
 }
