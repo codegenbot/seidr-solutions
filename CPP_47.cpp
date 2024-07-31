@@ -1,10 +1,6 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
-#include <iostream>
-#include <initializer_list>
-#include <memory>
-#include <type_traits>
 
 int main() {
     std::vector<int> numbers;
