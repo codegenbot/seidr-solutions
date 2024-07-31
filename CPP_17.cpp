@@ -2,12 +2,12 @@
 #include <string>
 #include <cassert>
 
-vector<int> parse_music(std::string music_string);
+std::vector<int> parse_music(std::string music_string);
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> parse_music(std::string music_string) {
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     for (int i = 0; i < music_string.size(); ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
@@ -24,7 +24,7 @@ vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -37,10 +37,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    std::string result = "";
-    for (const auto &element : parse_music("o| .| o| .| o o| o o|")) {
-        result += std::to_string(element) + " ";
+    std::vector<int> result = parse_music("o| .| o| .| o o| o o|");
+    std::string result_str;
+    for (int val : result) {
+        result_str += std::to_string(val) + " ";
     }
-    
-    assert(result == "2 1 2 1 4 2 4 2");
+    assert(result_str == "2 1 2 1 4 2 4 2");
 }
