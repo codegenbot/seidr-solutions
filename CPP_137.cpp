@@ -15,6 +15,6 @@ int main() {
     using std::string; // Declare std::string explicitly
 
     assert(compare_one(string("1"), std::to_string(1)).empty());
-    
+
     return 0;
 }
