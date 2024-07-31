@@ -9,7 +9,7 @@ map<char, int> histogram(string test) {
     }
 
     auto maxLetter = *std::max_element(result.begin(), result.end(),
-                                        [](const auto& a, const auto& b) { return a.second < b.second; });
+                                       [](const auto& a, const auto& b) { return a.second < b.second; });
     int maxCount = result[maxLetter];
 
     map<char, int> maxResult;
