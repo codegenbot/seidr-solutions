@@ -1,9 +1,8 @@
-```python
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    return ' '.join(map(str, strings))
+    return " ".join(map(str, strings))
 
 
 while True:
