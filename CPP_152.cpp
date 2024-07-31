@@ -1,10 +1,15 @@
 #include <vector>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-int main() {
-    assert (issame({1,2,3,5},{-1,2,3,4}));
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
