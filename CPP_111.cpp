@@ -1,11 +1,10 @@
 #include <map>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
-bool are_equal(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool are_same(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
@@ -35,9 +34,9 @@ std::map<char, int> histogram(const std::string& test) {
 
 int main() {
     // Test cases for histogram function
-    assert(are_equal(histogram("a"), std::map<char, int>{{'a', 1}}));
-    assert(are_equal(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
-    assert(are_equal(histogram(""), std::map<char, int>{})); // Empty string case
+    assert(are_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(are_same(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
+    assert(are_same(histogram(""), std::map<char, int>{})); // Empty string case
 
     return 0;
 }
