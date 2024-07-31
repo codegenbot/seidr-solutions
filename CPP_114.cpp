@@ -1,3 +1,4 @@
+```
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
     long long current_sum = 0;
@@ -19,3 +20,4 @@ int main() {
     vector<long long> nums = {1, -1};
     cout << "Min sub array sum: " << minSubArraySum(nums) << endl;
     return 0;
+}
