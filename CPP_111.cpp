@@ -1,23 +1,27 @@
+Here is the completed code:
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
+    string str = test + " ";
     int maxCount = 0;
-    for (char c : test) {
+
+    for (char c : str) {
         if (c != ' ') {
-            if (result.find(c) == result.end())
+            if (result.find(c) == result.end()) {
                 result[c] = 1;
-            else
+            } else {
                 result[c]++;
-            maxCount = max(maxCount, result[c]);
+            }
+            if (result[c] > maxCount)
+                maxCount = result[c];
         }
     }
 
-    map<char, int> finalResult;
-    for (auto& pair : result) {
-        if (pair.second == maxCount)
-            finalResult[pair.first] = pair.second;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second == maxCount) {
+            cout << "{" << it->first << ", " << it->second << "}" << endl;
+        }
     }
 
-    return finalResult;
+    return result;
 }
