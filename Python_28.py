@@ -1,10 +1,7 @@
 ```
+import re
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    while True:
-        user_input = input("Enter the strings separated by spaces: ")
-        try:
-            return ''.join([s.strip() for s in user_input.split()])
-        except ValueError:
-            print("Invalid input. Please enter space-separated strings.")
+    user_input = input("Enter the strings: ")
+    return ''.join([s.strip() for s in re.split(r'\W+', user_input)])
