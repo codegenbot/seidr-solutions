@@ -1,12 +1,13 @@
-vector<int> cnt = {n >= 1, n >= 2}; // For 1 and 2
-    for (int m = 1; m < 1000; m++) {
-        string s = to_string(m);
-        for (int i = s.size() - 2; i >= 0; i--)
-            s += s[i];
-        int x = stoi(s);
-        if (x > n)
-            break;
-        cnt[x % 2]++;
-    }
-    return cnt;
-}
+vector<int> countEvenOddPalindromes(int n) {
+            vector<int> res(2, 0);
+            for (int i = 1; i <= n; ++i) {
+                string num = to_string(i);
+                string rev = num;
+                reverse(rev.begin(), rev.end());
+                if (num == rev) {
+                    if (i % 2 == 0) res[0]++;
+                    else res[1]++;
+                }
+            }
+            return res;
+        }
