@@ -1,20 +1,8 @@
-bool issame(vector<string> vect1, vector<string> vect2) {
-    if (vect1.size() != vect2.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < vect1.size(); ++i) {
-        if (vect1[i] != vect2[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
 }
 
-bool select_words(string s, int n);
-
-vector<string> select_words(string s, int n) {
+bool select_words(string s, int n) {
     vector<string> result;
     string word;
     int consonantCount = 0;
@@ -39,5 +27,5 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     
-    return result;
+    return !result.empty();
 }
