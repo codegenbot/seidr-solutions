@@ -2,12 +2,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+std::std::vector<int> get_odd_collatz(int n) {
+    std::std::vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
