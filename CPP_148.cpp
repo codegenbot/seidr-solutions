@@ -42,6 +42,5 @@ vector<string> between(string planet1, string planet2) {
 }
 
 int main() {
-    // assert(between("Jupiter", "Makemake") == vector<string>{});
     return 0;
 }
