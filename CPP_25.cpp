@@ -9,7 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    for (int i = 2; num > 1; ++i) {
+    for (int i = 2; i <= num; ++i) {
         while (num % i == 0) {
             factors.push_back(i);
             num /= i;
@@ -23,7 +23,7 @@ int main() {
     std::cout << "Enter a number to factorize: ";
     std::cin >> num;
 
-    assert(issame(factorize(num), {2, 3, 3}));
+    assert(issame(factorize(num), std::vector<int>{2, 3, 3}));
 
     return 0;
 }
