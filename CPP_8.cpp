@@ -11,13 +11,21 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     return {sum, product};
 }
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
     std::pair<int, int> sum_product_result = sum_product({10});
-    assert(issame(sum_product_result, {10, 10}));
+    assert(issame(std::vector<int>{sum_product_result.first, sum_product_result.second}, {10, 10}));
 
     return 0;
 }
