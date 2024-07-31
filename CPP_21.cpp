@@ -1,3 +1,1 @@
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
+vector<float> issame(vector<float> a, vector<float> b){
