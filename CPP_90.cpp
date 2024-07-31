@@ -2,12 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-int next_smallest(vector<int> lst){
+int next_smallest(std::vector<int> lst){
     if(lst.size() < 2) {
         return -1;
     }
     
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     
     int smallest = lst[0];
     for(int num : lst) {
