@@ -1,13 +1,13 @@
-string str = to_string(x);
-    int n = str.size();
+string num_str = to_string(x);
+    int n = num_str.size();
     shift %= n;
     if (shift == 0) {
-        return str;
+        return num_str;
     }
-    if (shift > n) {
-        reverse(str.begin(), str.end());
-        return str;
+    if (shift > n / 2) {
+        reverse(num_str.begin(), num_str.end());
+    } else {
+        rotate(num_str.rbegin(), num_str.rbegin() + shift, num_str.rend());
     }
-    string shifted = str.substr(n - shift) + str.substr(0, n - shift);
-    return shifted;
+    return num_str;
 }
