@@ -23,18 +23,14 @@ int main() {
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
-                num <= std::numeric_limits<int>::max())) {
+                num <= std::numeric_limits<int>::max() / sizeof(int))) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
+                      << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max() / sizeof(int)
                       << ": ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        if(i > 0) {
-            input.push_back(num);
-        } else {
-            input.emplace_back(num); 
-        }
+        input.push_back(num);
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
     return 0;
