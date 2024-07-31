@@ -11,7 +11,7 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>::issame(a, b);
+    return std::vector<int>::operator==(a, b);
 }
 
 int main() {
