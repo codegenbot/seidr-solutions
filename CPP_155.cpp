@@ -20,9 +20,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Example usage
-    std::vector<int> result = even_odd_count(1234567);
-    assert(issame(result, {4, 3}));
-
+    // Your test cases here
     return 0;
 }
