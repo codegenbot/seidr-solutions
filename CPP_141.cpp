@@ -28,6 +28,6 @@ std::string file_name_check(const std::string& file_name) {
 }
 
 int main() {
-    // Add test cases to verify the function
+    // Test the function here if needed
     return 0;
 }
