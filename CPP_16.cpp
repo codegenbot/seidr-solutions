@@ -6,9 +6,9 @@
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
+    std::cin >> str;
     while (std::cin.peek() == '\n') 
         std::cin.ignore();
-    std::getline(std::cin, str);
     int result = count_distinct_characters(str);
     return 0;
 }
