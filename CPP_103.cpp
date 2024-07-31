@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
@@ -8,9 +9,8 @@ string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    avg = floor(avg + 0.5); 
+    int intAvg = static_cast<int>(floor(avg + 0.5)); // round and convert to int
     string res = "";
-    int intAvg = static_cast<int>(avg);
     while(intAvg > 0){
         if(intAvg & 1) res.push_back('1');
         else res.push_back('0');
