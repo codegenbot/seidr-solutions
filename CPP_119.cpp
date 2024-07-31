@@ -1,11 +1,4 @@
 ```cpp
-#include <cassert>
-#include <string>
-#include <vector>
-#include <ostream>
-
-using namespace std;
-
 bool match_parens(const vector<string>& lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
@@ -18,10 +11,9 @@ bool match_parens(const vector<string>& lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == 1);
-    string openPAREN = "(";
-    string closePAREN = ")";
-    vector<char> lst = {openPAREN[0], closePAREN[0]};
-    cout << boolalpha << match_parens({{&openPAREN[0], &closePAREN[0]}}) << std::endl;
+    assert(match_parens({{"("}, {")"}}) == true);
+    vector<string> lst = {{"("}, {")"}};
+    bool result = match_parens(lst);
+    cout << boolalpha << result << std::endl;
     return 0;
 }
