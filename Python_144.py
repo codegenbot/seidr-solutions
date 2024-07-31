@@ -1,16 +1,13 @@
 ```
-import math
-
-
 def simplify():
-    x = input("Enter a fraction (e.g., 1/2): ").split("/")
-    n = input("Enter another fraction: ").split("/")
+    x = input("Enter a fraction (e.g., 1/2): ")
+    n = input("Enter another fraction: ")
 
-    if len(x) != 2 or len(n) != 2:
+    if x.count('/') != 2 or n.count('/') != 2:
         return False
 
-    x_parts = [int(i) for i in x]
-    n_parts = [int(i) for i in n]
+    x_parts = list(map(int, [0] + x.split("/")[1:]))
+    n_parts = list(map(int, [0] + n.split("/")[1:]))
 
     if (x_parts[0] * n_parts[1]) % math.gcd(n_parts[1], x_parts[1]) == 0 and (
         n_parts[0] * x_parts[1]
