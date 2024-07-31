@@ -29,6 +29,6 @@ vector<int> order_by_points(const vector<int>& nums) {
 int main() {
     vector<int> input = {0, 6, 6, -76, -21, 23, 4};
     vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
-    assert(order_by_points(input) == expected);
+    assert(equal(order_by_points(input).begin(), order_by_points(input).end(), expected.begin(), expected.end()));
     return 0;
 }
