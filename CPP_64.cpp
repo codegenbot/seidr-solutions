@@ -1,7 +1,5 @@
 ```cpp
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 int vowels_count(string s) {
@@ -12,14 +10,5 @@ int vowels_count(string s) {
             count++;
         }
     }
-    return count;
-}
-
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    int count = vowels_count(s);
     cout << "Number of vowels: " << count << endl;
-    return 0;
 }
