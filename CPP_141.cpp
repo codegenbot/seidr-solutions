@@ -1,26 +1,35 @@
-int count_digits = 0;
-    int dot_position = file_name.find(".");
-    
-    if (dot_position == string::npos || dot_position == 0 || dot_position == file_name.length() - 1) {
-        return "No";
-    }
+int digitCount = 0;
+    int dotCount = 0;
+    int dotIndex = -1;
+    string validExtensions[] = {"txt", "exe", "dll"};
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count_digits++;
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            digitCount++;
+        } else if (file_name[i] == '.') {
+            dotCount++;
+            dotIndex = i;
         }
     }
 
-    if (count_digits > 3) {
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
         return "No";
     }
 
-    string file_extension = file_name.substr(dot_position + 1);
-    if (file_extension != "txt" && file_extension != "exe" && file_extension != "dll") {
+    string extension = file_name.substr(dotIndex + 1);
+    bool validExtension = false;
+    for (int i = 0; i < 3; i++) {
+        if (extension == validExtensions[i]) {
+            validExtension = true;
+            break;
+        }
+    }
+
+    if (!validExtension) {
         return "No";
     }
 
-    if (!isalpha(file_name[0])) {
+    if ((file_name[0] < 'a' || file_name[0] > 'z') && (file_name[0] < 'A' || file_name[0] > 'Z')) {
         return "No";
     }
 
