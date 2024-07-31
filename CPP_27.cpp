@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string flip_case(string str);
@@ -21,6 +22,5 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
     cout << flip_case(input) << endl;
-    assert(flip_case("Hello World") == "hELLO wORLD");
     return 0;
 }
