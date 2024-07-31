@@ -1,7 +1,7 @@
 #include <cstring>
 
 int findStringLength(const std::string& str) {
-    return strlen(str.c_str());
+    return std::strlen(str.c_str());
 }
 
 int main() {
