@@ -1,11 +1,15 @@
-vector<int> result = {0, 0};
-    string numStr = to_string(abs(num));
-    for (char c : numStr) {
-        if (c % 2 == 0) {
-            result[0]++;
+int numDigits = log10(abs(num)) + 1;
+    int evenCount = 0, oddCount = 0;
+    
+    while (num != 0) {
+        int digit = num % 10;
+        if (digit % 2 == 0) {
+            evenCount++;
         } else {
-            result[1]++;
+            oddCount++;
         }
+        num /= 10;
     }
-    return result;
+    
+    return {evenCount, oddCount};
 }
