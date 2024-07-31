@@ -1,16 +1,13 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool same_chars(const string& s0, const string& s1) {
-    string str1 = string(s0);
-    string str2 = string(s1);
+bool same_chars(const char* s0, const char* s1) {
+    std::string str0(s0);
+    std::string str1(s1);
+    sort(str0.begin(), str0.end());
     sort(str1.begin(), str1.end());
-    sort(str2.begin(), str2.end());
-    return str1 == str2;
+    return str0 == str1;
 }
 
 int main() {
