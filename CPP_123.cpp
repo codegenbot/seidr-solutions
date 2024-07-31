@@ -1,4 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -14,7 +18,9 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> get_odd_collatz(int n);
+vector<int> get_odd_collatz(int n) {
+    // Implement this function according to the problem description
+}
 
 int main() {
     int n;
