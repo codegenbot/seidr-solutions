@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <cctype>
 #include <cassert>
-#include <string> // Added include for string
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Added std:: to specify the namespace
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -28,10 +28,10 @@ std::vector<std::string> split_words(std::string txt) {
         result.push_back(word);
     }
     
-    if (result.size() == 1 && !isalpha(result[0][0])) {
+    if (result.size() == 1 && !std::isalpha(result[0][0])) {
         int count = 0;
         for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
