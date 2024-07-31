@@ -1,18 +1,16 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
-        }
+std::vector<int> sort_third(std::vector<int> l) {
+    for (int i = 0; i < l.size(); i += 3) {
+        std::sort(l.begin() + i, l.begin() + std::min(i + 3, static_cast<int>(l.size())));
     }
-    return l_copy;
+    return l;
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 4, 8, 9, 3, 1}));
+    assert(sort_third({5, 6, 3, 4, 8, 9, 2, 1}) == std::vector<int>({2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
