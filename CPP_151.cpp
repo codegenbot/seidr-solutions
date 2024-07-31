@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,11 +22,14 @@ int main() {
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
-        do {
+        while (true) {
             cin >> num;
-        } while (!(cin));
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            if (cin.fail()) {
+                cout << "Invalid input. Please enter an integer: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else break;
+        }
         lst.push_back(num);
     }
 
