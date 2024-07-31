@@ -13,11 +13,11 @@ std::string myString(std::string str) {
             result += c;
         }
     }
-    return result;  // Return the calculated string
+    return result;  
 }
 
 int main() {
     assert(myString("These violent delights have violent ends") == "these violent delights have violent ends");
-    std::cout << myString("Hello World!") << std::endl; 
+    std::cout << "Hello World"; 
     return 0;
 }
