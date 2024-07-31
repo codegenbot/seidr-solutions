@@ -2,8 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
-
+bool issame(std::vector<float> a, std::vector<float> b);
 void sort_even(const std::vector<float>& l);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -34,7 +33,7 @@ void sort_even(const std::vector<float>& l) {
            result.push_back(l[i]);
        }
    }
-
+   
    // Return result if needed; Or modify the provided vector directly
 }
 
