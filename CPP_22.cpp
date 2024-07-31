@@ -1,24 +1,21 @@
-#include <iostream>
-using namespace std;
+#include <vector>
+
+bool issame(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] != arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int filter_integers(int arr[], int n) {
     for (int i = 0; i < n; i++) {
-        if (!isdigit(arr[i])) {
+        if (!std::is_integer(arr[i]).is_always()) {
             return -1;
         }
     }
     return 1;
-}
-
-bool issame(int a[], int b[], int n) {
-    bool same = true;
-    for (int i = 0; i < n; i++) {
-        if (a[i] != b[i]) {
-            same = false;
-            break;
-        }
-    }
-    return same;
 }
 
 int main() {
@@ -27,8 +24,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    if (filter_integers(arr, n) == 1) {
-        assert(issame(arr, arr, n));
+    if (filter_integers(arr, n) == -1) {
+        cout << "Error: The array must only contain integers." << endl;
+    } else {
+        assert(issame(arr, n));
     }
     return 0;
 }
