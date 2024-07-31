@@ -24,8 +24,8 @@ int program() {
     if(input.size() == 0) {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
-        auto max_element = *std::max_element(input.begin(), input.end());
-        std::cout << "Maximum element is: " << max_element << std::endl;
+        auto maxElement = *std::max_element(input.begin(), input.end()); // Add std namespace
+        std::cout << "Maximum element is: " << maxElement << std::endl;
     }
 
     return 0;
