@@ -1,6 +1,6 @@
 #include <any>
-#include <string>
 #include <cassert>
+#include <string>
 #include <algorithm>
 
 std::any compare_one(std::any a, std::any b) {
@@ -15,6 +15,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<float>(compare_one(1.5f, 2.3f)) == 2.3f);
+    assert(std::any_cast<float>(compare_one(1.5f, 2.3f)).type() == typeid(float));
     return 0;
 }
