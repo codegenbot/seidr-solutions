@@ -26,9 +26,9 @@ int prod_signs(const std::vector<int>& arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-    assert(prod_signs({-2, 3, -4, 5}) == -10);
+    assert(prod_signs({-2, -3, 4, 5}) == -10);
     assert(prod_signs({1, 2, 3, 4}) == 10);
-    assert(prod_signs({-1, -2, -3, -4}) == 10);
+    assert(prod_signs({-1, -2, -3, -4}) == -10);
 
     return 0;
 }
