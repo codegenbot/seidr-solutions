@@ -4,11 +4,11 @@
 
 using namespace std;
 
-vector<int> remove_duplicates(const vector<int>& numbers) {
+vector<int> remove_duplicates(const vector<int>& numbers) { 
     sort(numbers.begin(), numbers.end());
     vector<int> result = numbers;
     result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
+    return result; 
 } 
 
 bool issame(const vector<int>& a, const vector<int>& b){
