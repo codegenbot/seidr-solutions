@@ -3,7 +3,6 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::map<std::string, int> num_map = {
     {"zero", 0},
@@ -21,7 +20,9 @@ std::map<std::string, int> num_map = {
 std::string sort_numbers(std::string numbers);
 
 int main() {
-    // Add any necessary code for testing or calling the sort_numbers function
+    std::string input_numbers = "one three eight four two";
+    std::string sorted_numbers = sort_numbers(input_numbers);
+    // Display or use the sorted numbers as needed
 }
 
 std::string sort_numbers(std::string numbers){
