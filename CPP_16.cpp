@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <set>
@@ -5,9 +6,7 @@
 int countDistinctCharacters(const std::string& str) {
     std::set<char> distinctChars;
     for (char c : str) {
-        if(std::isalpha(c)) {
-            distinctChars.insert(std::tolower(c));
-        }
+        distinctChars.insert(c);
     }
     return distinctChars.size();
 }
