@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(sum(int(i) for i in str(N)))
+    return bin(sum(int(b) for b in format(N, 'b')))[2:]
