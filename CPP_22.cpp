@@ -26,6 +26,6 @@ bool areEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(areEqual(filter_integers({3, std::any(3), 3}), {3})); 
+    assert(areEqual(filter_integers({3, std::any(3), 3}), {3, 3, 3}));
     return 0;
 }
