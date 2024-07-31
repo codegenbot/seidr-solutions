@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+#include <set>
 
 bool issame(vector<int> a, vector<int> b){
     sort(a.begin(), a.end());
@@ -7,18 +9,13 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> unique_digits(vector<int> x){
-    vector<int> unique;
+    std::set<int> uniqueSet;
     for (int num : x) {
-        int temp = num;
-        bool seen[10] = {0};
-        while (temp > 0) {
-            int digit = temp % 10;
-            if (!seen[digit]) {
-                unique.push_back(num);
-                seen[digit] = true;
-            }
-            temp /= 10;
+        while (num > 0) {
+            uniqueSet.insert(num % 10);
+            num /= 10;
         }
     }
-    return unique;
+    vector<int> uniqueDigits(uniqueSet.begin(), uniqueSet.end());
+    return uniqueDigits;
 }
