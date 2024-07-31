@@ -28,14 +28,14 @@ int main() {
     std::vector<std::string> strings;
     std::string s;
     for (int i = 0; i < n; ++i) {
-        while(getline(std::cin, s).good()) {
-            s.erase(0, s.find_first_not_of('\n')); // remove leading whitespace
-            strings.push_back(s);
-        }
+        std::getline(std::cin, s); 
+        strings.push_back(s);
     }
 
     std::string substring;
-    getline(std::cin, substring);
+    std::getline(std::cin, substring);
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     auto result1 = filter_by_substring(strings, substring);
 
