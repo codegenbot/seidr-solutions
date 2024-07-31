@@ -1,6 +1,8 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
