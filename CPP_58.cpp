@@ -1,62 +1,61 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool isSame(const std::vector<int>& a, const std::vector<int>& b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    int n; cin >> n;
+    int n; std::cin >> n;
 
-    vector<vector<int>> v(n);
+    std::vector<std::vector<int>> v(n);
 
     for(int i=0; i<n; i++) {
-        int m; cin >> m;
+        int m; std::cin >> m;
 
         v[i].resize(m);
 
         for(int j=0; j<m; j++) {
-            cin >> v[i][j];
+            std::cin >> v[i][j];
         }
     }
 
     if(v.size() > 1) {
         bool same = true;
         for(int i=2; i<v.size(); i++) {
-            same &= issame(v[0], v[i]);
+            same &= isSame(v[0], v[i]);
         }
 
         if(same) {
-            vector<int> commonList;
+            std::vector<int> common;
 
             for(int i=0; i<v[0].size(); i++) {
                 bool found = true;
 
                 for(int j=1; j<v.size(); j++) {
-                    if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                    if(std::find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
                         found = false;
                         break;
                     }
                 }
 
                 if(found) {
-                    commonList.push_back(v[0][i]);
+                    common.push_back(v[0][i]);
                 }
             }
 
-            cout << "Common elements: ";
-            for(int i=0; i<commonList.size(); i++) {
-                cout << commonList[i] << " ";
+            std::cout << "Common elements: ";
+            for(int i=0; i<common.size(); i++) {
+                std::cout << common[i] << " ";
             }
-            cout << endl;
+            std::cout << std::endl;
         } else {
-            cout << "No common elements." << endl;
+            std::cout << "No common elements." << std::endl;
         }
     } 
     else { 
-        cout << "At least two lists required to find common elements." << endl; 
+        std::cout << "At least two lists required to find common elements." << std::endl; 
     } 
 
     return 0;
