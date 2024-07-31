@@ -8,5 +8,4 @@ def make_palindrome(string: str) -> str:
     for i in range(len(string)):
         postfix = string[i:]
         if is_palindrome(postfix):
-            prefix = string[:i]
-            return prefix + postfix + postfix[::-1]
+            return string + postfix[::-1]
