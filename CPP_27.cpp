@@ -10,14 +10,11 @@ bool flip_case(const std::string& str) {
             result += c;
         }
     }
-    return result;
+    return true;
+
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    bool result = flip_case(str);
-    std::cout << result << "\n";
+    assert(flip_case("These violent delights have violent ends") == "theSE vIOlent dELIGHTS hAVE vIOLENT eNDs");
     return 0;
 }
