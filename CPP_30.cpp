@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::same(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9f) return false;
@@ -18,6 +18,10 @@ std::vector<float> getPositive(const std::vector<float>& input) {
         }
     }
     return positive;
+}
+
+int main() {
+    printResult();
 }
 
 void printResult() {
@@ -39,8 +43,4 @@ void printResult() {
     if (input.empty()) {
         std::cout << "No input provided. Please enter some numbers!" << std::endl;
     }
-}
-
-int main() {
-    printResult();
 }
