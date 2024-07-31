@@ -3,8 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, int b){
-    if (a.size() != 1) return false;
-    return a[0] == b;
+    return std::count(a.begin(), a.end(), b) > 0;
 }
 
 std::vector<int> unique_digits(std::vector<int> x){
