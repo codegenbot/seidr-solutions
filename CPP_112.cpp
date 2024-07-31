@@ -2,7 +2,9 @@
 #include <string>
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
+}
 
 pair<string,bool> reverse_delete(string s1, string s2) {
     int i=0,j=s2.size()-1;
