@@ -1,4 +1,9 @@
-bool issame(const string& s1, const string& s2) {
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+bool issame(const string &s1, const string &s2) {
     return s1 == s2;
 }
 
@@ -6,15 +11,12 @@ vector<string> separate_paren_groups(string paren_string);
 
 int main() {
     string input;
-    getline(cin, input);
+    cin >> input;
 
-    vector<string> groups = separate_paren_groups(input);
+    vector<string> result = separate_paren_groups(input);
 
-    sort(groups.begin(), groups.end());
-    groups.erase(unique(groups.begin(), groups.end(), issame), groups.end());
-
-    for (const string& group : groups) {
-        cout << group << endl;
+    for (string group : result) {
+        cout << group << "\n";
     }
 
     return 0;
