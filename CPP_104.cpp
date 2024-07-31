@@ -1,4 +1,8 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -19,4 +23,14 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) return false;
+    return equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    // Test your functions here
+    return 0;
 }
