@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cmath>
-#include <cassert>
+#include <cassert> 
+
+using namespace std;
 
 double calculate_mad(const vector<double>& values) {
     double mean = accumulate(values.begin(), values.end(), 0.0) / values.size();
@@ -17,8 +18,6 @@ double calculate_mad(const vector<double>& values) {
 
 int main() {
     assert(abs(calculate_mad(vector<double>{1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0) < 1e-4);
-
-    using namespace std;
 
     return 0;
 }
