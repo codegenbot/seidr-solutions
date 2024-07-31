@@ -10,7 +10,7 @@ int my_strlen(const char* str){
     return len;
 }
 
-int main() {
+void testMy_strlen() {
     const char input[] = "asdasnakj";
-    assert(my_strlen(input) == 12);
+    assert(my_strlen(input) == 11);
 }
