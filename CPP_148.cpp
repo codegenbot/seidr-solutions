@@ -1,10 +1,6 @@
 #include <vector>
 using namespace std;
 
-bool issame(vector<string> vec1, vector<string> vec2) {
-    return vec1 == vec2;
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
