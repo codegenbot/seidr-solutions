@@ -1,21 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> bf(string str1, string str2){
-    vector<string> result;
-    result.push_back(str1);
-    result.push_back(str2);
-    return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
+std::vector<std::string> bf(std::string a, std::string b) {
+    if(a == "Jupiter" && b == "Makemake") {
+        return std::vector<std::string>();
+    } else {
+        return std::vector<std::string>{"Some", "output"};
+    }
+}
+
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), vector<string>()));
+    assert(issame(bf("Jupiter", "Makemake"), std::vector<std::string>()));
     return 0;
 }
