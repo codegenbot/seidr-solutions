@@ -1,4 +1,4 @@
-int main() {
-    // Existing code inside the main function remains the same
+int main {
+    // Your code here
     return 0;
 }
