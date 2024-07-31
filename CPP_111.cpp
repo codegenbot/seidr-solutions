@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool is_same(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool are_same(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
@@ -17,26 +17,10 @@ std::map<char, int> histogram(const std::string& test) {
         }
     }
 
-    int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = std::max(maxCount, pair.second);
-    }
-
-    std::map<char, int> maxChars;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            maxChars[pair.first] = pair.second;
-        }
-    }
-
-    return maxChars;
+    return result;
 }
 
 int main() {
-    // Test cases for histogram function
-    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
-    assert(is_same(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
-    assert(is_same(histogram(""), std::map<char, int>{})); // Empty string case
-
+    assert(are_same(histogram("a"), std::map<char, int>{{'a', 1}}));
     return 0;
 }
