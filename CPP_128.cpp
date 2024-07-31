@@ -1,17 +1,14 @@
-```c++
 #include <vector>
-#include <algorithm>
+#include <iostream>
+#include <ostream>
 
 int prod_signs(const std::vector<int>& arr) {
-    int sign = 1;
-    for (int num : arr) {
-        if (num > 0) {
-            sign *= 1;
-        } else if (num < 0) {
-            sign *= -1;
-        }
+    int product = 1;
+    for (int x : arr) {
+        if (x == 0) return 0; 
+        product *= (x > 0 ? 1 : -1);
     }
-    return sign;
+    return product;
 }
 
 int main() {
