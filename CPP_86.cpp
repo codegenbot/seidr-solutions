@@ -6,10 +6,10 @@ const char* anti_shuffle(const std::string str) {
     std::string result = "";
     int i = str.length() - 1;
     while (i >= 0) {
-        int j = i;
-        for (; j >= 0 && str[j] == str[i]; --j)
-            --i;
-        result += str.substr(j + 1, i - j) + str[i];
+        if(i > 0 && str[i] == str[i-1]) {
+            result += str.substr(0, i+1);
+            return result.c_str();
+        }
         --i;
     }
     return result.c_str();

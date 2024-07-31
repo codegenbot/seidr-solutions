@@ -1,4 +1,3 @@
-```
 #include <cctype>
 #include <algorithm>
 #include <iostream>
@@ -14,4 +13,13 @@ int hex_key(std::string s) {
     }
     return result;
 
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    int output = hex_key(input);
+    std::cout << "The number of alphanumeric characters is: " << output << std::endl;
+    return 0;
 }
