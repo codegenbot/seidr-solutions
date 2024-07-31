@@ -1,18 +1,21 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
+int count(const std::vector<int>& vec, int value) {
+    int count = 0;
+    for (int i : vec) {
+        if (i == value) {
+            count++;
+        }
+    }
+    return count;
+}
+
 bool is_sorted(const std::vector<int>& lst) {
     for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
+        if (lst[i] >= lst[i + 1] || count(lst, lst[i]) > 1) {
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
-
-    return 0;
 }
