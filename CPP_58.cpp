@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -20,7 +21,9 @@ int main() {
 
     vector<int> res = issame(l1, l2);
 
-    if (res == vector<int>{1, 3, 5}) {
+    if (res == vector<int>()) {
+        cout << "No common elements" << endl;
+    } else {
         for (int num : res) {
             cout << num << " ";
         }
