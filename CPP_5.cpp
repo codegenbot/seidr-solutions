@@ -10,22 +10,16 @@ std::vector<int> intersperse(std::vector<int> vec, int elem) {
     return result;
 }
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        if (a.size() != b.size()) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
-        for (int i = 0; i < a.size(); ++i) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        return true;
     }
+    return true;
 }
 
-int main() {
-    assert(std::issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-
-    return 0;
-}
+assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
