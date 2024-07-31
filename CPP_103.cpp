@@ -1,6 +1,4 @@
-#include <cmath>
-#include <bitset>
-#include <cassert> // Include the <cassert> header for the assert function
+#include <cassert>
 
 std::string function_name(int n, int m) {
     if (n > m) {
