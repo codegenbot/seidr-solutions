@@ -1,8 +1,8 @@
-#include <string>
+#include <cassert>
 
-int filp_case(const std::string& str) {
+int filp_case(const char* str) {
     int result = 0;
-    for (char c : str) {
+    for (char c : std::string(str)) {
         if (c >= 'a' && c <= 'z') {
             result -= (c - 'a' + 1);
         } else if (c >= 'A' && c <= 'Z') {
@@ -10,9 +10,9 @@ int filp_case(const std::string& str) {
         }
     }
     return result;
+
 }
 
 int main() {
-    assert (filp_case(std::string("These violent delights have violent ends")) == std::to_string(filp_case("These violent delights have violent ends")));
-    return 0;
+    assert(filp_case("These violent delights have violent ends") == 0);
 }
