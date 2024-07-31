@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cmath>
 #include <bitset>
 
 std::string function_name(int n, int m) {
