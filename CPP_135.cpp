@@ -5,8 +5,8 @@
 int main() {
     std::vector<std::string> input;
     std::cout << "Enter numbers (space separated): ";
-    for(long long i; std::cin >> i; ) {
-        input.push_back(std::to_string(i));
+    for(std::string i; std::cin >> i; ) {
+        input.push_back(i);
         if(std::cin.peek() == ' ') 
             std::cin.ignore();
         else
