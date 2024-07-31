@@ -1,9 +1,11 @@
-def simplify(x, n):
-    if '/' not in x or '/' not in n:
-        return False
+import math
 
-    x = input(f"Enter a fraction (e.g., 1/2): {x}")
-    n = input(f"Enter another fraction: {n}")
+def simplify():
+    x = input("Enter a fraction (e.g., 1/2): ")
+    n = input("Enter another fraction: ")
+
+    if x.count('/') != 2 or n.count('/') != 2:
+        return False
 
     x_parts = list(map(int, [0] + x.split("/")[1:]))
     n_parts = list(map(int, [0] + n.split("/")[1:]))
@@ -14,3 +16,6 @@ def simplify(x, n):
         return True
     else:
         return False
+
+
+print(simplify())
