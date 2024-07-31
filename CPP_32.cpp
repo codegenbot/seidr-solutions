@@ -1,5 +1,9 @@
-#include <cassert>
+```cpp
+#include <initializer_list>
+#include <cmath>
+#include <vector>
 #include <iostream>
+#include <cassert>
 #include <iomanip>
 
 using namespace std;
@@ -38,5 +42,4 @@ int main() {
     assert(abs(poly(coeffs, solution)) < 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
-
 }
