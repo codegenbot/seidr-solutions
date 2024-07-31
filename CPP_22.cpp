@@ -1,22 +1,23 @@
-#include <iostream>
 #include <vector>
-#include <any>
+#include <algorithm>
+#include <cassert>
+#include <any> 
 
-std::vector<int> filter_integers(const std::vector<std::any>& vec) {
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> filter_integers(const std::vector<std::any>& input){
     std::vector<int> result;
-    for (const auto& elem : vec) {
-        if (elem.type() == typeid(int)) {
-            result.push_back(std::any_cast<int>(elem));
+    for(auto &item : input){
+        if(item.type() == typeid(int)){
+            result.push_back(std::any_cast<int>(item));
         }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+int main(){
+    assert(issame(filter_integers({std::any(3), std::any('c'), std::any(3), std::any(3), std::any('a'), std::any('b')}), {3, 3, 3}));
     return 0;
 }
