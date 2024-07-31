@@ -1,21 +1,23 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
     int idx1 = -1, idx2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
@@ -31,8 +33,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         return result;
     }
 
-    int start = std::min(idx1, idx2) + 1;
-    int end = std::max(idx1, idx2);
+    int start = min(idx1, idx2) + 1;
+    int end = max(idx1, idx2);
 
     for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
@@ -42,6 +44,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    std::vector<std::string> result = bf("Earth", "Uranus");
+    vector<string> result = bf("Mercury", "Mars");
+    // Code to use the result vector goes here
+
     return 0;
 }
