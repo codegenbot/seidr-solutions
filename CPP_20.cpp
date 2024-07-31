@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::pair<float, float> b){
+bool issame(std::vector<float> a, std::pair<float, float> b) {
     return a[0] == b.first && a[1] == b.second;
 }
 
