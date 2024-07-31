@@ -1,24 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-pair<float, float> find_closest_elements(vector<float>& numbers) {
-    sort(numbers.begin(), numbers.end());
-    float min_diff = numbers[1] - numbers[0];
-    pair<float, float> closest_elements = make_pair(numbers[0], numbers[1]);
+pair<float, float> find_closest_elements(const vector<float>& nums) {
+    if (nums.size() < 2) {
+        return make_pair(0.0f, 0.0f);
+    }
 
-    for (int i = 1; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = make_pair(numbers[i], numbers[i + 1]);
+    float diff = numeric_limits<float>::max();
+    pair<float, float> result;
+
+    for (int i = 0; i < nums.size() - 1; ++i) {
+        float current_diff = abs(nums[i] - nums[i + 1]);
+        if (current_diff < diff) {
+            diff = current_diff;
+            result.first = nums[i];
+            result.second = nums[i + 1];
         }
     }
 
-    return closest_elements;
+    return result;
 }
 
 int main() {
