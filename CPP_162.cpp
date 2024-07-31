@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 #include <string>
 #include <openssl/md5.h>
