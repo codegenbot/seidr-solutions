@@ -1,4 +1,5 @@
-```cpp
+using namespace std;
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,6 +25,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(std::issame(parse_nested_parens("(()(())((()))"), std::vector<int>{4}));
+    assert(issame(parse_nested_parens("(()(())((()))"), {4}));
     return 0;
 }
