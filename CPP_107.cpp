@@ -1,3 +1,4 @@
+#include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
@@ -26,4 +27,4 @@ std::pair<int, int> even_odd_palindrome(int n) {
 int main() {
     assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
     return 0;
-}
+} 
