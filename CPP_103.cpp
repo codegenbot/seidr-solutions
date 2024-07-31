@@ -1,7 +1,10 @@
-#include <cmath>
-#include <bitset>
 
-std::string function_name(int n, int m) {
+#include <iostream>
+#include <string>
+#include <bitset>
+#include <cmath>
+
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -9,10 +12,11 @@ std::string function_name(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    int avg = std::round((double)sum / (m - n + 1));
+    int avg = round((double)sum / (m - n + 1));
     return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
 
 int main() {
-    assert (function_name(5, 5) == "101");
+    std::cout << rounded_avg(5, 5) << std::endl;
+    return 0;
 }
