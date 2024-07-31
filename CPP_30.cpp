@@ -1,10 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(vector<float> a, vector<float> b);
-vector<float> get_positive(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,8 +10,8 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
@@ -23,13 +21,13 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    vector<float> input;
+    std::vector<float> input;
     std::cout << "Enter numbers separated by space: ";
     float num;
     while (std::cin >> num) {
         input.push_back(num);
     }
-    vector<float> positive = get_positive(input);
+    std::vector<float> positive = get_positive(input);
     if (issame(positive, input)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
