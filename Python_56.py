@@ -1,10 +1,4 @@
-```
 def correct_bracketing(brackets: str):
-    stack = []
-    for bracket in brackets:
-        if bracket == "<":
-            stack.append("<")
-        elif bracket == ">":
-            if len(stack) == 0 or stack.pop() != "<":
-                return False
-    return len(stack) == 0
+    return brackets.count("<") == brackets.count(">") and all(
+        b1 != b2 for b1, b2 in zip(brackets, brackets[1:] + brackets[:-1])
+    )
