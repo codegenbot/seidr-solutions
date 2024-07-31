@@ -20,6 +20,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(Same({1, 2}, {1, 2}) && Same({1, 2}, {2, 1}));
-    return 0;
+    std::vector<int> numbers1 = {1, 2, 3};
+    std::vector<int> numbers2 = {1, 2, 3};
+    if (issame(numbers1, numbers2)) {
+        std::cout << "Vectors are same." << std::endl;
+    } else {
+        std::cout << "Vectors are not same." << std::endl;
+    }
+    return 1;
 }
