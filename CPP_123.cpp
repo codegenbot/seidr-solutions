@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> get_odd_collatz(int n);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
