@@ -14,7 +14,7 @@ std::any compare_one(std::any a, std::any b) {
             return std::any(std::max(std::stof(std::any_cast<std::string>(a)), std::stof(std::any_cast<std::string>(b))));
         }
     }
-    return std::any();
+    return std::any(std::string());
 }
 
 int main() {
