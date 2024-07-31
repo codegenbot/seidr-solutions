@@ -1,6 +1,6 @@
-Here is the modified code:
-
+```
 import math
+
 
 def simplify():
     numerator1 = int(input("Enter first fraction (e.g., 1/2): "))
@@ -14,4 +14,6 @@ def simplify():
 
     return f"{numerator1 // new_denominator}/{denominator1*denominator2//new_denominator}"
 
-print(simplify())
+
+result = simplify()
+print(result)
