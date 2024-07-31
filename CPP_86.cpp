@@ -1,9 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string anti_shuffle(const std::string str) {
-    std::string result = "";
+string anti_shuffle(const string str) {
+    string result = "";
     int i = str.length() - 1;
     while (i >= 0) {
         int j = i;
@@ -16,9 +17,9 @@ std::string anti_shuffle(const std::string str) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, str);
-    std::cout << "Anti-shuffled sentence: " << anti_shuffle(str) << std::endl;
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
 }
