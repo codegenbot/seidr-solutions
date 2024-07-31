@@ -1,12 +1,16 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <algorithm>
+#include <cctype>
 
 int hex_key(std::string s) {
-    std::string s = "";
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-    int result = std::accumulate(s.begin(), s.end(), 0, ::[](char c){return c + (isalnum(c) ? 1 : 0);});
+    int result = 0;
+    for (char c : s) {
+        if (!isalnum(c)) {
+            return 0; // invalid input, return 0
+        }
+        result += tolower(c);
+    }
     return result;
 }
 
