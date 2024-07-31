@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -23,4 +24,5 @@ int main() {
         numbers.push_back(num);
     }
     std::cout << "Median: " << median(numbers) << std::endl;
+    return 0;
 }
