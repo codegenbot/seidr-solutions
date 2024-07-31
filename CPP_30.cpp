@@ -18,6 +18,9 @@ int main() {
     std::cout << "Enter numbers separated by space: ";
     float num;
     while (std::cin >> num) {
+        if(input.size()>1000){ 
+            input.reserve(input.size()*2); 
+        }
         input.push_back(num);
     }
     std::vector<float> positive = get_positive(input);
