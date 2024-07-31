@@ -1,13 +1,12 @@
-#include <iostream>
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
-#include <typeinfo>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values){
+std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& val : values) {
         if (val.type() == typeid(int)) {
@@ -18,21 +17,12 @@ std::vector<int> filter_integers(std::list<boost::any> values){
 }
 
 int main() {
-    std::list<boost::any> values{1, 2, 3, "hello", 4, 5};
-    
-    std::vector<int> filtered_values = filter_integers(values);
+    std::list<boost::any> values{1, 2, "hello", 3};
+    auto filtered_values = filter_integers(values);
 
-    for (int val : filtered_values) {
-        std::cout << val << " ";
-    }
-    
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-
-    if (issame(a, b)) {
-        std::cout << "\nThe vectors a and b are the same." << std::endl;
-    } else {
-        std::cout << "\nThe vectors a and b are different." << std::endl;
+    std::vector<int> comparison_vec{1, 2, 3};
+    if (issame(filtered_values, comparison_vec)) {
+        // Handle case where filtered_values contains only integers
     }
 
     return 0;
