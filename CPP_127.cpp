@@ -1,7 +1,7 @@
 string intersection(vector<int> interval1, vector<int> interval2);
 
 bool isPrime(int num) {
-    if (num < 2) {
+    if (num <= 1) {
         return false;
     }
     for (int i = 2; i * i <= num; i++) {
