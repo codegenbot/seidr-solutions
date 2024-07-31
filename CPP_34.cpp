@@ -1,13 +1,18 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <set>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    return vector<int>(s.begin(), s.end());
+    if(l.empty()) return vector<int>(); // return an empty vector if input is empty
+
+    vector<int> result = l;
+    if (!result.empty()) {
+        sort(result.begin(), result.end());
+    }
+    return result;
 }
 
 int main() {

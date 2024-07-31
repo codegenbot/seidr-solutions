@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <cmath>
 
@@ -23,7 +22,7 @@ double find_zero(std::vector<double> coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs;
+    std::vector<double> coeffs = {};
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
@@ -32,7 +31,7 @@ int main() {
         coeffs.push_back(val);
     }
     double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution))< 1e-3);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
 }
