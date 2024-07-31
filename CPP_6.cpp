@@ -1,30 +1,19 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
 
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    // Sample test case
-    string input = "( ( ) ) ( )";
-    vector<int> expected_output = {1, 2, 1, 0};
+    string input;
+    getline(cin, input);
     
     vector<int> result = parse_nested_parens(input);
     
-    if (issame(result, expected_output)) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
+    for (int depth : result) {
+        cout << depth << " ";
     }
     
     return 0;
