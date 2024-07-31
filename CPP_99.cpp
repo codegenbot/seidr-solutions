@@ -1,9 +1,8 @@
-double num = stod(value);
+int closest_integer(std::string value) {
+    double num = stod(value);
     int closestInt = round(num);
-    if (num - closestInt == 0.5) {
-        closestInt = ceil(num);
-    } else if (num - closestInt == -0.5) {
-        closestInt = floor(num);
+    if (fabs(num - closestInt) == 0.5) {
+        closestInt = (num - closestInt > 0) ? ceil(num) : floor(num);
     }
     return closestInt;
 }
