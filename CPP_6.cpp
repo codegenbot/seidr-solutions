@@ -1,13 +1,23 @@
 #include <vector>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2){
-    return v1 == v2;
+bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string);
 
 int main() {
-    std::vector<int> result = parse_nested_parens("(()(()))");
+    std::vector<int> result = parse_nested_parens("((())()())");
     for (int val : result) {
         std::cout << val << " ";
     }
