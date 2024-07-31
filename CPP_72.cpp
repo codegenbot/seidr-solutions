@@ -1,5 +1,3 @@
-#include <vector>
-
 bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
     for (int num : q) {
