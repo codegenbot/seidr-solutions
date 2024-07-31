@@ -47,5 +47,3 @@ int main() {
     for (const auto& s : filteredStrings) {
         cout << s << endl;
     }
-    return 0;
-}
