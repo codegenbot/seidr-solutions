@@ -18,9 +18,4 @@ bool correct_bracketing(std::string brackets){
 int main() {
     std::string brackets = "(()())()))));";
     assert(!correct_bracketing(brackets));
-    if(correct_bracketing(brackets)) {
-        std::cout << "The bracket sequence is correct." << std::endl;
-    } else {
-        std::cout << "The bracket sequence contains incorrect pairings." << std::endl;
-    }
 }
