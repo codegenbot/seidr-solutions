@@ -1,3 +1,3 @@
 ```
-for i in range(1, 801):
+for i in range(343, 403):
     print(i)
