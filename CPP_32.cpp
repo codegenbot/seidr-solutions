@@ -1,9 +1,5 @@
-```cpp
-#include <initializer_list>
-#include <cmath>
-#include <vector>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <iomanip>
 
 using namespace std;
@@ -31,15 +27,15 @@ double find_zero(vector<double> coefficients) {
 int main() {
     int n;
     cin >> n;
-    vector<double> coeffs;
-    coeffs.resize(n);
-    double val;
+    vector<double> coeffs = {};  
     for (int i = 0; i < n; i++) {
+        double val;
         cin >> val;
-        coeffs[i] = val; 
+        coeffs.push_back(val); 
     }
     double solution = find_zero(coeffs); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
+
 }
