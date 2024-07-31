@@ -8,9 +8,9 @@ int main() {
     std::cout << "Enter a string: ";
     while (std::cin.peek() == '\n') 
         std::cin.ignore();
-    char buffer[256]; // or any size that fits your needs
-    std::cin.getline(buffer, 256); // use buffer and size accordingly
-    str = buffer; // assign the C-style string to your std::string
+    char temp[256];
+    std::cin.getline(temp, 255);
+    str = temp; 
     int result = count_distinct_characters(str);
     return 0;
 }
