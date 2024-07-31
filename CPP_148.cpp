@@ -5,11 +5,13 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -42,6 +44,8 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> planet_result = bf("Venus", "Mars");
+    vector<string> result = bf("Mercury", "Mars");
+    // Code to use the result vector goes here
+
     return 0;
 }
