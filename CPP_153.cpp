@@ -14,7 +14,7 @@ string Strongest_Extension(string class_name, vector<string> extensions){
             else if(islower(ch))
                 SM++;
         }
-        
+
         int strength = CAP - SM;
         if(strength > max_strength || (strength == max_strength && extension < strongest_extension)){
             max_strength = strength;
