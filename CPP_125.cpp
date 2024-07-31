@@ -3,21 +3,9 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> split_words(string txt){
+vector<string> split_words(const string& txt){
     vector<string> result;
     string word = "";
     for(char c : txt){
@@ -45,8 +33,16 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main(){
-    assert(issame(split_words("") ,{"0"}));
-    
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
