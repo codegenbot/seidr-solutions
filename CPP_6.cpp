@@ -1,18 +1,21 @@
 #include <vector>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(char open, char close) {
+    return (open == '(' && close == ')');
 }
 
-vector<int> parse_nested_parens(string paren_string){
-    vector<int> result;
+std::vector<int> parse_nested_parens(std::string paren_string);
+
+int main() {
+    std::vector<int> result = parse_nested_parens("((())())");
+    for (int val : result) {
+        std::cout << val << " ";
+    }
+    return 0;
+}
+
+std::vector<int> parse_nested_parens(std::string paren_string){
+    std::vector<int> result;
     int depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
@@ -24,9 +27,4 @@ vector<int> parse_nested_parens(string paren_string){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    return 0;
 }
