@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -13,6 +13,5 @@ while True:
     elif not user_input.strip():
         print("Please enter at least one string.")
         continue
-    strings = list(map(str.strip, user_input.split()))
-    strings = [s for s in map(str.lower, strings) if s]
+    strings = list(map(str.lower, map(lambda s: s.split(), [user_input])))
     print(concatenate(strings))
