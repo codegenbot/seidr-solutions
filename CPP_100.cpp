@@ -4,7 +4,16 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> make_a_pile(int n){
@@ -18,8 +27,4 @@ vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
-}
-
-bool issame(vector<int>& a, vector<int>& b){
-    return a == b;
 }
