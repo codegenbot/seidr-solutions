@@ -1,4 +1,3 @@
-```
 def words_in_sentence(sentence):
     result = []
     for word in sentence.split():
