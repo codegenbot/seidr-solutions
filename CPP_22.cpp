@@ -12,7 +12,7 @@ bool issame(std::vector<int> arr) {
 
 std::vector<int> filter_integers(const std::vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
-        if (!std::is_integral(arr[i])) { 
+        if (!std::is_integral(arr[i]).is_always()) { 
             return {};
         }
     }
@@ -24,9 +24,7 @@ int main() {
     std::cin >> n;
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        arr[i] = x;
+        std::cin >> arr[i];
     }
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
@@ -35,7 +33,7 @@ int main() {
         std::vector<int> testArr2 = {3, 3, 3};
 
         assert(issame(testArr1));
-        assert(issame(std::vector<int>(testArr2.begin(), testArr2.end())));
+        assert(issame(testArr2));
     }
     return 0;
 }
