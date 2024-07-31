@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int>& a, vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
@@ -18,4 +18,8 @@ vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
+}
+
+bool issame(vector<int>& a, vector<int>& b){
+    return a == b;
 }
