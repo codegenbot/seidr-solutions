@@ -13,3 +13,20 @@ vector<int> issame(vector<int> a, vector<int> b) {
 
     return result;
 }
+
+int main() {
+    vector<int> l1 = {1, 2, 3, 4, 5};
+    vector<int> l2 = {1, 3, 5, 7, 9};
+
+    vector<int> res = issame(l1, l2);
+
+    if (res == vector<int>()) {
+        cout << "No common elements." << endl;
+    } else {
+        for (int num : res) {
+            cout << num << " ";
+        }
+    }
+
+    return 0;
+}
