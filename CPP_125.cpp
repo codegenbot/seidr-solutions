@@ -1,22 +1,34 @@
 vector<string> split_words(string txt){
     vector<string> result;
-    size_t found = txt.find_first_of(" ,");
-    if(found != string::npos){
-        size_t start = 0;
-        while(found != string::npos){
-            result.push_back(txt.substr(start, found - start));
-            start = found + 1;
-            found = txt.find_first_of(" ,", start);
+    string word = "";
+    bool hasWhitespace = false;
+    
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            result.push_back(word);
+            word = "";
+            hasWhitespace = true;
+        } else {
+            word += c;
         }
-        result.push_back(txt.substr(start));
-    } else {
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && ((c - 'a') % 2 == 1)){
-                count++;
+    }
+    
+    if (word != "") {
+        result.push_back(word);
+    }
+    
+    if (!hasWhitespace && result.size() == 1) {
+        int oddLowerCaseLetters = 0;
+        for (char c : result[0]) {
+            if (islower(c)) {
+                int letterIndex = c - 'a';
+                if (letterIndex % 2 == 1) {
+                    oddLowerCaseLetters++;
+                }
             }
         }
-        result.push_back(to_string(count));
+        result[0] = to_string(oddLowerCaseLetters);
     }
+    
     return result;
 }
