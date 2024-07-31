@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 double poly(std::vector<double> coefficients, double x) {
     double result = 0;
@@ -15,7 +14,8 @@ double find_zero(std::vector<double> xs) {
     double sum = 0;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            coeffs.push_back(xs[i] / xs[0]);
+            double coeff = xs[i] / xs[0];
+            coeffs.push_back(coeff);
         }
     }
     double x = -coeffs[0];
