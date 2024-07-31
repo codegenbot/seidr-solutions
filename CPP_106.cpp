@@ -1,14 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the <cassert> header file
 
 using namespace std;
-
-void validate(vector<int> result, vector<int> expected) {
-    for (int i = 0; i < result.size(); ++i) {
-        assert(result[i] == expected[i]);
-    }
-}
 
 vector<int> f(int n) {
     vector<int> result(n);
@@ -31,7 +25,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    validate(f(3), vector<int>{1, 2, 6});
-    cout << "Validation passed." << endl;
+    assert(f(3) == vector<int>{1, 2, 6});
     return 0;
 }
