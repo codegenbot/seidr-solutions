@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
@@ -23,13 +23,4 @@ vector<int> even_odd_palindrome(int n) {
             result[1]++;
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Number of even palindromes: " << res[0] << endl;
-    cout << "Number of odd palindromes: " << res[1] << endl;
-    return 0;
 }
