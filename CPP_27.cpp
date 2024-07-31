@@ -13,11 +13,12 @@ bool flip_case(const std::string& str) {
             result += c;
         }
     }
-    return result;
+    return true;
 
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "theSE vIOlent dELIGHTS hAVE vIOLENT eNDs");
+    std::string expected = "theSE vIOlent dELIGHTS hAVE vIOLENT eNDs";
+    assert(flip_case("These violent delights have violent ends") == expected);
     return 0;
 }
