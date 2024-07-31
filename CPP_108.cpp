@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -26,7 +27,5 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    int result = count_nums({-12, 34, -5, 65, 0});
-    std::cout << "The number of positive numbers is: " << result << std::endl;
     return 0;
 }
