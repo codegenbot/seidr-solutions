@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 int n;
-std::vector<int> input;
+std::vector<int> input(n);
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
@@ -17,7 +18,7 @@ void readInput() {
     }
 }
 
-int calculateMax() { 
+int main() { 
     readInput();
 
     if(input.size() == 0) {
@@ -29,10 +30,5 @@ int calculateMax() {
         assert(std::abs(max_element - 124) < 1e-4);
     }
 
-    return 0;
-}
-
-int main() { 
-    calculateMax();
     return 0;
 }
