@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int can_arrange(std::vector<int> arr) {
     if (arr.empty()) {
@@ -15,7 +16,7 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3};
+    std::vector<int> input;
     int result = can_arrange(input);
     if(result == -1)
         std::cout << "Input cannot be arranged." << std::endl;
