@@ -1,13 +1,8 @@
 #include <string>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
+#include <openssl/md5.h>
 
-using namespace std;
-
-string string_to_md5(string text){
-    OpenSSL_add_all_algorithms();
-    ERR_load_crypto_strings();
-    
+std::string string_to_md5(std::string text){
     if(text.empty()) {
         return "None";
     }
@@ -24,7 +19,6 @@ string string_to_md5(string text){
         sprintf(&md5_string[i*2], "%02x", (unsigned int)result[i]);
     }
     md5_string[MD5_DIGEST_LENGTH*2] = '\0';
-    
-    EVP_cleanup();
-    return string(md5_string);
+        
+    return std::string(md5_string);
 }
