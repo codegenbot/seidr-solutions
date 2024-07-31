@@ -12,16 +12,26 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
 }
 
 bool issame(const vector<float>& vec1, const vector<float>& vec2) {
-    return vec1 == vec2;
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    vector<float> test_numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
-    vector<float> rescaled_test_numbers = rescale_to_unit(test_numbers);
-    vector<float> expected_rescaled_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
-    
-    if (issame(rescaled_test_numbers, expected_rescaled_numbers)) {
+    // Testing if rescaled_numbers is the same as expected result
+    vector<float> expected_result = {0.0, 0.25, 0.5, 0.75, 1.0};
+    if (issame(rescaled_numbers, expected_result)) {
         cout << "Test passed!" << endl;
     } else {
         cout << "Test failed!" << endl;
