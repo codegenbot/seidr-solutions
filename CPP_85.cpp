@@ -24,7 +24,7 @@ int main() {
     }
 
     std::vector<int> lst;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n && i<10; i++){
         int num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
