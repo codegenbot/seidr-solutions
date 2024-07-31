@@ -1,37 +1,48 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n){
-    vector<string> words;
-    string current_word;
-    int consonant_count = 0;
-
-    for(int i = 0; i < s.size(); i++){
-        if(i == s.size() || s[i] == ' '){
-            if(consonant_count == n){
-                words.push_back(current_word);
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word;
+    
+    for (char c : s) {
+        if (c == ' ') {
+            int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
+                return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
+            });
+            if (consonant_count == n) {
+                result.push_back(word);
             }
-            current_word = "";
-            consonant_count = 0;
-        } else if(isalpha(s[i])){
-            char c = tolower(s[i]);
-            if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                consonant_count++;
-            }
-            current_word += s[i];
+            word = "";
+        } else {
+            word += c;
         }
     }
-
-    return words;
+    
+    int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
+        return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
+    });
+    if (consonant_count == n) {
+        result.push_back(word);
+    }
+    
+    return result;
 }
 
-int main(){
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+int main() {
+    std::string s;
+    int n;
+    std::cin >> s >> n;
+    
+    std::vector<std::string> words = select_words(s, n);
+
+    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+    
     return 0;
 }
