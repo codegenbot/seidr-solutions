@@ -1,5 +1,6 @@
 #include <string>
 #include <cctype>
+#include <algorithm>
 
 string get_closest_vowel(string word) {
     int n = word.size();
@@ -13,14 +14,9 @@ string get_closest_vowel(string word) {
             if (word[j] == 'Y' || word[j] == 'y') continue;
             for (int k = j; k < i; ++k) {
                 if (ispunct(word[k]) || isdigit(word[k])) break;
-                if (isvowel(word[k])) return string(1, tolower(word[k]));
+                if (isvowel(tolower(word[k]))) return string(1, tolower(word[k]));
             }
         }
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
