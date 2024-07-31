@@ -1,5 +1,4 @@
 ```cpp
-#include <cctype>
 #include <cstring>
 #include <string>
 
@@ -14,13 +13,13 @@ int main() {
 int count_distinct_characters(const std::string& str) {
     bool seen[256] = {false}; // assume ASCII
 
-    for (int i = 0; i < str.length(); ++i) {
-        char c = tolower(str[i]);
+    for (char c : str) {
         if (!std::isalpha(c)) {
             continue; // ignore non-alphabets
         }
-        if (!seen[c]) {
-            seen[c] = true;
+        char ch = tolower(c);
+        if (!seen[ch]) {
+            seen[ch] = true;
         }
     }
 
