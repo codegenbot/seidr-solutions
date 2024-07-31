@@ -1,22 +1,25 @@
 string words_in_sentence(string sentence){
-    string result = "";
-    int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}; // prime numbers up to 37
-    int n = sentence.size();
-    int start = 0;
-
-    for(int i = 0; i <= n; ++i){
-        if(i == n || sentence[i] == ' '){
-            string word = sentence.substr(start, i - start);
-            if(std::find(std::begin(prime), std::end(prime), word.size()) != std::end(prime)){
-                result += word + " ";
+    stringstream ss(sentence);
+    string word, result;
+    while (ss >> word) {
+        int len = word.length();
+        bool is_prime = true;
+        if (len <= 1) {
+            is_prime = false;
+        } else {
+            for (int i = 2; i * i <= len; ++i) {
+                if (len % i == 0) {
+                    is_prime = false;
+                    break;
+                }
             }
-            start = i + 1;
+        }
+        if (is_prime) {
+            result += word + " ";
         }
     }
-
-    if(!result.empty()){
-        result.pop_back(); // remove the trailing space
+    if (!result.empty()) {
+        result.pop_back(); // Remove the trailing space
     }
-
     return result;
 }
