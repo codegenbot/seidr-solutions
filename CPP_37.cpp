@@ -32,7 +32,7 @@ vector<float>& sort_even_elements(vector<float>& l) {
 
 int main() {
     vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float>& result = sort_even_elements(input);
+    vector<float> result = sort_even_elements(input);
     assert(result == vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
 
     return 0;
