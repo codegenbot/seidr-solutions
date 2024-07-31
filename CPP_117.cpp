@@ -1,32 +1,26 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    string word;
-    bool isConsonant[26] = {false};
-    isConsonant['a' - 'a'] = isConsonant['e' - 'a'] = isConsonant['i' - 'a'] = isConsonant['o' - 'a'] = isConsonant['u' - 'a'] = true;
-
+vector<string> words;
+    string currentWord = "";
+    int consonantCount = 0;
+    
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty()) {
-                int consonantCount = count_if(word.begin(), word.end(), [&](char ch) { return !isConsonant[tolower(ch) - 'a']; });
-                if (consonantCount == n) {
-                    result.push_back(word);
-                }
-                word.clear();
+            if (consonantCount == n) {
+                words.push_back(currentWord);
             }
-        } else {
-            word += c;
+            currentWord = "";
+            consonantCount = 0;
+        } else if (isalpha(c)) {
+            char lc = tolower(c);
+            if (lc != 'a' && lc != 'e' && lc != 'i' && lc != 'o' && lc != 'u') {
+                consonantCount++;
+            }
         }
+        currentWord.push_back(c);
     }
-
-    if (!word.empty()) {
-        int consonantCount = count_if(word.begin(), word.end(), [&](char ch) { return !isConsonant[tolower(ch) - 'a']; });
-        if (consonantCount == n) {
-            result.push_back(word);
-        }
+    
+    if (consonantCount == n) {
+        words.push_back(currentWord);
     }
-
-    return result;
+    
+    return words;
 }
