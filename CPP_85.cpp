@@ -1,8 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
-int add(const std::vector<unsigned int>&);
+int add(const std::vector<unsigned int>& v);
 
 int main() {
     unsigned int n;
