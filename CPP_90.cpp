@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
@@ -31,5 +30,10 @@ int readInput() {
         std::cout << "No numbers entered." << std::endl;
     }
     
+    return 0;
+}
+
+int main() {
+    readInput();
     return 0;
 }
