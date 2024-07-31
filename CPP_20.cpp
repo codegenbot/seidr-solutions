@@ -10,9 +10,29 @@ std::vector<float> find_closest_elements(const std::vector<float>& nums) {
         return result;
     }
 
-    std::sort(nums.begin(), nums.end());
-    result.push_back(nums[1]);
-    result.push_back(nums[2]);
+    float average = 0;
+    for (const auto& num : nums) {
+        average += num;
+    }
+    average /= nums.size();
+
+    float min_diff = std::abs(nums[0] - average);
+    float closest1 = nums[0];
+    float closest2 = nums[1];
+
+    for (size_t i = 1; i < nums.size(); ++i) {
+        float diff = std::abs(nums[i] - average);
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest1 = nums[i];
+        }
+        else if (diff == min_diff) {
+            closest2 = nums[i];
+        }
+    }
+
+    result.push_back(closest1);
+    result.push_back(closest2);
 
     return result;
 }
