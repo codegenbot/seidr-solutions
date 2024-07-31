@@ -1,2 +1,2 @@
-```
-return x + y;
+```cpp
+return x + y;```
