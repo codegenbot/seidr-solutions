@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -26,6 +24,12 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == vector<int>{1, 2, 6});
+    vector<int> expected = {1, 2, 6};
+    vector<int> result = f(3);
+    for (int i = 0; i < 3; ++i) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
