@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 std::vector<double> find_closest_elements(const std::vector<double>& elements) {
