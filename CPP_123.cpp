@@ -3,6 +3,18 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
@@ -24,6 +36,12 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    // Function calls and logic here
+    int n;
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
