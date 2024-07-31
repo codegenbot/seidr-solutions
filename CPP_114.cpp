@@ -1,5 +1,5 @@
-```cpp
 int main() {
+    // Add your test cases here
     vector<long long> nums = {1, -1};
     cout << minSubArraySum(nums) << endl;
     return 0;
