@@ -1,23 +1,30 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int idx1 = -1, idx2 = -1;
+    int index1 = -1, index2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
         if (planet1 == planets[i]) {
-            idx1 = i;
+            index1 = i;
         }
         if (planet2 == planets[i]) {
-            idx2 = i;
+            index2 = i;
         }
     }
 
-    if (idx1 == -1 || idx2 == -1) {
+    if (index1 == -1 || index2 == -1) {
         return result;
     }
 
-    int start = min(idx1, idx2) + 1;
-    int end = max(idx1, idx2);
+    int start = min(index1, index2) + 1;
+    int end = max(index1, index2);
 
     for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
