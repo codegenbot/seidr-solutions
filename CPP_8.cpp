@@ -18,8 +18,6 @@ namespace my_namespace {
 }
 
 int main() {
-    std::vector<int> input = {10};
-    std::vector<int> result = my_namespace::sum_product(input);
-    // Additional code to work with 'result' if needed
+    my_namespace::sum_product({10});
     return 0;
 }
