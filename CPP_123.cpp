@@ -1,16 +1,21 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-std::vector<int> get_odd_collatz(int n); // Function declaration
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+int countUniquePairs(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    return a == b;
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1})); // Corrected function name
-    return 0;
+    int uniquePairs = 0;
+    for (int i = 0; i < a.size(); ++i) {
+        if (i == 0 || a[i] != a[i - 1]) {
+            for (int j = 0; j < b.size(); ++j) {
+                if (j == 0 || b[j] != b[j - 1]) {
+                    if (a[i] == b[j]) {
+                        ++uniquePairs;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return uniquePairs;
 }
