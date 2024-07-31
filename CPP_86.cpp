@@ -16,9 +16,10 @@ std::string anti_shuffle(const std::string str) {
 }
 
 int main() {
-    std::string str;
+    int max_length = 256; 
+    std::string str(max_length, '\0');
     std::cout << "Enter a sentence: ";
-    std::getline(std::cin, str);
+    std::getline(std::cin, str);  
     std::cout << "Anti-shuffled sentence: " << anti_shuffle(str) << std::endl;
     return 0;
 }
