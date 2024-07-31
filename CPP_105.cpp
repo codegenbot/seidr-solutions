@@ -9,4 +9,5 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(sortStrings(by_length({9, 4, 8})), sortStrings({"Nine", "Eight", "Four"})));
+    // rest of your code...
 }
