@@ -16,6 +16,6 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
