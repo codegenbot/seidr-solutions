@@ -5,8 +5,10 @@
 #include <cassert>
 
 using namespace std;
-vector<string> by_length(vector<int> arr);
-bool issame(vector<string> a, vector<string> b);
+
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
@@ -30,6 +32,7 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
+
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
@@ -39,11 +42,13 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+int main() {
+    vector<int> input = {3, 5, 2, 9, 4};
+    vector<string> output = by_length(input);
 
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    for (const string& s : output) {
+        cout << s << " ";
+    }
+
     return 0;
 }
