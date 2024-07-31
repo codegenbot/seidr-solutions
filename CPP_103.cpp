@@ -12,7 +12,7 @@ std::string function_name(int n, int m) {
         sum += i;
     }
     int avg = round((double)sum / (m - n + 1));
-    return std::bitset<32>(avg).to_string();
+    return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg));
 }
 
 int main() {
