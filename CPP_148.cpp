@@ -6,13 +6,13 @@ using namespace std;
 
 bool issame(const vector<string> &a, const vector<string> &b){
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b.at(i)) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> between(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -26,12 +26,8 @@ vector<string> between(string planet1, string planet2) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == -1 || end == -1 || start >= end) {
         return result;
-    }
-
-    if (start > end) {
-        swap(start, end);
     }
 
     for (int i = start + 1; i < end; ++i) {
@@ -42,5 +38,6 @@ vector<string> between(string planet1, string planet2) {
 }
 
 int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
     return 0;
 }
