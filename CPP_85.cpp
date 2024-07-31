@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -22,7 +23,7 @@ int main() {
         }
     }
 
-    std::vector<unsigned int> lst(n);
+    std::vector<unsigned int> lst;
     for(unsigned int i = 0; i < n; i++){
         unsigned int num;
         while (!(std::cin >> num)) { 
@@ -33,15 +34,15 @@ int main() {
                 return 1; 
             }
         }
-        lst[i] = num;
+        lst.push_back(num);
     }
 
     int sum = 0;
-    for(unsigned int i = 0; i < n; i++){
+    for(unsigned int i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
-    std::cout << "Sum of even elements: " << add(std::vector<unsigned int>(lst.begin(), lst.end())) << std::endl;
+    std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
     return 0;
 }
