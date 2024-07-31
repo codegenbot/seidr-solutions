@@ -1,11 +1,10 @@
-```cpp
-std::string myString(std::string str) {
-    std::string result;
+string myString(string str) {
+    string result;
     for (char c : str) {
-        if (std::isupper(c)) {
-            result += std::tolower(c);
-        } else if (std::islower(c)) {
-            result += std::toupper(c);
+        if (isupper(c)) {
+            result += tolower(c);
+        } else if (islower(c)) {
+            result += toupper(c);
         } else {
             result += c;
         }
