@@ -2,7 +2,7 @@
 #include <string>
 #include <openssl/md5.h>
 
-std::string string_to_md5(std::string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) return "";
 
     unsigned char hash[16];
@@ -12,9 +12,8 @@ std::string string_to_md5(std::string text) {
     size_t len = text.size();
     while (len > 0) {
         MD5_Update(&mdContext, ptr, len);
-        break;
-        ptr += len;
         len = 0;
+        ptr += len;
     }
     MD5_Final(hash, &mdContext);
 
@@ -29,6 +28,6 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
-    std::cout << string_to_md5("Hello") << std::endl;
+    std::cout << string_to_md5("Hello, World!") << std::endl;
     return 0;
 }
