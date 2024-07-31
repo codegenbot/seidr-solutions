@@ -19,4 +19,3 @@ int main() {
     vector<long long> nums = {1, -1};
     cout << "Min sub array sum: " << minSubArraySum(nums) << endl;
     return 0;
-}
