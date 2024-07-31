@@ -3,8 +3,8 @@ def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
         if bracket == "<":
-            stack.append(bracket)
+            stack.append("<")
         elif bracket == ">":
-            if not stack or stack.pop() != "<":
+            if len(stack) == 0 or stack.pop() != "<":
                 return False
-    return not stack
+    return len(stack) == 0
