@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int add(const std::vector<unsigned long>&);
 
-int main() {
-    unsigned long n;
+int userInput() {
+    size_t n;
 
     std::cout << "Enter the number of elements: ";
     while (!(std::cin >> n)) { 
@@ -18,7 +17,7 @@ int main() {
     }
 
     std::vector<unsigned long> lst;
-    for(unsigned long i = 0; i < n; i++){
+    for(size_t i = 0; i < n; i++){
         unsigned long num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
@@ -32,12 +31,17 @@ int main() {
     }
 
     int sum = 0;
-    for(unsigned long i = 0; i < lst.size(); i++){
+    for(size_t i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
     std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
+    return 0;
+}
+
+int main() {
+    userInput();
     return 0;
 }
 
