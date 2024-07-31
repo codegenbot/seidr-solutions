@@ -1,3 +1,6 @@
+#include <algorithm>
+using namespace std;
+
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
@@ -5,13 +8,13 @@ string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    avg = floor(avg + 0.5); 
+    int intAvg = static_cast<int>(floor(avg + 0.5)); // round and convert to int
     string res = "";
-    while(avg > 0){
-        if(avg % 1) res.push_back('1');
+    while(intAvg > 0){
+        if(intAvg & 1) res.push_back('1');
         else res.push_back('0');
-        avg = (double)avg * (1 << (int)(log2(avg)));
+        intAvg >>= 1;
     }
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
