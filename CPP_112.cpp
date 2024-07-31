@@ -1,35 +1,43 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str, const std::string& sub) {
-    std::vector<std::string> result;
-    for (int i = 0; i < str.length(); ++i) {
-        if (str.substr(i, sub.length()).compare(sub) == 0) {
-            result.push_back("True");
-            i += sub.length() - 1;
-        } else {
-            result.push_back(str.substr(i, 1));
-        }
-    }
-    return {result, true};
+using namespace std;
+
+string reverse(string s) {
+    string reversed = "";
+    for (int i = s.length() - 1; i >= 0; --i)
+        reversed += s[i];
+    return reversed;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
+string delete_mia(string s) {
+    return s.replace(s.find("mia"), 3, "");
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
             return false;
-        }
-    }
     return true;
 }
 
+vector<string> reverse_delete(string s, string t) {
+    vector<string> result;
+    string res = delete_mia(t);
+    res = reverse(res);
+    result.push_back(res);
+    if (res.empty())
+        result.push_back("True");
+    else
+        result.push_back("False");
+    return result;
+}
+
 int main() {
-    std::pair<std::vector<std::string>, bool> result = reverse_delete("mamma", "mia");
-    assert(issame(result.first, {"" , "True"})); 
+    auto [result, isCorrect] = reverse_delete("mamma", "mia");
+    vector<string> expectedResult = {"", "True"};
+    assert(issame({result[0], result[1]}, expectedResult));  
     return 0;
 }
