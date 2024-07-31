@@ -24,6 +24,7 @@ std::vector<int> pluck(std::vector<int> arr){
 }
 
 int main(){
-    assert(pluck({7, 9, 7, 1}) == vector<int>{});
+    std::vector<int> empty;
+    assert(pluck({7, 9, 7, 1}) == empty);
     return 0;
 }
