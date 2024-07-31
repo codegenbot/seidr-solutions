@@ -1,14 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <utility>
-
-using namespace std;
-
-bool issame(pair<float, float> a, pair<float, float> b){
-    return a == b;
-}
-
 pair<float, float> find_closest_elements(vector<float> numbers){
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
@@ -22,7 +11,10 @@ pair<float, float> find_closest_elements(vector<float> numbers){
     return closest_elements;
 }
 
-int main() {
-    // Test the functions if needed
-    return 0;
+bool issame(pair<float, float> a, pair<float, float> b){
+    return a.first == b.first && a.second == b.second;
+}
+
+int main(){
+    // main function implementation goes here, if needed
 }
