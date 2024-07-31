@@ -4,21 +4,20 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
-                elif char.lower() == 'u':
-                    result += 'y'
+                if char.isupper():
+                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                else:
+                    result += chr((ord(char) - 97 + 3) % 26 + 97)
+            elif char.lower() == 'y' or char.lower() == 'Y':
+                if char.isupper():
+                    result += 'Z'
+                else:
+                    result += 'z'
             else:
                 if char.isupper():
-                    result += chr((ord(char) + 13 - ord('A')) % 26 + ord('A'))
+                    result += char.swapcase()
                 else:
-                    result += chr((ord(char) + 13 - ord('a')) % 26 + ord('a'))
+                    result += char
         else:
             result += char
     return result
