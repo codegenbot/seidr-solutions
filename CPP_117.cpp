@@ -4,10 +4,12 @@
 #include <cassert>
 #include <sstream>
 
-std::vector<std::string> select_words(const std::string& s, int n) {
-    std::vector<std::string> words;
-    std::istringstream iss(s);
-    std::string word;
+using namespace std;
+
+vector<string> select_words(const string& s, int n) {
+    vector<string> words;
+    istringstream iss(s);
+    string word;
 
     while (iss >> word) {
         if (word.size() > n) {
@@ -19,4 +21,17 @@ std::vector<std::string> select_words(const std::string& s, int n) {
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
+}
+
+int main() {
+    string s;
+    int n;
+    cin >> s >> n;
+
+    vector<string> words = select_words(s, n);
+
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    assert(issame(words, select_words(s, n)));
+
+    return 0;
 }
