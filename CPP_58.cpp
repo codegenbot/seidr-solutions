@@ -28,7 +28,7 @@ int main() {
         }
 
         if(same) {
-            std::vector<int> commonList;
+            std::vector<int> common;
 
             for(int i=0; i<v[0].size(); i++) {
                 bool found = true;
@@ -39,18 +39,19 @@ int main() {
                         found = false;
                         break;
                     }
-                    else
+                    else{
                         count++;
+                    }
                 }
 
                 if(found && count == v.size() - 1) {
-                    commonList.push_back(v[0][i]);
+                    common.push_back(v[0][i]);
                 }
             }
 
             std::cout << "Common elements: ";
-            for(int i=0; i<commonList.size(); i++) {
-                std::cout << commonList[i] << " ";
+            for(int i=0; i<common.size(); i++) {
+                std::cout << common[i] << " ";
             }
             std::cout << std::endl;
         } else {
