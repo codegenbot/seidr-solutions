@@ -1,3 +1,7 @@
+```
+from typing import List
+
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    avg = sum(numbers) / len(numbers)
-    return sum(abs(n - avg) for n in numbers) / len(numbers)
+    mean = sum(numbers) / len(numbers)
+    deviations = [abs(num - mean) for num in numbers]
+    return sum(deviations) / len(deviations)
