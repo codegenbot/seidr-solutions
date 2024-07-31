@@ -1,50 +1,49 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
+#include <cassert>
 
-bool issame(const string &s1, const string &s2) {
-    return s1 == s2;
-}
+using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
+bool issame(vector<string> a, vector<string> b);
+
 int main() {
-    string input;
-    cin >> input;
-
-    vector<string> result = separate_paren_groups(input);
-
-    for (string group : result) {
-        cout << group << "\n";
-    }
-
+    vector<string> result = separate_paren_groups("((group 1)(group 2))");
+    assert(issame(result, {"(group 1)", "(group 2)"}));
+    
+    result = separate_paren_groups("(a(b(c)d)e)");
+    assert(issame(result, {"(a(b(c)d)e)"}));
+    
+    result = separate_paren_groups("(hello)(world)");
+    assert(issame(result, {"(hello)", "(world)"}));
+    
+    cout << "All test cases passed." << endl;
+    
     return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
-    bool in_group = false;
+    int count = 0;
 
-    for (char ch : paren_string) {
-        if (ch == '(') {
-            if (in_group) {
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                current_group += c;
+            }
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                current_group += c;
+            } else if (count == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
-            in_group = true;
-        } else if (ch == ')') {
-            in_group = false;
-            result.push_back(current_group);
-            current_group = "";
-        } else if (in_group) {
-            current_group += ch;
         }
-    }
-
-    if (!current_group.empty()) {
-        result.push_back(current_group);
     }
 
     return result;
