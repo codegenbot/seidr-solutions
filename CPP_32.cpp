@@ -7,14 +7,13 @@ double find_zero(std::vector<double> coefficients);
 int main() {
     int n;
     cin >> n;
-    std::vector<double> coeffs(n); 
+    std::vector<double> coeffs = {}; 
     double val;
     for (int i = 0; i < n; i++) {
         cin >> val;
-        coeffs[i] = val;
+        coeffs.push_back(val);
     }
-    std::vector<double> values(coeffs);
-    double solution = find_zero(values); 
+    double solution = find_zero(coeffs); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
@@ -37,5 +36,5 @@ double find_zero(std::vector<double> coefficients) {
         }
     }
     double x = -values[0];
-    return poly(values, x);
+    return poly(coeffs, x);
 }
