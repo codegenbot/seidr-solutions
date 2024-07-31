@@ -2,11 +2,22 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 int main() {
-    std::vector<std::string> input;
-    int result = can_arrange(input);
+    std::vector<long long> input;
+    std::cout << "Enter numbers (space separated): ";
+    for(long long i; std::cin >> i; ) {
+        input.push_back(i);
+        if(std::cin.peek() == ' ') 
+            std::cin.ignore();
+        else
+            break;
+    }
+    std::vector<std::string> strInput;
+    for (long long num : input) {
+        strInput.push_back(std::to_string(num));
+    }
+    int result = can_arrange(strInput);
     if(result == -1)
         std::cout << "Input cannot be arranged." << std::endl;
     else 
