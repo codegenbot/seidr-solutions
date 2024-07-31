@@ -1,8 +1,9 @@
+```
 #include <algorithm>
 #include <set>
 #include <vector>
 #include <iostream>
-#include <namespace>
+#include <initializer_list>
 
 using namespace std;
 
@@ -78,5 +79,4 @@ int main() {
         cout << "At least two lists required to find common elements." << endl; 
     } 
 
-    return 0; 
-}
+    return 0;
