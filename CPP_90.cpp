@@ -14,8 +14,8 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> numbers = {5, 2, 8, 1, 6};
+    std::vector<int> numbers = {5, 3, 8, 2, 1};
     int result = next_smallest(numbers);
-    std::cout << "Next smallest number: " << result << std::endl;
+    std::cout << "Next smallest number is: " << result << std::endl;
     return 0;
 }
