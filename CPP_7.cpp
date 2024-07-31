@@ -39,7 +39,7 @@ int solution(int numStrings) {
     std::getline(std::cin, substring);
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
-    std::vector<std::string> result2 = filter_by_substring(std::vector<std::string>(strings.begin(), strings.end()), substring);
+    std::vector<std::string> result2 = filter_by_substring(strings, substring);
 
     if (issame(result1, result2)) {
         for (const auto& s : result1) {
