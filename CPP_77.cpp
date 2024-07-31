@@ -1,1 +1,2 @@
-return (pow(round(cbrt(a)), 3) == a);
+int x = round(cbrt(a));
+    return x * x * x == a;
