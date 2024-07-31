@@ -1,12 +1,20 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
 
-std::vector<int> parse_music(std::string music_string);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> parse_music(std::string music_string){
+std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     std::string note = "";
     for (char c : music_string) {
@@ -35,27 +43,14 @@ std::vector<int> parse_music(std::string music_string){
     return beats;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    std::string music_string;
-    std::getline(std::cin, music_string);
-    std::vector<int> beats = parse_music(music_string);
-    
-    // Example usage of issame function
-    std::vector<int> test1 = {4, 2, 1};
-    std::vector<int> test2 = {4, 2, 1};
-    std::cout << std::boolalpha << issame(test1, test2) << std::endl;
-    
+    std::string input;
+    std::cout << "Enter the music string: ";
+    std::cin >> input;
+    std::vector<int> result = parse_music(input);
+    for (int beat : result) {
+        std::cout << beat << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
