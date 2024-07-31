@@ -5,10 +5,6 @@
 
 vector<int> filter_integers(std::list<std::any> values);
 
-bool issame(vector<int>& a, vector<int>& b){
-    return a == b;
-}
-
 vector<int> filter_integers(std::list<std::any> values){
     vector<int> result;
     for (const auto& val : values) {
@@ -17,6 +13,10 @@ vector<int> filter_integers(std::list<std::any> values){
         }
     }
     return result;
+}
+
+bool issame(vector<int>& a, vector<int>& b){
+    return a == b;
 }
 
 int main(){
