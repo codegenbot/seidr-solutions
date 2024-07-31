@@ -33,7 +33,7 @@ int main() {
     }
 
     std::cout << std::endl;
-    assert(issame(get_odd_collatz(1), std::vector<int>{1}));
+    assert(issame(get_odd_collatz(1), {1}));
 
     return 0;
 }
