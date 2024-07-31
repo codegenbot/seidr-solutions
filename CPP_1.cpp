@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
@@ -31,7 +31,11 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-vector<string> a = separate_paren_groups("( ) (( )) (( )( ))");
-vector<string> b = separate_paren_groups("() (()) (()())");
+int main() {
+    vector<string> a = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> b = separate_paren_groups("() (()) (()())");
+    
+    assert(a == b);
 
-assert(a == b);
+    return 0;
+}
