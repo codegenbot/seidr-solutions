@@ -1,23 +1,22 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 std::string circular_shift(int x, int shift) {
-    std::string str = std::to_string(x);
-    int n = str.size();
+    std::string num_str = std::to_string(x);
+    int n = num_str.size();
     shift %= n;
     if (shift == 0) {
-        return str;
+        return num_str;
     }
-    if (shift > n) {
-        std::reverse(str.begin(), str.end());
-        return str;
+    if (shift > n / 2) {
+        std::reverse(num_str.begin(), num_str.end());
+    } else {
+        std::rotate(num_str.rbegin(), num_str.rbegin() + shift, num_str.rend());
     }
-    std::string shifted = str.substr(n - shift) + str.substr(0, n - shift);
-    return shifted;
+    return num_str;
 }
 
 int main() {
-    assert(circular_shift(11, 101) == "11");
+    std::cout << circular_shift(11, 101) << std::endl;
     return 0;
 }
