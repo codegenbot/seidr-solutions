@@ -1,5 +1,4 @@
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> result;
     string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
@@ -17,7 +16,7 @@ vector<string> split_words(string txt){
     if(result.size() == 0){
         int count = 0;
         for(char c : txt){
-            if(islower(c) && ((c - 'a') % 2 == 1)){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
