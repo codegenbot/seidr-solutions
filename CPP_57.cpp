@@ -1,17 +1,17 @@
 bool monotonic(vector<int> l) {
-    bool increasing = true;
-    bool decreasing = true;
+    bool increasing = true; 
+    bool decreasing = true; 
+    
+    for (int i = 1; i < l.size(); i++) { 
+        if (l[i] < l[i - 1]) { 
+            increasing = false; 
+        } 
+        if (l[i] > l[i - 1]) { 
+            decreasing = false; 
+        } 
+    } 
 
-    for (int i = 1; i < l.size(); i++) {
-        if (l[i] < l[i - 1]) {
-            increasing = false;
-        }
-        if (l[i] > l[i - 1]) {
-            decreasing = false;
-        }
-    }
-
-    return increasing || decreasing;
+    return increasing || decreasing; 
 }
 
 /* Sample test cases */
