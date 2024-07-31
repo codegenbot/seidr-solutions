@@ -1,6 +1,16 @@
 #include <vector>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b) {
+    assert(a.size() == b.size());
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     int smallest_even = -1, smallest_index = -1;
@@ -19,5 +29,3 @@ vector<int> pluck(vector<int> arr) {
     
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b) {
