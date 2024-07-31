@@ -1,10 +1,16 @@
-#include <vector>
-
-int solution(vector<int> lst) {
+int main {
     int sum = 0;
+    vector<int> lst;
+    cout << "Enter numbers (space-separated): ";
+    for (char c; cin >> c && c != '\n';) {}
+    while (cin >> c) {
+        lst.push_back(atoi(&c));
+        c = ' ';
+    }
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
     }
-    return sum;
+    cout << "Sum of odd numbers: " << sum << endl;
+}
