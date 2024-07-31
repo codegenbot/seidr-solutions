@@ -1,6 +1,6 @@
-#include <cassert>
 #include <cmath>
 #include <bitset>
+#include <cassert> // Include the <cassert> header for the assert function
 
 std::string function_name(int n, int m) {
     if (n > m) {
@@ -16,5 +16,4 @@ std::string function_name(int n, int m) {
 
 int main() {
     assert(function_name(5, 5) == "101");
-    return 0;
 }
