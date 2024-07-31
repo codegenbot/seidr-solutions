@@ -3,18 +3,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -27,4 +16,14 @@ vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main() {
+    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
+    assert(issame(make_a_pile(8), expected));
+    return 0;
 }
