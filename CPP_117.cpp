@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 bool issame(string a, string b) {
     return a == b;
 }
@@ -5,14 +10,14 @@ bool issame(string a, string b) {
 vector<string> select_words(string s, int n);
 
 int main() {
-    string str;
-    int num;
-    getline(cin, str);
-    cin >> num;
-    vector<string> result = select_words(str, num);
-    for (string word : result) {
-        cout << word << endl;
+    string s = "apple banana orange pear";
+    int n = 2;
+    vector<string> words = select_words(s, n);
+
+    for (string word : words) {
+        cout << word << " ";
     }
+
     return 0;
 }
 
