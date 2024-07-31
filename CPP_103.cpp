@@ -1,4 +1,12 @@
-if (n > m) {
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <cmath>
+
+using namespace std;
+
+string rounded_avg(int n, int m) {
+    if (n > m) {
         return "-1";
     }
     
@@ -16,4 +24,10 @@ if (n > m) {
     }
     
     return binary_avg;
+}
+
+int main() {
+    assert(rounded_avg(5, 5) == "101");
+  
+    return 0;
 }
