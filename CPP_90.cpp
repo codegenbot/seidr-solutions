@@ -1,9 +1,13 @@
-if (lst.size() < 2) {
-        return None;
+sort(lst.begin(), lst.end());
+int count = 0;
+int prev = lst[0];
+for (int i = 1; i < lst.size(); i++) {
+    if (lst[i] != prev) {
+        count++;
+        if (count == 1) {
+            return lst[i];
+        }
     }
-    sort(lst.begin(), lst.end());
-    if (lst[0] == lst[1]) {
-        return None;
-    }
-    return lst[1];
+    prev = lst[i];
 }
+return -1;
