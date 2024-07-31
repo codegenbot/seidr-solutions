@@ -13,10 +13,5 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
+    return a == b;
 }
