@@ -35,10 +35,10 @@ vector<string> bf(string planet1, string planet2) {
 int main() {
     vector<string> expected_result = {};
     vector<string> result = bf("Jupiter", "Makemake");
-
+    
     if (issame(result, expected_result)) {
-       return 0;
+        return 0;
     } else {
-       return -1;
+        return -1;
     }
 }
