@@ -1,17 +1,16 @@
-#include <vector> 
+#include <vector>
 
-std::vector<int> eat(int number, int need, int remaining) { 
-    int total = number + need;
-    int eaten = total > remaining ? remaining : total;
-    int left = remaining - eaten;
-    return {eaten, left};
+std::vector<int> eat(int number, int need, int remaining) {
+    int total_carrots = number + need;
+    int carrots_left = std::max(0, remaining - need);
+    return {total_carrots, carrots_left};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0})); 
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
