@@ -6,6 +6,10 @@ using namespace std;
 
 string intersection(vector<int> interval1, vector<int> interval2);
 
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+}
+
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
     int end = min(interval1[1], interval2[1]);
@@ -27,8 +31,4 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     }
 
     return "YES";
-}
-
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
 }
