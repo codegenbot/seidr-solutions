@@ -20,14 +20,20 @@ int main() {
     string str;
     getline(cin, str);
     
+    int n = 0;
+    bool isNumber = false;
     for (char c : str) {
         if (isdigit(c)) {
-            int num = c - '0';  // This will work only for single-digit integers
-            lst.push_back(num);
-        } else {
-            break; 
+            n = n * 10 + (c - '0');
+            isNumber = true;
+        } else if(isNumber){
+            lst.push_back(n);
+            n = 0;
+            isNumber = false;
         }
     }
+    if(isNumber)
+        lst.push_back(n);
     
     cout << "Sum of odd numbers: " << solve(lst) << endl;
     return 0;
