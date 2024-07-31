@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,10 +7,10 @@ const char* anti_shuffle(const std::string str) {
     int i = str.length() - 1;
     while (i >= 0) {
         if(i > 0 && str[i] == str[i-1]) {
-            result += str.substr(0, i);
+            result += str.substr(0, i+1);
             return result.c_str();
         }
-        result += str[i];
+        result += str.substr(i, 1);
         i--;
     }
     return result.c_str();
