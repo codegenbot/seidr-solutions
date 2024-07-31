@@ -4,15 +4,18 @@
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for (auto& c : brackets) {
-        if ('(' == c) count++;
-        else if (')' == c) {
-            if (count <= 0) std::cout << "Incorrect pairing at the end." << std::endl; 
+    for (char bracket : brackets) {
+        if ('(' == bracket) count++;
+        else if (')' == bracket) {
+            if (count <= 0) {
+                std::cout << "Incorrect pairing at the end." << std::endl; 
+                return false;
+            }
             count--;
         }
     }
     if(count > 0) std::cout << "Unclosed parentheses." << std::endl;
-    return count == 0;
+    return !std::cout.fail();
 }
 
 int main() {
