@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -12,8 +11,7 @@ std::string change_base(int x, int base) {
 }
 
 int main() {
-    int x = 42;
-    assert(change_base(x, x + 1) == std::to_string(x));
-    
+    assert(change_base(12, 2) == "110");
+    assert(change_base(20, 8) == "24");
     return 0;
 }
