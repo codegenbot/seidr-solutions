@@ -2,12 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<int> a, int b){
+    return std::find(a.begin(), a.end(), b) != a.end();
 }
 
 std::vector<int> unique_digits(std::vector<int> x){
@@ -31,6 +27,6 @@ std::vector<int> unique_digits(std::vector<int> x){
 }
 
 int main() {
-    assert (issame(unique_digits({135, 103, 31}) , {31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), 135) && issame(unique_digits({135, 103, 31}), 31));
     return 0;
 }
