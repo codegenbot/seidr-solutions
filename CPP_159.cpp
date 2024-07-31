@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cassert>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
