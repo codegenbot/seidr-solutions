@@ -1,29 +1,20 @@
-#include <iostream>
 #include <string>
 
-bool correct_bracketing(std::string brackets){
+std::string correct_bracketing(std::string brackets) {
     int count = 0;
+    std::string result;
+
     for(char c : brackets){
         if(c == '<'){
             count++;
+            result += '<';
         }
         else if(c == '>'){
-            if(count <= 0) return false;
+            if(count <= 0) return "";
             count--;
+            result += '>';
         }
     }
-    return count == 0;
 
+    return count == 0 ? result : "";
 }
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string of brackets: ";
-    std::getline(std::cin, input) >> std::ws;  
-    if(correct_bracketing(input)) {
-        std::cout << "The bracketing is correct." << std::endl;
-    } else {
-        std::cout << "Error: The bracketing is incorrect. There are unmatched '>' characters." << std::endl;
-    }
-    
-    return 0;
