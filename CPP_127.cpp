@@ -17,7 +17,7 @@ string intersection(vector<int>& interval1, vector<int>& interval2) {
         return "NO";
     }
     
-    for (int i = 2; i <= length / 2; ++i) {
+    for (int i = 2; i <= length / 2; i++) {
         if (length % i == 0) {
             return "NO";
         }
