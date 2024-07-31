@@ -4,16 +4,16 @@
 #include <cassert>
 
 std::vector<float> find_closest_elements(const std::vector<float>& nums) {
-    std::vector<float> result;
+    std::vector<float> result = nums; // Copy input vector
     
     std::sort(result.begin(), result.end());
     float min_diff = std::numeric_limits<float>::max();
     
-    for (size_t i = 0; i < nums.size() - 1; ++i) {
-        float diff = std::abs(nums[i] - nums[i + 1]);
+    for (size_t i = 0; i < result.size() - 1; ++i) {
+        float diff = std::abs(result[i] - result[i + 1]);
         if (diff < min_diff) {
             min_diff = diff;
-            result = {nums[i], nums[i + 1]};
+            result = {result[i], result[i + 1]};
         }
     }
     
