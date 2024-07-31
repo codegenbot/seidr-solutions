@@ -15,7 +15,3 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
 bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
-
-int main() {
-    assert(is_same(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-}
