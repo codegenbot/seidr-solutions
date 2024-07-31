@@ -21,9 +21,8 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    using namespace std;
-    
     int n;
+    using namespace std;
     cout << "Enter a number: ";
     cin >> n;
 
