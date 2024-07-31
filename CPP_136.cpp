@@ -1,19 +1,6 @@
-#include <iostream>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> largest_smallest_integers(vector<int> lst){
+vector<int> find_largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for (int num : lst) {
         if (num < 0 && num > largest_negative) {
@@ -22,16 +9,20 @@ vector<int> largest_smallest_integers(vector<int> lst){
             smallest_positive = num;
         }
     }
+    if (largest_negative == INT_MIN) {
+        largest_negative = 0;
+    }
+    if (smallest_positive == INT_MAX) {
+        smallest_positive = 0;
+    }
     return {largest_negative, smallest_positive};
 }
 
-int main() {
-    vector<int> input = {3, -5, 2, -1, 7};
-    vector<int> result = largest_smallest_integers(input);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
+int main(){
+    assert(issame(find_largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1});
     return 0;
 }
