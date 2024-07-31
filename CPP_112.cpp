@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    std::string result = "";
+std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
             result += ch;
