@@ -17,7 +17,7 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
-    return result;
+    return result; 
 }
 
 int main() {
