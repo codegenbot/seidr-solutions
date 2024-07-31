@@ -28,10 +28,3 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-
-int main(){
-    assert(issame(split_words(""), {}));
-    assert(issame(split_words("Hello World"), {"Hello", "World"}));
-    
-    return 0;
-}

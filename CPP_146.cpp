@@ -15,8 +15,14 @@ int specialFilter(std::vector<int> nums){
     return count;
 }
 
-int main() {
+void testSpecialFilter() {
     assert(specialFilter({}) == 0);
-    // Add more test cases here using assert statement
+    assert(specialFilter({12, 25, 8, 17, 39}) == 2);
+    assert(specialFilter({11, 22, 33, 44, 55}) == 0);
+    assert(specialFilter({123, 456, 789, 101}) == 2);
+}
+
+int main() {
+    testSpecialFilter();
     return 0;
 }
