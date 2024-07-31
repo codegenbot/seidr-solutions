@@ -1,16 +1,17 @@
-vector<int> even_odd_palindrome(int n){
-        vector<int> result(2, 0);
-        for(int i = 1; i <= n; ++i){
-            string num = to_string(i);
-            string revNum = num;
-            reverse(revNum.begin(), revNum.end());
-            if(num == revNum){
-                if(i % 2 == 0){
-                    result[0]++;
-                } else {
-                    result[1]++;
+int even = 0, odd = 0;
+        for (int i = 1; i <= n; i++) {
+            string numStr = to_string(i);
+            bool isPalindrome = true;
+            for (int j = 0; j < numStr.length() / 2; j++) {
+                if (numStr[j] != numStr[numStr.length() - 1 - j]) {
+                    isPalindrome = false;
+                    break;
                 }
             }
+            if (isPalindrome) {
+                if (i % 2 == 0) even++;
+                else odd++;
+            }
         }
-        return result;
+        return {even, odd};
     }
