@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <string>
+#include <vector>
 
 int add_elements(std::vector<int> arr) {
     int sum = 0;
@@ -13,10 +14,10 @@ int add_elements(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input;
     int k;
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
+    std::vector<int> input;
     for (int i = 0; i < k; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;

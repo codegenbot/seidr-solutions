@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <assert.h>
 
 bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
@@ -17,5 +18,4 @@ int main() {
     std::vector<std::string> lst = {{"("}, {")"}};
     bool result = match_parens(lst);
     std::cout << std::boolalpha << result << std::endl;
-    return 0;
 }
