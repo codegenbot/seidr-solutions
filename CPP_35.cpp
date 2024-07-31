@@ -1,15 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 std::vector<int> input;
-int n;
+std::size_t n;
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    input.resize(n, 0); // specify initial capacity and fill value
+    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
