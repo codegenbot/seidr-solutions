@@ -16,8 +16,10 @@ bool issame(vector<float> v1, vector<float> v2) {
 
 int main() {
     vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
-    
     vector<float> rescaled = rescale_to_unit(numbers);
+    
+    vector<float> check = {0.0, 0.25, 0.5, 0.75, 1.0};
+    bool same = issame(rescaled, check);
     
     return 0;
 }
