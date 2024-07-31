@@ -1,4 +1,3 @@
-```python
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     min_diff = float('inf')
     closest_pair = ()
