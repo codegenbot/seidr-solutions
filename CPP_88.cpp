@@ -1,7 +1,8 @@
-
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -22,7 +23,17 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-    
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+
+    std::vector<int> sorted = sort_array(input);
+
+    for (int num : sorted) {
+        std::cout << num << " ";
+    }
+
     return 0;
 }
