@@ -10,7 +10,7 @@ std::string solve(std::string s);
 int main() {
     string s;
     cout << "Enter a string: ";
-    cin >> s;
+    getline(cin, s);
     cout << "Result: " << solve(s) << endl;
 }
 
@@ -23,5 +23,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).substr(0, result.size()) : result;
+    return result;
 }
