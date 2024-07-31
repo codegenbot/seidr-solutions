@@ -3,7 +3,7 @@
 #include <vector>
 #include <limits>
 
-int calculate_sum(const std::vector<int>& arr);
+int add_elements(const std::vector<int>& arr);
 
 int main() {
     int k = 0;
@@ -36,24 +36,16 @@ int main() {
             sum = numbers[0];
         }
     }
-    std::cout << "Sum of elements with length of string representation <= 2: " << calculate_sum(numbers) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(numbers) << std::endl;
 
 }
 
-int calculate_sum(const std::vector<int>& arr) {
-    int sum = 0; 
-    for (int i = 0; i < arr.size(); i++) {
-        if(i > 0) {
-            sum += arr[i];
-        } else {
-            sum = arr[0];
-        }
-    }
-    int result_sum = 0;
+int add_elements(const std::vector<int>& arr) {
+    int sum = 0;
     for (int i = 0; i < arr.size(); i++) {
         if(std::to_string(arr[i]).length() <= 2) {
-            result_sum += arr[i];
+            sum += arr[i];
         }
     }
-    return result_sum;
+    return sum;
 }
