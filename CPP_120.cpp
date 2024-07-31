@@ -1,15 +1,8 @@
-Here is the completed code:
-
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq(arr.begin(), arr.end());
-    vector<int> result;
-    
-    for(int i = 0; i < k; i++) {
-        result.push_back(pq.top());
-        pq.pop();
+    vector<int> res(k);
+    partial_sort(res.begin(), res.end(), [&arr](int a, int b) { return abs(a) > abs(b); });
+    for (int i = 0; i < k; ++i) {
+        res[i] = (k - i - 1 >= 0 && arr[k - i - 1] > arr[k - i - 2]) ? arr[k - i - 1] : arr[k - i - 2];
     }
-    
-    sort(result.begin(), result.end());
-    
-    return result;
+    return res;
 }
