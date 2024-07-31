@@ -1,11 +1,14 @@
 ```cpp
+#include <cctype>
 #include <cstring>
 #include <string>
 
 int main() {
     std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
+    std::getline(std::cin, input);
+    str = input;
     int result = count_distinct_characters(str);
     return 0;
 }
@@ -13,13 +16,13 @@ int main() {
 int count_distinct_characters(const std::string& str) {
     bool seen[256] = {false}; // assume ASCII
 
-    for (char c : str) {
+    for (int i = 0; i < str.length(); ++i) {
+        char c = tolower(str[i]);
         if (!std::isalpha(c)) {
             continue; // ignore non-alphabets
         }
-        char ch = tolower(c);
-        if (!seen[ch]) {
-            seen[ch] = true;
+        if (!seen[c]) {
+            seen[c] = true;
         }
     }
 
