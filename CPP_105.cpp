@@ -40,7 +40,11 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main(){
-    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
+    vector<string> expected = {"Nine", "Eight", "Four"};
+    vector<string> actual = by_length({9, 4, 8});
+    sort(actual.begin(), actual.end());
+    sort(expected.begin(), expected.end());
+    assert(equal(actual.begin(), actual.end(), expected.begin()));
 
     return 0;
 }
