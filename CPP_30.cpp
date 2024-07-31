@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -27,5 +28,4 @@ int main() {
     } else {
         cout << "Not all numbers are positive." << endl;
     }
-    return 0;
 }
