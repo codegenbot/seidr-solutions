@@ -3,16 +3,12 @@
 #include <cassert>
 
 std::vector<int> tri(int n) {
-    std::vector<int> result;
-    result.push_back(3);
-    result.push_back(4);
-    result.push_back(6);
-    result.push_back(10);
-
-    for (int i = 4; i < n; ++i) {
-        result.push_back(result[i - 1] + result[i - 2] + result[i - 3] + result[i - 4]);
+    std::vector<int> result(n);
+    result[0] = 3;
+    result[1] = 4;
+    for (int i = 2; i < n; ++i) {
+        result[i] = result[i - 1] + result[i - 2] + i;
     }
-
     return result;
 }
 
@@ -25,12 +21,12 @@ int main() {
     std::cin >> n;
 
     std::vector<int> result = tri(n);
-
+    
     if (issame(result, {3, 4, 6, 10})) {
         std::cout << "Test Passed" << std::endl;
     } else {
         std::cout << "Test Failed" << std::endl;
     }
-
+    
     return 0;
 }
