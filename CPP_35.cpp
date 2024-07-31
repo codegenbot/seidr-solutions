@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,15 +17,15 @@ void readInput(std::vector<int>& input) {
     }
 }
 
-int main() { 
+int program() { 
     std::vector<int> input;
     readInput(input);
 
     if(input.size() == 0) {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
-        auto max_element = *std::max_element(input.begin(), input.end());
-        std::cout << "Maximum element is: " << max_element << std::endl;
+        auto maxElement = *std::max_element(input.begin(), input.end());
+        std::cout << "Maximum element is: " << maxElement << std::endl;
     }
 
     return 0;
