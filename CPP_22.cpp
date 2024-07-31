@@ -35,8 +35,10 @@ int main() {
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        bool same = issame(filter_integers(arr), filter_integers({3, 99, 3, 3, 97, 98}));
-        if (!same) {
+        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
+        std::vector<int> testArr2 = {3, 3, 3};
+
+        if (!issame(filter_integers(arr), filter_integers(testArr1))) {
             std::cout << "Array is not same." << std::endl;
         } else {
             std::cout << "Array is same." << std::endl;
