@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -12,20 +11,20 @@ double poly(const std::vector<double>& coeffs, double x) {
 
 double find_zero(const std::vector<double>& coeffs) {
     double x = 1.0;
-    double tol = 1e-6;
+    double tolerance = 1e-6;
     while (true) {
         double fx = poly(coeffs, x);
-        if (abs(fx) < tol) {
+        if (abs(fx) < tolerance) {
             return x;
         }
-        x -= fx / poly({coeffs[1], -coeffs[0]}, x);
+        x -= fx / poly({coeffs[0], coeffs[2]}, x);
     }
 }
 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<double> coeffs = {};  
+    std::vector<double> coeffs = {};
     for (int i = 0; i < n; i++) {
         double val;
         std::cin >> val;
