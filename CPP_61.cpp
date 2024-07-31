@@ -19,9 +19,10 @@ bool correct_bracketing(const std::string& brackets) {
 
 int main() {
     assert(correct_bracketing("()()(()())()")); // Example test case
-    assert(correct_bracketing("((()))()")); // Additional test case
-    assert(!correct_bracketing("())")); // Additional test case
-    assert(!correct_bracketing("()(")); // Additional test case
-    assert(correct_bracketing("")); // Additional test case
+    assert(correct_bracketing("((()))")); // Valid case
+    assert(!correct_bracketing("(()()")); // Invalid case
+    assert(correct_bracketing("")); // Empty case
+    assert(correct_bracketing("()")); // Valid case
+    assert(!correct_bracketing(")(")); // Invalid case
     return 0;
 }
