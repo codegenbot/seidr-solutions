@@ -36,7 +36,8 @@ int main() {
             for(int i=0; i<v[0].size(); i++) {
                 auto it = std::unique_copy(std::set_intersection(v[0].begin(), v[0].end(),
                                                                   v[1].begin(), v[1].end(),
-                                                                  v[0].begin()), v[0].begin());
+                                                                  v[0].begin()), 
+                                            v[0].begin());
                 if(it != v[0].end()) {
                     common.push_back(*it);
                 }
