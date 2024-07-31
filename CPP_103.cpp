@@ -1,7 +1,8 @@
+
 #include <iostream>
 #include <bitset>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) {
