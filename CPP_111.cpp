@@ -1,4 +1,3 @@
-```c++
 map<char,int> histogram(string test){
     map<char,int> result;
     string temp = "";
@@ -31,22 +30,13 @@ map<char,int> histogram(string test){
         }
     }
 
-    bool sameMaps = true;
-
-    map<char,int> tempMap = result;
-    for(auto it = maxMap.begin(); it != maxMap.end(); it++){
-        if(tempMap.find(it->first) == tempMap.end() || tempMap[it->first] != it->second){
-            sameMaps = false;
-            break;
+    bool issame(map<char,int> a, map<char,int> b){
+        if(a.size() != b.size()) return false;
+        for(auto it = a.begin(); it != a.end(); it++){
+            if(it->second != b[it->first]) return false;
         }
+        return true;
     }
 
     return maxMap;
-}
-bool issame(map<char,int> a, map<char,int> b){
-    if(a.size() != b.size()) return false;
-    for(auto it = a.begin(); it != a.end(); it++){
-        if(it->second != b[it->first]) return false;
-    }
-    return true;
 }
