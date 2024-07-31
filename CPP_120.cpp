@@ -1,8 +1,9 @@
-#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <initializer_list>
 
-bool issame(int a, int b) {
+template <typename T>
+bool issame(const T& a, const T& b) {
     return a == b;
 }
 
