@@ -1,4 +1,4 @@
-int prod_signs(const vector<int>& arr) {
+int prod_signs(vector<int>& arr) {
     int sum = 0;
     int product = 1;
     if (arr.empty()) {
