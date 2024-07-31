@@ -1,10 +1,13 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <set>
 
 using namespace std;
+
+void display(vector<int> l) {
+    for(int i: l) cout << i << " ";
+}
 
 vector<int> unique(vector<int> l) {
     set<int> s(l.begin(), l.end());
@@ -15,6 +18,6 @@ vector<int> unique(vector<int> l) {
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     l = unique(l);
-    for(int i: l) cout << i << " ";
+    display(l);
     return 0;
 }
