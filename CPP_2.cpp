@@ -1,9 +1,13 @@
 #include <iostream>
+#include <cmath>
+
+double truncate_number(double number) {
+    return number - std::floor(number);
+}
 
 int main() {
     double number;
     std::cin >> number;
-    double fractionalPart = number - static_cast<int>(number);
-    std::cout << fractionalPart << std::endl;
+    std::cout << truncate_number(number) << std::endl;
     return 0;
 }
