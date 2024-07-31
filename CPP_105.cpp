@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -7,10 +8,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers.push_back(to_string(num));
         }
     }
 
@@ -18,38 +19,38 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
+    for (string str : numbers) {
+        string res = "";
+        switch (stoi(str)) {
             case 1:
-                str = "One";
+                res = "One";
                 break;
             case 2:
-                str = "Two";
+                res = "Two";
                 break;
             case 3:
-                str = "Three";
+                res = "Three";
                 break;
             case 4:
-                str = "Four";
+                res = "Four";
                 break;
             case 5:
-                str = "Five";
+                res = "Five";
                 break;
             case 6:
-                str = "Six";
+                res = "Six";
                 break;
             case 7:
-                str = "Seven";
+                res = "Seven";
                 break;
             case 8:
-                str = "Eight";
+                res = "Eight";
                 break;
             case 9:
-                str = "Nine";
+                res = "Nine";
                 break;
         }
-        result.push_back(str);
+        result.push_back(res);
     }
 
     return result;
