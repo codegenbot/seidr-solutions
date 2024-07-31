@@ -1,6 +1,12 @@
 int result = 1;
-    for(int i = 0; i < n; i++){
-        result = (result * 2) % p;
+    n = n % p;
+    if (n == 0) return 0;
+    while (p > 0) {
+        if (p % 2 == 1) {
+            result = (result * n) % p;
+        }
+        n = (n * n) % p;
+        p = p / 2;
     }
     return result;
 }
