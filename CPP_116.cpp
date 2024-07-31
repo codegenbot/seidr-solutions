@@ -1,9 +1,20 @@
+#include <vector>
+#include <algorithm>
+
 vector<int> sort_array(vector<int> arr) {
-    vector<pair<int, int>> pairs;
-    for (int num : arr) {
-        int ones = __builtin_popcount(num);
-        pairs.push_back({ones, num});
+    vector<int> result;
+    
+    for (int i = 0; i < arr.size(); i++) {
+        int ones = __builtin_popcount(arr[i]);
+        result.push_back({ones, arr[i]});
     }
-    sort(pairs.begin(), pairs.end());
-    return vector<int>(pairs.begin(), pairs.end()).second;
+    
+    sort(result.begin(), result.end());
+    
+    vector<int> sortedArray;
+    for (auto &item : result) {
+        sortedArray.push_back(item.second);
+    }
+    
+    return sortedArray;
 }
