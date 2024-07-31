@@ -12,8 +12,13 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b){
+    return a == b;
+}
+
 int main(){
-    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
+    vector<string> expected = {"W", "WW", "WWW"};
+    assert(issame(all_prefixes("WWW"), expected));
 
     return 0;
 }
