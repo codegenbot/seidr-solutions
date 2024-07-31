@@ -2,16 +2,16 @@
 #include <cmath>
 
 double poly(std::vector<double> coefficients, double x);
-double find_zero(std::vector<double> coefficients);
+double find_zero(std::vector<double> coeffs);
 
 int main() {
     int n;
     cin >> n;
-    std::vector<double> coeffs(n); // Initialize coeffs vector here
-    double val;
+    std::vector<double> coeffs;
     for (int i = 0; i < n; i++) {
-        cin >> val;
-        coeffs[i] = val;
+        double coeff;
+        cin >> coeff;
+        coeffs.push_back(coeff);
     }
     double solution = find_zero(coeffs); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
@@ -27,12 +27,12 @@ double poly(std::vector<double> coefficients, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coefficients) {
+double find_zero(std::vector<double> coeffs) {
     std::vector<double> values;
     double sum = 0;
-    for (int i = 1; i < coefficients.size(); i++) {
+    for (int i = 1; i < coeffs.size(); i++) {
         if (i % 2 == 0) {
-            values.push_back(coefficients[i] / coefficients[0]);
+            values.push_back(coeffs[i] / coeffs[0]);
         }
     }
     double x = -values[0];
