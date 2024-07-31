@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,11 +17,12 @@ const char* anti_shuffle(const string& str) {
     return res;
 }
 
-int main(){
-    string str;
+int main() { 
+    string str = ""; 
     cout << "Enter a string: ";
     cin >> str;
     const char* result = anti_shuffle(str);
     if(result==NULL)cout<<"No valid shuffle found."<<endl;
     else cout << "Result: " << result << endl;
     return 0;
+}
