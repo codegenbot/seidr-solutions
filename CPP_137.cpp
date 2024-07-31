@@ -13,6 +13,6 @@ T compare_one(const T& a, const T& b) {
 
 int main() {
     assert(compare_one(T("1"), std::to_string(1)).empty());
-    
+
     return 0;
 }
