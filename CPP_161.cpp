@@ -1,23 +1,9 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
-std::string solve(std::string s);
-
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    cout << "Result: " << solve(s) << endl;
-}
-
+```cpp
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            result += toupper(islower(c))? toupper(c) : tolower(c);
         } else {
             result += c;
         }
