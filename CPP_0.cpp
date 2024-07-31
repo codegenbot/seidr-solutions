@@ -1,6 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
+#include <memory>
+#include <ext/new_allocator.h>
 
 using namespace std;
 
