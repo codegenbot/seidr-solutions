@@ -1,3 +1,4 @@
+```Python
 def digits(n):
     product = 1
     has_odd = False
