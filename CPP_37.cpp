@@ -3,7 +3,7 @@
 
 bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
 
-void sort_even(const std::vector<float>& l); // Change to accept const reference
+void sort_even(const std::vector<float>& l); // Updated function declaration
 
 bool issame(std::vector<float> a, std::vector<float> b) {
    for(size_t i=0; i<a.size(); i++){
@@ -14,7 +14,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
    return true;
 }
 
-void sort_even(const std::vector<float>& l) {
+void sort_even(const std::vector<float>& l) { // Updated function definition with const reference
    std::vector<float> even_elems;
    for(size_t i=0; i<l.size(); i++){
        if(i%2 == 0){
@@ -33,4 +33,6 @@ void sort_even(const std::vector<float>& l) {
            result.push_back(l[i]);
        }
    }
+   
+   l = result;
 }
