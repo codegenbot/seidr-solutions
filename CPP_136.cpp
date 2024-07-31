@@ -1,19 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+using namespace std;
 
-std::vector<int> largest_smallest_integers(const std::vector<int>& nums) {
-    int largest = *std::max_element(nums.begin(), nums.end());
-    int smallest = *std::min_element(nums.begin(), nums.end());
-    return {smallest, largest};
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
+vector<int> largest_smallest_integers(const vector<int>& nums) {
+    int smallest = nums[0];
+    int largest = nums[0];
     
-    return 0;
+    for (int i = 1; i < nums.size(); ++i) {
+        if (nums[i] < smallest) {
+            smallest = nums[i];
+        }
+        if (nums[i] > largest) {
+            largest = nums[i];
+        }
+    }
+    
+    return {smallest, largest};
 }
