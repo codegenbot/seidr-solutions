@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -11,7 +10,17 @@ bool equal(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> unique_vector(std::vector<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result;
+    for (int num : numbers) {
+        if (std::find(result.begin(), result.end(), num) == result.end()) {
+            result.push_back(num);
+        }
+    }
+    return result;
+}
+
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::vector<int> result = numbers;
     std::sort(result.begin(), result.end());
     auto last = std::unique(result.begin(), result.end());
@@ -20,6 +29,6 @@ std::vector<int> unique_vector(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(equal(unique_vector({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(equal(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
