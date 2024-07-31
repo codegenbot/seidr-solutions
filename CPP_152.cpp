@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
+#include <cmath>
 
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result(a.size());
+std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> result;
     for (size_t i = 0; i < a.size(); ++i) {
-        result[i] = std::abs(a[i] - b[i]);
+        result.push_back(std::abs(a[i] - b[i]));
     }
     return result;
 }
