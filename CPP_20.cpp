@@ -22,7 +22,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == pair<float, float>{3.1, 4.1});
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == make_pair(3.1f, 4.1f));
 
     return 0;
 }
