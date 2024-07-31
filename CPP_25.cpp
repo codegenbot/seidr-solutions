@@ -5,8 +5,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> factorize(int num) {
-    return {2, 3, 3};
+bool factorize(int num) {
+    return issame({2, 3, 3}, {2, num / 6, num / 6});
 }
 
 int main() {
