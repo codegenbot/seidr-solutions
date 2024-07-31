@@ -1,12 +1,10 @@
-#include <vector>
-using namespace std;
-
-double poly(double x, vector<double> coeffs) {
-    double sum = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        sum += coeffs[i] * pow(x, i);
+```cpp
+double poly(vector<double> coefficients, double x) {
+    double result = 0;
+    for (int i = 0; i < coefficients.size(); i++) {
+        result += coefficients[i] * pow(x, i);
     }
-    return sum;
+    return result;
 }
 
 double find_zero(vector<double> xs) {
@@ -17,5 +15,6 @@ double find_zero(vector<double> xs) {
             coeffs.push_back(xs[i] / xs[0]);
         }
     }
-    return -poly(1, coeffs);
+    double x = -coeffs[0];
+    return poly(coeffs, x);
 }
