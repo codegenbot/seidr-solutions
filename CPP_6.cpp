@@ -25,6 +25,10 @@ bool same(const vector<int>& a, const vector<int>& b) {
     return a.size() == b.size();
 }
 
+int issame(const string& s) {
+    return same(parse_nested_parens(s), {1, 4});
+}
+
 int main() {
     assert(issame("(()(())((()))"));
 }
