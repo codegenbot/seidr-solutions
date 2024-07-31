@@ -1,5 +1,6 @@
-#include <iostream>      // Add missing iostream and ostream includes
-#include <ostream>
+#include <iostream>
+#include <string>
+#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -17,9 +18,10 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    bool result = correct_bracketing(input);
-    std::cout << std::boolalpha << result << std::endl;
+    std::string input_brackets;
+    std::cin >> input_brackets;
+
+    assert(correct_bracketing(input_brackets));
+
     return 0;
 }
