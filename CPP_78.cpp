@@ -1,19 +1,14 @@
-```cpp
-#include <string>
-#include <iostream>
 #include <cassert>
 
-int stringToHex(const std::string& s) {
+int stringToHex(string input) { 
+    if(input.empty()) {
+        return 0;
+    }
     int result = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            result = result * 16 + (c - '0');
-        } else if (isupper(c)) {
-            result = result * 16 + (c - 'A' + 10);
-        }
+    for(char c : input) {
+        result += (int)c;
     }
     return result;
-
 }
 
 int testMain() {
