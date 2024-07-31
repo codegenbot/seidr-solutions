@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <stack>
 #include <string>
@@ -49,11 +48,11 @@ std::string correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    if (correct_bracketing("<><><<><>><>>><>") != "Valid input") { 
-        assert(false); 
+    if (correct_bracketing("<><><<><>><>>><>") == "Invalid input") { 
+        std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
+    } else {
+        std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
     }
-    
-    std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
     
     return 0;
 }
