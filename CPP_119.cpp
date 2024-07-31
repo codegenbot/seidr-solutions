@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cstring>
 
@@ -15,6 +16,6 @@ bool match_parens(const char* parens) {
 }
 
 int main() {
-    std::cout << (match_parens("())") ? "Valid" : "Invalid";
+    std::cout << (match_parens("()")) ? "Valid" : "Invalid";
     return 0;
 }
