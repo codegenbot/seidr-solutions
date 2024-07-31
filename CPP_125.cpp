@@ -1,39 +1,31 @@
 vector<string> split_words(string txt){
         vector<string> result;
-        string word = "";
-        bool hasWhitespace = false;
-        
-        for(char c : txt){
-            if(c == ' '){
-                hasWhitespace = true;
-                if(word != ""){
-                    result.push_back(word);
-                    word = "";
-                }
-            } else if(c == ','){
-                hasWhitespace = true;
-                if(word != ""){
-                    result.push_back(word);
-                    word = "";
-                }
-            } else {
-                word += c;
+        string word;
+        if(txt.find(' ') != string::npos){
+            size_t start = 0, end;
+            while((end = txt.find(' ', start)) != string::npos){
+                word = txt.substr(start, end - start);
+                result.push_back(word);
+                start = end + 1;
             }
+            result.push_back(txt.substr(start));
         }
-        
-        if(word != ""){
-            result.push_back(word);
-        }
-        
-        if(!hasWhitespace && result.size() == 1){
-            int oddCount = 0;
-            for(char c : result[0]){
-                if(islower(c) && (c - 'a') % 2 == 1){
-                    oddCount++;
-                }
+        else if(txt.find(',') != string::npos){
+            size_t start = 0, end;
+            while((end = txt.find(',', start)) != string::npos){
+                word = txt.substr(start, end - start);
+                result.push_back(word);
+                start = end + 1;
             }
-            result[0] = to_string(oddCount);
+            result.push_back(txt.substr(start));
         }
-        
+        else{
+            int oddChars = 0;
+            for(char c : txt){
+                if(islower(c) && ((c - 'a') % 2 != 0))
+                    oddChars++;
+            }
+            result.push_back(to_string(oddChars));
+        }
         return result;
     }
