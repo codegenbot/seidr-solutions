@@ -1,7 +1,5 @@
 #include <string>
 #include <cassert>
-#include <iostream> // Added for std::cout
-#include <sstream> // Added for std::stringstream
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -14,8 +12,6 @@ std::string change_base(int x, int base){
 
 int main(){
     int x = 10;
-    std::stringstream ss; // Create stringstream object
-    ss << x; // Insert x into stringstream
-    assert(change_base(x, x + 1) == ss.str()); // Compare with stringstream content
+    assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
