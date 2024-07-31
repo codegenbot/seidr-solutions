@@ -29,8 +29,6 @@ std::string file_name_check(const std::string& file_name) {
 }
 
 int main() {
-    std::string file_name;
-    std::cin >> file_name;
-    std::cout << file_name_check(file_name) << std::endl;
+    assert(file_name_check("s.") == "No");
     return 0;
 }
