@@ -1,16 +1,31 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool compare_vectors(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool compare_vectors(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+vector<string> separate_paren_groups(string paren_string);
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+int main() {
+    string input;
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+
+    for (const string& group : groups) {
+        cout << group << endl;
+    }
+
+    return 0;
+}
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
 
     for (char c : paren_string) {
         if (c == '{') {
@@ -30,13 +45,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::vector<std::string> groups = separate_paren_groups(input);
-
-    return 0;
 }
