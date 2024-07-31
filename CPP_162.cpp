@@ -2,8 +2,6 @@
 #include <string>
 #include <openssl/evp.h>
 
-#pragma comment(lib, "libcrypto") // Link OpenSSL library
-
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";

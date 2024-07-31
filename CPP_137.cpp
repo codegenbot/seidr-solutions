@@ -11,7 +11,7 @@ std::any compare_one(std::any a, std::any b) {
         } else if (a.type() == typeid(float)) {
             return std::any(std::max(std::any_cast<float>(a), std::any_cast<float>(b)));
         } else if (a.type() == typeid(std::string)) {
-            return std::any(std::max(std::stof(std::any_cast<std::string>(a)), std::stof(std::any_cast<std::string>(b))));
+            return std::any(std::max(std::stof(std::any_cast<std::string>(a)), std::stof(std::any_cast<std::string>(b)));
         }
     }
     return std::any();
