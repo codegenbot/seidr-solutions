@@ -2,10 +2,6 @@
 
 bool issame(int a, int b);
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
@@ -21,4 +17,11 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
-```
+bool issame(int a, int b) {
+    return a == b;
+}
+
+int main() {
+    // main function implementation
+    return 0;
+}
