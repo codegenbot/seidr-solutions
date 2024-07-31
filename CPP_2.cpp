@@ -1,11 +1,8 @@
-#include <iostream>
 #include <cmath>
-
 double truncate_number(double number) {
-    return number >= 0 ? number - floor(number) : number - ceil(number);
+    return number - std::floor(number);
 }
 
 int main() {
-    assert(abs(truncate_number(123.456) - 0.456) < 1e-4);
-    return 0;
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
 }
