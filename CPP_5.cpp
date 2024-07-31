@@ -8,6 +8,11 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    return 0;
+}
+
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
     for (int i = 0; i < numbers.size(); i++) {
@@ -17,9 +22,4 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
 }
