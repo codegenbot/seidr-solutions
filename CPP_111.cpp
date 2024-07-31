@@ -1,14 +1,23 @@
 map<char, int> histogram(string test);
 
-bool issame(map<char, int> a, map<char, int> b) {
-    map<char, int>::iterator it1 = a.begin();
-    map<char, int>::iterator it2 = b.begin();
-    while (it1 != a.end() && it2 != b.end()) {
-        if (*it1 != *it2) {
-            return false;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
+    while (iss >> word) {
+        for (char& c : word) {
+            result[c]++;
         }
-        ++it1;
-        ++it2;
     }
-    return (it1 == a.end() && it2 == b.end());
+    int maxCount = 0;
+    for (const auto& entry : result) {
+        maxCount = max(maxCount, entry.second);
+    }
+    map<char, int> mostRepeated;
+    for (const auto& entry : result) {
+        if (entry.second == maxCount) {
+            mostRepeated[entry.first] = entry.second;
+        }
+    }
+    return mostRepeated;
 }
