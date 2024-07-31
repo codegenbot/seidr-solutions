@@ -9,7 +9,7 @@ int solutions(vector<int> lst) {
                       [](int sum, int val) { return val % 2 != 0 && val > 1 ? sum + val : sum; } ) ;
 }
 
-int main() {
+void solve() {
     vector<int> lst;
     int n;
     cin >> n;
@@ -19,5 +19,4 @@ int main() {
         lst.push_back(x);
     }
     cout << solutions(lst) << endl;
-    return 0;
 }
