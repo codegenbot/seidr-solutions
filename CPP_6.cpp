@@ -16,5 +16,5 @@ std::vector<int> parse_nested_parens(const std::string& s) {
 }
 
 bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
