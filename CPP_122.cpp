@@ -38,7 +38,6 @@ int main() {
         }
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
-    return 0;
 }
 
 int add_elements(std::vector<int> arr) {
