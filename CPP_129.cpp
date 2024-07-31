@@ -1,8 +1,11 @@
 #include <iostream>
+
 #include <vector>
 #include <algorithm>
 
 using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k);
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
