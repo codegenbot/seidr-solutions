@@ -11,8 +11,10 @@ int filp_case(const char* str) {
         }
     }
     return result;
+
 }
 
 int main() {
-    assert(filp_case("These violent delights have violent ends") == 0);
+    int result = filp_case("These violent delights have violent ends");
+    assert(result == 0);
 }
