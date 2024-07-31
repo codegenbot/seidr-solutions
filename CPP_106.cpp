@@ -1,24 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the <cassert> header file
 
 using namespace std;
-
-void validate(const vector<int>& result, const vector<int>& expected) {
-    if (result.size() != expected.size()) {
-        cout << "Validation failed: Result size does not match expected size" << endl;
-        return;
-    }
-
-    for (int i = 0; i < result.size(); ++i) {
-        if (result[i] != expected[i]) {
-            cout << "Validation failed: Mismatch at index " << i << endl;
-            return;
-        }
-    }
-
-    cout << "Validation successful!" << endl;
-}
 
 vector<int> f(int n) {
     vector<int> result(n);
@@ -41,6 +25,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    validate(f(3), vector<int>{1, 2, 6});
+    assert(f(3) == vector<int>{1, 2, 6});
     return 0;
 }
