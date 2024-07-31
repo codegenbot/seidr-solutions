@@ -2,15 +2,22 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<int> sum_product(const std::vector<int>& vec) {
-    std::vector<int> result;
+vector<int> sum_product(const vector<int>& vec) {
+    vector<int> result;
     for (int num : vec) {
         result.push_back(num);
         result.push_back(num);
     }
     return result;
+}
+
+int main() {
+    assert(issame(sum_product({10}), {10, 10}));
+    return 0;
 }
