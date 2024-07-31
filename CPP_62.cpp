@@ -1,7 +1,7 @@
-#include <vector> // Include the vector header file
+#include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    // Function implementation
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a == b;
 }
 
 std::vector<float> derivative(std::vector<float> xs) {
