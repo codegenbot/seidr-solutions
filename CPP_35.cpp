@@ -1,16 +1,15 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 std::vector<int> input;
-std::size_t n;
+int n;
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    input.resize(n);
+    input.resize(n, 0);
 
     for(int i = 0; i < n; i++) {
         int temp;
@@ -20,7 +19,7 @@ void readInput() {
     }
 }
 
-int main() { 
+void main() { 
     readInput();
 
     if(input.size() == 0) {
