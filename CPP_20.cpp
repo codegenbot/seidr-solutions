@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <limits>
 
 std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     std::vector<float> result = nums;
