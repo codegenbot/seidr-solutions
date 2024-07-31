@@ -4,11 +4,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::pair<int, int> even_odd_palindrome(int n) {
+std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
@@ -25,4 +25,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
+int main() {
+    assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1}));
+    return 0;
+}
