@@ -22,6 +22,7 @@ int main() {
     while (true) {
         cin >> num;
         if (cin.fail()) break; 
+        if (num == 'stop') break;
         numbers.push_back(num);
     }
 
