@@ -1,11 +1,10 @@
 #include <vector>
 #include <string>
 
-bool issameFunc(vector<string> a, vector<string>b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert(issameFunc(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    // your code here
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
