@@ -1,5 +1,7 @@
-#include <algorithm>
+#include <typeinfo>
+#include <cassert>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -17,6 +19,6 @@ int main() {
     assert(boost::any_cast<float>(compare_one(1.5f, 2.3f)).type() == typeid(float));
     assert(boost::any_cast<float>(compare_one(std::to_string(1.5f), std::to_string(2.3f))).type() == typeid(float));
     assert(compare_one(std::to_string(1), 1).type() == typeid(boost::any));
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::to_string(1))).empty());
+    assert(boost::any_cast<float>(compare_one(std::string("1"), std::to_string(1))).empty());
     return 0;
 }
