@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,7 +12,7 @@ int main() {
     std::cin >> n;
 
     std::vector<int> input;
-    input.resize(n);
+    input.resize(n, 0); // Fix here
 
     for(int i = 0; i < n; i++) {
         int temp;
