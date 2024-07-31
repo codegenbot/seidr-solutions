@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -26,6 +25,7 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::cout << count_nums({1}) << std::endl;
+    std::vector<int> test = {1};
+    assert(count_nums(test) == 1);
     return 0;
 }
