@@ -7,11 +7,13 @@ double poly(const vector<double>& xs, double x) {
 }
 
 double find_zero(const vector<double>& xs) {
-    double solution = 0.0;
-    if (xs.size() == 2) {
-        solution = -xs[0] / xs[1];
-    }
-    return solution;
+    double a = xs[2];
+    double b = xs[1];
+    double c = xs[0];
+    double discriminant = b * b - 4 * a * c;
+    double root1 = (-b + sqrt(discriminant)) / (2 * a);
+    double root2 = (-b - sqrt(discriminant)) / (2 * a);
+    return root1 < root2 ? root1 : root2;
 }
 
 int main() {
