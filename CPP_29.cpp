@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a) {
-    return std::equal(a.begin(), a.end(), a.begin());
+    return std::unique(a.begin(), a.end()) == a.end();
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
