@@ -12,8 +12,9 @@ bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+    std::set<std::string> set_strings(strings.begin(), strings.end());
     std::vector<std::string> result;
-    for (const auto& s : strings) {
+    for (const auto& s : set_strings) {
         if (s.find(substring) != std::string::npos) {
             result.push_back(s);
         }
@@ -26,15 +27,16 @@ int main() {
     std::cin >> n;
 
     std::vector<std::string> strings;
-    std::string s;
     for (int i = 0; i < n; ++i) {
-        getline(std::cin, s);
+        getline(std::cin, std::string s);
         
-        // Remove the newline character if it exists
         while (s.back() == '\n') {
-            s.erase(s.length() - 1); // Fix buffer overflow error
-        }
+            s.pop_back();
+       
         
+        if (i > 0) 
+            std::cout << " "; 
+        std::cout << s << std::endl;
         strings.push_back(s);
     }
 
