@@ -15,7 +15,7 @@ int main() {
 }
 
 int count_distinct_characters(const std::string& str) {
-    bool seen[256] = {false}; // assume ASCII
+    bool seen[256] = {false}; 
 
     for (int i = 0; i < str.length(); ++i) {
         char c = tolower(str[i]);
