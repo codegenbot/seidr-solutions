@@ -1,6 +1,6 @@
 #include <cmath>
 
-int choose_nearest(std::string value) {
+int nearestInt(const std::string &value) {
     double num = std::stod(value);
     int lower = std::floor(num);
     int upper = std::ceil(num);
