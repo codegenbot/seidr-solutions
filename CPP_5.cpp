@@ -14,8 +14,3 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     }
     return result;
 }
-
-int main() {
-    // Main function code here
-    return 0;
-}
