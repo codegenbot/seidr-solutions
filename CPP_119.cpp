@@ -1,8 +1,20 @@
-bool match_parens(const std::vector<char>& lst) {
-    int open = 0, close = 0;
-    for (char c : lst) {
-        if (c == '(') open++;
-        else if (c == ')') close++;
+```cpp
+#include <cassert>
+
+bool match_parens(char* parens) {
+    int count = 0;
+    for (char c : {parens}) {
+        if (c == '(')
+            count++;
+        else if (c == ')')
+            count--;
+        if (count < 0)
+            return false;
     }
-    return (open == 0) && (close == 0);
+    return count == 0;
+}
+
+int main() {
+    assert(match_parens({')', '('}) == true);
+    return 0;
 }
