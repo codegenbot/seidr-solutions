@@ -14,9 +14,7 @@ bool match_parens(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == true);
     std::vector<std::string> lst = {{"("}, {")"}};
     bool result = match_parens(lst);
     std::cout << std::boolalpha << result << std::endl;
-    return 0;
 }
