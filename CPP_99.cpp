@@ -1,17 +1,9 @@
-#include <iostream>
-#include <cmath>
-
-int closest_integer(std::string value) {
+int closest_integer(const std::string& value) {
     float num = std::stof(value);
     int rounded = std::round(num);
-    if (num - rounded == 0.5) {
+    if (std::abs(num - rounded) == 0.5f) {
         return (num > 0) ? std::ceil(num) : std::floor(num);
     } else {
         return std::round(num);
     }
-}
-
-int main() {
-    assert (closest_integer("0") == 0);
-    return 0;
 }
