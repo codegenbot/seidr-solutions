@@ -1,10 +1,7 @@
 #include <vector>
-#include <cassert>
 
-std::vector<int> incr_list(std::vector<int> a) {
-    for (int i = 0; i < a.size(); i++) {
-        a[i]++;
-    }
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) return false;
     
-    return a;
+    return a == b;
 }
