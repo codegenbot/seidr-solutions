@@ -4,10 +4,10 @@ int prod_signs(vector<int> arr) {
 
     for (int num : arr) {
         if (num == 0) {
-            return 0;
+            return 0; // If zero is found, return 0 as the product of signs will be 0
         }
-        product *= (num > 0 ? 1 : -1);
-        sum += abs(num);
+        product *= sign(num);
+        sum += abs(num); // Calculate the sum of magnitudes
     }
 
     if (arr.empty()) {
@@ -15,4 +15,8 @@ int prod_signs(vector<int> arr) {
     }
 
     return product * sum;
+}
+
+int sign(int num) {
+    return num / abs(num);
 }
