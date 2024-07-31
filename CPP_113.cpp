@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 int odd_count(std::vector<std::string> lst)
 {
@@ -23,6 +22,6 @@ int odd_count(std::vector<std::string> lst)
 
 int main()
 {
-    assert(std::equal(odd_count({"271", "137", "314"}), {3, 2, 3}));
+    assert(odd_count({"271", "137", "314"}) == 5);
     return 0;
 }
