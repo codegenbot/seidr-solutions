@@ -20,6 +20,6 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 }
 
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), vector<int>{2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
 }
