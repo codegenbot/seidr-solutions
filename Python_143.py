@@ -1,15 +1,10 @@
-```
 def words_in_sentence(sentence):
-    def is_prime(n):
-        if n < 2: 
-            return False
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                return False
-        return True
-
     result = []
     for word in sentence.split():
-        if is_prime(len(word)):
+        if all(
+            i != j and ((word[i] - word[j]) % (i - j) != 1)
+            for i in range(len(word))
+            for j in range(i)
+        ):
             result.append(word)
-    return ' '.join(result)
+    return " ".join(result).strip()
