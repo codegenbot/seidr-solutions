@@ -16,6 +16,5 @@ bool is_nested(const std::string& str) {
 
 int main() {
     assert(is_nested("]]]]]]]]") == false);
-    // Add more test cases if needed
     return 0;
 }
