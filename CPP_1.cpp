@@ -1,23 +1,38 @@
-vector<string> groups;
+vector<string> separate_paren_groups(string paren_string);
+
+bool compare_vectors(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
-    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (balance > 0) {
-                current_group += c;
+            if (!current_group.empty()) {
+                result.push_back(current_group);
             }
-            balance++;
+            current_group = "(";
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else if (balance == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+            current_group += ")";
+            result.push_back(current_group);
+            current_group = "";
         }
     }
 
-    return groups;
+    if (!current_group.empty()) {
+        result.push_back(current_group);
+    }
+
+    return result;
+}
+
+int main() {
+    vector<string> input_groups = separate_paren_groups("()(()())");
+    vector<string> expected_output = {"()", "()", "()", "()"};
+
+    assert(compare_vectors(input_groups, expected_output));
+
+    return 0;
 }
