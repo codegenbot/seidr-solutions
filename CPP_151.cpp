@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -15,8 +14,9 @@ int double_the_difference(vector<int> lst) {
     return sum;
 }
 
-int main() {
-    vector<int> lst; 
+int main_function() {
+    int odd_sum = 0;
+    vector<int> lst;
 
     cout << "Enter elements for the list: ";
     int i = 0;
@@ -35,9 +35,9 @@ int main() {
     }
 
     if (!lst.empty()) {
-        int odd_sum = double_the_difference(lst);
+        int result = double_the_difference(lst);
 
-        cout << "The difference is: " << odd_sum << endl;
+        cout << "The difference is: " << result << endl;
     } else {
         cout << "List is empty. No calculation possible." << endl;
     }
