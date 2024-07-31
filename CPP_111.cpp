@@ -1,29 +1,31 @@
-bool issame(map<char,int> a, map<char,int> b) {
-    return a == b;
-}
+#include <algorithm>
+using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string str = test + " ";
-    char prev = ' ';
-    int count = 0;
+    if (test.empty()) return result;
 
-    for (char c : str) {
-        if (c == prev) {
-            count++;
-        } else {
-            if (count > 0) {
-                result[prev] = count;
+    for (char c : unique_copy(test.begin(), test.end(), test.begin())) {
+        int count = 0;
+        for (char letter : test) {
+            if (letter == c) {
+                count++;
             }
-            prev = c;
-            count = 1;
+        }
+        result[c] = count;
+    }
+
+    map<char, int> maxMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxMap.clear();
+            maxMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
+            maxMap[it->first] = it->second;
         }
     }
 
-    return result;
-}
-
-int main() {
-    assert(histogram("a") == ({{'a', 1}}));
-    // Rest of your code...
+    return maxMap;
 }
