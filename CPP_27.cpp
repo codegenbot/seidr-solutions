@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 #include <cassert>
+
 using namespace std;
 
-inline string flip_case(string str) {
+string flip_case(string str);
+
+string flip_case(string str) {
     for (char &c : str) {
         if (islower(c)) {
             c = toupper(c);
@@ -20,8 +22,8 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
     cout << flip_case(input) << endl;
-
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
+    
+    assert(flip_case(input) == "eXAMPLE sTRING");
+    
     return 0;
 }
