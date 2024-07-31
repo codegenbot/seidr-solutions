@@ -7,9 +7,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> tri(int n){
     std::vector<int> result;
-    result.push_back(1);
     result.push_back(3);
-    for(int i = 2; i <= n; ++i){
+    for(int i = 1; i < n; ++i){
         if(i % 2 == 0){
             result.push_back(1 + i / 2);
         } else {
@@ -20,7 +19,7 @@ std::vector<int> tri(int n){
 }
 
 int main(){
-    assert(issame(tri(1), {1, 3}));
+    assert(issame(tri(2), {3, 1}));
 
     return 0;
 }
