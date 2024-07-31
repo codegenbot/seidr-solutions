@@ -1,5 +1,5 @@
 #include <string>
-#include <assert.h>
+#include <cassert>
 
 string longest(vector<string> strings){
     assert(!strings.empty());
