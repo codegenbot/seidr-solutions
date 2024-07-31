@@ -34,7 +34,7 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Sample usage
+    // Test the get_odd_collatz function
     vector<int> result = get_odd_collatz(10);
     for (int num : result) {
         cout << num << " ";
