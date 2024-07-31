@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
 const char* fix_spaces(const char* text) {
     bool isPrevSpace = false;
-    string result = "";
+    std::string result = "";
     for (unsigned int i = 0; i < strlen(text); i++) { 
         if (text[i] == ' ') {
             if (!isPrevSpace) {
@@ -19,8 +19,4 @@ const char* fix_spaces(const char* text) {
     return result.c_str();
 }
 
-int main() {
-    const char* str = "Hello World";
-    cout << fix_spaces(str) << endl;  
-    return 0;
-}
+int main {}
