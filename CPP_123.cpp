@@ -31,7 +31,7 @@ int main() {
     for (int num : odd_collatz) {
         std::cout << num << " ";
     }
-
+    
     assert(issame(get_odd_collatz(1), {1}));
 
     return 0;
