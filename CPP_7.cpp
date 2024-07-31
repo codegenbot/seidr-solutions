@@ -12,8 +12,9 @@ bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+    std::set<std::string> set_strings(strings.begin(), strings.end());
     std::vector<std::string> result;
-    for (const auto& s : strings) {
+    for (const auto& s : set_strings) {
         if (s.find(substring) != std::string::npos) {
             result.push_back(s);
         }
@@ -29,12 +30,14 @@ int main() {
     std::string s;
     for (int i = 0; i < n; ++i) {
         getline(std::cin, s);
-        if (s.back() == '\n') { // check if last char is newline
-            if (s.size() > 1) { // only remove it if there's more than one character left
-                s.pop_back(); 
-            }
+        
+        while (s.back() == '\n') {
+            s.pop_back();
         }
-        strings.push_back(s);
+        
+        if (i > 0) 
+            std::cout << " "; 
+        std::cout << s << std::endl;
     }
 
     std::string substring;
