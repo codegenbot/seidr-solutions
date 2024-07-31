@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -21,4 +29,13 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main_task_solution() {
+    vector<string> a = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> b = separate_paren_groups("() (()) (()())");
+    
+    assert(a == b);
+
+    return 0;
 }
