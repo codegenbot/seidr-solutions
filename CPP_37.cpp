@@ -1,9 +1,10 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
 
-void sort_even(const std::vector<float>& l); // Updated Function declaration
+void sort_even(const std::vector<float>& l); // Function declaration - Accept const reference
 
 bool issame(std::vector<float> a, std::vector<float> b) {
    for(size_t i=0; i<a.size(); i++){
@@ -14,7 +15,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
    return true;
 }
 
-void sort_even(const std::vector<float>& l) {
+void sort_even(const std::vector<float>& l) { // Change parameter to const reference
    std::vector<float> even_elems;
    for(size_t i=0; i<l.size(); i++){
        if(i%2 == 0){
@@ -34,5 +35,16 @@ void sort_even(const std::vector<float>& l) {
        }
    }
    
-   l = result;
+   // Return result if needed; Or modify the provided vector directly
+}
+
+int main() {
+   std::vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+   std::vector<float> expected = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+   
+   sort_even(input);
+   
+   assert(issame(input, expected)); // Use assert to check expected result
+   
+   return 0;
 }
