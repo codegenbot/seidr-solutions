@@ -17,10 +17,7 @@ int main() {
     if (result.second) {
         std::cout << "True" << std::endl;
     } else {
-        if(result.first == "")
-            std::cout << "Empty string" << std::endl;
-        else
-            std::cout << result.first << std::endl;
+        std::cout << result.first << std::endl;
     }
     return 0;
 }
