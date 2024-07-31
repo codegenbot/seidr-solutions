@@ -20,19 +20,11 @@ std::vector<int> tri(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(issame(tri(1), {1, 3}));
-    // Additional test cases if needed
+    assert(issame(tri(2), {1, 3, 4}));
     return 0;
 }
