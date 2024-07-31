@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool is_equal_to_sum_even(unsigned int n) {
-    return (n % 2 == 0 && n >= 8);
+    return (n % 2 == 0 && n >= 4);
 }
 
 int main() {
