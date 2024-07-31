@@ -8,7 +8,7 @@
 std::map<char, int> histogram(std::string test);
 
 int main() {
-    assert(std::issame(histogram(std::string("a")), {{'a', 1}}));
+    assert(issame(histogram(std::string("a")), {{'a', 1}}));
     return 0;
 }
 
