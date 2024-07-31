@@ -19,6 +19,6 @@ int odd_count(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {1, 3, 3}));
+    assert(issame(odd_count({"271", "137", "314"}), {2, 3, 2})); 
     return 0;
 }
