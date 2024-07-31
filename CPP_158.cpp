@@ -1,16 +1,10 @@
-Here is the completed code:
+Here is the solution:
 
-```cpp
-string find_max(vector<string> words){
-    string maxWord = *min_element(words.begin(), words.end(), 
-        [](const string& a, const string& b){ 
-            if(a.size() != b.size()) return a.size() < b.size();
-            int uniqueCountA = a.size(), uniqueCountB = b.size();
-            for(int i = 0; i < a.size(); i++){
-                uniqueCountA -= (uniqueCountA > 0) && (a[i] == a[0]);
-                uniqueCountB -= (uniqueCountB > 0) && (b[i] == b[0]);
-            }
-            return uniqueCountA <= uniqueCountB;
-        });
-    return maxWord;
+string find_max(vector<string> words) {
+    string result = *max_element(words.begin(), words.end(), 
+                                [](const string& a, const string& b) {
+                                    return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) <
+                                        count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
+                                });
+    return result;
 }
