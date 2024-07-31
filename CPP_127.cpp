@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 int isPrime(int n) {
     if (n <= 1) return 0;
     for (int i = 2; i * i <= n; i++) {
@@ -24,6 +32,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     if (isPrime(length)) {
         return "YES";
     } else {
-        return "NO";
+        return "NO"; 
     }
 }
