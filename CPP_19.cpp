@@ -9,7 +9,7 @@ using namespace std;
 
 string sort_numbers(string numbers);
 
-int main() {
+string sort_numbers(string numbers){
     map<string, int> number_map = {
         {"zero", 0},
         {"one", 1},
@@ -23,16 +23,6 @@ int main() {
         {"nine", 9}
     };
 
-    string numbers;
-    cout << "Enter numbers separated by spaces: ";
-    getline(cin, numbers);
-
-    cout << sort_numbers(numbers) << endl;
-
-    return 0;
-}
-
-string sort_numbers(string numbers){
     map<int, string> reverse_map;
     for (const auto& pair : number_map) {
         reverse_map[pair.second] = pair.first;
@@ -52,4 +42,11 @@ string sort_numbers(string numbers){
     }
     result.pop_back(); // Remove the extra space at the end
     return result;
+}
+
+int main() {
+    string input_numbers = "three one zero five four two";
+    cout << sort_numbers(input_numbers) << endl;
+
+    return 0;
 }
