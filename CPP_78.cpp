@@ -13,6 +13,7 @@ std::string hex_key_value() {
 }
 
 int main() {
+    std::cout << "Enter a hexadecimal key: ";
     std::string output = hex_key_value();
     if (!output.empty()) {
         std::cout << "The result is: " << output << std::endl;
