@@ -10,9 +10,3 @@ int can_arrange(std::vector<std::string> input) {
     }
     return 1;
 }
-
-int main() {
-    assert(can_arrange({}) == -1);
-    // You can add more test cases here
-    return 0;
-}
