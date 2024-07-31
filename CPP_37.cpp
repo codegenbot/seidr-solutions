@@ -34,22 +34,5 @@ void sort_even(const std::vector<float>& l) {
        }
    }
    
-   // Copy the sorted even elements back to the original vector
-   j = 0;
-   for(size_t i=0; i<l.size(); i++){
-       if(i%2 == 0){
-           l[i] = even_elems[j];
-           j++;
-       } 
-   }
-}
-
-int main() {
-   std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}; // Create a vector
-   sort_even(vec); // Call sort_even with the created vector
-
-   // Check if it's sorted as expected
-   assert(issame(vec, std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-
-   return 0;
+   l = result;
 }
