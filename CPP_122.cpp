@@ -36,16 +36,7 @@ int main() {
             sum = num;
         }
     }
-    std::cout << "Sum of elements: " << sum << std::endl;
-
-    int sum2 = 0; 
-    for (int i = 0; i < k; i++) {
-        if(std::to_string(sum).length() <= 2) {
-            sum2 += sum;
-        }
-        sum -= (i > 0)? num : sum;
-    }
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum2}) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum}) << std::endl;
 
 }
 
