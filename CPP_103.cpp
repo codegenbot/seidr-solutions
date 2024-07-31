@@ -1,7 +1,7 @@
 #include <cmath>
 #include <bitset>
 
-string completeCode(int n, int m) {
+int calculateAverage(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -16,8 +16,6 @@ string completeCode(int n, int m) {
 }
 
 int main() {
-    int n = 1, m = 5;
-    string result = completeCode(n, m);
-    assert(result == "3");
+    assert(calculateAverage(1, 5) == "3");
     return 0;
 }
