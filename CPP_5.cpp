@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm> // Added for std::equal
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
