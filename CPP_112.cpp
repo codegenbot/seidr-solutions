@@ -1,15 +1,31 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool reverse_delete(const std::string& str1, const std::string& str2) {
-    if (str1 == str2) return false;
-    for (int i = 0; i < str1.length(); ++i) {
-        if (str1.substr(i).reverse() == str2) return true;
+std::pair<std::string, bool> reverse_delete(const std::string& s1, const std::string& s2) {
+    if (s1 == s2 || std::string(s1).reverse() == s2) {
+        return {{}, true};
+    } else {
+        size_t i = 0;
+        for (; i < s1.length(); ++i) {
+            if (std::string(s1).substr(i).find(s2) != std::string::npos) {
+                break;
+            }
+        }
+        return {{s1.substr(0, i) + s1.substr(i).reverse(), false};
     }
-    return false;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
