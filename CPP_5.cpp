@@ -1,7 +1,10 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,10 +32,5 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 int main() {
-    std::vector<int> result = intersperse({2, 2, 2}, 2);
-    std::vector<int> expected = {2, 2, 2, 2, 2};
-    assert(result.size() == expected.size());
-    for (int i = 0; i < result.size(); ++i) {
-        assert(result[i] == expected[i]);
-    }
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
 }
