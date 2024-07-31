@@ -18,3 +18,11 @@ std::vector<int> tri(int n){
     }
     return result;
 }
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> result = tri(n);
+    // Call issame function for comparing
+    return 0;
+}
