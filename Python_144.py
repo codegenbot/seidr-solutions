@@ -1,9 +1,10 @@
 ```
+from math import gcd
 import math
 
-def simplify(numerator1, denominator1, numerator2, denominator2):
+def simplify():
     while True:
-        x = input(f"Enter a fraction (e.g., {numerator1}/{denominator1}): ")
+        x = input("Enter a fraction (e.g., 1/2): ")
         if '/' in x:
             numerator, denominator = map(int, x.split('/'))
             break
@@ -18,10 +19,10 @@ def simplify(numerator1, denominator1, numerator2, denominator2):
         else:
             print('Invalid input. Please enter a fraction.')
 
-    numerator = numerator // math.gcd(numerator, int(denominator))
+    numerator = numerator // gcd(numerator, int(denominator))
     denominator = denominator // math.gcd(numerator, int(denominator))
 
-    new_numerator = num // math.gcd(num, denom)
+    new_numerator = num // gcd(num, denom)
     new_denom = denom // math.gcd(num, denom)
 
     gcd = math.gcd(new_numerator, new_denom)
@@ -30,4 +31,4 @@ def simplify(numerator1, denominator1, numerator2, denominator2):
 
     return f"{new_numerator}/{new_denom}"
 
-print(simplify(1, 2, 3, 4))
+print(simplify())
