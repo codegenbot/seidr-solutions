@@ -24,5 +24,5 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), {})); 
 }
