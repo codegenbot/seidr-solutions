@@ -4,6 +4,12 @@
 
 using namespace std;
 
+void validate(vector<int> result, vector<int> expected) {
+    for (int i = 0; i < result.size(); ++i) {
+        assert(result[i] == expected[i]);
+    }
+}
+
 vector<int> f(int n) {
     vector<int> result(n);
     for (int i = 0; i < n; ++i) {
@@ -25,6 +31,7 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == vector<int>{1, 2, 6});
+    validate(f(3), vector<int>{1, 2, 6});
+    cout << "Validation passed." << endl;
     return 0;
 }
