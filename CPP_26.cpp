@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -14,22 +15,23 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool checkEquality(std::vector<int> a, std::vector<int> b) {
+bool areVectorsEqualSame(std::vector<int> a, std::vector<int> b) {
     return areVectorsEqual(a, b);
 }
 
 int main() {
     std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    if (!checkEquality(numbers, {1, 2, 3, 4, 5})) {
+    if (!areVectorsEqualSame(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
     numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    if (!checkEquality(numbers, {1, 2, 3, 4, 5})) {
+    if (!areVectorsEqualSame(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
+    assert (areVectorsEqualSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
 }
