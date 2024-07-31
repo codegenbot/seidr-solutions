@@ -1,38 +1,44 @@
 #include <iostream>
 #include <map>
-#include <cassert>
 #include <sstream>
+#include <cassert>
 
-using namespace std;
-
-map<char, int> histogram(string test);
-
-bool operator==(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
+bool issame(std::map<char, int> a, std::map<char, int> b) { 
+    return a == b; 
 }
+
+std::map<char, int> histogram(std::string test);
 
 int main() {
-    assert(histogram("a") == map<char, int>{{'a', 1}});
+    std::string test = "hello world";
+    std::map<char, int> result = histogram(test);
+    std::map<char, int> expected = {{'l', 3}};
+    assert(issame(result, expected));
+
+    return 0;
 }
 
-map<char, int> histogram(string test){
-    map<char, int> result;
-    istringstream iss(test);
-    string word;
+std::map<char, int> histogram(std::string test){
+    std::map<char, int> result;
+    std::istringstream iss(test);
+    std::string word;
     while (iss >> word) {
         for (char& c : word) {
             result[c]++;
         }
     }
+
     int maxCount = 0;
     for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
+        maxCount = std::max(maxCount, pair.second);
     }
-    map<char, int> maxChars;
+
+    std::map<char, int> maxChars;
     for (const auto& pair : result) {
         if (pair.second == maxCount) {
             maxChars[pair.first] = pair.second;
         }
     }
+
     return maxChars;
 }
