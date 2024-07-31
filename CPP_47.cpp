@@ -1,6 +1,6 @@
-```
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -16,10 +16,17 @@ float median(vector<float> l) {
 int main() {
     vector<float> numbers;
     float num;
-    
-    while (cin >> num) {
+
+    cout << "Enter some numbers (enter 'stop' to finish): ";
+    while (true) {
+        cin >> num;
+        if (num == 'stop') break;
         numbers.push_back(num);
     }
-    
-    cout << "Median: " << median(numbers) << endl;
+
+    if (!numbers.empty()) {
+        cout << "Median: " << median(numbers) << endl;
+    } else {
+        cout << "No numbers entered." << endl;
+    }
 }
