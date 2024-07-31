@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -20,5 +19,6 @@ std::string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
+  
     return 0;
 }
