@@ -6,11 +6,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> fixCode(const std::vector<int>& l) {
-    std::vector<int> res = l;
-    sort(res.begin(), res.end());
-    res.erase(unique(res.begin(), res.end()), res.end());
-    return res;
+std::vector<int> fixUnique(const std::vector<int>& l) {
+    std::vector<int> sortedList = l;
+    std::sort(sortedList.begin(), sortedList.end());
+    sortedList.erase(std::unique(sortedList.begin(), sortedList.end()), sortedList.end());
+    return sortedList;
 }
 
-assert(issame(fixCode({5, 3, 5, 2, 3, 3, 9, 0, 123}), std::vector<int>{0, 2, 3, 5, 9, 123}));
+assert (issame(fixUnique({5, 3, 5, 2, 3, 3, 9, 0, 123}), std::vector<int>{0, 2, 3, 5, 9, 123}));
