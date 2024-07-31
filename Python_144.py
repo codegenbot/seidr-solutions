@@ -1,20 +1,27 @@
-Here is the modified code:
+```Python
+import math
 
 def simplify():
-    x = input("Enter a fraction (e.g., 1/2): ")
-    n = input("Enter another fraction: ")
+    while True:
+        x = input("Enter a fraction (e.g., 1/2): ")
+        if '/' in x:
+            numerator, denominator = map(int, x.split('/'))
+            break
+        else:
+            print('Invalid input. Please enter a fraction.')
 
-    if x.count('/') != 2 or n.count('/') != 2:
-        return False
+    while True:
+        n = input("Enter another fraction: ")
+        if '/' in n:
+            num, denom = map(int, n.split('/'))
+            break
+        else:
+            print('Invalid input. Please enter a fraction.')
 
-    x_parts = list(map(int, [0] + x.split("/")[1:]))
-    n_parts = list(map(int, [0] + n.split("/")[1:]))
-
-    if (x_parts[0] * n_parts[1]) % math.gcd(n_parts[1], x_parts[1]) == 0 and (
-        n_parts[0] * x_parts[1]
-    ) % math.gcd(x_parts[1], n_parts[1]) == 0:
-        return True
+    if numerator % denominator != 0 and num % denom != 0:
+        gcd = math.gcd(denominator, denom)
+        return f"{numerator//gcd}/{denominator//gcd} / {num//gcd}/{denom//gcd}"
     else:
-        return False
+        return f"{numerator}/{denominator} / {num}/{denom}"
 
 print(simplify())
