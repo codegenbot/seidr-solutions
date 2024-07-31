@@ -22,7 +22,13 @@ int main() {
     while (true) {
         cin >> num;
         if (cin.fail()) break; 
-        if (std::string(num) == "stop") break;
+        if(std::cin >> std::ws >> num) {
+            if(num == 's') {
+                // take more numbers
+            } else {
+                break;  // stop taking input
+            }
+        }
         numbers.push_back(num);
     }
 
