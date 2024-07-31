@@ -1,17 +1,18 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <vector>
 
-bool isSame(int a, int b) {
+template <typename T>
+bool issame(const T& a, const T& b) {
     return a == b;
 }
 
-int maximum(const std::vector<int>& numbers, int value) {
+template <typename T>
+T maximum(const std::vector<T>& numbers, const T& value) {
     return *std::max_element(numbers.begin(), numbers.end());
 }
 
 int main() {
-    assert(isSame(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), 0);
+    assert(issame(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), 0));
     return 0;
 }
