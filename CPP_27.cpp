@@ -1,14 +1,23 @@
-#include <string>
+```cpp
+#include <iostream>
+#include <cctype>
 
-string flipCase(string str) {
-    string result = "";
+std::string myString(std::string str) {
+    std::string result = "";
     for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
+        if (std::isupper(c)) {
+            result += std::tolower(c);
+        } else if (std::islower(c)) {
+            result += std::toupper(c);
         } else {
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    assert(myString("These violent delights have violent ends") == "these violent delights have violent ends");
+    std::cout << myString("Hello World") << std::endl; 
+    return 0;
+}
