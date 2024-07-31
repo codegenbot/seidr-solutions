@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <iostream>
-#include <ostream>
 
 int prod_signs(const std::vector<int>& arr) {
     int product = 1;
