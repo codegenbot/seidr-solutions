@@ -15,8 +15,10 @@ bool match_parens(const char* parens) {
 }
 
 int main() {
-    assert(match_parens("((()))") == true);
     assert(match_parens("(())") == true);
-    assert(match_parens(")(") == false);  
+    assert(match_parens("((()))") == true);
+    assert(match_parens(")")==false);  
+    std::string s1 = "(()))";
+    std::cout << (match_parens(s1.c_str()) ? "Valid" : "Invalid");
     return 0;
 }
