@@ -1,10 +1,12 @@
-int count = 0;
+int balance = 0;
     for (char c : str) {
         if (c == '[') {
-            count++;
-        } else if (c == ']' && count > 0) {
-            count--;
+            balance++;
+        } else {
+            if (balance > 0) {
+                balance--;
+            }
         }
     }
-    return count < 0;
+    return (balance < 0) ? false : true;
 }
