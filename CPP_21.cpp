@@ -17,11 +17,10 @@ bool issame(const vector<float>& vec1, const vector<float>& vec2) {
 
 int main() {
     vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
-    vector<float> rescaled = rescale_to_unit(numbers);
-    
-    // Test if the rescaled vector is the same as the original vector
-    if (issame(rescaled, numbers)) {
+    // Testing if the rescaled numbers are the same as the original numbers
+    if (issame(numbers, rescaled_numbers)) {
         cout << "Vectors are the same." << endl;
     } else {
         cout << "Vectors are different." << endl;
