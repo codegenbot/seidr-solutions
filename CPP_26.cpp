@@ -1,12 +1,11 @@
-#include <algorithm>
 #include <vector>
 
-std::vector<int> std::remove_duplicates(std::vector<int>& numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+vector<int> remove_duplicates(vector<int>& numbers) {
+    sort(numbers.begin(), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return std::remove_duplicates(a) == std::remove_duplicates(b);
+bool issame(const vector<int>& a, const vector<int>& b){
+    return remove_duplicates(a) == remove_duplicates(b);
 }
