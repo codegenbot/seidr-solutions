@@ -1,4 +1,7 @@
 #include <algorithm>
+#include <vector>
+
+using namespace std;
 
 float median(vector<float> l) {
     sort(l.begin(), l.end());
@@ -7,4 +10,8 @@ float median(vector<float> l) {
         return (l[n/2 - 1] + l[n/2]) / 2.0;
     else
         return l[n/2];
+}
+
+int main() {
+    // use median function here...
 }
