@@ -1,5 +1,7 @@
-string solve(string s) {
-    string result = "";
+#include <string>
+
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
@@ -7,5 +9,5 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result.empty() ? std::string(s).reverse() : result;
 }
