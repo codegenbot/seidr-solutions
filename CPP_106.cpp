@@ -33,6 +33,7 @@ std::vector<int> f(int n) {
     return result;
 }
 
+// Commenting out the extra main to avoid redefinition error
 // int main() {
 //     assert(issame(f(3), std::vector<int>{1, 3, 6}));
 //     return 0;
