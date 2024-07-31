@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string>
 
-std::string rounded_avg(int n, int m) {
+std::string function_name(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -15,7 +15,4 @@ std::string rounded_avg(int n, int m) {
     return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg));
 }
 
-int main() {
-    assert(rounded_avg(5, 5) == "00000000000000000000000000000101");
-    return 0;
-}
+assert(function_name(5, 5) == "00000000000000000000000000000101");
