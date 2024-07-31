@@ -6,8 +6,8 @@
 
 using namespace std;
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(const vector<int>& arr1, const vector<int>& arr2){
+    return arr1 == arr2;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -43,11 +43,11 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main() {
-    vector<int> input = {3, 5, 2, 9, 4};
+    vector<int> input = {9, 3, 7, 2, 5};
     vector<string> output = by_length(input);
 
-    for (const string& s : output) {
-        cout << s << " ";
+    for (const string& str : output) {
+        cout << str << " ";
     }
 
     return 0;
