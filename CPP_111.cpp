@@ -1,6 +1,7 @@
 #include <map>
 #include <string>
 #include <algorithm>
+#include <iostream>
 #include <cassert>
 
 bool is_same(const std::map<char, int>& a, const std::map<char, int>& b) {
@@ -32,6 +33,6 @@ std::map<char, int> histogram(const std::string& test) {
 }
 
 int main() {
-    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(is_same(histogram("a"), {{'a', 1}}));
     return 0;
 }
