@@ -16,6 +16,13 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
+std::vector<int> parse_music(std::string music_string);
+
+int main() {
+    assert(parse_music("o| .| o| .| o o| o o|") == std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2}));
+    return 0;
+}
+
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int length = music_string.size();
@@ -29,9 +36,4 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}
-
-int main() {
-    assert(parse_music("o| .| o| .| o o| o o|") == std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
 }
