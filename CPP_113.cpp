@@ -1,9 +1,11 @@
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
+    if(a.size() != b.size()) {
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    }
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
@@ -13,7 +15,7 @@ vector<string> odd_count(vector<string> lst){
     for(string s : lst){
         int odd_count = 0;
         for(char c : s){
-            if ((c - '0') % 2 != 0) {
+            if((c - '0') % 2 != 0){
                 odd_count++;
             }
         }
