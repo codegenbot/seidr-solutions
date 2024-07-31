@@ -1,6 +1,6 @@
-int total_fruits = n;
-    int apples = stoi(s.substr(0, s.find(" apples")));
-    int oranges = stoi(s.substr(s.find("apples") + 7, s.find(" oranges")));
-    
-    return total_fruits - apples - oranges;
+int fruit_distribution(string s, int n){
+    int apples, oranges, mangoes;
+    sscanf(s.c_str(),"%d apples and %d oranges", &apples, &oranges);
+    mangoes = n - apples - oranges;
+    return mangoes;
 }
