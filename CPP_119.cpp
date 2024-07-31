@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
