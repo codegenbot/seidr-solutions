@@ -1,7 +1,4 @@
-```cpp
-#include <string>
 #include <iostream>
-
 using namespace std;
 
 int is_bored(string S){
@@ -9,7 +6,8 @@ int is_bored(string S){
     string boredom = "I";
     size_t pos = 0;
     while ((pos = S.find(" ", pos)) != string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0) {
+        size_t boredom_len = boredom.length();
+        if (S.substr(0, pos).length() == boredom_len && S.substr(0, pos) == boredom) {
             count++;
             break;
         }
@@ -19,7 +17,7 @@ int is_bored(string S){
 
 }
 
-int main() {
-    cout << is_bored("You and I are going for a walk") << endl;
+int main(){
+    cout << is_bored("You and I are going for a walk") << endl; 
     return 0;
 }
