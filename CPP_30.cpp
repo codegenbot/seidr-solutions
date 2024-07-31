@@ -5,7 +5,7 @@
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9f) return false;
+        if (std::abs(a[i] - b[i]) > 1e-12f) return false;
     }
     return true;
 }
@@ -28,7 +28,7 @@ void printResult() {
     }
 
     if (!input.empty()) {
-        input.reserve(input.size());
+        
     }
     std::vector<float> positive = getPositive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {

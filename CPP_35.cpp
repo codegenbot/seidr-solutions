@@ -8,10 +8,12 @@ int maxElement(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
+    std::vector<int> input;
+    input.capacity(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
@@ -20,8 +22,7 @@ int main() {
         input.push_back(temp);
     }
 
-    auto maxVal = *std::max_element(input.begin(), input.end());
-    std::cout << "Maximum element is: " << maxVal << std::endl;
+    std::cout << "Maximum element is: " << maxElement(input) << std::endl;
 
     return 0;
 }
