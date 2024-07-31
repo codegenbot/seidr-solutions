@@ -2,7 +2,7 @@
 #include <vector>
 #include <any>
 
-bool isSame(typename std::vector<int> a, typename std::vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,7 +16,7 @@ std::vector<int> filterIntegers(std::vector<std::any> values) {
     return result;
 }
 
-int main2() {
-    assert(isSame(filterIntegers({3, 3, 3}), std::vector<int>({3, 3, 3})));
+int main() {
+    assert(areEqual(filterIntegers({3, std::any(3), 3}), std::vector<int>({3, 3, 3})));
     return 0;
 }
