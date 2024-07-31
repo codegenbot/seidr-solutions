@@ -1,8 +1,8 @@
 #include <vector>
-#include <cassert>
+#include <string>
 
-vector<int> parse_music(std::string music_string) {
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     for (int i = 0; i < music_string.size(); ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
@@ -19,11 +19,11 @@ vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
