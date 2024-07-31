@@ -1,20 +1,35 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
+using namespace std;
+
+bool issame_helper(string s1, string s2) {
+    if (s1.size() != s2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < s1.size(); i++) {
+        if (s1[i] != s2[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
+bool issame(vector<pair<string, string>> a) {
+    if (a.size() != 2) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame_helper(a[i].first, a[i].second)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix) {
+    vector<string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
@@ -24,11 +39,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 }
 
 int main() {
-    bool same = issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx"), {{"xxx"}, {"xxxAAA"}, {"xxx"}});
-    if (!same) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame({{ "xxx", "xxx" }, { "xxxxAA", "xxxAAA" } }));
     return 0;
 }
