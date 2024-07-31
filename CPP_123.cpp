@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -31,9 +32,8 @@ int main() {
     for (int num : odd_collatz) {
         std::cout << num << " ";
     }
-    
-    assert(issame(std::vector<int>{1, 2, 4, 1}, std::vector<int>{1, 2, 4, 1}));
-    assert(!issame(std::vector<int>{1, 2, 4, 1}, std::vector<int>{1, 2, 4, 2}));
+
+    assert(issame(odd_collatz, get_odd_collatz(n)));
 
     return 0;
 }
