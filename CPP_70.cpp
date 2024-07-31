@@ -1,26 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+```cpp
+bool issame(std::vector<int> a,std::vector<int>b) {
+    std::vector<int> result;
+    if (a.empty() && b.empty()) 
+        return true;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+    if ((a.empty() && !b.empty()) || (!a.empty() && b.empty()))
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
-int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-    if (issame(a, b)) {
-        std::cout << "The vectors are the same." << std::endl;
-    } else {
-        std::cout << "The vectors are not the same." << std::endl;
+    for(int i = 0; i < a.size(); i++) {
+        bool found = false;
+        for(int j = 0; j < b.size(); j++) {
+            if(a[i] == b[j]) {
+                result.push_back(a[i]);
+                a.erase(std::remove(a.begin(), a.end(), a[i]), a.end());
+                b.erase(std::remove(b.begin(), b.end(), b[j]), b.end());
+                found = true;
+                break;
+            }
+        }
+        if(!found) 
+            return false;
     }
-    return 0;
+
+    if (!a.empty() || !b.empty()) 
+        return false;
+
+    return true;
 }
