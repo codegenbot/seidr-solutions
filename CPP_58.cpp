@@ -21,7 +21,7 @@ int main() {
     vector<int> res = issame(l1, l2);
 
     if (res == vector<int>()) {
-        cout << "No common elements." << endl;
+        cout << "No common elements found" << endl;
     } else {
         for (int num : res) {
             cout << num << " ";
