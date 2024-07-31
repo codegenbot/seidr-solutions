@@ -1,11 +1,33 @@
-int next_smallest(vector<int> lst) {
+#include <vector>
+#include <algorithm>
+
+int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1]) {
             return sorted[i + 1];
         }
     }
-    return -1; 
+    return -1;
+}
+
+int main() {
+    int num;
+    std::vector<int> lst;
+
+    // Read input from user
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+
+    if(lst.size() > 0) {
+        int result = next_smallest(lst);
+        std::cout << "The next smallest number is: " << result << std::endl;
+    } else {
+        std::cout << "No numbers entered." << std::endl;
+    }
+    
+    return 0;
 }
