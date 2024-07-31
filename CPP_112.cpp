@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-bool isSimilar(vector<string> a, vector<string> b){
+bool checkResult(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size();i++){
         if(a[i] != b[i]) return false;
@@ -28,10 +28,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return {temp, (temp == rev)}; 
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return {result[0], (temp == rev)}; 
 }
 
 int main() {
-    assert(isSimilar(reverse_delete("mamma", "mia"), vector<string>{ "", "True" }));
+    assert(checkResult(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
