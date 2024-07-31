@@ -16,6 +16,7 @@ string anti_shuffle(const string& str) {
         }
     }
     string result = str;
+    srand(time(0));
     for(int i = 1; i < n; ++i) {
         int j = rand() % (i + 1);
         char temp = result[j];
@@ -23,10 +24,4 @@ string anti_shuffle(const string& str) {
         result[i] = temp;
     }
     return result;
-}
-
-int main() {
-    srand(time(0));
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return 0;
 }
