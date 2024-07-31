@@ -1,14 +1,16 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-std::string solve(std::string);
+std::string solve(std::string s);
 
 int main() {
     string s;
     cout << "Enter a string: ";
-    cin >> s;
+    getline(cin, s);
     cout << "Result: " << solve(s) << endl;
 }
 
@@ -21,5 +23,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? result : result;
+    return result;
 }
