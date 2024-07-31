@@ -1,21 +1,16 @@
 #include <vector>
 #include <algorithm>
-#include <numeric>
+#include <iterator>
+#include <iostream>
 #include <cassert>
 
-using namespace std;
-
-vector<int> common(vector<int> l1, vector<int> l2) {
-    vector<int> result;
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
     result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return result.empty();
 }
 
 int main() {
