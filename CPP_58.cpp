@@ -2,10 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
     int n; 
     std::cin >> n;
@@ -34,12 +30,21 @@ int main() {
             std::vector<int> common;
 
             for(int i=0; i<v[0].size(); i++) {
-                auto it = std::unique_copy(std::set_intersection(v[0].begin(), v[0].end(),
-                                                                  v[1].begin(), v[1].end(),
-                                                                  v[2].begin(), v[2].end()),
-                                            v[0].begin());
-                if(it != v[0].end()) {
-                    common.push_back(*it);
+                bool found = true;
+                int count = 0;
+
+                for(int j=1; j<v.size(); j++) {
+                    if(std::find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                        found = false;
+                        break;
+                    }
+                    else{
+                        count++;
+                    }
+                }
+
+                if(found && count == v.size() - 1) {
+                    common.push_back(v[0][i]);
                 }
             }
 
