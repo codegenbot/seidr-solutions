@@ -20,6 +20,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(4) == vector<int>{3, 4, 6, 8});
+    assert(make_a_pile(8) == vector<int>(1, 2, 4, 6, 8, 10, 12, 14));
     return 0;
 }
