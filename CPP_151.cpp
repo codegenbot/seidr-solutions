@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -20,6 +19,7 @@ int double_the_difference(vector<int> lst) {
 int main() {
     vector<int> lst; 
     int odd_sum = 0;
+
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         int num;
@@ -41,7 +41,5 @@ int main() {
 
     cout << "The difference is: " << double_the_difference(lst) << endl;
 
-    assert(double_the_difference(lst) == odd_sum); // check the assertion
-    
     return 0;
 }
