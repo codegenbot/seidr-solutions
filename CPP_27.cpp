@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 int filp_case(const char* str) {
@@ -10,7 +11,6 @@ int filp_case(const char* str) {
         }
     }
     return result;
-
 }
 
 int main() {
