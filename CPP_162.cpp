@@ -12,8 +12,8 @@ std::string string_to_md5(const std::string& text) {
     size_t len = text.size();
     while (len > 0) {
         MD5_Update(&mdContext, ptr, len);
+        len = 0; // This line is unnecessary
         ptr += len;
-        len = 0;
     }
     MD5_Final(hash, &mdContext);
 
@@ -28,6 +28,9 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    std::cout << string_to_md5("Hello, World!") << std::endl;
+    std::string text;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, text);
+    std::cout << "MD5 sum: " << string_to_md5(text) << std::endl;
     return 0;
 }
