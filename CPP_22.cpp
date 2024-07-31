@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool is_integral(int x) {
+    return true; // Replace this with your actual implementation.
+}
+
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -25,7 +29,7 @@ vector<int> filter_integers(const vector<int>& arr) {
     return result;
 }
 
-int main() {
+int main1() { 
     int n;
     cin >> n;
     vector<int> arr(n);
