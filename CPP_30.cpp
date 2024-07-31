@@ -2,10 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return (a == b);
-}
-
 std::vector<float> get_positive(const std::vector<float>& input) {
     std::vector<float> positive;
     for (float num : input) {
@@ -21,7 +17,7 @@ int main() {
     float num;
     while (std::cin >> num) {
         input.push_back(num);
-    }
+   }
     
     if (!input.empty()) input.reserve(input.size());
     std::vector<float> positive = get_positive(input);
