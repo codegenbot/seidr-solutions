@@ -1,40 +1,21 @@
 ```cpp
-#include <stack>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <queue>
-#include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> parse_nested_parens(const std::string &paren_string) {
-    std::vector<int> result;
-    std::stack<int> nesting_levels;
-    int max_nesting = 0;
-
-    for (char c : paren_string) {
+std::vector<int> parse_nested_parens(const std::string& s) {
+    int count = 0;
+    for (char c : s) {
         if (c == '(') {
-            nesting_levels.push(1);
-            max_nesting = std::max(max_nesting, 1);
+            count++;
         } else if (c == ')') {
-            nesting_levels.pop();
-            max_nesting = std::max(max_nesting, nesting_levels.size());
+            if (count > 0) {
+                count--;
+            }
         }
     }
-
-    while (!nesting_levels.empty()) {
-        result.push_back(nesting_levels.top());
-        nesting_levels.pop();
-    }
-
-    std::reverse(result.begin(), result.end());
-
-    return result;
+    return {count + 1};
 }
 
-int main() {
-    return 0;
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }

@@ -1,46 +1,35 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (const auto& s : a) {
-        if (!std::count(b.begin(), b.end(), ::tolower(s))) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<std::string> strings;
+    cin >> n;
+
+    vector<string> strings;
     for (int i = 0; i < n; ++i) {
-        std::string s;
-        std::cin >> s;
+        string s;
+        getline(cin, s); 
         strings.push_back(s);
     }
-    std::string substring;
-    std::cin >> substring;
 
-    if (!issame(strings, {"grunt", "prune"})) {
-        assert(false);
+    string substring;
+    getline(cin, substring);
+
+    bool isSame = issame(strings[0], strings[1]);
+    vector<string> result = filter_by_substring(substring, strings);
+
+    for (const auto& str : result) {
+        cout << str << endl;
     }
-
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-
-    for (const auto& s : result) {
-        std::cout << s << "\n";
-    }
-
-    return 0;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+bool issame(const string& s1, const string& s2) {
+    return s1 == s2;
+}
+
+vector<string> filter_by_substring(const string& substring, const vector<string>& strings) {
     vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
+            result.push_back(str);
+        }
     }
     return result;
+}
