@@ -8,7 +8,7 @@ float triangle_area(float a, float b, float c) {
         return sqrt(s * (s - a) * (s - b) * (s - c));
     } else {
         return -1;
-    }    
+    }
 }
 
 int main() {
