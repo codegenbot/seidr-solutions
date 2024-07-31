@@ -1,28 +1,20 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool issame(const std::vector<std::string>& a, const std::string& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a,vector<string>b){
+    return a.size() == b.size() && equal(a.begin(), a.end(),b.begin());
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result; 
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
     for (const auto& s : strings) {
-        if (s.find(std::string(prefix)) == 0)
+        if (s.find(prefix) != std::string::npos) {
             result.push_back(s);
+        }
     }
     return result;
 }
-
-std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-std::vector<std::string> b;
-
 int main() {
-    b = filter_by_prefix(a, "xxx");
-    assert (issame(b , std::vector<std::string>({"xxx", "xxxAAA", "xxx"})));
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    std::string prefix = "xxx";
+    std::vector<std::string> b = filter_by_prefix(strings, prefix);
+    assert (issame(b , {"xxx", "xxxAAA", "xxx"}));
 }
