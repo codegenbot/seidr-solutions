@@ -1,5 +1,4 @@
-```cpp
-#include <initializer_list>
+Here's the modified code:
 
 #include <algorithm>
 #include <vector>
@@ -27,4 +26,3 @@ int main() {
     }
     std::cout << "Median: " << median(numbers) << std::endl;
     return 0;
-}
