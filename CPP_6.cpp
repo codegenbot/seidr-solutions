@@ -1,10 +1,15 @@
-```cpp
 #include <stack>
 #include <vector>
 #include <string>
 #include <algorithm>
 
-std::vector<int> parse_nested_parens(const std::string &paren_string) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> parse_nested_parens(const string &paren_string) {
     std::vector<int> result;
     std::stack<int> nesting_levels;
     int max_nesting = 0;
@@ -30,5 +35,6 @@ std::vector<int> parse_nested_parens(const std::string &paren_string) {
 }
 
 int main() {
+    assert(issame(parse_nested_parens("(()(())((()))"), vector<int>({4})));
     return 0;
 }
