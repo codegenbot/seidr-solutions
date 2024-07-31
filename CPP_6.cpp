@@ -6,17 +6,14 @@
 using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
-    int count = 0;
-    vector<int> result(0); 
+    int count = 1;
+    vector<int> result; 
     for (char c : s) {
         if (c == '(') {
             count++;
             result.push_back(count);
         } else if (c == ')') {
-            if (count > 0) {
-                count--;
-                result.push_back(count);
-            }
+            count--;
         }
     }
     return result;
