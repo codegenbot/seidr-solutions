@@ -14,24 +14,10 @@ double poly(const vector<double>& coeffs, double x) {
 }
 
 double find_zero(const vector<double>& coeffs) {
-    // Newton's method for finding zero of polynomial
-    double x = 0.0; // Initial guess
-    double epsilon = 1e-9; // Tolerance
-    int max_iterations = 1000;
-    
-    for (int i = 0; i < max_iterations; i++) {
-        double fx = poly(coeffs, x);
-        double dfx = 0;
-        for (int j = 1; j < coeffs.size(); j++) {
-            dfx += j * coeffs[j] * pow(x, j - 1);
-        }
-        if (fabs(fx) < epsilon) {
-            return x;
-        }
-        x = x - fx / dfx;
-    }
-    
-    return x; // Return the closest value found if max_iterations reached
+    double a = coeffs[0];
+    double b = coeffs[1];
+    double c = coeffs[2];
+    return (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
 }
 
 int main() {
