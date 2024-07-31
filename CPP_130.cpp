@@ -4,12 +4,10 @@
 
 std::vector<int> tri(int n) {
     std::vector<int> result(n);
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || i == 1) {
-            result[i] = i+3;
-        } else {
-            result[i] = result[i-1] + result[i-2] + result[i-3];
-        }
+    result[0] = 3;
+    result[1] = 4;
+    for (int i = 2; i < n; ++i) {
+        result[i] = result[i - 1] + result[i - 2] + i;
     }
     return result;
 }
