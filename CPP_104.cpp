@@ -28,8 +28,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789};
-    vector<int> unique = unique_digits(input);
-    issame(input, unique);
-    return 0;
+    vector<int> input = {123, 456, 789, 246}; 
+    vector<int> output = unique_digits(input);
+    // Call issame function if needed here
 }
