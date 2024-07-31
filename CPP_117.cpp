@@ -2,6 +2,20 @@ bool issame(string a, string b) {
     return a == b;
 }
 
+vector<string> select_words(string s, int n);
+
+int main() {
+    string str;
+    int num;
+    getline(cin, str);
+    cin >> num;
+    vector<string> result = select_words(str, num);
+    for (string word : result) {
+        cout << word << endl;
+    }
+    return 0;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -27,19 +41,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    getline(cin, input);
-    int n;
-    cin >> n;
-
-    vector<string> output = select_words(input, n);
-
-    for (string word : output) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
