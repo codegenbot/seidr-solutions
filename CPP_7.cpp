@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -36,7 +37,7 @@ int main() {
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
     
-    if (issame(strings, result1)) {
+    if (issame(result1, strings)) {
         for (const auto& s : strings) {
             std::cout << s << std::endl;
         }
