@@ -4,6 +4,28 @@
 
 using namespace std;
 
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    
+    vector<vector<int>> grid(n, vector<int>(n));
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < n; ++j){
+            cin >> grid[i][j];
+        }
+    }
+    
+    vector<int> result = minPath(grid, k);
+    
+    for(int val : result){
+        cout << val << " ";
+    }
+    
+    return 0;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
