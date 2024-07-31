@@ -26,5 +26,6 @@ vector<int> f(int n) {
 
 int main() {
     assert(f(3) == vector<int>{1, 2, 6});
+    cout << "Test Passed!\n";
     return 0;
 }
