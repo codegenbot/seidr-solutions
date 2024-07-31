@@ -1,6 +1,6 @@
+```c++
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 #include <iostream>
 
 double median(std::vector<int> numbers) {
@@ -11,7 +11,8 @@ double median(std::vector<int> numbers) {
         return numbers.at(numbers.size()/2);
 }
 
-int main() {
+int main 
+{
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
@@ -24,4 +25,4 @@ int main() {
         numbers.push_back(num);
     }
     std::cout << "Median: " << median(numbers) << std::endl;
-    return 0;
+}
