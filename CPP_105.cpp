@@ -1,6 +1,6 @@
 #include <vector>
-#include <map>
 #include <algorithm>
+#include <map>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> nums;
@@ -19,4 +19,18 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(numberNames[num]);
     }
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> sortStrings(std::vector<std::string> vec) {
+    std::sort(vec.begin(), vec.end());
+    return vec;
+}
+
+int main() {
+    assert(issame(sortStrings(by_length({9, 4, 8})), sortStrings({"Nine", "Eight", "Four"})));
+    // rest of your code...
 }
