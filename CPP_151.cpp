@@ -14,9 +14,9 @@ int double_the_difference(vector<int> lst) {
     return sum;
 }
 
-int main() {
-    vector<int> lst; 
+vector<int> lst; 
 
+void get_list() {
     cout << "Enter elements for the list: ";
     int i = 0;
     while(i < 5) { 
@@ -32,6 +32,10 @@ int main() {
             i++;
         }
     }
+}
+
+int main() {
+    get_list();
 
     if (!lst.empty()) {
         int odd_sum = double_the_difference(lst);
