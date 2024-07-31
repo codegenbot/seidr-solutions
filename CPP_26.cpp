@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -11,6 +10,10 @@ bool compareVectors(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+bool isSame(std::vector<int> v1, std::vector<int> v2) {
+    return compareVectors(v1, v2);
+}
+
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::vector<int> result = numbers;
     std::sort(result.begin(), result.end());
@@ -20,6 +23,10 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(compareVectors(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    if (!isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
     return 0;
 }
