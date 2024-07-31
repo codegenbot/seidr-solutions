@@ -1,42 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <cmath>
+#include <algorithm>
 
-std::vector<float> find_closest_elements(const std::vector<float>& nums) {
+std::vector<float> find_closest_elements(const auto& nums) {
+    std::vector<float> result;
+
     if (nums.size() < 2) {
-        return {};
+        return result;
     }
 
-    float min_diff = std::abs(nums[0] - nums[1]);
-    int idx1 = 0, idx2 = 1;
+    std::sort(nums.begin(), nums.end());
+    result.push_back(nums[0]);
+    result.push_back(nums[1]);
 
-    for (size_t i = 0; i < nums.size(); ++i) {
-        for (size_t j = i + 1; j < nums.size(); ++j) {
-            float diff = std::abs(nums[i] - nums[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                idx1 = i;
-                idx2 = j;
-            }
-        }
-    }
-
-    return {nums[idx1], nums[idx2]};
+    return result;
 }
 
-bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(const auto& a, const auto& b) {
+    return a == b;
 }
 
 int main() {
