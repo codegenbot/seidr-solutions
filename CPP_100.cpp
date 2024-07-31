@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
@@ -11,4 +12,15 @@ std::vector<int> make_a_pile(int n) {
         break;
     }
     return pile;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::vector<int> pile = make_a_pile(n);
+    for (int num : pile) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
