@@ -1,10 +1,11 @@
-Here is the completed code:
-
-bool will_it_fly(vector<int> q, int w) {
+bool will_it_fly(vector<int> q,int w){
     string s = "";
-    for (int i : q) {
-        s += to_string(i);
+    for(int i:q) {
+        s+=to_string(i);
     }
-    bool balanced = s == string(rbegin(s), rend(s));
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    reverse(s.begin(),s.end());
+    if(s!=to_string(q[0])) return false;
+    int sum=0;
+    for(int i:q) sum+=i;
+    return sum<=w;
 }
