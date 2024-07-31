@@ -5,11 +5,11 @@
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(std::string::iterator it = brackets.begin(); it != brackets.end(); ++it){
-        if(*it == '<'){
+    for(int i=0; i<brackets.length(); i++){
+        if(brackets[i] == '<'){
             count++;
         }
-        else if(*it == '>'){
+        else if(brackets[i] == '>'){
             if(count <= 0) return false;
             count--;
         }
@@ -21,8 +21,8 @@ bool correct_bracketing(std::string brackets){
 int main() {
     std::string brackets;
     std::cout << "Enter a string of brackets: ";
-    std::cin >> brackets;  
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, brackets);
+    brackets.erase(brackets.find('\n'), brackets.size());
 
     if(correct_bracketing(brackets)) {
         std::cout << "The bracketing is correct." << std::endl;
