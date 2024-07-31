@@ -4,6 +4,6 @@
 int main() {
     std::string str;
     std::cin >> str;
-    std::cout << str.length();
+    std::cout << strlen(str.c_str());
     return 0;
 }
