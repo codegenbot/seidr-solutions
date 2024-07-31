@@ -10,13 +10,13 @@ bool issame(std::vector<int> arr) {
     return true;
 }
 
-int filter_integers(const std::vector<int>& arr) {
+std::vector<int> filter_integers(const std::vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         if (!std::is_integral(arr[i]).is_always()) { 
-            return -1;
+            return {};
         }
     }
-    return 1;
+    return arr;
 }
 
 int main() {
@@ -26,10 +26,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
-    if (filter_integers(arr) == -1) {
+    if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        assert(issame(std::vector<int>(arr)));
+        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
+        std::vector<int> testArr2 = {3, 3, 3};
+
+        assert(issame(testArr1));
+        assert(issame(testArr2));
     }
     return 0;
 }
