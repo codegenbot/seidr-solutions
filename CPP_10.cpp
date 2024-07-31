@@ -1,3 +1,12 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool is_palindrome(string s) {
+    return s == string(s.rbegin(), s.rend());
+}
+
 string make_palindrome(string str){
     if(str.empty()) return "";
     int n = str.size();
