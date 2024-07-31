@@ -3,7 +3,7 @@
 #include <set>
 #include <unordered_set>
 
-int countDistinctCharacters(const std::string& str) {
+int count_distinct_characters(const std::string& str) {
     std::unordered_set<char> distinctChars;
     for (char c : str) {
         if (!distinctChars.insert(c).second) 
@@ -22,7 +22,7 @@ int mainFunc() {
     char buffer[256];
     std::cin.getline(buffer, 256); 
     str = std::string(buffer);
-    int result = countDistinctCharacters(str);
+    int result = count_distinct_characters(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
 }
