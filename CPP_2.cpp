@@ -11,9 +11,6 @@ int main() {
     std::cin >> number;
     double fractionalPart = truncate_number(number);
     std::cout << fractionalPart << std::endl;
-
-    // Assert for correctness
-    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
-
+    assert (std::abs(truncate_number(123.456) - 0.456) < 1e-4);
     return 0;
 }
