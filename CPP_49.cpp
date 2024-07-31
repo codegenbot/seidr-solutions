@@ -1,4 +1,3 @@
-```
 #include <cstdio>
 using namespace std;
 
@@ -11,13 +10,4 @@ long long modp(int n, int p) {
     }
     return res;
 
-}
-
-int main() {
-    int n, p;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("Enter the value of p: ");
-    scanf("%d", &p);
-    printf("%lld\n", modp(n, p));
 }
