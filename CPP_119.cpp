@@ -14,4 +14,7 @@ bool match_parens(char* parens) {
     return count == 0;
 }
 
-assert(match_parens("())") == true);
+int main() {
+    assert(match_parens("()") == true);
+    return 0;
+}
