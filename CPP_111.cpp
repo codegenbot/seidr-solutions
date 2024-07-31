@@ -32,6 +32,11 @@ std::map<char, int> histogram(const std::string& test) {
     return maxChars;
 }
 
-#include <cassert>
+int main() {
+    // Test cases for histogram function
+    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(is_same(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
+    assert(is_same(histogram(""), std::map<char, int>{})); // Empty string case
 
-assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    return 0;
+}
