@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int myFunction(vector<int> lst) {
