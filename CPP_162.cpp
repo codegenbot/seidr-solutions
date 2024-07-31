@@ -1,5 +1,3 @@
-#include <openssl/ssl.h>
-#include <openssl/rand.h>
 #include <string>
 
 string string_to_md5(string text) {
