@@ -1,10 +1,12 @@
-int count = 0;
-    char prev = ' ';
-    for (char c : s) {
-        if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u' || (tolower(c) == 'y' && prev == ' ')) {
+int vowels_count(string s) {
+    int count = 0;
+    for(char c : s){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
             count++;
         }
-        prev = c;
+    }
+    if(tolower(s.back()) == 'y'){
+        count--;
     }
     return count;
 }
