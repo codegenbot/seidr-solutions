@@ -1,10 +1,14 @@
-vector<string> words;
-    string word = "";
+#include<vector>
+#include<string>
+using namespace std;
+vector<string> words_string(string s){
+    vector<string> words;
+    string word;
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
-                word = "";
+                word.clear();
             }
         } else {
             word += c;
