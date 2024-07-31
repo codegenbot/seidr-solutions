@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string current_group;
     int open_braces = 0;
@@ -32,7 +32,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-// int main() {
-//     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
-//     return 0;
-// }
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
+    return 0;
+}
