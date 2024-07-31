@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-int search(const std::vector<int>& lst) {
+int search(std::vector<int> lst) {
     int result = -1;
     for (int num : lst) {
         int frequency = 0;
@@ -19,6 +18,15 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
+    // Test cases
+    std::vector<int> test1 = {2, 2, -1, 3, 1, 2, 0, 0};
+    assert(search(test1) == 2);
+
+    std::vector<int> test2 = {1, 1, 1};
+    assert(search(test2) == 1);
+
+    std::vector<int> test3 = {0, 0, 0, 0};
+    assert(search(test3) == -1);
+
     return 0;
 }
