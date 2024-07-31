@@ -2,20 +2,22 @@
 #include <cassert>
 #include <algorithm>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
 std::vector<int> factorize(int num) {
-    std::vector<int> result;
-    for (int i = 2; i * i <= num; i++) {
+    std::vector<int> factors;
+    for (int i = 2; i <= num; ++i) {
         while (num % i == 0) {
-            result.push_back(i);
+            factors.push_back(i);
             num /= i;
         }
     }
-    if (num > 1) {
-        result.push_back(num);
-    }
-    return result;
+    return factors;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+int main() {
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    return 0;
 }
