@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 
+// Function to compare two vectors of integers
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
 }
@@ -13,7 +14,7 @@ std::vector<int> get_odd_collatz(int n) {
         if (n % 2 == 0) {
             n = n / 2;
         } else {
-            n = 3 * n + 1;
+           n = 3 * n + 1;
         }
     }
     result.push_back(1);
@@ -27,12 +28,12 @@ int main() {
 
     std::vector<int> odd_collatz = get_odd_collatz(n);
 
-    assert(odd_collatz == get_odd_collatz(1));
-
     std::cout << "Odd Collatz sequence for " << n << " is: ";
     for (int num : odd_collatz) {
-        std::cout << num << " ";
+       std::cout << num << " ";
     }
+
+    assert(odd_collatz == get_odd_collatz(1));
 
     return 0;
 }
