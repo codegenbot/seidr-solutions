@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
@@ -24,7 +26,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    auto issame = [](vector<string> a, vector<string> b) { return a == b; };
-    assert(issame(numerical_letter_grade({0.0, 0.7}), {"E", "D-"}));
+    assert(numerical_letter_grade({0.0, 0.7}) == vector<string>{"E", "D-"}); 
     return 0;
 }
