@@ -37,10 +37,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> result = parse_music("o| .| o| .| o o| o o|");
-    std::string result_str;
-    for (int val : result) {
-        result_str += std::to_string(val) + " ";
+    std::string result = "";
+    for (int num : parse_music("o| .| o| .| o o| o o|")) {
+        result += std::to_string(num);
     }
-    assert(result_str == "2 1 2 1 4 2 4 2");
+    assert(result == "21214242");
 }
