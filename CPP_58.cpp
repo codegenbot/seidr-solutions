@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-vector<int> find_common_elements(vector<int> a, vector<int> b) {
+vector<int> issame(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
 
@@ -18,11 +19,13 @@ int main() {
     vector<int> l1 = {1, 2, 3, 4, 5};
     vector<int> l2 = {1, 3, 5, 7, 9};
 
-    vector<int> res = find_common_elements(l1, l2);
+    vector<int> res = issame(l1, l2);
 
     for (int num : res) {
         cout << num << " ";
     }
+
+    assert(issame({4, 3, 2, 8}, {}).empty());
 
     return 0;
 }
