@@ -1,4 +1,4 @@
-int search(const vector<int>& lst) {
+int search(const std::vector<int>& lst) {
     int result = -1;
     for(int num : lst) {
         int frequency = 0;
