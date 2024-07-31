@@ -1,4 +1,4 @@
-#include <initializer_list>
+#include <vector>
 #include <cmath>
 
 double poly(std::vector<double> coefficients, double x) {
@@ -14,24 +14,10 @@ double find_zero(std::vector<double> xs) {
     double sum = 0;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            coeffs.push_back(xs[i] / xs[0]);
+            double coeff = xs[i] / xs[0];
+            coeffs.push_back(coeff);
         }
     }
     double x = -coeffs[0];
     return poly(coeffs, x);
-}
-
-int main() {
-    std::vector<double> xs;
-    // Read input from user
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        double val;
-        cin >> val;
-        xs.push_back(val);
-    }
-    double x = find_zero(xs);
-    cout << fixed << setprecision(2) << x << endl;
-    return 0;
 }
