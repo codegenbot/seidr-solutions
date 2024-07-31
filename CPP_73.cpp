@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,13 +17,18 @@ int smallest_change(std::vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i+1][j-1].size();
             } else {
-                int min_val = std::min({dp[i+1][j].size() + 1, dp[i][j-1].size() + 1, dp[i+1][j-1].size() + 1});
-                dp[i][j] = min_val;
+                std::vector<int> options;
+                for(int k = 0; k < 3; k++) {
+                    options.push_back(dp[i+1][j].size() + (k == 0));
+                    options.push_back(dp[i][j-1].size() + (k == 1));
+                    options.push_back(dp[i+1][j-1].size() + 2);
+                }
+                dp[i][j] = *std::min_element(options.begin(), options.end());
             }
         }
     }
 
-    return dp[0].at(n);
+    return dp[0].at(n-1);
 }
 
-int main() { smallest_change({0, 1}); }
+int main() { return smallest_change({0, 1}); }
