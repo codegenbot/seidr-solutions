@@ -4,10 +4,10 @@
 
 bool match_parens(const char* parens) {
     int count = 0;
-    for (int i = 0; *parens != '\0'; i++) {  
-        if (*parens == '(')
+    for (int i = 0; parens[i]; i++) {  
+        if (parens[i] == '(')
             count++;
-        else if (*parens == ')')
+        else if (parens[i] == ')')
             count--;
         if (count < 0)
             return false;
@@ -17,8 +17,8 @@ bool match_parens(const char* parens) {
 
 int main() {
     std::cout << "Enter a string of parentheses: ";
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << (match_parens(input.c_str().c_str())) ? "Valid" : "Invalid";
+    char parens[1024];
+    std::cin.read(parens, 1024);
+    std::cout << (match_parens(parens)) ? "Valid" : "Invalid";
     return 0;
 }
