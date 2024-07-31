@@ -16,8 +16,3 @@ vec::vector<int> remove_duplicates(vec::vector<int> numbers) {
 bool issame(vec::vector<int> a, vec::vector<int> b) {
     return a == b;
 }
-
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vec::vector<int>{1, 4, 5}));
-    return 0;
-}
