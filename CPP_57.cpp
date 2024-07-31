@@ -16,5 +16,6 @@ bool monotonic(const vector<int>& l) {
 
 int main() {
     assert(monotonic({9, 9, 9, 9}) == true);
+    // Add more test cases here
     return 0;
 }
