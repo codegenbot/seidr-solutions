@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int minSubArraySum(vector<int> nums) {
@@ -16,7 +18,7 @@ int minSubArraySum(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -1};
-    cout << "minSubArraySum({1, -1}) = " << minSubArraySum(nums) << endl;
+    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
+    assert(minSubArraySum({1, -1}) == 0);
     return 0;
 }
