@@ -1,8 +1,36 @@
-int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (arr == vector<int>(arr.begin() + i, arr.end()) + vector<int>(arr.begin(), arr.begin() + i)) {
-            return true;
+bool move_one_ball(vector<int> arr) {
+    int n = arr.size();
+    if (n == 0) {
+        return true;
+    }
+    
+    int minIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 1) {
+            minIndex = i;
+            break;
         }
     }
-    return false;
+    
+    if (minIndex == -1) {
+        return false;
+    }
+    
+    for (int i = 0; i < n; i++) {
+        if (arr[(minIndex + i) % n] != i + 1) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    vector<int> test1 = {1, 2, 3, 4};
+    vector<int> test2 = {2, 3, 4, 1};
+    
+    cout << move_one_ball(test1) << endl; // Output: true
+    cout << move_one_ball(test2) << endl; // Output: false
+    
+    return 0;
 }
