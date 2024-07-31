@@ -1,5 +1,5 @@
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    numbers = sorted(numbers)
+    numbers.sort()
     for i in range(len(numbers) - 1):
         if abs(numbers[i] - numbers[i + 1]) <= threshold:
             return True
