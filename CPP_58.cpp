@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -25,7 +24,7 @@ int main() {
     if(v.size() > 1) {
         bool same = true;
         for(int i=2; i<v.size(); i++) {
-            same &= (v[0] == v[i]);
+            same &= issame(v[0], v[i]);
         }
 
         if(same) {
