@@ -1,8 +1,9 @@
 #include <string>
 
 bool is_palindrome(string str){
-    for(int i=0; i<str.size()/2; ++i){
-        if(str[i] != str[str.size()-i-1]){
+    int n = str.size();
+    for(int i=0; i<n/2; ++i){
+        if(str[i] != str[n-1-i]) {
             return false;
         }
     }
