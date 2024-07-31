@@ -1,15 +1,27 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <cassert>
 
-long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT_MAX;
+using namespace std;
+
+int minSubArraySum(vector<int> nums) {
+    int min_sum = numeric_limits<int>::max();
     for (int i = 0; i < nums.size(); i++) {
-        long long sum = 0;
+        int current_sum = 0;
         for (int j = i; j < nums.size(); j++) {
-            sum += nums[j];
-            if (sum < min_sum) {
-                min_sum = sum;
+            current_sum += nums[j];
+            if (current_sum < min_sum) {
+                min_sum = current_sum;
             }
         }
     }
     return min_sum;
+}
+
+int mainTest() {
+    if (minSubArraySum({1, -1}) != 0) {
+        assert(false);
+    }
+    return 0;
 }
