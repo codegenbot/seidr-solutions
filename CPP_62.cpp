@@ -1,5 +1,3 @@
-#include <vector>
-#include <cassert>
 using namespace std;
 
 vector<float> derivative(vector<float> xs);
