@@ -1,8 +1,8 @@
-```
 #include <vector>
 #include <cmath>
 
-int sum_squares(std::vector<float> lst) {
+int sum_squares(std::initializer_list<float> il) {
+    std::vector<float> lst(il);  
     int total = 0;
     for(float x : lst) {
         int ceil_x = (int)std::ceil(x);
