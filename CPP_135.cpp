@@ -1,4 +1,11 @@
-int main
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+int can_arrange(std::vector<std::string> input);
+
+int main()
 {
     std::vector<std::string> input;
     std::cout << "Enter numbers (space separated): ";
@@ -15,4 +22,8 @@ int main
     else 
         std::cout << "Input can be arranged." << std::endl;
     return 0;
+}
+
+int can_arrange(std::vector<std::string> input) {
+    // Your code here
 }
