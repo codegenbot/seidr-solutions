@@ -15,7 +15,4 @@ int minSubArraySum(vector<int> nums) {
     return min_sum;
 }
 
-int main() {
-    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1,-1}) << endl;
-    return 0;
-}
+cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
