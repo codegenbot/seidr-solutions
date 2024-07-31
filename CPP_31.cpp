@@ -1,8 +1,10 @@
-#include <cassert>
+```cpp
+#include <iostream>
+using namespace std;
 
 bool is_prime(int n) {
     bool is_divisor = false;
-    for (long long i = 2; i * i <= n && !is_divisor; ++i) {
+    for (int i = 2; i * i <= n && !is_divisor; ++i) {
         if (n % i == 0) {
             is_divisor = true;
         }
@@ -11,6 +13,8 @@ bool is_prime(int n) {
 }
 
 int main() {
-    assert(is_prime(13441 * 19) == false);
-    // ...
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << is_prime(num) << endl;
 }
