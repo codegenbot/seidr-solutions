@@ -5,8 +5,9 @@
 #include <string>
 
 using std::vector;
+using std::string;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,9 +15,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
     
     for (char c : s) {
         if (c == ' ') {
@@ -42,14 +43,4 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-int main() {
-    std::string s;
-    int n;
-    std::cin >> s >> n;
-    
-    std::vector<std::string> words = select_words(s, n);
-
-    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
-    
-    return 0;
-}
+```
