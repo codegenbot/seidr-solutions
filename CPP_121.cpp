@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int solve(vector<int> lst) {
     return sum;
 }
 
-int mainSolve() {
+int main() {
     vector<int> lst;
     int n;
     cin >> n;
