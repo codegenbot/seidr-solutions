@@ -1,4 +1,4 @@
-"""
+```
 import math
 
 
@@ -16,4 +16,3 @@ def simplify():
 
 
 print(simplify())
-"""
