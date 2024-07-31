@@ -37,5 +37,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
 int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    assert(intersection({1, 5}, {3, 7}) == "YES");
     return 0;
 }
