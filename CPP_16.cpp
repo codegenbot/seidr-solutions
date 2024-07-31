@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <set>
@@ -20,5 +21,6 @@ int mainFunc() {
     str = std::string(buffer);
     int result = countDistinctCharacters(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
+    assert(countDistinctCharacters("Jerry jERRY JeRRRY") == 5);
     return 0;
 }
