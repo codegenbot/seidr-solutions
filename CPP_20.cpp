@@ -7,7 +7,10 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> find_closest_elements(const std::vector<float>& elements) {
-    std::vector<float> closest_elements = {elements[0], elements[1]}; // Assuming the first two elements are the closest
+    std::vector<float> closest_elements;
+    std::sort(elements.begin(), elements.end());
+    closest_elements.push_back(elements[0]);
+    closest_elements.push_back(elements[1]);
     return closest_elements;
 }
 
