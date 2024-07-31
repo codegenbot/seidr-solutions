@@ -1,14 +1,9 @@
+
 #include <iostream>
 #include <string>
 #include <cassert>
 
 using namespace std;
-
-string make_palindrome(string str);
-
-int main() {
-    assert(make_palindrome("jerry") == "jerryrrej");
-}
 
 string make_palindrome(string str){
     string rev_str(str.rbegin(), str.rend());
@@ -18,4 +13,10 @@ string make_palindrome(string str){
         }
     }
     return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    
+    return 0;
 }
