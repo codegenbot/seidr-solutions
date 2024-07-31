@@ -1,5 +1,15 @@
 bool issame(vector<string> v1, vector<string> v2) {
-    return v1 == v2;
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 bool select_words(string s, int n) {
@@ -31,6 +41,5 @@ bool select_words(string s, int n) {
 }
 
 int main() {
-    // Your main function code here
-    return 0;
+    // Main function code here
 }
