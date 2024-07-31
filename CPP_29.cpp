@@ -5,7 +5,7 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -22,9 +22,8 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
     return result;
 }
 
-std::vector<std::string> b; // declare 'b' variable
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    b = filter_by_prefix(a, "xxx");
+    const std::vector<std::string>& b = filter_by_prefix(a, "xxx");
     assert (issame(b , {"xxx", "xxxAAA", "xxx"}));
 }
