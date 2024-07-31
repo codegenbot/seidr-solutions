@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -18,11 +19,12 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return sameVectors(a, b);
 }
 
-void testMain() {
+int main() {
     if (!same({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
     assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
 }
