@@ -1,16 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string &s) {
-    int count = 0;
-    for (char ch : s) {
-        if (ch == '(') {
-            count++;
-        } else if (ch == ')') {
-            count--;
+bool issame(const std::string& group) {
+    char first = group[0];
+    for (char ch : group) {
+        if (ch != first) {
+            return false;
         }
     }
-    return count == 0;
+    return true;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string);
@@ -22,14 +20,16 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 
     for (char ch : paren_string) {
         if (ch == '(') {
-            if (in_group && issame(current_group)) {
-                result.push_back(current_group);
+            if (in_group) {
+                if (!current_group.empty() && issame(current_group)) {
+                    result.push_back(current_group);
+                }
+                current_group = "";
             }
             in_group = true;
-            current_group = "";
         } else if (ch == ')') {
             in_group = false;
-            if (issame(current_group)) {
+            if (!current_group.empty() && issame(current_group)) {
                 result.push_back(current_group);
             }
             current_group = "";
@@ -38,7 +38,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
         }
     }
 
-    if (in_group && issame(current_group)) {
+    if (!current_group.empty() && issame(current_group)) {
         result.push_back(current_group);
     }
 
