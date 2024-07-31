@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> input;
+std::vector<int> input(0);
 int n;
 
 void readInput() {
