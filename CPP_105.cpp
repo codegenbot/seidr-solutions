@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -25,9 +25,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> sortStrings(std::vector<std::string> vec) {
-    std::sort(vec.begin(), vec.end());
-    return vec;
+#include <iostream>
+#include <algorithm>
+
+std::vector<std::string> sortStrings(std::vector<std::string> strings) {
+    std::sort(strings.begin(), strings.end());
+    return strings;
 }
 
 int main() {
