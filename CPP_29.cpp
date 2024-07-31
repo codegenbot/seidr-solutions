@@ -1,8 +1,8 @@
+```c
 #include <vector>
 #include <string>
 #include <cassert>
 #include <iostream>
-#include <ostream>
 
 using namespace std;
 
@@ -48,3 +48,4 @@ int main() {
         cout << s << endl;
     }
     return 0;
+}
