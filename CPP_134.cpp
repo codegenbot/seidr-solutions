@@ -16,7 +16,7 @@ bool check_if_last_char_is_a_letter(const string& txt) {
 
 int solve_problem() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    
+
     return 0;
 }
 
