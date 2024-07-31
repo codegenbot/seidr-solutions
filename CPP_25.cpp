@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i <= n; ++i) {
         while (n % i == 0) {
@@ -9,3 +9,8 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return factors;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
