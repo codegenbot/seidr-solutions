@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
+#include <bits/stdc++.h>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
