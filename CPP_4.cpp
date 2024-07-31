@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cmath>
-#include <cassert>
+#include <cassert> 
 
 using namespace std;
 
@@ -11,7 +10,7 @@ double calculate_mad(const vector<double>& values) {
     double sum_abs_diff = 0.0;
 
     for (const auto& value : values) {
-        sum_abs_diff += abs(value - mean);
+        sum_abs_diff += std::abs(value - mean);
     }
 
     return sum_abs_diff / values.size();
