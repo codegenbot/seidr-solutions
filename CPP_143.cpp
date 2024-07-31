@@ -1,25 +1,42 @@
+#include <string>
+using namespace std;
+
 string words_in_sentence(string sentence){
-    stringstream ss(sentence);
-    string word, result;
-    while (ss >> word) {
-        int len = word.length();
-        bool is_prime = true;
-        if (len <= 1) {
-            is_prime = false;
+    string result = "";
+    string word = "";
+    for(char c : sentence){
+        if(c != ' '){
+            word += c;
         } else {
-            for (int i = 2; i * i <= len; ++i) {
-                if (len % i == 0) {
+            int word_length = word.length();
+            bool is_prime = true;
+            for(int i=2; i*i <= word_length; i++){
+                if(word_length % i == 0){
                     is_prime = false;
                     break;
                 }
             }
-        }
-        if (is_prime) {
-            result += word + " ";
+            if(is_prime && word_length > 1){
+                result += word + " ";
+            }
+            word = "";
         }
     }
-    if (!result.empty()) {
-        result.pop_back(); // Remove the trailing space
+    int word_length = word.length();
+    bool is_prime = true;
+    for(int i=2; i*i <= word_length; i++){
+        if(word_length % i == 0){
+            is_prime = false;
+            break;
+        }
+    }
+    if(is_prime && word_length > 1){
+        result += word;
     }
     return result;
+}
+
+int main(){
+    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
