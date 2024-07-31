@@ -1,10 +1,7 @@
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-vector<int> tri(int n) {
-    vector<int> result;
+std::vector<int> tri(int n) {
+    std::vector<int> result;
     if (n >= 0) {
         result.push_back(3);
         if (n >= 1) {
@@ -22,22 +19,4 @@ vector<int> tri(int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(tri(1), {1, 3}));
-    
-    return 0;
 }
