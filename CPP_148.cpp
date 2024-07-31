@@ -4,15 +4,15 @@
 
 using namespace std;
 
-bool issame(const vector<string> &a, const vector<string> &b){
+bool issame(const vector<string>& a, const vector<string>& b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a.at(i) != b.at(i)) return false;
     }
     return true;
 }
 
-vector<string> getPlanetsInBetween(string planet1, string planet2) {
+vector<string> bf(const string& planet1, const string& planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -42,6 +42,6 @@ vector<string> getPlanetsInBetween(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(getPlanetsInBetween("Jupiter", "Makemake"), vector<string>{}));
-    return 0;
+	assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
+	return 0;
 }
