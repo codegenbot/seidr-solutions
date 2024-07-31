@@ -11,7 +11,6 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
-    // additional test cases can be added here
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
