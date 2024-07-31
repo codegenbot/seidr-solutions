@@ -7,5 +7,5 @@ bool iscuber(int a) {
 }
 
 int main() {
-    assert (iscuber(1729) == false);
+    assert(iscuber(1729) == false);
 }
