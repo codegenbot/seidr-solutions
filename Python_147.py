@@ -4,7 +4,8 @@ def get_max_triples(n):
     max_sum = 0
     for i in range(len(a)):
         for j in range(i, len(a)):
-            k = min(i, j)
+            if j > i:
+                k = i
             total = a[i] + a[j] + a[k]
             if total % 3 == 0:
                 count += 1
