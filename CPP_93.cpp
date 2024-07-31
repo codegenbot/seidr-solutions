@@ -10,6 +10,15 @@ int main(){
 }
 
 std::string encode(std::string message){
-    // Your implementation here
-    return message; // Temporary: return the message as-is
+    std::string encodedMessage = message;
+    for (char& c : encodedMessage) {
+        if (std::isalpha(c)) {
+            if (std::islower(c)) {
+                c = std::toupper(c);
+            } else {
+                c = std::tolower(c);
+            }
+        }
+    }
+    return encodedMessage;
 }
