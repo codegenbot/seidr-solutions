@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
