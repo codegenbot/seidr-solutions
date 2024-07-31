@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 using namespace std;
 
 std::string solve(std::string s) {
@@ -14,9 +15,7 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    string input;
+    string s;
     cout << "Enter a string: ";
-    cin >> input;
-    std::cout << solve(input) << endl;
-    return 0;
-}
+    cin >> s;
+    cout << "Result: " << solve(s) << endl;
