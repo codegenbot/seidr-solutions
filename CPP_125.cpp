@@ -1,6 +1,17 @@
-#include <iostream>
 #include <vector>
 #include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -28,12 +39,4 @@ vector<string> split_words(string txt) {
         result[0] = to_string(count);
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Existing issame function code here
-}
-
-int main() {
-    // Existing main function code here
 }
