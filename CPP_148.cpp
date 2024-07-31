@@ -42,6 +42,11 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> planets = bf("Earth", "Saturn");
+    vector<string> result = bf("Earth", "Jupiter");
+    for (const auto& planet : result) {
+        cout << planet << " ";
+    }
+    cout << endl;
+
     return 0;
 }
