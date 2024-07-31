@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+
 using namespace std;
 
 int prod_signs(const std::vector<int>& arr) {
