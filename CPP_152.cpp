@@ -1,10 +1,13 @@
 #include <vector>
 #include <cassert>
 
-bool compare(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return compare(a, b);
+int main() {
+    assert(issame(std::vector<int>({1, 2, 3, 5}), std::vector<int>({-1, 2, 3, 4})) == false);
+    assert(issame(std::vector<int>({2, 0, 0, 1}), std::vector<int>({2, 0, 0, 1})) == true);
+    
+    return 0;
 }
