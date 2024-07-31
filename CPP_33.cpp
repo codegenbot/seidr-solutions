@@ -7,8 +7,7 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int i = 0, group = 1; 
-
+    int i = 0;
     while (i < l.size()) {
         if ((i + 1) % 3 == 0 && !result.empty()) { 
             sort(result.begin(), result.end());
@@ -20,8 +19,8 @@ vector<int> sort_third(vector<int> l) {
         }
         i++;
     }
-    
-    // add one last time just in case
+
+    // Add an extra check for the last group of elements
     if (!result.empty()) {
         sort(result.begin(), result.end());
     }
