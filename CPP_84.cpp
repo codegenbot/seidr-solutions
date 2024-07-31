@@ -8,7 +8,6 @@ string solve(int N) {
 }
 
 int main() {
-    int input = 963; // Input can be changed for testing purposes
-    string result = solve(input);
+    cout << solve(963) << endl;
     return 0;
 }
