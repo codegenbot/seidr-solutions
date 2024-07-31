@@ -15,7 +15,7 @@ int solve(vector<int> lst) {
     return sum;
 }
 
-int main() {
+int mainSolve() {
     vector<int> lst;
     int n;
     cin >> n;
@@ -26,3 +26,4 @@ int main() {
     }
     cout << solve(lst) << endl;
     return 0;
+}
