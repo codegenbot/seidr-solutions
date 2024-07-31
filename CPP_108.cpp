@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 int count_nums(vector<int> &n) {
