@@ -1,7 +1,6 @@
-```cpp
-#include <cassert>
 #include <string>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -17,6 +16,7 @@ bool match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == true);
+    vector<string> input = {")", "("};
+    assert(match_parens(input) == true);
     return 0;
 }
