@@ -1,6 +1,16 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -15,6 +25,6 @@ std::vector<int> get_odd_collatz(int n) {
             odd_numbers.push_back(num);
         }
     }
-    std::sort(odd_numbers.begin(), odd_numbers.end());
+    sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
 }
