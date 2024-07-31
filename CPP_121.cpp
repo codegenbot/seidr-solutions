@@ -10,6 +10,7 @@ int solve(vector<int> lst) {
         }
     }
     
+    cout << "Sum of odd numbers: " << sum << endl;
     return sum;
 }
 
@@ -26,6 +27,6 @@ int main() {
         lst.push_back(num);
     }
     
-    cout << "Sum of odd numbers: " << solve(lst) << endl;
+    solve(lst);  
     return 0;
 }
