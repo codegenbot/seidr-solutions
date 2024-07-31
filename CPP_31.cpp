@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -10,8 +9,4 @@ bool is_prime(int n) {
         }
     }
     return !is_divisor;
-}
-
-int main() {
-    cout << is_prime(13441 * 19) << endl;
 }
