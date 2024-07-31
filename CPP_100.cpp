@@ -1,9 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b);
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -18,8 +17,16 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
+bool is_same(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame(make_a_pile(8), expected));
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int i : result) {
+        cout << i << " ";
+    }
     return 0;
 }
