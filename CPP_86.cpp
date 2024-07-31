@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -21,4 +21,4 @@ int main() {
     cout << "Enter a sentence: ";
     cin >> str;
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
-}
+    return 0;
