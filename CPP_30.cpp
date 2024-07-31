@@ -1,13 +1,16 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return (a == b);
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9f) return false;
+    }
+    return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& input) {
+std::vector<float> getPositive(const std::vector<float>& input) {
     std::vector<float> positive;
     for (float num : input) {
         if (num > 0) {
@@ -17,15 +20,15 @@ std::vector<float> get_positive(const std::vector<float>& input) {
     return positive;
 }
 
-int main() {
+void printResult() {
     std::vector<float> input;
     float num;
     while (std::cin >> num) {
         input.push_back(num);
     }
-    
+
     if (!input.empty()) input.reserve(input.size());
-    std::vector<float> positive = get_positive(input);
+    std::vector<float> positive = getPositive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
@@ -34,5 +37,9 @@ int main() {
     if (input.empty()) {
         std::cout << "No input provided. Please enter some numbers!" << std::endl;
     }
+}
+
+int main() {
+    printResult();
     return 0;
 }
