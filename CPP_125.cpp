@@ -1,9 +1,23 @@
-#include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> split_words(std::string txt);
+
+int main() {
+    assert (issame(split_words(""), {"0"}));
+    std::string text = "hello, world";
+    std::vector<std::string> words = split_words(text);
+    for (const auto& word : words) {
+        std::cout << word << std::endl;
+    }
+    return 0;
+}
 
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
