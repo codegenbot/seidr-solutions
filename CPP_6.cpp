@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-vector<int> parse_nested_parens(const std::string& s) {
+std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
     for (char c : s) {
         if (c == '(') {
@@ -16,7 +15,11 @@ vector<int> parse_nested_parens(const std::string& s) {
     return {count + 1};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSameVector(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
-assert(parse_nested_parens("(()(())((()))") == vector<int>({4}));
+
+int test() {
+    assert(parse_nested_parens("(()(())((()))") == std::vector<int>({4}));
+    return 0;
+}
