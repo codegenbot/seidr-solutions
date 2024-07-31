@@ -2,7 +2,6 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <assert.h>
 
 using namespace std;
 using boost::any;
