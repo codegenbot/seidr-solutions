@@ -29,6 +29,8 @@ vector<int> f(int n) {
 }
 
 int main() {
+    // Add test cases here
     assert(issame(f(3), {1, 2, 6}));
+    
     return 0;
 }
