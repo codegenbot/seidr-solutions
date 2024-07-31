@@ -13,16 +13,6 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> bf(string planet1, string planet2);
-
-int main() {
-    vector<string> result = bf("Earth", "Mars");
-    for (const string& planet : result) {
-        cout << planet << " ";
-    }
-    return 0;
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -49,4 +39,9 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    vector<string> planets = bf("Earth", "Saturn");
+    return 0;
 }
