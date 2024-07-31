@@ -1,12 +1,10 @@
-bool issame(const vector<string>& a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> groups;
     string current_group;
     int count = 0;
@@ -32,7 +30,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("()(()())()"), {"()", "(())", "(()())"}));
-
+    vector<string> groups = separate_paren_groups("()(())(()())");
+    assert(issame(groups, {"()", "(())", "(()())"}));
     return 0;
 }
