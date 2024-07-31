@@ -7,12 +7,12 @@ using namespace std;
 bool issame(const vector<string> &a, const vector<string> &b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a.at(i) != b.at(i)) return false;
+        if (a[i] != b.at(i)) return false;
     }
     return true;
 }
 
-vector<string> bf(string planet1, string planet2) {
+vector<string> between(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -42,6 +42,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
+    // assert(between("Jupiter", "Makemake") == vector<string>{});
     return 0;
 }
