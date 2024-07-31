@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```cpp
 #include <initializer_list>
 #include <vector>
@@ -21,7 +19,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return areVectorsEqual(a, b);
 }
 
-int main {
+int main() {
     std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
     if (!issame(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
