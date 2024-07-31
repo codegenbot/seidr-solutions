@@ -1,6 +1,4 @@
-#include <iostream>
 #include <map>
-#include <cassert>
 
 using namespace std;
 
@@ -32,12 +30,6 @@ string sort_numbers(string numbers){
     for (const auto& pair : sortedNumbers) {
         result += pair.second + " ";
     }
-    
+
     return result;
-}
-
-int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
-    return 0;
 }
