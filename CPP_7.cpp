@@ -1,17 +1,8 @@
-```cpp
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
-    }
-    return true;
-}
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(substring) != std::string::npos) {
@@ -19,6 +10,10 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const auto& s) { return std::count(b.begin(), b.end(), s) > 0; });
 }
 
 int main() {
