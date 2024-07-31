@@ -1,10 +1,15 @@
+Here is the completed code:
+
 def decode_cyclic(s: str):
-    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
-    result = ""
-    for group in groups:
-        if len(group) == 2:
-            result += group[1]
-            result += group[0]
+    result = []
+    i = 0
+    while i < len(s):
+        group = s[i:i+3]
+        if len(group) == 1:
+            result.append('0' + group[0] + '2')
+        elif len(group) == 2:
+            result.append('02' + group[1])
         else:
-            result += group
-    return result
+            result.append(group)
+        i += 3
+    return "".join(result)
