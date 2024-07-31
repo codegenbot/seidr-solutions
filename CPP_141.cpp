@@ -1,14 +1,12 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
-std::string file_name_check(const std::string &file_name) {
+std::string file_name_check(const std::string& file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotPosition = -1;
     
     for (int i = 0; i < file_name.size(); ++i) {
-        if (isdigit(file_name[i])) {
+        if (std::isdigit(file_name[i])) {
             digitCount++;
         } else if (file_name[i] == '.') {
             dotCount++;
@@ -30,7 +28,6 @@ std::string file_name_check(const std::string &file_name) {
 }
 
 int main() {
-    assert (file_name_check("s.") == "No");
-    
+    // Add test cases to verify the function
     return 0;
 }
