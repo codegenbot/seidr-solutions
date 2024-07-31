@@ -1,7 +1,6 @@
-vector<int> res(n+1);
+vector<int> res(n + 1, 0);
     res[1] = 3;
-    if (n >= 2) res[2] = 1 + (2 / 2);
-    for (int i = 3; i <= n; ++i) {
+    for (int i = 2; i <= n; ++i) {
         if (i % 2 == 0) {
             res[i] = 1 + i / 2;
         } else {
