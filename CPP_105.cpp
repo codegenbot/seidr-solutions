@@ -5,10 +5,6 @@ bool issame(vector<string> a,vector<string>b) {
     return (a == b);
 }
 
-int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int num : arr) {
@@ -42,5 +38,11 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
