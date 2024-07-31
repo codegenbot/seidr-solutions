@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 bool correct_bracketing(std::string brackets) {
@@ -16,6 +17,8 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    bool result = correct_bracketing("(())()((()))");
+    std::string input = "(())()";
+    bool result = correct_bracketing(input);
+    std::cout << std::boolalpha << result << std::endl;
     return 0;
 }
