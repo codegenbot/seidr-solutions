@@ -1,26 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-template <typename T>
-bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
+template<typename T>
+bool issame(std::vector<T> v1, std::vector<T> v2) {
     return v1 == v2;
 }
 
 std::vector<int> parse_music(std::string music_string);
 
 int main() {
-    std::string music_string = "o|.o.";
-    std::vector<int> expected_beats = {4, 0, 1};
-
-    std::vector<int> parsed_beats = parse_music(music_string);
-
-    assert(issame(parsed_beats, expected_beats));
-
+    std::string test_music = "o|o.o|";
+    std::vector<int> expected_result = {4, 1, 1};
+    assert(issame(parse_music(test_music), expected_result));
     return 0;
 }
 
-std::vector<int> parse_music(std::string music_string) {
+std::vector<int> parse_music(std::string music_string){ 
     std::vector<int> beats;
     int note_length = 0;
     for (char c : music_string) {
