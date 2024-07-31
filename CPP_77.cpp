@@ -2,8 +2,8 @@
 #include <cassert>
 
 bool iscuber(int a) {
-    int cube_root = round(cbrt(abs(a)));
-    return a == cube_root * cube_root * cube_root;
+    int root = static_cast<int>(std::round(std::cbrt(std::abs(a))));
+    return a == root * root * root;
 }
 
 int main() {
