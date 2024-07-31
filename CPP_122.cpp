@@ -20,7 +20,7 @@ int main() {
         return -1;
     }
 
-    int sum = 0; 
+    std::vector<int> input; 
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
@@ -33,8 +33,6 @@ int main() {
         }
         if(i > 0) {
             input.push_back(num);
-        } else {
-            sum = num;
         }
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
