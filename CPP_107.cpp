@@ -2,14 +2,10 @@
 #include <algorithm>
 
 int issame(int a, vector<int> b) {
-    if (a == b[0]) {
-        return 1;
-    } else {
-        return 0;
-    }
+    return (a == b[0] && a == b[1]);
 }
 
-vector<int> palindromeCount(int n) {
+vector<int> solve(int n) {
     vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
         string num = to_string(i);
