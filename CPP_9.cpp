@@ -2,16 +2,18 @@
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
-    for (int i = 0; i < numbers.size(); ++i) {
+    for (size_t i = 0; i < numbers.size(); ++i) {
         int max_val = numbers[i];
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            max_val = std::max(max_val, numbers[j]);
+        for (size_t j = i + 1; j < numbers.size(); ++j) {
+            if (numbers[j] > max_val) {
+                max_val = numbers[j];
+            }
         }
         result.push_back(max_val);
     }
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) { 
-    return a == b; 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
