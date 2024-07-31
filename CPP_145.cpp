@@ -3,12 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
         while (temp_a > 0) {
