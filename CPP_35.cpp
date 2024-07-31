@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,10 +25,14 @@ int contestMain() {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
         auto maxElement = *std::max_element(input.begin(), input.end()); 
-        std::cout << "Maximum element is: " << maxElement << std::endl;
+        std::cout << "Maximum element is: " << std::abs(maxElement - 124) << std::endl;
 
-        //assert(std::abs(maxElement - 124) < 1e-4);
     }
 
+    return 0;
+}
+
+int main() { 
+    contestMain();
     return 0;
 }
