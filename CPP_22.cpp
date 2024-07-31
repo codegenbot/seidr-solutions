@@ -2,7 +2,9 @@
 #include <vector>
 #include <any>
 
-bool areEqual(std::vector<int> a, std::vector<int> b);
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
+    return a.size() == 1 && a[0] == 3;
+}
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
@@ -14,11 +16,7 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
-    return a.size() == 1 && a[0] == 3;
-}
-
 int main() {
-    assert(areEqual(filter_integers({3, std::any(3), 3}), std::vector<int>({3, 3, 3})));
+    assert(compareVectors(filter_integers({3, static_cast<std::any>(3), 3}), std::vector<int>({3, 3, 3})));
     return 0;
 }
