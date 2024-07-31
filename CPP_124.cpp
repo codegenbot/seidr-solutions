@@ -18,6 +18,9 @@ bool valid_date(std::string date) {
 
 int main() {
     assert(valid_date("04-2003") == false);
+    assert(valid_date("15-02-2022") == true);
+    assert(valid_date("00-01-2021") == false);
+    assert(valid_date("12-30-2023") == false);
 
     return 0;
 }
