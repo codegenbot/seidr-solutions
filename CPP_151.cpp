@@ -17,7 +17,7 @@ int64_t double_the_difference(vector<int64_t> lst) {
 }
 
 int main_func() {
-    vector<int64_t> lst; 
+    int64_t lst; 
     int64_t odd_sum;
 
     cout << "Enter elements for the list: ";
