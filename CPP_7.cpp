@@ -1,7 +1,7 @@
 #include <vector>
-#include <iostream>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,7 +23,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-int solution(int n) {
+int main() {
     int n;
     cin >> n;
 
@@ -49,4 +49,3 @@ int solution(int n) {
     }
 
     return 0;
-}
