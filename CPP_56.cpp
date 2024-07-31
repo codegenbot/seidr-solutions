@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include <cassert>
 #include <stack>
 #include <iostream>
@@ -27,7 +28,6 @@ bool correct_bracketing(std::string brackets) {
         while (!bracket_stack.empty()) {
             char topBrkt = bracket_stack.top();
             bracket_stack.pop();
-
             switch (topBrkt) {
                 case '(':
                     return false;
@@ -43,7 +43,7 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    if (!correct_bracketing("<><><<><>><>>><>") && !std::cout) {
+    if (!correct_bracketing("<><><<><>><>>><>") ) {
         std::cout << "Invalid bracketing" << std::endl;
     }
 }
