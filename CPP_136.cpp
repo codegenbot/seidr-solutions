@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = INT_MIN;
+    int largest_negative = 0;
     int smallest_positive = 0;
     
     for(int num : lst){
