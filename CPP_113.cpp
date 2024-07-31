@@ -1,4 +1,4 @@
-vector<string> issame(vector<string> a) {
+bool issame(vector<string> a, vector<string> b) {
     vector<string> result;
     for (string s : a) {
         int odd_count = 0;
