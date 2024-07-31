@@ -1,22 +1,35 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
+#include <string>
+#include <map>
+#include <vector>
+#include <cctype>
+
+std::map<char, int> histogram(const std::string& test) {
+    std::map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
+    std::string letters = test;
     for (char c : letters) {
-        if (c == ' ') continue;
-        ++result[c];
+        if (!isalpha(c)) continue; // skip non-alphabet characters
+        char letter = tolower(c);
+        result[letter] += 1;
     }
 
-    auto maxLetter = *std::max_element(result.begin(), result.end(),
-                                       [](const auto& a, const auto& b) { return a.second < b.second; });
-    int maxCount = result[maxLetter];
-
-    map<char, int> maxResult;
+    int maxCount = 0;
+    std::vector<std::pair<char, int>> mostFrequent;
     for (auto& p : result) {
-        if (p.second == maxCount)
-            maxResult[p.first] = p.second;
+        if (p.second > maxCount) {
+            maxCount = p.second;
+            mostFrequent.clear();
+            mostFrequent.push_back(p);
+        } else if (p.second == maxCount) {
+            mostFrequent.push_back(p);
+        }
     }
 
-    return maxResult;
+    std::map<char, int> finalResult;
+    for (auto& p : mostFrequent) {
+        finalResult[p.first] = p.second;
+    }
+
+    return finalResult;
 }
