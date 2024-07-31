@@ -1,4 +1,3 @@
-```
 def file_name_check(file_name):
     if len(file_name) > 0:
         before_dot = file_name.split('.')[0]
