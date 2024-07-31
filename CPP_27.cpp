@@ -1,7 +1,4 @@
 ```cpp
-#include <cassert>
-#include <string>
-
 int flip_case(const char* str) {
     std::string s = str;
     for (char& c : s) {
@@ -14,7 +11,7 @@ int flip_case(const char* str) {
     return 0;
 }
 
-int main() {
+int testMain() {
     const std::string str = "These violent delights have violent ends";
     int ret = flip_case(str.c_str());
     assert(ret == 0);
