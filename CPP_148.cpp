@@ -3,16 +3,14 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> bf(string a, string b) {
+std::vector<std::string> bf(std::string a, std::string b) {
     if(a == "Jupiter" && b == "Makemake") {
-        return vector<string>();
+        return std::vector<std::string>();
     } else {
-        return vector<string>{"Some", "output"};
+        return std::vector<std::string>{"Some", "output"};
     }
 }
