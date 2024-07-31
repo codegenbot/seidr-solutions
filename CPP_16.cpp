@@ -1,9 +1,10 @@
 #include <algorithm>
+#include <string>
 
 int count_distinct_characters(const std::string& str) {
-    std::string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    sort(temp.begin(), temp.end());
-    temp.erase(unique(temp.begin(), temp.end()), temp.end());
-    return temp.size();
+    std::string str_copy = str;
+    std::transform(str_copy.begin(), str_copy.end(), str_copy.begin(), ::tolower);
+    std::sort(str_copy.begin(), str_copy.end());
+    auto it = std::unique(str_copy.begin(), str_copy.end());
+    return std::distance(str_copy.begin(), it);
 }
