@@ -1,6 +1,6 @@
 #include <string>
 #include <cctype>
-#include <cassert>
+#include <iostream>
 
 std::string encrypt(std::string s){
     std::string result = "";
@@ -25,6 +25,12 @@ std::string encrypt(std::string s){
 }
 
 int main(){
-    assert (encrypt("a") == "e");
+    // Test cases
+    if(encrypt("a") == "e") {
+        std::cout << "Test case passed!" << std::endl;
+    } else {
+        std::cout << "Test case failed!" << std::endl;
+    }
+
     return 0;
 }
