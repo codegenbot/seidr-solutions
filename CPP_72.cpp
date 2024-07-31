@@ -1,12 +1,12 @@
-Here is the completed code:
-
 bool will_it_fly(vector<int> q, int w) {
-    bool balanced = true;
-    for(int i = 0; i < q.size() / 2; i++) {
-        if(q[i] != q[q.size()-1-i]) {
-            balanced = false;
-            break;
-        }
+    string s = "";
+    for(int i:q) {
+        s += to_string(i);
     }
-    return balanced && (accumulate(q.begin(), q.end(), 0) <= w);
+    if(s != string(rbegin(s)) - rbegin(s)) return false;
+    int sum = 0;
+    for(int i:q) {
+        sum += i;
+    }
+    return sum <= w;
 }
