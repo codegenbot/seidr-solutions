@@ -24,8 +24,8 @@ int main() {
     std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
     std::vector<float> rescaled = rescale_to_unit(numbers);
     
-    std::vector<float> expected_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
-    bool same = issame(rescaled, expected_numbers);
+    std::vector<float> test_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
+    bool same = issame(rescaled, test_numbers);
     
     if (same) {
         std::cout << "Arrays are the same." << std::endl;
