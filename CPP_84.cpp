@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <bitset>
+#include <string>
 #include <cassert>
 
 std::string solve(int N) {
