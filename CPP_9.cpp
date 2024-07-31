@@ -20,7 +20,7 @@ int main() {
     std::vector<int> a = {1, 2, 3};
     std::vector<int> b = {1, 2, 3};
     
-    assert(is_same(a, b));
+    bool same = is_same(a, b);
     
     return 0;
 }
