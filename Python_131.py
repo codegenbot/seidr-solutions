@@ -1,3 +1,4 @@
+```
 def digits(n):
     product = 1
     max_product = 1
