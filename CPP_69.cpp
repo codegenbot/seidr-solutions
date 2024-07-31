@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 int search(vector<int> lst) {
     int max = 0;
     for (int i : lst) {
