@@ -1,6 +1,8 @@
 #include <cstddef>
+#include <bitset>
+#include <cmath>
 
-string complete_code(int n, int m) {
+string findBinaryAvg(int n, int m) {
     if (n > m) {
         return "-1";
     }
