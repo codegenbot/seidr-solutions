@@ -1,7 +1,9 @@
-#include <iostream>
-#include <vector>
+#include <vector> 
 #include <algorithm>
-#include <cassert>
+
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    return v1 == v2;
+}
 
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
