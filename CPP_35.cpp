@@ -1,12 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 void readInput(std::vector<int>& input) {
     std::cout << "Enter the number of elements: ";
-    size_t n = static_cast<size_t>(std::cin >> n);
+    std::size_t n;
+    std::cin >> n;
 
-    input.resize(n);
+    input.resize(static_cast<std::size_t>(n));
 
     for(int i = 0; i < n; i++) {
         int temp;
