@@ -1,30 +1,25 @@
 ```
-def separate_paren_groups(paren_string: str) -> List[str]:
-    def balance_parenthesis(s):
-        count = 0
-        for char in s:
-            if char == '(':
-                count += 1
-            elif char == ')':
-                count -= 1
-            if count == 0:
-                return s[:s.index(char)+1] + s[s.index(char)+1:]
-        return ''
+from typing import List
 
+def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
-    result = []
-    temp = ''
+    groups = []
+    current_group = ''
+
     for char in paren_string:
-        if char.isspace():
+        if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            temp += char
+            current_group += char
         elif char == ')':
-            stack.pop()
-            temp += char
-            if not stack:
-                result.append(balance_parenthesis(temp))
-                temp = ''
+            if stack:
+                stack.pop()
+                current_group += char
+                if not stack:
+                    groups.append(current_group)
+                    current_group = ''
+            else:
+                return []
 
-    return result
+    return groups
