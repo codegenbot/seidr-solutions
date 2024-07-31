@@ -15,9 +15,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<std::string> strings;
+    std::vector<std::string> strings(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> strings.push_back();
+        std::cin >> strings[i];
     }
     std::string substring;
     std::cin >> substring;
