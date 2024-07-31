@@ -14,7 +14,7 @@ std::string compare_one(const T& a, const T& b) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::to_string(1)) == "None");
+    assert(compare_one(boost::any_cast<std::string>(std::string("1")), boost::any_cast<std::string>(std::to_string(1))) == "None");
 
     return 0;
 }
