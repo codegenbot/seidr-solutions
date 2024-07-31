@@ -10,7 +10,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
     
-    int length = end - start + 1;
+    int length = end - start;
     
     if (length <= 1) {
         return "NO";
