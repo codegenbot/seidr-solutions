@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -20,37 +19,37 @@ vector<string> by_length(vector<int> arr) {
 
     vector<string> result;
     for (string str : numbers) {
-        string res = "";
+        string s = "";
         switch (stoi(str)) {
             case 1:
-                res = "One";
+                s = "One";
                 break;
             case 2:
-                res = "Two";
+                s = "Two";
                 break;
             case 3:
-                res = "Three";
+                s = "Three";
                 break;
             case 4:
-                res = "Four";
+                s = "Four";
                 break;
             case 5:
-                res = "Five";
+                s = "Five";
                 break;
             case 6:
-                res = "Six";
+                s = "Six";
                 break;
             case 7:
-                res = "Seven";
+                s = "Seven";
                 break;
             case 8:
-                res = "Eight";
+                s = "Eight";
                 break;
             case 9:
-                res = "Nine";
+                s = "Nine";
                 break;
         }
-        result.push_back(res);
+        result.push_back(s);
     }
 
     return result;
