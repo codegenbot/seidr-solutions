@@ -4,19 +4,19 @@ using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b);
 
-pair<string,bool> reverse_delete(string s1, string s2) {
+pair<vector<string>, bool> reverse_delete(string s1, string s2) {
     int i=0,j=s2.size()-1;
+    vector<string> result;
     while(i<=j){
-        if(s1[i]!=s2[j])return make_pair(s1,"false");
+        if(s1[i]!=s2[j])return make_pair(result,{"false"});
         i++;j--;
+        result.push_back(s1.substr(0,i));
     }
-    return make_pair("",true);
+    return make_pair({""},true);
 }
 
 int main() {
-    vector<string> v1 = {reverse_delete("mamma", "mia").first};
-    string s2 = reverse_delete("mamma", "mia").second ? "True" : "False";
-    v1.push_back(s2);
-    assert (issame(v1, {"", "True"}));
+    auto res = reverse_delete("mamma", "mia");
+    assert(issame({res.first}, {{"", res.second ? "True" : "False"}}));
     return 0;
 }
