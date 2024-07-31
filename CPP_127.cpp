@@ -4,18 +4,24 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int start2 = interval2[0];
     int end2 = interval2[1];
     
-    int intersectionStart = max(start1, start2);
-    int intersectionEnd = min(end1, end2);
+    int start = max(start1, start2);
+    int end = min(end1, end2);
     
-    if (intersectionStart > intersectionEnd) {
+    if (start > end) {
         return "NO";
     }
     
-    int intersectionLength = intersectionEnd - intersectionStart;
+    int length = end - start + 1;
     
-    if (isPrime(intersectionLength)) {
-        return "YES";
-    } else {
+    if (length <= 1) {
         return "NO";
     }
+    
+    for (int i = 2; i <= length / 2; i++) {
+        if (length % i == 0) {
+            return "NO";
+        }
+    }
+    
+    return "YES";
 }
