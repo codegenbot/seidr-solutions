@@ -1,14 +1,13 @@
 ```cpp
-#include <iostream>
-#include <vector>
+#include <algorithm>
 #include <string>
+#include <vector>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(),
-        [&b](const auto& s) { return std::find(b.begin(), b.end(), s) != b.end(); });
+bool areSetsSame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(substring) != std::string::npos) {
@@ -41,7 +40,7 @@ int solution(int numStrings) {
     }
     std::vector<std::string> result2 = filter_by_substring(temp, substring);
 
-    if (issame(result1, result2)) {
+    if (areSetsSame(result1, result2)) {
         for (const auto& s : result1) {
             std::cout << s << std::endl;
         }
