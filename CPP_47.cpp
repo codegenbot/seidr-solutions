@@ -1,15 +1,8 @@
-```c++
-#include <vector>
+```cpp
 #include <algorithm>
-
-double median(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    int n = numbers.size();
-    if (n % 2 == 0)
-        return (numbers[n/2 - 1] + numbers[n/2]) / 2.0;
-    else
-        return numbers[n/2];
-}
+#include <vector>
+#include <iostream>
+#include <initializer_list>
 
 int main() {
     std::vector<int> numbers;
@@ -29,4 +22,12 @@ int main() {
     std::cout << "The median of the given array is: " << result << std::endl;
 
     return 0;
+}
+
+double median(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    if (numbers.size() % 2 == 0)
+        return (numbers.at(numbers.size()/2 - 1) + numbers.at(numbers.size()/2)) / 2.0;
+    else
+        return numbers.at(numbers.size()/2);
 }
