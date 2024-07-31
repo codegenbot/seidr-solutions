@@ -12,5 +12,5 @@ for (int i = n; i <= m; i++) {
 }
 
 int avg = lround((double)sum / (m - n + 1));
-std::string binary_avg = std::bitset<32>(avg).to_string();
+string binary_avg = bitset<32>(avg).to_string();
 return binary_avg.substr(binary_avg.find('1'));
