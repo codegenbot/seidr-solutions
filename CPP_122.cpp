@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -5,7 +6,7 @@
 
 int add_elements(const std::vector<int>& arr);
 
-int main() {
+int cppMain() {
     int k = 0;
     std::cout << "Enter the number of elements: ";
     while (!(std::cin >> k && k >= 1)) {
