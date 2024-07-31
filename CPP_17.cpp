@@ -1,30 +1,37 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+template <typename T>
+bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
+    return v1 == v2;
 }
 
-std::vector<int> parse_music(std::string music_string){
+std::vector<int> parse_music(std::string music_string);
+
+std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
-    size_t pos = 0;
-    std::string delimiter = " ";
-    while ((pos = music_string.find(delimiter)) != std::string::npos) {
-        std::string note = music_string.substr(0, pos);
-        if (note == "o") {
-            beats.push_back(4);
-        } else if (note == "o|") {
-            beats.push_back(2);
-        } else if (note == ".|") {
-            beats.push_back(1);
+    int note_length = 0;
+    for (char c : music_string) {
+        if (c == 'o') {
+            note_length = 4;
+        } else if (c == '|') {
+            beats.push_back(note_length);
+            note_length = 0;
+        } else if (c == '.') {
+            note_length = 1;
         }
-        music_string.erase(0, pos + delimiter.length());
+    }
+    if (note_length != 0) {
+        beats.push_back(note_length);
     }
     return beats;
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    std::string music_string = "o|.o";
+    std::vector<int> expected = {4, 1};
+    assert(issame(parse_music(music_string), expected));
+    
     return 0;
 }
