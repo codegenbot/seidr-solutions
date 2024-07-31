@@ -20,21 +20,18 @@ int double_the_difference(vector<int> lst) {
 int main() {
     vector<int> lst; 
     int num;
-    int odd_sum;
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
-        while (true) {
-            if (!(cin >> num)) {
-                cout << "Invalid input. Please enter an integer: ";
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            } else break;
-        }
+        do {
+            cin >> num;
+        } while (!(cin));
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst);
+    int odd_sum = double_the_difference(lst);
 
     cout << "The difference is: " << odd_sum << endl;
 
