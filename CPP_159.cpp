@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+std::vector<int> eat(int a, int b, int c){
+    return {b, a-c};
 }
 
-std::vector<int> eat(int x, int y, int z){
-    return {y, x-z};
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main(){
