@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
-bool isSimilar(vector<string> a, vector<string> b){
+bool isSame(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size();i++){
         if(a[i] != b[i]) return false;
@@ -33,6 +32,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(isSimilar({""}, {"True"}));
+    isSame(reverse_delete("mamma", "mia"), {"", "True"});
     return 0;
 }
