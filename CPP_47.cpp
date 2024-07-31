@@ -15,12 +15,13 @@ float median(vector<float> l) {
 
 int main() {
     vector<float> numbers;
-    float num;
 
     cout << "Enter some numbers (enter 'stop' to finish): ";
+    float num;
+
     while (true) {
         cin >> num;
-        if (num == "stop") break;
+        if (cin.fail()) break; 
         numbers.push_back(num);
     }
 
