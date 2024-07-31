@@ -4,7 +4,7 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -34,5 +34,11 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
+    int n;
+    cin >> n;
+    vector<int> odd_collatz = get_odd_collatz(n);
+    for (int num : odd_collatz) {
+        cout << num << " ";
+    }
     return 0;
 }
