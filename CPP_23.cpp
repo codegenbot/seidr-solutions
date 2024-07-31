@@ -1,6 +1,9 @@
+#include <iostream>
 #include <cstring>
 
 int main() {
-    const char* str = "asdasnakj";
-    assert(strlen(str) == 9);
+    std::string str;
+    std::cin >> str;
+    std::cout << str.length();
+    return 0;
 }
