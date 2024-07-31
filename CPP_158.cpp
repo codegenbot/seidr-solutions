@@ -1,9 +1,12 @@
 string find_max(vector<string> words){
-    string max_str = *max_element(words.begin(), words.end(),
-        [](const string &s1, const string &s2) {
-            auto set1 = set<char>(s1.begin(), s1.end());
-            auto set2 = set<char>(s2.begin(), s2.end());
-            return set1.size() < set2.size();
-        });
-    return max_str;
+    string max_word;
+    int max_length = 0;
+    for(auto word:words){
+        set<char> char_set(word.begin(),word.end());
+        if(char_set.size() > max_length){
+            max_word = word;
+            max_length = char_set.size();
+        }
+    }
+    return max_word;
 }
