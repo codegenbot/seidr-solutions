@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
@@ -32,7 +34,6 @@ int readInput() {
     return 0;
 }
 
-{
 int main() {
     readInput();
     return 0;
