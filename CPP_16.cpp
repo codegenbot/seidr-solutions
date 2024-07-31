@@ -1,4 +1,4 @@
-```int main() {
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     while ((std::cin >> std::ws).peek() == '\n') 
@@ -9,4 +9,3 @@
     int result = countDistinctCharacters(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
-}```
