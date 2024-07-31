@@ -1,13 +1,5 @@
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
 
 vector<int> order_by_points(vector<int> nums) {
