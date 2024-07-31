@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 
@@ -10,9 +11,9 @@ int starts_one_ends(int n) {
             count++;
         }
         if (n > 1) {
-            for (int j = 1; j < pow(10, n - 1); j++) {
+            for (int j = 1; j < static_cast<int>(pow(10, n - 1)); j++) {
                 int num = i * pow(10, n - 1) + j;
-                if (num % 10 == 1 || num / pow(10, n - 1) % 10 == 1) {
+                if (num % 10 == 1 || num / static_cast<int>(pow(10, n - 1)) % 10 == 1) {
                     count++;
                 }
             }
@@ -21,7 +22,7 @@ int starts_one_ends(int n) {
     return count;
 }
 
-int main() {
+int main_function() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
