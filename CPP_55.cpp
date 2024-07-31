@@ -6,7 +6,7 @@ int fib(int n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-int main() {
+int solve() {
     assert(fib(12) == 144);
     // Add more test cases if needed
     return 0;
