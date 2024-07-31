@@ -1,12 +1,12 @@
-string encrypted = "";
+string encrypt(string s){
+    string encrypted = "";
     for(char c : s){
-        if(c >= 'a' && c <= 'z'){
-            c += 2*2;
-            if(c > 'z'){
-                c -= 26;
-            }
+        if(isalpha(c)){
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += static_cast<char>((c - base + 2 * 2) % 26 + base);
+        } else {
+            encrypted += c;
         }
-        encrypted += c;
     }
     return encrypted;
 }
