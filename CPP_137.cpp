@@ -1,11 +1,11 @@
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compare(boost::any a, boost::any b) {
+boost::any myFunction(boost::any a, boost::any b){
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
             return a;
-        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
             return b;
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
@@ -21,5 +21,6 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
+    
     return boost::any();
 }
