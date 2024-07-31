@@ -20,11 +20,19 @@ vector<string> odd_count(vector<string> lst){
 }
 
 int main(){
-    assert(odd_count({"271", "137", "314"}) == vector<string>{
+    vector<string> expected = {
         "the number of odd elements 2 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
-    });
-    
+    };
+
+    vector<string> result = odd_count({"271", "137", "314"});
+
+    if(result == expected){
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
     return 0;
 }
