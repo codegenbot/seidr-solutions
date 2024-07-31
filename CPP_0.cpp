@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <ext/new_allocator.h>
 
 using namespace std;
 
@@ -13,7 +12,14 @@ bool has_close_elements(vector<float> v, float threshold) {
 }
 
 int main() {
-    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+    vector<float> a;
+    float temp;
+    
+    while (cin >> temp) {
+        a.push_back(temp);
+    }
+
+    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
+
     return 0;
 }
