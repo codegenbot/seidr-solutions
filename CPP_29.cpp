@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
