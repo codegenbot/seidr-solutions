@@ -11,3 +11,11 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s).reverse() : result;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Result: " << solve(s) << endl;
+}
