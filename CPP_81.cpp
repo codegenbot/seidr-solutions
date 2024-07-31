@@ -29,8 +29,3 @@ vector<string> numerical_letter_grade(vector<float> grades){
     }
     return letter_grades;
 }
-
-int main() {
-    // Add main function implementation if needed
-    return 0;
-}
