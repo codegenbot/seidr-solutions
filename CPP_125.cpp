@@ -10,7 +10,20 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> words;
-    // Split the input text into words based on spaces
+    std::string word;
+    for (char c : txt) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
     return words;
 }
 
