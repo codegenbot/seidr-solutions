@@ -31,23 +31,15 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) { 
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-int main(){
-    vector<int> input = {3, 1, 5, 2, 7};
-    vector<string> expected_output = {"Seven", "Five", "Three", "Two", "One"};
+int main() {
+    vector<int> test_input = {3, 2, 1, 5, 4, 6, 9, 8, 7};
+    vector<string> expected_output = {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"};
     
-    vector<string> result = by_length(input);
+    vector<string> result = by_length(test_input);
     
     assert(issame(result, expected_output));
     
