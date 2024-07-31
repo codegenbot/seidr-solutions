@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,9 +13,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
 
     int idx1 = -1, idx2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
@@ -31,8 +31,8 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int start = min(idx1, idx2) + 1;
-    int end = max(idx1, idx2);
+    int start = std::min(idx1, idx2) + 1;
+    int end = std::max(idx1, idx2);
 
     for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
@@ -42,11 +42,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> result = bf("Earth", "Jupiter");
-    for (const auto& planet : result) {
-        cout << planet << " ";
-    }
-    cout << endl;
-
+    std::vector<std::string> result = bf("Earth", "Uranus");
     return 0;
 }
