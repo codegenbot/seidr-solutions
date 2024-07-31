@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,19 +8,16 @@ using namespace std;
 
 std::vector<int> parse_nested_parens(const string& s) {
     int count = 0;
-    vector<int> result;
     for (char c : s) {
         if (c == '(') {
             count++;
-            result.push_back(count);
         } else if (c == ')') {
             if (count > 0) {
                 count--;
-                result.push_back(count);
             }
         }
     }
-    return result;
+    return {count + 1};
 }
 
 bool same(const vector<int>& a, const vector<int>& b) {
@@ -28,7 +25,7 @@ bool same(const vector<int>& a, const vector<int>& b) {
 }
 
 int issame(const string& s) {
-    return same(parse_nested_parens(s), {1, 4});
+    return same(parse_nested_parens(s), {1,4});
 }
 
 int main() {
