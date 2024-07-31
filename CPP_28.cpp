@@ -1,4 +1,5 @@
 #include <string>
+
 string concatenate(vector<string> strings);
 
 string concatenate(vector<string> strings){
