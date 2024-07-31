@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
