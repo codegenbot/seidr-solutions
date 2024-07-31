@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert> // Include cassert for assert function
+#include <cassert>
 
 using namespace std;
 
-void sort_even(vector<float>& l) {
+void sort_even(const vector<float>& l) {
     vector<float> even_values;
 
     for (int i = 0; i < l.size(); i++) {
