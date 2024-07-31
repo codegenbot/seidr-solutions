@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cctype>
 #include <cassert>
-#include <string> // Added include for string
+#include <string>
+
+using namespace std;
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
