@@ -1,4 +1,8 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
 
 vector<int> find_largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
@@ -23,6 +27,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert(issame(find_largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(issame(find_largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1});
     return 0;
 }
