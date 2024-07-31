@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -14,7 +15,7 @@ int main() {
     for(int i=0; i<n; i++) {
         int m; std::cin >> m;
 
-        v[i].resize(m);
+        v[i].resize(m, 0); // Initialize all elements to 0.
 
         for(int j=0; j<m; j++) {
             std::cin >> v[i][j];
@@ -24,7 +25,7 @@ int main() {
     if(v.size() > 1) {
         bool same = true;
         for(int i=2; i<v.size(); i++) {
-            same &= issame(v[0], v[i]);
+            same &= (v[0] == v[i]);
         }
 
         if(same) {
