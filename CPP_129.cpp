@@ -1,47 +1,43 @@
-#include <vector>
+#include<vector>
+#include<cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> path;
-    int row = 0, col = 0;
-    
+    int x = 0, y = 0;
     for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                ++row;
-            } else if (row == 0) {
-                ++col;
+        path.push_back(grid[x][y]);
+        if ((x + y) % 2 == 0) {
+            if (y == n - 1) {
+                x++;
+            } else if (x == 0) {
+                y++;
             } else {
-                --row;
-                ++col;
+                if (grid[x - 1][y] > grid[x][y + 1]) {
+                    y++;
+                } else {
+                    x--;
+                }
             }
         } else {
-            if (row == n - 1) {
-                ++col;
-            } else if (col == 0) {
-                ++row;
+            if (x == n - 1) {
+                y++;
+            } else if (y == 0) {
+                x++;
             } else {
-                ++row;
-                --col;
+                if (grid[x][y - 1] > grid[x + 1][y]) {
+                    x++;
+                } else {
+                    y--;
+                }
             }
         }
     }
-    
     return path;
 }
