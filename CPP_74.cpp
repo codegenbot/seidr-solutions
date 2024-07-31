@@ -1,21 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(int total1, int total2) {
-    return total1 == total2;
+bool issame(int totalChars1, int totalChars2) {
+    return totalChars1 == totalChars2;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-int countTotalChars(vector<string> lst) {
-    int totalChars = 0;
-    for (string str : lst) {
-        totalChars += str.size();
-    }
-    return totalChars;
-}
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int totalChars1 = countTotalChars(lst1);
     int totalChars2 = countTotalChars(lst2);
 
@@ -26,7 +16,10 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-int main() {
-    // Main function implementation
-    return 0;
+int countTotalChars(std::vector<std::string> lst) {
+    int totalChars = 0;
+    for (std::string str : lst) {
+        totalChars += str.size();
+    }
+    return totalChars;
 }
