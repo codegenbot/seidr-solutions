@@ -1,4 +1,4 @@
-int prod_signs(std::vector<int> arr) {
+int prod_signs(const std::vector<int>& arr) {
     int product = 1;
     int sum = 0;
     
@@ -15,7 +15,8 @@ int prod_signs(std::vector<int> arr) {
             product *= 0;
         }
         
-        sum += abs(num);
+        sum += std::abs(num);
     }
+    
     return product * sum;
 }
