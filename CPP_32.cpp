@@ -37,5 +37,5 @@ double find_zero(std::vector<double> coefficients) {
         }
     }
     double x = -values[0];
-    return poly(ncoeffs, x); 
+    return poly(coeffs, x); 
 }
