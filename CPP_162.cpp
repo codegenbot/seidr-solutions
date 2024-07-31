@@ -1,8 +1,8 @@
+#pragma comment(lib, "libcrypto")
+
 #include <string>
 #include <openssl/md5.h>
 #include <openssl/evp.h>
-
-#pragma comment(lib, "libcrypto")
 
 using namespace std;
 
