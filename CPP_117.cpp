@@ -1,26 +1,45 @@
+bool issame(string a, string b) {
+    return a == b;
+}
+
 vector<string> select_words(string s, int n) {
-    vector<string> words;
-    int count = 0;
+    vector<string> result;
     string word = "";
+    int consonant_count = 0;
 
     for (char c : s) {
         if (c == ' ') {
-            if (count == n) {
-                words.push_back(word);
+            if (consonant_count == n) {
+                result.push_back(word);
             }
             word = "";
-            count = 0;
+            consonant_count = 0;
         } else {
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                count++;
+            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+                consonant_count++;
             }
             word += c;
         }
     }
 
-    if (count == n) {
-        words.push_back(word);
+    if (consonant_count == n) {
+        result.push_back(word);
     }
 
-    return words;
+    return result;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+    int n;
+    cin >> n;
+
+    vector<string> output = select_words(input, n);
+
+    for (string word : output) {
+        cout << word << endl;
+    }
+
+    return 0;
 }
