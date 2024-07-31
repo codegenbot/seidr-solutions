@@ -19,12 +19,6 @@ std::map<std::string, int> num_map = {
 
 std::string sort_numbers(std::string numbers);
 
-int main() {
-    std::string input_numbers = "one three eight four two";
-    std::string sorted_numbers = sort_numbers(input_numbers);
-    // Display or use the sorted numbers as needed
-}
-
 std::string sort_numbers(std::string numbers){
     std::map<int, std::string> rev_num_map;
     for(auto it : num_map){
