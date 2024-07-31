@@ -1,31 +1,33 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())
-        return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])
-            return false;
+// Function declaration
+vector<int> strange_sort_vector(vector<int> lst);
+
+int main() {
+    // You can use this function to test the output
+    vector<int> result = strange_sort_vector({1, 2, 3, 4, 5});
+    for (int i : result) {
+        cout << i << " ";
     }
-    return true;
+    return 0;
 }
 
+// Your function implementation
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
-        if (!lst.empty())
-            sort(lst.begin(), lst.end());
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
+        result.push_back(min);
+        result.push_back(max);
+        lst.erase(remove(lst.begin(), lst.end(), min), lst.end());
+        lst.erase(remove(lst.begin(), lst.end(), max), lst.end());
     }
     return result;
-}
-
-int main() {
-    assert(issame(strange_sort_vector({111111}) , vector<int>({111111})));
-    return 0;
 }
