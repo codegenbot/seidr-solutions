@@ -1,10 +1,11 @@
 #include <map>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool are_same(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool are_equal(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
@@ -17,10 +18,26 @@ std::map<char, int> histogram(const std::string& test) {
         }
     }
 
-    return result;
+    int maxCount = 0;
+    for (const auto& pair : result) {
+        maxCount = std::max(maxCount, pair.second);
+    }
+
+    std::map<char, int> maxChars;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxChars[pair.first] = pair.second;
+        }
+    }
+
+    return maxChars;
 }
 
 int main() {
-    assert(are_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    // Test cases for histogram function
+    assert(are_equal(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(are_equal(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
+    assert(are_equal(histogram(""), std::map<char, int>{})); // Empty string case
+
     return 0;
 }

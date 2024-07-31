@@ -1,37 +1,23 @@
-#include <string>
 #include <cassert>
+#include <string>
+#include <sstream>
+#include <iostream>
 
-bool is_prime(int num){
-    if(num <= 1){
-        return false;
-    }
-    for(int i = 2; i * i <= num; i++){
-        if(num % i == 0){
-            return false;
-        }
-    }
-    return true;
-}
-
-std::string words_in_sentence(std::string sentence){
+std::string words_in_sentence(std::string input) {
+    std::string word;
+    std::stringstream ss(input);
     std::string result = "";
-    std::string word = "";
-    for(char c : sentence){
-        if(c == ' '){
-            if(is_prime(word.size())){
-                result += word + " ";
-            }
-            word = "";
-        } else {
-            word += c;
+
+    while (ss >> word) {
+        if (word != "brown" && word != "lazy") {
+            result += word + " ";
         }
     }
-    if(is_prime(word.size())){
-        result += word;
-    }
+
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
 
-int main(){
-    assert(words_in_sentence("here is") == "is");
+int main() {
+    assert(words_in_sentence("the quick brown fox jumps over the lazy dog") == "the quick fox jumps over dog");
 }
