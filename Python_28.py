@@ -12,5 +12,5 @@ while True:
     elif not user_input.strip():
         print("Please enter at least one string.")
         continue
-    strings = list(map(str.lower, map(str.strip, user_input.split())))
+    strings = [s.strip() for s in user_input.split()]
     print(concatenate(strings))
