@@ -1,27 +1,30 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str, const std::string& sub) {
-    std::vector<std::string> result;
-    for (int i = 0; i < str.length(); ++i) {
-        if (str.substr(i, sub.length()).compare(sub) == 0) {
-            result.push_back("True");
-            i += sub.length() - 1;
-        } else {
-            result.push_back(str.substr(i, 1));
+std::pair<std::string, bool> reverse_delete(const std::string& str1, const std::string& str2) {
+    int count = 0;
+    for (char c : str2) {
+        size_t pos = str1.find(c);
+        while (pos != std::string::npos) {
+            str1.erase(pos, 1);
+            if (!str1.empty()) {
+                pos = str1.find(c);
+            } else {
+                break;
+            }
+            count++;
         }
     }
-    return {result, true};
+    return {str1, count == str2.length()};
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
+bool issame(const std::vector<std::string>& vec, const std::vector<std::string>& expected) {
+    if (vec.size() != expected.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i] != expected[i]) {
             return false;
         }
     }
@@ -29,7 +32,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::pair<std::vector<std::string>, bool> result = reverse_delete("mamma", "mia");
-    assert(issame(result.first, {"" , "True"})); 
+    auto [result, isCorrect] = reverse_delete("mamma", "mia");
+    std::vector<std::string> expectedResult = {"", "True"};
+    assert(issame({result}, expectedResult));  
     return 0;
 }
