@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> filterByPrefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
@@ -20,12 +21,6 @@ int main() {
     std::string prefix = "xxx";
     std::vector<std::string> filteredStrings = filterByPrefix(strings, prefix);
     bool result = isSame(filteredStrings, filteredStrings); 
-    for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
-            if (!isSame({str}, {prefix + "AAA"})) {
-                return 1;
-            }
-        }
-    }
+    assert(isSame(filteredStrings, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
