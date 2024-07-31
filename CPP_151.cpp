@@ -1,8 +1,25 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int64_t double_the_difference(vector<int64_t> lst) {
+    int64_t sum = 0;
+    for (int64_t num : lst) {
+        if (num > 0 && floor((double)num) == num) { 
+            if (fmod((double)num, 2.0) != 0.0) { 
+                sum += pow((int64_t)num, 2);
+            }
+        }
+    }
+    return sum;
+}
+
 int main_func() {
-    vector<float> lst = {1.5f, 3.0f, 4.25f, 6.0f};
-    int64_t odd_sum;
-    int64_t result = double_the_difference(lst);
-    cout << "The difference is: " << result << endl;
+    vector<int64_t> lst = {(int64_t)1.5f, (int64_t)3.0f, (int64_t)4.25f, (int64_t)6.0f};
+    int64_t odd_sum = double_the_difference(lst);
+    cout << "The difference is: " << odd_sum << endl;
     return 0;
 }

@@ -1,26 +1,24 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
-void fix_spaces(const char* text) {
+void fix_spaces(std::string& text) {
     bool isPrevSpace = false;
-    for(int i = 0; text[i] != '\0'; i++) { 
+    for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
             if (!isPrevSpace) {
-                text[i] = '_'; 
+                text[i] = '_';
                 isPrevSpace = true;
             }
         } else {
-            text[i] = text[i]; 
+            text[i] = text[i];
             isPrevSpace = false;
         }
     }
 }
 
 int main() {
-    const char* text = "   Exa 1 2 2 mple"; 
+    std::string text = "   Exa 1 2 2 mple";
     fix_spaces(text);
-    cout << "Fixed string: ";
-    for (char c : text) cout << c; 
-    cout << endl;
+    cout << "Fixed string: " << text << endl;
     return 0;
 }
