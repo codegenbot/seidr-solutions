@@ -1,13 +1,11 @@
 #include <iostream>
 #include <map>
-#include <string>
-#include <vector>
 #include <sstream>
 #include <algorithm>
+#include <vector>
+#include <cassert>
 
 using namespace std;
-
-string sort_numbers(string numbers);
 
 map<string, int> number_map = {
     {"zero", 0},
@@ -21,6 +19,13 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
+}
 
 string sort_numbers(string numbers){
     map<int, string> reverse_map;
@@ -42,14 +47,4 @@ string sort_numbers(string numbers){
     }
     result.pop_back(); // Remove the extra space at the end
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a space-separated list of numbers in words: ";
-    getline(cin, input);
-
-    cout << "Sorted numbers in words: " << sort_numbers(input) << endl;
-
-    return 0;
 }
