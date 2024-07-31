@@ -24,6 +24,7 @@ vector<int> f(int n) {
     return result;
 }
 
+// Sample test case
 int main() {
     assert(f(3) == vector<int>{1, 2, 6});
     return 0;
