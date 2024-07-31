@@ -12,8 +12,8 @@
 int main() {
     double a = 3.0, b = 4.0, c = 5.0;
     if (any_int(a, b, c)) {
-        return 1;
-    } else {
-        return 0;
+        // Do something if conditions are met
     }
+
+    return 0;
 }
