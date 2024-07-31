@@ -29,8 +29,8 @@ int main() {
     vector<string> strings;
     for (int i = 0; i < n; ++i) {
         string s;
-        cin >> s;
-        strings.push_back(s);
+        getline(cin, s);
+        strings.emplace_back(s);
     }
     string substring;
     cin >> substring;
