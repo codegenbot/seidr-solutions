@@ -1,7 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> f(int n) {
     vector<int> result(n);
@@ -24,12 +29,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    vector<int> expected = {1, 2, 6};
-    vector<int> result = f(3);
-    for (int i = 0; i < 3; ++i) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
