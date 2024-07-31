@@ -24,7 +24,7 @@ int main() {
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
-        while(true) {
+        do {
             int num_val;
             cin >> num_val;
             if (cin.fail()) {
@@ -33,9 +33,8 @@ int main() {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             } else {
                 lst.push_back(num_val);
-                break; 
             }
-        }
+        } while (cin.fail());
     }
 
     odd_sum = double_the_difference(lst);
