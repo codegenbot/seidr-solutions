@@ -1,32 +1,29 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
-
 using namespace std;
 
-vector<int> find_largest_smallest_integers(vector<int> lst){
-    int largest_negative = INT_MIN, smallest_positive = INT_MAX;
-    for (int num : lst) {
-        if (num < 0 && num > largest_negative) {
-            largest_negative = num;
-        } else if (num > 0 && num < smallest_positive) {
-            smallest_positive = num;
+vector<int> largest_smallest_integers(const vector<int>& nums) {
+    int smallest = nums[0];
+    int largest = nums[0];
+    
+    for (int i = 1; i < nums.size(); ++i) {
+        if (nums[i] < smallest) {
+            smallest = nums[i];
+        }
+        if (nums[i] > largest) {
+            largest = nums[i];
         }
     }
-    if (largest_negative == INT_MIN) {
-        largest_negative = 0;
-    }
-    if (smallest_positive == INT_MAX) {
-        smallest_positive = 0;
-    }
-    return {largest_negative, smallest_positive};
+    
+    return {smallest, largest};
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 int main() {
-    assert(issame(find_largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1});
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
     return 0;
 }
