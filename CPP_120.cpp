@@ -1,6 +1,8 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> res(k);
-    copy( std::partial_sort(arr.begin(), arr.end()-k, arr.begin()),
-           arr.end(), res.begin() );
+    partial_sort(res.begin(), res.end(), [&arr](int a, int b) { return std::abs(a) > std::abs(b); });
+    reverse(res.begin(), res.end());
     return res;
 }
