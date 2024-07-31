@@ -2,12 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> l_divisible_by_three;
     for (int i = 0; i < l.size(); ++i) {
-        if (l[i] % 3 == 0) { 
+        if (i % 3 == 0) {
             l_divisible_by_three.push_back(l[i]);
         }
     }
@@ -15,16 +17,12 @@ std::vector<int> sort_third(std::vector<int> l) {
     
     std::vector<int> l_prime = l;
     for (int i = 0, j = 0; i < l.size(); ++i) {
-        if (l[i] % 3 == 0) {
+        if (i % 3 == 0) {
             l_prime[i] = l_divisible_by_three[j++];
         }
     }
     
     return l_prime;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
