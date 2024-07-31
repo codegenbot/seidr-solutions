@@ -1,19 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    if(l.empty()) return vector<int>();
-
-    vector<int> result;
-    sort(l.begin(), l.end());
-    copy_if(l.begin(), l.end(),
-                 back_inserter(result),
-                 [](int x) {return find_first_of(result.begin(), result.end(), x) == result.end();});
-    return result;
+    set<int> s(l.begin(), l.end());
+    return vector<int>(s.begin(), s.end());
 }
 
 int main() {
