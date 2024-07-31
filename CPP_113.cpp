@@ -1,16 +1,17 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
-int count_odd(const std::string& str) {
-    return std::count_if(str.begin(), str.end(), [](char c) { return (c - '0') % 2 != 0; });
-}
-
-std::vector<int> odd_count(const std::vector<std::string>& strs) {
+std::vector<int> odd_count(std::vector<std::string> strings) {
     std::vector<int> counts;
-    for (const auto& str : strs) {
-        counts.push_back(count_odd(str));
+    for (const std::string& str : strings) {
+        int odd_count = 0;
+        for (char ch : str) {
+            if (ch >= '0' && ch <= '9' && (ch - '0') % 2 != 0) {
+                odd_count++;
+            }
+        }
+        counts.push_back(odd_count);
     }
     return counts;
 }
