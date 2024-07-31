@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
-#include <vector>
 #include <cmath>
 #include <limits>
 
 using namespace std;
 
-int double_the_difference(vector<int> lst) {
+int double_the_difference(int lst[]) {
     int sum = 0;
     for (int num : lst) {
         if (num > 0 && floor((double)num) == num) { 
@@ -19,7 +17,7 @@ int double_the_difference(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst; 
+    int lst[5]; 
     int odd_sum = 0;
 
     cout << "Enter elements for the list: ";
@@ -32,7 +30,7 @@ int main() {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             } else {
-                lst.push_back(num_val);
+                lst[i] = num_val;
             }
         } while (cin.fail());
     }
