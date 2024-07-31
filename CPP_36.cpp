@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-int fizz_buzz(int n);
-
 int fizz_buzz(int n) {
     int count = 0;
     for (int i = 0; i < n; i++) {
@@ -12,10 +6,4 @@ int fizz_buzz(int n) {
         }
     }
     return count;
-}
-
-int main() {
-    assert(fizz_buzz(100000) == 8026);
-    
-    return 0;
 }
