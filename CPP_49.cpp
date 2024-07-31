@@ -9,7 +9,6 @@ long long modp(int n, int p) {
         res = (res * i) % p;
     }
     return res;
-
 }
 
 int main() {
