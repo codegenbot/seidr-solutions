@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,7 +11,7 @@ int add(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> lst;
+    std::vector<int> lst(n);
     int n;
 
     std::cout << "Enter the number of elements: ";
@@ -20,7 +21,7 @@ int main() {
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        lst.push_back(num);
+        lst[i] = num;
     }
 
     int sum = 0;
