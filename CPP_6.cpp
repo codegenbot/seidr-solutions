@@ -19,7 +19,7 @@ bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
 std::vector<int> parse_nested_parens(std::string paren_string);
 
 int main() {
-    assert(std::vector<int>());
+    assert(std::issame(std::vector<int>{1, 2, 3}, std::vector<int>{1, 2, 3}));
     
     return 0;
 }
