@@ -1,5 +1,7 @@
-#include <initializer_list>
+```cpp
+#include <algorithm>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 string anti_shuffle(string s) {
