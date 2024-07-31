@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <set>
 #include <vector>
+#include <initializer_list> 
 using namespace std;
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
@@ -25,42 +26,53 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    int n1, m1, n2, m2;
-    cin >> n1 >> m1 >> n2 >> m2;
+    int n;
+    cin >> n;
 
-    vector<vector<int>> a(n1, vector<int>(m1));
-    vector<vector<int>> b(n2, vector<int>(m2));
+    vector<vector<int>> v(n);
+    for(int i=0; i<n; i++) {
+        int m;
+        cin >> m;
+        v[i].resize(m);
 
-    for(int i=0; i<n1; i++) {
-        for(int j=0; j<m1; j++) {
-            cin >> a[i][j];
+        for(int j=0; j<m; j++) {
+            cin >> v[i][j];
         }
     }
 
-    for(int i=0; i<n2; i++) {
-        for(int j=0; j<m2; j++) {
-            cin >> b[i][j];
+    bool same = true;
+
+    if(n > 1) {
+        same = issame(v[0], v[1]);
+        for(int i=2; i<n; i++) {
+            same &= issame(v[0], v[i]);
         }
     }
-
-    bool same = issame(a, b);
 
     if(same) {
-        vector<int> l1(m1);
-        for(int i=0; i<m1; i++) l1[i] = a[0][i];
-        vector<int> l2(m2);
-        for(int i=0; i<m2; i++) l2[i] = b[0][i];
+        vector<int> commonList;
+        for(int i=0; i<m; i++) {
+            bool found = true;
 
-        vector<int> result = common(l1, l2);
+            for(int j=1; j<n; j++) {
+                if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                    found = false;
+                    break;
+                }
+            }
 
-        cout << "The common elements are: ";
-        for(int i=0; i<result.size(); i++) {
-            cout << result[i];
-            if(i < result.size() - 1) cout << " ";
+            if(found) {
+                commonList.push_back(v[0][i]);
+            }
+        }
+
+        cout << "Common elements: ";
+        for(int i=0; i<commonList.size(); i++) {
+            cout << commonList[i] << " ";
         }
         cout << endl;
     } else {
-        cout << "Arrays are not the same." << endl;
+        cout << "No common elements." << endl;
     }
 
     return 0;
