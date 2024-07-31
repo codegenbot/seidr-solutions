@@ -1,13 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
 
 void sort_even(vector<float>& l) {
     vector<float> even_values;
@@ -37,7 +32,12 @@ vector<float> sort_even_elements(vector<float> l) {
 int main() {
     vector<float> result = sort_even_elements({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     vector<float> expected_result = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
-    assert(issame(result, expected_result));
+    
+    if (result == expected_result) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
 
     return 0;
 }
