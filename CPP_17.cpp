@@ -2,11 +2,19 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> parse_music(std::string music_string) {
+std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
     std::string note = "";
     for (char c : music_string) {
@@ -35,15 +43,7 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-int main() {
-    std::string input_music = "o|o|o|";    
-    std::vector<int> beats = parse_music(input_music);
-
-    if (issame(beats, {2, 2, 2})) {
-        std::cout << "Beats are the same." << std::endl;
-    } else {
-        std::cout << "Beats are different." << std::endl;
-    }
-
+int main(){
+    // Your main code logic here
     return 0;
 }
