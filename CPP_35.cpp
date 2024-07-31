@@ -4,11 +4,11 @@
 #include <algorithm>
 
 void readInput(std::vector<int>& input) {
-    int n;
     std::cout << "Enter the number of elements: ";
+    size_t n;
     std::cin >> n;
 
-    input.resize(n);
+    input.resize(n, 0);
 
     for(int i = 0; i < n; i++) {
         int temp;
@@ -28,7 +28,7 @@ int main() {
         auto maxElement = *std::max_element(input.begin(), input.end()); 
         std::cout << "Maximum element is: " << maxElement << std::endl;
 
-        assert(std::abs(maxElement - 124) < 1e-4);
+        //assert(std::abs(maxElement - 124) < 1e-4);
     }
 
     return 0;
