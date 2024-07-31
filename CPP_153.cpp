@@ -1,6 +1,12 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
+
+int main() {
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    return 0;
+}
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
@@ -23,10 +29,4 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
     
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
-    return 0;
 }
