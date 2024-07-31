@@ -3,6 +3,7 @@
 #include <vector>
 #include <initializer_list>
 #include <iostream>
+#include <ostream>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
+void solve() {
     int n;
     cin >> n;
 
@@ -75,6 +76,9 @@ int main() {
     } else {
         cout << "No common elements." << endl;
     }
+}
 
+int main() {
+    solve();
     return 0;
 }
