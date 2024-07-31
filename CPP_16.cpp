@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cctype>
 #include <cstring>
@@ -10,7 +9,7 @@ int countDistinctCharacters(const std::string& str) {
     for (int i = 0; i < str.length(); ++i) {
         char c = tolower((unsigned char)str[i]);
         if (!std::isalpha(c)) {
-            continue; 
+            continue;
         }
         if (!seen[c]) {
             seen[c] = true;
@@ -32,10 +31,9 @@ int main() {
     std::cout << "Enter a string: ";
     while ((std::cin >> std::ws).peek() == '\n') 
         std::cin.ignore();
-    char buffer[256];
+    char buffer[256]; // or any size that fits your needs
     std::cin.getline(buffer, 256); 
     str = std::string(buffer);
     int result = countDistinctCharacters(str);
-    std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
 }
