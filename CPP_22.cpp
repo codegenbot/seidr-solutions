@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <any>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -9,9 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> filter_integers(const std::vector<int>& input){
     std::vector<int> result;
     for(auto &item : input){
-        if(item >= 0 && item % 1 == 0){
-            result.push_back(item);
-        }
+        result.push_back(item);
     }
     return result;
 }
