@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -17,7 +18,7 @@ int main() {
         std::cerr << "Invalid input. Try again.\n";
         std::cout << "Enter the number of elements: ";
         (std::cin >> std::ws).clear();
-        if ((std::cin >> std::skipws).eof()) {
+        if ((std::cin).eof()) {
             return 1; 
         }
     }
@@ -29,7 +30,7 @@ int main() {
             std::cerr << "Invalid input. Try again.\n";
             std::cout << "Enter element " << i+1 << ": ";
             (std::cin >> std::ws).clear();
-            if ((std::cin >> std::skipws).eof()) {
+            if ((std::cin).eof()) {
                 return 1; 
             }
         }
