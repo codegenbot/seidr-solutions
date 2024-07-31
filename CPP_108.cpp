@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <cassert>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
