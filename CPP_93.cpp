@@ -1,11 +1,13 @@
-string encode(string message){
-    for (char &c : message){
+#include <iostream>
+#include <string>
+
+std::string encode(std::string message) {
+    for(auto &c : message){
         if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+            c = isupper(c) ? tolower(c) : toupper(c);
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
                 c = c + 2;
             }
-            if(c > 'Z') c = c - 26; // to wrap around if letter is beyond Z
         }
     }
     return message;
