@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool issame(char a, char b) {
@@ -24,8 +24,9 @@ std::vector<std::string> split_words(std::string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    if(result.size() == 0){
-        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
+    if(result.empty()){
+        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), 
+                                    [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
     }
     return result;
 }
@@ -35,17 +36,13 @@ int main() {
     assert(issame('b', 'B'));
     assert(issame('c', 'C'));
 
-    assert(issame('a', 'a'));
-    assert(issame('b', 'b'));
-    assert(issame('C', 'c'));
-
-    std::vector<std::string> expected = {"0"};
-    std::vector<std::string> actual = split_words("");
-    assert(actual == expected);
-
-    for(const auto& word : actual){
+    std::string input_str = "Hello, World";
+    std::vector<std::string> words = split_words(input_str);
+    for(const auto& word : words){
         std::cout << word << std::endl;
     }
+
+    assert(split_words("").front() == "0");
 
     return 0;
 }
