@@ -1,5 +1,7 @@
-```cpp
-std::string myString(std::string str) {
+#include <string>
+#include <cctype>
+
+bool flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
         if (std::isupper(c)) {
@@ -10,5 +12,5 @@ std::string myString(std::string str) {
             result += c;
         }
     }
-    return result;  
+    return true;  
 }
