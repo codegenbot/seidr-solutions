@@ -26,7 +26,7 @@ vector<string> findPlanetsBetween(string planet1, string planet2) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == static_cast<size_t>(-1) || end == static_cast<size_t>(-1)) {
         return result;
     }
 
