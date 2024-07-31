@@ -1,24 +1,37 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 std::vector<int> f(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; i++) {
-        result.push_back(i % 2 == 0 ? [] (int factorial = 1) {
-            for (int j = 1; j <= i; j++)
+        if (i % 2 == 0) {
+            int factorial = 1;
+            for (int j = 1; j <= i; j++) {
                 factorial *= j;
-            return factorial;
-        }() : [] (int sum = 0) {
-            for (int j = 1; j <= i; j++)
+            }
+            result.push_back(factorial);
+        } else {
+            int sum = 0;
+            for (int j = 1; j <= i; j++) {
                 sum += j;
-            return sum;
-        }());
+            }
+            result.push_back(sum);
+        }
     }
     return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
