@@ -17,16 +17,27 @@ int double_the_difference(vector<int> lst) {
 }
 
 int main_func() {
-    int odd_sum;
-    vector<int> lst(5); // initialize vector with desired capacity
+    int odd_sum = 0;
+    vector<int> lst; 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         int num;
-        cin >> num;
+        while (!(cin >> num)) {
+            cout << "Invalid input. Please enter an integer: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin >> num;
+        }
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst); 
+    // Calculate sum of squares of odd numbers
+    for (int num : lst) {
+        if (num % 2 != 0) { 
+            odd_sum += num * num; 
+        }
+    }
+
     cout << "The difference is: " << odd_sum << endl;
 
     return 0;
