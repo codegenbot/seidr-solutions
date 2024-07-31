@@ -9,5 +9,4 @@ bool flip_case(const std::string& str) {
             result += c;
         }
     }
-    return true;  
-}
+    return result;
