@@ -1,12 +1,11 @@
 #include <iostream>
 #include <cmath>
 
-bool isCuber(int a) {
-    int cubeRoot = round(cbrt(abs(a)));
+bool iscuber(int a) {
+    int cubeRoot = round(cbrt(std::abs(a)));
     return a == cubeRoot * cubeRoot * cubeRoot;
 }
 
 int main() {
-    assert(isCuber(1729) == false);
-    return 0;
+    assert (iscuber(1729) == false);
 }
