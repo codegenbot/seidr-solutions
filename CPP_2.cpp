@@ -5,9 +5,10 @@ double truncate_number(double number) {
     return number - std::floor(number);
 }
 
-void main() {
+int main() {
     double number;
     std::cin >> number;
     double fractionalPart = truncate_number(number);
     std::cout << fractionalPart << std::endl;
+    return 0;
 }
