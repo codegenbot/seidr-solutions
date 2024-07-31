@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str, const std::string& sub) {
     std::vector<std::string> result;
@@ -12,7 +13,9 @@ std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str,
             result.push_back(str.substr(i, 1));
         }
     }
-    return {result, true};
+    std::vector<std::string> vecResult(result);
+    bool resultBool = true;
+    return std::make_pair(vecResult, resultBool);
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
