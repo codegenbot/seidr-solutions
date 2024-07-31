@@ -1,10 +1,5 @@
-import math
-
-
-def simplify():
-    x = input("Enter a fraction (e.g., 1/2): ")
-    n = input("Enter another fraction: ")
-
+```
+def simplify(x, n):
     x_parts = list(map(int, [0] + x.split("/")[1:]))
     n_parts = list(map(int, [0] + n.split("/")[1:]))
 
@@ -14,6 +9,3 @@ def simplify():
         return True
     else:
         return False
-
-
-print(simplify())
