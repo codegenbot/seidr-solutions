@@ -27,8 +27,14 @@ int main() {
 
     std::vector<std::string> strings;
     std::string s;
-    while (getline(std::cin, s)) {
-        s.erase(0, s.find_first_not_of('\n')); // remove leading whitespace
+    for (int i = 0; i < n; ++i) {
+        getline(std::cin, s);
+        
+        // Remove the newline character if it exists
+        while (s.back() == '\n') {
+            s.pop_back();
+        }
+        
         strings.push_back(s);
     }
 
