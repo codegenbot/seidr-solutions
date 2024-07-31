@@ -1,4 +1,4 @@
-bool issame(vector<string> v1, vector<string> v2) {
+bool issame(const vector<string>& v1, const vector<string>& v2) {
     return v1 == v2;
 }
 
@@ -31,10 +31,5 @@ bool select_words(string s, int n) {
 }
 
 int main() {
-    // Test the select_words function
-    string input = "Hello world, how are you today";
-    int n = 2;
-    bool result = select_words(input, n);
-    
-    return 0;
+    // Main function code here
 }
