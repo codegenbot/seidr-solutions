@@ -15,8 +15,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+bool issame(vector<string> a, vector<string> b){ 
+    return a == b; 
 }
 
 int main(){
