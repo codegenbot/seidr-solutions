@@ -1,7 +1,6 @@
-```cpp
+#include <initializer_list>
 #include <stack>
 #include <string>
-#include <iostream>
 
 std::string correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
