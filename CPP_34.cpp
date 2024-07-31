@@ -1,21 +1,15 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result = l;
-    sort(result.begin(), result.end());
-    for(int i = 0; i < result.size() - 1; i++) {
-        if(result[i] == result[i+1]) {
-            result.erase(result.begin() + i);
-            i--;
-        }
-    }
+    set<int> s(l.begin(), l.end());
+    vector<int> result(s.begin(), s.end());
     return result;
-
 }
 
 int main() {
@@ -23,4 +17,3 @@ int main() {
     l = unique(l);
     for(int i: l) cout << i << " ";
     return 0;
-}
