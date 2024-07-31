@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,6 +21,7 @@ int main() {
     }
 
     int sum = 0; 
+    std::vector<int> input;
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
@@ -31,12 +33,12 @@ int main() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         if(i > 0) {
-            sum += num;
+            input.push_back(num);
         } else {
             sum = num;
         }
     }
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum}) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
 }
 
 int add_elements(const std::vector<int>& arr) {
