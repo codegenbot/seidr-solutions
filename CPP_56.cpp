@@ -3,6 +3,7 @@
 #include <string>
 #include <ostream>
 #include <iostream>
+#include <cassert>
 
 std::string correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
@@ -49,13 +50,10 @@ std::string correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    std::string input = "<><><<><>><>>><>";
-    if (correct_bracketing(input) == "Invalid input") {
-        assert(false);
-    } else {
-        assert(true);
+    if (correct_bracketing("<><><<><>><>>><>") != "Invalid input") { 
+        assert(false); 
     }
-    std::cout << correct_bracketing(input) << std::endl;
-
+    std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
+    
     return 0;
 }
