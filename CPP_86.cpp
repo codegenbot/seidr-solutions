@@ -7,7 +7,7 @@ string anti_shuffle(const string& str) {
         return "";
     }
     for(int i = 1; i < str.length(); ++i) {
-        if (str[i] == ' ') { 
+        if (str[i] == str[0]) {
             return "";
         }
     }
@@ -18,8 +18,8 @@ int main() {
     string str = ""; 
     cout << "Enter a string: ";
     getline(cin, str);
-    const char* result = anti_shuffle(str).c_str();
-    if(result=="")cout<<"No valid shuffle found."<<endl;
+    string result = anti_shuffle(str);
+    if(result.empty())cout<<"No valid shuffle found."<<endl;
     else cout << "Result: " << result << endl;
     return 0;
 }
