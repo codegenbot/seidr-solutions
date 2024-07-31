@@ -1,4 +1,8 @@
-for(auto &c : message){
+#include <iostream>
+#include <string>
+
+std::string encode(std::string message) {
+    for(auto &c : message){
         if(isalpha(c)){
             c = isupper(c) ? tolower(c) : toupper(c);
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
