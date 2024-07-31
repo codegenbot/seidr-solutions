@@ -1,14 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <set>
 
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    vector<int> result(s.begin(), s.end());
+    vector<int> result = l;
+    sort(result.begin(), result.end());
+    int i = 0;
+    while (i < result.size() - 1) {
+        if (result[i] == result[i+1]) {
+            result.erase(result.begin() + i);
+            if (i >= result.size() - 1)
+                break; 
+            i--; 
+        } else {
+            i++;
+        }
+    }
     return result;
+
 }
 
 int main() {
