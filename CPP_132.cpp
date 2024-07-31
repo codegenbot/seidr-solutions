@@ -1,8 +1,7 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
-bool is_nested(const std::string& str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -11,7 +10,7 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-    return count < 0;
+    return count == 0;
 }
 
 int main() {
