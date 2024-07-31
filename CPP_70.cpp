@@ -1,6 +1,10 @@
-#include <vector> 
+#include <vector>
 
-vector<int> strange_sort_list(vector<int> lst){
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Correct function implementation
+}
+
+vector<int> strange_sort_list(vector<int> lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int left = 0, right = lst.size() - 1;
@@ -13,4 +17,8 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+int main() {
+    // Your existing code here
 }
