@@ -27,10 +27,6 @@ int main() {
         lst.push_back(num);
     }
     
-    if(lst.empty()) {
-        cout << "Error: No numbers entered." << endl;
-    } else {
-        solve(lst);  
-    }
+    solve(lst);  
     return 0;
 }
