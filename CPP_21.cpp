@@ -20,9 +20,13 @@ int main() {
     
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
-    // Testing if the function works correctly
     vector<float> expected_rescaled_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
-    bool result = issame(rescaled_numbers, expected_rescaled_numbers);
+    
+    if (issame(rescaled_numbers, expected_rescaled_numbers)) {
+        cout << "Rescaling successful!" << endl;
+    } else {
+        cout << "Rescaling failed!" << endl;
+    }
     
     return 0;
 }
