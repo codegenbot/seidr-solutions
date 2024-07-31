@@ -1,22 +1,24 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+int count_odd(const std::string& str) {
+    return std::count_if(str.begin(), str.end(), [](char c) { return (c - '0') % 2 != 0; });
+}
 
-int odd_count(std::vector<std::string> lst) {
-    int total_count = 0;
-    for (const std::string& str : lst) {
-        for (char c : str) {
-            if ((c - '0') % 2 != 0) {
-                total_count++;
-            }
-        }
+std::vector<int> odd_count(const std::vector<std::string>& strs) {
+    std::vector<int> counts;
+    for (const auto& str : strs) {
+        counts.push_back(count_odd(str));
     }
-    return total_count;
+    return counts;
+}
+
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    assert(odd_count({"271", "137", "314"}) == 6);
-    return 0;
+    assert(is_same(odd_count({"271", "137", "314"}), {2, 3, 2}));
 }
