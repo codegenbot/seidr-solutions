@@ -1,6 +1,7 @@
 #include <initializer_list>
 #include <iostream>
 #include <algorithm>
+using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
@@ -26,4 +27,3 @@ int main() {
     cin >> str;
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
-}
