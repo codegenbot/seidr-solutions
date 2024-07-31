@@ -6,11 +6,8 @@ int add(const std::vector<size_t>&);
 
 int main() {
     size_t n;
-
-    std::cout << "Enter the number of elements: ";
     while (!(std::cin >> n)) { 
         std::cerr << "Invalid input. Try again.\n";
-        std::cout << "Enter the number of elements: ";
         (std::cin >> std::ws).clear();
         if ((std::cin).eof()) {
             return 1; 
@@ -22,7 +19,6 @@ int main() {
         size_t num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
-            std::cout << "Enter element " << i+1 << ": ";
             (std::cin >> std::ws).clear();
             if ((std::cin).eof()) {
                 return 1; 
