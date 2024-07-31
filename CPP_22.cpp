@@ -32,7 +32,7 @@ int main() {
         std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
         std::vector<int> testArr2 = {3, 3, 3};
 
-        assert(issame(std::vector<int>(testArr1.begin(), testArr1.end())));
+        assert(issame(testArr1));
         assert(issame(testArr2));
     }
     return 0;
