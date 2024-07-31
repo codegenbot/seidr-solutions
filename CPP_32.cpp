@@ -7,13 +7,13 @@ double poly(const vector<double>& xs, double x) {
 }
 
 double find_zero(const vector<double>& xs) {
-    if (xs.size() == 2) {
-        return -xs[0] / xs[1];
-    } else {
-        // Implement a more appropriate method for finding zero of polynomials with degree > 1
-        // For example, using Newton's method or numerical methods
-        return 0.0; // Placeholder
-    }
+    double a = xs[2];
+    double b = xs[1];
+    double c = xs[0];
+    double discriminant = b * b - 4 * a * c;
+    double root1 = (-b + sqrt(discriminant)) / (2 * a);
+    double root2 = (-b - sqrt(discriminant)) / (2 * a);
+    return root1 < root2 ? root1 : root2;
 }
 
 int main() {
