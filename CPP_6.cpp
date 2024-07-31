@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -25,10 +26,6 @@ bool same(const vector<int>& a, const vector<int>& b) {
     return a.size() == b.size();
 }
 
-int issame(const string& s) {
-    return same(parse_nested_parens(s), {1, 4});
-}
-
 int main() {
-    assert(issame("(()(())((()))"));
+    assert(same(parse_nested_parens("(()(())((()))")));
 }
