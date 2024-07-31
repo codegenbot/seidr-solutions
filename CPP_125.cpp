@@ -3,25 +3,12 @@
 #include <cassert>
 
 bool issame(char a, char b) {
-    return a == b;
+    return (std::tolower(a) == std::tolower(b));
 }
 
-vector<string> split_words(string txt);
-
-int main() {
-    string input;
-    getline(cin, input);
-    vector<string> result = split_words(input);
-    for (string word : result) {
-        cout << word << " ";
-    }
-    cout << endl;
-    return 0;
-}
-
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -36,7 +23,21 @@ vector<string> split_words(string txt){
         result.push_back(word);
     }
     if(result.size() == 0){
-        result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){return islower(c) && (c-'a') % 2 == 1;})));
+        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
     }
     return result;
+}
+
+int main() {
+    assert(issame('a', 'A'));
+    assert(issame('b', 'B'));
+    assert(issame('c', 'C'));
+
+    std::string input_str = "Hello, World";
+    std::vector<std::string> words = split_words(input_str);
+    for(const auto& word : words){
+        std::cout << word << std::endl;
+    }
+
+    return 0;
 }
