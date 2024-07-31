@@ -1,22 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
-    std::string note = "";
+vector<int> parse_music(string music_string){
+    vector<int> beats;
+    string note = "";
     for (char c : music_string) {
         if (c == 'o') {
             note += c;
@@ -43,7 +31,8 @@ std::vector<int> parse_music(std::string music_string){
     return beats;
 }
 
-int main(){
-    // Your main code logic here
+int main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+
     return 0;
 }
