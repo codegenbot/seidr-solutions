@@ -21,7 +21,7 @@ int main() {
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        lst.push_back(num);
+        lst.emplace_back(num);
     }
 
     int sum = 0;
