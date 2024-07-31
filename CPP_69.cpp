@@ -1,9 +1,16 @@
-int maxFreq = -1;
-    for (int num : lst) {
-        int freq = count(lst.begin(), lst.end(), num);
-        if (freq >= num && num > maxFreq) {
-            maxFreq = num;
+int search(vector<int> lst) {
+        int maxInt = -1;
+        unordered_map<int, int> freqMap;
+
+        for (int num : lst) {
+            freqMap[num]++;
         }
+
+        for (const auto& entry : freqMap) {
+            if (entry.first > entry.second && entry.first > maxInt) {
+                maxInt = entry.first;
+            }
+        }
+
+        return maxInt;
     }
-    return maxFreq;
-}
