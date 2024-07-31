@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```Python
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
@@ -13,4 +10,5 @@ def concatenate(strings: List[str]) -> str:
         for s in user_strings:
             if s.strip():
                 result += s.strip() + ' '
-        print("Invalid input. Please enter non-empty space-separated strings.")
+        if not user_strings: 
+            print("Invalid input. Please enter non-empty space-separated strings.")
