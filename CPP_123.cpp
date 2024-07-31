@@ -22,18 +22,17 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     int n;
-    using namespace std;
-    cout << "Enter a number: ";
-    cin >> n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
 
     std::vector<int> odd_collatz = get_odd_collatz(n);
 
-    cout << "Odd Collatz sequence for " << n << " is: ";
+    std::cout << "Odd Collatz sequence for " << n << " is: ";
     for (int num : odd_collatz) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
 
-    cout << endl;
+    std::cout << std::endl;
     assert(issame(get_odd_collatz(1), std::vector<int>{1}));
 
     return 0;
