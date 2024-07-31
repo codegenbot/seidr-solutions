@@ -1,5 +1,5 @@
-int main()
-{
+```c++
+int main() {  
     vector<pair<string, string>> a = {{ "xxx", "xxx" }, { "xxxxAA", "xxxAAA" }};
     assert(issame(a));
     vector<string> strings = {"hello", "hell", "world"};
@@ -7,5 +7,5 @@ int main()
     for (const auto& s : filteredStrings) {
         cout << s << endl;
     }
-    return 0;
+    return 0;  
 }
