@@ -1,30 +1,13 @@
 #include <vector>
-using namespace std;
+#include <numeric>
 
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    int buckets_needed = 0;
-    
-    for (int i = 0; i < rows; i++) {
-        int water_in_well = 0;
-        for (int j = 0; j < cols; j++) {
-            if (grid[i][j] == 1) {
-                water_in_well += 1;
-            }
-        }
-        
-        while (water_in_well > 0) {
-            int bucket_water = min(water_in_well, capacity);
-            water_in_well -= bucket_water;
-            buckets_needed++;
-        }
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+    int n = grid.size();
+    int total_water = 0;
+    for (int i = 0; i < n; i++) {
+        total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
-    return buckets_needed;
-}
-
-int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    return 0;
+    int num_buckets = std::ceil((double)total_water / capacity);
+    return num_buckets;
 }
