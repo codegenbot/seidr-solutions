@@ -1,6 +1,8 @@
+```cpp
 #include <string>
+using namespace std;
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
+string StrongestExtension(string className, vector<string> extensions) {
     int max_strength = 0;
     string strongest_extension;
 
@@ -17,5 +19,5 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         }
     }
 
-    return class_name + "." + strongest_extension;
+    return className + "." + strongest_extension;
 }
