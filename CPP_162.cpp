@@ -11,11 +11,11 @@ string string_to_md5(string text){
 
     unsigned char result[MD5_DIGEST_LENGTH];
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_MD_CTX_init(mdctx); 
+    EVP_MD_CTX_init(mdctx);
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, result, NULL);
-    EVP_MD_CTX_cleanup(mdctx); 
+    EVP_MD_CTX_cleanup(mdctx);
     EVP_MD_CTX_destroy(mdctx);
 
     char md5_string[MD5_DIGEST_LENGTH*2+1];
