@@ -18,15 +18,11 @@ vector<int> parse_music(string music_string){
     return notes;
 }
 
-int contestMain(){
+int main(){
     vector<int> expected = {2, 1, 2, 1, 4, 2, 4, 2};
     vector<int> result = parse_music("o| .| o| .| o o| o o|");
     
     assert(result == expected);
     
     return 0;
-}
-
-int main(){
-    return contestMain();
 }
