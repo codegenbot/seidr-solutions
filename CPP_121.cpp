@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -15,6 +14,15 @@ int solve(vector<int> lst) {
     return sum;
 }
 
-int solutions(vector<int> lst) {
-    return solve(lst);
+int main() {
+    vector<int> lst;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        lst.push_back(x);
+    }
+    cout << solve(lst) << endl;
+    return 0;
 }
