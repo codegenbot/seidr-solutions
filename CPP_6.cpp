@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
     int count = 0;
-    vector<int> result;
+    vector<int> result; // Initialize an empty vector at the beginning.
     for (char c : s) {
         if (c == '(') {
             count++;
@@ -28,9 +28,5 @@ bool same(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     vector<int> expected = parse_nested_parens("(()(())((()))");
-    if (same(parse_nested_parens("(()(())((()))"), expected)) {
-        cout << "The two vectors are the same." << endl;
-    } else {
-        cout << "The two vectors are not the same." << endl;
-    }
+    assert(same(parse_nested_parens("(()(())((()))"), expected));
 }
