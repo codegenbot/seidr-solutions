@@ -16,6 +16,6 @@ std::string function_name(int n, int m) {
 }
 
 int main() {
-    assert(function_name(5, 5) == "101");
+    assert(function_name(5, 5) == "00000000000000000000000000000101");
     return 0;
 }
