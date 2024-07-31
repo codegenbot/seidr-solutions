@@ -1,20 +1,33 @@
+#include <string>
+#include <map>
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string str = test + " ";
-    char prev = ' ';
-    int count = 0;
+    if (test.empty()) return result;
 
-    for (char c : str) {
-        if (c == prev) {
-            count++;
-        } else {
-            if (count > 0) {
-                result[prev] = count;
+    string letters = test;
+    for (char c : unique(letters)) {
+        int count = 0;
+        for (char letter : letters) {
+            if (letter == c) {
+                count++;
             }
-            prev = c;
-            count = 1;
+        }
+        result[c] = count;
+    }
+
+    map<char, int> maxMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxMap.clear();
+            maxMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
+            maxMap[it->first] = it->second;
         }
     }
 
-    return result;
+    return maxMap;
 }
