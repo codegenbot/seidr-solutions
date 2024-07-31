@@ -10,7 +10,7 @@ int countDistinctCharacters(const std::string& str) {
     return distinctChars.size();
 }
 
-int mainFunc() {
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     while ((std::cin >> std::ws).peek() == '\n') 
@@ -18,7 +18,13 @@ int mainFunc() {
     char buffer[256];
     std::cin.getline(buffer, 256); 
     str = std::string(buffer);
-    int result = countDistinctCharacters(str);
-    std::cout << "Number of distinct characters: " << result << std::endl;
+    
+    if(str.empty()) {
+        std::cout << "Error: Please enter a valid string." << std::endl;
+    } else {
+        int result = countDistinctCharacters(str);
+        std::cout << "Number of distinct characters: " << result << std::endl;
+    }
+    
     return 0;
 }
