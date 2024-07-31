@@ -1,13 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+using namespace std;
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
@@ -20,17 +14,17 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input;
-    std::cout << "Enter numbers separated by space: ";
+    vector<float> input;
+    cout << "Enter numbers separated by space: ";
     float num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         input.push_back(num);
     }
     vector<float> positive = get_positive(input);
-    if (issame(positive, input)) {
-        std::cout << "All numbers are positive." << std::endl;
+    if (all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
+        cout << "All numbers are positive." << endl;
     } else {
-        std::cout << "Not all numbers are positive." << std::endl;
+        cout << "Not all numbers are positive." << endl;
     }
     return 0;
 }
