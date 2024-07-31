@@ -1,6 +1,6 @@
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>>& grid, int capacity) { 
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
@@ -18,4 +18,9 @@ int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     }
 
     return total_buckets;
+}
+
+int main() {
+    assert (max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
