@@ -1,12 +1,12 @@
 #include <string>
 #include <cassert>
 
-string encrypt(string s){
-    string result = "";
+std::string encrypt(std::string s){
+    std::string result = "";
     for(char& c : s){
-        if(isalpha(c)){
+        if(std::isalpha(c)){
             char encrypted = c + 2 * 2;
-            if(islower(c)){
+            if(std::islower(c)){
                 if(encrypted > 'z'){
                     encrypted = 'a' + (encrypted - 'z' - 1);
                 }
@@ -21,4 +21,9 @@ string encrypt(string s){
         }
     }
     return result;
+}
+
+int main(){
+    assert (encrypt("a")=="e");
+    return 0;
 }
