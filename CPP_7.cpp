@@ -1,17 +1,28 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    return {s for s in strings if s.find(substring) != std::string::npos};
+    std::vector<std::string> result;
+    for (const auto& s : strings) {
+        if (s.find(substring) != std::string::npos) {
+            result.push_back(s);
+        }
+    }
+    return result;
 }
 
 int solution(int numStrings) {
@@ -28,8 +39,8 @@ int solution(int numStrings) {
     std::string substring;
     std::getline(std::cin, substring);
 
-    auto result1 = filter_by_substring(strings, substring);
-    auto result2 = filter_by_substring({strings.begin(), strings.end()}, substring);
+    std::vector<std::string> result1 = filter_by_substring(strings, substring);
+    std::vector<std::string> result2 = filter_by_substring({strings.begin(), strings.end()}, substring);
 
     if (issame(result1, result2)) {
         for (const auto& s : result1) {
