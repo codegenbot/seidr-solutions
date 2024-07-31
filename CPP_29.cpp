@@ -21,6 +21,10 @@ int main() {
     std::string prefix = "xxx";
     std::vector<std::string> filteredStrings = filterByPrefix(strings, prefix);
     bool result = isSame(filteredStrings, filteredStrings); 
-    assert(isSame(filteredStrings, {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> expected;
+    expected.push_back("xxx");
+    expected.push_back("xxxAAA");
+    expected.push_back("xxx");
+    assert(isSame(filteredStrings, expected)); 
     return 0;
 }
