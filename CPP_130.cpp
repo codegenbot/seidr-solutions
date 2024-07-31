@@ -2,13 +2,7 @@
 #include <cassert>
 using namespace std;
 
-vector<int> tri(int n);
-
-bool issame(const vector<int>& v1, const vector<int>& v2){
-    return v1 == v2;
-}
-
-vector<int> tri(int n){
+bool issame(vector<int> tri(int n)){
     vector<int> result;
     result.push_back(3);
     if (n == 0) {
