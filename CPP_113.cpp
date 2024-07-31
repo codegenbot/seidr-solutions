@@ -2,24 +2,22 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> odd_count(std::vector<std::string> strings) {
-    std::vector<int> counts;
-    for (const std::string& str : strings) {
-        int odd_count = 0;
-        for (char ch : str) {
-            if (ch >= '0' && ch <= '9' && (ch - '0') % 2 != 0) {
-                odd_count++;
+int odd_count(const std::vector<std::string>& input) {
+    int count = 0;
+    for(const auto& str : input) {
+        for(const auto& c : str) {
+            if ((c - '0') % 2 != 0) {
+                count++;
             }
         }
-        counts.push_back(odd_count);
     }
-    return counts;
+    return count;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool is_same(const std::vector<std::string>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(is_same(odd_count({"271", "137", "314"}), {2, 3, 2}));
+    assert(is_same({std::to_string(odd_count({"271", "137", "314"}))}, {2, 3, 2}));
 }
