@@ -5,10 +5,10 @@
 
 int main() {
     std::string str;
-    std::string input;
     std::cout << "Enter a string: ";
+    std::string input;
     std::getline(std::cin, input);
-    str = input;
+    str = input; 
     int result = count_distinct_characters(str);
     return 0;
 }
