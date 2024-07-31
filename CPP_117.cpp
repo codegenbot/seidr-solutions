@@ -4,7 +4,7 @@
 #include <cassert>
 #include <string>
 
-using namespace std;
+using std::vector;
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -38,8 +38,6 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-std::vector<std::string> select_words(std::string s, int n);
-
 int main() {
     std::string s;
     int n;
@@ -47,7 +45,7 @@ int main() {
     
     std::vector<std::string> words = select_words(s, n);
 
-    //assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
     
     return 0;
 }
