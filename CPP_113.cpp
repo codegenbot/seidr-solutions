@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -17,4 +18,9 @@ std::vector<int> odd_count(const std::vector<std::string>& strs) {
 
 bool is_same_elements(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    assert(is_same_elements(odd_count({"271", "137", "314"}), {2, 3, 2}));
+    return 0;
 }
