@@ -10,19 +10,23 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> incr_list(int n) {
+std::vector<int> incr_list(int start, int end) {
     std::vector<int> result;
-    for (int i = 1; i <= n; i++) {
+    for (int i = start; i <= end; i++) {
         result.push_back(i);
     }
     return result;
 }
 
 int main() {
-    std::vector<int> vec1 = incr_list(5);
-    std::vector<int> vec2 = incr_list(5);
+    std::vector<int> vec1 = incr_list(1, 5);
+    std::vector<int> vec2 = incr_list(1, 5);
 
-    bool result = issame(vec1, vec2);
+    if (issame(vec1, vec2)) {
+        // Vectors are the same
+    } else {
+        // Vectors are different
+    }
 
     return 0;
 }
