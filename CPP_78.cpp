@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,9 +12,11 @@ int hex_key(std::string num) {
 
 }
 
-std::string input;
-std::cout << "Enter a hexadecimal number: ";
-std::cin >> input;
-int output = hex_key(input);
-std::cout << "The result is: " << output << std::endl;
-return 0;
+int main() {
+    std::string input;
+    std::cout << "Enter a hexadecimal number: ";
+    std::cin >> input;
+    int output = hex_key(input);
+    std::cout << "The result is: " << output << std::endl;
+    return 0;
+}
