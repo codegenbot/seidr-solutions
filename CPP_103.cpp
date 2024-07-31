@@ -1,21 +1,22 @@
-Here is the completed code:
+#include<stdio.h>
+#include<math.h>
+#include<string>
+using namespace std;
 
-```cpp
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
-    for(int i = n; i <= m; i++) {
+    for(int i=n; i<=m; i++){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    int rounded = lround(avg);
-    string binary = "";
-    while(rounded > 0) {
-        if(rounded & 1)
-            binary = "1" + binary;
-        else
-            binary = "0" + binary;
-        rounded >>= 1;
+    avg = floor(avg + 0.5); // round to the nearest integer
+    string res = "";
+    while(avg > 0){
+        if(avg & 1) res.push_back('1');
+        else res.push_back('0');
+        avg >>= 1;
     }
-    return binary;
+    reverse(res.begin(), res.end());
+    return res;
 }
