@@ -1,10 +1,9 @@
-```cpp
 #include <initializer_list>
 #include <stack>
 #include <string>
-#include <iostream>
+#include <cassert>
 
-std::string correct_bracketing(std::string brackets) {
+void correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
 
     for (char bracket : brackets) {
@@ -12,7 +11,7 @@ std::string correct_bracketing(std::string brackets) {
             bracket_stack.push(bracket);
         } else if (bracket == ')' || bracket == '}' || bracket == ']') {
             if (bracket_stack.empty()) {
-                return "Invalid input";
+                return;
             }
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
@@ -20,36 +19,33 @@ std::string correct_bracketing(std::string brackets) {
             if ((opening_bracket == '(' && bracket != ')') ||
                 (opening_bracket == '{' && bracket != '}') ||
                 (opening_bracket == '[' && bracket != ']')) {
-                return "Invalid input";
+                return;
             }
         }
     }
 
     if (!bracket_stack.empty()) {
-        std::string output;
         while (!bracket_stack.empty()) {
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
             switch (opening_bracket) {
                 case '(':
-                    output += ')';
-                    break;
+                    return;
                 case '{':
-                    output += '}';
-                    break;
+                    return;
                 case '[':
-                    output += ']';
-                    break;
+                    return;
             }
         }
-        return output;
     } else {
-        return "Valid input";
+        return;
     }
 }
 
 int main() {
-    std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
+    if (!correct_bracketing("<><><<><>><>>><>") ) { 
+        assert(false); 
+    }
     
     return 0;
 }
