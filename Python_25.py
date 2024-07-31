@@ -1,5 +1,3 @@
-Here is the solution:
-
 ```
 from typing import List
 import math
@@ -7,7 +5,7 @@ import math
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
-    while i <= math.sqrt(n):
+    while i * i <= n:
         if n % i:
             i += 1
         else:
@@ -15,7 +13,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 count += 1
                 n //= i
-            factors.extend([i] * count)
+            factors.append(i) * count
+            i += 1
     if n > 1:
         factors.append(n)
     return factors
