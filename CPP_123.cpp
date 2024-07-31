@@ -8,6 +8,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Your contest problem logic here
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {3, 2, 1};
+
+    if (issame(a, b)) {
+        std::cout << "Vectors contain same elements." << std::endl;
+    } else {
+        std::cout << "Vectors do not contain same elements." << std::endl;
+    }
+
     return 0;
 }
