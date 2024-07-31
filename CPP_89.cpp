@@ -1,9 +1,12 @@
-string encrypt(string s){
-    string encrypted = "";
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s){
+    std::string encrypted = "";
     for(char c : s){
-        if(isalpha(c)){
+        if(std::isalpha(c)){
             char encryptedChar = c + 2 * ('z' - c) + 2;
-            if(isupper(c)){
+            if(std::isupper(c)){
                 if(encryptedChar > 'Z'){
                     encryptedChar = 'A' + (encryptedChar - 'Z' - 1);
                 }
