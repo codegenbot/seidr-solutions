@@ -14,20 +14,16 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return sameVectors(a, b);
 }
 
 int main() {
-    if (!areVectorsEqual({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    if (!isSame({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
-    if (!areVectorsEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
 }
