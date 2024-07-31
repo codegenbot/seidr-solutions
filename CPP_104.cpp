@@ -24,4 +24,4 @@ int main() {
     assert(issame(unique_digits(135), {1, 3, 5}));
     assert(issame(unique_digits(103), {1, 0, 3}));
     assert(issame(unique_digits(31), {3, 1}));
-}
+}  
