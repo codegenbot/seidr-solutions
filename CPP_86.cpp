@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-const char* anti_shuffle(const std::string str) {
+std::string anti_shuffle(const std::string str) {
     std::string result = "";
     int i = str.length() - 1;
     while (i >= 0) {
@@ -12,13 +12,13 @@ const char* anti_shuffle(const std::string str) {
         result += str.substr(j + 1, i - j + 1);
         --i;
     }
-    return result.c_str();
+    return result;
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a sentence: ";
-    std::getline(std::cin, str);
+    str = std::getline(std::cin, str);
     std::cout << "Anti-shuffled sentence: " << anti_shuffle(str) << std::endl;
     return 0;
 }
