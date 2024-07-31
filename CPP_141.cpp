@@ -1,28 +1,31 @@
-int count_digits = 0;
-    int dot_position = file_name.find(".");
+int num_digits = 0;
+    int dot_index = -1;
     
-    if (dot_position == string::npos || dot_position == 0 || dot_position == file_name.length() - 1) {
-        return "No";
-    }
-
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count_digits++;
+    for (int i = 0; i < file_name.length(); ++i) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            num_digits++;
+        } else if (file_name[i] == '.') {
+            if (dot_index != -1) {
+                return "No";
+            }
+            dot_index = i;
         }
     }
-
-    if (count_digits > 3) {
+    
+    if (num_digits > 3 || dot_index == -1 || dot_index == 0 || dot_index == file_name.length() - 1) {
         return "No";
     }
-
-    string file_extension = file_name.substr(dot_position + 1);
-    if (file_extension != "txt" && file_extension != "exe" && file_extension != "dll") {
+    
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
+    
+    if (!(before_dot[0] >= 'a' && before_dot[0] <= 'z') && !(before_dot[0] >= 'A' && before_dot[0] <= 'Z')) {
         return "No";
     }
-
-    if (!isalpha(file_name[0])) {
+    
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
         return "No";
     }
-
+    
     return "Yes";
 }
