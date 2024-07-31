@@ -40,5 +40,6 @@ int main() {
     for (int num : odd_collatz) {
         cout << num << " ";
     }
+    cout << endl;
     return 0;
 }
