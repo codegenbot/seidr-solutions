@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,11 +14,14 @@ int main() {
     int n;
 
     std::cout << "Enter the number of elements: ";
-    while (!(std::cin >> n)) { 
+    if (!(std::cin >> n)) { 
         std::cerr << "Invalid input. Try again.\n";
-        std::cout << "Enter the number of elements: ";
-        (std::cin >> std::ws).clear();
-        if ((std::cin >> std::skipws).eof()) {
+        return 1; 
+    }
+    while (!(n > 0)) {
+        std::cout << "Please enter a positive integer: ";
+        if (!(std::cin >> n)) { 
+            std::cerr << "Invalid input. Try again.\n";
             return 1; 
         }
     }
@@ -25,13 +29,10 @@ int main() {
     std::vector<int> lst;
     for(int i = 0; i < n; i++){
         int num;
-        while (!(std::cin >> num)) { 
+        std::cout << "Enter element " << i+1 << ": ";
+        if (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
-            std::cout << "Enter element " << i+1 << ": ";
-            (std::cin >> std::ws).clear();
-            if ((std::cin >> std::skipws).eof()) {
-                return 1; 
-            }
+            return 1; 
         }
         lst.push_back(num);
     }
