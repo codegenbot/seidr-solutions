@@ -1,31 +1,31 @@
 vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
-    
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+        vector<string> result;
+        string word;
+        if(txt.find(' ') != string::npos){
+            size_t start = 0, end;
+            while((end = txt.find(' ', start)) != string::npos){
+                word = txt.substr(start, end - start);
                 result.push_back(word);
-                word = "";
+                start = end + 1;
             }
-        } else {
-            word += tolower(c);
+            result.push_back(txt.substr(start));
         }
-    }
-    
-    if(!word.empty()){
-        result.push_back(word);
-    }
-    
-    if(result.empty()){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+        else if(txt.find(',') != string::npos){
+            size_t start = 0, end;
+            while((end = txt.find(',', start)) != string::npos){
+                word = txt.substr(start, end - start);
+                result.push_back(word);
+                start = end + 1;
             }
+            result.push_back(txt.substr(start));
         }
-        result.push_back(to_string(count));
+        else{
+            int oddChars = 0;
+            for(char c : txt){
+                if(islower(c) && ((c - 'a') % 2 != 0))
+                    oddChars++;
+            }
+            result.push_back(to_string(oddChars));
+        }
+        return result;
     }
-    
-    return result;
-}
