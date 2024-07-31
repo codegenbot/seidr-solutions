@@ -14,7 +14,7 @@ map<char, int> histogram(string test) {
     }
     int maxCount = 0;
     for (const auto& entry : result) {
-        maxCount = max(maxCount, entry.second);
+        maxCount = std::max(maxCount, entry.second);
     }
     map<char, int> mostRepeated;
     for (const auto& entry : result) {
