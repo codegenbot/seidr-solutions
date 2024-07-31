@@ -17,5 +17,5 @@ int main(){
     std::stringstream ss; // Create stringstream object
     ss << x; // Insert x into stringstream
     assert(change_base(x, x + 1) == ss.str()); // Compare with stringstream content
-    return 0;
-}
+    return 0;  
+}  
