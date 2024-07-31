@@ -22,7 +22,7 @@ double find_zero(std::vector<double> coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {};
+    std::vector<double> coeffs;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
