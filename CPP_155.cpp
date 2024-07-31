@@ -3,7 +3,7 @@
 #include <string>
 #include <cmath>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -14,8 +14,7 @@ int main() {
     cin >> num;
     
     vector<int> result = even_odd_count(num);
-    
-    for(int i : result){
+    for (int i : result) {
         cout << i << " ";
     }
     
