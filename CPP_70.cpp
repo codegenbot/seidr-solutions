@@ -1,8 +1,9 @@
+// Replace 'vector<int>' with 'std::vector<int>'
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
+// Add 'std::' in front of 'vector<int>'
 std::vector<int> strange_sort_list(std::vector<int> lst){
     std::vector<int> result;
     std::sort(lst.begin(), lst.end());
@@ -20,10 +21,9 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     return result;
 }
 
+// Add 'std::' in front of 'assert'
 int main() {
     // Test case
-    std::vector<int> a = {111111};
-    std::vector<int> b = {111111};
-    assert(strange_sort_list(a) == b);
+    assert(issame(strange_sort_list({111111}), {111111}));
     return 0;
 }
