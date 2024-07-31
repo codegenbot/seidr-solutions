@@ -1,6 +1,8 @@
+Here is the completed code:
+
 vector<int> get_odd_collatz(int n) {
-    vector<int> result = {n};
-    while (n != 1) {
+    vector<int> result;
+    while (n > 1) {
         if (n % 2 == 0) {
             n /= 2;
         } else {
