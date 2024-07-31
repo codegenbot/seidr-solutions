@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+bool issame(const vector<string>& a, const vector<string>& b);
+
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
