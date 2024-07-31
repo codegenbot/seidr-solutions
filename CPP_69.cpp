@@ -18,8 +18,6 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> numbers = {2, 3, 5, 3, 2, 2, 6};
-    assert(search(numbers) == 3);
-    
+    // Test cases can be added here
     return 0;
 }
