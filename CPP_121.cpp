@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,19 +7,12 @@ int main() {
     int sum = 0;
     vector<int> lst;
     cout << "Enter numbers (space-separated): ";
-    string line;
-    getline(cin, line);
-    for (int i = 0; i < line.length(); i++) {
-        char c = line[i];
-        if (c != ' ') {
-            int num = 0;
-            while (i < line.length() && !isdigit(line[i])) i++;
-            while (i < line.length() && isdigit(line[i])) {
-                num = num * 10 + (line[i] - '0');
-                i++;
-            }
-            lst.push_back(num);
-        }
+    char c;
+    for (; cin >> c && c != '\n';) {}
+    cin.ignore(); 
+    while (cin >> ws >> c) {
+        if (c == ' ') break; 
+        int num; cin >> num; lst.push_back(num);
     }
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
