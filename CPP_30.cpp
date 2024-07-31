@@ -1,15 +1,14 @@
 #include <vector>
-#include <float.h>
 
-bool issame(vector<float> a,vector<float>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
+bool isSame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size();i++){
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<float> get_positive(vector<float> l){
+vector<float> getPositive(vector<float> l){
     vector<float> result;
     for(float num : l) {
         if(num > 0) {
@@ -20,6 +19,6 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main(){
-    assert(issame(get_positive({}), {}));
+    assert(isSame(getPositive({}), {}) == false); 
     return 0;
 }
