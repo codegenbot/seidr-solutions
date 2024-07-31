@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -26,13 +26,6 @@ std::pair<int, int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    auto results = even_odd_palindrome(n);
-    std::cout << "Even palindromes: " << results.first << std::endl;
-    std::cout << "Odd palindromes: " << results.second << std::endl;
-    
-    assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
-    
+    assert(issame({even_odd_palindrome(1).first, even_odd_palindrome(1).second}, {0, 1}));
     return 0;
 }
