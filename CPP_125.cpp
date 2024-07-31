@@ -1,34 +1,39 @@
-vector<string> split_words(string txt){
+#include <iostream>
+#include <vector>
+#include <string>
+
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
-    bool hasWhitespace = false;
-    
     for (char c : txt) {
         if (c == ' ' || c == ',') {
-            result.push_back(word);
-            word = "";
-            hasWhitespace = true;
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    
-    if (word != "") {
+    if (!word.empty()) {
         result.push_back(word);
     }
-    
-    if (!hasWhitespace && result.size() == 1) {
-        int oddLowerCaseLetters = 0;
+    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+        int count = 0;
         for (char c : result[0]) {
-            if (islower(c)) {
-                int letterIndex = c - 'a';
-                if (letterIndex % 2 == 1) {
-                    oddLowerCaseLetters++;
-                }
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                count++;
             }
         }
-        result[0] = to_string(oddLowerCaseLetters);
+        result[0] = to_string(count);
     }
-    
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Existing issame function code here
+}
+
+int main() {
+    // Existing main function code here
 }
