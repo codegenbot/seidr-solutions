@@ -1,9 +1,13 @@
-```cpp
 #include <set>
+#include <vector>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a.size() == 0 && b.size() == 0) || (a.size() == b.size());
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i].size() != b[i].size()) return false;
+    }
+    return true;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
