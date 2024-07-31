@@ -1,4 +1,3 @@
-#include <vector>
 #include <unordered_set>
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
