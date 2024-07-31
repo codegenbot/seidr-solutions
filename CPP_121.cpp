@@ -7,10 +7,9 @@ vector<int> lst;
 cout << "Enter numbers (space-separated): ";
 string str;
 getline(cin, str);
-int num = 0;
 for (char c : str) {
     if (c == ' ') break; 
-    num = num * 10 + (c - '0');
+    int num = c - '0';
     lst.push_back(num);
 }
 int sum = 0;
