@@ -1,33 +1,21 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int hex_key_value(const std::string& num) {
-    int count = 0;
-    for (char c : num) {
+std::string hex_key_value() {
+    std::string num;
+    for (char c; std::cin >> c;) {
         if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F')) {
-            count++;
+            num += c;
         }
     }
-    return count;
+    return num;
 }
 
 int main() {
-    std::string input = "";
-    std::cout << "Enter a hexadecimal number: ";
-    char temp[3];
-    cin >> temp;
-    if (cin.fail()) {
-        cout << "Invalid input." << endl;
-        return 1;
+    std::string output = hex_key_value();
+    if (!output.empty()) {
+        std::cout << "The result is: " << output << std::endl;
+    } else {
+        std::cout << "No valid hexadecimal key found." << std::endl;
     }
-    for (char c : temp) {
-        if (!isxdigit(c)) {
-            cout << "Invalid character. Please enter a hexadecimal number." << endl;
-            return 1;
-        }
-    }
-    input = temp;
-    int output = hex_key_value(input);
-    std::cout << "The result is: " << output << std::endl;
 }
