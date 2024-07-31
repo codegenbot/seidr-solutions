@@ -1,22 +1,11 @@
-```c++
-#include <string>
-#include <cassert>
-
-using namespace std;
-
-string decimal_to_binary(int decimal){
-    string binary = "";
-    while(decimal > 0){
-        if(decimal % 2 == 0)
-            binary = "0" + binary;
+std::string decimal_to_binary(int n) {
+    std::string binary = "";
+    while (n > 0) {
+        if (n % 2 == 0)
+            binary.push_back('0');
         else
-            binary = "1" + binary;
-        decimal /= 2;
+            binary.push_back('1');
+        n /= 2;
     }
-    return "db" + binary + "db";
-}
-
-int main{
-    assert (decimal_to_binary(15) == "db1111db");
-    return 0;
+    return "db" + binary + "b";
 }
