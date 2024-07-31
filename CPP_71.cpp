@@ -1,7 +1,6 @@
-float s = (a + b + c) / 2;
-    if (a + b > c && a + c > b && b + c > a) {
-        float area = sqrt(s * (s - a) * (s - b) * (s - c));
-        return roundf(area * 100) / 100;
+if (a + b > c && a + c > b && b + c > a) {
+        float s = (a + b + c) / 2;
+        return sqrt(s * (s - a) * (s - b) * (s - c));
     } else {
         return -1;
     }
