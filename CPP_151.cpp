@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 #include <cmath>
 
 long long double_the_difference(const std::vector<float>& lst) {
