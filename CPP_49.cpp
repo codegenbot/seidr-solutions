@@ -1,6 +1,4 @@
-Here is the modified code:
-
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int modp(int n, int p) {
@@ -14,9 +12,10 @@ int modp(int n, int p) {
 }
 
 int main() {
-    printf("%d\n", modp(3, 5));
-    printf("%d\n", modp(1101, 101));
-    printf("%d\n", modp(0, 101));
-    printf("%d\n", modp(3, 11));
-    printf("%d\n", modp(100, 101));
+    cout << modp(3, 5) << endl;
+    cout << modp(1101, 101) << endl;
+    cout << modp(0, 101) << endl;
+    cout << modp(3, 11) << endl;
+    cout << modp(100, 101) << endl;
+    return 0;
 }
