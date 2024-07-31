@@ -7,8 +7,7 @@ double find_zero(std::vector<double> coefficients);
 int main() {
     int n;
     cin >> n;
-    std::vector<double> coeffs = {};
-    coeffs.resize(n);
+    std::vector<double> coeffs(n); 
     double val;
     for (int i = 0; i < n; i++) {
         cin >> val;
