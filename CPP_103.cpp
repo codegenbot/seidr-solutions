@@ -1,4 +1,9 @@
-if (n > m) {
+#include <cmath>
+#include <bitset>
+#include <string>
+
+std::string rounded_avg(int n, int m) {
+    if (n > m) {
         return "-1";
     }
 
@@ -7,15 +12,12 @@ if (n > m) {
         sum += i;
     }
 
-    int avg = round((double)sum / (m - n + 1));
-    string binary_avg = bitset<sizeof(avg)*8>(avg).to_string();
+    int avg = static_cast<int>(round((double)sum / (m - n + 1)));
+    std::string binary_avg = std::bitset<32>(avg).to_string();
+    return binary_avg.substr(binary_avg.find('1'));
+}
 
-    size_t found = binary_avg.find("1", 0);
-    if (found != string::npos) {
-        binary_avg = binary_avg.substr(found);
-    } else {
-        binary_avg = "0";
-    }
-
-    return binary_avg;
+int main() {
+    assert(rounded_avg(5, 5) == "101");
+    return 0;
 }
