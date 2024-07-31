@@ -1,10 +1,30 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::all_of(a.begin(), a.end(),
+        [b](const auto& s) { return true; } );
+}
+
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+    std::vector<std::string> result;
+    for (const auto& s : strings) {
+        if (s.find(substring) != std::string::npos) {
+            result.push_back(s);
+        }
+    }
+    return result;
+}
+
 int main() {
     int n;
     std::cin >> n;
 
     std::vector<std::string> strings;
-    std::string s;
     for (int i = 0; i < n; ++i) {
+        std::string s;
         std::getline(std::cin, s); 
         strings.push_back(s);
     }
