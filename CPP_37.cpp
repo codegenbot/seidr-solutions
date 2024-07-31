@@ -31,6 +31,6 @@ vector<float> sort_even_elements(vector<float> l) {
 
 int main() {
     assert(sort_even_elements({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == vector<float>{-12, 8, 2, 4, 5, 3, 12, 11, 23, -10});
-    
+
     return 0;
 }
