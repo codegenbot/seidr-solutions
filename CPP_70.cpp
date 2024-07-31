@@ -1,8 +1,10 @@
 #include <vector>
 
-bool issame(int a, int b);
+bool is_same(int a, int b);
 
-bool issame(int a, int b) {
+vector<int> strange_sort_list(vector<int> lst);
+
+bool is_same(int a, int b){
     return a == b;
 }
 
@@ -21,4 +23,7 @@ vector<int> strange_sort_list(vector<int> lst){
     return result;
 }
 
-```
+int main() {
+    // main function implementation
+    return 0;
+}
