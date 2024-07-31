@@ -1,6 +1,6 @@
 #include <cmath>
 
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
     int lower = floor(num);
     int upper = ceil(num);
