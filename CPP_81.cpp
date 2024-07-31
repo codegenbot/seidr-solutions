@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-vector<string> numerical_letter_grade(vector<float> grades); // Function prototype
+vector<string> numerical_letter_grade(vector<float> grades);
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
@@ -28,6 +28,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 int main(){
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert (issame(numerical_letter_grade({0, 0.7}) , {"E", "D-"}));
     return 0;
 }
