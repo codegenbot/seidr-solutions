@@ -1,6 +1,6 @@
 #include <cstddef>
 
-string calculate_binary_avg(int n, int m) {
+string solve(int n, int m) {
     if (n > m) {
         return "-1";
     }
