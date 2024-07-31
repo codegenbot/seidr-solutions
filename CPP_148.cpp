@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -6,14 +5,11 @@
 using namespace std;
 
 bool issame(const vector<string> &a, const vector<string> &b){
-    return a == b;
-}
-
-vector<string> bf(string planet1, string planet2);
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}) == true);
-    return 0;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a.at(i) != b.at(i)) return false;
+    }
+    return true;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -43,4 +39,9 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
+    return 0;
 }
