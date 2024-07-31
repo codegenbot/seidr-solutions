@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -15,7 +14,7 @@ vector<float> get_positive(vector<float> l) {
     return result;
 }
 
-int main() {
+int old_main() {
     vector<float> input;
     cout << "Enter numbers separated by space: ";
     float num;
@@ -28,4 +27,8 @@ int main() {
     } else {
         cout << "Not all numbers are positive." << endl;
     }
+}
+
+int main() {
+    old_main();
 }
