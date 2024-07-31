@@ -3,6 +3,8 @@
 #include <cassert>
 #include <algorithm>
 
+using namespace std;
+
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = min(total, remaining);
