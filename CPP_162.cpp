@@ -1,39 +1,20 @@
-Here is the solution:
+#include <sstream>
 
-```cpp
-#include<string>
-#include<openssl/ssl.h>
-#include<openssl/mem.h>
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+    
+    unsigned char md5[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const unsigned char *p = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, p, len);
+    MD5_Final(md5, &ctx);
 
-using namespace std;
-
-string string_to_md5(string text){
-    MD5_CTX md5;
-    unsigned char result[16];
-    string outText = "";
-
-    // Check if the input string is empty.
-    if(text.empty()) {
-        return "";
+    stringstream ss;
+    for (int i = 0; i < 16; ++i) {
+        ss << setfill(2) << right << hex << (int)md5[i];
     }
 
-    // Create a new context
-    MD5_Init(&md5);
-
-    // Convert the text to UTF-8 and hash it
-    const char* utf8_text = text.c_str();
-    MD5_Update(&md5, utf8_text, text.size());
-
-    // Get the result
-    MD5_Final(result, &md5);
-
-    // Create a string representation of the hash.
-    for(int i=0; i<16; ++i) {
-        char c = (char)(result[i] >> 4);
-        outText += (c < 10) ? c + '0' : (c - 10) + 'a';
-        c = (char)(result[i]);
-        outText += (c < 10) ? c + '0' : (c - 10) + 'a';
-    }
-
-    return outText;
+    return ss.str();
 }
