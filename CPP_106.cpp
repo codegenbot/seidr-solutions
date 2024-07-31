@@ -32,3 +32,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     return true;
 }
+
+// Main function for testing
+int main() {
+    assert(issame(f(3), std::vector<int>{1, 3, 6}));
+}
