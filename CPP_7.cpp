@@ -7,16 +7,31 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> filter_by_substring(vector<string> words, string substr){
     vector<string> result;
-    for(const auto& word : words){
+    
+    for(const string& word : words){
         if(word.find(substr) != string::npos){
             result.push_back(word);
         }
     }
+    
     return result;
 }
 
