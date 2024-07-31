@@ -1,4 +1,5 @@
-```cpp
+#include <initializer_list>
+
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -23,10 +24,5 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
-
-    double result = median(numbers);
-
-    std::cout << "The median of the given array is: " << result << std::endl;
-
-    return 0;
+    std::cout << "Median: " << median(numbers) << std::endl;
 }
