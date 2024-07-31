@@ -2,13 +2,7 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        if not result:
-            result = string
-        else:
-            result += " " + string
-    return result
+    return ' '.join(map(str, strings))
 
 
 while True:
@@ -18,5 +12,5 @@ while True:
     elif not user_input.strip():
         print("Please enter at least one string.")
         continue
-    strings = user_input.split()
+    strings = list(map(str.lower, map(str.strip, user_input.split())))
     print(concatenate(strings))
