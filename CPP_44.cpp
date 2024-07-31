@@ -16,4 +16,4 @@ std::string change_base(int x, int base) {
         x /= base;
     }
     return result;
-}  
+}
