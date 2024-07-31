@@ -1,19 +1,17 @@
-vector<string> by_length(vector<int> arr){
-    vector<string> result;
-    map<int, string> numNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    vector<int> filteredArr;
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <cassert>
 
-    for(int num : arr){
-        if(num >= 1 && num <= 9)
-            filteredArr.push_back(num);
-    }
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
-    sort(filteredArr.begin(), filteredArr.end());
-    reverse(filteredArr.begin(), filteredArr.end());
+vector<string> by_length(vector<int> arr);
 
-    for(int num : filteredArr){
-        result.push_back(numNames[num]);
-    }
-
-    return result;
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    // additional test cases can be added here
+    return 0;
 }
