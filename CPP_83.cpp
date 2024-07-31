@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 
@@ -11,9 +10,9 @@ int starts_one_ends(int n) {
             count++;
         }
         if (n > 1) {
-            for (int j = 1; j < static_cast<int>(pow(10, n - 1)); j++) {
-                int num = i * pow(10, n - 1) + j;
-                if (num % 10 == 1 || num / static_cast<int>(pow(10, n - 1)) % 10 == 1) {
+            for (int j = 1; j < pow(10, n - 1); j++) {
+                int num = i * pow((double) 10, n - 1) + j;
+                if ((int)(num / pow((double) 10, n - 1)) % 10 == 1 || num % 10 == 1) {
                     count++;
                 }
             }
