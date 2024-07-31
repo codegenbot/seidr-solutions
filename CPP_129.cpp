@@ -8,15 +8,15 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> path;
-    for(int i = 0; i < k; ++i){
-        for(auto& row : grid){
-            for(int num : row){
-                path.push_back(num);
+    vector<int> result;
+    for(int i = 0; i < k; i++){
+        for(auto row : grid){
+            for(int val : row){
+                result.push_back(val);
             }
         }
     }
-    return path;
+    return result;
 }
 
 int main(){
