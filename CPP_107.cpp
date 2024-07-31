@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-int issame(string a, string b) {
+int issame(int a, int b) {
     return a == b;
 }
 
-vector<int> is_palindrome(int n) {
+vector<int> palindromeCount(int n) {
     vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
         string num = to_string(i);
