@@ -18,6 +18,6 @@ std::vector<int> filter_integers(std::list<std::any> values){
 }
 
 int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({std::any(3), 'c', std::any(3), std::any(3), 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
