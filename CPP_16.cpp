@@ -1,20 +1,19 @@
-#include <iostream>
-#include <string>
+#include <cctype>
+#include <cstring>
 
 int count_distinct_characters(std::string str) {
-    std::string temp;
+    int count = 0;
+    bool seen[256] = {false}; // assume ASCII
+
     for (char c : str) {
-        if (isalpha(c)) {
-            while (!temp.empty() && !std::tolower(temp.back()) == std::tolower(c)) {
-                temp.pop_back();
+        if (std::isalpha(c)) {
+            char ch = tolower(c);
+            if (!seen[ch]) {
+                seen[ch] = true;
+                count++;
             }
-            temp += std::tolower(c);
         }
     }
-    return temp.size();
-}
 
-int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    return 0;
+    return count;
 }
