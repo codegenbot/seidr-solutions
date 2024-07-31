@@ -1,2 +1,3 @@
-return str.length();
+int findStringLength(const char* str) {
+    return strlen(str);
 }
