@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,6 +17,7 @@ int main() {
         input.push_back(temp);
     }
 
-    std::cout << "Maximum element is: " << *std::max_element(input.begin(), input.end()) << std::endl;
-
+    int maxElement = *std::max_element(input.begin(), input.end());
+    assert(std::abs(maxElement - 124) < 1e-4); 
     return 0;
+}
