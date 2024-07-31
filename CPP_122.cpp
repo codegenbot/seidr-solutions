@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <limits.h>
+#include <limits>
 
 int add_elements(const std::vector<int>& arr);
 
@@ -15,7 +15,7 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    if(k > INT_MAX) {
+    if(k > std::numeric_limits<int>::max()) {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
@@ -24,10 +24,10 @@ int main() {
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
         int num;
-        while (!(std::cin >> num && num >= INT_MIN &&
-                num <= INT_MAX)) {
+        while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
+                num <= std::numeric_limits<int>::max())) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << INT_MIN << " and " << INT_MAX
+                      << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
                       << ": ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
