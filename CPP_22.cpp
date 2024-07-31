@@ -6,11 +6,11 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& val : values) {
         if (val.type() == typeid(int)) {
