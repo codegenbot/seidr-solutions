@@ -1,77 +1,114 @@
-#include <cassert>
+```c++
+#include <string>
 
-int main() {
-    assert (int_to_mini_romank(1000) == "m");
-    return 0;
+std::string int_to_mini_roman(int number) {
+    if (number >= 1000) {
+        return "M";
+    } else if (number >= 900) {
+        return "CM" + int_to_mini_roman(number - 900);
+    } else if (number >= 500) {
+        return "D" + int_to_mini_roman(number - 500);
+    } else if (number >= 400) {
+        return "CD" + int_to_mini_roman(number - 400);
+    } else if (number >= 100) {
+        switch (number % 100) {
+            case 99:
+                return "XCIX";
+            case 90:
+                return "XM";
+            default:
+                std::string str = int_to_mini_roman(number / 100) + "C";
+                switch (number % 100) {
+                    case 1:
+                        str += "I";
+                        break;
+                    case 2:
+                        str += "II";
+                        break;
+                    case 3:
+                        str += "III";
+                        break;
+                    default:
+                        break;
+                }
+                return str;
+        }
+    } else if (number >= 50) {
+        switch (number % 50) {
+            case 49:
+                return "XLIX";
+            case 40:
+                return "Xl";
+            default:
+                std::string str = int_to_mini_roman(number / 50) + "L";
+                switch (number % 50) {
+                    case 1:
+                        str += "I";
+                        break;
+                    case 2:
+                        str += "II";
+                        break;
+                    case 3:
+                        str += "III";
+                        break;
+                    default:
+                        break;
+                }
+                return str;
+        }
+    } else if (number >= 10) {
+        switch (number % 10) {
+            case 9:
+                return "IX";
+            case 8:
+                return "VIIII";
+            case 7:
+                return "VII";
+            case 6:
+                return "VI";
+            case 5:
+                return "V";
+            default:
+                std::string str = int_to_mini_roman(number / 10) + "X";
+                switch (number % 10) {
+                    case 1:
+                        str += "I";
+                        break;
+                    case 2:
+                        str += "II";
+                        break;
+                    case 3:
+                        str += "III";
+                        break;
+                    case 4:
+                        str += "IV";
+                        break;
+                    default:
+                        break;
+                }
+                return str;
+        }
+    } else if (number >= 1) {
+        switch (number % 5) {
+            case 4:
+                return "IV";
+            case 3:
+                return "III";
+            case 2:
+                return "II";
+            case 1:
+                return "I";
+            default:
+                break;
+        }
+    } else if (number >= -1) {
+        return "";
+    } else {
+        return "-";
+    }
 }
 
-int int_to_mini_romank(int n) {
-    string roman = "";
-    
-    if(n >= 1000) {
-        while(n >= 1000) {
-            roman += "M";
-            n -= 1000;
-        }
-    } else if(n >= 900) {
-        while(n >= 900) {
-            roman += "CM";
-            n -= 900;
-        }
-    } else if(n >= 500) {
-        while(n >= 500) {
-            roman += "D";
-            n -= 500;
-        }
-    } else if(n >= 400) {
-        while(n >= 400) {
-            roman += "CD";
-            n -= 400;
-        }
-    } else if(n >= 100) {
-        while(n >= 100) {
-            roman += "C";
-            n -= 100;
-        }
-    } else if(n >= 90) {
-        while(n >= 90) {
-            roman += "XC";
-            n -= 90;
-        }
-    } else if(n >= 50) {
-        while(n >= 50) {
-            roman += "L";
-            n -= 50;
-        }
-    } else if(n >= 40) {
-        while(n >= 40) {
-            roman += "XL";
-            n -= 40;
-        }
-    } else if(n >= 10) {
-        while(n >= 10) {
-            roman += "X";
-            n -= 10;
-        }
-    } else if(n >= 9) {
-        while(n >= 9) {
-            roman += "IX";
-            n -= 9;
-        }
-    } else if(n >= 5) {
-        while(n >= 5) {
-            roman += "V";
-            n -= 5;
-        }
-    } else if(n >= 4) {
-        while(n >= 4) {
-            roman += "IV";
-            n -= 4;
-        }
-    } else {
-        roman += "I";
-        roman += (n - 1);
-    }
-    
-    return roman;
+int main() {
+    assert(int_to_mini_roman(1000) == "M");
+    return 0;
 }
