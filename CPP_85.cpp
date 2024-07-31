@@ -1,11 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
-int add(const std::vector<unsigned int>& v);
+int add(const std::vector<size_t>&);
 
 int main() {
-    unsigned int n;
+    size_t n;
 
     std::cout << "Enter the number of elements: ";
     while (!(std::cin >> n)) { 
@@ -17,9 +17,9 @@ int main() {
         }
     }
 
-    std::vector<unsigned int> lst;
-    for(unsigned int i = 0; i < n; i++){
-        unsigned int num;
+    std::vector<size_t> lst;
+    for(size_t i = 0; i < n; i++){
+        size_t num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
             std::cout << "Enter element " << i+1 << ": ";
@@ -32,7 +32,7 @@ int main() {
     }
 
     int sum = 0;
-    for(unsigned int i = 0; i < lst.size(); i++){
+    for(size_t i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
@@ -41,9 +41,9 @@ int main() {
     return 0;
 }
 
-int add(const std::vector<unsigned int>& v) {
+int add(const std::vector<size_t>& v) {
     int sum = 0;
-    for (unsigned int i : v) {
+    for (size_t i : v) {
         sum += i;
     }
     return sum;
