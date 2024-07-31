@@ -1,9 +1,3 @@
-Here is the solution for the given problem:
-
-```Python
-from typing import List
-import math
-
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -11,12 +5,11 @@ def factorize(n: int) -> List[int]:
         if n % i:
             i += 1
         else:
-            n //= i
-            c = 0
+            count = 0
             while n % i == 0:
+                count += 1
                 n //= i
-                c += 1
-            factors.append(i) * c
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
     return factors
