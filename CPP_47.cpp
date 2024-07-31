@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 double median(const std::vector<int>& nums) {
     std::vector<int> vec(nums);
@@ -13,6 +13,21 @@ double median(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 5) < 1e-4);
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
+    }
+
+    double result = median(numbers);
+
+    std::cout << "The median of the given array is: " << result << std::endl;
+
     return 0;
 }
