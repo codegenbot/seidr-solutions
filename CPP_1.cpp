@@ -1,39 +1,53 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
+bool issame(const std::string& group) {
+    if (group.empty()) {
+        return false;
+    }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Your implementation here
-}
-
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> groups;
-    string current_group;
-    int count = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (count > 0) {
-                current_group += c;
-            }
-            count++;
-        } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                current_group += c;
-            } else if (count == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+    char first_char = group[0];
+    for (char ch : group) {
+        if (ch != first_char) {
+            return false;
         }
     }
 
-    return groups;
+    return true;
 }
 
-int main() {
-    // Your main function implementation here
-    return 0;
+std::vector<std::string> separate_paren_groups(std::string paren_string);
+
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
+    bool in_group = false;
+
+    for (char ch : paren_string) {
+        if (ch == '(') {
+            if (in_group) {
+                if (issame(current_group)) {
+                    current_group = "";
+                } else {
+                    result.push_back(current_group);
+                    current_group = "";
+                }
+            }
+            in_group = true;
+        } else if (ch == ')') {
+            in_group = false;
+            if (!issame(current_group)) {
+                result.push_back(current_group);
+            }
+            current_group = "";
+        } else if (in_group) {
+            current_group += ch;
+        }
+    }
+
+    if (!current_group.empty() && !issame(current_group)) {
+        result.push_back(current_group);
+    }
+
+    return result;
 }
