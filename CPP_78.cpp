@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-int hex_to_int(const std::string& s) {
+int stringToHex(const std::string& s) {
     int result = 0;
     for (char c : s) {
         if (isdigit(c)) {
@@ -14,7 +14,7 @@ int hex_to_int(const std::string& s) {
     return result;
 }
 
-int main() {
-    assert(hex_to_int("") == 0);
+int testFunction() {
+    assert(stringToHex("") == 0);
     return 0;
 }
