@@ -1,24 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 int main() {
-    std::vector<int> input;
+    std::vector<std::string> input;
     std::cout << "Enter numbers (space separated): ";
-    unsigned long int i = 0;
-    while (std::cin >> i) {
-        input.push_back(i);
+    for(long long i; std::cin >> i; ) {
+        input.push_back(std::to_string(i));
         if(std::cin.peek() == ' ') 
             std::cin.ignore();
         else
             break;
     }
-    std::vector<std::string> strInput;
-    for (int num : input) {
-        strInput.push_back(std::to_string(num));
-    }
-    int result = can_arrange(strInput);
+    int result = can_arrange(input);
     if(result == -1)
         std::cout << "Input cannot be arranged." << std::endl;
     else 
