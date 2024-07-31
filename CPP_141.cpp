@@ -1,23 +1,31 @@
-int digits = 0;
-    int dotIndex = -1;
+int num_digits = 0;
+    int dot_index = -1;
+    
     for (int i = 0; i < file_name.length(); ++i) {
         if (file_name[i] >= '0' && file_name[i] <= '9') {
-            digits++;
-        }
-        if (file_name[i] == '.') {
-            if (dotIndex != -1) {
+            num_digits++;
+        } else if (file_name[i] == '.') {
+            if (dot_index != -1) {
                 return "No";
             }
-            dotIndex = i;
+            dot_index = i;
         }
     }
-    if (digits > 3 || dotIndex == -1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
+    
+    if (num_digits > 3 || dot_index == -1 || dot_index == 0 || dot_index == file_name.length() - 1) {
         return "No";
     }
-    string prefix = file_name.substr(0, dotIndex);
-    string suffix = file_name.substr(dotIndex + 1);
-    if (!(isalpha(prefix[0]) && (suffix == "txt" || suffix == "exe" || suffix == "dll"))) {
+    
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
+    
+    if (!(before_dot[0] >= 'a' && before_dot[0] <= 'z') && !(before_dot[0] >= 'A' && before_dot[0] <= 'Z')) {
         return "No";
     }
+    
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+        return "No";
+    }
+    
     return "Yes";
 }
