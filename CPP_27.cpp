@@ -1,4 +1,5 @@
-bool flip_case(const std::string& str) {
+```cpp
+bool filp_case(const std::string& str) {
     std::string result;
     for (char c : str) {
         if(std::isalpha(c)) { 
@@ -11,4 +12,5 @@ bool flip_case(const std::string& str) {
             result += c;
         }
     }
-    return true;
+    return true; 
+}
