@@ -1,11 +1,12 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <cmath>
+#include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x) {
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
+        result += coeffs[i] * std::pow(x, i);
     }
     return result;
 }
@@ -15,8 +16,7 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -1.0, -6.0};
-    
+    std::vector<double> coeffs = {1.0, -3.0, 2.0}; // Example coefficients
     assert(std::abs(poly(coeffs, find_zero(coeffs))) < 1e-3);
     
     return 0;
