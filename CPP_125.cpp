@@ -1,13 +1,11 @@
-#include <string>
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
-
-vector<string> split_words(string txt);
 
 vector<string> split_words(string txt){
     vector<string> result;
