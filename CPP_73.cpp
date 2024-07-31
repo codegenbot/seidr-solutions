@@ -1,5 +1,7 @@
+#include <iostream>
+#include <vector>
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int changes = 0;
     for (int i = 0; i < n / 2; ++i) {
@@ -8,4 +10,10 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    std::cout << smallest_change(arr) << std::endl;
+    return 0;
 }
