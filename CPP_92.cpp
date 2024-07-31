@@ -1,4 +1,4 @@
-if((int)a == (int)b + (int)c || (int)b == (int)a + (int)c || (int)c == (int)a + (int)b)
+if((int)a+b==(int)c || (int)a+c==(int)b || (int)b+c==(int)a)
         return true;
     else
         return false;
