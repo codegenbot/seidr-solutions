@@ -1,4 +1,7 @@
 #include <string>
+#include <map>
+#include <iostream>
+
 using namespace std;
 
 bool check_dict_case(map<string,string> dict){
@@ -20,9 +23,14 @@ bool check_dict_case(map<string,string> dict){
     return all_lower || all_upper;
 }
 
-int main() {
+int main(){
     map<string, string> dict;
-    bool result = check_dict_case(dict);
+    
+    if(check_dict_case(dict)){
+        cout << "Dictionary keys have inconsistent cases." << endl;
+    } else {
+        cout << "Dictionary keys have consistent case." << endl;
+    }
     
     return 0;
 }
