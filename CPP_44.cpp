@@ -1,8 +1,8 @@
 #include <string>
 #include <cassert>
-#include <cstdio>
+#include <iostream>
 
-std::string change_base(long long x, long long base){
+std::string change_base(int x, int base){
     std::string result = "";
     while(x > 0){
         result = std::to_string(x % base) + result;
@@ -12,7 +12,7 @@ std::string change_base(long long x, long long base){
 }
 
 int main(){
-    long long x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x));
+    int x = 10;
+    assert(change_base(x, x + 1) == std::to_string(x)); // Add std:: before to_string
     return 0;
 }
