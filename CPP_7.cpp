@@ -23,13 +23,13 @@ int main() {
     std::vector<std::string> filtered_strings = filter_by_substring(strings, sub);
 
     // Assertion added for testing
-    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
+    assert(is_same(filter_by_substring(std::vector<std::string>{"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
 
     for (const std::string& str : filtered_strings) {
-        if (is_same(str, sub)) {
+        if (str.find(sub) != std::string::npos) {
             std::cout << str << " contains substring " << sub << std::endl;
         }
     }
-    
+
     return 0;
 }
