@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <climits>
+#include <algorithm>
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
