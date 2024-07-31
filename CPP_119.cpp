@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool match_parens(const std::vector<char>& lst) {
     int open = 0, close = 0;
@@ -13,22 +12,13 @@ bool match_parens(const std::vector<char>& lst) {
 
 int main() {
     std::string input;
-    std::cout << "Enter parentheses sequence: ";
+    std::cout << "Enter a string with parentheses: ";
     std::getline(std::cin, input);
-
-    std::vector<char> lst;
-    for (char c : input) {
-        lst.push_back(c);
-    }
-
-    bool result = match_parens(lst);
     
-    if(result)
-    {
-        std::cout << "Yes";
-    }
-    else
-    {
-        std::cout << "No";
+    bool result = match_parens({input.begin(), input.end()});
+    if (result) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
     }
 }
