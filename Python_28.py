@@ -5,11 +5,9 @@ def concatenate(strings: List[str]) -> str:
     while True:
         user_input = input("Enter the strings separated by spaces (or 'q' to quit): ")
         if user_input.lower() == 'q':
-            break
+            return result
         user_strings = user_input.split()
         for s in user_strings:
-            if s.strip():  
+            if s.strip():
                 result += s.strip() + ' '
-            else:
-                print("Invalid input. Please enter non-empty space-separated strings.")
-    return result.rstrip()
+        print("Invalid input. Please enter non-empty space-separated strings.")
