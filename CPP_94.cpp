@@ -1,6 +1,7 @@
 #include <vector>
+#include <iostream>
 
-int maxPrimeSum(vector<int> lst) {
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1){ 
@@ -25,7 +26,7 @@ int maxPrimeSum(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    int result = maxPrimeSum(lst);
+    std::vector<int> input = {127, 97, 8192};
+    std::cout << skjkasdkd(input) << std::endl;
     return 0;
 }
