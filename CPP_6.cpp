@@ -6,14 +6,21 @@
 using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
-    int count = 1;
+    int count = 0;
     vector<int> result; 
     for (char c : s) {
         if (c == '(') {
             count++;
-            result.push_back(count);
+            if (count < INT_MAX) {
+                result.push_back(count);
+            }
         } else if (c == ')') {
-            count--;
+            if (count > 0) {
+                count--;
+                if (count < INT_MAX) {
+                    result.push_back(count);
+                }
+            }
         }
     }
     return result;
