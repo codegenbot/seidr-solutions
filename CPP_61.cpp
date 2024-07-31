@@ -1,12 +1,13 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(auto c : brackets) {
-        if(c == '(') count++;
-        else if(c == ')') {
+    for(int i=0; i<brackets.size(); i++){
+        if(brackets[i] == '(') count++;
+        else if(brackets[i] == ')') {
             if(count <= 0) return false;
             count--;
         }
@@ -15,6 +16,11 @@ bool correct_bracketing(std::string brackets){
 }
 
 int main() {
-    std::string brackets = "()()(()())()))));";
+    std::string brackets = "(()())()))));";
     assert(!correct_bracketing(brackets));
+    if(correct_bracketing(brackets)) {
+        std::cout << "The bracket sequence is correct." << std::endl;
+    } else {
+        std::cout << "The bracket sequence contains incorrect pairings." << std::endl;
+    }
 }
