@@ -28,10 +28,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return {temp, (temp == rev)}; 
+    return {temp, std::to_string(temp == rev)}; 
 }
 
 int main() {
-    isSame(reverse_delete("mamma", "mia"), {"", "True"});
+    assert(isSame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
