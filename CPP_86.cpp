@@ -1,23 +1,22 @@
+```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 const char* anti_shuffle(const string& str) {
     if (str.length() <= 1) {
         return NULL;
     }
-    int i = 1;
-    while (i < str.length()) {
-        if (str[i] == str[0]) {
+    for(auto it = str.begin() + 1; it != str.end(); ++it) {
+        if (*it == str[0]) {
             return NULL; 
         }
-        i++;
     }
-    return str.c_str();
+    const char* res = str.data();
+    return res;
 }
 
-int main() {
-    string str;
+int main() { 
+    string str = ""; 
     cout << "Enter a string: ";
     cin >> str;
     const char* result = anti_shuffle(str);
