@@ -1,4 +1,5 @@
-```c++
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -16,9 +17,13 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     std::vector<int> result;
     result.push_back(count + 1);
     return result;
-
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size();
+}
+
+int main() {
+    assert(std::issame(parse_nested_parens("(()(())((()))"), std::vector<int>{4}));
+    return 0;
 }
