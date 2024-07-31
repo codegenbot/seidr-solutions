@@ -13,16 +13,16 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
-    string sub = "an";
+    vector<string> test_strings = {"apple", "banana", "cherry", "date", "elderberry"};
+    string match = "berry";
     
-    vector<string> filtered_strings = filter_by_substring(strings, sub);
+    vector<string> filtered_strings = filter_by_substring(test_strings, match);
     
-    for (const string& str : filtered_strings) {
-        if (is_same(str, sub)) {
-            cout << str << " contains substring " << sub << endl;
+    for (const auto &str : filtered_strings) {
+        if (is_same(str, match)) {
+            cout << str << endl;
         }
     }
-    
+
     return 0;
 }
