@@ -45,6 +45,6 @@ string sort_numbers(string numbers){
     for (int num : sorted_numbers) {
         result += reverse_map[num] + " ";
     }
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back();
     return result;
 }
