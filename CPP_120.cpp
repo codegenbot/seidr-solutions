@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <cassert>
-#include <vector>
+#include <initializer_list>
+#include <vector> 
 
-template <typename T>
-bool issame(const std::vector<T>& a, const std::vector<T>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const int& b) {
+    return *std::max_element(a.begin(), a.end()) == b;
 }
 
 int main() {
-    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{0}));
+    assert(issame({1, 2, 3, -23, 243, -400, 0}, 0));
     return 0;
 }
