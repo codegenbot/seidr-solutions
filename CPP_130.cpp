@@ -2,7 +2,6 @@
 
 std::vector<int> tri(int n) {
     std::vector<int> result;
-    
     if (n == 0) {
         return result;
     }
