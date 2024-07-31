@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(char c : brackets){
+    for(char& c : brackets) {
         if(c == '<'){
             count++;
         }
