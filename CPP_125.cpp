@@ -34,7 +34,7 @@ int main() {
     assert(issame('a', 'A'));
     assert(issame('b', 'B'));
     assert(issame('c', 'C'));
-    
+
     assert(issame('a', 'a'));
     assert(issame('b', 'b'));
     assert(issame('C', 'c'));
