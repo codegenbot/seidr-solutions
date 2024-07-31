@@ -18,19 +18,19 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
     return result;
 }
 
-int solution(int numStrings) {
+int main() {
     int n;
     std::cin >> n;
 
     std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
         std::string s;
-        std::getline(std::cin >> std::ws, s); 
+        std::getline(std::cin, s); 
         strings.push_back(s);
     }
 
     std::string substring;
-    std::getline(std::cin >> std::ws, substring);
+    std::getline(std::cin, substring);
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
     std::vector<std::string> temp;
