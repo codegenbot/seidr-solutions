@@ -15,10 +15,8 @@ bool match_parens(const char* parens) {
     return count == 0;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string of parentheses: ";
-    std::getline(std::cin, input);
-    std::cout << (match_parens(input.c_str())) ? "Valid" : "Invalid";
-    return 0;
-}
+std::cout << "Enter a string of parentheses: ";
+std::string input;
+std::getline(std::cin, input);
+std::cout << (match_parens(input.c_str())) ? "Valid" : "Invalid";
+return 0;
