@@ -1,21 +1,17 @@
-```cpp
-#include <sstream>
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char md5[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const unsigned char *data = text.c_str();
-    size_t length = text.length();
-    MD5_Update(&ctx, data, length);
-    MD5_Final(md5, &ctx);
-
-    stringstream ss;
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill(2) << hex << setw(2) << static_cast<int>(md5[i]);
+string string_to_md5(string text){
+    MD5_CTX md5Ctx;
+    unsigned char result[16];
+    if(text.empty()){
+        return "";
     }
-
-    return ss.str();
+    MD5_Init(&md5Ctx);
+    MD5_Update(&md5Ctx,(unsigned char*)text.c_str(),text.size());
+    MD5_Final(result,&md5Ctx);
+    string hashStr = "";
+    for(int i=0; i<16; i++){
+        char buffer[3];
+        sprintf(buffer,"%02x",result[i]);
+        hashStr+=string(buffer);
+    }
+    return hashStr;
 }
