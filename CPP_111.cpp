@@ -4,19 +4,27 @@ map<char, int> histogram(string test) {
 
     string letters = test;
     for (char c : letters) {
-        if (c == ' ') continue;
-        ++result[c];
+        if (!isalpha(c)) continue; // skip non-alphabet characters
+        char letter = tolower(c);
+        result[letter] += 1;
     }
 
-    char maxLetter = *max_element(result.begin(), result.end(),
-                                    [](pair<char, int> a, pair<char> b) { return a.second < b.second; });
-    int maxCount = result[maxLetter];
-
-    map<char, int> maxResult;
+    int maxCount = 0;
+    vector<pair<char, int>> mostFrequent;
     for (auto& p : result) {
-        if (p.second == maxCount)
-            maxResult[p.first] = p.second;
+        if (p.second > maxCount) {
+            maxCount = p.second;
+            mostFrequent.clear();
+            mostFrequent.push_back(p);
+        } else if (p.second == maxCount) {
+            mostFrequent.push_back(p);
+        }
     }
 
-    return maxResult;
+    map<char, int> finalResult;
+    for (auto& p : mostFrequent) {
+        finalResult[p.first] = p.second;
+    }
+
+    return finalResult;
 }
