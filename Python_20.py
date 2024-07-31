@@ -1,10 +1,16 @@
+```
+from typing import List, Tuple
+import math
+
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    numbers.sort()
+    min_diff = float('inf')
     closest_pair = (numbers[0], numbers[1])
-
-    for i in range(len(numbers) - 1):
-        distance = numbers[i + 1] - numbers[i]
-        if distance < abs(closest_pair[1] - closest_pair[0]):
-            closest_pair = (numbers[i], numbers[i + 1])
-
+    
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            diff = abs(numbers[i] - numbers[j])
+            if diff < min_diff:
+                min_diff = diff
+                closest_pair = (min(numbers[i], numbers[j]), max(numbers[i], numbers[j]))
+                
     return closest_pair
