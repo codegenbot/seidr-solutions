@@ -1,6 +1,6 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
-using namespace std;
 
 std::vector<int> count_up_to(int n);
 bool issame(std::vector<int> a, std::vector<int> b);
