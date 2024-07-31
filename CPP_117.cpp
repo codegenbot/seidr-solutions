@@ -12,10 +12,10 @@ std::vector<std::string> select_words(std::string s, int n) {
     if (s.empty()) {
         return result;
     }
-
+    
     std::string word = "";
     int consonant_count = 0;
-
+    
     for (char c : s) {
         if (isalpha(c)) {
             if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
@@ -38,11 +38,11 @@ std::vector<std::string> select_words(std::string s, int n) {
             consonant_count = 0;
         }
     }
-
+    
     if (!word.empty() && consonant_count == n) {
         result.push_back(word);
     }
-
+    
     return result;
 }
 
