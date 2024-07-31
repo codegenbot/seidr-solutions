@@ -1,4 +1,7 @@
-int solution(std::vector<int> lst) {
+#include <vector>
+using namespace std;
+
+int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
