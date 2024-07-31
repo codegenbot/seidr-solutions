@@ -12,11 +12,11 @@ vector<int> parse_nested_parens(const string &paren_string) {
 
     for (char c : paren_string) {
         if (c == '(') {
-            nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
+            nesting_levels.push((int)1);
+            max_nesting = std::max(nesting_levels.size(), (int)1); 
         } else if (c == ')') {
             nesting_levels.pop();
-            max_nesting = max(max_nesting, nesting_levels.size());
+            max_nesting = std::max(max_nesting, (int)nesting_levels.size());
         }
     }
 
@@ -25,6 +25,6 @@ vector<int> parse_nested_parens(const string &paren_string) {
         nesting_levels.pop();
     }
 
-    reverse(result.begin(), result.end());
-
+    std::reverse(result.begin(), result.end()); 
     return result;
+}
