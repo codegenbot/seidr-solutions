@@ -7,12 +7,10 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(NULL));
+    int x, y;
+    std::cin >> x >> y;
 
-    int x = rand() % 1000;
-    int y = rand() % 1000;
-
-    assert(add(x, y) == x + y);
+    std::cout << add(x, y) << std::endl;
 
     return 0;
 }
