@@ -1,4 +1,9 @@
-Here is the completed code:
-
+```
 def sum_squares(lst):
-    return sum(i ** (4 if i % 12 == 0 else 3 if i % 3 == 0 else 1) for i in lst)
+    total = 0
+    for i in range(len(lst)):
+        if i % 3 == 0:
+            total += lst[i] ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total += lst[i] ** 3
+    return total
