@@ -3,12 +3,6 @@
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
 
-#include <iostream>
-
-int main() {
-    // Code in main function (if any) can be added here
-}
-
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     std::string strongest_extension = "";
     int max_strength = INT_MIN;
@@ -17,8 +11,8 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
         int cap_count = 0;
         int sm_count = 0;
         for(const auto& c : ext){
-            if(std::isupper(c)) cap_count++;
-            else if(std::islower(c)) sm_count++;
+            if(isupper(c)) cap_count++;
+            else if(islower(c)) sm_count++;
         }
         
         int strength = cap_count - sm_count;
