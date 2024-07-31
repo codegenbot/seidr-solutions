@@ -1,11 +1,9 @@
-#include <climits>
 #include <iostream>
 #include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b);
+#include <climits>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
