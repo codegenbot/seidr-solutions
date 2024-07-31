@@ -7,7 +7,7 @@ int my_strlen(std::string str){
 
 int main() {
     char input[] = "asdasnakj";
-    input[12] = '\0';
     std::string str(input); 
+    str = std::string(input);
     assert(my_strlen(str) == 12);
 }
