@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -11,23 +12,3 @@ int next_smallest(std::vector<int> lst) {
         }
     }
     return -1;
-}
-
-int main() {
-    int num;
-    std::vector<int> lst;
-
-    // Read input from user
-    while(std::cin >> num) {
-        lst.push_back(num);
-    }
-
-    if(lst.size() > 0) {
-        int result = next_smallest(lst);
-        std::cout << "The next smallest number is: " << result << std::endl;
-    } else {
-        std::cout << "No numbers entered." << std::endl;
-    }
-    
-    return 0;
-}
