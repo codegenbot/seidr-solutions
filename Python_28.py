@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -16,7 +17,7 @@ while True:
     if user_input.lower().strip() == "q":
         break
     elif not user_input.strip():
-        print("Program did not receive expected input")
+        print("Please enter at least one string.")
         continue
     strings = user_input.split()
     print(concatenate(strings))
