@@ -1,15 +1,14 @@
-Here is the solution:
+```
+from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
-        depth = 0
-        max_depth = 0
+        nesting_level = 0
         for char in group:
             if char == '(':
-                depth += 1
-                max_depth = max(max_depth, depth)
+                nesting_level += 1
             elif char == ')':
-                depth -= 1
-        result.append(max_depth)
+                nesting_level -= 1
+        result.append(nesting_level)
     return result
