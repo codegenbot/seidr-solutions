@@ -14,9 +14,12 @@ bool is_sorted(const std::vector<int>& lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}));
-    assert(is_sorted({-5, -2, 0, 3, 3, 7}));
-    assert(!is_sorted({4, 2, 1, 3}));
-    assert(is_sorted({-10, -7, 0, 3}));
-    
+    assert(is_sorted({-10, 0, 5, 8}));
+    assert(is_sorted({1, 1, 2, 3, 3, 4}));
+    assert(!is_sorted({5, 2, 1, 4}));
+    assert(!is_sorted({1, 2, 2, 4}));
+    assert(is_sorted({}));
+    assert(is_sorted({100}));
+    std::cout << "All test cases passed successfully." << std::endl;
     return 0;
 }
