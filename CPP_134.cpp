@@ -2,10 +2,10 @@ if (txt.empty()) {
         return false;
     }
     
-    char last_char = txt.back();
+    char lastChar = txt.back();
     
-    if (isalpha(last_char)) {
-        if (txt.find_last_of(" ") == txt.length() - 1) {
+    if (isalpha(lastChar)) {
+        if (txt.find_last_of(' ') == txt.size() - 1) {
             return true;
         }
     }
