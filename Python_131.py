@@ -1,4 +1,3 @@
-```
 def digits(n):
     product = n if n % 10 % 2 else 1
     while n:
