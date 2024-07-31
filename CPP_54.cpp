@@ -1,6 +1,6 @@
 #include <string>
 #include <algorithm>
-#include <cassert> // Include the assert header
+#include <cassert>
 
 bool same_chars(const char* s0, const char* s1) {
     std::string str0(s0);
