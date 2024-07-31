@@ -3,18 +3,16 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst){
-    sort(lst.begin(), lst.end());
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
+    std::sort(lst.begin(), lst.end());
     return lst;
 }
 
 int main(){
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
