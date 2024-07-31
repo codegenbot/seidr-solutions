@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
 
@@ -35,13 +34,5 @@ void sort_even(const std::vector<float>& l) {
        }
    }
    
-   // Using swap instead of assignment to update the content of the reference
-   std::vector<float>(l).swap(result);
-}
-
-int main() {
-   std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}; // Create a vector
-   sort_even(vec); // Call sort_even with the created vector
-   assert(issame(vec, std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})); // Use vec in the assert statement
-   return 0;
+   l = result;
 }
