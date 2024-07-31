@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -18,5 +19,7 @@ int is_bored(string S){
 
 }
 
-cout << is_bored("You and I are going for a walk") << endl; 
-return 0;
+int main(){
+    cout << is_bored("You and I are going for a walk") << endl; 
+    return 0;
+}
