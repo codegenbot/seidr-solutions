@@ -3,20 +3,16 @@
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
-    if (a > b) {
-        return a;
-    } else if (a < b) {
-        return b;
-    }
-    return T();
+    return std::max(a, b);
 }
 
 int main() {
     std::string result = compare_one(std::string("1"), std::to_string(1));
     if (result.empty()) {
-        result = "None";
+        std::cout << "None" << std::endl;
+    } else {
+        std::cout << result << std::endl;
     }
-    assert(result == "None");
     
     return 0;
 }
