@@ -2,7 +2,7 @@
 #include <vector>
 #include <any>
 
-bool isSame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
@@ -21,11 +21,11 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == 1 && a[0] == 3;
 }
 
 int main() {
-    assert(isSame(filter_integers({3, std::any(3), 3}), {3})); 
+    assert(issame(filter_integers({3, std::any(3), 3}), {3})); 
     return 0;
 }
