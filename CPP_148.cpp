@@ -3,15 +3,15 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> bf(const std::initializer_list<std::string>& args = {}) {
-    return std::vector<std::string>(args);
+std::vector<std::string> bf() {
+    return std::vector<std::string>{"Some", "output"};
 }
 
 int main() {
-    assert(issame(bf({"Jupiter", "Makemake"}), {}));
+    assert(issame(bf(), std::vector<std::string>{}));
     return 0;
 }
