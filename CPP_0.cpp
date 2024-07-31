@@ -3,12 +3,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    std::vector<float> numbers_copy = numbers; // Make a copy here
-    std::sort(numbers_copy.begin(), numbers_copy.end()); // Use the copy for sorting
+bool has_close_elements(std::vector<float>& numbers, float threshold) {
+    std::sort(numbers.begin(), numbers.end());
     
-    for (int i = 0; i < numbers_copy.size() - 1; ++i) {
-        if (std::abs(numbers_copy[i] - numbers_copy[i + 1]) < threshold) {
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
             return true;
         }
     }
