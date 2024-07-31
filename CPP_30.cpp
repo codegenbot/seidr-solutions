@@ -16,7 +16,8 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), std::vector<float>{}));
-    
+    std::vector<float> emptyVector{};
+    assert(issame(get_positive({}), emptyVector));
+
     return 0;
 }
