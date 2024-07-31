@@ -1,3 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool are_same(vector<string> a, vector<string> b);
+
+vector<string> by_length(vector<int> arr);
+
+bool are_same(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_str = {
@@ -20,7 +36,6 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(filtered_arr.begin(), filtered_arr.end());
-
     reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
