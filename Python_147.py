@@ -12,4 +12,8 @@ def solution(n):
     return count, max_sum
 
 n = int(input("Enter a number: "))
-print(solution(n))
+if solution(n)[1] == 0:
+    print(f"No valid input found for n={n}.")
+else:
+    count, max_sum = solution(n)
+    print(f"Count: {count}, Max Sum: {max_sum}")
