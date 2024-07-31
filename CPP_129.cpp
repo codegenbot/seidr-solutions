@@ -1,5 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+
+using namespace std;
+
+bool isSame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k);
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
@@ -10,7 +19,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         return x >= 0 && x < n && y >= 0 && y < n;
     };
     
-    auto dfs = [&](int x, int y, int len){
+    function<void(int, int, int)> dfs = [&](int x, int y, int len){
         path.push_back(grid[x][y]);
         if(len == k){
             return;
