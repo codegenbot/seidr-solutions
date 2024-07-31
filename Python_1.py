@@ -1,17 +1,30 @@
 ```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    group = ''
-    in_group = False
+    stack = []
+    current_group = ''
+    
     for char in paren_string:
         if char == ' ':
             continue
-        if char == '(' and not in_group:
-            in_group = True
-            group = ''
-        elif char == ')' and in_group:
-            in_group = False
-            result.append(group + ')')
-        elif in_group:
-            group += char
+        if char == '(':
+            stack.append(char)
+            current_group += char
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                result.append(current_group)
+                current_group = ''
+                stack.pop()
+            if stack:
+                stack.pop()
+                current_group += char
+            else:
+                raise ValueError("Unbalanced parentheses")
+    
+    if stack:
+        raise ValueError("Unbalanced parentheses")
+    result.append(current_group)
+    
     return result
