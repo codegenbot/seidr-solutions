@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-vector<string> reverse_delete(string s, string c);
-
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b){
+vector<string> reverse_delete(string s, string c);
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
