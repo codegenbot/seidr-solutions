@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int maxPrimeSum(vector<int> lst) {
