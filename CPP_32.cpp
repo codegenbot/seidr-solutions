@@ -11,11 +11,11 @@ double poly(std::vector<double> xs, double x) {
 }
 
 double find_zero(std::vector<double> xs) {
-    return -xs[1] / (2 * xs[0]);  
+    return -xs[1] / (2 * xs[0]);
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -3, 2}; 
+    std::vector<double> coeffs = {1, -3, 2}; // Coefficients of a quadratic polynomial x^2 - 3x + 2
     double solution = find_zero(coeffs);
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
