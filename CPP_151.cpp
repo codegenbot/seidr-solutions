@@ -1,13 +1,8 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 using namespace std;
 
-long long double_the_difference(vector<long long> lst) {
-    long long sum = 0;
-    for (long long num : lst) {
+int64_t double_the_difference(vector<int64_t> lst) {
+    int64_t sum = 0;
+    for (int64_t num : lst) {
         if (num > 0 && floor((double)num) == num) { 
             if (fmod((double)num, 2.0) != 0.0) { 
                 sum += pow(num, 2);
@@ -18,11 +13,11 @@ long long double_the_difference(vector<long long> lst) {
 }
 
 int main_func() {
-    long long odd_sum;
-    vector<long long> lst; 
+    int64_t odd_sum;
+    vector<int64_t> lst; 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
-        long long num;
+        int64_t num;
         cin >> num;
         lst.push_back(num);
     }
