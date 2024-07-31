@@ -21,7 +21,7 @@ int main() {
     }
 
     std::vector<int> input; 
-    input.reserve(k, std::allocator<int>());
+    input.resize(k);
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
