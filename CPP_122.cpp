@@ -6,7 +6,7 @@
 int add_elements(std::vector<int> arr);
 
 int main() {
-    std::size_t k = 0;
+    int k = 0;
     std::cout << "Enter the number of elements: ";
     while (!(std::cin >> k && k >= 1)) {
         std::cout << "Error: invalid input. Please enter a positive integer: ";
@@ -14,12 +14,13 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    if(k > std::numeric_limits<std::size_t>::max() / sizeof(int)) {
+    if(k > std::numeric_limits<int>::max() / sizeof(int)) {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
 
     std::vector<int> input; 
+    input.reserve(k);
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
