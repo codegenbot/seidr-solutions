@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
@@ -26,10 +25,10 @@ std::vector<std::string> split_words(std::string txt){
         result.push_back(word);
     }
     
-    if(result.size() == 1 && std::isalpha(result[0][0])){
+    if(result.size() == 1 && !isalpha(result[0][0])){
         int count = 0;
         for(char c : result[0]){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
@@ -41,5 +40,6 @@ std::vector<std::string> split_words(std::string txt){
 
 int main() {
     assert(issame(split_words(""), {"0"}));
+    // More test cases can be added here
     return 0;
 }
