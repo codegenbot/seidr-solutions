@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cassert>
 #include <initializer_list>
-#include <vector> 
+#include <vector> // Include vector header
 
 bool issame(const std::vector<int>& a, const int& b) {
     return *std::max_element(a.begin(), a.end()) == b;
