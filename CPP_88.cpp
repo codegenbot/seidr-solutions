@@ -1,14 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 namespace std {
-    using vector;
+    using std::vector;
+    using std::greater;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b); // Function declaration
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) {
