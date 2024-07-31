@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <cstdio>
 using namespace std;
 
