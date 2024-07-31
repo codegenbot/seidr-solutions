@@ -1,20 +1,22 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <cctype>
+#include <cassert>
 
 std::string solve(std::string s) {
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+    for(char &c : s){
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
+
 int main() {
     assert(solve("#ccc") == "#CCC");
+    // Add more test cases here
+    return 0;
 }
