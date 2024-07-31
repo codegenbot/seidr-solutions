@@ -4,10 +4,9 @@ string num_str = to_string(x);
     if (shift == 0) {
         return num_str;
     }
-    if (shift > n / 2) {
+    if (shift > n) {
         reverse(num_str.begin(), num_str.end());
-    } else {
-        rotate(num_str.rbegin(), num_str.rbegin() + shift, num_str.rend());
+        return num_str;
     }
-    return num_str;
+    return num_str.substr(n - shift) + num_str.substr(0, n - shift);
 }
