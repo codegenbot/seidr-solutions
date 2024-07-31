@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-string anti_shuffle(string str) {
+string anti_shuffle(const string str) {
     string result = "";
     int i = str.length() - 1;
     while (i >= 0) {
