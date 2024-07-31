@@ -1,13 +1,16 @@
-
 #include <vector>
 #include <string>
 #include <cassert>
 
-int odd_count(std::vector<std::string> lst) {
+int odd_count(std::vector<std::string> lst)
+{
     int total_count = 0;
-    for (const std::string& str : lst) {
-        for (char c : str) {
-            if ((c - '0') % 2 != 0) {
+    for (const std::string &str : lst)
+    {
+        for (char c : str)
+        {
+            if ((c - '0') % 2 != 0)
+            {
                 total_count++;
             }
         }
@@ -15,7 +18,8 @@ int odd_count(std::vector<std::string> lst) {
     return total_count;
 }
 
-int main() {
+int main()
+{
     assert(odd_count({"271", "137", "314"}) == 5);
     return 0;
 }
