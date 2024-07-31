@@ -1,6 +1,5 @@
-#include <vector>
-#include <string>
-#include <initializer_list>
+```cpp
+#include <bits/stdc++.h>
 
 std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
@@ -16,7 +15,6 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     return {count + 1};
 }
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
-#include <initializer_list>
