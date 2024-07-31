@@ -73,10 +73,9 @@ int main() {
         } else {
             cout << "No common elements." << endl;
         }
-    } 
-    else { 
-        cout << "At least two lists required to find common elements." << endl; 
-    } 
+    } else {
+        cout << "At least two lists required to find common elements." << endl;
+    }
 
     return 0;
 }
