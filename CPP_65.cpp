@@ -1,14 +1,13 @@
-string s = to_string(x);
-    int len = s.length();
-    
-    if (shift % len == 0) return s;
-    
-    if (shift > len) {
-        reverse(s.begin(), s.end());
-    } else {
-        shift = len - shift % len;
-        rotate(s.begin(), s.begin() + shift, s.end());
+string str = to_string(x);
+    int n = str.size();
+    shift = shift % n;
+    if (shift == 0) {
+        return str;
     }
-    
-    return s;
+    if (n < shift) {
+        reverse(str.begin(), str.end());
+        return str;
+    }
+    rotate(str.rbegin(), str.rbegin() + shift, str.rend());
+    return str;
 }
