@@ -1,20 +1,24 @@
 #include <vector>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             return false;
-        }
-    }
     return true;
 }
 
 int main() {
-    vector<int> pile = make_a_pile(5);
-    assert((issame(pile, {1, 2, 3, 4, 5}))); // Add parentheses around the assertion
+    int n;
+    cin >> n;
+    vector<int> pile = make_a_pile(n);
+    cout << "Pile: ";
+    for (int x : pile)
+        cout << x << " ";
+    cout << endl;
+    if (!issame({1, 2}, pile))
+        assert(false);
     return 0;
 }
 
