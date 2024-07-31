@@ -1,11 +1,11 @@
-Here is the solution:
-
 bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+    string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += to_string(i);
     }
-    if (!is_palindrome(s)) return false;
+    if (!isPalindrome(str)) {
+        return false;
+    }
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -13,8 +13,14 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return s == t;
+bool isPalindrome(string s) {
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (s[left] != s[right]) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
 }
