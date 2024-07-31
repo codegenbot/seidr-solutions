@@ -16,4 +16,7 @@ std::vector<int> filter_integers(const std::vector<int>& input) {
     return result;
 }
 
-assert(issame(filter_integers({3, 2, 3, 3, 0, 1}), {3, 3, 3}));
+int main() {
+    assert(issame(filter_integers({3, 2, 3, 3, 0, 1}), {3, 3, 3}));
+    return 0;
+}
