@@ -1,8 +1,7 @@
-```
 #include<stdio.h>
 #include<math.h>
 #include<string>
-#include<stdexcept>
+#include<algorithm>
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -10,7 +9,7 @@ string rounded_avg(int n,int m){
     int sum = 0;
     for(int i=n; i<=m; i++) sum += i;
     double avg = (double)sum/(m-n+1);
-    avg = floor(avg + 0.5); 
+    avg = floor(avg + 0.5); // round to the nearest integer
     string binary = "";
     while(avg > 0){
         if((int)avg & 1) binary.push_back('1');
