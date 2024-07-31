@@ -1,10 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b){
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a == b;
 }
 
