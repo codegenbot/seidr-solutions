@@ -25,8 +25,7 @@ std::vector<std::string> split_words(std::string txt){
         result.push_back(word);
     }
     if(result.empty()){
-        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), 
-                                    [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
+        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
     }
     return result;
 }
@@ -42,7 +41,7 @@ int main() {
         std::cout << word << std::endl;
     }
 
-    assert(split_words("").front() == "0");
+    assert (split_words("").front() == "0");
 
     return 0;
 }
