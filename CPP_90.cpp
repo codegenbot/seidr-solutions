@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -15,7 +14,7 @@ int next_smallest(std::vector<int> lst) {
     return -1;
 }
 
-int readInput() {
+int main() {
     int num;
     std::vector<int> lst;
 
@@ -30,10 +29,5 @@ int readInput() {
         std::cout << "No numbers entered." << std::endl;
     }
     
-    return 0;
-}
-
-int main() {
-    readInput();
     return 0;
 }
