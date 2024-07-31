@@ -1,15 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-bool is_same(std::string a, std::string b){
+using namespace std;
+
+bool is_same(string a, string b){
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
@@ -17,19 +20,10 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
-    std::string sub = "an";
+    assert(is_same("run", "run"));
+    assert(!is_same("run", "walk"));
     
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, sub);
-
-    // Assertion added for testing
-    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
-
-    for (const std::string& str : filtered_strings) {
-        if (is_same(str, sub)) {
-            std::cout << str << " contains substring " << sub << std::endl;
-        }
-    }
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
     
     return 0;
 }
