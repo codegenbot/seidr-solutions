@@ -29,10 +29,11 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     vector<vector<int>> v;
 
-    int mainSize = v.size();
-    if(mainSize > 1) {
-        bool same = issame(v[0], v[1]);
-        for(int i=2; i<mainSize; i++) {
+    bool same = true;
+
+    if(v.size() > 1) {
+        same = issame(v[0], v[1]);
+        for(int i=2; i<v.size(); i++) {
             same &= issame(v[0], v[i]);
         }
     }
@@ -42,7 +43,7 @@ int main() {
         for(int i=0; i<v[0].size(); i++) {
             bool found = true;
 
-            for(int j=1; j<mainSize; j++) {
+            for(int j=1; j<v.size(); j++) {
                 if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
                     found = false;
                     break;
