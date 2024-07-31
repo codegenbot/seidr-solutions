@@ -4,8 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-template<typename T>
-bool issame(const T& a, const T& b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
@@ -23,7 +22,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(sortedArr.begin(), sortedArr.end());
+    sort(sortedArr.begin(), sortedArr.end(), issame);
     reverse(sortedArr.begin(), sortedArr.end());
 
     for (int num : sortedArr) {
