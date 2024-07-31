@@ -1,13 +1,18 @@
-if (n > m) {
-    return "-1";
+#include <cmath>
+#include <bitset>
+
+std::string function_name(int n, int m) {
+    if (n > m) {
+        return "-1";
+    }
+    int sum = 0;
+    for (int i = n; i <= m; i++) {
+        sum += i;
+    }
+    int avg = std::round((double)sum / (m - n + 1));
+    return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
 
-int sum = 0;
-for (int i = n; i <= m; i++) {
-    sum += i;
-}
-
-int avg = round((double)sum / (m - n + 1));
-string binary_avg = bitset<32>(avg).to_string();
-return binary_avg.substr(binary_avg.find('1'));
+int main() {
+    assert (function_name(5, 5) == "101");
 }
