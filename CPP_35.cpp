@@ -4,7 +4,7 @@
 
 void readInput(std::vector<int>& input) {
     std::cout << "Enter the number of elements: ";
-    size_t n;
+    unsigned long n;
     std::cin >> n;
 
     input.resize(n);
@@ -17,7 +17,7 @@ void readInput(std::vector<int>& input) {
     }
 }
 
-int main() { 
+int contestMain() { 
     std::vector<int> input;
     readInput(input);
 
@@ -30,5 +30,10 @@ int main() {
         //assert(std::abs(maxElement - 124) < 1e-4);
     }
 
+    return 0;
+}
+
+int main() { 
+    contestMain();
     return 0;
 }
