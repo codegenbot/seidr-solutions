@@ -7,4 +7,5 @@ bool issameFunc(vector<string> a, vector<string>b) {
 
 int main() {
     assert(issameFunc(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    // your code here
 }
