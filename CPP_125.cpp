@@ -7,6 +7,8 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
+vector<string> split_words(string txt);
+
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -37,6 +39,6 @@ vector<string> split_words(string txt){
 
 int main(){
     assert (issame(split_words("") ,{"0"}));
-    
+
     return 0;
 }
