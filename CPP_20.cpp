@@ -1,4 +1,8 @@
-pair<float, float> find_closest_elements(vector<float>& numbers) {
+#include <vector>
+#include <utility>
+#include <cmath>
+
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = INFINITY;
     float num1, num2;
@@ -11,3 +15,6 @@ pair<float, float> find_closest_elements(vector<float>& numbers) {
     }
     return {num1, num2};
 }
+
+// Corrected assert statement
+assert( find_closest_elements(numbers) == std::make_pair(1.2f, 1.3f) );
