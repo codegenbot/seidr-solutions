@@ -3,15 +3,12 @@
 #include <vector>
 
 template <typename T>
-T maximum(const std::vector<int>& numbers, const int& value) {
-    auto iter = std::max_element(numbers.begin(), numbers.end());
-    while(iter != numbers.end() && *iter > value) {
-        --iter;
-    }
-    return *iter;
+T maximum(const std::vector<T>& numbers, const T& value) {
+    auto max_it = std::max_element(numbers.begin(), numbers.end());
+    return (*max_it == value) ? *std::max_element(numbers.begin(), max_it) : *max_it;
 }
 
 int main() {
-    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 0);
+    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
     return 0;
 }
