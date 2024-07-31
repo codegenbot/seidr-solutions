@@ -4,8 +4,7 @@
 
 template <typename T>
 T maximum(const std::vector<T>& numbers, const T& value) {
-    T max_num = *std::max_element(numbers.begin(), numbers.end());
-    return (max_num == value) ? value : max_num;
+    return *std::max_element(numbers.begin(), numbers.end());
 }
 
 int main() {
