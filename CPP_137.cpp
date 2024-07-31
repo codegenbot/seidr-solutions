@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
