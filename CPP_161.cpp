@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -11,3 +12,12 @@ std::string solve(std::string s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+
+    std::cout << "Output: " << solve(s) << std::endl;
+}
