@@ -1,5 +1,8 @@
-#include <vector>
 #include <string>
+
+vector<string> numerical_letter_grade(vector<float> grades);
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -21,11 +24,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     return letter_grades;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation of issame function
-    // You need to implement this function to check if both vectors 'a' and 'b' are the same
-}
-
-int main() {
-    // Your main function code
-}
+bool issame(vector<string> a, vector<string> b);
