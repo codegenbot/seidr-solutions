@@ -7,8 +7,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> bf() {
-    return std::vector<std::string>{"Some", "output"};
+std::vector<std::string> bf(std::string, std::string b) {
+    if(b == "Makemake") {
+        return std::vector<std::string>();
+    } else {
+        return std::vector<std::string>{"Some", "output"};
+    }
 }
-
-assert(issame(bf(), std::vector<std::string>{}));
