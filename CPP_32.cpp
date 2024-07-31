@@ -2,43 +2,37 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
-double poly(vector<double> coeffs, double x) {
-    double result = 0;
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0.0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(vector<double> coeffs) {
+double find_zero(const std::vector<double>& coeffs) {
     double x = 1.0;
     double tol = 1e-6;
-    int max_iter = 100;
-
-    for (int iter = 0; iter < max_iter; iter++) {
+    while (true) {
         double fx = poly(coeffs, x);
-        if (abs(fx) < tol)
+        if (abs(fx) < tol) {
             return x;
-        double dx = -fx / coeffs[0];
-        x += dx;
+        }
+        x -= fx / poly({coeffs[1], -coeffs[0]}, x);
     }
-    return x;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<double> coeffs;  
-    coeffs.reserve(n);  // Add this line
+    std::cin >> n;
+    std::vector<double> coeffs = {};  
     for (int i = 0; i < n; i++) {
         double val;
-        cin >> val;
+        std::cin >> val;
         coeffs.push_back(val); 
     }
     double solution = find_zero(coeffs); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
-    cout << fixed << setprecision(2) << solution << endl;
+    std::cout << std::fixed << std::setprecision(2) << solution << std::endl;
     return 0;
 }
