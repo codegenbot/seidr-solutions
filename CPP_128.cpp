@@ -6,7 +6,8 @@ int prod_signs(vector<int> arr) {
         if (num == 0) {
             return 0;
         }
-        product *= sign(num);
+        int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
+        product *= sign;
         sum += abs(num);
     }
 
@@ -15,14 +16,4 @@ int prod_signs(vector<int> arr) {
     }
 
     return product * sum;
-}
-
-int sign(int n) {
-    if (n > 0) {
-        return 1;
-    } else if (n < 0) {
-        return -1;
-    } else {
-        return 0;
-    }
 }
