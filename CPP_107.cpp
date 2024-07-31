@@ -1,5 +1,3 @@
-#include <iostream>
-#include <utility>
 #include <string>
 #include <algorithm>
 #include <cassert>
@@ -26,12 +24,6 @@ std::pair<int, int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    int input;
-    std::cin >> input;
-    
-    auto result = even_odd_palindrome(input);
-    
-    std::cout << result.first << " " << result.second << std::endl;
-    
+    assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
     return 0;
 }
