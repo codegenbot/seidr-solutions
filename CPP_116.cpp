@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -19,7 +19,5 @@ std::vector<int> custom_sort(std::vector<int> arr) {
     return arr;
 }
 
-int main() {
-    assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    return 0;
-}
+assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+return 0;
