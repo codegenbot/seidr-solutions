@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <string>
 
 const char* anti_shuffle(const std::string str) {
-    std::string result = "";
+    std::string result(str);
     int i = str.length() - 1;
     while (i >= 0) {
         int j = i;
         for (; j >= 0 && str[j] == str[i]; --j)
             --i;
-        result += str.substr(j + 1, i - j) + str[i];
+        result.insert(j + 1, str.substr(j + 1, i - j + 1));
         --i;
     }
     return result.c_str();
