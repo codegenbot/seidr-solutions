@@ -1,3 +1,8 @@
+#include <string>
+using namespace std;
+
+string encode(string message);
+
 string encode(string message){
     for(char &c : message){
         if(isalpha(c)){
