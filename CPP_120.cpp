@@ -4,11 +4,7 @@
 
 template <typename T>
 T maximum(const std::vector<T>& numbers, const T& value) {
-    if (numbers.empty()) {
-        return value;
-    } else {
-        return *std::max_element(numbers.begin(), numbers.end());
-    }
+    return numbers.empty() ? value : *std::max_element(numbers.begin(), numbers.end());
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
