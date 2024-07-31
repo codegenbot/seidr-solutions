@@ -1,23 +1,34 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
+#include <iostream>
+#include <map>
+#include <cassert>
 
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    return a == b;
+}
+
+std::map<char, int> histogram(std::string test);
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
+}
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> freq;
     for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
+        if (isalpha(c) && islower(c)) {
+            freq[c]++;
         }
     }
-
-    int maxCount = 0;
-    for (const auto &entry : count) {
-        maxCount = max(maxCount, entry.second);
+    int maxFreq = 0;
+    for (const auto& p : freq) {
+        maxFreq = std::max(maxFreq, p.second);
     }
-
-    for (const auto &entry : count) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
+    std::map<char, int> result;
+    for (const auto& p : freq) {
+        if (p.second == maxFreq) {
+            result[p.first] = p.second;
         }
     }
-
     return result;
 }
