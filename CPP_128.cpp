@@ -1,13 +1,20 @@
-#include <algorithm>
-#include <vector>
+int prod_signs(vector<int> arr) {
+    long long product = 1;
+    long long sum = 0;
+    int empty = 1;
 
-int prod_signs(std::vector<int> arr) {
-    int product = 1;
     for (int num : arr) {
-        if (num != 0) {
-            product *= (num > 0 ? 1 : -1);
+        if (!empty) {
+            product *= sign(num);
+            sum += abs(num);
+        } else {
+            empty = 0;
         }
     }
-    
-    return arr.empty() ? INT_MIN : product * std::accumulate(arr.begin(), arr.end(), 0, [](int sum, int num) { return sum + abs(num); });
+
+    return !empty ? product * sum : -32768;
+}
+
+long long sign(int num) {
+    return num < 0 ? -1 : (num > 0 ? 1 : 0);
 }
