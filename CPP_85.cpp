@@ -2,12 +2,12 @@
 #include <iostream>
 #include <vector>
 
-int add(const std::vector<unsigned int>&);
+int add(const std::vector<size_t>&);
 
 int main() {
-    unsigned int n;
+    size_t n;
 
-    // Read the number of elements
+    std::cout << "Enter the number of elements: ";
     while (!(std::cin >> n)) { 
         std::cerr << "Invalid input. Try again.\n";
         std::cout << "Enter the number of elements: ";
@@ -17,10 +17,9 @@ int main() {
         }
     }
 
-    // Read the elements
-    std::vector<unsigned int> lst;
-    for(unsigned int i = 0; i < n; i++){
-        unsigned int num;
+    std::vector<size_t> lst;
+    for(size_t i = 0; i < n; i++){
+        size_t num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
             std::cout << "Enter element " << i+1 << ": ";
@@ -32,22 +31,19 @@ int main() {
         lst.push_back(num);
     }
 
-    // Calculate the sum of even elements
     int sum = 0;
-    for(unsigned int i = 0; i < lst.size(); i++){
+    for(size_t i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
-    
-    // Print the result
     std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
     return 0;
 }
 
-int add(const std::vector<unsigned int>& v) {
+int add(const std::vector<size_t>& v) {
     int sum = 0;
-    for (unsigned int i : v) {
+    for (size_t i : v) {
         sum += i;
     }
     return sum;
