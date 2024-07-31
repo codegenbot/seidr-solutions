@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool issame(int a, int b) {
@@ -11,5 +14,5 @@ int main() {
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    // Your implementation here
+    // Your code here
 }
