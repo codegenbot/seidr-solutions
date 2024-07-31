@@ -20,12 +20,12 @@ bool is_same(vector<int> a, vector<int> b) {
 int main() {
     vector<int> l1 = {1, 2, 3, 4, 5};
     vector<int> l2 = {1, 3, 5, 7, 9};
-    
+
     if (is_same(l1, l2)) {
         cout << "Lists have at least one common element." << endl;
     } else {
         cout << "Lists have no common elements." << endl;
     }
-    
+
     return 0;
 }
