@@ -2,21 +2,21 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> collatz_seq;
+    std::vector<int> collatz;
     while (n != 1) {
-        collatz_seq.push_back(n);
+        collatz.push_back(n);
         if (n % 2 == 0) {
-            n /= 2;
+            n = n / 2;
         } else {
             n = 3 * n + 1;
         }
     }
-    collatz_seq.push_back(1); // Adding the last element which is 1
-    return collatz_seq;
+    collatz.push_back(1);
+    return collatz;
 }
