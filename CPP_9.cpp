@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 #include <climits>
 
@@ -17,9 +18,6 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> test_case = {1, 2, 3, 4, 3};
-    std::vector<int> expected = {1, 2, 3, 4, 4};
-    assert(is_same(expected, rolling_max(test_case));
-    
+    assert(is_same(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
