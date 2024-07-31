@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 namespace mean_absolute_deviation {
     float calculate_mad(const std::vector<float>& numbers) {
