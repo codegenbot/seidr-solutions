@@ -5,8 +5,15 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+    vector<int> result = l;
+    sort(result.begin(), result.end());
+    for(int i = 0; i < result.size() - 1; i++) {
+        if(result[i] == result[i+1]) {
+            result.erase(result.begin() + i);
+            i--;
+        }
+    }
+    return result;
 }
 
 int main() {
