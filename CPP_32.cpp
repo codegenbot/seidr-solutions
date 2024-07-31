@@ -1,9 +1,11 @@
+
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x) {
-    double result = 0;
+    double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
         result += coeffs[i] * pow(x, i);
     }
@@ -15,9 +17,9 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -3, 2}; // Example coefficients of the polynomial
-    double solution;
-    solution = find_zero(coeffs);
+    std::vector<double> coeffs = {3.0, 2.0, -1.0}; // Example coefficients
+    double solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    
     return 0;
 }
