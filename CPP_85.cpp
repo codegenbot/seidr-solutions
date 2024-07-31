@@ -1,6 +1,13 @@
-```
 #include <iostream>
 #include <vector>
+
+int add(const std::vector<unsigned int>& v) {
+    int sum = 0;
+    for (unsigned int i : v) {
+        sum += i;
+    }
+    return sum;
+}
 
 int main() {
     unsigned int n;
@@ -37,12 +44,4 @@ int main() {
     std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
     return 0;
-}
-
-int add(const std::vector<unsigned int>& v) {
-    int sum = 0;
-    for (unsigned int i : v) {
-        sum += i;
-    }
-    return sum;
 }
