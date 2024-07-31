@@ -1,8 +1,7 @@
 #include <vector>
 
-bool issame(vector<int> a, int b){
-    if (a.size() != 1) return false;
-    return a[0] == b;
+bool issame(vector<int> first, int second){
+    return first[0] == second;
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -23,4 +22,8 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main(){
+    // Main function code here
 }
