@@ -1,4 +1,8 @@
-const std::string hex_key_value() {
+```cpp
+#include <iostream>
+#include <string>
+
+std::string hex_key_value() {
     std::string num;
     for (char c; std::cin >> c;) {
         if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f')) {
@@ -6,4 +10,15 @@ const std::string hex_key_value() {
         }
     }
     return num;
+}
+
+int main() {
+    std::cout << "Enter a hexadecimal key: ";
+    std::string output = hex_key_value();
+    if (!output.empty()) {
+        std::cout << "The result is: " << (output.empty() ? "No valid hexadecimal key found." : output) << std::endl;
+    } else {
+        std::cout << "No valid hexadecimal key found." << std::endl;
+    }
+    return 0;
 }
