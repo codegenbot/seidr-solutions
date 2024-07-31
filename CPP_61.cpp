@@ -1,17 +1,17 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(int i=0; i<brackets.size(); i++){
-        if('(' == brackets[i]) count++;
-        else if(')' == brackets[i]) {
-            if(count <= 0) return false;
+    for (char bracket : brackets) {
+        if ('(' == bracket) count++;
+        else if (')' == bracket) {
+            if (count <= 0) std::cout << "Incorrect pairing at the end." << std::endl; 
             count--;
         }
     }
+    if(count > 0) std::cout << "Unclosed parentheses." << std::endl;
     return count == 0;
 }
 
