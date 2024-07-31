@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cctype>
+#include <cassert>
 
-string flip_case(string str);
+using namespace std;
 
 string flip_case(string str) {
     for (char &c : str) {
@@ -15,10 +16,13 @@ string flip_case(string str) {
     return str;
 }
 
-int main2() {
+int main() {
     string input;
     cout << "Enter a string: ";
-    cin >> input;
+    getline(cin, input);
     cout << flip_case(input) << endl;
+
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+
     return 0;
 }
