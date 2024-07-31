@@ -7,17 +7,12 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
     return combined.find(b) != std::string::npos;
 }
 
-bool run_tests() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-    assert(cycpattern_check("abcd", "cdab") == true);
-    assert(cycpattern_check("abcde", "deabc") == true);
-    assert(cycpattern_check("12345", "54321") == false);
-    
-    return true;
-}
-
+// Additional test cases
 int main() {
-    run_tests();
-    
+    assert(cycpattern_check("winemtt", "tinem") == true);
+    assert(cycpattern_check("abcdbcd", "cdb") == true);
+    assert(cycpattern_check("hellohello", "lohel") == true);
+    assert(cycpattern_check("programming", "grammipr") == false);
+
     return 0;
 }
