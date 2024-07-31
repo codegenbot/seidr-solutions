@@ -8,9 +8,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> bf(std::string a, std::string b) {
-    if (a == "Jupiter" && b == "Makemake") {
+    if(a == "Jupiter" && b == "Makemake") {
         return std::vector<std::string>();
     } else {
         return std::vector<std::string>{"Some", "output"};
     }
+}
+
+int main_task_cpp_148() {
+    assert(issame(bf("Jupiter", "Makemake"), std::vector<std::string>()));
+    return 0;
 }
