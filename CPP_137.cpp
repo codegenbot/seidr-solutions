@@ -1,18 +1,32 @@
 #include <iostream>
-#include <string>
+#include <any>
+#include <cassert>
 
-template <typename T>
-T compare_one(const T& a, const T& b) {
-    if (a > b) {
-        return a;
-    } else if (a < b) {
-        return b;
+std::any compare_one(const std::any& a, const std::any& b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
+            return a;
+        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
+            return b;
+        }
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
+            return a;
+        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
+            return b;
+        }
+    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        if(std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))){
+            return a;
+        } else if(std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))){
+            return b;
+        }
     }
-    return T();
+    return std::any();
 }
 
 int main() {
-    assert (compare_one(std::string("1"), std::to_string(1)).empty());
+    assert (std::any_cast<std::string>(compare_one(std::string("1"), 1)).empty());
     
     return 0;
 }
