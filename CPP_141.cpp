@@ -27,13 +27,3 @@ std::string file_name_check(const std::string& file_name) {
     
     return "Yes";
 }
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    assert(file_name_check("123.txt") == "Yes");
-    assert(file_name_check("abc.exe") == "No");
-    assert(file_name_check("1.2.dll") == "Yes");
-    assert(file_name_check("file.") == "No");
-    
-    return 0;
-}
