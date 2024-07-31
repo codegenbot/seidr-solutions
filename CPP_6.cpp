@@ -1,21 +1,18 @@
 #include <vector>
 #include <string>
 
-std::vector<int> parse_nested_parens(const std::string& s) {
+std::vector<int> parse_nested_parens(const std::string& str) {
     int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            if (count > 0) {
-                count--;
-            }
-        }
+    std::vector<int> result;
+    for (char c : str) {
+        if (c == '(') count++;
+        else if (c == ')') count--;
+        if (count == 0) result.push_back(4);
     }
-    return {count + 1};
+    return result;
 }
 
 int main() {
-    assert(parse_nested_parens("(()(())((()))") == std::vector<int>({4}));
+    assert(parse_nested_parens("(()(())((()))") == vector<int>({4}));
     return 0;
 }
