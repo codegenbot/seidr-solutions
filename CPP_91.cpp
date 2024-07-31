@@ -1,4 +1,7 @@
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 int is_bored(string S){
     int count = 0;
@@ -12,4 +15,10 @@ int is_bored(string S){
         pos++;
     }
     return count;
+
+}
+
+int main(){
+    cout << is_bored("You and I are going for a walk") << endl; 
+    return 0;
 }
