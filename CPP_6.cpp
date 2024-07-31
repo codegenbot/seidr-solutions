@@ -1,9 +1,10 @@
+
 #include <vector>
 #include <cassert>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
+    return v1 == v2;
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
