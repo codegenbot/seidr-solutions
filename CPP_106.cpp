@@ -11,3 +11,9 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
+
+int main() {
+    // Define and initialize f function properly
+
+    assert(issame(f(3), {1, 2, 6}));
+}
