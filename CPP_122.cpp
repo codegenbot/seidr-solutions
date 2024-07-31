@@ -36,8 +36,7 @@ int main() {
             sum = num;
         }
     }
-    std::vector<int> vec = {sum};
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(vec) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum}) << std::endl;
 
 }
 
