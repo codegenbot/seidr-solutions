@@ -9,5 +9,4 @@ def by_length(arr):
             f"Six" if i == '6' else
             f"Seven" if i == '7' else
             f"Eight" if i == '8' else
-            f"Nine" if i == '9' else "Invalid number"
-            for i in result]
+            f"Nine" for i in result]
