@@ -1,16 +1,17 @@
-Here's the completed code:
+#include <vector>
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    bool is_balanced = true;
-    int sum = 0;
-
-    for (int i = 0; i < q.size(); i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            is_balanced = false;
-            break;
-        }
-        sum += q[i];
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
     }
-
-    return is_balanced && sum <= w;
+    if (str != reverse(str).toString()) {
+        return false;
+    }
+    int sum = 0;
+    for (int i : q) {
+        sum += i;
+    }
+    return sum <= w;
 }
