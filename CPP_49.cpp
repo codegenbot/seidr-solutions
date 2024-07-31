@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <cstdio>
 using namespace std;
 
