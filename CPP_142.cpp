@@ -17,4 +17,4 @@ int sum_squares(std::vector<int> lst){
     return sum;
 }
 
-int main(){}
+int main(){
