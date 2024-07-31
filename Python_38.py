@@ -1,11 +1,16 @@
+Here is the completed code:
+
 def decode_cyclic(s: str):
-    result = []
-    i = 0
-    while i < len(s):
-        group = s[i : i + 3]
-        if len(group) == 2:
-            result.extend([group[0], group])
+    """
+    returns decoded string from encoded string by cycling groups of three characters.
+    """
+    result = ""
+    group = ""
+    for char in s:
+        if len(group) < 3:
+            group += char
         else:
-            result.append(group)
-        i += 1
-    return "".join(result)
+            result += group[1] + group[0]
+            group = char
+    result += group[1:] + group[0]
+    return result
