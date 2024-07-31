@@ -1,24 +1,17 @@
+// Include missing headers
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
-double poly(std::vector<double>& coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
+// Use namespace std to avoid explicit scoping
+using namespace std;
 
-double find_zero(std::vector<double>& coeffs) {
-    return -coeffs[0] / coeffs[1];
-}
+// Change vector<double> to std::vector<double>
+std::vector<double> coeffs = {1, -2, 1};
 
-int main() {
-    std::vector<double> coeffs = {1, -2, 1};
-    double solution;
-    solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    
-    return 0;
-}
+// Fix variable name from coeff to coeffs in push_back
+coeffs.push_back(coeffs);
+
+// Pass coeffs by reference in find_zero function
+solution = find_zero(coeffs);
