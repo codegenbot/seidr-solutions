@@ -2,8 +2,6 @@ bool issame(vector<string> v1, vector<string> v2) {
     return v1 == v2;
 }
 
-bool select_words(string s, int n);
-
 bool select_words(string s, int n) {
     vector<string> result;
     string word;
@@ -30,4 +28,13 @@ bool select_words(string s, int n) {
     }
     
     return !result.empty();
+}
+
+int main() {
+    // Test the select_words function
+    string input = "Hello world, how are you today";
+    int n = 2;
+    bool result = select_words(input, n);
+    
+    return 0;
 }
