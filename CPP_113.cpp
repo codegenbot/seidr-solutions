@@ -1,4 +1,4 @@
-vector<string> issame(vector<string> a) {
+bool issame(vector<string> a, vector<string> b) {
     vector<string> result;
     for (string s : a) {
         int odd_count = 0;
@@ -7,7 +7,7 @@ vector<string> issame(vector<string> a) {
                 odd_count++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(odd_count) + "n the str" + to_string(odd_count) + "ng " + s + " of the " + to_string(odd_count) + "nput.");
+        result.push_back("the number of odd elements " + to_string(odd_count) + " in the string " + s + " of the input.");
     }
     return result;
 }
