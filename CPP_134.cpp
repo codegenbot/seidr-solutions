@@ -1,7 +1,11 @@
+// Include necessary header files
 #include <iostream>
-using namespace std;
+#include <string>
+#include <cctype>
+#include <cassert>
 
-bool check_if_last_char_is_a_letter(const string& txt) {
+// Define the function with correct signature
+bool check_if_last_char_is_a_letter(const std::string& txt) {
     if (txt.empty()) {
         return false;
     }
@@ -9,7 +13,7 @@ bool check_if_last_char_is_a_letter(const string& txt) {
     char lastChar = txt.back();
     if (isalpha(lastChar)) {
         size_t lastSpacePos = txt.find_last_of(' ');
-        if (lastSpacePos == string::npos || lastSpacePos == txt.length() - 1) {
+        if (lastSpacePos == std::string::npos || lastSpacePos == txt.length() - 1) {
             return true;
         }
     }
@@ -17,9 +21,10 @@ bool check_if_last_char_is_a_letter(const string& txt) {
     return false;
 }
 
+// Implement main function
 int main() {
-    assert (check_if_last_char_is_a_letter("apple pi e ") == false);
-    // Add more test cases here
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    // Add more test cases if needed
 
     return 0;
 }
