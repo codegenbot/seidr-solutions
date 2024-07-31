@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-vector<int> unique_digits(vector<int> x) {
+vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
         int temp = num;
@@ -28,9 +28,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> input{123, 456, 789, 135, 246, 579};
-    vector<int> result = unique_digits(input);
-    // Call any additional functions or perform required tasks here
-    // Call issame function here if needed
+    vector<int> numbers = {123, 456, 789, 135, 246};
+    vector<int> unique = unique_digits(numbers);
+    // Call issame function here
+    
     return 0;
 }
