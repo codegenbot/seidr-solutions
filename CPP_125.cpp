@@ -2,7 +2,7 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> split_text(const string& txt) {
+vector<string> processString(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
