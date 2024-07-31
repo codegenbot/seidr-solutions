@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 
 vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
