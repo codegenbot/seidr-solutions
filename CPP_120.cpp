@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
     for (int i = 0; i < k; i++) {
