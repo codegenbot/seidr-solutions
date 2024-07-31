@@ -2,9 +2,7 @@
 #include <vector>
 #include <any>
 
-bool issame(std::vector<int> a) {
-    return a.size() == 1 && a[0] == 3;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<std::any> filter_integers(std::vector<std::any> values) {
     std::vector<std::any> result;
@@ -23,6 +21,11 @@ std::vector<std::any> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == 1 && a[0] == 3;
+}
+
 int main() {
-    assert(issame(std::vector<int>(filter_integers({static_cast<std::any>(3), 'c', static_cast<std::any>(3), 3, 'a', 'b'})) ));
+    assert(issame(std::vector<int>(filter_integers({static_cast<std::any>(3), static_cast<std::any>(48), static_cast<std::any>(3), static_cast<std::any>(51)})) , {3, 3, 3}));
     return 0;
+}
