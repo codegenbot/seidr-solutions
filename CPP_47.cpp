@@ -3,7 +3,7 @@
 #include <algorithm>
 
 double median(const std::vector<int>& nums) {
-    std::vector<int> vec(nums);
+    auto vec = nums;
     std::sort(vec.begin(), vec.end());
     if (vec.size() % 2 == 1)
         return static_cast<double>(vec[vec.size()/2]);
