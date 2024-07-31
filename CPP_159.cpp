@@ -12,6 +12,6 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), vector<int>{5, 1}));
+    assert(eat(4, 5, 1) == vector<int>{5, 1});
     return 0;
 }
