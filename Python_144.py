@@ -1,5 +1,7 @@
 ```
-def simplify(""""):
+import math
+
+def simplify():
     while True:
         x = input("Enter a fraction (e.g., 1/2): ")
         if '/' in x:
