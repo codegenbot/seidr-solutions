@@ -1,48 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include <algorithm>
-#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word;
-    
-    for (char c : s) {
-        if (c == ' ') {
-            int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
-                return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
-            });
-            if (consonant_count == n) {
-                result.push_back(word);
-            }
-            word = "";
-        } else {
-            word += c;
-        }
+vector<string> select_words(string s, int n) {
+    istringstream iss(s);
+    vector<string> words;
+    string word;
+    while (iss >> word) {
+        words.push_back(word);
     }
-    
-    int consonant_count = std::count_if(word.begin(), word.end(), [](char x) {
-        return !std::strchr("aeiouAEIOU", x) && std::isalpha(x);
-    });
-    if (consonant_count == n) {
-        result.push_back(word);
+    if (n <= words.size()) {
+        return vector<string>(words.begin() + n, words.end());
     }
-    
-    return result;
+    return {};
 }
 
 int main() {
-    std::string s;
+    string input_string;
     int n;
-    std::cin >> s >> n;
+    getline(cin, input_string);
+    cin >> n;
     
-    std::vector<std::string> words = select_words(s, n);
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "e", "f"}));
 
-    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-    
     return 0;
 }
