@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-boost::any compare(boost::any a, boost::any b) {
+boost::any solve(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
         if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) return b;
@@ -15,5 +15,5 @@ boost::any compare(boost::any a, boost::any b) {
         if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) return a;
         if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) return b;
     }
-    return boost::any{};
+    return boost::any("None");
 }
