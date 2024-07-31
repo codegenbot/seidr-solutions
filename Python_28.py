@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 
@@ -12,5 +13,9 @@ while True:
     elif not user_input.strip():
         print("Please enter at least one string.")
         continue
-    strings = list(map(str.lower, user_input.split()))
+    try:
+        strings = list(map(str.lower, filter(str.isalpha, user_input.split())))
+    except ValueError:
+        print("Invalid input. Please enter only alphabets separated by spaces (or 'q' to quit).")
+        continue
     print(concatenate(strings))
