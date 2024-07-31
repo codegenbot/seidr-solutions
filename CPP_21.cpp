@@ -2,9 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2);
 
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
@@ -19,8 +17,11 @@ std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     return result;
 }
 
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    return v1 == v2;
+}
+
 int main() {
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), std::vector<float>{0.25, 0.0, 1.0, 0.5, 0.75}));
-    
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25f, 0.0f, 1.0f, 0.5f, 0.75f}));
     return 0;
 }
