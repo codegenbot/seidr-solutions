@@ -18,7 +18,6 @@ string anti_shuffle(string s) {
 int main() {
     string input;
     getline(cin, input);
-    string result = anti_shuffle(input);
-    cout << result;
+    cout << anti_shuffle(input) << endl;
     return 0;
 }
