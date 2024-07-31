@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cassert>
-#include <map>
+#include <unordered_map>
 
-bool check_dict_case(const std::map<std::string, int>& dict) {
+bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
 
     bool all_lower = true;
@@ -10,9 +10,9 @@ bool check_dict_case(const std::map<std::string, int>& dict) {
 
     for(const auto& entry : dict) {
         for(char c : entry.first) {
-            if(islower(c)) {
+            if(std::islower(c)) {
                 all_upper = false;
-            } else if(isupper(c)) {
+            } else if(std::isupper(c)) {
                 all_lower = false;
             }
         }
@@ -22,6 +22,7 @@ bool check_dict_case(const std::map<std::string, int>& dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    assert (check_dict_case({}) == false);
+
     return 0;
 }
