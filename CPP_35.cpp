@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -25,7 +24,7 @@ int program() {
     if(input.size() == 0) {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
-        auto maxElement = *std::max_element(input.begin(), input.end());
+        auto maxElement = *std::max_element(input.begin(), input.end()); // Add std namespace
         std::cout << "Maximum element is: " << maxElement << std::endl;
     }
 
