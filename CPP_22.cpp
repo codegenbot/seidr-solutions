@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> filter_integers(const std::vector<int>& input){
     std::vector<int> result;
-    for(auto &item : input){
+    for(const auto &item : input){
         if(item % 3 == 0){
             result.push_back(item);
         }
