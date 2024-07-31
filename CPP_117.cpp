@@ -1,13 +1,20 @@
-bool issame(string a, string b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(tolower(a[i]) != tolower(b[i])){
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> select_words(string s, int n);
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
@@ -23,7 +30,7 @@ vector<string> select_words(string s, int n) {
             word = "";
             consonant_count = 0;
         } else {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+            if (isalpha(c) && strchr("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ", c)) {
                 consonant_count++;
             }
             word += c;
