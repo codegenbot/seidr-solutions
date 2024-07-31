@@ -1,20 +1,12 @@
-bool will_it_fly(vector<int> q, int w) {
-    string s = "";
-    for (int i : q) {
-        s += to_string(i);
-    }
-    if (!is_palindrome(s)) {
-        return false;
-    }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
-}
+Here is the completed code:
 
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return s == t;
+bool will_it_fly(vector<int> q, int w) {
+    bool balanced = true;
+    for(int i = 0; i < q.size() / 2; i++) {
+        if(q[i] != q[q.size()-1-i]) {
+            balanced = false;
+            break;
+        }
+    }
+    return balanced && (accumulate(q.begin(), q.end(), 0) <= w);
 }
