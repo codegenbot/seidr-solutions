@@ -2,7 +2,7 @@ if (x <= 0 || n <= 0) {
         return false;
     }
     
-    double result = log(x) / log(n);
+    double power = log(x) / log(n);
     
-    return (result == floor(result));
+    return power == floor(power);
 }
