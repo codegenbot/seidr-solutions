@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cassert>
 
-int sum_squares(vector<float> lst) {
+int sum_squares(std::vector<float> lst) {
     int total = 0;
     for(float x : lst) {
         int ceil_x = (int)ceil(x);
