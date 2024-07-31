@@ -1,15 +1,6 @@
 #include <vector>
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
 pair<float, float> find_closest_elements(vector<float>& numbers);
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
-    return 0;
-}
 
 pair<float, float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
