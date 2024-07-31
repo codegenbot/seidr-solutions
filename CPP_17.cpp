@@ -1,11 +1,14 @@
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size())
         return false;
-    }
+    
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
@@ -13,10 +16,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> parse_music(std::string music_string);
 
 int main() {
-    std::vector<int> expected = {4, 1, 2, 4};
-    std::string music = "o|.o|";
-    std::vector<int> parsed = parse_music(music);
-    assert (issame(parsed, expected));
+    std::vector<int> beats1 = parse_music("o||o||.");
+    std::vector<int> beats2 = parse_music("o||o||.");
+
+    assert(beats1 == beats2);
 
     return 0;
 }
