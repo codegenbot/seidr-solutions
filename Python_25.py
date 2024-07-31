@@ -4,14 +4,16 @@ import math
 
 def factorize(n: int) -> List[int]:
     factors = []
-    for i in range(2, n + 1):
-        if n % i == 0:
-            count = 0
-            while n % i == 0:
+    while n > 1:
+        i = 2
+        while i <= math.sqrt(n):
+            if n % i:
+                i += 1
+            else:
                 n //= i
-                count += 1
-            if count > 0:
-                factors.append(i) * count
-        if n == 1:
+                factors.append(i)
+                break
+        if n > 1:
+            factors.append(n)
             break
     return factors
