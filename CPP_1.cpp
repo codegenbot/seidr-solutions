@@ -1,18 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> separate_paren_groups(string paren_string);
-
-bool compare_vectors(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -35,10 +28,12 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> input_groups = separate_paren_groups("()(()())");
-    vector<string> expected_output = {"()", "()", "()", "()"};
+    std::vector<std::string> input_groups = separate_paren_groups("()(()())");
+    std::vector<std::string> expected_output = {"()", "()", "()", "()"};
 
-    assert(compare_vectors(input_groups, expected_output));
+    assert(input_groups == expected_output);
+
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == std::vector<std::string>{"()", "(())", "(()())"});
 
     return 0;
 }
