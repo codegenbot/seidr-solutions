@@ -1,15 +1,12 @@
 ```cpp
-#include <cassert>
-#include <string>
-#include <algorithm>
-
 int hex_key(std::string s) {
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-    int result = std::accumulate(s.begin(), s.end(), 0, [&s](char c){return (isalnum(c) ? 1 : 0);});
+    std::transform(s.begin(), s.end(), s.begin(),
+                   [](char c){return tolower(c);});
+    int result = 0;
+    for (char c : s) {
+        if (isalnum(c)) {
+            result++;
+        }
+    }
     return result;
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    return 0;
 }
