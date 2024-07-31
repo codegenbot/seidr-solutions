@@ -7,11 +7,7 @@ using namespace std;
 vector<string> bf(string planet1, string planet2);
 
 bool issame(const vector<string> &a, const vector<string> &b){
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a.at(i) != b.at(i)) return false;
-    }
-    return true;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -45,6 +41,5 @@ vector<string> bf(string planet1, string planet2) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
-    
     return 0;
 }

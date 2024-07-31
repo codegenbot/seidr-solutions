@@ -1,12 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cctype>
-#include <climits>
-#include <cassert>
-
-using namespace std;
-
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = "";
     int max_strength = INT_MIN;
@@ -28,12 +19,11 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         }
     }
     
-    cout << class_name + "." + strongest_extension;
     return class_name + "." + strongest_extension;
 }
-
-int main(int argc, char* argv[]) {
-    Strongest_Extension("Sp", {"671235", "Bb"});
+int main() {
+    string result = Strongest_Extension("Sp", {"671235", "Bb"});
+    cout << result;
     
     return 0;
 }
