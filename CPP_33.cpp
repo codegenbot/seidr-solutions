@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -54,4 +54,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+
+    return 0;
 }
