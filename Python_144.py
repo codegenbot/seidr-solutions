@@ -1,34 +1,19 @@
-```
-from math import gcd
 import math
 
-def simplify():
-    while True:
-        x = input("Enter a fraction (e.g., 1/2): ")
-        if '/' in x:
-            numerator, denominator = map(int, x.split('/'))
-            break
-        else:
-            print('Invalid input. Please enter a fraction.')
 
-    while True:
-        n = input("Enter another fraction: ")
-        if '/' in n:
-            num, denom = map(int, n.split('/'))
-            break
-        else:
-            print('Invalid input. Please enter a fraction.')
+def simplify(numerator1, denominator1, numerator2, denominator2):
+    common_divisor = math.gcd(denominator1, denominator2)
+    new_numerator1 = numerator1 // common_divisor
+    new_denominator1 = denominator1 // common_divisor
+    new_numerator2 = numerator2 // common_divisor
+    new_denominator2 = denominator2 // common_divisor
 
-    numerator = numerator // gcd(numerator, int(denominator))
-    denominator = denominator // math.gcd(numerator, int(denominator))
+    gcd = math.gcd(new_numerator1, new_denominator1)
+    new_numerator1 //= gcd
+    new_denominator1 //= gcd
 
-    new_numerator = num // gcd(num, denom)
-    new_denom = denom // math.gcd(num, denom)
+    gcd = math.gcd(new_numerator2, new_denominator2)
+    new_numerator2 //= gcd
+    new_denominator2 //= gcd
 
-    gcd = math.gcd(new_numerator, new_denom)
-    new_numerator //= gcd
-    new_denom //= gcd
-
-    return f"{new_numerator}/{new_denom}"
-
-print(simplify())
+    return f"{new_numerator1}/{new_denominator1} + {new_numerator2}/{new_denominator2}"
