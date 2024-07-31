@@ -2,15 +2,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
@@ -30,7 +22,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input = {-5, 3, 1, -10, 7};
+    std::vector<int> input = {-5, 3, 1, -10, 7}; 
     std::vector<int> result = largest_smallest_integers(input);
     
     std::cout << "Largest negative: " << result[0] << " Smallest positive: " << result[1] << "\n";
