@@ -1,12 +1,15 @@
-int result = -1;
-    for (int num : lst) {
-        int frequency = 0;
-        for (int n : lst) {
-            if (n == num) {
-                frequency++;
+#include <vector>
+
+int search(std::vector<int> nums) {
+    int result = -1;
+    for (int num : nums) {
+        int freq = 0;
+        for (int i : nums) {
+            if (i == num) {
+                freq++;
             }
         }
-        if (num > 0 && frequency >= num && num > result) {
+        if (num > 0 && freq >= num && num > result) {
             result = num;
         }
     }
