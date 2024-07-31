@@ -1,7 +1,7 @@
 #include <cmath>
 #include <bitset>
 
-int solve(int n, int m) {
+int calculateAverage(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -17,6 +17,8 @@ int solve(int n, int m) {
 
 int main() {
     int n = 1, m = 5;
-    assert(solve(n, m) == "3");
+    std::string expected_avg = "3";
+    std::string calculated_avg = calculateAverage(n, m);
+    assert(calculated_avg == expected_avg);
     return 0;
 }
