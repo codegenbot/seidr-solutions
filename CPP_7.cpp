@@ -1,4 +1,5 @@
-std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
+int main() {
+    std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
     std::string sub = "an";
     
     std::vector<std::string> filtered_strings = filter_by_substring(strings, sub);
@@ -11,3 +12,6 @@ std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
             std::cout << str << " contains substring " << sub << std::endl;
         }
     }
+    
+    return 0;
+}
