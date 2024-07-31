@@ -16,7 +16,7 @@ int next_smallest(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input = {5, 3, 8, 1, 4};
+    std::vector<int> input = {5, 3, 1, 7, 4};
     int result = next_smallest(input);
     return 0;
 }
