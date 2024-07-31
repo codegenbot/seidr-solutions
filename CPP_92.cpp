@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool any_int(int a, int b, int c) {
-    return ( a == b + c) || ( b == a + c) || ( c == a + b);
+    return (a == b + c) || (b == a + c) || (c == a + b);
 }
 
 int main() {
