@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 #include <cassert>
-#include <cctype>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
@@ -9,15 +8,14 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 
 std::map<char, int> histogram(std::string test);
 
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    return a == b;
 }
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
     for (char c : test) {
-        if (std::isalpha(c) && std::islower(c)) {
+        if (isalpha(c) && islower(c)) {
             freq[c]++;
         }
     }
@@ -32,4 +30,9 @@ std::map<char, int> histogram(std::string test) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
+    return 0;
 }
