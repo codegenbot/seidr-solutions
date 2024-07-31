@@ -1,17 +1,16 @@
 #include <cassert>
+#include <cstdio>
 #include <string>
 
-bool valid_date(const std::string& date_str) {
-    if(date_str.size() != 7 || date_str[2] != '-') return false;
-    
-    int month = std::stoi(date_str.substr(0, 2));
-    int year = std::stoi(date_str.substr(3, 4));
+bool valid_date(const std::string& date) {
+    int month, day, year;
+    if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) return false;
     
     if(month < 1 || month > 12) return false;
     
-    int day_max = (month == 2) ? 29 : ((month == 4 || month == 6 || month == 9 || month == 11) ? 30 : 31);
-    int day = std::stoi(date_str.substr(3, 4));
-    if(day < 1 || day > day_max) return false;
+    if(month == 2 && (day < 1 || day > 29)) return false;
+    if((month == 4 || month == 6 || month == 9 || month == 11) && (day < 1 || day > 30)) return false;
+    if(day < 1 || day > 31) return false;
     
     return true;
 }
