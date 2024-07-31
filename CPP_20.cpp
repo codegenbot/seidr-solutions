@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cassert>
 
 bool issame(const std::pair<float, float> &a, const std::pair<float, float> &b) {
     return a == b;
