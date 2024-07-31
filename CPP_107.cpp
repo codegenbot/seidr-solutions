@@ -1,15 +1,13 @@
-vector<int> result = {0, 0};
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        string rev = str;
-        reverse(rev.begin(), rev.end());
-        if (str == rev) {
-            if (i % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
+vector<int> countEvenOddPalindromes(int n) {
+            vector<int> res(2, 0);
+            for (int i = 1; i <= n; ++i) {
+                string num = to_string(i);
+                string rev = num;
+                reverse(rev.begin(), rev.end());
+                if (num == rev) {
+                    if (i % 2 == 0) res[0]++;
+                    else res[1]++;
+                }
             }
+            return res;
         }
-    }
-    return result;
-}
