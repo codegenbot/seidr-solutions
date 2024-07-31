@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 long long minSubArraySum(vector<long long> nums){
     long long min_sum = nums[0];
     long long current_sum = 0;
