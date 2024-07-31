@@ -4,23 +4,21 @@
 #include <cmath>
 #include <cassert>
 
-class mean_absolute_deviation {
-public:
-    static double calculate_mad(const std::vector<double>& values) {
-        double mean = std::accumulate(values.begin(), values.end(), 0.0) / values.size();
-        double sum_abs_diff = 0.0;
+using namespace std;
 
-        for (const auto& value : values) {
-            sum_abs_diff += std::abs(value - mean);
-        }
+double calculate_mad(const vector<double>& values) {
+    double mean = accumulate(values.begin(), values.end(), 0.0) / values.size();
+    double sum_abs_diff = 0.0;
 
-        return sum_abs_diff / values.size();
+    for (const auto& value : values) {
+        sum_abs_diff += abs(value - mean);
     }
-};
+
+    return sum_abs_diff / values.size();
+}
 
 int main() {
-    mean_absolute_deviation mad_instance;
-    std::assert(std::abs(mad_instance.calculate_mad(std::vector<double>({1.0, 2.0, 3.0, 4.0, 5.0})) - (6.0 / 5.0) < 1e-4);
+    assert(abs(calculate_mad(vector<double>{1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0) < 1e-4);
 
     return 0;
 }
