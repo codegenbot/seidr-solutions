@@ -2,9 +2,7 @@
 #include <string>
 using namespace std;
 
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
-}
+bool issame(const vector<string>& a, const vector<string>& b);
 
 pair<string,bool> reverse_delete(string s1, string s2) {
     int i=0,j=s2.size()-1;
@@ -16,14 +14,6 @@ pair<string,bool> reverse_delete(string s1, string s2) {
 }
 
 int main() {
-    pair<pair<string,bool>,bool> result = make_pair(reverse_delete("mamma", "mia"), false);
-    if (result.second) {
-        cout << "True" << endl;
-    } else {
-        string s = result.first.first;
-        bool b = result.first.second == "false";
-        if(b)s="False";
-        cout << s << endl;
-    }
+    assert(issame({reverse_delete("mamma", "mia").first}, std::make_tuple("", reverse_delete("mamma", "mia").second ? "True" : "False")));
     return 0;
 }
