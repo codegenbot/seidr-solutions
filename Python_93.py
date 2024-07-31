@@ -1,11 +1,12 @@
+```
 def encode(message):
-    result = ""
+    vowels = 'aeiouAEIOU'
+    result = ''
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                index = ord(char.lower()) - 97
-                new_char = chr((index + 2) % 26 + 97)
-                result += new_char.upper() if char.isupper() else new_char
+            if char in vowels:
+                index = (ord(char) - ord('a')) % 6
+                result += chr(ord('a') + index + 2)
             else:
                 result += char.swapcase()
         else:
