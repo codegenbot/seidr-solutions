@@ -4,8 +4,7 @@
 
 void readInput(std::vector<int>& input) {
     std::cout << "Enter the number of elements: ";
-    size_t n;
-    std::cin >> n;
+    size_t n = static_cast<size_t>(std::cin >> n);
 
     input.resize(n);
 
