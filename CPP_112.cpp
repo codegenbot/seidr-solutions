@@ -19,3 +19,8 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     std::reverse(reversed.begin(), reversed.end());
     return {result, result == reversed ? "True" : "False"};
 }
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
+}
