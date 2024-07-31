@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <unordered_set>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return unordered_set<int>(a.begin(), a.end()) == unordered_set<int>(b.begin(), b.end());
 }
 
 vector<int> order_by_points(const vector<int>& nums) {
@@ -22,9 +22,9 @@ vector<int> order_by_points(const vector<int>& nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return a < b;
+            return b < a; // Sorting in reverse order of sum of digits
         }
-        return sum_a < sum_b;
+        return sum_b < sum_a; // Sorting in reverse order of sum of digits
     });
     return sorted_nums;
 }
