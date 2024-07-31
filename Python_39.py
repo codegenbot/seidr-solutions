@@ -1,6 +1,6 @@
 ```
 def prime_fib(n: int):
-    a, b = 2, 3
+    a, b = 0, 1
     count = 1
     while True:
         if is_prime(b):
@@ -8,7 +8,7 @@ def prime_fib(n: int):
                 return b
             count += 1
         a, b = b, a + b
-        if b > 1000:
+        if a > 1000000:  # stop at 10^6 to avoid large numbers
             break
 
 def is_prime(num: int):
