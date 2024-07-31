@@ -4,17 +4,18 @@
 #include <cctype>
 #include <cassert>
 #include <string>
-#include <cstdlib>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string text) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
     
-    for (char c : text) {
+    for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
@@ -36,7 +37,7 @@ std::vector<std::string> split_words(std::string text) {
                 count++;
             }
         }
-        result[0] = std::to_string(count);
+        result[0] = to_string(count);
     }
     
     return result;
