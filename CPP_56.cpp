@@ -1,9 +1,10 @@
+```
 #include <cassert>
 #include <stack>
 #include <iostream>
 
 bool correct_bracketing(std::string brackets) {
-    stack<char> bracket_stack;
+    std::stack<char> bracket_stack;
 
     for (char bracket : brackets) {
         if (bracket == '(' || bracket == '{' || bracket == '[') {
@@ -12,12 +13,12 @@ bool correct_bracketing(std::string brackets) {
             if (bracket_stack.empty()) {
                 return false;
             }
-            char opening_bracket = bracket_stack.top();
+            char topBrkt = bracket_stack.top();
             bracket_stack.pop();
 
-            if ((opening_bracket == '(' && bracket != ')') ||
-                (opening_bracket == '{' && bracket != '}') ||
-                (opening_bracket == '[' && bracket != ']')) {
+            if ((topBrkt == '(' && bracket != ')') ||
+                (topBrkt == '{' && bracket != '}') ||
+                (topBrkt == '[' && bracket != ']')) {
                 return false;
             }
         }
@@ -25,9 +26,9 @@ bool correct_bracketing(std::string brackets) {
 
     if (!bracket_stack.empty()) {
         while (!bracket_stack.empty()) {
-            char opening_bracket = bracket_stack.top();
+            char topBrkt = bracket_stack.top();
             bracket_stack.pop();
-            switch (opening_bracket) {
+            switch (topBrkt) {
                 case '(':
                     return false;
                 case '{':
@@ -36,17 +37,13 @@ bool correct_bracketing(std::string brackets) {
                     return false;
             }
         }
-        return true;  
     } else {
         return true;
     }
 }
 
 int main() {
-    if (correct_bracketing("<><><<><>><>>><>") ) {
-        std::cout << "Valid bracketing" << std::endl;
-    } else {
+    if (!correct_bracketing("<><><<><>><>>><>")) {
         std::cout << "Invalid bracketing" << std::endl;
     }
-    return 0;
 }
