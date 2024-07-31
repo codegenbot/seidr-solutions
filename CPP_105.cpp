@@ -6,9 +6,13 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
+bool are_same(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
+
+bool are_same(vector<string> a, vector<string> b){
+    return a == b;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -42,7 +46,7 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main(){
-    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert (are_same(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 
     return 0;
 }
