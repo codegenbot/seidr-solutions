@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
+#include <ostream>
 
 using namespace std;
 
@@ -16,6 +16,13 @@ int solve(vector<int> lst) {
 }
 
 int main() {
-    int result = solve({1, 2, 3, 4, 5});
+    vector<int> lst;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        lst.push_back(x);
+    }
+    cout << solve(lst) << endl;
     return 0;
-}
