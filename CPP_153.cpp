@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
