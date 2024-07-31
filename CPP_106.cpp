@@ -1,20 +1,20 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const vector<int>& vec1, const vector<int>& vec2){
-    if(vec1.size() != vec2.size()){
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2){
+    if(v1.size() != v2.size()){
         return false;
     }
-    for(int i = 0; i < vec1.size(); ++i){
-        if(vec1[i] != vec2[i]){
+    for(size_t i = 0; i < v1.size(); ++i){
+        if(v1[i] != v2[i]){
             return false;
         }
     }
     return true;
 }
 
-vector<int> f(int n){
-    vector<int> result(n);
+std::vector<int> f(int n){
+    std::vector<int> result(n);
     for(int i = 0; i < n; ++i){
         if(i % 2 == 0){
             int fact = 1;
@@ -35,6 +35,5 @@ vector<int> f(int n){
 
 int main(){
     assert(issame(f(3), {1, 2, 6}));
-    
     return 0;
 }
