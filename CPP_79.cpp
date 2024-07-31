@@ -15,8 +15,5 @@ string decimal_to_binary(int decimal){
 }
 
 int main(){
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The binary representation of the number is: " << decimal_to_binary(num) << endl;
+    assert (decimal_to_binary(15) == "db1111db");
     return 0;
