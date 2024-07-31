@@ -21,6 +21,6 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, input);
     cout << flip_case(input) << endl;
-    assert(flip_case("TestCASE") == "tESTcase");
+    assert(flip_case("Test") == "tEST");
     return 0;
 }
