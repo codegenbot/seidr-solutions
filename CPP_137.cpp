@@ -1,18 +1,20 @@
 #include <iostream>
 #include <string>
+#include <any>
+#include <cassert>
 
 template <typename T>
-T compare_one(const T& a, const T& b) {
-    return std::max(a, b);
+std::string compare_one(const T& a, const T& b) {
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    }
+    return std::string();
 }
 
 int main() {
-    std::string result = compare_one(std::string("1"), std::to_string(1));
-    if (result.empty()) {
-        std::cout << "None" << std::endl;
-    } else {
-        std::cout << result << std::endl;
-    }
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::to_string(1))) == "None");
     
     return 0;
 }
