@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 std::vector<int> std::remove_duplicates(std::vector<int>& numbers) {
     std::sort(numbers.begin(), numbers.end());
