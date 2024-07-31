@@ -1,10 +1,10 @@
 #include <string>
 
-int digitSum(const string& s){
+int digitSum(std::string s){
     int sum = 0;
     for(char c : s){
-        if(isdigit(c)){
-            sum += c - '0';
+        if(isupper(c)){
+            sum += static_cast<int>(c);
         }
     }
     return sum;
