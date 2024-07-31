@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
@@ -6,8 +7,8 @@
 
 using namespace std;
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -43,12 +44,6 @@ vector<string> by_length(vector<int> arr){
 }
 
 int main() {
-    vector<int> input = {3, 5, 2, 9, 4};
-    vector<string> output = by_length(input);
-
-    for (const string& s : output) {
-        cout << s << " ";
-    }
-
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
