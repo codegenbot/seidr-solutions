@@ -1,6 +1,4 @@
-```
-from typing import List
-
+Here is the solution:
 
 def parse_music(music_string: str) -> List[int]:
     music_list = []
