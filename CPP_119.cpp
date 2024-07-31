@@ -1,10 +1,9 @@
-```c++
+```cpp
 #include <iostream>
-#include <string>
 
 bool match_parens(const char* parens) {
     int count = 0;
-    for (char c = parens[0]; *parens != '\0'; (c = *(++parens))) {
+    for (char c : parens) {
         if (c == '(')
             count++;
         else if (c == ')')
