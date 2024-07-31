@@ -5,9 +5,10 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    for (char c : unique_copy(test.begin(), test.end(), test.begin())) {
+    string letters = test;
+    for (char c : unique_copy(letters.begin(), letters.end(), letters.begin())) {
         int count = 0;
-        for (char letter : test) {
+        for (char letter : letters) {
             if (letter == c) {
                 count++;
             }
