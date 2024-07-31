@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<float>& a, std::vector<float>& b){
+bool issame(std::vector<float> a, std::vector<float> b){
     return a == b;
 }
 
@@ -16,7 +16,6 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main() {
-    std::vector<float> empty_vector;
-    assert (issame(get_positive({}) , empty_vector));
+    assert (issame(get_positive({}) , {}));
     return 0;
 }
