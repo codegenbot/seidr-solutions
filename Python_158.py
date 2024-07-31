@@ -1,4 +1,5 @@
 ```
+words = input().split()
 def find_max(words):
     max_word = ""
     max_unique_chars = 0
@@ -10,3 +11,5 @@ def find_max(words):
         elif len(unique_chars) == max_unique_chars and word < max_word:
             max_word = word
     return max_word
+
+print(find_max(words))
