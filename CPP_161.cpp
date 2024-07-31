@@ -1,12 +1,17 @@
-for(char &c : s){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
-            } else {
+string solve(string s){
+    bool hasLetter = false;
+    for (char &c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            if (isupper(c)) {
                 c = tolower(c);
+            } else {
+                c = toupper(c);
             }
         }
     }
-    reverse(s.begin(), s.end());
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
+    }
     return s;
 }
