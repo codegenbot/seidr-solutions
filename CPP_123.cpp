@@ -1,47 +1,40 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
-    result.push_back(n);
+    std::vector<int> sequence;
+    
     while (n != 1) {
+        sequence.push_back(n);
         if (n % 2 == 0) {
-            n = n / 2;
+            n /= 2;
         } else {
             n = 3 * n + 1;
-            if (n % 2 != 0) {
-                result.push_back(n);
-            }
         }
     }
-    return result;
+    sequence.push_back(1);
+    
+    return sequence;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-
+    
     std::vector<int> odd_collatz = get_odd_collatz(n);
 
-    std::cout << "Odd Collatz sequence for " << n << " is: ";
+    std::cout << "Odd Collatz Sequence:" << std::endl;
     for (int num : odd_collatz) {
         std::cout << num << " ";
     }
 
+    assert(issame(get_odd_collatz(1) , std::vector<int>{1}));
+    
     return 0;
 }
