@@ -9,7 +9,7 @@ using std::string;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -43,4 +43,14 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-```
+int main() {
+    std::string s;
+    int n;
+    std::cin >> s >> n;
+    
+    vector<string> words = select_words(s, n);
+
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+
+    return 0;
+}
