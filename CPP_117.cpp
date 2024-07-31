@@ -1,4 +1,4 @@
-bool issame(const vector<string>& v1, const vector<string>& v2) {
+bool issame(vector<string> v1, vector<string> v2) {
     return v1 == v2;
 }
 
@@ -31,5 +31,6 @@ bool select_words(string s, int n) {
 }
 
 int main() {
-    // Main function code here
+    // Add main code here
+    return 0;
 }
