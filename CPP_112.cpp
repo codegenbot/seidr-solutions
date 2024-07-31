@@ -1,29 +1,6 @@
-```cpp
-#include <vector>
-#include <string>
-#include <algorithm>
-
-std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str, const std::string& sub) {
-    std::vector<std::string> result;
-    for (int i = 0; i < str.length(); ++i) {
-        if (str.substr(i, sub.length()).compare(sub) == 0) {
-            result.push_back("True");
-            i += sub.length() - 1;
-        } else {
-            result.push_back(str.substr(i, 1));
-        }
-    }
-    std::vector<std::string> vecResult(result);
-    bool resultBool = true;
-    return std::make_pair(vecResult, resultBool);
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
 int main() {
-    auto result = reverse_delete("mamma", "mia");
-    assert(issame({""}, {{"True"}}));  
+    auto [result, isCorrect] = reverse_delete("mamma", "mia");
+    std::vector<std::string> expectedResult = {"", "True"};
+    assert(issame(result, expectedResult));  
     return 0;
 }
