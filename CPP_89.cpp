@@ -1,23 +1,17 @@
 #include <string>
-#include <cctype>
+
+std::string encrypt(std::string s);
 
 std::string encrypt(std::string s){
-    std::string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(std::isalpha(s[i])){
-            char encrypted_char = (std::tolower(s[i]) - 'a' + 2 * 2) % 26 + 'a';
-            if(std::isupper(s[i])){
-                encrypted_char = std::toupper(encrypted_char);
-            }
-            result += encrypted_char;
+    std::string encrypted = "";
+    for(char c : s){
+        if(std::isalpha(c)){
+            char base = std::islower(c) ? 'a' : 'A';
+            char new_char = base + (c - base + 2 * 2) % 26;
+            encrypted += new_char;
         } else {
-            result += s[i];
+            encrypted += c;
         }
     }
-    return result;
-}
-
-int main(){
-    assert(encrypt("a")=="e");
-    return 0;
+    return encrypted;
 }
