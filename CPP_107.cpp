@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
+#include <utility>
 #include <string>
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b){
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a == b;
 }
 
@@ -26,9 +26,12 @@ std::pair<int, int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    auto result = even_odd_palindrome(n);
+    int input;
+    std::cin >> input;
+    
+    auto result = even_odd_palindrome(input);
+    
     std::cout << result.first << " " << result.second << std::endl;
+    
     return 0;
 }
