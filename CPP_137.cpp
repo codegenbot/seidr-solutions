@@ -16,5 +16,9 @@ std::any compare_one(std::any a, std::any b) {
 
 int main() {
     assert(std::any_cast<float>(compare_one(1.5f, 2.3f)) == 2.3f);
+    assert(std::any_cast<float>(compare_one(std::any(1.5f), std::any(2.3f))) == 2.3f);
+    assert(std::any_cast<double>(compare_one(1.5, 2.3)) == 2.3);
+    assert(std::any_cast<std::string>(compare_one(std::string("1.5"), std::string("2.3"))) == "2.3");
+    
     return 0;
 }
