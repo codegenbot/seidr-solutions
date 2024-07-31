@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-int next_smallest(std::vector<int> lst){
+int next_smallest(std::vector<int> lst) {
     if(lst.size() < 2) {
         return -1;
     }
