@@ -1,15 +1,25 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (unsigned int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for (int num : x) {
-        int temp = num;
         bool hasEvenDigit = false;
+        int temp = num;
         while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
+            if (temp % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
@@ -19,18 +29,8 @@ vector<int> unique_digits(vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    // Function implementation
-}
-
-int main() {
-    vector<int> input{123, 456, 789, 135, 246, 579};
-    vector<int> result = unique_digits(input);
-    // Call any additional functions or perform required tasks here
-    // Call issame function here if needed
-    return 0;
-}
+assert(issame(unique_digits({135, 103, 31}), {31, 135}));
