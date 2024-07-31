@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return (a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()));
@@ -17,11 +18,7 @@ int main() {
     std::vector<float> closest;
     find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}, closest);
     
-    if (!issame(closest, {1.1, 2.2})) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame(closest, {1.1, 2.2}));
 
     return 0;
 }
