@@ -23,7 +23,7 @@ std::string rounded_avg(int n,int m){
 
 int main() {
     int n, m;
-    std::cout << "Enter the range [n,m]: ";
+    std::cout << "Enter the range: ";
     std::cin >> n >> m;
     std::cout << "The rounded average in binary is: " << rounded_avg(n,m) << std::endl;
     return 0;
