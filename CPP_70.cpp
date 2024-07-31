@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()));
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> strange_sort_list(vector<int> lst) {
     sort(lst.begin(), lst.end());
