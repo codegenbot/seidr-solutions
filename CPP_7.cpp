@@ -1,21 +1,43 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (std::distance(v1.begin(), v1.end()) != std::distance(v2.begin(), v2.end())) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
+    }
+    return true;
+}
+
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
+    std::set<std::string> set_strings(strings.begin(), strings.end());
+    std::vector<std::string> result;
+    for (const auto& s : set_strings) {
+        if (s.find(substring) != std::string::npos) {
+            result.push_back(s);
+        }
+    }
+    return result;
+}
+
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<std::string> strings; // Initialize empty vector
+    std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
-        std::string s;
-        getline(std::cin, s);
+        getline(std::cin, std::string s);
         
         while (s.back() == '\n') {
             s.pop_back();
-        }
+       
         
         if (i > 0) 
             std::cout << " "; 
         std::cout << s << std::endl;
-        strings.push_back(s); // Add string to the vector
+        strings.push_back(s);
     }
 
     std::string substring;
