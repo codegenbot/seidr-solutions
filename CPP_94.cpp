@@ -1,5 +1,9 @@
 int main() {
-    int result = skjkasdkd({1, 2, 3});
-    cout << "Error: You need to provide a valid input for the function.\n";
+    int result = skjkasdkd({127, 97, 8192});
+    if(result == -1) {
+        cout << "Error: Invalid input. Please provide a list of integers." << endl;
+    } else {
+        cout << "The sum of the digits is: " << result << endl;
+    }
     return 0;
 }
