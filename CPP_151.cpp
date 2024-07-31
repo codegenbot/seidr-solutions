@@ -22,8 +22,8 @@ int main() {
     int odd_sum = 0;
 
     cout << "Enter elements for the list: ";
+    int num;
     for (int i = 0; i < 5; i++) { 
-        int num;
         while (!(cin >> num)) {
             cout << "Invalid input. Please enter an integer: ";
             cin.clear();
@@ -33,14 +33,9 @@ int main() {
         lst.push_back(num);
     }
 
-    odd_sum = 0;
-    for (int num : lst) {
-        if (num % 2 != 0) { 
-            odd_sum += num * num; 
-        }
-    }
+    odd_sum = double_the_difference(lst);
 
-    cout << "The difference is: " << double_the_difference(lst) - odd_sum << endl;
+    cout << "The difference is: " << odd_sum << endl;
 
     return 0;
 }
