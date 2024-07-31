@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +17,7 @@ void readInput() {
     }
 }
 
-int main() { 
+int calculateMax() { 
     readInput();
 
     if(input.size() == 0) {
@@ -30,5 +29,10 @@ int main() {
         assert(std::abs(max_element - 124) < 1e-4);
     }
 
+    return 0;
+}
+
+int main() { 
+    calculateMax();
     return 0;
 }
