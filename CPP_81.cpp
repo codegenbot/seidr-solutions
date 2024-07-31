@@ -31,6 +31,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 int main() {
-    // Add test cases here
+    // Add test cases or user input handling if needed
     return 0;
 }
