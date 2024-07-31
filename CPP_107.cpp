@@ -1,17 +1,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::string& a, const std::string& b) {
-    return a == b;
+bool issame(string s) {
+    return s == std::string(s.rbegin(), s.rend());
 }
-
-std::vector<int> even_odd_palindrome(int n){
-    std::vector<int> result(2, 0);
+vector<int> even_odd_palindrome(int n){
+    vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        std::string num = std::to_string(i);
-        std::string rev_num = num;
-        std::reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
+        string num = to_string(i);
+        if (issame(num)) {
             if (i % 2 == 0) {
                 result[0]++;
             } else {
