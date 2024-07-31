@@ -1,19 +1,10 @@
 #include <vector>
-#include <iostream>
-#include <algorithm>
 
-using namespace std;
-
-bool issame(int a, int b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-int main() {
-    // Your code here
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    // Your code here
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    // Your code for finding minimum path with cost not exceeding k goes here
+    return {}; // Placeholder return statement
 }
