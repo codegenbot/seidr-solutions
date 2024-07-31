@@ -1,17 +1,18 @@
-string string_to_md5(string text){
-    MD5_CTX md5Ctx;
-    unsigned char result[16];
-    if(text.empty()){
-        return "";
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) return "None";
+    
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5(text.c_str(), text.size(), result);
+    
+    stringstream ss;
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
-    MD5_Init(&md5Ctx);
-    MD5_Update(&md5Ctx,(unsigned char*)text.c_str(),text.size());
-    MD5_Final(result,&md5Ctx);
-    string hashStr = "";
-    for(int i=0; i<16; i++){
-        char buffer[3];
-        sprintf(buffer,"%02x",result[i]);
-        hashStr+=string(buffer);
-    }
-    return hashStr;
+    
+    return ss.str();
 }
