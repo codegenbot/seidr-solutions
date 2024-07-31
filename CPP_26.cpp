@@ -1,5 +1,5 @@
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return (a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
