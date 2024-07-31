@@ -7,10 +7,11 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word = "";
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     
     for (char c : txt) {
         if (c == ' ' || c == ',') {
@@ -34,12 +35,12 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        result[0] = to_string(count);
+        result[0] = std::to_string(count);
     }
     
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
