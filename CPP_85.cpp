@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -42,7 +41,7 @@ int main() {
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
-    std::cout << "Sum of even elements: " << add(std::vector<unsigned int>(lst.begin(), lst.end())) << std::endl;
+    std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
     return 0;
 }
