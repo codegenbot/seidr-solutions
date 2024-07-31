@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <cctype>
 #include <algorithm>
 #include <iostream>
@@ -21,5 +24,4 @@ int main() {
     std::getline(std::cin, input);
     int output = hex_key(input);
     std::cout << "The number of alphanumeric characters is: " << output << std::endl;
-    return 0;
 }
