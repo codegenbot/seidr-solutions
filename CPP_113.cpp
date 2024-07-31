@@ -22,6 +22,9 @@ int odd_count(std::vector<std::string> lst)
 
 int main()
 {
-    assert(odd_count({"271", "137", "314"}) == 3);
+    assert(std::equal({ "the number of odd elements 2 in the string 271 of the input.",
+                        "the number of odd elements 3 in the string 137 of the input.",
+                        "the number of odd elements 2 in the string 314 of the input."},
+                        odd_count({"271", "137", "314"}));
     return 0;
 }
