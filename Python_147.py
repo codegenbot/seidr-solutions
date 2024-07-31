@@ -3,8 +3,8 @@ def get_max_triples(n):
     a = [i * i - i + 1 for i in range(1, n + 1)]
     count = 0
     max_sum = 0
-    for k in range(2, n + 1): 
-        for i in range(k-1):
+    for k in range(1, n + 1): 
+        for i in range(min(k-2, n)):
             j = i+1
             total = a[i] + a[j] + a[k]
             if total % 3 == 0:
