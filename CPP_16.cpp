@@ -37,4 +37,3 @@ int main() {
     int result = countDistinctCharacters(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
-}
