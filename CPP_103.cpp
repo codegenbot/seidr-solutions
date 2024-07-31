@@ -1,7 +1,6 @@
 #include <cassert>
 #include <bitset>
 #include <cmath>
-#include <string>
 
 std::string function_name(int n, int m) {
     if (n > m) {
