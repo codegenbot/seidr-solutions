@@ -1,13 +1,13 @@
 #include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    // Function implementation
+    return a == b;
 }
 
 std::vector<float> derivative(std::vector<float> xs) {
-    std::vector<float> result;
+    std::vector<float> result(xs.size() - 1);
     for(int i = 1; i < xs.size(); i++){
-        result.push_back(xs[i] * i);
+        result[i - 1] = xs[i] * i;
     }
     return result;
 }
