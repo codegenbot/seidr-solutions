@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include "md5.h"
+#include <openssl/md5.h>
 
 using namespace std;
 
