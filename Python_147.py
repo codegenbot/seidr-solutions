@@ -7,9 +7,10 @@ def get_max_triples(n):
         total = 0
         triples_count = 0
         for i in range(k):
-            total += (a + (i * d)) 
+            total += (d*i) + a 
         if total > max_sum:
-            count = 1
             max_sum = total
-        count += (total == max_sum)
+            count = 1
+        elif total == max_sum:
+            triples_count += 1
     return count, max_sum
