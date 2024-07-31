@@ -3,13 +3,6 @@
 #include <cctype>
 #include <cassert>
 
-std::string flip_case(std::string str);
-
-int main() {
-    assert(flip_case("THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS") == "these violent delights have violent ends");
-    return 0;
-}
-
 std::string flip_case(std::string str) {
     for (char &c : str) {
         if (std::islower(c)) {
@@ -19,4 +12,9 @@ std::string flip_case(std::string str) {
         }
     }
     return str;
+}
+
+int main() {
+    assert(flip_case("THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS") == "these violent delights have violent ends");
+    return 0;
 }
