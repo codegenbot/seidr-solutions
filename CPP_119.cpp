@@ -1,5 +1,3 @@
-```cpp
-#include <cassert>
 #include <string>
 
 bool match_parens(const char* parens) {
@@ -16,8 +14,8 @@ bool match_parens(const char* parens) {
 }
 
 int main() {
-    assert(std::string("()") == true);
-    assert(std::string("((()))") == true);
-    assert(std::string("())") == false);
+    assert(match_parens("(())") == true);
+    assert(match_parens("((()))") == true);
+    assert(match_parens(")") == false);  
     return 0;
 }
