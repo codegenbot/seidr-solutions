@@ -16,7 +16,3 @@ bool monotonic(std::vector<int> l) {
     }
     return increasing || decreasing;
 }
-
-int main() {
-    return 0;
-}
