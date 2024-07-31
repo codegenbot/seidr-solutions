@@ -1,3 +1,4 @@
+```cpp
 #include <cstdio>
 using namespace std;
 
