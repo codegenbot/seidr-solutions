@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int main() {
+int solve() {
     vector<int> lst;
     cout << "Enter numbers (space-separated): ";
     string str;
@@ -25,3 +26,5 @@ int main() {
     cout << "Sum of odd numbers: " << sum << endl;
     return 0;
 }
+
+solve();
