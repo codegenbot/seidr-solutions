@@ -22,7 +22,7 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
-    std::vector<int> input = {5, 2, 8, 1, 9}; // Example input array
+    std::vector<int> input = {5, 2, 8, 1, 9};
     std::vector<int> sorted_array = sort_array(input);
     
     for (int num : sorted_array) {
