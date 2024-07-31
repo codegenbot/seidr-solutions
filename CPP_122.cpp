@@ -7,7 +7,6 @@ int add_elements(const std::vector<int>& arr);
 
 int main() {
     int k = 0;
-    std::cout << "Enter the number of elements: ";
     while (!(std::cin >> k && k >= 1)) {
         std::cout << "Error: invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -15,42 +14,26 @@ int main() {
     }
 
     int num;
-    while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
-            std::abs(num) >= std::numeric_limits<int>::min())) {
-        std::cout << "Error: invalid input. Please enter an integer between "
-                  << std::numeric_limits<int>::min() << " and "
-                  << std::numeric_limits<int>::max()
-                  << ": ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-
-    int sum = 0; 
+    int max_val = std::numeric_limits<int>::max();
+    int min_val = std::numeric_limits<int>::min();
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
-        while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
-                std::abs(num) >= std::numeric_limits<int>::min())) {
+        while (!(std::cin >> num && num >= min_val && num <= max_val)) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << std::numeric_limits<int>::min() << " and "
-                      << std::numeric_limits<int>::max()
+                      << min_val << " and " << max_val
                       << ": ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        if(std::abs(num) > std::numeric_limits<int>::max() || std::abs(num) < std::numeric_limits<int>::min()) {
-            std::cout << "Error: invalid input. Please enter an integer between "
-                      << std::numeric_limits<int>::min() << " and "
-                      << std::numeric_limits<int>::max()
-                      << ": ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        numbers.push_back(num);
+    }
+
+    int sum = 0; 
+    for (int i = 0; i < numbers.size(); i++) {
+        if(i > 0) {
+            sum += numbers[i];
         } else {
-            if(i > 0) {
-                sum += num;
-            } else {
-                sum = num;
-            }
-            numbers.push_back(num);
+            sum = numbers[0];
         }
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(numbers) << std::endl;
