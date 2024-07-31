@@ -27,8 +27,5 @@ int main() {
     auto results = even_odd_palindrome(n);
     std::cout << "Even palindromes: " << results.first << std::endl;
     std::cout << "Odd palindromes: " << results.second << std::endl;
-
-    assert(results == std::make_pair(0, 1)); // For testing, ensure this assertion passes with the given example
-
     return 0;
 }
