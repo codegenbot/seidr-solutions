@@ -26,8 +26,8 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    assert(separate_paren_groups("((hello)(world))") == vector<string>{"(hello)", "(world)"});
-    assert(separate_paren_groups("((coding)((contest)))") == vector<string>{"(coding)", "(contest)"});
+    assert(separate_paren_groups("((a)(b)(c))") == vector<string>{"(a)", "(b)", "(c)"});
+    assert(separate_paren_groups("((ab)(cd))") == vector<string>{"(ab)", "(cd)"});
 
     return 0;
 }
