@@ -19,12 +19,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string s;
         std::cin >> s;
-        strings.push_back(s);
+        strings.emplace_back(s);
     }
     std::string substring;
     std::cin >> substring;
 
-    if (!issame(strings, {"grunt", "prune"})) {
+    vector<string> list = { "grunt", "prune" };
+    if (!issame(strings, list)) {
         assert(false);
     }
 
@@ -38,9 +39,9 @@ int main() {
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+    std::vector<string> result;
     for(string s : strings){
         if(s.find(substring) != string::npos)
-            result.push_back(s);
+            result.emplace_back(s);
     }
     return result;
