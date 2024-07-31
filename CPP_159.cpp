@@ -6,7 +6,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> eat(int x, int y, int z){
-    // Implement the eat function as needed
     return {y, x-z};
 }
 
