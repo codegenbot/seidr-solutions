@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <cmath>
+
+using namespace std;
+
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); ++i) {
@@ -5,3 +12,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     }
     return result;
 }
+
+vector<int> result = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
+vector<int> expected = {2, 0, 0, 1};
