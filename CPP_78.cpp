@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -8,7 +9,6 @@ int main() {
     int output = hex_key(input);
     std::cout << "The result is: " << output << std::endl;
     return 0;
-
 }
 
 int hex_key(std::string num) {
