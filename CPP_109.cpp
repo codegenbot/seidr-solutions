@@ -11,7 +11,11 @@ bool move_one_ball(const std::vector<int>& arr) {
         }
         std::vector<int> temp = arr;
         std::rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend());
-        arr = temp;
     }
     return false;
+}
+
+int main() {
+    assert(move_one_ball({}) == true);
+    return 0;
 }
