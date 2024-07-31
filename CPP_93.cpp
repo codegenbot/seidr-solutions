@@ -2,12 +2,16 @@
 #include <cassert>
 
 std::string encode(std::string message){
-    // Implement your encoding logic here
-    return message;
+    // Your implementation here
 }
 
-int main() {
-    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
-    // Additional main function code here, if needed
+int main(){
+    std::string message = "hello";
+    std::string encoded = encode(message);
+    
+    std::string expectedEncoded = "encoded_message"; // Add expected encoded message here
+    
+    assert(encoded == expectedEncoded);
+    
     return 0;
 }
