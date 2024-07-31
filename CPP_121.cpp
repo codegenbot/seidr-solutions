@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 int solve(vector<int> lst) {
@@ -20,12 +21,20 @@ int main() {
     string str;
     getline(cin, str);
     
-    int num = 0;
     for (char c : str) {
         if (!isdigit(c)) {
             break; 
         }
-        num = c - '0';
+        string numStr = "";
+        while (c != ' ') {
+            numStr += c;
+            if ((str[str.find(c) + 1] >= '0' && str[str.find(c) + 1] <= '9')) {
+                c = str[str.find(c) + 1];
+            } else {
+                break; 
+            }
+        }
+        int num = stoi(numStr);
         lst.push_back(num);
     }
     
