@@ -1,6 +1,9 @@
 #include <vector>
+#include <cassert>
 
-std::vector<int> f(int n) {
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> solve(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
@@ -20,16 +23,16 @@ std::vector<int> f(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
-```
+
+int main() {
+    std::vector<int> result = solve(3);
+    if (issame(result, f(3))) {
+        std::cout << "Correct implementation";
+    } else {
+        std::cout << "Incorrect implementation";
+    }
+    return 0;
+}
