@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
-int prod_signs(std::vector<int>& arr) {
+int prod_signs(vector<int>& arr) {
     if (arr.empty()) {
         return -32768;
     }
