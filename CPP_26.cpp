@@ -11,16 +11,6 @@ bool equal(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result;
-    for (int num : numbers) {
-        if (std::find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::vector<int> result = numbers;
     std::sort(result.begin(), result.end());
     auto last = std::unique(result.begin(), result.end());
