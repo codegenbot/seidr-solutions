@@ -1,11 +1,17 @@
-#include <string>
+```cpp
+#include <cassert>
+#include <cstring>
 
-int my_strlen(std::string str){
-    return str.length();
+int my_strlen(const char* str){
+    int len = 0;
+    while (*str != '\0') {
+        len++;
+        str++;
+    }
+    return len;
 }
 
-int main {
-    char input[] = "asdasnakj";
-    std::string str = input;
-    assert(my_strlen(str) == 12);
+int main() {
+    const char input[] = "asdasnakj";
+    assert(my_strlen(input) == 12);
 }
