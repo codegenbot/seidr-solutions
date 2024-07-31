@@ -4,14 +4,13 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
-        stack = []
+        depth = 0
         max_depth = 0
         for char in group:
             if char == '(':
-                stack.append(char)
+                depth += 1
+                max_depth = max(max_depth, depth)
             elif char == ')':
-                if stack:
-                    stack.pop()
-                    max_depth = max(max_depth, len(stack))
+                depth -= 1
         result.append(max_depth)
     return result
