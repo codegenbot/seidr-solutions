@@ -1,19 +1,13 @@
-for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+for(char &c : s) {
+    if(isalpha(c)) {
+        if(islower(c)) {
+            c = toupper(c);
+        } else {
+            c = tolower(c);
         }
     }
-    
-    int left = 0, right = s.length() - 1;
-    while (left < right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
-    }
-    
-    return s;
 }
+if(count_if(s.begin(), s.end(), isalpha) == 0) {
+    reverse(s.begin(), s.end());
+}
+return s;
