@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-std::string flip_case(const std::string& str) {
+std::string flip_case(const std::string str) {
     std::string result = str;
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
