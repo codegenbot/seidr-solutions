@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,8 +10,6 @@ void display(vector<int> l) {
 }
 
 vector<int> unique(vector<int> l) {
-    set<int> s;
-    for(int i: l) s.insert(i);
-    vector<int> result(s.begin(), s.end());
-    return result;
+    set<int> s(l.begin(), l.end());
+    return vector<int>(s.begin(), s.end()); 
 }
