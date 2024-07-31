@@ -3,31 +3,24 @@ using namespace std;
 
 const char* fix_spaces(const char* text) {
     bool isPrevSpace = false;
-    const char *result = new char[strlen(text) + 1];
-    int i = 0, j = 0; // index for original and new strings
-
-    for(; text[i] != '\0'; i++) { 
-        if (text[i] == ' ') {
+    string result = "";
+    for (char c : text) { 
+        if (c == ' ') {
             if (!isPrevSpace) {
-                result[j++] = '_'; 
+                result += "_"; 
                 isPrevSpace = true;
             }
         } else {
-            result[j++] = text[i]; 
+            result += c; 
             isPrevSpace = false;
         }
     }
-
-    result[j] = '\0';
-    return result;
+    return result.c_str();
 }
 
 int main() {
     const char* text = "   Exa 1 2 2 mple"; 
-    const char *fixedText = fix_spaces(text);
-    cout << "Fixed string: ";
-    for (char c : fixedText) cout << c; 
-    cout << endl;
-    delete[] fixedText;
+    const char* fixed_text = fix_spaces(text);
+    cout << "Fixed string: " << fixed_text << endl;
     return 0;
 }
