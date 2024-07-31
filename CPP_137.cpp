@@ -4,16 +4,16 @@
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
-    if (boost::any(a) > boost::any(b)) {
+    if (a > b) {
         return a;
-    } else if (boost::any(a) < boost::any(b)) {
+    } else if (a < b) {
         return b;
     }
     return T();
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::to_string(1)).empty());
+    assert(boost::any_cast<std::string>(compare_one(boost::any(std::string("1")), boost::any(std::to_string(1))).empty());
     
     return 0;
 }
