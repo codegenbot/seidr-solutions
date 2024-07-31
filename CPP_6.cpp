@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
     int count = 0;
-    vector<int> result; 
+    vector<int> result(0); 
     for (char c : s) {
         if (c == '(') {
             count++;
