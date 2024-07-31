@@ -50,10 +50,10 @@ std::string correct_bracketing(std::string brackets) {
 
 int main() {
     std::string input = "<><><<><>><>>><>";
-    if (correct_bracketing(input) == "Invalid input") {
-        assert(false);
+    if (correct_bracketing(input) == "Valid input") {
+        assert(correct_bracketing(input) == "Valid input");
     } else {
-        assert(true);
+        assert(correct_bracketing(input) != "Invalid input");
     }
     std::cout << correct_bracketing(input) << std::endl;
 
