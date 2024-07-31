@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,19 +14,13 @@ int main() {
     int n;
 
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) { 
-        std::cerr << "Invalid input. Try again.\n";
-        return 1; 
-    }
+    std::cin >> n;
 
-    std::vector<int> lst;
+    std::vector<int> lst(n); // Initialize with n elements
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
-        if (!(std::cin >> num)) { 
-            std::cerr << "Invalid input. Try again.\n";
-            return 1; 
-        }
+        std::cin >> num;
         lst.push_back(num);
     }
 
