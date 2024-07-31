@@ -1,9 +1,7 @@
 #include <iostream>
-#include <cassert>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
+#include <cassert>
 
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
@@ -12,7 +10,7 @@ std::vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
