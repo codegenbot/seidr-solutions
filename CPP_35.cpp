@@ -17,7 +17,7 @@ void readInput(std::vector<int>& input) {
     }
 }
 
-int contestMain() { 
+int userMain() { 
     std::vector<int> input;
     readInput(input);
 
@@ -30,10 +30,5 @@ int contestMain() {
         //assert(std::abs(maxElement - 124) < 1e-4);
     }
 
-    return 0;
-}
-
-int main() { 
-    contestMain();
     return 0;
 }
