@@ -2,14 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> input;
 int n;
+std::vector<int> input;
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
