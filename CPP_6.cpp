@@ -1,9 +1,8 @@
+```cpp
 #include <stack>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <queue>
-#include <initializer_list>
 
 std::vector<int> parse_nested_parens(const std::string &paren_string) {
     std::vector<int> result;
