@@ -26,3 +26,5 @@ std::vector<int> sort_third(std::vector<int> l) {
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
+
+// The main function is removed to resolve redefinition error.
