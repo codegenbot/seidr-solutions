@@ -3,18 +3,20 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = std::min(total, remaining);
-    int left = remaining - eaten;
-    return std::vector<int>{eaten, left};
-}
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = min(total, remaining);
+    int left = remaining - eaten;
+    return vector<int>{eaten, left};
+}
+
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), vector<int>{5, 0}));
     return 0;
 }
