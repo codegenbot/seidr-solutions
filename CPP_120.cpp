@@ -11,6 +11,6 @@ bool maximum(const std::vector<int>& vec, int val) {
 }
 
 int main() {
-    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0));
+    assert(issame(*std::max_element(std::vector<int>{1, 2, 3, -23, 243, -400, 0}.begin(), std::vector<int>{1, 2, 3, -23, 243, -400, 0}.end()), 0);
     return 0;
 }
