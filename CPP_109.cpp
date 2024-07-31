@@ -1,4 +1,7 @@
-bool move_one_ball(vector<int> arr) {
+#include <vector>
+#include <cassert>
+
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     if (n == 0) {
         return true;
@@ -26,11 +29,10 @@ bool move_one_ball(vector<int> arr) {
 }
 
 int main() {
-    vector<int> test1 = {1, 2, 3};
-    vector<int> test2 = {3, 1, 2};
-    
-    cout << move_one_ball(test1) << endl;
-    cout << move_one_ball(test2) << endl;
+    assert(move_one_ball({1, 2, 3, 1, 2, 3}) == true);
+    assert(move_one_ball({3, 1, 2, 3, 1, 2}) == true);
+    assert(move_one_ball({2, 3, 1, 2, 3, 1}) == true);
+    assert(move_one_ball({1, 2, 3, 4, 5}) == false);
     
     return 0;
 }
