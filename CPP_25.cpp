@@ -7,7 +7,17 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> factorize(int num) {
-    return {2, 3, 3};
+    std::vector<int> factors;
+    for (int i = 2; i * i <= num; ++i) {
+        while (num % i == 0) {
+            factors.push_back(i);
+            num /= i;
+        }
+    }
+    if (num > 1) {
+        factors.push_back(num);
+    }
+    return factors;
 }
 
 int main() {
