@@ -8,9 +8,9 @@ bool any_int(double a, double b, double c) {
 }
 
 int main() {
-    double a = 5.0, b = 3.0, c = 2.0;
+    double a = 3.0, b = 4.0, c = 5.0;
     if (any_int(a, b, c)) {
-        return 1;
+        // Task specific actions
     }
     return 0;
 }
