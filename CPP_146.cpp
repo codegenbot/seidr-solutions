@@ -1,10 +1,19 @@
-```
 #include <iostream>
 #include <vector>
 
+int specialFilter(std::vector<int> nums) {
+    int count = 0;
+    for (int num : nums) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && abs(num) % 10 % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in the array: ";
     std::cin >> n;
 
     std::vector<int> nums(n);
@@ -13,19 +22,9 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int count = specialFilter(nums);
+    int result = specialFilter(nums);
 
-    std::cout << "Count of filtered numbers: " << count << std::endl;
+    std::cout << "Number of elements that meet the filter criteria: " << result << std::endl;
 
     return 0;
-}
-
-int specialFilter(vector<int> nums) {
-    int count = 0;
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && abs(num) % 10 % 2 != 0) {
-            count++;
-        }
-    }
-    return count;
 }
