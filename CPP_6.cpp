@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 #include <iostream>
@@ -18,10 +19,6 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     return {count + 1};
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size();
-}
-
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))"), {1,4}));
+    assert(parse_nested_parens("(()(())((()))") == vector<int>({1,4}));
 }
