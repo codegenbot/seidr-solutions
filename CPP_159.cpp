@@ -1,8 +1,11 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a[0] + a[1] + a[2] == b[0] + b[1];
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
