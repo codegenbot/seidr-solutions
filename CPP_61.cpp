@@ -1,6 +1,4 @@
-#include <iostream> 
-#include <string>
-#include <cassert>
+#include <iostream>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -22,6 +20,6 @@ int main() {
     std::cin >> input_brackets;
 
     assert(correct_bracketing(input_brackets));
-
+  
     return 0;
 }
