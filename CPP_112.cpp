@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <string>
 
 bool isSame(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
@@ -37,4 +36,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-assert(isSame(reverse_delete("mamma", "mia"), {"", "True"}));
+int main() {
+    assert(isSame(reverse_delete("mamma", "mia"), std::vector<string>{{}, {"True"}}));
+    return 0;
