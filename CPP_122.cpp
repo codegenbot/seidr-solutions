@@ -1,20 +1,12 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
-int add_elements(std::vector<int> arr) {
-    int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        if (std::to_string(arr[i]).length() <= 2) {
-            sum += arr[i];
-        }
-    }
-    return sum;
-}
+int add_elements(std::vector<int> arr);
 
 int main() {
-    int k;
+    int k = 0;
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
     std::vector<int> input;
@@ -26,4 +18,14 @@ int main() {
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
     return 0;
+}
+
+int add_elements(std::vector<int> arr) {
+    int sum = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        if (std::to_string(arr[i]).length() <= 2) {
+            sum += arr[i];
+        }
+    }
+    return sum;
 }
