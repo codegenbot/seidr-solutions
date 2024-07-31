@@ -25,13 +25,9 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
-    assert(issame(split_words(""), {}));
-    assert(issame(split_words("Hello World"), {"Hello", "World"}));
+    assert(split_words("").empty());
+    assert(split_words("Hello World") == vector<string>{"Hello", "World"});
     
     return 0;
 }
