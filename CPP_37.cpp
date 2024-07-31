@@ -1,10 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 void sort_even(std::vector<float>& l);
 
-bool issame(std::vector<float> a, std::vector<float> b);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    sort_even(a);
+    sort_even(b);
+    return a == b;
+}
 
 void sort_even(std::vector<float>& l) {
     std::vector<float> even_elems;
@@ -27,10 +30,4 @@ void sort_even(std::vector<float>& l) {
     }
     
     l = result;
-}
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    sort_even(a);
-    sort_even(b);
-    return a == b;
 }
