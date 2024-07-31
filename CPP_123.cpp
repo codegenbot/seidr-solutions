@@ -2,6 +2,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
@@ -14,10 +18,6 @@ std::vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1);
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
 
 int main() {
@@ -33,7 +33,7 @@ int main() {
     }
 
     std::cout << std::endl;
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), std::vector<int>{1}));
 
     return 0;
 }
