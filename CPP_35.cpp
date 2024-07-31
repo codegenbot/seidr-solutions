@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,3 +21,4 @@ int main() {
     std::cout << "Maximum element is: " << *std::max_element(input.begin(), input.end()) << std::endl;
 
     return 0;
+}
