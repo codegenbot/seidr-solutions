@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-using namespace std;
+#include <cassert>
 
 bool move_one_ball(vector<int>& arr) {
     int n = arr.size();
@@ -11,4 +11,9 @@ bool move_one_ball(vector<int>& arr) {
         rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
+}
+
+int main() {
+    vector<int> arr = {3, 2, 1}; // Example vector for testing
+    assert(move_one_ball(arr));
 }
