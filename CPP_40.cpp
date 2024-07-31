@@ -16,13 +16,14 @@ bool triples_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    // Example usage
-    std::vector<int> nums = {2, 0, -2, 1, -1};
-    if (triples_sum_to_zero(nums)) {
-        std::cout << "Triple that sums to zero found." << std::endl;
-    } else {
-        std::cout << "No triple sums to zero." << std::endl;
-    }
+    // Input vector l
+    std::vector<int> l = {1, 2, -3, -1, 0};
+
+    // Call the function and store the result
+    bool result = triples_sum_to_zero(l);
+
+    // Assert the result
+    assert(result == true);
 
     return 0;
 }
