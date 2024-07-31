@@ -13,7 +13,7 @@ int main() {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
-    std::vector<int> input(k+1); // Initialize with a fixed size + 1
+    std::vector<int> input(std::vector<int>(k)); 
     for (int i = 0; i < k; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
