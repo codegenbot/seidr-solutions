@@ -26,10 +26,9 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, -5, 2, -1};
-    vector<int> expected = {-5, 2};
-    vector<int> result = largest_smallest_integers(input);
-    assert(issame(expected, result));
+    vector<int> test_vec = {-3, 5, -2, 7, -8, 10};
+
+    assert(issame(largest_smallest_integers(test_vec), vector<int>({-8, 5})));
     
     return 0;
 }
