@@ -2,8 +2,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a1, const std::vector<int>& b1) {
-    return a1 == b1;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
