@@ -1,6 +1,12 @@
 #include <vector>
 
-bool issame(int a, int b);
+bool is_same(int a, int b);
+
+vector<int> strange_sort_list(vector<int> lst);
+
+bool is_same(int a, int b){
+    return a == b;
+}
 
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
@@ -15,10 +21,6 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
-}
-
-bool issame(int a, int b) {
-    return a == b;
 }
 
 int main() {
