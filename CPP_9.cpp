@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 vector<int> rolling_max(vector<int> numbers);
@@ -19,4 +20,9 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
+}
+
+int main() {
+    // Test your functions here
+    return 0;
 }
