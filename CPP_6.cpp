@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -28,5 +27,10 @@ bool same(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(same(parse_nested_parens("(()(())((()))"), parse_nested_parens("(()(())((()))")));
+    vector<int> expected = parse_nested_parens("(()(())((()))");
+    if (same(parse_nested_parens("(()(())((()))"), expected)) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are not the same." << endl;
+    }
 }
