@@ -21,6 +21,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 int main() {
     int n;
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
