@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,25 +27,18 @@ int main() {
     int n;
     cin >> n;
 
-    vector<string> strings;
+    std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
-        string s;
+        std::string s;
         getline(cin, s); 
         strings.push_back(s);
     }
 
-    string substring;
+    std::string substring;
     getline(cin, substring);
 
-    std::vector<std::string> result1 = filter_by_substring(strings, substring);
-    std::vector<std::string> result2 = filter_by_substring({strings.begin(), strings.end()}, substring);
-
-    if (issame(result1, result2)) {
-        for (const auto& s : result1) {
-            cout << s << endl;
-        }
-    } else {
-        cout << "No common elements found." << endl;
+    if (!issame({strings}, filter_by_substring(strings, substring))) {
+        assert(false);  // your test failed
     }
 
     return 0;
