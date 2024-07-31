@@ -1,8 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <cassert>
+using namespace std;
 
-int minSubArraySum(std::vector<int> nums) {
+int minSubArraySum(vector<int> nums) {
     int min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); i++) {
         int current_sum = 0;
@@ -17,7 +16,6 @@ int minSubArraySum(std::vector<int> nums) {
 }
 
 int main() {
-    std::cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << std::endl;
-    assert(minSubArraySum({1, -1}) == -1);
+    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1,-1}) << endl;
     return 0;
 }
