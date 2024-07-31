@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -20,8 +21,6 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return closest_elements;
 }
 
-int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == pair<float, float>{2.2, 3.1});
-
-    return 0;
+void main() {
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == make_pair(2.2f, 3.1f));
 }
