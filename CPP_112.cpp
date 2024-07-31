@@ -25,6 +25,6 @@ int main() {
     auto result = reverse_delete("mamma", "mia");
     bool expectedResult = !result.second;
     vector<string> expectedVectors = {{"",}};
-    assert(issame({{""}, make_pair(result.second, {"True"})}));
+    assert(issame(result, {"true"}));
     return 0;
 }
