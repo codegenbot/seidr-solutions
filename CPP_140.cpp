@@ -18,10 +18,13 @@ void fix_spaces(char* text) {
 }
 
 int main() {
-    char text[] = "   Exa 1 2 2 mple";
+    char text[17] = "   Exa 1 2 2 mple";
     fix_spaces(text);
-    cout << "Fixed string: ";
-    for (char c : text) cout << c;
-    cout << endl;
+    cout << "Fixed string: " << text << endl;
+
+    if (strcmp(text, "-Exa_1_2_2_mple") != 0) {
+        assert(false);
+    }
+
     return 0;
 }
