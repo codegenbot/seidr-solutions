@@ -10,9 +10,9 @@ double poly(const std::vector<double>& coeffs, double x) {
     return result;
 }
 
-double find_zero(const std::vector<double>& xs) {
-    double a = xs[0];
-    double b = xs[1];
+double find_zero(const std::vector<double>& coeffs) {
+    double a = coeffs[0];
+    double b = coeffs[1];
     return -b / a;
 }
 
