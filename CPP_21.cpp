@@ -1,11 +1,16 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
-    
-    vector<float> rescaled_numbers;
-    for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        rescaled_numbers.push_back(rescaled_num);
+#include <vector>
+#include <cassert>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+vector<float> rescale_to_unit(vector<float> vec) {
+    float min_val = *min_element(vec.begin(), vec.end());
+    float max_val = *max_element(vec.begin(), vec.end());
+    vector<float> rescaled_vec;
+    for (float val : vec) {
+        rescaled_vec.push_back((val - min_val) / (max_val - min_val));
     }
-    
-    return rescaled_numbers;
+    return rescaled_vec;
 }
