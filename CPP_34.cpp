@@ -6,10 +6,9 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    if(l.empty()) return vector<int>(); // return an empty vector if input is empty
-
     vector<int> result;
-    std::unique_copy(l.begin(), l.end(), std::back_inserter(result));
+    result.reserve(l.size());
+    std::unique_copy(l.begin(), l.end(), back_inserter(result));
     sort(result.begin(), result.end());
     return result;
 }
