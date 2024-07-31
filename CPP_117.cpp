@@ -23,7 +23,7 @@ vector<string> select_words(string s, int n) {
             }
             word += c;
         } else {
-            if (consonant_count == n) {
+           if (consonant_count == n) {
                 result.push_back(word);
             }
             word = "";
