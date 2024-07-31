@@ -24,7 +24,6 @@ vector<int> sort_array(const vector<int>& arr) {
 }
 
 int main() { // Changed test_main() to main()
-
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32})); // Corrected assert statement
 
     cout << "Test passed!" << endl;
