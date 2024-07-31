@@ -1,5 +1,6 @@
 #include <cassert>
 #include <stack>
+#include <iostream>
 
 bool correct_bracketing(std::string brackets) {
     stack<char> bracket_stack;
