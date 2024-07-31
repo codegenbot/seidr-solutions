@@ -1,12 +1,8 @@
 int n = arr.size();
-    if (n == 0) {
-        return true;
-    }
-    int min_index = min_element(arr.begin(), arr.end()) - arr.begin();
     for (int i = 0; i < n; ++i) {
-        if (arr[(min_index + i) % n] != i + 1) {
-            return false;
+        if (arr == vector<int>(arr.begin() + i, arr.end()) + vector<int>(arr.begin(), arr.begin() + i)) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
