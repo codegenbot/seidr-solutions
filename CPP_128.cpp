@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -17,7 +16,6 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    arr.resize(n);
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
