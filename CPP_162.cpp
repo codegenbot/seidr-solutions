@@ -2,7 +2,7 @@
 #include <openssl/rand.h>
 #include <string>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     unsigned char md5[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
     MD5_Init(&ctx);
@@ -13,7 +13,7 @@ string string_to_md5(string text) {
     }
     MD5_Final(md5, &ctx);
 
-    string result;
+    std::string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         char buff[3];
         sprintf(buff, "%02x", md5[i]);
