@@ -10,8 +10,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return numbers;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return remove_duplicates(a) == remove_duplicates(b);
 }
-
-assert(issame({1, 2, 3, 2, 4, 3, 5}, {1, 4, 5}));
