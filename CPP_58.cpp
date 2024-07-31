@@ -15,7 +15,7 @@ int main() {
     for(int i=0; i<n; i++) {
         int m; std::cin >> m;
 
-        v[i].resize(m, 0); // Initialize all elements to 0.
+        v[i].reserve(m); v[i].assign(m, 0);
 
         for(int j=0; j<m; j++) {
             std::cin >> v[i][j];
