@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -29,7 +28,7 @@ vector<string> split_words(string txt){
         result.push_back(word);
     }
     if(result.size() == 0){
-        result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){ return islower(c) && (c-'a') % 2 == 1; })));
+        result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){return islower(c) && (c-'a') % 2 == 1;})));
     }
     return result;
 }
