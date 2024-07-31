@@ -1,14 +1,11 @@
 ```
-x = input("Enter first fraction: ")
-n = input("Enter second fraction: ")
-
 def simplify(x, n):
-    x_num, x_denom = map(int, [0]+list(map(int, x.split("/"))))
-    n_num, n_denom = map(int, [0]+list(map(int, n.split("/"))))
+    x_parts = list(map(int, [0] + x.split("/")[1:]))
+    n_parts = list(map(int, [0] + n.split("/")[1:]))
 
-    if (x_num*x_denom) % math.gcd(x_denom, n_denom) == 0 and (n_num*n_denom) % math.gcd(n_denom, x_denom) == 0:
+    if (x_parts[0] * n_parts[1]) % math.gcd(n_parts[1], x_parts[1]) == 0 and (
+        n_parts[0] * x_parts[1]
+    ) % math.gcd(x_parts[1], n_parts[1]) == 0:
         return True
     else:
         return False
-
-print(simplify(x, n))
