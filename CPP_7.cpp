@@ -1,16 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (const auto& s : a) {
-        if (!std::count(b.begin(), b.end(), ::tolower(s))) {
-            return false;
-        }
-    }
-    return true;
-}
+std::vector<std::string> issame(std::vector<std::string>, std::vector<std::string>);
+std::vector<std::string> filter_by_substring(std::vector<std::string>, std::string);
 
 int main() {
     int n;
@@ -22,10 +15,6 @@ int main() {
     std::string substring;
     std::cin >> substring;
 
-    if (!issame(strings, {"grunt", "prune"})) {
-        assert(false);
-    }
-
     std::vector<std::string> result = filter_by_substring(strings, substring);
 
     for (const auto& s : result) {
@@ -35,6 +24,15 @@ int main() {
     return 0;
 }
 
+std::vector<std::string> issame(std::vector<std::string> a, std::vector<std::string> b){
+    vector<string> sameStrings;
+    for(string str : a){
+        if(find(b.begin(),b.end(),str) != b.end())
+            sameStrings.push_back(str);
+    }
+    return sameStrings;
+}
+
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     vector<string> result;
     for(string s : strings){
@@ -42,3 +40,4 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
             result.push_back(s);
     }
     return result;
+}
