@@ -1,9 +1,9 @@
-```cpp
+```
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
+bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,17 +15,19 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
-    return areEqual(a, b);
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
+    return areVectorsEqual(a, b);
 }
 
 int main() {
-    if (!areVectorsEqual({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    if (!sameVectors(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
-    if (!areEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+    numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    if (!sameVectors(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
