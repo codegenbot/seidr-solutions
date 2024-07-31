@@ -1,35 +1,32 @@
-```cpp
 #include <iostream>
-#include <vector>
-#include <any>
+using namespace std;
 
-bool issame(std::vector<int> a) {
-    return a.size() == 1 && a[0] == 3;
-}
-
-std::vector<std::any> filter_integers(std::vector<std::any> values) {
-    std::vector<std::any> result;
-    for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            try {
-                int val = std::any_cast<int>(value);
-                if(result.empty() || val > 0) {
-                    result.push_back(value); 
-                }
-            } catch (...) {
-                continue;
-            }
+int filter_integers(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (!isdigit(arr[i])) {
+            return -1;
         }
     }
-    return result;
+    return 1;
+}
+
+bool issame(int a[], int b[], int n) {
+    bool same = true;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != b[i]) {
+            same = false;
+            break;
+        }
+    }
+    return same;
 }
 
 int main() {
-    std::vector<std::any> values = {static_cast<std::any>(3), 'c', static_cast<std::any>(3), 3, 'a', 'b'};
-    if (!issame(std::vector<int>(filter_integers(values)))) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
+    int n, arr[10];
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
+    assert(filter_integers(arr, n) == 1);
     return 0;
 }
