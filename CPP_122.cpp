@@ -1,6 +1,6 @@
 #include <iostream>
 
-int add_elements(int arr[], int k) {
+int add_elements(int* arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
         if (arr[i] >= 10 && arr[i] <= 99) {
@@ -11,10 +11,8 @@ int add_elements(int arr[], int k) {
 }
 
 int main() {
+    int arr[] = {5, 15, 25, 35, 45};
     int k = 5;
-    int arr[] = {5, 12, 34, 56, 78};
-    
-    std::cout << add_elements(arr, k);
-
+    std::cout << add_elements(arr, k) << std::endl;
     return 0;
 }
