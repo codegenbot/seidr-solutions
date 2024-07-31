@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <string>
 
@@ -11,10 +12,10 @@ int filp_case(const char* str) {
         }
     }
     return result;
-
 }
 
 int main() {
-    int result = filp_case("These violent delights have violent ends");
-    assert(result == 0);
+    assert(filp_case("These violent delights have violent ends") == 0);
+    std::cout << "The case flip of the given string is: " << filp_case("These violent delights have violent ends");
+    return 0;
 }
