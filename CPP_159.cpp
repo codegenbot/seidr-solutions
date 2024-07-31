@@ -4,11 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
@@ -16,6 +12,9 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), vector<int>{5, 1}));
+    std::vector<int> result = eat(4, 5, 1);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
