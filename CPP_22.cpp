@@ -1,43 +1,34 @@
-```c++
 #include <iostream>
-#include <vector>
+using namespace std;
 
-bool issame(int x) {
-    return true;
-}
-
-std::vector<int> filter_integers(std::vector<int> numbers) {
-    std::vector<int> result;
-    for (int number : numbers) {
-        if (issame(number)) {
-            result.push_back(number);
+int filter_integers(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (!isdigit(arr[i])) {
+            return -1;
         }
     }
-    return result;
+    return 1;
+}
+
+bool issame(int a[], int b[], int n) {
+    bool same = true;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != b[i]) {
+            same = false;
+            break;
+        }
+    }
+    return same;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-
-    std::vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter integer " << i + 1 << ": ";
-        std::cin >> numbers[i];
+    int n, arr[10];
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-
-    std::vector<int> filtered_numbers = filter_integers(numbers);
-
-    if (!filtered_numbers.empty()) {
-        std::cout << "Filtered integers: ";
-        for (int number : filtered_numbers) {
-            std::cout << number << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "No integers to filter." << std::endl;
+    if (filter_integers(arr, n) == 1) {
+        assert(issame(arr, arr, n));
     }
-
     return 0;
 }
