@@ -1,3 +1,5 @@
-string check_str = b + b;
-    return (check_str.find(a) != string::npos);
+int n = a.size(), m = b.size();
+if (n != m) return false;
+string temp = b + b;
+return (temp.find(a) != string::npos);
 }
