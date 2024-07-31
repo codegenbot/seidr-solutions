@@ -2,17 +2,28 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    for (char c : unique_copy(letters)) {
+    string str = test;
+    for (char c : unique(str.begin(), str.end())) {
         int count = 0;
-        for (string::size_type i = 0; i < letters.size(); ++i) {
-            if (letters[i] == c) {
-                ++count;
-                letters.erase(i--);
-            }
+        size_t pos = 0;
+        while ((pos = str.find(c, pos)) != string::npos) {
+            count++;
+            pos++;
         }
-        result[c] = count;
+        if (count > 0) result[c] = count;
     }
 
-    return result;
+    map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxCountMap.clear();
+            maxCountMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
+            maxCountMap[it->first] = it->second;
+        }
+    }
+
+    return maxCountMap;
 }
