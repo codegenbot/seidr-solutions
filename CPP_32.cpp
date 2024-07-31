@@ -25,9 +25,9 @@ double find_zero(const std::vector<double>& polyCoeffs) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<double> polyCoeffs(n, 0.0);  
+    std::vector<double> polyCoeffs(n);  
     for (int i = 0; i < n; i++) {
-        double val;
+        double val, coeff;
         std::cin >> val;
         polyCoeffs[i] = val; 
     }
