@@ -1,6 +1,12 @@
-```
 def is_equal_to_sum_even(n):
-    for i in range(2, n+1, 2):
-        if sum(j for j in range(2, i+1, 2) if i == j + (n - i)) and len([j for j in range(2, i+1, 2) if i == j + (n - i)]) == 4:
-            return True
+    for i in range(2, n + 1, 2):
+        total = 0
+        j = 2
+        while True:
+            if i == n - j:
+                return True
+            elif j > (i + n) // 2:
+                break
+            total += j
+            j += 2
     return False
