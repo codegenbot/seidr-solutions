@@ -4,11 +4,7 @@
 #include <algorithm>
 
 bool compareVectors(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
@@ -19,12 +15,12 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     return compareVectors(a, b);
 }
 
 int main() {
-    if (!issame({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    if (!areEqual({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
