@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -23,6 +22,7 @@ int main() {
     while (true) {
         cin >> num;
         if (cin.fail()) break; 
+        if (std::string(num) == "stop") break;
         numbers.push_back(num);
     }
 
