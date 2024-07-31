@@ -8,7 +8,7 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> result;
     int max_depth = 0;
     int current_depth = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
@@ -21,19 +21,16 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
             current_depth = 0;
         }
     }
-    
+
     result.push_back(max_depth);
-    
+
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
-
 int main() {
-    std::vector<int> result1 = parse_nested_parens("(( ) ) ");
-    std::vector<int> result2 = {2, 0};
+    std::string input = "( ( ) ( ) ) ( )";
+    std::vector<int> result1 = parse_nested_parens(input);
+    std::vector<int> result2 = {2, 2, 1};
     
     assert(std::equal(result1.begin(), result1.end(), result2.begin(), result2.end()));
 
