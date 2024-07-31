@@ -17,6 +17,6 @@ vector<string> all_prefixes(string str){
 }
 
 int main() {
-    // Main function implementation
+    // Your main function code here
     return 0;
 }
