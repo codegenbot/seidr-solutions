@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -36,6 +37,17 @@ int main() {
     int odd_sum = double_the_difference(lst);
 
     cout << "The difference is: " << odd_sum << endl;
+
+    int odd_sum2 = 0;
+    for (int num : lst) {
+        if (num > 0 && floor((double)num) == num) { 
+            if (fmod((double)num, 2.0) != 0.0) { 
+                odd_sum2 += pow(num, 2);
+            }
+        }
+    }
+
+    cout << "The sum of squares is: " << odd_sum2 << endl;
 
     return 0;
 }
