@@ -1,22 +1,43 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}; // prime numbers up to 37
-    int n = sentence.size();
-    int start = 0;
+#include <iostream>
+#include <string>
+using namespace std;
 
-    for(int i = 0; i <= n; ++i){
-        if(i == n || sentence[i] == ' '){
-            string word = sentence.substr(start, i - start);
-            if(std::find(std::begin(prime), std::end(prime), word.size()) != std::end(prime)){
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
+    for(char c : sentence){
+        if(c != ' '){
+            word += c;
+        } else {
+            int word_length = word.length();
+            bool is_prime = true;
+            for(int i=2; i*i <= word_length; i++){
+                if(word_length % i == 0){
+                    is_prime = false;
+                    break;
+                }
+            }
+            if(is_prime && word_length > 1){
                 result += word + " ";
             }
-            start = i + 1;
+            word = "";
         }
     }
-
-    if(!result.empty()){
-        result.pop_back(); // remove the trailing space
+    int word_length = word.length();
+    bool is_prime = true;
+    for(int i=2; i*i <= word_length; i++){
+        if(word_length % i == 0){
+            is_prime = false;
+            break;
+        }
     }
-
+    if(is_prime && word_length > 1){
+        result += word;
+    }
     return result;
+}
+
+int main(){
+    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
