@@ -1,24 +1,17 @@
 bool issame(string a, string b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (tolower(a[i]) != tolower(b[i])) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    string sentence;
+    string s;
+    getline(std::cin, s);
     int n;
-    getline(cin, sentence);
     cin >> n;
 
-    vector<string> words = select_words(sentence, n);
+    vector<string> words = select_words(s, n);
+
     for (string word : words) {
         cout << word << endl;
     }
