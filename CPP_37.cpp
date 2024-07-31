@@ -19,8 +19,7 @@ void sort_even(const vector<float>& l) {
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            // Updating original vector l with sorted even values
-            l[i] = even_values[even_index];
+            const_cast<vector<float>&>(l)[i] = even_values[even_index];
             even_index++;
         }
     }
