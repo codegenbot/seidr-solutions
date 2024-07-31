@@ -7,6 +7,6 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    assert (is_sorted({1, 2, 3, 4}) == true);
     return 0;
 }
