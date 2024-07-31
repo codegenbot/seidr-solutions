@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,7 +18,7 @@ void readInput(std::vector<int>& input) {
     }
 }
 
-int program() { 
+int main() { 
     std::vector<int> input;
     readInput(input);
 
