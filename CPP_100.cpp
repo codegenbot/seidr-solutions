@@ -1,6 +1,14 @@
 #include <vector>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-  // Implementation of the function
+vector<int> make_a_pile(int n);
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> make_a_pile(int n){
+    vector<int> stones;
+    stones.push_back(n);
+    for(int i = 1; i < n; ++i){
+        n = (n % 2 == 0) ? n + 1 : n + 2;
+        stones.push_back(n);
+    }
+    return stones;
 }
