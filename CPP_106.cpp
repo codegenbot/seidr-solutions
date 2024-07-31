@@ -4,16 +4,20 @@
 
 using namespace std;
 
-bool validate(const vector<int>& actual, const vector<int>& expected) {
-    if (actual.size() != expected.size()) {
-        return false;
+void validate(const vector<int>& result, const vector<int>& expected) {
+    if (result.size() != expected.size()) {
+        cout << "Validation failed: Result size does not match expected size" << endl;
+        return;
     }
-    for (size_t i = 0; i < actual.size(); ++i) {
-        if (actual[i] != expected[i]) {
-            return false;
+
+    for (int i = 0; i < result.size(); ++i) {
+        if (result[i] != expected[i]) {
+            cout << "Validation failed: Mismatch at index " << i << endl;
+            return;
         }
     }
-    return true;
+
+    cout << "Validation successful!" << endl;
 }
 
 vector<int> f(int n) {
@@ -37,12 +41,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    vector<int> expected = {1, 2, 6};
-    vector<int> actual = f(3);
-    if (validate(actual, expected)) {
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
-    }
+    validate(f(3), vector<int>{1, 2, 6});
     return 0;
 }
