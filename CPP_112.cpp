@@ -23,6 +23,6 @@ pair<vector<string>, bool> reverse_delete(string s1, string s2) {
 
 int main() {
     auto res = reverse_delete("mamma", "mia");
-    assert((res.second) && (issame({""}, res.first)));
+    assert((issame(vector<string>{res.first}, {""}) && res.second));
     return 0;
 }
