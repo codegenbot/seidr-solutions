@@ -1,3 +1,8 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
 string anti_shuffle(string s);
 
 string anti_shuffle(string s) {
