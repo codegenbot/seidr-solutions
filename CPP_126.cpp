@@ -1,18 +1,12 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <cassert>
 
 bool is_sorted(const std::vector<int>& lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] <= lst[i - 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
-            return false;
-        }
-    }
-    return true;
+    return std::is_sorted(lst.begin(), lst.end());
 }
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    // Add more test cases as needed
     return 0;
 }
