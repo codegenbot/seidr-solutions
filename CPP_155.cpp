@@ -1,5 +1,10 @@
 #include <vector>
+#include <string>
 #include <cassert>
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> counts(2, 0);
@@ -12,10 +17,6 @@ std::vector<int> even_odd_count(int num) {
         }
     }
     return counts;
-}
-
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
 }
 
 int main() {
