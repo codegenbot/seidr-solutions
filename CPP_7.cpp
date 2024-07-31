@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -32,7 +33,7 @@ int main() {
 
     auto result1 = filter_by_substring(strings, substring);
 
-    if (areEqual(result1, strings)) {
+    if (areEqual(strings, result1)) {
         for (const auto& s : strings) {
             std::cout << s << std::endl;
         }
