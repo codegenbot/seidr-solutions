@@ -4,9 +4,13 @@
 
 std::vector<int> tri(int n) {
     std::vector<int> result(n);
-    for (int i = 1; i <= n; i++) {
-        result[i - 1] = i * 2 - 1;
+
+    int sum = 2;
+    for (int i = 0; i < n; ++i) {
+        result[i] = sum;
+        sum += i + 1;
     }
+
     return result;
 }
 
