@@ -2,7 +2,7 @@ if (x <= 0 || n <= 0) {
         return false;
     }
     
-    double result = log(x) / log(n);
+    double root = pow(x, 1.0 / n);
     
-    return (result == floor(result));
+    return (floor(root) == root);
 }
