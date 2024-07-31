@@ -8,7 +8,7 @@ void readInput(std::vector<int>& input) {
     size_t n;
     std::cin >> n;
 
-    input.resize(n);
+    input.resize(n, 0);
 
     for(int i = 0; i < n; i++) {
         int temp;
@@ -19,7 +19,7 @@ void readInput(std::vector<int>& input) {
 }
 
 int main() { 
-    std::vector<int> input;
+    std::vector<int> input(0); // Initialize with size 0
     readInput(input);
 
     if(input.size() == 0) {
