@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,4 +17,3 @@ int main() {
     l = unique(l);
     for(int i: l) cout << i << " ";
     return 0;
-}
