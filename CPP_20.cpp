@@ -3,18 +3,16 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<float> find_closest_elements(const std::vector<float>& nums) {
+std::vector<float> find_closest_elements(std::vector<float> nums) {
     std::vector<float> result;
 
     if (nums.size() < 2) {
         return result;
     }
 
-    std::vector<float> sorted_nums = nums;
-    std::sort(sorted_nums.begin(), sorted_nums.end());
-    
-    result.push_back(sorted_nums[0]);
-    result.push_back(sorted_nums[1]);
+    std::sort(nums.begin(), nums.end());
+    result.push_back(nums[0]);
+    result.push_back(nums[1]);
 
     return result;
 }
