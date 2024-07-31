@@ -3,10 +3,6 @@ using namespace std;
 
 vector<int> count_up_to(int n);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> count_up_to(int n) {
     vector<int> result;
     if(n < 2) return result;
@@ -29,4 +25,8 @@ vector<int> count_up_to(int n) {
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
