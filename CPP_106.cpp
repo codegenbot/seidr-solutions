@@ -2,8 +2,10 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n) {
-    std::vector<int> result(n);
+using namespace std;
+
+vector<int> f(int n) {
+    vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
             int fact = 1;
@@ -23,6 +25,6 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::assert(f(3) == std::vector<int>{1, 2, 6});
+    assert(f(3) == vector<int>{1, 2, 6});
     return 0;
 }
