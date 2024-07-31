@@ -7,7 +7,7 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = sum / (m - n + 1);
     
     string binary_avg = "";
     while (avg > 0) {
