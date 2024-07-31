@@ -1,3 +1,4 @@
+```
 import math
 
 def simplify():
@@ -20,6 +21,12 @@ def simplify():
     gcd = math.gcd(denominator, denom)
     new_numerator = numerator * (denom // gcd)
     new_denominator = denominator * (num // gcd)
+
+    while new_denominator != 1 and new_numerator % new_denominator != 0:
+        gcd = math.gcd(new_numerator, new_denominator)
+        new_numerator //= gcd
+        new_denominator //= gcd
+
     return f"{new_numerator}/{new_denominator}"
 
 print(simplify())
