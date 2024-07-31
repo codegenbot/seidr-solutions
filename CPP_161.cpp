@@ -14,8 +14,9 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    string s;
+    string input;
     cout << "Enter a string: ";
-    cin >> s;
-    cout << "Result: " << solve(s) << endl;
+    cin >> input;
+    std::cout << solve(input) << endl;
+    return 0;
 }
