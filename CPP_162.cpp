@@ -1,27 +1,17 @@
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <iomanip>
-
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) {
-        return "None";
-    }
-
-    MD5_CTX ctx;
+string string_to_md5(string text){
+    MD5_CTX md5Ctx;
     unsigned char result[16];
-    const char *cstr = text.c_str();
-
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, cstr, text.size());
-    MD5_Final(&ctx, result);
-
-    stringstream ss;
-    for (int i = 0; i < 16; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+    if(text.empty()){
+        return "";
     }
-
-    return ss.str();
+    MD5_Init(&md5Ctx);
+    MD5_Update(&md5Ctx,(unsigned char*)text.c_str(),text.size());
+    MD5_Final(result,&md5Ctx);
+    string hashStr = "";
+    for(int i=0; i<16; i++){
+        char buffer[3];
+        sprintf(buffer,"%02x",result[i]);
+        hashStr+=string(buffer);
+    }
+    return hashStr;
 }
