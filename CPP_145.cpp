@@ -5,10 +5,6 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return unordered_set<int>(a.begin(), a.end()) == unordered_set<int>(b.begin(), b.end());
-}
-
 vector<int> order_by_points(const vector<int>& nums) {
     vector<int> sorted_nums = nums;
     sort(sorted_nums.begin(), sorted_nums.end(), [](int a, int b) {
@@ -31,6 +27,8 @@ vector<int> order_by_points(const vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(order_by_points(vector<int>({0, 6, 6, -76, -21, 23, 4})), vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    vector<int> input = {0, 6, 6, -76, -21, 23, 4};
+    vector<int> expected = {-76, -21, 0, 4, 23, 6, 6};
+    assert(order_by_points(input) == expected);
     return 0;
 }
