@@ -2,9 +2,9 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+vector<int> count_up_to(int n);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> count_up_to(int n) {
     vector<int> primes;
@@ -21,6 +21,10 @@ vector<int> count_up_to(int n) {
         }
     }
     return primes;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
