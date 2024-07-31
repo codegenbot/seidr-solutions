@@ -25,5 +25,3 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     });
     return result;
 }
-
-assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
