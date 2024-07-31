@@ -8,7 +8,7 @@ bool issame(const std::std::vector<std::string>& a, const std::std::vector<std::
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
