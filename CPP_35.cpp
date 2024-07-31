@@ -19,7 +19,7 @@ int main() {
         int temp;
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> temp;
-        input[i] = temp;
+        input.push_back(temp);
     }
 
     std::cout << "Maximum element is: " << maxElement(input) << std::endl;
