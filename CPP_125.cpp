@@ -1,31 +1,33 @@
-vector<string> split_words(string txt){
-        vector<string> result;
-        string word;
-        if(txt.find(' ') != string::npos){
-            size_t start = 0, end;
-            while((end = txt.find(' ', start)) != string::npos){
-                word = txt.substr(start, end - start);
+vector<string> result;
+    if(txt.find(" ") != string::npos){
+        string word = "";
+        for(char c : txt){
+            if(c == ' '){
                 result.push_back(word);
-                start = end + 1;
+                word = "";
+            } else {
+                word += c;
             }
-            result.push_back(txt.substr(start));
         }
-        else if(txt.find(',') != string::npos){
-            size_t start = 0, end;
-            while((end = txt.find(',', start)) != string::npos){
-                word = txt.substr(start, end - start);
+        result.push_back(word);
+    } else if(txt.find(",") != string::npos){
+        string word = "";
+        for(char c : txt){
+            if(c == ','){
                 result.push_back(word);
-                start = end + 1;
+                word = "";
+            } else {
+                word += c;
             }
-            result.push_back(txt.substr(start));
         }
-        else{
-            int oddChars = 0;
-            for(char c : txt){
-                if(islower(c) && ((c - 'a') % 2 != 0))
-                    oddChars++;
+        result.push_back(word);
+    } else {
+        int oddLowerCaseCount = 0;
+        for(char c : txt){
+            if(islower(c) && ((c - 'a') % 2 == 1)){
+                oddLowerCaseCount++;
             }
-            result.push_back(to_string(oddChars));
         }
-        return result;
+        result.push_back(to_string(oddLowerCaseCount));
     }
+    return result;
