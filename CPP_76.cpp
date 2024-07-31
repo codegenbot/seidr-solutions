@@ -8,11 +8,11 @@ bool is_simple_power(int x, int n) {
     
     double result = log(x) / log(n);
     
-    return std::abs(result - (int)result) < 1e-9;
+    return result == (int)result;
 }
 
 int main() {
-    assert(is_simple_power(1, 12));
+    assert(is_simple_power(1, 12)==true);
     
     return 0;
 }
