@@ -15,7 +15,7 @@ std::vector<std::string> bf(std::string a, std::string b) {
     }
 }
 
-int main_task_cpp_148() {
+int main() {
     assert(issame(bf("Jupiter", "Makemake"), std::vector<std::string>()));
     return 0;
 }
