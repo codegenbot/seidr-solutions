@@ -6,13 +6,20 @@ const char* anti_shuffle(const string& str) {
     if (str.length() <= 1) {
         return NULL;
     }
-    for(auto it = str.begin() + 1; it != str.end(); ++it) {
-        if (*it == str[0]) {
+    int i = 1;
+    while (i < str.length()) {
+        if (str[i] == str[0]) {
             return NULL; 
         }
+        i++;
     }
-    const char* res = str.data();
-    return res;
+    string result;
+    for (int i = 0; i < str.length(); ++i) {
+        if (str[i] != str[0]) {
+            result += str[i];
+        }
+    }
+    return result.c_str();
 }
 
 int main() { 
