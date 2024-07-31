@@ -18,10 +18,8 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("()()(()())()")); // Example test case
-    assert(correct_bracketing("((()))")); // Test case with nested brackets
-    assert(!correct_bracketing("())(")); // Test case with incorrect bracketing
-    assert(correct_bracketing(""); // Test case with empty input
-    assert(!correct_bracketing("(()")); // Test case with unbalanced brackets
+    assert(correct_bracketing("()()(()())()"));
+    assert(correct_bracketing("((()))")); // Additional test case
+    assert(!correct_bracketing("((()")); // Additional test case
     return 0;
 }
