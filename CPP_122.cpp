@@ -11,9 +11,8 @@ int add_elements(int arr[], int k) {
 }
 
 int main() {
-    int arr[] = {5, 25, 15, 10, 100};
+    int arr[] = {12, 5, 78, 100, 45};
     int k = 5;
-    int result = add_elements(arr, k);
-    std::cout << "Sum of elements between 10 and 99: " << result << std::endl;
+    std::cout << add_elements(arr, k) << std::endl;
     return 0;
 }
