@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool operator==(const vector<string> &a, const vector<string> &b) {
+bool operator==(const vector<string> &a, const vector<string> &b){
     return a == b;
 }
 
