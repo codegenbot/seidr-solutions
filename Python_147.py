@@ -1,5 +1,4 @@
-```
-def get_max_triples(n):
+def solution(n):
     count = 0
     max_sum = 0
     for k in range(1, n + 1):
