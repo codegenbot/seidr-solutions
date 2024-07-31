@@ -16,6 +16,10 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    assert(specialFilter(std::vector<int>{}) == 0);
+    assert(specialFilter({}) == 0);
+    assert(specialFilter({12, 23, 45, 67, 89}) == 2);
+    assert(specialFilter({9, 10, 11, 22, 33}) == 0);
+    assert(specialFilter({15, 26, 37, 48, 59}) == 3);
+    
     return 0;
 }
