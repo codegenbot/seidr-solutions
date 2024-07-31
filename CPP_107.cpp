@@ -31,6 +31,8 @@ int main() {
     auto results = even_odd_palindrome(n);
     std::cout << "Even palindromes: " << results.first << std::endl;
     std::cout << "Odd palindromes: " << results.second << std::endl;
+
     assert(issame(even_odd_palindrome(1), {0, 1}));
+
     return 0;
 }
