@@ -1,5 +1,4 @@
-```
-import math
+from math import gcd
 
 def simplify():
     while True:
@@ -18,14 +17,14 @@ def simplify():
         else:
             print('Invalid input. Please enter a fraction.')
 
-    gcd = math.gcd(denominator, denom)
-    new_numerator = numerator * (denom // gcd)
-    new_denominator = denominator * (num // gcd)
+    gcd_val = math.gcd(denominator, denom)
+    new_numerator = numerator * (denom // gcd_val)
+    new_denominator = denominator * (num // gcd_val)
 
     while new_denominator != 1 and new_numerator % new_denominator != 0:
-        gcd = math.gcd(new_numerator, new_denominator)
-        new_numerator //= gcd
-        new_denominator //= gcd
+        gcd_val = math.gcd(new_numerator, new_denominator)
+        new_numerator //= gcd_val
+        new_denominator //= gcd_val
 
     return f"{new_numerator}/{new_denominator}"
 
