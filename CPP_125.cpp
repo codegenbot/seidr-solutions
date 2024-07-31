@@ -3,12 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> split_words(string txt);
 
-int main() {
-    assert(issame(split_words(""), {"0"}));
+bool issame(vector<string> a, vector<string> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> split_words(string txt){
@@ -33,6 +31,7 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
