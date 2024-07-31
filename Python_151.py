@@ -7,4 +7,4 @@ def check(expected_output):
     output = double_the_difference(lst)
     print(output == expected_output)
 
-check(12)
+check(14)
