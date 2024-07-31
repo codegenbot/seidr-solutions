@@ -27,4 +27,3 @@ int main() {
     }
     cout << solve(lst) << endl;
     return 0;
-}
