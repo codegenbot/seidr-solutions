@@ -19,9 +19,3 @@ vector<int> make_a_pile(int n){
     }
     return stones;
 }
-
-int main() {
-    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(are_same(make_a_pile(8), expected));
-    return 0;
-}
