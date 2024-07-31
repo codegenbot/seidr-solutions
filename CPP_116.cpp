@@ -2,14 +2,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_array(const std::vector<int>& arr) {
+vector<int> sort_array(const vector<int>& arr) {
     vector<int> sorted_arr = arr;
     sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
@@ -24,7 +23,7 @@ vector<int> sort_array(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
     cout << "Test passed!" << endl;
     return 0;
 }
