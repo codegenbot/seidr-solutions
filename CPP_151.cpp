@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -19,8 +18,9 @@ int64_t double_the_difference(vector<int64_t> lst) {
 
 int main_func() {
     int64_t odd_sum;
-    vector<int64_t> lst; 
+
     cout << "Enter elements for the list: ";
+    vector<int64_t> lst; 
     for (int i = 0; i < 5; i++) { 
         int64_t num;
         cin >> num;
