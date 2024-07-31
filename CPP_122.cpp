@@ -24,7 +24,7 @@ int main() {
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
-                num <= std::numeric_limits<int>::max())) {
+                num <= std::numericlimits<int>::max())) {
             std::cout << "Error: invalid input. Please enter an integer between "
                       << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
                       << ": ";
