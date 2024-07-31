@@ -25,8 +25,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = make_a_pile(n);
-    for (int i : result) {
-        cout << i << " ";
+    for (int stone : result) {
+        cout << stone << " ";
     }
     return 0;
 }
