@@ -1,4 +1,4 @@
-```python
+```
 import math
 
 def simplify():
