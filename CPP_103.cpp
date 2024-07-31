@@ -8,8 +8,9 @@ string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    int intAvg = static_cast<int>(floor(avg + 0.5)); // round and convert to int
+    avg = floor(avg + 0.5); 
     string res = "";
+    int intAvg = static_cast<int>(avg); // round and convert to int
     while(intAvg > 0){
         if(intAvg & 1) res.push_back('1');
         else res.push_back('0');
