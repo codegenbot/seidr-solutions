@@ -1,11 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <limits>
 
 int add_elements(const std::vector<int>& arr);
-
-int calculate_sum_of_elements_with_length_of_string_representation_le_2(const std::vector<int>& arr);
 
 int main() {
     int k = 0;
@@ -38,7 +37,7 @@ int main() {
             sum = numbers[0];
         }
     }
-    std::cout << "Sum of elements with length of string representation <= 2: " << calculate_sum_of_elements_with_length_of_string_representation_le_2(numbers) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(numbers) << std::endl;
 
 }
 
@@ -49,10 +48,5 @@ int add_elements(const std::vector<int>& arr) {
             sum += arr[i];
         }
     }
-    return sum;
-}
-
-int calculate_sum_of_elements_with_length_of_string_representation_le_2(const std::vector<int>& arr) {
-    int sum = add_elements(arr);
     return sum;
 }
