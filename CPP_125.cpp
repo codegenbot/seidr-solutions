@@ -3,19 +3,19 @@
 #include <cassert>
 
 bool issame(char a, char b) {
-    return std::tolower(a) == std::tolower(b);
+    return a == b;
 }
 
 vector<string> split_words(string txt);
 
 int main() {
-    assert(issame('a', 'A'));
     string input;
     getline(cin, input);
-    vector<string> words = split_words(input);
-    for(string word : words) {
-        cout << word << endl;
+    vector<string> result = split_words(input);
+    for (string word : result) {
+        cout << word << " ";
     }
+    cout << endl;
     return 0;
 }
 
