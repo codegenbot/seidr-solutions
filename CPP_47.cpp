@@ -17,16 +17,9 @@ int main() {
     vector<float> numbers;
     float num;
     
-    cout << "Enter some numbers (enter 'stop' to finish): ";
-    while (true) {
-        cin >> num;
-        if (num == 'stop') break;
+    while (cin >> num) {
         numbers.push_back(num);
     }
     
-    if (!numbers.empty()) {
-        cout << "Median: " << median(numbers) << endl;
-    } else {
-        cout << "No numbers entered." << endl;
-    }
+    cout << "Median: " << median(numbers) << endl;
 }
