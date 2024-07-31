@@ -5,7 +5,7 @@ string longest(initializer_list<string> strings) {
     if(strings.empty())
         return "None";
     
-    string longestStr = *(strings.begin());
+    string longestStr = *strings.begin();
     for(const auto& str : strings){
         if(str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)){
             longestStr = str;
