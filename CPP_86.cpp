@@ -1,12 +1,14 @@
 ```cpp
 #include <iostream>
+#include <cstddef>
+
 using namespace std;
 
 const char* anti_shuffle(const string& str) {
-    if (str.length() <= 1) {
-        return NULL;
+    if (str.length() < 2) {
+        return str.c_str();
     }
-    int i = 1;
+    size_t i = 1;
     while (i < str.length()) {
         if (str[i] == str[0]) {
             return NULL; 
@@ -21,7 +23,6 @@ int main(){
     cout << "Enter a string: ";
     cin >> str;
     const char* res = anti_shuffle(str);
-    if(res==NULL)cout<<"No valid shuffle found."<<endl;
-    else cout << "Result: " << res << endl;
+    cout << "Result: " << res << endl;
     return 0;
 }
