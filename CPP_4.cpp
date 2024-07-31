@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 namespace mean_absolute_deviation {
     float calculate_mad(const std::vector<float>& numbers) {
@@ -20,4 +21,7 @@ namespace mean_absolute_deviation {
     }
 }
 
-assert(std::abs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+int main() {
+    assert(std::abs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    return 0;
+}
