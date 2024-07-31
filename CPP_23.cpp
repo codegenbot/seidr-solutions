@@ -1,16 +1,13 @@
 ```cpp
 #include <string>
 
-int my_strlen(const char *str){
-    int len = 0;
-    while (*str != '\0') {
-        str++;
-        len++;
-    }
-    return len;
+int my_strlen(std::string str){
+    return str.length();
 }
 
 int main() {
-    const char* input = "asdasnakj";
-    assert(my_strlen(input) == 12);
+    char input[] = "asdasnakj";
+    input[12] = '\0';
+    std::string str(input); 
+    assert(my_strlen(str) == 12);
 }
