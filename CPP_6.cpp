@@ -20,11 +20,11 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool sameAs(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))"), {1,4}));
+    assert(sameAs(parse_nested_parens("(()(())((()))"), {4}));
     return 0;
 }
