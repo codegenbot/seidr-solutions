@@ -13,11 +13,11 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::sort(l2.begin(), l2.end());
 
     std::vector<int> result;
-    std::set<int> resultSet;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::inserter(resultSet, resultSet.begin()));
-
-    for (const auto& val : resultSet) {
-        result.push_back(val);
+    std::set<int> set1(l1.begin(), l1.end());
+    for (int element : l2) {
+        if (set1.find(element) != set1.end()) {
+            result.push_back(element);
+        }
     }
 
     return result;
