@@ -10,13 +10,14 @@ int main() {
     assert(make_palindrome("jerry") == "jerryrrej");
 }
 
-string make_palindrome(string str){
-    string prefix = "";
-    for (int i = str.length() - 1; i >= 0; --i) {
-        if (str.substr(0, i) == str.substr(str.length() - i)) {
-            prefix = str.substr(i);
-            break;
+string make_palindrome(string str) {
+    string rev_str(str.rbegin(), str.rend());
+
+    for (int i = 1; i < str.length(); ++i) {
+        if (str.substr(0, str.length() - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
-    return str + prefix;
+    
+    return str + rev_str.substr(0, str.length() - 1);
 }
