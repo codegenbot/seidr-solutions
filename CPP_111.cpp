@@ -16,7 +16,7 @@ map<char, int> histogram(string test) {
     }
 
     char maxLetter = *max_element(result.begin(), result.end(),
-                                    [](pair<char, int> a, pair<char> b) { return a.second < b.second; });
+                                    [](pair<char, int> a, pair<char, int> b) { return a.second < b.second; });
     int maxCount = result[maxLetter];
 
     map<char, int> maxResult;
@@ -26,3 +26,4 @@ map<char, int> histogram(string test) {
     }
 
     return maxResult;
+}
