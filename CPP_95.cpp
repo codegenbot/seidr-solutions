@@ -1,7 +1,4 @@
 #include <string>
-#include <map>
-#include <iostream>
-
 using namespace std;
 
 bool check_dict_case(map<string,string> dict){
@@ -24,8 +21,7 @@ bool check_dict_case(map<string,string> dict){
 }
 
 int main() {
-    map<string, string> empty_dict;
-    cout << check_dict_case(empty_dict) << endl;
-    
+    std::map<string, string> empty_dict;
+    check_dict_case(empty_dict);
     return 0;
 }
