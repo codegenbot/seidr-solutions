@@ -1,16 +1,15 @@
 ```
-def solution(numbers):
+def solution(n):
     count = 0
     max_sum = 0
-    for n in numbers: 
-        for k in range(1, n + 1): 
-            for i in range(min(k-2, n)):
-                j = i+1
-                total = (i * i - i + 1) + (j * j - j + 1) + (k * k - k + 1)
-                if total % 3 == 0:
-                    count += 1
-                    max_sum = max(max_sum, total)
+    for k in range(1, n + 1): 
+        for i in range(k-1): 
+            j = i+1
+            total = (i * i - i + 1) + (j * j - j + 1) + (k * k - k + 1)
+            if total % 3 == 0:
+                count += 1
+                max_sum = max(max_sum, total)
     return count, max_sum
 
-n = list(map(int, input("Enter multiple numbers separated by space: ").split()))
+n = int(input("Enter a number: "))
 print(solution(n))
