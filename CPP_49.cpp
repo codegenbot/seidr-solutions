@@ -1,7 +1,8 @@
+```
 #include <cstdio>
 using namespace std;
 
-int modp(int n, int p) {
+long long modp(int n, int p) {
     if (n == 0)
         return 1;
     long long res = 1;
@@ -12,10 +13,10 @@ int modp(int n, int p) {
 }
 
 int main() {
-    printf("%d\n", modp(3, 5));
-    printf("%d\n", modp(1101, 101));
-    printf("%d\n", modp(0, 101));
-    printf("%d\n", modp(3, 11));
-    printf("%d\n", modp(100, 101));
-    return 0;
+    int n, p;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("Enter the value of p: ");
+    scanf("%d", &p);
+    printf("%lld\n", modp(n, p));
 }
