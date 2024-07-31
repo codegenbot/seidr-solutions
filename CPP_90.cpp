@@ -9,7 +9,7 @@ int next_smallest(std::vector<int> lst){
     
     int smallest = lst[0];
     for(int num : lst) {
-        if (num > smallest) {
+        if(num > smallest) {
             return num;
         }
     }
@@ -17,4 +17,7 @@ int next_smallest(std::vector<int> lst){
     return -1;
 }
 
-assert(next_smallest({-35, 34, 12, -45}) == -35);
+int main(){
+    assert(next_smallest({-35, 34, 12, -45}) == -35); 
+    return 0;
+}
