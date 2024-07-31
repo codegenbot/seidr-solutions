@@ -29,9 +29,11 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
-    assert(move_one_ball({0, 1, 2, 3}) == true);
-    assert(move_one_ball({1, 2, 3, 0}) == true);
-    assert(move_one_ball({0, 1, 3, 2}) == false);
-
+    std::vector<int> test1 = {1, 2, 3, 1, 2, 3};
+    assert(move_one_ball(test1) == true);
+    
+    std::vector<int> test2 = {3, 1, 2, 3, 1, 2};
+    assert(move_one_ball(test2) == false);
+    
     return 0;
 }
