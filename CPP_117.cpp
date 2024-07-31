@@ -6,10 +6,10 @@
 
 using std::vector;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -43,17 +43,13 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
-
-    std::string user_input;
+    std::string s;
     int n;
-    std::cin >> user_input >> n;
+    std::cin >> s >> n;
     
-    std::vector<std::string> words = select_words(user_input, n);
-    
-    for (const std::string& w : words) {
-        std::cout << w << " ";
-    }
+    std::vector<std::string> words = select_words(s, n);
+
+    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
     
     return 0;
 }
