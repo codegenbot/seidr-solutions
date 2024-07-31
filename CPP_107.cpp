@@ -26,6 +26,9 @@ std::pair<int, int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
+    int n;
+    std::cin >> n;
+    auto result = even_odd_palindrome(n);
+    std::cout << result.first << " " << result.second << std::endl;
     return 0;
 }
