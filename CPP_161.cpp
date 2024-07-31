@@ -1,22 +1,26 @@
-#include <algorithm>
-#include <cctype>
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <algorithm>
 
 std::string solve(const std::string& s) {
-    std::string result = s;
-    for (char &c : result) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+    for (char &c : s) {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
         }
     }
-    if (count_if(result.begin(), result.end(), isalpha) == 0) {
-        reverse(result.begin(), result.end());
+    if (std::count_if(s.begin(), s.end(), std::isalpha) == 0) {
+        std::reverse(s.begin(), s.end());
     }
-    return result;
+    return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
+    std::string input;
+    
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::cout << solve(input) << std::endl;
+    
     return 0;
 }
