@@ -1,13 +1,11 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 double truncate_number(double number) {
-    return number - floor(number);
+    return number >= 0 ? number - floor(number) : number - ceil(number);
 }
 
 int main() {
-    assert(abs(truncate_number(123.456) - 0.456) < 1e-4);
+    assert( abs(truncate_number(123.456) - 0.456) < 1e-4 );
     return 0;
 }
