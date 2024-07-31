@@ -22,18 +22,20 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return {largest_negative, smallest_positive};
 }
 
-std::vector<int> input = {-5, 3, 1, -10, 7};
-std::vector<int> result = largest_smallest_integers(input);
+int main(){
+    std::vector<int> input = {-5, 3, 1, -10, 7};
+    std::vector<int> result = largest_smallest_integers(input);
     
-std::cout << "Largest negative: " << result[0] << " Smallest positive: " << result[1] << "\n";
+    std::cout << "Largest negative: " << result[0] << " Smallest positive: " << result[1] << "\n";
     
-std::vector<int> check1 = {-10, 1};
-std::vector<int> check2 = largest_smallest_integers(input);
+    std::vector<int> check1 = {-10, 1};
+    std::vector<int> check2 = largest_smallest_integers(input);
     
-if(issame(check1, check2)){
-    std::cout << "Output is correct!\n";
-} else {
-    std::cout << "Output is incorrect!\n";
+    if(issame(check1, check2)){
+        std::cout << "Output is correct!\n";
+    } else {
+        std::cout << "Output is incorrect!\n";
+    }
+    
+    return 0;
 }
-    
-return 0;
