@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
 #include <string>
+#include <algorithm>
 
-bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
 }
 
