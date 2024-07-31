@@ -13,12 +13,15 @@ int main() {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
-    std::vector<int> input; // Initialize with 0 size
-    for (int i = 0; i < k; i++) {
+    int count;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> count;
+    std::vector<int> input(count); // Initialize with a fixed size
+    for (int i = 0; i < count; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        input.push_back(num);
+        input[i] = num;
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
     return 0;
