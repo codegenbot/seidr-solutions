@@ -2,17 +2,19 @@
 #include <string>
 
 int countCharacters(std::string str) {
-    int count = 0;
-    bool charSet[256] = {false};
+    int uniqueChars = 0;
+    const int MAX_CHAR = 256; // Assuming ASCII characters
+
+    bool chars[MAX_CHAR] = {false};
 
     for (char c : str) {
-        if (!charSet[int(c)]) {
-            charSet[int(c)] = true;
-            count++;
+        if (!chars[c]) {
+            uniqueChars++;
+            chars[c] = true;
         }
     }
 
-    return count;
+    return uniqueChars;
 }
 
 int main() {
