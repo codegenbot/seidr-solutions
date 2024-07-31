@@ -1,5 +1,5 @@
-bool issame(const vector<float>& v1, const vector<float>& v2) {
-    return v1 == v2;
+bool issame(const vector<float>& vec1, const vector<float>& vec2) {
+    return vec1 == vec2;
 }
 
 vector<float> rescale_to_unit(const vector<float>& numbers) {
