@@ -1,21 +1,15 @@
-bool will_it_fly(vector<int> q, int w) {
+bool will_it_fly(vector<int> q,int w){
     string str = "";
-    for (int i : q) {
-        str += to_string(i);
+    for(int i=0;i<q.size();i++){
+        str += to_string(q[i]);
     }
-    return isPalindrome(str) && isLessEqualSum(w);
-}
-
-bool isPalindrome(string s) {
-    string reversed = s;
-    reverse(reversed.begin(), reversed.end());
-    return s == reversed;
-}
-
-bool isLessEqualSum(int w, vector<int> q) {
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
+    if(str==reverse(str).str()){
+        int sum = 0;
+        for(int i=0;i<q.size();i++){
+            sum+=q[i];
+        }
+        return sum<=w;
+    }else{
+        return false;
     }
-    return sum <= w;
 }
