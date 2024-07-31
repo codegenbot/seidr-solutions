@@ -14,6 +14,6 @@ std::string change_base(int x, int base){
 
 int solve_problem(){
     int x = 10;
-    assert(std::to_string(x) == change_base(x, x + 1));
+    assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
