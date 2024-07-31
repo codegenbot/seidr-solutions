@@ -28,3 +28,10 @@ vector<string> split_words(string txt) {
 bool issame(vector<string> a, vector<string> b) {
     return equal(a.begin(), a.end(), b.begin());
 }
+
+int main() {
+    assert(issame(split_words(""), {}));
+    assert(issame(split_words("Hello World"), {"Hello", "World"}));
+    
+    return 0;
+}
