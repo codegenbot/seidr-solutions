@@ -27,7 +27,7 @@ int main() {
     std::cin >> n;
     std::vector<double> polyCoeffs(n);  
     for (int i = 0; i < n; i++) {
-        double val;
+        double val, coeff;
         std::cin >> val;
         polyCoeffs[i] = val; 
     }
