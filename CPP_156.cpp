@@ -1,6 +1,5 @@
-```
 int int_to_mini_roman(int n) {
-    string roman = "";
+    string roman;
     if (n >= 1000) {
         while (n >= 1000) {
             roman += "M";
