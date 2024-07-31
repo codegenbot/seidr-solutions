@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -40,11 +40,11 @@ int main() {
     }
     cout << endl;
 
-    vector<int> result = sort_third(l1);
+    vector<int> result1 = sort_third(l1);
     vector<int> result2 = sort_third(l2);
 
     cout << "result1: ";
-    for (int i : result) {
+    for (int i : result1) {
         cout << i << " ";
     }
     cout << endl;
