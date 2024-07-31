@@ -1,19 +1,19 @@
 #include <iostream>
-#include <string> // Include the <string> header
-#include <boost/any.hpp> // Include boost/any.hpp for using boost::any
+#include <string>
+#include <any>
 
 template <typename T>
-T compare_one(const T& a, const T& b) {
+std::string compare_one(const T& a, const T& b) {
     if (a > b) {
         return a;
     } else if (a < b) {
         return b;
     }
-    return T();
+    return std::string();
 }
 
 int main() {
-    assert(compare_one(boost::any_cast<std::string>("1"), std::to_string(1)).empty());
-
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::to_string(1))) == "None");
+    
     return 0;
 }
