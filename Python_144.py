@@ -1,13 +1,9 @@
-import math
-
-
+```
 def simplify(x, n):
-    x_num, x_denom = map(int, x.split("/"))
-    n_num, n_denom = map(int, n.split("/"))
+    x_num, x_denom = map(int, [0]+list(map(int, x.split("/"))))
+    n_num, n_denom = map(int, [0]+list(map(int, n.split("/"))))
 
-    result = (x_num * n_denom) // math.gcd(x_denom * n_num)
-
-    if result == 1:
-        return f"({x})/({n})"
+    if (x_num*x_denom) % math.gcd(x_denom, n_denom) == 0 and (n_num*n_denom) % math.gcd(n_denom, x_denom) == 0:
+        return True
     else:
-        return f"{result}/{math.gcd(x_denom, n_denom)}"
+        return False
