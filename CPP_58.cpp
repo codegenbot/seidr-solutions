@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <set>
 #include <vector>
@@ -6,10 +7,10 @@
 
 using namespace std;
 
-bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
+bool issame(vector<int>& a, vector<int>& b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
-        if(a[i].size() != b[i].size()) return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -46,7 +47,7 @@ int main() {
     if(v.size() > 1) {
         bool same = true;
         for(int i=2; i<v.size(); i++) {
-            same &= issame(v, v[i]);
+            same &= issame(v[0], v[i]);
         }
 
         if(same) {
@@ -80,4 +81,3 @@ int main() {
     }
 
     return 0;
-}
