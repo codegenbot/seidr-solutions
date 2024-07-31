@@ -1,4 +1,3 @@
-```
 import math
 
 def simplify():
@@ -10,6 +9,9 @@ def simplify():
         else:
             print('Invalid input. Please enter a fraction.')
 
+    numerator1 = numerator
+    denominator1 = denominator
+
     while True:
         n = input("Enter another fraction: ")
         if '/' in n:
@@ -18,9 +20,7 @@ def simplify():
         else:
             print('Invalid input. Please enter a fraction.')
 
-    gcd = math.gcd(denominator, denom)
-    new_numerator = numerator * (denom // gcd)
-    new_denominator = denominator * (num // gcd)
-    return f"{new_numerator}/{new_denominator}"
+    gcd = math.gcd(denominator1, denom)
+    return f"{numerator//gcd}/{denominator1//gcd} / {num//gcd}/{denom//gcd}"
 
 print(simplify())
