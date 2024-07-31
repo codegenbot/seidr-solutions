@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int prod_signs(const std::vector<int>& arr) {
     int product = 1;
