@@ -23,7 +23,7 @@ string decode_cyclic(string s){
     int i;
     for (i=0;i<num;i++)
     {
-        if (i*3+l>length(s)) break;
+        if (i*3+l>s.length()) break;
         x=s.substr(i*3,3);
         if (x.length()==1) x=x+x[0];
         output=output+x;
