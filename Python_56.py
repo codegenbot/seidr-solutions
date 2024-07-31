@@ -1,9 +1,8 @@
-```
 def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
         if bracket == "<":
-            stack.append("<")
+            stack.append(bracket)
         elif bracket == ">":
             if len(stack) == 0:
                 return False
