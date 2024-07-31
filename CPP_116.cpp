@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> custom_sort(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int countA = __builtin_popcount(a);
@@ -16,6 +20,6 @@ std::vector<int> custom_sort(std::vector<int> arr) {
 }
 
 int main() {
-    assert(std::issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
