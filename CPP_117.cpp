@@ -30,16 +30,8 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    int n;
-    cin >> n;
-
-    vector<string> output = select_words(input, n);
-
-    for (string word : output) {
-        cout << word << endl;
-    }
-
+    string s = "apple banana cherry";
+    int n = 2;
+    vector<string> b = select_words(s, n);
     return 0;
 }
