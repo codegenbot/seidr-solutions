@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
