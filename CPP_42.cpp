@@ -1,5 +1,6 @@
-for (int i = 0; i < l.size(); i++) {
-        l[i] += 1;
+vector<int> increment_vector_elements(vector<int> l) {
+    for(int i = 0; i < l.size(); i++){
+        l[i]++;
     }
     return l;
 }
