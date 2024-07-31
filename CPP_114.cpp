@@ -1,15 +1,12 @@
 ```cpp
-#include <iostream>
-#include <climits>
-
-long long minSubArraySum(std::vector<long long> nums) {
-    long long min_sum = LLONG_MAX;
+int minSubArraySum(vector<int> nums) {
+    int min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); i++) {
-        long long sum = 0;
+        int current_sum = 0;
         for (int j = i; j < nums.size(); j++) {
-            sum += nums[j];
-            if (sum < min_sum) {
-                min_sum = sum;
+            current_sum += nums[j];
+            if (current_sum < min_sum) {
+                min_sum = current_sum;
             }
         }
     }
@@ -17,6 +14,6 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    std::cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << std::endl;
+    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
     return 0;
 }
