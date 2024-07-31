@@ -1,11 +1,24 @@
+#include <iostream>
 #include <string>
+#include <cctype>
+#include <cassert>
 
-string encode(string message);
+std::string encode(std::string message);
 
-int main(){
-    // Code logic here
+std::string encode(std::string message){
+    for(char &c : message){
+        if(isalpha(c)){
+            c = isupper(c) ? tolower(c) : toupper(c);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
+            }
+        }
+    }
+    return message;
 }
 
-string encode(string message){
-    // Your implementation here
+int main(){
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
+    
+    return 0;
 }
