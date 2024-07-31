@@ -3,34 +3,37 @@
 #include <vector>
 #include <algorithm>
 
-int can_arrange(std::vector<int> arr) {
-    if (arr.empty()) {
-        return -1;
-    }
-    std::sort(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size() - 1; i++) {
-        if (arr[i] + 1 != arr[i+1]) {
-            return -1;
-        }
-    }
-    return 1;
-}
-
 int main() {
-    int n;
     std::vector<int> input;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        input.push_back(num);
+    std::cout << "Enter numbers (space separated): ";
+    for(int i; std::cin >> i; ) {
+        input.push_back(i);
+        if(std::cin.peek() == ' ') 
+            std::cin.ignore();
+        else
+            break;
     }
-    int result = can_arrange(input);
+    std::vector<std::string> strInput;
+    for (int num : input) {
+        strInput.push_back(std::to_string(num));
+    }
+    int result = can_arrange(strInput);
     if(result == -1)
         std::cout << "Input cannot be arranged." << std::endl;
     else 
         std::cout << "Input can be arranged." << std::endl;
     return 0;
+
+    int can_arrange(std::vector<std::string> arr) {
+        if (arr.empty()) {
+            return -1;
+        }
+        std::sort(arr.begin(), arr.end());
+        for (int i = 0; i < arr.size() - 1; i++) {
+            if (std::stoi(arr[i]) + 1 != std::stoi(arr[i+1])) {
+                return -1;
+            }
+        }
+        return 1;
+    }
 }
