@@ -5,12 +5,12 @@ string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    int round_avg = floor(avg+0.5);
+    avg = floor(avg + 0.5);
     string res = "";
-    while(round_avg > 0){
-        if(round_avg & 1) res.push_back('1');
+    while(avg > 0){
+        if(avg & 1) res.push_back('1');
         else res.push_back('0');
-        round_avg >>= 1;
+        avg >>= 1;
     }
     reverse(res.begin(), res.end());
     return res;
