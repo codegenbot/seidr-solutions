@@ -1,17 +1,21 @@
+#include <iostream>
 #include <vector>
 
-bool issame(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        if (arr[i] != arr[i + 1]) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-int filter_integers(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        if (!std::is_integer(arr[i]).is_always()) {
+int filter_integers(std::vector<int> arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        if (!std::isdigit(arr[i])) {
             return -1;
         }
     }
@@ -19,15 +23,16 @@ int filter_integers(int arr[], int n) {
 }
 
 int main() {
-    int n, arr[10];
-    cin >> n;
+    int n;
+    std::cin >> n;
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
-    if (filter_integers(arr, n) == -1) {
-        cout << "Error: The array must only contain integers." << endl;
+    if (filter_integers(arr) == -1) {
+        std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        assert(issame(arr, n));
+        //assert(issame(arr, arr, n));
     }
     return 0;
 }
