@@ -13,7 +13,7 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5, 6};
+    std::vector<int> arr = {3, 7, 2, 2, 7, 3};
     std::cout << smallest_change(arr) << std::endl;
     return 0;
 }
