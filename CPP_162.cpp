@@ -10,7 +10,7 @@ string string_to_md5(string text){
     }
 
     unsigned char result[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new(void);
     EVP_MD_CTX_reset(mdctx); 
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
