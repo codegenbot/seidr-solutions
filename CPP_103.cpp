@@ -1,6 +1,6 @@
 #include <cstddef>
 
-string solve(int n, int m) {
+string completeCode(int n, int m) {
     if (n > m) {
         return "-1";
     }
