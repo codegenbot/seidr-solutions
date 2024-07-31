@@ -1,3 +1,2 @@
-```
 def sum_squares(lst):
-    return round(sum([round(x)**2 for x in lst]))
+    return round(sum([round(num)**2 for num in lst]))
