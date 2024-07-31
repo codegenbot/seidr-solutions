@@ -9,6 +9,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 
 std::vector<std::string> split_words(std::string txt);
 
+int main(){
+    assert(issame(split_words(""), {"0"}));
+    return 0;
+}
+
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
@@ -35,9 +40,4 @@ std::vector<std::string> split_words(std::string txt){
         result.push_back(std::to_string(count));
     }
     return result;
-}
-
-int main(){
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
