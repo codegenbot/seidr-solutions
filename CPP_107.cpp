@@ -1,16 +1,13 @@
 #include <vector>
+#include <string>
 #include <algorithm>
 
-int issame(int a, int b) {
-    return a == b;
-}
-
-vector<int> palindromeCount(int n) {
-    vector<int> result(2, 0);
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev = num;
-        reverse(rev.begin(), rev.end());
+        std::string num = std::to_string(i);
+        std::string rev = num;
+        std::reverse(rev.begin(), rev.end());
         if (num == rev) {
             if (i % 2 == 0) {
                 result[0]++;
