@@ -1,7 +1,7 @@
-#include <initializer_list>
 #include <algorithm>
 #include <set>
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
