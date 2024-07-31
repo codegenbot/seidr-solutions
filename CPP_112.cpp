@@ -2,11 +2,12 @@
 #include <string>
 #include <algorithm>
 
-bool isSame(const vector<string>& a, const vector<string>& b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
+bool issame(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b){
+    if(a.first.size() != b.first.size()) return false;
+    for(int i=0; i<a.first.size();i++){
+        if(a.first[i] != b.first[i]) return false;
     }
+    if(a.second != b.second) return false;
     return true;
 }
 
