@@ -19,3 +19,8 @@ namespace mean_absolute_deviation {
         return mad;
     }
 }
+
+int main() {
+    assert(std::abs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    return 0;
+}
