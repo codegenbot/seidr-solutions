@@ -11,13 +11,6 @@ std::vector<int> intersperse(std::vector<int> vec, int elem) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
