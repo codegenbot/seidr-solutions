@@ -1,13 +1,14 @@
 ```cpp
-#include <algorithm>
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-bool areSetsSame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::all_of(a.begin(), a.end(),
+        [&b](const auto& s) { return std::find(b.begin(), b.end(), s) != b.end(); });
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(substring) != std::string::npos) {
@@ -20,6 +21,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 int solution(int numStrings) {
     int n;
     std::cin >> n;
+
+    std::cin.ignore(); // ignore the newline character
 
     std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
@@ -40,7 +43,7 @@ int solution(int numStrings) {
     }
     std::vector<std::string> result2 = filter_by_substring(temp, substring);
 
-    if (areSetsSame(result1, result2)) {
+    if (issame(result1, result2)) {
         for (const auto& s : result1) {
             std::cout << s << std::endl;
         }
