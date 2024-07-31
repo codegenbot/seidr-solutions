@@ -1,12 +1,16 @@
-#include <iostream>
-#include <sstream>
-#include <map>
+#include <algorithm>
 #include <cassert>
 
-map<char, int> histogram(string test);
+bool issame(unordered_map<char, int> a, unordered_map<char, int> b);
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
+unordered_map<char, int> histogram(string test);
+
+bool issame(unordered_map<char, int> a, unordered_map<char, int> b) {
+    return a == b;
+}
+
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> result;
     istringstream iss(test);
     string word;
     while (iss >> word) {
@@ -15,19 +19,14 @@ map<char, int> histogram(string test) {
         }
     }
     int maxCount = 0;
-    for (const auto& entry : result) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto& pair : result) {
+        maxCount = max(maxCount, pair.second);
     }
-    map<char, int> maxCountChars;
-    for (const auto& entry : result) {
-        if (entry.second == maxCount) {
-            maxCountChars[entry.first] = entry.second;
+    unordered_map<char, int> maxChars;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxChars[pair.first] = pair.second;
         }
     }
-    return maxCountChars;
-}
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
+    return maxChars;
 }
