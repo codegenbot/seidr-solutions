@@ -1,7 +1,7 @@
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
-bool triples_sum_to_zero(const std::vector<int> &l) {
+bool triples_sum_to_zero(std::vector<int> l) {
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
         for (int j = i + 1; j < n - 1; j++) {
@@ -16,6 +16,13 @@ bool triples_sum_to_zero(const std::vector<int> &l) {
 }
 
 int main() {
-    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    // Example usage
+    std::vector<int> nums = {2, 0, -2, 1, -1};
+    if (triples_sum_to_zero(nums)) {
+        std::cout << "Triple that sums to zero found." << std::endl;
+    } else {
+        std::cout << "No triple sums to zero." << std::endl;
+    }
+
     return 0;
 }
