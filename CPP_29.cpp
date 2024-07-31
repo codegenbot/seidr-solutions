@@ -1,12 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> filtered_strings;
@@ -20,5 +23,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 int main() {
     assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAA", "xxx"});
+    
     return 0;
 }
