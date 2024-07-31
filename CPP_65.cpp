@@ -2,7 +2,7 @@
 #include <algorithm>
 
 std::string circular_shift(int x, int shift) {
-    std::string str = std::t	o_string(x);
+    std::string str = std::to_string(x);
     int n = str.size();
     shift %= n;
     if (shift == 0) {
