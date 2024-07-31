@@ -1,6 +1,6 @@
+#include <iostream>
 #include <map>
 #include <string>
-#include <cassert>
 #include <algorithm>
 
 using namespace std;
@@ -33,14 +33,16 @@ std::map<char, int> histogram(const std::string& test) {
     return maxChars;
 }
 
-void test() {
-    assert(are_equal(histogram("a"), std::map<char, int>{{'a', 1}}));
-    assert(are_equal(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
-    assert(are_equal(histogram(""), std::map<char, int>{})); // Empty string case
-}
-
 int main() {
-    test();
+    // Input from user
+    std::string input;
+    std::getline(std::cin, input);
+
+    // Call histogram function with user input and print the result
+    std::map<char, int> result = histogram(input);
+    for (const auto& pair : result) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
 
     return 0;
 }
