@@ -1,7 +1,8 @@
-if (n == 1) return x == 1;
-    if (n == 0) return x == 1;
-    if (x == 1) return true;
+if (x <= 0 || n <= 0) {
+        return false;
+    }
     
-    double res = log(x) / log(n);
-    return (res - (int)res) == 0;
+    double result = log(x) / log(n);
+    
+    return result == (int)result;
 }
