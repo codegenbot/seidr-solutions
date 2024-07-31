@@ -1,5 +1,6 @@
-double number = stod(value);
-    int lower = floor(number);
-    int upper = ceil(number);
-    return (number - lower < upper - number) ? lower : upper;
+double num = stod(value);
+if(num < 0){
+    return floor(num - 0.5);
+} else {
+    return ceil(num + 0.5);
 }
