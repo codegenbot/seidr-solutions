@@ -1,6 +1,5 @@
-```c++
 #include <vector>
-#include <numeric>
+#include <algorithm>
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
@@ -9,6 +8,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
-    int num_buckets = ceil((double)total_water / capacity);
-    return num_buckets;
+    double d = (double)total_water / capacity;
+    return ceil(d);
 }
