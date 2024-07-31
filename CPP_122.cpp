@@ -1,4 +1,6 @@
-int add_elements(vector<int> arr, int k) {
+#include <iostream>
+
+int add_elements(int arr[], int k) {
     int sum = 0;
     for (int i = 0; i < k; ++i) {
         if (arr[i] >= 10 && arr[i] <= 99) {
@@ -6,4 +8,11 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    int arr[] = {5, 15, 25, 35, 45, 55};
+    int k = 6;
+    std::cout << add_elements(arr, k) << std::endl;
+    return 0;
 }
