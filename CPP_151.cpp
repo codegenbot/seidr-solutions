@@ -17,6 +17,7 @@ long long double_the_difference(const std::vector<float>& lst) {
 
 int main() {
     long long odd_sum;
+    
     odd_sum = double_the_difference(lst);
 
     std::cout << odd_sum << std::endl;
