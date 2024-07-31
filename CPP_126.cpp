@@ -14,7 +14,8 @@ bool is_sorted(const std::vector<int>& lst) {
 
 assert(is_sorted({1, 2, 3, 4}));
 assert(is_sorted({10, 20, 30, 40, 50}));
-assert(!is_sorted({5, 3, 7, 8, 9}));
-assert(is_sorted({-5, 0, 0, 1, 2}));
+assert(is_sorted({5, 5, 7, 9, 11}));
+assert(!is_sorted({3, 2, 1}));
+assert(!is_sorted({1, 2, 3, 2}));
 
 return 0;
