@@ -1,37 +1,18 @@
 #include <vector>
-#include <cassert>
+#include <string>
+#include <algorithm>
 
-bool issame(const vector<int>& vec1, const vector<int>& vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> parse_nested_parens(string paren_string);
-
-int main() {
-    // Code contest problem solution goes here
-
-    return 0;
-}
-
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> result;
+std::vector<int> parse_nested_parens(std::string paren_string) {
+    std::vector<int> result;
     int max_depth = 0;
     int current_depth = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
-            max_depth = max(max_depth, current_depth);
+            max_depth = std::max(max_depth, current_depth);
         } else if (c == ')') {
             current_depth--;
         } else if (c == ' ') {
@@ -40,8 +21,21 @@ vector<int> parse_nested_parens(string paren_string) {
             current_depth = 0;
         }
     }
-    
+
     result.push_back(max_depth);
-    
+
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+int main() {
+    std::vector<int> result1 = parse_nested_parens("(() ())");
+    std::vector<int> result2 = {2, 2};
+    
+    assert(std::equal(result1.begin(), result1.end(), result2.begin(), result2.end()));
+    
+    return 0;
 }
