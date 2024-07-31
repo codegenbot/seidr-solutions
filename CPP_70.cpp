@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -5,9 +6,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
+    int min = *std::min_element(lst.begin(), lst.end());
+    int max = *std::max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         for (int i : lst) {
@@ -19,9 +20,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         }
 
         if (!lst.empty())
-            min = *min_element(lst.begin(), lst.end());
+            min = *std::min_element(lst.begin(), lst.end());
 
-        while (!lst.empty() && *min_element(lst.begin(), lst.end()) == min) {
+        while (!lst.empty() && *std::min_element(lst.begin(), lst.end()) == min) {
             for (int i : lst) {
                 if (i == max) {
                     result.push_back(i);
@@ -31,7 +32,7 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
             }
 
             if (!lst.empty())
-                max = *max_element(lst.begin(), lst.end());
+                max = *std::max_element(lst.begin(), lst.end());
         }
     }
 
