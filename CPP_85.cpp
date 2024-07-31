@@ -11,21 +11,17 @@ int add(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> lst;
     int n;
 
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) {
-        return 0;
-    }
+    std::cin >> n;
 
+    std::vector<int> lst(n);
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
-        if (!(std::cin >> num)) {
-            break;
-        }
-        lst.push_back(num);
+        std::cin >> num;
+        lst[i] = num;
     }
 
     int sum = 0;
