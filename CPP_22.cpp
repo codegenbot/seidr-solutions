@@ -1,22 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <boost/any.hpp>
 #include <typeinfo>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> filter_integers(std::list<boost::any> values);
-
-int main() {
-    std::vector<int> vec1 = filter_integers(values1);
-    std::vector<int> vec2 = filter_integers(values2);
-
-    if(issame(vec1, vec2)) {
-        std::cout << "Vectors are the same." << std::endl;
-    } else {
-        std::cout << "Vectors are different." << std::endl;
-    }
-
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values){
@@ -29,6 +17,23 @@ std::vector<int> filter_integers(std::list<boost::any> values){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+int main() {
+    std::list<boost::any> values{1, 2, 3, "hello", 4, 5};
+    
+    std::vector<int> filtered_values = filter_integers(values);
+
+    for (int val : filtered_values) {
+        std::cout << val << " ";
+    }
+    
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+
+    if (issame(a, b)) {
+        std::cout << "\nThe vectors a and b are the same." << std::endl;
+    } else {
+        std::cout << "\nThe vectors a and b are different." << std::endl;
+    }
+
+    return 0;
 }
