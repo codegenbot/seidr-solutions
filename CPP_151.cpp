@@ -21,14 +21,7 @@ int main() {
     int num;
 
     cout << "Enter elements for the list: ";
-    for (int i = 0; i < 5; i++) { 
-        while (true) {
-            if (!(cin >> num)) {
-                cout << "Invalid input. Please enter an integer: ";
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            } else break;
-        }
+    for (int i = 0; i < 5 && cin >> num; i++) { 
         lst.push_back(num);
     }
 
