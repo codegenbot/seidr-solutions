@@ -31,6 +31,7 @@ int main() {
         cin >> val;
         coeffs.push_back(val);
     }
+    vector<double> xs(coeffs); 
     double x = find_zero(coeffs);
     cout << fixed << setprecision(2) << x << endl;
     return 0;
