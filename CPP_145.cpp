@@ -20,6 +20,7 @@ void order_by_points(vector<int>& nums) {
 int main() {
     vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
     order_by_points(nums);
+    // Output the sorted nums vector if needed
     for (int num : nums) {
         cout << num << " ";
     }
