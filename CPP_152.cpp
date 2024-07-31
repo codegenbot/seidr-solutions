@@ -1,8 +1,8 @@
 #include <vector>
-#include <cassert> // Include the necessary header
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Correct function signature
-    return a == b; // Implement the comparison logic
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
@@ -14,6 +14,6 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1})); // Call compare inside main
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
     return 0;
 }
