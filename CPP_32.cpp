@@ -9,16 +9,16 @@ double poly(std::vector<double> coefficients, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
-    std::vector<double> values;
+double find_zero(std::vector<double> xs) {
+    std::vector<double> polyCoeffs;
     double sum = 0;
-    for (int i = 1; i < coeffs.size(); i++) {
+    for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            values.push_back(coeffs[i] / coeffs[0]);
+            polyCoeffs.push_back(xs[i] / xs[0]);
         }
     }
-    double x = -values[0];
-    return poly(values, x);
+    double x = -polyCoeffs[0];
+    return poly(polyCoeffs, x);
 }
 
 int main() {
