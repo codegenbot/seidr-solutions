@@ -1,6 +1,5 @@
 #include <cassert>
 #include <string>
-#include <cctype>
 
 bool flip_case(const std::string& str) {
     std::string result;
