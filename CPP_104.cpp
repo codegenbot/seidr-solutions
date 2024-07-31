@@ -21,7 +21,7 @@ std::vector<int> unique_digits(int x) {
 }
 
 int main() {
-    assert(issame(unique_digits(135), unique_digits(135)));
-    assert(issame(unique_digits(103), unique_digits(103)));
-    assert(issame(unique_digits(31), unique_digits(31)));
+    assert(issame(unique_digits(1), {1}));
+    assert(issame(unique_digits(0), {0}));
+    assert(issame(unique_digits(13), {1, 3}));
 }
