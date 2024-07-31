@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int> &v1, const std::vector<int> &v2){
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2){
     if(v1.size() != v2.size()){
         return false;
     }
@@ -35,5 +35,6 @@ std::vector<int> f(int n){
 
 int main(){
     assert(issame(f(3), {1, 2, 6}));
+    
     return 0;
 }
