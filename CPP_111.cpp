@@ -32,7 +32,6 @@ std::map<char, int> histogram(const std::string& test) {
     return maxChars;
 }
 
-int main() {
-    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
-    return 0;
-}
+#include <cassert>
+
+assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
