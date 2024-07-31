@@ -9,12 +9,10 @@ int main() {
     int k = 0;
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
-
-    if(k > std::numeric_limits<int>::max() / sizeof(int)) {
+    if(k > std::numeric_limits<int>::max() / sizeof(int) || k > 10000) { 
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
-
     std::vector<int> input; 
     for (int i = 0; i < k; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
