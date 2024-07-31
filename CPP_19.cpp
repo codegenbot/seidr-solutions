@@ -9,20 +9,20 @@ using namespace std;
 
 string sort_numbers(string numbers);
 
-string sort_numbers(string numbers){
-    map<string, int> number_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
+string sort_numbers(string numbers){
     map<int, string> reverse_map;
     for (const auto& pair : number_map) {
         reverse_map[pair.second] = pair.first;
@@ -45,8 +45,11 @@ string sort_numbers(string numbers){
 }
 
 int main() {
-    string input_numbers = "three one zero five four two";
-    cout << sort_numbers(input_numbers) << endl;
+    string input;
+    cout << "Enter a space-separated list of numbers in words: ";
+    getline(cin, input);
+
+    cout << "Sorted numbers in words: " << sort_numbers(input) << endl;
 
     return 0;
 }
