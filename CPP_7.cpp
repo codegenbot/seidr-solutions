@@ -32,10 +32,9 @@ int solution(int numStrings) {
     std::string substring;
     std::getline(std::cin, substring);
 
-    int tempSize = 100;
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
     std::vector<std::string> temp;
-    for (auto it = strings.begin(); it != strings.end() && temp.size() < tempSize; ++it) {
+    for (auto it = strings.begin(); it != strings.end(); ++it) {
         if ((*it).find(substring) != std::string::npos) {
             temp.push_back(*it);
         }
