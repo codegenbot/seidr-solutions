@@ -16,7 +16,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     } else {
         std::sort(array.begin(), array.end());
     }
-    
+
     return array;
 }
 
