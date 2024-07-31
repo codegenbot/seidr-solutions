@@ -29,12 +29,11 @@ int main() {
     std::string s;
     for (int i = 0; i < n; ++i) {
         getline(std::cin, s);
-        
-        // Remove the newline character if it exists
-        while (s.back() == '\n') {
-            s.pop_back();
+        if (s.back() == '\n') { // check if last char is newline
+            if (s.size() > 1) { // only remove it if there's more than one character left
+                s.pop_back(); 
+            }
         }
-        
         strings.push_back(s);
     }
 
