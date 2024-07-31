@@ -1,7 +1,7 @@
-#include <iostream>
+#include <cmath>
 #include <string>
 
-std::string rounded_avg(int n, int m) {
+string rounded_avg(int n, int m) {
     if (n > m) return "-1";
     double avg = (n + m) * 1.0 / 2;
     avg = floor(avg);
