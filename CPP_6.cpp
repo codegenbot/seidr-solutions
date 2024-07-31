@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
@@ -13,9 +14,9 @@ std::vector<int> parse_nested_parens(const std::string& s) {
             }
         }
     }
-    return std::vector<int>(1, count + 1);
+    return {count + 1};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
