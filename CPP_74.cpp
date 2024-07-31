@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int total_chars(const vector<string>& lst) {
     int total = 0;
     for (const string& str : lst) {
@@ -25,4 +21,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
 }
 
-```
+int main() {
+    assert(total_match({"this"}, {}) == vector<string>{});
+    
+    return 0;
+}
