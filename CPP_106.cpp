@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -25,4 +25,8 @@ std::vector<int> f(int n){
         }
     }
     return result;
+}
+
+int main() {
+    assert(areEqual(f(3), {1, 2, 6}));
 }
