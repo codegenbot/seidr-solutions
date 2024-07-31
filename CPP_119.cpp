@@ -1,8 +1,7 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <vector>
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -18,8 +17,8 @@ bool match_parens(const vector<string>& lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == 1);
+    assert(match_parens({{"("}, {")"}}) == true);
     vector<string> lst = {{"("}, {")"}};
-    cout << boolalpha << match_parens(lst) << std::endl;
+    cout << boolalpha << match_parens(lst) << endl;
     return 0;
 }
