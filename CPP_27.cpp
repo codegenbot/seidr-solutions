@@ -2,7 +2,9 @@
 #include <string>
 using namespace std;
 
-string flip_case(string str){
+string flip_case(string str);
+
+string flip_case(string str) {
     for (char &c : str) {
         if (islower(c)) {
             c = toupper(c);
@@ -13,7 +15,7 @@ string flip_case(string str){
     return str;
 }
 
-int main() {
+int main2() {
     string input;
     cout << "Enter a string: ";
     cin >> input;
