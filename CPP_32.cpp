@@ -25,14 +25,14 @@ double find_zero(const std::vector<double>& coefficients) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<double> poly_coeffs(n);  
+    std::vector<double> coeffs(n);  
     for (int i = 0; i < n; i++) {
         double val, coeff;
         std::cin >> val;
-        poly_coeffs[i] = val; 
+        coeffs[i] = val; 
     }
-    double solution = find_zero(poly_coeffs); 
-    assert(abs(poly(poly_coeffs, solution)) < 1e-3);
+    double solution = find_zero(coeffs); 
+    assert(abs(poly(coeffs, solution)) < 1e-3);
     std::cout << std::fixed << std::setprecision(2) << solution << std::endl;
     return 0;
 }
