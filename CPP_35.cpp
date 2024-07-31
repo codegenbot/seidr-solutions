@@ -10,7 +10,7 @@ void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int>(n).swap(input);
+    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
