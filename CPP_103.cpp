@@ -14,7 +14,7 @@ std::string function_name(int n, int m) {
     return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
 }
 
-int custom_main() {
+int solve_cpp_103() {
     assert(function_name(5, 5) == "101");
     return 0;
 }
