@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 double median(const std::vector<int>& l) {
     std::vector<int> sortedList = l;
