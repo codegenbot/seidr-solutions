@@ -1,6 +1,7 @@
+```cpp
 #include <cassert>
 
-bool match_parens(char* parens) {
+bool match_parens(const char* parens) {
     int count = 0;
     for (char c : std::string(parens)) {
         if (c == '(')
@@ -13,6 +14,9 @@ bool match_parens(char* parens) {
     return count == 0;
 }
 
-assert(match_parens((char*)"()") == true);
-assert(match_parens((char*)"(())") == true);
-assert(!match_parens((char*)")("));
+int main() {
+    assert(match_parens("()") == true);
+    assert(match_parens("((()))") == true);
+    assert(match_parens("())") == false);
+    return 0;
+}
