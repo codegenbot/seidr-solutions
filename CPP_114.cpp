@@ -1,12 +1,11 @@
 int main() {
-    // Add your test cases here
     vector<long long> nums = {1, -1};
     cout << minSubArraySum(nums) << endl;
     return 0;
 }
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = LLONG_MAX;
+    long long min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); i++) {
         long long sum = 0;
         for (int j = i; j < nums.size(); j++) {
