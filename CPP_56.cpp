@@ -1,9 +1,9 @@
 bool correct_bracketing(const string& brackets) {
     int count = 0;
     for(char c : brackets) {
-        if(c == '<') {
+        if(c == '(') {
             count++;
-        } else if(c == '>') {
+        } else if(c == ')') {
             count--;
         }
         if(count < 0) {
