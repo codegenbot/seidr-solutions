@@ -1,25 +1,15 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+#include <iostream>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
-            pile.push_back(i * 2 - 1);
-        } else {
-            pile.push_back(i * 2);
-        }
+    for (int i = 0; ; i++) {
+        if ((n & 1)) // check if n is odd
+            pile.push_back(2 * i + 1);
+        else
+            pile.push_back(2 * i + 2);
+        if (++n > i) continue;
+        break;
     }
     return pile;
-}
-
-int main() {
-    assert(make_a_pile(8) == vector<int>({1, 4, 3, 6, 5, 12, 9, 20}));
-    return 0;
 }
