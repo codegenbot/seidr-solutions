@@ -14,14 +14,3 @@ std::string solve(std::string s) {
     }
     return s;
 }
-
-int main() {
-    std::string input;
-    
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    
-    std::cout << solve(input) << std::endl;
-    
-    return 0;
-}
