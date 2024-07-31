@@ -1,15 +1,17 @@
-unsigned char md[MD5_DIGEST_LENGTH];
-MD5_CTX ctx;
-MD5_Init(&ctx);
-const unsigned char* p = (const unsigned char*)text.c_str();
-int len = text.length();
-MD5_Update(&ctx, p, len);
-MD5_Final(md, &ctx);
-string res;
-for(int i=0; i<16; i++) {
-    char buf[3];
-    sprintf(buf, "%02x", md[i]);
-    res.append(buf);
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+
+std::string string_to_md5(std::string text) {
+    if (text.empty()) return "None";
+
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.size(), md5);
+
+    std::stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << std::hex << std::setfill('0') << std::setw(2) << (int)md5[i];
+    }
+
+    return ss.str();
 }
-if(text.empty()) return "None";
-return string(1, '#') + res;
