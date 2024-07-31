@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> cpp100(int n){
+vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
     for(int i = 1; i < n; ++i){
@@ -18,6 +18,6 @@ vector<int> cpp100(int n){
 
 int main() {
     vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(cpp100(8) == expected);
+    assert(issame(make_a_pile(8), expected));
     return 0;
 }
