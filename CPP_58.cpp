@@ -4,10 +4,8 @@
 #include <cassert>
 #include <set>
 
-namespace std{
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
