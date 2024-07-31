@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool equal(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +11,7 @@ bool equal(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
+std::vector<int> removeDuplicates(std::vector<int> numbers) {
     std::vector<int> result;
     for (int num : numbers) {
         if (std::find(result.begin(), result.end(), num) == result.end()) {
@@ -21,12 +21,4 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result = numbers;
-    std::sort(result.begin(), result.end());
-    auto last = std::unique(result.begin(), result.end());
-    result.erase(last, result.end());
-    return result;
-}
-
-assert(equal(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+assert(compareVectors(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
