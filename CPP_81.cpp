@@ -2,11 +2,13 @@
 #include <string>
 #include <cassert>
 
-vector<string> numerical_letter_grade(vector<float> grades);
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
+
+vector<string> numerical_letter_grade(vector<float> grades);
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
@@ -26,9 +28,4 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else letter_grades.push_back("E");
     }
     return letter_grades;
-}
-
-int main() {
-    // Add test cases and main code logic as needed
-    return 0;
 }
