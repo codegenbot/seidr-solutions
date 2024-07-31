@@ -26,6 +26,6 @@ namespace std {
 
 int main() {
     assert(std::issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
+
     return 0;
 }
