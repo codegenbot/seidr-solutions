@@ -5,8 +5,8 @@
 
 using namespace std;
 
-long long double_the_difference(vector<int> lst) {
-    long long sum = 0;
+int double_the_difference(vector<int> lst) {
+    int sum = 0;
     for (int num : lst) {
         if (num > 0 && floor((double)num) == num) { 
             if (fmod((double)num, 2.0) != 0.0) { 
@@ -23,7 +23,12 @@ int main_func() {
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         int num;
-        cin >> num;
+        while (!(cin >> num)) {
+            cout << "Invalid input. Please enter an integer: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin >> num;
+        }
         lst.push_back(num);
     }
 
