@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -26,6 +25,6 @@ int main() {
     }
     
     std::cout << "Sum of even elements: " << add(lst) << std::endl;
-
+    
     return 0;
 }
