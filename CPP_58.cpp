@@ -1,11 +1,10 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <iterator>
 
 using namespace std;
 
-vector<int> issame(vector<int> a, vector<int> b) {
+vector<int> common(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
 
@@ -19,14 +18,10 @@ int main() {
     vector<int> l1 = {1, 2, 3, 4, 5};
     vector<int> l2 = {1, 3, 5, 7, 9};
 
-    vector<int> res = issame(l1, l2);
+    vector<int> res = common(l1, l2);
 
-    if (res == vector<int>()) {
-        cout << "No common elements" << endl;
-    } else {
-        for (int num : res) {
-            cout << num << " ";
-        }
+    for (int num : res) {
+        cout << num << " ";
     }
 
     return 0;
