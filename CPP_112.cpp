@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
-vector<string> reverse_delete(const string& s, const string& c) {
+bool issame(vector<string> a, vector<string> b) {
+    string s = a + b;
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -13,10 +14,6 @@ vector<string> reverse_delete(const string& s, const string& c) {
     string reverse_result = result;
     reverse(reverse_result.begin(), reverse_result.end());
     return {result, result == reverse_result ? "True" : "False"};
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
 
 assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
