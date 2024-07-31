@@ -1,5 +1,5 @@
 def digits(n):
-    product = 1
+    product = n if n % 10 % 2 else 1
     while n:
         digit = n % 10
         if digit % 2:
