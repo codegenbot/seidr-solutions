@@ -7,7 +7,7 @@ double find_zero(std::vector<double> coefficients);
 int main() {
     int n;
     cin >> n;
-    std::vector<double> coeffs = {}; 
+    std::vector<double> coeffs(n); 
     double val;
     for (int i = 0; i < n; i++) {
         cin >> val;
@@ -37,5 +37,6 @@ double find_zero(std::vector<double> coefficients) {
         }
     }
     double x = -values[0];
-    return poly(coefficients, x); 
+    double result = poly(coefficients, x); 
+    return result;
 }
