@@ -1,15 +1,15 @@
 ```
 def prime_fib(n: int):
-    a, b = 0, 1
-    count = 0
+    a, b = 2, 1
+    i = 0
     while True:
+        if b > n:
+            return a
         if is_prime(b):
-            count += 1
-            if count == n:
+            i += 1
+            if i == n:
                 return b
         a, b = b, a + b
-        if b > 1000000:  # limit the search to prevent excessive computation
-            break
 
 def is_prime(num: int):
     if num < 2:
