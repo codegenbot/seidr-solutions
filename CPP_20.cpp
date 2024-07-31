@@ -1,7 +1,3 @@
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
-}
-
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
