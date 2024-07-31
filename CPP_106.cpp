@@ -25,6 +25,15 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == vector<int>{1, 2, 6});
+    vector<int> expected = {1, 2, 6};
+    vector<int> actual = f(3);
+
+    for (int i = 0; i < actual.size(); ++i) {
+        cout << actual[i] << " ";
+    }
+    cout << endl;
+
+    assert(actual == expected);
+    cout << "Test Passed!" << endl;
     return 0;
-}  
+}
