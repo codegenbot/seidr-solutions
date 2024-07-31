@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <set>
 #include <vector>
@@ -21,3 +22,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0; 
+}
