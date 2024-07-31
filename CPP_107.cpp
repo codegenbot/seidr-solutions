@@ -5,9 +5,9 @@ int even = 0, odd = 0;
         reverse(rev_num.begin(), rev_num.end());
         if (num == rev_num) {
             if (i % 2 == 0) {
-                even++;
+                ++even;
             } else {
-                odd++;
+                ++odd;
             }
         }
     }
