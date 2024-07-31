@@ -9,7 +9,9 @@ using std::string;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) return false;
-    if (a != b) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].compare(b[i]) != 0) return false;
+    }
     return true;
 }
 
@@ -42,15 +44,15 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
 
-    std::string user_input;
+    string user_input;
     int n;
     std::cin >> user_input >> n;
     
-    std::vector<std::string> words = select_words(user_input, n);
+    vector<string> words = select_words(user_input, n);
     
-    for (const std::string& w : words) {
+    for (const string& w : words) {
         std::cout << w << " ";
     }
     
