@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 const char* anti_shuffle(const string& str) {
@@ -13,12 +13,11 @@ const char* anti_shuffle(const string& str) {
         }
         i++;
     }
-    const char* res = str.data();
-    return res;
+    return str.c_str();
 }
 
-int main() { 
-    string str = ""; 
+int main() {
+    string str;
     cout << "Enter a string: ";
     cin >> str;
     const char* result = anti_shuffle(str);
