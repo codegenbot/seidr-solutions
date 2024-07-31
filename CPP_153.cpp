@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 #include <climits>
-#include <cassert>
+#include <cassert> // Add this line for assert
 
 using namespace std;
 
@@ -32,7 +32,7 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 }
 
 int main() {
-    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl;
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     
     return 0;
 }
