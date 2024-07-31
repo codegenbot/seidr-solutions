@@ -1,24 +1,12 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-    vector<string> result;
-    map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
-                                     {4, "Four"}, {5, "Five"}, {6, "Six"}, 
-                                     {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-    for (int num : nums) {
-        result.push_back(numberNames[num]);
-    }
-    return result;
+vector<string> sortStrings(vector<string> arr) {
+    sort(arr.begin(), arr.end());
+    return arr;
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
+}
+
+int main() {
+    assert(issame(sortStrings(by_length({9, 4, 8})), sortStrings({"Nine", "Eight", "Four"})));
 }
