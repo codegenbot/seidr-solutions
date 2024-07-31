@@ -1,11 +1,8 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> path;
-    int n = grid.size();
-    
+int n = grid.size();
+    vector<int> result;
     int row = 0, col = 0;
     for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        
+        result.push_back(grid[row][col]);
         if ((row + col) % 2 == 0) {
             if (col == n - 1) {
                 row++;
@@ -26,6 +23,5 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             }
         }
     }
-    
-    return path;
+    return result;
 }
