@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+namespace std {
+    bool issame(const vector<int>& a, const vector<int>& b) {
+        return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    }
 }
 
 std::vector<int> factorize(int num) {
