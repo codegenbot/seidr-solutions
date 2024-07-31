@@ -1,12 +1,14 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+std::vector<int> factorize(int n) {
+    std::vector<int> factors;
+    // Implementation of factorize function to find prime factors of n
+    return factors;
 }
 
-bool factorize(int num) {
-    return issame({2, 3, 3}, {2, num/3, num/3});
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
