@@ -16,7 +16,8 @@ int main() {
     std::vector<int> expected = {4, 1, 2, 4};
     std::string music = "o|.o|";
     std::vector<int> parsed = parse_music(music);
-    assert(issame(parsed, expected));
+    assert (issame(parsed, expected));
+
     return 0;
 }
 
