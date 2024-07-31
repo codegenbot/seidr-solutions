@@ -34,10 +34,9 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Example usage
-    int n = 10;
-    vector<int> odd_collatz = get_odd_collatz(n);
-    for (int num : odd_collatz) {
+    // Sample usage
+    vector<int> odd_collatz_numbers = get_odd_collatz(10);
+    for (int num : odd_collatz_numbers) {
         cout << num << " ";
     }
     return 0;
