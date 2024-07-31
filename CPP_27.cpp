@@ -1,4 +1,6 @@
 #include <cctype>
+#include <string>
+#include <cassert>
 
 int flip_case(const char* str) {
     int result = 0;
