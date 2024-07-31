@@ -13,3 +13,8 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
     }
     return false;
 }
+
+int main() {
+    // main function implementation if needed
+    return 0;
+}
