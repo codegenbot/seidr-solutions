@@ -31,6 +31,6 @@ bool select_words(string s, int n) {
 }
 
 int main() {
-    // Add main code here
+    // Main function code here
     return 0;
 }
