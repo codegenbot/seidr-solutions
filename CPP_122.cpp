@@ -11,8 +11,8 @@ int add_elements(int arr[], int k) {
 }
 
 int main() {
-    int arr[] = {5, 15, 25, 35, 45, 55};
-    int k = 6;
+    int arr[] = {5, 20, 15, 30, 25};
+    int k = 5;
     std::cout << add_elements(arr, k) << std::endl;
     return 0;
 }
