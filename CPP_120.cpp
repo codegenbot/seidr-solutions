@@ -6,11 +6,8 @@ bool issame(int a, int b) {
     return a == b;
 }
 
-int maximum(const std::vector<int>& nums) {
-    return *std::max_element(nums.begin(), nums.end());
-}
-
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}), 0));
+    std::vector<int> numbers = {1, 2, 3, -23, 243, -400, 0};
+    assert(issame(*std::max_element(numbers.begin(), numbers.end()), 0));
     return 0;
 }
