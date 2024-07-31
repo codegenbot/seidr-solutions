@@ -1,29 +1,32 @@
-int count_nums(vector<int> nums) {
+#include <vector>
+#include <cassert>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
-            int sum_of_digits = 0;
-            int n = num;
-            while (n > 0) {
-                sum_of_digits += n % 10;
-                n /= 10;
+            int sum = 0;
+            bool has_negative = false;
+            while (num > 0 || (!has_negative && num < 0)) {
+                int digit = abs(num) % 10;
+                if (digit != 0) {
+                    sum += digit;
+                } else {
+                    has_negative = !has_negative;
+                }
+                num /= 10;
             }
-            if (sum_of_digits > 0)
+            if (sum > 0) {
                 count++;
-        } else {
-            int sum_of_digits = 0;
-            int n = -num;
-            bool is_negative = true;
-            while (n > 0) {
-                int digit = n % 10;
-                if (digit != 1 && digit != -1)
-                    is_negative = false;
-                sum_of_digits += digit;
-                n /= 10;
             }
-            if (sum_of_digits > 0 || !is_negative)
-                count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    int result = count_nums({-12, 34, -5, 65, 0});
+    std::cout << "The number of positive numbers is: " << result << std::endl;
+    return 0;
 }
