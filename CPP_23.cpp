@@ -1,18 +1,9 @@
 #include <iostream>
-#include <string>
-#include <unordered_set>
-
-int countCharacters(std::string str) {
-    std::unordered_set<char> charSet;
-    for (char c : str) {
-        charSet.insert(c);
-    }
-    return charSet.size();
-}
+#include <cstring>
 
 int main() {
     std::string str;
     std::cin >> str;
-    std::cout << countCharacters(str);
+    std::cout << str.length();
     return 0;
 }
