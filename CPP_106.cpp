@@ -4,18 +4,16 @@
 
 using namespace std;
 
-void validate(const vector<int>& result, const vector<int>& expected) {
-    if (result.size() != expected.size()) {
-        cout << "Validation failed" << endl;
-        return;
+bool validate(const vector<int>& actual, const vector<int>& expected) {
+    if (actual.size() != expected.size()) {
+        return false;
     }
-    for (int i = 0; i < result.size(); ++i) {
-        if (result[i] != expected[i]) {
-            cout << "Validation failed" << endl;
-            return;
+    for (size_t i = 0; i < actual.size(); ++i) {
+        if (actual[i] != expected[i]) {
+            return false;
         }
     }
-    cout << "Validation successful" << endl;
+    return true;
 }
 
 vector<int> f(int n) {
@@ -39,8 +37,12 @@ vector<int> f(int n) {
 }
 
 int main() {
-    vector<int> result = f(3);
     vector<int> expected = {1, 2, 6};
-    validate(result, expected);
+    vector<int> actual = f(3);
+    if (validate(actual, expected)) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
     return 0;
 }
