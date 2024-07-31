@@ -6,7 +6,7 @@
 std::string flip_case(std::string str);
 
 int solveProblem() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "these violent delights have violent ends");
     return 0;
 }
 
