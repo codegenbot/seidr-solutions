@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::vector<float> find_closest_elements(const std::vector<float>& nums) {
-    std::vector<float> result = nums; // Copy input vector
+    std::vector<float> result = nums;
     
     std::sort(result.begin(), result.end());
     float min_diff = std::numeric_limits<float>::max();
