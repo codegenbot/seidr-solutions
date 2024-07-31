@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -9,11 +12,17 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a){
-    for (int i = 2; i <= a / 3; i++) {
-        if (is_prime(i) && a % i == 0) {
-            int remaining = a / i;
-            for (int j = i + 1; j <= remaining / 2; j++) {
-                if (is_prime(j) && remaining % j == 0 && is_prime(remaining / j)) {
+    vector<int> primes;
+    for (int i = 2; i < a; i++) {
+        if (is_prime(i)) {
+            primes.push_back(i);
+        }
+    }
+    if (primes.size() < 3) return false;
+    for (int i = 0; i < primes.size(); i++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
+                if (primes[i] * primes[j] * primes[k] == a) {
                     return true;
                 }
             }
@@ -24,9 +33,7 @@ bool is_multiply_prime(int a){
 
 int main() {
     int num;
-    std::cout << "Enter a number less than 100: ";
-    std::cin >> num;
-    bool result = is_multiply_prime(num);
-    std::cout << (result ? "true" : "false") << std::endl;
+    cin >> num;
+    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
     return 0;
 }
