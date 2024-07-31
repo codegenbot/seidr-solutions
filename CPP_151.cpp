@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -14,7 +15,7 @@ int double_the_difference(vector<int> lst) {
     return sum;
 }
 
-int main_function() {
+int main() {
     vector<int> lst; 
 
     cout << "Enter elements for the list: ";
