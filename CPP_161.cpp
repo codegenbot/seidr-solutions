@@ -8,4 +8,3 @@ std::string solve(std::string s) {
         }
     }
     return result;
-}
