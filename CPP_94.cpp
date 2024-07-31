@@ -1,7 +1,7 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
 
-int maxPrimeSum(vector<int> lst) {
+int maxPrimeSum(std::vector<int> lst) {
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1){ 
@@ -27,5 +27,6 @@ int maxPrimeSum(vector<int> lst) {
 
 int main() {
     int result = maxPrimeSum({127, 97, 8192});
+    std::cout << "The sum of digits for the maximum prime is: " << result << std::endl;
     return 0;
 }
