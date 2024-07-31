@@ -22,14 +22,6 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    vector<float> input;
-    cout << "Enter numbers separated by space: ";
-    while (cin >> input.push_back(stof)) {}
-    vector<float> positive = get_positive(input);
-    if (issame(positive, input)) {
-        cout << "All numbers are positive." << endl;
-    } else {
-        cout << "Not all numbers are positive." << endl;
-    }
+    assert(issame(get_positive({}), {}));
     return 0;
 }
