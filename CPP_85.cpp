@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,6 +18,13 @@ int main() {
         std::cerr << "Invalid input. Try again.\n";
         return 1; 
     }
+    while (!(n > 0)) {
+        std::cout << "Please enter a positive integer: ";
+        if (!(std::cin >> n)) { 
+            std::cerr << "Invalid input. Try again.\n";
+            return 1; 
+        }
+    }
 
     std::vector<int> lst;
     for(int i = 0; i < n; i++){
@@ -30,7 +38,7 @@ int main() {
     }
 
     int sum = 0;
-    for(int i = 1; i < lst.size(); i += 2){
+    for(int i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
