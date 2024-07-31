@@ -1,13 +1,12 @@
 #include <string>
-#include <cmath>
 #include <cassert>
 
-bool is_prime(int n) {
-    if (n <= 1) {
+bool is_prime(int num){
+    if(num <= 1){
         return false;
     }
-    for (int i = 2; i <= sqrt(n); ++i) {
-        if (n % i == 0) {
+    for(int i = 2; i * i <= num; i++){
+        if(num % i == 0){
             return false;
         }
     }
@@ -33,7 +32,6 @@ std::string words_in_sentence(std::string sentence){
     return result;
 }
 
-int main() {
-    assert (words_in_sentence("here is") == "is");
-    return 0;
+int main(){
+    assert(words_in_sentence("here is") == "is");
 }
