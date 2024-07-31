@@ -1,17 +1,21 @@
-string result = "";
+string words_in_sentence(string sentence) {
+    string result = "";
     string word = "";
+    
     for (char c : sentence) {
-        if (c == ' ') {
-            if (is_prime(word.size())) {
-                result += word + " ";
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (isPrime(word.length())) {
+                result = result.empty() ? word : result + " " + word;
             }
             word = "";
-        } else {
-            word += c;
         }
     }
-    if (is_prime(word.size())) {
-        result += word;
+
+    if (!word.empty() && isPrime(word.length())) {
+        result = result.empty() ? word : result + " " + word;
     }
+
     return result;
 }
