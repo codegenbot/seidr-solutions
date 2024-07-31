@@ -7,18 +7,16 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> unique_digits(vector<int> x){
-    vector<int> unique;
+    vector<int> result;
     for (int num : x) {
-        int temp = num;
-        bool seen[10] = {0};
-        while (temp > 0) {
-            int digit = temp % 10;
-            if (!seen[digit]) {
-                unique.push_back(num);
-                seen[digit] = true;
+        while (num != 0) {
+            int digit = num % 10;
+            if (find(result.begin(), result.end(), digit) == result.end()) {
+                result.push_back(digit);
             }
-            temp /= 10;
+            num /= 10;
         }
     }
-    return unique;
+    sort(result.begin(), result.end());
+    return result;
 }
