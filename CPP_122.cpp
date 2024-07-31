@@ -15,7 +15,7 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    if(k > std::numeric_limits<long long>::max() / sizeof(int)) {
+    if(k > std::numeric_limits<int>::max()) {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
@@ -23,17 +23,18 @@ int main() {
     std::vector<int> input; 
     for (int i = 0; i < k; i++) {
         int num;
-        do {
-            if (!(std::cin >> num)) {
-                std::cout << "Error: invalid input. Please enter an integer: ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-        } while (!std::cin);
+        while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
+                num <= std::numeric_limits<int>::max())) {
+            std::cout << "Error: invalid input. Please enter an integer between "
+                      << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
+                      << ": ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
         if(i > 0) {
             input.push_back(num);
         } else {
-            input.emplace_back(num); 
+            input.push_back(num); 
         }
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(input) << std::endl;
