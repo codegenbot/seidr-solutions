@@ -1,11 +1,17 @@
-int filp_case(const std::string& str) {
+```cpp
+int filp_case(const char* str) {
     int result = 0;
-    for (char c : str) {
+    for (char c : std::string(str)) {
         if (c >= 'a' && c <= 'z') {
-            result += (static_cast<char>(c - 'a' + 1));
+            result -= (c - 'a' + 1);
         } else if (c >= 'A' && c <= 'Z') {
-            result -= (static_cast<char>(c - 'A' + 1));
+            result += (c - 'A' + 1);
         }
     }
     return result;
+}
+
+int main() {
+    assert(filp_case("These violent delights have violent ends") == 0);
+    // ...
 }
