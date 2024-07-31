@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -13,6 +12,8 @@ int isPrime(int n) {
     }
     return 1;
 }
+
+string intersection(vector<int> interval1, vector<int> interval2);
 
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start1 = interval1[0];
@@ -37,7 +38,6 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-
+    assert (intersection({-2, -2}, {-3, -2}) == "NO");
     return 0;
 }

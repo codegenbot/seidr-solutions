@@ -28,7 +28,7 @@ vector<int> sort_array(const vector<int>& arr) {
 }
 
 int test_main() {
-    assert(issame(sort_array({2, 4, 8, 16, 32}), vector<int>{2, 4, 8, 16, 32})); 
+    assert(issame(sort_array({2, 4, 8, 16, 32}), vector<int>{2, 4, 8, 16, 32}));
     cout << "Test passed!" << endl;
     return 0;
 }
