@@ -17,7 +17,8 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    std::string input = "(())()";
+    std::string input = "(())";
     std::cout << std::boolalpha << correct_bracketing(input) << std::endl;
+
     return 0;
-}
+}  
