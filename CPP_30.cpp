@@ -21,6 +21,10 @@ std::vector<float> getPositive(const std::vector<float>& input) {
 }
 
 int main() {
+    printResult();
+}
+
+void printResult() {
     std::vector<float> input;
     float num;
     while (std::cin >> num) {
