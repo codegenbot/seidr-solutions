@@ -21,8 +21,7 @@ bool check_dict_case(map<string,string> dict){
 }
 
 int main() {
-    map<string, string> dict;
-    bool result = check_dict_case(dict);
-    
+    map<string, string> empty_dict;
+    check_dict_case(empty_dict);
     return 0;
 }
