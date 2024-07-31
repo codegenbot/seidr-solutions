@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b){
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -25,7 +25,7 @@ int main() {
     if(v.size() > 1) {
         bool same = true;
         for(int i=2; i<v.size(); i++) {
-            same &= isSame(v[0], v[i]);
+            same &= (v[0] == v[i]);
         }
 
         if(same) {
@@ -33,15 +33,19 @@ int main() {
 
             for(int i=0; i<v[0].size(); i++) {
                 bool found = true;
+                int count = 0;
 
                 for(int j=1; j<v.size(); j++) {
                     if(std::find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
                         found = false;
                         break;
                     }
+                    else{
+                        count++;
+                    }
                 }
 
-                if(found) {
+                if(found && count == v.size() - 1) {
                     common.push_back(v[0][i]);
                 }
             }
