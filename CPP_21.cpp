@@ -1,4 +1,9 @@
-float min_val = *min_element(numbers.begin(), numbers.end());
+bool issame(const vector<float>& v1, const vector<float>& v2) {
+    return v1 == v2;
+}
+
+vector<float> rescale_to_unit(const vector<float>& numbers) {
+    float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
     
     vector<float> result;
