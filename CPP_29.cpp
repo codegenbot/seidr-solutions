@@ -1,24 +1,4 @@
 ```cpp
-#include <vector>
-#include <string>
-#include <initializer_list>
-
-std::vector<std::string> filterByPrefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
-    for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
-    return result;
+int main() {
+    assert(areEqual(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 }
-
-bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-std::string prefix = "xxx";
-std::vector<std::string> filteredStrings = filterByPrefix(strings, prefix);
-bool result = areEqual(filteredStrings, {"xxx", "xxxAAA", "xxx"});
-assert(areEqual(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
