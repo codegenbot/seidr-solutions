@@ -13,10 +13,9 @@ int hex_key_value(std::string num) {
 }
 
 int main() {
-    std::string input;
+    std::string input = "";
     std::cout << "Enter a hexadecimal number: ";
     std::cin >> input;
     int output = hex_key_value(input);
     std::cout << "The result is: " << output << std::endl;
-    return 0;
 }
