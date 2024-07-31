@@ -5,13 +5,13 @@
 #include <string>
 #include <algorithm>
 
-bool std::issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
-std::map<char, int> std::histogram(std::string test);
+std::map<char, int> histogram(std::string test);
 
-std::map<char, int> std::histogram(std::string test) {
+std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
     for (char c : test) {
         if (std::isalpha(c) && std::islower(c)) {
