@@ -1,31 +1,19 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(char a, char b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt);
-
-int main() {
-    assert (issame(split_words(""), {"0"}));
-    std::string text = "hello, world";
-    std::vector<std::string> words = split_words(text);
-    for (const auto& word : words) {
-        std::cout << word << std::endl;
-    }
-    return 0;
-}
-
-std::vector<std::string> split_words(std::string txt){
+std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+    for(char c : txt) {
+        if(c == ' ' || c == ',') {
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
@@ -33,11 +21,29 @@ std::vector<std::string> split_words(std::string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if (!word.empty()) {
         result.push_back(word);
     }
-    if(result.empty()){
-        result.push_back(std::to_string(std::count_if(txt.begin(), txt.end(), [](char c){return std::islower(c) && (c-'a') % 2 == 1;})));
+    if (result.empty()) {
+        int count = std::count_if(txt.begin(), txt.end(), [](char c) {
+            return std::islower(c) && (c-'a') % 2 == 1;
+        });
+        result.push_back(std::to_string(count));
     }
     return result;
+}
+
+int main() {
+    assert(issame('a', 'a'));
+    assert(issame('b', 'b'));
+
+    std::string text = "hello, world";
+    std::vector<std::string> words = split_words(text);
+    for (const auto& word : words) {
+        std::cout << word << std::endl;
+    }
+
+    assert(split_words("").front() == "0");
+
+    return 0;
 }
