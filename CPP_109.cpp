@@ -1,7 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <vector>
 
 bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
