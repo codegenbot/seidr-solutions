@@ -14,6 +14,9 @@ pair<string,bool> reverse_delete(string s1, string s2) {
 }
 
 int main() {
-    assert(issame({reverse_delete("mamma", "mia").first}, std::make_tuple("", reverse_delete("mamma", "mia").second ? "True" : "False")));
+    vector<string> v1 = {reverse_delete("mamma", "mia").first};
+    string s2 = reverse_delete("mamma", "mia").second ? "True" : "False";
+    v1.push_back(s2);
+    assert (issame(v1, {"", "True"}));
     return 0;
 }
