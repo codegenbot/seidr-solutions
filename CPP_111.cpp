@@ -1,22 +1,12 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 #include <cassert>
-
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    return a == b;
-}
-
-std::map<char, int> histogram(std::string test);
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
-}
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
     for (char c : test) {
-        if (isalpha(c) && islower(c)) {
+        if (std::isalpha(c) && std::islower(c)) {
             freq[c]++;
         }
     }
@@ -31,4 +21,13 @@ std::map<char, int> histogram(std::string test) {
         }
     }
     return result;
+}
+
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
