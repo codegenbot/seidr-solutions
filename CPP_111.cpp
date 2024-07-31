@@ -3,6 +3,7 @@
 #include <cassert>
 #include <cctype>
 #include <string>
+#include <algorithm>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
@@ -18,7 +19,7 @@ int main() {
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
     for (char c : test) {
-        if (isalpha(c) && islower(c)) {
+        if (std::isalpha(c) && std::islower(c)) {
             freq[c]++;
         }
     }
@@ -33,4 +34,4 @@ std::map<char, int> histogram(std::string test) {
         }
     }
     return result;
-}
+}  
