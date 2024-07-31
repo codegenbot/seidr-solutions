@@ -1,39 +1,14 @@
-Here is the solution:
-
-```cpp
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) return result;
-
-    sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
-
     while (!lst.empty()) {
-        for (int i : lst) {
-            if (i == min) {
-                result.push_back(i);
-                lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                break;
-            }
-        }
-
-        if (!lst.empty())
-            min = *min_element(lst.begin(), lst.end());
-
-        while (!lst.empty() && *min_element(lst.begin(), lst.end()) == min) {
-            for (int i : lst) {
-                if (i == max) {
-                    result.push_back(i);
-                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                    break;
-                }
-            }
-
-            if (!lst.empty())
-                max = *max_element(lst.begin(), lst.end());
+        int minVal = *min_element(lst.begin(), lst.end());
+        result.push_back(minVal);
+        lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
+        if (!lst.empty()) {
+            int maxVal = *max_element(lst.begin(), lst.end());
+            result.push_back(maxVal);
+            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
         }
     }
-
     return result;
 }
