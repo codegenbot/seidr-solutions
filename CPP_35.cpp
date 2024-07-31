@@ -9,7 +9,7 @@ void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    input.reserve(n);
+    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
