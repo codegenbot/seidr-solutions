@@ -19,8 +19,9 @@ bool match_parens(const vector<string>& lst) {
 
 int main() {
     assert(match_parens({{"("}, {")"}}) == 1);
-    vector<string> lst = {{"("}, {")"}};
-    bool result = match_parens(lst);
-    cout << boolalpha << result << std::endl;
+    string openPAREN = "(";
+    string closePAREN = ")";
+    vector<char> lst = {openPAREN[0], closePAREN[0]};
+    cout << boolalpha << match_parens({{&openPAREN[0], &closePAREN[0]}}) << std::endl;
     return 0;
 }
