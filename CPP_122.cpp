@@ -15,7 +15,7 @@ int main() {
 
     int num;
     int max_val = std::numeric_limits<int>::max();
-    int min_val = std::numeric_limits<int>::min();
+    int min_val = std::numericlimits<int>::min();
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
         while (!(std::cin >> num && num >= min_val && num <= max_val)) {
