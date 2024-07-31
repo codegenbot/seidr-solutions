@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
 
