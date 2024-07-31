@@ -5,7 +5,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-std::vector<float> get_positive(std::vector<float> l); // Declare function prototype
+std::vector<float> get_positive(std::vector<float> l); // Add include directive and use std::vector<float>
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
