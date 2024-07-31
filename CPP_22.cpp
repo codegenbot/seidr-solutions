@@ -1,17 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 using namespace std;
-
-bool is_integral(int x) {
-    return true; // Replace this with your actual implementation.
-}
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
+        if (!std::is_integral(a[i]) || !std::is_integral(b[i])) continue;
         if (a[i] != b[i]) {
             return false;
         }
@@ -22,14 +20,14 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 vector<int> filter_integers(const vector<int>& arr) {
     vector<int> result;
     for (int x : arr) {
-        if (is_integral(x)) { 
+        if (std::is_integral(x)) { 
             result.push_back(x);
         }
     }
     return result;
 }
 
-int main1() { 
+int main_program() {
     int n;
     cin >> n;
     vector<int> arr(n);
