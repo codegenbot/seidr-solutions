@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,5 +28,6 @@ bool same(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(same(parse_nested_parens("(()(())((()))"), parse_nested_parens("(()(())((()))")));
+    vector<int> expected = parse_nested_parens("(()(())((()))"));
+    assert(same(parse_nested_parens("(()(())((()))"), expected));
 }
