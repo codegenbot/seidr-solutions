@@ -17,7 +17,7 @@ vector<int> issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-   vector<int> l1 = {1, 2, 2, 3, 4, 5};
+    vector<int> l1 = {1, 2, 2, 3, 4, 5};
     vector<int> l2 = {2, 2, 3, 3, 4, 5, 6};
 
     vector<int> common = issame(l1, l2);
