@@ -15,15 +15,17 @@ bool correct_bracketing(std::string brackets){
     }
     return count == 0;
 
+}
+
 int main() {
     std::string brackets;
     std::cout << "Enter a string of brackets: ";
-    std::getline(std::cin, brackets);
+    std::cin >> std::getline(std::cin, brackets);
     
-    if (correct_bracketing(brackets)) {
-        std::cout << "Correct bracketing.\n";
+    if(correct_bracketing(brackets)) {
+        std::cout << "The bracketing is correct." << std::endl;
     } else {
-        std::cout << "Incorrect bracketing.\n";
+        std::cout << "Error: The bracketing is incorrect. There are unmatched '>' characters." << std::endl;
     }
     
     return 0;
