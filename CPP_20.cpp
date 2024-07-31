@@ -21,6 +21,8 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return closest_elements;
 }
 
-void main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == make_pair(2.2f, 3.1f));
+int main() {
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == pair<float, float>(3.1f, 4.1f));
+
+    return 0;
 }
