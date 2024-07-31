@@ -20,9 +20,9 @@ int main() {
     string str;
     getline(cin, str);
     
-    for (char c : str) {
-        if (isdigit(c)) {
-            int num = c - '0';
+    for (int i = 0; i < str.length(); i++) {
+        if (isdigit(str[i])) {
+            int num = (str[i] - '0') + ((i > 0 && str[i-1] == ' ') ? 10 : 0);
             lst.push_back(num);
         } else {
             break; 
