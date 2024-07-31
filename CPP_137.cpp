@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string> // Include the <string> header
+#include <string>
+#include <boost/any.hpp>
 
 template <typename T>
 T compare_one(const T& a, const T& b) {
@@ -12,7 +13,7 @@ T compare_one(const T& a, const T& b) {
 }
 
 int main() {
-    assert(compare_one(T("1"), std::to_string(1)).empty());
-
+    assert(boost::any_cast<std::string>(compare_one(boost::any(std::string("1")), boost::any(std::to_string(1))).empty());
+    
     return 0;
 }
