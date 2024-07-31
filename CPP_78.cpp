@@ -1,7 +1,7 @@
+```
 #include <cctype>
 #include <algorithm>
 #include <iostream>
-#include <cassert>
 
 int hex_key(std::string s) {
     std::transform(s.begin(), s.end(), s.begin(),
@@ -14,14 +14,4 @@ int hex_key(std::string s) {
     }
     return result;
 
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int output = hex_key(input);
-    std::cout << "The number of alphanumeric characters is: " << output << std::endl;
-    return 0;
 }
