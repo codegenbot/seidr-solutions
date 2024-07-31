@@ -6,22 +6,22 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result(0);
+    vector<int> result;
     int i = 0;
     while (i < l.size()) {
-        if (i % 3 == 0) {
+        if ((i + 1) % 3 == 0 && !result.empty()) { 
             sort(result.begin(), result.end());
-            result.clear();
+            result.clear(); 
         }
-        result.push_back(l[i]);
-        i++;
         
-        if (result.size() > 1) {
-            sort(result.begin(), result.end());
+        if (!result.empty() || i % 3 != 0) {
+            result.push_back(l[i]);
         }
+        i++;
     }
     
-    if (result.size() > 1) {
+    // add one last time just in case
+    if (!result.empty()) {
         sort(result.begin(), result.end());
     }
 
