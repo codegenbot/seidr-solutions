@@ -1,3 +1,5 @@
+Here's the modified code:
+
 ```
 def get_max_triples(n):
     max_sum = 0
