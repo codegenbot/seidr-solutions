@@ -1,6 +1,9 @@
-map<char, int> histogram(string test);
+#include <map>
+#include <sstream>
+#include <algorithm>
+#include <cassert>
 
-bool issame(map<char, int> a, map<char, int> b) {
+map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
     string word;
@@ -20,4 +23,13 @@ bool issame(map<char, int> a, map<char, int> b) {
         }
     }
     return mostRepeated;
-} 
+}
+
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
+}
