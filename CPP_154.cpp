@@ -1,4 +1,4 @@
-bool cycpattern_check(string a, string b) {
-    string s = a + a;
-    return s.find(b) != string::npos;
+bool cycpattern_check(const std::string& a, const std::string& b) {
+    std::string s = a + a;
+    return s.find(b) != std::string::npos;
 }
