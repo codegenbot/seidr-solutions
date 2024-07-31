@@ -1,13 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(int i=0; i<brackets.size(); i++){
-        if('(' == brackets[i]) count++;
-        else if(')' == brackets[i]) {
-            if(count <= 0) return false;
+    for (char bracket : brackets) {
+        if ('(' == bracket) count++;
+        else if (')' == bracket) {
+            if (count <= 0) return false;
             count--;
         }
     }
