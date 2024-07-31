@@ -1,3 +1,9 @@
+#include <iostream>
+#include <map>
+#include <cassert>
+
+using namespace std;
+
 map<string, int> numberMap = {
     {"zero", 0},
     {"one", 1},
@@ -14,7 +20,7 @@ map<string, int> numberMap = {
 string sort_numbers(string numbers){
     string result = "";
     map<int, string> sortedNumbers;
-    
+
     size_t pos = 0;
     while ((pos = numbers.find(" ")) != string::npos) {
         string token = numbers.substr(0, pos);
@@ -22,10 +28,10 @@ string sort_numbers(string numbers){
         numbers.erase(0, pos + 1);
     }
     sortedNumbers[numberMap[numbers]] = numbers;
-    
+
     for (const auto& pair : sortedNumbers) {
         result += pair.second + " ";
     }
-    
+
     return result;
 }
