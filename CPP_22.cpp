@@ -19,7 +19,7 @@ bool issame(std::vector<T> a, std::vector<T> b){
 
 std::vector<int> filter_integers(std::list<std::any> values){
     std::vector<int> result;
-    for(auto val : values){
+    for(const auto& val : values){
         if(val.type() == typeid(int))
             result.push_back(std::any_cast<int>(val));
     }
