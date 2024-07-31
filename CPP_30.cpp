@@ -2,10 +2,10 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-12f) return false;
+bool issame(std::vector<float> a) {
+    float first = a[0];
+    for (int i = 1; i < a.size(); i++) {
+        if (std::abs(a[i] - first) > 1e-12f) return false;
     }
     return true;
 }
@@ -29,7 +29,7 @@ void printResult() {
 
     if (!input.empty()) {
         std::vector<float> positive = getPositive(input);
-        if (issame(positive, input)) {
+        if (issame(positive)) {
             std::cout << "All numbers are the same." << std::endl;
         } else if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
             std::cout << "All numbers are positive." << std::endl;
