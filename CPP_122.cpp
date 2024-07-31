@@ -5,6 +5,8 @@
 
 int add_elements(const std::vector<int>& arr);
 
+int calculate_sum_of_elements_with_length_of_string_representation_le_2(const std::vector<int>& arr);
+
 int main() {
     int k = 0;
     while (!(std::cin >> k && k >= 1)) {
@@ -15,7 +17,7 @@ int main() {
 
     int num;
     int max_val = std::numeric_limits<int>::max();
-    int min_val = std::numericlimits<int>::min();
+    int min_val = std::numeric_limits<int>::min();
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
         while (!(std::cin >> num && num >= min_val && num <= max_val)) {
@@ -36,7 +38,7 @@ int main() {
             sum = numbers[0];
         }
     }
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(numbers) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << calculate_sum_of_elements_with_length_of_string_representation_le_2(numbers) << std::endl;
 
 }
 
@@ -47,5 +49,10 @@ int add_elements(const std::vector<int>& arr) {
             sum += arr[i];
         }
     }
+    return sum;
+}
+
+int calculate_sum_of_elements_with_length_of_string_representation_le_2(const std::vector<int>& arr) {
+    int sum = add_elements(arr);
     return sum;
 }
