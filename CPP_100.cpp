@@ -1,13 +1,12 @@
 #include <vector>
 
-bool issame(int a, int b) {
-    return (a == b);
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
 }
 
-vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
-
     for(int i=1; i<n; i++){
         if(n % 2 == 0){
             n += 2;
@@ -16,23 +15,10 @@ vector<int> make_a_pile(int n) {
         }
         stones.push_back(n);
     }
-    
     return stones;
 }
 
-int main() {
-    int n;
-    cin >> n;
-
-    vector<int> stones = make_a_pile(n);
-
-    for(int i=0; i<stones.size()-1; i++){
-        if(issame(stones[i], stones[i+1])){
-            cout << "Same\n";
-        } else {
-            cout << "Different\n";
-        }
-    }
-
+int main(){
+    assert (issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
