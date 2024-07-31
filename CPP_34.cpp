@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,7 +15,6 @@ vector<int> unique(vector<int> l) {
         }
     }
     return result;
-
 }
 
 int main() {
