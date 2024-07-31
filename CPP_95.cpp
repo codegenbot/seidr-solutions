@@ -23,14 +23,9 @@ bool check_dict_case(map<string,string> dict){
     return all_lower || all_upper;
 }
 
-int main(){
-    map<string, string> dict;
-    
-    if(check_dict_case(dict)){
-        cout << "Dictionary keys have inconsistent cases." << endl;
-    } else {
-        cout << "Dictionary keys have consistent case." << endl;
-    }
+int main() {
+    map<string, string> empty_map;
+    cout << boolalpha << check_dict_case(empty_map) << endl;
     
     return 0;
 }
