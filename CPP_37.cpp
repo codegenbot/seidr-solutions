@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b); // Updated function signature
+bool issame(const std::vector<float>& a, const std::vector<float>& b);
 
-void sort_even(std::vector<float>& l); // Updated function signature
+void sort_even(std::vector<float>& l);
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) { // Modified function definition
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     for(size_t i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
@@ -15,7 +15,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) { // Modif
     return true;
 }
 
-void sort_even(std::vector<float>& l) { // Modified function definition
+void sort_even(std::vector<float>& l) {
     std::vector<float> even_elems;
     for(size_t i=0; i<l.size(); i++){
         if(i%2 == 0){
@@ -39,10 +39,10 @@ void sort_even(std::vector<float>& l) { // Modified function definition
 }
 
 int main() {
-    std::vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}; // Create a vector explicitly
+    std::vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(input);
     
-    assert(issame(input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})); // Use assert with vectors instead of initializer lists
+    assert(issame(input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
     
     return 0;
 }
