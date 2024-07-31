@@ -1,6 +1,10 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+vector<int> sum_product(vector<int> numbers);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> sum_product(vector<int> numbers){
     int sum = 0;
@@ -14,7 +18,7 @@ vector<int> sum_product(vector<int> numbers){
     return {sum, product};
 }
 
-int main() {
-    // Main function implementation here
+int main(){
+    // main function logic here
     return 0;
 }
