@@ -4,10 +4,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b){
-    return a == b;
-}
-
 std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
@@ -25,4 +21,14 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-assert(issame(even_odd_palindrome(1), std::make_pair(0, 1)));
+int main() {
+    int n;
+    std::cin >> n;
+    auto results = even_odd_palindrome(n);
+    std::cout << "Even palindromes: " << results.first << std::endl;
+    std::cout << "Odd palindromes: " << results.second << std::endl;
+
+    assert(results == std::make_pair(0, 1)); // For testing, ensure this assertion passes with the given example
+
+    return 0;
+}
