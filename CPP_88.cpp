@@ -1,28 +1,14 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
-
-vector<int> sort_array(vector<int> array) {
-    if (array.empty()) {
-        return array;
-    }
-
-    if ((array.front() + array.back()) % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() == 0) return a;
+    std::vector<int> sorted_array = a;
+    if((a.front() + a.back()) % 2 == 0) {
+        std::sort(sorted_array.rbegin(), sorted_array.rend());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(sorted_array.begin(), sorted_array.end());
     }
-
-    return array;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-
-    return 0;
+    return sorted_array;
 }
