@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 using namespace std;
 
 int minSubArraySum(vector<int> nums) {
-    int min_sum = INT_MAX;
+    int min_sum = numeric_limits<int>::max();
     for (int i = 0; i < nums.size(); i++) {
         int current_sum = 0;
         for (int j = i; j < nums.size(); j++) {
@@ -18,6 +18,7 @@ int minSubArraySum(vector<int> nums) {
 }
 
 int main() {
-    std::cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
+    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
+    assert(minSubArraySum({1, -1}) == 0);
     return 0;
 }
