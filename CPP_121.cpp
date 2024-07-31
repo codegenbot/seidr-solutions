@@ -22,12 +22,9 @@ int main() {
     
     int num = 0;
     for (char c : str) {
-        if (c >= '0' && c <= '9') {
-            num = c - '0';
-            lst.push_back(num);
-        } else {
-            break; 
-        }
+        if (c == ' ') break; 
+        num = (c - '0');
+        lst.push_back(num);
     }
     
     cout << "Sum of odd numbers: " << solve(lst) << endl;
