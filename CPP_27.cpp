@@ -20,7 +20,7 @@ int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
-    assert(flip_case(input) == "eNTER A STRING: ");
     cout << flip_case(input) << endl;
+    assert(flip_case("Hello World") == "hELLO wORLD");
     return 0;
 }
