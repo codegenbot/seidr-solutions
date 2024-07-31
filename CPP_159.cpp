@@ -14,7 +14,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-// commented out main() function as it is already defined earlier in the code
 // int main() {
 //     assert(issame(eat(4, 5, 1), std::vector<int>{5, 0}));
 //     return 0;
