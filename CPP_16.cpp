@@ -9,19 +9,18 @@ int main() {
     while (std::cin.peek() == '\n') 
         std::cin.ignore();
     char buffer[256]; // or any size that fits your needs
-    std::cin.getline(buffer, 256); // use buffer and size accordingly
-    str = std::string(buffer); // assign the C-style string to your std::string
-    int result = count_distinct_characters(str);
+    std::cin.getline(buffer, 256); 
+    int result = count_distinct_characters(buffer);
     return 0;
 }
 
-int count_distinct_characters(const std::string& str) {
-    bool seen[256] = {false}; // assume ASCII
+int count_distinct_characters(const char* str) {
+    bool seen[256] = {false}; 
 
-    for (int i = 0; i < str.length(); ++i) {
+    for (int i = 0; i < strlen(str); ++i) {
         char c = tolower(str[i]);
         if (!std::isalpha(c)) {
-            continue; // ignore non-alphabets
+            continue; 
         }
         if (!seen[c]) {
             seen[c] = true;
