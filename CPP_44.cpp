@@ -17,5 +17,5 @@ int main(){
     std::stringstream ss;
     ss << x;
     assert(change_base(x, x + 1) == ss.str());
-    return 0;
+    return 0;  
 }
