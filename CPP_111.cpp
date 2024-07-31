@@ -1,12 +1,20 @@
+#include <iostream>
+#include <sstream>
+#include <unordered_map>
 #include <algorithm>
 #include <cassert>
 
-bool issame(unordered_map<char, int> a, unordered_map<char, int> b);
-
-unordered_map<char, int> histogram(string test);
+using namespace std;
 
 bool issame(unordered_map<char, int> a, unordered_map<char, int> b) {
     return a == b;
+}
+
+unordered_map<char, int> histogram(string test);
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
 
 unordered_map<char, int> histogram(string test) {
