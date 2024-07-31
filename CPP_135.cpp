@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,3 +32,4 @@ int main() {
     else 
         std::cout << "Input can be arranged." << std::endl;
     return 0;
+}
