@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 bool is_same(std::string a, std::string b){
@@ -23,12 +22,11 @@ int main() {
     
     std::vector<std::string> filtered_strings = filter_by_substring(strings, sub);
 
-    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
+    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").at(0), "grunt");
+    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").at(1), "prune");
 
     for (const std::string& str : filtered_strings) {
-        if (str.find(sub) != std::string::npos) {
-            std::cout << str << " contains substring " << sub << std::endl;
-        }
+        std::cout << str << " contains substring " << sub << std::endl;
     }
     
     return 0;
