@@ -6,8 +6,12 @@
 
 using std::vector;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].compare(b[i]) != 0) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> select_words(std::string s, int n) {
@@ -46,6 +50,8 @@ int main() {
     std::vector<std::string> words = select_words(s, n);
 
     assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
+    
+    assert(issame(words, select_words(s, n));
 
     return 0;
 }
