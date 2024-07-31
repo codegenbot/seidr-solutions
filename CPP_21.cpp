@@ -9,5 +9,5 @@ bool issame(vector<float> a, vector<float> b) {
         result.push_back(scaled_num);
     }
     
-    return result;
+    return result == b;
 }
