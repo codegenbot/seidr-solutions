@@ -7,13 +7,11 @@ def simplify():
     numerator2 = int(input(f"Enter second fraction numerator: "))
     denominator2 = int(input(f"Enter second fraction denominator: "))
 
-    new_numerator = numerator1*denominator2
-    new_denominator = denominator1 * denominator2
+    new_numerator = (numerator1 * denominator2)
+    new_denominator = math.gcd(denominator1, denominator2)
 
-    greatest_common_divisor = math.gcd(new_numerator, new_denominator)
-
-    simplified_numerator = new_numerator // greatest_common_divisor
-    simplified_denominator = new_denominator // greatest_common_divisor
+    simplified_numerator = new_numerator // new_denominator
+    simplified_denominator = new_denominator
 
     return f"{simplified_numerator}/{simplified_denominator}"
 
