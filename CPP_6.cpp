@@ -1,10 +1,10 @@
+using namespace std;
+
 #include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
-
-std::vector<int> parse_nested_parens(const string& s) {
+std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
     for (char c : s) {
         if (c == '(') {
@@ -15,16 +15,13 @@ std::vector<int> parse_nested_parens(const string& s) {
             }
         }
     }
-    vector<int> result;
-    result.push_back(count + 1);
-    return result;
+    return {count + 1};
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(issame({1}, parse_nested_parens("(()(())((()))")));
-    return 0;
+    assert(issame(parse_nested_parens("(()(())((()))"), {1,4}));
 }
