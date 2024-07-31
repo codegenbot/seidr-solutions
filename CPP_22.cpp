@@ -6,9 +6,7 @@
 
 vector<int> filter_integers(std::list<std::any> values);
 
-bool issame(vector<int>& a, vector<int>& b){
-    return a == b;
-}
+bool issame(vector<int>& a, vector<int>& b);
 
 int main(){
     assert(issame(filter_integers({3, std::any('c'), 3, 3, std::any('a'), std::any('b')}), {3, 3, 3}));
@@ -23,4 +21,8 @@ vector<int> filter_integers(std::list<std::any> values){
         }
     }
     return result;
+}
+
+bool issame(vector<int>& a, vector<int>& b){
+    return a == b;
 }
