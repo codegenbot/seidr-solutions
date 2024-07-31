@@ -1,28 +1,31 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool areSame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> f(int n){
-    std::vector<int> result;
-    int sum = 0;
-    int factorial = 1;
-    for(int i = 1; i <= n; i++){
-        if(i % 2 == 0){
-            factorial *= i;
-            result.push_back(factorial);
-        }
-        else{
-            sum += i;
-            result.push_back(sum);
+vector<int> f(int n) {
+    vector<int> result(n);
+    for (int i = 0; i < n; ++i) {
+        if (i % 2 == 0) {
+            int fact = 1;
+            for (int j = 1; j <= i; ++j) {
+                fact *= j;
+            }
+            result[i] = fact;
+        } else {
+            int sum = 0;
+            for (int j = 1; j <= i; ++j) {
+                sum += j;
+            }
+            result[i] = sum;
         }
     }
     return result;
 }
 
-int main(){
-    assert (areSame(f(3) , {1, 2, 6}));
+int main() {
+    assert(f(3) == vector<int>{1, 2, 6});
+    cout << "Test Passed!\n";
     return 0;
-}
+}  
