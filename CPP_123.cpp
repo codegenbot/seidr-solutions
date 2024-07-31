@@ -14,7 +14,7 @@ std::vector<int> get_odd_collatz(int n) {
             n = 3 * n + 1;
         }
     }
-    sequence.push_back(1); // Add the final 1 to the sequence
+    sequence.push_back(1); 
     return sequence;
 }
 
@@ -30,7 +30,7 @@ int main() {
         std::cout << num << " ";
     }
 
-    assert(get_odd_collatz(1) == std::vector<int>{1}); // Test example
+    assert(get_odd_collatz(1) == std::vector<int>{1});
 
     return 0;
 }
