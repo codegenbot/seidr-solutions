@@ -5,8 +5,8 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> tri(int n){
-    vector<int> result(n + 1);
+std::vector<int> tri(int n){
+    std::vector<int> result(n + 1);
     result[1] = 3;
     if(n >= 2) result[2] = 1 + n / 2;
     for(int i = 3; i <= n; ++i){
@@ -17,4 +17,12 @@ vector<int> tri(int n){
         }
     }
     return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> result = tri(n);
+    // Call issame function for comparing
+    return 0;
 }
