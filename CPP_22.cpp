@@ -1,17 +1,18 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <any>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> filter_integers(std::vector<std::any> values) {
-    std::vector<int> result;
+std::vector<std::any> filter_integers(std::vector<std::any> values) {
+    std::vector<std::any> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
             try {
                 int val = std::any_cast<int>(value);
-                result.push_back(val);
+                if(result.empty() || val > 0) {
+                    result.push_back(value); 
+                }
             } catch (...) {
                 continue;
             }
@@ -25,6 +26,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(std::vector<int>(filter_integers({static_cast<std::any>(3), 'c', static_cast<std::any>(3), 3, 'a', 'b'})) , {3, 3, 3}));
     return 0;
 }
