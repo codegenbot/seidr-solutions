@@ -1,21 +1,22 @@
-#include <string>
+#include <string> 
 #include <cassert>
-#include <iostream>
-#include <sstream>
+#include <iostream> 
+#include <sstream> 
 
 std::string change_base(int x, int base){
     std::string result = "";
     while(x > 0){
-        result = std::__cxx11::to_string(x % base) + result;
+        result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
 }
 
 int main(){
+    using namespace std; 
     int x = 10;
-    std::stringstream ss;
-    ss << x;
-    assert(change_base(x, x + 1) == ss.str());
-    return 0;  
+    std::stringstream ss; 
+    ss << x; 
+    assert(change_base(x, x + 1) == std::to_string(x)); 
+    return 0;
 }
