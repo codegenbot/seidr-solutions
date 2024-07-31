@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <cstring>
 #include <string>
@@ -10,14 +9,15 @@ int main() {
         std::cin.ignore();
     char buffer[256]; // or any size that fits your needs
     std::cin.getline(buffer, 256); 
-    int result = count_distinct_characters(buffer);
+    str = std::string(buffer);
+    int result = count_distinct_characters(str);
     return 0;
 }
 
-int count_distinct_characters(const char* str) {
-    bool seen[256] = {false}; 
+int count_distinct_characters(const std::string& str) {
+    bool seen[256] = {false}; // assume ASCII
 
-    for (int i = 0; i < strlen(str); ++i) {
+    for (int i = 0; i < str.length(); ++i) {
         char c = tolower(str[i]);
         if (!std::isalpha(c)) {
             continue; 
