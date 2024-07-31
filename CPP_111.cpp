@@ -1,3 +1,4 @@
+```c++
 map<char,int> histogram(string test){
     map<char,int> result;
     string temp = "";
@@ -30,17 +31,14 @@ map<char,int> histogram(string test){
         }
     }
 
-    bool same = false;
+    return maxMap;
 
-    for(auto it = result.begin(); it != result.end(); it++){
-        if(maxMap.find(it->first) != maxMap.end() && it->second == maxMap[it->first]){
-            same = true;
-            break;
-        } else {
-            same = false;
-            break;
-        }
+}
+
+bool issame(map<char,int> a, map<char,int> b){
+    if(a.size() != b.size()) return false;
+    for(auto it = a.begin(); it != a.end(); it++){
+        if(it->second != b[it->first]) return false;
     }
-
-    return same;
+    return true;
 }
