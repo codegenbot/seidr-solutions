@@ -1,31 +1,27 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
 
 void sort_even(vector<float>& l) {
     vector<float> even_values;
 
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-        }
+    for (int i = 0; i < l.size(); i += 2) {
+        even_values.push_back(l[i]);
     }
 
     sort(even_values.begin(), even_values.end());
 
     int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = even_values[even_index];
-            even_index++;
-        }
+    for (int i = 0; i < l.size(); i += 2) {
+        l[i] = even_values[even_index];
+        even_index++;
     }
 }
 
-vector<float> sort_even_elements(vector<float>& l) {
+vector<float> sort_even_elements(vector<float> l) {
     sort_even(l);
     return l;
 }
