@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```Python
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
