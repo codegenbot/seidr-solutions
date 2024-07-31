@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <assert.h>
 
-bool std::vector<float> issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9f) return false;
@@ -10,7 +11,7 @@ bool std::vector<float> issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> std::vector<float> getPositive(const std::vector<float>& input) {
+std::vector<float> getPositive(const std::vector<float>& input) {
     std::vector<float> positive;
     for (float num : input) {
         if (num > 0) {
