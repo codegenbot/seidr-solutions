@@ -1,22 +1,27 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-void sort_array(vector<int>& array) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) {
         return array;
     }
     
     if ((array.front() + array.back()) % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+        std::sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        sort(array.begin(), array.end());
+        std::sort(array.begin(), array.end());
     }
     
     return array;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    // Main function code
+    return 0;
 }
