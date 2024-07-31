@@ -1,20 +1,18 @@
-Here is the solution to the problem:
-
-```Python
-from typing import List
+Here is the completed code:
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
-        depth = 0
-        nesting = []
+        stack = []
+        max_level = 0
+        level = 0
         for char in group:
             if char == '(':
-                depth += 1
-                nesting.append(depth)
+                stack.append(char)
+                level += 1
             elif char == ')':
-                depth -= 1
-                if depth < 0:
-                    break
-        result.append(max(nesting))
+                stack.pop()
+                level -= 1
+                max_level = max(max_level, level)
+        result.append(max_level)
     return result
