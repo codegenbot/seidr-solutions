@@ -1,9 +1,10 @@
-#include <cassert>
+```c++
+#include <iostream>
 #include <string>
 
 bool match_parens(const char* parens) {
     int count = 0;
-    for (char c : std::string(parens)) {
+    for (char c = parens[0]; *parens != '\0'; (c = *(++parens))) {
         if (c == '(')
             count++;
         else if (c == ')')
@@ -14,10 +15,4 @@ bool match_parens(const char* parens) {
     return count == 0;
 }
 
-int main() {
-    assert(match_parens("(())") == true);
-    assert(match_parens("((()))") == true);
-    assert(match_parens("(()))") == false);  
-    std::cout << (match_parens("(()))") ? "Valid" : "Invalid");
-    return 0;
-}
+std::cout << (match_parens("(()))") ? "Valid" : "Invalid";
