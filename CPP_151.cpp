@@ -1,6 +1,8 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cmath>
+#include <limits>
 
 using namespace std;
 
@@ -21,14 +23,17 @@ int main() {
     int i = 0;
     while(i < 5) { 
         int num_val = 0;
-        cin >> num_val;
-        if (cin.fail()) {
-            cout << "Invalid input. Please enter a valid integer.\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        } else {
-            lst.push_back(num_val);
-            i++;
+        for(int j=0;j<3 && i < 5 ;j++){
+            cin >> num_val;
+            if (cin.fail()) {
+                cout << "Invalid input. Please enter a valid integer.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else {
+                lst.push_back(num_val);
+                i++;
+                break; 
+            }
         }
     }
 
