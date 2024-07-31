@@ -1,3 +1,5 @@
+#include <vector>
+#include <cmath>
 #include <initializer_list>
 
 double poly(std::vector<double> coefficients, double x) {
