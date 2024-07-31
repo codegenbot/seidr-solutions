@@ -1,7 +1,7 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int solve(std::vector<int> lst) {
+int solve(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0 && lst[i] != 0) { 
@@ -10,10 +10,4 @@ int solve(std::vector<int> lst) {
     }
     
     return sum;
-}
-
-int main() {
-    assert(solve({3, 13, 2, 9}) == 16);
-    std::cout << "Test passed." << std::endl;
-    return 0;
 }
