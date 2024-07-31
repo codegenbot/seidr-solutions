@@ -25,7 +25,7 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return equal(a.begin(), a.end(), b.begin());
 }
 
