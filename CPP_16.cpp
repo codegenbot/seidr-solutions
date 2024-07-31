@@ -1,11 +1,11 @@
-```cpp
-#include <cctype>
-#include <cstring>
-#include <string>
-
-int count_distinct_characters(std::string str) {
+int main 
+{
+    std::string str;
     int count = 0;
     bool seen[256] = {false}; // assume ASCII
+
+    std::cout << "Enter a string: ";
+    std::cin >> str;
 
     for (char c : str) {
         if (std::isalpha(c)) {
@@ -17,4 +17,7 @@ int count_distinct_characters(std::string str) {
         }
     }
 
-    return count;
+    std::cout << "Number of distinct characters: " << count << std::endl;
+
+    return 0;
+}
