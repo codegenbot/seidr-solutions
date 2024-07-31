@@ -19,7 +19,7 @@ int prod_signs(std::vector<int>& arr) {
             prod *= 0;
         }
         
-        sum += std::abs(num);
+        sum += abs(num);
     }
     
     return prod * sum;
