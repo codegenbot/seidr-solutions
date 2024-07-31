@@ -1,7 +1,5 @@
 #include <map>
 
-using namespace std;
-
 map<string, int> numberMap = {
     {"zero", 0},
     {"one", 1},
