@@ -15,9 +15,11 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    std::string s;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> s;
+    std::getline(std::cin, str);
 
-    std::cout << "Output: " << solve(s) << std::endl;
+    std::cout << "Result: " << solve(str) << "\n";
+
+    return 0;
 }
