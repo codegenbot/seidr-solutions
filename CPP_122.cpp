@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,19 +14,25 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    if(k > std::numeric_limits<int>::max()) {
-        std::cout << "Error: k is too large." << std::endl;
-        return -1;
+    int num;
+    while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
+            std::abs(num) >= std::numeric_limits<int>::min())) {
+        std::cout << "Error: invalid input. Please enter an integer between "
+                  << std::numeric_limits<int>::min() << " and "
+                  << std::numeric_limits<int>::max()
+                  << ": ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     int sum = 0; 
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
-        int num;
-        while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
-                num <= std::numeric_limits<int>::max())) {
+        while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
+                std::abs(num) >= std::numeric_limits<int>::min())) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
+                      << std::numeric_limits<int>::min() << " and "
+                      << std::numeric_limits<int>::max()
                       << ": ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
