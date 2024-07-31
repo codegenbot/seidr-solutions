@@ -1,11 +1,8 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <algorithm>
 
 using namespace std;
-typedef long size_type;
+typedef int size_type;
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
