@@ -1,8 +1,9 @@
-```cpp
 #include <string>
 #include <sstream>
-#include <iomanip> 
-#include <openssl/md5.h>
+#include <iomanip>
+extern "C" {
+    #include <openssl/md5.h>
+}
 
 using namespace std;
 
