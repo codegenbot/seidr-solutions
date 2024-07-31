@@ -1,15 +1,11 @@
 #include <string>
-#include <cassert>
+#include <vector>
+#include <algorithm>
 
 string longest(vector<string> strings){
     assert(!strings.empty());
     
-    string longestStr = strings[0];
-    for(const string& str : strings){
-        if(str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)){
-            longestStr = str;
-        }
-    }
+    string longestStr = *max_element(strings.begin(), strings.end());
     
     return longestStr;
 }
