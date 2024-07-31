@@ -1,5 +1,6 @@
+Here is the corrected code:
+
 ```cpp
-#include <string>
 #include <cassert>
 #include <cstring>
 
@@ -13,5 +14,6 @@ int my_strlen(const char* str){
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 12);
+    const char input[] = "asdasnakj";
+    assert(my_strlen(input) == 12);
 }
