@@ -1,5 +1,9 @@
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
     int max_num = INT_MIN;
