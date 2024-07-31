@@ -1,12 +1,8 @@
-#include <vector>
-#include <string>
-#include <cassert>
+vector<string> separate_paren_groups(string paren_string);
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
     int count = 0;
 
     for (char c : paren_string) {
@@ -30,16 +26,8 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 }
 
 int main() {
-    std::vector<std::string> test1 = separate_paren_groups("(abc)(def)");
-    std::vector<std::string> test2 = separate_paren_groups("((a)(b)(c))(d)(e)");
-
-    assert(test1.size() == 2);
-    assert(test1[0] == "abc");
-    assert(test1[1] == "def");
-
-    assert(test2.size() == 2);
-    assert(test2[0] == "(a)(b)(c)");
-    assert(test2[1] == "d");
+    assert(separate_paren_groups("((hello)(world))") == vector<string>{"(hello)", "(world)"});
+    assert(separate_paren_groups("((coding)((contest)))") == vector<string>{"(coding)", "(contest)"});
 
     return 0;
 }
