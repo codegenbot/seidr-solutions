@@ -1,24 +1,32 @@
+#include <string>
 #include <iostream>
+#include <cassert>
+
 using namespace std;
 
-void fix_spaces(char* text) {
-    bool isPrevSpace = false;
-    for (int i = 0; i < strlen(text); i++) {
-        if (text[i] == ' ') {
-            if (!isPrevSpace) {
-                text[i] = '_';
-                isPrevSpace = true;
+string fix_spaces(string text){
+    string result = "";
+    bool prevSpace = false;
+    
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            if(!prevSpace) {
+                result += '_';
+                prevSpace = true;
+            } else {
+                result += '-';
+                prevSpace = false;
             }
         } else {
-            text[i] = text[i];
-            isPrevSpace = false;
+            result += text[i];
+            prevSpace = false;
         }
     }
+    
+    return result;
 }
 
 int main() {
-    char* text = "   Exa 1 2 2 mple";
-    fix_spaces(text);
-    cout << "Fixed string: " << text << endl;
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
