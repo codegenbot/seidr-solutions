@@ -13,24 +13,31 @@ int main() {
     int n;
 
     std::cout << "Enter the number of elements: ";
-    if (!(std::cin >> n)) { 
+    while (!(std::cin >> n)) { 
         std::cerr << "Invalid input. Try again.\n";
-        return 1; 
+        std::cout << "Enter the number of elements: ";
+        (std::cin >> std::ws).clear();
+        if ((std::cin >> std::skipws).eof()) {
+            return 1; 
+        }
     }
 
     std::vector<int> lst;
     for(int i = 0; i < n; i++){
         int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        if (!(std::cin >> num)) { 
+        while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
-            return 1; 
+            std::cout << "Enter element " << i+1 << ": ";
+            (std::cin >> std::ws).clear();
+            if ((std::cin >> std::skipws).eof()) {
+                return 1; 
+            }
         }
         lst.push_back(num);
     }
 
     int sum = 0;
-    for(int i = 1; i < lst.size(); i += 2){
+    for(int i = 0; i < lst.size(); i++){
         if(lst[i] % 2 == 0)
             sum += lst[i];
     }
