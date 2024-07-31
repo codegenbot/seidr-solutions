@@ -3,8 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> input;
 int n;
+std::vector<int> input;
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
