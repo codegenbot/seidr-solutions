@@ -1,12 +1,17 @@
-#include <algorithm>
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
 bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
+    }
+    return true;
 }
 
-std::vector<std::string> findSubstring(const std::vector<std::string>& strings, const std::string& substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(substring) != std::string::npos) {
@@ -30,7 +35,7 @@ int main() {
     std::string substring;
     std::getline(std::cin, substring);
 
-    auto result1 = findSubstring(strings, substring);
+    auto result1 = filter_by_substring(strings, substring);
 
     if (areEqual(result1, strings)) {
         for (const auto& s : strings) {
