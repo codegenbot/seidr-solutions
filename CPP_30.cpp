@@ -12,12 +12,16 @@ std::vector<float> get_positive(const std::vector<float>& input) {
     return positive;
 }
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 int main() {
     std::vector<float> input;
     float num;
     while (std::cin >> num) {
         input.push_back(num);
-   }
+    }
     
     if (!input.empty()) input.reserve(input.size());
     std::vector<float> positive = get_positive(input);
