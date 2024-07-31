@@ -1,17 +1,18 @@
-string solve(string s){
-    bool hasLetter = false;
-    for (char &c : s) {
-        if (isalpha(c)) {
-            hasLetter = true;
-            if (isupper(c)) {
-                c = tolower(c);
-            } else {
-                c = toupper(c);
-            }
+for (char &ch : s)
+    {
+        if (isalpha(ch))
+        {
+            if (islower(ch))
+                ch = toupper(ch);
+            else
+                ch = tolower(ch);
         }
     }
-    if (!hasLetter) {
+
+    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0)
+    {
         reverse(s.begin(), s.end());
     }
+
     return s;
 }
