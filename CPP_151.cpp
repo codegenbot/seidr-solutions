@@ -16,7 +16,10 @@ int double_the_difference(vector<int> lst) {
     return sum;
 }
 
-int my_main_func(vector<int>& lst, int& odd_sum) {
+int main() {
+    vector<int> lst; 
+    int odd_sum = 0;
+
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         int num;
@@ -38,12 +41,5 @@ int my_main_func(vector<int>& lst, int& odd_sum) {
 
     cout << "The difference is: " << double_the_difference(lst) << endl;
 
-    return 0;
-}
-
-int my_main() {
-    vector<int> lst; 
-    int odd_sum = 0;
-    my_main_func(lst, odd_sum);
     return 0;
 }
