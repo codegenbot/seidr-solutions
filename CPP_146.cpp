@@ -1,6 +1,6 @@
 #include <vector>
 
-int specialFilter(vector<int> nums) {
+int specialFilter(vector<int> nums){
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
