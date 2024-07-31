@@ -1,8 +1,6 @@
 ```cpp
 #include <initializer_list>
 #include <cmath>
-#include <vector>
-#include <iostream>
 
 double poly(std::vector<double> coefficients, double x);
 double find_zero(std::vector<double> coeffs);
@@ -10,17 +8,15 @@ double find_zero(std::vector<double> coeffs);
 int main() {
     int n;
     cin >> n;
-
-    std::vector<double> coeffs = {}; // Declare and initialize coeffs
+    std::vector<double> coeffs(coeffs.size()); // Declare coeffs vector here
     for (int i = 0; i < n; i++) {
         double val;
         cin >> val;
-        coeffs.push_back(val);
+        coeffs[i] = val;
     }
-    
     double solution = find_zero(coeffs); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
-    std::cout << fixed << setprecision(2) << solution << std::endl;
+    cout << fixed << setprecision(2) << solution << endl;
     return 0;
 }
 
