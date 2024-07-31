@@ -13,13 +13,13 @@ vector<int> unique(vector<int> l) {
             i--;
         }
     }
-    cout << "Unique elements: ";
-    for(int i: result) cout << i << " ";
     return result;
+
 }
 
 int main() {
     vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    unique(l);
+    vector<int> newL = unique(l); 
+    for(int i: newL) cout << i << " ";
     return 0;
 }
