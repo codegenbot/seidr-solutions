@@ -1,10 +1,16 @@
 ```
 def valid_date(date):
-    day, month, year = map(int, date.split('-'))
-    if len(str(date)) != 10:
-        return False
-    if month < 1 or month > 12:
-        return False
-    if (month == 2 and day > 29) or ((month in [4,6,9,11]) and day > 30) or ((month in [1,3,5,7,8,10,12]) and day > 31):
-        return False
-    return True
+    day, month, year = date.split('-')
+    if len(day) == 1:
+        day = '0' + day
+    if len(month) == 1:
+        month = '0' + month
+    if int(year)[0] == '2':
+        return (0 < int(day) <= 29 and 1 < int(month) <= 12)
+    elif (int(year)[1]%4==0 and int(year)[1]%100!=0) or (int(year)[1]%400==0):
+        if 0 < int(day) <= 30 and 1 < int(month) <= 12:
+            return True
+    else:
+        if 0 < int(day) <= 31 and 1 < int(month) <= 12:
+            return True
+    return False
