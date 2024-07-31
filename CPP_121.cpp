@@ -1,26 +1,20 @@
-```
+#include <iostream>
 #include <vector>
 using namespace std;
 
-int solution(vector<int> lst) {
+int main() {
     int sum = 0;
+    vector<int> lst;
+    cout << "Enter numbers (space-separated): ";
+    for (char c; cin >> c && c != '\n';) {}
+    while (cin >> c) {
+        lst.push_back(atoi(&c));
+        c = ' ';
+    }
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
     }
-    return sum;
-}
-
-int main() {
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> lst.push_back(i);
-    }
-    cout << "Sum of odd numbers is: " << solution(lst) << endl;
-    return 0;
+    cout << "Sum of odd numbers: " << sum << endl;
 }
