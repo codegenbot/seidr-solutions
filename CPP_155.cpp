@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> counts(int num) {
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
