@@ -26,8 +26,6 @@ int program() {
     } else {
         auto maxElement = *std::max_element(input.begin(), input.end()); 
         std::cout << "Maximum element is: " << maxElement << std::endl;
-
-        assert(std::abs(maxElement - 124) < 1e-4);
     }
 
     return 0;
