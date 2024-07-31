@@ -20,3 +20,13 @@ vector<int> make_a_pile(int n){
 bool is_same(vector<int> a, vector<int> b) {
     return a == b;
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
+}
