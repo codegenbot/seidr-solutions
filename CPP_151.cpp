@@ -14,7 +14,7 @@ int double_the_difference(vector<int> lst) {
     return sum;
 }
 
-int main() {
+int main_function() {
     vector<int> lst; 
 
     cout << "Enter elements for the list: ";
@@ -42,3 +42,4 @@ int main() {
     }
 
     return 0;
+}
