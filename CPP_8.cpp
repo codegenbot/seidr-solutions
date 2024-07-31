@@ -8,9 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         sum += num;
         product *= num;
     }
-    return sum == b[0] && product == b[1];
+    return (sum == b[0] && product == b[1]);
 }
 
-auto [sum, product] = issame({10, 10});
-
-assert(issame({10, 10}));
+auto [sum, product] = issame({10, 10}, {100, 100});
+```  
