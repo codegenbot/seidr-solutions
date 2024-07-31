@@ -4,9 +4,6 @@ string s = to_string(x);
     if (shift == 0) {
         return s;
     }
-    if (shift > n) {
-        reverse(s.begin(), s.end());
-        return s;
-    }
-    return s.substr(n - shift) + s.substr(0, n - shift);
+    string result = s.substr(n - shift) + s.substr(0, n - shift);
+    return result;
 }
