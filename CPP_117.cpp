@@ -1,5 +1,5 @@
-bool issame(string a, string b) {
-    return a == b;
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
 }
 
 vector<string> select_words(string s, int n) {
@@ -27,18 +27,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    string a, b;
-    getline(cin, a);
-    cin >> b;
-
-    vector<string> words = select_words(a, b);
-
-    for (string word : words) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
