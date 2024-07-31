@@ -1,3 +1,7 @@
+```c++
+#include <vector>
+#include <string>
+
 std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
     for (char c : s) {
@@ -12,6 +16,7 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     std::vector<int> result;
     result.push_back(count + 1);
     return result;
+
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
