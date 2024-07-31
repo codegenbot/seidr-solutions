@@ -29,4 +29,4 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-assert(issame(split_words(""), {}));
+assert(issame(split_words(""), vector<string>({ "" }));
