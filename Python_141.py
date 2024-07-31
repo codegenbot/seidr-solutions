@@ -1,12 +1,17 @@
 ```
 def file_name_check(file_name):
-    if len([c for c in file_name if c.isdigit()]) > 3:
+    if '.' not in file_name:
         return 'No'
-    if file_name.count('.') != 1:
+    parts = file_name.split('.')
+    if len(parts) != 2:
         return 'No'
-    name, ext = file_name.rsplit('.', 1)
-    if not name[0].isalpha():
+    before_dot = parts[0]
+    after_dot = parts[1].lower()
+    if not before_dot or not before_dot[0].isalpha():
         return 'No'
-    if set(ext.lower()) not in [{c for c in s} for s in ['txt', 'exe', 'dll']]:
+    if len([c for c in before_dot if c.isdigit()]) > 3:
+        return 'No'
+    valid_extensions = ['txt', 'exe', 'dll']
+    if after_dot not in valid_extensions:
         return 'No'
     return 'Yes'
