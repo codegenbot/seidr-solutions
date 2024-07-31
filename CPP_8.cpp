@@ -12,20 +12,12 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    std::pair<int, int> sum_product_result = sum_product({10});
-    assert(issame(std::vector<int>{sum_product_result.first, sum_product_result.second}, {10, 10}));
+    std::pair<int, int> result = sum_product({10});
+    assert(issame(result, {10, 10}));
 
     return 0;
 }
