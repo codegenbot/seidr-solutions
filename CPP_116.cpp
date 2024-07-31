@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <cstdint>
+#include <numeric>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -9,8 +11,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> custom_sort(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
+        int countA = std::__popcount(a);
+        int countB = std::__popcount(b);
         if (countA == countB) {
             return a < b;
         }
