@@ -1,6 +1,10 @@
-if (txt.empty()) return false;
-int n = txt.size();
-char lastChar = txt[n - 1];
-if (!isalpha(lastChar)) return false;
-if (n >= 2 && isalpha(txt[n - 2])) return false;
-return true;
+if (txt.empty())
+        return false;
+    
+    char last_char = txt.back();
+    
+    if (isalpha(last_char) && txt.find_last_of(' ') == txt.size() - 1)
+        return true;
+    
+    return false;
+}
