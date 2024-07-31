@@ -1,8 +1,9 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> first, int second){
-    return first[0] == second;
-}
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> unique_digits(vector<int> x);
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -20,10 +21,6 @@ vector<int> unique_digits(vector<int> x){
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
-}
-
-int main(){
-    // Main function code here
 }
