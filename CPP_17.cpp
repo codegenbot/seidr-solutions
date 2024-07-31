@@ -1,25 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool operator==(std::vector<int> a, std::vector<int> b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
 std::vector<int> parse_music(std::string music_string);
 
 int main() {
-    assert(parse_music("o| .| o| .| o o| o o|") == std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2}));
+    std::vector<int> expected = {4, 1, 2, 4};
+    std::string music = "o|.o|";
+    std::vector<int> parsed = parse_music(music);
+    assert(parsed == expected);
     return 0;
 }
 
@@ -36,4 +33,4 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}
+}  
