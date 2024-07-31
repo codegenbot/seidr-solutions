@@ -14,15 +14,11 @@ double poly(const vector<double>& coeffs, double x) {
 }
 
 double find_zero(const vector<double>& coeffs) {
-    double a = coeffs[0];
-    double b = coeffs[1];
-    double c = coeffs[2];
-    return (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
-}
-
-int main() {
-    vector<double> coeffs = {1, -2, 1};
-    double solution = find_zero(coeffs);
-    assert(fabs(poly(coeffs, solution)) < 1e-3);
-    return 0;
+    double x0 = 1.0; // Initial guess, you may use a different value
+    double x1 = x0 - poly(coeffs, x0) / poly(coeffs, 1.0); // Newton's method
+    while (abs(x1 - x0) > 1e-9) {
+        x0 = x1;
+        x1 -= poly(coeffs, x1) / poly(coeffs, 1.0);
+    }
+    return x1;
 }
