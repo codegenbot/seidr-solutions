@@ -15,12 +15,16 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool Same(std::vector<int> a, std::vector<int> b) {  
+bool areVectorsSame(std::vector<int> a, std::vector<int> b) {
     return areVectorsEqual(a, b);
 }
 
 int main() {
-    assert(Same({1, 2}, {1, 2}) && Same({1, 2}, {2, 1}));
-    assert(areVectorsSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(areVectorsSame({1, 2}, {1, 2}) && areVectorsSame({1, 2}, {2, 1}));
+    assert(checkForEquality(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
+}
+
+bool checkForEquality(std::vector<int> a, std::vector<int> b) {
+    return areVectorsEqual(a, b);
 }
