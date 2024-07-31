@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b); // Function declaration
+
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const auto& str : strings) {
