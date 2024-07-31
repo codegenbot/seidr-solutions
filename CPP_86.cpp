@@ -1,4 +1,4 @@
-#include <initializer_list>
+```cpp
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -27,3 +27,4 @@ int main() {
     cin >> str;
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
+}
