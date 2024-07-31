@@ -28,12 +28,11 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         }
     }
     
-    cout << class_name + "." + strongest_extension;
     return class_name + "." + strongest_extension;
 }
 
 int main() {
-    Strongest_Extension("Sp", {"671235", "Bb"});
+    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl;
     
     return 0;
 }
