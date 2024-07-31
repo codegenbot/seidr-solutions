@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -29,3 +30,4 @@ int main() {
     std::cout << "The median of the given array is: " << result << std::endl;
 
     return 0;
+}
