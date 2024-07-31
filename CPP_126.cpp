@@ -1,11 +1,18 @@
-vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    
-    for (int i = 0; i < sorted_lst.size(); ++i) {
-        if (i > 0 && sorted_lst[i] == sorted_lst[i - 1]) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool is_sorted(const std::vector<int>& lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] <= lst[i - 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
             return false;
         }
     }
-    
-    return lst == sorted_lst;
+    return true;
+}
+
+int main() {
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    // Add more test cases here
+    return 0;
 }
