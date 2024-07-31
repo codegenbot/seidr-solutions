@@ -1,22 +1,15 @@
-{
-    bool any_int(float a, float b, float c) {
-        if ((int)a == a && (int)b == b && (int)c == c) {
-            if (a == b + c || b == a + c || c == a + b) {
-                return true;
-            }
+bool any_int(double a, double b, double c) {
+    if ((int)a == a && (int)b == b && (int)c == c) {
+        if (a == b + c || b == a + c || c == a + b) {
+            return true;
         }
-        return false;
     }
+    return false;
 }
 
 int main() {
-    float a = 5.0f;
-    float b = 3.0f;
-    float c = 2.0f;
-
-    if (any_int(a, b, c)) {
-        // Do something if the condition is met
-    }
-
+    // Test any_int function
+    bool result = any_int(2.0, 1.0, 1.0);
+    
     return 0;
 }
