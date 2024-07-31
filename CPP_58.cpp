@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,7 +18,7 @@ int main() {
         int m; 
         std::cin >> m;
 
-        v[i].resize(m, 0); 
+        v[i].resize(static_cast<size_t>(m)); 
 
         for(int j=0; j<m; j++) {
             std::cin >> v[i][j];
