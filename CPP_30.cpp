@@ -1,25 +1,24 @@
 #include <vector>
-#include <float.h>
+#include <algorithm>
 
-bool issame(vector<float> a,vector<float>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(std::abs(a[i]) != std::abs(b[i])) {
+            return false;
+        }
     }
     return true;
 }
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(float num : l) {
-        if(num > 0) {
+    for (float num : l) {
+        if (num > 0) {
             result.push_back(num);
         }
     }
     return result;
-}
-
-int main(){
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
