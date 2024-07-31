@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <vector>
@@ -12,12 +13,10 @@ bool match_parens(const vector<string>& lst) {
             else if (c == ')') close++;
         }
     }
-    return open == close;
+    return (open == close);
 }
 
 int main() {
     assert(match_parens({{"("}, {")"}}) == true);
-    vector<string> lst = {{"("}, {")"}};
-    cout << boolalpha << match_parens(lst) << endl;
     return 0;
 }
