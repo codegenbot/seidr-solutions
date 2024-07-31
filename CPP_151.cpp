@@ -20,9 +20,10 @@ int main() {
     vector<int> lst; 
 
     cout << "Enter elements for the list: ";
-    for (int i = 0; i < 5; i++) { 
+    int i = 0;
+    while(i < 5) { 
+        int num_val = 0;
         while(true) {
-            int num_val;
             cin >> num_val;
             if (cin.fail()) {
                 cout << "Invalid input. Please enter a valid integer.\n";
@@ -30,6 +31,7 @@ int main() {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             } else {
                 lst.push_back(num_val);
+                i++;
                 break; 
             }
         }
