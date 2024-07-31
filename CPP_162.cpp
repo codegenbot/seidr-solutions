@@ -27,8 +27,3 @@ string string_to_md5(const string& text) {
 
     return string(mdString);
 }
-
-int main() {
-    cout << string_to_md5("Hello, World!") << endl;
-    return 0;
-}
