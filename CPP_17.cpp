@@ -33,4 +33,4 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
-}   
+}
