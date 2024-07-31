@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <set>
+#include <unordered_set>
 
 int countDistinctCharacters(const std::string& str) {
     std::unordered_set<char> distinctChars;
