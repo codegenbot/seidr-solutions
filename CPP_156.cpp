@@ -1,4 +1,3 @@
-```
 string int_to_mini_roman(int n) {
     string roman = "";
     if (n >= 1000) {
@@ -82,13 +81,4 @@ string int_to_mini_roman(int n) {
     }
 
     return roman;
-}
-
-int main() {
-    int num;
-    cout << "Enter an integer: ";
-    cin >> num;
-    string result = int_to_mini_roman(num);
-    cout << "The equivalent Roman numeral is: " << result << endl;
-    return 0;
 }
