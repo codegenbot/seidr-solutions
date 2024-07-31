@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,16 +15,16 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
-    return sameVectors(a, b);
+bool areSameVector(std::vector<int> a, std::vector<int> b) {
+    return compareVectors(a, b);
 }
 
 int main() {
-    if (!same({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    if (!areSameVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
     }
-    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(areSameVector(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
