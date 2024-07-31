@@ -1,36 +1,37 @@
 #include <vector>
-#include <string>
-#include <map>
 #include <algorithm>
+#include <map>
+#include <string>
+#include <cassert>
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> sorted_arr;
-    vector<string> result;
-    map<int, string> num_to_name = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
-    };
+bool issame(vector<string> a, vector<string> b);
 
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sorted_arr.push_back(num);
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
+    
+    return true;
+}
 
-    sort(sorted_arr.begin(), sorted_arr.end());
-
-    reverse(sorted_arr.begin(), sorted_arr.end());
-
-    for (int num : sorted_arr) {
-        result.push_back(num_to_name[num]);
+int main() {
+    vector<int> input = {3, 1, 7, 5, 0, 9};
+    vector<string> output = by_length(input);
+    
+    for(auto str : output) {
+        cout << str << " ";
     }
-
-    return result;
+    
+    cout << endl;
+    
+    vector<string> expected = {"Nine", "Seven", "Five", "Three", "One"};
+    assert(issame(output, expected));
+    
+    return 0;
 }
