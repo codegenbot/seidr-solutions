@@ -31,7 +31,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-int main() {
+int main_task_solution() {
     vector<string> a = separate_paren_groups("( ) (( )) (( )( ))");
     vector<string> b = separate_paren_groups("() (()) (()())");
     
