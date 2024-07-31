@@ -3,7 +3,15 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -26,9 +34,10 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> test_input = {-5, 2, 1, -10, 3};
+    vector<int> test_input = {3, -5, 2, -7, 1, 4};
     vector<int> expected_output = {-5, 1};
     vector<int> result = largest_smallest_integers(test_input);
     assert(issame(result, expected_output));
+    
     return 0;
 }
