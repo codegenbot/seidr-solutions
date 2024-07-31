@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 
@@ -12,10 +13,11 @@ std::string myString(std::string str) {
             result += c;
         }
     }
-    return result;
+    return result;  // Return the calculated string
 }
 
 int main() {
-    std::cout << myString("Hello World") << std::endl; 
+    assert(myString("These violent delights have violent ends") == "these violent delights have violent ends");
+    std::cout << std::string("Hello World"); 
     return 0;
 }
