@@ -19,6 +19,12 @@ int main() {
     std::cout << "Enter a string of parentheses: ";
     std::string input;
     std::getline(std::cin, input);
-    std::cout << (match_parens(input.c_str())) ? "Valid" : "Invalid";
+    if (input.size()) {
+        if ((match_parens(input.c_str()))) {
+            std::cout << "Valid" << std::endl;
+        } else {
+            std::cout << "Invalid" << std::endl;
+        }
+    }
     return 0;
 }
