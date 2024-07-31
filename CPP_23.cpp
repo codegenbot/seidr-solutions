@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstring>
-#include <algorithm>
 
 int main() {
     std::string str;
