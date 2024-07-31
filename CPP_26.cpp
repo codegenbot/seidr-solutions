@@ -10,12 +10,12 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return numbers;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    return remove_duplicates(a) == remove_duplicates(b);
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    a.erase(unique(a.begin(), a.end()), a.end());
+    b.erase(unique(b.begin(), b.end()), b.end());
+    return a == b;
 }
 
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    
-    return 0;
-}
+assert(issame({1, 2, 3, 2, 4, 3, 5}, {1, 4, 5}));
