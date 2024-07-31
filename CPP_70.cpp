@@ -1,64 +1,38 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) return result;
+int main() {
+    int n;
+    std::cin >> n;
 
-    sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
+    std::vector<int> v1, v2;
 
-    while (!lst.empty()) {
-        for (int i : lst) {
-            if (i == min) {
-                result.push_back(i);
-                lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                break;
-            }
-        }
-
-        if (!lst.empty())
-            min = *min_element(lst.begin(), lst.end());
-
-        while (!lst.empty() && *min_element(lst.begin(), lst.end()) == min) {
-            for (int i : lst) {
-                if (i == max) {
-                    result.push_back(i);
-                    lst.erase(std::remove(lst.begin(), lst.end(), i), lst.end());
-                    break;
-                }
-            }
-
-            if (!lst.empty())
-                max = *max_element(lst.begin(), lst.end());
-        }
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cin >> x;
+        v1.push_back(x);
     }
 
-    return result;
-}
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cin >> x;
+        v2.push_back(x);
+    }
 
-int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
+    bool same = issame(v1, v2);
 
-    if (issame(a,b)) {
-        std::cout << "The vectors are the same." << std::endl;
+    if(same) {
+        std::cout << "YES" << std::endl;
     } else {
-        std::cout << "The vectors are not the same." << std::endl;
+        std::cout << "NO" << std::endl;
     }
 
     return 0;
