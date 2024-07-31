@@ -3,12 +3,14 @@
 #include <cassert>
 
 std::vector<int> tri(int n) {
-    std::vector<int> result(n);
+    std::vector<int> result;
+    result.push_back(3);
+    result.push_back(4);
+    result.push_back(6);
+    result.push_back(10);
 
-    int sum = 2;
-    for (int i = 0; i < n; ++i) {
-        result[i] = sum;
-        sum += i + 1;
+    for (int i = 4; i < n; ++i) {
+        result.push_back(result[i - 1] + result[i - 2] + result[i - 3] + result[i - 4]);
     }
 
     return result;
