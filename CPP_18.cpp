@@ -17,9 +17,14 @@ int how_many_times(std::string str, std::string substring) {
     return count;
 }
 
-int main() {
-    std::string str, substring;
-    std::cin >> str >> substring;
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <string> <substring>" << std::endl;
+        return 1;
+    }
+    
+    std::string str = argv[1];
+    std::string substring = argv[2];
     
     std::cout << how_many_times(str, substring) << std::endl;
     
