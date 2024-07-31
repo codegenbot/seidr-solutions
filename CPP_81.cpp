@@ -29,3 +29,18 @@ vector<string> numerical_letter_grade(vector<float> grades){
     }
     return letter_grades;
 }
+
+int main() {
+    // Testing the issame function
+    vector<string> test1 = {"A", "B", "C"};
+    vector<string> test2 = {"A", "B", "C"};
+    assert(issame(test1, test2));
+
+    // Testing the numerical_letter_grade function
+    vector<float> grades = {3.8, 2.5, 4.0, 1.7};
+    vector<string> result = numerical_letter_grade(grades);
+    vector<string> expected = {"A", "C+", "A+", "C"};
+    assert(issame(result, expected));
+
+    return 0;
+}
