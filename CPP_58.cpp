@@ -25,6 +25,43 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    // Your code here
-    return 0; 
+    int n1, m1, n2, m2;
+    cin >> n1 >> m1 >> n2 >> m2;
+
+    vector<vector<int>> a(n1, vector<int>(m1));
+    vector<vector<int>> b(n2, vector<int>(m2));
+
+    for(int i=0; i<n1; i++) {
+        for(int j=0; j<m1; j++) {
+            cin >> a[i][j];
+        }
+    }
+
+    for(int i=0; i<n2; i++) {
+        for(int j=0; j<m2; j++) {
+            cin >> b[i][j];
+        }
+    }
+
+    bool same = issame(a, b);
+
+    if(same) {
+        vector<int> l1(m1);
+        for(int i=0; i<m1; i++) l1[i] = a[0][i];
+        vector<int> l2(m2);
+        for(int i=0; i<m2; i++) l2[i] = b[0][i];
+
+        vector<int> result = common(l1, l2);
+
+        cout << "The common elements are: ";
+        for(int i=0; i<result.size(); i++) {
+            cout << result[i];
+            if(i < result.size() - 1) cout << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Arrays are not the same." << endl;
+    }
+
+    return 0;
 }
