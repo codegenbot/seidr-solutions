@@ -1,11 +1,14 @@
 ```
 def valid_date(date):
-    date_parts = date.split('-')
-    if len(date_parts) != 3:
+    date_list = date.split('-')
+    if len(date_list) != 3:
         return False
-    month, day, year = map(int, date_parts)
+    
+    month, day, year = map(int, date_list)
+    
     if month < 1 or month > 12:
         return False
+    
     if month in [1, 3, 5, 7, 8, 10, 12]:
         if day < 1 or day > 31:
             return False
@@ -13,6 +16,7 @@ def valid_date(date):
         if day < 1 or day > 30:
             return False
     elif month == 2:
-        if day < 1 or (day > 29):
+        if day < 1 or day > 29:
             return False
+    
     return True
