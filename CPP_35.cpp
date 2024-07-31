@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 
 std::vector<int> input;
 int n;
