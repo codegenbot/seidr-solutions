@@ -1,1 +1,14 @@
-assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+```cpp
+string flipCase(string str) {
+    string result = "";
+    for (char c : str) {
+        if (isupper(c)) {
+            result += tolower(c);
+        } else if (islower(c)) {
+            result += toupper(c);
+        } else {
+            result += c;
+        }
+    }
+    return result;
+}
