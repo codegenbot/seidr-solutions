@@ -20,7 +20,9 @@ bool correct_bracketing(std::string brackets){
 int main() {
     std::string brackets;
     std::cout << "Enter a string of brackets: ";
-    std::cin >> std::getline(std::cin, brackets);
+    
+    // Use getline to read the entire line
+    std::getline(std::cin, brackets);
     
     if(correct_bracketing(brackets)) {
         std::cout << "The bracketing is correct." << std::endl;
