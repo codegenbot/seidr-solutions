@@ -22,10 +22,10 @@ string anti_shuffle(string s) {
     return result;
 }
 
-int main{
+int main() {
     string str;
     cout << "Enter a sentence: ";
-    getline(cin, str);
+    cin >> str;
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
 }
