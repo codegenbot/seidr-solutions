@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 vector<int> rolling_max(vector<int> numbers);
 
@@ -22,9 +19,4 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
-}
-
-int main() {
-    // Your main function code here for testing if required
-    return 0;
 }
