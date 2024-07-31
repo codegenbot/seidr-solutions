@@ -2,10 +2,10 @@ int count_distinct_characters(string str) {
     string temp;
     for (char c : str) {
         if (isalpha(c)) {
-            while (!temp.empty() && !temp.back() == tolower(c)) {
-                temp.pop_back();
+            temp[0] = tolower(temp[0]);
+            if (!temp.empty() && !temp.back() == c) {
+                temp += c;
             }
-            temp += tolower(c);
         }
     }
     return temp.size();
