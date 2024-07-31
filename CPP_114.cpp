@@ -1,3 +1,4 @@
+```cpp
 int main() {
     vector<long long> nums = {1, -1};
     cout << minSubArraySum(nums) << endl;
