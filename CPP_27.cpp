@@ -1,5 +1,4 @@
 #include <cassert>
-#include <string>
 
 int flip_case(const char* str) {
     int result = 0;
@@ -10,7 +9,7 @@ int flip_case(const char* str) {
             result += (c - 'A' + 1);
         }
     }
-    return 0;
+    return result;
 }
 
 int main() {
