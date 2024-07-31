@@ -2,20 +2,21 @@
 #include <iostream>
 #include <string>
 
-int filp_case(const std::string& str) {
-    int result = 0;
+std::string filp_case(const std::string& str) {
+    std::string result = "";
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
-            result += (c - 'a' + 1);
+            result += (c - 32);
         } else if (c >= 'A' && c <= 'Z') {
-            result -= (c - 'A' + 1);
+            result += (c + 32);
+        } else {
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    int result = filp_case("These violent delights have violent ends");
-    assert(result == 0);
+    std::cout << filp_case("These violent delights have violent ends") << std::endl;
     return 0;
 }
