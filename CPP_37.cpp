@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
+bool issame(const std::vector<float>& a, const std::vector<float>& b); // Function declaration
 
-void sort_even(const std::vector<float>& l); // Updated function declaration
+void sort_even(const std::vector<float>& l); // Change to accept const reference
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
    for(size_t i=0; i<a.size(); i++){
        if(a[i] != b[i]){
            return false;
@@ -14,7 +14,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
    return true;
 }
 
-void sort_even(const std::vector<float>& l) { // Updated function definition with const reference
+void sort_even(const std::vector<float>& l) {
    std::vector<float> even_elems;
    for(size_t i=0; i<l.size(); i++){
        if(i%2 == 0){
@@ -33,6 +33,4 @@ void sort_even(const std::vector<float>& l) { // Updated function definition wit
            result.push_back(l[i]);
        }
    }
-   
-   l = result;
 }
