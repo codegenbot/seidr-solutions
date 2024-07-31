@@ -19,7 +19,7 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {2, -3, 4, -5};
+    std::vector<int> arr = {2, -3, 5, -7};
     std::cout << prod_signs(arr) << std::endl;
     
     return 0;
