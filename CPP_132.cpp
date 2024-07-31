@@ -1,7 +1,10 @@
 int count = 0;
     for (char c : str) {
-        if (c == '[') count++;
-        if (c == ']' && count > 0) count--;
+        if (c == '[') {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
+        }
     }
-    return count < 2 && str.front() == '[' && str.back() == ']';
+    return count == 0;
 }
