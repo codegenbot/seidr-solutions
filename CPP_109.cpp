@@ -12,8 +12,8 @@ bool move_one_ball(vector<int>& arr) {
     }
     return false;
 }
+
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
+    std::vector<int> arr = {3, 2, 1}; // Example test vector
     assert(move_one_ball(arr));
-    return 0;
 }
