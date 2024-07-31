@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +13,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> f(int n){
-    vector<int> result(n);
+std::vector<int> f(int n){
+    std::vector<int> result(n);
     int sum = 0;
     int factorial = 1;
     for (int i = 0; i < n; ++i) {
