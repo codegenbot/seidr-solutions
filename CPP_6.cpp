@@ -13,7 +13,7 @@ std::vector<int> parse_nested_parens(const std::string& s) {
             }
         }
     }
-    return {count + 1};
+    return std::vector<int>(1, count + 1);
 }
 
 bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
