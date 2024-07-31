@@ -3,16 +3,12 @@
 #include <vector>
 #include <string>
 
-bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) return false;
+bool areEqual(const std::vector<std::string>& const v1, const std::vector<std::string>& const v2) {
+    if (std::distance(v1.begin(), v1.end()) != std::distance(v2.begin(), v2.end())) return false;
     for (int i = 0; i < v1.size(); ++i) {
-        if (!are_equal(v1[i], v2[i])) return false;
+        if (v1[i] != v2[i]) return false;
     }
     return true;
-}
-
-bool are_equal(const std::string& s1, const std::string& s2) {
-    return s1 == s2;
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
