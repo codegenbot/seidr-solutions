@@ -8,7 +8,7 @@ def compare_one(a, b):
         return a if float(a.replace(',', '.')) > float(b.replace(',', '.')) else None
     elif a > b:
         return a
-    elif b > a:
+    elif a < b:
         return b
     else:
         return None
