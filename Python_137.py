@@ -5,6 +5,6 @@ def compare_one(a, b):
     elif isinstance(b, str) and isinstance(a, (int, float)):
         return b if b > str(a) else None
     elif isinstance(a, str) and isinstance(b, str):
-        return a if a > b else None
-    else:
-        return a if a > b else None
+        return b if b > a else None
+    elif isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        return b if b > a else None
