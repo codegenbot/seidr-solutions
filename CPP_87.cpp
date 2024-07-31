@@ -22,4 +22,10 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         sort(coord.begin(), coord.end(), greater<int>());
     }
     return result;
-} 
+}
+
+int main(){
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    
+    return 0;
+}
