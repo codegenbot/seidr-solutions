@@ -1,4 +1,8 @@
+#include <iostream>
 #include <map>
+#include <string>
+#include <algorithm>
+#include <cassert>
 
 bool is_same(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
