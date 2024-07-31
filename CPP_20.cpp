@@ -16,9 +16,8 @@ void find_closest_elements(const std::vector<float>& elements, std::vector<float
 
 int main() {
     std::vector<float> closest;
-    std::vector<float> input = {1.1, 2.2, 3.1, 4.1, 5.1};
-    find_closest_elements(input, closest);
-
+    find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}, closest);
+    
     assert(issame(closest, {1.1, 2.2}));
 
     return 0;
