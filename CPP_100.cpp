@@ -1,32 +1,19 @@
 #include <vector>
-#include <assert.h>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    for (int i = 0; ; i++) {
-        if ((n & 1)) // check if n is odd
-            pile.push_back(2 * i + 1);
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
+    int current = n;
+    for (int i = 0; i < n; ++i) {
+        pile.push_back(current);
+        if (current % 2 == 1)
+            current += 2;
         else
-            pile.push_back(2 * i + 2);
-        if (++n > i) continue;
-        break;
+            current += 1;
     }
     return pile;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
 }
