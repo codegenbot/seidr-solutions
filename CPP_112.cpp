@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 using namespace std;
@@ -25,7 +24,7 @@ pair<vector<string>, bool> reverse_delete(string s1, string s2) {
 int main() {
     auto result = reverse_delete("mamma", "mia");
     bool expectedResult = !result.second;
-    vector<string> expectedVectors = {{""}};
-    assert(issame({{""}, result.second}, {{"", true}}));
+    vector<string> expectedVectors = {""};
+    assert(issame(result.first, {expectedResult ? "" : "True"}));
     return 0;
 }
