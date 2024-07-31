@@ -29,4 +29,5 @@ int main() {
     } else {
         std::cout << "Product of signs: negative, Sum of absolute values: " << -result << std::endl;
     }
+    return 0;
 }
