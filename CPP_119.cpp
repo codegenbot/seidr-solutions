@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -10,7 +11,7 @@ bool match_parens(const std::vector<char>& lst) {
     return open == close;
 }
 
-int main_test() {
+int main() {
     std::string input;
     std::cout << "Enter parentheses sequence: ";
     std::getline(std::cin, input);
@@ -30,4 +31,5 @@ int main_test() {
     {
         std::cout << "No";
     }
+    assert(match_parens(std::vector<char> {')', '('}) == true);
 }
