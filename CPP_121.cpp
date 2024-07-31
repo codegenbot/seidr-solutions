@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -14,6 +15,6 @@ int solve(vector<int> lst) {
     return sum;
 }
 
-int main(vector<int> lst) {
-    return solutions(lst);
+int solutions(vector<int> lst) {
+    return solve(lst);
 }
