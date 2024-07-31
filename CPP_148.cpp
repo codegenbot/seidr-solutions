@@ -1,17 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
     return a == b;
 }
 
-std::vector<std::string> bf(std::string a, std::string b) {
-    std::vector<std::string> result;
-    // Define the logic for function bf
-    // Logic here
-    return result;
+std::vector<std::string> bf(const std::string &a, const std::string &b) {
+    // Implement the logic for bf function here
+    return std::vector<std::string>();
 }
 
 int main() {
