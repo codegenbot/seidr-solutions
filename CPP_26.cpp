@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool equal(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -21,22 +21,12 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result;
-    for (int num : numbers) {
-        if (std::find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
-        }
-    }
+    std::vector<int> result = numbers;
+    std::sort(result.begin(), result.end());
+    auto last = std::unique(result.begin(), result.end());
+    result.erase(last, result.end());
     return result;
 }
 
-assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+assert(equal(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
