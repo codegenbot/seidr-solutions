@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 template <typename T>
-auto compare_one(const T& a, const T& b) {
-    if (a > b) {
-        return a;
-    } else if (a < b) {
-        return b;
-    }
-    return "None";
+T compare_one(const T& a, const T& b) {
+    return std::max(a, b);
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::to_string(1)) == "None");
+    std::string result = compare_one(std::string("1"), std::to_string(1));
+    if (result.empty()) {
+        std::cout << "None" << std::endl;
+    } else {
+        std::cout << result << std::endl;
+    }
     
     return 0;
 }
