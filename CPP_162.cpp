@@ -1,28 +1,23 @@
-#include <iostream>
-#include <string>
-#include <crypto++/md5.h>
-
-using namespace std;
-using namespace CryptoPP;
+#include <openssl/evp.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    MD5 hash;
-    string result;
-    
-    const char* str = text.c_str();
-    size_t len = strlen(str);
-    byte digest[MD5::DIGEST_SIZE];
-    
-    hash.Update((byte*)str, len);
-    hash.Final(digest);
-    
-    for (int i = 0; i < MD5::DIGEST_SIZE; i++) {
-        stringstream ss;
-        ss << setfill('0') << setw(2) << hex << (int)digest[i];
-        result += ss.str();
+
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5_CTX mdContext;
+    MD5_Init(&mdContext);
+    const char* ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&mdContext, ptr, 1);
+        ptr++;
     }
-    
-    return result;
+    MD5_Final(result, &mdContext);
+
+    string output;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        char buff[3];
+        sprintf(buff, "%02x", result[i]);
+        output += buff;
+    }
+    return output;
 }
