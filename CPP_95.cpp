@@ -1,18 +1,31 @@
-if(dict.empty()) return false;
+#include <string>
+#include <map>
+#include <iostream>
+
+using namespace std;
+
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
     
-    bool all_lowercase = true;
-    bool all_uppercase = true;
+    bool all_lower = true;
+    bool all_upper = true;
     
     for(auto const& pair : dict){
-        string key = pair.first;
-        for(char c : key){
+        for(char c : pair.first){
             if(islower(c)){
-                all_uppercase = false;
+                all_upper = false;
             } else if(isupper(c)){
-                all_lowercase = false;
+                all_lower = false;
             }
         }
     }
     
-    return all_lowercase || all_uppercase;
+    return all_lower || all_upper;
+}
+
+int main() {
+    map<string, string> empty_dict;
+    cout << check_dict_case(empty_dict) << endl;
+    
+    return 0;
 }
