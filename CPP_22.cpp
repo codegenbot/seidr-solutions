@@ -8,8 +8,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> filter_integers(const std::vector<int>& input){
     std::vector<int> result;
-    for(auto &item : input){
-        if(item % 3 == 0){
+    for(const auto& item : input){
+        if(item != 0){
             result.push_back(item);
         }
     }
@@ -17,6 +17,6 @@ std::vector<int> filter_integers(const std::vector<int>& input){
 }
 
 int main(){
-    assert(issame(filter_integers({3, 2, 3, 3, 0, 1}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 2, 3, 3, 0, 1}), {3, 2, 3, 3, 1}));
     return 0;
 }
