@@ -1,10 +1,10 @@
-#include <string>
-#include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
-    string s = a + b;
+    return a == b;
+}
+
+pair<string, string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -15,5 +15,3 @@ bool issame(vector<string> a, vector<string> b) {
     reverse(reverse_result.begin(), reverse_result.end());
     return {result, result == reverse_result ? "True" : "False"};
 }
-
-assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
