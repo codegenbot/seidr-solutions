@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> remove_duplicates(std::vector<int>& numbers) {
+vector<int> remove_duplicates(vector<int>& numbers) {
     std::sort(numbers.begin(), numbers.end());
     numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
