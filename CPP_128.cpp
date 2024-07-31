@@ -1,9 +1,12 @@
 int prod_signs(vector<int> arr){
-    int res = (arr.empty()) ? -32768 : 1;
-    for(int num: arr){
-        if(num != 0) {
-            res *= (num > 0)? 1: -1;
-        }
+    int sign_product = 1;
+    long sum = 0;
+
+    for(int num : arr){
+        if(num == 0) return -32768;
+        sign_product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
+        sum += abs(num);
     }
-    return abs(res);
+
+    return sign_product * sum;
 }
