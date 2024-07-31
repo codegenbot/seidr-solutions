@@ -1,6 +1,5 @@
-#include <vector>
-#include <algorithm>
 #include <cassert>
+#include <vector>
 
 namespace mean_absolute_deviation {
     float calculate_mad(const std::vector<float>& numbers) {
@@ -12,7 +11,7 @@ namespace mean_absolute_deviation {
 
         float deviation_sum = 0;
         for (float num : numbers) {
-            deviation_sum += std::fabs(num - mean);
+            deviation_sum += std::abs(num - mean);
         }
         float mad = deviation_sum / numbers.size();
 
@@ -21,6 +20,5 @@ namespace mean_absolute_deviation {
 }
 
 int main() {
-    assert(std::fabs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
-    return 0;
+    assert(abs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - 2.0) < 1e-4);
 }
