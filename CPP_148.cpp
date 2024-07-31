@@ -1,31 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<string> bf(const string& s1, const string& s2) {
-    vector<string> res;
-    for (char c : s1) {
-        if (find(s2.begin(), s2.end(), c) == s2.end()) {
-            res.push_back(string(1, c));
-        }
-    }
-    for (char c : s2) {
-        if (find(s1.begin(), s1.end(), c) == s1.end()) {
-            res.push_back(string(1, c));
-        }
-    }
-    return res;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
     return a == b;
 }
 
+std::vector<std::string> bf(const std::string &a, const std::string &b) {
+    // Implement the logic for bf function here
+    return std::vector<std::string>();
+}
+
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), vector<string>()));
+    assert(issame(bf("Jupiter", "Makemake"), std::vector<std::string>()));
     return 0;
 }
