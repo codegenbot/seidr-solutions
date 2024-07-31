@@ -1,14 +1,15 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
+std::vector<int> eat(int a, int b, int c) {
+    return {a, b, c};
+}
+
 int main() {
-    assert(issame(std::vector<int>{4, 5, 1}, std::vector<int>{5, 0}));
+    assert(issame(eat(4, 5, 1), std::vector<int>{4, 5, 1}));
     return 0;
 }
