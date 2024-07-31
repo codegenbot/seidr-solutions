@@ -20,6 +20,7 @@ int double_the_difference(vector<int> lst) {
 int main() {
     vector<int> lst; 
     int num;
+    int odd_sum;
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
@@ -33,7 +34,7 @@ int main() {
         lst.push_back(num);
     }
 
-    int odd_sum = double_the_difference(lst);
+    odd_sum = double_the_difference(lst);
 
     cout << "The difference is: " << odd_sum << endl;
 
