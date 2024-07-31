@@ -1,12 +1,22 @@
-if (n > m)
+if (n > m) {
     return "-1";
-
-int sum = 0;
-for (int i = n; i <= m; ++i) {
-    sum += i;
 }
 
-int avg = sum / (m - n + 1);
-string binary_avg = bitset<32>(avg).to_string();
-return binary_avg.substr(0, binary_avg.find_last_of('1') + 1);
+int sum = 0;
+int count = 0;
+
+for (int i = n; i <= m; ++i) {
+    sum += i;
+    count++;
+}
+
+int avg = round((double)sum / count);
+
+string binaryAvg = "";
+while (avg > 0) {
+    binaryAvg = to_string(avg % 2) + binaryAvg;
+    avg /= 2;
+}
+
+return binaryAvg;
 }
