@@ -5,7 +5,9 @@
 int countDistinctCharacters(const std::string& str) {
     std::set<char> distinctChars;
     for (char c : str) {
-        distinctChars.insert(c);
+        if(std::isalpha(c)) {
+            distinctChars.insert(std::tolower(c));
+        }
     }
     return distinctChars.size();
 }
