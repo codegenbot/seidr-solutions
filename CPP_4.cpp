@@ -16,7 +16,7 @@ double calculate_mad(const std::vector<double>& values) {
 }
 
 int main() {
-    assert(std::abs(calculate_mad(std::vector<double>{1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0) < 1e-4);
+    assert(std::abs(calculate_mad(std::vector<double>{1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0)) < 1e-4);
 
     return 0;
 }
