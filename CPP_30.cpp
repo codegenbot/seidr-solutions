@@ -1,31 +1,30 @@
-```
-#include <vector>
+```cpp
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float num : l) {
+std::vector<float> get_positive(const std::vector<float>& input) {
+    std::vector<float> positive;
+    for (float num : input) {
         if (num > 0) {
-            result.push_back(num);
+            positive.push_back(num);
         }
     }
-    return result;
+    return positive;
 }
 
 int main() {
-    vector<float> input;
-    cout << "Enter numbers separated by space: ";
+    std::vector<float> input;
+    std::cout << "Enter numbers separated by space: ";
     float num;
-    while (cin >> num) {
+    while (std::cin >> num) {
         input.push_back(num);
     }
-    vector<float> positive = get_positive(input);
-    if (all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
-        cout << "All numbers are positive." << endl;
+    std::vector<float> positive = get_positive(input);
+    if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
+        std::cout << "All numbers are positive." << std::endl;
     } else {
-        cout << "Not all numbers are positive." << endl;
+        std::cout << "Not all numbers are positive." << std::endl;
     }
+    return 0;
 }
