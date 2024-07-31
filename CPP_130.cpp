@@ -5,8 +5,8 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> tri(int n){
-    std::vector<int> result(n + 1);
+vector<int> tri(int n){
+    vector<int> result(n + 1);
     result[1] = 3;
     if(n >= 2) result[2] = 1 + n / 2;
     for(int i = 3; i <= n; ++i){
