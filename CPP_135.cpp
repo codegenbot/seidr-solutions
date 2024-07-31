@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,14 +18,6 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    input.resize(n);
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; i++) {
-        std::cin >> input[i];
-    }
     int result = can_arrange(input);
     if(result == -1)
         std::cout << "Input cannot be arranged." << std::endl;
