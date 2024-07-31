@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> parse_nested_parens(string paren_string){
-    vector<int> result;
+std::vector<int> parse_nested_parens(std::string paren_string){
+    std::vector<int> result;
     int depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
