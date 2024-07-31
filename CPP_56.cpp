@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
