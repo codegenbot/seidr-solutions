@@ -1,3 +1,4 @@
+```c++
 #include <cassert>
 
 bool match_parens(char* parens) {
@@ -13,4 +14,6 @@ bool match_parens(char* parens) {
     return count == 0;
 }
 
-assert(match_parens("()()") == true);
+assert(match_parens("()") == true);
+assert(match_parens("((()))") == true);
+assert(!match_parens("())"));
