@@ -1,4 +1,8 @@
+#include <iostream>
 #include <map>
+#include <cassert>
+
+using namespace std;
 
 map<string, int> numberMap = {
     {"zero", 0},
