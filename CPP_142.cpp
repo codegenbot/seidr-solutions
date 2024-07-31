@@ -17,4 +17,8 @@ int sum_squares(std::vector<int> lst){
     return sum;
 }
 
-int main(){
+int main() {
+    std::vector<int> test_case = {1, 2, 3, 4, 5, 6};
+    assert(sum_squares(test_case) == 1 + 2*2 + 3*3 + 4*4*4 + 5 + 6*6);
+    return 0;
+}
