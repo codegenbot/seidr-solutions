@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -20,9 +21,7 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    string str = "Hi. My name is Mister Robot. How are you?";
+    cout << anti_shuffle(str) << endl; 
     return 0;
 }
