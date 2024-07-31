@@ -1,18 +1,13 @@
-#include <iostream>
-#include <string>
 #include <cmath>
 
-using namespace std;
-
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
     int lower = floor(num);
     int upper = ceil(num);
-    return abs(num - lower) < abs(num - upper) ? lower : upper;
-}
-
-int main() {
-    assert (closest_integer("0") == 0);
-
-    return 0;
+    
+    if (num - lower < upper - num) {
+        return lower;
+    } else {
+        return upper;
+    }
 }
