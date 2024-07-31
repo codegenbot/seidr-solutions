@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 using namespace std;
@@ -8,8 +9,18 @@ bool is_nested(string str) {
         if (c == '[') {
             count++;
         } else if (c == ']') {
-            if (count > 0) count--;
-            else return true;
+            if (count > 1) return true;
+            count--;
         }
     }
-    return count != 0;
+    return false;
+
+}
+
+int main() {
+    string input;
+    cin >> input;  
+    bool result = is_nested(input);  
+    cout << (result ? "True" : "False");  
+    return 0;  
+}
