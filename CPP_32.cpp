@@ -7,7 +7,13 @@ double poly(const vector<double>& xs, double x) {
 }
 
 double find_zero(const vector<double>& xs) {
-    return -xs[0] / xs[1];
+    if (xs.size() == 2) {
+        return -xs[0] / xs[1];
+    } else {
+        // Implement a more appropriate method for finding zero of polynomials with degree > 1
+        // For example, using Newton's method or numerical methods
+        return 0.0; // Placeholder
+    }
 }
 
 int main() {
