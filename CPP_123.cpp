@@ -1,13 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -36,7 +33,7 @@ int main() {
         std::cout << num << " ";
     }
 
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(odd_collatz, get_odd_collatz(n)));
 
     return 0;
 }
