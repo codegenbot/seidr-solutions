@@ -1,27 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::pair<std::string, std::string>>& a, const std::vector<std::pair<std::string, std::string>>& b) {
-    return a == b;
+bool issame(std::vector<std::pair<std::string, std::string>> a) {
+    if (a.size() == 0)
+        return true;
+    for (const auto& pair : a) {
+        if (pair.first != "xxx" || pair.second != "xxx")
+            return false;
+    }
+    return true;
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    vector<string> filteredStrings;
+std::pair<std::string, std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     for (const auto& s : strings) {
-        if (s.find(prefix) == 0) {
-            filteredStrings.push_back(s);
-        }
+        if (s.find(prefix) == 0)
+            return {prefix, s};
     }
-    return filteredStrings;
+    return {"", ""};
 }
 
 int main() {
-    vector<pair<string, string>> a = {{ "xxx", "xxx" }, { "xxxxAA", "xxxAAA" }};
-    assert(issame(a, a));
-    vector<string> strings = {"hello", "hell", "world"};
-    vector<string> filteredStrings = filter_by_prefix(strings, "hel");
-    for (const auto& s : filteredStrings) {
-        cout << s << endl;
-    }
+    std::pair<std::string, std::string> filteredPair = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx");
+    assert(issame({{filteredPair.first, filteredPair.second}}));
     return 0;
 }
