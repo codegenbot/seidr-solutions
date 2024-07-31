@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -29,7 +28,7 @@ void printResult() {
     }
 
     if (!input.empty()) {
-        
+        input.reserve(input.size());
     }
     std::vector<float> positive = getPositive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
