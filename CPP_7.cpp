@@ -1,5 +1,11 @@
-bool is_same(string a, string b){
-    return a == b;
+bool is_same(string s1, string s2) {
+    return s1 == s2;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
+int main() {
+    // Main function code
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
