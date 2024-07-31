@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <set>
@@ -5,14 +6,15 @@
 int countDistinctCharacters(const std::string& str) {
     std::set<char> distinctChars;
     for (char c : str) {
-        if (std::isalpha(c)) {
-            distinctChars.insert(std::tolower(c));
-        }
+        if (!distinctChars.insert(c).second) 
+            ; 
+        else 
+            ; 
     }
     return distinctChars.size();
 }
 
-int main() {
+int mainFunc() {
     std::string str;
     std::cout << "Enter a string: ";
     while ((std::cin >> std::ws).peek() == '\n') 
