@@ -1,7 +1,3 @@
-```
-from typing import List
-
-
 def concatenate(strings: List[str]) -> str:
     result = ""
     while True:
@@ -13,4 +9,4 @@ def concatenate(strings: List[str]) -> str:
             if s.strip():
                 result += s + " "
         print(result.rstrip())
-    return result.strip()
+    return result
