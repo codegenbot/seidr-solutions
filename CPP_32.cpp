@@ -32,7 +32,7 @@ int main() {
         coeffs.push_back(val);
     }
     double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    assert(abs(poly(coeffs, solution))< 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
 }
