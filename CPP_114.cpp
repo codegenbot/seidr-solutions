@@ -2,8 +2,8 @@
 #include <vector>
 #include <limits>
 
-// Here is the completed code:
 long long minSubArraySum(std::vector<long long> nums) {
+    // Here is the completed code:
     long long min_sum = std::numeric_limits<long long>::max(), current_sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         current_sum += nums[i];
@@ -22,7 +22,7 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    std::vector<long long> nums = {1, 2, 3, 4, 5};
-    std::cout << "Minimum subarray sum is: " << minSubArraySum(nums) << std::endl;
+    std::vector<long long> nums = {1, 2, 3};
+    std::cout << "Minimum sum of subarray is: " << minSubArraySum(nums) << std::endl;
     return 0;
 }
