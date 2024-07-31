@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,7 +18,11 @@ int main() {
     float num;
     while (std::cin >> num) {
         if(input.size()>1000){ 
-            input.reserve(1024); 
+            if (input.size() > 500) {
+                input.resize(2 * input.size());
+            } else {
+                input.reserve(input.size()*2); 
+            }
         }
         input.push_back(num);
     }
