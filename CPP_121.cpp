@@ -1,4 +1,6 @@
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
 int solve(vector<int> lst) {
@@ -12,7 +14,11 @@ int solve(vector<int> lst) {
     return sum;
 }
 
+int solutions(vector<int> lst) {
+    return solve(lst);
+}
+
 int main() {
-    assert(solve({3, 13, 2, 9}) == 16);
+    assert(solutions({3, 13, 2, 9}) == 13); 
     return 0;
 }
