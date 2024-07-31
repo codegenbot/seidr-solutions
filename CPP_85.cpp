@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,14 +13,20 @@ int main() {
     int n;
 
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    if (!(std::cin >> n)) { 
+        std::cerr << "Invalid input. Try again.\n";
+        return 1; 
+    }
 
     std::vector<int> lst;
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.emplace_back(num);
+        if (!(std::cin >> num)) { 
+            std::cerr << "Invalid input. Try again.\n";
+            return 1; 
+        }
+        lst.push_back(num);
     }
 
     int sum = 0;
