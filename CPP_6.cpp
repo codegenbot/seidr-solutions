@@ -12,16 +12,16 @@ bool issame(vector<int> a, vector<int> b) {
 
 std::vector<int> parse_nested_parens(const string &paren_string) {
     std::vector<int> result;
-    stack<int> nesting_levels;
+    std::stack<int> nesting_levels;
     int max_nesting = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
+            max_nesting = std::max(max_nesting, 1);
         } else if (c == ')') {
             nesting_levels.pop();
-            max_nesting = max(max_nesting, nesting_levels.size());
+            max_nesting = std::max(max_nesting, nesting_levels.size());
         }
     }
 
@@ -30,7 +30,7 @@ std::vector<int> parse_nested_parens(const string &paren_string) {
         nesting_levels.pop();
     }
 
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
 
     return result;
 }
