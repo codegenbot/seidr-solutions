@@ -1,7 +1,6 @@
-```cpp
+```c++
 #include <vector>
 #include <string>
-#include <initializer_list>
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
@@ -24,7 +23,6 @@ pair<vector<string>, bool> reverse_delete(string s1, string s2) {
 }
 
 int main() {
-    auto p = reverse_delete("mamma", "mia");
-    assert(issame(vector<string>({""}), vector<string>({{""}, string("True")))));
+    assert(issame(vector<string>(1, ""), {{""},{string("True")}}));
     return 0;
 }
