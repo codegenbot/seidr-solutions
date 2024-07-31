@@ -18,10 +18,10 @@ bool correct_bracketing(std::string brackets){
 }
 
 int main() {
-    std::string input;
+    std::string brackets;
     std::cout << "Enter a string of brackets: ";
-    std::getline(std::cin, input);  
-    if(correct_bracketing(input)) {
+    getline(std::cin, brackets);  
+    if(correct_bracketing(brackets)) {
         std::cout << "The bracketing is correct." << std::endl;
     } else {
         std::cout << "Error: The bracketing is incorrect. There are unmatched '>' characters." << std::endl;
