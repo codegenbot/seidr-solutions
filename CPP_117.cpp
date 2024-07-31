@@ -1,6 +1,14 @@
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) return false;
+    
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    
+    return true;
+}
 
-vector<string> select_words(string s, int n){
+vector<string> select_words(string s, int n) {
     vector<string> result;
     if(s.empty()) return result;
     
@@ -29,16 +37,4 @@ vector<string> select_words(string s, int n){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
-    
-    return 0;
-}
+assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
