@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -19,9 +20,6 @@ int minSubArraySum(vector<int> nums) {
     return min_sum;
 }
 
-int main() {
-    if (minSubArraySum({1, -1}) != 0) {
-        assert(false);
-    }
-    return 0;
-}
+cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
+assert(minSubArraySum({1, -1}) == 0);
+return 0;
