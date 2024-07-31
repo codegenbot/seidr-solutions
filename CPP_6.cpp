@@ -1,13 +1,14 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
     int count = 0;
-    vector<int> result; // Initialize an empty vector at the beginning.
+    vector<int> result(1);  // Initialize with a small initial capacity
     for (char c : s) {
         if (c == '(') {
             count++;
