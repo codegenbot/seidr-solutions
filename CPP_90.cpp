@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -36,4 +35,3 @@ int readInput() {
 int main() {
     readInput();
     return 0;
-}
