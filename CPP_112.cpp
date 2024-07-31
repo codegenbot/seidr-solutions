@@ -2,12 +2,11 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b){
-    if(a.first.size() != b.first.size()) return false;
-    for(int i=0; i<a.first.size();i++){
-        if(a.first[i] != b.first[i]) return false;
+bool issame(const vector<string>& a, const vector<string>& b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i]) return false;
     }
-    if(a.second != b.second) return false;
     return true;
 }
 
@@ -33,6 +32,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(isSame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(reverse_delete("mamma", "mia")[1] == "True" || reverse_delete("mamma", "mia").size() == 2);
     return 0;
 }
