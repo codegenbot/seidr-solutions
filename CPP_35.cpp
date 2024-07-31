@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,7 +10,7 @@ void readInput() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    input.resize(n, 0);
+    std::vector<int>(n).swap(input);
 
     for(int i = 0; i < n; i++) {
         int temp;
@@ -19,13 +20,14 @@ void readInput() {
     }
 }
 
-int main() {
+int main() { 
     readInput();
 
     if(input.size() == 0) {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
-        std::cout << "Maximum element is: " << *std::max_element(input.begin(), input.end()) << std::endl;
+        auto max_element = *std::max_element(input.begin(), input.end());
+        std::cout << "Maximum element is: " << max_element << std::endl;
     }
 
     return 0;
