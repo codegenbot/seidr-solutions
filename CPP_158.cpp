@@ -7,7 +7,7 @@ std::string find_max(std::vector<std::string> words) {
     
     for (const auto& word : words) {
         int unique_chars = std::set<char>(word.begin(), word.end()).size();
-        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word.compare(result) < 0)) {
+        if (unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word.length() < result.length())) {
             max_unique_chars = unique_chars;
             result = word;
         }
