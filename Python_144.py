@@ -1,9 +1,15 @@
 ```
-def simplify(x, n):
-    x_num, x_denom = map(int, [0]+list(map(int, x.split("/"))))
-    n_num, n_denom = map(int, [0]+list(map(int, n.split("/"))))
+import math
 
-    if (x_num*x_denom) % math.gcd(x_denom, n_denom) == 0 and (n_num*n_denom) % math.gcd(n_denom, x_denom) == 0:
+
+def simplify(x, n):
+    x_num, x_denom = map(int, x.split("/"))
+    n_num, n_denom = map(int, n.split("/"))
+
+    result = (x_num * n_denom) // math.gcd(x_denom * n_num)
+    reduced_result = (result, math.gcd(result, min(x_denom, n_denom)))
+
+    if str(x) == f"{reduced_result[0]}/{reduced_result[1]}":
         return True
     else:
         return False
