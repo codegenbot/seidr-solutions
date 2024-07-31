@@ -1,6 +1,7 @@
 #include <string>
-#include <cassert>
-#include <iostream>
+#include <cassert>   // Include <cassert> for asserts
+#include <sstream>   // Include <sstream> for std::to_string
+using namespace std; // Specify the namespace for to_string
 
 std::string change_base(int x, int base){
     std::string result = "";
