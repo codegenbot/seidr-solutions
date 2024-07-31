@@ -27,3 +27,8 @@ vector<int> f(int n) {
     }
     return result;
 }
+
+int main() {
+    assert(issame(f(3), {1, 2, 6}));
+    return 0;
+}
