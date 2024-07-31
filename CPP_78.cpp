@@ -1,6 +1,7 @@
 #include <cctype>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 int hex_key(std::string s) {
     std::transform(s.begin(), s.end(), s.begin(),
@@ -12,6 +13,7 @@ int hex_key(std::string s) {
         }
     }
     return result;
+
 }
 
 int main() {
