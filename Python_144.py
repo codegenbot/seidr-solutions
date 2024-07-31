@@ -3,7 +3,7 @@ import math
 
 
 def simplify():
-    numerator1 = int(input(f"Enter first fraction (e.g., {1}/{2}): "))
+    numerator1 = int(input("Enter first fraction (e.g., 1/2): "))
     denominator1 = int(input("Enter the denominator: "))
 
     numerator2 = int(input(f"Enter second fraction (e.g., {3}/{4}): "))
