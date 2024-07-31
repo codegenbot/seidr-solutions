@@ -2,7 +2,7 @@
 #include <algorithm>
 
 int issame(int a, vector<int> b) {
-    return (a == b[0] && a == b[1]);
+    return (a == b[0]);
 }
 
 vector<int> solve(int n) {
