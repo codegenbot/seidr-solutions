@@ -2,6 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <cmath>
+#include <cassert>
 
 class mean_absolute_deviation {
 public:
@@ -18,7 +19,7 @@ public:
 };
 
 int main() {
-    assert(std::abs(mean_absolute_deviation::calculate_mad(std::vector<double>({1.0, 2.0, 3.0, 4.0, 5.0})) - (6.0 / 5.0) < 1e-4);
+    assert(std::abs(mean_absolute_deviation::calculate_mad({1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0) < 1e-4);
     
     return 0;
 }
