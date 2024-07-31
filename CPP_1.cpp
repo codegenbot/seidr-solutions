@@ -1,31 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    vector<string> res = separate_paren_groups("((hello)(world))");
-    assert(issame(res, {"(hello)", "(world)"}));
-
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -50,4 +32,22 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    vector<string> test1 = separate_paren_groups("(abc)(def)(ghi)");
+    vector<string> expected1 = {"abc", "def", "ghi"};
+    assert(issame(test1, expected1));
+
+    vector<string> test2 = separate_paren_groups("((a)(((b)))((c)))(d)");
+    vector<string> expected2 = {"a", "b", "c", "d"};
+    assert(issame(test2, expected2));
+
+    cout << "All tests passed successfully!" << endl;
+
+    return 0;
 }
