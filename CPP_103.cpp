@@ -1,6 +1,9 @@
 #include <cassert>
 #include <bitset>
 #include <cmath>
+#include <algorithm>
+#include <string>
+#include <iostream>
 
 std::string function_name(int n, int m) {
     if (n > m) {
@@ -11,10 +14,10 @@ std::string function_name(int n, int m) {
         sum += i;
     }
     int avg = round((double)sum / (m - n + 1));
-    return std::bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
+    return std::bitset<32>(avg).to_string().substr(32 - static_cast<int>(log2(avg)));
 }
 
-int main() {
+int main(int argc, char** argv) {
     assert(function_name(5, 5) == "101");
     return 0;
 }
