@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -15,15 +15,14 @@ int smallest_change(std::vector<int> arr) {
             int j = i + len - 1;
 
             if (arr[i] == arr[j]) {
-                dp[i][j].resize(dp[i+1][j-1].size() + 1);
+                dp[i][j] = dp[i+1][j-1].size();
             } else {
-                auto min_size = std::min({dp[i+1][j].size() + 1, dp[i][j-1].size() + 1, dp[i+1][j-1].size() + 2});
-                dp[i][j].resize(min_size);
+                dp[i][j] = std::min({dp[i+1][j].size() + 1, dp[i][j-1].size() + 1, dp[i+1][j-1].size() + 2});
             }
         }
     }
 
-    return (int)dp[0].at(n).size();
+    return dp[0].at(n);
 }
 
 int main() { return smallest_change({0, 1}); }
