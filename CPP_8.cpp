@@ -6,9 +6,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<int> sum_product(const std::vector<int>& numbers) {
+std::vector<int> sum_product(const std::vector<int>& vec) {
     std::vector<int> result;
-    for (int num : numbers) {
+    for (int num : vec) {
         result.push_back(num + num);
     }
     return result;
