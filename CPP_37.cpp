@@ -1,6 +1,8 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-void sort_even(vector<float>& l);
+void sort_even(vector<float>& l); // Function declaration
 
 bool issame(vector<float> a, vector<float> b) {
     sort_even(a);
@@ -10,17 +12,17 @@ bool issame(vector<float> a, vector<float> b) {
 
 void sort_even(vector<float>& l) {
     vector<float> even_elems;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
+    for(int i = 0; i < l.size(); i++) {
+        if(i % 2 == 0) {
             even_elems.push_back(l[i]);
         }
     }
     sort(even_elems.begin(), even_elems.end());
-
+    
     vector<float> result;
     int j = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
+    for(int i = 0; i < l.size(); i++) {
+        if(i % 2 == 0) {
             result.push_back(even_elems[j]);
             j++;
         } else {
@@ -29,14 +31,4 @@ void sort_even(vector<float>& l) {
     }
     
     l = result;
-}
-
-int main() {
-    vector<float> vec = {3.2, 1.5, 2.8, 4.1, 5.7};
-    sort_even(vec);
-
-    vector<float> vec2 = {1.5, 3.2, 4.1, 2.8, 5.7};
-    bool result = issame(vec, vec2);
-
-    return 0;
 }
