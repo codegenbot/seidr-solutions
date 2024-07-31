@@ -1,7 +1,6 @@
-#include <string> // Added for std::to_string
+#include <string>
 #include <cassert>
-#include <iostream> 
-#include <sstream> 
+#include <sstream>
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -14,8 +13,8 @@ std::string change_base(int x, int base){
 
 int main(){
     int x = 10;
-    std::stringstream ss; 
-    ss << x; 
-    assert(change_base(x, x + 1) == ss.str()); 
+    std::stringstream ss;
+    ss << x;
+    assert(change_base(x, x + 1) == ss.str());
     return 0;
 }
