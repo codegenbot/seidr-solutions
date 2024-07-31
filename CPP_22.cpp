@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
+        if (!std::is_integral(a[i]) || !std::is_integral(b[i])) continue;
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,8 +17,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> filter_integers(const std::vector<int>& arr) {
-    std::vector<int> result;
+vector<int> filter_integers(const vector<int>& arr) {
+    vector<int> result;
     for (int x : arr) {
         if (std::is_integral(x)) { 
             result.push_back(x);
@@ -25,21 +29,21 @@ std::vector<int> filter_integers(const std::vector<int>& arr) {
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
+    cin >> n;
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         int x;
-        std::cin >> x;
+        cin >> x;
         arr[i] = x;
     }
     if (arr.size() != filter_integers(arr).size()) { 
-        std::cout << "Error: The array must only contain integers." << std::endl;
+        cout << "Error: The array must only contain integers." << endl;
     } else {
-        bool same = issame(filter_integers(arr), {3, 99, 3, 3, 97, 98});
+        bool same = issame(filter_integers(arr), vector<int>{3, 99, 3, 3, 97, 98});
         if (!same) {
-            std::cout << "Array is not same." << std::endl;
+            cout << "Array is not same." << endl;
         } else {
-            std::cout << "Array is same." << std::endl;
+            cout << "Array is same." << endl;
         }
     }
     return 0;
