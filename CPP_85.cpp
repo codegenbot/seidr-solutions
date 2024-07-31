@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int add(const std::vector<size_t>&);
+int add(const std::vector<unsigned long>&);
 
 int main() {
     size_t n;
@@ -17,9 +16,9 @@ int main() {
         }
     }
 
-    std::vector<size_t> lst;
+    std::vector<unsigned long> lst;
     for(size_t i = 0; i < n; i++){
-        size_t num;
+        unsigned long num;
         while (!(std::cin >> num)) { 
             std::cerr << "Invalid input. Try again.\n";
             std::cout << "Enter element " << i+1 << ": ";
@@ -41,9 +40,9 @@ int main() {
     return 0;
 }
 
-int add(const std::vector<size_t>& v) {
+int add(const std::vector<unsigned long>& v) {
     int sum = 0;
-    for (size_t i : v) {
+    for (unsigned long i : v) {
         sum += i;
     }
     return sum;
