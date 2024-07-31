@@ -1,4 +1,4 @@
-bool monotonic(const vector<int> &l) {
+bool monotonic(const vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
     for (int i = 1; i < l.size(); i++) {
@@ -10,4 +10,9 @@ bool monotonic(const vector<int> &l) {
         }
     }
     return increasing || decreasing;
+}
+
+int main() {
+    assert(monotonic({9, 9, 9, 9}) == true);
+    return 0;
 }
