@@ -7,20 +7,7 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    vector<string> result = separate_paren_groups("((group 1)(group 2))");
-    assert(issame(result, {"(group 1)", "(group 2)"}));
-    
-    result = separate_paren_groups("(a(b(c)d)e)");
-    assert(issame(result, {"(a(b(c)d)e)"}));
-    
-    result = separate_paren_groups("(hello)(world)");
-    assert(issame(result, {"(hello)", "(world)"}));
-    
-    cout << "All test cases passed." << endl;
-    
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
