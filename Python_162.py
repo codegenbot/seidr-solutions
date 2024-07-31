@@ -8,5 +8,4 @@ def string_to_md5():
             return None
         return hashlib.md5(text.encode()).hexdigest()
     except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
+        return str(e)
