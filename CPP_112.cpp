@@ -2,10 +2,10 @@
 #include <string>
 #include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -28,10 +28,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return {temp, (temp == rev)}; 
+    return {temp, std::to_string(temp == rev)};
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia")[1] == "True" || reverse_delete("mamma", "mia").size() == 2);
+    assert(isSame({reverse_delete("mamma", "mia")[0], reverse_delete("mamma", "mia")[1]}, {"", "True"}));
     return 0;
 }
