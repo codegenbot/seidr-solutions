@@ -10,9 +10,6 @@ std::vector<int> parse_music(std::string music_string);
 
 int main() {
     std::vector<int> result = parse_music("o| .| o| .| o o| o o|");
-    for (int num : result) {
-        std::cout << num << " ";
-    }
     return 0;
 }
 
