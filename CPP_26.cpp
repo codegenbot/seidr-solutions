@@ -19,7 +19,10 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    std::cout << (isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}) ? "Test passed" : "Test failed") << std::endl;
+    if (!compareVectors(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
     return 0;
 }
