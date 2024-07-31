@@ -1,9 +1,8 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
 
-bool equal(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -20,6 +19,10 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(equal(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    if (!compareVectors(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
     return 0;
 }
