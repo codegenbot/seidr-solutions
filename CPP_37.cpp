@@ -9,7 +9,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-void sort_even(const std::vector<float>& l) {
+void sort_even(std::vector<float>& l) {
     std::vector<float> even_values;
     
     for (int i = 0; i < l.size(); i++) {
@@ -35,7 +35,9 @@ std::vector<float> sort_even_elements(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(sort_even_elements({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}),
-                  {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    std::vector<float> input_vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    std::vector<float> expected_output = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    std::vector<float> actual_output = sort_even_elements(input_vec);
+    assert(issame(actual_output, expected_output));
     return 0;
 }
