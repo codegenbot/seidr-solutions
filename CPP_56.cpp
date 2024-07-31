@@ -1,9 +1,3 @@
-```
-#include <initializer_list>
-#include <stack>
-#include <string>
-#include <iostream>
-
 bool correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
 
@@ -43,4 +37,10 @@ bool correct_bracketing(std::string brackets) {
     }
 }
 
-std::cout << (correct_bracketing("<><><<><>><>>><>") ? "Correct" : "Incorrect"); std::endl;
+int main() {
+    if (!correct_bracketing("<><><<><>><>>><>") ) { 
+        assert(false); 
+    }
+    
+    return 0;
+}
