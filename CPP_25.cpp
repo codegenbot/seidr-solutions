@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <cassert>
 #include <algorithm>
@@ -10,7 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    for (int i = 2; i <= num; ++i) {
+    for (int i = 2; num > 1; ++i) {
         while (num % i == 0) {
             factors.push_back(i);
             num /= i;
