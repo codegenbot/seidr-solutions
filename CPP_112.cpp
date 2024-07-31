@@ -2,14 +2,6 @@
 #include <string>
 using namespace std;
 
-bool issame(vector<string> a,vector<string> b){
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
-}
-
 pair<string,bool> reverse_delete(string s1, string s2) {
     int i=0,j=s2.size()-1;
     while(i<=j){
@@ -20,14 +12,11 @@ pair<string,bool> reverse_delete(string s1, string s2) {
 }
 
 int main() {
-    pair<pair<string,bool>,bool> result = make_pair(reverse_delete("mamma", "mia"), false);
+    pair<pair<string,bool>,bool> result = make_pair(pair<string,bool>(reverse_delete("mamma", "mia"), false), false);
     if (result.second) {
         cout << "True" << endl;
     } else {
-        string s = result.first.first;
-        bool b = result.first.second == "false";
-        if(b)s="False";
-        cout << s << endl;
+        cout << result.first.first.first << endl; 
     }
     return 0;
 }
