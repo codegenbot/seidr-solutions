@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
 #include <sstream>
-#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
@@ -18,11 +16,10 @@ vector<string> select_words(string s, int n) {
     while (iss >> word) {
         words.push_back(word);
     }
-    if (n > words.size()) {
-        return {};
-    } else {
+    if (n <= words.size()) {
         return vector<string>(words.begin() + n, words.end());
     }
+    return {};
 }
 
 int main() {
@@ -31,9 +28,7 @@ int main() {
     getline(cin, input_string);
     cin >> n;
     
-    vector<string> selected_words = select_words(input_string, n);
-
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "e", "f"}));
-    
+
     return 0;
 }
