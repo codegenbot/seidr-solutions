@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 string longest(initializer_list<string> strings) {
@@ -17,5 +16,5 @@ string longest(initializer_list<string> strings) {
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
 }
