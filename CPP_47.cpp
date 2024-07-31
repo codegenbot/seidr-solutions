@@ -18,11 +18,9 @@ int main() {
     float num;
 
     cout << "Enter some numbers (enter 'stop' to finish): ";
-    string stop = "stop";
     while (true) {
         cin >> num;
-        if (cin.fail()) break; 
-        if (num == stop) break;
+        if (num == "stop") break;
         numbers.push_back(num);
     }
 
