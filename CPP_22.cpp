@@ -27,7 +27,7 @@ vector<int> filter_integers(const vector<int>& arr) {
     return result;
 }
 
-int main_program() {
+int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -39,12 +39,8 @@ int main_program() {
     if (arr.size() != filter_integers(arr).size()) { 
         cout << "Error: The array must only contain integers." << endl;
     } else {
-        bool same = issame(filter_integers(arr), vector<int>{3, 99, 3, 3, 97, 98});
-        if (!same) {
-            cout << "Array is not same." << endl;
-        } else {
-            cout << "Array is same." << endl;
-        }
+        assert(issame(filter_integers(arr), {3, 3, 3})); 
+        cout << "Array is same." << endl;
     }
     return 0;
 }
