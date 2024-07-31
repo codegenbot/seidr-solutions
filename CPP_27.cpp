@@ -1,33 +1,21 @@
 ```cpp
 #include <iostream>
-#include <cctype>
+#include <string>
 
-bool flip_case(const std::string& str) {
-    std::string result;
+int filp_case(const std::string& str) {
+    int result = 0;
     for (char c : str) {
-        if(std::isalpha(c)) { 
-            if (std::isupper(c)) {
-                result += std::tolower(c);
-            } else if (std::islower(c)) {
-                result += std::toupper(c);
-            }
-        } else { 
-            result += c;
+        if (c >= 'a' && c <= 'z') {
+            result += (c - 'a' + 1);
+        } else if (c >= 'A' && c <= 'Z') {
+            result -= (c - 'A' + 1);
         }
     }
-    return true;
+    return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-
-    if(flip_case(str)) {
-        std::cout << "Flipped case: " << str << std::endl;
-    } else {
-        std::cout << "Error occurred." << std::endl;
-    }
-
+    int result = filp_case("These violent delights have violent ends");
+    assert(result == 0);
     return 0;
 }
