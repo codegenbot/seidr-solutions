@@ -2,15 +2,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
+#include <limits>
 
 using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
     int count = 1;
-    vector<int> result(); 
+    vector<int> result; 
     for (char c : s) {
         if (c == '(') {
             count++;
+            if(count > numeric_limits<int>::max()/sizeof(int)) return {}; // prevent overflow
             result.push_back(count);
         } else if (c == ')') {
             count--;
