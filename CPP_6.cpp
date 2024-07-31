@@ -28,8 +28,7 @@ vector<int> parse_nested_parens(const string& s) {
     return result;
 }
 
-int main() {
+int testMain() {
     vector<int> expected = parse_nested_parens("(()(())((()))");
     assert (same(parse_nested_parens("(()(())((()))"), vector<int>({4})));
-    return 0;
 }
