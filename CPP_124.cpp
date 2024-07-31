@@ -1,8 +1,12 @@
-bool valid_date(const char* date) {
-    if(date[0] == '\0') return false;
+#include <cstdio>
+#include <cassert>
+#include <string>
+
+bool valid_date(const std::string& date) {
+    if(date.empty()) return false;
     
     int month, day, year;
-    if(sscanf(date, "%d-%d-%d", &month, &day, &year) != 3) return false;
+    if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) return false;
     
     if(month < 1 || month > 12) return false;
     
@@ -11,4 +15,9 @@ bool valid_date(const char* date) {
     if(day < 1 || day > 31) return false;
     
     return true;
+}
+
+int main() {
+    assert(valid_date("04-2003") == false);
+    return 0;
 }
