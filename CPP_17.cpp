@@ -2,27 +2,15 @@
 #include <vector>
 #include <cassert>
 
-template <typename T>
+template<typename T>
 bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
     return v1 == v2;
 }
 
-std::vector<int> parse_music(std::string music_string);
-
-int main() {
-    std::string music_string = "o|.o.";
-    std::vector<int> expected_beats = {4, 0, 1};
-
-    std::vector<int> parsed_beats = parse_music(music_string);
-
-    assert(issame(parsed_beats, expected_beats));
-
-    return 0;
-}
-
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
-    int note_length = 0;
+template<typename T>
+std::vector<T> parse_music(std::string music_string) {
+    std::vector<T> beats;
+    T note_length = 0;
     for (char c : music_string) {
         if (c == 'o') {
             note_length = 4;
@@ -37,4 +25,12 @@ std::vector<int> parse_music(std::string music_string) {
         beats.push_back(note_length);
     }
     return beats;
+}
+
+int main() {
+    std::vector<int> expected = {4, 1, 1, 4};
+    std::vector<int> parsed = parse_music<int>("o.|.o");
+    assert(issame(parsed, expected));
+    
+    return 0;
 }
