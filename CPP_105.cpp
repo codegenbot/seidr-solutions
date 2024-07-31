@@ -24,6 +24,7 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
+
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
@@ -31,8 +32,4 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
