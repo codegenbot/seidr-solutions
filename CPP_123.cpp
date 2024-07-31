@@ -1,19 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
+bool issame(std::vector<int>& a, std::vector<int>& b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
