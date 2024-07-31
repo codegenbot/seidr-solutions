@@ -12,7 +12,7 @@ std::string longest(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main() {
+int main2() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     return 0;
 }
