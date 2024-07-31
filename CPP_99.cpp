@@ -1,8 +1,12 @@
-double num = stod(value);
-    int roundedNum = round(num);
-    if (num - roundedNum == 0.5) {
-        return (num > 0) ? ceil(num) : floor(num);
-    } else {
-        return round(num);
-    }
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return (num - lower < upper - num) ? lower : upper;
+}
+
+int main() {
+    assert(closest_integer("0") == 0);
 }
