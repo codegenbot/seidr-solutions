@@ -22,7 +22,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    return 0;
-}
+assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
