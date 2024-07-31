@@ -1,5 +1,4 @@
-Here's the modified code:
-
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -26,3 +25,4 @@ int main() {
     }
     std::cout << "Median: " << median(numbers) << std::endl;
     return 0;
+}
