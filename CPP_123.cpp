@@ -20,16 +20,3 @@ vector<int> get_odd_collatz(int n) {
     
     return result;
 }
-
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> result = get_odd_collatz(n);
-    
-    for (int num : result) {
-        cout << num << " ";
-    }
-    
-    return 0;
-}
