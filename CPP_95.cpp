@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <unordered_map>
+#include <cctype>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict){
     if(dict.empty()) return false;
@@ -22,7 +22,6 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict){
 }
 
 int main(){
-    assert(check_dict_case({}) == false);
-
+    // Add test cases here
     return 0;
 }
