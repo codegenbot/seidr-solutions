@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<int>& a, vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -23,8 +23,7 @@ vector<int> sort_array(const vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {2, 4, 8, 16, 32};
-    assert(issame(sort_array(input), {2, 4, 8, 16, 32}));
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     cout << "Test passed!" << endl;
     return 0;
 }
