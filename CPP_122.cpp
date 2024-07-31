@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -30,7 +29,7 @@ int main() {
                       << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
                       << ": ";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.ignore(std::numeric_limits<stdstreamsize>::max(), '\n');
         }
         if(i > 0) {
             input.push_back(num);
