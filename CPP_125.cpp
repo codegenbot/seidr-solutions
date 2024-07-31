@@ -7,7 +7,7 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> split_words(string txt) {
@@ -30,7 +30,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {""}));
-    
+    assert(issame(split_words(""), { "" }));
+
     return 0;
 }
