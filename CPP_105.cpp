@@ -1,6 +1,8 @@
 #include <string>
 #include <algorithm>
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
@@ -17,6 +19,7 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_digits.begin(), sorted_digits.end());
+
     reverse(sorted_digits.begin(), sorted_digits.end());
 
     for (int digit : sorted_digits) {
@@ -26,6 +29,16 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
