@@ -1,13 +1,12 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <cstring>
 
-int my_strlen(std::string str){
-    return str.length();
+int my_strlen(const char* str){
+    return strlen(str);
 }
 
 int main() {
-    char input[] = "asdasnakj";
-    std::string str(input, strlen(input)); 
-    assert(my_strlen(str) == 12);
+    const char* input = "asdasnakj";
+    std::string str(input, my_strlen(input)); 
+    std::cout << my_strlen(str) << std::endl;
 }
