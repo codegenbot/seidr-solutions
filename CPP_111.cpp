@@ -2,10 +2,6 @@ bool issame(map<char,int> a, map<char,int> b) {
     return a == b;
 }
 
-int main() {
-    assert(histogram("a") == ({{'a', 1}}));
-    // Rest of your code...
-}
 map<char, int> histogram(string test) {
     map<char, int> result;
     string str = test + " ";
@@ -25,4 +21,8 @@ map<char, int> histogram(string test) {
     }
 
     return result;
+}
+
+int main() {
+    assert(histogram("a") == ({{'a', 1}}));
 }
