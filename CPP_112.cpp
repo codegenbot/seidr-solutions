@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -10,6 +10,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         }
     }
     std::string reverse_result = result;
-    std::reverse(reverse_result.begin(), reverse_result.end());
+    reverse(reverse_result.begin(), reverse_result.end());
     return {result, result == reverse_result ? "True" : "False"};
 }
