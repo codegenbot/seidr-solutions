@@ -1,14 +1,14 @@
+using namespace std;
+
 #include <iostream>
 #include <vector>
 #include <climits>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst){
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
