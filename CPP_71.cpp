@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -11,4 +11,4 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-```
+assert(fabs(triangle_area(2, 2, 10) + 1) < 0.01);
