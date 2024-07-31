@@ -2,12 +2,11 @@
 #include <cstring>
 
 bool match_parens(const char* parens) {
-    std::string str(parens, strlen(parens));  
     int count = 0;
-    for (char c : str) {  
-        if (c == '(')
+    for (int i = 0; parens[i]; i++) {  
+        if (parens[i] == '(')
             count++;
-        else if (c == ')')
+        else if (parens[i] == ')')
             count--;
         if (count < 0)
             return false;
@@ -15,4 +14,7 @@ bool match_parens(const char* parens) {
     return count == 0;
 }
 
-std::cout << (match_parens("(()))") ? "Valid" : "Invalid";
+int main() {
+    std::cout << (match_parens("(()))") ? "Valid" : "Invalid";
+    return 0;
+}
