@@ -30,13 +30,24 @@ map<char,int> histogram(string test){
         }
     }
 
-    bool issame(map<char,int> a, map<char,int> b){
-        if(a.size() != b.size()) return false;
-        for(auto it = a.begin(); it != a.end(); it++){
-            if(it->second != b[it->first]) return false;
+    bool isSame = false;
+
+    while(!isSame){
+        map<char,int> tempMap = histogram(test);
+        if(issame(result, tempMap)){
+            isSame = true;
+        } else {
+            test.pop_back();
         }
-        return true;
     }
 
     return maxMap;
+}
+
+bool issame(map<char,int> a, map<char,int> b){
+    if(a.size() != b.size()) return false;
+    for(auto it = a.begin(); it != a.end(); it++){
+        if(it->second != b[it->first]) return false;
+    }
+    return true;
 }
