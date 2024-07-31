@@ -23,6 +23,7 @@ std::vector<int> f(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    using namespace std;
     if (a.size() != b.size()) {
         return false;
     }
