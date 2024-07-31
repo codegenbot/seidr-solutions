@@ -19,7 +19,9 @@ int minSubArraySum(vector<int> nums) {
     return min_sum;
 }
 
-int main() {
-    assert(minSubArraySum({1, -1}) == 0);
+int mainTest() {
+    if (minSubArraySum({1, -1}) != 0) {
+        assert(false);
+    }
     return 0;
 }
