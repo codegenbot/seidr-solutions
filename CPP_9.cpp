@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <climits>
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
@@ -14,4 +14,13 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+int main() {
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    
+    assert(is_same(a, b));
+    
+    return 0;
 }
