@@ -26,11 +26,11 @@ bool move_one_ball(vector<int> arr) {
 }
 
 int main() {
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {5, 1, 2, 3, 4};
+    vector<int> test_case1 = {1, 2, 3, 4, 5};
+    vector<int> test_case2 = {5, 1, 2, 3, 4};
     
-    cout << move_one_ball(test1) << endl; // Output: true
-    cout << move_one_ball(test2) << endl; // Output: true
+    cout << move_one_ball(test_case1) << endl; // Output: true
+    cout << move_one_ball(test_case2) << endl; // Output: false
     
     return 0;
 }
