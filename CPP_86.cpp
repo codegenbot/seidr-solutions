@@ -7,10 +7,11 @@ const char* anti_shuffle(const std::string str) {
     int i = str.length() - 1;
     while (i >= 0) {
         if(i > 0 && str[i] == str[i-1]) {
-            result = str.substr(0, i+1);
+            result += str.substr(0, i+1);
             return result.c_str();
         }
-        --i;
+        result += str[i];
+        i--;
     }
     return result.c_str();
 }
