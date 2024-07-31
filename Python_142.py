@@ -1,4 +1,5 @@
 def sum_squares(lst):
-    return sum(
-        i**2 if i % 4 == 0 else i**3 if i % 4 != 0 and i % 3 == 0 else i for i in lst
-    )
+    total = 0
+    for num in lst:
+        total += num ** 2
+    return total
