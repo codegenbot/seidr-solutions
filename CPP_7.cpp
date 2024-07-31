@@ -1,21 +1,3 @@
-#include <algorithm>
-#include <vector>
-#include <string>
-
-bool areEqual(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
-}
-
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
-    std::vector<std::string> result;
-    for (const auto& s : strings) {
-        if (s.find(substring) != std::string::npos) {
-            result.push_back(s);
-        }
-    }
-    return result;
-}
-
 int main() {
     int n;
     std::cin >> n;
@@ -30,7 +12,7 @@ int main() {
     std::string substring;
     std::getline(std::cin, substring);
 
-    auto result1 = filter_by_substring(strings, substring);
+    auto result1 = findSubstring(strings, substring);
 
     if (areEqual(result1, strings)) {
         for (const auto& s : strings) {
