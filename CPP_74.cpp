@@ -3,30 +3,30 @@
 #include <string>
 #include <cassert>
 
-int countTotalChars(std::vector<std::string> lst) {
-    int totalChars = 0;
-    for (std::string str : lst) {
-        totalChars += str.size();
-    }
-    return totalChars;
-}
+using namespace std;
 
-bool total_match(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int totalChars1 = countTotalChars(lst1);
-    int totalChars2 = countTotalChars(lst2);
+int total_chars(const vector<string>& lst) {
+    int total = 0;
+    for (const string& str : lst) {
+        total += str.size();
+    }
+    return total;
+}
 
-    if (totalChars1 < totalChars2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
     } else {
-        return totalChars1 == totalChars2 ? lst1 : lst2;
+        return lst2;
     }
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), vector<string>{}));
+    
     return 0;
 }
