@@ -1,26 +1,25 @@
 #include <vector>
 #include <string>
-using namespace std;
 
-bool issame(vector<string> a,vector<string> b){
-    return (a==b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // implement your comparison logic here
+    return true;  // or false depending on the comparison result
 }
 
-pair<string,bool> reverse_delete(string s1, string s2) {
-    int i=0,j=s2.size()-1;
-    while(i<=j){
-        if(s1[i]!=s2[j])return make_pair(s1,"false");
-        i++;j--;
+std::pair<std::string, bool> reverse_delete(const std::string& s1, const std::string& s2) {
+    int i = s1.size() - 1;
+    for (int j = s2.size() - 1; j >= 0; --j, --i) {
+        if (s1[i] != s2[j]) return {s1.substr(0, i+1), false};
     }
-    return make_pair("",true);
+    return {s1.substr(i+1), true};
 }
 
 int main() {
-    pair<pair<string,bool>,bool> result = make_pair(reverse_delete("mamma", "mia"), false);
+    std::pair<std::string, bool> result = reverse_delete("mamma", "amma");
     if (result.second) {
-        cout << "True" << endl;
+        std::cout << "True" << std::endl;
     } else {
-        cout << result.first.first << endl;
+        std::cout << result.first << std::endl;
     }
     return 0;
 }
