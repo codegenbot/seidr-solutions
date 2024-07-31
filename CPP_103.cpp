@@ -17,5 +17,6 @@ std::string function_name(int n, int m) {
 
 int main() {
     assert(function_name(5, 5) == "101");
+    
     return 0;
 }
