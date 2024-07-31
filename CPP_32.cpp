@@ -3,9 +3,7 @@
 #include <cassert>
 #include <cmath>
 
-using namespace std;
-
-double poly(vector<double>& coeffs, double x) {
+double poly(std::vector<double>& coeffs, double x) {
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
         result += coeffs[i] * pow(x, i);
@@ -13,15 +11,15 @@ double poly(vector<double>& coeffs, double x) {
     return result;
 }
 
-double find_zero(const vector<double>& coeffs) {
+double find_zero(std::vector<double>& coeffs) {
     return -coeffs[0] / coeffs[1];
 }
 
 int main() {
-    vector<double> coeffs = {1, -2, 1};
+    std::vector<double> coeffs = {1.0, -2.0, 1.0};
     double solution;
     solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
-
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    
     return 0;
 }
