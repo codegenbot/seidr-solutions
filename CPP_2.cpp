@@ -1,3 +1,11 @@
+#include <iostream>
+#include <cassert>
+#include <cmath>
+
+double truncate_number(double number) {
+    return number - std::floor(number);
+}
+
 void main() {
     double number;
     std::cin >> number;
