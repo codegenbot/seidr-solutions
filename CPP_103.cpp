@@ -1,9 +1,7 @@
-#include <cstddef>
-#include <string>
+#include <iostream>
 #include <bitset>
-#include <cmath>
 
-string func(int n, int m) {
+std::string calculate(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -11,9 +9,13 @@ string func(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = static_cast<double>(sum) / (m - n + 1);
-    int rounded_avg = round(avg);
-    string binary = bitset<32>(static_cast<unsigned long>(rounded_avg)).to_string();
-    size_t found = binary.find('1', 0);
+    int avg = round((double)sum / (m - n + 1));
+    std::string binary = std::bitset<32>(avg).to_string();
+    size_t found = binary.find('1');
     return binary.substr(found);
+}
+
+int main() {
+    assert(calculate(5, 5) == "101");
+    return 0;
 }
