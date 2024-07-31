@@ -1,28 +1,21 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> bf(string planet1, string planet2);
-
-int main() {
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-
-    vector<string> result = bf(planet1, planet2);
-
-    for (const auto& planet : result) {
-        cout << planet << " ";
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-
-    return 0;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
 
     int idx1 = -1, idx2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
@@ -38,12 +31,17 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    int start = min(idx1, idx2) + 1;
-    int end = max(idx1, idx2);
+    int start = std::min(idx1, idx2) + 1;
+    int end = std::max(idx1, idx2);
 
     for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
     }
 
     return result;
+}
+
+int main() {
+    std::vector<std::string> result = bf("Earth", "Uranus");
+    return 0;
 }
