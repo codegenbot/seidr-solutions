@@ -22,14 +22,14 @@ int main() {
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
-        while (true) {
+        do {
             cin >> num;
             if (cin.fail()) {
-                cout << "Invalid input. Please enter an integer: ";
+                cout << "Invalid input. Please enter a valid integer.\n";
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            } else break;
-        }
+            }
+        } while (cin.fail());
         lst.push_back(num);
     }
 
