@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <cctype>
 #include <cassert>
-#include <string>
+#include <string> // Added include for string
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Added std:: to specify the namespace
     return a == b;
 }
 
