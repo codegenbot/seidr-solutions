@@ -9,7 +9,7 @@ int main() {
     int k = 0;
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
-    if(k > std::numeric_limits<int>::max() / sizeof(int)) {
+    if(sizeof(int) == 4 && k > std::numeric_limits<int>::max() || sizeof(int) == 8 && k > std::numeric_limits<long long>::max()) {
         std::cout << "Error: k is too large." << std::endl;
         return -1;
     }
