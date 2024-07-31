@@ -1,10 +1,22 @@
-int res = 0;
-        for (int j = 0; j < grid[0].size(); ++j) {
-            int sum = 0;
-            for (int i = 0; i < grid.size(); ++i) {
-                sum += grid[i][j];
+int rows = grid.size();
+        int cols = grid[0].size();
+        int totalWater = 0;
+        int moves = 0;
+        
+        for(int j = 0; j < cols; ++j){
+            for(int i = 0; i < rows; ++i){
+                totalWater += grid[i][j];
             }
-            res += (sum + capacity - 1) / capacity;
+            
+            if(totalWater > capacity){
+                moves += totalWater / capacity;
+                if(totalWater % capacity != 0){
+                    ++moves;
+                }
+            }
+            
+            totalWater = 0;
         }
-        return res;
-}
+        
+        return moves;
+    }
