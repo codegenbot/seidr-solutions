@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cassert>
-#include <string>
 #include <cctype>
+#include <string>
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
     if(txt.empty()) return false;
