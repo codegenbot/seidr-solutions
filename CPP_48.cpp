@@ -1,4 +1,7 @@
-bool is_palindrome(std::string text){
+#include <string>
+using namespace std;
+
+bool is_palindrome(string text){
     int start = 0;
     int end = text.length() - 1;
 
