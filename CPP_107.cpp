@@ -1,14 +1,13 @@
-vector<int> result = {0, 0};
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        string rev = str;
+vector<int> result(2, 0);
+    for(int i=1; i<=n; i++){
+        string s = to_string(i);
+        string rev(s);
         reverse(rev.begin(), rev.end());
-        if (str == rev) {
-            if (i % 2 == 0) {
+        if(s == rev){
+            if(i % 2 == 0)
                 result[0]++;
-            } else {
+            else
                 result[1]++;
-            }
         }
     }
     return result;
