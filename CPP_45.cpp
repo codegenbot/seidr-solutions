@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 #include <cmath>
 
@@ -7,5 +8,6 @@ double triangle_area(double a, double h) {
 
 int main() {
     assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
+    // Add more test cases here if needed
     return 0;
 }
