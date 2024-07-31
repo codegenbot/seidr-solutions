@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
