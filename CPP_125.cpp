@@ -29,9 +29,10 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-int main(){
+int main() {
+    vector<string> expected = {"Hello", "World"};
     assert(issame(split_words(""), {}));
-    assert(issame(split_words("Hello World"), {"Hello", "World"}));
+    assert(issame(split_words("Hello World"), expected));
     
     return 0;
 }
