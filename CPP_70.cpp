@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> issame(vector<int> lst) {
+vector<int> issame(vector<int>& lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int left = 0, right = lst.size() - 1;
