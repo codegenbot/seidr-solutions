@@ -4,9 +4,8 @@
 int issame(int a, vector<int> b) {
     if (a == b[0]) {
         return 1;
-    } else {
-        return 0;
     }
+    return 0;
 }
 
 vector<int> solve(int n) {
