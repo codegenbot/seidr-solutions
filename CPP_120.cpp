@@ -1,11 +1,12 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-int maximum(int a, int b) {
-    return a > b ? a : b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size();
 }
 
-vector<int> k_largest_elements(vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+int main() {
+    assert(issame(std::max({1, 2, 3, -23, 243, -400, 0}), std::vector<int>{}));
+    return 0;
 }
