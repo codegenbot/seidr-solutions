@@ -1,12 +1,12 @@
 int result = -1;
-    for(int num : lst) {
-        int frequency = 0;
-        for(int n : lst) {
-            if(n == num) {
-                frequency++;
+    for (int num : lst) {
+        int freq = 0;
+        for (int n : lst) {
+            if (n == num) {
+                freq++;
             }
         }
-        if(num > 0 && frequency >= num && num > result) {
+        if (num > 0 && freq >= num && num > result) {
             result = num;
         }
     }
