@@ -1,17 +1,24 @@
-int even = 0, odd = 0;
-        for (int i = 1; i <= n; i++) {
-            string numStr = to_string(i);
-            bool isPalindrome = true;
-            for (int j = 0; j < numStr.length() / 2; j++) {
-                if (numStr[j] != numStr[numStr.length() - 1 - j]) {
-                    isPalindrome = false;
-                    break;
-                }
-            }
-            if (isPalindrome) {
-                if (i % 2 == 0) even++;
-                else odd++;
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result = {0, 0};
+    for (int i = 1; i <= n; ++i) {
+        std::string s = std::to_string(i);
+        std::string rev = s;
+        std::reverse(rev.begin(), rev.end());
+        if (s == rev) {
+            if (i % 2 == 0) {
+                ++result[0];
+            } else {
+                ++result[1];
             }
         }
-        return {even, odd};
     }
+    return result;
+}
+
+assert(even_odd_palindrome(1) == std::vector<int>{0, 1});
