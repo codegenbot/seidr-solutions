@@ -1,5 +1,6 @@
 ```cpp
 #include <string>
+#include <cstring>
 
 int my_strlen(std::string str){
     return str.length();
@@ -7,7 +8,6 @@ int my_strlen(std::string str){
 
 int main() {
     char input[] = "asdasnakj";
-    std::string str(input); 
-    str = std::string(input);
+    std::string str(input, strlen(input)); 
     assert(my_strlen(str) == 12);
 }
