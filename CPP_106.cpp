@@ -1,6 +1,22 @@
 #include <vector>
 #include <cassert>
 
+std::vector<int> f(int n);
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
+}
+
 std::vector<int> f(int n){
     std::vector<int> result(n);
     for(int i = 0; i < n; ++i){
@@ -19,25 +35,4 @@ std::vector<int> f(int n){
         }
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    std::vector<int> vec1 = f(5);
-    std::vector<int> vec2 = f(5);
-
-    assert(issame(vec1, vec2));
-    
-    return 0;
 }
