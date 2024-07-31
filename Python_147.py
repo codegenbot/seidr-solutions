@@ -1,4 +1,15 @@
-```python
 def get_max_triples(n):
-    """Return the maximum number of triples (a, b, c) that satisfy a^2 - a + 1 + b^2 - b + 1 + c^2 - c + 1 is divisible by 3."""
-    return sum((n*(n-1)*(2*n-1))//6 for _ in range(1, n+1))
+    a = [i * i - i + 1 for i in range(1, n + 1)]
+    count = 0
+    max_sum = 0
+    for i in range(len(a)):
+        for j in range(i, len(a)):
+            if j > i:
+                k = j - (j-i)
+            while k >= i:
+                total = a[i] + a[j] + a[k]
+                if total % 3 == 0:
+                    count += 1
+                    max_sum = max(max_sum, total)
+                k -= 1
+    return count, max_sum
