@@ -13,7 +13,8 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    std::cout << smallest_change(arr) << std::endl;
+    std::vector<int> arr = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+    int result = smallest_change(arr);
+    std::cout << "Smallest number of changes needed: " << result << std::endl;
     return 0;
 }
