@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> sumProduct(std::vector<int> numbers) {
+bool issame(std::vector<int> a, std::vector<int> b){
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
@@ -8,10 +8,6 @@ std::vector<int> sumProduct(std::vector<int> numbers) {
         product *= num;
     }
     return {sum, product};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
 }
 
 auto sum_product = sumProduct({10});
