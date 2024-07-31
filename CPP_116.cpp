@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -14,12 +13,14 @@ vector<int> sort_array(const vector<int>& arr) {
     sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
+        
         if (count_a != count_b) {
             return count_a < count_b;
         } else {
             return a < b;
         }
     });
+    
     return sorted_arr;
 }
 
