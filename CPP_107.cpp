@@ -2,24 +2,15 @@
 #include <algorithm>
 
 int issame(int a, vector<int> b) {
-    if (a == b[0]) {
-        return 1;
-    }
-    return 0;
-}
-
-vector<int> solve(int n) {
-    vector<int> result(2, 0);
-    for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev = num;
-        reverse(rev.begin(), rev.end());
-        if (num == rev) {
-            if (i % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
-            }
+    int result = 0;
+    string num = to_string(a);
+    string rev = num;
+    reverse(rev.begin(), rev.end());
+    if (num == rev) {
+        if (a % 2 == 0) {
+            result = b[0]++;
+        } else {
+            result = b[1]++;
         }
     }
     return result;
