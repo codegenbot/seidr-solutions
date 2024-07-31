@@ -1,4 +1,7 @@
+```
 #include <vector>
+#include <cassert>
+#include <ostream>
 #include <iostream>
 
 using namespace std;
@@ -23,10 +26,6 @@ int main() {
         cin >> x;
         lst.push_back(x);
     }
-    if (lst.empty()) {
-        cout << "Error: Input list is empty." << endl;
-    } else {
-        cout << solve(lst) << endl;
-    }
+    cout << solve(lst) << endl;
     return 0;
 }
