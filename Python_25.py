@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
 def factorize(n: int) -> List[int]:
     factors = []
