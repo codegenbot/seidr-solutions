@@ -1,8 +1,9 @@
 ```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string rounded_avg(int n,int m){
+string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
     for(int i = n; i <= m; i++) {
@@ -10,7 +11,7 @@ std::string rounded_avg(int n,int m){
     }
     double avg = (double)sum / (m - n + 1);
     int rounded = lround(avg);
-    std::string binary = "";
+    string binary = "";
     while(rounded > 0) {
         if(rounded & 1)
             binary = "1" + binary;
@@ -23,8 +24,12 @@ std::string rounded_avg(int n,int m){
 
 int main() {
     int n, m;
-    std::cout << "Enter the range (n,m): ";
-    std::cin >> n >> m;
-    std::cout << "The rounded average in binary is: " << rounded_avg(n, m) << std::endl;
+    cout << "Enter the range: ";
+    cin >> n >> m;
+    string result = rounded_avg(n,m);
+    if(result == "-1") 
+        cout << "Invalid input";
+    else
+        cout << "The average in binary is: " << result;
     return 0;
 }
