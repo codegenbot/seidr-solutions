@@ -1,4 +1,5 @@
-```cpp
+#include <memory>
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,9 +40,11 @@ int main() {
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<string> result;
+    std::vector<string> result; 
+    result.reserve(strings.size()); // Reserve space for elements
     for(string s : strings){
         if(s.find(substring) != string::npos)
             result.push_back(s);
     }
     return result;
+}
