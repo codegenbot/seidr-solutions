@@ -1,18 +1,16 @@
-```
 def prime_fib(n: int):
-    a, b = 0, 1
-    count = 0
-    while True:
-        a, b = b, a + b
-        if is_prime(b):
-            count += 1
-            if count == n:
-                return b
+    fib = [0, 1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
+    for num in fib[::-1]:
+        if is_prime(num):
+            return num
+
 
 def is_prime(num: int):
     if num < 2:
         return False
-    for i in range(2, int(num ** 0.5) + 1):
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
     return True
