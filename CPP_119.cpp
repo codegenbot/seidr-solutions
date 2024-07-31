@@ -1,5 +1,4 @@
 #include <cassert>
-#include <string>
 
 bool match_parens(char* parens) {
     int count = 0;
@@ -14,10 +13,6 @@ bool match_parens(char* parens) {
     return count == 0;
 }
 
-int main() {
-    assert(match_parens("()") == true);
-    assert(match_parens("((()))") == true);
-    std::string s = "())";
-    assert(!match_parens(s.c_str()));
-    return 0;
-}
+assert(match_parens((char*)"()") == true);
+assert(match_parens((char*)"(())") == true);
+assert(!match_parens((char*)")("));
