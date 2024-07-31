@@ -1,4 +1,4 @@
-include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -23,7 +23,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-int main {
+int main() {
     std::string s;
     int n;
     std::cin >> s >> n;
