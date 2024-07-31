@@ -1,10 +1,15 @@
-```cpp
-bool issame(std::vector<int> a,std::vector<int>b) {
-    if (strange_sort_vector(a) != strange_sort_vector(b))
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
@@ -13,9 +18,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
-    int min = *std::min_element(lst.begin(), lst.end());
-    int max = *std::max_element(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
+    int min = *min_element(lst.begin(), lst.end());
+    int max = *max_element(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         for (int i : lst) {
@@ -27,9 +32,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         }
 
         if (!lst.empty())
-            min = *std::min_element(lst.begin(), lst.end());
+            min = *min_element(lst.begin(), lst.end());
 
-        while (!lst.empty() && *std::min_element(lst.begin(), lst.end()) == min) {
+        while (!lst.empty() && *min_element(lst.begin(), lst.end()) == min) {
             for (int i : lst) {
                 if (i == max) {
                     result.push_back(i);
@@ -39,9 +44,22 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
             }
 
             if (!lst.empty())
-                max = *std::max_element(lst.begin(), lst.end());
+                max = *max_element(lst.begin(), lst.end());
         }
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+
+    if (issame(a,b)) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "The vectors are not the same." << std::endl;
+    }
+
+    return 0;
 }
