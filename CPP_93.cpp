@@ -1,10 +1,12 @@
-for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
-            }
-        }
-    }
+#include <string>
+
+string encode(string message);
+
+int main() {
+    // Main function code here
+}
+
+string encode(string message){
+    // Your implemented encode function code here
     return message;
 }
