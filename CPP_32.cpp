@@ -11,11 +11,11 @@ double poly(const std::vector<double>& coeffs, double x) {
 }
 
 double find_zero(const std::vector<double>& xs){
-    return xs[0] / xs[1];
+    return -xs[0] / xs[1];
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -3, 2}; 
+    std::vector<double> coeffs = {1, -3, 2}; // Example coefficients of the polynomial
     double solution;
     solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
