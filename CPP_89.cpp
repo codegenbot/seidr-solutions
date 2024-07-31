@@ -5,7 +5,7 @@ string encrypt(string s){
     string result = "";
     for(char& c : s){
         if(isalpha(c)){
-            char encrypted = c + 4;
+            char encrypted = c + 2 * 2;
             if(islower(c)){
                 if(encrypted > 'z'){
                     encrypted = 'a' + (encrypted - 'z' - 1);
