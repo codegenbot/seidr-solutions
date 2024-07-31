@@ -3,24 +3,26 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (!isPalindrome(str)) {
-        return false;
-    }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    return palindromic(str) && sum(q) <= w;
 }
 
-bool isPalindrome(string s) {
-    int left = 0, right = s.length() - 1;
-    while (left < right) {
-        if (s[left] != s[right]) {
+bool palindromic(string s) {
+    int start = 0;
+    int end = s.length() - 1;
+    while (start < end) {
+        if (s[start] != s[end]) {
             return false;
         }
-        left++;
-        right--;
+        start++;
+        end--;
     }
     return true;
+}
+
+int sum(vector<int> q) {
+    int total = 0;
+    for (int i : q) {
+        total += i;
+    }
+    return total;
 }
