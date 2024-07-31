@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
@@ -14,11 +13,11 @@ vector<int> order_by_points(vector<int> nums) {
             temp_b /= 10;
         }
         if (sum_a == sum_b) {
-            return a < b;
+            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
         }
         return sum_a < sum_b;
     });
     return nums;
 }
 
-assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+assert(order_by_points({0,6,6,-76,-21,23,4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
