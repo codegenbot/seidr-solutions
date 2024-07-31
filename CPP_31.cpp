@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -12,5 +13,8 @@ bool is_prime(int n) {
 }
 
 int main() {
-    cout << is_prime(13441 * 19) << endl;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << is_prime(num) << endl;
 }
