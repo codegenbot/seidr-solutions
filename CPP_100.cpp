@@ -20,4 +20,4 @@ int main() {
     cout << "Test passed!" << endl;
     
     return 0;
-}  
+}
