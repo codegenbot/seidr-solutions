@@ -1,17 +1,19 @@
+```cpp
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-const char* fix_spaces(const string& text) {
+const char* fix_spaces(const char* text) {
     bool isPrevSpace = false;
     string result = "";
-    for (char c : text) { 
-        if (c == ' ') {
+    for (unsigned int i = 0; i < strlen(text); i++) { 
+        if (text[i] == ' ') {
             if (!isPrevSpace) {
                 result += "_"; 
                 isPrevSpace = true;
             }
         } else {
-            result += c; 
+            result += text[i]; 
             isPrevSpace = false;
         }
     }
@@ -19,8 +21,8 @@ const char* fix_spaces(const string& text) {
 }
 
 int main() {
-    string text = "   Exa 1 2 2 mple"; // Change const char* to string
-    const char* fixed_text = fix_spaces(text);
-    cout << "Fixed string: " << fixed_text << endl;
+    const char* text = "   Exa 1 2 2 mple"; 
+    string result = fix_spaces(text);
+    cout << "Fixed string: " << result.c_str() << endl;
     return 0;
 }
