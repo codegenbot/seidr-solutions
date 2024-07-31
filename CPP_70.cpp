@@ -1,10 +1,12 @@
-#include <vector>
-using namespace std;
+#include <vector> 
+using namespace std; 
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -12,7 +14,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    // Add your test cases here to verify the function issame
-
+    // Add your main function code here
     return 0;
 }
