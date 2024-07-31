@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // Add missing header
 #include <vector>
 #include <algorithm>
 
@@ -39,7 +39,7 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         return x >= 0 && x < n && y >= 0 && y < n;
     };
     
-    function<void(int, int, int)> dfs = [&](int x, int y, int len){
+    function<void(int, int, int)> dfs = [&](int x, int y, int len){ // Define dfs as function
         path.push_back(grid[x][y]);
         if(len == k){
             return;
