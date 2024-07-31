@@ -1,23 +1,24 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
-int odd_count(const std::vector<std::string>& vec) {
-    int odd_count = 0;
-    for (const auto& str : vec) {
-        for (char c : str) {
-            if ((c - '0') % 2 != 0) {
-                odd_count++;
-            }
-        }
-    }
-    return odd_count;
+int count_odd(const std::string& str) {
+    return std::count_if(str.begin(), str.end(), [](char c) { return (c - '0') % 2 != 0; });
 }
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+std::vector<int> odd_count(const std::vector<std::string>& strs) {
+    std::vector<int> counts;
+    for (const auto& str : strs) {
+        counts.push_back(count_odd(str));
+    }
+    return counts;
+}
+
+bool is_same_elements(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(is_same({std::to_string(odd_count({"271", "137", "314"}))}, {"2", "3", "2"}));
+    assert(is_same_elements(odd_count({"271", "137", "314"}), {2, 3, 2}));
 }
