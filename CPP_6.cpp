@@ -1,18 +1,7 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> parse_nested_parens(std::string paren_string);
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> depths;
@@ -37,13 +26,14 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     return depths;
 }
 
-int main() {
-    std::string input = "( ( ) ( ) ) ( )";
-    std::vector<int> result = parse_nested_parens(input);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-    // Check if the output matches the expected vector
-    std::vector<int> expected_output = {2, 2};
-    std::assert(issame(result, expected_output));
+int main() {
+    std::vector<int> result = parse_nested_parens("() ((()) ())");
+    
+    assert(std::issame(parse_nested_parens("() ((()) ())"), {1, 3, 1}));
 
     return 0;
 }
