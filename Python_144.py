@@ -1,11 +1,14 @@
 ```
-def simplify(x, n):
-    x_parts = list(map(int, [0] + x.split("/")[1:]))
-    n_parts = list(map(int, [0] + n.split("/")[1:]))
+import math
 
-    if (x_parts[0] * n_parts[1]) % math.gcd(n_parts[1], x_parts[1]) == 0 and (
-        n_parts[0] * x_parts[1]
-    ) % math.gcd(x_parts[1], n_parts[1]) == 0:
+
+def simplify(x, n):
+    x_num, x_denom = map(int, [0] + list(map(int, x.replace('/', '.').split('.')[1].split('/'))))
+    n_num, n_denom = map(int, [0] + list(map(int, n.replace('/', '.').split('.')[1].split('/'))))
+
+    if (x_num * x_denom) % math.gcd(x_denom, n_denom) == 0 and (
+        n_num * n_denom
+    ) % math.gcd(n_denom, x_denom) == 0:
         return True
     else:
         return False
