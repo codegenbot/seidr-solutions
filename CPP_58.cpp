@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ int main() {
     vector<int> l2 = {2, 2, 3, 3, 4, 5, 6};
 
     vector<int> common = issame(l1, l2);
+
+    assert(issame({4, 3, 2, 8}, {}).empty());
 
     for (int num : common) {
         cout << num << " ";
