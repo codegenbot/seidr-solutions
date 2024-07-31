@@ -1,15 +1,11 @@
-int numDigits = log10(abs(num)) + 1;
-    int evenCount = 0, oddCount = 0;
-    
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0) {
-            evenCount++;
+string numStr = to_string(abs(num));
+    vector<int> count = {0, 0};
+    for (char c : numStr) {
+        if ((c - '0') % 2 == 0) {
+            count[0]++;
         } else {
-            oddCount++;
+            count[1]++;
         }
-        num /= 10;
     }
-    
-    return {evenCount, oddCount};
+    return count;
 }
