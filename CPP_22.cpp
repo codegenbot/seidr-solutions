@@ -10,6 +10,11 @@ bool issame(vector<int>& a, vector<int>& b){
     return a == b;
 }
 
+int main(){
+    assert(issame(filter_integers({3, std::any('c'), 3, 3, std::any('a'), std::any('b')}), {3, 3, 3}));
+    return 0;
+}
+
 vector<int> filter_integers(std::list<std::any> values){
     vector<int> result;
     for (const auto& val : values) {
@@ -18,9 +23,4 @@ vector<int> filter_integers(std::list<std::any> values){
         }
     }
     return result;
-}
-
-int main(){
-    assert(issame(filter_integers({3, std::any('c'), 3, 3, std::any('a'), std::any('b')}), {3, 3, 3}));
-    return 0;
 }
