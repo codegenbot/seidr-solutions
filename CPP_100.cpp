@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -14,6 +15,10 @@ vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
+}
+
+bool is_same(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
