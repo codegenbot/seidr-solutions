@@ -15,11 +15,12 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    std::string test_case1 = "Hello123";
-    std::string test_case2 = "12345";
+    std::string input;
     
-    std::cout << solve(test_case1) << std::endl;
-    std::cout << solve(test_case2) << std::endl;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::cout << solve(input) << std::endl;
     
     return 0;
 }
