@@ -1,4 +1,4 @@
-```
+```cpp
 #include <initializer_list>
 
 #include <algorithm>
@@ -26,4 +26,5 @@ int main() {
         numbers.push_back(num);
     }
     std::cout << "Median: " << median(numbers) << std::endl;
+    return 0;
 }
