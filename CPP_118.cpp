@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 bool isvowel(char c) {
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
