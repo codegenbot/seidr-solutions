@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-std::string correct_bracketing(std::string brackets) {
+bool correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
 
     for (char bracket : brackets) {
@@ -11,7 +11,7 @@ std::string correct_bracketing(std::string brackets) {
             bracket_stack.push(bracket);
         } else if (bracket == ')' || bracket == '}' || bracket == ']') {
             if (bracket_stack.empty()) {
-                return "Invalid input";
+                return false;
             }
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
@@ -19,40 +19,35 @@ std::string correct_bracketing(std::string brackets) {
             if ((opening_bracket == '(' && bracket != ')') ||
                 (opening_bracket == '{' && bracket != '}') ||
                 (opening_bracket == '[' && bracket != ']')) {
-                return "Invalid input";
+                return false;
             }
         }
     }
 
     if (!bracket_stack.empty()) {
-        std::string output;
         while (!bracket_stack.empty()) {
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
             switch (opening_bracket) {
                 case '(':
-                    output += ')';
-                    break;
+                    return false;
                 case '{':
-                    output += '}';
-                    break;
+                    return false;
                 case '[':
-                    output += ']';
-                    break;
+                    return false;
             }
         }
-        return output;
     } else {
-        return "Valid input";
+        return true;
     }
 }
 
 int main() {
-    if (correct_bracketing("<><><<><>><>>><>") == "Invalid input") { 
-        std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
-    } else {
-        std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
+    if (!correct_bracketing("<><><<><>><>>><>") ) { 
+        assert(false); 
     }
+    
+    std::cout << correct_bracketing("<><><<><>><>>><>" << std::endl;
     
     return 0;
 }
