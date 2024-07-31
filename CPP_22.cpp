@@ -1,5 +1,7 @@
+#include <c++17>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(std::vector<int> arr) {
     for (int i = 0; i < arr.size() - 1; i++) {
@@ -29,8 +31,11 @@ int main() {
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        assert(issame({3, 99, 3, 3, 97, 98})); 
-        assert(issame({3, 3, 3})); 
+        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
+        std::vector<int> testArr2 = {3, 3, 3};
+
+        assert(issame(std::vector<int>(testArr1.begin(), testArr1.end())));
+        assert(issame(testArr2));
     }
     return 0;
 }
