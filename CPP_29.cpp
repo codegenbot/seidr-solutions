@@ -12,22 +12,16 @@ bool issame(std::vector<std::pair<std::string, std::string>> a) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> filteredStrings;
+std::pair<std::string, std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     for (const auto& s : strings) {
         if (s.find(prefix) == 0)
-            filteredStrings.push_back(s);
+            return {prefix, s};
     }
-    return filteredStrings;
+    return {"", ""};
 }
 
 int main() {
-    std::vector<std::pair<std::string, std::string>> a = {{"xxx", "xxx"}, {"xxxxAA", "xxxAAA"}};
-    assert(issame(a));
-    std::vector<std::string> strings = {"hello", "hell", "world"};
-    std::vector<std::string> filteredStrings = filter_by_prefix(strings, "hel");
-    for (const auto& s : filteredStrings) {
-        std::cout << s << std::endl;
-    }
+    std::pair<std::string, std::string> filteredPair = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx");
+    assert(issame({{filteredPair.first, filteredPair.second}}));
     return 0;
 }
