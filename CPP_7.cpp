@@ -24,7 +24,8 @@ int main() {
     std::string substring;
     std::cin >> substring;
 
-    if (!issame(strings, {"grunt", "prune"})) {
+    std::vector<std::string> list = { "grunt", "prune" };
+    if (!issame(strings, list)) {
         assert(false);
     }
 
@@ -38,9 +39,11 @@ int main() {
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+    std::vector<string> result; 
+    result.reserve(strings.size()); // Reserve space for elements
     for(string s : strings){
         if(s.find(substring) != string::npos)
             result.push_back(s);
     }
     return result;
+}
