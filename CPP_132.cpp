@@ -8,8 +8,8 @@ bool is_nested(string str) {
         if (c == '[') {
             count++;
         } else if (c == ']') {
-            if (count > 1) return true;
-            count--;
+            if (count > 0) count--;
+            else return true;
         }
     }
-    return false;
+    return count != 0;
