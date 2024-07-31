@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -12,8 +12,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> numbers = {12, 13, 14, 15, 16, 17, 18, 19, 20};
-    int result = specialFilter(numbers);
-    std::cout << "The number of integers that satisfy the condition is: " << result << std::endl;
+    assert(specialFilter({}) == 0);
+    // Add your test cases here
     return 0;
 }
