@@ -1,25 +1,32 @@
-```cpp
 #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
 
 string anti_shuffle(const string& str) {
-    if (str.length() <= 1 || !str.find(" ")) {
+    if (str.length() <= 1) {
         return str;
     }
-    for(int i = 1; i < str.length(); ++i) {
-        if (str[i] == ' ') { 
+    int n = str.length();
+    for(int i = 0; i < n; ++i) {
+        if(str[i] == ' ') { 
             return "";
         }
     }
-    return str;
+    string result = str;
+    for(int i = 1; i < n; ++i) {
+        int j = rand() % (i + 1);
+        char temp = result[j];
+        result[j] = result[i];
+        result[i] = temp;
+    }
+    return result;
 }
 
-int main() { 
-    string str = ""; 
-    cout << "Enter a string: ";
-    getline(cin, str);
-    const char* result = anti_shuffle(str).c_str();
-    if(result=="")cout<<"No valid shuffle found."<<endl;
-    else cout << "Result: " << result << endl;
+int main() {
+    srand(time(0));
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
