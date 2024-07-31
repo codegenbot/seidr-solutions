@@ -1,32 +1,33 @@
 #include <iostream>
-#include <any>
 #include <cassert>
+#include <variant>
+#include <string>
 
-std::any compare_one(const std::any& a, const std::any& b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
+std::variant<int, float, std::string> compare_one(const std::variant<int, float, std::string>& a, const std::variant<int, float, std::string>& b) {
+    if(a.index() == 0 && b.index() == 0){
+        if(std::get<int>(a) > std::get<int>(b)){
             return a;
-        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
+        } else if(std::get<int>(a) < std::get<int>(b)){
             return b;
         }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
+    } else if(a.index() == 1 && b.index() == 1){
+        if(std::get<float>(a) > std::get<float>(b)){
             return a;
-        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
+        } else if(std::get<float>(a) < std::get<float>(b)){
             return b;
         }
-    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        if(std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))){
+    } else if(a.index() == 2 && b.index() == 2){
+        if(std::stof(std::get<std::string>(a)) > std::stof(std::get<std::string>(b))){
             return a;
-        } else if(std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))){
+        } else if(std::stof(std::get<std::string>(a)) < std::stof(std::get<std::string>(b))){
             return b;
         }
     }
-    return std::any();
+    return std::variant<int, float, std::string>();
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)).empty());
+    assert (std::get<std::string>(compare_one(std::string("1"), 1)).empty());
     
     return 0;
 }
