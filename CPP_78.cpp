@@ -14,7 +14,7 @@ int stringToHex(const std::string& s) {
     return result;
 }
 
-int main() {
+int testFunction() {
     assert(stringToHex("") == 0);
     return 0;
 }
