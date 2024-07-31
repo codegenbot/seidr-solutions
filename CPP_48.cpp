@@ -1,6 +1,3 @@
-#include <string>
-#include <cassert>
-
 bool is_palindrome(std::string text){
     int start = 0;
     int end = text.length() - 1;
@@ -13,3 +10,4 @@ bool is_palindrome(std::string text){
     }
 
     return true;
+}
