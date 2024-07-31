@@ -1,20 +1,16 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    
-    if (str != reverse(str).toString()) {
-        return false;
+    if (!str.compare(0, str.length(), to_string(rbegin(str)))) {
+        int sum = 0;
+        for (int i : q) {
+            sum += i;
+        }
+        return sum <= w;
     }
-
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-
-    return sum <= w;
+    return false;
 }
