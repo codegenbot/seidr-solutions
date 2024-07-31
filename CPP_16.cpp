@@ -1,12 +1,12 @@
-#include <iostream>
 #include <cctype>
 #include <cstring>
 #include <string>
+#include <iostream>
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    while ((std::cin >> std::ws).peek() == '\n') 
+    while (std::cin.peek() == '\n') 
         std::cin.ignore();
     char buffer[256]; // or any size that fits your needs
     std::cin.getline(buffer, 256); 
@@ -19,7 +19,7 @@ int count_distinct_characters(const std::string& str) {
     bool seen[256] = {false}; // assume ASCII
 
     for (int i = 0; i < str.length(); ++i) {
-        char c = tolower((unsigned char)str[i]);
+        char c = tolower(str[i]);
         if (!std::isalpha(c)) {
             continue; 
         }
