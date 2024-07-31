@@ -1,13 +1,12 @@
+#include <vector>
 #include <algorithm>
 #include <cassert>
-#include <vector>
 
-bool issame(int a, int b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, -23, 243, -400, 0};
-    assert(issame(*std::max_element(numbers.begin(), numbers.end()), 0));
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{0}));
     return 0;
 }
