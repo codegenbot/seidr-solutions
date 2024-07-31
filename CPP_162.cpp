@@ -1,21 +1,28 @@
-Here is the solution:
-
-```cpp
-#include<string>
-#include<openssl/md5.h>
+#include <iostream>
+#include <string>
+#include <crypto++/md5.h>
 
 using namespace std;
+using namespace CryptoPP;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5(text.c_str(), text.length(), md5);
-
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)md5[i];
+    
+    MD5 hash;
+    string result;
+    
+    const char* str = text.c_str();
+    size_t len = strlen(str);
+    byte digest[MD5::DIGEST_SIZE];
+    
+    hash.Update((byte*)str, len);
+    hash.Final(digest);
+    
+    for (int i = 0; i < MD5::DIGEST_SIZE; i++) {
+        stringstream ss;
+        ss << setfill('0') << setw(2) << hex << (int)digest[i];
+        result += ss.str();
     }
-
-    return ss.str();
+    
+    return result;
 }
