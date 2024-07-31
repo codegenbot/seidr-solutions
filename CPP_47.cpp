@@ -1,7 +1,7 @@
+```
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 double median(std::vector<int> numbers) {
     std::sort(numbers.begin(), numbers.end());
@@ -29,3 +29,4 @@ int main() {
     std::cout << "The median of the given array is: " << result << std::endl;
 
     return 0;
+}
