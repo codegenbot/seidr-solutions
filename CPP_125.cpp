@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin());
-}
-
 vector<string> split_words(string txt) {
     vector<string> words;
     string word;
@@ -30,6 +26,6 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), vector<string>({ "" })));
+    assert(split_words("") == vector<string>({ "" }));
     return 0;
 }
