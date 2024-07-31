@@ -2,15 +2,22 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+    return a == b;
+}
+
+vector<string> bf(string planet1, string planet2);
+
+int main() {
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+
+    vector<string> result = bf(planet1, planet2);
+
+    for (const auto& planet : result) {
+        cout << planet << " ";
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+
+    return 0;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -39,14 +46,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    vector<string> result = bf("Earth", "Jupiter");
-    for (const auto& planet : result) {
-        cout << planet << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
