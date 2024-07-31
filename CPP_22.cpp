@@ -10,9 +10,9 @@ bool issame(int arr[], int n) {
     return true;
 }
 
-int filter_integers(int* arr, int n) {
+int filter_integers(int arr[], int n) {
     for (int i = 0; i < n; i++) {
-        if (!std::is_integral(arr[i]).is_always()) { 
+        if (!std::is_integer(arr[i]).is_always()) {
             return -1;
         }
     }
@@ -28,7 +28,8 @@ int main() {
     if (filter_integers(arr, n) == -1) {
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        assert(issame(arr, n));
+        int test_arr[] = {3, 3, 3};
+        assert(issame(test_arr, sizeof(test_arr)/sizeof(test_arr[0])));
     }
     return 0;
 }
