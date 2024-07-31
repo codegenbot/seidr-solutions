@@ -9,16 +9,18 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int i = 0;
     while (i < l.size()) {
+        if (i % 3 == 0 && i != 0) {
+            sort(result.begin(), result.end());
+        }
         if (i % 3 == 0) {
             result.clear();
         }
-        result.push_back(l[i]);
-        i++;
-        
-        if (result.size() > 1) {
-            sort(result.begin(), result.end());
+        if (result.capacity() > 0) { 
+            result.push_back(l[i]);
         }
+        i++;
     }
+    sort(result.begin(), result.end());
     return result;
 }
 
