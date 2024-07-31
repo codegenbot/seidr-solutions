@@ -1,9 +1,10 @@
 #include <cstring>
+#include <string>
 
-int findStringLength(const std::string& str) {
-    return std::strlen(str.c_str());
+int calculateStringLength(const std::string& str) {
+    return str.length();
 }
 
 int main() {
-    assert(strlen("asdasnakj") == 9);
+    assert (calculateStringLength("asdasnakj") == 9);
 }
