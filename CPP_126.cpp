@@ -1,15 +1,12 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-bool is_sorted_and_unique(const vector<int>& lst) {
-    return unique(lst.begin(), lst.end()) == lst.end() && is_sorted(lst.begin(), lst.end());
-}
-
-int main() {
-    assert(is_sorted_and_unique({1, 2, 3, 4}) == true);
+bool is_sorted(vector<int>& lst) {
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
     
-    return 0;
+    for (int i = 1; i < sorted_lst.size(); ++i) {
+        if (sorted_lst[i] == sorted_lst[i - 1]) {
+            return false;
+        }
+    }
+    
+    return lst == sorted_lst;
 }
