@@ -1,4 +1,6 @@
-int count_upper(string s) {
+#include <string>
+
+int count_upper(const std::string& s) {
     int count = 0;
     for (int i = 0; i < s.length(); i += 2) {
         char c = s[i];
@@ -7,9 +9,4 @@ int count_upper(string s) {
         }
     }
     return count;
-}
-
-int main() {
-    // Main function can use count_upper function
-    return 0;
 }
