@@ -1,9 +1,10 @@
+```
 #include <initializer_list>
 #include <stack>
 #include <string>
-#include <cassert>
+#include <iostream>
 
-void correct_bracketing(std::string brackets) {
+bool correct_bracketing(std::string brackets) {
     std::stack<char> bracket_stack;
 
     for (char bracket : brackets) {
@@ -11,7 +12,7 @@ void correct_bracketing(std::string brackets) {
             bracket_stack.push(bracket);
         } else if (bracket == ')' || bracket == '}' || bracket == ']') {
             if (bracket_stack.empty()) {
-                return;
+                return false;
             }
             char opening_bracket = bracket_stack.top();
             bracket_stack.pop();
@@ -19,7 +20,7 @@ void correct_bracketing(std::string brackets) {
             if ((opening_bracket == '(' && bracket != ')') ||
                 (opening_bracket == '{' && bracket != '}') ||
                 (opening_bracket == '[' && bracket != ']')) {
-                return;
+                return false;
             }
         }
     }
@@ -30,22 +31,16 @@ void correct_bracketing(std::string brackets) {
             bracket_stack.pop();
             switch (opening_bracket) {
                 case '(':
-                    return;
+                    return false;
                 case '{':
-                    return;
+                    return false;
                 case '[':
-                    return;
+                    return false;
             }
         }
     } else {
-        return;
+        return true;
     }
 }
 
-int main() {
-    if (!correct_bracketing("<><><<><>><>>><>") ) { 
-        assert(false); 
-    }
-    
-    return 0;
-}
+std::cout << (correct_bracketing("<><><<><>><>>><>") ? "Correct" : "Incorrect"); std::endl;
