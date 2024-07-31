@@ -5,10 +5,10 @@ struct SumProduct {
     int product;
 };
 
-SumProduct issame(std::vector<int> a, std::vector<int> b) {
+SumProduct sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
-    for (int num : a) {
+    for (int num : numbers) {
         sum += num;
         product *= num;
     }
