@@ -29,7 +29,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return equal(a.begin(), a.end(), b.begin());
 }
 
-int contest_solution(){
+int main() {
     assert(issame(split_words(""), {}));
     assert(issame(split_words("Hello World"), {"Hello", "World"}));
     
