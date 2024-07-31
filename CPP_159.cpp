@@ -5,13 +5,11 @@ std::vector<int> eat(int a, int b, int c){
     return {b, a - c};
 }
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b){
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main(){
-    assert(std::issame(eat(4, 5, 1), {5, 3}));
+    assert(issame(eat(4, 5, 1), {5, 3}));
     return 0;
 }
