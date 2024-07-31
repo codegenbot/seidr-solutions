@@ -13,7 +13,10 @@ std::vector<int> removeDuplicates(std::vector<int> l){
 }
 
 int main(){
-    std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    assert(issame(removeDuplicates(input), {0, 2, 3, 5, 9, 123}));
+    std::vector<int> inputVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    std::vector<int> expectedVec = {0, 2, 3, 5, 9, 123};
+    
+    assert(issame(removeDuplicates(inputVec), expectedVec));
+    
     return 0;
 }
