@@ -1,10 +1,11 @@
-if(array.size() == 0)
-        return array;
+if(array.empty()) return array;
     
-    if((array[0] + array[array.size() - 1]) % 2 == 0)
+    int sum = array.front() + array.back();
+    if(sum % 2 == 0){
         sort(array.rbegin(), array.rend());
-    else
+    } else {
         sort(array.begin(), array.end());
+    }
     
     return array;
 }
