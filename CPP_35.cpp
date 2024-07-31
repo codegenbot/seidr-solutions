@@ -2,28 +2,28 @@
 #include <vector>
 #include <algorithm>
 
-void readInput(std::vector<int>& input) {
+int n;
+
+void readInput() {
     std::cout << "Enter the number of elements: ";
-    int n;
     std::cin >> n;
-
-    input.resize(n);
-
-    for(int i = 0; i < n; i++) {
-        int temp;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> temp;
-        input[i] = temp;
-    }
 }
 
 int main() { 
-    std::vector<int> input;
-    readInput(input);
+    readInput();
 
-    if(input.size() == 0) {
+    if(n == 0) {
         std::cout << "No elements entered. Please try again." << std::endl;
     } else {
+        std::vector<int> input(n); 
+
+        for(int i = 0; i < n; i++) {
+            int temp;
+            std::cout << "Enter element " << (i+1) << ": ";
+            std::cin >> temp;
+            input[i] = temp; 
+        }
+
         int max_element = *std::max_element(input.begin(), input.end());
         std::cout << "Maximum element is: " << max_element << std::endl;
 
