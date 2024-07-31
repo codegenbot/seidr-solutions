@@ -1,7 +1,13 @@
-string string_xor(const string& a, const string& b) {
+#include <string>
+
+string string_xor(string a, string b){
     string result = "";
-    for (size_t i = 0; i < a.size(); i++) {
-        result += (a[i] != b[i]) ? '1' : '0';
+    for(int i=0; i<a.size(); i++){
+        if(a[i] == b[i]){
+            result += "0";
+        } else {
+            result += "1";
+        }
     }
     return result;
 }
