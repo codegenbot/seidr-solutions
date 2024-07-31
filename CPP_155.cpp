@@ -1,13 +1,38 @@
-vector<int> counts = {0, 0};
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> even_odd_count(int num);
+
+int main() {
+    int num;
+    cin >> num;
     
-    while (num != 0) {
-        if ((num % 10) % 2 == 0) {
-            counts[0]++;
-        } else {
-            counts[1]++;
-        }
-        num /= 10;
+    vector<int> result = even_odd_count(num);
+    
+    for(int i : result){
+        cout << i << " ";
     }
     
-    return counts;
+    return 0;
+}
+
+vector<int> even_odd_count(int num){
+    vector<int> result(2, 0);
+    string num_str = to_string(abs(num));
+    
+    for(char c : num_str){
+        if((c - '0') % 2 == 0){
+            result[0]++;
+        } else {
+            result[1]++;
+        }
+    }
+    
+    return result;
 }
