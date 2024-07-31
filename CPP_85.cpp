@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,7 +22,7 @@ int main() {
         }
     }
 
-    std::vector<unsigned int> lst(n);
+    std::vector<unsigned int> lst(lst.size());
     for(unsigned int i = 0; i < n; i++){
         unsigned int num;
         while (!(std::cin >> num)) { 
