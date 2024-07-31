@@ -1,33 +1,41 @@
 #include <iostream>
 #include <map>
-#include <algorithm>
 #include <cassert>
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> freq;
-    for (char c : test) {
-        if (std::isalpha(c) && std::islower(c)) {
-            freq[c]++;
-        }
-    }
-    int maxFreq = 0;
-    for (const auto& p : freq) {
-        maxFreq = std::max(maxFreq, p.second);
-    }
-    std::map<char, int> result;
-    for (const auto& p : freq) {
-        if (p.second == maxFreq) {
-            result[p.first] = p.second;
-        }
-    }
-    return result;
+using namespace std;
+
+map<char, int> histogram(string test); // Forward declaration
+
+bool issame(const map<char, int>& a, const map<char, int>& b) { 
+    return a == b;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
-    return a == b;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    map<char, int> count;
+
+    for (char c : test) {
+        if (c != ' ') {
+            count[c]++;
+        }
+    }
+
+    int maxCount = 0;
+    for (const auto &entry : count) {
+        maxCount = max(maxCount, entry.second);
+    }
+
+    for (const auto &entry : count) {
+        if (entry.second == maxCount) {
+            result[entry.first] = entry.second;
+        }
+    }
+
+    return result;
 }
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+    
     return 0;
 }
