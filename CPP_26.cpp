@@ -3,8 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
@@ -17,22 +15,22 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool Same(std::vector<int> a, std::vector<int> b) {  
     return areVectorsEqual(a, b);
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    if (!issame(numbers, {1, 2, 3, 4, 5})) {
-        cout << "Test failed" << endl;
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    if (!Same(numbers, {1, 2, 3, 4, 5})) {
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    if (!issame(numbers, {1, 2, 3, 4, 5})) {
-        cout << "Test failed" << endl;
+    if (!Same(numbers, {1, 2, 3, 4, 5})) {
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(Same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
 }
