@@ -20,20 +20,12 @@ int main() {
     string str;
     getline(cin, str);
     
-    int num = 0;
-    bool inNum = false;
     for (char c : str) {
-        if (!isdigit(c)) {
-            inNum = false;
-        } else if (inNum) {
-            num = num * 10 + (c - '0');
-        } else {
-            inNum = true;
-        }
-        
-        if (!inNum) {
+        if (isdigit(c)) {
+            int num = c - '0';
             lst.push_back(num);
-            num = 0;
+        } else {
+            break; 
         }
     }
     
