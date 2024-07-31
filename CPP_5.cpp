@@ -1,16 +1,17 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> intersperse(std::vector<int> vec, int elem) {
+std::vector<int> intersperse(const std::vector<int>& vec, int value) {
     std::vector<int> result;
-    for (int i = 0; i < vec.size(); ++i) {
-        result.push_back(vec[i]);
-        result.push_back(elem);
+    for (int num : vec) {
+        result.push_back(num);
+        result.push_back(value);
     }
+    result.pop_back();
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
