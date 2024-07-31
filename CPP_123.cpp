@@ -1,4 +1,5 @@
 #include <vector>
+
 bool issame(vector<int> a, vector<int> b) {
     vector<int> result;
     while (n != 1) {
