@@ -1,23 +1,19 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-vector<int> f(int n) {
-    vector<int> result(n);
-    for (int i = 0; i < n; ++i) {
-        result[i] = (i % 2 == 0) ? (i == 0 ? 1 : result[i - 1] * i) : (i * (i + 1) / 2);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
-    cout << "Test passed successfully!" << endl;
-    return 0;
+    std::vector<int> expected = {1, 2, 6};
+    std::vector<int> result = f(3);
+    assert(issame(result, expected));
 }
