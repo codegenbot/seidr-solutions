@@ -1,23 +1,19 @@
-string solve(string s){
-    string result = "";
-    bool hasLetter = false;
-    
-    for(char c : s){
-        if(isalpha(c)){
-            hasLetter = true;
-            if(islower(c)){
-                result += toupper(c);
+for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
             } else {
-                result += tolower(c);
+                s[i] = tolower(s[i]);
             }
-        } else {
-            result += c;
         }
     }
     
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
     }
     
-    return result;
+    return s;
 }
