@@ -1,13 +1,11 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-int next_smallest(std::vector<int> lst){
-    if (lst.size() < 2) {
-        return -1;
-    }
-    std::vector<int> sorted_lst = lst;
-    std::sort(sorted_lst.begin(), sorted_lst.end());
-    int smallest = sorted_lst[0];
-    for (int num : sorted_lst) {
+int next_smallest(std::vector<int> lst) {
+    std::sort(lst.begin(), lst.end());
+    int smallest = lst[0];
+    for (int num : lst) {
         if (num > smallest) {
             return num;
         }
@@ -16,7 +14,8 @@ int next_smallest(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input = {5, 2, 7, 3, 8};
-    int result = next_smallest(input);
+    std::vector<int> numbers = {5, 2, 8, 3, 1};
+    int result = next_smallest(numbers);
+    std::cout << "Next smallest number is: " << result << std::endl;
     return 0;
 }
