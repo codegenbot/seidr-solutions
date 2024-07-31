@@ -20,9 +20,9 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<float>(compare_one(std::any(1.5f), std::any(2.3f))).type() == typeid(float));
-    assert(std::any_cast<float>(compare_one(std::any(std::to_string(1.5f)), std::any(std::to_string(2.3f))).type() == typeid(float));
+    assert(std::any_cast<float>(std::any_cast<std::any>(compare_one(std::any(1.5f), std::any(2.3f))).type()).type() == typeid(float));
+    assert(std::any_cast<float>(std::any_cast<std::any>(compare_one(std::any(std::to_string(1.5f)), std::any(std::to_string(2.3f)))).type()).type() == typeid(float));
     assert(compare_one(std::any(std::to_string(1)), std::any(1)).type() == typeid(std::any));
-    assert(!std::any_cast<std::any>(compare_one(std::any(std::string("1")), std::any(std::string("2")))).has_value());
+    assert(std::any_cast<std::string>(compare_one(std::any(std::string("1")), std::any(std::string("2"))).has_value() == false);
     return 0;
 }
