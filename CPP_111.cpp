@@ -1,10 +1,22 @@
 #include <iostream>
-#include <map>
 #include <sstream>
 #include <cassert>
+#include <map>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) { 
-    return a == b; 
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
+}
+
+std::map<char, int> histogram(std::string test);
+
+int main() {
+    std::string test;
+    std::getline(std::cin, test);
+    std::map<char, int> result = histogram(test);
+    for (const auto& pair : result) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
 }
 
 std::map<char, int> histogram(std::string test){
@@ -27,12 +39,4 @@ std::map<char, int> histogram(std::string test){
         }
     }
     return maxChars;
-}
-
-int main() {
-    std::string test = "hello world";
-    std::map<char, int> result = histogram(test);
-    assert(issame(result, std::map<char, int>{{'l', 3}, {'o', 2}}));
-    
-    return 0;
 }
