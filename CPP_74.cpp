@@ -3,23 +3,27 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+std::vector<std::string> chooseList(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int totalChars1 = 0;
-    for (std::string str : a) {
+    for (std::string str : lst1) {
         totalChars1 += str.size();
     }
 
     int totalChars2 = 0;
-    for (std::string str : b) {
+    for (std::string str : lst2) {
         totalChars2 += str.size();
     }
 
-    return totalChars1 == totalChars2;
+    if (totalChars1 < totalChars2) {
+        return lst1;
+    } else {
+        return lst2;
+    }
 }
 
 int main() {
-    assert(issame({"hello", "world"}, {"hi", "there"}));
-    assert(!issame({"apple", "orange"}, {"banana"}));
+    assert(chooseList({"hello", "world"}, {"hi", "there"}) == std::vector<std::string>{"hi", "there"});
+    assert(chooseList({"apple", "orange"}, {"banana"}) == std::vector<std::string>{"apple", "orange"});
 
     return 0;
 }
