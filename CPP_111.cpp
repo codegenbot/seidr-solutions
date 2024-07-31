@@ -3,10 +3,14 @@
 #include <algorithm>
 #include <cassert>
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    istringstream iss(test);
-    string word;
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
+}
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::istringstream iss(test);
+    std::string word;
     while (iss >> word) {
         for (char& c : word) {
             result[c]++;
@@ -16,17 +20,13 @@ map<char, int> histogram(string test) {
     for (const auto& entry : result) {
         maxCount = std::max(maxCount, entry.second);
     }
-    map<char, int> mostRepeated;
+    std::map<char, int> mostRepeated;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
             mostRepeated[entry.first] = entry.second;
         }
     }
     return mostRepeated;
-}
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
 }
 
 int main() {
