@@ -16,4 +16,6 @@ bool match_parens(const char* parens) {
     return count == 0;
 }
 
-std::cout << (match_parens("(()))") ? "Valid" : "Invalid";
+int main() {
+    std::cout << (match_parens("(()))") ? "Valid" : "Invalid";
+}
