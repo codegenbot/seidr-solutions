@@ -1,6 +1,5 @@
 def get_max_triples(n):
     max_sum = 0
-    count = 0
     for k in range(1, n + 1):
         a = k * k - k + 1
         d = 2 * k - 1
@@ -13,4 +12,6 @@ def get_max_triples(n):
             count = 1
         elif total == max_sum:
             triples_count += 1
-    return count, max_sum
+        else:
+            count = 0
+    return max_sum, triples_count
