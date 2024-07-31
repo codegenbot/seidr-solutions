@@ -1,13 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> make_a_pile(int n) {
     vector<int> result;
     result.push_back(n);
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i<n; i++) {
         if (n % 2 == 0) {
             n += 2;
         } else {
@@ -16,10 +20,6 @@ vector<int> make_a_pile(int n) {
         result.push_back(n);
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
