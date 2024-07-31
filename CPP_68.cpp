@@ -1,18 +1,21 @@
+#include<stdio.h>
+#include<vector>
+using namespace std;
 vector<int> pluck(vector<int> arr){
     vector<int> result;
-    int smallestEven = -1;
-    int smallestIndex = -1;
+    int minEven = INT_MAX;
+    int minEvenIndex = -1;
     
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && (smallestEven == -1 || arr[i] < smallestEven)) {
-            smallestEven = arr[i];
-            smallestIndex = i;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minEvenIndex = i;
         }
     }
     
-    if (smallestEven != -1) {
-        result.push_back(smallestEven);
-        result.push_back(smallestIndex);
+    if (minEvenIndex != -1) {
+        result.push_back(minEven);
+        result.push_back(minEvenIndex);
     }
     
     return result;
