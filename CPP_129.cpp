@@ -1,11 +1,18 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result;
-    for(int i=0; i<k; i++){
-        for(int j=0; j<grid.size(); j++){
-            for(int l=0; l<grid[j].size(); l++){
-                result.push_back(grid[j][l]);
-            }
-        }
-    }
-    return result;
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(int a, int b) {
+    return a == b;
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k);
+
+int main() {
+    // Your code here
+}
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    // Your code here
 }
