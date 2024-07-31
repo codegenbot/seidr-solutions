@@ -1,13 +1,14 @@
-int openCount = 0;
-for (char c : brackets) {
-    if (c == '(') {
-        openCount++;
-    } else if (c == ')') {
-        if (openCount == 0) {
+bool correct_bracketing(string brackets){
+    int balance = 0;
+    for(auto bracket : brackets){
+        if(bracket == '('){
+            balance++;
+        } else {
+            balance--;
+        }
+        if(balance < 0){
             return false;
         }
-        openCount--;
     }
-}
-return openCount == 0;
+    return balance == 0;
 }
