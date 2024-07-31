@@ -22,7 +22,7 @@ const char* fix_spaces(const char* text) {
 
 int main() {
     const char* text = "   Exa 1 2 2 mple"; 
-    string result = fix_spaces(text);
-    cout << "Fixed string: " << result.c_str() << endl;
+    string fixed_text = fix_spaces(text);
+    cout << "Fixed string: " << fixed_text << endl;
     return 0;
 }
