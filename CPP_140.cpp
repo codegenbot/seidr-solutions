@@ -1,18 +1,25 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result += "-";
-                count = 0;
-            } else {
-                result += "_";
+string fix_spaces(string text){
+    string result;
+    bool consecutiveSpaces = false;
+
+    for(char& c : text){
+        if(c == ' '){
+            if(!consecutiveSpaces){
+                result += '_';
+                consecutiveSpaces = true;
             }
         } else {
+            if(consecutiveSpaces){
+                result += '-';
+                consecutiveSpaces = false;
+            }
             result += c;
-            count = 0;
         }
     }
+
+    if(consecutiveSpaces){
+        result += '-';
+    }
+
     return result;
 }
