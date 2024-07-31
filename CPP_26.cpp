@@ -21,10 +21,6 @@ bool areVectorsSame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(areVectorsSame({1, 2}, {1, 2}) && areVectorsSame({1, 2}, {2, 1}));
-    assert(checkForEquality(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(areVectorsSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
-}
-
-bool checkForEquality(std::vector<int> a, std::vector<int> b) {
-    return areVectorsEqual(a, b);
 }
