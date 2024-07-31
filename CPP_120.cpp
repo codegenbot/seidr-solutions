@@ -4,10 +4,8 @@
 #include <functional>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
@@ -17,7 +15,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(std::issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>()));
     
     return 0;
 }
