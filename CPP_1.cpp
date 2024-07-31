@@ -1,10 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
@@ -19,9 +16,9 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             }
         } else if (c == ')') {
             count--;
-            if (count > 0) {
+            if (count >= 1) {
                 current_group += c;
-            } else if (count == 0) {
+            } else {
                 result.push_back(current_group);
                 current_group.clear();
             }
@@ -32,6 +29,6 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == std::vector<std::string>{"()", "(())", "(()())"});
     return 0;
 }
