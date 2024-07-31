@@ -1,5 +1,5 @@
 #include <string>
-#include <algorithm> 
+#include <algorithm>
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
