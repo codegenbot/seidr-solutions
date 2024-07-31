@@ -1,11 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
-    // Add your implementation here
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -34,6 +28,17 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    // Test your functions here
+    string input;
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+    vector<string> test_groups = separate_paren_groups(input);
+
+    if (issame(groups, test_groups)) {
+        cout << "Groups are the same\n";
+    } else {
+        cout << "Groups are different\n";
+    }
+
     return 0;
 }
