@@ -7,4 +7,4 @@ def compare_one(a, b):
     elif isinstance(a, str) and isinstance(b, str):
         return a if a > b else None
     else:
-        return max(a, b) if a != b else None
+        return a if a > b else None
