@@ -21,6 +21,5 @@ int main() {
     vector<double> coeffs = {1, -2, 1};
     double solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
-    // Output solution or use it for further computation
     return 0;
 }
