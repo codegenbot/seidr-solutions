@@ -1,8 +1,12 @@
-#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
-vector<string> processString(string txt) {
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
