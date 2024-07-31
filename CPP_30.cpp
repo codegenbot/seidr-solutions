@@ -28,15 +28,15 @@ void printResult() {
     }
 
     if (!input.empty()) {
-        std::vector<float> positive = getPositive(input);
-        if (issame(positive, input)) {
-            std::cout << "All numbers are the same." << std::endl;
-        } else if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
-            std::cout << "All numbers are positive." << std::endl;
-        } else {
-            std::cout << "Not all numbers are positive." << std::endl;
-        }
+        
+    }
+    std::vector<float> positive = getPositive(input);
+    if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
+        std::cout << "All numbers are positive." << std::endl;
     } else {
+        std::cout << "Not all numbers are positive." << std::endl;
+    }
+    if (input.empty()) {
         std::cout << "No input provided. Please enter some numbers!" << std::endl;
     }
 }
