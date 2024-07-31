@@ -1,10 +1,3 @@
-#include <algorithm>
-#include <functional>
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
-}
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -15,8 +8,8 @@ map<char, int> histogram(string test) {
         ++result[c];
     }
 
-    char maxLetter = *max_element(result.begin(), result.end(),
-                                    [](pair<char, int> a, pair<char, int> b) { return a.second < b.second; });
+    auto maxLetter = *std::max_element(result.begin(), result.end(),
+                                       [](const auto& a, const auto& b) { return a.second < b.second; });
     int maxCount = result[maxLetter];
 
     map<char, int> maxResult;
