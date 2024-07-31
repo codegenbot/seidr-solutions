@@ -45,5 +45,4 @@ int main() {
     if (!correct_bracketing("<><><<><>><>>><>")) {
         std::cout << "Invalid bracketing" << std::endl;
     }
-    return 0;
 }
