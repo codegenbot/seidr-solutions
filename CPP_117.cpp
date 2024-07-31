@@ -1,29 +1,35 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
-    string word = "";
-    int consonants = 0;
-    for (char c : s) {
-        if (c != ' ') {
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                consonants++;
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> select_words(string str, int index) {
+    vector<string> words;
+    string word;
+    for (char c : str) {
+        if (isspace(c)) {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
-            word += c;
         } else {
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonants = 0;
+            word += c;
         }
     }
     
-    if (consonants == n) {
-        result.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
     }
     
-    return result;
+    if (index < 0 || index >= words.size()) {
+        return {};
+    }
+    
+    vector<string> selected_words;
+    for (size_t i = index; i < words.size(); ++i) {
+        selected_words.push_back(words[i]);
+    }
+    
+    return selected_words;
 }
