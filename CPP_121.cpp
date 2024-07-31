@@ -1,20 +1,8 @@
-int solve() {
-    vector<int> lst;
-    cout << "Enter numbers (space-separated): ";
-    string str;
-    getline(cin, str);
-    
-    int num = 0;
-    for (char c : str) {
-        if (c == ' ') break; 
-        num = num * 10 + (c - '0');
-        if(num < INT_MAX) { 
-            lst.push_back(num);
-        } else {
-            cout << "Number out of range, skipping." << endl;
-        }
-    }
-    
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int solve(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -23,5 +11,22 @@ int solve() {
     }
     
     cout << "Sum of odd numbers: " << sum << endl;
+    return sum;
+}
+
+int main() {
+    vector<int> lst;
+    cout << "Enter numbers (space-separated): ";
+    string str;
+    getline(cin, str);
+    
+    int num = 0;
+    for (char c : str) {
+        if (c == ' ') break; 
+        num = c - '0';
+        lst.push_back(num);
+    }
+    
+    solve(lst);  
     return 0;
 }
