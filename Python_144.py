@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -12,7 +11,9 @@ def simplify():
     new_numerator = math.gcd(numerator1, numerator2)
     new_denominator = math.gcd(denominator1 * denominator2, new_numerator)
 
-    return f"{numerator1 // new_denominator}/{denominator1*denominator2//new_denominator}"
+    return (
+        f"{numerator1 // new_denominator}/{denominator1*denominator2//new_denominator}"
+    )
 
 
 print(simplify())
