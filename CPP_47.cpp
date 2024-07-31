@@ -1,6 +1,6 @@
 ```cpp
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
 double median(std::vector<int> numbers) {
