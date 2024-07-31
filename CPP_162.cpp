@@ -1,24 +1,21 @@
-#include<string>
-#include<openssl/ssl.h>
-#include<openssl/err.h>
-
-using namespace std;
+```
+#include <sstream>
+#include <iomanip>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    if (text.empty()) return "";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* txt = text.c_str();
-    size_t len = text.size();
-    MD5_Update(&ctx, txt, len);
-    MD5_Final(md, &ctx);
+    MD5_CTX md5ctx;
+    unsigned char md5[16];
+
+    MD5_Init(&md5ctx);
+    MD5_Update(&md5ctx, text.c_str(), text.size());
+    MD5_Final(md5, &md5ctx);
 
     stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        printf("%02x", md[i]);
-        ss << std::hex << setfill('0') << setw(2) << (int)md[i];
+    for (int i = 0; i < 16; ++i) {
+        ss << setfill('0') << setw(2) << hex << (int) md5[i];
     }
+
     return ss.str();
 }
