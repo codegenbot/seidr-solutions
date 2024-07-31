@@ -1,10 +1,21 @@
 #include <vector>
 #include <cassert>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+bool issame(std::vector<float> a, std::vector<float> b){ 
+    return a == b;
+}
+
+std::vector<float> get_positive(std::vector<float> l);
+
+int main() {
+    assert(issame(get_positive({}), {}));
+
+    return 0;
+}
+
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for (float num : l) {
-        assert(!isnan(num));
         if (num > 0) {
             result.push_back(num);
         }
