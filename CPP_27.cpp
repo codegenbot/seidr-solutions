@@ -1,14 +1,16 @@
 ```cpp
-string flipCase(string str) {
+string flip_case(string str) {
     string result = "";
     for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
-        } else {
+        if (isalpha(c)) {
+            char temp = c;
+            if (islower(temp))
+                temp = toupper(temp);
+            else
+                temp = tolower(temp);
+            result += temp;
+        } else
             result += c;
-        }
     }
     return result;
 }
