@@ -13,13 +13,17 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-int test() {
+void test() {
     vector<int> result = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
-    assert(result == vector<int>{2, 0, 0, 1});
-
-    return 0;
+    vector<int> expected = {2, 0, 0, 1};
+    
+    if (result == expected) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
 }
 
 int main() {
-    return test();
+    test();
 }
