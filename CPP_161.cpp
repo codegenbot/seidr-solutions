@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -15,11 +16,9 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    std::string str;
+    std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
+    std::cin >> s;
 
-    std::cout << "Result: " << solve(str) << "\n";
-
-    return 0;
+    std::cout << "Output: " << solve(s) << std::endl;
 }
