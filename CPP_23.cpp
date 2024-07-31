@@ -3,14 +3,12 @@
 #include <unordered_set>
 
 int countCharacters(std::string str) {
-    std::unordered_set<char> uniqueChars;
-
+    std::unordered_set<char> charSet;
     for (char c : str) {
-        uniqueChars.insert(c);
+        charSet.insert(c);
     }
-
-    return uniqueChars.size();
-} 
+    return charSet.size();
+}
 
 int main() {
     std::string str;
