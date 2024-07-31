@@ -3,19 +3,20 @@
 #include <functional>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your implementation here
-}
-
-std::vector<int> solve(std::vector<int>& arr, int k) {
+std::vector<int> fixCode(std::vector<int> arr, int k) {
     std::sort(arr.begin(), arr.end(), std::greater<int>());
     arr.resize(k);
     return arr;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your implementation here
+}
+
 int main() {
-    std::vector<int> arr = {3, 1, 4, 1, 5, 9};
-    solve(arr, 3);
+    // Sample usage
+    std::vector<int> arr = {9, 2, 5, 4, 3};
+    
     assert(issame(std::max_element(arr.begin(), arr.end()), std::vector<int>{}));
 
     return 0;
