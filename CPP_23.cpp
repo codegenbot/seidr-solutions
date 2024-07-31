@@ -1,26 +1,20 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
 
 int countCharacters(std::string str) {
-    int uniqueChars = 0;
-    const int MAX_CHAR = 256; // Assuming ASCII characters
-
-    bool chars[MAX_CHAR] = {false};
+    std::unordered_set<char> uniqueChars;
 
     for (char c : str) {
-        if (!chars[c]) {
-            uniqueChars++;
-            chars[c] = true;
-        }
+        uniqueChars.insert(c);
     }
 
-    return uniqueChars;
-}
+    return uniqueChars.size();
+} 
 
 int main() {
     std::string str;
     std::cin >> str;
     std::cout << countCharacters(str);
-
     return 0;
 }
