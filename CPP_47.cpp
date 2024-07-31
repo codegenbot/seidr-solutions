@@ -12,11 +12,11 @@ double median(std::vector<int> numbers) {
 }
 
 int main() {
+    std::vector<int> numbers;
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
@@ -28,5 +28,4 @@ int main() {
 
     std::cout << "The median of the given array is: " << result << std::endl;
 
-    return 0;
 }
