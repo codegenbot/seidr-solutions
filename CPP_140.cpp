@@ -1,18 +1,17 @@
-for (int i = 0; i < text.size(); ++i) {
-    if (text[i] == ' ') {
-        text[i] = '_';
-        int count = 1;
-        int j = i + 1;
-        while (j < text.size() && text[j] == ' ') {
-            ++count;
-            ++j;
-        }
-        if (count > 2) {
-            for (int k = i + 1; k < j; ++k) {
-                text[k] = '-';
+string result;
+    bool prevSpace = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (!prevSpace) {
+                result += '_';
+                prevSpace = true;
+            } else {
+                result += '-';
             }
-            i = j - 1;
+        } else {
+            result += c;
+            prevSpace = false;
         }
     }
+    return result;
 }
-return text;
