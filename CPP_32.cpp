@@ -1,6 +1,24 @@
 #include <initializer_list>
 #include <cmath>
 
+double poly(std::vector<double> coefficients, double x);
+double find_zero(std::vector<double> coeffs);
+
+int main() {
+    std::vector<double> coeffs = {};
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        double val;
+        cin >> val;
+        coeffs.push_back(val);
+    }
+    double solution = find_zero(coeffs);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
+    cout << fixed << setprecision(2) << solution << endl;
+    return 0;
+}
+
 double poly(std::vector<double> coefficients, double x) {
     double result = 0;
     for (int i = 0; i < coefficients.size(); i++) {
@@ -19,19 +37,4 @@ double find_zero(std::vector<double> coeffs) {
     }
     double x = -values[0];
     return poly(values, x);
-}
-
-int main() {
-    std::vector<double> coeffs;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        double val;
-        cin >> val;
-        coeffs.push_back(val);
-    }
-    double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
-    cout << fixed << setprecision(2) << solution << endl;
-    return 0;
 }
