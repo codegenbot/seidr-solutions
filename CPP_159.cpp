@@ -2,7 +2,10 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == 0 && b.size() == 0) || (a.size() == b.size() && a[0] == b[0]);
+    int sum_a = 0, sum_b = 0;
+    for (int num : a) sum_a += num;
+    for (int num : b) sum_b += num;
+    return sum_a == sum_b;
 }
 
 int main() {
