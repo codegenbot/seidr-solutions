@@ -5,9 +5,8 @@
 #include <string>
 
 using std::vector;
-using std::string;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i].compare(b[i]) != 0) return false;
@@ -15,9 +14,9 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word;
     
     for (char c : s) {
         if (c == ' ') {
@@ -44,15 +43,15 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
 
-    string user_input;
+    std::string user_input;
     int n;
     std::cin >> user_input >> n;
     
-    vector<string> words = select_words(user_input, n);
+    std::vector<std::string> words = select_words(user_input, n);
     
-    for (const string& w : words) {
+    for (const std::string& w : words) {
         std::cout << w << " ";
     }
     
