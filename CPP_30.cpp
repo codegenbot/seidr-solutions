@@ -15,15 +15,12 @@ std::vector<float> get_positive(const std::vector<float>& input) {
 
 int main() {
     std::vector<float> input;
-    std::cout << "Enter numbers separated by space: ";
     float num;
     while (std::cin >> num) {
-        input.resize(0); // Initially set size to 0 before pushing elements.
-        if(input.size()>1000){ 
-            input.reserve(1024); 
-        }
         input.push_back(num);
     }
+    
+    if (!input.empty()) input.reserve(input.size());
     std::vector<float> positive = get_positive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
         std::cout << "All numbers are positive." << std::endl;
