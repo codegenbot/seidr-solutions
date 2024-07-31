@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -30,11 +29,8 @@ int main() {
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
-        std::vector<int> testArr2 = {3, 3, 3};
-
-        assert(issame(std::vector<int>(testArr1.begin(), testArr1.end())));
-        assert(issame(testArr2));
+        assert(issame({3, 99, 3, 3, 97, 98})); 
+        assert(issame({3, 3, 3})); 
     }
     return 0;
 }
