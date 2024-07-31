@@ -1,10 +1,30 @@
-bool issame_vectors(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin());
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word;
+    for (char c : txt) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    return words;
 }
 
-int main() {
-    assert(issame_vectors(split_words(""), {}));
-    assert(issame_vectors(split_words("Hello World"), {"Hello", "World"}));
-    
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return equal(a.begin(), a.end(), b.begin());
 }
