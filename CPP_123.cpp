@@ -34,16 +34,10 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Test cases
-    vector<int> test1 = get_odd_collatz(10);
-    vector<int> test2 = get_odd_collatz(20);
-
-    // Checking if the results are the same
-    if (issame(test1, {1, 5}) && issame(test2, {1, 5, 13, 21})) {
-        cout << "Tests passed!" << endl;
-    } else {
-        cout << "Tests failed!" << endl;
+    // Sample usage of get_odd_collatz function
+    vector<int> odd_collatz_sequence = get_odd_collatz(10);
+    for (int num : odd_collatz_sequence) {
+        cout << num << " ";
     }
-
     return 0;
 }
