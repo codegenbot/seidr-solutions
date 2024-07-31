@@ -1,10 +1,11 @@
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 using namespace std;
 
-bool are_same(const vector<int>& a, const vector<int>& b) {
+bool are_arrays_equal(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
@@ -23,7 +24,7 @@ vector<int> sort_array(const vector<int>& arr) {
 }
 
 int main() {
-    assert(are_same(sort_array({2, 4, 8, 16, 32}), vector<int>{2, 4, 8, 16, 32}));
+    assert(are_arrays_equal(sort_array({2, 4, 8, 16, 32}), vector<int>{2, 4, 8, 16, 32}));
     cout << "Test passed!" << endl;
     return 0;
 }
