@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (const auto& s : a) {
@@ -38,9 +39,9 @@ int main() {
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    vector<string> result;
+    std::vector<string> result;
     for(string s : strings){
         if(s.find(substring) != string::npos)
-            result.push_back(s);
+            result.emplace_back(s);
     }
     return result;
