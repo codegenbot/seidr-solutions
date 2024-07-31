@@ -1,4 +1,3 @@
-```
 import math
 
 def simplify(numerator1, denominator1, numerator2, denominator2):
@@ -18,8 +17,8 @@ def simplify(numerator1, denominator1, numerator2, denominator2):
         else:
             print('Invalid input. Please enter a fraction.')
 
-    numerator = numerator // math.gcd(numerator, int(denominator))
-    denominator = denominator // math.gcd(numerator, int(denominator))
+    numerator = numerator // math.gcd(numerator, int(denominator1))
+    denominator = denominator1 // math.gcd(numerator, int(denominator1))
 
     new_numerator = num // math.gcd(num, denom)
     new_denom = denom // math.gcd(num, denom)
@@ -30,4 +29,4 @@ def simplify(numerator1, denominator1, numerator2, denominator2):
 
     return f"{new_numerator}/{new_denom}"
 
-print(simplify(int(input("Enter a numerator: ")), int(input("Enter a denominator: ")), int(input("Enter another numerator: ")), int(input("Enter another denominator: "))))
+print(simplify(1, 2, 3, 4))
