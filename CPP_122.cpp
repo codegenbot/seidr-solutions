@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,7 +37,7 @@ int main() {
             sum = num;
         }
     }
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum}) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({{sum}}) << std::endl;
 
 }
 
