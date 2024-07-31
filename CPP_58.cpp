@@ -2,22 +2,22 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    int n; cin >> n;
+    int n; std::cin >> n;
 
-    vector<vector<int>> v(n);
+    std::vector<std::vector<int>> v(n);
 
     for(int i=0; i<n; i++) {
-        int m; cin >> m;
+        int m; std::cin >> m;
 
         v[i].resize(m);
 
         for(int j=0; j<m; j++) {
-            cin >> v[i][j];
+            std::cin >> v[i][j];
         }
     }
 
@@ -28,13 +28,13 @@ int main() {
         }
 
         if(same) {
-            vector<int> commonList;
+            std::vector<int> commonList;
 
             for(int i=0; i<v[0].size(); i++) {
                 bool found = true;
 
                 for(int j=1; j<v.size(); j++) {
-                    if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                    if(std::find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
                         found = false;
                         break;
                     }
@@ -45,17 +45,17 @@ int main() {
                 }
             }
 
-            cout << "Common elements: ";
+            std::cout << "Common elements: ";
             for(int i=0; i<commonList.size(); i++) {
-                cout << commonList[i] << " ";
+                std::cout << commonList[i] << " ";
             }
-            cout << endl;
+            std::cout << std::endl;
         } else {
-            cout << "No common elements." << endl;
+            std::cout << "No common elements." << std::endl;
         }
     } 
     else { 
-        cout << "At least two lists required to find common elements." << endl; 
+        std::cout << "At least two lists required to find common elements." << std::endl; 
     } 
 
     return 0;
