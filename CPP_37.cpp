@@ -1,8 +1,8 @@
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(const vector<float>& l) {
     vector<float> even_elems;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
