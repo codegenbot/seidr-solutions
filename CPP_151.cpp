@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -19,21 +18,35 @@ int double_the_difference(vector<int> lst) {
 
 int main() {
     vector<int> lst; 
-    int odd_sum = 0;
+    bool isValidInput = true;
+    int num;
 
     cout << "Enter elements for the list: ";
-    int num;
-    for (int i = 0; i < 5; i++) { 
-        while (!(cin >> num)) {
+    while (true) {
+        cin >> num;
+        isValidInput = !cin.fail();
+        if (isValidInput)
+            break;
+        cout << "Invalid input. Please enter an integer: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    lst.push_back(num);
+
+    for (int i = 1; i < 5; i++) { 
+        while (true) {
+            cin >> num;
+            isValidInput = !cin.fail();
+            if (isValidInput)
+                break;
             cout << "Invalid input. Please enter an integer: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> num;
         }
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst);
+    int odd_sum = double_the_difference(lst);
 
     cout << "The difference is: " << odd_sum << endl;
 
