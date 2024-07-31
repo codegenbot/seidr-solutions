@@ -1,23 +1,26 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+using namespace std;
 
-bool reverse_delete(const std::string& str1, const std::string& str2) {
-    if (str1 == str2) return false;
-    for (int i = 0; i < str1.size(); ++i) {
-        if (std::string(str1.substr(i)).reverse() == str2) return true;
+bool issame(vector<string> a,vector<string> b){
+    return (a==b);
+}
+
+pair<string,bool> reverse_delete(string s1, string s2) {
+    int i=0,j=s2.size()-1;
+    while(i<=j){
+        if(s1[i]!=s2[j])return make_pair(s1,"false");
+        i++;j--;
     }
-    return false;
+    return make_pair("",true);
 }
 
 int main() {
-    std::pair<std::string, bool> result = reverse_delete("mamma", "amma");
+    pair<pair<string,bool>,bool> result = make_pair(reverse_delete("mamma", "mia"), false);
     if (result.second) {
-        std::cout << "True" << std::endl;
+        cout << "True" << endl;
     } else {
-        std::cout << (result.second ? "True" : result.first) << std::endl;
+        cout << result.first.first << endl;
     }
     return 0;
 }
