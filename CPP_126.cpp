@@ -1,13 +1,12 @@
-Here's the completed code:
+Here's the solution:
 
 bool is_sorted(vector<int> lst) {
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] <= lst[i - 1]) return false;
+        if (lst[i] <= lst[i - 1]) {
+            return false;
+        }
     }
-    vector<int> temp(lst.begin(), lst.end());
-    sort(temp.begin(), temp.end());
-    for (int i = 0; i < lst.size(); i++) {
-        if (temp[i] != lst[i]) return false;
-    }
-    return true;
+    vector<int>::iterator it = unique(lst.begin(), lst.end());
+    lst.erase(it, lst.end());
+    return lst.size() == 1 || all_of(lst.begin(), lst.end(), [prev = lst[0]](int x) { return x >= prev; });
 }
