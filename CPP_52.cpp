@@ -17,7 +17,7 @@ int main() {
     if (below_threshold(numbers, threshold)) {
         std::cout << "All numbers are below the threshold." << std::endl;
     } else {
-        std::cout << "At least one number is not below the threshold." << std::endl;
+        std::cout << "At least one number is equal to or above the threshold." << std::endl;
     }
 
     return 0;
