@@ -23,15 +23,19 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 int main() {
+    int n;
     std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
+
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
         input.push_back(num);
     }
 
-    std::vector<int> sorted = sort_array(input);
+    std::vector<int> sortedArray = sort_array(input);
 
-    for (int num : sorted) {
+    for (int num : sortedArray) {
         std::cout << num << " ";
     }
 
