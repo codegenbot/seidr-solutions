@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,10 +7,15 @@ using namespace std;
 vector<int> unique(vector<int> l) {
     vector<int> result = l;
     sort(result.begin(), result.end());
-    for(int i = 0; i < result.size() - 1; i++) {
-        if(result[i] == result[i+1]) {
+    int i = 0;
+    while (i < result.size() - 1) {
+        if (result[i] == result[i+1]) {
             result.erase(result.begin() + i);
-            i--;
+            if (i >= result.size() - 1)
+                break; 
+            i--; 
+        } else {
+            i++;
         }
     }
     return result;
