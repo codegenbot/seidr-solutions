@@ -1,4 +1,5 @@
-#include <assert.h>
+```c++
+#include <cassert>
 #include <stack>
 #include <vector>
 #include <string>
@@ -18,7 +19,6 @@ vector<int> parse_nested_parens(const string &paren_string) {
         } else if (c == ')') {
             nesting_levels.pop();
             max_nesting = max(max_nesting, (int)nesting_levels.size());
-        }
     }
 
     while (!nesting_levels.empty()) {
@@ -34,3 +34,4 @@ vector<int> parse_nested_parens(const string &paren_string) {
 int main() {
     assert(parse_nested_parens("(()(())((()))") == vector<int>({4}));
     return 0;
+}
