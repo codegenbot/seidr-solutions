@@ -2,8 +2,9 @@
 def sum_squares(lst):
     total = 0
     for num in lst:
-        if isinstance(num, list):
-            total += sum([i ** 2 for i in num])
-        else:
-            total += num ** 2
+        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
+            if num % 3 == 0:
+                total += num ** 2
+            else:
+                total += num ** 3
     return total
