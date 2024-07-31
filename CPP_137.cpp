@@ -15,5 +15,5 @@ boost::any compare(boost::any a, boost::any b){
         if(std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) return a;
         if(std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) return b;
     }
-    return boost::any("None");
+    return boost::any();
 }
