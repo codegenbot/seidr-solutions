@@ -2,10 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int odd_count(std::vector<std::string> lst) {
     int total_count = 0;
     for (const std::string& str : lst) {
@@ -18,7 +14,14 @@ int odd_count(std::vector<std::string> lst) {
     return total_count;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {2, 3, 2})); 
+    assert(issame({std::to_string(odd_count({"271", "137", "314"})),
+                   std::to_string(odd_count({"314", "271", "137"})),
+                   std::to_string(odd_count({"271", "314", "137"}))},
+                   {"2", "3", "2"}));
     return 0;
 }
