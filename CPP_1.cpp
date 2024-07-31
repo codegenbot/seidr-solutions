@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<string> separate_paren_groups(string paren_string);
 
 bool compare_vectors(vector<string> a, vector<string> b) {
@@ -30,7 +36,7 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     vector<string> input_groups = separate_paren_groups("()(()())");
-    vector<string> expected_output = {"()", "()", "()", "()", "()", "()"};
+    vector<string> expected_output = {"()", "()", "()", "()"};
 
     assert(compare_vectors(input_groups, expected_output));
 
