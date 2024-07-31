@@ -42,6 +42,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> result = bf("Earth", "Uranus");
+    vector<string> result = bf("Venus", "Mars");
     return 0;
 }
