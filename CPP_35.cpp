@@ -13,13 +13,13 @@ int main() {
     std::cin >> n;
 
     std::vector<int> input;
-    input.capacity(n);
+    input.resize(n);
 
     for(int i = 0; i < n; i++) {
         int temp;
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> temp;
-        input.push_back(temp);
+        input[i] = temp;
     }
 
     std::cout << "Maximum element is: " << maxElement(input) << std::endl;
