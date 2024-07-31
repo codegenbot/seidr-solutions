@@ -17,6 +17,6 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 3, 3}), std::vector<int>({3, 3, 3})));
+    assert(issame(filter_integers({3, std::any(3), 3}), std::vector<int>({3, 3, 3})));
     return 0;
 }
