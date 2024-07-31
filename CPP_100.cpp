@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -25,8 +24,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = make_a_pile(n);
-    for (int stone : result) {
-        cout << stone << " ";
+    for(int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
