@@ -1,5 +1,6 @@
-#include <openssl/evp.h>
+#include <iostream>
 #include <string>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) return "";
@@ -9,8 +10,11 @@ std::string string_to_md5(const std::string& text) {
     MD5_Init(&mdContext);
     const char* ptr = text.c_str();
     size_t len = text.size();
-    for(size_t i = 0; i < len; ++i) {
-        MD5_Update(&mdContext, &ptr[i], 1);
+    while (len > 0) {
+        MD5_Update(&mdContext, ptr, len);
+        break;
+        ptr += len;
+        len = 0;
     }
     MD5_Final(hash, &mdContext);
 
@@ -22,4 +26,9 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return result;
+}
+
+int main() {
+    std::cout << string_to_md5("Hello, World!") << std::endl;
+    return 0;
 }
