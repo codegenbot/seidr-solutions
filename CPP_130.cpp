@@ -25,8 +25,3 @@ std::vector<int> tri(int n) {
     }
     return res;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
