@@ -6,14 +6,15 @@
 
 using namespace std;
 
-vector<int> unique(vector<int> l) {
-    set<int> s;
-    for(int i: l) s.insert(i);
-    return vector<int>(s.begin(), s.end());
+set<int> unique(vector<int> l) {
+    set<int> s(l.begin(), l.end());
+    return s;
 }
 
 int main() {
-    vector<int> result = unique({5, 3, 5, 2, 3, 3, 9, 0, 123});
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    l.erase(std::unique(l.begin(), l.end()), l.end());
+    set<int> result(l.begin(), l.end());
     for(int i: result) cout << i << " ";
     return 0;
 }
