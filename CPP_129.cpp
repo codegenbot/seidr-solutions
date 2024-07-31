@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
@@ -10,15 +10,8 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> minPath(vector<vector<int>> grid, int k);
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    
-    vector<vector<int>> grid(n, vector<int>(n));
-    for(int i = 0; i < n; ++i){
-        for(int j = 0; j < n; ++j){
-            cin >> grid[i][j];
-        }
-    }
+    vector<vector<int>> grid = {{1, 3, 2}, {6, 5, 4}, {7, 8, 9}};
+    int k = 4;
     
     vector<int> result = minPath(grid, k);
     
