@@ -1,6 +1,7 @@
-#include <string>
+#include <string> // Add the missing include
 
-bool issame(vector<string> a, vector<string> b);
+// Declare the missing function at the top
+bool issame(vector<string> a, vector<string> b); 
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -26,6 +27,7 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
+// Change the function signature to include missing type
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
