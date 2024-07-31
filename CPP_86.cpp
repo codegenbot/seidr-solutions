@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const string* anti_shuffle(const string& str) {
+const char* anti_shuffle(const string& str) {
     if (str.length() <= 1) {
         return NULL;
     }
@@ -12,15 +12,16 @@ const string* anti_shuffle(const string& str) {
         }
         i++;
     }
-    return &str;
+    const char* res = str.data();
+    return res;
 }
 
 int main(){
     string str;
     cout << "Enter a string: ";
     cin >> str;
-    const string* res = anti_shuffle(str);
-    if(res==NULL)cout<<"No valid shuffle found."<<endl;
-    else cout << "Result: " << *res << endl;
+    const char* result = anti_shuffle(str);
+    if(result==NULL)cout<<"No valid shuffle found."<<endl;
+    else cout << "Result: " << result << endl;
     return 0;
 }
