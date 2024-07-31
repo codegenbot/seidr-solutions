@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,14 +32,11 @@ int main() {
     if (arr.size() != filter_integers(arr).size()) { 
         std::cout << "Error: The array must only contain integers." << std::endl;
     } else {
-        std::vector<int> testArr1 = {3, 99, 3, 3, 97, 98};
-        std::vector<int> testArr2 = {3, 3, 3};
+        bool test1 = issame({3, 99, 3, 3, 97, 98});
+        bool test2 = issame({3, 3, 3});
 
-        if (!issame(arr)) {
-            std::cout << "Array is not same." << std::endl;
-        } else {
-            std::cout << "Array is same." << std::endl;
-        }
+        assert(test1);
+        assert(test2);
     }
     return 0;
 }
