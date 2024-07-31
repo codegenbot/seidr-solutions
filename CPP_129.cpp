@@ -3,8 +3,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result;
-    // Your actual implementation for finding the minimum path goes here
-
+    // Your implementation for finding the minimum path goes here
+    vector<int> result; // Assuming this will contain the result
     return result;
 }
