@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 double median(std::vector<int> numbers) {
     std::sort(numbers.begin(), numbers.end());
