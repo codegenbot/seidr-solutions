@@ -3,14 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
@@ -29,7 +21,7 @@ int main() {
         input.push_back(num);
     }
     vector<float> positive = get_positive(input);
-    if (issame(positive, input)) {
+    if (all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
         cout << "All numbers are positive." << endl;
     } else {
         cout << "Not all numbers are positive." << endl;
