@@ -1,9 +1,6 @@
 ```cpp
-#include <initializer_list>
-
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -16,15 +13,15 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result; 
     for (const auto& s : strings) {
-        if (s.find(prefix) == 0)
+        if (s.find(std::string(prefix)) == 0)
             result.push_back(s);
     }
     return result;
 }
 
-std::vector<std::string> b = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"}; 
     b = filter_by_prefix(a, "xxx");
     assert (issame(b , {"xxx", "xxxAAA", "xxx"}));
 }
