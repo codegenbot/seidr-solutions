@@ -23,6 +23,8 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
-std::vector<int> empty;
-
-assert(pluck({7, 9, 7, 1}) == empty);
+int main(){
+    std::vector<int> empty;
+    assert(pluck({7, 9, 7, 1}) == empty);
+    return 0;
+}
