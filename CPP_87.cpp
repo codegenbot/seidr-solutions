@@ -1,9 +1,20 @@
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+bool operator==(const vector<int>& a, const vector<int>& b){
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b){
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b){
     return a == b;
+}
+
+vector<vector<int>> get_row(vector<vector<int>> lst, int x);
+
+int main() {
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+
+    return 0;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
@@ -20,10 +31,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         sort(coord.begin(), coord.end(), greater<int>());
     }
     return result;
-}
-
-int main(){
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
-    
-    return 0;
 }
