@@ -14,14 +14,6 @@ pair<string,bool> reverse_delete(string s1, string s2) {
 }
 
 int main() {
-    pair<pair<string,bool>,bool> result = make_pair(reverse_delete("mamma", "mia"), false);
-    if (result.second) {
-        cout << "True" << endl;
-    } else {
-        string s = result.first.first;
-        bool b = result.first.second == "false";
-        if(b)s="False";
-        cout << s << endl;
-    }
+    assert (issame({reverse_delete("mamma", "mia").first, std::to_string(reverse_delete("mamma", "mia").second ? "True" : "False")}, {"", "True"}));
     return 0;
 }
