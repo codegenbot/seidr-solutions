@@ -15,16 +15,13 @@ std::vector<int> parse_nested_parens(const std::string& s) {
             }
         }
     }
-    std::vector<int> result;
-    result.push_back(count + 1);
-    return result;
+    return {count + 1};
 }
 
-bool sameAs(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(sameAs(parse_nested_parens("(()(())((()))"), {4}));
-    return 0;
+    assert(issame(parse_nested_parens("(()(())((()))"), {1,4}));
 }
