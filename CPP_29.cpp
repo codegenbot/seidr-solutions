@@ -11,7 +11,7 @@ std::vector<std::string> filterByPrefix(const std::vector<std::string>& strings,
     return result;
 }
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -19,6 +19,6 @@ int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     std::string prefix = "xxx";
     std::vector<std::string> filteredStrings = filterByPrefix(strings, prefix);
-    bool result = isSame(filteredStrings, filteredStrings); 
+    bool result = issame(filteredStrings, filteredStrings); 
     return 0;
 }
