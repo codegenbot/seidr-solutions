@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i].size() != b[i].size()) return false;
@@ -26,39 +26,55 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-vector<vector<int>> v;
+int main() {
+    int n;
+    cin >> n;
 
-bool same = true;
+    vector<vector<int>> v(n);
+    for(int i=0; i<n; i++) {
+        int m;
+        cin >> m;
+        v[i].resize(m);
 
-if(v.size() > 1) {
-    same = issame(v[0], v[1]);
-    for(int i=2; i<v.size(); i++) {
-        same &= issame(v[0], v[i]);
+        for(int j=0; j<m; j++) {
+            cin >> v[i][j];
+        }
     }
-}
 
-if(same) {
-    vector<int> commonList;
-    for(int i=0; i<v[0].size(); i++) {
-        bool found = true;
+    bool same = true;
 
-        for(int j=1; j<v.size(); j++) {
-            if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
-                found = false;
-                break;
+    if(n > 1) {
+        same = issame(v, v);
+        for(int i=2; i<n; i++) {
+            same &= issame(v[0], v[i]);
+        }
+    }
+
+    if(same) {
+        vector<int> commonList;
+        for(int i=0; i<v[0].size(); i++) {
+            bool found = true;
+
+            for(int j=1; j<n; j++) {
+                if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
+                    found = false;
+                    break;
+                }
+            }
+
+            if(found) {
+                commonList.push_back(v[0][i]);
             }
         }
 
-        if(found) {
-            commonList.push_back(v[0][i]);
+        cout << "Common elements: ";
+        for(int i=0; i<commonList.size(); i++) {
+            cout << commonList[i] << " ";
         }
+        cout << endl;
+    } else {
+        cout << "No common elements." << endl;
     }
 
-    cout << "Common elements: ";
-    for(int i=0; i<commonList.size(); i++) {
-        cout << commonList[i] << " ";
-    }
-    cout << endl;
-} else {
-    cout << "No common elements." << endl;
+    return 0;
 }
