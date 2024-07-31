@@ -17,11 +17,11 @@ int odd_count(std::vector<std::string> lst)
         }
         result.push_back("the number of odd elements " + std::to_string(odd_count) + " in the string " + str + " of the input.");
     }
-    return 0;
+    return result.size();
 }
 
 int main()
 {
-    assert(odd_count({"271", "137", "314"}) == 0);
+    assert(odd_count({"271", "137", "314"}) == 3);
     return 0;
 }
