@@ -1,10 +1,12 @@
 ```cpp
 #include <string>
 
-int my_strlen(char* str){
-    return std::string(str).length();
+int my_strlen(std::string str){
+    return str.length();
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 12);
+    char input[] = "asdasnakj";
+    std::string str(input); 
+    assert(my_strlen(str) == 12);
 }
