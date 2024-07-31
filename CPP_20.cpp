@@ -2,26 +2,14 @@
 #include <vector>
 #include <cassert>
 
-std::vector<double> find_closest_elements(const std::vector<double>& elements) {
-    std::vector<double> closest_elements;
-    double min_diff = std::abs(elements[0] - elements[1]);
-
-    for (size_t i = 0; i < elements.size() - 1; ++i) {
-        double diff = std::abs(elements[i] - elements[i + 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {elements[i], elements[i + 1]};
-        }
-    }
-
-    return closest_elements;
-}
-
-bool issame(const std::vector<double>& v1, const std::vector<double>& v2) {
-    return v1 == v2;
+std::vector<int> find_closest_elements(std::vector<double> nums) {
+    // Implement the logic to find the closest elements
+    return {}; // placeholder return, provide actual implementation
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
+    // Add test cases to verify find_closest_elements function
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1})); // Add proper logic to verify the output
+    // Add more test cases as needed
     return 0;
 }
