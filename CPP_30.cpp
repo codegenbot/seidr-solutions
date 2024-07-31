@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,10 +21,6 @@ std::vector<float> getPositive(const std::vector<float>& input) {
     return positive;
 }
 
-int main() {
-    printResult();
-}
-
 void printResult() {
     std::vector<float> input;
     float num;
@@ -43,4 +40,8 @@ void printResult() {
     if (input.empty()) {
         std::cout << "No input provided. Please enter some numbers!" << std::endl;
     }
+}
+
+int main() {
+    printResult();
 }
