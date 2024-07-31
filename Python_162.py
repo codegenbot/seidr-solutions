@@ -1,5 +1,6 @@
 import hashlib
 
+
 def string_to_md5():
     try:
         text = input("Enter a string: ")
@@ -7,5 +8,4 @@ def string_to_md5():
             return None
         return hashlib.md5(text.encode()).hexdigest()
     except Exception as e:
-        print(f"Error occurred: {str(e)}")
-        return None
+        print(f"An error occurred: {e}")
