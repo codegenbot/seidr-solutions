@@ -1,11 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-int issame(int a, vector<int> b) {
-    if (a == b) {
-        return 1;
-    }
-    return 0;
+int issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> solve(int n) {
