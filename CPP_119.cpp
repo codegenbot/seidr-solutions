@@ -1,18 +1,20 @@
+```cpp
 #include <cassert>
 
 bool match_parens(char* parens) {
     int count = 0;
-    for (char c : {parens[0], parens[1]}) {
+    for (char c : parens) {
         if (c == '(')
-            ++count;
-        else
-            --count;
+            count++;
+        else if (c == ')')
+            count--;
+        if (count < 0)
+            return false;
     }
     return count == 0;
 }
 
 int main() {
-    assert(match_parens({')', '('}) == true);
-    
+    assert(match_parens("())") == true);
     return 0;
 }
