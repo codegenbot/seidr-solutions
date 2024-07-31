@@ -1,4 +1,10 @@
-vector<int> unique_digits(vector<int> x){
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
