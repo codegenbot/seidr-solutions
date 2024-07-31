@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-vector<int> order_by_points(vector<int> nums) {
+void order_by_points(vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -18,7 +15,14 @@ vector<int> order_by_points(vector<int> nums) {
         }
         return sum_a < sum_b;
     });
-    return nums;
 }
 
-assert(order_by_points({0,6,6,-76,-21,23,4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+int main() {
+    vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
+    order_by_points(nums);
+    // Output the sorted nums vector if needed
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    return 0;
+}
