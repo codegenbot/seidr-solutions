@@ -1,14 +1,14 @@
 #include <algorithm>
+#include <cassert>
 #include <vector>
 
 template <typename T>
 T maximum(const std::vector<int>& numbers, const int& value) {
-    auto it = std::lower_bound(numbers.begin(), numbers.end(), value, std::greater<int>());
-    if (it != numbers.end()) {
-        return *it;
-    } else {
-        return *std::max_element(numbers.begin(), numbers.end());
+    auto iter = std::max_element(numbers.begin(), numbers.end());
+    while(iter != numbers.end() && *iter > value) {
+        --iter;
     }
+    return *iter;
 }
 
 int main() {
