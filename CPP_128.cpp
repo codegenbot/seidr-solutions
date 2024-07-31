@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int prod_signs(const std::vector<int>& arr) {
     int product = 1;
@@ -13,11 +12,10 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    arr.resize(n);
+    std::vector<int> arr(n);
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
