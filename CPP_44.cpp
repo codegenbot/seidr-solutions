@@ -12,7 +12,7 @@ std::string change_base(int x, int base){
     return result;
 }
 
-int test_change_base(){
+int solve_problem(){
     int x = 10;
     assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
