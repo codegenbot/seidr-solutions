@@ -20,6 +20,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Your main function code here
+    // Your main function logic goes here
     return 0;
 }
