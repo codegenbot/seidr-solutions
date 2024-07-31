@@ -29,8 +29,3 @@ vector<string> issame(string planet1, string planet2) {
 
     return result;
 }
-
-int main() {
-    // main function remains unchanged
-    return 0;
-}
