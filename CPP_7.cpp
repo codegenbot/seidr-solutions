@@ -18,22 +18,20 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
     return result;
 }
 
-int solution(int numStrings) {
+int main() {
     int n;
     std::cin >> n;
-
-    std::cin.ignore(); // ignore the newline character
+    std::cin.ignore(); 
 
     std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
         std::string s;
-        while(getline(std::cin, s) && !s.empty()) {
-            strings.push_back(s);
-        }
+        std::getline(std::cin, s); 
+        strings.push_back(s);
     }
 
     std::string substring;
-    getline(std::cin, substring);
+    std::getline(std::cin, substring);
 
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
     std::vector<std::string> temp;
