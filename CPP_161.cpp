@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -23,5 +22,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result;
+    return result.empty() ? string(s).substr(0, result.size()) : result;
 }
