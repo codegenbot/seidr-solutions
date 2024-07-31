@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 
@@ -13,12 +14,6 @@ int prod_signs(const std::vector<int>& arr) {
 int main() {
     std::vector<int> arr = {-1, 1, 1, 0};
     int result = prod_signs(arr);
-    if(result == 0) {
-        std::cout << "Product of signs: zero" << ", Sum of absolute values: " << 0 << std::endl;
-    } else if (result > 0) {
-        std::cout << "Product of signs: positive, Sum of absolute values: " << result << std::endl;
-    } else {
-        std::cout << "Product of signs: negative, Sum of absolute values: " << -result << std::endl;
-    }
+    std::cout << "Product of signs: " << (result == 0 ? "zero" : (result > 0 ? "positive" : "negative")) << ", Sum of absolute values: " << std::abs(result) << std::endl;
     return 0;
 }
