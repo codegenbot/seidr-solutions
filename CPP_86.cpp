@@ -1,20 +1,10 @@
-// Complete the function signature
-string anti_shuffle(string s) {
+string swap_chars(string s) {
     string result = "";
-    string word = "";
-    
-    for (char c : s) {
-        if (c == ' ') {
-            sort(word.begin(), word.end(), greater<char>());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+    for (int i = 0; i < s.size(); i += 2) {
+        if (i + 1 < s.size()) {
+            result += s[i + 1];
         }
+        result += s[i];
     }
-    
-    sort(word.begin(), word.end(), greater<char>());
-    result += word;
-    
     return result;
 }
