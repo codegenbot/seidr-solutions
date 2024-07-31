@@ -1,7 +1,22 @@
-#include <cassert> // Include this header
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+double calculate_mad(const vector<double>& values) {
+    double mean = accumulate(values.begin(), values.end(), 0.0) / values.size();
+    double sum_abs_diff = 0.0;
+
+    for (const auto& value : values) {
+        sum_abs_diff += std::abs(value - mean);
+    }
+
+    return sum_abs_diff / values.size();
+}
 
 int main() {
-    std::assert(std::abs(calculate_mad(std::vector<double>({1.0, 2.0, 3.0, 4.0, 5.0})) - (6.0 / 5.0) < 1e-4); // Change assert to std::assert
+    assert(abs(calculate_mad(vector<double>{1.0, 2.0, 3.0, 4.0, 5.0}) - (6.0 / 5.0) < 1e-4);
 
     return 0;
-} // Add a closing brace at the end of the program
+}
