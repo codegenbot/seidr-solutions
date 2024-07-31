@@ -7,17 +7,17 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int i = 0;
+    int i = 0, result_count = 0;
+
     while (i < l.size()) {
-        if ((i + 1) % 3 == 0 && !result.empty()) { 
+        if (result_count % 3 == 0 && !result.empty()) { 
             sort(result.begin(), result.end());
             result.clear(); 
         }
         
-        if (!result.empty() || i % 3 != 0) {
-            result.push_back(l[i]);
-        }
+        result.push_back(l[i]);
         i++;
+        result_count++;
     }
     
     // add one last time just in case
