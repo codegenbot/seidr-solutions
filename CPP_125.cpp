@@ -5,17 +5,40 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    // Implement the comparison logic here
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt){
-    // Implement the split_words logic here
-}
+std::vector<std::string> split_words(std::string txt);
 
 int main(){
-    // Add test cases here
-    assert(issame(split_words(""), {"0"}));
-    
+    assert(issame(split_words("") ,{"0"}));
     return 0;
+}
+
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
+    }
+    if(!word.empty()){
+        result.push_back(word);
+    }
+    if(result.size() == 0){
+        int count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
+            }
+        }
+        result.push_back(std::to_string(count));
+    }
+    return result;
 }
