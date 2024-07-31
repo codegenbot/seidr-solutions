@@ -13,8 +13,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i for _ in range(count))
-            i += 1
+            factors.append(i) * count
+            i = 2
     if n > 1:
         factors.append(n)
-    return [i for factor_list in factors for i in factor_list]
+    return sorted(set(factors))
