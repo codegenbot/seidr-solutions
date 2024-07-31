@@ -1,3 +1,15 @@
+#include <vector>
+#include <list>
+#include <boost/any.hpp>
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> filter_integers(list_any values);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> filter_integers(list_any values){
     vector<int> result;
     for (const auto &val : values) {
