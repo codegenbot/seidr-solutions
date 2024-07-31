@@ -21,8 +21,10 @@ vector<int> make_a_pile(int n) {
 int main() {
     int n = 5;
     vector<int> result = make_a_pile(n);
-    if (issame(result[0], n)) {
-        return 1;
+    for (int i : result) {
+        if (issame(i, n)) {
+            cout << "Same number: " << i << endl;
+        }
     }
     return 0;
 }
