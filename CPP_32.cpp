@@ -31,11 +31,8 @@ int main() {
         cin >> val;
         coeffs.push_back(val);
     }
-    vector<double> xs(coeffs); 
-    double x = find_zero(coeffs);
-    cout << fixed << setprecision(2) << x << endl;
+    double solution = find_zero(coeffs);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
+    cout << fixed << setprecision(2) << solution << endl;
     return 0;
 }
-
-double solution = find_zero(coeffs);
-assert (abs(poly(coeffs, solution))< 1e-3);
