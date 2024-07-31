@@ -1,14 +1,11 @@
 #include <algorithm>
 #include <cctype>
-#include <map>
-#include <string>
-#include <vector>
 
-std::map<char, int> histogram(const std::string& test) {
-    std::map<char, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) return result;
 
-    std::string letters = test;
+    string letters = test;
     for (char c : letters) {
         if (!isalpha(c)) continue; // skip non-alphabet characters
         char letter = tolower(c);
@@ -16,7 +13,7 @@ std::map<char, int> histogram(const std::string& test) {
     }
 
     int maxCount = 0;
-    std::vector<std::pair<char, int>> mostFrequent;
+    vector<pair<char, int>> mostFrequent;
     for (auto& p : result) {
         if (p.second > maxCount) {
             maxCount = p.second;
@@ -27,7 +24,7 @@ std::map<char, int> histogram(const std::string& test) {
         }
     }
 
-    std::map<char, int> finalResult;
+    map<char, int> finalResult;
     for (auto& p : mostFrequent) {
         finalResult[p.first] = p.second;
     }
