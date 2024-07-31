@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-vector<int> make_a_pile(int n){
+vector<int> make_a_pile(int n) {
     vector<int> stones;
     stones.push_back(n);
-    for(int i = 1; i < n; ++i){
-        if(n % 2 == 0)
+    for (int i = 1; i < n; ++i) {
+        if (n % 2 == 0)
             n += 2;
         else
             n += 1;
@@ -24,8 +25,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = make_a_pile(n);
-    for(int i : result) {
-        cout << i << " ";
+    for (int stone : result) {
+        cout << stone << " ";
     }
     return 0;
 }
