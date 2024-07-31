@@ -1,16 +1,15 @@
-```cpp
 #include <initializer_list>
 #include <cmath>
 
 double poly(std::vector<double> coefficients, double x);
-double find_zero(std::vector<double> coeffs);
+double find_zero(std::vector<double> coefficients);
 
 int main() {
     int n;
     cin >> n;
-    std::vector<double> coeffs(coeffs.size()); // Declare coeffs vector here
+    std::vector<double> coeffs(n); // Initialize coeffs vector here
+    double val;
     for (int i = 0; i < n; i++) {
-        double val;
         cin >> val;
         coeffs[i] = val;
     }
@@ -28,12 +27,12 @@ double poly(std::vector<double> coefficients, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
+double find_zero(std::vector<double> coefficients) {
     std::vector<double> values;
     double sum = 0;
-    for (int i = 1; i < coeffs.size(); i++) {
+    for (int i = 1; i < coefficients.size(); i++) {
         if (i % 2 == 0) {
-            values.push_back(coeffs[i] / coeffs[0]);
+            values.push_back(coefficients[i] / coefficients[0]);
         }
     }
     double x = -values[0];
