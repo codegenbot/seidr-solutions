@@ -33,13 +33,9 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 vector<string> issame(string planet1, string planet2) {
-    vector<string> result;
-    
     if (planet1 == planet2) {
-        result.push_back("Same planet!");
+        return {"Same planet"};
     } else {
-        result.push_back("Different planets!");
+        return {"Different planets"};
     }
-    
-    return result;
 }
