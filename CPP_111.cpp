@@ -1,4 +1,6 @@
-```cpp
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
 map<char, int> histogram(string test) {
     map<char, int> result;
     string str = test + " ";
@@ -18,8 +20,4 @@ map<char, int> histogram(string test) {
     }
 
     return result;
-}
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
 }
