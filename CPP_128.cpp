@@ -24,3 +24,8 @@ int prod_signs(std::vector<int>& arr) {
     
     return prod * sum;
 }
+
+int main() {
+    // Main function does not interfere with prod_signs function
+    return 0;
+}
