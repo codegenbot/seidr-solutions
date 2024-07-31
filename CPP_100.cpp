@@ -1,6 +1,5 @@
 #include <vector>
 
-vector<int> make_a_pile(int n);
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> make_a_pile(int n){
