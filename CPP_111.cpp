@@ -1,3 +1,4 @@
+#include <iostream>
 #include <map>
 #include <string>
 #include <algorithm>
@@ -9,7 +10,7 @@ bool is_same(const std::map<char, int>& a, const std::map<char, int>& b) {
 
 std::map<char, int> histogram(const std::string& test) {
     std::map<char, int> result;
-
+  
     for (char c : test) {
         if (c != ' ') {
             result[c]++;
