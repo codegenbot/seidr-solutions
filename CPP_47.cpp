@@ -23,3 +23,10 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
+
+    double result = median(numbers);
+
+    std::cout << "The median of the given array is: " << result << std::endl;
+
+    return 0;
+}
