@@ -1,6 +1,7 @@
 #include <iostream>
+#include <string>
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const std::string &brackets) {
     int count = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
@@ -16,14 +17,14 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string brackets;
-    std::cout << "Enter bracket sequence: ";
-    std::cin >> brackets;
+    std::string input;
+    std::cout << "Enter a sequence of brackets (< and >): ";
+    std::cin >> input;
 
-    if (correct_bracketing(brackets)) {
-        std::cout << "Brackets are correctly balanced!" << std::endl;
+    if (correct_bracketing(input)) {
+        std::cout << "Brackets are correctly balanced." << std::endl;
     } else {
-        std::cout << "Brackets are not correctly balanced!" << std::endl;
+        std::cout << "Brackets are not correctly balanced." << std::endl;
     }
 
     return 0;
