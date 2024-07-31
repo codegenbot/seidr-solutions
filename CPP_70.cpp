@@ -1,27 +1,18 @@
-#include <vector> // Include the necessary header file for vector
+vector<int> strange_sort_list(vector<int>& lst);
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Correct function signature for issame function
-
-    // Your existing code here
+bool issame(int a, int b) {
+    return a % 2 == b % 2;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst); // Function declaration
-
-int main(){
-    // Your existing code here
-}
-
-std::vector<int> strange_sort_list(std::vector<int> lst){
+vector<int> strange_sort_list(vector<int>& lst) {
     sort(lst.begin(), lst.end());
-    std::vector<int> result;
-    int left = 0, right = lst.size() - 1;
-    while (left <= right) {
-        result.push_back(lst[left]);
-        if (left != right) {
-            result.push_back(lst[right]);
+    vector<int> result;
+    int i = 0, j = lst.size() - 1;
+    while (i <= j) {
+        result.push_back(lst[i++]);
+        if (i <= j) {
+            result.push_back(lst[j--]);
         }
-        left++;
-        right--;
     }
     return result;
 }
