@@ -1,9 +1,12 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int countDistinctCharacters(const std::string& str) {
-    std::set<char> distinctChars(str.begin(), str.end());
-    return distinctChars.size();
+    std::string uniqueStr = str;
+    std::unique(uniqueStr.begin(), uniqueStr.end());
+    return uniqueStr.size();
 }
 
 int main() {
