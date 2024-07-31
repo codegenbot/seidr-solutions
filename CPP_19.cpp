@@ -1,13 +1,11 @@
 #include <iostream>
 #include <map>
-#include <string>
-#include <vector>
 #include <sstream>
 #include <algorithm>
+#include <vector>
+#include <cassert>
 
 using namespace std;
-
-string sort_numbers(string numbers);
 
 map<string, int> number_map = {
     {"zero", 0},
@@ -21,6 +19,13 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
+}
 
 string sort_numbers(string numbers){
     map<int, string> reverse_map;
@@ -42,37 +47,4 @@ string sort_numbers(string numbers){
     }
     result.pop_back(); // Remove the extra space at the end
     return result;
-}
-
-string sort_numbers(string numbers) {
-    map<int, string> reverse_map;
-    for (const auto& pair : number_map) {
-        reverse_map[pair.second] = pair.first;
-    }
-
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        sorted_numbers.push_back(number_map[token]);
-    }
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
-    }
-    result.pop_back(); // Remove the extra space at the end
-    return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter numbers in words separated by spaces: ";
-    getline(cin, input);
-    
-    string sorted_output = sort_numbers(input);
-    cout << "Sorted numbers in words: " << sorted_output << endl;
-    
-    return 0;
 }
