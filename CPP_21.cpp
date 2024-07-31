@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
