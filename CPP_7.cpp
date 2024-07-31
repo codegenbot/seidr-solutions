@@ -3,8 +3,8 @@
 #include <string>
 #include <cassert>
 
-bool is_same(std::vector<std::string> output, std::vector<std::string> expected) {
-    return output == expected;
+bool is_same(std::string s1, std::string s2) {
+    return s1 == s2;
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
