@@ -8,6 +8,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
-    double d = (double)total_water / capacity;
-    return ceil(d);
+    int num_buckets = std::ceil((double)total_water / capacity);
+    return num_buckets;
 }
