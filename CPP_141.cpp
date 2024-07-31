@@ -1,33 +1,23 @@
-#include <string>
+string file_name_check(const string& file_name) {
+    if (file_name.empty()) return "No";
+    size_t dotIndex = file_name.find(".");
+    if (dotIndex == string::npos || dotIndex == 0 || dotIndex == file_name.length() - 1) return "No";
+    string beforeDot = file_name.substr(0, dotIndex);
+    string afterDot = file_name.substr(dotIndex + 1);
 
-std::string file_name_check(const std::string& file_name) {
     int digitCount = 0;
-    int dotCount = 0;
-    int dotPosition = -1;
-    
-    for (int i = 0; i < file_name.size(); ++i) {
-        if (std::isdigit(file_name[i])) {
-            digitCount++;
-        } else if (file_name[i] == '.') {
-            dotCount++;
-            dotPosition = i;
-        }
+    for (char c : beforeDot) {
+        if (c >= '0' && c <= '9') digitCount++;
     }
-    
-    if (digitCount > 3 || dotCount != 1 || dotPosition == 0 || dotPosition == file_name.size() - 1) {
-        return "No";
-    }
-    
-    std::string extension = file_name.substr(dotPosition + 1);
-    
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
-    }
-    
+    if (digitCount > 3 || !isalpha(beforeDot[0])) return "No";
+
+    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
+
     return "Yes";
 }
 
 int main() {
-    // Test the function here if needed
+    assert (file_name_check("s.") == "No");
+    // Additional test cases can be added here
     return 0;
 }
