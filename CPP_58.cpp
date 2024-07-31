@@ -1,22 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-vector<int> issame(vector<int> a, vector<int> b) {
+bool is_same(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-
-    vector<int> result;
-    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
-
-    return result;
+    
+    for (int num : a) {
+        if (binary_search(b.begin(), b.end(), num)) {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 int main() {
-    assert(issame({4, 3, 2, 8}, {}).empty());
-
+    vector<int> l1 = {1, 2, 3, 4, 5};
+    vector<int> l2 = {1, 3, 5, 7, 9};
+    
+    if (is_same(l1, l2)) {
+        cout << "Lists have at least one common element." << endl;
+    } else {
+        cout << "Lists have no common elements." << endl;
+    }
+    
     return 0;
 }
