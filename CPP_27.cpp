@@ -1,3 +1,4 @@
+```cpp
 bool flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
@@ -10,3 +11,13 @@ bool flip_case(const std::string& str) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    bool result = flip_case(str);
+    std::cout << result << "\n";
+    return 0;
+}
