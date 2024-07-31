@@ -1,20 +1,19 @@
 #include <iostream>
-#include <string> // Include the <string> header
+#include <boost/any.hpp>
+#include <boost/algorithm/string.hpp>
 
 template <typename T>
-T compare_one(const T& a, const T& b) {
+boost::any compare_one(const T& a, const T& b) {
     if (a > b) {
-        return a;
+        return boost::any(a);
     } else if (a < b) {
-        return b;
+        return boost::any(b);
     }
-    return T();
+    return boost::any();
 }
 
 int main() {
-    using std::string; // Declare std::string explicitly
-
-    assert(compare_one(string("1"), std::to_string(1)).empty());
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::to_string(1))) == "None");
 
     return 0;
 }
