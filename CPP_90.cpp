@@ -35,4 +35,5 @@ int readInput() {
 
 int main() {
     readInput();
+    return 0;
 }
