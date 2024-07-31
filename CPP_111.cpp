@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <cctype>
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -21,8 +24,13 @@ map<char, int> histogram(string test) {
         }
     }
 
+    sort(mostFrequent.begin(), mostFrequent.end());
+    reverse(mostFrequent.begin(), mostFrequent.end());
+
     map<char, int> finalResult;
     for (auto& p : mostFrequent) {
+        if (finalResult.empty() || p.second < finalResult.rbegin()->second)
+            continue;
         finalResult[p.first] = p.second;
     }
 
