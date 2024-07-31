@@ -2,7 +2,6 @@
 #include <map>
 #include <cassert>
 #include <cctype>
-#include <algorithm>
 #include <string>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
