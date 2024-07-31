@@ -1,7 +1,7 @@
-#include <iostream>
+#include <cstdio>
 using namespace std;
 
-int modp(int n, int p) {
+long long modp(long long n, long long p) {
     if (n == 0)
         return 1;
     long long res = 1;
@@ -12,10 +12,9 @@ int modp(int n, int p) {
 }
 
 int main() {
-    cout << modp(3, 5) << endl;
-    cout << modp(1101, 101) << endl;
-    cout << modp(0, 101) << endl;
-    cout << modp(3, 11) << endl;
-    cout << modp(100, 101) << endl;
-    return 0;
+    printf("%lld\n", modp(3, 5));
+    printf("%lld\n", modp(1101, 101));
+    printf("%lld\n", modp(0, 101));
+    printf("%lld\n", modp(3, 11));
+    printf("%lld\n", modp(100, 101));
 }
