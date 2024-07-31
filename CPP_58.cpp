@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <set>
+#include <cassert>
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::sort(l1.begin(), l1.end());
