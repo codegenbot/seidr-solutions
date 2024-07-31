@@ -33,9 +33,14 @@ int main() {
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst);
+    odd_sum = 0;
+    for (int num : lst) {
+        if (num % 2 != 0) { 
+            odd_sum += num * num; 
+        }
+    }
 
-    cout << "The difference is: " << odd_sum << endl;
+    cout << "The difference is: " << double_the_difference(lst) - odd_sum << endl;
 
     return 0;
 }
