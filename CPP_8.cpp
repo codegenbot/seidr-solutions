@@ -2,14 +2,26 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    auto [sum, product] = sum_product({10});
+    int sum = 0;
+    int product = 1;
+    for (int num : a) {
+        sum += num;
+        product *= num;
+    }
+    return (sum == b[0] && product == b[1]);
+}
+
+auto sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
+    return std::make_pair(sum, product);
 }
 
-assert(issame({10, 10}));
+int main() {
+    assert(issame({10, 10}, sum_product({10})));
+    return 0;
+}
