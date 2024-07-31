@@ -7,11 +7,12 @@ int is_bored(string S){
     string boredom = "I";
     size_t pos = 0;
     while ((pos = S.find(" ", pos)) != string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0) {
+        size_t boredom_len = boredom.length();
+        if (S.substr(0, pos).length() == boredom_len && S.substr(0, pos) == boredom) {
             count++;
             break;
         }
-        pos = S.find(" ", pos); // replace this line
+        pos++;
     }
     return count;
 
