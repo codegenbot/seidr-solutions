@@ -4,17 +4,7 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 0.0001) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
