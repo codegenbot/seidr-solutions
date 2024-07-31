@@ -1,15 +1,28 @@
-vector<float> even_values;
-    for (int i = 1; i < l.size(); i += 2) {
-        even_values.push_back(l[i]);
-    }
-    sort(even_values.begin(), even_values.end());
+bool issame(vector<float> a, vector<float> b) {
+    sort_even(a);
+    sort_even(b);
+    return a == b;
+}
 
-    for (int i = 0, j = 0; i < l.size(); ++i) {
+void sort_even(vector<float>& l) {
+    vector<float> even_elems;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_values[j];
-            ++j;
+            even_elems.push_back(l[i]);
         }
     }
+    sort(even_elems.begin(), even_elems.end());
 
-    return l;
+    vector<float> result;
+    int j = 0;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            result.push_back(even_elems[j]);
+            j++;
+        } else {
+            result.push_back(l[i]);
+        }
+    }
+    
+    l = result;
 }
