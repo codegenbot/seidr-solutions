@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
+bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i].size() != b[i].size()) return false;
@@ -27,25 +27,12 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    int n;
-    cin >> n;
+    vector<vector<int>> v;
 
-    vector<vector<int>> v(n);
-    for(int i=0; i<n; i++) {
-        int m;
-        cin >> m;
-        v[i].resize(m);
-
-        for(int j=0; j<m; j++) {
-            cin >> v[i][j];
-        }
-    }
-
-    bool same = true;
-
-    if(n > 1) {
-        same = issame(v, v);
-        for(int i=2; i<n; i++) {
+    int mainSize = v.size();
+    if(mainSize > 1) {
+        bool same = issame(v[0], v[1]);
+        for(int i=2; i<mainSize; i++) {
             same &= issame(v[0], v[i]);
         }
     }
@@ -55,7 +42,7 @@ int main() {
         for(int i=0; i<v[0].size(); i++) {
             bool found = true;
 
-            for(int j=1; j<n; j++) {
+            for(int j=1; j<mainSize; j++) {
                 if(find(v[j].begin(), v[j].end(), v[0][i]) == v[j].end()) {
                     found = false;
                     break;
