@@ -17,7 +17,7 @@ int main() {
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
     for (char c : test) {
-        if (isalpha(c) && islower(c)) {
+        if (std::isalpha(c) && std::islower(c)) {
             freq[c]++;
         }
     }
