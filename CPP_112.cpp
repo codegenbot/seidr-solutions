@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,15 +17,10 @@ int main() {
     if (result.second) {
         std::cout << "True" << std::endl;
     } else {
-        if(result.first.empty()) {
-            std::cout << "Both strings are the same." << std::endl;
-        } else {
-            if(result.first == std::string(result.first).reverse()) {
-                std::cout << "The first string is a palindrome." << std::endl;
-            } else {
-                std::cout << "The second string is a reverse of the first string." << std::endl;
-            }
-        }
+        if(result.first == "")
+            std::cout << "Empty string" << std::endl;
+        else
+            std::cout << result.first << std::endl;
     }
     return 0;
 }
