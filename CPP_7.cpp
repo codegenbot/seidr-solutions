@@ -2,11 +2,11 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(std::string a, std::string b) {
+bool is_same(const std::string& a, const std::string& b){
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring){
     std::vector<std::string> result;
     for (const auto& str : strings) {
         if (str.find(substring) != std::string::npos) {
@@ -24,11 +24,9 @@ int main() {
 
     assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").at(0), "grunt");
     assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").at(1), "prune");
-    
+
     for (const std::string& str : filtered_strings) {
-        if (is_same(str, sub)) {
-            std::cout << str << " contains substring " << sub << std::endl;
-        }
+        std::cout << str << " contains substring " << sub << std::endl;
     }
     
     return 0;
