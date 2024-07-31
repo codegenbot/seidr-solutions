@@ -3,9 +3,6 @@
 #include <string>
 #include <cassert>
 
-#include <vector>
-#include <string>
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
@@ -16,4 +13,9 @@ std::vector<std::string> bf(std::string a, std::string b) {
     } else {
         return std::vector<std::string>{"Some", "output"};
     }
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), std::vector<std::string>()));
+    return 0;
 }
