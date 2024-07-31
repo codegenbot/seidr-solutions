@@ -1,6 +1,7 @@
 using namespace std;
 
 vector<float> derivative(vector<float> xs);
+
 bool issame(vector<float> a, vector<float> b);
 
 vector<float> derivative(vector<float> xs){
