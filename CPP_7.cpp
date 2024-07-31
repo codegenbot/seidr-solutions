@@ -16,7 +16,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result; 
-    //result.reserve(strings.size()); // Reserve space for elements
     for(string s : strings){
         if(s.find(substring) != string::npos)
             result.push_back(s);
@@ -31,7 +30,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         string s;
         cin >> s;
-        strings.emplace_back(s);
+        strings.push_back(s);
     }
     string substring;
     cin >> substring;
