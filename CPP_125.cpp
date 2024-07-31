@@ -22,8 +22,12 @@ int main() {
 
 vector<string> split_words(string txt) {
     vector<string> result;
+    if(txt.empty()) {
+        return result;
+    }
+    
     string word = "";
-    for(char c : txt) {
+    for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
