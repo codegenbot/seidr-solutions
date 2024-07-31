@@ -1,4 +1,4 @@
-import math
+Here is the modified code:
 
 def simplify():
     x = input("Enter a fraction (e.g., 1/2): ")
@@ -16,6 +16,5 @@ def simplify():
         return True
     else:
         return False
-
 
 print(simplify())
