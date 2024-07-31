@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -10,7 +9,7 @@ int64_t double_the_difference(vector<int64_t> lst) {
     for (int64_t num : lst) {
         if (num > 0 && floor((double)num) == num) { 
             if (fmod((double)num, 2.0) != 0.0) { 
-                sum += pow((int64_t)num, 2);
+                sum += pow(num, 2);
             }
         }
     }
@@ -18,8 +17,18 @@ int64_t double_the_difference(vector<int64_t> lst) {
 }
 
 int main_func() {
-    vector<int64_t> lst = {(int64_t)1.5f, (int64_t)3.0f, (int64_t)4.25f, (int64_t)6.0f};
-    int64_t odd_sum = double_the_difference(lst);
+    vector<int64_t> lst; 
+    int64_t odd_sum;
+
+    cout << "Enter elements for the list: ";
+    for (int i = 0; i < 5; i++) { 
+        int64_t num;
+        cin >> num;
+        lst.push_back(num);
+    }
+
+    odd_sum = double_the_difference(lst); 
     cout << "The difference is: " << odd_sum << endl;
+
     return 0;
 }
