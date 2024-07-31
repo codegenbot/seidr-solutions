@@ -19,13 +19,8 @@ int prod_signs(std::vector<int>& arr) {
             prod *= 0;
         }
         
-        sum += std::abs(num);
+        sum += abs(num);
     }
     
     return prod * sum;
-}
-
-int main() {
-    // Main function should not interfere with the prod_signs function
-    return 0;
 }
