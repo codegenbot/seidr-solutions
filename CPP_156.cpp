@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string int_to_mini_romank(int n) {
@@ -9,7 +8,7 @@ std::string int_to_mini_romank(int n) {
             n -= 1000;
         }
     }
-    else if (n >= 900) {
+    if (n >= 900) {
         while (n >= 900) {
             roman += "CM";
             n -= 900;
