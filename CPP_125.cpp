@@ -1,15 +1,27 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-bool issame(char a, char b) {
-    return tolower(a) == tolower(b);
+bool issame(char a, char b){
+    return a == b;
 }
 
 vector<string> split_words(string txt);
+
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> result = split_words(input);
+    for (string word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+    return 0;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -28,18 +40,7 @@ vector<string> split_words(string txt){
         result.push_back(word);
     }
     if(result.size() == 0){
-        result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){return islower(c) && (c-'a') % 2 == 1;})));
+        result.push_back(to_string(count_if(txt.begin(), txt.end(), [](char c){return islower(c) && (c - 'a') % 2 == 1;})));
     }
     return result;
-}
-
-int main() {
-    assert(issame('a', 'a'));
-    string input;
-    getline(cin, input);
-    vector<string> words = split_words(input);
-    for(string word : words) {
-        cout << word << endl;
-    }
-    return 0;
 }
