@@ -7,6 +7,6 @@ bool issame(int a, int b) {
 }
 
 int main() {
-    assert(issame(*std::max_element({1, 2, 3, -23, 243, -400, 0}), 0));
+    assert(issame(*std::max_element(std::vector<int>{1, 2, 3, -23, 243, -400, 0}), 0));
     return 0;
 }
