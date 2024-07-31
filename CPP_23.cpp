@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstring>
+using namespace std;
 
 int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << str.length();
+    string str;
+    cin >> str;
+    cout << str.length();
     return 0;
 }
