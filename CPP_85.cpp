@@ -1,6 +1,15 @@
 #include <iostream>
 #include <vector>
 
+// define add function here
+int add(std::vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        sum += i;
+    }
+    return sum;
+}
+
 int main() {
     std::vector<int> lst;
     int n;
