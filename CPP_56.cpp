@@ -1,29 +1,57 @@
-#include <iostream>
 #include <string>
+#include <stack>
 
-bool correct_bracketing(std::string brackets){
-    int count = 0;
-    for(char c : brackets){
-        if(c == '<'){
-            count++;
-        }
-        else if(c == '>'){
-            if(count <= 0) return false;
-            count--;
+std::string correct_bracketing(std::string brackets) {
+    std::stack<char> bracket_stack;
+
+    for (char bracket : brackets) {
+        if (bracket == '(' || bracket == '{' || bracket == '[') {
+            bracket_stack.push(bracket);
+        } else if (bracket == ')' || bracket == '}' || bracket == ']') {
+            if (bracket_stack.empty()) {
+                return "Invalid input";
+            }
+            char opening_bracket = bracket_stack.top();
+            bracket_stack.pop();
+
+            if ((opening_bracket == '(' && bracket != ')') ||
+                (opening_bracket == '{' && bracket != '}') ||
+                (opening_bracket == '[' && bracket != ']')) {
+                return "Invalid input";
+            }
         }
     }
-    return count == 0;
 
+    if (!bracket_stack.empty()) {
+        std::string output;
+        while (!bracket_stack.empty()) {
+            char opening_bracket = bracket_stack.top();
+            bracket_stack.pop();
+            switch (opening_bracket) {
+                case '(':
+                    output += ')';
+                    break;
+                case '{':
+                    output += '}';
+                    break;
+                case '[':
+                    output += ']';
+                    break;
+            }
+        }
+        return output;
+    }
+
+    return "Valid input";
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of brackets: ";
-    std::getline(std::cin, input) >> std::ws;  
-    if(correct_bracketing(input)) {
-        std::cout << "The bracketing is correct." << std::endl;
-    } else {
-        std::cout << "Error: The bracketing is incorrect. There are unmatched '>' characters." << std::endl;
-    }
-    
+    std::cin >> input;
+
+    std::string result = correct_bracketing(input);
+
+    std::cout << result << std::endl;
+
     return 0;
+}
