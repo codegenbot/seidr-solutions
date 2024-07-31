@@ -1,10 +1,10 @@
-bool issame(vector<float> v1, vector<float> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (abs(v1[i] - v2[i]) > 1e-6) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-6) {
             return false;
         }
     }
