@@ -4,20 +4,20 @@
 
 using namespace std;
 
-bool issame(const vector<string> &a, const vector<string> &b) {
+bool issame(const vector<string> &a, const vector<string> &b){
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> bf(string planet1, string planet2) {
+vector<string> findPlanetsBetween(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int start = -1, end = -1;
-    for (int i = 0; i < planets.size(); ++i) {
+    size_t start = -1, end = -1;
+    for (size_t i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
         }
@@ -26,7 +26,7 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == static_cast<size_t>(-1) || end == static_cast<size_t>(-1)) {
         return result;
     }
 
@@ -34,11 +34,14 @@ vector<string> bf(string planet1, string planet2) {
         swap(start, end);
     }
 
-    for (int i = start + 1; i < end; ++i) {
+    for (size_t i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
 
     return result;
 }
 
-assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
+int main() {
+    assert(issame(findPlanetsBetween("Jupiter", "Makemake"), vector<string>{}));
+    return 0;
+}
