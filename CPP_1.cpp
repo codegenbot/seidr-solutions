@@ -3,7 +3,6 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Add your comparison logic here
     return a == b;
 }
 
