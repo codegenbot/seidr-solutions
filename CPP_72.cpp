@@ -1,16 +1,16 @@
-Here's the solution:
+Here is the completed code:
 
-bool will_it_fly(vector<int> q,int w){
-    string str = "";
-    for(int i=0; i<q.size(); i++){
-        str += to_string(q[i]);
+```cpp
+bool will_it_fly(vector<int> q, int w) {
+    string s = "";
+    for(int i : q) {
+        s += to_string(i);
     }
-    if(str!=std::string(str.rbegin(),str.end())){
-        return false;
-    }
+    if(s != reverse(s).s) return false; // not balanced
+    
     int sum = 0;
-    for(int i: q){
+    for(int i : q) {
         sum += i;
     }
-    return (sum <= w);
+    return sum <= w;
 }
