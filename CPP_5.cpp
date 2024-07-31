@@ -5,7 +5,9 @@ std::vector<int> intersperse(std::vector<int> vec, int elem) {
     std::vector<int> result;
     for (int i = 0; i < vec.size(); ++i) {
         result.push_back(vec[i]);
-        result.push_back(elem);
+        if(i != vec.size() - 1){
+            result.push_back(elem);
+        }
     }
     return result;
 }
