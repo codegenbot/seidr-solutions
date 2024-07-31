@@ -1,13 +1,17 @@
-vector<int> counts = {0, 0};
+#include <vector>
+#include <cassert>
+
+vector<int> even_odd_count(int num){
+    vector<int> result(2, 0);
+    string num_str = to_string(abs(num));
     
-    while (num != 0) {
-        if ((num % 10) % 2 == 0) {
-            counts[0]++;
+    for(char c : num_str){
+        if((c - '0') % 2 == 0){
+            result[0]++;
         } else {
-            counts[1]++;
+            result[1]++;
         }
-        num /= 10;
     }
     
-    return counts;
+    return result;
 }
