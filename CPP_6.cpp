@@ -1,21 +1,16 @@
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> depths;
-    int max_depth = 0;
-    int current_depth = 0;
+#include <vector>
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            current_depth++;
-            max_depth = max(max_depth, current_depth);
-        } else if (c == ')') {
-            current_depth--;
-        } else if (c == ' ') {
-            depths.push_back(max_depth);
-            max_depth = 0;
-            current_depth = 0;
-        }
-    }
-    depths.push_back(max_depth);
+bool issame(vector<int> a, vector<int> b);
+vector<int> parse_nested_parens(string paren_string);
 
-    return depths;
+bool issame(vector<int> a, vector<int> b){
+    // Function implementation
+}
+
+int main(){
+    // main function implementation
+}
+
+vector<int> parse_nested_parens(string paren_string){
+    // parse_nested_parens implementation provided
 }
