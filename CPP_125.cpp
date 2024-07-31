@@ -5,7 +5,7 @@
 #include <cassert>
 #include <string> // Added include for string
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Added std:: to specify the namespace
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
