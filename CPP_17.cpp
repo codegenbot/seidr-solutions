@@ -1,7 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
@@ -10,19 +6,11 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
         if (a[i] != b[i])
             return false;
     }
+
     return true;
 }
 
 std::vector<int> parse_music(std::string music_string);
-
-int main() {
-    std::vector<int> beats1 = parse_music("o||o||.");
-    std::vector<int> beats2 = parse_music("o||o||.");
-
-    assert(beats1 == beats2);
-
-    return 0;
-}
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
@@ -37,4 +25,10 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
+}
+
+int main() {
+    assert(parse_music("o||o||") == parse_music("o||o||"));
+
+    return 0;
 }
