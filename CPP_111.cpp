@@ -1,14 +1,3 @@
-#include <map>
-#include <string>
-
-bool issame(map<char,int> a, map<char,int> b){
-    if(a.size() != b.size()) return false;
-    for(auto it = a.begin(); it != a.end(); it++){
-        if(it->second != b[it->first]) return false;
-    }
-    return true;
-}
-
 map<char,int> histogram(string test){
     map<char,int> result;
     string temp = "";
@@ -41,5 +30,17 @@ map<char,int> histogram(string test){
         }
     }
 
-    return maxMap;
+    bool same = false;
+
+    for(auto it = result.begin(); it != result.end(); it++){
+        if(maxMap.find(it->first) != maxMap.end() && it->second == maxMap[it->first]){
+            same = true;
+            break;
+        } else {
+            same = false;
+            break;
+        }
+    }
+
+    return same;
 }
