@@ -1,8 +1,6 @@
 ```
 import math
 
-print(simplify(1, 2, 3, 4))
-
 def simplify(numerator1, denominator1, numerator2, denominator2):
     while True:
         x = input(f"Enter a fraction (e.g., {numerator1}/{denominator1}): ")
@@ -31,3 +29,5 @@ def simplify(numerator1, denominator1, numerator2, denominator2):
     new_denom //= gcd
 
     return f"{new_numerator}/{new_denom}"
+
+print(simplify(int(input("Enter a numerator: ")), int(input("Enter a denominator: ")), int(input("Enter another numerator: ")), int(input("Enter another denominator: "))))
