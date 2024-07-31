@@ -3,6 +3,8 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
@@ -16,6 +18,8 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
+    assert(issame(make_a_pile(8), expected));
+    return 0;
 }
