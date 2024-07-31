@@ -1,6 +1,17 @@
 int sum = 0;
-    for(int i : q){
-        sum += i;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
     }
-    return sum <= w && equal(q.begin(), q.end(), q.rbegin());
+    
+    if (q.size() % 2 != 0) {
+        return false;
+    }
+    
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            return false;
+        }
+    }
+
+    return sum <= w;
 }
