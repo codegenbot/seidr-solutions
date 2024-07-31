@@ -1,18 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    // Your implementation here
 }
 
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     string current_group;
     int count = 0;
@@ -38,5 +34,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
+    // Your main function implementation here
     return 0;
 }
