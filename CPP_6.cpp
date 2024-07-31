@@ -1,8 +1,4 @@
-```
-#include <vector>
-#include <string>
-
-std::vector<int> parseNestedParens(const std::string& s) {
+std::vector<int> parse_nested_parens(const std::string& s) {
     int count = 0;
     for (char c : s) {
         if (c == '(') {
@@ -18,6 +14,6 @@ std::vector<int> parseNestedParens(const std::string& s) {
     return result;
 }
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size();
 }
