@@ -1,11 +1,13 @@
 #include <vector>
 
-bool issame(const vector<float>& a, const vector<float>& b);
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
