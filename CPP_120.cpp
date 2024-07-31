@@ -4,16 +4,19 @@
 
 template <typename T>
 T maximum(const std::vector<T>& numbers, const T& value) {
-    T max_value = *std::max_element(numbers.begin(), numbers.end());
-    return max_value > value ? max_value : value;
+    if (numbers.empty()) {
+        return value;
+    } else {
+        return *std::max_element(numbers.begin(), numbers.end());
+    }
 }
 
-template <typename T>
-bool issame(const std::vector<T>& a, const std::vector<T>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
+    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{}));
     return 0;
 }
