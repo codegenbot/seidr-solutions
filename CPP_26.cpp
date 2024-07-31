@@ -10,7 +10,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return numbers;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return remove_duplicates(a) == remove_duplicates(b);
 }
 
