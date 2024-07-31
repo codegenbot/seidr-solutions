@@ -5,7 +5,7 @@ bool valid_date(string date) {
 
     int month = stoi(date.substr(0, 2));
     int day = stoi(date.substr(3, 2));
-    int year = stoi(date.substr(6, 4);
+    int year = stoi(date.substr(6, 4));
 
     if(month < 1 || month > 12) {
         return false;
