@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <limits>
+#include <limits.h>
 
 int add_elements(const std::vector<int>& arr);
 
@@ -14,25 +14,19 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    int num;
-    while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
-            std::abs(num) >= std::numeric_limits<int>::min())) {
-        std::cout << "Error: invalid input. Please enter an integer between "
-                  << std::numeric_limits<int>::min() << " and "
-                  << std::numeric_limits<int>::max()
-                  << ": ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if(k > INT_MAX) {
+        std::cout << "Error: k is too large." << std::endl;
+        return -1;
     }
 
     int sum = 0; 
     std::vector<int> numbers;
     for (int i = 0; i < k; i++) {
-        while (!(std::cin >> num && std::abs(num) <= std::numeric_limits<int>::max() &&
-                std::abs(num) >= std::numeric_limits<int>::min())) {
+        int num;
+        while (!(std::cin >> num && num >= INT_MIN &&
+                num <= INT_MAX)) {
             std::cout << "Error: invalid input. Please enter an integer between "
-                      << std::numeric_limits<int>::min() << " and "
-                      << std::numeric_limits<int>::max()
+                      << INT_MIN << " and " << INT_MAX
                       << ": ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -42,6 +36,7 @@ int main() {
         } else {
             sum = num;
         }
+        if(numbers.size() >= k) break;
         numbers.push_back(num);
     }
     std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(numbers) << std::endl;
