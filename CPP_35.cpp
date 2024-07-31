@@ -2,11 +2,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 void readInput(std::vector<int>& input) {
+    int n;
     std::cout << "Enter the number of elements: ";
-    size_t n;
     std::cin >> n;
 
     input.resize(n);
