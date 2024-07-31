@@ -1,22 +1,13 @@
-bool issame(const string& a, const string& b) {
-    return a.size() == b.size();
-}
-
-vector<string> select_words(string s, int n);
-
-int main() {
-    string input;
-    int n;
-    getline(cin, input);
-    cin >> n;
-
-    vector<string> result = select_words(input, n);
-
-    for (const string &word : result) {
-        cout << word << endl;
+bool issame(string a, string b){
+    if(a.size() != b.size()){
+        return false;
     }
-
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(tolower(a[i]) != tolower(b[i])){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
