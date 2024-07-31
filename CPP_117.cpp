@@ -1,23 +1,43 @@
-vector<string> select_words(string s, int n){
-    vector<string> words;
-    string current_word;
-    int consonant_count = 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
-    for(int i = 0; i <= s.size(); i++){
-        if(i == s.size() || s[i] == ' '){
-            if(consonant_count == n){
-                words.push_back(current_word);
+vector<string> select_words(string s, int n);
+
+int main() {
+    string s;
+    int n;
+    cin >> s >> n;
+    
+    vector<string> words = select_words(s, n);
+    
+    return 0;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
+    
+    for (char c : s) {
+        if (c == ' ') {
+            int consonant_count = count_if(word.begin(), word.end(), [](char x) {
+                return !strchr("aeiouAEIOU", x) && isalpha(x);
+            });
+            if (consonant_count == n) {
+                result.push_back(word);
             }
-            current_word = "";
-            consonant_count = 0;
-        } else if(isalpha(s[i])){
-            char c = tolower(s[i]);
-            if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                consonant_count++;
-            }
-            current_word += s[i];
+            word = "";
+        } else {
+            word += c;
         }
     }
-
-    return words;
+    
+    int consonant_count = count_if(word.begin(), word.end(), [](char x) {
+        return !strchr("aeiouAEIOU", x) && isalpha(x);
+    });
+    if (consonant_count == n) {
+        result.push_back(word);
+    }
+    
+    return result;
 }
