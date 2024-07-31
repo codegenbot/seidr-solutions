@@ -1,13 +1,11 @@
-```cpp
 #include <vector>
 #include <iostream>
 
 int prod_signs(const std::vector<int>& arr) {
     int product = 1;
-    size_t n = arr.size();
-    for (size_t i = 0; i < n; ++i) {
-        if (arr[i] == 0) return 0; 
-        product *= (arr[i] > 0 ? 1 : -1);
+    for (int x : arr) {
+        if (x == 0) return 0; 
+        product *= (x > 0 ? 1 : -1);
     }
     return product;
 }
