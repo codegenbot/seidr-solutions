@@ -9,15 +9,10 @@ std::string hex_key_value() {
             num += c;
         }
     }
-    return num;
-}
-
-int main() {
-    std::string output = hex_key_value();
-    if (!output.empty()) {
-        std::cout << "The result is: " << output << std::endl;
+    if (!num.empty()) {
+        std::cout << "The result is: " << num << std::endl;
     } else {
         std::cout << "No valid hexadecimal key found." << std::endl;
     }
-    return 0;
+    return "";
 }
