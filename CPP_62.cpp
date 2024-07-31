@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-using namespace std;
 
 std::vector<float> derivative(std::vector<float> xs);
 
@@ -27,6 +26,6 @@ std::vector<float> derivative(std::vector<float> xs) {
 }
 
 int main() {
-    assert(issame(derivative({1}), {}));
+    assert(issame(derivative({ 1.0 }), {}));
     return 0;
 }
