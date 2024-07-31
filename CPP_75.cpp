@@ -1,11 +1,9 @@
-int main() {
-    int num;
-    cin >> num;
-    if (is_multiply_prime(num)) {
-        cout << "true" << endl;
-    } else {
-        cout << "false" << endl;
+bool is_multiply_prime(int a) {
+    if (a <= 1) return false;
+    for (int i = 2; i * i <= a; i++) {
+        if (a % i == 0) {
+            return false;
+        }
     }
-
-    return 0;
+    return true;
 }
