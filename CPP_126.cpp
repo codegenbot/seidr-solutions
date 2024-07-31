@@ -12,13 +12,11 @@ bool is_sorted(const vector<int>& lst) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    
-    assert(is_sorted(numbers) == true);
-    
-    vector<int> numbers2 = {3, 1, 2, 4, 5};
-    
-    assert(is_sorted(numbers2) == false);
-    
+    vector<int> input = {1, 2, 3, 4, 5};
+    assert(is_sorted(input) == true);
+
+    vector<int> input2 = {1, 2, 3, 2, 5};
+    assert(is_sorted(input2) == false);
+
     return 0;
 }
