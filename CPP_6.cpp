@@ -1,29 +1,34 @@
+#include <iostream>
 #include <stack>
+#include <string>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> result;
-    stack<int> nesting_levels;
-    int max_nesting = 0;
+bool same(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-    for (char c : paren_string) {
+vector<int> parse_nested_parens(const string& s) {
+    stack<int> st;
+    vector<int> result; 
+    for (char c : s) {
         if (c == '(') {
-            nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
+            st.push(1);
         } else if (c == ')') {
-            nesting_levels.pop();
-            max_nesting = max(max_nesting, nesting_levels.size());
+            int count = st.top();
+            st.pop();
+            while(count > 0) {
+                result.push_back(count);
+                count--;
+            }
         }
     }
-
-    while (!nesting_levels.empty()) {
-        result.push_back(nesting_levels.top());
-        nesting_levels.pop();
-    }
-
-    reverse(result.begin(), result.end());
-
     return result;
+}
+
+int testMain() {
+    vector<int> expected = parse_nested_parens("(()(())((()))");
+    assert (same(parse_nested_parens("(()(())((()))"), vector<int>({4})));
 }
