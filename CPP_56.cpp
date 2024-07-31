@@ -1,13 +1,13 @@
-int count = 0;
-    for (char bracket : brackets){
-        if (bracket == '<'){
-            count++;
-        } else {
-            count--;
-        }
-        if (count < 0){
+int n = 0;
+for (char& c : brackets) {
+    if (c == '<') {
+        n++;
+    } else if (c == '>') {
+        n--;
+        if (n < 0) {
             return false;
         }
     }
-    return count == 0;
+}
+return n == 0;
 }
