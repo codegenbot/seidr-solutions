@@ -16,9 +16,9 @@ std::vector<int> sort_third(std::vector<int> l) {
     std::sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
     
     std::vector<int> l_prime = l;
-    for (int i = 0; i < l.size(); ++i) {
+    for (int i = 0, j = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            l_prime[i] = l_divisible_by_three[i / 3];
+            l_prime[i] = l_divisible_by_three[j++];
         }
     }
     
