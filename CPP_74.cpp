@@ -3,23 +3,31 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int totalChars1 = 0;
-    for (std::string str : a) {
+    for (string str : lst1) {
         totalChars1 += str.size();
     }
 
     int totalChars2 = 0;
-    for (std::string str : b) {
+    for (string str : lst2) {
         totalChars2 += str.size();
     }
 
-    return totalChars1 == totalChars2;
+    if (totalChars1 < totalChars2) {
+        return lst1;
+    } else {
+        return lst2;
+    }
 }
 
 int main() {
-    assert(issame({"hello", "world"}, {"hi", "there"}));
-    assert(!issame({"apple", "orange"}, {"banana"}));
-
+    assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
