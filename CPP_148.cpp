@@ -1,9 +1,7 @@
 #include <string>
 #include <vector>
 
-bool issame(string planet1, string planet2) {
-    return planet1 == planet2;
-}
+vector<string> issame(string str1, string str2);
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -32,4 +30,8 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+vector<string> issame(string str1, string str2) {
+    return {str1 == str2 ? "Same" : "Different"};
 }
