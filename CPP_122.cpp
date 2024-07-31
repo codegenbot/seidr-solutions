@@ -23,7 +23,7 @@ int main() {
     for (int i = 0; i < k; i++) {
         int num;
         while (!(std::cin >> num && num >= std::numeric_limits<int>::min() &&
-                num <= std::numericlimits<int>::max())) {
+                num <= std::numeric_limits<int>::max())) {
             std::cout << "Error: invalid input. Please enter an integer between "
                       << std::numeric_limits<int>::min() << " and " << std::numeric_limits<int>::max()
                       << ": ";
@@ -36,8 +36,7 @@ int main() {
             sum = num;
         }
     }
-    std::vector<int> vec = {sum};
-    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements(vec) << std::endl;
+    std::cout << "Sum of elements with length of string representation <= 2: " << add_elements({sum}) << std::endl;
 }
 
 int add_elements(const std::vector<int>& arr) {
