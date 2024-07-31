@@ -1,30 +1,28 @@
 #include <iostream>
-#include <vector>
+#include <stack>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
 vector<int> parse_nested_parens(const string& s) {
-    int count = 1;
+    stack<int> st;
     vector<int> result; 
     for (char c : s) {
         if (c == '(') {
-            count++;
-            if(count > numeric_limits<int>::max()/sizeof(int)) return {}; // prevent overflow
-            result.push_back(count);
+            st.push(1);
         } else if (c == ')') {
-            count--;
+            int count = st.top();
+            st.pop();
+            while(count > 0) {
+                result.push_back(count);
+                count--;
+            }
         }
     }
     return result;
 }
 
-bool same(const vector<int>& a, const vector<int>& b) {
-    return a.size() == b.size();
-}
-
 int main() {
     vector<int> expected = parse_nested_parens("(()(())((()))");
-    assert(same(parse_nested_parens("(()(())((()))"), expected));
+    // assert(same(parse_nested_parens("(()(())((()))"), expected));
 }
