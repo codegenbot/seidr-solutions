@@ -5,7 +5,19 @@
 
 std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     std::vector<float> result;
-    // Implementation to find closest elements
+    if (nums.size() < 2)
+        return result;
+    
+    float min_diff = std::abs(nums[1] - nums[0]);
+    for (size_t i = 1; i < nums.size() - 1; ++i) {
+        float diff = std::abs(nums[i + 1] - nums[i]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            result.clear();
+            result.push_back(nums[i]);
+            result.push_back(nums[i + 1]);
+        }
+    }
     return result;
 }
 
