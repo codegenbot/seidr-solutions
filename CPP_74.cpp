@@ -11,3 +11,10 @@ int sumChars(const vector<string>& lst) {
     }
     return sum;
 }
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (sumChars(lst1) < sumChars(lst2)) {
+        return lst1;
+    }
+    return lst2;
+}
