@@ -1,9 +1,9 @@
-vector<int> result(2, 0);
+vector<int> result = {0, 0};
     for (int i = 1; i <= n; ++i) {
         string num = to_string(i);
-        string rev = num;
-        reverse(rev.begin(), rev.end());
-        if (num == rev) {
+        string rev_num = num;
+        reverse(rev_num.begin(), rev_num.end());
+        if (num == rev_num) {
             if (i % 2 == 0) {
                 result[0]++;
             } else {
