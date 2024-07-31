@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 std::vector<int> input;
 int n;
@@ -19,7 +20,7 @@ void readInput() {
     }
 }
 
-void main() { 
+int main() { 
     readInput();
 
     if(input.size() == 0) {
