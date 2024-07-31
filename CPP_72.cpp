@@ -1,13 +1,10 @@
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
-    }
-    return ispalindrome(str) &&accumulate(q.begin(), q.end(), 0) <= w;
-}
+Here is the completed code:
 
-bool ispalindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    return s == rev;
+bool will_it_fly(vector<int> q, int w) {
+    string s = "";
+    for (int i : q) {
+        s += to_string(i);
+    }
+    bool balanced = s == string(rbegin(s), rend(s));
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
