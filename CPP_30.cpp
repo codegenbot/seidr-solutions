@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,18 +15,12 @@ std::vector<float> get_positive(const std::vector<float>& input) {
 
 int main() {
     std::vector<float> input;
-    std::cout << "Enter numbers separated by space: ";
     float num;
     while (std::cin >> num) {
-        if(input.size()>1000){ 
-            if (input.size() > 500) {
-                input.resize(2 * input.size());
-            } else {
-                input.reserve(input.size()*2); 
-            }
-        }
         input.push_back(num);
     }
+    
+    input.reserve(input.size());
     std::vector<float> positive = get_positive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
         std::cout << "All numbers are positive." << std::endl;
