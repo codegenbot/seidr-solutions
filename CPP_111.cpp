@@ -1,9 +1,9 @@
-#include <string>
-#include <map>
-#include <vector>
 #include <cctype>
+#include <map>
+#include <string>
+#include <vector>
 
-std::map<char, int> histogram(const std::string& test) {
+std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
     if (test.empty()) return result;
 
