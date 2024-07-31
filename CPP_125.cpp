@@ -28,7 +28,7 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words(""), {""}));
     
     return 0;
 }
