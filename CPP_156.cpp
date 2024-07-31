@@ -1,14 +1,30 @@
-const vector<string> romanNumerals = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
-    const vector<int> romanValues = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
-    
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string int_to_mini_romank(int number){
+    vector<pair<int, string>> roman_nums = {
+        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+    };
+
     string result = "";
-    
-    for (int i = 0; i < romanValues.size(); ++i) {
-        while (number >= romanValues[i]) {
-            result += romanNumerals[i];
-            number -= romanValues[i];
+    for(const auto& pair : roman_nums){
+        while(number >= pair.first){
+            result += pair.second;
+            number -= pair.first;
         }
     }
-    
+
     return result;
+}
+
+int main() {
+    assert (int_to_mini_romank(1000) == "m");
+
+    return 0;
 }
