@@ -1,5 +1,7 @@
-#include <bitset>
+#include <iostream>
 #include <string>
+#include <bitset>
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -11,7 +13,7 @@ std::string solve(int N) {
 }
 
 int main() {
-    // Test the solve function with any desired input
-    std::string result = solve(963);
+    assert(solve(963) == "10010");
+    // Add more test cases if needed
     return 0;
 }
