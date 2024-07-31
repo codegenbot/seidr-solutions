@@ -2,21 +2,17 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> bf(string planet1, string planet2);
-
-int main() {
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-    vector<string> result = bf(planet1, planet2);
-
-    for (const auto& planet : result) {
-        cout << planet << " ";
+    if (a.size() != b.size()) {
+        return false;
     }
 
-    return 0;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -33,7 +29,7 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
 
-    if (idx1 == -1 || idx2 == -1 || issame({planet1}, {planet2})) {
+    if (idx1 == -1 || idx2 == -1) {
         return result;
     }
 
@@ -45,4 +41,10 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    vector<string> result = bf("Earth", "Neptune");
+
+    return 0;
 }
