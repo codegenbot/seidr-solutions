@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -12,19 +13,13 @@ std::pair<std::vector<std::string>, bool> reverse_delete(const std::string& str,
             result.push_back(str.substr(i, 1));
         }
     }
-    return {result, true};
+    std::vector<std::string> vecResult(result);
+    bool resultBool = true;
+    return std::make_pair(vecResult, resultBool);
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
