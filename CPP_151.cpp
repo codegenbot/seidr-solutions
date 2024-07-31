@@ -10,8 +10,8 @@ long long double_the_difference(vector<float> lst){
     return sum;
 }
 
-int main(){
-    vector<float> lst = {1.0, 2.5, 3.0, 4.0, 5.5};
+int main() {
+    vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
     long long result = double_the_difference(lst);
     return 0;
 }
