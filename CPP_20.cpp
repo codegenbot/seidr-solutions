@@ -3,30 +3,19 @@
 #include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float> &numbers) {
-    std::vector<float> sorted_numbers = numbers;
-    std::sort(sorted_numbers.begin(), sorted_numbers.end());
-    
-    float min_diff = sorted_numbers[1] - sorted_numbers[0];
-    std::pair<float, float> result = {sorted_numbers[0], sorted_numbers[1]};
-    
-    for (size_t i = 1; i < sorted_numbers.size() - 1; ++i) {
-        if (sorted_numbers[i + 1] - sorted_numbers[i] < min_diff) {
-            min_diff = sorted_numbers[i + 1] - sorted_numbers[i];
-            result = {sorted_numbers[i], sorted_numbers[i + 1]};
+    std::vector<float> numbers_copy = numbers;
+    std::sort(numbers_copy.begin(), numbers_copy.end());
+    float min_diff = numbers_copy[1] - numbers_copy[0];
+    std::pair<float, float> result = {numbers_copy[0], numbers_copy[1]};
+    for (int i = 1; i < numbers_copy.size() - 1; ++i) {
+        if (numbers_copy[i + 1] - numbers_copy[i] < min_diff) {
+            min_diff = numbers_copy[i + 1] - numbers_copy[i];
+            result = {numbers_copy[i], numbers_copy[i + 1]};
         }
     }
-    
-    return result;
+    return {result.first, result.second};
 }
