@@ -1,13 +1,13 @@
 #include <iostream>
-#include <cassert>
 #include <cstring>
 
-int main() {
+void calculateStringLength(){
     std::string str;
     std::cin >> str;
     std::cout << str.length();
-    
-    assert (strlen("asdasnakj") == 9);
+}
 
+int main(){
+    calculateStringLength();
     return 0;
 }
