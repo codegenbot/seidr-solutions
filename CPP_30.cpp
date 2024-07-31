@@ -22,14 +22,14 @@ std::vector<float> getPositive(const std::vector<float>& input) {
 }
 
 void printResult() {
-    std::vector<float> input(std::vector<float>());  // Initialize here
+    std::vector<float> input;
     float num;
     while (std::cin >> num) {
         input.push_back(num);
     }
 
     if (!input.empty()) {
-        input.shrink_to_fit();
+        
     }
     std::vector<float> positive = getPositive(input);
     if (std::all_of(positive.begin(), positive.end(), [](float x){ return x > 0; })) {
