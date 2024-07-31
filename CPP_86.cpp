@@ -10,7 +10,7 @@ string anti_shuffle(string s) {
     string word = "";
     for (char c : s) {
         if (c == ' ') {
-            std::sort(word.begin(), word.end());
+            sort(word.begin(), word.end());
             result += word + ' ';
             word = "";
         } else {
@@ -18,7 +18,7 @@ string anti_shuffle(string s) {
         }
     }
     if (!word.empty()) {
-        std::sort(word.begin(), word.end());
+        sort(word.begin(), word.end());
         result += word;
     }
     return result;
