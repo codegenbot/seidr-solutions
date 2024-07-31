@@ -3,11 +3,11 @@
 #include <algorithm>
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int> &a, const vector<int> &b) {
     return a == b;
 }
 
-vector<int> sort_array(const vector<int>& arr) {
+vector<int> sort_array(const vector<int> &arr) {
     vector<int> sorted_arr = arr;
     sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
