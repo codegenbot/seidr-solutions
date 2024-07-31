@@ -9,7 +9,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> bf(std::string a, std::string b) {
     std::vector<std::string> result;
-    // Define the logic for function bf
     // Logic here
     return result;
 }
