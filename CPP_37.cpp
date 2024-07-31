@@ -2,9 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
-
-void sort_even(const std::vector<float>& l); // Function declaration - Accept const reference
+bool issame(std::vector<float> a, std::vector<float> b);
+void sort_even(const std::vector<float>& l);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
    for(size_t i=0; i<a.size(); i++){
@@ -15,7 +14,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
    return true;
 }
 
-void sort_even(const std::vector<float>& l) { // Change parameter to const reference
+void sort_even(const std::vector<float>& l) {
    std::vector<float> even_elems;
    for(size_t i=0; i<l.size(); i++){
        if(i%2 == 0){
@@ -44,7 +43,7 @@ int main() {
    
    sort_even(input);
    
-   assert(issame(input, expected)); // Use assert to check expected result
+   assert(issame(input, expected));
    
    return 0;
 }
