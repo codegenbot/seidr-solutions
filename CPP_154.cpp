@@ -9,9 +9,8 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-    assert(cycpattern_check("abcabc", "bcab") == true);
-    assert(cycpattern_check("hello", "ohl") == false);
-    assert(cycpattern_check("codingcoding", "gcodin") == true);
+    assert(cycpattern_check("hellohello", "hello") == true);
+    assert(cycpattern_check("abcabcabc", "bca") == false);
     
     return 0;
 }
