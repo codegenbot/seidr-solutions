@@ -17,7 +17,7 @@ int double_the_difference(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst; 
+    vector<int> lst(5); 
 
     cout << "Enter elements for the list: ";
     int i = 0;
