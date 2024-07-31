@@ -3,9 +3,11 @@ def get_max_triples(n):
     count = 0
     max_sum = 0
     for i in range(len(a)):
-        for j in range(i + 1, len(a)):
-            for k in range(j + 1, len(a)):
-                if (a[i] + a[j] + a[k]) % 3 == 0:
-                    count += 1
-                    max_sum = max(max_sum, a[i] + a[j] + a[k])
+        for j in range(i, len(a)):
+            if j > i:
+                k = j - (j-i)
+            total = a[i] + a[j] + a[k]
+            if total % 3 == 0:
+                count += 1
+                max_sum = max(max_sum, total)
     return count, max_sum
