@@ -23,7 +23,7 @@ int main() {
     std::cout << "Enter a number to factorize: ";
     std::cin >> num;
 
-    assert(issame(factorize(num), std::vector<int>{2, 3, 3}));
+    assert(issame(factorize(num), {2, 3, 3}));
 
     return 0;
 }
