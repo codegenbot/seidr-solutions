@@ -2,33 +2,16 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    size_t count = 0;
-    char letter = '\0';
-    for (char c : test) {
-        if (c == ' ') {
-            if (count > 0) {
-                result[letter] = count;
-                count = 0;
-            }
-            letter = '\0';
-        } else {
-            if (letter == '\0') {
-                letter = c;
-                count = 1;
-            } else {
-                if (c == letter) {
-                    count++;
-                } else {
-                    result[letter] = count;
-                    letter = c;
-                    count = 1;
-                }
+    string letters = test;
+    for (char c : unique_copy(letters)) {
+        int count = 0;
+        for (string::size_type i = 0; i < letters.size(); ++i) {
+            if (letters[i] == c) {
+                ++count;
+                letters.erase(i--);
             }
         }
-    }
-
-    if (count > 0) {
-        result[letter] = count;
+        result[c] = count;
     }
 
     return result;
