@@ -1,21 +1,28 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
 
-int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {3, 2, 1};
-
-    if (issame(vec1, vec2)) {
-        std::cout << "The vectors are the same after sorting";
-    } else {
-        std::cout << "The vectors are different after sorting";
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> collatz;
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
+            collatz.push_back(n);
+        }
     }
+    return collatz;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
 
     return 0;
 }
