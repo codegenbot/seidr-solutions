@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-bool check_palindrome(vector<int> q, int w) {
+bool checkPalindrome(vector<int> q, int w) {
     int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
