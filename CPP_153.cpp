@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
+#include <cassert>
 #include <algorithm>
-#include <cctype>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = INT_MIN;
@@ -10,9 +10,9 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     for(auto extension : extensions){
         int CAP = 0, SM = 0;
         for(auto ch : extension){
-            if(std::isupper(ch))
+            if(isupper(ch))
                 CAP++;
-            else if(std::islower(ch))
+            else if(islower(ch))
                 SM++;
         }
         
