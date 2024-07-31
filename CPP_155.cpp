@@ -1,11 +1,11 @@
-vector<int> counts(2, 0);
-    string num_str = to_string(abs(num));
-    for (char digit : num_str) {
-        if ((digit - '0') % 2 == 0) {
-            counts[0]++;
+vector<int> result = {0, 0};
+    string numStr = to_string(abs(num));
+    for (char c : numStr) {
+        if (c % 2 == 0) {
+            result[0]++;
         } else {
-            counts[1]++;
+            result[1]++;
         }
     }
-    return counts;
+    return result;
 }
