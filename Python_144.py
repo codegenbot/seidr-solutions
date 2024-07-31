@@ -1,24 +1,21 @@
-```
+```python
 import math
 
 def simplify():
-    numerator1 = int(input("Enter first fraction (e.g., 1/2): ").split('/')[0])
-    denominator1 = int(input("Enter the denominator: ").split('/')[1])
+    numerator1 = int(input("Enter first fraction numerator: "))
+    denominator1 = int(input(f"Enter first fraction denominator: "))
 
-    numerator2 = int(input(f"Enter second fraction (e.g., {3}/{4}): ").split('/')[0])
-    denominator2 = int(input(f"Enter the denominator: ").split('/')[1])
+    numerator2 = int(input(f"Enter second fraction numerator: "))
+    denominator2 = int(input(f"Enter second fraction numerator: "))
 
-    new_numerator1 = math.gcd(numerator1, denominator1)
-    new_denominator1 = denominator1 // new_numerator1
-    numerator1 //= new_numerator1
+    new_numerator = numerator1*denominator2
+    new_denominator = denominator1 * denominator2
 
-    new_numerator2 = math.gcd(numerator2, denominator2)
-    new_denominator2 = denominator2 // new_numerator2
-    numerator2 //= new_numerator2
+    greatest_common_divisor = math.gcd(new_numerator, new_denominator)
 
-    new_numerator = numerator1 * new_denominator2
-    new_denominator = new_denominator1 * new_denominator2
+    simplified_numerator = new_numerator // greatest_common_divisor
+    simplified_denominator = new_denominator // greatest_common_divisor
 
-    return f"{new_numerator}/{new_denominator}"
+    return f"{simplified_numerator}/{simplified_denominator}"
 
 print(simplify())
