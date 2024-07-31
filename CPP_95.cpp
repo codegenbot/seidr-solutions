@@ -1,20 +1,17 @@
 #include <string>
-#include <map>
-#include <iostream>
-
 using namespace std;
 
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
     
     bool all_lower = true;
     bool all_upper = true;
     
-    for (auto const& pair : dict) {
-        for (char c : pair.first) {
-            if (islower(c)) {
+    for(auto const& pair : dict){
+        for(char c : pair.first){
+            if(islower(c)){
                 all_upper = false;
-            } else if (isupper(c)) {
+            } else if(isupper(c)){
                 all_lower = false;
             }
         }
@@ -24,8 +21,7 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    map<string, string> empty_map;
-    cout << check_dict_case(empty_map);
-    
+    map<string, string> empty_dict;
+    check_dict_case(empty_dict);
     return 0;
 }
