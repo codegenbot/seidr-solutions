@@ -1,5 +1,4 @@
-int apples, oranges, mangoes;
+int apples = 0, oranges = 0;
     sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
-    mangoes = n - apples - oranges;
-    return mangoes;
+    return n - apples - oranges;
 }
