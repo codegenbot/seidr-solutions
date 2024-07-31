@@ -13,7 +13,7 @@ bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> incr_list(const std::vector<int>& input) {
+std::vector<int> incr_list(const std::std::vector<int>& input) {
     std::vector<int> output;
     for (int num : input) {
         output.push_back(num + 1);
