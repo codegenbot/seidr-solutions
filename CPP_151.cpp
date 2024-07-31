@@ -5,8 +5,8 @@
 
 using namespace std;
 
-int double_the_difference(vector<int> lst) {
-    int sum = 0;
+long long double_the_difference(vector<int> lst) {
+    long long sum = 0;
     for (int num : lst) {
         if (num > 0 && floor((double)num) == num) { 
             if (fmod((double)num, 2.0) != 0.0) { 
