@@ -1,5 +1,4 @@
 // Include missing headers
-#include <iostream>
 #include <vector>
 #include <cassert>
 #include <cmath>
@@ -8,7 +7,7 @@
 using namespace std;
 
 // Change vector<double> to std::vector<double>
-std::vector<double> coeffs = {1, -2, 1};
+std::vector<double> coeffs = {1, -2, 1}; 
 
 // Fix variable name from coeff to coeffs in push_back
 coeffs.push_back(coeffs);
