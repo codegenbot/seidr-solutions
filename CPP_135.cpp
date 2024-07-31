@@ -4,9 +4,10 @@
 #include <algorithm>
 
 int main() {
-    std::vector<long long> input;
+    std::vector<int> input;
     std::cout << "Enter numbers (space separated): ";
-    for(long long i; std::cin >> i; ) {
+    unsigned long int i = 0;
+    while (std::cin >> i) {
         input.push_back(i);
         if(std::cin.peek() == ' ') 
             std::cin.ignore();
@@ -14,7 +15,7 @@ int main() {
             break;
     }
     std::vector<std::string> strInput;
-    for (long long num : input) {
+    for (int num : input) {
         strInput.push_back(std::to_string(num));
     }
     int result = can_arrange(strInput);
