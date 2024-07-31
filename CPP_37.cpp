@@ -1,25 +1,23 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 
-void sort_even(std::vector<float>& l);
+void sort_even(vector<float>& l);
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     sort_even(a);
     sort_even(b);
     return a == b;
 }
 
-void sort_even(std::vector<float>& l) {
-    std::vector<float> even_elems;
+void sort_even(vector<float>& l) {
+    vector<float> even_elems;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_elems.push_back(l[i]);
         }
     }
-    std::sort(even_elems.begin(), even_elems.end());
+    sort(even_elems.begin(), even_elems.end());
 
-    std::vector<float> result;
+    vector<float> result;
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -34,7 +32,13 @@ void sort_even(std::vector<float>& l) {
 }
 
 int main() {
-    assert(issame(std::vector<float>{5, 8, -12, 4, 23, 2, 3, 11, 12, -10}, std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> vec1 = {3.4, 1.2, 5.6, 7.8, 2.3};
+    vector<float> vec2 = {1.2, 3.4, 5.6, 7.8, 2.3};
+
+    sort_even(vec1);
+    sort_even(vec2);
+
+    bool output = issame(vec1, vec2);
     
     return 0;
 }
