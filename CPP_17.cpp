@@ -26,7 +26,3 @@ int contestMain(){
     
     return 0;
 }
-
-int main(){
-    return contestMain();
-}
