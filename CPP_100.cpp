@@ -1,5 +1,5 @@
+```
 #include <vector>
-#include <iostream>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
