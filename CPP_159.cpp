@@ -1,8 +1,15 @@
 #include <vector>
+#include <cassert>
+
+std::vector<int> eat(int a, int b, int c){
+    return {b, a - c};
+}
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    int total = a[0] + a[1];
-    int remaining = b[0];
-    int eaten = std::min(total, remaining);
-    return {eaten, std::max(0, total - remaining)};
+    return a == b;
+}
+
+int main(){
+    assert(issame(eat(4, 5, 1), {5, 3}));
+    return 0;
 }
