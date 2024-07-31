@@ -1,21 +1,25 @@
 #include <iostream>
 #include <bitset>
+#include <cmath>
 
-std::string rounded_avg(int n, int m) {
+std::string solve(int n, int m) {
     if (n > m) {
         return "-1";
     }
-
+    
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
     }
+    
+    int avg = std::round(static_cast<double>(sum) / (m - n + 1));
 
-    int avg = static_cast<int>(round((double)sum / (m - n + 1)));
     std::string binary_avg = std::bitset<32>(avg).to_string();
-    return binary_avg.substr(binary_avg.find('1'));
+    size_t pos = binary_avg.find('1');
+    return (pos != std::string::npos) ? binary_avg.substr(pos) : "0";
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101");
+    std::cout << solve(5, 5) << std::endl; // Output: 101
+    return 0;
 }
