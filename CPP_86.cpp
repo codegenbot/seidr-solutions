@@ -1,5 +1,6 @@
-#include <iostream>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string anti_shuffle(string str) {
@@ -20,4 +21,3 @@ int main() {
     cin >> str;
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
-}
