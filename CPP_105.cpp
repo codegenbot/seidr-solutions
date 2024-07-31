@@ -36,12 +36,12 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<int> test_input = {3, 2, 1, 5, 4, 6, 9, 8, 7};
-    vector<string> expected_output = {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"};
+    vector<int> input = {3, 5, 1, 7, 2, 9, 8};
+    vector<string> output = by_length(input);
     
-    vector<string> result = by_length(test_input);
+    vector<string> expected_output = {"Nine", "Eight", "Seven", "Five", "Three", "Two", "One"};
     
-    assert(issame(result, expected_output));
-    
+    assert(issame(output, expected_output));
+
     return 0;
 }
