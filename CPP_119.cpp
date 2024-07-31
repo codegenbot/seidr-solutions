@@ -2,6 +2,7 @@
 #include <cassert>
 #include <string>
 #include <vector>
+#include <ostream>
 
 using namespace std;
 
@@ -13,10 +14,12 @@ bool match_parens(const vector<string>& lst) {
             else if (c == ')') close++;
         }
     }
-    return (open == close);
+    return open == close;
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == true);
+    assert(match_parens({{"("}, {")"}}) == 1);
+    vector<string> lst = {{"("}, {")"}};
+    cout << boolalpha << match_parens(lst) << std::endl;
     return 0;
 }
