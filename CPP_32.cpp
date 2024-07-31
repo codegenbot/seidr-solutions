@@ -13,7 +13,8 @@ int main() {
         cin >> val;
         coeffs[i] = val;
     }
-    double solution = find_zero(coeffs); 
+    std::vector<double> values(coeffs);
+    double solution = find_zero(values); 
     assert(abs(poly(coeffs, solution)) < 1e-3);
     cout << fixed << setprecision(2) << solution << endl;
     return 0;
