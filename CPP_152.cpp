@@ -24,6 +24,6 @@ void test() {
     }
 }
 
-void main() {
+int main() {
     test();
 }
