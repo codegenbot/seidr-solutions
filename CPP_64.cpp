@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int vowels_count(string s) {
     int count = 0;
@@ -9,4 +10,3 @@ int vowels_count(string s) {
         }
     }
     return count;
-}
