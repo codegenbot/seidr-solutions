@@ -8,7 +8,12 @@ for (int i = n; i <= m; i++) {
 }
 
 int avg = round((double)sum / (m - n + 1));
-string binary = bitset<sizeof(int)*CHAR_BIT>(avg).to_string();
-size_t found = binary.find('1');
-return binary.substr(found);
+
+string binary_avg = "";
+while (avg > 0) {
+    binary_avg = to_string(avg % 2) + binary_avg;
+    avg /= 2;
+}
+
+return binary_avg;
 }
