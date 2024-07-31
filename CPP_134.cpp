@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cassert> // Include cassert header for assert function
 
 using namespace std;
 
@@ -18,7 +18,7 @@ bool check_if_last_char_is_a_letter(const string& txt) {
 }
 
 int main(){
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false); // Use assert from cassert header
 
     return 0;
 }
