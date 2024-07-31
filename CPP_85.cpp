@@ -3,7 +3,7 @@
 
 int add(const std::vector<unsigned long>&);
 
-int userInput() {
+int main() {
     size_t n;
 
     std::cout << "Enter the number of elements: ";
@@ -37,11 +37,6 @@ int userInput() {
     }
     std::cout << "Sum of even elements: " << add(lst) << std::endl;
 
-    return 0;
-}
-
-int main() {
-    userInput();
     return 0;
 }
 
