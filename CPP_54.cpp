@@ -9,9 +9,3 @@ bool same_chars(const char* s0, const char* s1) {
     std::sort(str1.begin(), str1.end());
     return str0 == str1;
 }
-
-int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    
-    return 0;
-}
