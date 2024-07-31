@@ -19,20 +19,20 @@ int double_the_difference(vector<int> lst) {
 
 int main() {
     vector<int> lst; 
-    int odd_sum = 0;
+    int odd_sum;
 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         do {
-            int num_val;
-            cin >> num_val;
+            int num;
+            cin >> num;
             if (cin.fail()) {
                 cout << "Invalid input. Please enter a valid integer.\n";
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
         } while (cin.fail());
-        lst.push_back(num_val);
+        lst.push_back(num);
     }
 
     odd_sum = double_the_difference(lst);
