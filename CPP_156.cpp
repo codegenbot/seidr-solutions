@@ -1,24 +1,13 @@
-#include <vector>
-#include <string>
-#include <initializer_list>
-#include <cassert>
+vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
-std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
-std::string int_to_roman(int number) {
-    std::string result;
-    for (auto pair : roman) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            result += pair.second;
+string int_to_mini_roman(int number) {
+    string result;
+    for (int i = 0; i < 13; ++i) {
+        while (number >= values[i]) {
+            number -= values[i];
+            result += roman[i];
         }
     }
     return result;
-}
-
-int main() {
-    assert(int_to_roman(1000) == "M");
-    assert(int_to_roman(1999) == "MCMXCIX");
-    assert(int_to_roman(2024) == "MMXXIV");
-    return 0;
 }
