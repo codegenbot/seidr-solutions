@@ -3,7 +3,8 @@ bool is_nested(std::string str) {
     for (char c : str) {
         if (c == '[') {
             count++;
-        } else if (c == ']' && count > 0) {
+        }
+        else if (c == ']' && count > 0) {
             count--;
         }
     }
