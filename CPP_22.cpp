@@ -1,16 +1,17 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <any>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> filter_integers(const std::vector<int>& input){
     std::vector<int> result;
     for(auto &item : input){
-        result.push_back(item);
+        if(item % 3 == 0){
+            result.push_back(item);
+        }
     }
     return result;
 }
