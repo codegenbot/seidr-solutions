@@ -1,11 +1,9 @@
-Here is the modified code:
-
-```cpp
 #include <cctype>
 #include <algorithm>
 #include <iostream>
 
-int hex_key(std::string s) {
+std::string s;
+int hex_key() {
     std::transform(s.begin(), s.end(), s.begin(),
                    [](char c){return tolower(c);});
     int result = 0;
@@ -14,14 +12,14 @@ int hex_key(std::string s) {
             result++;
         }
     }
-    return result;
+    return std::to_string(result);
 
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int output = hex_key(input);
+    std::getline(std::cin, s);
+    int output = hex_key();
     std::cout << "The number of alphanumeric characters is: " << output << std::endl;
+    return 0;
 }
