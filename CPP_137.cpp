@@ -14,7 +14,7 @@ T compare_one(const T& a, const T& b) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::to_string(1)) == std::string());
+    assert(compare_one<std::string>("1", std::to_string(1)) == "");
 
     return 0;
 }
