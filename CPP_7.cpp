@@ -1,4 +1,4 @@
-int main {
+{
     std::vector<std::string> strings = {"apple", "banana", "orange", "grape"};
     std::string sub = "an";
 
@@ -12,6 +12,4 @@ int main {
             std::cout << str << " contains substring " << sub << std::endl;
         }
     }
-
-    return 0;
 }
