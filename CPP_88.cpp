@@ -20,15 +20,11 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-int main() {
-    std::vector<int> input1 = {21, 14, 23, 11};
-    std::vector<int> input2 = {14, 21, 23, 11};
+std::vector<int> input1 = {21, 14, 23, 11};
+std::vector<int> input2 = {14, 21, 23, 11};
 
-    if (issame(sort_array(input1), sort_array(input2))) {
-        std::cout << "Same" << std::endl;
-    } else {
-        std::cout << "Not Same" << std::endl;
-    }
-
-    return 0;
+if (issame(sort_array(input1), sort_array(input2))) {
+    std::cout << "Same" << std::endl;
+} else {
+    std::cout << "Not Same" << std::endl;
 }
