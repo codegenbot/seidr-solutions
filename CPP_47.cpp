@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -23,6 +22,10 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
-    std::cout << "Median: " << median(numbers) << std::endl;
+    if(numbers.size() == 0) {
+        std::cout << "No elements entered. Median is undefined." << std::endl;
+    } else {
+        std::cout << "Median: " << median(numbers) << std::endl;
+    }
     return 0;
 }
