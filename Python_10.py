@@ -4,7 +4,9 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    original = string
-    while not is_palindrome(original):
-        original += str(len(original))[0] + str(original)[::-1]
-    return original
+    s = string.lower()
+    i, j = 0, len(s) - 1
+    while i < j and s[i] == s[j]:
+        i += 1
+        j -= 1
+    return s + s[j:i:-1].lower() if i < j else s + "a" * (j - i)
