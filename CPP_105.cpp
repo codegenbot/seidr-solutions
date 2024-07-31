@@ -3,9 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(int a, int b) {
-    return a == b;
-}
+bool issame(int a, int b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
