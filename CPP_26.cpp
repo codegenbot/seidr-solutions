@@ -5,10 +5,10 @@
 using namespace std;
 
 vector<int> remove_duplicates(const vector<int>& numbers) {
-    vector<int> nums = numbers;
-    sort(nums.begin(), nums.end());
-    nums.erase(unique(nums.begin(), nums.end()), nums.end());
-    return nums;
+    vector<int> unique_numbers = numbers;
+    sort(unique_numbers.begin(), unique_numbers.end());
+    unique_numbers.erase(unique(unique_numbers.begin(), unique_numbers.end()), unique_numbers.end());
+    return unique_numbers;
 }
 
 bool issame(const vector<int>& a, const vector<int>& b){
