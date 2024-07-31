@@ -1,3 +1,5 @@
+#include <string>
+#include <map>
 #include <algorithm>
 using namespace std;
 
@@ -6,7 +8,7 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     string letters = test;
-    for (char c : unique_copy(letters.begin(), letters.end(), letters.begin())) {
+    for (char c : unique(letters.begin(), letters.end())) {
         int count = 0;
         for (char letter : letters) {
             if (letter == c) {
