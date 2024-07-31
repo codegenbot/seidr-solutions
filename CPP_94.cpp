@@ -1,6 +1,6 @@
 #include <vector>
 
-int maxPrimeSum(vector<int> lst){
+int maxPrimeSum(vector<int> lst) {
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1){ 
@@ -25,6 +25,7 @@ int maxPrimeSum(vector<int> lst){
 }
 
 int main() {
-    int result = maxPrimeSum({127, 97, 8192});
+    vector<int> lst = {127, 97, 8192};
+    int result = maxPrimeSum(lst);
     return 0;
 }
