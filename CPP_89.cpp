@@ -1,24 +1,26 @@
-#include <iostream>
 #include <string>
+#include <cctype>
 #include <cassert>
 
-std::string encrypt(std::string s) {
+std::string encrypt(std::string s);
+
+std::string encrypt(std::string s){
     std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
-            if ((c >= 'a' && encrypted > 'z') || (c <= 'Z' && encrypted > 'Z')) {
-                encrypted -= 26;
+    for(int i=0; i<s.length(); i++){
+        if(std::isalpha(s[i])){
+            char encrypted_char = (std::tolower(s[i]) - 'a' + 2 * 2) % 26 + 'a';
+            if(std::isupper(s[i])){
+                encrypted_char = std::toupper(encrypted_char);
             }
-            result += encrypted;
+            result += encrypted_char;
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
 }
 
-int main() {
-    assert (encrypt("a")=="c");
+int main(){
+    assert (encrypt("a") == "e");
     return 0;
 }
