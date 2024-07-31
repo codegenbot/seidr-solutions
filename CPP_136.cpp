@@ -3,10 +3,20 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+vector<int> largest_smallest_integers(vector<int> lst){
     vector<int> result = {0, 0};
     int largest_negative = 0;
     int smallest_positive = 0;
@@ -26,9 +36,10 @@ vector<int> largest_smallest_integers(vector<int> lst) {
 }
 
 int main() {
-    vector<int> test_input = {3, -5, 2, -1, 7, 0, -4};
-    vector<int> expected_output = {-1, 2};
-    vector<int> result = largest_smallest_integers(test_input);
+    vector<int> input = {-3, 5, 2, -10, 8};
+    vector<int> expected_output = {-3, 2};
+
+    vector<int> result = largest_smallest_integers(input);
 
     assert(issame(result, expected_output));
 
