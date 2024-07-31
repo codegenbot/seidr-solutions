@@ -4,6 +4,11 @@
 
 using namespace std;
 
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
 string get_closest_vowel(string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
@@ -23,7 +28,10 @@ string get_closest_vowel(string word) {
     return "";
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    string word;
+    cout << "Enter a word: ";
+    cin >> word;
+    cout << "The closest vowel is: " << get_closest_vowel(word) << endl;
+    return 0;
 }
