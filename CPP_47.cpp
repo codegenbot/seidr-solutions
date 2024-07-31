@@ -1,18 +1,19 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <cmath>
 
-double median(const std::vector<int>& nums) {
-    std::vector<int> vec(nums);
-    std::sort(vec.begin(), vec.end());
-    if (vec.size() % 2 == 1)
-        return static_cast<double>(vec[vec.size()/2]);
+double median(int arr[], int n) {
+    double med;
+    std::sort(arr, arr+n);
+    if(n%2==1)
+        med = (double)arr[n/2];
     else
-        return static_cast<double>(vec[vec.size()/2 - 1] + vec[vec.size()/2]) / 2.0;
+        med = ((double)arr[n/2-1] + (double)arr[n/2]) / 2.0;
+    return med;
 }
 
 int main() {
-    assert(std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    int mainArr[] = {8, 1, 3, 9, 9, 2, 7};
+    int size = sizeof(mainArr)/sizeof(mainArr[0]);
+    assert (std::abs(median(mainArr, size) - 7) < 1e-4);
     return 0;
 }
