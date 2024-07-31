@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -10,11 +9,4 @@ bool is_prime(int n) {
         }
     }
     return !is_divisor;
-}
-
-int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << is_prime(num) << endl;
 }
