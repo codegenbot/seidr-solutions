@@ -26,8 +26,7 @@ int main() {
     while (std::cin >> num) {
         input.push_back(num);
     }
-    vector<float> positive = get_positive(input);
-    if (issame(positive, input)) {
+    if (issame(get_positive(input), input)) {
         std::cout << "All numbers are positive." << std::endl;
     } else {
         std::cout << "Not all numbers are positive." << std::endl;
