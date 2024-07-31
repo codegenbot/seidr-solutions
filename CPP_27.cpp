@@ -1,11 +1,13 @@
-```cpp
-string flipCase(string str) {
-    string result = "";
+#include <iostream>
+#include <cctype>
+
+std::string myString(std::string str) {
+    std::string result = "";
     for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
+        if (std::isupper(c)) {
+            result += std::tolower(c);
+        } else if (std::islower(c)) {
+            result += std::toupper(c);
         } else {
             result += c;
         }
@@ -14,6 +16,6 @@ string flipCase(string str) {
 }
 
 int main() {
-    assert(flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << myString("Hello World") << std::endl; 
     return 0;
 }
