@@ -1,17 +1,22 @@
-#include <cmath>
+#include <vector>
+using namespace std;
 
 int prod_signs(vector<int> arr) {
-    if (arr.empty()) return -32768;
-
-    int signProduct = 1;
-    long sumOfMagnitudes = 0;
-
+    int product = 1;
+    long long sum = 0; // to avoid overflow
+    
     for (int num : arr) {
-        if (num == 0)
-            return 0; // zero sign product
-        signProduct *= (num > 0 ? 1 : -1);
-        sumOfMagnitudes += abs(num);
+        if (num == 0) {
+            return 0;
+        }
+        int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
+        product *= sign;
+        sum += abs(num);
     }
-
-    return signProduct * sumOfMagnitudes;
+    
+    if (arr.empty()) {
+        return -32768; // empty array
+    }
+    
+    return sum * product;
 }
