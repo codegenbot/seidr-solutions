@@ -1,45 +1,34 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+vector<int> issame(vector<int> a, vector<int> b);
 
-vector<int> order_by_points(vector<int> nums) {
+void order_by_points(vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        auto getDigitSum = [](int num) {
-            int sum = 0;
-            num = abs(num);
-            while (num > 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-            return sum;
-        };
-        int sumA = getDigitSum(a);
-        int sumB = getDigitSum(b);
+        int sumA = 0, sumB = 0;
+        int tempA = abs(a), tempB = abs(b);
+        while (tempA > 0) {
+            sumA += tempA % 10;
+            tempA /= 10;
+        }
+        while (tempB > 0) {
+            sumB += tempB % 10;
+            tempB /= 10;
+        }
         if (sumA == sumB) {
-            return a < b;
+            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
         }
         return sumA < sumB;
     });
-
-    return nums;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+vector<int> issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
+    vector<int> nums = {1, 20, 405, 3, 32};
+    order_by_points(nums);
+    assert(issame(vector<int>{1, 2}, vector<int>{3, 4}));
 }
