@@ -1,5 +1,5 @@
-#include <vector>
-#include <cassert>
+#include<vector>
+#include<cassert>
 
 vector<int> minPath(vector<vector<int>> grid, int k);
 
