@@ -26,6 +26,7 @@ int main() {
             cout << "Invalid input. Please enter a valid integer.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            i--;
         } else {
             lst.push_back(num_val);
             i++;
@@ -33,13 +34,8 @@ int main() {
     }
 
     if (!lst.empty()) {
-        int odd_sum = 0; 
-        for (int num : lst) { 
-            if (num > 0) { 
-                odd_sum += (num * num);
-            }
-        }
-        
+        int odd_sum = double_the_difference(lst);
+
         cout << "The difference is: " << odd_sum << endl;
     } else {
         cout << "List is empty. No calculation possible." << endl;
