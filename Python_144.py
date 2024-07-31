@@ -18,16 +18,15 @@ def simplify():
         else:
             print('Invalid input. Please enter a fraction.')
 
-    numerator = numerator // math.gcd(numerator, int(denominator))
-    denominator = denominator // math.gcd(numerator, int(denominator))
+    gcd = math.gcd(denominator, denom)
+    new_numerator = numerator * (denom // gcd)
+    new_denominator = denominator * (num // gcd)
 
-    new_numerator = num // math.gcd(num, denom)
-    new_denom = denom // math.gcd(num, denom)
+    while new_denominator != 1 and new_numerator % new_denominator != 0:
+        gcd = math.gcd(new_numerator, new_denominator)
+        new_numerator //= gcd
+        new_denominator //= gcd
 
-    gcd = math.gcd(new_numerator, new_denom)
-    new_numerator //= gcd
-    new_denom //= gcd
-
-    return f"{new_numerator}/{new_denom}"
+    return f"{new_numerator}/{new_denominator}"
 
 print(simplify())
