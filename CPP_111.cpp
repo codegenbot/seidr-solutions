@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 bool is_same(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
@@ -30,4 +32,11 @@ std::map<char, int> histogram(const std::string& test) {
     return maxChars;
 }
 
-assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+int main() {
+    // Test cases for histogram function
+    assert(is_same(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(is_same(histogram("test"), std::map<char, int>{{'t', 2}, {'e', 1}, {'s', 1}}));
+    assert(is_same(histogram(""), std::map<char, int>{})); // Empty string case
+
+    return 0;
+}
