@@ -1,13 +1,12 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int eaten = min(total, remaining);
+    int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
     return vector<int>{eaten, left};
 }
