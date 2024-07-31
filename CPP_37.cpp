@@ -1,10 +1,9 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b); // Function declaration
+bool issame(std::vector<float> a, std::vector<float> b); 
 
-void sort_even(const std::vector<float>& l); // Function declaration
+void sort_even(const std::vector<float>& l);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
    for(size_t i=0; i<a.size(); i++){
