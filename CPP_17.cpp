@@ -10,13 +10,12 @@ bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
 std::vector<int> parse_music(std::string music_string);
 
 int main() {
-    std::string music_string = "o|.|o";
-    std::vector<int> expected_beats = {4, 1, 4};
+    std::string music_string = "o|.o.";
+    std::vector<int> expected_beats = {4, 1};
 
-    std::vector<int> beats = parse_music(music_string);
-
-    assert(issame(beats, expected_beats));
-
+    std::vector<int> parsed_beats = parse_music(music_string);
+    assert(issame(parsed_beats, expected_beats));
+    
     return 0;
 }
 
