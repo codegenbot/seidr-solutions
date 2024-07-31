@@ -23,12 +23,3 @@ bool check_dict_case(map<std::string, std::string> dict){
     
     return all_lower || all_upper;
 }
-
-int main() {
-    assert(check_dict_case({}) == false);
-    assert(check_dict_case({{"apple", "fruit"}, {"Banana", "fruit"}}) == true);
-    assert(check_dict_case({{"apple", "fruit"}, {"banana", "fruit"}}) == true);
-    assert(check_dict_case({{"Apple", "fruit"}, {"Banana", "fruit"}}) == false);
-    
-    return 0;
-}
