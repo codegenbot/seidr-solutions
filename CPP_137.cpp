@@ -1,20 +1,20 @@
 #include <iostream>
 #include <string>
-#include <any>
 #include <cassert>
+#include <boost/any.hpp>
 
 template <typename T>
-T compare_one(const T& a, const T& b) {
-    if (a > b) {
-        return a;
-    } else if (a < b) {
-        return b;
+std::string compare_one(const boost::any& a, const boost::any& b) {
+    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(a);
+    } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(b);
     }
-    return T();
+    return "None";
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::to_string(1)) == std::string());
-
+    assert(compare_one<std::string>(std::string("1"), std::to_string(1)) == "None");
+    
     return 0;
 }
