@@ -1,6 +1,7 @@
-#include <vector>  // Add this line
+#include <vector>
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     std::sort(numbers.begin(), numbers.end());
