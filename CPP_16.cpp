@@ -2,11 +2,8 @@
 #include <string>
 #include <set>
 
-int countDistinctCharacters(const std::string& str) {
-    std::set<char> distinctChars;
-    for (char c : str) {
-        distinctChars.insert(c);
-    }
+int distinctCharacterCount(const std::string& str) {
+    std::set<char> distinctChars(str.begin(), str.end());
     return distinctChars.size();
 }
 
@@ -18,7 +15,7 @@ int main() {
     char buffer[256];
     std::cin.getline(buffer, 256); 
     str = std::string(buffer);
-    int result = countDistinctCharacters(str);
+    int result = distinctCharacterCount(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
 }
