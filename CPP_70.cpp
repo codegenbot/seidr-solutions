@@ -2,11 +2,15 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_list(std::vector<int> lst){
     std::sort(lst.begin(), lst.end());
     std::vector<int> result;
     int left = 0, right = lst.size() - 1;
