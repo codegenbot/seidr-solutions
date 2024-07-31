@@ -4,18 +4,20 @@
 #include <string>
 #include <algorithm>
 
-std::vector<int> parse_nested_parens(const std::string &paren_string) {
-    std::vector<int> result;
-    std::stack<int> nesting_levels;
+using namespace std;
+
+vector<int> parse_nested_parens(const string &paren_string) {
+    vector<int> result;
+    stack<int> nesting_levels;
     int max_nesting = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
-            max_nesting = std::max(max_nesting, 1);
+            max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
             nesting_levels.pop();
-            max_nesting = std::max(max_nesting, nesting_levels.size());
+            max_nesting = max(max_nesting, nesting_levels.size());
         }
     }
 
@@ -24,11 +26,20 @@ std::vector<int> parse_nested_parens(const std::string &paren_string) {
         nesting_levels.pop();
     }
 
-    std::reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
 
     return result;
 }
 
 int main() {
+    string paren_string;
+    cout << "Enter a string of parentheses: ";
+    cin >> paren_string;
+    vector<int> result = parse_nested_parens(paren_string);
+    cout << "The maximum nesting levels are: ";
+    for (int level : result) {
+        cout << level << " ";
+    }
+    cout << endl;
     return 0;
 }
