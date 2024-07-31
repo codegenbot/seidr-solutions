@@ -1,10 +1,17 @@
-string swap_chars(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i += 2) {
-        if (i + 1 < s.size()) {
-            result += s[i + 1];
-        }
-        result += s[i];
+string result = "";
+string word = "";
+
+for (char c : s) {
+    if (c == ' ') {
+        sort(word.rbegin(), word.rend());
+        result += word + ' ';
+        word = "";
+    } else {
+        word += c;
     }
-    return result;
 }
+
+sort(word.rbegin(), word.rend());
+result += word;
+
+return result;
