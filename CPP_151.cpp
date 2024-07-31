@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 
 using namespace std;
 
@@ -19,22 +17,28 @@ int double_the_difference(vector<int> lst) {
 }
 
 int main_func() {
-    int odd_sum;
+    int odd_sum = 0;
     vector<int> lst; 
     cout << "Enter elements for the list: ";
     for (int i = 0; i < 5; i++) { 
         int num;
         while (!(cin >> num)) {
+            cout << "Invalid input. Please enter an integer: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter an integer: ";
             cin >> num;
         }
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst); 
-    cout << "The difference is: " << odd_sum << endl;
+    odd_sum = 0;
+    for (int num : lst) {
+        if (num % 2 != 0) { 
+            odd_sum += num * num; 
+        }
+    }
+
+    cout << "The difference is: " << double_the_difference(lst) << endl;
 
     return 0;
 }
