@@ -8,8 +8,3 @@ int count_upper(string s) {
     }
     return count;
 }
-
-int main() {
-    // Main function can use count_upper function
-    return 0;
-}
