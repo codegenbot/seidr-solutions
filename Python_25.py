@@ -1,22 +1,22 @@
-```
+Here is the solution for the given problem:
+
+```Python
 from typing import List
 import math
 
-
 def factorize(n: int) -> List[int]:
     factors = []
-    while n % 2 == 0:
-        factors.append(2)
-        n = n // 2
-    i = 3
-    while i <= math.isqrt(n):
-        if n % i == 0:
-            count = 0
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            c = 0
             while n % i == 0:
-                count += 1
-                n = n // i
-            factors.extend([i] * count)
-        i += 2
+                n //= i
+                c += 1
+            factors.append(i) * c
     if n > 1:
         factors.append(n)
     return factors
