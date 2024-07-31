@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+
+bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
+    return v1 == v2;
+}
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -27,8 +30,6 @@ int main() {
     for (int num : odd_collatz) {
         std::cout << num << " ";
     }
-
-    assert(odd_collatz == get_odd_collatz(n));
 
     return 0;
 }
