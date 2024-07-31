@@ -3,10 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> generate_integers(int a, int b);
 
 int main(){
