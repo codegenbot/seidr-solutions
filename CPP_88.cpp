@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <functional>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -19,13 +18,4 @@ std::vector<int> sort_array(std::vector<int> array) {
     }
 
     return array;
-}
-
-int main() {
-    std::vector<int> result = sort_array({21, 14, 23, 11});
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-
-    return 0;
 }
