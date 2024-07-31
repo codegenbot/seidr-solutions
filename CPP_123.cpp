@@ -1,8 +1,5 @@
 #include <vector>
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
+#include <algorithm>
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -15,6 +12,7 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
+
     vector<int> odd_result;
     for (int num : result) {
         if (num % 2 != 0) {
@@ -23,4 +21,8 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(odd_result.begin(), odd_result.end());
     return odd_result;
+}
+
+int main() {
+    assert(get_odd_collatz(1) == vector<int>({1}));
 }
