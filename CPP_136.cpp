@@ -1,16 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size())
-        return false;
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-    
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -32,12 +25,11 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return result;
 }
 
-int main() {
-    vector<int> input = {2, 4, -3, 5, -7};
-    vector<int> expected = {-3, 2};
-    vector<int> result = largest_smallest_integers(input);
-    
-    assert(issame(result, expected));
-    
+int main(){
+    vector<int> nums = {-2, 4, 6, -1, 5};
+    vector<int> result = largest_smallest_integers(nums);
+
+    assert(issame(result, vector<int>{-2, 1}));
+
     return 0;
 }
