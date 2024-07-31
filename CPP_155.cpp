@@ -3,23 +3,7 @@
 #include <string>
 #include <cmath>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> even_odd_count(int num);
-
-int main() {
-    int num;
-    cin >> num;
-    
-    vector<int> result = even_odd_count(num);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    
-    return 0;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> even_odd_count(int num){
     vector<int> result(2, 0);
