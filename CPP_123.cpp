@@ -1,4 +1,19 @@
-vector<int> result;
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
@@ -8,12 +23,22 @@ vector<int> result;
         }
     }
     result.push_back(1);
-    sort(result.begin(), result.end());
     vector<int> odd_numbers;
     for (int num : result) {
         if (num % 2 != 0) {
             odd_numbers.push_back(num);
         }
     }
+    sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
+}
+
+int main() {
+    // Example usage
+    vector<int> odd_collatz = get_odd_collatz(10);
+    for (int num : odd_collatz) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
