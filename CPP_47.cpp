@@ -1,8 +1,10 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
-double originalMedian(std::vector<int> numbers) {
+double median(std::vector<int> numbers) {
     std::sort(numbers.begin(), numbers.end());
     if (numbers.size() % 2 == 0)
         return (numbers.at(numbers.size()/2 - 1) + numbers.at(numbers.size()/2)) / 2.0;
@@ -10,7 +12,7 @@ double originalMedian(std::vector<int> numbers) {
         return numbers.at(numbers.size()/2);
 }
 
-int originalMain() {
+int main() {
     int n;
     std::cout << "Enter number of elements: ";
     std::cin >> n;
@@ -22,5 +24,6 @@ int originalMain() {
         std::cin >> num;
         numbers.push_back(num);
     }
-    std::cout << "Median: " << originalMedian(numbers) << std::endl;
+    std::cout << "Median: " << median(numbers) << std::endl;
+    return 0;
 }
