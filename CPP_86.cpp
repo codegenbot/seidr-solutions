@@ -3,11 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::string anti_shuffle(std::string s);
+string anti_shuffle(string s);
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    std::string word = "";
+string anti_shuffle(string s) {
+    string result = "";
+    string word = "";
     for (char c : s) {
         if (c == ' ') {
             std::sort(word.begin(), word.end());
