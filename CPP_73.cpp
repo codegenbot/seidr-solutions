@@ -17,18 +17,16 @@ int smallest_change(std::vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i+1][j-1].size();
             } else {
-                std::vector<int> options;
-                for(int k = 0; k < 3; k++) {
-                    options.push_back(dp[i+1][j].size() + (k == 0));
-                    options.push_back(dp[i][j-1].size() + (k == 1));
-                    options.push_back(dp[i+1][j-1].size() + 2);
+                for(int k = 0; k <= 2; k++){
+                    if(k == 0) dp[i][j] = dp[i+1][j].size() + 1;
+                    else if(k == 1) dp[i][j] = dp[i][j-1].size() + 1;
+                    else dp[i][j] = dp[i+1][j-1].size() + 2;
                 }
-                dp[i][j] = *std::min_element(options.begin(), options.end());
             }
         }
     }
 
-    return dp[0].at(n-1);
+    return dp[0].at(n);
 }
 
 int main() { return smallest_change({0, 1}); }
