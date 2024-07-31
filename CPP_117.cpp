@@ -1,5 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 bool issame(string a, string b) {
     return a == b;
+}
+
+vector<string> select_words(string s, int n);
+
+int main() {
+    string s = "apple banana orange pear";
+    int n = 2;
+    vector<string> words = select_words(s, n);
+
+    for (string word : words) {
+        cout << word << " ";
+    }
+
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
@@ -27,19 +46,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    getline(cin, input);
-    int n;
-    cin >> n;
-
-    vector<string> output = select_words(input, n);
-
-    for (string word : output) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
