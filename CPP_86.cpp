@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 string anti_shuffle(string s);
 
 string anti_shuffle(string s) {
