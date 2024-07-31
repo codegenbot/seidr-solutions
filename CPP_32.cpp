@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 double poly(std::vector<double>& coeffs, double x) {
     double result = 0.0;
@@ -10,25 +11,14 @@ double poly(std::vector<double>& coeffs, double x) {
 }
 
 double find_zero(std::vector<double>& coeffs) {
-    if (coeffs.size() == 3) {
-        double a = coeffs[0];
-        double b = coeffs[1];
-        double c = coeffs[2];
-        double discriminant = b * b - 4 * a * c;
-
-        if (discriminant >= 0) {
-            return (-b + sqrt(discriminant)) / (2 * a);
-        }
-        return 0.0;
-    }
-    return 0.0;
+    return -coeffs[0] / coeffs[1];
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
+    std::vector<double> coeffs = {1, -2, 1}; // Example coefficients
     double solution;
     solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
-
+    
     return 0;
 }
