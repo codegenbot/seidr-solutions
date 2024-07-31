@@ -1,5 +1,9 @@
 #include <vector>
+
 vector<int> count_up_to(int n);
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> count_up_to(int n) {
     vector<int> result;
     if(n < 2) return result;
