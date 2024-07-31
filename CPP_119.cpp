@@ -1,7 +1,6 @@
-```cpp
 #include <cassert>
 
-bool match_parens(char* parens) {
+bool match_parens(char parens[]) {
     int count = 0;
     for (char c : parens) {
         if (c == '(')
