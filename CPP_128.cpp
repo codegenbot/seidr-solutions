@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
+#include <cmath>
 
 int prod_signs(const std::vector<int>& arr) {
     if(arr.empty()) return -32768;
@@ -19,7 +19,7 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {2, -3, 4, -5};
+    std::vector<int> arr = {1, -2, 3, -4, 5};
     std::cout << prod_signs(arr) << std::endl;
     
     return 0;
