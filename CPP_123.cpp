@@ -2,8 +2,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -27,12 +31,12 @@ int main() {
 
     std::vector<int> odd_collatz = get_odd_collatz(n);
 
-    assert(odd_collatz == get_odd_collatz(1));
-
     std::cout << "Odd Collatz sequence for " << n << " is: ";
     for (int num : odd_collatz) {
         std::cout << num << " ";
     }
+
+    assert(issame(get_odd_collatz(1), {1}));
 
     return 0;
 }
