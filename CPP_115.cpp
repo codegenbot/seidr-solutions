@@ -1,9 +1,12 @@
-int counter = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            int sum = 0;
-            for (int i = 0; i < grid.size(); i++) {
-                sum += grid[i][j];
+int rows = grid.size();
+        int cols = grid[0].size();
+        int total_water = 0;
+        
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<cols; j++){
+                total_water += grid[i][j];
             }
-            counter += (sum / capacity) + (sum % capacity != 0);
         }
-        return counter;
+        
+        return (total_water + capacity - 1) / capacity;
+    }
