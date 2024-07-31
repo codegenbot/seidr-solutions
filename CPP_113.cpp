@@ -16,7 +16,7 @@ std::vector<std::string> odd_count(std::vector<std::string> lst){
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
     for(size_t i=0; i<a.size(); i++){
         if(a[i] != b[i]) return false;
