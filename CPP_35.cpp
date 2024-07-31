@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 float max_element(const std::vector<float>& l) {
     if (l.empty()) {
