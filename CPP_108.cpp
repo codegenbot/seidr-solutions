@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <cmath>
 
-int count_nums(std::vector<int> nums) {
+int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -14,10 +14,10 @@ int count_nums(std::vector<int> nums) {
             if (sum > 0)
                 count++;
         } else {
-            int sum = 0, sign = 1;
-            int temp = -num;
+            int sum = 0, sign = -1;
+            int temp = abs(num);
             while (temp != 0) {
-                sum += abs(temp % 10);
+                sum += temp % 10;
                 temp /= 10;
             }
             if (sign * sum > 0)
@@ -25,9 +25,4 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    assert (count_nums({1}) == 1);
-    return 0;
 }
