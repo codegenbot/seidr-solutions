@@ -1,8 +1,15 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
+
+#ifndef MY_FUNCTIONS_H
+#define MY_FUNCTIONS_H
+
+bool issame(vector<vector<int>> a, vector<vector<int>> b){
+    return a == b;
+}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -20,8 +27,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     return result;
 }
 
-int main(){
-    assert(get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>{{2, 2}});
-    
-    return 0;
-}
+#endif
