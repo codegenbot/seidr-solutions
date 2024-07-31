@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <any>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+```cpp
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,7 +13,4 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     return result;
 }
 
-int main() {
-    assert(issame(filter_integers({3, 3, 3}), std::vector<int>({3, 3, 3})));
-    return 0;
-}
+assert(sameVectors(filter_integers({3, 3, 3}), std::vector<int>({3, 3, 3})));
