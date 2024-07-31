@@ -24,17 +24,3 @@ bool move_one_ball(vector<int> arr) {
     
     return true;
 }
-
-int main() {
-    // Test cases
-    vector<int> test1 = {1, 2, 3, 4};
-    vector<int> test2 = {2, 3, 4, 1};
-    
-    if (move_one_ball(test1)) cout << "Test 1 Passed" << endl;
-    else cout << "Test 1 Failed" << endl;
-    
-    if (move_one_ball(test2)) cout << "Test 2 Passed" << endl;
-    else cout << "Test 2 Failed" << endl;
-    
-    return 0;
-}
