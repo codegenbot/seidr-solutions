@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 int n;
-std::vector<int> input(n);
+std::vector<int> input;
 
 void readInput() {
     std::cout << "Enter the number of elements: ";
@@ -19,6 +18,9 @@ void readInput() {
 }
 
 int main() { 
+    std::vector<int> input;
+    int n;
+    
     readInput();
 
     if(input.size() == 0) {
