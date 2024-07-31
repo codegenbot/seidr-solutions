@@ -1,13 +1,20 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-string match_parens(vector<string> lst) {
+using namespace std;
+
+bool match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else if (c == ')') close++;
+            else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return (open == close);
+}
+
+int main() {
+    assert(match_parens({{"("}, {")"}}) == true);
+    return 0;
 }
