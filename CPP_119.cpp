@@ -4,12 +4,12 @@
 
 using namespace std;
 
-bool match_parens(const vector<string>& lst) {
+bool match_parens(vector<const string&> lst) {
     int open = 0, close = 0;
-    for (const auto& s : lst) {
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else if (c == ')') close++;
+            else close++;
         }
     }
     return (open == close);
