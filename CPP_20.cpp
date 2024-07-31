@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<float> find_closest_elements(std::vector<float> nums) {
+std::vector<float> find_closest_elements(const std::vector<float>& nums) {
     std::vector<float> result;
 
     if (nums.size() < 2) {
