@@ -1,21 +1,17 @@
-bool issame(string a, string b) {
-    return a == b;
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
     string s;
-    getline(std::cin, s);
     int n;
-    cin >> n;
-
-    vector<string> words = select_words(s, n);
-
-    for (string word : words) {
+    cin >> s >> n;
+    vector<string> b = select_words(s, n);
+    for (string word : b) {
         cout << word << endl;
     }
-
     return 0;
 }
 
@@ -32,7 +28,7 @@ vector<string> select_words(string s, int n) {
             word = "";
             consonant_count = 0;
         } else {
-            if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+            if (isalpha(c) && !strchr("aeiouAEIOU", c) && !consonant_count) {
                 consonant_count++;
             }
             word += c;
