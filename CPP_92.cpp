@@ -8,8 +8,14 @@ bool any_int(double a, double b, double c) {
 }
 
 int main() {
-    // Test any_int function
-    bool result = any_int(2.0, 1.0, 1.0);
-    
+    double a, b, c;
+    // Read input values for a, b, c
+
+    if (any_int(a, b, c)) {
+        // Output if a, b, and c are integers and satisfy the condition
+    } else {
+        // Output if a, b, and c are not integers or do not satisfy the condition
+    }
+
     return 0;
 }
