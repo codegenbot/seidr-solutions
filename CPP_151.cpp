@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 int double_the_difference(vector<int> lst) {
     int sum = 0;
     for (int num : lst) {
-        if (num > 0 && num % 2 != 0) { 
-            sum += num * num;
+        if (num > 0 && floor((double)num) == num) { 
+            if (fmod((double)num, 2.0) != 0.0) { 
+                sum += pow(num, 2);
+            }
         }
     }
     return sum;
@@ -15,21 +18,21 @@ int double_the_difference(vector<int> lst) {
 
 int main() {
     vector<int> lst; 
-    int odd_sum = 0;
+    int num;
 
     cout << "Enter elements for the list: ";
-    int num;
     for (int i = 0; i < 5; i++) { 
-        while (!(cin >> num)) {
-            cout << "Invalid input. Please enter an integer: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> num;
+        while (true) {
+            if (!(cin >> num)) {
+                cout << "Invalid input. Please enter an integer: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else break;
         }
         lst.push_back(num);
     }
 
-    odd_sum = double_the_difference(lst);
+    int odd_sum = double_the_difference(lst);
 
     cout << "The difference is: " << odd_sum << endl;
 
