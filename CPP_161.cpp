@@ -1,14 +1,6 @@
-#include <iostream>
 #include <string>
-
+#include <iostream>
 using namespace std;
-
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Result: " << solve(s) << endl;
-}
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -21,3 +13,9 @@ std::string solve(std::string s) {
     }
     return result.empty() ? std::string(s).reverse() : result;
 }
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Result: " << solve(s) << endl;
