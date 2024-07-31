@@ -1,5 +1,3 @@
-if((a == b + c) || (b == a + c) || (c == a + b))
-        return true;
-    else
-        return false;
+bool any_int(double a, double b, double c) {
+    return (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c));
 }
