@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iterator>
 #include <cassert>
+#include <set>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -12,9 +13,12 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::sort(l2.begin(), l2.end());
 
     std::vector<int> result;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
+    std::set<int> resultSet;
+    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::inserter(resultSet, resultSet.begin()));
 
-    result.erase(std::unique(result.begin(), result.end()), result.end());
+    for (const auto& val : resultSet) {
+        result.push_back(val);
+    }
 
     return result;
 }
