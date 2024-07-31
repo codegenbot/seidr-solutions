@@ -12,11 +12,11 @@ int smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> test1 = {1, 2, 3, 4, 5};
-    std::vector<int> test2 = {1, 2, 3, 2, 1};
-
-    int result1 = smallest_change(test1);
-    int result2 = smallest_change(test2);
-
+    std::vector<int> test_case1 = {1, 2, 3, 4, 5};
+    std::vector<int> test_case2 = {1, 2, 2, 1};
+    
+    int result1 = smallest_change(test_case1);
+    int result2 = smallest_change(test_case2);
+    
     return 0;
 }
