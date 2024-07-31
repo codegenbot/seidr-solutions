@@ -1,5 +1,4 @@
-```cpp
-int main() {
+int old_main() {
     vector<float> input;
     cout << "Enter numbers separated by space: ";
     float num;
@@ -12,4 +11,4 @@ int main() {
     } else {
         cout << "Not all numbers are positive." << endl;
     }
-}
+    return 0;
