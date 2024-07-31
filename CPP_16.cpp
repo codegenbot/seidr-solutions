@@ -1,3 +1,11 @@
+#include <iostream>
+#include <string>
+
+int countDistinctCharacters(const std::string& str) {
+    std::set<char> distinctChars(str.begin(), str.end());
+    return distinctChars.size();
+}
+
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
@@ -9,3 +17,4 @@ int main() {
     int result = countDistinctCharacters(str);
     std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
+}
