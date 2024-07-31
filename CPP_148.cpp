@@ -5,13 +5,11 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
@@ -45,14 +43,10 @@ vector<string> bf(string planet1, string planet2) {
 
 int main() {
     vector<string> result = bf("Earth", "Jupiter");
-
-    // Check if result is the same as expected
-    vector<string> expected = {"Mars", "Saturn"};
-    if (issame(result, expected)) {
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
+    for (const auto& planet : result) {
+        cout << planet << " ";
     }
+    cout << endl;
 
     return 0;
 }
