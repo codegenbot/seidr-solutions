@@ -14,5 +14,4 @@ bool monotonic(vector<int> l) {
     return increasing || decreasing;
 }
 
-/* Sample test cases */
 assert(monotonic({9, 9, 9, 9}) == true);
