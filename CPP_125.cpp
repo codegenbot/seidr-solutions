@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cctype>
 #include <cassert>
-#include <string> // Added include for string
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+using namespace std;
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -39,4 +39,8 @@ std::vector<std::string> split_words(std::string txt) {
     }
     
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
