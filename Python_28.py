@@ -10,7 +10,7 @@ while True:
     user_input = input("Enter the strings separated by spaces (or 'q' to quit): ")
     if user_input.lower() == 'q':
         break
-    if not user_input:  
+    if not user_input.strip():
         print("Program did not receive expected input")
         continue  
     strings = user_input.split()
