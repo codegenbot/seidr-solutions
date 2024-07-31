@@ -1,14 +1,15 @@
 #include <vector>
+#include <cassert>
 
-vector<int> incr_list(vector<int> l) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> incr_list(std::vector<int> l) {
     for (int& num : l) {
         num++;
     }
     return l;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
