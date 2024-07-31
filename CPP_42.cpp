@@ -1,8 +1,8 @@
-bool issame(vector<int> a, vector<int> b){
-    for(int i = 0; i < a.size(); i++){
-        a[i]++;
+vector<int> incr_elem(vector<int> l){
+    for(int i = 0; i < l.size(); i++){
+        l[i]++;
     }
-    return a == b;
+    return l;
 }
 
 int main(){
