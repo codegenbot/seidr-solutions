@@ -1,17 +1,7 @@
-#include <bits/stdc++.h>
-
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> custom_sort(std::vector<int> arr);
-
-int main() {
-    assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    return 0;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> custom_sort(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
@@ -23,4 +13,9 @@ std::vector<int> custom_sort(std::vector<int> arr) {
         return countA < countB;
     });
     return arr;
+}
+
+int main() {
+    assert(std::issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    return 0;
 }
