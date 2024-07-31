@@ -18,13 +18,13 @@ pair<vector<string>, bool> reverse_delete(string s1, string s2) {
         i++;j--;
         result.push_back(s1.substr(0,i));
     }
-    return make_pair({{"",}},true);
+    return make_pair(vector<string>({"",}),true);
 }
 
 int main() {
     auto result = reverse_delete("mamma", "mia");
     bool expectedResult = !result.second;
-    vector<string> expectedVectors = {""};
-    assert(issame(result.first, {expectedResult ? "" : "True"}));
+    vector<string> expectedVectors = {{""}};
+    assert(issame({{""}, result.second}, {{"", true}}));
     return 0;
 }

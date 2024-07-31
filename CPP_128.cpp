@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -23,6 +24,6 @@ int prod_signs(std::vector<int> arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-    std::cout << prod_signs({-1, 1, 1, 0});
+    std::cout << prod_signs({-1, 1, 1, 0}) << std::endl;
     return 0;
 }

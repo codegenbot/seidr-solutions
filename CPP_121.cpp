@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
+
 using namespace std;
 
 int solve(vector<int> lst) {
@@ -21,23 +22,10 @@ int main() {
     string str;
     getline(cin, str);
     
-    for (char c : str) {
-        if (isdigit(c)) {
-            try {
-                int num =stoi(string(1,c));  // This will work for single-digit integers
-                if(num != 0)
-                    lst.push_back(num);
-                else {
-                    cout << "Invalid input. Please enter numbers only." << endl;
-                    return 1; 
-                }
-            } catch(invalid_argument& e) {
-                cout << "Invalid input. Please enter numbers only." << endl;
-                return 1; 
-            }
-        } else {
-            break; 
-        }
+    istringstream iss(str);
+    int num;
+    while(iss >> num) {
+        lst.push_back(num);
     }
     
     cout << "Sum of odd numbers: " << solve(lst) << endl;
