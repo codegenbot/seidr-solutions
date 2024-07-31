@@ -10,6 +10,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
         }
     }
     std::string reverse_result = result;
-    reverse(reverse_result.begin(), reverse_result.end());
+    std::reverse(reverse_result.begin(), reverse_result.end());
     return {result, result == reverse_result ? "True" : "False"};
 }
