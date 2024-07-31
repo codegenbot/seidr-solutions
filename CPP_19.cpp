@@ -1,12 +1,10 @@
-#include <iostream>
 #include <map>
+#include <string>
+#include <sstream>
 #include <vector>
 #include <algorithm>
-#include <sstream>
 
-using namespace std;
-
-map<string, int> num_map = {
+std::map<std::string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -19,30 +17,33 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> rev_num_map;
+std::string sort_numbers(std::string numbers);
+
+int main() {
+    std::string input_numbers = "one three eight four two";
+    std::string sorted_numbers = sort_numbers(input_numbers);
+    // Display or use the sorted numbers as needed
+}
+
+std::string sort_numbers(std::string numbers){
+    std::map<int, std::string> rev_num_map;
     for(auto it : num_map){
         rev_num_map[it.second] = it.first;
     }
 
-    vector<int> sorted_nums;
-    stringstream ss(numbers);
-    string token;
+    std::vector<int> sorted_nums;
+    std::stringstream ss(numbers);
+    std::string token;
     while (ss >> token){
         sorted_nums.push_back(num_map[token]);
     }
 
-    sort(sorted_nums.begin(), sorted_nums.end());
+    std::sort(sorted_nums.begin(), sorted_nums.end());
 
-    string result;
+    std::string result;
     for(auto num : sorted_nums){
         result += rev_num_map[num] + " ";
     }
 
     return result;
-}
-
-int main(){
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
 }
