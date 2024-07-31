@@ -17,7 +17,7 @@ int main() {
     float num;
     while (std::cin >> num) {
         input.push_back(num);
-    }
+   }
     
     if (!input.empty()) input.reserve(input.size());
     std::vector<float> positive = get_positive(input);
