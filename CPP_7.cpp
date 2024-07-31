@@ -22,8 +22,6 @@ int solution(int numStrings) {
     int n;
     std::cin >> n;
 
-    std::cin.ignore(); // ignore the newline character
-
     std::vector<std::string> strings;
     for (int i = 0; i < n; ++i) {
         std::string s;
@@ -34,9 +32,10 @@ int solution(int numStrings) {
     std::string substring;
     std::getline(std::cin, substring);
 
+    int tempSize = 100;
     std::vector<std::string> result1 = filter_by_substring(strings, substring);
     std::vector<std::string> temp;
-    for (auto it = strings.begin(); it != strings.end(); ++it) {
+    for (auto it = strings.begin(); it != strings.end() && temp.size() < tempSize; ++it) {
         if ((*it).find(substring) != std::string::npos) {
             temp.push_back(*it);
         }
