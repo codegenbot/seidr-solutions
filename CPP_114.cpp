@@ -1,14 +1,14 @@
 #include <iostream>
-#include <vector>
-#include <limits>
 using namespace std;
 
-int minSubArraySum(vector<int> nums) {
-    int min_sum = numeric_limits<int>::max();
-    for (int i = 0; i < nums.size(); i++) {
+int minSubArraySum(int n) {
+    if(n<0)
+        return 0;
+    int min_sum = INT_MAX;
+    for (int i = 1; i <= n; i++) {
         int current_sum = 0;
-        for (int j = i; j < nums.size(); j++) {
-            current_sum += nums[j];
+        for (int j = i; j <= n; j++) {
+            current_sum += j;
             if (current_sum < min_sum) {
                 min_sum = current_sum;
             }
@@ -18,7 +18,6 @@ int minSubArraySum(vector<int> nums) {
 }
 
 int main() {
-    cout << "minSubArraySum({1, -1}) = " << minSubArraySum({1, -1}) << endl;
-    assert(minSubArraySum({1, -1}) == 0);
+    cout << "minSubArraySum(2) = " << minSubArraySum(2) << endl;
     return 0;
 }
