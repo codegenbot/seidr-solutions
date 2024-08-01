@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int specialFilter(std::vector<int> nums) {
