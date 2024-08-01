@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -21,28 +20,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-int main(){
-    int n;
-    cin >> n;
-    
-    vector<string> strings;
-    for(int i = 0; i < n; i++){
-        string str;
-        cin >> str;
-        strings.push_back(str);
-    }
-
-    string prefix;
-    cin >> prefix;
-
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-
-    if(issame(strings, filtered_strings)){
-        cout << "Yes" << endl;
-    }
-    else{
-        cout << "No" << endl;
-    }
-
-    return 0;
 }
