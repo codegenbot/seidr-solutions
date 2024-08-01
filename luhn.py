@@ -1,13 +1,14 @@
-Here is the Python solution for the problem:
+Here is the solution to the Luhn's algorithm problem:
 
 ```
-def luhn(card):
-    card = [int(x) for x in card.split()]
+def luhn(card_number):
     total = 0
-    for i in range(len(card)):
+    for i in range(len(card_number)):
         if i % 2 == 1:
-            card[i] *= 2
-            if card[i] > 9:
-                card[i] -= 9
-        total += card[i]
+            temp = int(card_number[i]) * 2
+            if temp > 9:
+                temp -= 9
+        else:
+            temp = int(card_number[i])
+        total += temp
     return total
