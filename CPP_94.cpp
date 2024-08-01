@@ -1,5 +1,6 @@
-int skjkasdkd(vector<int> lst);
+```cpp
 bool isPrime(int num);
+int skjkasdkd(vector<int> lst);
 
 int main() {
     assert(skkkasdkd({127, 97, 8192}) == 10);
@@ -33,4 +34,3 @@ bool isPrime(int num) {
         }
     }
     return true;
-}
