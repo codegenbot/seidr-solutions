@@ -6,16 +6,16 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> even_odd_palindrome(int n){
-    vector<int> res(2, 0);
+std::vector<int> even_odd_palindrome(int n){
+    std::vector<int> res(2, 0);
     for(int i = 1; i <= n; ++i){
-        string s = to_string(i);
-        string rev = s;
-        reverse(rev.begin(), rev.end());
+        std::string s = std::to_string(i);
+        std::string rev = s;
+        std::reverse(rev.begin(), rev.end());
         if(s == rev){
             if(i % 2 == 0){
                 res[0]++;
@@ -31,7 +31,7 @@ int main(){
     int n;
     cin >> n;
     
-    vector<int> result = even_odd_palindrome(n);
+    std::vector<int> result = even_odd_palindrome(n);
     
     assert(issame(result, {0, 1}));
 
