@@ -24,7 +24,6 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
 }
 
 int main() {
-    // Sample usage
     vector<int> list1 = {1, 2, 3, 4, 5};
     vector<int> list2 = {2, 3, 4, 5, 6};
 
