@@ -2,9 +2,10 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <memory_resource>
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,10 +17,10 @@ bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
     return true;
 }
 
-std::vector<std::pmr::string> split_words(std::string input) {
-    std::vector<std::pmr::string> words;
-    std::istringstream iss(input);
-    std::pmr::string word;
+vector<string> split_words(string input) {
+    vector<string> words;
+    istringstream iss(input);
+    string word;
     while (iss >> word) {
         words.push_back(word);
     }
@@ -27,16 +28,16 @@ std::vector<std::pmr::string> split_words(std::string input) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+    string input;
+    getline(cin, input);
     
-    std::vector<std::pmr::string> a = split_words(input);
-    std::vector<std::pmr::string> b = split_words(input);
+    vector<string> a = split_words(input);
+    vector<string> b = split_words(input);
     
     if (issame(a, b)) {
-        std::cout << "Same" << std::endl;
+        cout << "Same" << endl;
     } else {
-        std::cout << "Different" << std::endl;
+        cout << "Different" << endl;
     }
     
     return 0;
