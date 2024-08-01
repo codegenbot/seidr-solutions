@@ -2,17 +2,15 @@
 #include <string>
 
 int gcd(int a, int b) {
-    if (b == 0) {
+    if (b == 0)
         return a;
-    }
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     int n = text.size();
     int m = target.size();
-    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -25,6 +23,5 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             indices.push_back(i);
         }
     }
-    
     return indices;
 }
