@@ -12,4 +12,5 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-factorize(100)
+# Call the function with the desired integer input to factorize
+print(factorize(100))
