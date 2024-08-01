@@ -1,5 +1,22 @@
-#include <cassert> // Include the header file for assert
+#include <cassert>
+#include <vector>
+#include <any>
+#include <algorithm>
 
-// Remove the redefinition of main function at line 33
+using namespace std;
+using std::any;
 
-// The code snippet provided is correct for the given task description and function signature
+vector<int> filter_integers(const vector<any>& values){
+    vector<int> result;
+    for (const auto &val : values) {
+        if (val.type() == typeid(int)) {
+            result.push_back(any_cast<int>(val));
+        }
+    }
+    return result;
+}
+
+int main(){
+    assert(filter_integers({any(3), any(99), any(3), any(3), any(97), any(98)}) == vector<int>{3, 3, 3});
+    return 0;
+}
