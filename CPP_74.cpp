@@ -14,12 +14,12 @@ int totalChars(const std::vector<std::string>& lst) {
     return total;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return totalChars(a) == totalChars(b);
 }
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    if (totalChars(lst1) < totalChars(lst2)) {
+    if(totalChars(lst1) < totalChars(lst2)) {
         return lst1;
     } else {
         return lst2;
