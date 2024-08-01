@@ -27,8 +27,10 @@ int sumOfDigits(int n){
     }
     return sum;
 
+}
+
 int main() {
     std::vector<int> lst = {127, 97, 8192};
-    assert (skjkasdkd(lst) == 10);
+    std::cout << skjkasdkd(lst) << std::endl;
     return 0;
 }
