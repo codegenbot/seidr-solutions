@@ -2,12 +2,12 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+std::vector<int> sort_array(std::vector<int> array) {
     if(array.empty()){
-        return array;
+        return std::vector<int>(array);
     }
     
     int sum = array.front() + array.back();
