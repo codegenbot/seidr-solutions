@@ -3,26 +3,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                result += char
-            elif char.lower() == "a":
-                result += "c" if char.isupper() else "c"
-            elif char.lower() == "e":
-                result += "g" if char.isupper() else "g"
-            elif char.lower() == "i":
-                result += "k" if char.isupper() else "k"
-            elif char.lower() == "o":
-                result += "q" if char.isupper() else "q"
-            elif char.lower() == "u":
-                result += "w" if char.isupper() else "w"
+                continue
             else:
-                result += (
-                    chr((ord(char) - 97 + 3) % 26 + 97)
-                    if char.islower()
-                    else chr((ord(char) - 65 + 3) % 26 + 65)
+                shift = {"a": "c", "e": "g", "i": "k", "o": "q", "u": "w"}.get(
+                    char.lower()
                 )
+                result += shift.upper() if char.isupper() else shift
         else:
             result += char
     return result
 
 
-print(encode(input("Enter the message: ")))
+print(encode(input("Enter your message: ")))
