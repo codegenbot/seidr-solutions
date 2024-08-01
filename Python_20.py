@@ -1,4 +1,5 @@
-def find_closest_pair(numbers):
+def find_closest_pair():
+    numbers = [int(x) for x in input().split()]
     numbers.sort()
     min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
     closest_pair = [
@@ -8,7 +9,5 @@ def find_closest_pair(numbers):
     ][0]
     return closest_pair
 
-
-input_numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
-result = find_closest_pair(input_numbers)
+result = find_closest_pair()
 print(result)
