@@ -23,6 +23,6 @@ string matchParens(vector<string> lst) {
 
 int main() {
     vector<string> lst = {")", "("};
-    cout << matchParens(lst) << endl;
+    assert(matchParens(lst) == "Yes");
     return 0;
 }
