@@ -1,3 +1,4 @@
+#include <vector>
 #include <algorithm>
 #include <cassert>
 
@@ -12,4 +13,7 @@ bool move_one_ball(std::vector<int>& arr) {
     return false;
 }
 
-assert(move_one_ball(std::vector<int>{})==true);
+int main() {
+    assert(move_one_ball(std::vector<int>{}) == true);
+    return 0;
+}
