@@ -7,7 +7,7 @@ std::vector<int> parse_music(const std::string& music) {
     std::vector<int> result;
     std::istringstream iss(music);
     std::string token;
-    
+
     while (std::getline(iss, token, ' ')) {
         if (token == "o|") {
             result.push_back(1);
