@@ -1,28 +1,27 @@
-int bowlingScore(const string& rolls) {
+int bowlingScore(string s) {
     int score = 0;
-    int rollIndex = 0;
+    bool firstInFrame = true;
+    int frameScore = 0;
 
-    for (int frame = 1; frame <= 10; ++frame) {
-        if (frame == 10) { // Last frame, two or three rolls
-            int firstRoll =stoi(rolls.substr(rollIndex, 1));
-            if (firstRoll < 5) { // Spare
-                score += firstRoll + 10;
-                rollIndex++;
-            } else { // Strike
-                score += 10;
-                rollIndex++;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '/') {
+            if(firstInFrame) {
+                frameScore += (i - 1 + 1);
+                firstInFrame = false;
             }
-            score += stoi(rolls.substr(rollIndex++, 1)) + stoi(rolls.substr(rollIndex, 1));
-        } else { // Not the last frame, one or two rolls per frame
-            if (stoi(rolls.substr(rollIndex, 1)) < 5) { // Spare
-                score += stoi(rolls.substr(rollIndex++, 1));
-                rollIndex++;
-                score += 10;
-            } else {
-                score += stoi(rolls.substr(rollIndex, 2));
-                rollIndex += 2;
+            else {
+                score += min(10, (int)(s.substr(i-1,2)-48)) * 10;
+                firstInFrame = true;
+                i++;
             }
         }
+    }
+
+    if(firstInFrame) {
+        frameScore += (int)(s.back()-48);
+    }
+    else {
+        score += min(10, (int)(s[s.length()-1]-48)) + frameScore;
     }
 
     return score;
