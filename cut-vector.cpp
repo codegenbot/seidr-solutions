@@ -1,29 +1,50 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    vector<vector<int>> result;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<int> left, right;
     
-    for(int i = 1; i <= vec.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for(int j = 0; j < i; j++)
-            left_sum += vec[j];
-        for(int j = i; j < vec.size(); j++)
-            right_sum += vec[j];
-        
-        if(abs(left_sum - right_sum) <= min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            result = {{}}; // Initialize the result vector
-            
-            for(int k = 0; k < i; k++)
-                result[0].push_back(vec[k]);
-            result.push_back({}); // Add a new subvector
-            for(int k = i; k < vec.size(); k++)
-                result.back().push_back(vec[k]);
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || v[i] <= v[i-1]) {
+            left.push_back(v[i]);
+        } else {
+            break;
         }
     }
     
-    return result;
+    for (int i = n - 1; i >= 0; i--) {
+        if (i == n - 1 || v[i] >= v[i+1]) {
+            right.push_back(v[i]);
+        } else {
+            break;
+        }
+    }
+    
+    return {left, right};
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left subvector: ";
+    for (int x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
