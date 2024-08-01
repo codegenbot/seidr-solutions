@@ -1,21 +1,12 @@
 #include <vector>
 using namespace std;
 
-int solution(vector<int> numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        sum += (num / 3 - 2);
+int fuelCost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        int temp = (price / 3);
+        temp = (temp > 0) ? temp - 2 : 0; 
+        total += temp;
     }
-    return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    cout << solution(numbers) << endl;
-    return 0;
+    return total;
 }
