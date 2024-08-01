@@ -14,11 +14,15 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
     
+    vector<int> subResult;
     if (minIndex != -1) {
-        result.push_back({{minEvenValue}, {minIndex}});
+        subResult.push_back(minEvenValue);
+        subResult.push_back(minIndex);
     } else {
-        result.push_back({});
+        subResult.push_back({});
     }
+    
+    result.push_back(subResult);
     
     return result;
 }
