@@ -1,18 +1,9 @@
-```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        parts = expression.split('&')
-        for part in parts:
-            if part != 'f':
-                return False
-        return True
-    elif '|' in expression:
-        parts = expression.split('|')
-        for part in parts:
-            if part != 'f':
-                return True
-        return False
+    elif "&" in expression:
+        return eval(" and ".join(map(lambda x: str(x), expression.split("&"))))
+    elif "|" in expression:
+        return eval(" or ".join(map(lambda x: str(x), expression.split("|"))))
