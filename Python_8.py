@@ -1,15 +1,5 @@
+```
 from typing import List, Tuple
-
-
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    total_sum = 0
-    product = 1
-
-    for num in numbers:
-        total_sum += num
-        product *= num
-
-    return total_sum, product
 
 
 def sum_product():
@@ -20,6 +10,15 @@ def sum_product():
         except ValueError:
             print("Invalid input. Please provide a list of integers separated by spaces.")
 
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    total_sum = 0
+    product = 1
+
+    for num in numbers:
+        total_sum += num
+        product *= num
+
+    return total_sum, product
 
 if __name__ == "__main__":
     result = sum_product()
