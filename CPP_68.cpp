@@ -1,11 +1,11 @@
 #include <vector>
-#include <cassert> // include necessary headers
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){ // declare and define issame function
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr){ // move pluck function declaration before issame
+std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
@@ -26,6 +26,6 @@ std::vector<int> pluck(std::vector<int> arr){ // move pluck function declaration
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {})); // test the pluck function using assert
+    assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
