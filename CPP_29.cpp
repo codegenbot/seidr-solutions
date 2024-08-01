@@ -1,7 +1,10 @@
 bool issame(vector<string> a, vector<string> b) {
-    for (string s : a) {
-        if (find(b.begin(), b.end(), s) == b.end()) {
+    for (int i = 0; i < a.size() || i < b.size(); i++) {
+        if (i >= a.size() || i >= b.size()) {
             return false;
+        }
+        if (!a[i].compare(0, b[i].size(), b[i])) {
+            return true;
         }
     }
     return true;
