@@ -3,18 +3,18 @@
 #include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-int main(){
+int main() {
     std::string input;
     std::getline(std::cin, input);
     
@@ -24,12 +24,7 @@ int main(){
     if (!issame(a, b)) {
         std::cout << "Different" << std::endl;
     } else {
-        std::vector<std::string> b = split_words(input);
-        if (issame(a, b)) {
-            std::cout << "Same" << std::endl;
-        } else {
-            std::cout << "Different" << std::endl;
-        }
+        std::cout << "Same" << std::endl;
     }
     
     return 0;
