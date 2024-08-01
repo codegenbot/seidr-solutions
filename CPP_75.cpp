@@ -1,34 +1,23 @@
+#include <cmath>
+
 bool is_multiply_prime(int a) {
-    for (int i = 2; i <= 100; i++) {
-        for (int j = i; j <= 100; j++) {
-            for (int k = j; k <= 100; k++) {
-                if (i * j * k == a) {
-                    bool is_prime1 = true;
-                    bool is_prime2 = true;
-                    bool is_prime3 = true;
-
-                    for (int p = 2; p * p <= i; p++) {
-                        if (i % p == 0) {
-                            is_prime1 = false;
-                            break;
-                        }
+    for (int i = 2; i <= sqrt(a); i++) {
+        int count = 0;
+        for (int j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                count++;
+            }
+        }
+        if (count == 0) {
+            for (int k = i; k <= a / i; k++) {
+                int count2 = 0;
+                for (int l = 2; l <= k / 2; l++) {
+                    if (k % l == 0) {
+                        count2++;
                     }
-
-                    for (int p = 2; p * p <= j; p++) {
-                        if (j % p == 0) {
-                            is_prime2 = false;
-                            break;
-                        }
-                    }
-
-                    for (int p = 2; p * p <= k; p++) {
-                        if (k % p == 0) {
-                            is_prime3 = false;
-                            break;
-                        }
-                    }
-
-                    return is_prime1 && is_prime2 && is_prime3;
+                }
+                if (count2 == 0 && k * i == a) {
+                    return true;
                 }
             }
         }
