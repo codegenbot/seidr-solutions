@@ -3,24 +3,20 @@
 #include <vector>
 
 int main() {
-    std::string text, target;
-    std::vector<int> indices;
-    int pos = 0;
-
-    std::cout << "Enter the text string: ";
+    std::string text;
+    std::string target;
     std::getline(std::cin, text);
-
-    std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
+    std::vector<int> indices;
 
+    std::size_t pos = text.find(target);
     while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
 
-    std::cout << "Indices where the target appears in the text: ";
-    for (int index : indices) {
-        std::cout << index << " ";
+    for (int idx : indices) {
+        std::cout << idx << " ";
     }
 
     return 0;
