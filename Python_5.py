@@ -6,6 +6,7 @@ def format_numbers(numbers, delimiter):
         result.append(numbers[-1])
     return result
 
+# Call the function with appropriate arguments
 numbers = [1, 2, 3, 4, 5]
 delimiter = "-"
 output = format_numbers(numbers, delimiter)
