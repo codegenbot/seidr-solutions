@@ -2,7 +2,7 @@
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
-        throw std::invalid_argument("The vector must have at least two elements.");
+        throw runtime_error("Vector must have at least two elements");
     }
 
     float min_diff = numeric_limits<float>::max();
@@ -18,5 +18,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>{closest_pair.first, closest_pair.second};
+    return vector<float>(closest_pair);
 }
