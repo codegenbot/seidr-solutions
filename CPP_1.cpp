@@ -40,4 +40,3 @@ std::vector<std::string> separate_paren_groups(const std::string& input) {
 
 assert(compare_vectors(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
 return 0;
-```
