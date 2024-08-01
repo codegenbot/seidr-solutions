@@ -27,10 +27,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input_vector = {5, 2, 8, 3, 1, 4};
-    vector<int> output_vector = strange_sort_vector(input_vector);
-    for(int num : output_vector) {
-        cout << num << " ";
+    vector<int> inputVector = {5, 3, 8, 4, 2};
+    vector<int> outputVector = strange_sort_vector(inputVector);
+    for (int i : outputVector) {
+        cout << i << " ";
     }
     return 0;
 }
