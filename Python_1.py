@@ -1,7 +1,7 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string or not set(paren_string).issubset({'(', ')'}):
+    if not set(paren_string).issubset({'(', ')'}):
         return []
 
     result = []
