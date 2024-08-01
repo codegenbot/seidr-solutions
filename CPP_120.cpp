@@ -8,11 +8,14 @@ bool issame(vector<int> a,vector<int>b){
 int main() {
     vector<int> arr = {1,2,3,4,5};
     int k = 3;
-    
+
     vector<int> result = maximum(arr,k);
-    for(int i=0; i<result.size(); i++){
+
+    for(int i=0; i<result.size();i++){
         cout << result[i] << " ";
     }
+    
+    return 0;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
