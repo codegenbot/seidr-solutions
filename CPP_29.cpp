@@ -1,34 +1,21 @@
-bool issame(string str1, string str2) {
-    if (str1.length() != str2.length()) {
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < str1.length(); i++) {
-        if (str1[i] != str2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
 
-int main() {
-    vector<string> strings;
-    string prefix, output;
-    cout << "Enter the list of strings (space separated): ";
-    getline(cin, prefix);
-    strings = split(prefix, ' ');
-    
-    cout << "Enter the prefix: ";
-    cin >> prefix;
-    
-    vector<string> result = filter_by_prefix(strings, prefix);
-    
-    for (const auto& str : result) {
-        if (issame(str, prefix)) {
-            output += str + " ";
-        }
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
+    for (string s : strings) {
+        if (s.find(prefix) == 0)
+            result.push_back(s);
     }
-    
-    cout << "The strings that are the same as the given prefix: " << output << endl;
-    
-    return 0;
+    return result;
 }
