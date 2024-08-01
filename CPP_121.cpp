@@ -8,3 +8,4 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
+}
