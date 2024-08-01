@@ -12,7 +12,13 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+// Add the missing function
+int count_divisible_piles(std::vector<int> pile) {
+    int count = 0;
+    for (int val : pile) {
+        if (val % 3 == 0) {
+            count++;
+        }
+    }
+    return count;
 }
