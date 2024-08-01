@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 void sort_even(std::vector<int>& l) {
     std::sort(l.begin(), l.end(), [](int a, int b) {
@@ -9,7 +8,11 @@ void sort_even(std::vector<int>& l) {
 }
 
 int main() {
-    sort_even(std::vector<int>{5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    assert((std::vector<int>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}) == std::vector<int>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
-    return 0;
+    std::vector<int> vec{5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(vec);
+    std::vector<int> expected{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    if (vec == expected) {
+        return 0;
+    }
+    return 1;
 }
