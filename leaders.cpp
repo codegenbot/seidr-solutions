@@ -1,35 +1,6 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
-    int n = nums.size();
-    int maxRight = nums[n-1];
-
-    // Add the rightmost element as a leader
-    leaders.push_back(nums[n-1]);
-    
-    for (int i = n-2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            leaders.push_back(nums[i]);
-        }
+for (int i = n-2; i >= 0; i--) {
+    if (nums[i] >= maxRight && (leaders.empty() || nums[i] >= leaders.back())) {
+        leaders.push_back(nums[i]);
+        maxRight = nums[i]; // Update maxRight
     }
-
-    // Reverse the leaders vector to have the correct order
-    reverse(leaders.begin(), leaders.end());
-
-    return leaders;
-}
-
-int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
-    
-    for (int num : result) {
-        cout << num << " ";
-    }
-    
-    return 0;
 }
