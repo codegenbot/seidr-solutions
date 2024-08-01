@@ -1,7 +1,15 @@
-#include <string>
+#include<stdio.h>
+#include<math.h>
+#include<string>
 using namespace std;
 
 int closest_integer(string value) {
     double num = stod(value);
-    return (num >= 0) ? ceil(num) : floor(num);
+    int integerPart = (int)num;
+    if (fabs(num - integerPart) < 0.5)
+        return integerPart;
+    else if (num > integerPart)
+        return integerPart + 1;
+    else
+        return integerPart - 1;
 }
