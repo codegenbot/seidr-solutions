@@ -3,12 +3,14 @@
 #include <cassert>
 
 std::string decimal_to_binary(int decimal) {
-    std::string binary = "db";
+    std::string binary = "";
     while (decimal > 0) {
         binary = std::to_string(decimal % 2) + binary;
         decimal /= 2;
     }
-    return binary + "db";
+    return binary;
 }
 
-assert(decimal_to_binary(15) == "db1111db");
+void main() {
+    assert(decimal_to_binary(15) == "1111");
+}
