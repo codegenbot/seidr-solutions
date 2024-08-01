@@ -2,10 +2,10 @@
 #include <cmath>
 #include <cassert>
 
-double poly(const std::vector<double>& xs, double x){
+double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
-    for (int i = 0; i < xs.size(); i++) {
-        result += xs[i] * pow(x, i);
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
