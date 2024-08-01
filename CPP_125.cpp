@@ -1,48 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    string temp = "";
-    
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!temp.empty()) {
-                result.push_back(temp);
-                temp = "";
-            }
-            if (c == ',') break; // stop at the first comma
-        } else {
-            temp += c;
-        }
+    size_t pos = 0;
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-    
-    if (!temp.empty()) {
-        result.push_back(temp);
+    if (txt.length() > 0) {
+        result.push_back(txt);
     } else {
         int count = 0;
         for (char c : txt) {
-            if (islower(c)) {
+            if ((int)c - (int)'a' % 2 == 0 && (int)c >= (int)'a' && (int)c <= (int)'z') {
                 count++;
-                if ((count - 1) % 2 == 0) break; // stop at the first odd-indexed lowercase letter
             }
         }
         result.push_back(to_string(count));
     }
-    
     return result;
 }
 
 int main() {
     string txt;
-    cout << "Enter a string: ";
+    cout << "Enter a text: ";
     getline(cin, txt);
     vector<string> result = split_words(txt);
-    for (string s : result) {
+    for (const auto& s : result) {
         cout << s << endl;
     }
     return 0;
