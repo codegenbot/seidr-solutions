@@ -6,7 +6,7 @@
 using namespace std;
 
 bool pairs_sum_to_zero(const vector<int>& l) {
-    unordered_set<int> seen;
+    std::unordered_set<int> seen;
     for (int num : l) {
         if (seen.count(-num) > 0) {
             return true;
@@ -18,6 +18,5 @@ bool pairs_sum_to_zero(const vector<int>& l) {
 
 int main() {
     assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-    
     return 0;
 }
