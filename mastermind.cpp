@@ -1,3 +1,9 @@
+#include <iostream>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -14,8 +20,11 @@ int main() {
         }
     }
     
-    for (auto& pair : codeFreq) {
-        whitePegs += min(pair.second, guessFreq[pair.first]);
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && codeFreq[guess[i]]) {
+            whitePegs++;
+            codeFreq[guess[i]]--;
+        }
     }
     
     cout << whitePegs << endl << blackPegs << endl;
