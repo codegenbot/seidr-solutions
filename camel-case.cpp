@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,35 +7,41 @@ std::string capitalize(const std::string& s) {
     if (s.empty()) {
         return s;
     }
-    std::string result = (s[0] >= 'a' && s[0] <= 'z') ? std::string(1, s[0]) : std::string(1, toupper(s[0]));
-    for (int i = 1; i < s.size(); ++i) {
-        result += tolower(s[i]);
-    }
-    return result;
-}
 
-std::vector<std::string> split(const std::string& s, char c) {
-    std::vector<std::string> words;
-    std::string word;
+    std::string result = "";
+    bool firstChar = true;
 
-    for (char ch : s) {
-        if (ch == c) {
-            words.push_back(word);
-            word.clear();
+    for (char c : s) {
+        if (!firstChar) {
+            result += tolower(c);
         } else {
-            word += ch;
+            result += toupper(c);
+            firstChar = false;
         }
     }
 
-    if (!word.empty()) {
-        words.push_back(word);
+    return result;
+}
+
+std::vector<std::string> split(const std::string& str, char ch) {
+    std::vector<std::string> tokens;
+
+    size_t pos = 0;
+    size_t lastPos = 0;
+
+    while ((pos = str.find(ch, lastPos)) != std::string::npos) {
+        tokens.push_back(str.substr(lastPos, pos - lastPos));
+        lastPos = pos + 1;
     }
 
-    return words;
+    tokens.push_back(str.substr(lastPos));
+
+    return tokens;
 }
 
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> words = split(s, '-');
+    std::vector<std::string> words = split(s, ' ');
+
     std::string result;
 
     for (const auto& word : words) {
