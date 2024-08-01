@@ -1,20 +1,21 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-double poly(const std::vector<double>& coefficients, double x);
-
-double find_zero(const std::vector<double>& xs) {
+double poly(std::vector<double> xs){
     double a = xs[0];
     double b = xs[1];
     return -b/a;
 }
 
-double poly(const std::vector<double>& coefficients, double x) {
-    double result = 0.0;
-    int degree = coefficients.size() - 1;
+int main(){
+    std::vector<double> coeffs = {2.0, 5.0};  // Example coefficients for the polynomial
 
-    for (int i = 0; i < coefficients.size(); i++) {
-        result += coefficients[i] * pow(x, degree - i);
-    }
+    assert(coeffs.size() >= 2);  // Ensure there are at least two coefficients provided
 
-    return result;
+    double result = poly(coeffs);
+
+    std::cout << "Zero of the polynomial: " << result << std::endl;
+
+    return 0;
 }
