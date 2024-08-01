@@ -6,25 +6,30 @@ std::string capitalize(const std::string& s) {
     if (s.empty()) {
         return s;
     }
-    std::string result = s[0] >= 'a' && s[0] <= 'z' ? toupper(s[0]) : tolower(s[0]);
+    std::string result = "";
+    char c = toupper(s[0]);
+    result += c;
     for (int i = 1; i < s.size(); ++i) {
-        result += tolower(s[i]);
+        c = tolower(s[i]);
+        result += c;
     }
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, char c) {
+std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> words;
-    std::string word;
-    for (char ch : s) {
-        if (ch == c) {
+    std::string word = "";
+    for (char c : s) {
+        if (c == delimiter) {
             words.push_back(word);
-            word.clear();
+            word = "";
         } else {
-            word += ch;
+            word += c;
         }
     }
-    words.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
+    }
     return words;
 }
 
