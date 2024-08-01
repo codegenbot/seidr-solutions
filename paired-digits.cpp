@@ -1,6 +1,5 @@
 ```cpp
 #include <string>
-#include <iostream>
 
 int pairedDigitsSum(const std::string& str) {
     int sum = 0;
