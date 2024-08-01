@@ -1,27 +1,35 @@
-#include <string>
+int mastermind(std::string code, std::string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == code[i] && i != j) {
-                found = true;
-                break;
+    for (char c : guess) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == code[i]) {
+                count++;
             }
         }
-        if (!found) {
-            white++;
-        }
+        whitePegs += count - 1;
     }
 
-    return black + white;
+    return blackPegs + whitePegs;
+}
+
+int main() {
+    std::string code, guess;
+    // Read input from user
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter a guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+    std::cout << result << "\n" << result << std::endl;
+    return 0;
 }
