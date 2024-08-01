@@ -19,4 +19,3 @@ string rounded_avg(int n, int m) {
     }
     reverse(binary.begin(), binary.end());
     return binary;
-}
