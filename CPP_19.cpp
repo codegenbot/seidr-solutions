@@ -2,6 +2,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cassert>
+#include <vector>
 
 std::string sort_numbers(const std::string& numbers_str) {
     std::istringstream iss(numbers_str);
