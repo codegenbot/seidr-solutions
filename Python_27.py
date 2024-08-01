@@ -1,2 +1,5 @@
-def swap_case(string: str) -> str:
+def swap_case(string):
     return string.swapcase()
+
+input_string = input("Enter a string: ")
+print(swap_case(input_string))
