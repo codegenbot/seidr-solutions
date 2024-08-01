@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int bowlingScore(string s) {
@@ -8,17 +9,17 @@ int bowlingScore(string s) {
             score += 10 + (frame < 9 ? 10 : 0);
             frame++;
         } else if (c == '/') {
-            score += 10 - (10 - (s.find(c) - 1) - '0') - (10 - (s[s.find(c) + 1] - '0'));
+            score += 10 - (10 - (s.find(c) - 1) - '0') - (10 - (s.find(c) + 1) - '0');
             frame++;
         } else {
             int pins = c - '0';
-            if (frame < 9 && s.find(c) + 1 == s.find('/')) {
-                score += 10 - pins;
-                frame++;
-            } else {
+            if (frame < 9 && s.find(c) + 1 == string::npos || s.find('/') == string::npos) {
                 score += pins;
+            } else {
+                score += 10 - pins;
                 frame++;
             }
         }
     }
     return score;
+}
