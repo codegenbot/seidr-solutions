@@ -18,7 +18,13 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return result;
 }
 
-pair<float, float> contest_main() {
+void solveProblem() {
     assert(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == make_pair(2.2f, 3.1f));
-    return find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
+    pair<float, float> closest_elements = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
+    cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << endl;
+}
+
+int main() {
+    solveProblem();
+    return 0;
 }
