@@ -7,16 +7,22 @@ int main() {
     cin >> n;
     vector<float> prices(n);
     vector<float> discounts(n);
+
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
+
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
-    float total = 0.0;
+
+    float total_price = 0.0;
+    
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (1 - discounts[i] / 100);
+        total_price += prices[i] - prices[i] * discounts[i] / 100;
     }
-    cout << total << endl;
+
+    cout << fixed << total_price << endl;
+
     return 0;
 }
