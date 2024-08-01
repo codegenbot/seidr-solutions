@@ -1,12 +1,5 @@
-```cpp
 #include <algorithm>
 #include <numeric>
-#include <vector>
-#include <limits>
-
-bool issame(vector<float> a,vector<float>b){
-    return (a.size() == b.size() && all_of(a.begin(), a.end(), [&](float x){return std::find(b.begin(),b.end(),x) != b.end();}));
-}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() <= 1)
@@ -26,4 +19,8 @@ vector<float> find_closest_elements(vector<float> numbers) {
     }
 
     return vector<float>(closest_pair);
+}
+
+bool issame(vector<float> a,vector<float>b){
+    return (a.size() == b.size() && all_of(a.begin(), a.end(), [&](float x){return std::find(b.begin(),b.end(),x) != b.end();}));
 }
