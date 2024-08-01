@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    vector<int> digits = {4, 5, 2, 7, 1, 3, 9, 0, 8, 6, 9, 5, 5, 8, 4, 5}; 
+    vector<int> digits = {4, 7, 8, 2, 9, 3, 5, 1, 6, 0, 4, 7, 5, 9, 9, 1};
     cout << luhnCheck(digits) << endl; 
     return 0;
 }
