@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
 int totalChars(const vector<string>& lst) {
     int total = 0;
     for(const string& str : lst) {
