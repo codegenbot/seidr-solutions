@@ -1,6 +1,6 @@
-int search(vector<int> numbers) {
+int search(vector<int> n) {
     map<int, int> freq;
-    for (int num : numbers) {
+    for (int num : n) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
         } else {
