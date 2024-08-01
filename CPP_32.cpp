@@ -23,10 +23,11 @@ int main() {
 
     std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     double coeff;
-    if (!(std::cin >> coeff)) return 1;
-    coeffs.push_back(coeff);
+    while (std::cin >> coeff) {
+        coeffs.push_back(coeff);
+    }
 
-    auto solution = find_zero(coeffs);
+    double solution = find_zero(coeffs);
     std::cout << "Solution: " << solution << std::endl;
 
     return 0;
