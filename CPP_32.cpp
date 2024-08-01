@@ -3,7 +3,6 @@
 #include <cmath>
 
 double poly(std::vector<double> coeffs, double x);
-
 double find_zero(std::vector<double> coeffs);
 
 double poly(std::vector<double> coeffs, double x) {
@@ -30,7 +29,8 @@ int main() {
         if (coeffs.size() > 1) break;
     }
 
-    double solution = find_zero(coeffs);
+    double solution;
+    solution = find_zero(coeffs);
     std::cout << "Solution: " << solution << std::endl;
 
     return 0;
