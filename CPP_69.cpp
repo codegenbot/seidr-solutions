@@ -1,10 +1,18 @@
 int search(int n) {
     map<int, int> freq;
+    vector<int> lst;
+    
     for (int i = 1; i <= n; i++) {
-        if (freq.find(i) == freq.end()) {
-            freq[i] = 1;
+        if (rand() % 2) {
+            lst.push_back(i);
+        }
+    }
+    
+    for (int num : lst) {
+        if (freq.find(num) == freq.end()) {
+            freq[num] = 1;
         } else {
-            freq[i]++;
+            freq[num]++;
         }
     }
 
