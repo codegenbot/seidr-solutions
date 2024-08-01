@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -21,6 +22,5 @@ int max_fill(const vector<vector<int>>& grid, int capacity) {
 
 int main() {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    
     return 0;
 }
