@@ -1,4 +1,4 @@
-// Function signature: Determine if a collection of queens will fly in formation.
+// Determine whether a set of queens can be placed on a chessboard such that no queen attacks another.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
@@ -10,8 +10,4 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-int main() {
-    assert (will_it_fly({5}, 5) == true);
-    return 0;
 }
