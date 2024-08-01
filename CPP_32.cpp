@@ -3,6 +3,7 @@
 #include <cmath>
 
 double poly(std::vector<double> coeffs, double x);
+
 double find_zero(std::vector<double> coeffs);
 
 double poly(std::vector<double> coeffs, double x) {
@@ -24,13 +25,12 @@ int main() {
 
     std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     double coeff;
-    while (std::cin >> coeff) {
+    while (true) {
+        if (!(std::cin >> coeff)) break;
         coeffs.push_back(coeff);
-        if (coeffs.size() > 1) break;
     }
 
-    double solution;
-    solution = find_zero(coeffs);
+    double solution = find_zero(coeffs);
     std::cout << "Solution: " << solution << std::endl;
 
     return 0;
