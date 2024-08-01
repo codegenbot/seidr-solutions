@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <utility>
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
             bool found = false;
-            for (pair<int, int>& p : result) {
+            for (const auto& p : result) {
                 if (p.first == arr[i]) {
                     found = true;
                     break;
