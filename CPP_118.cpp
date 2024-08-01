@@ -1,23 +1,24 @@
-#include <string>
-#include <cctype>
+#include<string>
+#include<cctype>
 
-std::string get_closest_vowel(std::string word){
-    for(int i = word.length() - 1; i > 0; i--){
-        if(vowel(word[i])){
-            int left = i;
-            while(left > 0 && !consonant(word[left-1])) left--;
-            return std::string(1, word.substr(left-1, 1));
-        }
+string get_closest_vowel(string word) {
+    int left = 0, right = word.size() - 1;
+    while (left < right) {
+        if (!isvowel(word[left])) left++;
+        else if (!isvowel(word[right])) right--;
+        else return word.substr(left + 1, right - left - 1);
     }
     return "";
 }
 
-bool vowel(char c){
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+bool isvowel(char c) {
+    return tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' ||
+           tolower(c) == 'o' || tolower(c) == 'u';
 }
-
-bool consonant(char c){
-    c = tolower(c);
-    return (!vowel(c) && (c >= 'b' && c <= 'z'));
+int main() {
+    string word;
+    cout << "Enter a word: ";
+    cin >> word;
+    cout << get_closest_vowel(word);
+    return 0;
 }
