@@ -4,28 +4,24 @@
 
 double poly(std::vector<double> coeffs, double x);
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<double> coeffs(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> coeffs[i];
-    }
-    
-    double x;
-    std::cin >> x;
-
-    double result = poly(coeffs, x);
-    std::cout << result << std::endl;
-
-    return 0;
+double find_zero(std::vector<double> xs) {
+    double a = xs[0];
+    double b = xs[1];
+    return -b / a;
 }
 
-double poly(std::vector<double> coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * std::pow(x, i);
+int main() {
+    std::vector<double> coeffs;
+    double coeff;
+    
+    // Read coefficients from user input
+    while (std::cin >> coeff) {
+        coeffs.push_back(coeff);
     }
-    return result;
+    
+    double solution = find_zero(coeffs);
+    
+    std::cout << "Zero of the polynomial is: " << solution << std::endl;
+    
+    return 0;
 }
