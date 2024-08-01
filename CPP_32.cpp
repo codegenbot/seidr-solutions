@@ -25,9 +25,9 @@ int main() {
 
     std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     double coeff;
-    while (true) {
-        if (!(std::cin >> coeff)) break;
+    while (std::cin >> coeff) {
         coeffs.push_back(coeff);
+        if (coeffs.size() > 1) break;
     }
 
     double solution = find_zero(coeffs);
