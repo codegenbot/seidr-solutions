@@ -1,48 +1,44 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<string> values;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!ops.empty() && ops.top() != '(') {
-                values.push(string(1, expression[i]));
-                ops.pop();
+bool solveBoolean(string input) {
+    if (input == "T") return true;
+    if (input == "F") return false;
+    
+    stack<char> st;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '&') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            ops.push(expression[i]);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string val = "";
-            do {
-                val += expression[i];
-                i++;
-            } while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F'));
-            values.push(val);
-        } else if (expression[i] == '(') {
-            ops.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (!ops.empty() && ops.top() != '(') {
-                values.push(string(1, values.top()[0]));
-                values.pop();
-                ops.pop();
+            st.push('&');
+        } else if (input[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
             }
-            ops.pop(); // Remove the '('
+            st.push('|');
+        } else {
+            st.push(input[i]);
         }
     }
-
-    string result = values.top();
-    values.pop();
-
-    while (!values.empty()) {
-        string op = values.top();
-        values.pop();
-        if (op == "&") {
-            result = (result == "True") ? "False" : "True";
-        } else if (op == "|") {
-            result = (result == "True") ? "True" : "False";
+    
+    bool result = true;
+    char op = '0';
+    while (!st.empty()) {
+        char c = st.top(); st.pop();
+        if (c == '&') {
+            op = '&';
+        } else if (c == '|') {
+            if (op == '&' || op == '0') {
+                result = false;
+            }
+            op = '0';
+        } else if (c == 'F' && op == '&') {
+            result = false;
+            break;
+        } else if (c == 'T' && op == '|') {
+            break;
         }
     }
-
-    return result == "True";
+    
+    return result;
 }
