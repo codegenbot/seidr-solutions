@@ -1,6 +1,6 @@
 ```
-from typing import List
-import math
+from typing import List; import math
+import sys
 
 def factorize(n: int) -> List[int]:
     factors = []
