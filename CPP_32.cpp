@@ -14,6 +14,7 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    double root = -xs[1]/(2*xs[0]);
-    return round(root, 2);
+    if(xs.size() % 2 != 0) return -1; // Return -1 if the number of coefficients is odd
+    double x = -xs[1]/(2*xs[0]);
+    return poly(xs, x);
 }
