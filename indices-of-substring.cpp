@@ -1,19 +1,11 @@
-Here is the modified code:
-
-```cpp
 #include <string>
 #include <vector>
 #include <iostream>
 
-using std::vector;
-using std::cout;
-using std::endl;
-using std::cin;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int index = 0;
-    while ((index = text.find(target, index)) != string::npos) {
+    while ((index = text.find(target, index)) != std::string::npos) {
         result.push_back(index);
         index += target.length(); // to avoid overlapping
     }
@@ -22,12 +14,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int n;
-    cin >> n;
-    string text;
-    cin >> text;
-    vector<int> indices = indicesOfSubstring(text, text.substr(0, n));
+    std::cin >> n;
+    std::string text;
+    std::cin >> text;
+    std::vector<int> indices = indicesOfSubstring(text, text.substr(0, n));
     for (int i : indices) {
-        cout << i << endl;
+        std::cout << i << std::endl;
     }
     return 0;
 }
