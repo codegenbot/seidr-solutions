@@ -4,7 +4,7 @@
 int main() {
     std::vector<float> lst;
     long long result = double_the_difference(lst); 
-    int odd_sum; 
+    int odd_sum; // declare odd_sum variable
     
     return 0;
 }
