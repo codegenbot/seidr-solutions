@@ -3,27 +3,30 @@
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    int total_apples = 0;
-    int total_oranges = 0;
-    
-    size_t start = 0;
-    while (start != string::npos) {
-        start = s.find(" apples and ", start);
-        if (start == string::npos)
-            break;
-        
-        int end = s.find(" oranges", start);
-        if (end == string::npos)
-            break;
-        
-        size_t num_start = s.find_first_of("0123456789", start);
-        size_t num_end = s.find_first_not_of("0123456789", num_start);
-        total_apples = stoi(s.substr(num_start, num_end - num_start));
-        
-        start = end + 10;
+    size_t pos = 0;
+    int apples = 0, oranges = 0;
+
+    while ((pos = s.find("apples", pos)) != string::npos) {
+        if (s.substr(pos, "apples".length()).find("and") == string::npos) {
+            apples = stoi(s.substr(0, pos).erase().substr(0, s.substr(0, pos).find(" ")).c_str());
+        }
+        else {
+            apples = stoi(s.substr(0, pos).erase().substr(0, s.substr(0, pos).find("and")).c_str());
+        }
+
+        pos += (s.find("apples", pos) == string::npos ? s.length() : s.find("apples", pos));
     }
-    
-    int remaining_fruits = n;
-    remaining_fruits -= total_apples;
-    return remaining_fruits;
+
+    while ((pos = s.find("oranges", 0)) != string::npos) {
+        if (s.substr(pos, "oranges".length()).find("and") == string::npos) {
+            oranges = stoi(s.substr(0, pos).erase().substr(0, s.substr(0, pos).find(" ")).c_str());
+        }
+        else {
+            oranges = stoi(s.substr(0, pos).erase().substr(0, s.substr(0, pos).find("and")).c_str());
+        }
+
+        pos += (s.find("oranges", pos) == string::npos ? s.length() : s.find("oranges", pos));
+    }
+
+    return n - apples - oranges;
 }
