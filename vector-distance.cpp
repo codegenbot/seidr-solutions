@@ -13,8 +13,7 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        char comma;
-        std::cin >> vec2[i] >> comma;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
@@ -23,7 +22,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
