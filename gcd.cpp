@@ -16,7 +16,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     std::vector<int> indices;
     int n = text.size();
     int m = target.size();
-
+    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -29,23 +29,27 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             indices.push_back(i);
         }
     }
-
+    
     return indices;
 }
 
 int main() {
     int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
+    if (!(cin >> a >> b)) {
+        cerr << "Invalid input format for gcd problem." << endl;
+        return 1;
+    }
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cout << "Enter text and target string: ";
-    cin >> text >> target;
+    if (!(cin >> text >> target)) {
+        cerr << "Invalid input format for indicesOfSubstring problem." << endl;
+        return 1;
+    }
     vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
         cout << idx << " ";
     }
-
+    
     return 0;
 }
