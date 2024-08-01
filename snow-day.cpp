@@ -6,8 +6,7 @@ int main() {
     double hours;
     std::cin >> current_snow >> snow_fall_rate >> snow_melt_rate >> hours;
 
-    double hours_double = hours;
-    for (double i = 1; i <= hours_double; i++) {
+    for (double i = 1; i <= hours; i++) {
         current_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow);
     }
 
