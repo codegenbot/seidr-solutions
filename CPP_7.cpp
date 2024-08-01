@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -13,6 +14,7 @@ int main() {
     for (const auto& str : result) {
         if (!issame({str}, {substring})) {
             cout << str;
+            cout << endl;
         }
     }
 }
