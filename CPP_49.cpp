@@ -2,18 +2,10 @@
 using namespace std;
 
 int modp(int n, int p) {
-    if (n == 0)
-        return 1;
-    long long res = 1;
-    for (int i = 1; i <= n; i++) {
-        res = (long long)res * p % p;
-    }
-    return res;
-}
-
-int main() {
-    int n, p;
-    scanf("%d %d", &n, &p);
-    printf("%d\n", modp(n, p));
-    return 0;
+    if (p == 1)
+        return n % p;
+    else if (n < p)
+        return n;
+    else
+        return modp(n % p, p);
 }
