@@ -2,10 +2,9 @@
 #include <cassert>
 
 string decode_cyclic(string encoded_str) {
-    int l = encoded_str.length();
     string decoded_str;
-    for (int i = 0; i * 3 < l; i++) {
-        string x = encoded_str.substr(i * 3, 3);
+    for (int i = 0; i < encoded_str.length(); i += 3) {
+        string x = encoded_str.substr(i, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
         decoded_str += x;
     }
