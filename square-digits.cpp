@@ -1,19 +1,16 @@
-```c++
+```cpp
 #include <string>
-using namespace std;
+#include <sstream>
 
-int main() {
-    string input = "493193";
-    string output = squareDigits(input);
-    cout << output << endl;
-    return 0;
-}
+using namespace std;
 
 string squareDigits(string input) {
     string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        stringstream ss;
+        ss << digit * digit;
+        output += ss.str();
     }
     return output;
 }
