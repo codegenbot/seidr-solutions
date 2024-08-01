@@ -1,4 +1,4 @@
-#include <string> // Include string header
+#include <string>
 #include <iostream>
 #include <cassert>
 
