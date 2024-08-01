@@ -5,7 +5,7 @@
 
 int total_chars(std::vector<std::string> lst) {
     int total = 0;
-    for (std::string str : lst) {
+    for (const std::string& str : lst) {
         total += str.length();
     }
     return total;
@@ -21,4 +21,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     } else {
         return lst2;
     }
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
