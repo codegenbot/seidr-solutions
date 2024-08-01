@@ -3,15 +3,34 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in "aeiou":
-                continue
-            elif char.lower() in "abcdeiou":
-                result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
+                result += char
             else:
-                result += "T" if char.islower() and not char.isdigit() else "t"
+                offset = ord("a") - ord(char.lower())
+                result += chr(
+                    (ord("c") + (offset % 3))
+                    if char.lower() == "a"
+                    else (
+                        (ord("g") + (offset % 5))
+                        if char.lower() == "e"
+                        else (
+                            (ord("k") + (offset % 7))
+                            if char.lower() == "i"
+                            else (
+                                (ord("q") + (offset % 9))
+                                if char.lower() == "o"
+                                else (
+                                    (ord("w") + (offset % 11))
+                                    if char.lower() == "u"
+                                    else (
+                                        ord(char)
+                                        if char.isupper()
+                                        else ord(char).lower()
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
         else:
             result += char
     return result
-
-
-message = input("Enter the message: ")
-print(encode(message))
