@@ -1,9 +1,10 @@
-```
 def largest_prime_factor(n: int):
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-    return n
+    i = n - 1
+    while i > 1:
+        if n % i == 0:
+            for j in range(2, i):
+                if i % j == 0:
+                    i -= 1
+                    break
+            return i
+        i -= 1
