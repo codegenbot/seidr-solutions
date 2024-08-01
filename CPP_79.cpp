@@ -10,9 +10,3 @@ std::string decimal_to_binary(int decimal) {
     }
     return binary;
 }
-
-int main() {
-    assert(decimal_to_binary(15) == "1111");
-    
-    return 0;
-}
