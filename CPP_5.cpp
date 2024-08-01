@@ -15,3 +15,12 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
     }
     return result;
 }
+
+void main(){
+    std::vector<int> test1 = {1, 2, 3};
+    std::vector<int> test2 = {1, 2, 3};
+    std::vector<int> test3 = intersperse({4, 5, 6}, 0);
+
+    std::cout << issame(test1, test2) << std::endl;
+    std::cout << issame(test1, test3) << std::endl;
+}
