@@ -1,0 +1,6 @@
+Here's the solution:
+
+bool is_simple_power(int x, int n) {
+    double res = pow(n, ceil(log(x)/log(n)));
+    return res == x;
+}
