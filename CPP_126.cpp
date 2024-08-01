@@ -11,7 +11,6 @@ bool is_sorted(vector<int> lst) {
         if (count > 1) return false;
     }
     return true;
-
 }
 
 int main() {
