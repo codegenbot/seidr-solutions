@@ -23,6 +23,7 @@ void solve() {
     }
 }
 
-void main() {
+int main() {
     solve();
+    return 0;
 }
