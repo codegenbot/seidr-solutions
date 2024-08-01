@@ -1,4 +1,3 @@
-```cpp
 int main() {
 void toCamelCase(string s) {
     string result = "";
