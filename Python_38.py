@@ -5,4 +5,4 @@ def decode_cyclic(s: str):
 
 s = input()
 result = decode_cyclic(s)
-print(result)
+print(result)  
