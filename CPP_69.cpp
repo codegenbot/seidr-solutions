@@ -3,14 +3,20 @@
 
 using namespace std;
 
-int search(int num) {
+int search(int n) {
+    vector<int> lst;
+    for (int i = 1; i <= n; i++) {
+        if (rand() % 2) {
+            lst.push_back(i);
+        }
+    }
+
     map<int, int> freq;
-    vector<int> lst = {num};
-    for (int n : lst) {
-        if (freq.find(n) == freq.end()) {
-            freq[n] = 1;
+    for (int num : lst) {
+        if (freq.find(num) == freq.end()) {
+            freq[num] = 1;
         } else {
-            freq[n]++;
+            freq[num]++;
         }
     }
 
