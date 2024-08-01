@@ -1,19 +1,16 @@
 #include <string>
 using namespace std;
 
-bool is_palindrome(string str){
+bool is_palindrome(string str) {
     string s(str.rbegin(),str.rend());
     return s==str;
 }
 
-string make_palindrome(string str){
-    if(is_palindrome(str))
-        return str;
-    
-    for(int len=str.length();len>0;--len){
-        if(is_palindrome(str.substr(0,len))){
-            return str+string(str.rbegin(),str.rbegin()+len).rbegin();
-        }
+string make_palindrome(string str) {
+    int len = str.length();
+    for(int i=len-1; i>=0; i--) {
+        if(!is_palindrome(str + string(1, str[i])))
+            break;
     }
-    return str+str;
+    return str + str.substr(len-i-1);
 }
