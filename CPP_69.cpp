@@ -3,7 +3,7 @@
 
 int search(const std::vector<int>& lst) {
     int result = -1;
-    for (int num : lst) {
+    for (const int& num : lst) {
         int freq = std::count(lst.begin(), lst.end(), num);
         if (num > 0 && freq >= num && num > result) {
             result = num;
@@ -13,6 +13,6 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    int result = search(std::vector<int>{3, 10, 10, 9, 2});
-    return result;
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
