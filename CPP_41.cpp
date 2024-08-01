@@ -1,17 +1,14 @@
 #include <iostream>
+#include <cassert>
 
 int car_race_collision(int n) {
-    return n * (n - 1) / 2;
+    return n * (n + 1) / 2;
 }
 
 int main() {
+    assert(car_race_collision(10) == 55);
     int n;
-    std::cout << "Enter the number of cars: ";
     std::cin >> n;
-  
-    int collisions = car_race_collision(n);
-
-    std::cout << "Number of collisions: " << collisions << std::endl;
-
+    std::cout << car_race_collision(n) << std::endl;
     return 0;
 }
