@@ -8,31 +8,44 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
+    while ((pos = txt.find_first_of(" ")) != string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.length() > 0) {
-        result.push_back(txt);
-    } else {
+    if (txt.empty()) {
+        return result;
+    }
+
+    // Check for commas
+    pos = txt.find(',');
+    if (pos == string::npos) {
         int count = 0;
         for (char c : txt) {
-            if ((int)c - ord('a') % 2 == 0 && (int)c >= ord('a') && (int)c <= ord('z')) {
-                count++;
+            if (c >= 'a' && c <= 'z') {
+                count += (int)c - (int)'a';
             }
         }
         result.push_back(to_string(count));
+    } else {
+        while ((pos = txt.find(',')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
+        }
+        if (!txt.empty()) {
+            result.push_back(txt);
+        }
     }
+
     return result;
 }
 
 int main() {
-    string txt;
-    cout << "Enter a text: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (const auto& s : result) {
-        cout << s << endl;
+    // Example usage
+    string text = "Hello world!";
+    vector<string> words = split_words(text);
+    for (string word : words) {
+        cout << word << endl;
     }
+
     return 0;
 }
