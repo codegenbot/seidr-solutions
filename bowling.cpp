@@ -26,7 +26,7 @@ int score(string s) {
                 score += s[i+3] == '/' ? 10 : s[i+3] - '0';
             }
             i++;
-            i += 1; // Add this line to move to the next frame
+            i += 1; // Modified line to prevent skipping frames
         } else if (s[i+1] == '/') {
             score += 10;
             score += s[i+3] == 'X' ? 10 : s[i+3] - '0';
