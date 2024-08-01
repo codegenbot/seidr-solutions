@@ -2,7 +2,6 @@
 #include <string>
 #include <bitset>
 #include <cassert>
-
 using namespace std;
 
 string solve(int N) {
