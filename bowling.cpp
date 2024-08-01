@@ -1,13 +1,17 @@
 ```
-#include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     for(int i=0; i<10; i++) {
         if(s[i] == 'X') {
             score += 30;
         } else if (s[i] == '/') {
-            score += 10 + (i > 0 ? bowlingScoreHelper(&s.substr(i+1)) : 0);
+            if(i < 9) {
+                score += 10 + bowlingScoreHelper(&s.substr(i+1));
+            } else {
+                score += 10;
+            }
         } else {
             int frame = s[i] - '0';
             if(s[i+1] == 'X') {
@@ -22,7 +26,7 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int bowlingScoreHelper(const std::string* s) {
+int bowlingScoreHelper(string* s) {
     int score = 0;
     for(int i=0; i<2; i++) {
         if(s->at(i) == 'X') {
