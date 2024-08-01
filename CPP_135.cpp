@@ -1,5 +1,6 @@
-```cpp
+#include <iostream>
 #include <vector>
+
 int can_arrange(std::vector<int> arr){
     for(int i=1; i<arr.size(); i++){
         if(arr[i-1] <= arr[i]){
