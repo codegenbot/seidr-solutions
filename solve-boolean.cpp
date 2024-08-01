@@ -16,6 +16,13 @@ bool solveBoolean(string expression) {
             i = j - 1;
         } else if (expression[i] == 'F') {
             return false;
+        } else if (expression[i] == 'T') {
+            continue;
+        } else if (expression[i] == '|') {
+            if (!result) {
+                result = true;
+            }
+            i++;
         }
     }
     return result;
