@@ -30,9 +30,6 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
-    if (!issame(result, vector<string>({"Nine", "Four", "Eight"}))) {
-        assert(false);
-    }
-
+    assert(issame(result, vector<string>{("Nine"), ("Four"), ("Eight")}));
     return result;
 }
