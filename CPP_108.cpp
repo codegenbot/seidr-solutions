@@ -1,32 +1,22 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num > 0) {
+        if (num >= 0) {
             int sum = 0;
-            bool sign = false;
-            while (num != 0) {
-                int digit = num % 10;
-                if (!sign && digit < 0) {
-                    sign = true;
-                    digit = -digit;
-                }
-                sum += digit;
+            while (num > 0) {
+                sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0) count++;
-        } else if (num < 0) {
-            int sum = 0;
-            bool sign = true;
-            while (num != 0) {
-                int digit = num % 10;
-                if (sign && digit > 0) {
-                    sign = false;
-                    digit = -digit;
-                }
-                sum += digit;
+            if (sum > 0)
+                count++;
+        } else {
+            int sum = 0, sign = 1;
+            while (num < 0) {
+                sum -= num % 10;
                 num /= 10;
             }
-            if (sum > 0) count++;
+            if (sum > 0)
+                count++;
         }
     }
     return count;
