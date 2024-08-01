@@ -9,31 +9,38 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> unique(std::vector<int> l){
-    std::vector<int> result(l.begin(), l.end());
-    std::unordered_set<int> seen(result.begin(), result.end());
-    for (auto it = result.begin(); it != result.end();) {
-        if (seen.count(*it)) {
-            it = result.erase(it);
-        } else {
-            ++it;
-        }
-    }
+std::vector<int> unique(vector<int> l){
+    vector<int> result(l.begin(), unique_element(l.begin(), l.end()));
     return result;
 }
 
+std::vector<int>::iterator unique_element(std::vector<int>::iterator start, std::vector<int>::iterator end) {
+    unordered_set<int> seen;
+    for (; start != end; ++start)
+        if (seen.insert(*start).second)
+            *std::prev(&end, 1) = *start;
+    return &*--end;
+}
+
 int main() {
-    std::vector<int> l = {1, 2, 3, 4, 5};
-    std::vector<int> unique_l = unique(l);
-    
-    if (issame(l, unique_l)) {
-        for (const auto& num : unique_l) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
+    vector<int> l;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        l.push_back(x);
     }
+    
+    if (!issame(l, unique(l))) {
+        std::cout << "Unique elements: ";
+        for (int i = 0; i < l.size(); ++i)
+            std::cout << l[i] << " ";
+        std::cout << std::endl;
+    } else
+        std::cout << "No unique elements." << std::endl;
 
     return 0;
 }
