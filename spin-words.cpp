@@ -9,15 +9,13 @@ std::string spinWords(std::string str) {
             if (isWordLongEnough) {
                 for (int i = wordLength - 1; i >= 0; --i)
                     result += str[wordLength - i - 1];
-            } else
-                result += c;
-            isWordLongEnough = false;
-            wordLength = 0;
+                isWordLongEnough = false;
+            }
+            result += c;
         } else {
             wordLength++;
-            if (wordLength >= 5) {
+            if (wordLength >= 5) 
                 isWordLongEnough = true;
-            }
             result += c;
         }
     }
