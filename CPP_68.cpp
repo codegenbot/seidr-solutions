@@ -1,11 +1,12 @@
 #include <climits>
+#include <vector>
 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-
+    
     int smallestEvenValue = INT_MAX;
     int index = -1;
     for (int i = 0; i < arr.size(); i++) {
@@ -14,6 +15,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             index = i;
         }
     }
-
+    
     result.push_back({smallestEvenValue, index});
     return result;
+}
