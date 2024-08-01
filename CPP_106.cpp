@@ -27,5 +27,3 @@ std::vector<int> result = f(3);
 
 assert(issame(result, expected));
 std::cout << "Test Passed!" << std::endl;
-
-return 0;
