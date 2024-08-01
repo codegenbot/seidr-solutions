@@ -21,14 +21,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        int aInt = std::stoi(a.convert_to<std::string>().erase(0, 1).erase(a.convert_to<std::string>().find(',') + 1).c_str());
-        int bInt = std::stoi(b.convert_to<std::string>().erase(0, 1).erase(b.convert_to<std::string>().find(',') + 1).c_str());
-        if (aInt < bInt) {
+        if (std::stoi(b.convert_to<std::string>().erase(0, 1).erase(b.convert_to<std::string>().find(',') + 1).c_str()) > std::stoi(a.convert_to<std::string>().erase(0, 1).erase(a.convert_to<std::string>().find(',') + 1).c_str()) {
             return b;
-        } else if (aInt > bInt) {
-            return a;
-        } else {
+        } else if (std::stoi(b.convert_to<std::string>().erase(0, 1).erase(b.convert_to<std::string>().find(',') + 1).c_str()) == std::stoi(a.convert_to<std::string>().erase(0, 1).erase(a.convert_to<std::string>().find newcomparer(',') + 1).c_str())) {
             return boost::any("None");
+        } else {
+            return b;
         }
     } else if (a.type() == typeid(double) && a.convert_to<double>() > b.convert_to<double>()) {
         return a;
