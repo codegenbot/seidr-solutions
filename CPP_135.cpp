@@ -8,3 +8,7 @@ int can_arrange(vector<int> arr) {
     }
     return -1;
 }
+
+int main() {
+    assert(can_arrange({}) == -1);
+}
