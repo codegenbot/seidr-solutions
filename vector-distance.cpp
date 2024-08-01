@@ -5,15 +5,16 @@
 int main() {
     int n;
     std::cin >> n;
-    std::vector<double> vec1(n), vec2(n);
-
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
+    std::vector<double> vec2(n);
+    double num;
     for (int i = 0; i < n; ++i) {
-        char comma;
-        std::cin >> vec2[i] >> comma;
+        std::cin >> num;
+        vec2[i] = num;
     }
 
     double sum = 0.0;
