@@ -1,14 +1,10 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 int mastermind(std::string code, std::string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+    int black = 0;
+    int white = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            black++;
         }
     }
 
@@ -19,21 +15,8 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        whitePegs += count - blackPegs;
+        white += count - 1;
     }
 
-    return whitePegs + blackPegs;
-}
-
-int main() {
-    std::string code, guess;
-    // Read input from user
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
-    std::cout << "Enter a guess: ";
-    std::cin >> guess;
-
-    int result = mastermind(code, guess);
-    std::cout << result << "\n" << result << std::endl;
-    return 0;
+    return black + white;
 }
