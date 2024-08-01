@@ -1,4 +1,4 @@
-#include <string> // Include the string header to use to_string
+#include <string>
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -10,8 +10,8 @@ std::string change_base(int x, int base){
     return result;
 }
 
-int cpp44_main(){ // Change the name of the main function
+int cpp44_main(){
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x)); // Use std::to_string here
+    assert(change_base(x, x + 1) == std::to_string(x)); 
     return 0;
 }
