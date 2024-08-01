@@ -5,7 +5,7 @@
 #include <sstream>
 #include <assert.h>
 
-using namespace std; // Add this line
+using namespace std;
 
 map<string, int> num_map = {
     {"zero", 0},
@@ -45,7 +45,7 @@ string sort_numbers(string numbers) {
     return result;
 }
 
-int main_func() { // Change the main to main_func
+int main_func() {
     string input_numbers;
     getline(cin, input_numbers);
     
@@ -54,6 +54,6 @@ int main_func() { // Change the main to main_func
     return 0;
 }
 
-int main() { // Add a new main function
+int main() {
     return main_func();
 }
