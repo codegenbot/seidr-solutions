@@ -1,27 +1,28 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-bool will_it_fly(const vector<int>& q, int w) {
-    int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+bool will_it_fly(const std::vector<int>& q, int w) {
+    int total_weight = 0;
+    for (int weight : q) {
+        total_weight += weight;
     }
     
-    if (sum > w) {
-        return false;
-    }
-    
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - 1 - i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return total_weight <= w;
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
+    int n, w;
+    std::cin >> n >> w;
+    
+    std::vector<int> weights(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> weights[i];
+    }
+    
+    if (will_it_fly(weights, w)) {
+        std::cout << "Yes, it will fly!" << std::endl;
+    } else {
+        std::cout << "No, it will not fly!" << std::endl;
+    }
+
     return 0;
 }
