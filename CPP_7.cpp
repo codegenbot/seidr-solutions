@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -19,16 +20,13 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> strings = {"hello", "world", "hell", "goodbye"};
-    std::string substring = "ell";
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
+    std::vector<std::string> v1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> v2 = {"banana", "date", "elderberry"};
 
-    if (issame(strings, filtered_strings)) {
-        for (const auto& s : filtered_strings) {
-            std::cout << s << std::endl;
-        }
+    if (issame(filter_by_substring(v1, "an"), filter_by_substring(v2, "an"))) {
+        std::cout << "The vectors contain the same strings.\n";
     } else {
-        std::cout << "Strings are not the same." << std::endl;
+        std::cout << "The vectors do not contain the same strings.\n";
     }
 
     return 0;
