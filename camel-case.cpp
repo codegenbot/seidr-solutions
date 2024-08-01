@@ -1,9 +1,10 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
 std::string camelCase(const std::string& s) {
     std::string result;
-    std::vector<std::string> words; 
+    std::vector<std::string> words;
     size_t start = 0;
     for (size_t i = 0; i <= s.size(); ++i) {
         if (i == s.size() || s[i] == ' ') {
