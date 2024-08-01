@@ -1,3 +1,4 @@
+```cpp
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -24,6 +25,6 @@ bool isPrime(int n) {
 }
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;
+    cout << "The sum of the digits of the max prime number is: " << skjkasdkd(lst) << endl;
     return 0;
 }
