@@ -1,19 +1,9 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-using namespace std;
-
-double poly(vector<double> xs, double x){
-    double sum=0;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        sum+=xs[i]*pow(x,i);
-    }
-    return sum;
-}
-
 double find_zero(vector<double> xs){
-    double root = -xs[1]/(2*xs[0]);
-    return round(root, 2);
+    double a = xs[0];
+    double b = 0;
+    for(int i=1; i<xs.size();i++){
+        if(i%2==1) b += xs[i];
+        else a = -b/(i*(i-1));
+    }
+    return a;
 }
