@@ -3,11 +3,13 @@
 #include <iomanip>
 
 double calculateProbability(int n, int m) {
-    double probability = 0;
-    for (int i = 1; i <= m; i++) {
-        probability += (n - i) / static_cast<double>(n * m);
-    }
-    return probability;
+    if(n <= m)
+        return 0.0;
+
+    double totalCases = (double)n * m;
+    double successfulCases = (n - 1) * m;
+
+    return 1.0 - successfulCases / totalCases;
 }
 
 int main() {
