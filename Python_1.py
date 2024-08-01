@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     if paren_string.count("(") != paren_string.count(")"):
         return []
