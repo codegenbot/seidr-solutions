@@ -8,8 +8,8 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     float current_snow = snow_on_ground;
-    for (int i = 0; i < hours; ++i) {
-        current_snow += snow_fall_rate - (snow_melt_rate * current_snow);
+    for (int i = 1; i <= hours; ++i) {
+        current_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow);
     }
 
     cout << fixed << setprecision(15) << current_snow << endl;
