@@ -3,20 +3,22 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string> a, const vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
     }
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> filtered_strings;
-    for(const string& str : strings){
-        if(str.find(substring) != string::npos){
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring){
+    std::vector<std::string> filtered_strings;
+    for(const std::string& str : strings){
+        if(str.find(substring) != std::string::npos){
             filtered_strings.push_back(str);
         }
     }
@@ -24,18 +26,18 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    vector<string> input_strings = {"apple", "banana", "apricot", "cherry"};
-    string input_substring = "ap";
-    vector<string> expected_output = {"apple", "apricot"};
-    vector<string> output = filter_by_substring(input_strings, input_substring);
+    std::vector<std::string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
+    std::string substring = "an";
     
-    if(issame(output, expected_output)){
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
-    }
-
+    std::vector<std::string> expected_filtered_strings = {"banana", "orange"};
+    
+    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
+    
+    assert(issame(filtered_strings, expected_filtered_strings));
+    
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    
+    std::cout << "All tests passed" << std::endl;
     
     return 0;
 }
