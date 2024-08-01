@@ -1,7 +1,6 @@
 def concatenate_strings(strings):
-    result = "".join(strings)
-    return result
+    return "".join(strings)
 
-strings = input("Enter strings separated by space: ").split()
-output = concatenate_strings(strings)
-print(output)
+strings = input().split()
+result = concatenate_strings(strings)
+print(result)
