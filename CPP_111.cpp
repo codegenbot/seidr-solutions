@@ -30,13 +30,13 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string test;
+    getline(cin, test);
 
-    map<char, int> result = histogram(input);
+    std::map<char, int> result = histogram(test);
 
-    for (const auto& entry : result) {
-        cout << entry.first << " " << entry.second << endl;
+    for (const auto &entry : result) {
+        cout << entry.first << ": " << entry.second << endl;
     }
 
     return 0;
