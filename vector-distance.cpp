@@ -5,7 +5,6 @@
 int main() {
     int n;
     std::cin >> n;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
@@ -14,7 +13,9 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        double temp;
+        std::cin >> temp;
+        vec2[i] = temp;
     }
 
     double sum = 0.0;
