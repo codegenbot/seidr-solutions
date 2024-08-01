@@ -2,7 +2,7 @@
 #include <vector>
 #include <utility>
 
-std::vector<int> pluck(const std::vector<int>& arr) {
+std::vector<int> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
 
     for (int i = 0; i < arr.size(); i++) {
