@@ -16,17 +16,13 @@ bool solveBoolean(string s) {
     string left = s.substr(0, j);
     
     j++;
-    bool isAnd = true;
     while(j<s.length()) {
-        if(s[j] == '|') {
-            isAnd = false;
-            break;
-        } else if(s[j] == '&') break;
+        if(s[j] == '&') break;
         j++;
     }
     string right = s.substr(j);
 
-    return (isAnd ? & : |)(solveBoolean(left), solveBoolean(right));
+    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
