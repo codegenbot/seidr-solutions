@@ -1,5 +1,10 @@
 def mastermind(code, guess):
-    correct_place = sum([1 if c1 == c2 else 0 for c1, c2 in zip(code, guess)])
-    correct_color = sum([min(1, code.count(c)) for c in set(guess)])
+    code_count = [0] * 6
+    for c in code:
+        code_count[ord(c) - ord("B")] += 1
 
-    return str(correct_place), str(correct_color)
+    black_pegs = sum(1 for a, b in zip(guess, code) if a == b)
+    white_pegs = sum(
+        min(code_count[ord(a) - ord("B")], code.count(b)) for a, b in zip(guess, code)
+    )
+    return str(white_pegs), str(black_pegs)
