@@ -12,16 +12,14 @@ bool issame(int a, int b) {
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        return issame(a, b);
-    });
+    sort(arr.begin(), arr.end(), issame);
     return arr;
 }
 
 int main() {
-    std::vector<int> arr = {5, 3, 6, 9, 12};
-    std::vector<int> expected = {3, 5, 6, 9, 12};
-    std::vector<int> sorted_arr = sort_array(arr);
-    assert(sorted_arr == expected);
-    return 0;
+    std::vector<int> arr = {5, 2, 8, 3, 1};
+    std::vector<int> expected_sorted = {1, 2, 3, 5, 8};
+    sort_array(arr);
+    
+    assert(arr == expected_sorted);
 }
