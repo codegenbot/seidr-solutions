@@ -3,23 +3,23 @@
 #include <numeric>
 #include <limits>
 
-bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (std::abs(v1[i] - v2[i]) > 1e-9) return false;
-    }
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
+            return false;
     return true;
 }
 
-void find_closest_elements() {
+int main() {
+    vector<float> numbers;
+    // Read input from user
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers[i];
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        float num;
+        cin >> num;
+        numbers.push_back(num);
     }
 
     float min_diff = std::numeric_limits<float>::max();
@@ -37,8 +37,6 @@ void find_closest_elements() {
         }
     }
 
-    std::cout << "The closest pair is (" << closest1 << ", " << closest2 << ")" << std::endl;
-
-    //vector<float> result({closest1, closest2});
-    //return result;
+    vector<float> result({closest1, closest2});
+    return 0;
 }
