@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> maximum(vector<vector<int>> arr, int k) {
-    vector<int> result = arr[0].begin(), arr[0].begin() + k);
+    vector<int> result = arr[0].begin(), arr[0].begin() + k;
     sort(result.begin(), result.end());
     return result;
 }
