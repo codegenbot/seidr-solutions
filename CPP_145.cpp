@@ -1,4 +1,5 @@
 #include <algorithm>
+using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
@@ -9,15 +10,16 @@ vector<int> order_by_points(vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.emplace_back(sumOfDigits, i);
+        pairs.push_back({sumOfDigits, i});
     }
-
     sort(pairs.begin(), pairs.end());
-
+    
     vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+    for (pair<int, int> p : pairs) {
+        if (p.second < nums.size()) {
+            result.push_back(nums[p.second]);
+        }
     }
-
+    
     return result;
 }
