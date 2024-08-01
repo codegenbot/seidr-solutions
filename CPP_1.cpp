@@ -1,5 +1,5 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -14,26 +14,26 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> groups;
-    int count = 0;
-    std::string group = "";
-    
+    std::vector<std::string> result;
+    std::string current_group;
+    int balance = 0;
+
     for (char c : paren_string) {
-        group += c;
         if (c == '(') {
-            count++;
+            if (balance > 0) {
+                current_group += c;
+            }
+            balance++;
         } else if (c == ')') {
-            count--;
-            if (count == 0) {
-                groups.push_back(group);
-                group = "";
+            balance--;
+            if (balance > 0) {
+                current_group += c;
+            } else if (balance == 0) {
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
-    
-    if (count != 0) {
-        groups.clear();
-    }
-    
-    return groups;
+
+    return result;
 }
