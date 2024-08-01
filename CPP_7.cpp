@@ -1,12 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
@@ -14,26 +5,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+
 }
 
-int main(){
-    int n;
-    std::cin >> n;
-    
-    vector<string> strings(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> strings[i];
-    }
-
-    string substring;
-    std::cin >> substring;
-
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-
-    if(issame({substring}, filtered_strings))
-        std::cout << "Yes" << std::endl;
-    else
-        std::cout << "No" << std::endl;
-
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
