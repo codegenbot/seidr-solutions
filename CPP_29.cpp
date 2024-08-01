@@ -1,8 +1,7 @@
-// Complete the following code given the task description and function signature..
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(prefix) == 0 || str.find(prefix) == string::npos - prefix.size()) {
+        if (str.find(prefix) == 0 || str.find(prefix) == string::npos) {
             result.push_back(str);
         }
     }
