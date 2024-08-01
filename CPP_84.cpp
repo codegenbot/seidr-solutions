@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
 
