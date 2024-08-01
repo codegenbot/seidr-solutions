@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -14,7 +16,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         }
     }
     
-    return {{vec.begin(), vec.end() - 1}, {vec.end() - 1, vec.end()}};
+    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
@@ -30,12 +32,14 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(input);
     
     cout << "[";
+
     for (int i = 0; i < result.first.size(); ++i) {
         cout << result.first[i];
         if (i != result.first.size() - 1)
             cout << ", ";
     }
-    cout << "]\n[";
+    cout << "] [";
+
     for (int i = 0; i < result.second.size(); ++i) {
         cout << result.second[i];
         if (i != result.second.size() - 1)
