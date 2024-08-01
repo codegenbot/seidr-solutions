@@ -3,12 +3,11 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    return (n - 1.0) / ((double)(n + m - 2));
+    return (n - 1.0) / (n + m - 2.0);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(4) << (m < n ? 0 : (double)n/(n+m-1)) << endl;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
     return 0;
-}
