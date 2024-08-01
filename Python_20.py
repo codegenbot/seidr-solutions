@@ -10,4 +10,4 @@ def find_closest_pair(numbers):
 
 input_numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 result = find_closest_pair(input_numbers)
-print(result)
+print(result) 
