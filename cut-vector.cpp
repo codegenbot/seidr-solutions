@@ -1,50 +1,14 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<int> left, right;
-    
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] <= v[i-1]) {
-            left.push_back(v[i]);
-        } else {
-            break;
+vector<int> cutVector(vector<int>& nums) {
+    int min_diff = INT_MAX;
+    int idx = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
-    
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || v[i] >= v[i+1]) {
-            right.push_back(v[i]);
-        } else {
-            break;
-        }
-    }
-    
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cout << "Enter the number of elements in the vector: ";
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> v[i];
-    }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left subvector: ";
-    for (int x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "Right subvector: ";
-    for (int x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
+    return {vector<int>(nums.begin(), nums.begin() + idx), vector<int>(nums.begin() + idx, nums.end())};
