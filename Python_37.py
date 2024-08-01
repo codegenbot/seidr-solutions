@@ -1,3 +1,9 @@
+```
 def sort_even(l: list):
-    return [x if i % 2 != 0 else sorted([y for y in l if (i // 2) * 2 == k and k < len(l)])[
-            0] for i, x in enumerate(l)]
+    even_nums = [x for x in l if x % 2 == 0]
+    odd_nums = [x for x in l if x % 2 != 0]
+    
+    even_nums.sort()
+    odd_nums.sort(reverse=True)
+    
+    return list(zip(even_nums, odd_nums))
