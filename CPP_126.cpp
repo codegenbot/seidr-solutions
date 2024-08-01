@@ -11,4 +11,3 @@ bool is_sorted(vector<int> lst){
         if(*it > 1) 
             return false;
     return true;
-}
