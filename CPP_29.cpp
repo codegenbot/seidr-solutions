@@ -1,37 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
-
-int main() {
-    vector<string> words = {"apple", "banana", "bear", "cat", "doll"};
-    string pre = "b";
-
-    vector<string> filtered = filter_by_prefix(words, pre);
-
-    for (const auto& word : filtered) {
-        cout << word << endl;
-    }
-
-    return 0;
-}
+bool issame(vector<string> a, vector<string> b); // Add this function declaration
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -41,4 +10,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
+
+int main(){
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
+    return 0;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
