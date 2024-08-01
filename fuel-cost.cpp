@@ -1,30 +1,11 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int calculateFuelCost(vector<int> inputs) {
-    int sum = 0;
-    for (int input : inputs) {
-        if (input % 3 == 1) {
-            --input;
-        }
-        else if (input % 3 == 2) {
-            input -= 1;
-        }
-        sum += (input - 2);
+int calculateFuelCost(vector<int>& numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int newNum = (num / 3);
+        newNum = (newNum > 0) ? newNum - 2 : 0;
+        total += newNum;
     }
-    return sum;
-}
-
-int main() {
-    int numInputs;
-    cin >> numInputs;
-
-    vector<int> inputs(numInputs);
-    for (int& input : inputs) {
-        cin >> input;
-    }
-
-    cout << calculateFuelCost(inputs);
-
-    return 0;
+    return total;
 }
