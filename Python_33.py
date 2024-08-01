@@ -5,4 +5,5 @@ def sort_third(l: list):
             sublist += [0] * (3 - len(sublist))
         yield sorted(sublist)
 
-print(list(sort_third([5, 6, 3, 4, 8, 9, 2, 1])))
+# Test the function
+print(list(sort_third([5, 6, 3, 4, 8, 9, 2, 1]))
