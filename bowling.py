@@ -1,13 +1,12 @@
-Here is the solution:
-
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    roll = [int(x) for x in re.sub('[^0-9X-]', '', game)]
     for i in range(10):
-        if roll[i*2] == 'X':
+        if frames[i] == 'X':
             score += 30
-        elif roll[i*2:i*2+2].count('X') >= 1:
-            score += 20 + max(roll[i*2:i*2+2])
+        elif frames[i].isdigit():
+            score += int(frames[i])
         else:
-            score += sum(roll[i*2:i*2+2])
+            first_roll, second_roll = map(int, frames[i].split('/'))
+            score += first_roll + second_roll
     return score
