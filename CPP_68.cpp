@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
+std::pair<int, int> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
             evenNodes.push_back({arr[i], i});
@@ -12,6 +11,11 @@ vector<int> pluck(vector<int> arr) {
     if (evenNodes.empty()) {
         return {};
     }
-    sort(evenNodes.begin(), evenNodes.end());
-    return {evenNodes[0].first, evenNodes[0].second};
+    std::sort(evenNodes.begin(), evenNodes.end());
+    return *evenNodes.begin();
+}
+
+int main() {
+    assert(isSame(pluck({7, 9, 7, 1}), {}));
+    // Rest of your code
 }
