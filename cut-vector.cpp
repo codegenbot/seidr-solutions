@@ -1,40 +1,34 @@
 #include <iostream>
+#include <vector>
 #include <climits>
+#include <numeric>
 #include <cmath>
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    
-    while (std::cin >> num) {
-        nums.push_back(num);
+    int n;
+    std::cin >> n;
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec[i];
     }
     
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int target = sum / 2;
-    int prefixSum = 0;
-    int diff = INT_MAX;
+    int minDiff = INT_MAX;
     int cutIndex = -1;
-    
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int currentDiff = std::abs(prefixSum - target);
-        if (currentDiff < diff) {
-            diff = currentDiff;
+    for (int i = 1; i < n; ++i) {
+        int diff = std::abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
+        if (diff < minDiff) {
+            minDiff = diff;
             cutIndex = i;
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+    for (int i = 0; i < cutIndex; ++i) {
+        std::cout << vec[i] << std::endl;
     }
-    
-    std::cout << 0 << std::endl;
+    std::cout << std::endl;
+    for (int i = cutIndex; i < n; ++i) {
+        std::cout << vec[i] << std::endl;
+    }
     
     return 0;
 }
