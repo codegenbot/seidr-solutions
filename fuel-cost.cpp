@@ -12,7 +12,7 @@ int fuelCost(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3};
+    vector<int> v = {1,2,3};
     int result = fuelCost(v);
     return result;
 }
