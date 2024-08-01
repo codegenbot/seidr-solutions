@@ -3,10 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
@@ -28,7 +24,7 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(pluck({7, 9, 7, 1}) == vector<int>{});
     
     return 0;
 }
