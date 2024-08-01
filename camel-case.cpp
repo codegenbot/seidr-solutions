@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,10 +11,10 @@ std::string kebabToCamel(const std::string& s) {
             capitalize = true;
         } else if (capitalize) {
             if (result.empty()) { 
-                result += tolower(c);
-            } else {
+                result += tolower(c); 
+            } else { 
                 result += toupper(c);
-                capitalize = false;
+                capitalize = false; 
             }
         } else {
             result += tolower(c);
