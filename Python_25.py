@@ -1,3 +1,4 @@
+n = int(input("Enter a number to factorize: "))
 from typing import List
 def factorize(n: int) -> List[int]:
     factors = []
@@ -9,6 +10,3 @@ def factorize(n: int) -> List[int]:
         else:
             divisor += 1
     return factors
-
-n = int(input("Enter a number to factorize: "))
-print(factorize(n))
