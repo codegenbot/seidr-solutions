@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
