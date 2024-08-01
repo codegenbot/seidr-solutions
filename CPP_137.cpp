@@ -1,4 +1,3 @@
-```c++
 #include <boost/variant/any.hpp>
 #include <string>
 
