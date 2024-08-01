@@ -9,11 +9,11 @@ for i, num in enumerate(v):
     if current_sum >= half_sum:
         if current_sum == half_sum:
             print(*v[: i + 1])
-            print(*v[i + 1 :])
+            print(*v[i + 1:])
         else:
             if abs(current_sum - half_sum) < abs(current_sum - num - half_sum):
                 print(*v[: i + 1])
-                print(*v[i + 1 :])
+                print(*v[i + 1:])
             else:
                 print(*v[:i])
                 print(*v[i:])
