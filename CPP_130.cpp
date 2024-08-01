@@ -6,7 +6,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Example test case
     assert(issame(std::vector<int>{1, 3}, {1, 3}));
 
     return 0;
