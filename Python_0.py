@@ -5,6 +5,6 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-numbers = [3, 6, 1, 9, 12]
-threshold = 3
-print(check_numbers(numbers, threshold))
+has_close_elements = [5, 8, 3, 1, 9]
+threshold = 2
+print(check_numbers(has_close_elements, threshold))
