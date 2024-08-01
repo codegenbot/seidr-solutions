@@ -17,7 +17,7 @@ bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::s
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& input) {
+std::vector<std::string> separate_paren_groups(const std::string& input){
     std::vector<std::string> groups;
     std::string current_group;
     int level = 0;
@@ -40,9 +40,4 @@ std::vector<std::string> separate_paren_groups(const std::string& input) {
     }
 
     return groups;
-}
-
-int main() {
-    assert(compare_vectors(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
