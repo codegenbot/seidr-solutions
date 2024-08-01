@@ -28,7 +28,7 @@ std::vector<std::string> split_words(std::string input) {
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     std::vector<std::string> a = split_words(input);
     std::vector<std::string> b = split_words(input);
     
