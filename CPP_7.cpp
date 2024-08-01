@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -17,18 +16,13 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string substring = "an";
-    
+    vector<string> strings = {"hello", "hi", "hola", "goodbye"};
+    string substring = "hi";
     vector<string> filtered = filter_by_substring(strings, substring);
-
-    if(issame(filtered, vector<string>{})) {
-        cout << "No strings found containing the given substring." << endl;
-    } else {
-        for(string s : filtered) {
-            cout << s << endl;
-        }
-    }
-
+    if(issame(filter_by_substring(filtered, substring), filtered))
+        cout << "The result is the same as expected." << endl;
+    else
+        cout << "The result is not the same as expected." << endl;
+    
     return 0;
 }
