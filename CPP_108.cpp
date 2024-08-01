@@ -27,5 +27,5 @@ int count_nums(vector<int> v) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    return 0;
+    return count_nums({1, -2, 3, 4, -5});
 }
