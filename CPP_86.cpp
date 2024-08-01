@@ -1,10 +1,10 @@
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + " ";
+            result += word + ' ';
             word = "";
         } else {
             word += c;
