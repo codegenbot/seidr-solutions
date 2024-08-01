@@ -1,5 +1,6 @@
 #include <vector>
 #include <any>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
