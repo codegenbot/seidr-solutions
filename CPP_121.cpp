@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int solution(std::vector<int> lst) {
@@ -9,9 +8,4 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(solution({3, 13, 2, 9}) == 3);
-    // Your code here
 }
