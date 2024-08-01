@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
@@ -17,16 +16,6 @@ bool is_sorted(vector<int> lst){
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for(int i = 0; i < n; i++){
-        cin >> lst[i];
-    }
-    if(is_sorted(lst)){
-        cout << "The list is sorted." << endl;
-    } else{
-        cout << "The list is not sorted." << endl;
-    }
+    assert(is_sorted({1, 2, 3, 4}) == true);
     return 0;
 }
