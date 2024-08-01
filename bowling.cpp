@@ -1,4 +1,3 @@
-```cpp
 int bowlingScore(const std::string &frames) {
     int score = 0;
     for (int i = 0; i < frames.size(); ++i) {
