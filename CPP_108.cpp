@@ -20,7 +20,8 @@ int count_nums(std::vector<int> n) {
 
 int main() {
     std::vector<int> numbers = {123, -456, 789};
-    std::cout << count_nums(numbers) << std::endl;
-    
+    int result = count_nums(numbers);
+    std::cout << "Number of numbers with non-zero digit sum: " << result << std::endl;
+
     return 0;
 }
