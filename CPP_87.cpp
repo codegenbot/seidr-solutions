@@ -21,6 +21,6 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 3}));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 3})); 
     return 0;
 }
