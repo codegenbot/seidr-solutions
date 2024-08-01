@@ -2,10 +2,10 @@
 #include <cmath>
 #include <cassert>
 
-double poly(const std::vector<double>& xs, double x){
+double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
-    for (int i = 0; i < xs.size(); i++) {
-        result += xs[i] * pow(x, i);
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
@@ -17,10 +17,10 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
-    double solution = find_zero(coeffs);
+    std::vector<double> xs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
+    double solution = find_zero(xs);
 
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    assert(std::abs(poly(xs, solution)) < 1e-3);
 
     return 0;
 }
