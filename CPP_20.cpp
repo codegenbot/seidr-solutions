@@ -8,9 +8,9 @@ bool issame(vector<float> a, vector<float> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+vector<vector<float>> find_closest_elements(vector<float> numbers) {
     float min_diff = numeric_limits<float>::max();
-    vector<pair<float, float>> closest_pair;
+    vector<vector<float>> closest_pair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
