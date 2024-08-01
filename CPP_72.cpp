@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -21,7 +22,6 @@ bool will_it_fly(const vector<int>& q, int w) {
 }
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
-    
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }
