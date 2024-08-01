@@ -5,5 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    return {1, 2, 3}; // Sample result, replace with your code
+    std::vector<int> result;
+    // Your code to calculate minPath here
+    return result;
 }
