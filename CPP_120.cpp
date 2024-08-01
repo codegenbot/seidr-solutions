@@ -3,12 +3,12 @@ vector<int> maximum(vector<int> arr, int k) {
     unordered_set<int> unique;
     
     for (int i = 0; i < arr.size(); i++) {
-        if (unique.find(arr[i]) == unique.end()) {
-            res.push_back(arr[i]);
-            if (res.size() == k)
-                break;
+        if(unique.find(arr[i]) == unique.end()) {
             unique.insert(arr[i]);
+            if(unique.size() == k) break;
         }
     }
+    
+    res.assign(unique.begin(), unique.end());
     return res;
 }
