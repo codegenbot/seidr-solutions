@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 
@@ -9,16 +10,15 @@ bool issame(vector<int> a,vector<int>b){
 
 int main() {
     vector<int> l1 = {1,2,3};
-    vector<int> l2 = {1,2,3};
-    if(issame(l1,l2)) {
-        vector<int> result = common(l1, l2);
-        for(int i: result) {
-            cout << i << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "Vectors are not same." << endl;
+    vector<int> l2 = {2,3,4};
+
+    vector<int> result = common(l1,l2);
+
+    cout << "Common elements: ";
+    for(int i : result) {
+        cout << i << " ";
     }
+    cout << endl;
 
     return 0;
 }
