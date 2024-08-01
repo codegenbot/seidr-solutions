@@ -1,12 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return includes(a.begin(), a.end(), b.begin(), b.end());
-}
-
 vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
