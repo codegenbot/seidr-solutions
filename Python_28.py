@@ -1,4 +1,4 @@
-def check(concatenate_strings):
-    strings = ["hello", "world"]
-    result = concatenate_strings(strings)
-    print(result)
+def concatenate_strings(strings):
+    return "".join(strings)
+
+check(concatenate_strings)
