@@ -15,9 +15,10 @@ int score(string s) {
     while (frame <= 10) {
         if (s[i] == 'X') {
             score += 10;
+            frame++; // Move frame increment here
             if (s[i+2] == 'X') {
                 score += 10 + (s[i+4] == 'X' ? 10 : s[i+4] - '0');
-            } else if (s[i+1] == '/') {
+            } else if (s[i+3] == '/') {
                 score += 10;
             } else {
                 score += s[i+2] == '/' ? 10 : s[i+2] - '0';
@@ -33,7 +34,7 @@ int score(string s) {
             score += s[i+1] == '-' ? 0 : s[i+1] - '0';
             i += 2;
         }
-        frame++;
+        // frame++; // Remove frame increment from here
     }
     return score;
 }
