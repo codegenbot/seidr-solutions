@@ -15,9 +15,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     return result;
 }
 
-int main();
-assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
+int solveProblem() {
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
 
-int main() {
     return 0;
 }
