@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -23,12 +24,4 @@ string decode_cyclic(string s) {
         decoded_str += x;
     }
     return decoded_str;
-}
-
-int main() {
-    string str = "HelloWorld123";
-    string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
-    
-    return 0;
 }
