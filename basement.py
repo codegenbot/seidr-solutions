@@ -1,16 +1,6 @@
-Here is the Python solution for the problem:
-
-def basement(arr):
-    total = 0
-    for i in range(len(arr)):
-        total += arr[i]
+def basement(vector):
+    for i in range(len(vector)):
+        total = sum(vector[: i + 1])
         if total < 0:
             return i
     return -1
-
-# Example usage:
-print(basement([1, -1])) # Output: 0
-print(basement([1, -100])) # Output: 0
-print(basement([2, -1, 100])) # Output: 0
-print(basement([2, -95, 100])) # Output: 0
-print(basement([2, -30, 5])) # Output: 0
