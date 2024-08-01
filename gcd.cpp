@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -34,18 +35,24 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
+    string input;
+    getline(cin, input);
+    istringstream iss(input);
+    
     int a, b;
-    if (!(cin >> a >> b)) {
-        cerr << "Invalid input format for gcd problem." << endl;
+    if (!(iss >> a >> b)) {
+        cerr << "Invalid input for gcd. Exiting..." << endl;
         return 1;
     }
+    
     cout << gcd(a, b) << endl;
 
     string text, target;
-    if (!(cin >> text >> target)) {
-        cerr << "Invalid input format for indicesOfSubstring problem." << endl;
+    if (!(iss >> text >> target)) {
+        cerr << "Invalid input for indicesOfSubstring. Exiting..." << endl;
         return 1;
     }
+    
     vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
         cout << idx << " ";
