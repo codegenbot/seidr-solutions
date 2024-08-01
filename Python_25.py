@@ -1,4 +1,4 @@
-def factorize(n: int) -> List[int]:
+def factorize(n: int):
     factors = []
     divisor = 2
     while n > 1:
