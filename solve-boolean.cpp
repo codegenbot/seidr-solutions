@@ -14,7 +14,11 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = s.substr(0, j);
-    
+
+    if(left.find('&') != string::npos || left.find('|') != string::npos) {
+        return solveBoolean(left);
+    }
+
     j++;
     while(j<s.length()) {
         if(s[j] == '&') break;
@@ -22,7 +26,11 @@ bool solveBoolean(string s) {
     }
     string right = s.substr(j);
 
-    return solveBoolean(left) || solveBoolean(right);
+    if(right.find('&') != string::npos || right.find('|') != string::npos) {
+        return solveBoolean(right);
+    }
+
+    return solveBoolean(left) && solveBoolean(right);
 }
 
 int main() {
