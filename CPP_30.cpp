@@ -11,7 +11,7 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
