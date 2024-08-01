@@ -4,24 +4,27 @@ using namespace std;
 
 int fruit_distribution(string s, int n) {
     size_t pos = 0;
-    string apple_str, orange_str;
+    int total_apples = 0, total_oranges = 0;
     
-    while ((pos = s.find(" apples")) != string::npos) {
-        apple_str = " " + to_string(n - s.erase(pos, 7).find_last_of(' ') - 1);
-        break;
+    while ((pos = s.find(" apples", pos)) != string::npos) {
+        if (s.substr(pos - 1, 2).compare("10") == 0) {
+            total_apples = n;
+            break;
+        }
+        int num_apples = stoi(s.substr(0, pos - 3));
+        total_apples += num_apples;
+        s.erase(0, pos + 7);
     }
     
-    if (s.find(" oranges") == string::npos) {
-        return n;
+    while ((pos = s.find(" oranges", 0)) != string::npos) {
+        if (s.substr(pos - 1, 2).compare("10") == 0) {
+            total_oranges = n;
+            break;
+        }
+        int num_oranges = stoi(s.substr(0, pos - 7));
+        total_oranges += num_oranges;
+        s.erase(0, pos + 8);
     }
     
-    while ((pos = s.find(" oranges")) != string::npos) {
-        orange_str = " " + to_string(n - s.erase(pos, 8).find_last_of(' ') - 1);
-        break;
-    }
-    
-    size_t apple_count = stoi(apple_str.substr(2));
-    size_t orange_count = stoi(orange_str.substr(2));
-    
-    return n - (apple_count + orange_count);
+    return n - total_apples - total_oranges;
 }
