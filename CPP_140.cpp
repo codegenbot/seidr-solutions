@@ -1,20 +1,23 @@
-string fix_spaces(string text){
-    string result = "";
-    bool prev_space = false;
+#include <string>
 
-    for(char c : text){
-        if(c == ' ' && !prev_space){
-            result += '_';
-            prev_space = true;
-        }
-        else if(c == ' '){
-            if(prev_space)result += '-';
-            else result += '_';
-            prev_space = true;
-        }
-        else{
+using namespace std;
+
+string fix_spaces(string text) {
+    string result = "";
+    bool lastWasSpace = false;
+
+    for (char c : text) {
+        if (c == ' ') {
+            if (!lastWasSpace) {
+                result += '_';
+                lastWasSpace = true;
+            }
+        } else {
+            if (lastWasSpace) {
+                result += '-';
+                lastWasSpace = false;
+            }
             result += c;
-            prev_space = false;
         }
     }
 
