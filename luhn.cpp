@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> digits = {4, 7, 8, 2, 9, 3, 5, 1, 6, 0, 4, 7, 5, 9, 9, 1};
-    cout << luhnCheck(digits) << endl; 
+    vector<int> digits = {4, 7, 8, 9, 1, 6, 5, 3, 2, 8, 4, 6, 5, 9, 1}; 
+    cout << luhnCheck(digits) << endl; // print the result
     return 0;
 }
 
