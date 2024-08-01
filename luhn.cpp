@@ -1,29 +1,29 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgo(vector<int> card) {
+int luhn(vector<int> cardNumber) {
     int sum = 0;
-    for (int i = 0; i < card.size(); i++) {
+    for (int i = 0; i < cardNumber.size(); i++) {
         if ((i % 2) == 1) {
-            int temp = card[i] * 2;
-            if (temp > 9) {
+            int temp = cardNumber[i] * 2;
+            if (temp > 9)
                 temp -= 9;
-            }
             sum += temp;
-        } else {
-            sum += card[i];
-        }
+        } else
+            sum += cardNumber[i];
     }
     return sum;
 }
 
 int main() {
+    vector<int> cardNumber;
     int n;
     cin >> n;
-    vector<int> card(n);
     for (int i = 0; i < n; i++) {
-        cin >> card[i];
+        int num;
+        cin >> num;
+        cardNumber.push_back(num);
     }
-    cout << luhnAlgo(card) << endl;
+    cout << luhn(cardNumber) << endl;
     return 0;
 }
