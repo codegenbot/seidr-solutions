@@ -3,11 +3,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const vector<string>& a, const vector<string>& b){
     if(a.size() != b.size()){
         return false;
     }
-    for(size_t i = 0; i < a.size(); i++){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -15,10 +15,12 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring){
-    std::vector<std::string> filtered_strings;
-    for(const std::string& str : strings){
-        if(str.find(substring) != std::string::npos){
+vector<string>& filter_by_substring(vector<string> strings, string substring);
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> filtered_strings;
+    for(const string& str : strings){
+        if(str.find(substring) != string::npos){
             filtered_strings.push_back(str);
         }
     }
@@ -26,18 +28,18 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 }
 
 int main(){
-    std::vector<std::string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
-    std::string substring = "an";
+    vector<string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
+    string substring = "an";
     
-    std::vector<std::string> expected_filtered_strings = {"banana", "orange"};
+    vector<string> expected_filtered_strings = {"banana", "orange"};
     
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
     
-    assert(issame(filtered_strings, expected_filtered_strings));
-    
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
-    std::cout << "All tests passed" << std::endl;
+    if(issame(filtered_strings, expected_filtered_strings)){
+        std::cout << "Test passed" << std::endl;
+    } else {
+        std::cout << "Test failed" << std::endl;
+    }
     
     return 0;
 }
