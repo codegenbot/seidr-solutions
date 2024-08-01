@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <cstdlib>
+#include <string> // Added necessary header file
 
 std::string change_base(int x, int base){
     std::string result = "";
