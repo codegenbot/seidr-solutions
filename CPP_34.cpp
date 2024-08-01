@@ -1,30 +1,39 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <unordered_set>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
+        if (a[i] != b[i]) return false;
     return true;
 }
 
-std::vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(), end(l));
-    std::unique(result.begin(), result.end());
+std::vector<int> unique(std::vector<int> l){
+    std::vector<int> result(l.begin(), l.end());
+    std::unordered_set<int> seen(result.begin(), result.end());
+    for (auto it = result.begin(); it != result.end();) {
+        if (seen.count(*it)) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
     return result;
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3, 4, 5};
-    std::vector<int> b = {1, 2, 3, 4, 5};
-    if (issame(a, b))
-        std::cout << "Vectors are the same." << std::endl;
-    else
-        std::cout << "Vectors are different." << std::endl;
+    std::vector<int> l = {1, 2, 3, 4, 5};
+    std::vector<int> unique_l = unique(l);
+    
+    if (issame(l, unique_l)) {
+        for (const auto& num : unique_l) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Vectors are not the same." << std::endl;
+    }
 
     return 0;
 }
