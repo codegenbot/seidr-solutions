@@ -1,5 +1,4 @@
-```c++
-bool correct_bracketing(const std::string& brackets) {
+bool correctBrackets(std::string brackets) {
     int i = 0;
     while(i < brackets.length()) {
         if(brackets[i] == '<') {
