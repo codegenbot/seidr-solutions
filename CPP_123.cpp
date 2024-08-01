@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -28,8 +29,6 @@ int main() {
     for (int i : res) {
         cout << i << " ";
     }
-    // for (int i : res) {
-    //     cout << i << " ";
-    // }
-    // return 0;
+    cout << endl;
+    return 0;
 }
