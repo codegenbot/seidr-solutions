@@ -23,12 +23,11 @@ int score(string s) {
                 score += s[i+2] == '/' ? 10 : s[i+2] - '0';
                 score += s[i+3] == '/' ? 10 : s[i+3] - '0';
             }
-            frame++; // Moved inside the 'X' case before incrementing 'i'
             i++;
         } else if (s[i+1] == '/') {
             score += 10;
             score += s[i+3] == 'X' ? 10 : s[i+3] - '0';
-            i += 2;
+            i += 3;
         } else {
             score += s[i] == '-' ? 0 : s[i] - '0';
             score += s[i+1] == '-' ? 0 : s[i+1] - '0';
