@@ -1,5 +1,5 @@
+```
 #include <string>
-#include <md5.h>
 
 std::string string_to_md5(const std::string& text) {
     MD5_CTX ctx;
@@ -20,7 +20,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     if(text.empty()) {
-        return "";
+        return "None";
     } else {
         return result;
     }
