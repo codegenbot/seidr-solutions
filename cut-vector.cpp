@@ -1,5 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> nums) {
@@ -50,7 +53,7 @@ vector<vector<int>> cutVector(vector<int> nums) {
             result.push_back(right);
         } else {
             int min_diff = INT_MAX, cut_index = -1;
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 int diff = nums[j] - nums[i];
                 if (diff < min_diff) {
                     min_diff = diff;
