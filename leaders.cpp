@@ -1,4 +1,3 @@
-# Code
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,12 +23,6 @@ int main() {
 
     while (std::cin >> num) {
         nums.push_back(num);
-    }
-
-    if (!std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::getline(std::cin, dummy); // Discard remaining input on the line
     }
 
     std::vector<int> output = findLeaders(nums);
