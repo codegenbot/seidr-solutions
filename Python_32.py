@@ -1,9 +1,12 @@
 Here is the completed code:
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    max_coeff = max(abs(x) for x in xs)
-    if max_coeff == 0:
-        return None
-    return -xs[1] / xs[0]
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    a = xs[0]
+    b = xs[1]
+    for i in range(2, n, 2):
+        a -= xs[i] / (i + 1) * b
+        b *= -1
+    return round(-b / a, 2)
