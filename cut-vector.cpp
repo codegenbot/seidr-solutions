@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 
@@ -10,29 +10,33 @@ vector<vector<int>> cutVector(vector<int> nums) {
     
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
+            vector<int> left({nums[i]});
+            vector<int> right;
+            if (i != n - 1) {
+                for (int j = i + 1; j < n; j++) {
+                    right.push_back(nums[j]);
+                }
+            } else {
+                result.push_back(left);
+                result.push_back(right);
+                return result;
+            }
+            result.push_back(left);
+            result.push_back(right);
+        } else if (nums[i] == nums[0]) {
             vector<int> left;
-            left.push_back(nums[i]);
+            for (int j = 0; j <= i; j++) {
+                left.push_back(nums[j]);
+            }
             vector<int> right;
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
             result.push_back(left);
             result.push_back(right);
-        } else if (nums[i] == nums[0]) {
-            vector<int> left;
-            left.push_back(nums[0]);
-            for (int j = 1; j < i; j++) {
-                left.push_back(nums[j]);
-            }
-            vector<int> right;
-            for (int j = i; j < n; j++) {
-                right.push_back(nums[j]);
-            }
-            result.push_back(left);
-            result.push_back(right);
         } else if (i == 0) {
             vector<int> left;
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 left.push_back(nums[j]);
             }
             vector<int> right;
@@ -46,13 +50,12 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = 0; j < i; j++) {
                 left.push_back(nums[j]);
             }
-            vector<int> right;
-            right.push_back(nums[i]);
+            vector<int> right({nums[i]});
             result.push_back(left);
             result.push_back(right);
         } else {
             int min_diff = INT_MAX, cut_index = -1;
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 int diff = nums[j] - nums[i];
                 if (diff < min_diff) {
                     min_diff = diff;
@@ -96,10 +99,8 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
-    std::cout << "Output 1: ";
-    for (const auto& vec : result1) {
-        for (int num : vec) {
+    for (const auto &v : result1) {
+        for (int num : v) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
@@ -110,10 +111,8 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    std::cout << "Output 2: ";
-    for (const auto& vec : result2) {
-        for (int num : vec) {
+    for (const auto &v : result2) {
+        for (int num : v) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
@@ -124,10 +123,8 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    std::cout << "Output 3: ";
-    for (const auto& vec : result3) {
-        for (int num : vec) {
+    for (const auto &v : result3) {
+        for (int num : v) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
@@ -138,10 +135,8 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    std::cout << "Output 4: ";
-    for (const auto& vec : result4) {
-        for (int num : vec) {
+    for (const auto &v : result4) {
+        for (int num : v) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
@@ -152,10 +147,8 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    std::cout << "Output 5: ";
-    for (const auto& vec : result5) {
-        for (int num : vec) {
+    for (const auto &v : result5) {
+        for (int num : v) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
