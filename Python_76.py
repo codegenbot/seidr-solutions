@@ -1,2 +1,2 @@
-def is_equal(x, n):
+def check_condition(x, n):
     return x > 0 and n > 0 and x == n ** int(x ** (1 / n))
