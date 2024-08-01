@@ -7,6 +7,8 @@
 
 using namespace std;
 
+string sort_numbers(string numbers);
+
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -46,10 +48,12 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string input_numbers;
-    getline(cin, input_numbers);
-    
-    cout << sort_numbers(input_numbers) << endl;
-    
-    return 0;
+  assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+
+  string input_numbers;
+  getline(std::cin, input_numbers);
+  
+  std::cout << sort_numbers(input_numbers) << std::endl;
+  
+  return 0;
 }
