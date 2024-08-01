@@ -1,32 +1,46 @@
-Here is the solution:
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
 
-string solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.size(); i++) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " & (" + temp2 + ")");
             }
-            if (s.empty()) {
-                return "False";
-            }
-            s.push('&');
+            opStack.push('&');
         } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
+            while (!opStack.empty() && opStack.top() == '&') {
+                opStack.pop();
+                string temp1 = valStack.top();
+                valStack.pop();
+                string temp2 = valStack.top();
+                valStack.pop();
+                valStack.push(temp1 + " | (" + temp2 + ")");
             }
-            if (s.empty()) {
-                return "True";
-            }
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            s.push('T');
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            s.push('F');
+            opStack.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            valStack.push(expression.substr(i, 1));
+            i++;
         }
     }
-    while (!s.empty()) {
-        s.pop();
+
+    while (!opStack.empty()) {
+        string temp1 = valStack.top();
+        valStack.pop();
+        string temp2 = valStack.top();
+        valStack.pop();
+        if (opStack.top() == '|') {
+            valStack.push(temp1 + " | (" + temp2 + ")");
+        } else {
+            valStack.push(temp1 + " & (" + temp2 + ")");
+        }
+        opStack.pop();
     }
-    return s.top() == 'T' ? "True" : "False";
+
+    return valStack.top() == "T";
 }
