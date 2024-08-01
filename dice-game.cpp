@@ -3,12 +3,8 @@
 using namespace std;
 
 double calculateProbability(int n, int m) {
-    double total = (n * m);
-    double p = 0;
-    for (int i = 1; i <= m - 1; ++i) {
-        p += ((n - i) * 1.0 / total);
-    }
-    return p;
+    double total = (n + m - 1);
+    return ((m * 1.0) / total);
 }
 
 int main() {
