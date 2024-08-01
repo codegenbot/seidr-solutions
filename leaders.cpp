@@ -1,3 +1,4 @@
+using namespace std;
 #include <vector>
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
