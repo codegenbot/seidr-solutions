@@ -1,5 +1,4 @@
 ```
-#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -20,9 +19,4 @@ std::string get_closest_vowel(std::string word) {
         }
     }
     return "";
-}
-
-int main() {
-    std::cout << get_closest_vowel("hello") << std::endl;
-    return 0;
 }
