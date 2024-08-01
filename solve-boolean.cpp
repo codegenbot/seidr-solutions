@@ -1,28 +1,40 @@
+Here is the solution:
+
 bool solveBoolean(string expression) {
-    stack<char> st;
-    for(int i = 0; i < expression.length(); i++) {
-        if(expression[i] == '&') {
-            char op1 = st.top();
-            st.pop();
-            char op2 = st.top();
-            st.pop();
-            if(op1 == 'T' && op2 == 'T')
-                st.push('T');
-            else
-                st.push('F');
-        } 
-        else if(expression[i] == '|') {
-            char op1 = st.top();
-            st.pop();
-            char op2 = st.top();
-            st.pop();
-            if(op1 == 'T' || op2 == 'T')
-                st.push('T');
-            else
-                st.push('F');
-        } 
-        else 
-            st.push(expression[i]);
+    stack<char> operators;
+    stack<string> operands;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            string op1 = operands.top();
+            operands.pop();
+            string op2 = operands.top();
+            operands.pop();
+
+            bool res = (op1 == "T") ? true : false;
+            res |= (op2 == "T") ? true : false;
+
+            operands.push((res) ? "T" : "F");
+        } else if (expression[i] == '&') {
+            string op1 = operands.top();
+            operands.pop();
+            string op2 = operands.top();
+            operands.pop();
+
+            bool res = (op1 == "T") ? true : false;
+            res &= (op2 == "T") ? true : false;
+
+            operands.push((res) ? "T" : "F");
+        } else if (expression[i] != 'T' && expression[i] != 'F') {
+            string op = "";
+            while (i < expression.length() && expression[i] != '|' && expression[i] != '&') {
+                op += expression[i];
+                i++;
+            }
+            i--; // backtrack
+            operands.push(op);
+        }
     }
-    return st.top() == 'T';
+
+    return (operands.top() == "T") ? true : false;
 }
