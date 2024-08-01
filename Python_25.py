@@ -1,10 +1,9 @@
+```
 from typing import List
 import math
 
 
 n = int(input("Enter a number to factorize: "))
-
-
 def factorize():
     factors = []
     i = 2
@@ -16,11 +15,10 @@ def factorize():
             while n % i == 0:
                 count += 1
                 n //= i
-            factors.append(i**count)
+            factors.append(i ** count)
             i = 2
     if n > 1:
         factors.append(n)
     return factors
-
 
 print(factorize())
