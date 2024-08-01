@@ -11,8 +11,10 @@ def bowling_score(frames):
         else:
             first_roll = int(frames[i])
             second_roll = int(frames[i+1])
-            if first_roll + second_roll >= 10:
-                score += 10 + (10 - first_roll - second_roll)
-            else:
+            if first_roll + second_roll < 10:
                 score += first_roll + second_roll
+            elif first_roll == 10:
+                score += 10 + second_roll
+            else:
+                score += 10 + min(first_roll, 10 - second_roll)
     return score
