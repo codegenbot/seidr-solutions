@@ -1,4 +1,4 @@
-```cpp
+// Function signature: Determine whether a set of queens can be placed on an NxN chessboard such that none of them attack each other.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
