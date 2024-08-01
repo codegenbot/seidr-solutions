@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
