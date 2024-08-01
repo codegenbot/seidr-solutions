@@ -2,14 +2,14 @@ string rounded_avg(int n,int m){
     if(n > m) return "-1";
     long sum = 0;
     for(long i=n; i<=m; i++) sum += i;
-    double avg = (double)sum / ((long)(m-n+1));
-    int rounded = floor(avg);
+    double avg = (double)sum / (m - n + 1);
+    int rounded = (int)(avg + 0.5);
     string res = "";
     while(rounded > 0){
         if(rounded & 1) res.push_back('1');
         else res.push_back('0');
         rounded >>= 1;
     }
-    reverse(res.begin(),res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
