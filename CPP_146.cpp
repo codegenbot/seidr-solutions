@@ -11,7 +11,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -11, 3, -13, 15};
+    vector<int> nums = {1, 12, 13, 14, 15, 16};
     int count = specialFilter(nums);
-    cout << "Count: " << count << endl;
+    cout << "The number of elements that meet the condition is: " << count << endl;
+    return 0;
 }
