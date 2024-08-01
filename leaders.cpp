@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
@@ -14,19 +10,6 @@ vector<int> findLeaders(vector<int> nums) {
         }
     }
     
-    leaders.push_back(nums[n-1]); // add the rightmost element as a leader
+    leaders.push_back(nums[n-1]);
     return leaders;
-}
-
-int main() {
-    vector<int> nums = {5, 3, 15, 8, 6, 10};
-    vector<int> leaders = findLeaders(nums);
-
-    cout << "Leaders: ";
-    for (int leader : leaders) {
-        cout << leader << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
