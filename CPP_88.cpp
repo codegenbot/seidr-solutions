@@ -15,7 +15,6 @@ bool sort_array(const std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> expected = {11, 14, 21, 23};
-    assert(sort_array({21, 14, 23, 11}) == true);
+    assert(sort_array({21, 14, 23, 11}));
     return 0;
 }
