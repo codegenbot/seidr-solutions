@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 double diceGame(int n, int m) {
