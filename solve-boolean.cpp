@@ -1,83 +1,49 @@
 #include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> opstack;
-    stack<string> valstack;
+bool evaluateBooleanExpression(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!opstack.empty() && opstack.top() != '(') {
-                char c = opstack.top();
-                opstack.pop();
-                string operand1 = valstack.top();
-                valstack.pop();
-                string operand2;
-                if (!opstack.empty()) {
-                    operand2 = valstack.top();
-                    valstack.pop();
-                } else {
-                    operand2 = "T";
-                }
-                if (c == '&') {
-                    valstack.push((operand1 == "T" && operand2 == "T") ? "T" : "F");
-                } else {
-                    valstack.push((operand1 == "T" || operand2 == "T") ? "T" : "F");
-                }
+        if (expression[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string operand2 = valStack.top();
+                valStack.pop();
+                string operand1 = valStack.top();
+                valStack.pop();
+                valStack.push((operand1[0] == 'T' && operand2[0] == 'T') ? "T" : "F");
             }
-            opstack.push(expression[i]);
-        } else if (expression[i] == '(') {
-            opstack.push('(');
-        } else if (expression[i] == ')') {
-            while (!opstack.empty() && opstack.top() != '(') {
-                char c = opstack.top();
-                opstack.pop();
-                string operand1 = valstack.top();
-                valstack.pop();
-                string operand2;
-                if (!opstack.empty()) {
-                    operand2 = valstack.top();
-                    valstack.pop();
-                } else {
-                    operand2 = "T";
-                }
-                if (c == '&') {
-                    valstack.push((operand1 == "T" && operand2 == "T") ? "T" : "F");
-                } else {
-                    valstack.push((operand1 == "T" || operand2 == "T") ? "T" : "F");
-                }
+            opStack.push('&');
+        } else if (expression[i] == '|') {
+            while (!opStack.empty() && (opStack.top() == '&' || opStack.top() == '|')) {
+                opStack.pop();
+                string operand2 = valStack.top();
+                valStack.pop();
+                string operand1 = valStack.top();
+                valStack.pop();
+                valStack.push((operand1[0] == 'T' && operand2[0] == 'T') ? "T" : "F");
             }
-            opstack.pop();
-        } else {
+            opStack.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
             string temp = "";
-            while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
-                temp += expression[i];
-                i++;
-            }
-            valstack.push(temp);
-            i--;
+            temp += expression[i];
+            valStack.push(temp);
         }
     }
 
-    if (!opstack.empty()) {
-        char c = opstack.top();
-        opstack.pop();
-        string operand1 = valstack.top();
-        valstack.pop();
-        string operand2;
-        if (!opstack.empty()) {
-            operand2 = valstack.top();
-            valstack.pop();
-        } else {
-            operand2 = "T";
-        }
-        if (c == '&') {
-            valstack.push((operand1 == "T" && operand2 == "T") ? "T" : "F");
-        } else {
-            valstack.push((operand1 == "T" || operand2 == "T") ? "T" : "F");
-        }
-    }
+    return valStack.top()[0] == 'T';
+}
 
-    return (valstack.top() == "T");
+int main() {
+    cout << evaluateBooleanExpression("t") << endl;
+    cout << evaluateBooleanExpression("f") << endl;
+    cout << evaluateBooleanExpression("f&f") << endl;
+    cout << evaluateBooleanExpression("f&t") << endl;
+    cout << evaluateBooleanExpression("t&f") << endl;
+
+    return 0;
 }
