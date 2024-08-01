@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <sstream>
 
 using namespace std;
 
@@ -36,18 +35,13 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     int a, b;
-    string text, target;
-    
-    std::string line;
-    getline(cin, line);
-    stringstream ss(line);
-    ss >> a >> b;
-
-    getline(cin, text);
-    getline(cin, target);
-
+    cout << "Enter two integers: ";
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
+    string text, target;
+    cout << "Enter text and target string: ";
+    cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
         cout << idx << " ";
