@@ -7,9 +7,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for char in paren_string:
         if char == "(":
             current_depth += 1
-            depths.append(current_depth)
         elif char == ")":
-            current_depth -= 1
             depths.append(current_depth)
+            current_depth -= 1
 
     return depths
+
+# Provide correct input format when calling the function
+result = parse_nested_parens("((()))")
+print(result)
