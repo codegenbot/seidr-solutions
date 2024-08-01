@@ -1,8 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
+int main() {
+    vector<string> words = {"apple", "banana", "bear", "cat", "doll"};
+    string pre = "b";
+
+    vector<string> filtered = filter_by_prefix(words, pre);
+
+    for (const auto& word : filtered) {
+        cout << word << endl;
+    }
+
+    return 0;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -13,9 +27,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
-}
-
-int main() {
-    // Your main function logic here
-    return 0;
 }
