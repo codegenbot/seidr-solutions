@@ -1,32 +1,38 @@
 #include <vector>
+#include <string>
 #include <cassert>
-#include <sstream>
-#include <iostream>
 
 std::vector<int> parse_music(const std::string& music) {
-    std::vector<int> result;
-    std::istringstream iss(music);
-    std::string token;
+    std::vector<int> notes;
+    size_t pos = 0;
+    size_t next_pos = music.find('|');
 
-    while (std::getline(iss, token, ' ')) {
-        if (token == "o|") {
-            result.push_back(1);
-        } else if (token == ".|") {
-            result.push_back(2);
-        } else {
-            size_t count = token.find('|');
-            result.push_back(std::stoi(token.substr(0, count)));
-        }
+    while (next_pos != std::string::npos) {
+        notes.push_back(next_pos - pos - 1);
+        pos = next_pos + 1;
+        next_pos = music.find('|', pos);
     }
 
-    return result;
+    notes.push_back(music.size() - pos - 1);
+
+    return notes;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {1, 2, 1, 2, 1, 1, 1, 1}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 3, 3, 3, 3}));
     return 0;
 }
