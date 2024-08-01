@@ -26,9 +26,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> res = cutVector({1,2,3,4,5});
-
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -40,4 +38,4 @@ int main() {
     cout << "Right: ";
     for(int x : res.second) cout << x << ' ';
     cout << '\n';
-    return 0;
+}
