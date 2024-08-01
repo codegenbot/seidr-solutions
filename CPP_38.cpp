@@ -1,12 +1,34 @@
-string decode_cyclic(string s){ 
-    int l=s.length();
-    string x,output;
-    int i;
-    for (i=0;i*3<l;i++)
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+string encode_cyclic(string s){
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i++)
     {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x[2]+x.substr(0,2);
-        output=output+x;
+        x = s.substr(i, 1);
+        int pos = (i * 3) % l;
+        output += x;
+        output += s[pos];
     }
+    
+    return output;
+}
+
+string decode_cyclic(string s){ 
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i += 2)
+    {
+        x = s.substr(i, 1);
+        output += x;
+    }
+    
     return output;
 }
