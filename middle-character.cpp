@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string middleCharacter(string s) {
     int len = s.length();
     if (len % 2 == 0) {
@@ -10,14 +5,4 @@ string middleCharacter(string s) {
     } else {
         return s.substr(len / 2, 1);
     }
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-
-    cout << "Middle character(s): " << middleCharacter(input) << endl;
-
-    return 0;
 }
