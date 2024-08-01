@@ -14,11 +14,7 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
 
-    vector<int> temp;
-    temp.push_back(smallest_even);
-    temp.push_back(index_of_smallest_even);
-
-    result.push_back(temp);
+    result.push_back({smallest_even, index_of_smallest_even});
 
     return result;
 }
