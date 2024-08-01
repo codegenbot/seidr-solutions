@@ -1,14 +1,14 @@
-int result = -1;
+int search(const vector<int>& lst) {
+    int result = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (num > 0 && num <= freq) {
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
             result = max(result, num);
         }
     }
     return result;
+}
+
+int main() {
+    assert (search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
