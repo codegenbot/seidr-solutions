@@ -2,35 +2,27 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in "aeiou":
-                result += char
+            if char.lower() == "a":
+                result += "c" if char.isupper() else "c"
+            elif char.lower() == "e":
+                result += "g" if char.isupper() else "g"
+            elif char.lower() == "i":
+                result += "k" if char.isupper() else "k"
+            elif char.lower() == "o":
+                result += "q" if char.isupper() else "q"
+            elif char.lower() == "u":
+                result += "w" if char.isupper() else "w"
+            elif char.lower() in "aeiou":
+                continue
             else:
-                offset = ord("a") - ord(char.lower())
-                result += chr(
-                    (ord("c") + (offset % 3))
-                    if char.lower() == "a"
-                    else (
-                        (ord("g") + (offset % 5))
-                        if char.lower() == "e"
-                        else (
-                            (ord("k") + (offset % 7))
-                            if char.lower() == "i"
-                            else (
-                                (ord("q") + (offset % 9))
-                                if char.lower() == "o"
-                                else (
-                                    (ord("w") + (offset % 11))
-                                    if char.lower() == "u"
-                                    else (
-                                        ord(char)
-                                        if char.isupper()
-                                        else ord(char).lower()
-                                    )
-                                )
-                            )
-                        )
-                    )
+                result += (
+                    chr((ord(char) - 97 + 3) % 26 + 97)
+                    if char.islower()
+                    else chr((ord(char) - 65 + 3) % 26 + 65)
                 )
         else:
             result += char
     return result
+
+
+print(encode(input("Enter your message: ")))
