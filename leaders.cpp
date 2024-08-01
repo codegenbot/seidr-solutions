@@ -5,9 +5,9 @@
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
-    int maxRight = nums[n - 1];
+    int maxRight = nums[n-1];
     leaders.push_back(maxRight);
-    for (int i = n - 2; i >= 0; i--) {
+    for (int i = n-2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
             maxRight = nums[i];
@@ -18,12 +18,17 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
-    std::vector<int> result = findLeaders(nums);
+    std::vector<int> nums;
+    int num;
 
-    // Print the leaders
-    for (int num : result) {
-        std::cout << num << " ";
+    while (std::cin >> num) {
+        nums.push_back(num);
+    }
+
+    std::vector<int> output = findLeaders(nums);
+
+    for (int leader : output) {
+        std::cout << leader << " ";
     }
 
     return 0;
