@@ -11,6 +11,6 @@ std::vector<int> pluck(std::vector<int> arr) {
     if (evenNodes.empty()) {
         return {};
     }
-    std::sort(evenNodes.begin(), evenNodes.end());
+    sort(evenNodes.begin(), evenNodes.end());
     return {evenNodes[0].first, evenNodes[0].second};
 }
