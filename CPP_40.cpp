@@ -13,7 +13,3 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
     }
     return false;
 }
-
-int main() {
-    assert(triples_sum_to_zero(std::vector<int>{100, 3, 5, -100}) == false);
-}
