@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
 int search(vector<int> lst) {
-    int max = -1;
+    int max = 0;
     for (int i : lst) {
-        if (i > 0 && i <= count(lst.begin(), lst.end(), i)) {
+        if (i > max && count(lst.begin(), lst.end(), i) >= i) {
             max = i;
         }
     }
-    return max;
+    return max > 0 ? max : -1;
 }
