@@ -1,10 +1,4 @@
-```
-def leaders(arr):
-    n = len(arr)
-    result = [arr[n-1]]
-    
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            result.insert(0, arr[i])
-            
-    return result
+Here is the Python solution for the given problem:
+
+def leaders(vector):
+    return [v for i, v in reversed(list(enumerate(vector))) if all(v >= vector[j] for j in range(i+1, len(vector)))]
