@@ -4,7 +4,3 @@ def camel_case(s):
         if " " in s
         else s.replace("-", "").capitalize()
     )
-
-
-s = input()
-print(camel_case(s))
