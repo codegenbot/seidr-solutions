@@ -1,5 +1,3 @@
-Here is the solution:
-
 int x_or_y(int n, int x, int y) {
     if (isPrime(n)) {
         return x;
