@@ -1,10 +1,10 @@
-```
-def substitution_cipher(cipher_text1, cipher_text2, text):
-    deciphered_text = ""
-    for char in text:
-        if char in cipher_text1:
-            index = cipher_text1.index(char)
-            deciphered_text += cipher_text2[index]
-        else:
-            deciphered_text += char
-    return deciphered_text
+def substitution_cipher(text1, text2, text3):
+    cipher = str.maketrans(text1, text2)
+    return text3.translate(cipher)
+
+
+text1 = input().strip()
+text2 = input().strip()
+text3 = input().strip()
+
+print(substitution_cipher(text1, text2, text3))
