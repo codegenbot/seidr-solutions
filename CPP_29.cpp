@@ -1,11 +1,18 @@
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
-    for (int i = 0; i < a.size() || i < b.size(); i++) {
-        if (i >= a.size() || i >= b.size()) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        bool found = false;
+        for (string s : b) {
+            if (s == a[i])
+                found = true;
+            break;
+        }
+        if (!found)
             return false;
-        }
-        if (!a[i].compare(0, b[i].size(), b[i])) {
-            return true;
-        }
     }
     return true;
 }
