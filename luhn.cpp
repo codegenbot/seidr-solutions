@@ -1,5 +1,12 @@
+```cpp
 #include <vector>
 using namespace std;
+
+int main() {
+    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 3, 2, 8, 7, 9, 1, 1}; 
+    cout << luhnCheck(digits) << endl; // print the result
+    return 0;
+}
 
 int luhnCheck(vector<int> digits) {
     int sum = 0;
@@ -16,10 +23,4 @@ int luhnCheck(vector<int> digits) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> digits = {1, 2, 3, 4, 5};
-    cout << luhnCheck(digits) << endl;
-    return 0;
 }
