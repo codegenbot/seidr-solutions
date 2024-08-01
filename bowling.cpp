@@ -10,13 +10,12 @@ int score(const std::string &bowls) {
         if (bowls[bowlIndex] == 'X') {
             total += 10;
             total += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] == '/' ? 10 - (bowls[bowlIndex + 2] - '0') : (bowls[bowlIndex + 1] - '0'));
-
+            
             if (bowls[bowlIndex + 1] != 'X') {
                 total += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/' ? 10 - (bowls[bowlIndex + 3] - '0') : (bowls[bowlIndex + 2] - '0'));
             } else {
                 total += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/' ? 10 - (bowls[bowlIndex + 3] - '0') : 0);
             }
-            
             bowlIndex++;
         } else if (bowls[bowlIndex + 1] == '/') {
             total += 10;
