@@ -1,19 +1,30 @@
 #include <iostream>
 
-using namespace std;
-
-int starts_one_ends(int n) {
+int startsOneEnds(int n) {
     int count = 0;
-    for (long long i = 1; ; i *= 10) {
-        if (i > n) break;
-        count += 2; // start or end with 1
+    for (int i = 1; i <= 9; i++) {
+        if ((i == 1 || i % 10 == 1) && (n >= 2)) {
+            count += 1;
+        }
+        if ((i > 1 && i < 10) && (n >= 3)) {
+            for (int j = 0; j <= 9; j++) {
+                if ((j == 1 || j % 10 == 1) && (n - 1 >= 2)) {
+                    count += 1;
+                }
+            }
+        }
     }
     return count;
 }
 
 int main() {
     int n;
-    cin >> n;
-    cout << starts_one_ends(n) << endl;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+    if (n > 0) {
+        std::cout << "The number of n-digit integers that start or end with 1 is: " << startsOneEnds(n) << std::endl;
+    } else {
+        std::cout << "Please enter a positive integer." << std::endl;
+    }
     return 0;
 }
