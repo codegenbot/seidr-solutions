@@ -1,14 +1,10 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+// Declare function here
+bool issame(vector<string> a,vector<string>b);
 
+// Define function here
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for(string s : strings){
@@ -17,7 +13,16 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 int main() {
+    // Use the functions here
     assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
