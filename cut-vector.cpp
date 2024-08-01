@@ -17,4 +17,6 @@ vector<int> cutVector(vector<int> v) {
     
     vector<int> left(v.begin(), v.begin() + cutIndex);
     vector<int> right(v.begin() + cutIndex, v.end());
-    return {vector<int>{left.begin(), left.end()}, vector<int>{right.begin(), right.end()}};
+    vector<vector<int>> result = {{left}, {right}};
+    return result[0].insert(result[0].end(), right.begin(), right.end()).first - result[0].begin();
+}
