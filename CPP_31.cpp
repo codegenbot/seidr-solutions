@@ -1,8 +1,9 @@
-```
-int i = 2;
-while (i * i <= n) {
-    if (n % i == 0)
-        return false;
-    i++;
+#include <cmath>
+
+bool is_prime(long long n) {
+    if (n <= 1) return false;
+    for (long long i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
-return true;```
