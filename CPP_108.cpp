@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 int count_nums(vector<int> nums) {
     int count = 0;
@@ -24,3 +26,10 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    vector<int> nums = {1, -12, 5};
+    cout << "Number of positive numbers: " << count_nums(nums) << endl;
+    return 0;
+}
