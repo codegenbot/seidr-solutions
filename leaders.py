@@ -1,2 +1,9 @@
-def leaders(arr):
-    return [x for x in arr[::-1] if all(x >= y for y in arr[arr.index(x) + 1 :])]
+def leaders(a):
+    n = len(a)
+    leaders_list = [a[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders_list.insert(0, a[i])
+
+    return leaders_list
