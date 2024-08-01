@@ -1,9 +1,11 @@
+```c++
 #include <string>
 using namespace std;
 
 int main() {
-    string input = "34"; // test case
-    cout << squareDigits(input) << endl;
+    string input = "493193";
+    string output = squareDigits(input);
+    cout << output << endl;
     return 0;
 }
 
