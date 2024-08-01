@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -16,7 +17,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> split_words(std::string input) {
     std::vector<std::string> words;
-    // Code to split input string into words and store in 'words' vector
+    std::istringstream iss(input);
+    std::string word;
+    while (iss >> word) {
+        words.push_back(word);
+    }
     return words;
 }
 
