@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <cassert>
 
@@ -16,7 +15,7 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
