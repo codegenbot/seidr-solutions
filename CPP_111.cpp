@@ -1,41 +1,39 @@
 #include <iostream>
 #include <map>
+#include <sstream>
 #include <algorithm>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
+}
 
 std::map<char, int> histogram(std::string test) {
-    std::map<char, int> freq;
-    for (char c : test) {
-        if (c != ' ') {
-            freq[c]++;
-        }
-    }
-
-    int maxCount = 0;
-    for (const auto& pair : freq) {
-        maxCount = std::max(maxCount, pair.second);
-    }
-
     std::map<char, int> result;
-    for (const auto& pair : freq) {
-        if (pair.second == maxCount) {
-            result[pair.first] = pair.second;
+    std::istringstream iss(test);
+    std::string word;
+    while (iss >> word) {
+        for (char c : word) {
+            result[c]++;
         }
     }
-
-    return result;
+    int maxCount = 0;
+    for (const auto &entry : result) {
+        maxCount = std::max(maxCount, entry.second);
+    }
+    std::map<char, int> maxChars;
+    for (const auto &entry : result) {
+        if (entry.second == maxCount) {
+            maxChars[entry.first] = entry.second;
+        }
+    }
+    return maxChars;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    std::map<char, int> result = histogram(input);
-
-    std::cout << "Character(s) with the highest frequency: ";
-    for (const auto& pair : result) {
-        std::cout << pair.first << " ";
-    }
-
+    // Add test cases here
     return 0;
 }
