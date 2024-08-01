@@ -6,19 +6,19 @@ using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string temp = "";
+    string current_group = "";
     int count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
             count++;
-            temp += c;
+            current_group += c;
         } else if (c == ')') {
             count--;
-            temp += c;
+            current_group += c;
             if (count == 0) {
-                result.push_back(temp);
-                temp = "";
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
@@ -27,11 +27,11 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input = "( ) (( )) (( )( ))";
-    vector<string> output = separate_paren_groups(input);
+    string paren_string = "( ) (( )) (( )( ))";
+    vector<string> groups = separate_paren_groups(paren_string);
 
-    for (string s : output) {
-        cout << s << endl;
+    for (string group : groups) {
+        cout << group << endl;
     }
 
     return 0;
