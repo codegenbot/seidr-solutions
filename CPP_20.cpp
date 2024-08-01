@@ -1,11 +1,15 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <cmath>
 #include <limits>
 #include <stdexcept>
 
 bool isSame(float a, float b) {
-    return abs(a - b) < numeric_limits<float>::epsilon();
+    if (std::abs(a - b) < std::numeric_limits<float>::epsilon())
+        return true;
+    else
+        return false;
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
@@ -18,17 +22,27 @@ vector<float> find_closest_elements(vector<float> numbers) {
 
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (isSame(numbers[i], numbers[j])) {
-                continue;
-            }
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
+                closest_pair = make_pair(min(diff, numbers[i]), max(diff, numbers[i]));
             }
         }
     }
 
-    vector<float> result = {closest_pair.first, closest_pair.second};
+    vector<float> result;
+    if (!isSame(closest_pair.first, closest_pair.second)) {
+        if (closest_pair.first > closest_pair.second)
+            result.push_back(closest_pair.second);
+        else
+            result.push_back(closest_pair.first);
+        result.push_back(closest_pair.first);
+    } else {
+        for (float num : numbers) {
+            if (std::abs(num - closest_pair.first) <= std::numeric_limits<float>::epsilon())
+                result.push_back(num);
+        }
+    }
+
     return result;
 }
