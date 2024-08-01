@@ -14,10 +14,7 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = s.substr(0, j);
-
-    if(left == "t" || left == "f")
-        return bool(stoi(left));
-
+    
     j++;
     while(j<s.length()) {
         if(s[j] == '&') break;
@@ -25,7 +22,10 @@ bool solveBoolean(string s) {
     }
     string right = s.substr(j);
 
-    return solveBoolean(left) && solveBoolean(right);
+    if(left == "f" && right == "t") return false;
+    if(left == "t" && right == "f") return false;
+
+    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
