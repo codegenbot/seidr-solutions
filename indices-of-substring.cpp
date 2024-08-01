@@ -12,8 +12,11 @@ int main() {
     
     size_t i;
     for (i = 0; i < text.length(); ++i) {
-        if (i <= text.length() - target.length() + 1 && text.substr(i, target.length()) == target) {
+        if (i <= text.length() - target.length() && text.substr(i, target.length()) == target) {
             indices.push_back(i);
+            if (target.length() != 1) {
+                ++i;
+            }
         }
         else if (i == text.length() - target.length() && std::equal(text.begin() + i, text.end(), target.begin())) {
             indices.push_back(i);
