@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-int next_smallest(std::vector<int>&& lst) {
+int next_smallest(const std::vector<int>& lst) {
     if (lst.size() < 2) return -1;
     std::sort(lst.begin(), lst.end());
     int smallest = lst[0];
