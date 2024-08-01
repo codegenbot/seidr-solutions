@@ -1,3 +1,4 @@
+
 bool same_chars(const std::string &s0, const std::string &s1) {
     std::string s0_copy = s0;
     std::string s1_copy = s1;
