@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,8 +16,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    vector<int> result = remove_duplicates(numbers);
-    assert(issame(result, {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
 }
