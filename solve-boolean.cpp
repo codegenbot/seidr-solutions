@@ -14,12 +14,9 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = s.substr(0, j);
-    
-    if(i+1 < j) {
-        return solveBoolean(left) || solveBoolean(s.substr(i+1));
-    } else {
-        return solveBoolean(left);
-    }
+
+    if(left == "t" || left == "f")
+        return bool(stoi(left));
 
     j++;
     while(j<s.length()) {
@@ -28,14 +25,7 @@ bool solveBoolean(string s) {
     }
     string right = s.substr(j);
 
-    i = j;
-    while(i<s.length()) {
-        if(s[i] == '|') break;
-        i++;
-    }
-    string middle = s.substr(j, i-j);
-
-    return solveBoolean(left) && solveBoolean(middle);
+    return solveBoolean(left) && solveBoolean(right);
 }
 
 int main() {
