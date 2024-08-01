@@ -5,9 +5,9 @@ bool issame(int a, int b) {
     return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    std::sort(uniqueNumbers.begin(), uniqueNumbers.end(), issame);
-    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end(), issame), uniqueNumbers.end());
+vector<int> remove_duplicates(vector<int> numbers) {
+    sort(numbers.begin(), numbers.end(), issame);
+    vector<int> uniqueNumbers(numbers.begin());
+    uniqueNumbers.erase(unique(uniqueNumbers.begin(), uniqueNumbers.end()), uniqueNumbers.end());
     return uniqueNumbers;
 }
