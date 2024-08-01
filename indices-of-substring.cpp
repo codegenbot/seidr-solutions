@@ -7,7 +7,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int index = 0;
     while ((index = text.find(target, index)) != std::string::npos) {
         result.push_back(index);
-        index += 1; // to avoid overlapping
+        index += target.length(); // to avoid overlapping
     }
     return result;
 }
