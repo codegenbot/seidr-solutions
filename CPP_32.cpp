@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -19,16 +18,7 @@ double poly(std::vector<double> coeffs, double x) {
 }
 
 int main() {
-    std::vector<double> coeffs;
-
-    std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
-    double coeff;
-    while (std::cin >> coeff) {
-        coeffs.push_back(coeff);
-    }
-
+    std::vector<double> coeffs = {1.0, -3.0, 2.0}; // example coefficients
     double solution = find_zero(coeffs);
-    std::cout << "Solution: " << solution << std::endl;
-
     return 0;
 }
