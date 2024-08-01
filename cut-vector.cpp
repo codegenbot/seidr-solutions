@@ -14,7 +14,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         }
     }
     
-    return {{vec.begin(), vec.end() == &vec[0] + cut_index ? vec.end() : (vec.begin() + cut_index)}};
+    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
