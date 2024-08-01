@@ -3,18 +3,9 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <string>
+#include <assert.h>
 
 std::string sort_numbers(std::string numbers);
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    std::cout << sort_numbers(input) << std::endl;
-    
-    return 0;
-}
 
 std::map<std::string, int> num_map = {
     {"zero", 0},
@@ -52,4 +43,13 @@ std::string sort_numbers(std::string numbers) {
     
     result.pop_back(); // Remove extra space at the end
     return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::cout << sort_numbers(input) << std::endl;
+    
+    return 0;
 }
