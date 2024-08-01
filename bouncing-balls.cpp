@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cmath> // for pow
-#include <iomanip> // for setprecision
+#include <cmath>
+#include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -18,7 +19,7 @@ int main() {
     }
 
     cout << fixed << setprecision(4);
-    cout << startHeight << endl;
+    cout << totalDistance << endl;
 
     return 0;
 }
