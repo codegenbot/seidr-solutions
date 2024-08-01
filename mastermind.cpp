@@ -1,53 +1,23 @@
-#include <vector>
-using namespace std;
+#include <string>
+#include <unordered_map>
 
-int whitePegs(string code, string guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
-    vector<int> codeCount(6, 0);
-    vector<int> guessCount(6, 0);
-
-    // count the occurrences of each color in code and guess
-    for (char c : code) {
-        codeCount[c - 'A']++;
-    }
-    for (char c : guess) {
-        guessCount[c - 'A']++;
-    }
-
-    // count white pegs
-    for (int i = 0; i < 4; i++) {
-        if (code[i] != guess[i]) {
-            int codeIndex = code[i] - 'A';
-            int guessIndex = guess[i] - 'A';
-            if (codeCount[codeIndex] > 0 && guessCount[guessIndex] > 0) {
-                white++;
-                codeCount[codeIndex]--;
-                guessCount[guessIndex]--;
-            }
-        }
-    }
-
-    return white;
-}
-
-int blackPegs(string code, string guess) {
     int black = 0;
 
-    // count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
+    for (char c : guess) {
+        if (code.find(c) != std::string::npos) {
+            ++white;
+            code.erase(code.find(c), 1);
         }
     }
 
-    return black;
-}
+    for (char c : guess) {
+        if (c == code[0]) {
+            ++black;
+            code.erase(0, 1);
+        }
+    }
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-
-    return 0;
+    return { black, white };
 }
