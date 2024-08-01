@@ -9,7 +9,6 @@ string remove_vowels(string text){
             result += text[i];
     }
     return result;
-}
 
 int main() {
     assert (remove_vowels("ybcd") == "ybcd");
