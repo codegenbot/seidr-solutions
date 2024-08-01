@@ -1,4 +1,8 @@
-// Function signature: Determine whether a set of queens can be placed on an NxN chessboard such that none of them attack each other.
+```cpp
+// Given an array of integers q and a positive integer w, 
+// determine whether it is possible for a plane with weight capacity w 
+// to fly with the given weights.
+
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
@@ -10,4 +14,8 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+int main() {
+    assert (will_it_fly({5}, 5) == true);
+    return 0;
 }
