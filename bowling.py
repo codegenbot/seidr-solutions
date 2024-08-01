@@ -1,13 +1,23 @@
-def bowling_score(gutter_balls):
+def bowling_score(game):
     score = 0
-    roll = 1
-    for char in gutter_balls:
-        if char.isdigit():
-            score += int(char) * (10 - roll)
-            roll += 1
-        elif char == "X":
-            score += 10
+    frame = 1
+    for i in range(0, len(game), 2):
+        if game[i] == "X":
+            if frame < 10:
+                score += 30
+            else:
+                score += 10
+            frame += 1
+        elif game[i] == "/":
+            right_pin = int(game[i + 1])
+            left_pins = int(game[i - 1]) - 10
+            score += left_pins + right_pin
+            frame += 1
         else:
-            parts = char.split("/")
-            score += sum(map(int, parts)) + 10
+            right_pin = int(game[i : i + 2])
+            if right_pin >= 10:
+                score += 10
+            else:
+                score += right_pin
+            frame += 1
     return score
