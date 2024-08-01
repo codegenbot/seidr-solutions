@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -27,6 +26,7 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
+
 }
 
 int main() {
