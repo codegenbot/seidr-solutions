@@ -1,6 +1,6 @@
-def leaders(vector):
-    leaders = [vector[-1]]
-    for i in range(len(vector) - 2, -1, -1):
-        if vector[i] >= vector[i + 1]:
-            leaders.append(vector[i])
-    return reversed(leaders)
+def leaders(input):
+    return [
+        x
+        for i, x in enumerate(reversed(input))
+        if all(x >= y for j, y in enumerate(input)[i + 1 :])
+    ]
