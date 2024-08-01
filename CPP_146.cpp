@@ -14,7 +14,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> numbers = {123, 456, 789, 1011};
-    cout << "The number of integers in the given list that satisfy the condition is: " << specialFilter(numbers) << endl;
+    assert(specialFilter({}) == 0);
+    vector<int> numbers = {123, 456, 789, 101};
+    cout << specialFilter(numbers) << endl; // Output: 3
     return 0;
 }
