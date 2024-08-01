@@ -18,24 +18,28 @@ bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::s
 }
 
 std::vector<std::string> separate_paren_groups(const std::string& input) {
-    std::vector<std::string> result;
-    std::stack<int> st;
-    st.push(-1);
-    
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == '(') {
-            st.push(i);
-        } else if (input[i] == ')') {
-            if (st.size() == 1) {
-                continue;
+    std::vector<std::string> groups;
+    std::string current_group;
+    int level = 0;
+
+    for (const char& c : input) {
+        if (c == '(') {
+            if (level > 0) {
+                current_group += c;
             }
-            int start_pos = st.top();
-            st.pop();
-            result.push_back(input.substr(start_pos + 1, i - start_pos - 1));
+            level++;
+        } else if (c == ')') {
+            level--;
+            if (level > 0) {
+                current_group += c;
+            } else if (level == 0 && !current_group.empty()) {
+                groups.push_back(current_group);
+                current_group = "";
+            }
         }
     }
-    
-    return result;
+
+    return groups;
 }
 
 int main() {
