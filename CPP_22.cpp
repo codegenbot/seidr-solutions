@@ -4,15 +4,14 @@
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = boost::any_cast<int>(value);
-            if (!i.na()) {
-                result.push_back(i);
-            }
-        } else if (value.type() == typeid(double)) {
-            double d = boost::any_cast<double>(value);
-            if (!std::isnan(d)) {
-                result.push_back(static_cast<int>(d));
+        if (boost::any_cast<boost::any>(value).type() == boost::typeid(int)) {
+            try {
+                int num = boost::any_cast<int>(value);
+                if (num.good()) {
+                    result.push_back(num);
+                }
+            } catch (...) {
+                // handle the exception
             }
         }
     }
