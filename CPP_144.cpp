@@ -2,37 +2,21 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 1, c = 0, d = 1;
-    
-    // Convert strings to integers
-    vector<int> xy(2), yx(2);
-    for (int i = 0; i < 2; i++) {
-        if (x[i] == '/') break;
-        xy[i] = x[i] - '0';
-    }
-    a = xy[0];
-    b = xy[1];
+    int numerator1 = 0, denominator1 = 0;
+    int numerator2 = 0, denominator2 = 0;
 
-    for (int i = 0; i < 2; i++) {
-        if (n[i] == '/') break;
-        yx[i] = n[i] - '0';
-    }
-    c = yx[0];
-    d = yx[1];
+    // Split x and n into their respective numerators and denominators
+    size_t pos = x.find('/');
+    numerator1 = stoi(x.substr(0, pos));
+    denominator1 = stoi(x.substr(pos + 1));
 
-    // Calculate the greatest common divisor
-    int g = gcd(gcd(a, b), gcd(c, d));
+    pos = n.find('/');
+    numerator2 = stoi(n.substr(0, pos));
+    denominator2 = stoi(n.substr(pos + 1));
 
-    // Check if the simplified fraction is an integer
-    return (long long)c / g == (long long)d / g;
-}
+    // Check if the product of the two fractions is a whole number
+    int productNumerator = numerator1 * numerator2;
+    int productDenominator = denominator1 * denominator2;
 
-// Function to calculate the greatest common divisor
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    return productNumerator == productDenominator;
 }
