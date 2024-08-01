@@ -16,3 +16,4 @@ int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     cout << longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << endl;
     return 0;
+}
