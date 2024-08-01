@@ -1,50 +1,38 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
 pair<int, int> findPair(vector<int>& vec, int target) {
-    vector<int> numSet(vec.begin(), vec.end());
-    sort(numSet.begin(), numSet.end());
-    int left = 0;
-    int right = numSet.size() - 1;
+    map<int, int> mp;
     
-    while (left < right) {
-        int sum = numSet[left] + numSet[right];
-        if (sum == target) {
-            return make_pair(numSet[left], numSet[right]);
-        } else if (sum < target) {
-            left++;
-        } else {
-            right--;
+    for (int i = 0; i < vec.size(); i++) {
+        int n = vec[i];
+        int comp = target - n;
+        
+        if (mp.find(comp) != mp.end()) {
+            return {comp, n};
         }
+        
+        mp[n] = i;
     }
     
-    pair<int, int> result;
-    result.first = 0;  // default value
-    result.second = 0; // default value
-    
-    return result;
+    pair<int, int> p = {-1, -1}; // default value
+    return p;
 }
 
 int main() {
     int n;
     cin >> n;
+    
     vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
+    
+    for (auto& x : vec) cin >> x;
     
     int target;
     cin >> target;
     
-    pair<int, int> result = findPair(vec, target);
-    if (!result.first && !result.second) {
-        cout << "No solution exists" << endl;
-    } else {
-        cout << result.first << "\n";
-        cout << result.second << "\n";
-    }
+    pair<int, int> res = findPair(vec, target);
+    
+    cout << res.first << " " << res.second << endl;
     
     return 0;
 }
