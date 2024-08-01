@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -23,7 +24,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-// Function to find the GCD of two numbers
 int gcd(int a, int b) {
     if (b == 0)
         return a;
