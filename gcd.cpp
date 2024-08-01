@@ -3,44 +3,40 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    int text_len = text.length();
+    int target_len = target.length();
 
-    for (int i = 0; ; i++) {
-        if (i + m > n)
-            break;
-        int j = 0;
-        while (j < m && text[i + j] == target[j])
-            j++;
-        if (j == m) {
-            result.push_back(i);
-            i += j;
-        } else
-            i++;
+    for(int i=0; i<=text_len-target_len; i++){
+        bool flag = true;
+        for(int j=0; j<target_len; j++){
+            if(text[i+j] != target[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if(flag) result.push_back(i);
     }
+    
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    while(b) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
 
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    for (int i : indices)
-        cout << i << " ";
+    if(num1 < 0 || num2 < 0) cout << "Please enter positive numbers." << endl;
+    else{
+        cout << gcd(num1, num2) << endl; // prints the greatest common divisor of the two input integers
+    }
 
     return 0;
 }
