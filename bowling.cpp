@@ -23,10 +23,3 @@ int score(const std::string &bowls) {
     
     return total;
 }
-
-int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    std::cout << score(bowls) << std::endl;
-    return 0;
-}
