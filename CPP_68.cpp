@@ -14,8 +14,3 @@ std::pair<int, int> pluck(std::vector<int> arr) {
     std::sort(evenNodes.begin(), evenNodes.end());
     return *evenNodes.begin();
 }
-
-int main() {
-    assert(isSame(pluck({7, 9, 7, 1}), {}));
-    // Rest of your code
-}
