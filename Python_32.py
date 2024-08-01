@@ -1,9 +1,11 @@
 def find_zero(xs: list):
-    a = xs[0]
-    b = xs[1]
-    x = -b / a
-    return x
+    n = len(xs) - 1
+    a, b = xs[-1], xs[-2]
+    return -a / b
 
-coefficients = list(map(float, input().split()))
-result = find_zero(coefficients)
+
+input_list = input("Enter a list of numbers separated by space: ").split()
+input_list = [float(num) for num in input_list]
+
+result = find_zero(input_list)
 print(result)
