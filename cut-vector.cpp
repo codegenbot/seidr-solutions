@@ -14,7 +14,7 @@ int main() {
     
     int minDiff = INT_MAX;
     int cutIndex = -1;
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i < n - 1; ++i) {
         int diff = std::abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
@@ -22,11 +22,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cutIndex + 1; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         std::cout << vec[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cutIndex + 1; i < n; ++i) {
+    for (int i = cutIndex; i < n; ++i) {
         std::cout << vec[i] << std::endl;
     }
     
