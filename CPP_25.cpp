@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
     for (int i = 2; i * i <= n; ++i) {
@@ -13,10 +17,6 @@ std::vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
-}
-
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
