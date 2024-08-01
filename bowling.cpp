@@ -1,12 +1,17 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') continue;
-        if (isdigit(s[i])) {
-            int x = s[i] - '0';
-            score += x + (i < 9 ? 1 : 2);
+    int roll = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + max(0, roll);
+            roll = 0;
+        } else if (c == '/') {
+            score += 10 - roll;
+            roll = 0;
         } else {
-            score += 10 + (i < 9 ? 1 : 2) - (s[i] == 'X');
+            int pins = c - '0';
+            roll++;
+            score += pins;
         }
     }
     return score;
