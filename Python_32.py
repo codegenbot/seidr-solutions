@@ -4,9 +4,7 @@ def find_zero(a: int, b: int, c: int):
     else:
         return -b / (2 * c)
 
-a = int(input("Enter value for a: "))
-b = int(input("Enter value for b: "))
-c = int(input("Enter value for c: "))
 
+a, b, c = map(int, input("Enter values for a, b, c (separated by space): ").split())
 result = find_zero(a, b, c)
 print(result)
