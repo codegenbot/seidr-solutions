@@ -1,11 +1,19 @@
-#include <algorithm>
+#include <string>
+#include <cassert>
 
 std::string remove_vowels(std::string text) {
-    text.erase(remove_if(text.begin(), text.end(), [](char c) { return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'; }), text.end());
-    return text;
+    std::string result = "";
+    for (char c : text) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
+            c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+            result += c;
+        }
+    }
+    return result;
 }
 
 int main() {
-    // Test the function here if needed
+    assert(remove_vowels("ybcd") == "ybcd");
+    // Additional test cases can be added here
     return 0;
 }
