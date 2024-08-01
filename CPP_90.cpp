@@ -1,5 +1,4 @@
-```cpp
-int next_smallest(vector<int>);  
+int next_smallest(vector<int>);  // declare the function
 
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
