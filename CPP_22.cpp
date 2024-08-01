@@ -4,16 +4,9 @@
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = boost::any_cast<int>(value);
-            if (i.good()) {
-                result.push_back(i);
-            }
-        } else if (value.type() == typeid(double)) {
-            double d = boost::any_cast<double>(value);
-            if (!d.isNaN()) {
-                result.push_back(static_cast<int>(d));
-            }
+        if(boost::any_cast<optional<int>>(value).has_value()) {
+            int integer = boost::any_cast<optional<int>>(value).value();
+            result.push_back(integer);
         }
     }
     return result;
