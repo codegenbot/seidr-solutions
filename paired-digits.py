@@ -1,6 +1,10 @@
-def paired_digits(s):
-    total = 0
-    for i in range(len(s) - 1):
-        if s[i] == s[i + 1]:
-            total += int(s[i])
-    return str(total)
+Here is the solution for the problem:
+
+def paired_digits(digits):
+    return sum(int(dig) for dig in digits if dig == next_digits)
+
+next_digits = None
+for dig in (digits + '0'):
+    if len(digits) > 1 and dig == next_digits:
+        yield int(dig)
+    next_digits = dig
