@@ -1,2 +1,2 @@
 def sort_third(l: list):
-    return [value for group in zip(*[iter(l)]*3) for value in sorted(group)]
+    return [sorted(l[i : i + 3]) if i % 3 == 0 else l[i] for i in range(0, len(l), 3)]
