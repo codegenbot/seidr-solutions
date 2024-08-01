@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 string encrypt(string s){
     string encrypted = "";
     for(char c : s){
