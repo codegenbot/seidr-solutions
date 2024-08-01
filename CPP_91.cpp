@@ -1,13 +1,14 @@
 int is_bored(string S){
     int count = 0;
-    string sentence;
-    for(int i = 0; i < S.length(); i++){
+    string word;
+    for(int i = 0; i < S.size(); i++){
         if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            sentence = S.substr(0, i+1);
-            if(sentence[3] == ' ')
+            if(i > 0 && S.substr(0, i).find("I") != string::npos){
                 count++;
-            S.erase(0, i+1);
-            i = -1;
+            }
+            word.clear();
+        }else{
+            word += S[i];
         }
     }
     return count;
