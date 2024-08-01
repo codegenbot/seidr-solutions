@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     if n <= 0:
         if pow(n, (p-1)//2, p) == p-1:
