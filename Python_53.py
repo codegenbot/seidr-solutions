@@ -1,7 +1,4 @@
-```
 def add():
-    x = int(input("Enter first integer: "))
-    y = int(input("Enter second integer: "))
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
     return x + y
-
-print(add())
