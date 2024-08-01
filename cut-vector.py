@@ -1,17 +1,24 @@
-n = int(input())
-a = [int(input()) for _ in range(n)]
+def cut_vector(arr):
+    diff = float("inf")
+    index = -1
+    for i in range(1, len(arr)):
+        left_sum = sum(arr[:i])
+        right_sum = sum(arr[i:])
+        current_diff = abs(left_sum - right_sum)
+        if current_diff < diff:
+            diff = current_diff
+            index = i
+    return arr[:index], arr[index:]
 
-total_sum = sum(a)
-half_sum = total_sum // 2
-current_sum = 0
-for i, num in enumerate(a):
-    current_sum += num
-    if current_sum >= half_sum:
-        if current_sum == half_sum:
-            print(*a[: i + 1])
-            print(*a[i + 1 :])
-            break
-        elif current_sum - half_sum < half_sum - (current_sum - num):
-            print(*a[: i + 1])
-            print(*a[i + 1 :])
-            break
+
+# Reading input
+arr = []
+for _ in range(int(input())):
+    arr.append(int(input()))
+
+# Getting the subvectors
+sub_1, sub_2 = cut_vector(arr)
+
+# Printing the results
+print(*sub_1)
+print(*sub_2)
