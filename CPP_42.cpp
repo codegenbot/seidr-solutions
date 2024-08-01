@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -7,9 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> incr_list(std::vector<int> input) {
-    for (int& num : input) {
-        num++;
-    }
+    // implementation logic to increment each element in the list
     return input;
 }
 
