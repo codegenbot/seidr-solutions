@@ -23,5 +23,10 @@ int main() {
         }
         cout << result;
     }
-    toCamelCase("camel-case example-test-string");
+
+    string s; 
+    cin >> s;
+    toCamelCase(s);
+
+    return 0;
 }
