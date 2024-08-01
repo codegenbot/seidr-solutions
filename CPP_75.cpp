@@ -27,7 +27,7 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
-void solve_problem() {
+void solve() {
     int num;
     cin >> num;
     if (is_multiply_prime(num)) {
@@ -38,6 +38,6 @@ void solve_problem() {
 }
 
 int main() {
-    solve_problem();
+    solve();
     return 0;
 }
