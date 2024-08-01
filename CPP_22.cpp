@@ -3,8 +3,9 @@
 #include <any>
 #include <cassert>
 #include <iostream>
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::std::vector<int> a, std::std::vector<int> b);
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
