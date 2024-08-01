@@ -1,12 +1,9 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
-using std::cout;
-using std::cin;
-using std::fixed;
-using std::setprecision;
-using std::vector;
+using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     double distance = 0;
