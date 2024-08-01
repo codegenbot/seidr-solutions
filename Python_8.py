@@ -1,3 +1,4 @@
+from typing import List, Tuple
 import sys, ast
 
 def sum_product() -> Tuple[int, int]:
