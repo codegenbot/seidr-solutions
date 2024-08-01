@@ -1,30 +1,24 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> result;
-    for (float grade : grades) {
-        if (grade >= 0.9) {
-            result.push_back("A");
-        } else if (grade >= 0.8) {
-            result.push_back("B");
-        } else if (grade >= 0.7) {
-            result.push_back("C");
-        } else if (grade >= 0.6) {
-            result.push_back("D");
-        } else {
+    for (const auto& grade : grades) {
+        if (grade >= 0.0 && grade < 0.5)
             result.push_back("E");
-        }
+        else if (grade >= 0.5 && grade < 1.0)
+            result.push_back("D-");
     }
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame_grade(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
-    auto grades = numerical_letter_grade({0, 0.7f});
-    assert(issame(grades, {"E", "D-"}));
+    auto grades = numerical_letter_grade({0.0f, 0.7f});
+    assert(issame_grade(grades, {"E", "D-"}));
     return 0;
 }
