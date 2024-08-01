@@ -7,8 +7,7 @@ bool issame(int a, int b) {
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    auto endUnique = std::unique(uniqueNumbers.begin(), uniqueNumbers.end(),
-        [](int a, int b){return a == b;});
-    uniqueNumbers.erase(endUnique, uniqueNumbers.end());
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end(), issame);
+    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end(), issame), uniqueNumbers.end());
     return uniqueNumbers;
 }
