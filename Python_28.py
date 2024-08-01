@@ -1,4 +1,9 @@
 from typing import List
 
+
 def concatenate(strings: List[str]) -> str:
-    return ''.join(strings)
+    return "".join(strings)
+
+
+strings = input("Enter strings separated by comma: ").split(",")
+print(concatenate([s.strip() for s in strings]))
