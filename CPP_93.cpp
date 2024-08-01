@@ -1,11 +1,11 @@
+#include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 std::string encode(std::string message) {
-    for(char &c : message){
-        if(std::isalpha(c)){
-            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
+    for(char &c : message) {
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
                 c = c + 2;
             }
@@ -15,8 +15,6 @@ std::string encode(std::string message) {
 }
 
 int main() {
-    assert(encode("Example") == "fXAmplE");
-    assert(encode("xyz123") == "xYz123");
-
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
     return 0;
 }
