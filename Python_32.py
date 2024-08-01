@@ -1,5 +1,7 @@
+xs = list(map(int, input().split()))
+
+
 def find_zero(xs: list):
-    xs = list(map(int, input().split()))
     n = len(xs) - 1
     if n % 2 == 1:
         n -= 1
