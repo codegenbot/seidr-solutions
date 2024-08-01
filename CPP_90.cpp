@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <bits/stdc++.h>
+using namespace std;
 
 int next_smallest(vector<int> lst){
     if(lst.size() < 2) return -1; // Return None
