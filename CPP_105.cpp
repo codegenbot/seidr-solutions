@@ -4,11 +4,12 @@
 #include <map>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(const std::vector<int>& arr) {
+std::vector<std::string> by_length(std::vector<int> arr){
+    std::vector<std::string> result;
     std::vector<int> sorted_arr;
     std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -21,9 +22,10 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
         }
     }
 
-    std::sort(sorted_arr.begin(), sorted_arr.end(), std::greater<int>());
+    std::sort(sorted_arr.begin(), sorted_arr.end());
 
-    std::vector<std::string> result;
+    std::reverse(sorted_arr.begin(), sorted_arr.end());
+
     for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
     }
@@ -32,12 +34,12 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {3, 1, 7, 4, 2, 9};
-    std::vector<std::string> expected_result = {"Nine", "Seven", "Four", "Three", "Two", "One"};
-
-    std::vector<std::string> result = by_length(arr);
-
-    assert(issame(result, expected_result));
+    std::vector<int> input = {5, 2, 7, 1, 9};
+    std::vector<std::string> expected_output = {"Nine", "Seven", "Five", "Two", "One"};
+    
+    std::vector<std::string> result = by_length(input);
+    
+    assert(issame(result, expected_output));
 
     return 0;
 }
