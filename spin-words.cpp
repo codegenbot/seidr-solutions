@@ -34,3 +34,4 @@ int main() {
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
+}
