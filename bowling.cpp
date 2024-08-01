@@ -24,19 +24,20 @@ int bowlingScore(string s) {
 int bowlingScoreHelper(string* s) {
     int score = 0;
     for(int i=0; i<2; i++) {
-        if(s->substr(i,1)[0] == 'X') {
+        if(s->at(i) == 'X') {
             score += 30;
             break;
-        } else if (s->substr(i,1)[0] == '/') {
-            score += 10 + (i > 0 ? s->substr(0,i)[0] - '0' : 0);
+        } else if (s->at(i) == '/') {
+            score += 10 + (i > 0 ? s->at(i-1) - '0' : 0);
             break;
         } else {
-            int frame = s->substr(i,1)[0] - '0';
+            int frame = s->at(i) - '0';
             if(i < 1) {
                 score += frame;
             } else {
-                score += frame + s->substr(0,i)[0] - '0';
+                score += frame + s->at(i-1) - '0';
             }
         }
     }
     return score;
+}

@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -39,8 +38,8 @@ int main() {
     
     vector<vector<int>> result = cutVector(v);
     
-    for (vector<int>& vec : result) {
-        for (int& x : vec) cout << x << " ";
+    for (vector<int>& v : result) {
+        for (int& x : v) cout << x << " ";
         cout << endl;
     }
     
