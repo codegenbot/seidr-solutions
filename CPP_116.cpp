@@ -17,7 +17,19 @@ vector<int> sort_array(vector<int> arr){
 }
 
 int main(){
-    assert(sort_array({2,4,8,16,32}) == vector<int>{2, 4, 8, 16, 32});
+    vector<int> arr;
+    int n, num;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> num;
+        arr.push_back(num);
+    }
+
+    vector<int> sorted_arr = sort_array(arr);
     
-    return 0;
+    if (sorted_arr == vector<int>{2, 4, 8, 16, 32}) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
