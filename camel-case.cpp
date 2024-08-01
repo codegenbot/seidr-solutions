@@ -5,28 +5,25 @@
 std::string camelCase(const std::string& input) {
     std::string result = "";
     bool firstWord = true;
-    int capNext = 0;
 
     for (char c : input) {
         if (c == '-') {
-            capNext = 1;
+            if (!firstWord) {
+                result += char(std::toupper(c));
+            }
+            firstWord = false;
         } else if (c == ' ') {
-            if (!firstWord && !capNext) {
+            if (!firstWord) {
                 result += char(std::toupper(c));
             }
             firstWord = true;
-            capNext = 0;
         } else {
-            if (firstWord || capNext) {
+            if (firstWord) {
                 result += c;
-                if (!firstWord) {
-                    capNext = 0;
-                }
+                firstWord = false;
             } else {
                 result += char(std::tolower(c));
-                capNext = 1;
             }
-            firstWord = false;
         }
     }
 
@@ -37,7 +34,10 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::replace_if(input.begin(), input.end(), [](char c){return c == '-';}, ' ');
+
+    // Remove spaces
+    input = input;
+
     std::cout << camelCase(input) << std::endl;
 
     return 0;
