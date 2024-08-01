@@ -1,18 +1,21 @@
-Here is the solution:
-
-vector<int> strange_sort_list(vector<int> lst) {
+vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
-        
-        if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+    if (lst.empty()) return result;
+
+    vector<int> minMax;
+    for (int i = 0; i < lst.size(); ) {
+        int minVal = *min_element(lst.begin() + i, lst.end());
+        int maxVal = *max_element(lst.begin() + i, lst.end());
+        minMax.push_back(minVal);
+        result.push_back(maxVal);
+        for (int j = 0; j < lst.size(); j++) {
+            if (lst[j] == minVal || lst[j] == maxVal) {
+                lst.erase(lst.begin() + j);
+                i--;
+                break;
+            }
         }
     }
-    
+
     return result;
 }
