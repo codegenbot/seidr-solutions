@@ -6,16 +6,16 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> get_positive(const std::vector<float>& input) {
-    std::vector<float> positive_elements;
-    for (const auto& element : input) {
-        if (element > 0) {
-            positive_elements.push_back(element);
+    std::vector<float> positiveValues;
+    for (const auto& val : input) {
+        if (val > 0) {
+            positiveValues.push_back(val);
         }
     }
-    return positive_elements;
+    return positiveValues;
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert(issame(get_positive({-1.0, 2.0, -3.0, 4.0}), {2.0, 4.0}));
     return 0;
 }
