@@ -22,12 +22,12 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 int main() {
     std::vector<int> lst1;
     int num;
-    while(std::cin >> num) {
+    while (std::cin >> num) {
         lst1.push_back(num);
     }
-
+    
     std::vector<int> lst2;
-    while(std::cin >> num) {
+    while (std::cin >> num) {
         lst2.push_back(num);
     }
 
