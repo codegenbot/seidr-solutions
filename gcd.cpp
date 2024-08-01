@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 int gcd(int a, int b) {
     if (b == 0) {
