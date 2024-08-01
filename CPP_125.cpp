@@ -1,28 +1,35 @@
 vector<string> split_words(string txt) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    for (size_t i = 0; i < txt.size(); ++i) {
-        if (!isalpha(txt[i])) {
-            size_t j = i;
-            while (j < txt.size() && !isalpha(txt[j])) {
-                ++j;
-            }
-            if (j - i > 1) {
-                result.push_back(to_string(j - i));
-                break;
-            }
-            i = j - 1;
+    vector<string> words;
+    size_t pos = 0, prev_pos = 0;
+
+    while (pos != string::npos) {
+        pos = txt.find(' ', prev_pos);
+        if (pos == string::npos) {
+            words.push_back(txt.substr(prev_pos));
+            break;
+        }
+        if (txt.find(',', pos) == string::npos || pos < txt.find(',')) {
+            words.push_back(txt.substr(prev_pos, pos - prev_pos));
+            prev_pos = pos + 1;
+        } else {
+            size_t comma_pos = txt.find(',');
+            words.push_back(txt.substr(prev_pos, comma_pos - prev_pos));
+            prev_pos = comma_pos + 1;
         }
     }
-    if (result.empty()) {
-        result.push_back(to_string(count_if(txt.begin(), txt.end(), ::islower)));
+
+    if (words.empty()) {
+        int count = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z' && (count & 1)) {
+                words.push_back(to_string(count));
+                break;
+            }
+            if (c >= 'a' && c <= 'z') {
+                count++;
+            }
+        }
     }
-    return result;
+
+    return words;
 }
