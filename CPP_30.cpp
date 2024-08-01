@@ -4,7 +4,9 @@
 bool issame(vector<float> a, vector<vector<float>> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i][0]) return false;
+        vector<float> v1 = {a[i]};
+        vector<float> v2 = b[i];
+        if(!std::issame(get_positive(v1), get_positive(v2))) return false;
     }
     return true;
 }
