@@ -1,13 +1,17 @@
 #include <vector>
 #include <iostream>
-#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
 
-    return std::equal(a.begin(), a.end(), b.begin());
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
 
 std::vector<float> get_positive(std::vector<float> nums) {
