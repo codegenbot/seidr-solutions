@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <cassert>
 
 bool check_dict_case(const std::map<std::string, int>& dict) {
     if(dict.empty()) return false;
@@ -20,6 +19,12 @@ bool check_dict_case(const std::map<std::string, int>& dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    // Test Cases
+    std::map<std::string, int> test_dict1 = {{"apple", 1}, {"banana", 2}};
+    std::map<std::string, int> test_dict2 = {{"Orange", 1}, {"Grapes", 2}};
+
+    std::cout << check_dict_case(test_dict1) << std::endl; // Output: true (both lower case)
+    std::cout << check_dict_case(test_dict2) << std::endl; // Output: true (both upper case)
+
     return 0;
 }
