@@ -4,7 +4,7 @@ using namespace std;
 
 double calculateProbability(int n, int m) {
     double total = (n * m);
-    return ((m - 1.0) / total);
+    return ((m - 1) * 1.0 / total);
 }
 
 int main() {
