@@ -1,12 +1,9 @@
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(), b.end(), a[i]) == b.end())
+    for (int i = 0; i < min(a.size(), b.size()); i++) {
+        if (!a[i].compare(b[i]))
             return false;
     }
-    return true;
+    return a.size() == b.size();
 }
 
 int main() {
