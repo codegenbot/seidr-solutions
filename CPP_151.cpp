@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(const std::vector<float>& lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && (int)num == (int)num) { 
@@ -15,10 +16,14 @@ long long double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, -3.8f, 4.0f, -2.0f, 3.0f};
+    std::vector<float> lst = {1.5f, -3.8f, 4.2f, 10.7f, -0.9f};
     long long odd_sum = double_the_difference(lst);
     
-    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
+    if (odd_sum > 0) {
+        std::cout << "The sum of the squares of the odd numbers is: " << odd_sum << std::endl;
+    } else {
+        std::cout << "There are no odd positive integers in the list." << std::endl;
+    }
     
     return 0;
 }
