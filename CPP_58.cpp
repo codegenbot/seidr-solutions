@@ -3,9 +3,7 @@
 #include <set>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b) {
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
