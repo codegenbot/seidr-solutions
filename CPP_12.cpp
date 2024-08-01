@@ -16,7 +16,7 @@ string longest(vector<string> strings){
             longestStr = s;
         }
     }
-
+    
     return longestStr;
 }
 
