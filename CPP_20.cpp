@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 pair<float, float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
@@ -12,6 +19,6 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == make_pair(2.2f, 3.1f));
+    assert(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == pair<float, float>(2.2f, 3.1f));
     return 0;
 }
