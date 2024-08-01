@@ -43,14 +43,11 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {4.2, 3.8, 3.5, 2.9};
-    vector<string> output = numerical_letter_grade(grades);
-    
-    if (issame(output, {"A+", "A", "B-", "C+"})) {
+    vector<float> grades = {3.8, 2.9, 4.1, 2.6};
+    vector<string> expected_result = {"A", "B-", "A+", "B"};
+    if (issame(numerical_letter_grade(grades), expected_result))
         cout << "The output is as expected." << endl;
-    } else {
-        cout << "The output is not as expected." << endl;
-    }
-    
+    else
+        cout << "The output does not match the expected result." << endl;
     return 0;
 }
