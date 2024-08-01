@@ -1,6 +1,12 @@
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+namespace std {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b);
+}
+
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a[0] != b[0]) {
         return a[0] < b[0];
     }
