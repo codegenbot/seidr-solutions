@@ -1,7 +1,5 @@
 from typing import List
+
 def parse_music(music_string: str) -> List[int]:
-    notes = {"o": 4, "o|": 2, ".|": 1}
-    result = []
-    for note in music_string.split():
-        result.append(notes[note])
-    return result
+    durations = {"o": 4, "o|": 2, ".|": 1}
+    return [durations[note] for note in music_string.split()]
