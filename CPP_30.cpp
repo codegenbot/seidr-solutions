@@ -21,6 +21,7 @@ std::vector<float> get_positive(const std::vector<float>& nums) {
 
 int main() {
     std::vector<float> vec1, vec2;
+
     int n;
     std::cin >> n;
     float num;
