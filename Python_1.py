@@ -9,6 +9,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             temp = char
         else:
             temp += char
-    if temp:
+    if temp:  
         result.append(temp)
     return result
