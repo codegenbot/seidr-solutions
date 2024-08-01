@@ -6,6 +6,7 @@ def make_palindrome(string: str) -> str:
         new_string.append(char)
         new_string.append(char
         
+    # Add the first and last characters at the beginning
     new_string.insert(0, s[0])
     new_string.append(s[-1]
     
