@@ -11,7 +11,7 @@ std::string spinWords(std::string sentence) {
         
         if (nextPos == std::string::npos || strlen(&sentence.substr(pos, nextPos - pos)) >= 5) {
             if(strlen(sentence.substr(pos, nextPos - pos).c_str()) >= 5) {
-                std::reverse(sentence.substr(pos, nextPos - pos).c_str(), sentence.substr(pos, nextPos - pos).c_str() + strlen(sentence.substr(pos, nextPos - pos).c_str()));
+                std::reverse(sentence.substr(pos, nextPos - pos).begin(), sentence.substr(pos, nextPos - pos).end());
             }
             
             result += sentence.substr(pos, nextPos - pos) + " ";
@@ -22,7 +22,7 @@ std::string spinWords(std::string sentence) {
     }
     
     if(strlen(sentence.substr(pos).c_str()) >= 5) {
-        std::reverse(sentence.substr(pos).c_str(), sentence.c_str());
+        std::reverse(sentence.substr(pos).begin(), sentence.substr(pos).end());
     }
     
     result += sentence.substr(pos);
