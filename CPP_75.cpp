@@ -2,24 +2,21 @@
 
 bool is_multiply_prime(int a) {
     for (int i = 2; i <= sqrt(a); i++) {
-        if (a % i == 0) {
-            int j = 2;
-            while (j * j <= a) {
-                if (a % j == 0) {
-                    return false;
-                }
-                j++;
+        int count = 0;
+        for (int j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                count++;
             }
-            for (int k = i; k <= sqrt(a); k++) {
-                if (k * i > a) break;
-                if (k * i == a || k * i % i != 0) {
-                    int l = 2;
-                    while (l * l <= k ? l * l : k) {
-                        if ((l * l <= k ? l * l : k) % l == 0) {
-                            return false;
-                        }
-                        l++;
+        }
+        if (count == 0) {
+            for (int k = i; k <= a / i; k++) {
+                int count2 = 0;
+                for (int l = 2; l <= k / 2; l++) {
+                    if (k % l == 0) {
+                        count2++;
                     }
+                }
+                if (count2 == 0 && k * i == a) {
                     return true;
                 }
             }
