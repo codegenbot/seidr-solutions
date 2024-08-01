@@ -4,10 +4,9 @@
 int main() {
     std::vector<float> lst;
     long long result = double_the_difference(lst); 
-    int odd_sum; 
-    
-    return 0;
+    int odd_sum;
 
+    return 0;
 }
 
 long long double_the_difference(std::vector<float> lst) {
