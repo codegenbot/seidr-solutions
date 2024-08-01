@@ -1,15 +1,16 @@
 ```c++
-int main() {
-    int n = 6; 
-    int m = 4; 
-    double result = calculateProbability(n, m);
-    std::cout << "Probability: " << result << std::endl;
-    return 0;
-}
+#include <iostream>
+using namespace std;
 
 double calculateProbability(int n, int m) {
-    if(m >= n)
-        return 0.0;
-    else
-        return (n - m) * 1.0 / (n + m - 1);
+    double total = (n * m);
+    return (m * 1.0 / total);
+}
+
+int main() {
+    int n = 6; 
+    int m = 4;
+    double result = calculateProbability(n, m);
+    cout << "Probability: " << result << endl;
+    return 0;
 }
