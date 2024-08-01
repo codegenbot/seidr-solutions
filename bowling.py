@@ -1,27 +1,19 @@
-```
-def bowling_score(rolls):
+Here is the solution:
+
+def bowling_score(games):
     score = 0
-    roll_index = 0
-    for frame in range(10):
-        if rolls[roll_index] == 'X': 
-            score += 30  
-            roll_index += 1            
-        elif '/' in rolls[roll_index]: 
-            first_roll, second_roll = map(int, rolls[roll_index].split('/'))
-            score += first_roll + second_roll
-            roll_index += 1            
-        else:
-            first_roll = int(rolls[roll_index])
-            if first_roll < 10: 
-                score += first_roll
-                roll_index += 1
-                if roll_index != 10 and rolls[roll_index] == 'X':
-                    score += 30 
-                    roll_index += 1
-                elif '/' in rolls[roll_index]:
-                    second_roll = int(rolls[roll_index].split('/')[1])
-                    score += second_roll            
+    game = 0
+    for frame in games:
+        if '/' in frame:
+            first_roll = int(frame.split('/')[0])
+            second_roll = 10 - first_roll
+            if game < 9 and sum([int(x) for x in str(first_roll)]) == 10:
+                score += 20
             else:
-                score += first_roll + 10 
-                roll_index += 1                
+                score += first_roll + second_roll
+        elif frame == 'X':
+            score += 30
+        else:
+            score += int(frame)
+        game += 1
     return score
