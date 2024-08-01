@@ -10,7 +10,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
         
         if (min_val == max_val) {
             result.push_back(min_val);
-            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+            lst.pop_back();
         } else {
             result.push_back(min_val);
             vector<int> new_lst;
@@ -27,21 +27,21 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    int n;
+    vector<int> input_vector;
+    int num_elements;
     cout << "Enter the number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        input.push_back(x);
+    cin >> num_elements;
+    cout << "Enter " << num_elements << " integers: ";
+    for (int i = 0; i < num_elements; i++) {
+        int num;
+        cin >> num;
+        input_vector.push_back(num);
     }
     
-    vector<int> output = strange_sort_vector(input);
+    vector<int> output_vector = strange_sort_vector(input_vector);
     
     cout << "Sorted Vector: ";
-    for (int x : output) {
+    for (int x : output_vector) {
         cout << x << " ";
     }
     cout << endl;
