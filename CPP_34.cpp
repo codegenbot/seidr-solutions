@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <unordered_set>
 
@@ -15,18 +14,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(), end(l));
+    vector<int> result;
     unordered_set<int> seen;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (seen.insert(*it).second)
-            continue;
-        *it = *--result.end();
+    for (int x : l) {
+        if (seen.insert(x).second)
+            result.push_back(x);
     }
     return result;
-}
-
-int main() {
-    vector<int> l = {1, 2, 3, 4, 5};
-    unique(l);
-    return 0;
 }
