@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <climits> // for INT_MAX
-#include <cassert>
 
 using namespace std;
 
@@ -35,9 +34,4 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
 }
