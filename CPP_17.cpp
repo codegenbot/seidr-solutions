@@ -1,9 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 std::vector<int> parse_music(std::string music_string) {
-    // Implementation omitted for brevity
+    std::vector<int> result;
+    // Implementation for parsing music_string and populating result vector
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // Implementation omitted for brevity
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
