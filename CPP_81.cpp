@@ -9,7 +9,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
         if (grade >= 0.0 && grade < 0.5)
             result.push_back("E");
         else if (grade >= 0.5 && grade < 1.0)
-            result.push_back("D-");
+             result.push_back("D-");
     }
     return result;
 }
