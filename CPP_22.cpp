@@ -4,9 +4,8 @@
 #include <cassert>
 
 using namespace std;
-using std::any;
 
-vector<int> filter_integers(const vector<any>& values){
+vector<int> filter_integers(const vector<any>& values) {
     vector<int> result;
     for (const auto &val : values) {
         if (val.type() == typeid(int)) {
@@ -20,7 +19,7 @@ bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-int main(){
+int main() {
     assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
     return 0;
 }
