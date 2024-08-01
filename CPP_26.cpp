@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,17 +15,8 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return result;
 }
 
-void originalMain() {
-    vector<int> numbers = {1, 2, 3, 2, 4};
-    vector<int> result = remove_duplicates(numbers);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    return;
-}
-
 int main() {
-    vector<int> numbers = {5, 6, 7, 8, 9};
+    vector<int> numbers = {1, 2, 3, 2, 4};
     vector<int> result = remove_duplicates(numbers);
     for (int num : result) {
         cout << num << " ";
