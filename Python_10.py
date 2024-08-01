@@ -1,7 +1,13 @@
 def make_palindrome(string: str) -> str:
-    if not is_palindrome(string):
-        for char in string:
-            new_string = char + string + char
-            if is_palindrome(new_string):
-                return new_string
-        return None
+    s = s.lower()
+    new_string = []
+    
+    for char in s:
+        new_string.append(char)
+        new_string.append(char
+        
+    # Add the first and last characters at the beginning
+    new_string.insert(0, s[0])
+    new_string.append(s[-1])
+    
+    return ''.join(new_string).upper()
