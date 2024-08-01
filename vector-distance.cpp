@@ -1,29 +1,11 @@
-#include <iostream>
-#include <vector>
 #include <cmath>
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+double sum_of_squares = 0.0; // Initialize sum_of_squares
 
-    std::vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
-    }
-
-    std::vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
-    }
-
-    double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
-    }
-
-    double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
-
-    return 0;
+// Compute the sum of squares of vector components
+for (int i = 0; i < n; ++i) {
+    sum_of_squares += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i]);
 }
+
+// Calculate the Euclidean distance between two n-dimensional vectors
+double distance = std::sqrt(sum_of_squares);
