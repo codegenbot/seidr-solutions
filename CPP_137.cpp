@@ -1,28 +1,44 @@
+#include <boost/any.hpp>
+#include <string>
+#include <type_traits>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return a.convert_to<float>() > b.convert_to<int>() ? b : a;
+        return boost::any(b);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return a.convert_to<float>() > atof(str.c_str()) ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return atof(str2.c_str()) > atof(str1.c_str()) ? b : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return a.convert_to<int>() > atof(str.c_str()) ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a.convert_to<float>() > b.convert_to<int>() ? b : a;
+        return boost::any(b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
-        return atof(str.c_str()) > b.convert_to<int>() ? b : a;
+        return boost::any(b);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        if (boost::any_cast<string>(a) != boost::any_cast<string>(b)) {
+            return boost::any(boost::any_cast<string>(b));
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) != boost::any_cast<int>(b)) {
+            return boost::any((boost::any_cast<int>(b)));
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) != boost::any_cast<float>(b)) {
+            return boost::any((boost::any_cast<float>(b)));
+        }
+        else {
+            return boost::any("None");
+        }
     }
     else {
-        return "None";
+        return boost::any("None");
     }
 }
