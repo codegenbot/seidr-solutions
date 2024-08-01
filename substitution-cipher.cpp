@@ -2,28 +2,28 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipherText, std::string mapping) {
-    string decrypted = "";
-    for (char c : cipherText) {
-        if (c != ' ') {
-            int index = 0;
-            while(mapping[index] != c && index < mapping.length()) {
-                index++;
-            }
-            if(index >= mapping.length())
-                decrypted += c;
-            else
-                decrypted += mapping[index];
+using namespace std;
+
+string decipher(const string& cipherKey1, const string& cipherKey2, const string& message) {
+    string decipheredMessage;
+    for (int i = 0; i < message.size(); i++) {
+        char c = message[i];
+        if (c >= 'a' && c <= 'z') {
+            int index = c - 'a';
+            decipheredMessage += cipherKey2[index];
+        } else if (c >= 'A' && c <= 'Z') {
+            int index = c - 'A';
+            decipheredMessage += cipherKey2[index];
         } else {
-            decrypted += c;
+            decipheredMessage += c;
         }
     }
-    return decrypted;
+    return decipheredMessage;
 }
 
 int main() {
-    string text1, text2, text3;
-    cin >> text1 >> text2 >> text3;
-    cout << decipher(text3, text1) << endl;
+    string cipherKey1, cipherKey2, message;
+    cin >> cipherKey1 >> cipherKey2 >> message;
+    cout << decipher(cipherKey1, cipherKey2, message) << endl;
     return 0;
 }
