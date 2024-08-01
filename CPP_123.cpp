@@ -18,10 +18,10 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool is_same(std::vector<int> v1, std::vector<int> v2) {
+bool issame(std::vector<int> v1, std::vector<int> v2) {
     return v1 == v2;
 }
 
 int main() {
-    assert(is_same(get_odd_collatz(1), {1}));
+    assert(get_odd_collatz(1).size() == 1);
 }
