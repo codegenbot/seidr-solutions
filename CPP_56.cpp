@@ -1,16 +1,12 @@
-int stackSize = 0;
-char* stack = new char[stackSize];
-
 bool correct_bracketing(string brackets) {
-    for (char bracket : brackets) {
-        if (bracket == '<') {
-            stack[stackSize] = '<';
-            stackSize++;
-        } else if (bracket == '>') {
-            if (stackSize == 0)
-                return false;
-            stackSize--;
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '<') {
+            count++;
+        } else if (c == '>') {
+            if (count <= 0) return false;
+            count--;
         }
     }
-    return stackSize == 0;
+    return count == 0;
 }
