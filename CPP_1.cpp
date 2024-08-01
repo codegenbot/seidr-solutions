@@ -28,7 +28,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             balance--;
             if (balance > 0) {
                 current_group += c;
-            } else {
+            } else if (balance == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
