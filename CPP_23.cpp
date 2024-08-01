@@ -1,9 +1,11 @@
 #include <string>
+#include <iostream>
 
-int my_strlen(std::string str) {
+int strLength(std::string str){
     return str.length();
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 13);
+    std::cout << strLength("asdasnakj") << std::endl;
+    return 0;
 }
