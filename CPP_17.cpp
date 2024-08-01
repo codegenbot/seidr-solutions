@@ -26,16 +26,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
 
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(issame(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 4, 4, 4, 4 }));
     return 0;
-}  
+}
