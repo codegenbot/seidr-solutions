@@ -1,13 +1,21 @@
 ```
 def smallest_change(arr):
-    arr = sorted(set(arr))
     n = len(arr)
+    arr.sort()
+    left, right = 0, n - 1
     changes = 0
     
-    for i in range(n - 1):
-        if arr[i] == arr[i + 1]:
-            continue
-        else:
-            changes += abs(arr.index(arr[i]) - arr.index(arr[i + 1]))
+    while left < right:
+        if arr[left] != arr[right]:
+            for i in range(left + 1, right):
+                if arr[i] == arr[right]:
+                    arr[left], arr[i] = arr[i], arr[left]
+                    changes += 1
+                    break
+            else:
+                arr[left], arr[right] = arr[right], arr[left]
+                changes += 1
+        left += 1
+        right -= 1
     
     return changes
