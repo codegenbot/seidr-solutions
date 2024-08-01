@@ -1,11 +1,11 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
+#include <cmath>
 
-bool has_close_elements(const std::vector<float>& a, float threshold) {
-    for (int i = 0; i < a.size(); ++i) {
-        for (int j = i + 1; j < a.size(); ++j) {
-            if (std::abs(a[i] - a[j]) < threshold) {
+bool has_close_elements(const std::vector<float>& arr, float threshold) {
+    for (size_t i = 0; i < arr.size(); ++i) {
+        for (size_t j = i + 1; j < arr.size(); ++j) {
+            if (std::abs(arr[i] - arr[j]) <= threshold) {
                 return true;
             }
         }
