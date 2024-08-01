@@ -1,3 +1,4 @@
+```c++
 int main() {
     int n = 6; 
     int m = 4; 
@@ -7,7 +8,8 @@ int main() {
 }
 
 double calculateProbability(int n, int m) {
-    double total = (n * m);
-    double higherRolls = (n - m);
-    return (higherRolls / total);
+    if(m >= n)
+        return 0.0;
+    else
+        return (n - m) * 1.0 / (n + m - 1);
 }
