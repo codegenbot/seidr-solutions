@@ -3,12 +3,16 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
 
+bool sort_array(std::vector<int> v) {
+    return issame(v, {23, 21, 14, 11});
+}
+
 int main() {
-    assert(issame({21, 14, 23, 11}, {23, 21, 14, 11}));
+    assert(sort_array({21, 14, 23, 11}));
     return 0;
 }
