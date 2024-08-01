@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
@@ -18,7 +19,5 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
 
-    std::string b = result == reversed ? "True" : "False";
-
-    return {result, b};
+    return {result, result == reversed ? "True" : "False"};
 }
