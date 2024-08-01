@@ -1,14 +1,9 @@
-```
-def kebab_to_camel(kebab):
-    words = kebab.split()
-    camel_case = ''
-    for word in words:
-        if camel_case:
-            first_letter = word[0].upper()
-            camel_case += first_letter + word[1:].lower()
-        else:
-            camel_case += word
-    return camel_case
+Here is the Python solution for the problem:
 
-input_str = input()
-print(kebab_to_camel(input_str))
+def kebab_to_camel(s):
+    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s.split('-')))
+
+print(kebab_to_camel('nospaceordash'))
+print(kebab_to_camel('two-words'))
+print(kebab_to_camel('two words'))
+print(kebab_to_camel('all separate words'))
