@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -33,12 +34,15 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    vector<int> sequence = get_odd_collatz(num);
-    cout << "The Collatz sequence up to 1 with only odd terms is: ";
-    for (int i = 0; i < sequence.size(); i++) {
-        cout << sequence[i] << " ";
+    vector<int> res = get_odd_collatz(num);
+    if (res.size() > 0) {
+        cout << "The sequence is: ";
+        for (int i : res) {
+            cout << i << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No odd numbers in the Collatz sequence." << endl;
     }
-    cout << endl;
-    
     return 0;
 }
