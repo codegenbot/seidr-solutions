@@ -1,40 +1,34 @@
-bool issame(const string& s1, const string& s2) {
-    bool same = true;
-    for (int i = 0; i < min(s1.length(), s2.length()); i++) {
-        if (s1[i] != s2[i]) {
-            same = false;
-            break;
+bool issame(string str1, string str2) {
+    if (str1.length() != str2.length()) {
+        return false;
+    }
+    for (int i = 0; i < str1.length(); i++) {
+        if (str1[i] != str2[i]) {
+            return false;
         }
     }
-    return same;
+    return true;
 }
 
 int main() {
     vector<string> strings;
-    string prefix;
-
-    cout << "Enter the number of strings: ";
-    int n; cin >> n;
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        strings.push_back(s);
-    }
-
+    string prefix, output;
+    cout << "Enter the list of strings (space separated): ";
+    getline(cin, prefix);
+    strings = split(prefix, ' ');
+    
     cout << "Enter the prefix: ";
     cin >> prefix;
-
+    
     vector<string> result = filter_by_prefix(strings, prefix);
-
-    if (!result.empty()) {
-        cout << "Strings with the given prefix: ";
-        for (const auto& str : result) {
-            cout << str << " ";
+    
+    for (const auto& str : result) {
+        if (issame(str, prefix)) {
+            output += str + " ";
         }
-        cout << endl;
-    } else {
-        cout << "No strings found with the given prefix." << endl;
     }
-
+    
+    cout << "The strings that are the same as the given prefix: " << output << endl;
+    
     return 0;
 }
