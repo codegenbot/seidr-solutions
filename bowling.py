@@ -1,16 +1,18 @@
 ```
-def bowling_score(s):
+def bowling_score(rolls):
     score = 0
     roll = 0
-    for char in s:
-        if char.isdigit():
-            roll += int(char)
-        elif char == '/':
-            if roll < 10:
-                score += 10 - roll
-            else:
-                score += roll
+    frame = 1
+    
+    for x in rolls + '/':
+        if x == '/':
+            score += min(10, roll) * 2
             roll = 0
-    if roll < 10:
-        score += 10 - roll
+            frame += 1
+        else:
+            roll += int(x)
+    
+    if roll > 0:
+        score += min(10, roll) * 2
+    
     return score
