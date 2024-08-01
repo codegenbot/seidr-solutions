@@ -1,15 +1,11 @@
-def solveBoolean(expression):
-    stack = []
-    for char in expression:
-        if char in ['|', '&']:
-            second = stack.pop()
-            first = stack.pop()
-            if char == '|':
-                stack.append(bool(first) or bool(second))
-            else:
-                stack.append(bool(first) and bool(second))
-        elif char in ['T', 't']:
-            stack.append(True)
-        elif char in ['F', 'f']:
-            stack.append(False)
-    return stack[0]
+def solveBoolean(input_str):
+    if input_str == "T":
+        return True
+    elif input_str == "F":
+        return False
+    elif "&" in input_str:
+        left, right = input_str.split("&")
+        return solveBoolean(left) and solveBoolean(right)
+    elif "|" in input_str:
+        left, right = input_str.split("|")
+        return solveBoolean(left) or solveBoolean(right)
