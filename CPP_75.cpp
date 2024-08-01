@@ -2,33 +2,20 @@
 
 bool is_multiply_prime(int a) {
     for (int i = 2; i <= sqrt(a); i++) {
-        int temp = a;
-        while (temp % i == 0) {
-            if (isPrime(i)) {
-                temp /= i;
-                int j = 2;
-                while (j <= sqrt(temp) && temp % j != 0) {
-                    j++;
+        int remainder = a % i;
+        if (remainder == 0) {
+            int count = 0;
+            for (int j = i; j <= a / i; j++) {
+                if (a % j == 0) {
+                    count++;
                 }
-                if (j > sqrt(temp)) {
-                    return true;
-                } else {
-                    break;
-                }
+            }
+            if (count == 3) {
+                return true;
             } else {
                 break;
             }
         }
     }
     return false;
-}
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
 }
