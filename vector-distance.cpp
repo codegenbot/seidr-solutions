@@ -22,6 +22,7 @@ int main() {
     }
 
     float distance = sqrtf(sum);
+
     std::cout << distance << std::endl;
 
     return 0;
