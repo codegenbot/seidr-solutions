@@ -11,5 +11,8 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-   // Your main function here
+    std::vector<int> lst = {1, 3, 5, 6};
+    int result = solutions(lst);
+    std::cout << "The sum of the odd numbers is: " << result << std::endl;
+    return 0;
 }
