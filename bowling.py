@@ -1,26 +1,29 @@
-```
-def bowling_score(score_str):
+def bowling_score(game):
     score = 0
     frame = 1
-    for i in range(0, len(score_str), 2):
-        if score_str[i].isdigit() and (i == len(score_str) - 1 or not score_str[i+1].isdigit()):
-            if score_str[i] != 'X':
-                strike_frame = int(score_str[i])
-                while frame < 10:
-                    if frame < 10 and i + 2 <= len(score_str):
-                        if score_str[i+1] == '/':
-                            return -1
-                    score += strike_frame
-                    frame += 1
-            else:
+    roll = 0
+
+    for char in game:
+        if char == "X":
+            score += 30
+            frame += 1
+        elif char == "/":
+            score += 10 + int(game[roll : roll + 2].replace("/", ""))
+            frame += 1
+            roll += 3
+        else:
+            if int(char) == 10:
                 score += 10
                 frame += 1
-        elif score_str[i] == 'X':
-            score += 10
-            frame += 1
-        else:
-            if i + 2 <= len(score_str):
-                spare = int(score_str[i:i+2])
-                score += spare
-                frame += 1
+            else:
+                if frame < 10:
+                    score += int(char)
+                    roll += 1
+                else:
+                    if int(char) != "X":
+                        if int(game[roll - 1].replace("0", "")) + int(char) <= 10:
+                            score += int(char) + int(game[roll - 1].replace("0", ""))
+                        else:
+                            score += 10 - int(game[roll - 1].replace("0", "").zfill(2))
+                    roll += 1
     return score
