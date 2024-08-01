@@ -1,3 +1,4 @@
+```cpp
 bool isPrime(int num);
 
 int skjkasdkd(vector<int> lst) {
