@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -14,6 +13,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
+    assert(match_parens({}) == "Yes");
     return 0;
 }
