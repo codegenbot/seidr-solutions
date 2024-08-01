@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -29,7 +28,7 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -12, 5};
-    cout << "Number of positive numbers: " << count_nums(nums) << endl;
+    assert(count_nums({1}) == 1);
+    // You can add more code here, including the input and output.
     return 0;
 }
