@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string camelCase(const std::string& input) {
     std::string result = "";
     bool firstWord = true;
-
     for (char c : input) {
         if (c == '-') {
             if (!firstWord) {
@@ -19,24 +19,20 @@ std::string camelCase(const std::string& input) {
         } else {
             if (firstWord) {
                 result += c;
+                firstWord = false;
             } else {
-                result += char(std::tolower(c));
+                result += std::tolower(c);
             }
-            firstWord = false;
         }
     }
-
     return result;
 }
 
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::string word;
-    while (std::cin >> word && !word.empty()) {
-        input += word + " ";
-    }
-    
+    std::getline(std::cin, input);
+    std::replace_if(input.begin(), input.end(), [](unsigned char c){return c == ' ';}, '_');
     std::cout << camelCase(input) << std::endl;
 
     return 0;
