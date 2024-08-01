@@ -1,2 +1,2 @@
 def sort_third(l: list):
-    return [val for group in [sorted(l[i:i + 3]) if i + 3 <= len(l) else l[i:] for i in range(0, len(l), 3)] for val in group]
+    return sorted(l, key=lambda x: x[2] if len(x) >= 3 else x)
