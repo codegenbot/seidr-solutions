@@ -1,18 +1,22 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+Here is the solution:
 
 vector<int> factorize(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
-            factors.push_back(i);
-            n /= i;
+            int count = 0;
+            while (n % i == 0) {
+                n /= i;
+                count++;
+            }
+            if (count > 0) {
+                factors.push_back(i);
+                factors.insert(factors.end(), count, i);
+            }
         }
     }
-    if (n > 1)
+    if (n > 1) {
         factors.push_back(n);
-    sort(factors.begin(), factors.end());
+    }
     return factors;
 }
