@@ -2,6 +2,12 @@
 #include <iostream>
 #include <cmath>
 
+using std::cout;
+using std::cin;
+using std::fixed;
+using std::setprecision;
+using std::vector;
+
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     double distance = 0;
     for (int i = 0; i < v1.size(); ++i) {
