@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 double snowDay(int hours, float onGround, float rate, float melt) {
@@ -20,4 +19,3 @@ int main() {
     double result = snowDay(hours, onGround, rate, melt);
     std::cout << fixed << setprecision(10) << result << endl;
     return 0;
-}
