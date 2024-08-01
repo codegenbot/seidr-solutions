@@ -1,21 +1,18 @@
 #include <vector>
-#include <string>
 #include <cassert>
+#include <sstream>
 
 std::vector<int> parse_music(const std::string& music) {
-    std::vector<int> notes;
-    size_t pos = 0;
-    size_t next_pos = music.find('|');
-
-    while (next_pos != std::string::npos) {
-        notes.push_back(next_pos - pos - 1);
-        pos = next_pos + 1;
-        next_pos = music.find('|', pos);
+    std::vector<int> result;
+    std::istringstream iss(music);
+    char c;
+    int num;
+    
+    while (iss >> c >> num) {
+        result.push_back(num);
     }
 
-    notes.push_back(music.size() - pos - 1);
-
-    return notes;
+    return result;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
