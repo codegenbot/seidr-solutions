@@ -32,22 +32,18 @@ int main() {
     vector<vector<int>> result = cutVector(v);
     
     cout << "[";
-
     for(int i=0; i<result[0].size(); i++) {
         cout << result[0][i];
-        if(i < result[0].size() - 1) 
-            cout << " ";
+        if(i < result[0].size() - 1) cout << " ";
     }
     cout << "]" << endl;
     
     cout << "[";
-
     for(int i=0; i<result[1].size(); i++) {
         cout << result[1][i];
-        if(i < result[1].size() - 1) 
-            cout << " ";
+        if(i < result[1].size() - 1) cout << " ";
     }
     cout << "]" << endl;
-
+    
     return 0;
 }
