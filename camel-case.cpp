@@ -26,5 +26,4 @@ int main() {
     string input;
     cin >> input;
     toCamelCase(input);
-    return 0;
 }
