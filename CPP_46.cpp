@@ -1,11 +1,13 @@
 int fib4(int n) {
-    if (n < 0) return -1; // Error: negative index
-    int f[] = {0, 0, 2, 0};
+    if (n < 0 || n > 3)
+        return -1;
+
+    int fib4[5] = {0, 0, 2, 0};
     for (int i = 4; i <= n; i++) {
-        int sum = f[3] + f[2] + f[1];
-        for (int j = 0; j < 3; j++)
-            f[j] = f[j+1];
-        f[3] = sum;
+        int sum = fib4[i-1];
+        sum += fib4[i-2];
+        sum += fib4[i-3];
+        fib4[i%4] = sum;
     }
-    return f[n % 4];
+    return fib4[n%4];
 }
