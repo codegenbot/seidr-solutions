@@ -1,24 +1,20 @@
-def bowling_score(s):
-    s = s.replace("/", "")
+def bowling_score(frames):
     score = 0
-    rolls = [int(x) for x in re.split("D|X", s)]
-    for i in range(10):
-        if len(rolls) > i:
-            if rolls[i] == 10:
-                score += 10 + (
-                    i < 9 and len(rolls) > i + 1 and rolls[i + 1] + rolls[i + 2] or 0
-                )
-            else:
-                score += sum(rolls[: i + 1])
-        elif s[i].upper() == "X":
-            if i < 8:
-                score += 10 + (len(rolls) > i + 2 and rolls[i + 2] + rolls[i + 3] or 0)
-            else:
-                score += 10
+    frame = 1
+    for char in frames:
+        if char == "X":
+            score += 30
+            frame -= 1
+        elif char == "/":
+            first_roll = int(frames[: frames.index(char)].count("X"))
+            second_roll = 10 - first_roll
+            score += (first_roll * 10) + second_roll
+            frames = frames[frames.index(char) + 1 :]
         else:
-            frame_score = sum(rolls[: i + 1])
-            if len(rolls) > i + 1 and sum(rolls[i + 1 : i + 3]) == 10:
-                score += 10 + frame_score
-            else:
-                score += frame_score
+            if frame < 3 or (frame > 2 and char == " "):
+                continue
+            first_roll = int(frames[: frames.index(char)].count("X"))
+            second_roll = 10 - first_roll
+            score += (first_roll * 10) + second_roll
+            frames = frames[frames.index(char) + 1 :]
     return score
