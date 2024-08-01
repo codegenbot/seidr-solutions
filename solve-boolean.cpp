@@ -1,18 +1,16 @@
-bool solveBoolean(string s) {
-    if (s == "T" || s == "t") return true;
-    if (s == "F" || s == "f") return false;
+Here is the solution:
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            string a = s.substr(0, i);
-            string b = s.substr(i + 1);
-            return solveBoolean(a) && solveBoolean(b);
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!ops.empty() && ops.top() == '|')
+                ops.pop();
+            if (!ops.empty() && ops.top() == '&') 
+                ops.pop();
         }
-        else if (s[i] == '|') {
-            string a = s.substr(0, i);
-            string b = s.substr(i + 1);
-            return solveBoolean(a) || solveBoolean(b);
-        }
+        else if (expression[i] == '|') 
+            ops.push(expression[i]);
     }
-    return true;
+    return expression[0] == 't';
 }
