@@ -4,7 +4,7 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    return (n - 1.0) / (n + m - 2.0);
+    return (n - 1.0) / static_cast<double>(n + m - 2.0);
 }
 
 int main() {
