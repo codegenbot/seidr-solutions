@@ -1,6 +1,5 @@
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 vector<vector<int>> pluck(vector<int> arr) {
@@ -15,15 +14,11 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
     
-    vector<int> temp;
     if (minIndex != -1) {
-        temp.push_back(minEvenValue);
-        temp.push_back(minIndex);
+        result.push_back({{minEvenValue}, {minIndex}});
     } else {
-        temp.push_back({});
+        result.push_back({});
     }
-    
-    result.push_back(temp);
     
     return result;
 }
