@@ -3,17 +3,18 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
-    
-    if(n == 1) return {arr[0]};
-    
-    for(int i=n-2; i>=0; i--) {
-        while(i<n-1 && arr[i] >= arr[n-1]) {
-            n--;
+    vector<int> result;
+    for (int i = 0; i < n; i++) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
-        res.push_back(arr[n-1]);
+        if (isLeader) {
+            result.push_back(arr[i]);
+        }
     }
-    
-    reverse(res.begin(), res.end());
-    return res;
+    return result;
 }
