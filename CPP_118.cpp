@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -8,7 +9,9 @@ string get_closest_vowel(string word) {
             for (int j = i - 1; j >= 0; --j) {
                 if (!isvowel(word[j]) && !isconsonant(word, j)) break;
                 else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
-                else return (char)(word[i]);
+                else {
+                    return string(1, word[i]);
+                }
             }
         }
     }
@@ -17,7 +20,7 @@ string get_closest_vowel(string word) {
 
 bool isvowel(char c) {
     c = tolower(c);
-    return c == 'a' || c == 'e' || c == c == 'i' || c == 'o' || c == 'u';
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 bool isconsonant(string word, int i) {
