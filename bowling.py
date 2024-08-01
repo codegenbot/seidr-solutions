@@ -1,36 +1,37 @@
-```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    while s and frame <= 10:
-        if '/' in s[:2]:
-            first_roll = int(s[:1])
-            second_roll = int(s[2])
-            if first_roll + second_roll == 10:
-                score += 10
-                s = s[3:]
-            else:
+    roll = 0
+    for frame in frames:
+        if "/" in frame:
+            first_roll = int(frame.split("/")[0])
+            second_roll = (
+                int(frame.split("/")[1].split("-")[0])
+                if "-" in frame
+                else 10 - first_roll
+            )
+            if first_roll == 10:
+                score += 10 + second_roll
+                roll += 2
+            elif first_roll + second_roll >= 10:
                 score += first_roll + second_roll
-                s = s[3:]
-        elif s[0] == 'X':
-            score += 10
-            s = s[1:]
-        else:
-            if len(s) >= 2 and s[:2] == 'XX':
-                score += 20
-                s = s[2:]
+                roll += 2
             else:
-                first_roll = int(s[0])
                 score += first_roll
-                if frame < 10:
-                    remaining_rolls = [int(i) for i in s[1:]]
-                    if sum(remaining_rolls) == 10:
-                        score += sum(remaining_rolls)
-                        s = ''
-                    elif len(remaining_rolls) > 0 and min(remaining_rolls) > 0:
-                        score += min(remaining_rolls)
-                        s = ''.join([str(i) for i in remaining_rolls if i != min(remaining_rolls)])
-                    else:
-                        s = ''
-                frame += 1
+                roll += 1
+        else:
+            if int(frame) == 10:
+                score += 10
+                roll += 2
+            elif int(frame) < 10:
+                score += int(frame)
+                roll += 1
+    while roll < 10:
+        if frames[roll - 1].split("/")[0] != "X":
+            first_roll = int(frames[roll - 1].split("/")[0])
+            second_roll = 10 - first_roll
+            score += second_roll
+            roll += 1
+        else:
+            score += 10
+            roll += 1
     return score
