@@ -25,12 +25,14 @@ bool isPrime(int n){
     }
     return true;
 
-int main() {
+int main(){
     std::vector<int> lst;
     int num;
     while(std::cin >> num) {
         lst.push_back(num);
     }
+
     std::cout << skjkasdkd(lst) << std::endl;
+
     return 0;
 }
