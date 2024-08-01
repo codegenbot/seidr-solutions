@@ -1,10 +1,10 @@
 ```
 def median(l: list):
-    sorted_list = sorted(l)
-    n = len(sorted_list)
+    l.sort()
+    n = len(l)
     if n % 2 == 1:
-        return sorted_list[n//2]
+        return l[n//2]
     else:
-        mid1 = sorted_list[n//2 - 1]
-        mid2 = sorted_list[n//2]
+        mid1 = l[n//2 - 1]
+        mid2 = l[n//2]
         return (mid1 + mid2) / 2
