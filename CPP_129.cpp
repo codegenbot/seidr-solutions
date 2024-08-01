@@ -1,3 +1,5 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-        // Your code here
-    }
+#include <vector>
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    // Your code here
+}
