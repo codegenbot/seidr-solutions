@@ -7,6 +7,5 @@ def below_zero():
             return True
     return False
 
-
 result = below_zero()
 print(result)
