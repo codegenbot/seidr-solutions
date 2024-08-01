@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <map>
 #include <cassert>
@@ -23,6 +22,8 @@ string sort_numbers(string numbers) {
     map<int, string> sorted_numbers;
     
     size_t start = 0, end = numbers.find(" ");
+    
+    
     while (end != string::npos) {
         string num_str = numbers.substr(start, end - start);
         sorted_numbers[number_map[num_str]] = num_str;
@@ -42,11 +43,6 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    string output = sort_numbers(input);
-    cout << output << endl;
-    
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
