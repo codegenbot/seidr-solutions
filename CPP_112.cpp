@@ -25,6 +25,7 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 int main() {
     std::vector<std::string> expected = {"", "True"};
     std::vector<std::string> output = reverse_delete("mamma", "mia");
+
     assert(output == expected);
     return 0;
 }
