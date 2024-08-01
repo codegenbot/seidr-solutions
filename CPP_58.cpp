@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
+#include <cassert>
+
 using namespace std;
 
-bool issame(int x) {
-    return x % 2 == 0;
-}
-
-vector<int> common(vector<int>& l1, vector<int>& l2) {
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
@@ -20,15 +19,7 @@ vector<int> common(vector<int>& l1, vector<int>& l2) {
 }
 
 int main() {
-    // Sample usage
-    vector<int> list1 = {1, 2, 3, 4, 5};
-    vector<int> list2 = {2, 3, 4, 5, 6};
-
-    vector<int> commonElements = common(list1, list2);
-
-    for (int num : commonElements) {
-        cout << num << " ";
-    }
-
+    assert(issame(common({4, 3, 2, 8}, {}) , {}));
+    
     return 0;
 }
