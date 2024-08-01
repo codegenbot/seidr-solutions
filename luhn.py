@@ -1,16 +1,14 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-def luhn(card_number):
-    card_number = list(map(int, card_number.split()))
-    sum_val = 0
-    parity = 1
-    
-    for i in range(15):
-        if (parity == 1):
-            card_number[i] *= 2
-            if card_number[i] > 9:
-                card_number[i] -= 9
-        sum_val += card_number[i]
-        parity ^= 1
-
-    return sum_val
+def luhn(card):
+    total = 0
+    for i in range(len(card)):
+        if (i % 2 == 1):
+            temp = int(card[i]) * 2
+            if temp > 9:
+                total += temp - 9
+            else:
+                total += temp
+        else:
+            total += int(card[i])
+    return total
