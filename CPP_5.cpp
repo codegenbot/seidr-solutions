@@ -1,7 +1,6 @@
 #include <vector>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b); // function signature
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     std::vector<int> result;
