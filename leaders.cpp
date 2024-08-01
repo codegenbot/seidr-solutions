@@ -13,6 +13,6 @@ vector<int> findLeaders(vector<int> nums) {
         }
     }
     
-    leaders.push_back(nums[n-1]); // add the rightmost element as a leader
+    leaders.push_back(nums[n-1]);
     return leaders;
 }
