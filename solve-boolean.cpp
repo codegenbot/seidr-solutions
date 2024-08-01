@@ -14,17 +14,19 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = s.substr(0, j);
-    
-    if(j==s.length() || s[j] == '&') return solveBoolean(left) && solveBoolean(s.substr(j+1));
-    
+
+    if (j >= s.length() || s[j] != '&') {
+        return solveBoolean(left);
+    }
+
     j++;
     while(j<s.length()) {
-        if(s[j] == '&') break;
+        if(s[j] == '|') break;
         j++;
     }
     string right = s.substr(j);
 
-    return solveBoolean(left) && solveBoolean(right);
+    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
