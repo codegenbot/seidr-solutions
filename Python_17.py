@@ -11,8 +11,5 @@ def parse_music(music_string: str) -> list:
         while i < len(music_string) and (music_string[i] in '|.'):
             note += music_string[i]
             i += 1
-        if note not in notes:
-            result.append(0)
-        else:
-            result.append(notes[note])
+        result.append(notes.get(note, 0))
     return result
