@@ -1,6 +1,7 @@
-```
-std::string remove_vowels(std::string text){
-    std::string result = "";
+using namespace std;
+
+string remove_vowels(string text){
+    string result = "";
     for (char c : text) {
         if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
               tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || 
@@ -8,5 +9,5 @@ std::string remove_vowels(std::string text){
             result += c;
         }
     }
-    return std::move(result);
+    return result;
 }
