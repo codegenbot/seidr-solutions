@@ -5,5 +5,5 @@ def check(string):
     return swap_case(string)
 
 # Modify the code below
-result = check("Hello, World!")
+result = check(swap_case("Hello, World!"))
 print(result)
