@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cmath>
 
 int largest_prime_factor(int n) {
@@ -6,7 +7,7 @@ int largest_prime_factor(int n) {
         maxPrime = 2;
         n /= 2;
     }
-    for (int i = 3; i <= sqrt(n); i += 2) {
+    for (int i = 3; i <= std::sqrt(n); i += 2) {
         while (n % i == 0) {
             maxPrime = i;
             n /= i;
@@ -19,8 +20,6 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << largest_prime_factor(n) << endl;
+    assert(largest_prime_factor(13195) == 29);
     return 0;
 }
