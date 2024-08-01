@@ -1,3 +1,4 @@
+```cpp
 int main() {
     void toCamelCase(string s) {
         string result = "";
@@ -22,3 +23,4 @@ int main() {
         }
         cout << result;
     }
+}
