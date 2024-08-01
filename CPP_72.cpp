@@ -1,11 +1,13 @@
+#include <vector>
 #include <string>
-bool will_it_fly(vector<int> q, int w);
+#include <algorithm>
+
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (!is_palindrome(str)) {
+    if (str != std::string(str.rbegin(), str.rend())) {
         return false;
     }
     int sum = 0;
@@ -15,8 +17,7 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return s == t;
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
