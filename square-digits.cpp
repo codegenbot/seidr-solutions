@@ -1,10 +1,18 @@
+```c++
 #include <string>
+using namespace std;
+
+int main() {
+    string input = "34"; // test case
+    cout << squareDigits(input) << endl;
+    return 0;
+}
 
 string squareDigits(string input) {
     string output = "";
-    for(int i=0; i<input.length(); i++) {
-        int num = input[i] - '0';
-        output += to_string(num * num);
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
     return output;
 }
