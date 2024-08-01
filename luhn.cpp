@@ -6,7 +6,7 @@ int luhn(vector<int> digits) {
         if((i+1)%2!=0) {
             sum += digits[i];
         } else {
-            int temp = digits[i]*2;
+            int temp = 2*digits[i];
             if(temp > 9) {
                 temp -= 9;
             }
