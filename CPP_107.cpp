@@ -6,11 +6,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> even_odd_palindrome(const int& n);
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> even_odd_palindrome(const int& n){
+std::vector<int> even_odd_palindrome(const int& n) {
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
