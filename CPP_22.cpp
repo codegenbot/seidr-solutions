@@ -1,5 +1,6 @@
-#include <any>
 #include <vector>
+#include <any>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -16,6 +17,6 @@ vector<int> filter_integers(const vector<any>& values){
 }
 
 int main(){
-    assert(filter_integers({any(3), any(99), any(3), any(3), any(97), any(98)}) == vector<int>{3, 3, 3});
+    std::assert(filter_integers({any(3), any(99), any(3), any(3), any(97), any(98)}) == vector<int>{3, 3, 3});
     return 0;
 }
