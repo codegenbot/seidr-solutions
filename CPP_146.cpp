@@ -1,18 +1,26 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums){
+using namespace std;
+
+int specialFilter(vector<int> nums) {
     int count = 0;
-    for(int num : nums){
-        if(num > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0){
+    for (int num : nums) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
     return count;
 }
 
-int main(){
-    std::vector<int> nums = {1, 2, 3};
-    assert(specialFilter(nums) == 0);
+int main() {
+    assert(specialFilter({}) == 0);
+    cout << "Enter numbers separated by space: ";
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+    cout << "Number of special numbers: " << specialFilter(nums) << endl;
     return 0;
 }
