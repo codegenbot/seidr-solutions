@@ -10,7 +10,7 @@ vector<int> findIndices(string text, string target) {
     while(start <= text.size() - target.size()) {
         int end = start + target.size();
         
-        if(text.substr(start, end-start) == target) {
+        if(text.substr(start, target.size()) == target) {
             indices.push_back(start);
             start += target.size();
         } else {
