@@ -23,11 +23,11 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::vector<int> expected = {1, 2, 3};
-    std::vector<int> result = f(3);
-
-    assert(issame(result, expected));
+    std::vector<int> expected_values = {1, 2, 3};
+    std::vector<int> result_values = f(3);
+  
+    assert(issame(result_values, expected_values));
     std::cout << "Test Passed!" << std::endl;
-
+  
     return 0;
 }
