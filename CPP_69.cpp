@@ -1,9 +1,20 @@
+Here is the completed code:
+
 int search(vector<int> lst) {
-    int max_freq = 0;
+    map<int, int> freqMap;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            return num;
+        if (!freqMap.count(num)) {
+            freqMap[num] = 1;
+        } else {
+            freqMap[num]++;
         }
     }
+
+    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
+        if (it->second >= it->first && it->first > 0) {
+            return it->first;
+        }
+    }
+
     return -1;
 }
