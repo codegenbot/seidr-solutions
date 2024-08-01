@@ -1,6 +1,20 @@
-int search(vector<int> n) {
-    map<int, int> freq;
-    for (int num : n) {
+#include <iostream>
+#include <vector>
+#include <map>
+
+int main() {
+    int n = 5; // Input size (modify this)
+    std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
+
+    int result = search(input);
+    assert(result == -1);
+
+    return 0;
+}
+
+int search(std::vector<int>& lst) {
+    std::map<int, int> freq;
+    for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
         } else {
