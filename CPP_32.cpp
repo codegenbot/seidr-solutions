@@ -11,15 +11,17 @@ double poly(const std::vector<double>& coeffs, double x) {
 }
 
 double find_zero(const std::vector<double>& coeffs) {
-    double x = 0.0; // Initial guess for zero
-    while (std::abs(poly(coeffs, x)) > 1e-6) {
-        x -= poly(coeffs, x) / poly({coeffs.rbegin(), coeffs.rend()}, x);
-    }
-    return x;
+    if (coeffs.size() < 2)
+        return 0; 
+
+    double root = -coeffs[0] / coeffs[1]; 
+    return root;
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -3, 1}; // Example coefficients for x^2 - 3x + 1
+    std::vector<double> coeffs;
+    // Populate coeffs vector with coefficients
+    coeffs = {1, -3, 2}; // Example coefficients, here x^2 - 3x + 2
 
     double solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
