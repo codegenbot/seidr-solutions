@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> sort_third(vector<int> l) {
