@@ -1,4 +1,3 @@
-# Corrected code
 #include <string>
 #include <cassert>
 
