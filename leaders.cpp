@@ -8,8 +8,9 @@ vector<int> findLeaders(vector<int> nums) {
         if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
         }
+        maxRight = max(maxRight, nums[i]);
     }
     
-    leaders.push_back(nums[n-1]);
+    leaders.push_back(nums[n-1]); // add the rightmost element as a leader
     return leaders;
 }
