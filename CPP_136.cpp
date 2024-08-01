@@ -1,7 +1,9 @@
 Here is the completed code:
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int maxNegative = 0, minPositive = INT_MAX;
+    int maxNegative = 0;
+    int minPositive = INT_MAX;
+
     for (int num : lst) {
         if (num < 0 && num > maxNegative) {
             maxNegative = num;
@@ -9,5 +11,6 @@ vector<int> largest_smallest_integers(vector<int> lst) {
             minPositive = num;
         }
     }
+
     return {(maxNegative >= 0 ? 0 : maxNegative), (minPositive <= 0 ? 0 : minPositive)};
 }
