@@ -6,3 +6,18 @@
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
 
 int main_problem7(){
+    std::vector<std::string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
+    std::string substring = "an";
+    
+    std::vector<std::string> expected_filtered_strings = {"banana", "orange"};
+    
+    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
+    
+    assert(issame(filtered_strings, expected_filtered_strings));
+    
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    
+    std::cout << "All tests passed" << std::endl;
+    
+    return 0;
+}
