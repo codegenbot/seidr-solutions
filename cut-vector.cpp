@@ -1,6 +1,7 @@
-```cpp
 #include <vector>
-#include <iostream> 
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
