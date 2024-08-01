@@ -1,17 +1,16 @@
-#include <climits>
+#include <vector>
+#include <algorithm>
 
-using namespace std;
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
-    if(arr.empty()) return result;
-    
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 1) {
-            result.push_back({arr[i], i});
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0) {
+            evenNodes.push_back({arr[i], i});
         }
     }
-    
-    return result;
+    if (evenNodes.empty()) {
+        return {};
+    }
+    sort(evenNodes.begin(), evenNodes.end());
+    return {evenNodes[0].first, evenNodes[0].second};
 }
