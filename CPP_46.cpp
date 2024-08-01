@@ -1,24 +1,13 @@
-#include <stdio.h>
-using namespace std;
-
 int fib4(int n) {
-    if (n <= 3)
-        return 0;
-    int a = 0, b = 2, c = 0, d = 2;
-    for (int i = 4; i <= n; i++) {
-        int temp = a + b + c + d;
-        a = b;
-        b = c;
-        c = d;
-        d = temp;
-    }
-    return d;
-}
+    if (n < 0 || n > 3)
+        return -1;
 
-int main() {
-    int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("Fib4(%d) = %d\n", n, fib4(n));
-    return 0;
+    int fib4[5] = {0, 0, 2, 0};
+    for (int i = 4; i <= n; i++) {
+        int sum = fib4[i-1];
+        sum += fib4[i-2];
+        sum += fib4[i-3];
+        fib4[i%4] = sum;
+    }
+    return fib4[n%4];
 }
