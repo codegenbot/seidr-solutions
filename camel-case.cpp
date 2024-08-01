@@ -23,5 +23,4 @@ int main() {
         }
         cout << result;
     }
-    toCamelCase("camel-case example-test-string");
 }
