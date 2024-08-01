@@ -1,44 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-
-    while (pos < txt.size()) {
-        if (txt[pos] == ' ') {
-            // Split on whitespace
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
-            pos = 0;
-        } else if (pos >= txt.size() - 1 || txt[pos + 1] != ',') {
-            // No comma or end of string, split on whitespace
-            size_t nextPos = txt.find(' ');
-            if (nextPos == string::npos) {
-                result.push_back(txt);
-                return result;
-            }
-            result.push_back(txt.substr(0, nextPos));
-            txt.erase(0, nextPos + 1);
-        } else {
-            // Split on comma
-            size_t nextComma = txt.find(',');
-            if (nextComma == string::npos) {
-                result.push_back(txt);
-                return result;
-            }
-            result.push_back(txt.substr(0, nextComma));
-            txt.erase(0, nextComma + 1);
+    size_t start = 0;
+    for (size_t i = 0; i <= txt.size(); ++i) {
+        if (i == txt.size() || (txt[i] == ' ' && (i == 0 || txt[i - 1] != ','))) {
+            string word = txt.substr(start, i - start);
+            result.push_back(word);
+            start = i + 1;
         }
     }
+    return result.empty() ? vector<string>({"" + to_string(txt.size())}) : result;
+}
 
-    // No whitespace or commas, count odd letters
-    int count = 0;
-    for (char c : txt) {
-        if (c >= 'a' && c <= 'z') {
-            if ((int)c % 2 != 0) {
-                count++;
-            }
-        }
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    vector<string> output = split_words(input);
+    for (const auto& str : output) {
+        cout << str << endl;
     }
-    result.push_back(to_string(count));
-
-    return result;
+    return 0;
 }
