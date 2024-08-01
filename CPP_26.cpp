@@ -1,15 +1,27 @@
 #include <iostream>
 #include <vector>
+#include <set>
+
 using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result = numbers;
-    sort(result.begin(), result.end());
-    for (int i = 0; i < result.size() - 1; i++) {
-        if (result[i] == result[i + 1]) {
-            result.erase(result.begin() + i);
-            i--;
-        }
+    set<int> uniqueNumbers(numbers.begin(), numbers.end());
+    return vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        cin >> numbers[i];
     }
-    return result;
+    
+    vector<int> result = remove_duplicates(numbers);
+    cout << "The unique numbers are: ";
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
 }
