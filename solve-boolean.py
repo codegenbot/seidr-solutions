@@ -1,13 +1,16 @@
-def solve_boolean(s):
-    if s == "T":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif s == "F":
+    elif expression == "F":
         return False
-    elif "&" in s and "|" in s:
+    elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    elif "&" in s:
-        a, b = s.split("&")
-        return not (bool(a) and bool(b))
-    elif "|" in s:
-        a, b = s.split("|")
-        return bool(a) or bool(b)
+    else:
+        result = True
+        for op, val in zip(["&", "|"], [False, True]):
+            while op * 2 in expression:
+                if val:
+                    expression = expression.replace(op * 2, "T")
+                else:
+                    expression = expression.replace(op * 2, "F")
+        return eval("True" if expression == "T" else "False")
