@@ -16,7 +16,13 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return result;
 }
 
-int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    return 0;
+namespace std {
+    using ::vector;
 }
+
+namespace std {
+    using ::assert;
+}
+
+assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+return 0;
