@@ -2,8 +2,6 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
 double poly(std::vector<double> coeffs, double x);
 
 double find_zero(std::vector<double> coeffs) {
@@ -23,14 +21,15 @@ double poly(std::vector<double> coeffs, double x) {
 int main() {
     std::vector<double> coeffs;
 
-    cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
+    std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     double coeff;
-    while (cin >> coeff) {
+    while (std::cin >> coeff) {
         coeffs.push_back(coeff);
     }
 
-    double solution = find_zero(coeffs);
-    cout << "Solution: " << solution << endl;
+    double solution = 0.0;
+    solution = find_zero(coeffs);
+    std::cout << "Solution: " << solution << std::endl;
 
     return 0;
 }
