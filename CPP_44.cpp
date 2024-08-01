@@ -1,13 +1,9 @@
 #include <string>
 #include <cassert>
+#include <iostream> // Include this header for std::to_string
 
-std::string change_base(int num, int base) {
-    std::string result;
-    while (num) {
-        result = std::to_string(num % base) + result;
-        num /= base;
-    }
-    return result;
+std::string change_base(int num, int base){
+    return std::to_string(num);
 }
 
 int main() {
