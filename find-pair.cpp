@@ -1,37 +1,50 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> pair;
-    map<int, int> numMap;
-
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.count(complement)) {
-            pair.push_back(complement);
-            pair.push_back(nums[i]);
-            break;
+pair<int, int> findPair(vector<int>& vec, int target) {
+    vector<int> numSet(vec.begin(), vec.end());
+    sort(numSet.begin(), numSet.end());
+    int left = 0;
+    int right = numSet.size() - 1;
+    
+    while (left < right) {
+        int sum = numSet[left] + numSet[right];
+        if (sum == target) {
+            return make_pair(numSet[left], numSet[right]);
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
         }
-        numMap[nums[i]] = i;
     }
-
-    return pair;
+    
+    pair<int, int> result;
+    result.first = 0;  // default value
+    result.second = 0; // default value
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (auto &num : nums) {
-        cin >> num;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
+    
     int target;
     cin >> target;
-
-    vector<int> result = findPair(nums, target);
-
-    cout << result[0] << endl;
-    cout << result[1] << endl;
-
+    
+    pair<int, int> result = findPair(vec, target);
+    if (!result.first && !result.second) {
+        cout << "No solution exists" << endl;
+    } else {
+        cout << result.first << "\n";
+        cout << result.second << "\n";
+    }
+    
     return 0;
 }
