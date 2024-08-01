@@ -1,19 +1,24 @@
-vector<float> even_elements;
-    vector<float> result;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_elements.push_back(l[i]);
-        }
-    }
-    sort(even_elements.begin(), even_elements.end());
+#include <vector>
+#include <algorithm>
 
-    int even_index = 0;
+void sort_even(std::vector<float>& l) {
+    std::vector<float> even_values;
+    std::vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_elements[even_index++]);
-        } else {
-            result.push_back(l[i]);
+            even_values.push_back(l[i]);
+            sorted_even_values.push_back(l[i]);
         }
     }
-    return result;
+    std::sort(sorted_even_values.begin(), sorted_even_values.end());
+    int sorted_even_index = 0;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            l[i] = sorted_even_values[sorted_even_index];
+            sorted_even_index++;
+        }
+    }
 }
+
+std::vector<float> l = {3.5, 2.2, 1.1, 4.4, 5.5, 6.6};
+sort_even(l);
