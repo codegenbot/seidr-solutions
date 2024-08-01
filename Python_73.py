@@ -1,6 +1,15 @@
+```
 def smallest_change(arr):
     n = len(arr)
-    arr = str(arr)
-    rev_arr = arr[::-1]
-    diff_count = sum(1 for i, j in zip(arr, rev_arr) if i != j)
-    return diff_count
+    left = right = 0
+    changes = 0
+    
+    while left < n // 2:
+        if arr[left] == arr[n - 1 - right]:
+            left += 1
+            right -= 1
+        else:
+            changes += 1
+            right -= 1
+    
+    return changes
