@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iterator>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -18,6 +18,6 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    assert(is_same(common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(is_same(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
