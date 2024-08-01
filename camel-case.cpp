@@ -6,35 +6,18 @@ std::string capitalize(const std::string& s) {
     if (s.empty()) {
         return s;
     }
-    std::string result = "";
-    char c = toupper(s[0]);
-    result += c;
+
+    std::string result = s[0] >= 'a' && s[0] <= 'z' ? (char)toupper(s[0]) : s[0];
     for (int i = 1; i < s.size(); ++i) {
-        c = tolower(s[i]);
-        result += c;
+        result += tolower(s[i]);
     }
+
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, char delimiter) {
-    std::vector<std::string> words;
-    std::string word = "";
-    for (char c : s) {
-        if (c == delimiter) {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return words;
-}
-
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> words = split(s, '-');
+    std::vector<std::string> words = split(s, ' ');
+
     std::string result;
 
     for (const auto& word : words) {
@@ -48,6 +31,20 @@ std::string camelCase(const std::string& s) {
     }
 
     return result;
+}
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> words;
+
+    size_t pos = 0;
+    while ((pos = s.find(c)) != std::string::npos) {
+        words.push_back(s.substr(0, pos));
+        s.erase(0, pos + 1);
+    }
+
+    words.push_back(s);
+
+    return words;
 }
 
 int main() {
