@@ -5,8 +5,6 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
@@ -15,4 +13,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
+
+int main() {
+    // Your main function logic here
+    return 0;
 }
