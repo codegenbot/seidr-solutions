@@ -15,7 +15,7 @@ int score(string s) {
     while (frame <= 10) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i+2] == 'X' && (s.size() <= i + 4 || s[i+4] == 'X')) {
+            if (s[i+2] == 'X' && (s.size() <= i + 4 || s[i+4] == 'X' || s[i+4] == '/')) {
                 score += 20;
             } else if (s[i+2] == 'X') {
                 score += 10 + (s[i+4] == 'X' ? 10 : s[i+4] == '/' ? 10 : s[i+4] - '0');
@@ -26,7 +26,6 @@ int score(string s) {
                 score += s[i+3] == '/' ? 10 : s[i+3] - '0';
             }
             i++;
-            i += 2; // Add this line to move to the next frame
         } else if (s[i+1] == '/') {
             score += 10;
             score += s[i+3] == 'X' ? 10 : s[i+3] - '0';
