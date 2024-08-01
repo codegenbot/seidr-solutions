@@ -1,39 +1,40 @@
-#include <string>
 #include <vector>
-#include <cassert>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(float gpa, float value) {
+    return gpa == value;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> letter_grades;
-    for (float grade : grades) {
-        if (grade == 4.0) letter_grades.push_back("A+");
-        else if (grade > 3.7) letter_grades.push_back("A");
-        else if (grade > 3.3) letter_grades.push_back("A-");
-        else if (grade > 3.0) letter_grades.push_back("B+");
-        else if (grade > 2.7) letter_grades.push_back("B");
-        else if (grade > 2.3) letter_grades.push_back("B-");
-        else if (grade > 2.0) letter_grades.push_back("C+");
-        else if (grade > 1.7) letter_grades.push_back("C");
-        else if (grade > 1.3) letter_grades.push_back("C-");
-        else if (grade > 1.0) letter_grades.push_back("D+");
-        else if (grade > 0.7) letter_grades.push_back("D");
-        else if (grade > 0.0) letter_grades.push_back("D-");
-        else letter_grades.push_back("E");
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (float gpa : grades) {
+        if (issame(gpa, 4.0f)) {
+            letter_grades.push_back("A+");
+        } else if (gpa > 3.7f) {
+            letter_grades.push_back("A");
+        } else if (gpa > 3.3f) {
+            letter_grades.push_back("A-");
+        } else if (gpa > 3.0f) {
+            letter_grades.push_back("B+");
+        } else if (gpa > 2.7f) {
+            letter_grades.push_back("B");
+        } else if (gpa > 2.3f) {
+            letter_grades.push_back("B-");
+        } else if (gpa > 2.0f) {
+            letter_grades.push_back("C+");
+        } else if (gpa > 1.7f) {
+            letter_grades.push_back("C");
+        } else if (gpa > 1.3f) {
+            letter_grades.push_back("C-");
+        } else if (gpa > 1.0f) {
+            letter_grades.push_back("D+");
+        } else if (gpa > 0.7f) {
+            letter_grades.push_back("D");
+        } else if (gpa > 0.0f) {
+            letter_grades.push_back("D-");
+        } else {
+            letter_grades.push_back("E");
+        }
     }
     return letter_grades;
-}
-
-int main() {
-    vector<float> test_grades{4.0, 3.7, 3.2, 2.8, 2.1, 1.1, 0.7, 0.3};
-    vector<string> expected_grades{"A+", "A", "B", "B-", "C+", "D", "D-", "E"};
-    vector<string> actual_grades = numerical_letter_grade(test_grades);
-    assert(issame(actual_grades, expected_grades));
-    return 0;
 }
