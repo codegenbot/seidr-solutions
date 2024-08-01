@@ -1,25 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-std::vector<int> parse_music(const std::string& input) {
-    std::vector<int> parsed;
-    int count = 0;
-
-    for (char c : input) {
-        if (c == '|') {
-            parsed.push_back(count);
-            count = 0;
-        } else if (c == 'o') {
-            count++;
-        }
+std::vector<int> parse_music(std::string music) {
+    std::vector<int> result;
+    std::stringstream ss(music);
+    std::string token;
+    
+    while (std::getline(ss, token, '|')) {
+        result.push_back(std::count(token.begin(), token.end(), 'o'));
     }
 
-    if (count != 0) {
-        parsed.push_back(count);
-    }
-
-    return parsed;
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
