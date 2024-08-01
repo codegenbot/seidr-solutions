@@ -1,3 +1,8 @@
+#include <string>
+#include <algorithm>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int ai = boost::any_cast<int>(a);
