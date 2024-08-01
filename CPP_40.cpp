@@ -12,8 +12,3 @@ bool triples_sum_to_zero(const vector<int>& l) {
     }
     return false;
 }
-
-int main() {
-    triples_sum_to_zero(vector<int>{100, 3, 5, -100});
-    return 0;
-}
