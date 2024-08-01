@@ -1,9 +1,21 @@
-def bowling_score(frames):
+Here is the solution:
+
+def bowling_score(bowling_str):
     score = 0
-    for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            s1, s2 = map(int, re.findall("\d", frames[i * 2 : i * 2 + 2]))
-            score += max(s1, 10 - s2) + max(s1, s2)
+    roll = 0
+    for char in bowling_str:
+        if char.isdigit():
+            roll = int(char)
+        elif char == '/':
+            if roll < 10:
+                score += 10 - roll
+            else:
+                score += roll
+            roll = 0
         else:
-            score += int(frames[i * 2 : i * 2 + 2])
+            if roll > 0:
+                score += roll
+            roll = sum(map(int, str(char)))
+    if roll > 0:
+        score += roll
     return score
