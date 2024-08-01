@@ -2,9 +2,9 @@
 #include <cassert>
 #include <iostream>
 
-std::string change_base(int num, int base){
+std::string change_base(int num, int base) {
     std::string result = "";
-    while(num > 0) {
+    while (num > 0) {
         result = std::to_string(num % base) + result;
         num /= base;
     }
