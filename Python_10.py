@@ -1,4 +1,3 @@
-```Python
 def make_palindrome(string: str) -> str:
     s = s.lower()
     new_string = []
@@ -9,6 +8,6 @@ def make_palindrome(string: str) -> str:
         
     # Add the first and last characters at the beginning
     new_string.insert(0, s[0])
-    new_string.append(s[-1])
+    new_string.append(s[-1]
     
     return ''.join(new_string).upper()
