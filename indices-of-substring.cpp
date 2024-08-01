@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 int main() {
     std::string text, target;
@@ -14,11 +13,8 @@ int main() {
     for (i = 0; i < text.length(); ++i) {
         if (i <= text.length() - target.length() && text.substr(i, target.length()) == target) {
             indices.push_back(i);
-            if (target.length() != 1) {
-                ++i;
-            }
         }
-        else if (i == text.length() - target.length() && std::equal(text.begin() + i, text.end(), target.begin())) {
+        if (i == text.length() - target.length() && text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
     }
