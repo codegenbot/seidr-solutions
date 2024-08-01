@@ -1,5 +1,13 @@
 def sort_third(l: list):
-    not_three = [i for i in l if i % 3 != 0]
-    three_remain_zero = [i for i in l if i % 3 == 0 and i % 9 != 0]
-    three_remain_nonzero = [i for i in l if i % 3 == 0 and i % 9 == 0]
-    return not_three + three_remain_nonzero + three_remain_zero
+    return [
+        (
+            i
+            if i % 3 != 0
+            else (
+                next((x for x in l if x % 3 == 0), None)
+                if any(x % 3 == 0 for x in l)
+                else i
+            )
+        )
+        for i in l
+    ]
