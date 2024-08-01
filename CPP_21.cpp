@@ -13,8 +13,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     
     std::vector<float> result;
     for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
+        result.push_back((num - min_num) / (max_num - min_num));
     }
     
     return result;
