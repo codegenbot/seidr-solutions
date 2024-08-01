@@ -1,17 +1,23 @@
-#include <string>
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()){
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
+}
+
+std::vector<std::string> split_words(std::string input) {
+    std::vector<std::string> words;
+    // Code to split input string into words and store in 'words' vector
+    return words;
 }
 
 int main() {
@@ -21,10 +27,10 @@ int main() {
     std::vector<std::string> a = split_words(input);
     std::vector<std::string> b = split_words(input);
     
-    if (!issame(a, b)) {
-        std::cout << "Different" << std::endl;
-    } else {
+    if (issame(a, b)) {
         std::cout << "Same" << std::endl;
+    } else {
+        std::cout << "Different" << std::endl;
     }
     
     return 0;
