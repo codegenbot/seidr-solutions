@@ -1,15 +1,17 @@
 #include <vector>
+#include <cassert>
+#include <cmath>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
+using namespace std;
+
+vector<float> derivative(const vector<float>& xs) {
+    vector<float> result;
+    for (size_t i = 1; i < xs.size(); ++i) {
+        result.push_back(xs[i] * i);
     }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return result;
+}
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
 }
