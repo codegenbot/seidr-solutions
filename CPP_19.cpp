@@ -1,22 +1,13 @@
 #include <iostream>
 #include <map>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <assert.h>
 
-string sort_numbers(string numbers);
+using namespace std;
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    std::cout << sort_numbers(input) << std::endl;
-    
-    return 0;
-}
-
-std::map<std::string, int> num_map = {
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -29,22 +20,22 @@ std::map<std::string, int> num_map = {
     {"nine", 9}
 };
 
-std::string sort_numbers(std::string numbers) {
-    std::string result = "";
-    std::map<int, std::string> rev_num_map;
+string sort_numbers(string numbers) {
+    string result = "";
+    map<int, string> rev_num_map;
     
-    for (const auto& pair : num_map) {
+    for (auto const& pair : num_map) {
         rev_num_map[pair.second] = pair.first;
     }
     
-    std::vector<int> sorted_nums;
-    std::stringstream ss(numbers);
-    std::string word;
+    vector<int> sorted_nums;
+    stringstream ss(numbers);
+    string word;
     while (ss >> word) {
         sorted_nums.push_back(num_map[word]);
     }
     
-    std::sort(sorted_nums.begin(), sorted_nums.end());
+    sort(sorted_nums.begin(), sorted_nums.end());
     
     for (int num : sorted_nums) {
         result += rev_num_map[num] + " ";
@@ -52,4 +43,13 @@ std::string sort_numbers(std::string numbers) {
     
     result.pop_back(); // Remove extra space at the end
     return result;
+}
+
+int main() {
+    cout << "Enter numbers separated by spaces: ";
+    string numbers;
+    getline(cin, numbers);
+
+    cout << sort_numbers(numbers) << endl;
+    return 0;
 }
