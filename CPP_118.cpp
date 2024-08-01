@@ -3,15 +3,17 @@
 
 std::string get_closest_vowel(std::string);
 
-std::string get_closest_vowel(std::string word) {
+std::string get_closest_vowel(string word) {
     int n = word.length();
+    string closestVowel = "";
     for (int i = n - 1; i > 0; --i) {
         if (isvowel(word[i])) {
             for (int j = i - 1; j >= 0; --j) {
                 if (!isvowel(word[j]) && !isconsonant(word, j)) break;
                 else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
                 else {
-                    return word.substr(i);
+                    closestVowel = (char)(word[i]);
+                    return closestVowel;
                 }
             }
         }
