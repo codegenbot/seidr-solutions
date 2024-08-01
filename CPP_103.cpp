@@ -2,7 +2,7 @@
 #include <string>
 #include <cmath>
 
-std::string calculateBinaryAverage(int n, int m) {
+std::string findBinaryAvg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -24,10 +24,6 @@ std::string calculateBinaryAverage(int n, int m) {
 }
 
 int main() {
-    // Test cases
-    std::cout << calculateBinaryAverage(1, 10) << std::endl; // Output: "1010"
-    std::cout << calculateBinaryAverage(5, 5) << std::endl; // Output: "1"
-    std::cout << calculateBinaryAverage(10, 5) << std::endl; // Output: "-1"
-
+    std::cout << findBinaryAvg(4, 7) << std::endl; // Test case
     return 0;
 }
