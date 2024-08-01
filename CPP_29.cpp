@@ -24,7 +24,7 @@ int main() {
 
     std::vector<std::string> strings(n);
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter string " << i + 1 << ": ";
+        std::cout << "Enter string " << i+1 << ": ";
         std::getline(std::cin, strings[i]);
     }
 
@@ -34,10 +34,10 @@ int main() {
 
     std::vector<std::string> filtered = filter_by_prefix(strings, prefix);
 
-    if (filtered.size() == 0) {
-        std::cout << "No strings found with given prefix.\n";
+    if (issame(filtered, strings)) {
+        std::cout << "No strings match the given prefix.\n";
     } else {
-        std::cout << "Strings with the given prefix are: ";
+        std::cout << "Strings matching the given prefix: ";
         for (const auto& str : filtered) {
             std::cout << str << " ";
         }
