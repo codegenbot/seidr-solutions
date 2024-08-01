@@ -3,9 +3,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for group in paren_string.split():
         nesting_level = 0
         for char in group:
-            if char == "(":
+            if char == '(':
                 nesting_level += 1
-            elif char == ")":
+            elif char == ')':
                 nesting_level -= 1
         result.append(nesting_level)
     return [x for x in result if x != 0]
