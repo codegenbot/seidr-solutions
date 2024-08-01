@@ -1,10 +1,7 @@
 double find_zero(vector<double> xs){
     double sum = 0;
-    int i;
-    for (i=0; i<xs.size(); i++)
-    {
-        if(i%2 != 0) // coefficients of odd powers
-            sum += (-1)*pow(xs[i],1.0/(i+1));
+    for (int i = 2; i < xs.size(); i += 2) {
+        sum += xs[i] / xs[1];
     }
-    return -sum;
+    return -sum / xs[1];
 }
