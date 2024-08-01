@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <numeric> // Include numeric header for accumulate function
-
 using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
