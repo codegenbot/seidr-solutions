@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int max_fill(vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     if (capacity == 0) return 0;
     int total_water = 0;
     for (const auto& row : grid) {
