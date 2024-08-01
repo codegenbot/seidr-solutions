@@ -1,11 +1,13 @@
-```
 #include <vector>
 #include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    if(arr.empty()) return result;
-
+    
+    if(arr.empty()) {
+        return result;
+    }
+    
     int smallest_even = INT_MAX;
     int index_smallest_even = -1;
     
