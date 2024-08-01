@@ -3,9 +3,19 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression:
-        operands = expression.split("&")
-        return all(solve_boolean(operand) for operand in operands)
-    elif "|" in expression:
-        operands = expression.split("|")
-        return any(solve_boolean(operand) for operand in operands)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid Expression")
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char == "&":
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a and b)
+            elif char == "|":
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a or b)
+            else:
+                stack.append(char == "T")
+        return stack[0]
