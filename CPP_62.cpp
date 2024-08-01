@@ -16,7 +16,6 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    // Change main function according to the task description
-    assert(issame(std::vector<float>{1}, std::vector<float>{1}));
+    assert(issame(std::vector<float>{1}, std::vector<float>{0}));
     return 0;
 }
