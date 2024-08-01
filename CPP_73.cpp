@@ -3,25 +3,19 @@ int smallest_change(vector<int> arr) {
     vector<vector<bool>> dp(n, vector<bool>(n));
     
     for (int i = 0; i < n; i++) {
-        for (int j = i; j >= 0; j--) {
+        for (int j = 0; j <= i; j++) {
             if (i == j)
                 dp[i][j] = true;
             else
-                dp[i][j] = arr[i] == arr[j] && (i - j < 2 || dp[i-1][j+1]);
+                dp[i][j] = arr[i] == arr[n - 1 - i];
         }
     }
     
-    int res = n, left = 0, right = n - 1;
-    while (left < right) {
-        if (!dp[left][right]) {
-            res--;
-            if (arr[left] != arr[right])
-                res += 2;
-            left++;
-            right--;
-        } else
-            break;
+    int changes = 0;
+    for (int i = 0; i < n; i++) {
+        if (!dp[i][n - 1 - i])
+            changes++;
     }
     
-    return res;
+    return changes;
 }
