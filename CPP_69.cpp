@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 
 int main() {
-    int n = 5; 
-    std::vector<int> input = {3, 10, 10, 9, 2}; 
+    int n = 5; // Input size (modify this)
+    std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
 
     int result = search(input);
     assert(result == -1);
@@ -14,7 +13,7 @@ int main() {
 }
 
 int search(std::vector<int>& lst) {
-    std::map<int, int> freq;
+    map<int, int> freq;
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
