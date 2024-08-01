@@ -1,36 +1,34 @@
-#include <string>
-#include <algorithm>
-
-std::string scoring(const std::string &str) {
-    int result = 0;
-    for (char c : str) {
-        if (c >= '1' && c <= '9') {
-            result = result * 10 + (c - '0');
-        } else if (c == 'X') {
-            result += 10;
-        }
-    }
-    return std::to_string(result);
-}
-
-int bowlingScore(const std::string &frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // Strike
-            score += 10 + scoring(std::string(frames.begin()+i+1, frames.end()));
-        } else if (frames[i] == '/') { // Spare
-            int spareValue = 10 - scoring(std::string(frames.begin(), frames.begin()+i)).back();
-            score += 10 + spareValue;
-            i++;
-        } else {
-            int currentFrameScore = 0;
-            for (int j = i; j < frames.size(); ++j) {
-                if (frames[j] == '/') break;
-                currentFrameScore *= 10;
-                currentFrameScore += scoring(std::string(frames.begin()+i, frames.begin()+j+1)).back() - '0';
+    int currentRolls = 0;
+    int frame = 1;
+
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRolls < 2) {
+                score += 10 - (10 - currentRolls);
             }
-            score += currentFrameScore;
+            currentRolls = 0;
+            frame++;
+        } else if (isdigit(c)) {
+            currentRolls *= 10;
+            currentRolls += c - '0';
         }
     }
+
+    // last two rolls
+    if (currentRolls == 10) {
+        score += 10;
+    } else if (frame < 10) {
+        score += currentRolls;
+    } else {
+        for (int i = 0; i < frame - 1; i++) {
+            if (s[i] == '/') {
+                score += 10;
+            }
+        }
+        score += currentRolls;
+    }
+
     return score;
 }
