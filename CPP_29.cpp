@@ -1,36 +1,32 @@
 ```
-bool issame(string s1, string s2) {
-    if (s1.length() != s2.length()) {
+bool issame(string a, string b) {
+    if (a.length() != b.length())
         return false;
-    }
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1[i] != s2[i]) {
+    for (int i = 0; i < a.length(); i++) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
 
 int main() {
     vector<string> strings;
-    string prefix;
-    
+    string prefix, output;
     cout << "Enter the list of strings: ";
-    for (string str; cin >> str; ) {
-        strings.push_back(str);
+    for (string s; cin >> s; ) {
+        strings.push_back(s);
     }
-    
     cout << "Enter the prefix: ";
     cin >> prefix;
-
     vector<string> result = filter_by_prefix(strings, prefix);
-
-    for (const auto& str : result) {
-        if (issame(prefix, str)) {
-            cout << str << endl;
+    if (!result.empty()) {
+        output += "Strings with the prefix '" + prefix + "' are: ";
+        for (const auto& str : result) {
+            output += str + " ";
         }
-    }
-
+        cout << output << endl;
+    } else
+        cout << "No strings found with the given prefix." << endl;
     return 0;
 }
 
