@@ -1,21 +1,20 @@
+```
 #include <vector>
 #include <iostream>
-#include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> opstack;
-    stack<string> valstack;
+bool solveBoolean(std::string expression) {
+    std::stack<char> opstack;
+    std::stack<std::string> valstack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&' || expression[i] == '|') {
             while (!opstack.empty() && opstack.top() != '(') {
                 char c = opstack.top();
                 opstack.pop();
-                string operand1 = valstack.top();
+                std::string operand1 = valstack.top();
                 valstack.pop();
-                string operand2;
+                std::string operand2;
                 if (!opstack.empty()) {
                     operand2 = valstack.top();
                     valstack.pop();
@@ -35,9 +34,9 @@ bool solveBoolean(string expression) {
             while (!opstack.empty() && opstack.top() != '(') {
                 char c = opstack.top();
                 opstack.pop();
-                string operand1 = valstack.top();
+                std::string operand1 = valstack.top();
                 valstack.pop();
-                string operand2;
+                std::string operand2;
                 if (!opstack.empty()) {
                     operand2 = valstack.top();
                     valstack.pop();
@@ -52,7 +51,7 @@ bool solveBoolean(string expression) {
             }
             opstack.pop();
         } else {
-            string temp = "";
+            std::string temp = "";
             while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
                 temp += expression[i];
                 i++;
@@ -65,9 +64,9 @@ bool solveBoolean(string expression) {
     if (!opstack.empty()) {
         char c = opstack.top();
         opstack.pop();
-        string operand1 = valstack.top();
+        std::string operand1 = valstack.top();
         valstack.pop();
-        string operand2;
+        std::string operand2;
         if (!opstack.empty()) {
             operand2 = valstack.top();
             valstack.pop();
