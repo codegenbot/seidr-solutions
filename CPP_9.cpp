@@ -15,10 +15,9 @@ int main() {
     std::vector<int> output = rolling_max({3, 2, 3, 100, 3});
     std::vector<int> expected = {3, 3, 3, 100, 100};
 
-    // Compare output with expected
     if (output == expected) {
-        return 0; // Test passed
+        return 0;
     } else {
-        return 1; // Test failed
+        return 1;
     }
 }
