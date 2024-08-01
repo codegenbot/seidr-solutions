@@ -1,21 +1,18 @@
-#include<string>
-#include<algorithm>
-using namespace std;
+#include <algorithm>
+#include <sstream>
 
-string anti_shuffle(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += ' ';
-            continue;
+string anti_shuffle(string s) {
+    stringstream ss(s);
+    string word;
+    string result;
+
+    while (getline(ss, word, ' ')) {
+        string temp;
+        for (char c : word) {
+            temp += (c <= 'z' && c >= 'a') ? std::min_element(word.begin(), word.end()) : c;
         }
-        string word = "";
-        for(int j=i; j<s.length() && s[j] != ' '; j++){
-            word += s[j];
-        }
-        i = j - 1;
-        sort(word.begin(), word.end());
-        result += word;
+        result += temp + " ";
     }
-    return result;
+
+    return result.substr(0, result.size() - 1);
 }
