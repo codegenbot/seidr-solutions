@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +22,8 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::vector<int> res = get_odd_collatz(num);
-    for (int i : res) {
+    std::vector<int> odd_collatz = get_odd_collatz(num);
+    for (int i : odd_collatz) {
         std::cout << i << " ";
     }
     return 0;
