@@ -7,9 +7,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     for char in paren_string:
         if char == "(":
             current_depth += 1
-        if char == ")":
-            if current_depth > 0:
-                depths.append(current_depth)
+        if char == ")" and current_depth > 0:
+            depths.append(current_depth)
             current_depth -= 1
 
     return depths
