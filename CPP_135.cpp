@@ -14,12 +14,12 @@ int can_arrange(vector<int> arr) {
 
 int main() {
     vector<int> input; 
-    cout << "Enter the elements of array: ";
+    cout << "Enter numbers: ";
     for(int j = 0; j < 5; j++) {
-        int val;
-        cin >> val;
-        input.push_back(val);
+        int num;
+        cin >> num;
+        input.push_back(num);
     }
-    assert(can_arrange(input) == -1); // test the function
+    assert(can_arrange(input) == -1); 
     return 0;
 }
