@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a == b)
         return true;
@@ -9,5 +10,5 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // your code here
+    // Your code here
 }
