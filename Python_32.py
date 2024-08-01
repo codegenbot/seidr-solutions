@@ -1,8 +1,6 @@
 def find_zero(xs: list):
-    n = xs[-2]
+    assert len(xs) > 1, "Please provide a list of coefficients of a polynomial with degree >= 1."
+    n = len(xs) - 1
     a = xs[-1]
-    return -n / a
-
-xs = list(map(int, input().split()))
-result = find_zero(xs)
-print(result)
+    b = xs[-2]
+    return -b / a
