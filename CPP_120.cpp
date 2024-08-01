@@ -3,10 +3,7 @@
 #include <algorithm>
 
 bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+    return a == b;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
