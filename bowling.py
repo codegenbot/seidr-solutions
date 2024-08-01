@@ -1,17 +1,18 @@
-def bowling_score(frames):
-    score = 0
-    rolls = frames.split("/")
-    for i, frame in enumerate(rolls):
-        if frame == "X":
-            if i < 9:
-                score += 30
-            else:
-                score += 10
-        elif len(frame) > 1 and frame[0] == "X":
-            if i < 8:
-                score += 20 + int(rolls[i + 1])
-            else:
-                score += 10 + int(rolls[-1])
+Here is the Python solution:
+
+def bowling(score):
+    score = score.replace('/', '')
+    frames = [int(x) if x.isdigit() else 10 for x in score]
+    total = 0
+    frame = 0
+    while frame < 10:
+        if len(str(frames[frame])) == 1 or int(frames[frame]) == 10:
+            total += frames[frame]
+            frame += 1
+        elif frames[frame] + frames[frame+1] <= 10:
+            total += frames[frame] + frames[frame+1]
+            frame += 2
         else:
-            score += sum(int(x) for x in frame)
-    return score
+            total += 10
+            frame += 1
+    return total
