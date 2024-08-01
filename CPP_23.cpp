@@ -1,9 +1,3 @@
-#include <string>
-#include <cassert>
-#include <cstring>
-
-int main() {
-    assert(strlen("asdasnakj") == 9);
-    std::string str = "example";
-    return static_cast<int>(str.length());
-}
+assert(strlen("asdasnakj") == 9);
+std::string str = "example";
+assert(str.length() == 7);
