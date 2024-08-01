@@ -1,46 +1,30 @@
-using namespace std;
+#include <string>
 
 int bowlingScore(string s) {
     int score = 0;
-    for(int i=0; i<10; i++) {
-        if(s[i] == 'X') {
+    int currentFrame = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-        } else if (s[i] == '/') {
-            if(i > 0) {
-                score += 10 + bowlingScoreHelper(&s.substr(i+1));
-            } else {
-                score += 10;
-            }
+            currentFrame++;
+        } else if (c == '/') {
+            score += 10 - (26 - (currentFrame * 2));
+            currentFrame++;
         } else {
-            int frame = s[i] - '0';
-            if(s[i+1] == 'X') {
-                score += 10 + frame;
-            } else if (s[i+1] == '/') {
-                score += 10 + frame + bowlingScoreHelper(&s.substr(i+2));
-            } else {
-                score += 10 + frame + s[i+1] - '0';
+            int pins = c - '0';
+            score += pins;
+            if (pins < 10) {
+                for (int i = 1; i <= 3 - pins; i++) {
+                    if (s[currentFrame*2 + i] == '/') {
+                        score += 10 - (26 - (currentFrame * 2));
+                        break;
+                    }
+                    else {
+                        pins++;
+                    }
+                }
             }
-        }
-    }
-    return score;
-}
-
-int bowlingScoreHelper(string* s) {
-    int score = 0;
-    for(int i=0; i<2; i++) {
-        if(s->at(i) == 'X') {
-            score += 30;
-            break;
-        } else if (s->at(i) == '/') {
-            score += 10 + (i > 0 ? s->at(i-1) - '0' : 0);
-            break;
-        } else {
-            int frame = s->at(i) - '0';
-            if(i < 1) {
-                score += frame;
-            } else {
-                score += frame + s->at(i-1) - '0';
-            }
+            currentFrame++;
         }
     }
     return score;
