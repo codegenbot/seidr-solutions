@@ -4,15 +4,8 @@
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<boost::any>(value).type() == boost::typeid(int)) {
-            try {
-                int num = boost::any_cast<int>(value);
-                if (num.good()) {
-                    result.push_back(num);
-                }
-            } catch (...) {
-                // handle the exception
-            }
+        if(boost::any_cast<int>(value).which() == boost::any::typeindex<std::decay_t<int>>()) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
