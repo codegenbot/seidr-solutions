@@ -1,41 +1,27 @@
-#include <iostream>
+#include <stdio.h>
 #include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    string num_apples = "";
-    int total_fruits = 0;
+    size_t pos = 0;
+    string apple_str, orange_str;
     
-    for (int i = 0; i < s.length(); i++) {
-        if (isdigit(s[i])) {
-            num_apples += s[i];
-        } else if (s[i] == ' ') {
-            break;
-        }
+    while ((pos = s.find(" apples")) != string::npos) {
+        apple_str = " " + to_string(n - s.erase(pos, 7).find_last_of(' ') - 1);
+        break;
     }
     
-    int apples = stoi(num_apples);
-    total_fruits = n - apples;
+    if (s.find(" oranges") == string::npos) {
+        return n;
+    }
     
-    return total_fruits;
-}
-
-int main() {
-    string s1 = "5 apples and 6 oranges";
-    int n1 = 19;
-    cout << fruit_distribution(s1, n1) << endl;
-
-    string s2 = "0 apples and 1 oranges";
-    int n2 = 3;
-    cout << fruit_distribution(s2, n2) << endl;
-
-    string s3 = "2 apples and 3 oranges";
-    int n3 = 100;
-    cout << fruit_distribution(s3, n3) << endl;
-
-    string s4 = "100 apples and 1 oranges";
-    int n4 = 120;
-    cout << fruit_distribution(s4, n4) << endl;
-
-    return 0;
+    while ((pos = s.find(" oranges")) != string::npos) {
+        orange_str = " " + to_string(n - s.erase(pos, 8).find_last_of(' ') - 1);
+        break;
+    }
+    
+    size_t apple_count = stoi(apple_str.substr(2));
+    size_t orange_count = stoi(orange_str.substr(2));
+    
+    return n - (apple_count + orange_count);
 }
