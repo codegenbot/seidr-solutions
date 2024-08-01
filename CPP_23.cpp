@@ -4,7 +4,7 @@
 int main() {
     std::string str = "Hello, World!";
     
-    std::cout << str.length();
+    std::cout << str.size();
     
     return 0;
 }

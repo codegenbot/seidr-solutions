@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 #include <cassert>
 
-bool issame(const std::vector<float>& a) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
