@@ -1,4 +1,5 @@
-def add(x: int, y: int):
-    if not isinstance(x, int) or not isinstance(y, int):
-        return "Invalid input. Both inputs must be integers."
+```
+def add():
+    x = int(input("Enter the first number: "))
+    y = int(input("Enter the second number: "))
     return x + y
