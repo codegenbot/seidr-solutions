@@ -1,3 +1,8 @@
 n = int(input())
 m = int(input())
-print(round(sum([(n-i)*(m-i) for i in range(1, n)]) / (n*m), 2)
+
+total_outcomes = n * m
+wins_for_peter = sum(n - i for i in range(n)) * m
+prob = wins_for_peter / total_outcomes
+
+print(prob)
