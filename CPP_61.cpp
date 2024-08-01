@@ -1,14 +1,11 @@
-int i = 0, j = brackets.size() - 1;
-while (i < j) {
-    if (brackets[i] == '(' && brackets[j] == ')') {
-        i++;
-        j--;
-    } else if (brackets[i] == '(') {
-        j--;
-    } else if (brackets[j] == ')') {
-        i++;
-    } else {
-        return false;
+```
+int count = 0;
+for (char c : brackets) {
+    if (c == '(') {
+        count++;
+    } else if (c == ')') {
+        if (count <= 0) return false;
+        count--;
     }
 }
-return i == j;
+return count == 0;
