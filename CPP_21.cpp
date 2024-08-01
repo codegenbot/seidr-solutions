@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
+// Forward declaration
+std::vector<float> rescale_to_unit(std::vector<float> numbers);
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
