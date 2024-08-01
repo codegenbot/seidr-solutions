@@ -1,13 +1,12 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-std::vector<int> count_up_to(int n) {
-    std::vector<int> result;
+vector<int> count_up_to(int n) {
+    vector<int> result;
     if (n <= 1) {
         return result;
     }
-    std::vector<bool> isPrime(n, true);
+    vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
     for (int i = 2; i * i < n; ++i) {
         if (isPrime[i]) {
@@ -24,6 +23,6 @@ std::vector<int> count_up_to(int n) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
