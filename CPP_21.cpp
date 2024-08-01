@@ -3,10 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b);
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
+bool std::vector<float> issame(std::vector<float> a, std::vector<float> b);
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
