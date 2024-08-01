@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -26,10 +27,17 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> res = cutVector(v);
-cout << "Left: ";
-for(int x : res.first) cout << x << ' ';
-cout << '\n';
-cout << "Right: ";
-for(int x : res.second) cout << x << ' ';
-cout << '\n';
+pair<vector<int>, vector<int>> main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(auto &x : v) cin >> x;
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "Left: ";
+    for(int x : res.first) cout << x << ' ';
+    cout << '\n';
+    cout << "Right: ";
+    for(int x : res.second) cout << x << ' ';
+    cout << '\n';
+    return make_pair(res.first, res.second);
+}
