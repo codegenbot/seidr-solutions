@@ -1,4 +1,3 @@
-```
 def search(lst):
     frequency = {}
     for num in lst:
