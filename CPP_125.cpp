@@ -41,7 +41,9 @@ int main() {
     std::getline(std::cin, input);
     
     std::vector<std::string> a = split_words(input);
-    std::vector<std::string> b = split_words(input);
+    std::string input2;
+    std::getline(std::cin, input2);
+    std::vector<std::string> b = split_words(input2);
     
     if (issame(a, b)) {
         std::cout << "Same" << std::endl;
