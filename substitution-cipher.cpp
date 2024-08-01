@@ -2,13 +2,15 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 string substitutionCipher(string key1, string key2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
-        if (key1[i] == message[i]) {
-            result += key2[i];
-        } else {
+        if (i >= key1.length()) {
             result += message[i];
+        } else {
+            result += key2[(key1.find(message[i]) != string::npos) ? key1.find(message[i]) : i];
         }
     }
     return result;
