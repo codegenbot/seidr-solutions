@@ -4,8 +4,8 @@
 
 std::vector<int> parse_music(const std::string& music) {
     std::vector<int> notes;
-    size_t pos = 0;
-    size_t next_pos = music.find('|');
+    std::size_t pos = 0;
+    std::size_t next_pos = music.find('|');
 
     while (next_pos != std::string::npos) {
         notes.push_back(next_pos - pos - 1);
@@ -23,6 +23,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 3, 3, 3, 3}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 3, 3, 3, 3}));
     return 0;
 }
