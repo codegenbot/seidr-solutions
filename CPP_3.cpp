@@ -3,9 +3,10 @@ bool below_zero(vector<int> operations){
     for(int i = 0; i < operations.size(); i++){
         if(operations[i] > 0) {
             balance += operations[i];
+        } else if(operations[i] < 0 && balance < 0) {
+            return true;
         } else {
-            balance -= abs(operations[i]);
-            if(balance < 0) return true;
+            balance += operations[i];
         }
     }
     return false;
