@@ -26,10 +26,10 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
-    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
-    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+    cout << (solveBoolean("t") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f&f") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f&t") ? "True" : "False") << endl;  
+    cout << (solveBoolean("t&f") ? "True" : "False") << endl;  
     return 0;
 }
