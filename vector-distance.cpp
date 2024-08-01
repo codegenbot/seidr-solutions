@@ -5,7 +5,7 @@
 
 using namespace std;
 
-double calculateEuclideanDistance(vector<float> &vec1, vector<float> &vec2) {
+double calculateEuclideanDistance(vector<float>& vec1, vector<float>& vec2) {
     double distance = 0;
     for (int i = 0; i < vec1.size(); i++) {
         distance += pow(vec1[i] - vec2[i], 2);
