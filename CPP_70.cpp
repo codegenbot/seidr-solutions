@@ -16,3 +16,13 @@ vector<int> strange_sort_list(vector<int>& lst) {
     }
     return result;
 }
+
+int main() {
+    vector<int> input = {1, 3, 2, 6, 5, 4};
+    vector<int> expected = {1, 6, 2, 5, 3, 4};
+    vector<int> result = strange_sort_list(input);
+
+    assert(issame(result, expected));
+
+    return 0;
+}
