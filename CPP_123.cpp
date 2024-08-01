@@ -29,5 +29,6 @@ int main() {
     for (int i : res) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
