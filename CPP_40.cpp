@@ -2,8 +2,7 @@
 #include <vector>
 
 bool triples_sum_to_zero(const std::vector<int>& nums) {
-    // Add function logic here
-    return false;
+    // Implement function logic here
 }
 
 int main() {
