@@ -12,20 +12,9 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    
-    // Read the numbers from user
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> nums.push_back(i);
-    }
-    
-    // Call the function and print the result
-    int res = specialFilter(nums);
-    cout << "Result: " << res << endl;
+    // Example usage
+    std::vector<int> nums = {11, 12, 13, 14};
+    assert(specialFilter(nums) == 3);
     
     return 0;
 }
