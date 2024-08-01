@@ -15,7 +15,7 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,7 +28,6 @@ bool issame(std::vector<int>& a, std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> expected = {2, 3, 3};
-    assert(issame(factorize(3 * 2 * 3), expected));
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
     return 0;
 }
