@@ -2,18 +2,31 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return a.size() < b.size();
     }
     return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
 }
 
+bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+    if (a.size() != b.size()) {
+        return a.size() < b.size();
+    }
+
+    for (std::size_t i = 0; i < a.size(); ++i) {
+        if (a[i].size() != b[i].size()) {
+            return a[i].size() < b[i].size();
+        }
+    }
+    return false;
+}
+
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         if (lst[i].size() == x) {
-            result.push_back(std::vector<int>{i, lst[i].size()});
+            result.push_back({i, lst[i].size()});
         }
     }
     std::sort(result.begin(), result.end(), issame);
@@ -21,6 +34,6 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
 }
 
 int main() {
-    assert(issame(get_row({ {}, { 1 }, { 1, 2, 3 } }, 3)[0], { 2, 3 }));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 3})); 
     return 0;
 }
