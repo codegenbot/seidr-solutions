@@ -25,7 +25,7 @@ std::vector<std::string> split_words(std::string txt){
     if(result.size() == 1 && result[0].find(',') == std::string::npos){
         int count = 0;
         for(char c : result[0]){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
