@@ -2,12 +2,12 @@
 #include <cctype>
 #include <cassert>
 
-string encode(string message){
+std::string encode(std::string message) {
     for(char &c : message){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+        if(std::isalpha(c)){
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = static_cast<char>(c + 2);
+                c = c + 2;
             }
         }
     }
@@ -15,8 +15,8 @@ string encode(string message){
 }
 
 int main() {
-    assert(encode("hello") == "hEllo");
-    assert(encode("world") == "wOrld");
+    assert(encode("Example") == "fXAmplE");
+    assert(encode("xyz123") == "xYz123");
 
     return 0;
 }
