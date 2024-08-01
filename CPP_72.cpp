@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-bool will_it_fly(const vector<int>& q, int w) {
+bool will_it_fly(const std::vector<int>& q, int w) {
     int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
@@ -22,7 +22,7 @@ bool will_it_fly(const vector<int>& q, int w) {
 }
 
 int main() {
-    assert (will_it_fly(vector<int>({5}), 5) == true);
+    assert(will_it_fly(std::vector<int>({5}), 5) == true);
     
     return 0;
 }
