@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <algorithm>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
@@ -9,9 +10,9 @@ std::string spinWords(std::string sentence) {
     while ((pos = sentence.find(" ")) != std::string::npos) {
         size_t nextPos = sentence.find(" ", pos + 1);
         
-        if (nextPos == std::string::npos || sentence.length() - pos >= 5) {
-            if(sentence.length() - pos >= 5) {
-                std::reverse(sentence.substr(pos, nextPos - pos).begin(), (sentence.substr(pos, nextPos - pos)).end());
+        if (nextPos == std::string::npos || sentence.substr(pos, nextPos - pos).length() >= 5) {
+            if(sentence.substr(pos, nextPos - pos).length() >= 5) {
+                std::reverse(sentence.substr(pos, nextPos - pos).begin(), sentence.substr(pos, nextPos - pos).end());
             }
             
             result += sentence.substr(pos, nextPos - pos) + " ";
@@ -21,8 +22,8 @@ std::string spinWords(std::string sentence) {
         }
     }
     
-    if(sentence.length() - pos >= 5) {
-        std::reverse(sentence.substr(pos).begin(), (sentence.substr(pos)).end());
+    if(sentence.substr(pos).length() >= 5) {
+        std::reverse(sentence.substr(pos).begin(), sentence.substr(pos).end());
     }
     
     result += sentence.substr(pos);
