@@ -1,43 +1,26 @@
-Here's the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength = 0;
-    for (char c : str) {
-        if (c == ' ') {
-            if (wordLength >= 5) {
-                for (int i = wordLength - 1; i >= 0; --i)
-                    result += str[wordLength - i - 1];
-                result += " ";
-            } else
-                result += " ";
-            wordLength = 0;
-        } else {
-            result += c;
-            ++wordLength;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    size_t prevSpace = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            std::string word = str.substr(prevSpace, i - prevSpace);
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            prevSpace = i + 1;
         }
     }
-
-    if (wordLength >= 5) {
-        for (int i = wordLength - 1; i >= 0; --i)
-            result += str[wordLength - i - 1];
-    } else
-        result = str;
-
-    return result;
+    return result.substr(0, result.size() - 1); // remove trailing space
 }
 
 int main() {
-    // your code goes here
-    string str;
-    cout << "Enter the input: ";
-    cin >> str;
-    cout << "Output: " << spinWords(str) << endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
