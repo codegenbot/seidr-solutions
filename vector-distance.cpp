@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -12,9 +13,7 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        double val1, val2;
-        std::cin >> val1 >> val2;
-        vec2[i] = val1 - val2;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
@@ -23,7 +22,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << distance << std::endl;
 
     return 0;
 }
