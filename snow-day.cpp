@@ -1,4 +1,3 @@
-#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -7,8 +6,7 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltingRate
     
     // Add snow and then melt it for each hour
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfFall;
-        totalSnow -= meltingRate * totalSnow;
+        totalSnow += rateOfFall - meltingRate;
     }
     
     return totalSnow;
