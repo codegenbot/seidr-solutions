@@ -1,30 +1,32 @@
-```
 #include <iostream>
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int ans = 0;
-    for (int i = 0; i < n; i++) {
-        int curr = 0;
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (grid[i][j] == 1) {
-                curr += 1;
+int main() {
+    int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+        int n = grid.size();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int curr = 0;
+            for (int j = 0; j < grid[i].size(); j++) {
+                if (grid[i][j] == 1) {
+                    curr += 1;
+                }
+            }
+            while (curr > 0) {
+                int fill = std::min(curr, capacity);
+                ans++;
+                curr -= fill;
             }
         }
-        while (curr > 0) {
-            int fill = std::min(curr, capacity);
-            ans++;
-            curr -= fill;
-        }
+        return ans;
     }
-    return ans;
-}
 
-int main() {
-    // Example usage:
-    std::vector<std::vector<int>> grid = {{1, 1}, {1, 1}};
+    // Test the function
+    std::vector<std::vector<int>> grid = {{0, 1, 0}, {1, 1, 1}, {0, 1, 0}};
     int capacity = 2;
-    std::cout << "Maximum number of fills: " << max_fill(grid, capacity) << std::endl;
+
+    int result = max_fill(grid, capacity);
+
+    std::cout << "Maximum number of times to fill: " << result << std::endl;
     return 0;
 }
