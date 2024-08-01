@@ -1,12 +1,21 @@
-std::vector<float> derivative(const std::vector<float>& v) {
-    if (v.size() < 2) {
-        return {};
+#include <vector>
+#include <cassert>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
     
-    std::vector<float> result;
-    for (size_t i = 1; i < v.size(); ++i) {
-        result.push_back(v[i] - v[i - 1]);
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     
-    return result;
+    return true;
+}
+
+int main() {
+    assert(issame(std::vector<float>{1}, std::vector<float>{}));
+    return 0;
 }
