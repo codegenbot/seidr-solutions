@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 
-template <typename T>
-bool issame(std::vector<T> a, std::vector<T> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
