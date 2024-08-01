@@ -1,13 +1,15 @@
 ````
-"""Check if two strings of parentheses match.
-Given a list of two strings, where each string contains 
-only '(' and ')' characters, check if they match (i.e., 
-each open parenthesis has a corresponding close parenthesis).
-If the strings match, return 'Yes', otherwise return 'No'.
+"""Match Parentheses
+Given a list of two strings, s1 and s2, determine if the parentheses in these strings match.
+A string can contain both '(' and ')' characters.
 
 Example:
-match_parens(['(())']) should return 'Yes'
-match_parens(['(()']) should return 'No'
+    >>> match_parens(['(a+b)', 'c+d)'])
+    No
+
+    >>> match_parens(['(a+b)', '(c+d)'])
+    Yes
+"""
 
 def match_parens(lst):
     s1, s2 = lst
@@ -16,9 +18,8 @@ def match_parens(lst):
         if char == '(':
             stack.append(char)
         elif char == ')':
-            if stack:
-                stack.pop()
+            if stack and stack.pop() == '(':
+                continue
             else:
                 return 'No'
     return 'Yes' if not stack else 'No'
-```
