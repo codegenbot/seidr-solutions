@@ -3,11 +3,11 @@
 #include <map>
 
 int main() {
-    int n = 5; // Input size (modify this)
-    std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
+    int n = 5; 
+    std::vector<int> input = {3, 10, 10, 9, 2}; 
 
     int result = search(input);
-    std::cout << "The output is: " << result << std::endl;
+    assert(result == -1);
 
     return 0;
 }
