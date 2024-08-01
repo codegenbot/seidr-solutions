@@ -2,7 +2,6 @@
 #include <cassert>
 
 std::vector<int> generateStones(int n) {
-    assert(n > 0);
     std::vector<int> stones;
     stones.push_back(n);
     for(int i = 1; i < n; i++){
