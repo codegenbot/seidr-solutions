@@ -1,10 +1,17 @@
-from typing import List
-
-
-def get_user_choice() -> str:
-    while True:
-        user_input = input("Enter 'yes' to continue or 'no' to exit: ")
-        if user_input.lower() in ["yes", "y"]:
-            return "yes"
-        elif user_input.lower() in ["no", "n"]:
-            return "no"
+n = int(input("Enter a number to factorize: "))
+def factorize():
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                count += 1
+                n //= i
+            factors.append(i ** count)
+            i = 2
+    if n > 1:
+        factors.append(n)
+    return factors
