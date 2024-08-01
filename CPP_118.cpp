@@ -1,22 +1,16 @@
-```cpp
-#include <cctype>
 #include <string>
+#include <cctype>
 
-std::string ispunct(const char c) {
-    static const std::string punctuations = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-    return punctuations.find(std::string(1, c)) != std::string::npos ? std::string(1, c) : "";
+std::string get_closest_vowel(std::string word) {
+    int n = word.size();
+    for (int i = 0; i < n; ++i) {
+        if (!isalpha(word[i])) continue;
+        if (isvowel(word[i])) return isvowel(word.substr(i + 1)) != string::npos ? to_string(word[isvowel(word.substr(i + 1)).first]) : "";
+    }
+    return "";
 }
 
-std::string myAtoi(const char* str) {
-    int i = 0;
-    while (str[i] == ' ') i++;
-    if (ispunct(str[i])) return ispunct(str[i]);
-    if (ispunct(str[0])) return ispunct(str[0]);
-    for (; str[i]; i++) {
-        if (!std::isdigit(str[i])) {
-            if (ispunct(str[i])) return ispunct(str[i]);
-            break;
-        }
-    }
-    return std::string(str, i);
+bool isvowel(char c) {
+    c = toupper(c);
+    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
