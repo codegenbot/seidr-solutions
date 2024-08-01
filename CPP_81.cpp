@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string>b) {
     if (a.size() != b.size())
         return false;
@@ -7,14 +11,46 @@ bool issame(vector<string> a, vector<string>b) {
     return true;
 }
 
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
+    for (float grade : grades) {
+        if (grade >= 4.0)
+            result.push_back("A+");
+        else if (grade > 3.7)
+            result.push_back("A");
+        else if (grade > 3.3)
+            result.push_back("A-");
+        else if (grade > 3.0)
+            result.push_back("B+");
+        else if (grade > 2.7)
+            result.push_back("B");
+        else if (grade > 2.3)
+            result.push_back("B-");
+        else if (grade > 2.0)
+            result.push_back("C+");
+        else if (grade > 1.7)
+            result.push_back("C");
+        else if (grade > 1.3)
+            result.push_back("C-");
+        else if (grade > 1.0)
+            result.push_back("D+");
+        else if (grade > 0.7)
+            result.push_back("D");
+        else
+            result.push_back("E");
+    }
+    return result;
+}
+
 int main() {
-    vector<float> grades = {4.2, 3.9, 3.5, 2.8, 1.7};
-    vector<string> expected_output = {"A+", "A", "B-", "C", "D+"};
-
-    if (issame(numerical_letter_grade(grades), expected_output))
-        cout << "The output is as expected." << endl;
-    else
-        cout << "The output is not as expected." << endl;
-
+    vector<float> grades = {3.8, 2.9, 4.1, 3.5};
+    vector<string> output = numerical_letter_grade(grades);
+    
+    if (issame(output, {"A+", "B", "A+"})) {
+        std::cout << "Output is as expected." << std::endl;
+    } else {
+        std::cout << "Output does not match the expected result." << std::endl;
+    }
+    
     return 0;
 }
