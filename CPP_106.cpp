@@ -14,7 +14,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
-
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
@@ -23,7 +22,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int main(){
+int solveProblem(){
     int n;
     std::cin >> n;
     std::vector<int> result = f(n);
@@ -32,4 +31,8 @@ int main(){
     }
     std::cout << std::endl;
     return 0;
+}
+
+int main() {
+    return solveProblem();
 }
