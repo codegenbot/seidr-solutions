@@ -1,24 +1,37 @@
-Here's the solution:
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= 100; i++) {
+        for (int j = i; j <= 100; j++) {
+            for (int k = j; k <= 100; k++) {
+                if (i * j * k == a) {
+                    bool is_prime1 = true;
+                    bool is_prime2 = true;
+                    bool is_prime3 = true;
 
-bool is_multiply_prime(int a){
-    bool prime[100] = {false};
-    for (int i = 2; i < 100; ++i) {
-        if (!prime[i]) {
-            for (int j = i * i; j < 100; j += i) {
-                prime[j] = true;
+                    for (int p = 2; p * p <= i; p++) {
+                        if (i % p == 0) {
+                            is_prime1 = false;
+                            break;
+                        }
+                    }
+
+                    for (int p = 2; p * p <= j; p++) {
+                        if (j % p == 0) {
+                            is_prime2 = false;
+                            break;
+                        }
+                    }
+
+                    for (int p = 2; p * p <= k; p++) {
+                        if (k % p == 0) {
+                            is_prime3 = false;
+                            break;
+                        }
+                    }
+
+                    return is_prime1 && is_prime2 && is_prime3;
+                }
             }
         }
     }
-
-    for (int i = 2; i <= a; ++i) {
-        int temp = a / i;
-        while (temp > 0 && !prime[temp]) {
-            --temp;
-        }
-        if (temp > 0 && temp * i == a) {
-            return true;
-        }
-    }
-
     return false;
 }
