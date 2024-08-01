@@ -1,5 +1,12 @@
-for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> incr_list(vector<int> input) {
+    for (int& num : input) {
+        num++;
     }
-    return l;
+    return input;
 }
