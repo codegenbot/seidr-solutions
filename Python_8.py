@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List, Tuple
 
 
@@ -6,10 +6,9 @@ def sum_product():
     while True:
         try:
             numbers = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-            return sum_product(numbers)
+            return numbers
         except ValueError:
             print("Invalid input. Please provide a list of integers separated by spaces.")
-
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = 0
@@ -21,8 +20,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
     return total_sum, product
 
-
 if __name__ == "__main__":
-    result = sum_product()
-    print("The sum of the numbers is: ", result[0])
-    print("The product of the numbers is: ", result[1])
+    numbers = sum_product()
+    print("The sum of the numbers is: ", sum(numbers))
+    print("The product of the numbers is: ", reduce(lambda x, y: x * y, numbers))
