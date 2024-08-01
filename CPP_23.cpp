@@ -1,2 +1,3 @@
-return str.length();
-}
+#include <cstring>
+#include <string>
+#include <cassert>
