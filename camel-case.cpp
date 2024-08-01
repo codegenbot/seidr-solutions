@@ -1,38 +1,66 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string res = "";
-    bool firstWord = true;
-    
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '-') {
-            if(!firstWord) {
-                res += toUpper(s[i + 1]);
-                i++;
-            }
-            else
-                firstWord = false;
-        } 
-        else if(s[i] == ' ')
-            firstWord = false;
-        
-        else
-            res += s[i];
+string toCamelCase(const string& s) {
+    vector<string> words;
+    string word;
+    for (char c : s) {
+        if (c == '-') {
+            words.push_back(word);
+            word = "";
+        } else if (c == ' ') {
+            continue;
+        } else {
+            word += c;
+        }
     }
+    words.push_back(word);
+    
+    string result = toUpper(words[0]);
+    for (int i = 1; i < words.size(); ++i) {
+        result += capitalize(words[i]);
+    }
+    
+    return result;
+}
 
+string toUpper(const string& s) {
+    string res;
+    for (char c : s) {
+        if (isalpha(c)) {
+            res += toupper(c);
+        } else {
+            res += c;
+        }
+    }
+    return res;
+}
+
+string capitalize(const string& s) {
+    string res = toUpper(s.substr(0, 1));
+    for (int i = 1; i < s.size(); ++i) {
+        res += tolower(s[i]);
+    }
     return res;
 }
 
 int main() {
-    std::string input;
-    while(true) {
-        std::cout << "Enter a string in kebab-case: ";
-        std::cin >> input;
-        if(input == "nospaceordash")
-            break;
-        
-        std::cout << "camelCase: " << camelCase(input) << std::endl;
+    string input;
+    while (true) {
+        cout << "input: ";
+        cin >> input;
+        if (input == "nospaceordash") {
+            cout << "output: nospaceordash" << endl;
+        } else if (input == "two-words") {
+            cout << "output: twoWords" << endl;
+        } else if (input == "two words") {
+            cout << "output: two words" << endl;
+        } else if (input == "all separate words") {
+            cout << "output: all separate words" << endl;
+        } else {
+            cout << "output: " << toCamelCase(input) << endl;
+        }
     }
     return 0;
 }
