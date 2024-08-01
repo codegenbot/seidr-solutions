@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     string str;
