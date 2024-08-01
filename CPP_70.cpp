@@ -1,27 +1,49 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
+    if (lst.empty()) {
+        return result;
+    }
     
+    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
+        result.push_back(lst[0]);
+        lst.erase(lst.begin());
         
-        if (min_val == max_val) {
-            result.push_back(min_val);
-            lst.pop_back();
-        } else {
-            result.push_back(min_val);
-            vector<int> new_lst;
-            for (int x : lst) {
-                if (x != min_val) {
-                    new_lst.push_back(x);
-                }
-            }
-            lst = new_lst;
-        }
+        if (!lst.empty())
+            sort(lst.begin(), lst.end());
     }
     
     return result;
+}
+
+int main() {
+    vector<int> test1 = {1, 2, 3, 4};
+    vector<int> test2 = {5, 5, 5, 5};
+    vector<int> test3 = {};
+    
+    cout << "Test 1: ";
+    for (int i : strange_sort_vector(test1)) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    cout << "Test 2: ";
+    for (int i : strange_sort_vector(test2)) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    cout << "Test 3: ";
+    for (int i : strange_sort_vector(test3)) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
