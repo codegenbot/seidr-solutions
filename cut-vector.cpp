@@ -11,10 +11,10 @@ int main() {
         std::cin >> vec[i];
     }
     
-    int minDiff = std::numeric_limits<int>::max();
+    int minDiff = INT_MAX;
     int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
-        int diff = std::abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
+        int diff = abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
