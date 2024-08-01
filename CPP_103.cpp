@@ -1,6 +1,9 @@
+#include <iostream>
 #include <string>
+#include <cassert>
+#include <cmath>
 
-std::string findBinaryAverage(int n, int m) {
+string BinaryAverage(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -10,13 +13,19 @@ std::string findBinaryAverage(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round(sum / (m - n + 1));
+    int avg = round((double)sum / (m - n + 1));
     
-    std::string binaryAvg = "";
+    string binary_avg = "";
     while (avg > 0) {
-        binaryAvg = std::to_string(avg % 2) + binaryAvg;
+        binary_avg = to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
     
-    return binaryAvg;
-}  
+    return binary_avg;
+}
+
+int main() {
+    assert(BinaryAverage(5, 5) == "101");
+
+    return 0;
+}
