@@ -1,4 +1,5 @@
 #include <vector>
+
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int m = grid[0].size();
@@ -10,9 +11,22 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             water += grid[i][j];
         }
         
-        while (water > capacity) {
+        while (water > 0) {
             res++;
-            water -= capacity;
+            if (capacity >= water) {
+                capacity -= water;
+                water = 0;
+            } else {
+                int remaining_water = capacity;
+                capacity = 0;
+                for (int j = 0; j < m; ++j) {
+                    while(remaining_water > 0 && grid[i][j] > 0) {
+                        grid[i][j]--;
+                        remaining_water--;
+                    }
+                }
+                water -= remaining_water;
+            }
         }
     }
     
