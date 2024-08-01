@@ -2,7 +2,11 @@
 #include <vector>
 #include <string>
 
-vector<string> numerical_letter_grade(vector<float> grades) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
