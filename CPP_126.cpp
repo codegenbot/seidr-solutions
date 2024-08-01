@@ -18,20 +18,19 @@ bool is_sorted(vector<int> lst){
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements in the array: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     std::vector<int> lst(n);
-    
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> lst[i];
     }
-    
+
     if(is_sorted(lst))
-        std::cout << "The array is sorted.\n";
+        std::cout << "The list is sorted." << std::endl;
     else
-        std::cout << "The array is not sorted.\n";
-    
+        std::cout << "The list is not sorted." << std::endl;
+
     return 0;
 }
