@@ -1,12 +1,14 @@
-#include <string>
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    std::string word = "";
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -21,32 +23,24 @@ std::vector<std::string> split_words(std::string txt){
         result.push_back(word);
     }
     
-    if(result.size() == 1 && result[0].find(',') == std::string::npos){
+    if(result.size() == 1 && result[0].find(',') == string::npos){
         int count = 0;
         for(char c : result[0]){
             if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        result[0] = std::to_string(count);
+        result[0] = to_string(count);
     }
     
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b){
+    // Function definition
 }
 
 int main() {
-    // Main function code goes here
+    // Your code here
     return 0;
 }
