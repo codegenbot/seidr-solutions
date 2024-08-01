@@ -5,11 +5,11 @@ def smallest_change(arr):
     changes = 0
     
     while left < n // 2:
-        if arr[left] != arr[n - 1 - left]:
-            changes += 1
-            while left < n // 2 and arr[left] != arr[n - 1 - left]:
-                left += 1
-        else:
+        if arr[left] == arr[n - 1 - right]:
             left += 1
+            right -= 1
+        else:
+            changes += 1
+            right -= 1
     
     return changes
