@@ -1,12 +1,6 @@
-def process_numbers(numbers, delimiter):
+def concatenate_numbers(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
     result.pop()
     return result
-
-# call the function with appropriate arguments
-numbers = [1, 2, 3, 4, 5]
-delimiter = '-'
-output = process_numbers(numbers, delimiter)
-print(output)
