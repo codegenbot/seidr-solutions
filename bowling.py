@@ -1,34 +1,31 @@
-def bowling_score(frames):
-    score = 0
-    for i in range(10):
-        if "/" in frames[i]:
-            strike = False
-            spare = False
-            rolls = list(map(int, frames[i].split("/")))
-            if len(rolls) == 2:
-                score += sum(rolls)
-            else:
-                if rolls[0] + rolls[1] >= 10:
-                    score += sum(rolls)
-                elif rolls[0] == 10:
-                    strike = True
-                else:
-                    spare = True
+def bowling_score(s):
+    s = s.replace("/", "0")
+    frames = []
+    total = 0
+    i = 0
+    while len(frames) < 10:
+        if s[i] == "X":
+            frames.append(10)
+            i += 1
+        elif s[i : i + 2] == "XX":
+            frames.append(20)
+            i += 2
         else:
             strike = False
-            spare = False
-            roll = int(frames[i])
-            if roll == 10:
-                strike = True
-            else:
-                score += roll
-        if i < 9:
-            if strike:
-                score += (
-                    10
-                    + sum(list(map(int, frames[i + 1].split("/"))))
-                    + sum(list(map(int, frames[i + 2].split("/"))))
-                )
-            elif spare:
-                score += 10 + int(frames[i + 1])
-    return score
+            frame = 0
+            for j in range(i, len(s)):
+                if s[j] != "X" and s[j : j + 2] != "XX":
+                    break
+                if s[j] == "X" or (s[j : j + 2] == "XX" and strike):
+                    if s[j].isdigit():
+                        frame = int(s[j])
+                        if j < len(s) - 1:
+                            strike = True
+                    else:
+                        frame += 10
+                    break
+            frames.append(frame)
+            i = j + 1
+    for frame in frames:
+        total += frame
+    return total
