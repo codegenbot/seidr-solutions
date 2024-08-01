@@ -1,19 +1,17 @@
-int luhn(vector<int>& v) {
+int luhnAlgorithm(const vector<int>& digits) {
     int sum = 0;
-    bool doubleDigit = false;
+    bool alternate = false;
 
-    for(int i = v.size() - 1; i >= 0; --i) {
-        if(doubleDigit) {
-            int digit = v[i] * 2;
-            if(digit > 9) {
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) {
                 digit -= 9;
             }
-            sum += digit;
-        } else {
-            sum += v[i];
         }
-
-        doubleDigit = !doubleDigit;
+        sum += digit;
+        alternate = !alternate;
     }
 
     return sum;
