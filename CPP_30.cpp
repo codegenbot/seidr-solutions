@@ -1,5 +1,4 @@
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
+if (a.size() != b.size()) {
         return false;
     }
     
@@ -10,4 +9,3 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     }
     
     return true;
-}
