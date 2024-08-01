@@ -1,13 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if(arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -27,22 +22,20 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input;
+    std::vector<int> input;
     int num;
-    cout << "Enter numbers (enter -1 to stop): ";
     
-    while(true) {
-        cin >> num;
-        if(num == -1) break;
+    while(std::cin >> num) {
         input.push_back(num);
     }
     
-    vector<int> output = pluck(input);
-    if(output.size() > 0) {
-        cout << "Smallest even number: " << output[0] << endl;
-        cout << "Index of smallest even number: " << output[1] << endl;
+    std::vector<int> output = pluck(input);
+    
+    if(output.size() == 2) {
+        std::cout << "Smallest even number: " << output[0] << std::endl;
+        std::cout << "Index of the smallest even number: " << output[1] << std::endl;
     } else {
-        cout << "No even numbers found." << endl;
+        std::cout << "No even numbers found." << std::endl;
     }
     
     return 0;
