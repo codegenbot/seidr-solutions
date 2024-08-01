@@ -1,7 +1,8 @@
 ```cpp
 #include <algorithm>
-#include <vector>
 #include <limits>
+#include <vector>
+#include <utility>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size())
@@ -16,7 +17,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() <= 1)
         return vector<float>();
 
-    float min_diff = numeric_limits<float>::max();
+    float min_diff = std::numeric_limits<float>::max();
     pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size(); ++i) {
@@ -29,7 +30,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>(vector<float>{{closest_pair.first, closest_pair.second}});
+    return vector<float>({closest_pair.first, closest_pair.second});
 }
 
 int main() {
