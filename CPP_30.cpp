@@ -1,14 +1,21 @@
 #include <vector>
 #include <algorithm>
 
-bool std::same(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
+std::pmr::vector<float> get_positive(std::pmr::vector<float> l) {
+    std::pmr::vector<float> result(l.get_allocator());
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
         }
     }
-    return true;
+    return result;
+}
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
