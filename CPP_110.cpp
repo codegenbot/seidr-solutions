@@ -1,8 +1,15 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 != 0 && find(lst2.begin(), lst2.end(), lst1[i]) == lst2.end()) {
-            return "NO";
-        }
+    int evenCount = 0;
+    for (int num : lst1) {
+        if (num % 2 == 0)
+            evenCount++;
     }
-    return "YES";
+    for (int num : lst2) {
+        if (num % 2 == 0) {
+            evenCount--;
+            break;
+        } else
+            evenCount++;
+    }
+    return evenCount == 0 ? "YES" : "NO";
 }
