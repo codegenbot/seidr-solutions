@@ -1,21 +1,20 @@
 #include <iostream>
-#include <iomanip>
+using namespace std;
 
 double calculateProbability(int n, int m) {
-    double probability = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                probability += 1.0 / (n * m);
-            }
-        }
+    double totalCases = (double)n * m;
+    double favorableCases = 0;
+
+    for(int i = 1; i <= m; i++) {
+        favorableCases += min(n, i);
     }
-    return probability;
+
+    return favorableCases / totalCases;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(1) << calculateProbability(n, m) << std::endl;
+    cout << fixed << setprecision(1) << calculateProbability(n, m) << endl;
     return 0;
 }
