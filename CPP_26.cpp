@@ -24,10 +24,6 @@ void originalMain() {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4};
-    vector<int> result = remove_duplicates(numbers);
-    for (int num : result) {
-        cout << num << " ";
-    }
+    originalMain();
     return 0;
 }
