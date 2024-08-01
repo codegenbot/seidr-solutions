@@ -1,31 +1,27 @@
-```cpp
+#include <iostream>
 #include <string>
 #include <cctype>
 
-string get_closest_vowel(string word) {
-    int n = word.length();
-    for (int i = n - 1; i > 0; --i) {
-        if (isvowel(word[i])) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isvowel(word[j]) && !isconsonant(word, j)) break;
-                else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
-                else {
-                    return string(1, word[i]);
-                }
-            }
+bool isVowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+std::string get_closest_vowel(std::string word) {
+    int i = word.length() - 1;
+    while (i >= 0 && !isVowel(word[i])) {
+        i--;
+    }
+    if (i < 0) return "";
+    for (int j = i; j > 0; j--) {
+        if (!isVowel(word[j-1]) && isVowel(word[j])) {
+            return std::string(1, word[j]);
         }
     }
     return "";
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(string word, int i) {
-    char c = tolower(word[i]);
-    if (c >= 'b' && c <= 'z') return true;
-    else if (c >= 'a' && c <= 'z') return false;
-    else return true;
+int main() {
+    std::cout << get_closest_vowel("Hello") << std::endl;
+    return 0;
 }
