@@ -11,10 +11,8 @@ int main() {
     }
 
     std::vector<double> vec2(n);
-    double num;
     for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        vec2[i] = num;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
