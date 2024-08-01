@@ -23,12 +23,18 @@ int bowlingScore(string s) {
     } else if (frame < 10) {
         score += currentRolls;
     } else {
-        for (int i = 0; i < frame - 1; i++) {
+        for (int i = s.size() - 1; i >= 0; i--) {
             if (s[i] == '/') {
-                score += 10;
+                frame--;
+            }
+            if (frame > 1 && s[i] != '/') {
+                score += '0' + s[i];
+            }
+            if (frame == 1) {
+                score += '0' + s[i];
+                break;
             }
         }
-        score += currentRolls;
     }
 
     return score;
