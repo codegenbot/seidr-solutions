@@ -5,5 +5,6 @@
 int main() {
     assert(strlen("asdasnakj") == 9);
     std::string str = "example";
-    return static_cast<int>(str.length());
+    assert(str.length() == 7);
+    return str.length();
 }
