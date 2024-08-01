@@ -1,14 +1,13 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
 
 int prime_fib(int n) {
-    int a = 2, b = 3, c = 0;
+    int a = 2, b = 3, c;
     for (int i = 3; i <= n; ++i) {
         c = a + b;
         a = b;
         b = c;
-        while (1) {
+        while (true) {
             int is_prime = 1;
             for (int j = 2; j * j <= c; ++j) {
                 if (c % j == 0) {
@@ -26,7 +25,8 @@ int prime_fib(int n) {
 }
 
 int main() {
-    assert(prime_fib(10) == 433494437);
+    int n = 10;
+    assert(prime_fib(n) == 433494437);
     
     return 0;
 }
