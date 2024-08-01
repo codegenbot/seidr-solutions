@@ -8,11 +8,11 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> maximum(vector<int> arr,int k){
+vector<int> maximum(vector<int> arr, int k) {
     priority_queue<int> pq;
-    for(int i:arr) pq.push(i);
+    for (int i : arr) pq.push(i);
     vector<int> res;
-    for(int i=0; i<k; i++) res.push_back(pq.top()), pq.pop();
+    for (int i = 0; i < k; i++) res.push_back(pq.top()), pq.pop();
     return res;
 }
 
