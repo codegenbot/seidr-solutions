@@ -13,12 +13,10 @@ bool has_close_elements(const std::vector<int>& numbers, int threshold) {
 }
 
 int main() {
-    std::vector<int> numbers = {5, 2, 8, 1, 7};
-    int threshold = 2;
-    if (has_close_elements(numbers, threshold)) {
-        std::cout << "Close elements found within threshold." << std::endl;
-    } else {
-        std::cout << "No close elements found within threshold." << std::endl;
-    }
+    std::vector<int> numbers = {3, 6, 9, 12, 15};
+    int threshold = 4;
+    
+    assert(has_close_elements(numbers, threshold) == true);
+
     return 0;
 }
