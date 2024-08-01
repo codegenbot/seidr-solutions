@@ -1,20 +1,33 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
-using namespace std;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
+}
 
-vector<int> unique(vector<int> l) {
-    vector<int> result(unique_copy(l.begin(), l.end()), l.end());
-    sort(result.begin(), result.end());
+std::vector<int> unique(std::vector<int> l){
+    std::vector<int> result(l.begin(), l.end());
+    std::sort(result.begin(), result.end());
+    for (auto it = result.begin(); std::next(it, 1) != result.end(); ++it)
+        if (*it == *(std::prev(&result[0], static_cast<std::ptrdiff_t>(it - result.begin() + 1))) && *it != *it)
+            it = result.erase(it);
     return result;
 }
 
 int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output = unique(input);
-    for (int i : output) {
-        cout << i << " ";
+    std::vector<int> a = {1,2,3,4,5};
+    std::vector<int> b = {1,2,3,4,5};
+    
+    if (issame(a,b)) {
+        std::cout << "Vectors are same." << std::endl;
+    } else {
+        std::cout << "Vectors are not same." << std::endl;
     }
+    
     return 0;
 }
