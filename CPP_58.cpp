@@ -1,9 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> result;
@@ -13,4 +12,22 @@ std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return result;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    
+    return 0;
 }
