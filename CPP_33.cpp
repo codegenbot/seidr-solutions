@@ -1,9 +1,5 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
