@@ -1,4 +1,5 @@
 #include <algorithm>
+using namespace std;
 
 string sort_numbers(string numbers) {
     map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
@@ -8,26 +9,21 @@ string sort_numbers(string numbers) {
     string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
+        if (i == 0 || numbers[i] != ' ') {
+            temp += numbers[i];
+        } else {
+            numVec.push_back(temp);
+            temp = "";
         }
-        for (int j = i + 1; j <= numbers.length(); j++) {
-            if (j == numbers.length() || numbers[j] != numbers[i]) {
-                temp = numbers.substr(i, j - i);
-                i = j - 1;
-                break;
-            }
-        }
-        numVec.push_back(temp);
     }
+    numVec.push_back(temp);
 
-    sort(numVec.begin(), numVec.end(), [&](string a, string b) {
-        return numMap.at(a) < numMap.at(b);
-    });
+    sort(numVec.begin(), numVec.end());
 
     string result;
-    for (auto &num : numVec) {
+    for (const auto &num : numVec) {
         result += num + " ";
     }
+
     return result.substr(0, result.length() - 1);
 }
