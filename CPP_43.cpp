@@ -1,12 +1,10 @@
-```cpp
-bool found = false;
-for(int i=0; i<l.size(); i++){
-    for(int j=i+1; j<l.size(); j++){
-        if(l[i]+l[j] == 0){
-            found = true;
-            break;
+bool pairs_sum_to_zero(vector<int> l) {
+    set<int> s(l.begin(), l.end());
+    for (auto it = s.begin(); it != s.end(); ++it) {
+        int complement = -(*it);
+        if (s.find(complement) != s.end() && *it != complement) {
+            return true;
         }
     }
-    if(found) break;
+    return false;
 }
-return found;
