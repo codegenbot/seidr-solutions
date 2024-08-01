@@ -1,48 +1,27 @@
 ```
-def bowling_score(bowling):
-    frames = [int(x) if x.isdigit() else 'X' for x in bowling]
+def bowling_score(rolls):
     score = 0
-    frame_index = 0
-    for i in range(1, 11):
-        if frames[frame_index] == 'X':
-            if i < 10:
-                if frames[frame_index+1] != 'X' and frames[frame_index+2] != 'X':
-                    score += (i*10) + int(frames[frame_index+1])
-                    frame_index+=2
-                else:
-                    score += i * 10
-                    frame_index+=1
-            else:
-                if frames[frame_index+1] == 'X' and frames[frame_index+2] == 'X':
-                    score += (i*10) + 10
-                    frame_index+=3
-                else:
-                    score += i * 10
-                    frame_index+=1
-        elif frames[frame_index] in ['//']:
-            if i < 5:
-                if frames[frame_index-1] != 'X' and frames[frame_index+2] != 'X':
-                    score += (i*10) + int(frames[frame_index-1])
-                    frame_index+=3
-                else:
-                    score += i * 10
-                    frame_index+=1
-            else:
-                if frames[frame_index-1] == 'X' and frames[frame_index+2] == 'X':
-                    score += (i*10) + 10
-                    frame_index+=3
-                else:
-                    score += i * 10
-                    frame_index+=1
+    roll_index = 0
+    for frame in range(10):
+        if rolls[roll_index] == 'X': 
+            score += 30  
+            roll_index += 1            
+        elif '/' in rolls[roll_index]: 
+            first_roll, second_roll = map(int, rolls[roll_index].split('/'))
+            score += first_roll + second_roll
+            roll_index += 1            
         else:
-            strike_score = 0
-            while frame_index < len(frames)-1 and frames[frame_index+1] == 'X':
-                strike_score += (i*10) + 10
-                frame_index+=2
-            if strike_score > 0:
-                score += strike_score
-                frame_index+=1
+            first_roll = int(rolls[roll_index])
+            if first_roll < 10: 
+                score += first_roll
+                roll_index += 1
+                if roll_index != 10 and rolls[roll_index] == 'X':
+                    score += 30 
+                    roll_index += 1
+                elif '/' in rolls[roll_index]:
+                    second_roll = int(rolls[roll_index].split('/')[1])
+                    score += second_roll            
             else:
-                score += i * 10
-                frame_index+=1
+                score += first_roll + 10 
+                roll_index += 1                
     return score
