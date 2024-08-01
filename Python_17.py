@@ -1,6 +1,4 @@
 ```
-from typing import List
-
 def parse_music(music_string: str) -> List[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     beats = []
@@ -8,8 +6,10 @@ def parse_music(music_string: str) -> List[int]:
     while i < len(music_string):
         if music_string[i] == '.':
             note = ''
-            for j in range(i, min(i+3, len(music_string))):
+            for j in range(i+1, min(i+3, len(music_string))):
                 note += music_string[j]
+            if note not in notes:
+                return []  # or handle this error as you see fit
             beats.append(notes[note])
             i += 2
         else:
