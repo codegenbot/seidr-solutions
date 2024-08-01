@@ -1,15 +1,15 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : nums) {
+    for (int num : v) {
         if (num < 0) {
-            num = -num;
+            num = -num; // make number positive to simplify sum of digits calculation
         }
-        int sum = 0;
+        int sum_of_digits = 0;
         while (num > 0) {
-            sum += num % 10;
+            sum_of_digits += num % 10;
             num /= 10;
         }
-        if (sum > 0) {
+        if (sum_of_digits > 0) {
             count++;
         }
     }
