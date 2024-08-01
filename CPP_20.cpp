@@ -1,12 +1,17 @@
 #include <algorithm>
 #include <limits>
+#include <vector>
 
-vector<float> find_closest_elements(vector<float> numbers) {
+bool isSame(float a, float b) {
+    return abs(a - b) < 1e-9;
+}
+
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() < 2) {
-        throw std::invalid_argument("The vector must have at least two elements.");
+        throw std::runtime_error("Vector must have at least two elements");
     }
 
-    float min_diff = numeric_limits<float>::max();
+    float min_diff = std::numeric_limits<float>::max();
     pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size(); ++i) {
@@ -14,10 +19,14 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
+                closest_pair = make_pair(min(diff, numbers[i]), max(diff, numbers[i]));
             }
         }
     }
 
-    return vector<float>{closest_pair.first, closest_pair.second};
+    vector<float> result;
+    result.push_back(closest_pair.first);
+    result.push_back(closest_pair.second);
+
+    return result;
 }
