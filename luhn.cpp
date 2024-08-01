@@ -3,8 +3,8 @@
 using namespace std;
 
 int main() {
-    vector<int> digits = {4, 7, 8, 1, 3, 2, 9, 0, 5, 5, 5, 9, 8, 7, 6, 3};
-    cout << luhnCheck(digits) << endl; 
+    vector<int> digits = {4,3,2,1,6,5,3,9,8,7,1,6}; // input your digits here
+    cout << luhnCheck(digits) << endl; // print the result
     return 0;
 }
 
