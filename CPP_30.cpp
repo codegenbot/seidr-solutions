@@ -19,7 +19,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 int main() {
     std::vector<float> vec1, vec2;
 
-    // Read input vectors
     float num;
     int n;
     std::cin >> n;
@@ -33,10 +32,9 @@ int main() {
         vec2.push_back(num);
     }
 
-    // Check if vectors are the same
-    std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
-
     assert(issame(std::vector<float>{}, std::vector<float>{}));
+
+    std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
 }
