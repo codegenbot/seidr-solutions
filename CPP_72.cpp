@@ -3,8 +3,8 @@ int sum = 0;
         sum += q[i];
     }
     
-    if (sum > w) {
-        return false;
+    if (q.size() <= 1) {
+        return sum <= w;
     }
     
     for (int i = 0; i < q.size() / 2; i++) {
@@ -13,5 +13,5 @@ int sum = 0;
         }
     }
     
-    return true;
+    return sum <= w;
 }
