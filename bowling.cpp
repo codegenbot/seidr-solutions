@@ -1,22 +1,15 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int frame = 1;
-    for (char c : s) {
+    bool strike = false;
+    for (char c : input) {
         if (c == 'X') {
-            score += 10 + (frame < 9 ? 10 : 0);
-            frame++;
+            score += 10 + (strike ? 10 : 0);
+            strike = true;
         } else if (c == '/') {
-            score += 10 - (10 - (s[s.find(c) - 1] - '0')) - (10 - (s[s.find(c) + 1] - '0'));
-            frame++;
+            score += (strike ? 10 : (c - '0' * 2));
+            strike = false;
         } else {
-            int pins = c - '0';
-            if (frame < 9 && s[s.find(c) + 1] == '/') {
-                score += 10 - pins;
-                frame++;
-            } else {
-                score += pins;
-                frame++;
-            }
+            score += c - '0';
         }
     }
     return score;
