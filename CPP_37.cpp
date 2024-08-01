@@ -1,4 +1,15 @@
-vector<float> even_values;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<float> sort_even(vector<float> l);
+
+bool issame(vector<float> a, vector<float> b);
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_values;
     for (int i = 0; i < l.size(); i += 2) {
         even_values.push_back(l[i]);
     }
