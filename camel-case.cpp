@@ -25,4 +25,3 @@ int main() {
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
-}
