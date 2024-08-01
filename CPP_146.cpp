@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,12 +10,11 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
-    std::vector<int> nums = {11,12,13,14};
+    std::vector<int> nums = {1,11,23,27,43};
     int result = specialFilter(nums);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Number of numbers that meet the condition: " << result << std::endl;
     return 0;
 }
