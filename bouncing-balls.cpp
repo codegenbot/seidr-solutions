@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
+using namespace std;
+
 #include <cmath>
 #include <iomanip>
-using namespace std;
 
 int main() {
     double startHeight, firstBounceHeight;
@@ -17,6 +17,7 @@ int main() {
         totalDistance += pow(bouncinessIndex, i);
     }
 
+    cout.precision(6); 
     cout << fixed << setprecision(6) << totalDistance << endl;
 
     return 0;
