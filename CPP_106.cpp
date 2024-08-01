@@ -1,15 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
-using namespace std;
-
-std::vector<int> f(int n) {
-    std::vector<int> result;
-    for (int i = 1; i <= n; ++i) {
-        result.push_back(i);
-    }
-    return result;
-}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -23,13 +14,20 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int solveProblem() {
-    int n;
-    std::cin >> n;
-    std::vector<int> result = f(n);
-    for (int num : result) {
-        std::cout << num << " ";
+std::vector<int> f(int n) {
+    std::vector<int> result(n);
+    for (int i = 1; i <= n; ++i) {
+        result[i - 1] = i;
     }
-    std::cout << std::endl;
+    return result;
+}
+
+int main() {
+    std::vector<int> expected = {1, 2, 3};
+    std::vector<int> result = f(3);
+    
+    assert(issame(result, expected));
+    std::cout << "Test Passed!" << std::endl;
+    
     return 0;
 }
