@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int smallest_change(const std::vector<int>& arr) {
@@ -13,7 +12,7 @@ int smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    std::cout << "Number of changes needed: " << smallest_change(nums) << std::endl;
+    std::vector<int> arr = {1, 2, 3, 2, 1};
+    int result = smallest_change(arr);
     return 0;
 }
