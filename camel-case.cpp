@@ -1,26 +1,37 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the "-"
-            while (i < s.length() && s[i] == ' ') {
-                i++; // skip the spaces
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool first = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            } else {
+                first = false;
             }
-            result += toupper(s[i]); // capitalize the first letter of each word
-        } else if (s[i] != ' ') {
-            result += tolower(s[i]); // convert all letters to lowercase
+        } else if (c == ' ') {
+            continue;
+        } else {
+            if (!first) {
+                result += char(toupper(c));
+            } else {
+                first = false;
+                result += c;
+            }
         }
     }
+
     return result;
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << camelCase(s) << endl;
-    }
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str);
+    std::cout << "camelCase: " << camelCase(str) << std::endl;
     return 0;
 }
