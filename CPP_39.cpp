@@ -1,30 +1,32 @@
 #include <stdio.h>
-
+#include <vector>
 using namespace std;
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        if (i == n) {
-            return b;
-        }
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (!isPrime(fib)) {
-            continue;
-        }
+    vector<int> fib = {0, 1};
+    int i = 2;
+    while (true) {
+        int nextFib = fib[i-1] + fib[i];
+        if (nextFib > n)
+            break;
+        fib.push_back(nextFib);
+        i++;
     }
+    for (int num : fib) {
+        bool isPrime = true;
+        for (int j = 2; j * j <= num; j++) {
+            if (num % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime)
+            return num;
+    }
+    return -1; // not found
 }
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    printf("%d\n", prime_fib(5));
+    return 0;
 }
