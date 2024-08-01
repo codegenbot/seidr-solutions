@@ -1,13 +1,25 @@
-string rounded_avg(int n,int m){
-    if(n > m) return "-1";
-    int sum = 0;
-    for(int i=n; i<=m; i++) sum += i;
-    double avg = (double)sum / (m - n + 1);
-    int r = labs((int)round(avg));
-    string res = "";
-    while(r > 0){
-        res = (r & 1) ? "1" + res : "0" + res;
-        r >>= 1;
+#include <string>
+
+using namespace std;
+
+string rounded_avg(int n, int m) {
+    if (n > m)
+        return "-1";
+
+    double sum = 0;
+    for (int i = n; i <= m; i++)
+        sum += i;
+
+    int avg = lround(sum / (m - n + 1));
+
+    string result = "";
+    while (avg) {
+        if (avg & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        avg >>= 1;
     }
-    return res;
+    reverse(result.begin(), result.end());
+    return result;
 }
