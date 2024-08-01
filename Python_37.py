@@ -1,3 +1,4 @@
+```
 def sort_even(l: list):
-    evens = sorted([x for x in l if x % 2 == 0])
-    return [evens[i // 2] if i % 2 == 0 else x for i, x in enumerate(l)]
+    return [x if i % 2 == 0 else y 
+            for i, (x, y) in enumerate(sorted(zip(l[::2], l[1::2]), key=lambda pair: (pair[0] + pair[1])))]
