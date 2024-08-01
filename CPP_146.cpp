@@ -9,11 +9,25 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
-    std::vector<int> nums = {1,11,13};
-    int result = specialFilter(nums);
-    std::cout << "The number of integers in the vector that satisfy the condition is: " << result << std::endl;
+    std::vector<int> nums;
+    int num;
+    
+    std::cout << "Enter numbers (enter -1 to stop):" << std::endl;
+    
+    while(true) {
+        std::cin >> num;
+        
+        if(num == -1)
+            break;
+            
+        nums.push_back(num);
+    }
+    
+    std::cout << "Count: " << specialFilter(nums) << std::endl;
+    
     return 0;
 }
