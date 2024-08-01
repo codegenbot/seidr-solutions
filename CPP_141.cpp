@@ -1,28 +1,41 @@
-Here is the completed code:
+#include <string>
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+using namespace std;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(found_dot){
-            string ext = file_name.substr(i);
-            if(ext != "txt" && ext != "exe" && ext != "dll")
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+    string leftPart = "";
+    string rightPart = "";
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (isdigit(file_name[i])) {
+            digitCount++;
+            if (digitCount > 3) {
                 return "No";
+            }
+        } else if (file_name[i] == '.') {
+            foundDot = true;
+            rightPart = file_name.substr(i + 1);
+            break;
+        } else {
+            leftPart += file_name[i];
         }
     }
 
-    if(digit_count > 3 || !found_dot)
+    if (!foundDot || leftPart.empty() || !isalpha(leftPart[0])) {
         return "No";
+    }
 
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z')
-        return "No";
+    string extensions[] = {"txt", "exe", "dll"};
+    bool isValidExtension = false;
 
-    return "Yes";
+    for (int i = 0; i < 3; i++) {
+        if (rightPart == extensions[i]) {
+            isValidExtension = true;
+            break;
+        }
+    }
+
+    return isValidExtension ? "Yes" : "No";
 }
