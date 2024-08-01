@@ -1,27 +1,38 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(const std::string& s) {
-    std::string result = "";
-    for (const auto& word : s.split(" ")) {
-        for (size_t i = 0; i < word.size(); ++i) {
-            if (i > 0) {
-                result += toupper(word[i]);
-            } else {
-                result += tolower(word[0]);
+std::string toCamelCase(const std::string& input) {
+    std::string output;
+    size_t pos = 0;
+
+    while (pos < input.size()) {
+        if (input[pos] == '-') {
+            pos++; // Skip the dash
+            while (pos < input.size() && input[pos] == ' ') {
+                pos++; // Skip the space
             }
+            output += std::toupper(input[pos]);
+            pos++;
+        } else if (input[pos] == ' ') {
+            while (pos < input.size() && input[pos] == ' ') {
+                pos++; // Skip the spaces
+            }
+            output += std::tolower(input[pos]);
+            pos++;
+        } else {
+            output += std::tolower(input[pos]);
+            pos++;
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << toCamelCase(s) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << toCamelCase(input) << std::endl;
+
     return 0;
 }
