@@ -1,5 +1,3 @@
-bool issame(const vector<int>& a, const vector<int>& b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
+std::sort(l.begin(), l.end());
+l.erase(std::unique(l.begin(), l.end(), issame), l.end());
+return l;
