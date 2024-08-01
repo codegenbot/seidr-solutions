@@ -3,9 +3,10 @@
 
 std::string encode_cyclic(std::string s){
     std::string output;
-    for (char c : s){
-        output += c;
-        output += 'X'; // Encoding logic example: add 'X' after each character
+    for (int i = 0; i < s.length(); i += 3) {
+        std::string sub = s.substr(i, 3);
+        if (sub.length() == 3) sub = sub.substr(1, 2) + sub[0];
+        output += sub;
     }
     return output;
 }
