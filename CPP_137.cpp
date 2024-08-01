@@ -13,22 +13,22 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string s = (std::string)a;
         float f = (float)b;
-        return f > atof(s.c_str()) ? a : (f < 1 ? "None" : b);
+        return f > atof(s.c_str()) ? a : ((f < 1) ? "None" : b);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         std::string s = (std::string)a;
         double d = (double)b;
-        return d > atof(s.c_str()) ? a : (d < 1 ? "None" : b);
+        return d > atof(s.c_str()) ? a : ((d < 1) ? "None" : b);
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float f = (float)a;
         std::string s = (std::string)b;
-        return atof(s.c_str()) > f ? boost::any(b) : (f < 1 ? "None" : a);
+        return atof(s.c_str()) > f ? b : ((f < 1) ? "None" : a);
     } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
         double d = (double)a;
         std::string s = (std::string)b;
-        return atof(s.c_str()) > d ? boost::any(b) : (d < 1 ? "None" : a);
+        return atof(s.c_str()) > d ? b : ((d < 1) ? "None" : a);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string sa = (std::string)a, sb = (std::string)b;
-        return sa > sb ? a : (sa == sb ? boost::any("None") : b);
+        return sa > sb ? a : ((sa == sb) ? boost::any("None") : b);
     }
     return a;
 }
