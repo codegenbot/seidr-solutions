@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
@@ -12,16 +12,15 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    for(int i=0; i<arr.size(); i++) {
-        if(arr[i]%2==0 && arr[i] == smallest_even) {
-            result.push_back(i);
-            break;
+    result.push_back(smallest_even);
+    if(!result.empty()) {
+        for(int i=0; i<arr.size(); i++) {
+            if(arr[i] == smallest_even) {
+                result.push_back(i);
+                break;
+            }
         }
     }
 
-    if(result.empty()) {
-        result.push_back(-1); // No even number found
-    }
-
-    return {smallest_even, result[0]};
+    return result;
 }
