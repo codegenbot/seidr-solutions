@@ -4,19 +4,18 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalizeNext = true;
+    bool firstWord = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            capitalizeNext = true;
             i++; // skip the "-"
             while (i < s.length() && s[i] == ' ') {
                 i++; // skip the spaces
             }
-        } else if (capitalizeNext) {
-            result += toupper(s[i]);
-            capitalizeNext = false;
-        } else {
-            result += tolower(s[i]);
+            result += (firstWord) ? toupper(s[i]) : tolower(s[i]); 
+            firstWord = false;
+        } else if (s[i] != ' ') {
+            result += (firstWord) ? tolower(s[i]) : toupper(s[i]);
+            firstWord = false;
         }
     }
     return result;
