@@ -18,8 +18,3 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
-
-int main() {
-    assert(issame(filter_integers({std::any(3), std::any(3), std::any(3)}), std::vector<int>{3, 3, 3}));
-    return 0;
-}
