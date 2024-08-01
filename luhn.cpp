@@ -5,14 +5,12 @@ using namespace std;
 int luhn(vector<int> cardNum) {
     int sum = 0;
     for (int i = cardNum.size() - 1; i >= 0; i--) {
-        if ((cardNum[i] * 2) > 9) {
+        if ((i % 2 != 0 && cardNum[i] * 2) > 9) {
             sum += (cardNum[i] * 2) - 9;
-        } else {
+        } else if(i % 2 != 0){
             sum += cardNum[i] * 2;
         }
-        if (i % 2 != 0) {
-            sum += cardNum[i];
-        }
+        sum += cardNum[i];
     }
     return sum;
 }
