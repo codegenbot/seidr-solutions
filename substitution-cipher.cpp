@@ -2,22 +2,25 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher_map, const std::string& message) {
-    std::string result;
-    for (char c : message) {
-        int index = c - 'a'; // assuming all characters are lowercase letters
-        if (index >= 0 && index < cipher_map.size()) {
-            result += cipher_map[index];
+using namespace std;
+
+string substitutionCipher(string cipher1, string cipher2, string message) {
+    string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        int index = message[i] - 'a';
+        if (index >= 0 && index <= 25) {
+            char c = cipher2[index];
+            result += c;
         } else {
-            result += c; // leave the character unchanged if it's not in the map
+            result += message[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher_map, message;
-    std::cin >> cipher_map >> message;
-    std::cout << decipher(cipher_map, message) << std::endl;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << substitutionCipher(cipher1, cipher2, message) << endl;
     return 0;
 }
