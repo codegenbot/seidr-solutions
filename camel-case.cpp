@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -30,13 +31,18 @@ std::string camelCase(const std::string& input) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
     std::string word;
+    std::cout << "Enter a string in kebab-case: ";
     while (std::cin >> word && !word.empty()) {
-        input += word + " ";
+        std::string input = word + " ";
+        while (std::cin.peek() == ' ') {
+            std::cin.ignore();
+        }
+        if (!input.empty()) {
+            break;
+        }
     }
-    std::cout << camelCase(input) << std::endl;
+    std::cout << camelCase(input.substr(0, input.size() - 1)) << std::endl;
 
     return 0;
 }
