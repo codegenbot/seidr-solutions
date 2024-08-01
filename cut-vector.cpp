@@ -2,7 +2,6 @@
 #include <vector>
 #include <climits>
 #include <numeric>
-#include <cmath>
 
 int main() {
     int n;
@@ -12,7 +11,7 @@ int main() {
         std::cin >> vec[i];
     }
     
-    int minDiff = INT_MAX;
+    int minDiff = std::numeric_limits<int>::max();
     int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
         int diff = std::abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
