@@ -5,24 +5,24 @@
 std::string encode_cyclic(std::string s) {
     int l = s.length();
     std::string output;
-    
-    for (int i = 0; i < l; i += 3) {
-        output += s[i + 2];
-        output += s.substr(i, 2);
+    int i;
+    for (i = 0; i < l; i += 3) {
+        std::string x = s.substr(i, 3);
+        if (x.length() == 3) x = x.substr(1) + x[0];
+        output += x;
     }
-    
     return output;
 }
 
 std::string decode_cyclic(std::string s) {
     int l = s.length();
     std::string output;
-    
-    for (int i = 0; i < l; i += 3) {
-        output += s.substr(i + 1, 2);
-        output += s[i];
+    int i;
+    for (i = 0; i * 3 < l; i++) {
+        std::string x = s.substr(i * 3, 3);
+        if (x.length() == 3) x = x[2] + x.substr(0, 2);
+        output += x;
     }
-    
     return output;
 }
 
