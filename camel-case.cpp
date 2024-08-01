@@ -9,7 +9,7 @@ std::string kebabToCamel(const std::string& s) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            if (result.empty()) { // Add this check
+            if (result.empty()) { 
                 result += tolower(c);
             } else {
                 result += toupper(c);
