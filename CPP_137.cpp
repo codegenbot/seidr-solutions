@@ -1,82 +1,59 @@
-#include <boost/any.hpp>
-#include <string>
 #include <iostream>
+#include <string>
 
-using namespace boost;
+bool compare(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int x = std::any_cast<int>(a);
+        float y = std::any_cast<float>(b);
+        return x > y;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int x = std::any_cast<int>(a);
+        std::string y = std::any_cast<std::string>(b);
+        return std::stoi(y) > x;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float x = std::any_cast<float>(a);
+        int y = std::any_cast<int>(b);
+        return x > y;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float x = std::any_cast<float>(a);
+        std::string y = std::any_cast<std::string>(b);
+        return std::stof(y) > x;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string x = std::any_cast<std::string>(a);
+        int y = std::any_cast<int>(b);
+        return std::stof(x) > y;
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string x = std::any_cast<std::string>(a);
+        float y = std::any_cast<float>(b);
+        return std::stof(x) > y;
+    }
+    else if (a.type() == typeid(int) && a.type() == b.type()) {
+        int x = std::any_cast<int>(a);
+        int y = std::any_cast<int>(b);
+        return x > y;
+    }
+    else if (std::any_cast<std::string>(a) == "0" && std::any_cast<std::string>(b) == "0") {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
 
 int main() {
-    boost::any a;
-    boost::any b;
-    
-    std::cout << "Enter the first value: ";
-    if (std::cin >> a) {
-        if (!a.type()) {
-            return 1; // Invalid input
-        }
-    } else {
-        return 1; // Invalid input
-    }
+    std::any a = 5; 
+    std::any b = 3.14f;
 
-    std::cout << "Enter the second value: ";
-    if (std::cin >> b) {
-        if (!b.type()) {
-            return 1; // Invalid input
-        }
+    if (compare(a, b)) {
+        std::cout << "a is greater than b" << std::endl;
     } else {
-        return 1; // Invalid input
-    }
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(std::string)) {
-        std::cout << "The two values are equal." << std::endl;
-    } else {
-        std::cout << "The first value is greater than the second." << std::endl;
+        std::cout << "b is greater than or equal to a" << std::endl;
     }
 
     return 0;
-}
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int x = boost::any_cast<int>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int x = boost::any_cast<int>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (std::stoi(y) > x) ? a : ((std::stoi(y) < x) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float x = boost::any_cast<float>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float x = boost::any_cast<float>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (std::stof(y) > x) ? a : ((std::stof(y) < x) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string x = boost::any_cast<std::string>(a);
-        int y = boost::any_cast<int>(b);
-        return (std::stof(x) > y) ? a : ((std::stof(x) < y) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string x = boost::any_cast<std::string>(a);
-        float y = boost::any_cast<float>(b);
-        return (std::stof(x) > y) ? a : ((std::stof(x) < y) ? b : boost::any("The two values are equal."));
-    }
-    else if (a.type() == typeid(int) && a.convert_to(b)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("The two values are equal."));
-    }
-    else if (boost::any_cast<std::string>(a) == "0" && boost::any_cast<std::string>(b) == "0") {
-        return boost::any("The two values are equal.");
-    }
-    else {
-        return a > b ? a : b;
-    }
 }
