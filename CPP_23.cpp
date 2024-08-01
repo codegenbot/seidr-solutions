@@ -1,5 +1,7 @@
-#include <cstring>
+#include <string>
+#include <cassert>
 
-const char* input = "asdasnakj";
-assert(strlen(input) == 9);
-return 0;
+int main() {
+    std::string str = "Hello, Contest!";
+    assert(str.length() == 15);
+}
