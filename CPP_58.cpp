@@ -1,3 +1,10 @@
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> result;
     for (const auto& elem : a) {
@@ -6,8 +13,4 @@ std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
