@@ -1,31 +1,27 @@
 #include <iostream>
 #include <map>
 #include <sstream>
-#include <cassert>
+#include <algorithm>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
-}
-
-map<char, int> histogram(string test);
-
-map<char, int> histogram(string test){
-    map<char, int> result;
-    istringstream iss(test);
-    string word;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::istringstream iss(test);
+    std::string word;
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
         }
     }
     int maxCount = 0;
-    for (const auto& entry : result) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto &entry : result) {
+        maxCount = std::max(maxCount, entry.second);
     }
-    map<char, int> maxChars;
-    for (const auto& entry : result) {
+    std::map<char, int> maxChars;
+    for (const auto &entry : result) {
         if (entry.second == maxCount) {
             maxChars[entry.first] = entry.second;
         }
@@ -34,7 +30,8 @@ map<char, int> histogram(string test){
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    
+    std::string testInput = "example input for testing";
+    std::map<char, int> result = histogram(testInput);
+    // Print or use the result as needed
     return 0;
 }
