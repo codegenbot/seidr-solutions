@@ -1,6 +1,6 @@
 def prime_fib():
     n = int(input())
-    
+
     def is_prime(num):
         if num < 2:
             return False
