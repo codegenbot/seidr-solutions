@@ -17,7 +17,8 @@ int main() {
     }
 
     cout << fixed;
-    cout << setprecision(6) << totalDistance << endl;
+    cout.precision(6);
+    cout << totalDistance << endl;
 
     return 0;
 }
