@@ -12,16 +12,13 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;  
-    float odd_sum = 0.0;     
-    for(float i=1.5;i<=10.5;i+=0.5){ 
-        lst.push_back(i); 
-    }    
-    for (float num : lst) { 
-        if(modf(num, &num) != 0) {
+    std::vector<float> lst = {1.5f, 2.0f, 3.25f};
+    float odd_sum = 0.0;     // Initialize the sum
+    for (float num : lst) {
+        if (std::floor(num) != num) {
             odd_sum += num;
         }
     }
-    assert(double_the_difference(lst) == odd_sum);
+    assert(double_the_difference(lst) == std::round(odd_sum));
     return 0;
 }
