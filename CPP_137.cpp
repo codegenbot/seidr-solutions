@@ -1,23 +1,37 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
-using namespace boost;
+using boost::any;
 
-boost::any compare_one(boost::any a, boost::any b) {
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < b.convert_to<float>() ? &b : &a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < b.convert_to<double>() ? &b : &a;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int) || a.type() == typeid(string) && b.type() == typeid(float) || a.type() == typeid(string) && b.type() == typeid(double)) {
-        return stof(a.convert_to<string>().c_str()) < b ? &b : &a;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int ai = stoi(b.convert_to<string>().c_str());
+        return ai > (int)a.convert_to<int>() ? &b : &a;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string) || a.type() == typeid(float) && b.type() == typeid(string) || a.type() == typeid(double) && b.type() == typeid(string)) {
-        return a < stof(b.convert_to<string>().c_str()) ? &b : &a;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a.convert_to<float>() < b.convert_to<int>() ? &b : &a;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return a.convert_to<double>() > b.convert_to<int>() ? &b : &a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        double af = stod(a.convert_to<string>().c_str());
+        return af < b.convert_to<float>() ? &b : &a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double af = stod(a.convert_to<string>().c_str());
+        return af > b.convert_to<double>() ? &b : &a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return stof(a.convert_to<string>().c_str()) < stof(b.convert_to<string>().c_str()) ? &b : &a;
+        double ai = stod(a.convert_to<string>().c_str()), bi = stod(b.convert_to<string>().c_str());
+        return ai < bi ? &b : &a;
     }
-   	return boost::any();
+    return any();
 }
