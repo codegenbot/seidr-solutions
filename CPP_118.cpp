@@ -1,13 +1,9 @@
-#include <iostream>
 #include <cctype>
+#include <string>
 
-int main() {
-    std::string word;
-    std::cin >> word;
-
-    for (int i = 0; i < word.length(); i++) {
-        if (ispunct(word[i])) return word[i];
+std::string firstPunct(const std::string& word) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (ispunct(word[i])) return std::string(1, word[i]);
     }
-
-    return 0;
+    return "";
 }
