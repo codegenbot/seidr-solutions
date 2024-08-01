@@ -1,10 +1,2 @@
-def camel_case(s):
-    return "".join(word.capitalize() for word in s.split("-")) if "-" in s else s
-
-
-while True:
-    try:
-        s = input()
-        print(camel_case(s))
-    except KeyboardInterrupt:
-        break
+def camel_case(input_string):
+    return ''.join(word.capitalize() for word in input_string.split()) if ' ' in input_string else input_string.capitalize()
