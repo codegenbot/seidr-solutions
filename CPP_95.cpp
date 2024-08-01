@@ -1,4 +1,6 @@
 #include <string>
+#include <cctype>
+#include <map>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -7,7 +9,7 @@ bool check_dict_case(map<string, string> dict) {
     bool all_upper = true;
 
     for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
+        if (!isalpha(pair.first[0])) {
             return false;
         }
         if (all_lower) {
