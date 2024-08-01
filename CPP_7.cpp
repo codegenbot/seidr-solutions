@@ -1,9 +1,8 @@
 ````
 bool issame(const vector<string>& a, const vector<string>& b) {
-    for (const auto& str : a) {
-        if (find(b.begin(), b.end(), str) == b.end()) {
+    for (const auto& s : a) {
+        if (find(b.begin(), b.end(), s) == b.end())
             return false;
-        }
     }
     return true;
 }
