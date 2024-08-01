@@ -1,6 +1,7 @@
 #include <string>
 #include <cassert>
 #include <iostream>
+#include <string> // Added to ensure std::to_string works correctly
 
 std::string change_base(int num, int base){
     std::string result = "";
