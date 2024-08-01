@@ -1,23 +1,31 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-
 using namespace std;
 
-int main() {
-    double startHeight, firstBounceHeight;
-    int numBounces;
+double calculateBouncinessIndex(double startingHeight, double firstBounceHeight) {
+    return firstBounceHeight / startingHeight;
+}
 
-    cin >> startHeight >> firstBounceHeight >> numBounces;
-
-    double bouncinessIndex = firstBounceHeight / startHeight;
-
+double calculateTotalDistance(double bouncinessIndex, int numBounces) {
     double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
+    for (int i = 1; i <= numBounces; ++i) {
         totalDistance += pow(bouncinessIndex, i);
     }
+    return totalDistance;
+}
 
-    cout << fixed << setprecision(6) << totalDistance << endl;
+int main() {
+    double startingHeight, firstBounceHeight;
+    int numBounces;
+
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+
+    double bouncinessIndex = calculateBouncinessIndex(startingHeight, firstBounceHeight);
+    double totalDistance = calculateTotalDistance(bouncinessIndex, numBounces);
+
+    cout << fixed << setprecision(5) << totalDistance << endl;
 
     return 0;
 }
