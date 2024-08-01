@@ -2,12 +2,14 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    stack = []
+    level = 0
     for char in paren_string:
         if char == '(':
-            stack.append(1)
+            level += 1
         elif char == ')':
-            stack.pop()
-    while stack:
-        result.append(stack.pop())
+            level -= 1
+        result.append(level)
     return result
+
+# Test the function
+print(parse_nested_parens("((()))"))
