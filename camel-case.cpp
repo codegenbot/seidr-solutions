@@ -8,7 +8,6 @@ int main() {
 
     bool capitalize = true;
     bool firstWord = true;
-    
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
