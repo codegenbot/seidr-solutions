@@ -15,4 +15,5 @@ def filter_by_prefix() -> None:
 
     print(f"The filtered strings are: {filtered_strings}")
 
+
 filter_by_prefix()
