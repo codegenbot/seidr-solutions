@@ -1,28 +1,32 @@
 Here is the solution:
 
-string camelCase(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.size()) {
-        if (str[i] == '-') {
-            i++;
-            continue;
+string camelCase(string s) {
+    vector<string> tokens = split(s, '-');
+    string result;
+    for (int i = 0; i < tokens.size(); i++) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
-        if (str[i] == ' ') {
-            while (str[i] == ' ') i++;
-            result += str.substr(i, 1).toupper();
-            result += str.substr(i + 1).substr(0, 1).toLowerCase();
-            i++;
-            while (i < str.size() && str[i] != ' ') i++;
-        } else {
-            if (result.size() == 0) {
-                result = str.substr(i, 1).toupper();
-                i++;
-            } else {
-                result += str.substr(i, 1);
-                i++;
-            }
+        result += tokens[i];
+        if (i != tokens.size() - 1) {
+            result += " ";
         }
     }
     return result;
+}
+
+vector<string> split(string s, char delimiter) {
+    vector<string> tokens;
+    string token;
+    for (int i = 0; i <= s.length(); i++) {
+        if (s[i] == delimiter || i == s.length()) {
+            if (!token.empty()) {
+                tokens.push_back(token);
+                token.clear();
+            }
+        } else {
+            token += s[i];
+        }
+    }
+    return tokens;
 }
