@@ -1,14 +1,14 @@
-```cpp
-bool correct_bracketing(const string& brackets) {
-    int i = 0;
-    while(i < brackets.length()) {
-        if(brackets[i] == '<') {
-            i++;
-            while(i < brackets.length() && brackets[i] != '>') i++;
-            if(i >= brackets.length()) return false;
-            i++;
-        } else if(brackets[i] == '>') return false;
-        else i++;
+#include <string>
+
+bool correct_bracketing(string brackets) {
+    int opening = 0;
+    for (char bracket : brackets) {
+        if (bracket == '<') {
+            opening++;
+        } else if (bracket == '>') {
+            if (opening == 0)
+                return false;
+            opening--;
+        }
     }
-    return true;
-}
+    return opening == 0;
