@@ -1,26 +1,12 @@
-bool issame(const vector<string> a, const vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
+using namespace std;
 
-int main(){
-    vector<string> input_strings = {"apple", "banana", "apricot", "cherry"};
-    string input_substring = "ap";
-    vector<string> expected_output = {"apple", "apricot"};
-    vector<string> output = filter_by_substring(input_strings, input_substring);
-    
-    if(issame(output, expected_output)){
-        cout << "Test passed!" << endl;
-    } else {
-        cout << "Test failed!" << endl;
-    }
-    
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
@@ -31,4 +17,10 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
         }
     }
     return filtered_strings;
+}
+
+int main(){
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    
+    return 0;
 }
