@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <iostream>
 
 int sumOfDigits(int n) {
     int sum = 0;
@@ -36,4 +38,31 @@ int findSumOfDigits(vector<int> lst) {
         return -1;
     else
         return sumOfDigits(maxPrime);
+}
+
+int main() {
+    std::vector<int> numbers;
+    int num;
+    
+    // Read input from user
+    std::cout << "Enter the number of integers: ";
+    int n;
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter integer " << i + 1 << ": ";
+        std::cin >> num;
+        numbers.push_back(num);
+    }
+    
+    // Call the function
+    int result = findSumOfDigits(numbers);
+    
+    // Print output
+    if (result == -1)
+        std::cout << "No prime found in the list.";
+    else
+        std::cout << "The sum of digits of the largest prime is: " << result;
+    
+    return 0;
 }
