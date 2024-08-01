@@ -48,12 +48,12 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+  assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
 
-    string input_numbers;
-    getline(std::cin, input_numbers);
-    
-    std::cout << sort_numbers(input_numbers) << std::endl;
-    
-    return 0;
+  string input_numbers;
+  getline(std::cin, input_numbers);
+  
+  std::cout << sort_numbers(input_numbers) << std::endl;
+  
+  return 0;
 }
