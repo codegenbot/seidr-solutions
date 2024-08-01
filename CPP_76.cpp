@@ -1,5 +1,6 @@
-Here is the completed code:
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
-    return round(pow(n, 1.0 / log2(x))) == n;
+    double y = pow(n, round(log(x)/log(n)));
+    return std::abs(y - x) < 1e-9;
 }
