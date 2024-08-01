@@ -17,9 +17,9 @@ int main() {
     }
 
     float total_price = 0.0;
-
+    
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (100 - discounts[i]) / 100;
+        total_price += prices[i] * (1 - discounts[i] / 100);
     }
 
     cout << fixed << total_price << endl;
