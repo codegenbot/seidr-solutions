@@ -23,7 +23,14 @@ int skjkasdkd(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst = {1,2,3,4,5};
-    cout << skjkasdkd(lst);
+    vector<int> lst;
+    int n;
+    cout << "Enter number of integers: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cout << "Enter integer " << (i+1) << ": ";
+        cin >> lst[i];
+    }
+    cout << "Sum of digits of the largest prime number is: " << skjkasdkd(lst);
     return 0;
 }
