@@ -10,6 +10,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int main(){
+int main() {
     // Existing main function code
 }
