@@ -3,7 +3,7 @@
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     stack<int> nesting_levels;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
@@ -13,6 +13,6 @@ vector<int> parse_nested_parens(string paren_string) {
             result.push_back(level);
         }
     }
-
+    
     return result;
 }
