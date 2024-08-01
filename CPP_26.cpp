@@ -1,9 +1,15 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
-    for (int num : numbers) {
-        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
-            uniqueNumbers.push_back(num);
+    vector<int> result = numbers;
+    sort(result.begin(), result.end());
+    for (int i = 0; i < result.size() - 1; i++) {
+        if (result[i] == result[i + 1]) {
+            result.erase(result.begin() + i);
+            i--;
         }
     }
-    return uniqueNumbers;
+    return result;
 }
