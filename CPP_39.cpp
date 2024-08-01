@@ -1,22 +1,32 @@
-#include <stdio.h>
-
+#include <iostream>
 using namespace std;
 
-int prime_fib(int n) {
-    int fib = 2, prev = 1;
-    for (int i = 2; ; i++) {
-        int temp = fib + prev;
-        if (n == 1) return 2;
-        if (n == 2) return 3;
-        if (n == 3) return 5;
-        if (n == 4) return 13;
-        if (n == 5) return 89;
-        prev = fib;
-        fib = temp;
-        for (int j = 2; temp % j != 0; j++);
-        if (j > 1) {
-            n--;
-            if (n == 0) return temp;
-        }
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
     }
+    return true;
+}
+
+int prime_fib(int n) {
+    int fib_num = 0, prev_prev = 0, prev = 1;
+    for (int i = 1; ; i++) {
+        int temp = prev + prev_prev;
+        if (isPrime(temp)) {
+            fib_num++;
+            if (fib_num == n) return temp;
+        }
+        prev_prev = prev;
+        prev = temp;
+    }
+}
+
+int main() {
+    cout << prime_fib(1) << endl; // prints 2
+    cout << prime_fib(2) << endl; // prints 3
+    cout << prime_fib(3) << endl; // prints 5
+    cout << prime_fib(4) << endl; // prints 13
+    cout << prime_fib(5) << endl; // prints 89
+    return 0;
 }
