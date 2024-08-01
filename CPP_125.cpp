@@ -1,9 +1,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
+    
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
+    
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
@@ -20,7 +20,7 @@ std::vector<std::string> split_words(std::string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    
+        
     if(result.size() == 1 && result[0].find(',') == std::string::npos){
         int count = 0;
         for(char c : result[0]){
@@ -30,10 +30,10 @@ std::vector<std::string> split_words(std::string txt){
         }
         result[0] = std::to_string(count);
     }
-    
+        
     return result;
 }
-
+    
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()){
         return false;
@@ -45,7 +45,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     }
     return true;
 }
-
+    
 int main() {
     std::string input1, input2;
     std::getline(std::cin, input1);
@@ -53,7 +53,7 @@ int main() {
     
     std::vector<std::string> a = split_words(input1);
     std::vector<std::string> b = split_words(input2);
-
+    
     if (issame(a, b)) {
         std::cout << "Same" << std::endl;
     } else {
