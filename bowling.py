@@ -5,7 +5,12 @@ def bowling_score(frames):
         if frames[i] == 'X':
             score += 30
         elif frames[i] == '/':
-            score += int(frames[i+1]) + 10
+            score += 10 + int(frames[i+1])
         else:
-            score += sum(map(int, frames[i:i+2])) + (10 if i < 9 and frames[i+2] != 'X' else 0)
+            first_roll = int(frames[i])
+            second_roll = int(frames[i+1])
+            if first_roll + second_roll >= 10:
+                score += first_roll + second_roll
+            else:
+                score += first_roll + second_roll
     return score
