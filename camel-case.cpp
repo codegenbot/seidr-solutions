@@ -1,4 +1,4 @@
-```cpp
+```
 int main() {
     void toCamelCase(string s) {
         string result = "";
@@ -23,4 +23,8 @@ int main() {
         }
         cout << result;
     }
+    string input;
+    cout << "Enter a kebab-case string: ";
+    cin >> input;
+    toCamelCase(input);
 }
