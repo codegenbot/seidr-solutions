@@ -6,12 +6,10 @@ std::string capitalize(const std::string& s) {
     if (s.empty()) {
         return s;
     }
-
-    std::string result = s[0] >= 'a' && s[0] <= 'z' ? toupper(s[0]) : tolower(s[0]);
+    std::string result = (s[0] >= 'a' && s[0] <= 'z') ? std::string(1, s[0]) : std::string(1, toupper(s[0]));
     for (int i = 1; i < s.size(); ++i) {
         result += tolower(s[i]);
     }
-
     return result;
 }
 
@@ -40,11 +38,11 @@ std::string camelCase(const std::string& s) {
     std::string result;
 
     for (const auto& word : words) {
-        if (!word.empty()) {
+        if (!word.empty()) { // Ignore empty strings
             if (!result.empty()) {
-                result += capitalize(word);
+                result += capitalize(word.substr(1)); // Add capitalized word to result
             } else {
-                result = capitalize(word);
+                result = capitalize(word); // First word, all caps
             }
         }
     }
