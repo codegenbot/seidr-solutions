@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 string sort_numbers(string numbers) {
     vector<string> numVec;
     string temp;
@@ -18,7 +20,7 @@ string sort_numbers(string numbers) {
 
     sort(numVec.begin(), numVec.end());
 
-    string result;
+    string result = "";
     for (int i = 0; i < numVec.size(); i++) {
         result += numVec[i] + " ";
     }
