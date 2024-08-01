@@ -1,8 +1,11 @@
+#include <algorithm>
+
 float median(vector<float> l) {
     sort(l.begin(), l.end());
     int n = l.size();
-    if (n % 2 == 1)
+    if (n % 2 == 1) {
         return l[n / 2];
-    else
+    } else {
         return (l[n / 2 - 1] + l[n / 2]) / 2.0;
+    }
 }
