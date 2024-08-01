@@ -1,8 +1,12 @@
 def add(x: int, y: int):
     return x + y
 
-inputs = input("Enter two integers separated by a space: ").split()
-x, y = map(int, inputs)
+try:
+    x = int(input("Enter first integer: "))
+    y = int(input("Enter second integer: "))
+except ValueError:
+    print("Please enter integer values only.")
+    exit()
 
 result = add(x, y)
 print("Sum of the two integers:", result)
