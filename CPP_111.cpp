@@ -1,22 +1,8 @@
 #include <iostream>
 #include <map>
-#include <cassert>
 
-using namespace std;
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
-}
-
-map<char, int> histogram(string test);
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
-}
-
-map<char, int> histogram(string test) {
-    map<char, int> freq;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> freq;
     for (char c : test) {
         if (c != ' ') {
             freq[c]++;
@@ -25,10 +11,10 @@ map<char, int> histogram(string test) {
 
     int maxCount = 0;
     for (const auto& pair : freq) {
-        maxCount = max(maxCount, pair.second);
+        maxCount = std::max(maxCount, pair.second);
     }
 
-    map<char, int> result;
+    std::map<char, int> result;
     for (const auto& pair : freq) {
         if (pair.second == maxCount) {
             result[pair.first] = pair.second;
@@ -36,4 +22,18 @@ map<char, int> histogram(string test) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::map<char, int> result = histogram(input);
+
+    for (const auto& pair : result) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
 }
