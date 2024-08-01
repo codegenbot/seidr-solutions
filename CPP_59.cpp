@@ -14,7 +14,7 @@ int largest_prime_factor(int n) {
             n /= i;
         }
     }
-    if (n > 2) {
+    if (n > 1) {
         maxPrime = n;
     }
     return maxPrime;
