@@ -1,34 +1,19 @@
+#include <stdio.h>
 #include <vector>
-
+#include <string>
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
-    int countEven = 0;
-    int countOdd = 0;
-
+    int even = 0;
+    int odd = 0;
+    
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
-        bool isPalindrome = true;
-
-        for (int j = 0; j < str.length() / 2; j++) {
-            if (str[j] != str[str.length() - 1 - j]) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if (isPalindrome) {
-            if (i % 2 == 0) {
-                countEven++;
-            } else {
-                countOdd++;
-            }
+        if (str == reverse(str).s) { // check if the number is palindrome
+            if (i % 2 == 0) even++; // increment even count if it's even
+            else odd++; // increment odd count if it's odd
         }
     }
-
-    result[0] = countEven;
-    result[1] = countOdd;
-
-    return result;
+    
+    return vector<int>{even, odd};
 }
