@@ -1,15 +1,3 @@
-int skjkasdkd(vector<int> lst){
-    int maxPrime = 0;
-    for (int i : lst) {
-        if (isPrime(i)) {
-            if (i > maxPrime) {
-                maxPrime = i;
-            }
-        }
-    }
-    return sumOfDigits(maxPrime);
-}
-
 bool isPrime(int n) {
     if (n <= 1)
         return false;
@@ -20,11 +8,20 @@ bool isPrime(int n) {
     return true;
 }
 
-int sumOfDigits(int n) {
-    int sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+int skjkasdkd(vector<int> lst) {
+    int maxPrime = -1, sum = 0;
+    for (int x : lst) {
+        if (isPrime(x)) {
+            if (x > maxPrime) {
+                maxPrime = x;
+            }
+        }
+    }
+    if (maxPrime != -1) {
+        while (maxPrime > 0) {
+            sum += maxPrime % 10;
+            maxPrime /= 10;
+        }
     }
     return sum;
 }
