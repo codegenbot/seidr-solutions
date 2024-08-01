@@ -1,15 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
+bool issame(const vector<string> a, const vector<string> b){
+    if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -17,17 +9,15 @@ bool issame(vector<string> a, vector<string> b){
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main(){
-    vector<string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
-    string substring = "an";
+    vector<string> input_strings = {"apple", "banana", "apricot", "cherry"};
+    string input_substring = "ap";
+    vector<string> expected_output = {"apple", "apricot"};
+    vector<string> output = filter_by_substring(input_strings, input_substring);
     
-    vector<string> expected_filtered_strings = {"banana", "orange"};
-    
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-    
-    if(issame(filtered_strings, expected_filtered_strings)){
-        std::cout << "Test passed" << std::endl;
+    if(issame(output, expected_output)){
+        cout << "Test passed!" << endl;
     } else {
-        std::cout << "Test failed" << std::endl;
+        cout << "Test failed!" << endl;
     }
     
     return 0;
