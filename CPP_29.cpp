@@ -1,48 +1,45 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+```
+bool issame(string s1, string s2) {
+    if (s1.length() != s2.length()) {
+        return false;
+    }
+    for (int i = 0; i < s1.length(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+int main() {
+    vector<string> strings;
+    string prefix;
+    
+    cout << "Enter the list of strings: ";
+    for (string str; cin >> str; ) {
+        strings.push_back(str);
+    }
+    
+    cout << "Enter the prefix: ";
+    cin >> prefix;
+
+    vector<string> result = filter_by_prefix(strings, prefix);
+
+    for (const auto& str : result) {
+        if (issame(prefix, str)) {
+            cout << str << endl;
+        }
+    }
+
+    return 0;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    std::vector<std::string> strings(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter string " << i+1 << ": ";
-        std::getline(std::cin, strings[i]);
-    }
-
-    std::string prefix;
-    std::cout << "Enter the prefix: ";
-    std::cin >> prefix;
-
-    std::vector<std::string> filtered = filter_by_prefix(strings, prefix);
-
-    if (issame(filtered, strings)) {
-        std::cout << "No strings match the given prefix.\n";
-    } else {
-        std::cout << "Strings matching the given prefix: ";
-        for (const auto& str : filtered) {
-            std::cout << str << " ";
-        }
-        std::cout << "\n";
-    }
-
-    return 0;
 }
