@@ -3,7 +3,5 @@ def normalize_numbers(numbers):
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-user_input = input().split()
-numbers = [int(num) for num in user_input]
-result = normalize_numbers(numbers)
-print(result)
+numbers = list(map(int, input().split()))
+print(normalize_numbers(numbers))
