@@ -1,6 +1,4 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -b / a
-    return x
+    a, b = xs[-1], xs[-2]
+    return -a / b
