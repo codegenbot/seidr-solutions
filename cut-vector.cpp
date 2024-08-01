@@ -2,20 +2,17 @@
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
     int minDiff = INT_MAX;
-    int pos = -1;
+    int index = -1;
     
-    for(int i=0; i<n-1; i++){
-        int diff = abs(nums[i] - nums[i+1]);
-        if(diff <= minDiff){
-            minDiff = diff;
-            pos = i;
+    for(int i = 0; i < nums.size() - 1; i++) {
+        if(abs(nums[i] - nums[i+1]) <= minDiff) {
+            minDiff = abs(nums[i] - nums[i+1]);
+            index = i;
         }
     }
     
-    vector<int> left, right;
-    left.assign(nums.begin(), nums.begin() + pos);
-    right.assign(nums.begin() + pos, nums.end());
+    vector<int> left(nums.begin(), nums.begin()+index+1);
+    vector<int> right(nums.begin()+index, nums.end());
     return {left, right};
 }
