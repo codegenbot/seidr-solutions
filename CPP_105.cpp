@@ -26,7 +26,6 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
+    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
     return result;
 }
-
-assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
