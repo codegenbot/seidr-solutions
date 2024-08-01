@@ -2,40 +2,58 @@
 #include <boost/any.hpp>
 #include <string>
 
-using boost::any;
-using namespace std;
+using namespace boost;
 
-any compare_one(any a, any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < (float)b ? &b : &a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < (double)b ? &b : &a;
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(float) || b.type() == typeid(double))) {
-        double val = stod(b.convert_to<string>().c_str());
-        if ((int)a < val) {
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        if (stof(a.convert_to<string>().c_str()) > a.convert_to<int>()) {
             return a;
         }
-       	else if ((int)a > val) {
+       	else if (stof(a.convert_to<string>().c_str()) < a.convert_to<int>()) {
             return b;
         }
 		else {
-            return any("None");
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (stof(a.convert_to<string>().c_str()) > (double)b) {
+            return a;
+        }
+		else if (stof(a.convert_to<string>().c_str()) < (double)b) {
+            return b;
+        }
+		else {
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        if (stof(a.convert_to<string>().c_str()) > (float)b) {
+            return a;
+        }
+		else if (stof(a.convert_to<string>().c_str()) < (float)b) {
+            return b;
+        }
+		else {
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        double val1 = stod(a.convert_to<string>().c_str());
-        double val2 = stod(b.convert_to<string>().c_str());
-        if (val1 < val2) {
+        if (stof(a.convert_to<string>().c_str()) > stof(b.convert_to<string>().c_str())) {
             return a;
         }
-		else if (val1 > val2) {
+		else if (stof(a.convert_to<string>().c_str()) < stof(b.convert_to<string>().c_str())) {
             return b;
         }
 		else {
-            return any("None");
+            return boost::any("None");
         }
     }
-	return any();
+    return boost::any();
 }
