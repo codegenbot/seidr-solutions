@@ -6,16 +6,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_list(const std::vector<int>& lst) {
-    std::vector<int> sorted_lst = lst;
-    std::sort(sorted_lst.begin(), sorted_lst.end());
-    
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::sort(lst.begin(), lst.end());
     std::vector<int> result;
-    int i = 0, j = sorted_lst.size() - 1;
+    int i = 0, j = lst.size() - 1;
     while (i <= j) {
-        result.push_back(sorted_lst[i++]);
+        result.push_back(lst[i++]);
         if (i <= j) {
-            result.push_back(sorted_lst[j--]);
+            result.push_back(lst[j--]);
         }
     }
     return result;
