@@ -1,12 +1,17 @@
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    for (int i = 1; ; i++) {
-        if ((n & 1) == 0) { // check if n is even
-            result.push_back(i * 2);
+    vector<int> pile;
+    int stones = n;
+    for (int i = 0; i < n; i++) {
+        if ((stones % 2) == 1) {
+            pile.push_back(stones);
         } else {
-            result.push_back(i * 2 - 1);
+            pile.push_back(stones + 1);
         }
-        if (i >= n) break;
+        stones += (stones % 2) ? 1 : 2;
     }
-    return result;
+    return pile;
 }
