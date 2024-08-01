@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <cstdio>
 
 int fruit_distribution(std::string s, int n){
     int apples = 0, oranges = 0;
