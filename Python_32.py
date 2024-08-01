@@ -5,6 +5,8 @@ def find_zero(xs: list):
 
     if len(xs) == 4:
         n = xs[3]
-        return (-b + (b**2 - 4*a*c)**0.5)/(2*a), (-b - (b**2 - 4*a*c)**0.5)/(2*a)
+        return (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a), (
+            -b - (b**2 - 4 * a * c) ** 0.5
+        ) / (2 * a)
     else:
         return -b / (2 * a)
