@@ -10,16 +10,18 @@ int main() {
     std::vector<int> indices;
     
     for (size_t i = 0; i < text.length(); ++i) {
-        bool found = true;
-        for (size_t j = 0; j < target.length(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
+        if (i + target.length() <= text.length()) {
+            bool found = true;
+            for (size_t j = 0; j < target.length(); ++j) {
+                if (text[i + j] != target[j]) {
+                    found = false;
+                    break;
+                }
             }
-        }
-        
-        if (found) {
-            indices.push_back(i);
+            
+            if (found) {
+                indices.push_back(i);
+            }
         }
     }
     
