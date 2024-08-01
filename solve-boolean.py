@@ -1,17 +1,13 @@
-```
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == "T":
         return True
-    elif expression == 'f':
+    elif expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (expression[0] == 't')
-            elif char == '|':
-                result |= (expression[0] == 't')
-            expression = expression[1:]
-        return result
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid Boolean expression")
+    elif "&" in expression:
+        a, b = expression.split("&")
+        return not (bool(a) and bool(b))
+    elif "|" in expression:
+        a, b = expression.split("|")
+        return bool(a) or bool(b)
