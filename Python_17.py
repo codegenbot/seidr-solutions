@@ -8,10 +8,8 @@ def parse_music(music_string: str) -> List[int]:
             note = ''
             for j in range(i+1, min(i+3, len(music_string))):
                 note += music_string[j]
-            if note not in notes:
-                return []  # or handle this error as you see fit
             beats.append(notes[note])
-            i += 2
+            i += len(note)
         else:
             beats.append(notes[music_string[i:i+2]])
             i += 2
