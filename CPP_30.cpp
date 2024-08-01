@@ -23,12 +23,13 @@ std::vector<float> get_positive(std::vector<float> nums) {
     return result;
 }
 
-int main() {
-    std::vector<float> vec1, vec2;
+// Read input vectors
 
-    // Read input vectors
+int  main() {
+    std::vector<float> vec1, vec2;
     float num;
     int n;
+
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
