@@ -1,15 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int score(string s);
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
-}
-
 int score(string s) {
     int frame = 1, score = 0, i = 0;
     while (frame <= 10) {
@@ -36,4 +27,11 @@ int score(string s) {
         frame++;
     }
     return score;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
+    return 0;
 }
