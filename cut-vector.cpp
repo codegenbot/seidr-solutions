@@ -2,42 +2,28 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
+    int min_diff = INT_MAX;
     vector<vector<int>> result;
     
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || vec[i] != vec[0]) {
-            vector<int> left;
-            for (int j = 0; j <= i; j++) {
-                left.push_back(vec[j]);
-            }
-            int diff = abs(left.back() - vec[i]);
-            for (int k = i + 1; k < n; k++) {
-                if (vec[k] != left.back() || abs(vec[k] - left.back()) > diff) {
-                    break;
-                }
-                left.push_back(vec[k]);
-            }
-            result.push_back(left);
+    for(int i = 1; i <= vec.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for(int j = 0; j < i; j++)
+            left_sum += vec[j];
+        for(int j = i; j < vec.size(); j++)
+            right_sum += vec[j];
+        
+        if(abs(left_sum - right_sum) <= min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            result = {{}}; // Initialize the result vector
+            
+            for(int k = 0; k < i; k++)
+                result[0].push_back(vec[k]);
+            result.push_back({}); // Add a new subvector
+            for(int k = i; k < vec.size(); k++)
+                result.back().push_back(vec[k]);
         }
     }
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto &x : vec) {
-        cin >> x;
-    }
-    vector<vector<int>> res = cutVector(vec);
-    for (const auto &v : res) {
-        for (int i : v) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    return 0;
 }
