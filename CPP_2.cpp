@@ -1,15 +1,16 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 double truncate_number(double number) {
     return number - std::floor(number);
 }
 
 int main() {
-    double num;
-    std::cin >> num;
-    std::cout << truncate_number(num) << std::endl;
+    double number;
+    std::cin >> number;
     
+    double result = truncate_number(number);
+    std::cout << result << std::endl;
+
     return 0;
 }
