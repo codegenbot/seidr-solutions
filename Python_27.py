@@ -4,6 +4,4 @@ def swap_case(string):
 def check(string):
     return swap_case(string)
 
-input_string = input("Enter a string: ")
-output = check(input_string)
-print(output)
+check("flip_case")
