@@ -1,7 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
@@ -11,16 +10,12 @@ double poly(const std::vector<double>& coeffs, double x){
     return result;
 }
 
-double find_zero(const std::vector<double>& coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
-    return -b / a;
-}
-
 int main() {
     std::vector<double> coeffs = {1, -5, 6};
 
-    double solution = find_zero(coeffs);
+    double a = coeffs[0];
+    double b = coeffs[1];
+    double solution = -b / a;
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
