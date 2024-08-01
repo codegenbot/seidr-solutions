@@ -1,42 +1,46 @@
+````
 #include <vector>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int text_len = text.length();
-    int target_len = target.length();
-
-    for(int i=0; i<=text_len-target_len; i++){
-        bool flag = true;
-        for(int j=0; j<target_len; j++){
-            if(text[i+j] != target[j]) {
-                flag = false;
+    int n = text.length();
+    int m = target.length();
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
                 break;
             }
         }
-        if(flag) result.push_back(i);
+        if (found) {
+            result.push_back(i);
+        }
     }
-    
     return result;
 }
 
 int gcd(int a, int b) {
-    while(b) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    if(num1 < 0 || num2 < 0) cout << "Please enter positive numbers." << endl;
-    else{
-        cout << gcd(num1, num2) << endl; // prints the greatest common divisor of the two input integers
-    }
-
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices)
+        cout << i << " ";
     return 0;
 }
+```
