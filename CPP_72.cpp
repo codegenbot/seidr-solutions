@@ -10,19 +10,25 @@ bool will_it_fly(const std::vector<int>& q, int w) {
 }
 
 int main() {
-    int n, w;
-    std::cin >> n >> w;
+    std::vector<int> weights;
+    int max_weight;
     
-    std::vector<int> weights(n);
+    int n;
+    std::cin >> n;
+    
     for (int i = 0; i < n; ++i) {
-        std::cin >> weights[i];
+        int weight;
+        std::cin >> weight;
+        weights.push_back(weight);
     }
     
-    if (will_it_fly(weights, w)) {
-        std::cout << "Yes, it will fly!" << std::endl;
+    std::cin >> max_weight;
+    
+    if (will_it_fly(weights, max_weight)) {
+        std::cout << "Yes\n";
     } else {
-        std::cout << "No, it will not fly!" << std::endl;
+        std::cout << "No\n";
     }
-
+    
     return 0;
 }
