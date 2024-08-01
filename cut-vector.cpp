@@ -39,4 +39,3 @@ int main() {
     for(int x : res.second) cout << x << ' ';
     cout << '\n';
     return 0;
-}
