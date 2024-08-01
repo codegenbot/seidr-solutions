@@ -1,3 +1,5 @@
+input_numbers = [int(input()) for _ in range(int(input()))]
+
 def find_closest_pair(numbers):
     numbers.sort()
     min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
@@ -8,6 +10,5 @@ def find_closest_pair(numbers):
     ][0]
     return closest_pair
 
-input_numbers = [int(x) for x in input().split()]
 result = find_closest_pair(input_numbers)
 print(result)
