@@ -1,24 +1,39 @@
+#include <vector>
+#include <queue>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<int>> visited(n, vector<int>(n, -1));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> , greater<> > pq;
+    pq.push({0, {0, 0}});
     vector<int> res;
-    for (int i = 0; i < k; ++i) {
-        int idx = -1;
-        int val = INT_MAX;
-        for (int j = 0; j < grid.size(); ++j) {
-            for (int col = 0; col < grid[j].size(); ++col) {
-                if (grid[j][col] <= val && find(res.begin(), res.end(), grid[j][col]) == res.end()) {
-                    idx = j * grid.size() + col;
-                    val = grid[j][col];
-                }
-            }
-        }
+
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+
+        if (visited[x][y] != -1) continue;
+        visited[x][y] = 0;
+
         res.push_back(val);
-        for (int i = 0; i < grid.size(); ++i) {
-            for (int j = 0; j < grid[i].size(); ++j) {
-                if (grid[i][j] == val) {
-                    grid[i][j] = INT_MAX;
-                }
+
+        for (int dx : {-1, 0, 1}) {
+            for (int dy : {-1, 0, 1}) {
+                int nx = x + dx;
+                int ny = y + dy;
+                if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+                if (visited[nx][ny] != -1) continue;
+
+                pq.push({val + grid[nx][ny], {nx, ny}});
             }
         }
+
+        if (res.size() == k) break;
     }
+
     return res;
 }
