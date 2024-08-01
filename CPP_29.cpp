@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -7,41 +5,45 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+vector<vector<string>> group_by_prefix(vector<string> strings) {
+    map<string, vector<string>> result;
     for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
+        string prefix = "";
+        int i = 0;
+        while (i < str.length() && str[i] != ' ') {
+            prefix += str[i];
+            i++;
         }
+        if (result.find(prefix) == result.end()) {
+            result[prefix] = vector<string>();
+        }
+        result[prefix].push_back(str);
     }
-    return result;
+    vector<vector<string>> final_result;
+    for (auto& pair : result) {
+        final_result.push_back(pair.second);
+    }
+    return final_result;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<std::string> strings(n);
+    cin >> n;
+    vector<string> strings(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> strings[i];
+        cin >> strings[i];
     }
     
-    std::string prefix;
-    std::cin >> prefix;
+    vector<vector<string>> result = group_by_prefix(strings);
     
-    std::vector<std::string> filteredStrings = filter_by_prefix(strings, prefix);
-    
-    bool isSame = true;
-    for (const auto& str : filteredStrings) {
-        if (!issame(filteredStrings, {str})) {
-            isSame = false;
-            break;
+    for (const auto& v : result) {
+        if (!v.empty()) {
+            cout << v[0];
+            for (int i = 1; i < v.size(); i++) {
+                cout << " " << v[i];
+            }
+            cout << endl;
         }
-    }
-    
-    if (isSame) {
-        std::cout << "All strings have the same prefix" << std::endl;
-    } else {
-        std::cout << "Not all strings have the same prefix" << std::endl;
     }
     
     return 0;
