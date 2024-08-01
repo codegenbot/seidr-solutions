@@ -1,26 +1,42 @@
-#include <vector>
+```c++
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
-    
     std::string result = "";
-    while (ss >> word) {
-        if(word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
+    bool isWordLongEnough = false;
+    for (char c : str) {
+        if (c == ' ') {
+            if (isWordLongEnough) {
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += str[wordLength - i - 1];
+                isWordLongEnough = false;
+            }
+            result += c;
+            wordLength = 0;
+        } else {
+            wordLength++;
+            if (wordLength >= 5) {
+                isWordLongEnough = true;
+            }
+            result += c;
+        }
     }
-    return result.substr(0, result.size()-1);
+    if (isWordLongEnough) {
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += str[wordLength - i - 1];
+    }
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string (or 'q' to quit): ";
+        std::cin >> str;
+        if (str == "q")
+            break;
+        std::cout << spinWords(str) << std::endl;
+    }
     return 0;
 }
