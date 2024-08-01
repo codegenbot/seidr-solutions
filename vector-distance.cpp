@@ -24,7 +24,7 @@ int main() {
     }
 
     double distance = sqrt(sum);
-    std::cout << fixed << distance << std::endl;
+    std::cout << std::fixed << distance << std::endl;
 
     return 0;
 }
