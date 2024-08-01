@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int specialFilter(vector<int> nums) {
     int count = 0;
@@ -11,8 +12,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 11, 12, 13, 14, 15};
+    vector<int> nums = {11, 12, 13, 14, 15};
     int count = specialFilter(nums);
-    cout << "Count: " << count << endl;
+    std::cout << "The count is: " << count << std::endl;
     return 0;
 }
