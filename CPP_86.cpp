@@ -1,6 +1,7 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 string original_order(string s) {
@@ -21,6 +22,6 @@ string original_order(string s) {
 }
 
 int main() {
-    assert(original_order("Hi. My name is Mister Robot. How are you?") == ".iH yM aemn si retsiM .toRbo HoW era ?uoy");
+    assert(original_order("Hi. My name is Mister Robot. How are you?") == ".iH My eman si retsiM .toboR woH era ?uoy");
     return 0;
 }
