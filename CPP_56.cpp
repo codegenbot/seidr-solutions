@@ -1,6 +1,6 @@
 #include <string>
 
-bool correct_bracketing(string brackets) {
+bool correct_bracketing(std::string brackets) {
     int opening = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
