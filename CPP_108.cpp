@@ -20,8 +20,14 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, -4, 5};
-    int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
+    std::vector<int> input;
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+    std::cout << count_nums(input) << std::endl;
     return 0;
 }
