@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 using namespace boost;
 
@@ -12,14 +13,30 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::any_cast<std::string>(std::max(a, b));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int ai = a.convert_to<int>();
-        long long bi = std::stoll(b.convert_to<std::string>());
-        return (ai > bi) ? a : ((ai < bi) ? b : boost::any("None"));
+        int aInt = a.convert_to<int>();
+        long bStr = std::stol(b.convert_to<std::string>());
+        if (aInt > bStr) {
+            return a;
+        }
+        else if (aInt < bStr) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        long long ai = std::stoll(a.convert_to<std::string>());
-        int bi = b.convert_to<int>();
-        return (ai > bi) ? a : ((ai < bi) ? b : boost::any("None"));
+        long aStr = std::stol(a.convert_to<std::string>());
+        int bInt = b.convert_to<int>();
+        if (aStr > bInt) {
+            return a;
+        }
+        else if (aStr < bInt) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
     else {
         return boost::any("None");
