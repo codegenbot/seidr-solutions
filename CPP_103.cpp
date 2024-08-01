@@ -1,13 +1,16 @@
-string rounded_avg(int n,int m){
-    if(n > m) return "-1";
-    int sum = 0;
-    for(int i=n; i<=m; i++) sum += i;
-    double avg = (double)sum / (m - n + 1);
-    int r = labs((int)round(avg));
-    string res = "";
-    while(r > 0){
-        res = (r & 1) ? "1" + res : "0" + res;
-        r >>= 1;
+Here is the completed code:
+
+string rounded_avg(int n, int m) {
+    if (n > m) return "-1";
+    long sum = 0;
+    for (int i = n; i <= m; i++) {
+        sum += i;
     }
-    return res;
+    double avg = round((double)sum / (m - n + 1));
+    string bin = "";
+    while (avg > 0) {
+        bin = (avg % 2 == 0 ? "0" : "1") + bin;
+        avg /= 2;
+    }
+    return bin;
 }
