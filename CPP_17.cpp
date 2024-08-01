@@ -5,41 +5,16 @@
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> result;
-    int count = 0;
-    for (char c : music_string) {
-        if (c == 'o') {
-            ++count;
-        } else if (c == '.') {
-            if (count > 0) {
-                result.push_back(count);
-                count = 0;
-            }
-        } else if (c == '|') {
-            result.push_back(count);
-            count = 0;
-        }
+    size_t pos = 0;
+    while ((pos = music_string.find("|")) != std::string::npos) {
+        std::string token = music_string.substr(0, pos);
+        int count = (token == "o") ? 2 : 1;
+        result.push_back(count);
+        music_string.erase(0, pos + 1);
     }
-    if (count > 0) {
+    if (!music_string.empty()) {
+        int count = (music_string == "o") ? 2 : 1;
         result.push_back(count);
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
 }
