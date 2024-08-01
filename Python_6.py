@@ -11,5 +11,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         result.append(level)
     return result
 
-# Test the function
 print(parse_nested_parens("((()))"))
