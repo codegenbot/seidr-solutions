@@ -1,20 +1,18 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
 std::vector<float> get_positive(const std::vector<float>& input) {
-    std::vector<float> positive_values;
-
-    for (float val : input) {
-        if (val > 0) {
-            positive_values.push_back(val);
+    std::vector<float> positive_elements;
+    for (const auto& element : input) {
+        if (element > 0) {
+            positive_elements.push_back(element);
         }
     }
-
-    return positive_values;
+    return positive_elements;
 }
 
 int main() {
