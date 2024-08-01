@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> freq;
@@ -31,8 +32,9 @@ int main() {
 
     std::map<char, int> result = histogram(input);
 
+    std::cout << "Character(s) with the highest frequency: ";
     for (const auto& pair : result) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+        std::cout << pair.first << " ";
     }
 
     return 0;
