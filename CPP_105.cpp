@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,16 +8,17 @@ bool isSame(vector<string> a, vector<string>b){
 }
 
 int main() {
+    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; ++i) {
+        int num;
         std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> arr[i];
+        std::cin >> num;
+        arr.push_back(num);
     }
-
+    
     vector<string> by_length(vector<int> arr) {
         vector<int> nums;
         for (int num : arr) {
@@ -63,15 +65,18 @@ int main() {
 
         return result;
     }
-
+    
     vector<string> output = by_length(arr);
-    bool same = isSame(output, {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"});
-
-    if(same) {
-        std::cout << "The numbers are in the order of their lengths." << std::endl;
-    } else {
-        std::cout << "The numbers are not in the order of their lengths." << std::endl;
+    std::cout << "The output is: ";
+    for(auto s : output) {
+        std::cout << s << " ";
     }
-
+    std::cout << std::endl;
+    if(isSame(by_length(arr), output)) {
+        std::cout << "The output is the same as expected." << std::endl;
+    } else {
+        std::cout << "The output is not the same as expected." << std::endl;
+    }
+    
     return 0;
 }
