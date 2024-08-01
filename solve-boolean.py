@@ -3,17 +3,9 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    else:
-        stack = []
-        for char in expression[::-1]:
-            if char in ["&", "|"]:
-                a, b = stack.pop(), stack.pop()
-                if char == "&":
-                    stack.append(a and b)
-                elif char == "|":
-                    stack.append(a or b)
-            else:
-                stack.append(char == "T")
-        return stack[0]
+    elif "&" in expression:
+        a, b = expression.split("&")
+        return bool(int(a)) and bool(int(b))
+    elif "|" in expression:
+        a, b = expression.split("|")
+        return bool(int(a)) or bool(int(b))
