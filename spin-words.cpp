@@ -1,38 +1,29 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    size_t pos = 0;
-    
-    while ((pos = sentence.find(" ")) != std::string::npos) {
-        size_t nextPos = sentence.find(" ", pos + 1);
-        
-        if (nextPos == std::string::npos || strlen(&sentence[pos]) >= 5) {
-            if(strlen(&sentence[pos]) >= 5) {
-                std::reverse(&sentence[pos], &sentence[nextPos]);
+string spinWords(string input) {
+    string output = "";
+    int wordLength = 0;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            if (wordLength >= 5) {
+                for (int j = wordLength - 1; j >= 0; j--) {
+                    output += input[i - j];
+                }
+            } else {
+                output += input.substr(i - wordLength, wordLength);
             }
-            
-            result += sentence.substr(pos, nextPos - pos) + " ";
+            wordLength = 0;
         } else {
-            result += sentence.substr(pos, nextPos - pos) + " ";
-            pos = nextPos;
+            wordLength++;
         }
     }
-    
-    if(strlen(&sentence[pos]) >= 5) {
-        std::reverse(&sentence[pos], &sentence[sentence.length()]);
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; i--) {
+            output += input[wordLength - i - 1];
+        }
+    } else {
+        output += input;
     }
-    
-    result += sentence.substr(pos);
-    
-    return result;
-}
-
-int main() {
-    std::string sentence;
-    while (std::cin >> sentence) {
-        std::cout << spinWords(sentence) << std::endl;
-    }
-    return 0;
+    return output;
 }
