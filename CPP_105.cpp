@@ -1,6 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <assert.h>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -11,7 +14,7 @@ vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            switch(i) {
+            switch (i) {
                 case 1:
                     result.push_back("One");
                     break;
@@ -40,5 +43,11 @@ vector<string> by_length(vector<int> arr) {
                     result.push_back("Nine");
             }
     }
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
 }
