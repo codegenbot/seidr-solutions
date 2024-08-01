@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
@@ -21,7 +19,7 @@ std::vector<float> get_positive(std::vector<float> nums) {
     return result;
 }
 
-int main() {
+int test_function() {
     std::vector<float> vec1, vec2;
 
     // Read input vectors
