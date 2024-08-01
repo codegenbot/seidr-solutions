@@ -17,9 +17,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile(n);
-    for (int i = 0; i < n; i++) {
-        pile[i] = (i + 1) * 2;
+    std::vector<int> pile;
+    for (int i = 1; i <= n; i++) {
+        pile.push_back(i * 2);
     }
     return pile;
 }
