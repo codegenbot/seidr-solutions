@@ -1,2 +1,2 @@
-def check(concatenate_strings):
+def concatenate(strings):
     return "".join(strings)
