@@ -1,17 +1,19 @@
+Here is the modified code:
+
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::any compare_one(boostany a, boostany b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         string s = (string)a.convert_to<string>();
         int i = std::stoi(s);
-        return (i > (int)b.convert_to<int>()) ? a : ((i < (int)b.convert_to<int>()) ? b : boost::any("None"));
+        return ((i > (int)b.convert_to<int>()) ? a : ((i < (int)b.convert_to<int>()) ? b : boost::any("None")));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
