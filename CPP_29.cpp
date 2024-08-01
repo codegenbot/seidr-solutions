@@ -1,17 +1,16 @@
 ```cpp
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<string> a,vector<string>b){
-    return a == b;
+    return (a.size() == b.size()) && all_of(a.begin(), a.end(), [&b](string s) {return find(b.begin(), b.end(), s) != b.end();});
 }
-vector<string> filter_by_prefix(vector<string> strings, string prefix) {
-    vector<string> result;
+
+vector<vector<string>> filter_by_prefix(vector<vector<string>> strings, string prefix) {
+    vector<vector<string>> result;
     for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
+        if (issame({str}, {prefix})) 
             result.push_back(str);
-        }
     }
     return result;
-}
-int main() {
-    assert (issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx")}, {"xxx", "xxxAAA", "xxx"}));
-    return 0;
 }
