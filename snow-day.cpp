@@ -1,18 +1,16 @@
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 int main() {
+    double current_snow, snow_fall_rate, snow_melt_rate;
     int hours;
-    float snow_on_ground, snow_fall_rate, snow_melt_rate;
-    cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
+    std::cin >> current_snow >> snow_fall_rate >> snow_melt_rate >> hours;
 
-    float current_snow = snow_on_ground;
-    for (int i = 0; i < hours; ++i) {
+    for (int i = 0; i < hours; i++) {
         current_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow);
     }
 
-    cout << fixed << setprecision(15) << current_snow << endl;
+    std::cout << std::fixed << std::setprecision(6) << current_snow << std::endl;
 
     return 0;
 }
