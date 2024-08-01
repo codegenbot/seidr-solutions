@@ -8,29 +8,18 @@ bool isSame(vector<string> a, vector<string>b){
 }
 
 int main() {
-    std::vector<int> arr;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        arr.push_back(num);
-    }
-    
-    vector<string> by_length(vector<int> arr) {
-        vector<int> nums;
+    std::vector<std::string> by_length(std::vector<int> arr) {
+        std::vector<int> nums;
         for (int num : arr) {
             if (num >= 1 && num <= 9) {
                 nums.push_back(num);
             }
         }
 
-        sort(nums.begin(), nums.end());
-        reverse(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
+        std::reverse(nums.begin(), nums.end());
 
-        vector<string> result;
+        std::vector<std::string> result;
         for (int num : nums) {
             switch (num) {
                 case 1:
@@ -65,18 +54,11 @@ int main() {
 
         return result;
     }
-    
-    vector<string> output = by_length(arr);
-    std::cout << "The output is: ";
-    for(auto s : output) {
-        std::cout << s << " ";
+
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<std::string> output = by_length(arr);
+
+    for (const auto& str : output) {
+        std::cout << str << " ";
     }
-    std::cout << std::endl;
-    if(isSame(by_length(arr), output)) {
-        std::cout << "The output is the same as expected." << std::endl;
-    } else {
-        std::cout << "The output is not the same as expected." << std::endl;
-    }
-    
-    return 0;
 }
