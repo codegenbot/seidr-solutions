@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```c++
 #include <string>
 
 int mastermind(string code, string guess) {
