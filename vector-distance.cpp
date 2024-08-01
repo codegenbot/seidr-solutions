@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         double val1, val2;
         std::cin >> val1 >> val2;
-        vec2[i] = val1 - val2;  
+        vec2[i] = val1 - val2;  // Calculate vec2 element from the input values
     }
 
     double sum = 0.0;
