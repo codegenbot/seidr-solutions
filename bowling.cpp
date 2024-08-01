@@ -1,30 +1,15 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> rolls;
-
-    for (char c : s) {
-        if (c == '/') {
-            if (roll > 0) {
-                if (roll < 10) {
-                    score += 10 - roll;
-                } else {
-                    score += roll;
-                }
-            }
-            roll = 0;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            int first = s[i-1] - '0';
+            int second = s[i+1] - '0';
+            score += first + second;
+        } else if (isdigit(s[i])) {
+            score += s[i] - '0';
         } else {
-            roll++;
+            score += 10;
         }
     }
-
-    if (roll > 0) {
-        if (roll < 10) {
-            score += 10 - roll;
-        } else {
-            score += roll;
-        }
-    }
-
     return score;
 }
