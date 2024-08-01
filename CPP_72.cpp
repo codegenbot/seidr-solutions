@@ -1,11 +1,8 @@
-bool will_it_fly(std::vector<int> q, int w) {
-    int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
-    }
+bool will_it_fly(const vector<int>& q, int w) {
+    int sum = accumulate(q.begin(), q.end(), 0);
     
-    if (sum > w) {
-        return false;
+    if (q.size() <= 1) {
+        return sum <= w;
     }
     
     for (int i = 0; i < q.size() / 2; i++) {
@@ -14,5 +11,5 @@ bool will_it_fly(std::vector<int> q, int w) {
         }
     }
     
-    return true;
+    return sum <= w;
 }
