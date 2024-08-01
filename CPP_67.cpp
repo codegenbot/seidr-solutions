@@ -1,27 +1,25 @@
-#include <stdio.h>
-#include <string>
+#include<string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
     size_t pos = 0;
-    string apple_str, orange_str;
-    
-    while ((pos = s.find(" apples")) != string::npos) {
-        apple_str = " " + to_string(n - s.erase(pos, 7).find_last_of(' ') - 1);
-        break;
+    string temp = "";
+    for (size_t i = 0; i < s.length(); i++) {
+        if (isdigit(s[i])) {
+            temp += s[i];
+        } else if (!temp.empty()) {
+            pos = i;
+            break;
+        }
     }
-    
-    if (s.find(" oranges") == string::npos) {
-        return n;
+    int total = stoi(temp);
+    string[] words = s.split(" ");
+    for (int i = 0; i < words.length; i++) {
+        if (words[i].contains("apples") || words[i].contains("oranges")) {
+            temp = words[i].split(" ")[0];
+            int count = stoi(temp);
+            total -= count;
+        }
     }
-    
-    while ((pos = s.find(" oranges")) != string::npos) {
-        orange_str = " " + to_string(n - s.erase(pos, 8).find_last_of(' ') - 1);
-        break;
-    }
-    
-    size_t apple_count = stoi(apple_str.substr(2));
-    size_t orange_count = stoi(orange_str.substr(2));
-    
-    return n - (apple_count + orange_count);
+    return n - total;
 }
