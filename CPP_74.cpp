@@ -13,7 +13,7 @@ int totalChars(const vector<string>& lst) {
     return total;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const vector<string>& a, const vector<string>& b) {
     return totalChars(a) == totalChars(b);
 }
 
@@ -27,6 +27,6 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
 
 int main() {
     assert(issame(total_match({"this"}, {}), {}));
-    
+
     return 0;
 }
