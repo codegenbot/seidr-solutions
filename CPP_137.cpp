@@ -1,52 +1,34 @@
-#include <boost/any.hpp>
+#include <boost/variant/any.hpp>
 #include <string>
-#include <iostream>
-
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)std::max((double)a.convert_to<int>(), b.convert_to<double>());
+        return (int)a > (float)b ? a : ((float)b < 1 ? "None" : b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a > (double)b ? a : ((double)b < 1 ? "None" : b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : ((int)b < 1 ? "None" : b);
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > (int)b ? a : ((int)b < 1 ? "None" : b);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string s = (std::string)a;
+        float f = (float)b;
+        return f > atof(s.c_str()) ? a : (f < 1 ? "None" : b);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        std::string s = (std::string)a;
+        double d = (double)b;
+        return d > atof(s.c_str()) ? a : (d < 1 ? "None" : b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float f = (float)a;
+        std::string s = (std::string)b;
+        return atof(s.c_str()) > f ? boost::any(b) : (f < 1 ? "None" : a);
+    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        double d = (double)a;
+        std::string s = (std::string)b;
+        return atof(s.c_str()) > d ? boost::any(b) : (d < 1 ? "None" : a);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string sa = (std::string)a, sb = (std::string)b;
+        return sa > sb ? a : (sa == sb ? boost::any("None") : b);
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return std::any_cast<double>(b);
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return (std::string)std::max(a.convert_to<std::string>(), b.convert_to<std::string>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int aInt = a.convert_to<int>();
-        std::string bStr = b.convert_to<std::string>();
-        return aInt > std::stoi(bStr) ? a : b;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string aStr = a.convert_to<std::string>();
-        int bInt = b.convert_to<int>();
-        return std::stoi(aStr) > bInt ? a : b;
-    }
-    else {
-        return boost::any("None");
-    }
-}
-
-int main() {
-    boost::any a(boost::any_cast<int>(10));
-    boost::any b(boost::any_cast<float>(20.5f));
-
-    boost::any result = compare_one(a, b);
-    
-    if (result.type() == typeid(int)) {
-        std::cout << "The maximum is: " << boost::any_cast<int>(result) << std::endl;
-    }
-    else if (result.type() == typeid(double)) {
-        std::cout << "The maximum is: " << boost::any_cast<double>(result) << std::endl;
-    }
-    else if (result.type() == typeid(std::string)) {
-        std::cout << "The maximum is: " << boost::any_cast<std::string>(result) << std::endl;
-    }
-    else {
-        std::cout << "The maximum is: None" << std::endl;
-    }
-
-    return 0;
+    return a;
 }
