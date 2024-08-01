@@ -1,13 +1,18 @@
-string fix_spaces(string text){
+#include <string>
+
+using namespace std;
+
+string fix_spaces(string text) {
     string result = "";
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 0 || i>0) result += '-';
-                else continue;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (i > 0 && result[result.length()-1] == ' ' &&
+                (i == text.length() - 1 || text[i+1] != ' ')) {
+                result += "-";
+            } else {
+                result += "_";
             }
-            result += '_';
-        }else{
+        } else {
             result += text[i];
         }
     }
