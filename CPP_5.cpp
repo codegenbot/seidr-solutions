@@ -16,5 +16,6 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 int main() {
+    // Add function calls and assertions here
     return 0;
 }
