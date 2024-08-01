@@ -22,33 +22,32 @@ int main() {
         {"nine", 9}
     };
 
-    std::string input_numbers;
-    std::cout << "Enter numbers separated by spaces: ";
-    std::getline(std::cin, input_numbers);
+    std::string input;
+    std::cout << "Enter numbers separated by space: ";
+    std::getline(std::cin, input);
 
-    std::string sorted_output = sort_numbers(input_numbers);
-    std::cout << "Sorted numbers: " << sorted_output << std::endl;
+    std::cout << sort_numbers(input) << std::endl;
 
     return 0;
 }
 
-string sort_numbers(string numbers) {
+string sort_numbers(string numbers){
     map<int, string> rev_num_map;
-    for(auto it : num_map) {
+    for(auto it : num_map){
         rev_num_map[it.second] = it.first;
     }
 
     vector<int> sorted_nums;
-    std::stringstream ss(numbers);
-    std::string token;
-    while(std::getline(ss, token, ' ')) {
+    stringstream ss(numbers);
+    string token;
+    while(getline(ss, token, ' ')){
         sorted_nums.push_back(num_map[token]);
     }
 
-    std::sort(sorted_nums.begin(), sorted_nums.end());
+    sort(sorted_nums.begin(), sorted_nums.end());
 
-    std::string result;
-    for(auto num : sorted_nums) {
+    string result;
+    for(auto num : sorted_nums){
         result += rev_num_map[num] + " ";
     }
 
