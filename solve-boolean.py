@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -6,11 +5,7 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (expression[expression.index(char) + 1] == 'T')
-            elif char == '|':
-                result |= (expression[expression.index(char) + 1] == 'T')
-        return result
+    elif '&' in expression:
+        return all(map(lambda x: x.lower() != 'f', expression))
+    elif '|' in expression:
+        return any(map(lambda x: x.lower() != 'f', expression))
