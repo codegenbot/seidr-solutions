@@ -1,16 +1,33 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!ops.empty() && ops.top() == '|')
-                ops.pop();
-            if (!ops.empty() && ops.top() == '&') 
-                ops.pop();
+bool solveBoolean(string s) {
+    if (s == "T" || s == "t")
+        return true;
+    else if (s == "F" || s == "f")
+        return false;
+    else if (s.length() > 1 && s[0] == 'n' && s[1] == '&') {
+        bool first = solveBoolean(s.substr(2));
+        for (int i = 2; i < s.length(); ) {
+            if (s[i] != '&')
+                break;
+            i++;
+            if (!first)
+                return false;
+            first = solveBoolean(s.substr(i));
         }
-        else if (expression[i] == '|') 
-            ops.push(expression[i]);
-    }
-    return expression[0] == 't';
+        return first;
+    } else if (s.length() > 1 && s[0] == '|') {
+        bool first = solveBoolean(s.substr(1, 1));
+        for (int i = 2; i < s.length(); ) {
+            if (s[i] != '|')
+                break;
+            i++;
+            if (!first)
+                return true;
+            first = solveBoolean(s.substr(i));
+        }
+        return first;
+    } else
+        return false;
 }
