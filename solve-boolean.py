@@ -1,15 +1,11 @@
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == "T":
         return True
-    elif expression == 'f':
+    elif expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
-    elif '&' in expression:
-        parts = expression.split('&')
-        return all(solve_boolean(part) for part in parts)
-    elif '|' in expression:
-        parts = expression.split('|')
-        return any(solve_boolean(part) for part in parts)
-    else:
-        raise ValueError("Invalid input")
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return bool(int(left)) and bool(int(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(int(left)) or bool(int(right))
