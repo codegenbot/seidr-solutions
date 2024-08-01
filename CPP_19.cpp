@@ -1,23 +1,31 @@
 #include <iostream>
-#include <cassert>
-#include <sstream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-std::string sort_numbers(const std::string &numbers_str) {
-    std::stringstream ss(numbers_str);
-    std::vector<std::string> numbers;
-    std::string number;
-    while (ss >> number) {
-        numbers.push_back(number);
+std::string sort_numbers(std::string numbers) {
+    std::vector<std::string> words = {"zero", "one", "two", "three", "four", "five", "six"};
+    std::vector<std::string> input;
+    std::string word;
+    for (char c : numbers) {
+        if (c == ' ') {
+            input.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
     }
-    std::sort(numbers.begin(), numbers.end());
-    std::stringstream result_ss;
-    for (const auto &num : numbers) {
-        result_ss << num << " ";
+    input.push_back(word);
+    std::sort(input.begin(), input.end(), [&](const std::string &a, const std::string &b) {
+        return std::find(words.begin(), words.end(), a) < std::find(words.begin(), words.end(), b);
+    });
+    std::string result;
+    for (const std::string &w : input) {
+        result += w + " ";
     }
-    return result_ss.str();
+    result.pop_back(); // remove extra space at the end
+    return result;
 }
 
 int main() {
