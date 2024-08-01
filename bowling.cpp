@@ -1,16 +1,20 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (s[i] == '/') {
-            continue;
-        } else {
-            int count = 0;
-            while (i < s.size() && (s[i] >= '0' && s[i] <= '9')) {
-                count = count * 10 + (s[i++] - '0');
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (5 - (roll == 1 ?stoi(string(1,c)) : stoi(string(1,c-48))));
             }
-            score += (count == 10) ? 10 : count;
+            roll = 0;
+        } else if (c >= 'X' && c <= '9') {
+            int val = c - '0';
+            if (val < 10) {
+                score += val;
+            } else {
+                score += 10 + (roll == 1 ? stoi(string(1,c-48)) : stoi(string(1,c-48)));
+            }
+            roll++;
         }
     }
     return score;
