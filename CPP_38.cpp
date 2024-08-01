@@ -1,27 +1,43 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-std::string encode_cyclic(std::string s){
-    std::string output;
-    for (int i = 0; i < s.length(); i++)
+using namespace std;
+
+string encode_cyclic(string s){
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i++)
     {
-        output += s[(i + 2) % s.length()];
+        x = s.substr(i, 1);
+        int pos = (i * 3) % l;
+        output += x;
+        output += s[pos];
     }
+    
     return output;
 }
 
-std::string decode_cyclic(std::string s){
-    std::string output;
-    for (int i = 0; i < s.length(); i++)
+string decode_cyclic(string s){ 
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i += 2)
     {
-        output += s[(i - 2 + s.length()) % s.length()];
+        x = s.substr(i, 1);
+        output += x;
     }
+    
     return output;
 }
 
 int main() {
-    std::string str = "HelloWorld";
-    std::string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
+    string input_string;
+    cin >> input_string;
+    string encoded_str = encode_cyclic(input_string);
+    assert(decode_cyclic(encoded_str) == input_string);
     return 0;
 }
