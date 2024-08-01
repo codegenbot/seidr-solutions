@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -15,3 +15,4 @@ string flip_case(string str){
             result += c;
     }
     return result;
+}
