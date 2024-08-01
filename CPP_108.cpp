@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -31,15 +33,12 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input; 
+    vector<int> input;
     int num;
-    while (true) {
-        cout << "Enter a number (-1 to stop): ";
-        cin >> num;
-        if (num == -1) break;
+    cout << "Enter numbers (negative to stop): ";
+    while ((cin >> num) && (num >= 0)) {
         input.push_back(num);
     }
-
     cout << "Count: " << count_nums(input) << endl;
 
     return 0;
