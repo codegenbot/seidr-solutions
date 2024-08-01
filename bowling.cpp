@@ -1,10 +1,9 @@
-```cpp
 int bowlingScore(const std::string &frames) {
     int score = 0;
     for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // Strike
+        if (frames[i] == 'X') { 
             score += 10 + scoring(&frames.substr(i+1));
-        } else if (frames[i] == '/') { // Spare
+        } else if (frames[i] == '/') { 
             int spareValue = 10 - scoring(&frames.substr(0, i)).back();
             score += 10 + spareValue;
             i++;
@@ -31,4 +30,3 @@ int scoring(const std::string &str) {
         }
     }
     return result;
-}
