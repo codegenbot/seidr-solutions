@@ -10,22 +10,9 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             water += grid[i][j];
         }
         
-        while (water > 0) {
+        while (water > capacity) {
             res++;
-            if (capacity >= water) {
-                capacity -= water;
-                water = 0;
-            } else {
-                int remaining_water = capacity;
-                capacity = 0;
-                for (int j = 0; j < m; ++j) {
-                    while (grid[i][j] > 0 && remaining_water > 0) {
-                        grid[i][j]--;
-                        remaining_water--;
-                    }
-                }
-                water -= remaining_water;
-            }
+            water -= capacity;
         }
     }
     
