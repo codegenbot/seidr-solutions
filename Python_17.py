@@ -8,9 +8,11 @@ def parse_music(music_string: str) -> List[int]:
                 music_list.append(2)
                 i += 2
             else:
-                music_list.extend([4, 4])
+                for _ in range(4):
+                    music_list.append(1)
+                    i += 1
+        elif music_string[i:i+3] == 'o..':
+            for _ in range(3):
+                music_list.append(1)
                 i += 1
-        elif music_string[i:i+3] == '.|.|':
-            music_list.append(1)
-            i += 3
     return music_list
