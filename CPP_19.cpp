@@ -1,35 +1,21 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+#include <iostream>
+#include <cassert>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
-string sort_numbers(string numbers) {
-    string result = "";
-    map<int, string> sorted_numbers;
-    
-    size_t start = 0, end = numbers.find(" ");
-    while (end != string::npos) {
-        string num_str = numbers.substr(start, end - start);
-        sorted_numbers[number_map[num_str]] = num_str;
-        start = end + 1;
-        end = numbers.find(" ", start);
+std::string sort_numbers(const std::string &numbers_str) {
+    std::stringstream ss(numbers_str);
+    std::vector<std::string> numbers;
+    std::string number;
+    while (ss >> number) {
+        numbers.push_back(number);
     }
-    
-    string num_str = numbers.substr(start);
-    sorted_numbers[number_map[num_str]] = num_str;
-    
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
+    std::sort(numbers.begin(), numbers.end());
+    std::stringstream result_ss;
+    for (const auto &num : numbers) {
+        result_ss << num << " ";
     }
-    
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+    return result_ss.str();
 }
