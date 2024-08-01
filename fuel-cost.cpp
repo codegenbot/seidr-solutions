@@ -4,9 +4,23 @@ using namespace std;
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int result = (i / 3);
-        result = result > 0 ? result - 2 : 0;
-        sum += result;
+        int x = i / 3;
+        if(x<1)
+            x=0;
+        else
+            x--;
+        sum += x;
     }
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << fuelCost(v) << endl;
+    return 0;
 }
