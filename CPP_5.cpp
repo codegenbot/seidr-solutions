@@ -1,32 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
+using namespace std;
+
+vector<int> intersperse(vector<int> numbers, int delimeter) {
+    vector<int> result;
+    if (numbers.empty()) {
+        return result;
     }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
+    result.push_back(numbers[0]);
+    for (int i = 1; i < numbers.size(); ++i) {
+        result.push_back(delimeter);
+        result.push_back(numbers[i]);
     }
-    return true;
+    return result;
 }
 
-vector<int> intersperse(vector<int> numbers, int delimeter);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 int main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
-}
-
-vector<int> intersperse(vector<int> numbers, int delimeter){
-    vector<int> result;
-    for(int i=0; i<numbers.size(); i++){
-        result.push_back(numbers[i]);
-        if(i < numbers.size()-1){
-            result.push_back(delimeter);
-        }
-    }
-    return result;
 }
