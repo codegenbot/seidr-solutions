@@ -9,6 +9,20 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
+int main() {
+    // Example usage
+    vector<vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int x = 5;
+    vector<vector<int>> result = get_row(lst, x);
+
+    // Output the result
+    for (const vector<int>& res : result) {
+        cout << res[0] << " " << res[1] << endl;
+    }
+
+    return 0;
+}
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
@@ -20,9 +34,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     }
     sort(result.begin(), result.end(), issame);
     return result;
-}
-
-int main() {
-    // Input reading and further necessary logic can be added here
-    return 0;
 }
