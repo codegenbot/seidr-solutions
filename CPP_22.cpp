@@ -3,11 +3,8 @@
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        try {
-            int val = boost::any_cast<int>(value);
-            result.push_back(val);
-        } catch (...) {
-            // ignore non-int values
+        if (any_cast<int>(value).has_value()) {
+            result.push_back(any_cast<int>(value).get());
         }
     }
     return result;
