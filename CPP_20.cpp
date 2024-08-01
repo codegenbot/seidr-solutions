@@ -13,7 +13,8 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
+                closest_pair.first = min(numbers[i], numbers[j]);
+                closest_pair.second = max(numbers[i], numbers[j]);
             }
         }
     }
@@ -21,17 +22,19 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     return closest_pair;
 }
 
-bool areSame(vector<float> a,vector<float>b){
+bool areSame(vector<float> a, vector<float> b){
     if(a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++){
-        if(abs(a[i] - b[i]) > 1e-5)
+
+    for(int i=0; i<a.size();i++){
+        if(std::abs(a[i]-b[i]) > 1e-6)
             return false;
     }
+
     return true;
 }
 
 int main() {
-    assert(areSame({round(2.2), round(3.1)}, {round(1.1), round(4.1), round(5.1)}));
+    assert(areSame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
     return 0;
 }
