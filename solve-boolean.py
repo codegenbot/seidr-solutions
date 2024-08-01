@@ -1,10 +1,15 @@
-def solve_boolean(boolean_expression):
-    result = True if boolean_expression == 't' else False
-    
-    for i in range(len(boolean_expression) - 1):
-        if boolean_expression[i] in ['|', '&']:
-            left = bool(result)
-            right = True if boolean_expression[i+1] == 't' else False
-            result = (left and right) if boolean_expression[i] == '&' else (left or right)
-
-    return result
+def solveBoolean(expression):
+    stack = []
+    for char in expression:
+        if char in ['|', '&']:
+            second = stack.pop()
+            first = stack.pop()
+            if char == '|':
+                stack.append(bool(first) or bool(second))
+            else:
+                stack.append(bool(first) and bool(second))
+        elif char in ['T', 't']:
+            stack.append(True)
+        elif char in ['F', 'f']:
+            stack.append(False)
+    return stack[0]
