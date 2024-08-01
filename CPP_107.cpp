@@ -1,13 +1,21 @@
-bool issame(std::vector<int> a, std::vector<int> b){
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> even_odd_palindrome(int n){
-    std::vector<int> res(2, 0);
+vector<int> even_odd_palindrome(int n){
+    vector<int> res(2, 0);
     for(int i = 1; i <= n; ++i){
-        std::string s = std::to_string(i);
-        std::string rev = s;
-        std::reverse(rev.begin(), rev.end());
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
         if(s == rev){
             if(i % 2 == 0){
                 res[0]++;
@@ -19,17 +27,16 @@ std::vector<int> even_odd_palindrome(int n){
     return res;
 }
 
-// int main(){   // Comment out the duplicate main function definition
 int main(){
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> result = even_odd_palindrome(n);
+    vector<int> result = even_odd_palindrome(n);
     
     assert(issame(result, {0, 1}));
 
     for(int i = 0; i < result.size(); ++i){
-        std::cout << result[i] << " ";
+        cout << result[i] << " ";
     }
     
     return 0;
