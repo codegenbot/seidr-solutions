@@ -1,7 +1,8 @@
-#include <cmath>
 #include <iostream>
-#include <iomanip>
 using namespace std;
+
+#include <cmath>
+#include <iomanip>
 
 int main() {
     double startHeight, firstBounceHeight;
@@ -16,7 +17,7 @@ int main() {
         totalDistance += pow(bouncinessIndex, i);
     }
 
-    cout.precision(6); // To get the correct number of decimal places
+    cout.precision(6); 
     cout << fixed << setprecision(6) << totalDistance << endl;
 
     return 0;
