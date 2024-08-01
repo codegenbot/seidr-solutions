@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -27,5 +28,4 @@ int count_nums(vector<int> v) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    return 0;
 }
