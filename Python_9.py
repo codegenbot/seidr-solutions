@@ -1,6 +1,8 @@
 from typing import List
+
+
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
+    max_numbers = []
     for i in range(len(numbers)):
-        result.append(max(numbers[: i + 1]))
-    return result
+        max_numbers.append(max(numbers[: i + 1]))
+    return max_numbers
