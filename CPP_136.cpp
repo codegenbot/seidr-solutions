@@ -3,21 +3,17 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result;
-    
-    int maxNegative = 0;
-    int minPositive = INT_MAX;
-    
-    for (int num : lst) {
-        if (num < 0 && num > maxNegative) {
-            maxNegative = num;
-        } else if (num > 0 && num < minPositive) {
-            minPositive = num;
+    vector<int> result(2);
+    result[0] = 0;
+    result[1] = 0;
+
+    for (int i : lst) {
+        if (i < 0 && result[0] == 0) {
+            result[0] = i;
+        } else if (i > 0 && result[1] == 0) {
+            result[1] = i;
         }
     }
-    
-    result.push_back(maxNegative);
-    result.push_back(minPositive);
-    
+
     return result;
 }
