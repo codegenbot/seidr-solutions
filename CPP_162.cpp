@@ -15,5 +15,4 @@ for (int i = 0; i < 4; i++) {
     result += string(buff);
 }
 
-string result = text.empty() ? "None" : result;
-return result;
+string result = text.empty() ? "None" : "";
