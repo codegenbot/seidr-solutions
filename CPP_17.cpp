@@ -36,6 +36,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{4, 1, 4, 1, 2, 4, 4, 4}, std::vector<int>{4, 1, 4, 1, 2, 4, 4, 4}));
+    assert(issame(std::vector<int>({ 4, 1, 4, 1, 2, 4, 4, 4 }), std::vector<int>({ 4, 1, 4, 1, 2, 4, 4, 4 })));
     return 0;
 }
