@@ -1,9 +1,7 @@
-Here is the completed code:
-
 int search(vector<int> lst) {
     int max = 0;
     for (auto x : lst) {
-        if (x > 0 && x <= count(lst.begin(), lst.end(), x)) {
+        if (x > 0 && x >= max) {
             max = x;
         }
     }
