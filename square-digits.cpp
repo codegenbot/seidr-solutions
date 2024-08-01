@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    string input = "493193";
+    string input = "493193"; // replace with your desired input
     string output = squareDigits(input);
     cout << output << endl;
     return 0;
