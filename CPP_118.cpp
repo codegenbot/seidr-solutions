@@ -1,15 +1,9 @@
-#include <iostream>
 #include <cctype>
+#include <string>
 
-char findPunct(const char* word) {
-    for (int i = 0; word[i]; i++) {
-        if (ispunct(word[i])) return word[i];
+std::string firstPunct(const std::string& word) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (ispunct(word[i])) return std::string(1, word[i]);
     }
-    return '\0';
-}
-
-int main() {
-    const char* word = "Hello, World!";
-    std::cout << "The first punctuation mark is: " << findPunct(word) << std::endl;
-    return 0;
+    return "";
 }
