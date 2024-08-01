@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,7 +12,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             }
         }
         while (curr > 0) {
-            int fill = std::min(curr, capacity);
+            int fill = min(curr, capacity);
             ans++;
             curr -= fill;
         }
@@ -22,8 +21,8 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 0, 0}, {1, 1, 1}};
+    std::vector<std::vector<int>> grid = {{1, 1, 1}, {0, 0, 0}};
     int capacity = 2;
-    std::cout << "Maximum number of times to fill: " << max_fill(grid, capacity) << std::endl;
+    std::cout << "The maximum number of times the tank can be filled is: " << max_fill(grid, capacity) << std::endl;
     return 0;
 }
