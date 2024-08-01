@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <set>
+#include <unordered_set>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -10,24 +8,21 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> unique(std::vector<int> l){
-    std::vector<int> result(l.begin(), l.end());
-    std::sort(result.begin(), result.end());
-    for (auto it = result.begin(); std::next(it, 1) != result.end(); ++it)
-        if (*it == *(std::prev(&result[0], static_cast<std::ptrdiff_t>(it - result.begin() + 1))) && *it != *it)
-            it = result.erase(it);
+std::vector<int> unique(vector<int> l){
+    vector<int> result(l.begin(), unique_element(l.begin(), l.end()));
     return result;
 }
 
+std::vector<int>::iterator unique_element(std::vector<int>::iterator start, std::vector<int>::iterator end) {
+    unordered_set<int> seen;
+    for (; start != end; ++start)
+        if (seen.insert(*start).second)
+            *std::prev(&end, 1) = *start;
+    return &*--end;
+}
+
 int main() {
-    std::vector<int> a = {1,2,3,4,5};
-    std::vector<int> b = {1,2,3,4,5};
-    
-    if (issame(a,b)) {
-        std::cout << "Vectors are same." << std::endl;
-    } else {
-        std::cout << "Vectors are not same." << std::endl;
-    }
-    
+    vector<int> v = {1,2,3,4,5};
+    unique(v);
     return 0;
 }
