@@ -1,8 +1,5 @@
 def find_zero(xs: list):
-    xs = list(map(int, input().split()))
-    n = len(xs) - 1
-    if n % 2 == 1:
-        n -= 1
+    n = len(xs) - 2
     for i in range(0, n, 2):
         if xs[i] * xs[i + 2] < 0:
             return -xs[i + 1] / xs[i]
