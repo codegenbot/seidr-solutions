@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     std::vector<float> nums = numbers;
