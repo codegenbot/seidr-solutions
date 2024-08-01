@@ -1,2 +1,5 @@
+```
 def dice_game(n, m):
-    return (n - 1) / (n * m)
+    total_outcomes = n * m
+    peters_wins = sum(1 for i in range(m) for j in range(i+1, n+1))
+    return peters_wins / total_outcomes if total_outcomes > 0 else 0.0
