@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+
 using namespace std;
 
 double vector_distance(int n) {
