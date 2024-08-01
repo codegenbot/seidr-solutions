@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> vec[i];
     }
-    
+
     int minDiff = INT_MAX;
     int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
@@ -23,7 +23,7 @@ int main() {
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i <= cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
@@ -35,6 +35,6 @@ int main() {
             std::cout << vec[i];
         }
     }
-    
+
     return 0;
 }
