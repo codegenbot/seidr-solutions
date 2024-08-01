@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -24,6 +23,6 @@ string matchParens(vector<string> lst) {
 
 int main() {
     vector<string> lst = {")", "("};
-    cout << matchParens(lst);
+    cout << matchParens(lst) << endl;
     return 0;
 }
