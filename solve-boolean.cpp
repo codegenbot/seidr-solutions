@@ -1,24 +1,24 @@
-Here is the solution:
-
-bool solveBoolean(string s) {
+string solveBoolean(string booleanExpr) {
     stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            char a = st.top();
-            st.pop();
-            char b = st.top();
-            st.pop();
-            st.push((a == 'T' && b == 'T') || (a == 'F' && b == 'T') || (a == 'T' && b == 'F') || (a == 'F' && b == 'F') ? 'T' : 'F');
-        } else if (s[i] == '&') {
-            char a = st.top();
-            st.pop();
-            char b = st.top();
-            st.pop();
-            st.push((a == 'T' && b == 'T') || (a == 'F' && b == 'F') ? 'T' : 'F');
-        } else if (s[i] != 'f' && s[i] != 't') {
-            continue;
+    for (int i = 0; i < booleanExpr.length(); i++) {
+        if (booleanExpr[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            st.push('&');
+        } else if (booleanExpr[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push('|');
+        } else {
+            st.push(booleanExpr[i]);
         }
-        st.push(s[i]);
     }
-    return st.top() == 'T';
+    string result = "";
+    while (!st.empty()) {
+        result += st.top();
+        st.pop();
+    }
+    return (result == "T") ? "True" : ((result == "F") ? "False" : "Invalid");
 }
