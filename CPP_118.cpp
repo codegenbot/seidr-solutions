@@ -1,23 +1,27 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
 bool ispunct(char c) {
-    static const std::string punctuations = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    return punctuations.find(c) != std::string::npos;
+    static char punctuations[] = {'.', ',', '?', '!', ';', ':'};
+    for (int i = 0; i < sizeof(punctuations)/sizeof(punctuations[0]); i++) {
+        if (c == punctuations[i]) return true;
+    }
+    return false;
 }
 
-std::string firstPunctuation(std::string word) {
-    for (int i = 0; i < word.length(); ++i) {
+string findPunctuation(string word) {
+    int j = word.length() - 1;
+    for (int i = 0; i <= j; i++) {
         if (ispunct(word[i])) return word[i];
-        if (ispunct(word[word.length() - 1 - i])) return word[word.length() - 1 - i];
+        if (ispunct(word[j])) return word[j];
     }
     return "";
 }
 
 int main() {
-    std::string word;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, word);
-    std::cout << "First punctuation mark is: " << firstPunctuation(word) << std::endl;
+    string word;
+    cout << "Enter a sentence: ";
+    getline(cin, word);
+    cout << "The punctuation character is: " << findPunctuation(word) << endl;
     return 0;
 }
