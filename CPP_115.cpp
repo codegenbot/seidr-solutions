@@ -1,28 +1,21 @@
-#include <iostream>
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int ans = 0;
     for (int i = 0; i < n; i++) {
-        int curr = 0;
+        int water = 0;
         for (int j = 0; j < grid[i].size(); j++) {
             if (grid[i][j] == 1) {
-                curr += 1;
+                water += capacity;
+            } else if (water > 0) {
+                ans++;
+                water -= capacity;
             }
         }
-        while (curr > 0) {
-            int fill = std::min(curr, capacity);
+        if (water > 0) {
             ans++;
-            curr -= fill;
+            water = 0;
         }
     }
     return ans;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 0, 1}};
-    int capacity = 2;
-    std::cout << "Maximum number of times the tank can be filled: " << max_fill(grid, capacity) << std::endl;
-    return 0;
-}
