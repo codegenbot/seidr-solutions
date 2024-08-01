@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     for(string s : a) {
