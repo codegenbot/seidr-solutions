@@ -1,17 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <functional> // Include for std::greater<>
 #include <cassert>
+#include <functional>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> maximum(vector<int> arr, int k);
+
+int main();
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end(), std::greater<int>());
-    std::vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+vector<int> maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
+    return vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
