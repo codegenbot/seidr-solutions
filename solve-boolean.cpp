@@ -1,44 +1,40 @@
 Here is the solution:
 
-bool solveBoolean(string input) {
-    if (input == "T") return true;
-    if (input == "F") return false;
-    
-    stack<char> st;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '&') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+bool solveBoolean(string expression) {
+    stack<char> operators;
+    stack<string> operands;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            string op1 = operands.top();
+            operands.pop();
+            string op2 = operands.top();
+            operands.pop();
+
+            bool res = (op1 == "T") ? true : false;
+            res |= (op2 == "T") ? true : false;
+
+            operands.push((res) ? "T" : "F");
+        } else if (expression[i] == '&') {
+            string op1 = operands.top();
+            operands.pop();
+            string op2 = operands.top();
+            operands.pop();
+
+            bool res = (op1 == "T") ? true : false;
+            res &= (op2 == "T") ? true : false;
+
+            operands.push((res) ? "T" : "F");
+        } else if (expression[i] != 'T' && expression[i] != 'F') {
+            string op = "";
+            while (i < expression.length() && expression[i] != '|' && expression[i] != '&') {
+                op += expression[i];
+                i++;
             }
-            st.push('&');
-        } else if (input[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push('|');
-        } else {
-            st.push(input[i]);
+            i--; // backtrack
+            operands.push(op);
         }
     }
-    
-    bool result = true;
-    char op = '0';
-    while (!st.empty()) {
-        char c = st.top(); st.pop();
-        if (c == '&') {
-            op = '&';
-        } else if (c == '|') {
-            if (op == '&' || op == '0') {
-                result = false;
-            }
-            op = '0';
-        } else if (c == 'F' && op == '&') {
-            result = false;
-            break;
-        } else if (c == 'T' && op == '|') {
-            break;
-        }
-    }
-    
-    return result;
+
+    return (operands.top() == "T") ? true : false;
 }
