@@ -1,37 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <set>
 #include <iterator>
-#include <numeric>
-using namespace std;
 
-bool issame(int x) {
-    return x % 2 == 0;
+bool issame(int a, int b) {
+    return a == b;
 }
 
-vector<int> common(const vector<int>& l1, const vector<int>& l2) {
-    vector<int> sorted_l1 = l1;
-    vector<int> sorted_l2 = l2;
-    sort(sorted_l1.begin(), sorted_l1.end());
-    sort(sorted_l2.begin(), sorted_l2.end());
-
-    vector<int> result;
-    set_intersection(sorted_l1.begin(), sorted_l1.end(), sorted_l2.begin(), sorted_l2.end(), back_inserter(result));
-
-    result.erase(unique(result.begin(), result.end()), result.end());
-
+std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
+    std::vector<int> result;
+    std::set<int> s1(l1.begin(), l1.end());
+    std::set<int> s2(l2.begin(), l2.end());
+    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(result));
     return result;
 }
 
 int main() {
-    vector<int> list1 = {1, 2, 3, 4, 5};
-    vector<int> list2 = {2, 3, 4, 5, 6};
-
-    vector<int> commonElements = common(list1, list2);
-
-    for (int num : commonElements) {
-        cout << num << " ";
-    }
-
+    assert(issame(common({4, 3, 2, 8}, {}) , std::vector<int>{}));
     return 0;
 }
