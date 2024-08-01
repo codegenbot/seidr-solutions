@@ -1,12 +1,2 @@
-def complete_code(numbers, delimiter):
-    result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
-    return result
-
-numbers = [1, 2, 3, 4, 5]
-delimiter = '|'
-output = complete_code(numbers, delimiter)
-print(output)
+def fix_code(numbers, delimiter):
+    return [item for sublist in zip(numbers, [delimiter] * len(numbers)) for item in sublist]
