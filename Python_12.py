@@ -1,3 +1,4 @@
+import sys
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -6,6 +7,6 @@ def longest(strings: List[str]) -> Optional[str]:
     max_length = max(len(s) for s in strings)
     return next(s for s in strings if len(s) == max_length)
 
-strings = input().strip().split()
+strings = sys.stdin.readline().strip().split()
 result = longest(strings)
 print(result)
