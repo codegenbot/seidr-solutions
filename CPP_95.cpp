@@ -1,24 +1,19 @@
-#include <iostream>
-#include <string>
-#include <map>
-
-bool check_dict_case(const std::map<std::string, int>& dict) {
-    if(dict.empty()) return false;
-    bool all_lower = true, all_upper = true;
-    for(const auto& pair : dict) {
-        std::string key = pair.first;
-        bool is_lower = true, is_upper = true;
-        for(char c : key) {
-            if(!std::islower(c)) is_lower = false;
-            if(!std::isupper(c)) is_upper = false;
-        }
-        if(!is_lower) all_lower = false;
-        if(!is_upper) all_upper = false;
-    }
-    return all_lower || all_upper;
-}
-
 int main() {
-    // Add your test cases here
+    std::map<std::string, int> dictionary;
+    int n;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::string key;
+        int value;
+        std::cin >> key >> value;
+        dictionary[key] = value;
+    }
+
+    if(check_dict_case(dictionary)) {
+        std::cout << "Dictionary keys have consistent case." << std::endl;
+    } else {
+        std::cout << "Dictionary keys do not have consistent case." << std::endl;
+    }
+
     return 0;
 }
