@@ -35,10 +35,10 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
-    int n;
-    std::cin >> n;
+    int num;
+    std::cin >> num;
     
-    std::vector<int> result = even_odd_palindrome(n);
+    std::vector<int> result = even_odd_palindrome(num);
     
     for(int i = 0; i < result.size(); ++i){
         std::cout << result[i] << " ";
