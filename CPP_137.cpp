@@ -9,17 +9,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         return max(a.convert_to<int>(), b.convert_to<float>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = to_string(a.convert_to<int>());
-        return max(s, b);
+        return max(to_string(a.convert_to<int>()), b);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float fa = a.convert_to<float>();
-        int fb = b.convert_to<int>();
-        return max(fa, fb);
+        return max(a, boost::any(to_string(b.convert_to<int>())));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string s = to_string(b.convert_to<int>());
-        return max(a, s);
+        return max(a, to_string(b.convert_to<int>()));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         float fa = stof(any_cast<string>(a));
