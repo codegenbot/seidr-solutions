@@ -1,9 +1,3 @@
-#include <algorithm>
-#include <vector>
-#include <set>
-#include <cassert>
-#include <iterator>
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
