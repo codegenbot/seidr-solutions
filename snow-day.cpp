@@ -1,3 +1,4 @@
+#include <iostream>
 #include <iomanip>
 
 double snowDay(int hours, float onGround, float rate, float melt) {
