@@ -6,8 +6,11 @@ bool issame(int a, int b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    std::sort(uniqueNumbers.begin(), uniqueNumbers.end(), issame);
-    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end(), issame), uniqueNumbers.end());
+    std::vector<int> uniqueNumbers;
+    for (int num : numbers) {
+        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
+            uniqueNumbers.push_back(num);
+        }
+    }
     return uniqueNumbers;
 }
