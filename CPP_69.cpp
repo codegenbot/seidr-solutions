@@ -1,24 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <map>
-
-int main() {
-    int n = 5; // Input size (modify this)
-    std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
-
-    int result = search(input);
-    assert(result == -1);
-
-    return 0;
-}
-
-int search(std::vector<int>& lst) {
+int search(int arr[], int n) {
+    vector<int> lst;
     map<int, int> freq;
-    for (int num : lst) {
-        if (freq.find(num) == freq.end()) {
-            freq[num] = 1;
+
+    for (int i = 0; i < n; ++i) {
+        if (rand() % 2) {
+            lst.push_back(arr[i]);
+        }
+        if (freq.find(arr[i]) == freq.end()) {
+            freq[arr[i]] = 1;
         } else {
-            freq[num]++;
+            freq[arr[i]]++;
         }
     }
 
