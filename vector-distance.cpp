@@ -22,7 +22,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << distance << std::endl;
 
     return 0;
 }
