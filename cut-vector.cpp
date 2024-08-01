@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -51,7 +52,7 @@ vector<vector<int>> cutVector(vector<int> nums) {
             result.push_back(right);
         } else {
             int min_diff = INT_MAX, cut_index = -1;
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 int diff = nums[j] - nums[i];
                 if (diff < min_diff) {
                     min_diff = diff;
@@ -95,8 +96,7 @@ int main() {
         cout << num << " ";
     }
     cout << std::endl;
-    cout << "Output 1: ";
-    for (const auto& vec : result1) {
+    for (vector<int> vec : result1) {
         for (int num : vec) {
             cout << num << " ";
         }
@@ -108,8 +108,7 @@ int main() {
         cout << num << " ";
     }
     cout << std::endl;
-    cout << "Output 2: ";
-    for (const auto& vec : result2) {
+    for (vector<int> vec : result2) {
         for (int num : vec) {
             cout << num << " ";
         }
@@ -121,8 +120,7 @@ int main() {
         cout << num << " ";
     }
     cout << std::endl;
-    cout << "Output 3: ";
-    for (const auto& vec : result3) {
+    for (vector<int> vec : result3) {
         for (int num : vec) {
             cout << num << " ";
         }
@@ -134,8 +132,7 @@ int main() {
         cout << num << " ";
     }
     cout << std::endl;
-    cout << "Output 4: ";
-    for (const auto& vec : result4) {
+    for (vector<int> vec : result4) {
         for (int num : vec) {
             cout << num << " ";
         }
@@ -147,8 +144,7 @@ int main() {
         cout << num << " ";
     }
     cout << std::endl;
-    cout << "Output 5: ";
-    for (const auto& vec : result5) {
+    for (vector<int> vec : result5) {
         for (int num : vec) {
             cout << num << " ";
         }
