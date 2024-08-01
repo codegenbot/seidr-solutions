@@ -1,27 +1,7 @@
-```cpp
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> leaders = leaders({1, 3, 4, 2, 5}); // test input
+    vector<int> leaders = leaders({1, 3, 4, 2, 5}); 
     return 0;
-}
-
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
-        }
-        
-        if(leader) leaders.push_back(arr[i]);
-    }
-    
-    return leaders;
 }
