@@ -1,13 +1,10 @@
-int search(vector<int> lst) {
-        int maxFreqNum = -1;
-        unordered_map<int, int> freqMap;
-        
-        for (int num : lst) {
-            freqMap[num]++;
-            if (freqMap[num] >= num && num > maxFreqNum) {
-                maxFreqNum = num;
-            }
+int search(const vector<int>& lst) {
+    int result = -1;
+    for (int num : lst) {
+        int freq = count(lst.begin(), lst.end(), num);
+        if (num > 0 && freq >= num && num > result) {
+            result = num;
         }
-        
-        return maxFreqNum;
     }
+    return result;
+}
