@@ -1,14 +1,17 @@
 #include <string>
 #include <iostream>
 
-std::string compare_one(std::string a, float b) {
-    if (stod(a) > b)
+std::string compare_one(std::string a, std::string b) {
+    if (a > b) {
         return a;
-    else
+    } else if (b > a) {
+        return b;
+    } else {
         return "None";
+    }
 }
 
 int main() {
-    std::cout << compare_one("1.5", 2.0f) << std::endl; // Example usage
+    std::cout << compare_one("hello", "world") << std::endl;
     return 0;
 }
