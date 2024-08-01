@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -14,6 +15,5 @@ def filter_by_prefix() -> None:
     filtered_strings = [s for s in strings if s.startswith(prefix) and check_input(s)]
 
     print(f"The filtered strings are: {filtered_strings}")
-
 
 filter_by_prefix()
