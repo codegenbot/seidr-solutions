@@ -10,4 +10,5 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 
 int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    // ... rest of your code
 }
