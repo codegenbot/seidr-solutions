@@ -1,11 +1,14 @@
-Here is the modified code:
-
-```python
+```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    """
+    This function takes a string of nested parentheses as input, 
+    splits it into groups by spaces, then counts the maximum level 
+    of nesting for each group and returns the result as a list.
+    """
     result = []
-    for group in paren_string.split():
+    for group in """{}""".format(paren_string).split():
         level = 0
         max_level = 0
         for char in group:
@@ -16,3 +19,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_level = max(max_level, level)
         result.append(max_level)
     return result
+
+print(parse_nested_parens("((()))"))
