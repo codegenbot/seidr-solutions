@@ -1,24 +1,14 @@
-def cut_vector(arr):
-    diff = float("inf")
-    index = -1
-    for i in range(1, len(arr)):
-        left_sum = sum(arr[:i])
-        right_sum = sum(arr[i:])
-        current_diff = abs(left_sum - right_sum)
-        if current_diff < diff:
-            diff = current_diff
-            index = i
-    return arr[:index], arr[index:]
+n = int(input())
+arr = [int(input()) for _ in range(n)]
 
+min_diff = float("inf")
+cut_idx = -1
 
-# Reading input
-arr = []
-for _ in range(int(input())):
-    arr.append(int(input()))
+for i in range(1, n):
+    diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        cut_idx = i
 
-# Getting the subvectors
-sub_1, sub_2 = cut_vector(arr)
-
-# Printing the results
-print(*sub_1)
-print(*sub_2)
+print(*arr[:cut_idx])
+print(*arr[cut_idx:])
