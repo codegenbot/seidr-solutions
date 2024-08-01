@@ -1,35 +1,27 @@
-#include <openssl/evp.h>
+#include <iostream>
 #include <string>
+#include <openssl/ssl.h>
+#include <openssl/x509v3.h>
 
 using namespace std;
 
-int main() {
-    #ifdef _WIN32
-       #pragma comment(lib, "libeay32.lib")
-        #else
-            #include <openssl/ssl.h>
-    #endif
-
-    string string_to_md5(string text) {
-        if (text.empty()) return "";
-
-        unsigned char result[16];
-        EVP_MD_CTX mdctx;
-        EVP_MD *md = NULL;
-        unsigned char *d = NULL;
-        size_t len = 0;
-
-        EVP_MD_CTX_init(&mdctx);
-        md = EVP_md5();
-        EVP_DigestInit_ex(&mdctx, md, NULL);
-        EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
-        EVP_DigestFinal_ex(&mdctx, result, &len);
-
-        string output;
-        for (int i = 0; i < len; ++i) {
-            char c = static_cast<char>(result[i]);
-            output += c;
-        }
-
-        return output;
+string string_to_md5(string text) {
+    if (text.empty()) {
+        return "";
     }
+
+    unsigned char md[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(md, &ctx);
+
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md[i]);
+        result += buf;
+    }
+
+    return result;
+}
