@@ -1,13 +1,10 @@
 #include <vector>
-#include <algorithm>
 #include <cmath>
 #include <iostream>
-#include <limits>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     int idx = -1;
     
     for(int i = 0; i < v.size() - 1; i++) {
@@ -42,4 +39,3 @@ int main() {
     for(int x : res.second) cout << x << ' ';
     cout << '\n';
     return 0;
-}
