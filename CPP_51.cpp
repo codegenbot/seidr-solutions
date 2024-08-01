@@ -1,9 +1,8 @@
-```cpp
 #include <cctype>
 #include <string>
 
 std::string remove_vowels(std::string text) {
-    std::string result = "";
+    string result = "";
     for (char c : text) {
         if (!isvowel(c)) {
             result += c;
@@ -21,6 +20,6 @@ bool isvowel(char c) {
 }
 
 int main() {
-    std::cout << remove_vowels("Hello World") << std::endl;
+    std::cout << remove_vowels("Hello World!") << std::endl;
     return 0;
 }
