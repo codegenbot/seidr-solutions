@@ -1,4 +1,4 @@
- 
+```
 
 def find_zero(xs: list):
     n = len(xs) // 2
