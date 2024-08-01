@@ -1,21 +1,32 @@
-#include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
 
-double poly(std::vector<double> xs){
-    double a = xs[0];
-    double b = xs[1];
-    return -b/a;
+double poly(const vector<double>& coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
 }
 
-int main(){
-    std::vector<double> coeffs = {2.0, 5.0};  // Example coefficients for the polynomial
+double find_zero(const vector<double>& xs) {
+    double a = xs[0];
+    double b = xs[1];
+    double discriminant = b * b - 4 * a;
+    
+    if (discriminant < 0) {
+        return 0.0; // handle complex roots
+    }
 
-    assert(coeffs.size() >= 2);  // Ensure there are at least two coefficients provided
+    return (-b + sqrt(discriminant)) / (2 * a);
+}
 
-    double result = poly(coeffs);
-
-    std::cout << "Zero of the polynomial: " << result << std::endl;
-
+int main() {
+    vector<double> coeffs = {1, -4, 4}; // Example quadratic equation: x^2 - 4x + 4 = 0
+    double solution = find_zero(coeffs);
+    
+    assert(fabs(poly(coeffs, solution)) < 1e-3);
+    
     return 0;
 }
