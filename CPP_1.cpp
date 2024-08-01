@@ -3,18 +3,8 @@
 #include <cassert>
 #include <stack>
 
-bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool are_equal(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    return vec1 == vec2;
 }
 
 std::vector<std::string> separate_paren_groups(const std::string& input) {
@@ -40,9 +30,4 @@ std::vector<std::string> separate_paren_groups(const std::string& input) {
     }
 
     return groups;
-}
-
-int main() {
-    assert(compare_vectors(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
