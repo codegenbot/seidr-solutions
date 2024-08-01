@@ -2,13 +2,13 @@
 #include <vector>
 using namespace std;
 
-long long basement(vector<int>& nums) {
-    long long sum = 0;
+int basement(vector<int>& nums) {
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum <= 0) {
-            return i;
+        if (sum + nums[i] < 0) { // Check if the sum will become negative after adding nums[i]
+            return i; // Return the index if the sum is negative
         }
+        sum += nums[i];
     }
     return -1;
 }
