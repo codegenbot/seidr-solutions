@@ -6,10 +6,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         1 if not numbers else 1 if 0 in numbers else eval("*".join(map(str, numbers))),
     )
 
-# Get input from user
 numbers = list(map(int, input("Enter a list of integers: ").split()))
 
-# Call the function with user input
 result = sum_product(numbers)
 
 print(result)
