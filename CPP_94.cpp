@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -27,8 +26,8 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
-
 }
+
 int main() {
     assert(skkasdkd({127, 97, 8192}) == 10);
     return 0;
