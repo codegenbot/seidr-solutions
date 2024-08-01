@@ -1,24 +1,15 @@
 #include <iostream>
-#include <string>
-#include <vector>
-
-int main() {
-    std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+#include...
+        
+int...{
+  std::string...;
+  std::getline(..., producesi...
     
-    std::vector<int> indices;
+  std...;
     
-    size_t i;
-    for (i = 0; i < text.length() - target.length() + 1; ++i) {
-        if (text.substr(i, target.length()) == target) {
-            indices.push_back(i);
-        }
-    }
-    
-    for (int idx : indices) {
-        std::cout << idx << " ";
-    }
-    
-    return 0;
-}
+..urable...;
+    for... {
+ exampleholdair hook...y...?
+        chore...(){
+.. of...){......many...){
+.....(text.jrhu
