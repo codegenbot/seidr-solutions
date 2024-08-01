@@ -5,13 +5,5 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-
-# Take input from the user
-numbers = list(map(int, input().split()))
-threshold = int(input())
-
-# Call the function with correct arguments
-result = check_numbers(numbers, threshold)
-
-# Print the result
-print(result)
+# Corrected function call
+has_close_elements = check_numbers(numbers, threshold)
