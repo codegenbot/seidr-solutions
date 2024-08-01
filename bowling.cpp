@@ -1,26 +1,53 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2, prevFrame = 0;
+    int currentRolls = 0;
+    int currentFrame = 1;
 
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (isdigit(s[i])) {
-            roll1 = s[i] - '0';
-            if (i + 2 <= s.length() && s[i+1] == '/' && isdigit(s[i+2])) {
-                roll2 = s[i+2] - '0';
-                score += prevFrame + roll1 + roll2;
-                prevFrame = roll1 + roll2;
-            } else if (i + 1 <= s.length() && s[i+1] == '/') {
-                int spare = 10 - roll1;
-                score += prevFrame + roll1 + spare;
-                prevFrame = roll1 + spare;
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRolls == 2) {
+                score += calculateFrame(currentFrame);
+                currentFrame++;
+            }
+            currentRolls = 0;
+        } else if (c == 'X') {
+            score += 10 + calculateFrame(currentFrame);
+            currentFrame++;
+            currentRolls = 0;
+        } else {
+            int roll = c - '0';
+            if (currentRolls == 1) {
+                if (roll == 10) {
+                    score += 10 + calculateFrame(currentFrame);
+                    currentFrame++;
+                    currentRolls = 0;
+                } else {
+                    score += roll + calculateFrame(currentFrame);
+                    currentFrame++;
+                    currentRolls = 0;
+                }
             } else {
-                score += prevFrame + roll1;
-                prevFrame = roll1;
+                score += roll;
+                currentRolls++;
             }
         }
     }
 
+    if (currentRolls == 1) {
+        score += calculateFrame(currentFrame);
+    } else if (currentRolls == 2) {
+        score += calculateFrame(currentFrame) + calculateFrame(currentFrame);
+    }
+
     return score;
+}
+
+int calculateFrame(int frame) {
+    if (frame == 10) {
+        return 30;
+    }
+    if (frame > 10) {
+        return 20;
+    }
+    return 10;
 }
