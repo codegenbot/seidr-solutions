@@ -9,7 +9,8 @@ int main() {
 
     float current_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        current_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow * 1.0f);
+        float new_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow);
+        current_snow = new_snow;
     }
 
     cout << fixed << setprecision(15) << current_snow << endl;
