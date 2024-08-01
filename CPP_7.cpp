@@ -7,13 +7,11 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(std::equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
-    vector<string> strings = {"hello", "world", "goodbye", "cruel", "world"};
-    string substring = "world";
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
     vector<string> result = filter_by_substring(strings, substring);
+    
     for (const auto& str : result) {
         cout << str << endl;
     }
-    
-    return 0;
 }
