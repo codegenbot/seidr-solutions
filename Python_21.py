@@ -3,5 +3,5 @@ def normalize_numbers(numbers):
     max_num = max(numbers)
     return [(num - min_num) / (max_num - min_num) for num in numbers]
 
-numbers = [1, 2, 3, 4, 5]
+numbers = [5, 10, 15, 20]
 normalize_numbers(numbers)
