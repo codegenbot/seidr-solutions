@@ -1,7 +1,5 @@
-#include <string>
+#include <cstring>
 
-int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << str.length();
+int main(){
+    assert(strlen("asdasnakj") == 9);
 }
