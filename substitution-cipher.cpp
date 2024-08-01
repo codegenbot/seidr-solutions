@@ -1,16 +1,17 @@
 #include <vector>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-string substitutionCipher(string cipher1, string cipher2, string message) {
+string substitutionCipher(string key1, string key2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
-        int index = message[i] - 'a';
-        if (index >= 0 && index <= 25) {
-            char c = cipher2[index];
-            result += c;
+        if (i < key1.length() && i < key2.length()) {
+            if (key1[i] == message[i]) {
+                result += key2[i];
+            } else {
+                result += message[i];
+            }
         } else {
             result += message[i];
         }
@@ -19,8 +20,8 @@ string substitutionCipher(string cipher1, string cipher2, string message) {
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
+    string key1, key2, message;
+    cin >> key1 >> key2 >> message;
+    cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
 }
