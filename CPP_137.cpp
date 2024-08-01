@@ -9,15 +9,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::any_cast<double>(a) > std::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return std::any_cast<std::string>(a) > std::any_cast<std::string>(b) ? a : b;
+        return (std::string)std::max(a.convert_to<std::string>(), b.convert_to<std::string>());
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int x = std::stoi(std::any_cast<std::string>(b));
-        return std::any_cast<int>(a) > x ? a : boost::any(b);
+        int x = std::any_cast<int>(a);
+        long y = std::stol(std::any_cast<std::string>(b));
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        int x = std::any_cast<int>(b);
-        return std::stoi(std::any_cast<std::string>(a)) > x ? a : boost::any(b);
+        long x = std::stol(std::any_cast<std::string>(a));
+        int y = std::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else {
         return boost::any("None");
