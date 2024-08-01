@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string> 
 using namespace std;
@@ -20,3 +21,4 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
