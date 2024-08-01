@@ -3,17 +3,13 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool found = true;
-        for (int j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
+    int index = 0;
+    while (index <= text.length() - target.length()) {
+        if (text.substr(index, target.length()).compare(target) == 0) {
+            indices.push_back(index);
+            index += 1;
+        } else {
+            index++;
         }
     }
     return indices;
@@ -22,6 +18,18 @@ vector<int> findIndices(string text, string target) {
 int gcd(int a, int b) {
     if (b == 0)
         return a;
-    else
-        return gcd(b, a % b);
+    return gcd(b, a % b);
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices)
+        cout << i << " ";
+    return 0;
 }
