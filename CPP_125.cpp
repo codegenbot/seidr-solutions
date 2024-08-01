@@ -3,8 +3,6 @@
 #include <string>
 #include <sstream>
 
-using namespace std;
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -27,21 +25,22 @@ std::vector<std::string> split_words(std::string input) {
     return words;
 }
 
-int main() {
+int contest_code() {
     std::string input;
     std::getline(std::cin, input);
 
     std::vector<std::string> a = split_words(input);
+    std::vector<std::string> b = split_words(input);
     
-    std::string input2;
-    std::getline(std::cin, input2);
-    std::vector<std::string> c = split_words(input2);
-
-    if (issame(a, c)) {
+    if (issame(a, b)) {
         std::cout << "Same" << std::endl;
     } else {
         std::cout << "Different" << std::endl;
     }
     
     return 0;
+}
+
+int main() {
+    return contest_code();
 }
