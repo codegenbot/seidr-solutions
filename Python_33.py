@@ -1,2 +1,7 @@
 def sort_third(l: list):
-    return [sorted(l[i:i+1] if i % 3 == 0 else l[i:i+1])[0] for i in range(len(l))]
+    sorted_indices = sorted([i for i in range(len(l)) if i % 3 == 0])
+    sorted_values = [l[i] for i in sorted_indices]
+    sorted_values.sort()
+    for i, val in zip(sorted_indices, sorted_values):
+        l[i] = val
+    return l
