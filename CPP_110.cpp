@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,27 +21,16 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 
 int main() {
     std::vector<int> lst1;
-    int n;
-    std::cout << "Enter the number of elements in list1: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst1.push_back(x);
+    int num;
+    while(std::cin >> num) {
+        lst1.push_back(num);
     }
     
     std::vector<int> lst2;
-    std::cout << "Enter the number of elements in list2: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst2.push_back(x);
+    while(std::cin >> num) {
+        lst2.push_back(num);
     }
     
     std::cout << exchange(lst1, lst2) << std::endl;
-    
     return 0;
 }
