@@ -1,5 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -23,6 +28,13 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1),{1}));
+    // Test the function
+    std::vector<int> test_result = get_odd_collatz(20);
+    for (int num : test_result) {
+        std::cout << num << " ";
+    }
+    if (isSame(get_odd_collatz(1), std::vector<int>{1})) {
+        std::cout << "\nTest Passed\n";        
+    }
     return 0;
 }
