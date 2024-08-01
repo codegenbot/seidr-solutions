@@ -1,6 +1,15 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <cmath>
+
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0)
+            return false;
+    }
+    return true;
+}
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -16,23 +25,11 @@ int skjkasdkd(std::vector<int> lst){
     return sumOfDigits;
 }
 
-bool isPrime(int n){
-    if(n <= 1)
-        return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0)
-            return false;
-    }
-    return true;
-
-int main(){
-    std::vector<int> lst;
-    int num;
-    while(std::cin >> num) {
-        lst.push_back(num);
-    }
-
-    std::cout << skjkasdkd(lst) << std::endl;
-
+int main() {
+    // Your code to get the input and call skjkasdkd function
+    // For example:
+    std::vector<int> lst = {2,3,4,5,6};
+    int output = skjkasdkd(lst);
+    std::cout << "The sum of digits is: " << output;
     return 0;
 }
