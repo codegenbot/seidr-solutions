@@ -1,20 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
-    int maxRight = nums[n-1];
-    for (int i = n-2; i >= 0; i--) {
-        if (nums[i] > maxRight) {
+    int maxRight = INT_MIN;
+    leaders.push_back(maxRight);
+    for (int i = n-1; i >= 0; i--) {
+        if (nums[i] >= maxRight) {
             maxRight = nums[i];
             leaders.push_back(maxRight);
         }
     }
     reverse(leaders.begin(), leaders.end());
-    leaders.push_back(nums[n-1]); // add the rightmost element as a leader
+    leaders.erase(leaders.begin()); // Removing the initial INT_MIN added
     return leaders;
 }
 
