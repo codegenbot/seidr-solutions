@@ -1,5 +1,11 @@
 #include <vector>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int>& a, std::vector<int>& b){
+    return a == b;
+}
+
+int main() {
+    std::vector<int> incr_list {1, 2, 3};
+    assert(issame(incr_list, incr_list));   
 }
