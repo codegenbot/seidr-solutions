@@ -1,6 +1,4 @@
 #include <string>
-#include <iostream>
-
 std::string string_to_md5(const std::string& text) {
     MD5_CTX ctx;
     unsigned char md[16];
@@ -20,7 +18,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     if(text.empty()) {
-        return "";
+        return "None";
     } else {
         return result;
     }
