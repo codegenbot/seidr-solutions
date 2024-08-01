@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 using namespace boost;
 
@@ -11,17 +12,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::any_cast<double>(a) > std::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return a.convert_to<std::string>() > b.convert_to<std::string>() ? a : b;
+        return (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int x = std::any_cast<int>(a);
-        long y = std::stoll(b.convert_to<std::string>());
-        return x > y ? a : b;
+        int val = std::stoi(std::any_cast<std::string>(b));
+        return (std::any_cast<int>(a) > val) ? a : (std::any_cast<int>(a) < val) ? b : boost::any("None");
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        long x = std::stoll(a.convert_to<std::string>());
-        int y = std::any_cast<int>(b);
-        return x > y ? a : b;
+        int val = std::any_cast<int>(b);
+        return (std::stoi(std::any_cast<std::string>(a)) > val) ? a : (std::stoi(std::any_cast<std::string>(a)) < val) ? b : boost::any("None");
     }
     else {
         return boost::any("None");
