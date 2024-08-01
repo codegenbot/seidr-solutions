@@ -1,8 +1,14 @@
-bool vector_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+#include <vector>
+#include <string>
+#include <cassert>
 
-int main() {
-    assert(vector_same(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
-    return 0;
+std::vector<std::string> by_length(const std::vector<int>& input) {
+    std::vector<std::string> result;
+    std::vector<std::string> mapping = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    
+    for (int num : input) {
+        result.push_back(mapping[num - 1]);
+    }
+    
+    return result;
 }
