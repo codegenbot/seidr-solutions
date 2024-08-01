@@ -18,7 +18,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
     return result;
 }
 
-int contest_main() {
+pair<float, float> contest_main() {
     assert(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == make_pair(2.2f, 3.1f));
     return find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
 }
