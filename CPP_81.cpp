@@ -1,3 +1,10 @@
+bool issame(float a, float b) {
+    if (abs(a - b) < 0.0001)
+        return true;
+    else
+        return false;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
