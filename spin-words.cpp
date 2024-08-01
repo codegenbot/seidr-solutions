@@ -1,3 +1,5 @@
+```
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -29,3 +31,4 @@ int main() {
     getline(cin, str);
     cout << "Result: " << spinWords(str) << endl;
     return 0;
+}
