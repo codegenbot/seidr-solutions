@@ -1,32 +1,23 @@
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <queue>
+
+bool issame(int a, int b) {
+    return a == b;
 }
 
-vector<int> maximum(vector<vector<int>> arr, int k) {
-    priority_queue<int> pq;
-    for (int i : arr[k-1]) {
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::priority_queue<int> pq;
+    for (int i : arr) {
         pq.push(i);
-        if (pq.size() > 0) {
+        if (pq.size() > k) {
             pq.pop();
         }
     }
-    vector<int> res(k);
+    std::vector<int> res(k);
     for (int i = k - 1; i >= 0; --i) {
         res[i] = pq.top();
         pq.pop();
     }
     return res;
-}
-
-int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    // Your code here
 }
