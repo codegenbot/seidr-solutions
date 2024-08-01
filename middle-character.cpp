@@ -13,9 +13,9 @@ std::string middleCharacter(std::string s) {
 int main() {
     std::string input;
     std::cin >> input;
-    
+
     std::string result = middleCharacter(input);
     std::cout << result << std::endl;
-    
+
     return 0;
 }
