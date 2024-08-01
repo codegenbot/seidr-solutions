@@ -40,6 +40,7 @@ int main() {
 
     cin >> a >> b;
     cin.ignore();
+    
     getline(cin, text);
     getline(cin, target);
 
