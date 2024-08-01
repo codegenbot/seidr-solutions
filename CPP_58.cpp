@@ -1,14 +1,14 @@
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
-    set<int> common;
-    
-    for(auto i : s1){
-        if(s2.find(i)!=s2.end())
-            common.insert(i);
+
+    vector<int> result;
+    for (int x : s1) {
+        if (s2.find(x) != s2.end()) {
+            result.push_back(x);
+        }
     }
-    
-    vector<int> result(common.begin(),common.end());
-    sort(result.begin(),result.end());
+
+    sort(result.begin(), result.end());
     return result;
 }
