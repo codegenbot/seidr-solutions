@@ -18,17 +18,16 @@ int bowlingScore(string s) {
         }
     }
 
+    // last two rolls
     if (currentRolls == 10) {
         score += 10;
     } else if (frame < 10) {
         score += currentRolls;
     } else {
-        for (int i = frame - 1; i > 0; i--) {
+        for (int i = 0; i < frame - 1; i++) {
             if (s[i] == '/') {
                 score += 10;
-                break;
             }
-            score += s[i] - '0';
         }
         score += currentRolls;
     }
