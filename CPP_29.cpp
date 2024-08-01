@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -12,33 +13,6 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-int main(){
-    int n;
-    cin >> n;
-
-    vector<string> strings(n);
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        strings[i] = s;
-    }
-
-    string prefix;
-    cin >> prefix;
-
-    vector<string> result = filter_by_prefix(strings, prefix);
-
-    if(issame(result, strings)){
-        cout << "The filtered list is the same as the original list." << endl;
-    } else{
-        for (string s : result) {
-            cout << s << endl;
-        }
-    }
-
-    return 0;
-}
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (string s : strings) {
@@ -46,4 +20,29 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
+
+int main(){
+    int n;
+    cin >> n;
+    
+    vector<string> strings;
+    for(int i = 0; i < n; i++){
+        string str;
+        cin >> str;
+        strings.push_back(str);
+    }
+
+    string prefix;
+    cin >> prefix;
+
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+
+    if(issame(strings, filtered_strings)){
+        cout << "Yes" << endl;
+    }
+    else{
+        cout << "No" << endl;
+    }
+
+    return 0;
 }
