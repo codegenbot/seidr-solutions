@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
