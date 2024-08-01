@@ -1,12 +1,13 @@
-#include <string>
-#include <vector>
+
 #include <iostream>
+#include <vector>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -21,40 +22,34 @@ std::vector<std::string> split_words(std::string txt){
         result.push_back(word);
     }
     
-    if(result.size() == 1 && result[0].find(',') == std::string::npos){
+    if(result.size() == 1 && result[0].find(',') == string::npos){
         int count = 0;
         for(char c : result[0]){
             if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        result[0] = std::to_string(count);
+        result[0] = to_string(count);
     }
     
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 int main() {
-    std::vector<std::string> a = split_words("example contest");
-    std::vector<std::string> b = split_words("example contest");
-    
-    if(issame(a, b)){
-        std::cout << "Same" << std::endl;
-    } else {
-        std::cout << "Different" << std::endl;
-    }
-    
+    vector<string> input1, input2;
+    string line;
+
+    getline(cin, line);
+    input1 = split_words(line);
+
+    getline(cin, line);
+    input2 = split_words(line);
+
+    cout << (issame(input1, input2) ? "true" : "false") << endl;
+
     return 0;
 }
