@@ -1,4 +1,6 @@
 ```cpp
+#include <string>
+
 bool correct_bracketing(const std::string& brackets) {
     int i = 0;
     while(i < brackets.length()) {
