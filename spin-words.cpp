@@ -4,29 +4,23 @@
 std::string spinWords(std::string str) {
     std::string result = "";
     bool isWordLongEnough = false;
-    int wordLength = 0;
-
     for (char c : str) {
         if (c == ' ') {
             if (isWordLongEnough) {
                 for (int i = wordLength - 1; i >= 0; --i)
                     result += str[wordLength - i - 1];
-                isWordLongEnough = false;
-            }
-            result += c;
+            } else
+                result += c;
+            isWordLongEnough = false;
             wordLength = 0;
         } else {
             wordLength++;
             if (wordLength >= 5) {
                 isWordLongEnough = true;
             }
-            if (!isWordLongEnough)
-                result += c;
-            else
-                result += str[wordLength - 1];
+            result += c;
         }
     }
-
     if (isWordLongEnough) {
         for (int i = wordLength - 1; i >= 0; --i)
             result += str[wordLength - i - 1];
