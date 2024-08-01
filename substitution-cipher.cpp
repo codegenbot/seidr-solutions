@@ -7,14 +7,14 @@ using namespace std;
 string substitutionCipher(string key1, string key2, string message) {
     string result = "";
     for (int i = 0; i < message.length(); i++) {
-        if (i < key1.length() && i < key2.length()) {
+        if (i >= key1.length()) {
+            result += message[i];
+        } else {
             if (key1[i] == message[i]) {
                 result += key2[i];
             } else {
                 result += message[i];
             }
-        } else {
-            result += message[i];
         }
     }
     return result;
