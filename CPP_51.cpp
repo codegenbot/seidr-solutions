@@ -6,7 +6,7 @@ using namespace std;
 string remove_vowels(string text) {
     string result = "";
     for (char c : text) {
-        if (!strchr("aeiouAEIOU", tolower(c)) != NULL) {
+        if (!strchr("aeiouAEIOU", tolower(c))) {
             result += c;
         }
     }
