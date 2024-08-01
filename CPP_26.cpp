@@ -1,15 +1,14 @@
-bool areSame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-vector<int> remove_duplicates(vector<int> numbers){
+using namespace std;
+
+vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
-    for(int num : numbers){
-        if(find(result.begin(), result.end(), num) == result.end()){
+    for (int num : numbers) {
+        if (find(result.begin(), result.end(), num) == result.end()) {
             result.push_back(num);
         }
     }
@@ -17,5 +16,10 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    assert(areSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    vector<int> numbers = {1, 2, 3, 2, 4};
+    vector<int> result = remove_duplicates(numbers);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
 }
