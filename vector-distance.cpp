@@ -5,7 +5,6 @@
 int main() {
     int n;
     std::cin >> n;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
