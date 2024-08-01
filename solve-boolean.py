@@ -1,20 +1,11 @@
-```
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
     elif '&' in expression:
-        values = expression.split('&')
-        result = [True]
-        for value in values:
-            result.append(value == 't')
-        return all(result)
+        left, right = expression.split('&')
+        return bool(left) and bool(right)
     elif '|' in expression:
-        values = expression.split('|')
-        result = [False]
-        for value in values:
-            result.append(value == 't')
-        return any(result)
-
-print(solve_boolean(input()))
+        left, right = expression.split('|')
+        return bool(left) or bool(right)
