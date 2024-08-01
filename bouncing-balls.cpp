@@ -1,7 +1,10 @@
-```cpp
+Here is the modified code:
+
+```c++
 #include <iostream>
-#include <cmath> // for pow
-#include <iomanip> // for setprecision
+#include <cmath>
+#include <iomanip>
+
 using namespace std;
 
 int main() {
