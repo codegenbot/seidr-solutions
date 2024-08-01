@@ -8,8 +8,13 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == "(":
             current_depth += 1
         elif char == ")":
-            current_depth -= 1
-            if current_depth >= 0:
+            if current_depth > 0:
                 depths.append(current_depth)
+                current_depth -= 1
+            else:
+                return "Invalid Parentheses"
 
-    return depths
+    if current_depth == 0:
+        return depths
+    else:
+        return "Invalid Parentheses"
