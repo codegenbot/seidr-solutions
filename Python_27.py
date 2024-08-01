@@ -1,5 +1,5 @@
 def swap_case(string):
-    return string.swapcase()
+    return "".join(char.lower() if char.isupper() else char.upper() for char in string)
 
-input_string = input("Enter a string: ")
-print(swap_case(input_string))
+def check(string):
+    return swap_case(string)
