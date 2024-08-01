@@ -14,6 +14,6 @@ namespace std {
 }
 
 int main() {
-    assert(std::match_parens({")", "("}) == std::string("Yes"));
+    assert(match_parens({")", "("}) == std::string("Yes"));
     return 0;
 }
