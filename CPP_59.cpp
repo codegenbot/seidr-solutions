@@ -1,24 +1,26 @@
 #include <iostream>
+#include <cmath>
+#include <cassert>
 
 int largest_prime_factor(int n) {
-    int factor = 2;
-    while (n > 1) {
-        if (n % factor == 0) {
-            n /= factor;
-        } else {
-            factor++;
+    int maxPrime = -1;
+    while (n % 2 == 0) {
+        maxPrime = 2;
+        n /= 2;
+    }
+    for (int i = 3; i <= sqrt(n); i += 2) {
+        while (n % i == 0) {
+            maxPrime = i;
+            n /= i;
         }
     }
-    return factor;
+    if (n > 2) {
+        maxPrime = n;
+    }
+    return maxPrime;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number greater than 1 that is not a prime: ";
-    std::cin >> n;
-    
-    int result = largest_prime_factor(n);
-    std::cout << "Largest prime factor of " << n << " is: " << result << std::endl;
-    
+    assert(largest_prime_factor(13195) == 29);
     return 0;
 }
