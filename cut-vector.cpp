@@ -26,6 +26,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
+pair<vector<int>, vector<int>> res = cutVector({1,2,3,4,5});
+
 int main() {
     int n;
     cin >> n;
