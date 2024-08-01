@@ -1,10 +1,29 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-bool std::issame(std::vector<float> a, std::vector<float> b){
-    if(a.size() != b.size()) return false;
-    for(float x : a) {
-        if(!std::count(b.begin(), b.end(), x)) return false;
+bool issame(vector<float> a, vector<vector<float>> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!std::equal(a[i].begin(), a[i].end(), b[i].begin())) {
+            return false;
+        }
     }
     return true;
+}
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
+    for(float x : l) {
+        if(x > 0) {
+            result.push_back(x);
+        }
+    }
+    return result;
+}
+
+int main() {
+    assert(std::issame(get_positive({}), {}));
+    // your other code here
 }
