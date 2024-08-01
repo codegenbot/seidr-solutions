@@ -1,6 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
-using namespace std;
 
 bool will_it_fly(const std::vector<int>& q, int w) {
     int sum = 0;
@@ -22,7 +21,7 @@ bool will_it_fly(const std::vector<int>& q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
-    
+    std::cout << std::boolalpha << will_it_fly({5}, 5);
+
     return 0;
 }
