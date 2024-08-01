@@ -7,12 +7,6 @@ int main() {
 }
 
 double calculateProbability(int n, int m) {
-    if (m > n) {
-        std::swap(n, m);
-    }
-    double total = (n * m);
-    for (int i = 1; i <= m; i++) {
-        total += n - i;
-    }
-    return (total * 1.0) / (n * m);
+    double total = (n * m) - min((int)n, (int)m);
+    return ((double)min((int)n, (int)m)) / (double)(n * m);
 }
