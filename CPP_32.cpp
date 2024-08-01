@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -21,21 +22,30 @@ double find_zero(const std::vector<double>& coeffs) {
         if (fabs(fx) < threshold) {
             break; // Found the zero
         }
-
+        
         double derivative = 0.0;
         for (int i = 1; i < coeffs.size(); ++i) {
             derivative += i * coeffs[i] * pow(guess, i - 1);
         }
-
+        
         guess -= fx / derivative;
     }
-
+    
     return guess;
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -3, 2}; // Example coefficients
-    // Input coefficients into coeffs vector
+    std::vector<double> coeffs;
+    int n;
+    cout << "Enter the number of coefficients: ";
+    cin >> n;
+    
+    cout << "Enter the coefficients: ";
+    for (int i = 0; i < n; ++i) {
+        double coeff;
+        cin >> coeff;
+        coeffs.push_back(coeff);
+    }
 
     double solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
