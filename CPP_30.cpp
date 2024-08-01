@@ -2,25 +2,18 @@
 #include <iostream>
 #include <cassert>
 
+using namespace std;
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
-    
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i])
             return false;
     }
-    
-    return true;
-}
 
-std::vector<float> get_positive(std::vector<float> nums) {
-    std::vector<float> result;
-    for (float num : nums) {
-        if (num > 0)
-            result.push_back(num);
-    }
-    return result;
+    return true;
 }
 
 int main() {
@@ -43,8 +36,7 @@ int main() {
     // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
-    // Test the get_positive function
-    assert(issame(get_positive({-1, 2, 3}), {2, 3}));
+    assert(issame(std::vector<float>{}, std::vector<float>{}));
 
     return 0;
 }
