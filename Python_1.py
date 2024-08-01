@@ -19,5 +19,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
                 result.append(temp)
                 temp = ''
-
+    
     return result
