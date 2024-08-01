@@ -1,15 +1,20 @@
 ```cpp
 #include <vector>
+using namespace std;
 
 int can_arrange(vector<int> arr) {
-    for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] <= arr[i - 1]) {
-            return i - 1;
+    int i = 0;
+    while (i < arr.size() - 1) {
+        if (arr[i] >= arr[i + 1]) {
+            return i;
         }
+        i++;
     }
     return -1;
 }
 
 int main() {
-    assert (can_arrange({})==-1);
+    vector<int> input; 
+    assert(can_arrange(input) == -1); 
+    return 0;
 }
