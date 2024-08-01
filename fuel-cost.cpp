@@ -7,3 +7,4 @@ int fuelCost(std::vector<int> v) {
         sum += val;
     }
     return sum;
+}
