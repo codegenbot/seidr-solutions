@@ -1,3 +1,13 @@
-bool issame(std::std::vector<int> a, std::std::vector<int> b) {
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> stones;
+    stones.push_back(n);
+    for(int i = 1; i < n; i++){
+        n = (n % 2 == 0) ? n + 1 : n + 2;
+        stones.push_back(n);
+    }
+    return stones;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
