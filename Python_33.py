@@ -1,7 +1,11 @@
 ```
 def sort_third(l: list):
-    result = [
-        val if i % 3 != 0 else sorted([x for j in range(len([x for x in l if i % 3 == 0])) for x in [y for y in l if i % 3 == 0 and j == (i // 3)]])[0]
-        for i, val in enumerate(l)
-    ]
+    result = []
+    for i, val in enumerate(l):
+        if i % 3 != 0:
+            result.append(val)
+        else:
+            group = [x for x in l if i % 3 == 0 and j == i // 3]
+            group.sort()
+            result.append(group[0])
     return result
