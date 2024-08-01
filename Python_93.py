@@ -2,7 +2,9 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() == "a":
+            if char.lower() in "aeiou":
+                result += char
+            elif char.lower() == "a":
                 result += "c" if char.isupper() else "c"
             elif char.lower() == "e":
                 result += "g" if char.isupper() else "g"
@@ -12,8 +14,6 @@ def encode(message):
                 result += "q" if char.isupper() else "q"
             elif char.lower() == "u":
                 result += "w" if char.isupper() else "w"
-            elif char.lower() in "aeiou":
-                continue
             else:
                 result += (
                     chr((ord(char) - 97 + 3) % 26 + 97)
@@ -25,4 +25,4 @@ def encode(message):
     return result
 
 
-print(encode(input("Enter your message: ")))
+print(encode(input("Enter the message: ")))
