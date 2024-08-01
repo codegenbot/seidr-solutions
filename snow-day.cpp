@@ -9,7 +9,7 @@ int main() {
 
     double current_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        current_snow = current_snow + snow_fall_rate - (snow_melt_rate * current_snow);
+        current_snow = current_snow + snow_fall_rate - (static_cast<double>(snow_melt_rate) * current_snow);
     }
 
     cout << fixed << setprecision(10) << current_snow << endl;
