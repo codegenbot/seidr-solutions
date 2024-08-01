@@ -1,4 +1,4 @@
-namespace contest {
+namespace my_contest {
     #include <string>
     #include <map>
     #include <cassert>
@@ -47,4 +47,4 @@ namespace contest {
     }
 }
 
-using namespace contest;
+using namespace my_contest;
