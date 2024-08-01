@@ -2,14 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float>& v1, std::vector<float>& v2) {
-    if (v1.size() != v2.size()) return false;
-
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) return false;
-    }
-
-    return true;
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    return v1 == v2;
 }
 
 void sort_even(std::vector<float>& l) {
@@ -21,7 +15,7 @@ void sort_even(std::vector<float>& l) {
             sorted_even_indices.push_back(l[i]);
         }
     }
-    sort(sorted_even_indices.begin(), sorted_even_indices.end());
+    std::sort(sorted_even_indices.begin(), sorted_even_indices.end());
     int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -32,16 +26,18 @@ void sort_even(std::vector<float>& l) {
 }
 
 int main() {
-    std::vector<float> l = {3.2, 7.1, 2.4, 9.5, 5.8, 1.0};
-    std::vector<float> expected = {1.0, 7.1, 2.4, 9.5, 3.2, 5.8};
-
+    std::vector<float> l = {3.5, 2.0, 4.5, 1.0, 5.5};
+    
+    std::vector<float> original_l = l;
     sort_even(l);
-
-    if (issame(l, expected)) {
-        std::cout << "Test Passed!" << std::endl;
+    
+    std::vector<float> expected_sorted_l = {1.0, 2.0, 4.5, 3.5, 5.5};
+    
+    if (issame(l, expected_sorted_l)) {
+        std::cout << "Sorting even indices successful." << std::endl;
     } else {
-        std::cout << "Test Failed!" << std::endl;
+        std::cout << "Sorting even indices failed." << std::endl;
     }
-
+    
     return 0;
 }
