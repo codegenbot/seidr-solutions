@@ -3,38 +3,54 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int idx = -1;
+    int cut_idx = -1;
     
     for(int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i + 1]);
-        if(diff <= min_diff) {
+        int left_sum = 0, right_sum = 0;
+        
+        for(int j = 0; j <= i; j++) {
+            left_sum += v[j];
+        }
+        
+        for(int k = i + 1; k < v.size(); k++) {
+            right_sum += v[k];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if(diff < min_diff) {
             min_diff = diff;
-            idx = i;
+            cut_idx = i;
         }
     }
     
-    vector<int> left, right;
-    for(int i = 0; i < idx; i++) {
-        left.push_back(v[i]);
-    }
-    for(int i = idx + 1; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
+    vector<int> left = vector<int>(v.begin(), v.begin() + cut_idx + 1);
+    vector<int> right = vector<int>(v.begin() + cut_idx, v.end());
     
-    return {left, right};
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for(auto &x : v) cin >> x;
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "Left: ";
-    for(int x : res.first) cout << x << ' ';
-    cout << '\n';
-    cout << "Right: ";
-    for(int x : res.second) cout << x << ' ';
-    cout << '\n';
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "Left subvector: ";
+    for(auto x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    cout << "Right subvector: ";
+    for(auto x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
