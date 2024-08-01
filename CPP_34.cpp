@@ -5,8 +5,9 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    sort(unique(l.begin(), l.end()), unique(l.begin(), l.end()));
-    return vector<int>(l.begin(), next(unique(l.begin(), l.end()).end()));
+    vector<int> result(unique_copy(l.begin(), l.end()), l.end());
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
@@ -16,4 +17,3 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
