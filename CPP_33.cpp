@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> indices;
