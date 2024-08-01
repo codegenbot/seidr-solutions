@@ -1,18 +1,18 @@
-string rounded_avg(int n,int m){
-    if(n > m) return "-1";
-    int sum = 0;
-    for(int i = n; i <= m; i++) {
+Here is the completed code:
+
+string rounded_avg(int n, int m) {
+    if (n > m)
+        return "-1";
+    long sum = 0;
+    for (int i = n; i <= m; i++)
         sum += i;
-    }
-    double avg = (double)sum / (m - n + 1);
-    int rounded = floor(avg);
+    double avg = round((double)sum / (m - n + 1));
     string binary = "";
-    while(rounded > 0){
-        if(rounded & 1)
-            binary = "1" + binary;
+    while (avg > 0) {
+        if (avg >= 2)
+            avg /= 2, binary = "1" + binary;
         else
-            binary = "0" + binary;
-        rounded >>= 1;
+            avg++, binary = "0" + binary;
     }
     return binary;
 }
