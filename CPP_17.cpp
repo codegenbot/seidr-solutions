@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -16,10 +17,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> parse_music(const std::string& str) {
-    std::vector<int> result;
-    // Implement the logic to parse the music string and store it in 'result'
-    return result;
+std::vector<int> parse_music(std::string music) {
+    std::vector<int> parsed_notes;
+    // implement music parsing logic here
+    return parsed_notes;
 }
 
 int main() {
