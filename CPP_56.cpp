@@ -17,7 +17,6 @@ bool correct_bracketing(const std::string& brackets) {
     return count == 0;
 }
 
-
 int main() {
     std::string brackets;
     std::cin >> brackets;
