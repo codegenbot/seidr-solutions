@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+bool is_prime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(num); ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int prime_fib(int n) {
+    if (n == 1) {
+        return 2;
+    }
+    if (n == 2) {
+        return 3;
+    }
+    
+    int prev = 2, curr = 3, next;
+    int count = 2;
+    
+    while (count < n) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+        
+        if (is_prime(curr)) {
+            count++;
+        }
+    }
+    
+    return curr;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
+}
