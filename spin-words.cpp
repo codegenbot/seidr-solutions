@@ -1,34 +1,39 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordStart = 0;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    size_t pos = 0;
     
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            string word = str.substr(wordStart, i-wordStart);
-            
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
+    while ((pos = sentence.find(" ")) != std::string::npos) {
+        size_t nextPos = sentence.find(" ", pos + 1);
+        
+        if (nextPos == std::string::npos || (nextPos - pos >= 5)) {
+            if(nextPos - pos >= 5) {
+                std::reverse(sentence.substr(pos, nextPos - pos).begin(), std::reverse(sentence.substr(pos, nextPos - pos).end()));
             }
             
-            result += word + (i == str.length() ? "" : " ");
-            wordStart = i+1;
+            result += sentence.substr(pos, nextPos - pos) + " ";
+        } else {
+            result += sentence.substr(pos, nextPos - pos) + " ";
+            pos = nextPos;
         }
     }
+    
+    if(nextPos - pos >= 5) {
+        std::reverse(sentence.substr(pos).begin(), std::reverse(sentence.substr(pos).end()));
+    }
+    
+    result += sentence.substr(pos);
     
     return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << "Result: " << spinWords(str) << endl;
+    std::string sentence;
+    while (std::cin >> sentence) {
+        std::cout << spinWords(sentence) << std::endl;
+    }
     return 0;
+}
