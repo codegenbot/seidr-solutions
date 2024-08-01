@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#includes...
 
 int main() {
     std::string text, target;
