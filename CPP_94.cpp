@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int skjkasdkd(vector<int> lst){
@@ -28,7 +26,7 @@ bool isPrime(int n){
     return true;
 
 int main(){
-    vector<int> lst = {23, 31, 37, 41};
-    cout << "Sum of digits: " << skjkasdkd(lst) << endl;
+    vector<int> lst = {4,5,6,7,8};
+    cout<<skjkasdkd(lst);
     return 0;
 }
