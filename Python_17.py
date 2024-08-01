@@ -8,7 +8,13 @@ def parse_music(music_string: str) -> List[int]:
             note = ''
             for j in range(i+1, min(i+3, len(music_string))):
                 note += music_string[j]
-            beats.append(notes[note])
+            if note not in notes:
+                beats.append(0)
+            else:
+                beats.append(notes[note])
+            i += 2
+        elif music_string[i:i+2] == 'o|':
+            beats.append(notes['o|'])
             i += 2
         else:
             beats.append(notes[music_string[i:i+2]])
