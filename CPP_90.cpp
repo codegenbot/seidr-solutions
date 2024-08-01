@@ -14,17 +14,18 @@ int next_smallest(vector<int> lst) {
 int main() {
     vector<int> lst;
     int num;
-    cout << "Enter numbers separated by space: ";
-    while(cin >> num) {
+    cout << "Enter the numbers separated by space: ";
+    while (cin >> num) {
         lst.push_back(num);
     }
-    if(lst.size() > 0) {
+    if (lst.size() > 0) {
         int result = next_smallest(lst);
-        if(result != -1)
-            cout << "The next smallest number is: " << result << endl;
+        if (result == -1)
+            cout << "No smaller number found." << endl;
         else
-            cout << "No next smallest number found." << endl;
+            cout << "The next smallest number is: " << result << endl;
     } else {
         cout << "No numbers entered." << endl;
     }
+    return 0;
 }
