@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -7,9 +8,16 @@ bool is_palindrome(string text) {
     int right = text.length() - 1;
 
     while (left < right) {
-        if (text[left] != text[right]) {
-            return false;
+        if (!isalnum(text[left])) {
+            left++;
+            continue;
         }
+        if (!isalnum(text[right])) {
+            right--;
+            continue;
+        }
+        if (tolower(text[left]) != tolower(text[right]))
+            return false;
         left++;
         right--;
     }
