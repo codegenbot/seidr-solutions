@@ -10,7 +10,7 @@ std::vector<int> f(int n){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool std::issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
