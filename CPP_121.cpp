@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int solutions(std::vector<int> lst) {
@@ -11,5 +12,8 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-   // Your main function here
+    std::vector<int> lst = {1, 3, 4, 5, 6};
+    int result = solutions(lst);
+    std::cout << "Sum of odd numbers at even positions: " << result << std::endl;
+    return 0;
 }
