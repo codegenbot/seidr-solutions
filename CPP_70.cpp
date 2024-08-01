@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 using namespace std;
 
@@ -10,7 +11,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
         
         if (min_val == max_val) {
             result.push_back(min_val);
-            lst.pop_back();
+            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
         } else {
             result.push_back(min_val);
             vector<int> new_lst;
@@ -27,10 +28,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> inputVector = {5, 3, 8, 4, 2};
-    vector<int> outputVector = strange_sort_vector(inputVector);
-    for (int i : outputVector) {
-        cout << i << " ";
+    vector<int> vec = {1, 2, 3, 4, 5};
+    vector<int> sortedVec = strange_sort_vector(vec);
+    for (int x : sortedVec) {
+        cout << x << " ";
     }
     return 0;
 }
