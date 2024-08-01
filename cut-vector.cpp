@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,7 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
-    int min_diff = INT_MAX, cut_index = -1;
+    vector<vector<int>> result;
     
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
@@ -15,10 +16,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            vector<vector<int>> result;
             result.push_back(left);
             result.push_back(right);
-            return result;
         } else if (nums[i] == nums[0]) {
             vector<int> left;
             left.push_back(nums[0]);
@@ -29,6 +28,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i; j < n; j++) {
                 right.push_back(nums[j]);
             }
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == 0) {
             vector<int> left;
             for (int j = 0; j <= i; j++) {
@@ -38,6 +39,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == n - 1) {
             vector<int> left;
             for (int j = 0; j < i; j++) {
@@ -45,32 +48,31 @@ vector<vector<int>> cutVector(vector<int> nums) {
             }
             vector<int> right;
             right.push_back(nums[i]);
+            result.push_back(left);
+            result.push_back(right);
         } else {
-            int diff = nums[0] - nums[i];
-            if (diff < min_diff) {
-                min_diff = diff;
-                cut_index = 0;
-            }
-            for (int j = 1; j < i; j++) {
-                int temp_diff = nums[j - 1] - nums[j];
-                if (temp_diff < min_diff) {
-                    min_diff = temp_diff;
+            int min_diff = INT_MAX, cut_index = -1;
+            for (int j = 0; j < i; j++) {
+                int diff = nums[j] - nums[i];
+                if (diff < min_diff) {
+                    min_diff = diff;
                     cut_index = j;
                 }
             }
+            vector<int> left;
+            for (int j = 0; j <= cut_index; j++) {
+                left.push_back(nums[j]);
+            }
+            vector<int> right;
+            for (int j = i + 1; j < n; j++) {
+                right.push_back(nums[j]);
+            }
+            result.push_back(left);
+            result.push_back(right);
         }
     }
     
-    vector<int> left;
-    for (int j = 0; j <= cut_index; j++) {
-        left.push_back(nums[j]);
-    }
-    vector<int> right;
-    for (int j = cut_index + 1; j < n; j++) {
-        right.push_back(nums[j]);
-    }
-    
-    return {{left}, {right}};
+    return result;
 }
 
 int main() {
@@ -82,76 +84,81 @@ int main() {
     vector<int> nums5 = {1, 10000};
 
     // Call the function
-    vector<vector<int>> result1 = cutVector(nums1);
-    vector<vector<int>> result2 = cutVector(nums2);
-    vector<vector<int>> result3 = cutVector(nums3);
-    vector<vector<int>> result4 = cutVector(nums4);
-    vector<vector<int>> result5 = cutVector(nums5);
+    std::vector<std::vector<int>> result1 = cutVector(nums1);
+    std::vector<std::vector<int>> result2 = cutVector(nums2);
+    std::vector<std::vector<int>> result3 = cutVector(nums3);
+    std::vector<std::vector<int>> result4 = cutVector(nums4);
+    std::vector<std::vector<int>> result5 = cutVector(nums5);
 
     // Print the results
-    cout << "Input 1: ";
+    std::cout << "Input 1: ";
     for (int num : nums1) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Output 1: ";
-    for (vector<int> vec : result1) {
+    std::cout << std::endl;
+    
+    std::cout << "Output 1: ";
+    for (const auto& vec : result1) {
         for (int num : vec) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
-    cout << "Input 2: ";
+    std::cout << "Input 2: ";
     for (int num : nums2) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Output 2: ";
-    for (vector<int> vec : result2) {
+    std::cout << std::endl;
+
+    std::cout << "Output 2: ";
+    for (const auto& vec : result2) {
         for (int num : vec) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
-    cout << "Input 3: ";
+    std::cout << "Input 3: ";
     for (int num : nums3) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Output 3: ";
-    for (vector<int> vec : result3) {
+    std::cout << std::endl;
+
+    std::cout << "Output 3: ";
+    for (const auto& vec : result3) {
         for (int num : vec) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
-    cout << "Input 4: ";
+    std::cout << "Input 4: ";
     for (int num : nums4) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Output 4: ";
-    for (vector<int> vec : result4) {
+    std::cout << std::endl;
+
+    std::cout << "Output 4: ";
+    for (const auto& vec : result4) {
         for (int num : vec) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
-    cout << "Input 5: ";
+    std::cout << "Input 5: ";
     for (int num : nums5) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    cout << "Output 5: ";
-    for (vector<int> vec : result5) {
+    std::cout << std::endl;
+
+    std::cout << "Output 5: ";
+    for (const auto& vec : result5) {
         for (int num : vec) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
     return 0;
