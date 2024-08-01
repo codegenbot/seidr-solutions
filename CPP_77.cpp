@@ -1,6 +1,12 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    int n = round(cbrt(a));
-    return a == pow(n, 3);
+    int i = 1;
+    while (pow(i, 3) <= a) {
+        if (pow(i, 3) == a) {
+            return true;
+        }
+        i++;
+    }
+    return false;
 }
