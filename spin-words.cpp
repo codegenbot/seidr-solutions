@@ -1,26 +1,26 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
+    std::stringstream ss(str);
+    std::string word;
+    
     std::string result = "";
-    size_t prevSpace = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            std::string word = str.substr(prevSpace, i - prevSpace);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
+    while (ss >> word) {
+        if(word.length() >= 5)
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
             result += word + " ";
-            prevSpace = i + 1;
-        }
     }
-    return result.substr(0, result.size() - 1); // remove trailing space
+    return result.substr(0, result.size()-1);
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
