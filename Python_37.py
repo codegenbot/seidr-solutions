@@ -1,4 +1,3 @@
-```python
 def sort_even(l: list):
     return [
         (
