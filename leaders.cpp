@@ -1,14 +1,15 @@
 #include <vector>
 
-std::vector<int> leaders(const std::vector<int>& v) {
-    int rightmost = v.back();
+std::vector<int> leaders(const std::vector<int>& nums) {
+    int rightmost = -1;
     std::vector<int> leaders;
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            leaders.push_back(v[i]);
-            rightmost = v[i];
+
+    for (int i = nums.size() - 1; i >= 0; --i) {
+        if (nums[i] >= rightmost) {
+            rightmost = nums[i];
+            leaders.push_back(rightmost);
         }
     }
-    leaders.push_back(v.back());
+
     return leaders;
 }
