@@ -14,6 +14,7 @@ int can_arrange(vector<int> arr) {
 
 int main() {
     vector<int> input; 
+    for(int i=0;i<5;i++)input.push_back(i);
     assert(can_arrange(input) == -1); 
     return 0;
 }
