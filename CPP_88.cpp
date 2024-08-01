@@ -2,9 +2,13 @@
 #include <algorithm>
 #include <cassert>
 
+void sortVector(std::vector<int>& vec) {
+    std::sort(vec.begin(), vec.end());
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
+    sortVector(a);
+    sortVector(b);
     return a == b;
 }
 
