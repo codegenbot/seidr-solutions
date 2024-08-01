@@ -5,6 +5,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3})); // Change factorize to issame
+    assert(issame(issame(3 * 2 * 3), {2, 3, 3})); // Change factorize to issame
     return 0;
 }
