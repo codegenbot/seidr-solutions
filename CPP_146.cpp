@@ -9,21 +9,26 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
     std::vector<int> nums;
     int n;
-    std::cout << "Enter the number of elements: ";
+    
+    std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
     
     for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> nums.push_back;
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        nums.push_back(num);
     }
     
     int result = specialFilter(nums);
-    std::cout << "The count of filtered numbers is: " << result << std::endl;
     
+    std::cout << "The number of elements that meet the condition is: " << result << std::endl;
+
     return 0;
 }
