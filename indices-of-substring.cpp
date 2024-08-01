@@ -5,9 +5,10 @@
 int main() {
     std::string text;
     std::string target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
     std::vector<int> indices;
+
+    std::cin >> text;
+    std::cin >> target;
 
     std::size_t pos = text.find(target);
     while (pos != std::string::npos) {
