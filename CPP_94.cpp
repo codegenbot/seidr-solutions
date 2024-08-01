@@ -1,5 +1,13 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
 
 int findMaxPrime(vector<int> lst){
     int max_prime = 0;
@@ -15,10 +23,12 @@ int findMaxPrime(vector<int> lst){
     return sum;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+int main() {
+    vector<int> lst;
+    cout << "Enter numbers (separated by spaces): ";
+    for(int i; cin >> i; ) {
+        lst.push_back(i);
     }
-    return true;
+    cout << "Sum of digits in the largest prime number: " << findMaxPrime(lst) << endl;
+    return 0;
 }
