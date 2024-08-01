@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <algorithm>
 using namespace std;
 
@@ -16,7 +17,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
+int main2() {
     vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
     vector<int> l2 = {5, 7, 1, 5, 9, 653, 121};
     vector<int> result = common(l1, l2);
