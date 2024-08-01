@@ -5,12 +5,12 @@
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
-    
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i])
             return false;
     }
-    
+
     return true;
 }
 
@@ -23,13 +23,12 @@ std::vector<float> get_positive(std::vector<float> nums) {
     return result;
 }
 
-// Read input vectors
-
-int  main() {
+int main() {
     std::vector<float> vec1, vec2;
+
+    // Read input vectors
     float num;
     int n;
-
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
