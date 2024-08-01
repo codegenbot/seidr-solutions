@@ -1,5 +1,5 @@
-def concatenate(strings: List[str]) -> str:
+def concatenate(list_of_strings: List[str]) -> str:
     result = ""
-    for s in strings:
-        result += s
+    for string in list_of_strings:
+        result += string
     return result
