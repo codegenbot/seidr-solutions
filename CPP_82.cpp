@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 bool prime_length(std::string str){
@@ -12,5 +13,6 @@ bool prime_length(std::string str){
 
 int main() {
     assert(prime_length("0") == false);
+    // Add more test cases or your code logic here
     return 0;
 }
