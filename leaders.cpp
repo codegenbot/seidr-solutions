@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -8,8 +9,8 @@ int main() {
     int rightmost = arr.back();
     for (int i = n - 1; i >= 0; --i) {
         if (arr[i] >= rightmost) {
+            result.push_back(arr[i]);
             rightmost = arr[i];
-            result.push_back(rightmost);
         }
     }
     for (int i : result) {
