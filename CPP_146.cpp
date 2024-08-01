@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for(int num : nums){
         if(num > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0){
@@ -11,9 +11,8 @@ int specialFilter(std::vector<int> nums) {
     return count;
 }
 
-int main() {
-    std::vector<int> nums = {11, 22, 33, 44};
-    int result = specialFilter(nums);
-    std::cout << "Count: " << result << std::endl;
+int main(){
+    std::vector<int> nums = {1, 2, 3};
+    assert(specialFilter(nums) == 0);
     return 0;
 }
