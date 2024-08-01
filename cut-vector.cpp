@@ -18,18 +18,13 @@ int main() {
     int left_sum = 0, right_sum = 0;
     int min_diff = INT_MAX;
     int cut_spot = 0;
-    
-    for (int i = 0; i < n; ++i) {
-        left_sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            left_sum += vec[j];
-        }
-        
-        right_sum = 0;
-        for (int j = i + 1; j < n; ++j) {
-            right_sum += vec[j];
-        }
 
+    for (int i = 0; i < n/2; ++i) {
+        left_sum += vec[i];
+    }
+
+    for (int i = 0; i < n; ++i) {
+        right_sum += vec[i];
         int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
@@ -37,7 +32,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= cut_spot; ++i) {
+    for (int i = 0; i < cut_spot + 1; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << "\n";
