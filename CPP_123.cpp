@@ -21,3 +21,8 @@ std::vector<int> get_odd_collatz(int n) {
     std::sort(oddNumbers.begin(), oddNumbers.end());
     return oddNumbers;
 }
+
+int main() {
+    assert(issame(get_odd_collatz(1),{1}));
+    return 0;
+}
