@@ -1,14 +1,16 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if not paren_string or not set(paren_string).issubset({'(', ')'}):
+        return []
+
     result = []
-    current_group = ""
+    temp = ""
     for char in paren_string:
         if char == "(":
-            current_group += char
+            temp += char
         elif char == ")":
-            current_group += char
-            result.append(current_group)
-            current_group = ""
+            temp += char
+            result.append(temp)
+            temp = ""
     return result
