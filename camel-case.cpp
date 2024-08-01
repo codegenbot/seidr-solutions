@@ -3,38 +3,50 @@
 #include <string>
 
 std::string capitalize(const std::string& s) {
-    if (s.empty()) return s;
-    std::string result = s[0] >= 'a' && s[0] <= 'z'? s.substr(0, 1) : s.substr(0, 1);
-    for (int i = 1; i < s.length(); i++) {
-        if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z')) {
-            result += toupper(s[i]);
+    if (s.empty()) {
+        return s;
+    }
+    
+    return toupper(s[0]) + tolower(s.substr(1));
+}
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> result;
+    std::string word;
+
+    for (char c : s) {
+        if (c == c) {
+            if (!word.empty()) {
+                result.push_back(word);
+                word.clear();
+            }
         } else {
-            result += tolower(s[i]);
+            word += c;
         }
     }
+
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+
     return result;
 }
 
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> arr;
-    std::string temp;
+std::string camelCase(const std::string& s) {
+    std::vector<std::string> words = split(s, '-');
+    std::string result;
 
-    for (char const &c : str) {
-        if (c == c) {
-            temp += c;
-        } else {
-            if (!temp.empty()) {
-                arr.push_back(temp);
-                temp = "";
+    for (const auto& word : words) {
+        if (!word.empty()) {
+            if (!result.empty()) {
+                result += capitalize(word);
+            } else {
+                result = capitalize(word);
             }
         }
     }
 
-    if (!temp.empty()) {
-        arr.push_back(temp);
-    }
-
-    return arr;
+    return result;
 }
 
 int main() {
@@ -42,20 +54,7 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
 
-    std::vector<std::string> words = split(input, ' ');
-    std::string result;
-
-    for (const auto& word : words) {
-        if (!word.empty()) { // Ignore empty strings
-            if (!result.empty()) {
-                result += capitalize(word.substr(1)); // Add capitalized word to result
-            } else {
-                result = capitalize(word); // First word, all caps
-            }
-        }
-    }
-
-    std::cout << result << std::endl;
+    std::cout << camelCase(input) << std::endl;
 
     return 0;
 }
