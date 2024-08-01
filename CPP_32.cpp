@@ -17,10 +17,10 @@ double find_zero(const std::vector<double>& coeffs){
 }
 
 int main() {
-    std::vector<double> coeffs; // Initialized as an empty vector
+    std::vector<double> coeffs; 
     double coeff;
     for (int i = 0; i < 3; i++) {
-        std::cin >> coeff; // Read coefficients from user input
+        std::cin >> coeff; 
         coeffs.push_back(coeff);
     }
 
