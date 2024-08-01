@@ -3,9 +3,8 @@ def decode_shift(s: str):
 
 if __name__ == "__main__":
     input_string = input("Enter the encoded string: ")
-    
-    if input_string.isalpha() and input_string.islower():
-        decoded_string = decode_shift(input_string)
-        print(decoded_string)
-    else:
-        print("Please enter an encoded string containing only lowercase alphabets.")
+    while not input_string.islower():
+        print("Input should contain only lowercase alphabets. Please try again.")
+        input_string = input("Enter the encoded string: ")
+    decoded_string = decode_shift(input_string)
+    print(decoded_string)
