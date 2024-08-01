@@ -14,15 +14,7 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-bool are_same_vectors(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main(){
-    assert(are_same_vectors(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
