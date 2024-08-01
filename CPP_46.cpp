@@ -1,11 +1,24 @@
+#include <stdio.h>
+using namespace std;
+
 int fib4(int n) {
-    if (n < 0) return -1; // Error: negative index
-    int f[] = {0, 0, 2, 0};
+    if (n <= 3)
+        return 0;
+    int a = 0, b = 2, c = 0, d = 2;
     for (int i = 4; i <= n; i++) {
-        int sum = f[3] + f[2] + f[1];
-        for (int j = 0; j < 3; j++)
-            f[j] = f[j+1];
-        f[3] = sum;
+        int temp = a + b + c + d;
+        a = b;
+        b = c;
+        c = d;
+        d = temp;
     }
-    return f[n % 4];
+    return d;
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("Fib4(%d) = %d\n", n, fib4(n));
+    return 0;
 }
