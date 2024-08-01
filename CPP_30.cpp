@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> get_positive() {
-    return {};
+std::vector<float> get_positive(std::vector<float> input) {
+    // Implement logic to get positive values from input
+    return input;
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -10,6 +11,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive(), {}));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
