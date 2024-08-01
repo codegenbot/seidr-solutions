@@ -1,8 +1,7 @@
 #include <vector>
 #include <cassert>
 
-template <typename T>
-bool issame(const std::vector<T>& a, const std::vector<T>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,7 +15,15 @@ bool issame(const std::vector<T>& a, const std::vector<T>& b) {
     return true;
 }
 
+std::vector<float> derivative(const std::vector<float>& v) {
+    std::vector<float> result;
+    for (size_t i = 1; i < v.size(); ++i) {
+        result.push_back(v[i] - v[i - 1]);
+    }
+    return result;
+}
+
 int main() {
-    assert(issame(std::vector<float>{1}, std::vector<float>{}));
+    assert(issame(derivative(std::vector<float>{1}), std::vector<float>{}));
     return 0;
 }
