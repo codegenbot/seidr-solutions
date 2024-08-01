@@ -17,15 +17,8 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             }
         }
     }
-    
     vector<pair<float, float>> result;
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            if (abs(numbers[j] - numbers[i]) == abs(closest_pair.second - closest_pair.first)) {
-                result.push_back({min(numbers[i], numbers[j]), max(numbers[i], numbers[j])});
-            }
-        }
-    }
-    
+    result.push_back({closest_pair.first, closest_pair.second});
+    result.push_back({abs(closest_pair.second - closest_pair.first), });
     return result;
 }
