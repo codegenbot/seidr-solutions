@@ -3,8 +3,13 @@
 #include <iomanip>
 
 double calculateProbability(int n, int m) {
-    double p = (n - m) / static_cast<double>(n * m);
-    return p;
+    if(n <= m)
+        return 0.0;
+
+    double totalCases = (double)n * m;
+    double successfulCases = (n - 1) * m;
+
+    return 1.0 - successfulCases / totalCases;
 }
 
 int main() {
