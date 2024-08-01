@@ -17,10 +17,10 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> xs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
-    double solution = find_zero(xs);
+    std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
+    double solution = find_zero(coeffs);
 
-    assert(std::abs(poly(xs, solution)) < 1e-3);
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
     return 0;
 }
