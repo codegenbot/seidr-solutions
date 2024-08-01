@@ -1,8 +1,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
-#include <vector>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return a.size() < b.size();
+    }
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
@@ -11,14 +16,13 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
             result.push_back(std::vector<int>{i, lst[i].size()});
         }
     }
-    std::sort(result.begin(), result.end(),
-              [](const std::vector<int>& a, const std::vector<int>& b) {
-                  return a[1] < b[1];
-              });
+    std::sort(result.begin(), result.end(), [](const auto& a, const auto& b) {
+        return issame(a, b);
+    });
     return result;
 }
 
 int main() {
-    assert(get_row({ {}, { 1 }, { 1, 2, 3 } }, 3)[0] == std::vector<int>{2, 3});
+    assert(issame(get_row({ {}, { 1 }, { 1, 2, 3 } }, 3)[0], { 2, 3 }));
     return 0;
 }
