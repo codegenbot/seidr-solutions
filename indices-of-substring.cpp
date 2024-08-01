@@ -10,7 +10,7 @@ int main() {
     std::vector<int> indices;
     
     size_t i;
-    for (i = 0; i <= text.length() - target.length(); ++i) {
+    for (i = 0; i <= text.length() - target.length() + 1; ++i) {
         if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
