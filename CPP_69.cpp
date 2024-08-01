@@ -7,10 +7,17 @@ int search(vector<int> lst) {
     
     for (int num : lst) {
         freqMap[num]++;
-        if (freqMap[num] >= freqMap[maxFreqNum] && num > maxFreqNum) {
+        if (freqMap[num] >= num && num > maxFreqNum) {
             maxFreqNum = num;
         }
     }
     
     return maxFreqNum;
+}
+
+int main() {
+    // Add test cases here
+    assert (search({3, 10, 10, 9, 2}) == -1);
+    
+    return 0;
 }
