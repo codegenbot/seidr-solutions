@@ -1,16 +1,9 @@
-int search(vector<int> lst) {
-    map<int, int> freq;
-    for (int num : lst) {
-        if (freq.find(num) == freq.end()) {
-            freq[num] = 1;
-        } else {
-            freq[num]++;
+int search(vector<int> lst){
+    int max = 0;
+    for(int i : lst){
+        if(i > 0 && i >= count(i, lst)){
+            if(max < i) max = i;
         }
     }
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first;
-        }
-    }
-    return -1;
+    return max == 0 ? -1 : max;
 }
