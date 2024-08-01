@@ -13,7 +13,6 @@ std::string camelCase(const std::string& s) {
         }
     }
 
-    std::string result;
     for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
             result += toupper(words[i][0]);
