@@ -1,10 +1,14 @@
-#include <queue>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr,int k){
-    std::priority_queue<int> pq;
-    for(int i:arr) pq.push(i);
-    std::vector<int> res;
-    for(int i=0; i<k; i++) res.push_back(pq.top()), pq.pop();
-    return res;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
+    if(k > arr.size())
+        k = arr.size();
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
+    return result;
 }
