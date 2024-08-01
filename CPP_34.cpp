@@ -2,16 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> solve(const vector<int>& l) {
-    vector<int> sortedList = l;
-    sort(sortedList.begin(), sortedList.end());
-    sortedList.erase(unique(sortedList.begin(), sortedList.end()), sortedList.end());
-    assert(issame(unique(sortedList.begin(), sortedList.end()), l));
+std::vector<int> solve(const std::vector<int>& l) {
+    std::vector<int> sortedList = l;
+    std::sort(sortedList.begin(), sortedList.end());
+    sortedList.erase(std::unique(sortedList.begin(), sortedList.end()), sortedList.end());
+    assert(issame(std::unique(sortedList.begin(), sortedList.end()), l));
     return sortedList;
 }
