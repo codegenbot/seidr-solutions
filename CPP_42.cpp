@@ -1,4 +1,4 @@
-for (int &num : l) {
-    num++;
+for (int &x : l) {
+    x++;
 }
 return l;
