@@ -1,20 +1,34 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+using namespace std;
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x) {
+    return x % 2 == 0;
 }
 
-std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
-    std::vector<int> result;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
-    result.erase(std::unique(result.begin(), result.end()), result.end());
+vector<int> common(vector<int> l1, vector<int> l2) {
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+
+    vector<int> result;
+    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+
+    result.erase(unique(result.begin(), result.end()), result.end());
+
     return result;
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    // Sample usage
+    vector<int> list1 = {1, 2, 3, 4, 5};
+    vector<int> list2 = {2, 3, 4, 5, 6};
+
+    vector<int> commonElements = common(list1, list2);
+
+    for (int num : commonElements) {
+        cout << num << " ";
+    }
+
     return 0;
 }
