@@ -1,4 +1,5 @@
-def concatenate_strings(strings):
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
     return "".join(strings)
-result = concatenate_strings(strings)
-return result
