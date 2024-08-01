@@ -3,6 +3,6 @@ def find_zero(xs: list):
     b = xs[1]
     return -b / a
 
-coefficients = list(map(int, input().split()))[::-1]
+coefficients = list(map(int, input().split()))
 result = find_zero(coefficients)
 print(result)
