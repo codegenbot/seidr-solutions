@@ -33,11 +33,11 @@ int count_nums(vector<int> nums) {
 int main() {
     vector<int> input;
     int num;
-    cout << "Enter numbers (negative to stop): ";
-    while (cin >> num) {
+    cout << "Enter numbers. Enter -1 to stop.\n";
+    while ((cin >> num) && (num != -1)) {
         input.push_back(num);
-        if (num < 0) break;
     }
     cout << "Count: " << count_nums(input) << endl;
+
     return 0;
 }
