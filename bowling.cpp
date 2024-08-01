@@ -14,7 +14,7 @@ int bowlingScore(string s) {
             int pins = c - '0';
             score += pins;
             if (pins < 10) {
-                for (int i = 1; i <= 3; i++) {
+                for (int i = 1; i <= 3 - pins; i++) {
                     if (s[currentFrame*2 + i] == '/') {
                         score += 10 - (26 - (currentFrame * 2));
                         break;
