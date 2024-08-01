@@ -8,9 +8,11 @@ string camelCase(string s) {
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             capitalizeNext = true;
-            continue;
-        }
-        if (capitalizeNext) {
+            i++; // skip the "-"
+            while (i < s.length() && s[i] == ' ') {
+                i++; // skip the spaces
+            }
+        } else if (capitalizeNext) {
             result += toupper(s[i]);
             capitalizeNext = false;
         } else {
