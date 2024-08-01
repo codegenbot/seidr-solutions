@@ -1,16 +1,13 @@
-#include <unordered_set>
-using namespace std;
-
 vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_set<int> seen;
+    unordered_map<int, bool> mp;
     vector<int> result;
-    
-    for (int num : numbers) {
-        if (seen.find(num) == seen.end()) {
-            seen.insert(num);
-            result.push_back(num);
+
+    for (int i = 0; i < numbers.size(); i++) {
+        if (!mp.count(numbers[i])) {
+            mp[numbers[i]] = true;
+            result.push_back(numbers[i]);
         }
     }
-    
+
     return result;
 }
