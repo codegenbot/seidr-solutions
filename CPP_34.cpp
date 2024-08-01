@@ -2,14 +2,17 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using std::vector;
+using std::unique;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 std::vector<int> solve(const std::vector<int>& l) {
     std::vector<int> sortedList = l;
     std::sort(sortedList.begin(), sortedList.end());
-    sortedList.erase(std::unique(sortedList.begin(), sortedList.end()), sortedList.end());
+    sortedList.erase(unique(sortedList.begin(), sortedList.end()), sortedList.end());
     assert(issame(sortedList, l));
     return sortedList;
 }
