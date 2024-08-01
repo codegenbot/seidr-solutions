@@ -14,4 +14,7 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() { leaders(vector<int>()); return 0; }
+int main() {
+    leaders(vector<int>());
+    return 0;
+}
