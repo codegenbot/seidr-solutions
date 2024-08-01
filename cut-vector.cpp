@@ -7,8 +7,10 @@ int main() {
     int n;
     std::vector<int> vec;
 
+    // Read vector size
     std::cin >> n;
 
+    // Read vector elements
     for (int i = 0; i < n; ++i) {
         int num;
         std::cin >> num;
@@ -18,13 +20,18 @@ int main() {
     int left_sum = 0, right_sum = 0;
     int min_diff = INT_MAX;
     int cut_spot = 0;
-
+    
     for (int i = 0; i < n; ++i) {
-        left_sum += vec[i];
-    }
+        left_sum = 0;
+        for (int j = 0; j <= i; ++j) {
+            left_sum += vec[j];
+        }
 
-    for (int i = 0; i < n; ++i) {
-        right_sum = left_sum - right_sum; // Update right_sum correctly
+        right_sum = 0;
+        for (int j = i + 1; j < n; ++j) {
+            right_sum += vec[j];
+        }
+
         int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
@@ -32,7 +39,8 @@ int main() {
         }
     }
 
-    for (int i = 0; i < cut_spot + 1; ++i) {
+    // Output the two resulting subvectors
+    for (int i = 0; i <= cut_spot; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << "\n";
