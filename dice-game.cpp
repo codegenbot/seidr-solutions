@@ -1,4 +1,3 @@
-```c++
 int main() {
     int n = 6; 
     int m = 4; 
@@ -8,8 +7,6 @@ int main() {
 }
 
 double calculateProbability(int n, int m) {
-    if(m >= n)
-        return 0.0;
-    else
-        return (n - m) * 1.0 / (n + m - 1);
+    double total = (n * m);
+    return (m * 1.0 / total);
 }
