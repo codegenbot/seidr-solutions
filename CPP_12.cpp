@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 string longest(vector<string> strings){
@@ -12,4 +11,3 @@ string longest(vector<string> strings){
         }
     }
     return result;
-}
