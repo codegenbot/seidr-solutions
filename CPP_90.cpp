@@ -1,4 +1,6 @@
+```cpp
 int next_smallest(vector<int>);  
+
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
