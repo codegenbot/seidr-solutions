@@ -27,6 +27,6 @@ const vector<string>& total_match(const vector<string>& lst1, const vector<strin
 
 int main() {
     assert(issame({"this"}, vector<string>()));
-
+    
     return 0;
 }
