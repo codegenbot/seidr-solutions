@@ -1,9 +1,9 @@
-string find_max(vector<string> words) {
-    string max_word = *min_element(words.begin(), words.end());
-    for (const auto& word : words) {
-        if (word.size() == max_word.size()) {
-            max_word = min(word, max_word);
-        }
-    }
+```
+std::string find_max(vector<std::string> words){
+    std::string max_word = *max_element(words.begin(), words.end(), 
+                                    [&words](const std::string& a, const std::string& b) {
+                                        return (a.length() != b.length()) ? 
+                                            a.length() < b.length() : a.compare(b);
+                                    });
     return max_word;
 }
