@@ -1,4 +1,6 @@
-def leaders(a):
-    return [a[i] if a[i] >= max(a[i + 1 :]) else [] for i in range(len(a) - 1)] + [
-        a[-1]
-    ]
+def leaders(vector):
+    leaders = [vector[-1]]
+    for i in range(len(vector) - 2, -1, -1):
+        if vector[i] >= vector[i + 1]:
+            leaders.append(vector[i])
+    return reversed(leaders)
