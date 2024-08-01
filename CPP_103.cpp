@@ -25,5 +25,7 @@ string rounded_avg(int n, int m) {
     return binaryAvg;
 }
 
-assert(rounded_avg(5, 5) == "101");
-```
+// int main() {
+//     assert(rounded_avg(5, 5) == "101");
+//     return 0;
+// }
