@@ -12,7 +12,7 @@ int main() {
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     std::pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
     float min_diff = abs(numbers[1] - numbers[0]);
     
