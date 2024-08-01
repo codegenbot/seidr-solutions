@@ -18,10 +18,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 int main(){
     std::vector<float> vec1, vec2;
 
-    int n;
-    float num;
-    
     // Read input vectors
+    float num;
+    int n;
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
