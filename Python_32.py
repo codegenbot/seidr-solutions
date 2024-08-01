@@ -1,9 +1,6 @@
 def find_zero(xs: list):
-    n = xs[-2]
+    assert len(xs) >= 2, "List must contain at least two coefficients"
+    n = len(xs) - 1
     a = xs[-1]
-    return -n / a
-
-
-xs = list(map(int, input().split()))
-result = find_zero(xs)
-print(result)
+    b = xs[-2]
+    return -b / a
