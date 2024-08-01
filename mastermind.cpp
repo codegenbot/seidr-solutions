@@ -1,6 +1,7 @@
+```cpp
 int mastermind(std::string code, std::string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -19,4 +20,17 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code, guess;
+    // Read input from user
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter a guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+    std::cout << result << "\n" << result << std::endl;
+    return 0;
 }
