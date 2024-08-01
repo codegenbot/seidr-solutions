@@ -1,10 +1,10 @@
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
-vector<vector<int>> pluck(vector<int> arr) { 
-    vector<int> result;
-    int minEvenValue = INT_MAX; 
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
+    int minEvenValue = INT_MAX;
     int minIndex = -1;
     
     for (int i = 0; i < arr.size(); i++) {
@@ -14,11 +14,15 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
     
+    vector<int> subResult;
     if (minIndex != -1) {
-        result.push_back({minEvenValue, minIndex});
+        subResult.push_back(minEvenValue);
+        subResult.push_back(minIndex);
     } else {
-        result.push_back({});
+        subResult.push_back({});
     }
     
-    return {result}; 
+    result.push_back(subResult);
+    
+    return result;
 }
