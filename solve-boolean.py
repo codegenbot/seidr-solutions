@@ -1,18 +1,16 @@
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid input")
-    else:
-        for i in range(len(expression)):
-            if expression[i] == "&":
-                a = expression[:i]
-                b = expression[i + 1 :]
-                return solve_boolean(a) and solve_boolean(b)
-            elif expression[i] == "|":
-                a = expression[:i]
-                b = expression[i + 1 :]
-                return solve_boolean(a) or solve_boolean(b)
-    return True
+    def evaluate(expr):
+        if expr == "T":
+            return True
+        elif expr == "F":
+            return False
+        elif "&" in expr and "|" in expr:
+            raise Exception("Invalid expression")
+        elif "&" in expr:
+            left, right = expr.split("&")
+            return not (evaluate(left) or evaluate(right))
+        else:
+            left, right = expr.split("|")
+            return evaluate(left) or evaluate(right)
+
+    return evaluate(expression)
