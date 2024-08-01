@@ -5,7 +5,7 @@ def encode(message):
             if char.isupper():
                 result += chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
             else:
-                result += chr((ord(char) - ord("a") + 2) % 26 + ord("a"))
+                result += chr((ord(char) - ord("A") + 2) % 26 + ord("A"))
         else:
             result += char
     return result
