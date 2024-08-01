@@ -6,6 +6,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 3}));
+    assert(get_row({{}, {1}, {1, 2, 3}}, 3)[0] == std::vector<int>{2, 3});
     return 0;
 }
