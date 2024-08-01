@@ -40,3 +40,5 @@ std::vector<std::string> by_length(const std::vector<int>& input) {
 
     return result;
 }
+
+assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
