@@ -27,9 +27,10 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             balance++;
         } else if (c == ')') {
             balance--;
-            if (balance > 0) {
+            if (balance >= 0) {
                 current_group += c;
-            } else if (balance == 0) {
+            }
+            if (balance == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -41,5 +42,6 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
     return 0;
 }
