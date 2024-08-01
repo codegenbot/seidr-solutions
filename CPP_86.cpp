@@ -1,24 +1,20 @@
 #include <algorithm>
+#include <string>
+using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    for (const auto& word : split(s, ' ')) {
-        result += std::string(word.begin(), word.end());
-        if (!result.empty()) {
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
             result += " ";
+        } else {
+            string temp = "";
+            for (int j = i; j < s.size() && s[j] != ' '; j++) {
+                temp += s[j];
+            }
+            sort(temp.begin(), temp.end());
+            result += temp;
+            i += temp.size() - 1;
         }
     }
     return result;
-}
-
-vector<string> split(const string& str, char delim) {
-    vector<string> tokens;
-    size_t pos = 0;
-    size_t prev = 0;
-    while ((pos = str.find(delim, prev)) != string::npos) {
-        tokens.push_back(str.substr(prev, pos - prev));
-        prev = pos + 1;
-    }
-    tokens.push_back(str.substr(prev));
-    return tokens;
-}
