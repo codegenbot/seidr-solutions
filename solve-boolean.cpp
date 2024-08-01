@@ -1,32 +1,20 @@
-Here is the solution:
-
-string solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) {
+string solveBoolean(string s) {
+    bool result = (s == "t");
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            if(result && s.substr(i+1, 1) == "f")
                 return "False";
-            }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return "True";
-            }
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            s.push('T');
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            s.push('F');
+            else if (!result && s.substr(i+1, 1) == "t")
+                return "False";
+            i = s.length();
+        }
+        else if(s[i] == '|') {
+            if(!result && s.substr(i+1, 1) == "f")
+                return "False";
+            else if (result && s.substr(i+1, 1) == "t")
+                return "False";
+            i = s.length();
         }
     }
-    while (!s.empty()) {
-        s.pop();
-    }
-    return s.top() == 'T' ? "True" : "False";
+    return result ? "True" : "False";
 }
