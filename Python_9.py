@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
@@ -10,8 +9,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
     return result
 
 # Input handling
-data = sys.stdin.readline().rstrip()
-numbers = list(map(int, data.split()))
+data = input("Enter numbers separated by spaces: ").split()
+numbers = list(map(int, data))
 
 # Output
 print(rolling_max(numbers))
