@@ -17,5 +17,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             }
         }
     }
-    return {{closest_pair.first, closest_pair.second}, {abs(closest_pair.second - closest_pair.first)}};
+    vector<pair<float, float>> result;
+    result.push_back(closest_pair);
+    return result;
 }
