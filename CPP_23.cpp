@@ -1,8 +1,5 @@
-#include <string> // Include the necessary header file
-#include <cstring> // Include for strlen function
+#include <string>
 
-int main() {
-    assert(strlen("asdasnakj") == 9);
-    std::string str = "example";
+int calculateStringLength(const std::string& str) {
     return str.length();
 }
