@@ -26,4 +26,4 @@ int main() {
     cout << fixed << setprecision(2) << total_price << endl;
 
     return 0;
-}  
+}
