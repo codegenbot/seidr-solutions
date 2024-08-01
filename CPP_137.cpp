@@ -2,28 +2,38 @@
 #include <boost/any.hpp>
 #include <string>
 
-using namespace boost;
+using boost::any;
 
-boost::any compare_one(boost::any a, boost::any b) {
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < (float)b ? &b : &a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a < b ? &b : &a;
+        return (int)a.convert_to<int>() < (double)b ? &b : &a;
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(float) || b.type() == typeid(double))) {
-        string s = a.convert_to<string>();
-        float f = stof(s);
-        int i = (int)f;
-        return (i < b ? &b : &a);
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        if (stof(a.convert_to<string>().c_str()) > (int)b.convert_to<int>()) {
+            return a;
+        }
+       	else if (stof(a.convert_to<string>().c_str()) < (int)b.convert_to<int>()) {
+            return b;
+        }
     }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) && b.type() == typeid(int)) {
-        return (a.convert_to<string>().c_str()) < boost::any_cast<int>(b) ? &a : &b;
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (stof(a.convert_to<string>().c_str()) > (double)b) {
+            return a;
+        }
+       	else if (stof(a.convert_to<string>().c_str()) < (double)b) {
+            return b;
+        }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = a.convert_to<string>();
-        string s2 = b.convert_to<string>();
-        return (stof(s1) < stof(s2) ? &a : &b);
+        if (stof(a.convert_to<string>().c_str()) > stof(b.convert_to<string>().c_str())) {
+            return a;
+        }
+		else if (stof(a.convert_to<string>().c_str()) < stof(b.convert_to<string>().c_str())) {
+            return b;
+        }
     }
     return boost::any();
 }
