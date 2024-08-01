@@ -8,7 +8,8 @@ int bowlingScore(string s) {
             score += 10 + (frame < 9 ? 10 : 0);
             frame++;
         } else if (c == '/') {
-            score += 10 - (10 - (s[s.find(c) - 1] - '0')) - (10 - (s[s.find(c) + 1] - '0'));
+            score += 10 - (10 - (s.find("10") < s.find(c) ? 10 : (s[s.find(c) - 1] - '0'))) -
+                     (10 - (s[s.find(c) + 1] - '0'));
             frame++;
         } else {
             int pins = c - '0';
@@ -22,3 +23,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
