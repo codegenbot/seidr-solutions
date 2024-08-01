@@ -1,24 +1,34 @@
-```
-def bowling_score(rolls):
+def bowling_score(frames):
     score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == 'X':
-            score += 10
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].count('/'):
-            first_roll, second_roll = map(int, rolls[roll_index:roll_index+2].split('/'))
-            score += first_roll + second_roll
-            roll_index += 2
-        else:
-            first_roll = int(rolls[roll_index])
-            if frame < 10 and str(first_roll) + rolls[roll_index+1] == 'X5':
-                score += 15
-                roll_index += 2
-            elif frame < 10 and str(first_roll) + rolls[roll_index+1].count('/') == 1:
-                score += first_roll + int(rolls[roll_index+1].split('/')[0])
-                roll_index += 2
+    for i in range(10):
+        if "/" in frames[i]:
+            strike = False
+            spare = False
+            rolls = list(map(int, frames[i].split("/")))
+            if len(rolls) == 2:
+                score += sum(rolls)
             else:
-                score += first_roll
-                roll_index += 1
+                if rolls[0] + rolls[1] >= 10:
+                    score += sum(rolls)
+                elif rolls[0] == 10:
+                    strike = True
+                else:
+                    spare = True
+        else:
+            strike = False
+            spare = False
+            roll = int(frames[i])
+            if roll == 10:
+                strike = True
+            else:
+                score += roll
+        if i < 9:
+            if strike:
+                score += (
+                    10
+                    + sum(list(map(int, frames[i + 1].split("/"))))
+                    + sum(list(map(int, frames[i + 2].split("/"))))
+                )
+            elif spare:
+                score += 10 + int(frames[i + 1])
     return score
