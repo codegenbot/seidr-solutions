@@ -1,6 +1,6 @@
-#include <iostream>
+
 #include <string>
-#include <cassert>
+#include <cassert> // Include cassert header
 
 std::string decimal_to_binary(int decimal) {
     std::string binary = "db";
@@ -8,9 +8,7 @@ std::string decimal_to_binary(int decimal) {
         binary = std::to_string(decimal % 2) + binary;
         decimal /= 2;
     }
-    return binary;
+    return binary + "db";
 }
 
-int main() {
-    assert(decimal_to_binary(15) == "db1111db");
-}
+assert(decimal_to_binary(15) == "db1111db");
