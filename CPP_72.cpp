@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 #include <algorithm>
 
 bool is_palindrome(string s) {
