@@ -1,42 +1,27 @@
 ```
-def bowling_score(s):
+def bowling_score(game):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            strike = False
-            if int(s[i]) == 10:
-                strike = True
-            else:
-                first_roll = int(s[i])
-                second_roll = int(s[i+1])
-                if strike:
-                    score += 10 + first_roll
-                elif first_roll + second_roll >= 10:
-                    score += first_roll + second_roll
-                else:
-                    score += first_roll
-                    frame_score = first_roll + second_roll
-                    while frame < 10 and (frame_score < 10 or s[i+2].isdigit()):
-                        i += 1
-                        if s[i].isdigit():
-                            first_roll = int(s[i])
-                            score += first_roll
-                            frame_score = first_roll
-                        else:
-                            score += 10
-                            frame -= 1
-                    if frame < 10 and (s[i].isdigit() or s[i+1].isdigit()):
-                        i += 1
-                        while i < len(s) and s[i].isdigit():
-                            score += int(s[i])
-                            i += 1
-            frame += 1
+    roll = 0
+    for frame in game.split('/'):
+        if len(frame) == 1:
+            score += 10
+            roll += 2
+        elif len(frame) == 2 and int(frame[0]) < 10:
+            score += int(frame[0]) * 2 + 10 - int(frame[0])
+            roll += 2
         else:
-            if strike:
-                score += 10
-                frame -= 1
-            elif s[i] == 'X':
-                score += 10
-                frame -= 1
+            if int(frame[0]) == 10:
+                score += 10 + 2*(10-int(frame[1]))
+                roll += 4
+            else:
+                score += int(frame[0]) * 2
+                roll += 2
+                if len(game.split('/')) > (roll // 2):
+                    frame = game.split('/')[int((roll-1)/2)]
+                    if frame[-1] == 'X':
+                        score += 10 + 10 - int(frame[:-1])
+                        roll += 3
+                    else:
+                        score += 10 + int(frame[:-1]) * 2
+                        roll += 3
     return score
