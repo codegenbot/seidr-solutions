@@ -10,21 +10,19 @@ double poly(const std::vector<double>& coeffs, double x){
     return result;
 }
 
-double find_zero(const std::vector<double>& coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
+double find_zero(const std::vector<double>& xs){
+    double a = xs[0];
+    double b = xs[1];
     return -b/a;
 }
 
 int main() {
-    std::vector<double> coeffs;
-    coeffs.push_back(1);
-    coeffs.push_back(-5);
-    coeffs.push_back(6);
+    std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
+    double a = coeffs[0];
+    double b = coeffs[1];
+    std::vector<double> solution = find_zero({a, b});
 
-    double solution = find_zero(coeffs);
-
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    assert(std::abs(poly(coeffs, solution[0])) < 1e-3);
 
     return 0;
 }
