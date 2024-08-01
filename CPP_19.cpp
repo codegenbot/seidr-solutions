@@ -1,12 +1,10 @@
-#include <iostream>
+#include <string>
 #include <map>
-#include <vector>
-#include <algorithm>
-#include <sstream>
+#include <cassert>
 
 using namespace std;
 
-map<string, int> num_map = {
+map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -19,31 +17,30 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> rev_num_map;
-    for(auto it : num_map){
-        rev_num_map[it.second] = it.first;
+string sort_numbers(string numbers) {
+    string result = "";
+    map<int, string> sorted_numbers;
+    
+    size_t start = 0, end = numbers.find(" ");
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        sorted_numbers[number_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
     }
-
-    vector<int> sorted_nums;
-    stringstream ss(numbers);
-    string token;
-    while(getline(ss, token, ' ')){
-        sorted_nums.push_back(num_map[token]);
+    
+    string num_str = numbers.substr(start);
+    sorted_numbers[number_map[num_str]] = num_str;
+    
+    for (const auto& pair : sorted_numbers) {
+        result += pair.second + " ";
     }
-
-    sort(sorted_nums.begin(), sorted_nums.end());
-
-    string result;
-    for(auto num : sorted_nums){
-        result += rev_num_map[num] + " ";
-    }
-
+    
     result.pop_back(); // Remove the extra space at the end
     return result;
 }
 
-int main(){
+int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
