@@ -1,14 +1,10 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    return min(
-        [
-            list(a)
-            for a in itertools.product(
-                range((cents + coin - 1) // coin), repeat=len(coins)
-            )
-            if sum([a[i] * coin for i, coin in enumerate(coins)]) == cents
-        ]
-    )
+    coin_counts = [0, 0, 0, 0]
 
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            coin_counts[i] += 1
 
-print(*coin_sums(int(input())))
+    return coin_counts[3], coin_counts[2], coin_counts[1], coin_counts[0]
