@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && (int)num == (int)num) { 
@@ -15,10 +15,10 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, -3.8f, 4.9f, 7.2f, 0.6f};
+    std::vector<float> lst = {1.5f, -3.8f, 4.0f, -2.0f, 3.0f};
     long long odd_sum = double_the_difference(lst);
     
-    std::cout << "The sum of squares of the odd numbers in the list is: " << odd_sum << std::endl;
+    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
     
     return 0;
 }
