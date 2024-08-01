@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(float gpa, float value) {
-    return gpa == value;
+bool issame(float a, float b) {
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
