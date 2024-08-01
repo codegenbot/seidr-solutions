@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <sstream>
 
 using namespace std;
 
@@ -35,11 +34,14 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    int a, b;
+    int a, b, textLength, targetLength;
     string text, target;
-    
-    cin >> a >> b;
 
+    cin >> a >> b;
+    cout << endl;
+
+    cin >> textLength >> targetLength;
+    cin.ignore();
     getline(cin, text);
     getline(cin, target);
 
