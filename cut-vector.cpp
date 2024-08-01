@@ -1,48 +1,47 @@
-```
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> result;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] != v[0]) {
-            int diff = INT_MAX, j = -1;
-            for (int k = 0; k <= i; k++) {
-                int sumLeft = 0, sumRight = 0;
-                for (int l = 0; l < k; l++) sumLeft += v[l];
-                for (int m = k; m < n; m++) sumRight += v[m];
-                
-                if (abs(sumLeft - sumRight) < diff) {
-                    diff = abs(sumLeft - sumRight);
-                    j = k;
-                }
-            }
-            
-            result.push_back(vector<int>(v.begin(), v.begin() + j));
-            v.erase(v.begin() + j, v.end());
-            result.push_back(v);
-            break;
+    for (int i = 1; i < vec.size(); ++i) {
+        int diff = abs(vec[i] - vec[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    return result;
+    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
+    vector<int> input;
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) cin >> v[i];
-    
-    vector<vector<int>> result = cutVector(v);
-    
-    for (vector<int>& vec : result) {
-        for (int& x : vec) cout << x << " ";
-        cout << endl;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        cin >> num;
+        input.push_back(num);
     }
+    
+    pair<vector<int>, vector<int>> result = cutVector(input);
+    
+    cout << "[";
+    for (int i = 0; i < result.first.size(); ++i) {
+        cout << result.first[i];
+        if (i != result.first.size() - 1)
+            cout << ", ";
+    }
+    cout << "]\n[";
+    for (int i = 0; i < result.second.size(); ++i) {
+        cout << result.second[i];
+        if (i != result.second.size() - 1)
+            cout << ", ";
+    }
+    cout << "]" << endl;
     
     return 0;
 }
