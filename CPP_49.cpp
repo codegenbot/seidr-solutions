@@ -1,13 +1,11 @@
-#include <stdio.h>
-using namespace std;
-
 int modp(int n, int p) {
+    if (n == 0)
+        return 1;
     long long res = 1;
-    for (int i = 0; i < 32; i++) {
-        if ((n & (1 << i))) {
-            res = (res * p) % p;
-        }
-        p = (p * 2) % p;
+    for (; n > 0; n >>= 1) {
+        if (n & 1)
+            res = (long long)res * p % p;
+        p = (long long)p * p % p;
     }
     return res;
 }
