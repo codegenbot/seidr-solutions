@@ -15,6 +15,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
+
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
