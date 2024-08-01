@@ -1,33 +1,53 @@
-int bowlingScore(const string &frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // Strike
-            score += 10 + scoring(frames.substr(i+1));
-        } else if (frames[i] == '/') { // Spare
-            int spareValue = 10 - scoring(frames.substr(0, i)).back();
-            score += 10 + spareValue;
-            i++;
-        } else {
-            int currentFrameScore = 0;
-            for (int j = i; j < frames.size(); ++j) {
-                if (frames[j] == '/') break;
-                currentFrameScore *= 10;
-                currentFrameScore += scoring(frames.substr(i, j-i+1)).front() - '0';
+    int currentRolls = 0;
+    int currentFrame = 1;
+
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRolls == 2) {
+                score += calculateFrame(currentFrame);
+                currentFrame++;
             }
-            score += currentFrameScore;
+            currentRolls = 0;
+        } else if (c == 'X') {
+            score += 10 + calculateFrame(currentFrame);
+            currentFrame++;
+            currentRolls = 0;
+        } else {
+            int roll = c - '0';
+            if (currentRolls == 1) {
+                if (roll == 10) {
+                    score += 10 + calculateFrame(currentFrame);
+                    currentFrame++;
+                    currentRolls = 0;
+                } else {
+                    score += roll + calculateFrame(currentFrame);
+                    currentFrame++;
+                    currentRolls = 0;
+                }
+            } else {
+                score += roll;
+                currentRolls++;
+            }
         }
     }
+
+    if (currentRolls == 1) {
+        score += calculateFrame(currentFrame);
+    } else if (currentRolls == 2) {
+        score += calculateFrame(currentFrame) + calculateFrame(currentFrame);
+    }
+
     return score;
 }
 
-int scoring(const string &str) {
-    int result = 0;
-    for (char c : str) {
-        if (c >= '1' && c <= '9') {
-            result = result * 10 + (c - '0');
-        } else if (c == 'X') {
-            result += 10;
-        }
+int calculateFrame(int frame) {
+    if (frame == 10) {
+        return 30;
     }
-    return {result};
+    if (frame > 10) {
+        return 20;
+    }
+    return 10;
 }
