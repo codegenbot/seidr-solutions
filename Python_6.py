@@ -5,9 +5,12 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     current_depth = 0
 
     for char in paren_string:
+        if char not in "()":
+            return "Input string should only contain parentheses"
+        
         if char == "(":
             current_depth += 1
-        elif char == ")":
+        if char == ")":
             depths.append(current_depth)
             current_depth -= 1
 
