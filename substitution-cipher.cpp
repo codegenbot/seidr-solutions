@@ -20,4 +20,3 @@ int main() {
     cin >> key1 >> key2 >> message;
     cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
-}
