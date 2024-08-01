@@ -5,7 +5,7 @@ std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = 0; i < n; ++i) {
         if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return isvowel(word.substr(i + 1)) != string::npos ? to_string(word[isvowel(word.substr(i + 1)).first]) : "";
+        if (isvowel(word[i])) return word.substr(i + 1).rfind(isvowel, 0, word.size() - i - 1) == string::npos ? "" : std::to_string(word.find_first_of("AEIOU", i + 1));
     }
     return "";
 }
