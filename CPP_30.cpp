@@ -18,21 +18,21 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 int main(){
     std::vector<float> vec1, vec2;
 
-    int n;
+    // Read input vectors
     float num;
-
+    int n;
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec1.push_back(num);
     }
-
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec2.push_back(num);
     }
 
+    // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
