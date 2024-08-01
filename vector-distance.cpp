@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -18,7 +24,7 @@ int main() {
     }
 
     double distance = sqrt(sum);
-    cout << distance << endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
