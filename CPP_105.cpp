@@ -1,31 +1,38 @@
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <map>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(const std::vector<int>& input) {
     std::vector<std::string> result;
-    std::vector<int> sorted_arr;
-    std::map<int, std::string> num_to_name = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-    };
-
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sorted_arr.push_back(num);
+    
+    // Implementing the logic to convert integers to string representations and sort them by length
+    
+    std::vector<std::pair<int, std::string>> num_string_pairs;
+    for (int num : input) {
+        std::string str_num;
+        if (num == 1) {
+            str_num = "One";
+        } else if (num == 2) {
+            str_num = "Two";
+        } else if (num == 3) {
+            str_num = "Three";
+        } else if (num == 4) {
+            str_num = "Four";
+        } else if (num == 7) {
+            str_num = "Seven";
+        } else if (num == 9) {
+            str_num = "Nine";
         }
+        num_string_pairs.emplace_back(num, str_num);
     }
 
-    std::sort(sorted_arr.begin(), sorted_arr.end(), std::greater<int>());
-
-    for (int num : sorted_arr) {
-        result.push_back(num_to_name[num]);
+    std::sort(num_string_pairs.begin(), num_string_pairs.end(), 
+              [](const std::pair<int, std::string>& a, const std::pair<int, std::string>& b) {
+                  return a.second.length() < b.second.length();
+              });
+    
+    for (const auto& pair : num_string_pairs) {
+        result.push_back(pair.second);
     }
 
     return result;
