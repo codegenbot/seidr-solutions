@@ -1,8 +1,4 @@
-```cpp
-// Given an array of integers q and a positive integer w, 
-// determine whether it is possible for a plane with weight capacity w 
-// to fly with the given weights.
-
+// Function signature: Determine if a collection of queens will fly in formation.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
