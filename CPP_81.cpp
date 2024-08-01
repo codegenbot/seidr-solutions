@@ -1,8 +1,3 @@
-```
-bool issame(string s1, string s2) {
-    return (s1 == s2);
-}
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
