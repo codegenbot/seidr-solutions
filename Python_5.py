@@ -1,6 +1,12 @@
-def concatenate_with_delimiter(numbers, delimiter):
+def complete_code(numbers, delimiter):
     result = []
-    for num in numbers:
+    for num in numbers[:-1]:
         result.extend([num, delimiter])
-    result.pop()
+    if numbers:
+        result.append(numbers[-1])
     return result
+
+numbers = [1, 2, 3, 4, 5]
+delimiter = '|'
+output = complete_code(numbers, delimiter)
+print(output)
