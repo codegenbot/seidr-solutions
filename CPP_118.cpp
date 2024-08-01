@@ -12,12 +12,12 @@ std::string get_closest_vowel(std::string word) {
     return "";
 }
 
-bool vowel(char c) {
+bool vowel(char c){
     c = std::tolower(c);
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-bool consonant(char c) {
+bool consonant(char c){
     c = std::tolower(c);
     return (!vowel(c) && (c >= 'b' && c <= 'z'));
 }
