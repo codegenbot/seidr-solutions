@@ -1,16 +1,26 @@
-```cpp
-int len = s.length();
-if(len < 3) return false;
+#include <stdio.h>
+#include <string>
+using namespace std;
 
-for(int i=0; i<=len-3; i++){
-    string sub = s.substr(i, 3);
-    bool unique = true;
-    for(char c : sub){
-        if(count(sub.begin(), sub.end(), c) > 1){
-            unique = false;
-            break;
+bool is_happy(string s) {
+    if (s.length() < 3)
+        return false;
+    for (int i = 0; i <= s.length() - 3; i++) {
+        bool unique = true;
+        string substr = s.substr(i, 3);
+        for (char c : substr) {
+            int count = 0;
+            for (int j = i; j < i + 3 && j < s.length(); j++) {
+                if (s[j] == c)
+                    count++;
+            }
+            if (count > 1) {
+                unique = false;
+                break;
+            }
         }
+        if (!unique)
+            return false;
     }
-    if(!unique) return false;
+    return true;
 }
-return true;
