@@ -5,18 +5,14 @@ using namespace std;
 string camelCase(string s) {
     string result = "";
     bool capitalizeNext = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the "-"
-            while (i < s.length() && s[i] == ' ') {
-                i++; // skip the spaces
-            }
+    for (char c : s) {
+        if (c == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
-            result += toupper(s[i]);
+            result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(s[i]);
+            result += tolower(c);
         }
     }
     return result;
