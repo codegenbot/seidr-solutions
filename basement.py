@@ -1,7 +1,7 @@
-```
-def basement(vector):
-    for i in range(len(vector)):
-        total = sum(vector[:i+1])
-        if total < 0:
+Here is the completed code:
+
+def basement(vec):
+    for i in range(len(vec)):
+        if sum(vec[:i+1]) < 0:
             return i
     return -1
