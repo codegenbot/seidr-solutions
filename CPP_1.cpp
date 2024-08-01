@@ -15,6 +15,25 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> groups;
-    // Implement the logic to separate parenthesized groups in 'paren_string' into 'groups' vector
+    int count = 0;
+    std::string group = "";
+    
+    for (char c : paren_string) {
+        group += c;
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count == 0) {
+                groups.push_back(group);
+                group = "";
+            }
+        }
+    }
+    
+    if (count != 0) {
+        groups.clear();
+    }
+    
     return groups;
 }
