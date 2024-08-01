@@ -1,12 +1,17 @@
-```
 def coin_sums():
-    amount = int(input())
+    cents = int(input())
     coins = [25, 10, 5, 1]
     result = []
-    
+
     for coin in coins:
-        count = amount // coin
-        amount %= coin
-        result.append(count)
-        
-    return *result,
+        if cents >= coin:
+            count = math.floor(cents / coin)
+            cents %= coin
+            result.append(count)
+        else:
+            result.append(0)
+
+    return result
+
+
+print(*coin_sums())
