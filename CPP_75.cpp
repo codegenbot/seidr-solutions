@@ -1,34 +1,39 @@
+#include <cmath>
+
 bool is_multiply_prime(int a) {
-    for (int i = 2; i <= 100; i++) {
-        for (int j = i; j <= 100; j++) {
-            for (int k = j; k <= 100; k++) {
-                if (i * j * k == a) {
-                    bool is_prime1 = true;
-                    bool is_prime2 = true;
-                    bool is_prime3 = true;
-
-                    for (int p = 2; p * p <= i; p++) {
-                        if (i % p == 0) {
-                            is_prime1 = false;
+    for (int i = 2; i <= sqrt(a); i++) {
+        if (a % i == 0) {
+            int j = 2;
+            while (j * j <= i) {
+                if (i % j == 0 || i % (j + 2) == 0)
+                    return false;
+                j += 3;
+            }
+            for (int k = i; k <= a / i; k++) {
+                if (k * i == a) {
+                    int prime1 = i, prime2 = k;
+                    while (prime1 % 2 == 0 && prime2 % 2 == 0)
+                        prime1 /= 2, prime2 /= 2;
+                    bool isPrime1 = true, isPrime2 = true, isPrime3 = true;
+                    for (int p = 3; p <= sqrt(prime1); p += 2) {
+                        if (prime1 % p == 0) {
+                            isPrime1 = false;
                             break;
                         }
                     }
-
-                    for (int p = 2; p * p <= j; p++) {
-                        if (j % p == 0) {
-                            is_prime2 = false;
+                    for (int p = 3; p <= sqrt(prime2); p += 2) {
+                        if (prime2 % p == 0) {
+                            isPrime2 = false;
                             break;
                         }
                     }
-
-                    for (int p = 2; p * p <= k; p++) {
+                    for (int p = 3; p <= sqrt(k); p += 2) {
                         if (k % p == 0) {
-                            is_prime3 = false;
+                            isPrime3 = false;
                             break;
                         }
                     }
-
-                    return is_prime1 && is_prime2 && is_prime3;
+                    return isPrime1 && isPrime2 && isPrime3;
                 }
             }
         }
