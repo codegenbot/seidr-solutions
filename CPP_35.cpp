@@ -1,1 +1,4 @@
-return *max_element(l.begin(), l.end());
+#include <algorithm>
+#include <cmath>
+
+return *std::max_element(l.begin(), l.end());
