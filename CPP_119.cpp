@@ -1,4 +1,3 @@
-```
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0;
     int close = 0;
@@ -6,7 +5,7 @@ std::string match_parens(std::vector<std::string> lst) {
     for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     
