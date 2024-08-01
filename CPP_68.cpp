@@ -20,7 +20,9 @@ vector<vector<int>> pluck(vector<int> arr) {
         temp.push_back(minIndex);
         result.push_back(temp);
     } else {
-        result.push_back({{}});
+        vector<int> temp;
+        temp.push_back({});
+        result.push_back(temp);
     }
     
     return result;
