@@ -17,6 +17,7 @@ std::vector<int> parse_music(std::string music_string) {
             beats.push_back(2);
             i += 4;
         }
+        i++; // Add the increment here
     }
     return beats;
 }
