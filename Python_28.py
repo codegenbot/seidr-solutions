@@ -1,6 +1,6 @@
 def concatenate_strings(strings):
-    return "".join(strings)
+    result = "".join(strings)
+    return result
 
-strings = input().split()  # Read input from user
-result = concatenate_strings(strings)
-print(result)  # Return the concatenated string
+strings = input().split()
+print(concatenate_strings(strings))
