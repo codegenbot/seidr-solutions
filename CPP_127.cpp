@@ -3,9 +3,16 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     int end = min(interval1[1], interval2[1]);
 
     if (start > end) return "NO";
-    
-    for (int i = 2; i * i <= end - start + 1; ++i) {
-        if ((end - start + 1) % i == 0) return "NO";
+
+    int length = end - start + 1;
+
+    bool isPrime = true;
+    for (int i = 2; i * i <= length; i++) {
+        if (length % i == 0) {
+            isPrime = false;
+            break;
+        }
     }
-    return "YES";
+
+    return isPrime ? "YES" : "NO";
 }
