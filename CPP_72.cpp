@@ -1,4 +1,6 @@
-// Function signature: Determine whether a set of queens can be placed on an NxN chessboard such that none of them attack each other.
+// Given a sequence of integers q, determine whether it will fly in the sky.
+// A sequence q will fly if its digits are an anagram of each other and the sum of its elements is not more than w.
+// Function signature: bool will_it_fly(vector<int> q, int w);
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
