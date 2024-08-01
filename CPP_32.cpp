@@ -21,8 +21,8 @@ double find_zero(std::vector<double> coeffs) {
 
 int main() {
     std::vector<double> coeffs;
+
     double coeff;
-    std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     while (std::cin >> coeff) {
         coeffs.push_back(coeff);
         if (coeffs.size() > 1) break;
