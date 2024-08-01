@@ -2,7 +2,7 @@
 #include <cassert>
 #include <utility>
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a == b;
 }
 
