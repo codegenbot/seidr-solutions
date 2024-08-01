@@ -1,17 +1,26 @@
-#include <cassert>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> select_words(std::string s, int n);
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+vector<string> select_words(string s, int n);
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), { "b", "c", "d", "f" }));
+    return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
-    std::string current_word;
+vector<string> select_words(string s, int n) {
+    vector<string> words;
+    string current_word;
     int consonant_count = 0;
 
     for (char c : s) {
@@ -34,9 +43,4 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
 
     return words;
-}
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
 }
