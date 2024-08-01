@@ -1,8 +1,15 @@
 #include <iostream>
+#include <cassert>
+#include <cstdlib>
+#include <ctime>
+
+int add(int x, int y) {
+    return x + y;
+}
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    std::cout << "Sum of x and y is: " << x + y << std::endl;
-    return 0;
+    srand((unsigned)time(0));
+    int x = rand() % 1000;
+    int y = rand() % 1000;
+    assert(add(x, y) == x + y);
 }
