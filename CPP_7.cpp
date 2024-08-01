@@ -1,11 +1,5 @@
 bool issame(string s1, string s2) {
-    vector<string> result;
-    for (const auto& str : s1) {
-        if (str == s2) {
-            result.push_back(str);
-        }
-    }
-    return !result.empty();
+    return (s1.size() == s2.size()) && equal(s1.begin(), s1.end(), s2.begin());
 }
 
 int main() {
