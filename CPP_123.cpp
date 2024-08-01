@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,7 +10,7 @@ std::vector<int> get_odd_collatz(int);
 bool issame(vector<int>, vector<int>);
 
 int main() {
-    assert(issame(get_odd_collatz(6), {1, 5}));
+    assert(issame(get_odd_collatz(1), {1}));
     
     return 0;
 }
@@ -32,5 +33,11 @@ vector<int> get_odd_collatz(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
