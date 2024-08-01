@@ -7,10 +7,9 @@ def bowling_score(frames):
         elif frames[i] == '/':
             score += 10 + int(frames[i+1])
         else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i+1])
-            if first_roll + second_roll == 10:
-                score += first_roll + 10
+            frame_score = int(frames[i]) + int(frames[i+1])
+            if frame_score < 10:
+                score += frame_score
             else:
-                score += first_roll + second_roll
+                score += 10 + int(frames[i+2])
     return score
