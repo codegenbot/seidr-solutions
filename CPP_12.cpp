@@ -1,11 +1,10 @@
-#include <vector>
 #include <string>
 
-int longest(vector<string> strings){
-    if(strings.empty()) return 0;
-    int result = strings[0].length();
+string longest(vector<string> strings){
+    if(strings.empty()) return "";
+    string result = strings[0];
     for(auto str : strings) {
-        if(str.length() > result)
-            result = str.length();
+        if(str.length() > result.length())
+            result = str;
     }
     return result;
