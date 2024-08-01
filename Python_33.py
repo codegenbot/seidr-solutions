@@ -1,4 +1,3 @@
-```
 def sort_third(l: list):
     max_val = float('-inf')
     for i, val in enumerate(l):
