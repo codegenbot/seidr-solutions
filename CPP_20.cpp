@@ -1,6 +1,9 @@
-```cpp
 #include <algorithm>
 #include <numeric>
+
+bool issame(vector<float> a,vector<float>b){
+    return (a.size() == b.size() && all_of(a.begin(), a.end(), [&](float x){return std::find(b.begin(),b.end(),x) != b.end();}));
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() <= 1)
@@ -12,7 +15,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
+            if (diff < min_diff && issame({numbers[i], numbers[j]}, vector<float>(numbers.begin(), numbers.end()))) {
                 min_diff = diff;
                 closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff), max(min(numbers[i], numbers[j]), min_diff));
             }
@@ -20,8 +23,4 @@ vector<float> find_closest_elements(vector<float> numbers) {
     }
 
     return vector<float>(closest_pair);
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return (a.size() == b.size() && all_of(a.begin(), a.end(), [&](float x) { return std::find(b.begin(), b.end(), x) != b.end(); }));
 }
