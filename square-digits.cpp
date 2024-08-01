@@ -1,9 +1,8 @@
-```c++
 #include <string>
 using namespace std;
 
 int main() {
-    string input = "493193";
+    string input = "4939302";
     string output = squareDigits(input);
     cout << output << endl;
     return 0;
