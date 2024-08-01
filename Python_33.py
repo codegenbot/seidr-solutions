@@ -1,10 +1,7 @@
 ```
 def sort_third(l: list):
-    result = []
+    max_val = float('-inf')
     for i, val in enumerate(l):
-        if i % 3 != 0:
-            result.append(val)
-        else:
-            sorted_group = [x for j, x in enumerate(l) if i % 3 == 0 and j == i // 3]
-            result.append(sorted(sorted_group)[0])
-    return result
+        l[i] = val if i % 3 != 0 else max(max_val, val)
+        max_val = max(max_val, val) if i % 3 == 0 else max_val
+    return l
