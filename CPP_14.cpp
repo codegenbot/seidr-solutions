@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <assert.h>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
