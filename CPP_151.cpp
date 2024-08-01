@@ -16,14 +16,10 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, -3.8f, 4.2f, -6.7f, 10.0f};
+    std::vector<float> lst = {1.5f, 3.8f, -4.2f, 6.7f};
     long long odd_sum = double_the_difference(lst);
     
-    if (odd_sum != 0) {
-        std::cout << "The sum of squares of the odd numbers is: " << odd_sum << std::endl;
-    } else {
-        std::cout << "There are no odd numbers in the list." << std::endl;
-    }
+    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
     
     return 0;
 }
