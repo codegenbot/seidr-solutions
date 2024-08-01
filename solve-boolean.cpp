@@ -9,18 +9,24 @@ bool solveBoolean(string s) {
     if (s == "f") return false;
 
     int i = 0, j = 0;
-    bool inOR = false;
-    
     while(j<s.length()) {
-        if(s[j] == '|') inOR = !inOR;
-        else if(s[j] == '&') inOR = false;
-        
-        if(inOR) j++;
-        else break;
+        if(s[j] == '|') break;
+        j++;
     }
-    
     string left = s.substr(0, j);
-    return solveBoolean(left);
+    
+    j++;
+    bool isAnd = true;
+    while(j<s.length()) {
+        if(s[j] == '|') {
+            isAnd = false;
+            break;
+        } else if(s[j] == '&') break;
+        j++;
+    }
+    string right = s.substr(j);
+
+    return (isAnd ? & : |)(solveBoolean(left), solveBoolean(right));
 }
 
 int main() {
