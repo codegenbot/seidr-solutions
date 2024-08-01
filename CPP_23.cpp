@@ -1,4 +1,3 @@
-```
-size_t length(const string& s){
-    return s.length();
+int my_strlen(string str){
+    return str.length();
 }
