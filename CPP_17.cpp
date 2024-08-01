@@ -6,20 +6,20 @@
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int i = 0;
-
+  
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-            i += 2;
+            i += 3;
         } else if (music_string[i] == '.') {
             beats.push_back(1);
-            i += 2;
+            i += 3;
         } else {
             beats.push_back(2);
-            i += 3;
+            i += 4;
         }
     }
-
+  
     return beats;
 }
 
