@@ -12,3 +12,6 @@ def smallest_change(arr):
             right -= 1
     
     return changes
+
+arr = list(map(int, input().split()))
+print(smallest_change(arr))
