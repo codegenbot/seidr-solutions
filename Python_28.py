@@ -1,5 +1,7 @@
-def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        result += string
-    return result
+def concatenate_strings():
+    strings = input("Enter multiple lines of text (enter 'stop' to finish): ")
+    while strings.lower() != "stop":
+        if strings.lower() == "stop":
+            break
+        print(concatenate([strings]))
+        strings = input()
