@@ -34,7 +34,7 @@ int score(string s) {
             score += s[i] == '-' ? 0 : s[i] - '0';
             score += s[i+1] == '-' ? 0 : s[i+1] - '0';
             if (frame == 10) {
-                score += s[i+2] == '-' ? 0 : s[i+2] - '0'; // Correction for spare in the 10th frame
+                score += s[i+2] == '-' ? 0 : s[i+2] - '0'; // Adjusted for spare in the 10th frame
             }
             i += 2;
         }
