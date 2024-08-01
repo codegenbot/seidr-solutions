@@ -1,3 +1,4 @@
+```cpp
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
