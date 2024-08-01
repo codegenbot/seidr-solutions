@@ -1,45 +1,39 @@
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
+#include <iostream>
+using namespace std;
 
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball] = 10;
-            scores[ball + 1] = -1; // Strike
-            ball += 2;
-        } else if (c == '/') {
-            scores[ball] = 10 - scores[ball - 1];
-            ball++;
-        } else if (c == '-') {
-            scores[ball] = 0;
-            ball++;
-        } else {
-            scores[ball] = c - '0';
-            ball++;
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        if (scores[frame] == -1) {
-            total += 10 + scores[frame + 1] + scores[frame + 2];
-            frame++;
-        } else if (scores[frame] + scores[frame + 1] == 10) {
-            total += 10 + scores[frame + 2];
-            frame += 2;
-        } else {
-            total += scores[frame] + scores[frame + 1];
-            frame += 2;
-        }
-    }
-
-    return total;
-}
+int score(string s);
 
 int main() {
     string s;
     cin >> s;
     cout << score(s) << endl;
     return 0;
+}
+
+int score(string s) {
+    int frame = 1, score = 0, i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10 + (s[i+4] == 'X' ? 10 : s[i+4] - '0');
+            } else if (s[i+3] == '/') {
+                score += 10;
+            } else {
+                score += s[i+2] == '/' ? 10 : s[i+2] - '0';
+                score += s[i+3] == '/' ? 10 : s[i+3] - '0';
+            }
+            i++;
+        } else if (s[i+1] == '/') {
+            score += 10;
+            score += s[i+3] == 'X' ? 10 : s[i+3] - '0';
+            i += 2;
+        } else {
+            score += s[i] == '-' ? 0 : s[i] - '0';
+            score += s[i+1] == '-' ? 0 : s[i+1] - '0';
+            i += 2;
+        }
+        frame++;
+    }
+    return score;
 }
