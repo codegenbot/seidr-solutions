@@ -4,5 +4,5 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return [num for num in set(numbers) if numbers.count(num) == 1]
 
 # Test the function with sample input
-numbers = list(map(int, input().split()))
-print(remove_duplicates(numbers))
+sample_input = [1, 2, 2, 3, 4, 4, 5]
+print(remove_duplicates(sample_input))
