@@ -25,7 +25,7 @@ int main() {
     while(std::cin >> num) {
         lst1.push_back(num);
     }
-
+    
     std::vector<int> lst2;
     while(std::cin >> num) {
         lst2.push_back(num);
