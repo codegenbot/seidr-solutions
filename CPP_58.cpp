@@ -19,6 +19,6 @@ std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) 
 int main() {
     std::vector<int> common_elements = common({4, 3, 2, 8}, {});
     std::cout << "Size of common elements vector: " << common_elements.size() << std::endl;
-    
+
     return 0;
 }
