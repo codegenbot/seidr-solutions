@@ -9,3 +9,4 @@ int longest(vector<string> strings){
             result = str.length();
     }
     return result;
+}
