@@ -2,9 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
-    vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    using namespace std;
     return abs(*max_element(l.begin(), l.end()));
 }
