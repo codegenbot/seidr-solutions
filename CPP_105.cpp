@@ -1,37 +1,32 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){
+bool isSame(vector<string> a, vector<string>b){
     return (a == b);
 }
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements in the array: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> arr(n);
-
-    for(int i = 0; i < n; ++i) {
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
 
-    std::vector<std::string> result = by_length(arr);
+    vector<string> result = by_length(arr);
 
-    if(isSame(result, {"One", "Four", "Nine"})) {
-        std::cout << "The array is in the desired order." << std::endl;
-    } else {
-        std::cout << "The array is not in the desired order." << std::endl;
+    for (const auto& str : result) {
+        std::cout << str << " ";
     }
-
     return 0;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> nums;
+vector<string> by_length(vector<int> arr) {
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
@@ -41,7 +36,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : nums) {
         switch (num) {
             case 1:
