@@ -40,7 +40,7 @@ int blackPegs(string code, string guess) {
 
 int main() {
     string code, guess;
-    
+
     cin >> code >> guess;
     
     cout << blackPegs(code, guess) << "\n";
