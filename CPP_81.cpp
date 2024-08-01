@@ -3,7 +3,12 @@
 #include <cassert>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+    // Function implementation here
     return {"E", "D-"};
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 int main() {
