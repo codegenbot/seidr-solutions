@@ -27,7 +27,8 @@ int main() {
         coeffs.push_back(coeff);
     }
 
-    double solution = find_zero(coeffs);
+    double solution = 0.0;
+    solution = find_zero(coeffs);
     std::cout << "Solution: " << solution << std::endl;
 
     return 0;
