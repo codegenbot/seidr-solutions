@@ -1,8 +1,8 @@
 #include <string>
 #include <algorithm>
 
-string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
+std::string get_closest_vowel(std::string word) {
+    std::string vowels = "aeiouAEIOU";
     int left = 0;
     for (int right = word.size() - 1; right >= 0; --right) {
         if (!isvowel(word[right])) {
@@ -11,8 +11,8 @@ string get_closest_vowel(string word) {
         }
     }
     for (int i = left; i < word.size(); ++i) {
-        if (isvowel(word[i])) {
-            return string(1, word[i]);
+        if (std::find(vectors.begin(), vowels.end(), word[i]) != vowels.end()) {
+            return std::string(1, word[i]);
         }
     }
     return "";
