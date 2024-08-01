@@ -1,4 +1,3 @@
-```cpp
 int skjkasdkd(vector<int> lst);
 bool isPrime(int n);
 int sumOfDigits(int n);
