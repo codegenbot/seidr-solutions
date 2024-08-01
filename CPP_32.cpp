@@ -11,12 +11,9 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 double find_zero(const std::vector<double>& coeffs){
-    if (coeffs.empty()) return 0.0;
-
     double a = coeffs[0];
-    double b = coeffs.size() > 1 ? coeffs[1] : 0.0;
-
-    return (a != 0.0) ? (-b/a) : 0.0;
+    double b = coeffs[1];
+    return -b / a;
 }
 
 int main() {
