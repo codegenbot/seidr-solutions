@@ -7,4 +7,4 @@ print("Enter second integer:", end=" ")
 y = int(input())
 
 result = add(x, y)
-print("Sum of the two integers:", result)
+print("Sum of the two integers: ", result)
