@@ -1,6 +1,6 @@
 int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : n) {
+    for (auto num : n) {
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
@@ -8,16 +8,21 @@ int count_nums(vector<int> n) {
                 num /= 10;
             }
             if (sum > 0)
-                ++count;
+                count++;
         } else {
+            bool hasPositiveDigit = false;
             num = -num;
             int sum = 0;
             while (num > 0) {
-                sum += num % 10;
+                int digit = num % 10;
+                if (digit > 0) {
+                    hasPositiveDigit = true;
+                    break;
+                }
                 num /= 10;
             }
-            if (sum > 0)
-                ++count;
+            if (hasPositiveDigit)
+                count++;
         }
     }
     return count;
