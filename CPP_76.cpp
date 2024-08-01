@@ -1,7 +1,11 @@
-Here's the solution:
+Here's the completed code:
 
-bool is_simple_power(int x, int n) {
-    if (n == 0) return false; // base case: n cannot be zero
-    double y = pow(n, round(log(x) / log(n))); // calculate y as n^k where k is the integer part of log(x)/log(n)
-    return y == x; // check if y equals x
+bool is_simple_power(int x, int n){
+    double log_x = log((double)x);
+    double log_n = log((double)n);
+
+    if (fmod(log_x, log_n) == 0)
+        return true;
+    else
+        return false;
 }
