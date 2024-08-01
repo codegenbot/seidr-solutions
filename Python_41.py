@@ -1,3 +1,6 @@
 def car_race_collision(n: int):
-    total_distance = n * (n + 1) // 2
-    return min(total_distance, 100)
+    total = 0
+    for i in range(1, n + 1):
+        if i != 3:
+            total += i
+    return total
