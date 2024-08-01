@@ -18,10 +18,7 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-
     return result;
 }
 
-assert(by_length({9, 4, 8}) == vector<string>({"Eight", "Four", "Nine"}));
+assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
