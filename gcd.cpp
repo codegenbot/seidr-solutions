@@ -1,19 +1,49 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    int n = text.size();
+    int m = target.size();
+    
+    for (int i = 0; i <= n - m; ++i) {
+        bool found = true;
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
+        }
+    }
+    
+    return indices;
+}
 
 int main() {
-    // Test gcd function
-    int a = 24;
-    int b = 36;
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-
-    // Test indicesOfSubstring function
-    std::string text = "abcdefabcghiabc";
-    std::string target = "abc";
+    std::string text = "abracadabra";
+    std::string target = "bra";
+    
     std::vector<int> result = indicesOfSubstring(text, target);
-
+    
     for (int idx : result) {
-        std::cout << "Target found at index: " << idx << std::endl;
+        cout << idx << " ";
     }
-
+    
+    cout << endl;
+    
     return 0;
 }
