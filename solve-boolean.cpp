@@ -8,24 +8,22 @@ bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
 
-    int i = 0, j = 0;
-    while(j<s.length()) {
-        if(s[j] == '|') break;
-        j++;
-    }
-    string left = s.substr(0, j);
-    
-    j++;
-    while(j<s.length()) {
-        if(s[j] == '&') break;
-        j++;
-    }
-    string right = s.substr(j);
+    for(int i = 0; i<s.length(); i++) {
+        if(s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
 
-    if(left == "f" && right == "t") return false;
-    if(left == "t" && right == "f") return false;
+            return solveBoolean(left) || solveBoolean(right);
+        }
+        else if(s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
 
-    return solveBoolean(left) || solveBoolean(right);
+            return solveBoolean(left) && solveBoolean(right);
+        }
+    }
+
+    return (s == "t");
 }
 
 int main() {
