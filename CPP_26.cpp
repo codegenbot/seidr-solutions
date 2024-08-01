@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <set>
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
@@ -7,12 +7,8 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> uniqueNumbers;
-    for (int num : numbers) {
-        if (count(numbers.begin(), numbers.end(), num) == 1) {
-            uniqueNumbers.push_back(num);
-        }
-    }
+    set<int> numbersSet(numbers.begin(), numbers.end());
+    vector<int> uniqueNumbers(numbersSet.begin(), numbersSet.end());
     return uniqueNumbers;
 }
 
