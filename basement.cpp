@@ -5,8 +5,8 @@ using namespace std;
 int basement(vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        if (sum + nums[i] < 0) { // Check if the sum will become negative after adding nums[i]
-            return i; // Return the index if the sum is negative
+        if (sum + nums[i] < 0) {
+            return i;
         }
         sum += nums[i];
     }
