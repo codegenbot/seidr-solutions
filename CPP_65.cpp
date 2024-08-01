@@ -21,5 +21,7 @@ string circular_shift(int x, int shift) {
     return result;
 }
 
-cout << circular_shift(11, 101) << endl; // Output: 11
-return 0;
+int main() {
+    cout << circular_shift(11, 101) << endl; // Output: 11
+    return 0;
+}
