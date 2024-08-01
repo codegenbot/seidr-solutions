@@ -1,11 +1,13 @@
-```
-import math
-
 def max_fill(grid, capacity):
-    rows = len(grid)
-    cols = len(grid[0])
-
-    total_water = sum(sum(row) for row in grid)
-    bucket_cycles = math.ceil(total_water / capacity)
-
-    return bucket_cycles
+    rows, cols = len(grid), len(grid[0])
+    water = 0
+    for i in range(rows):
+        low = high = float('inf')
+        for j in range(cols):
+            if grid[i][j] < low:
+                low = grid[i][j]
+            elif grid[i][j] > high:
+                high = grid[i][j]
+            if high - low > 0:
+                water += high - low
+    return -(-water // capacity)
