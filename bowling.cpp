@@ -1,3 +1,8 @@
+```c++
+#include <string>
+
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
     for(int i=0; i<10; i++) {
@@ -22,18 +27,18 @@ int bowlingScore(string s) {
 int bowlingScoreHelper(string* s) {
     int score = 0;
     for(int i=0; i<2; i++) {
-        if(s->substr(0,1)[0] == 'X') {
+        if(s->at(0) == 'X') {
             score += 30;
             break;
-        } else if (s->substr(0,1)[0] == '/') {
-            score += 10 + (i > 0 ? s->substr(-1,1)[0] - '0' : 0);
+        } else if (s->at(0) == '/') {
+            score += 10 + (i > 0 ? s->at(0) - '0' : 0);
             break;
         } else {
-            int frame = s->substr(0,1)[0] - '0';
+            int frame = s->at(0) - '0';
             if(i < 1) {
                 score += frame;
             } else {
-                score += frame + s->substr(-1,1)[0] - '0';
+                score += frame + s->at(0) - '0';
             }
         }
     }
