@@ -10,5 +10,5 @@ int next_smallest(vector<int> lst) {
             return sorted_lst[i + 1];
         }
     }
-    return -1;
+    return -1; 
 }
