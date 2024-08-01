@@ -1,19 +1,20 @@
 #include <iostream>
-using namespace std;
+#include <cctype>
 
-bool ispunct(char c) {
-    static char punctuations[] = {'.', '!', '?', ',', ';', ':'};
-    int i;
-    for (i = 0; i < sizeof(punctuations) / sizeof(punctuations[0]); i++) {
-        if (c == punctuations[i]) return true;
+std::string ispunct(const std::string& word) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (!std::isalnum(word[i])) {
+            return std::string(1, word[i]);
+        }
     }
-    return false;
+    return "";
 }
 
-string firstPunctuation(string word) {
-    for (int i = 0; i <= word.length(); i++) {
-        if (ispunct(word[i])) return word.substr(0, i);
-        else if (ispunct(word[i])) return word.substr(i);
+std::string lastNonAlphanumericCharacter(const std::string& word) {
+    for (int j = word.size() - 1; j >= 0; --j) {
+        if (!std::isalnum(word[j])) {
+            return word.substr(j);
+        }
     }
     return "";
 }
