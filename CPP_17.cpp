@@ -1,14 +1,6 @@
-std::vector<int> parse_music(std::string music) {
-    std::vector<int> result;
-    std::stringstream ss(music);
-    std::string token;
-    
-    while (std::getline(ss, token, '|')) {
-        result.push_back(std::count(token.begin(), token.end(), 'o'));
-    }
-
-    return result;
-}
+#include <iostream>
+#include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -22,6 +14,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
 
     return true;
+}
+
+std::vector<int> parse_music(const std::string& str) {
+    std::vector<int> result;
+    // Implement the logic to parse the music string and store it in 'result'
+    return result;
 }
 
 int main() {
