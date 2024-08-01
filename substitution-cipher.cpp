@@ -1,16 +1,13 @@
-string decipher(string cipher1, string cipher2, string message) {
+string decipher(string cipherText1, string cipherText2, string message) {
     string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        int index = 0;
-        while (index < cipher1.length() && index < message[i] == '\0') {
-            index++;
-        }
-        if (index < cipher1.length()) {
-            char c = cipher2[index];
-            result += c;
-        } else {
+    
+    for(int i = 0; i < message.length(); i++) {
+        int index = find(cipherText2.begin(), cipherText2.end(), message[i]) - cipherText2.begin();
+        if(index != string::npos)
+            result += cipherText1[index];
+        else
             result += message[i];
-        }
     }
+    
     return result;
 }
