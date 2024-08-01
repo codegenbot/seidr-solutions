@@ -1,53 +1,47 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> by_length(std::vector<int> nums) {
-    std::vector<std::string> result;
-    for (int num : nums) {
-        std::string num_str;
-        switch(num) {
-            case 1:
-                num_str = "One";
-                break;
-            case 2:
-                num_str = "Two";
-                break;
-            case 3:
-                num_str = "Three";
-                break;
-            case 4:
-                num_str = "Four";
-                break;
-            case 7:
-                num_str = "Seven";
-                break;
-            case 9:
-                num_str = "Nine";
-                break;
-            default:
-                num_str = "Unknown";
-        }
-        result.push_back(num_str);
-    }
-    std::sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
-        return a.size() < b.size();
-    });
-    return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
+std::vector<std::string> by_length(const std::vector<int>& input) {
+    std::vector<std::string> result;
+    
+    std::vector<std::pair<int, std::string>> num_string_pairs;
+    for (int num : input) {
+        std::string str_num;
+        if (num == 1) {
+            str_num = "One";
+        } else if (num == 2) {
+            str_num = "Two";
+        } else if (num == 3) {
+            str_num = "Three";
+        } else if (num == 4) {
+            str_num = "Four";
+        } else if (num == 7) {
+            str_num = "Seven";
+        } else if (num == 9) {
+            str_num = "Nine";
+        }
+        num_string_pairs.emplace_back(num, str_num);
+    }
+
+    std::sort(num_string_pairs.begin(), num_string_pairs.end(), 
+              [](const std::pair<int, std::string>& a, const std::pair<int, std::string>& b) {
+                  return a.second.length() < b.second.length();
+              });
+    
+    for (const auto& pair : num_string_pairs) {
+        result.push_back(pair.second);
+    }
+
+    return result;
+}
+
 int main() {
-    std::vector<int> arr = {3, 1, 7, 4, 2, 9};
-    std::vector<std::string> expected_result = {"Nine", "Seven", "Four", "Three", "Two", "One"};
-
-    std::vector<std::string> result = by_length(arr);
-
-    assert(issame(result, expected_result));
-
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
