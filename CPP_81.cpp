@@ -19,13 +19,19 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (g > 1.7)
             letterGrade = "C";
         else if (g > 1.3)
+            letterGrade = "C-";
+        else if (g > 1.0)
             letterGrade = "D+";
         else if (g > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "F";
+            letterGrade = "F"; // Changed from 'E'
         result.push_back(letterGrade);
     }
     return result;
 }
-assert(numerical_letter_grade({0, 0.7}) == vector<string>{string("F"), string("D-")});
+
+int main() {
+    assert(numerical_letter_grade({0, 0.7}) == vector<string>{string("F"), string("D-")});
+    return 0;
+}
