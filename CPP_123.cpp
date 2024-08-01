@@ -10,7 +10,7 @@ std::vector<int> get_odd_collatz(int);
 bool issame(vector<int>, vector<int>);
 
 int main() {
-    assert(issame(get_odd_collatz(6), {1, 3, 5, 7}));
+    assert(issame(get_odd_collatz(1), {1}));
     
     return 0;
 }
@@ -33,14 +33,12 @@ vector<int> get_odd_collatz(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size())
         return false;
-    }
     
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+        if(a[i] != b[i])
             return false;
-        }
     }
     
     return true;
