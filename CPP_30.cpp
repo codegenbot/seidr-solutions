@@ -15,7 +15,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-int main(){
+int solve_problem() {
     std::vector<float> vec1, vec2;
 
     // Read input vectors
@@ -36,4 +36,8 @@ int main(){
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
+}
+
+int main() {
+    return solve_problem();
 }
