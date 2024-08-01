@@ -14,7 +14,7 @@ int main() {
 
     int diff = INT_MAX;
     int cutIndex = -1;
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i < n; ++i) {
         int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
         int currentDiff = std::abs(leftSum - rightSum);
@@ -27,12 +27,9 @@ int main() {
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    for (int i = cutIndex; i < n; ++i) {
-        if (i < n - 1) {
-            std::cout << nums[i] << std::endl;
-        } else {
-            std::cout << nums[i];
-        }
+    std::cout << nums[cutIndex] << std::endl;
+    for (int i = cutIndex + 1; i < n; ++i) {
+        std::cout << nums[i] << std::endl;
     }
 
     return 0;
