@@ -30,3 +30,4 @@ int scoring(const std::string &str) {
         }
     }
     return result;
+}
