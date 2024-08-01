@@ -2,37 +2,22 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipherText, const std::string& key) {
+std::string decipher(const std::string& cipher_map, const std::string& message) {
     std::string result;
-    for (char c : cipherText) {
-        if (c == ' ') {
-            result += ' ';
+    for (char c : message) {
+        int index = c - 'a'; // assuming all characters are lowercase letters
+        if (index >= 0 && index < cipher_map.size()) {
+            result += cipher_map[index];
         } else {
-            int idx = 0;
-            while (idx < key.size() && key[idx] != c) {
-                ++idx;
-            }
-            if (idx < key.size()) {
-                result += key[0];
-                for (int i = 1; i < key.size(); ++i) {
-                    key[i - 1], key[i] = key[i], key[i - 1];
-                }
-            } else {
-                result += c;
-            }
+            result += c; // leave the character unchanged if it's not in the map
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipherText, key;
-    std::cout << "Enter the first string (cipher): ";
-    std::cin >> cipherText;
-    std::cout << "Enter the second string (key): ";
-    std::cin >> key;
-    std::cout << "Enter the text to decipher: ";
-    std::cin >> cipherText;
-    std::cout << "Deciphered message: " << decipher(cipherText, key) << std::endl;
+    std::string cipher_map, message;
+    std::cin >> cipher_map >> message;
+    std::cout << decipher(cipher_map, message) << std::endl;
     return 0;
 }
