@@ -1,19 +1,13 @@
 ```
 def smallest_change(arr):
     n = len(arr)
-    left, right = 0, n - 1
-    changes = 0
-    
-    while left < right:
-        if arr[left] != arr[right]:
-            for i in range(left + 1, right):
-                if arr[i] == arr[right]:
-                    arr[i], arr[left] = arr[left], arr[i]
-                    left += 1
-                    break
-            changes += 1
-        else:
-            left += 1
-        right -= 1
-    
-    return changes
+    forward = [0] * n
+    backward = [0] * n
+    forward[0] = arr[0]
+    for i in range(1, n):
+        forward[i] = 1 if arr[i] != forward[i-1] else forward[i-1]
+    backward[n-1] = arr[n-1]
+    for i in range(n-2, -1, -1):
+        backward[i] = 1 if arr[i] != backward[i+1] else backward[i+1]
+    total_changes = sum(forward[1:])
+    return total_changes + sum(backward[:-1])
