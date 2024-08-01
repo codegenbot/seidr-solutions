@@ -4,6 +4,5 @@ def swap_case(string):
 def check(string):
     return swap_case(string)
 
-# Modify the code below
 result = check("Hello, World!")
 print(result)
