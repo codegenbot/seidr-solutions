@@ -5,6 +5,9 @@ def find_zero(a: int, b: int, c: int):
         return -b / (2 * c)
 
 
-a, b, c = map(int, input().split())
+a = int(input("Enter value for a: "))
+b = int(input("Enter value for b: "))
+c = int(input("Enter value for c: "))
+
 result = find_zero(a, b, c)
 print(result)
