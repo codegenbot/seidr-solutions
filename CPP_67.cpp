@@ -1,26 +1,25 @@
-#include <string>
+#include<string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
     size_t pos = 0;
-    int apples = 0, oranges = 0;
-    
-    while ((pos = s.find(" and ")) != string::npos) {
-        if (s.substr(0, pos).find("apples") != string::npos)
-            apples = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("apples", ""));
-        else if (s.substr(0, pos).find("oranges") != string::npos)
-            oranges = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("oranges", ""));
-        
-        s.erase(0, pos + 5);
+    string temp = "";
+    for (size_t i = 0; i < s.length(); i++) {
+        if (isdigit(s[i])) {
+            temp += s[i];
+        } else if (!temp.empty()) {
+            pos = i;
+            break;
+        }
     }
-    
-    if (s.find("apples") != string::npos) {
-        apples = stoi(s.substr(0, s.find(" ")).replace("apples", ""));
-        s.erase(0, s.find(" ") + 1);
-    } else if (s.find("oranges") != string::npos) {
-        oranges = stoi(s.substr(0, s.find(" ")).replace("oranges", ""));
-        s.erase(0, s.find(" ") + 1);
+    int total = stoi(temp);
+    string[] words = s.split(" ");
+    for (int i = 0; i < words.length; i++) {
+        if (words[i].contains("apples") || words[i].contains("oranges")) {
+            temp = words[i].split(" ")[0];
+            int count = stoi(temp);
+            total -= count;
+        }
     }
-    
-    return n - apples - oranges;
+    return n - total;
 }
