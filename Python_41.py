@@ -3,5 +3,5 @@ def car_race_collision(n: int):
         return 0
     collisions = 0
     for i in range(1, n):
-        collisions += 1
+        collisions += 1  
     return collisions
