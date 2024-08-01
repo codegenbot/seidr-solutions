@@ -18,5 +18,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 groups.append(group.strip('()'))
                 group = ''
-    
-    return groups
+    return [group.strip('()')] if group else groups
