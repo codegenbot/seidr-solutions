@@ -1,4 +1,3 @@
-```cpp
 #include <queue>
 #include <vector>
 
