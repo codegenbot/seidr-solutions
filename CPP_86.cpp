@@ -1,22 +1,20 @@
 #include <algorithm>
-using namespace std;
+#include <sstream>
 
 string anti_shuffle(string s) {
     string result = "";
-    size_t pos = 0;
-    
-    while (pos != string::npos) {
-        pos = s.find(" ");
-        if (pos == string::npos) {
-            result += s;
-            break;
+    istringstream iss(s);
+    string word;
+    while (iss >> word) {
+        for (char c : word) {
+            result += c;
         }
-        
-        string word = s.substr(0, pos);
-        sort(word.begin(), word.end());
-        result += word;
-        s.erase(0, pos + 1);
+        for (int i = 0; i < word.size(); ++i) {
+            if (i == 0) {
+                result += ' ';
+            }
+            result += word[i];
+        }
     }
-    
     return result;
 }
