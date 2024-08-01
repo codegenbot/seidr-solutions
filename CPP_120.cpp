@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(int a, int b) {
-    if(a == b)
+    if (a == b)
         return true;
     else
         return false;
