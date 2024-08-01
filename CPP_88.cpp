@@ -12,10 +12,10 @@ std::vector<int> sort_array(std::vector<int> array){
     
     int sum = array.front() + array.back();
     if(sum % 2 == 0){
-        std::sort(std::array.rbegin(), std::array.rend());
+        std::sort(array.rbegin(), array.rend());
     } else {
-        std::sort(std::array.begin(), std::array.end());
+        std::sort(array.begin(), array.end());
     }
     
-    return std::array;
+    return array;
 }
