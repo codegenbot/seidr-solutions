@@ -8,7 +8,7 @@ int main() {
 
     bounciness_index = first_bounce_height / start_height;
 
-    double total_distance = start_height * (1 + (1 - pow(bounciness_index, num_bounces)) / (1 - bounciness_index);
+    double total_distance = start_height * (1 + (1 - pow(bounciness_index, num_bounces)) / (1 - bounciness_index) * (1 + bounciness_index));
 
     std::cout << total_distance << std::endl;
 
