@@ -17,18 +17,23 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string substring = "an";
-    
-    vector<string> filtered = filter_by_substring(strings, substring);
+    int n;
+    std::cin >> n;
 
-    if(issame(filtered, vector<string>{})) {
-        cout << "No strings found containing the given substring." << endl;
-    } else {
-        for(string s : filtered) {
-            cout << s << endl;
-        }
+    vector<string> strings(n);
+    for(int i = 0; i < n; i++) {
+        std::cin >> strings[i];
     }
+
+    string substring;
+    std::cin >> substring;
+
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
+
+    if(issame({}, filtered_strings))
+        cout << "All strings contain the substring." << endl;
+    else
+        cout << "Not all strings contain the substring." << endl;
 
     return 0;
 }
