@@ -12,8 +12,8 @@ std::string change_base(int x, int base){
     return result;
 }
 
-int main(int argc, char *argv[]){
+int main(){
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x));
+    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x)));
     return 0;
 }
