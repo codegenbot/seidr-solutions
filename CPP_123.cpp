@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
