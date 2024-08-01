@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
+#include <cmath>
 
 int main() {
     double startHeight, firstBounceHeight;
@@ -17,7 +17,7 @@ int main() {
     }
 
     cout << fixed;
-    cout.precision(6);
+    cout << setprecision(6);
     cout << totalDistance << endl;
 
     return 0;
