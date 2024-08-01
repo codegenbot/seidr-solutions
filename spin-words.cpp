@@ -3,33 +3,33 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::size_t start = 0;
+    std::string word;
     
-    while (start < sentence.length()) {
-        size_t end = sentence.find(" ", start);
-        
-        if (end == std::string::npos)
-            end = sentence.length();
-        
-        std::string word = sentence.substr(start, end - start);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.length() >= 5)
+                for (int i = word.length()-1; i>=0; --i)
+                    result += word[i];
+            else
+                result += word;
+            word = "";
+        } else {
+            word += c;
         }
-        
-        result += word + " ";
-        
-        start = end + 1;
     }
     
-    return result.substr(0, result.length() - 1);
+    if (word.length() >= 5)
+        for (int i = word.length()-1; i>=0; --i)
+            result += word[i];
+    else
+        result += word;
+    
+    return result;
 }
 
 int main() {
     std::string sentence;
-    while (true) {
-        std::cout << "Enter a sentence: ";
-        std::getline(std::cin, sentence);
+    while (std::cin >> sentence) {
         std::cout << spinWords(sentence) << std::endl;
     }
     return 0;
