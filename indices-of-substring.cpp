@@ -20,6 +20,6 @@ int main() {
     for (int i : indices) {
         std::cout << i << " ";
     }
-    std::cout << std::endl;
+    std::cout << endl;
     return 0;
 }
