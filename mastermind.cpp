@@ -1,7 +1,3 @@
-#include <iostream>
-#include <map>
-#include <string>
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -27,9 +23,13 @@ int blackPegs(string code, string guess) {
     }
 
     for (auto& pair : codeCount) {
-        if (pair.second > 0) {
-            count += min(pair.second, 4 - count);
-            break;
+        while(pair.second > 0) {
+            if(code.find(guess[i++]) != string::npos){
+                --pair.second;
+                --count;
+            } else{
+                break;
+            }
         }
     }
 
@@ -42,4 +42,3 @@ int main() {
     cout << blackPegs(code, guess) << "\n";
     cout << whitePegs(code, guess) << "\n";
     return 0;
-}
