@@ -1,34 +1,16 @@
-#include <boost/variant/any.hpp>
 #include <string>
+#include <iostream>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : ((float)b < 1 ? "None" : b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : ((double)b < 1 ? "None" : b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : ((int)b < 1 ? "None" : b);
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > (int)b ? a : ((int)b < 1 ? "None" : b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string s = (std::string)a;
-        float f = (float)b;
-        return f > atof(s.c_str()) ? a : ((f < 1) ? "None" : b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        std::string s = (std::string)a;
-        double d = (double)b;
-        return d > atof(s.c_str()) ? a : ((d < 1) ? "None" : b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float f = (float)a;
-        std::string s = (std::string)b;
-        return atof(s.c_str()) > f ? boost::any(b) : ((f < 1) ? "None" : a);
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        double d = (double)a;
-        std::string s = (std::string)b;
-        return atof(s.c_str()) > d ? boost::any(b) : ((d < 1) ? "None" : a);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string sa = (std::string)a, sb = (std::string)b;
-        return sa > sb ? a : ((sa == sb) ? boost::any("None") : b);
-    }
-    return a;
+std::string compare_one(std::string a, float b) {
+    if (atof(a.c_str()) > b) 
+        return a;
+    else if (b < 1)
+        return "None";
+    else
+        return std::to_string(b);
+}
+
+int main() {
+    std::cout << compare_one("10.5", 2.0f) << std::endl; // Example usage
+    return 0;
 }
