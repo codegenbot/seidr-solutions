@@ -15,10 +15,10 @@ std::string flip_case(std::string str){
     return result;
 }
 
-int main() {
-    std::string str;
+int main(){
+    std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Flipped case: " << flip_case(str) << std::endl;
+    std::cin >> s;
+    std::cout << "Flip Case: " << flip_case(s) << std::endl;
     return 0;
 }
