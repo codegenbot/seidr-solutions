@@ -2,11 +2,6 @@
 #include <string>
 #include <cctype>
 
-bool isvowel(char c) {
-    return std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' ||
-           std::tolower(c) == 'o' || std::tolower(c) == 'u';
-}
-
 std::string get_closest_vowel(std::string word) {
     int left = 0, right = word.size() - 1;
     while (left <= right) {
@@ -15,6 +10,11 @@ std::string get_closest_vowel(std::string word) {
         else return word.substr(left + 1, right - left);
     }
     return "";
+}
+
+bool isvowel(char c) {
+    return std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' ||
+           std::tolower(c) == 'o' || std::tolower(c) == 'u';
 }
 
 int main() {
