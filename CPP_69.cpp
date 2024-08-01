@@ -2,8 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-using namespace std;
-
 int search(const vector<int>& lst) {
     int result = -1;
     for (int num : lst) {
@@ -22,5 +20,4 @@ int search(const vector<int>& lst) {
 
 int main() {
     cout << (search({3, 10, 10, 9, 2})) << endl;
-    return 0;
 }
