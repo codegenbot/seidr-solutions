@@ -7,5 +7,6 @@ def find_zero():
         return -b / (2 * a)
     else:
         return -b / (2 * c)
+
 result = find_zero()
 print(result)
