@@ -2,15 +2,22 @@
 #include <iostream>
 
 std::string compare_one(std::string a, float b) {
-    if (atof(a.c_str()) > b) 
+    if (std::stof(a) > b) {
         return a;
-    else if (b < 1)
+    } else if (b < 1) {
         return "None";
-    else
+    } else {
         return std::to_string(b);
+    }
 }
 
 int main() {
-    std::cout << compare_one("10.5", 2.0f) << std::endl; // Example usage
+    std::string s;
+    float f;
+    std::cout << "Enter string: ";
+    std::cin >> s;
+    std::cout << "Enter float: ";
+    std::cin >> f;
+    std::cout << compare_one(s, f) << std::endl;
     return 0;
 }
