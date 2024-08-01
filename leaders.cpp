@@ -1,4 +1,3 @@
-#include <vector>
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
@@ -7,10 +6,10 @@ vector<int> findLeaders(vector<int> nums) {
     for (int i = n-2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
+            maxRight = nums[i]; // Update maxRight
         }
-        maxRight = max(maxRight, nums[i]);
     }
     
-    leaders.push_back(nums[n-1]); // add the rightmost element as a leader
+    leaders.push_back(nums[n-1]);
     return leaders;
 }
