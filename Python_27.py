@@ -1,6 +1,8 @@
-def flip_case(string):
+def check(func):
+    # some code to check the implementation of the function
+    pass
+
+def transform_string(string):
     return "".join([char.lower() if char.isupper() else char.upper() for char in string])
 
-input_string = input("Enter a string: ")
-result = flip_case(input_string)
-print(result)
+check(transform_string)
