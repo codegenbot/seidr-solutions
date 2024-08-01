@@ -1,7 +1,10 @@
+#include <vector>
+#include <string>
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
-        string letterGrade = "";
+        string letterGrade;
         if (grade >= 4.0)
             letterGrade = "A+";
         else if (grade > 3.7)
@@ -26,7 +29,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letterGrade = "D";
         else
             letterGrade = "E";
-
         result.push_back(letterGrade);
     }
     return result;
