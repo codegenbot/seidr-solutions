@@ -34,6 +34,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
+    // Example usage
     std::string text = "abracadabra";
     std::string target = "bra";
     
