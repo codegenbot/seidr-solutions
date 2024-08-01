@@ -1,18 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size();
-}
-
-std::vector<int> common(std::vector<int> a, std::vector<int> b) {
+std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> result;
-    // Code to find common elements in vectors a and b
+    for (const auto& elem : a) {
+        if (std::find(b.begin(), b.end(), elem) != b.end()) {
+            result.push_back(elem);
+        }
+    }
     return result;
 }
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(static_cast<int>(common({4, 3, 2, 8}, {})), static_cast<int>(std::vector<int>{}.size()));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
