@@ -1,38 +1,28 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string toCamelCase(const std::string& input) {
-    std::string output;
-    size_t pos = 0;
-
-    while (pos < input.size()) {
-        if (input[pos] == '-') {
-            pos++; // Skip the dash
-            while (pos < input.size() && input[pos] == ' ') {
-                pos++; // Skip the space
-            }
-            output += std::toupper(input[pos]);
-            pos++;
-        } else if (input[pos] == ' ') {
-            while (pos < input.size() && input[pos] == ' ') {
-                pos++; // Skip the spaces
-            }
-            output += std::tolower(input[pos]);
-            pos++;
+string camelCase(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.size()) {
+        if (str[i] == '-') {
+            i++;
+            continue;
+        }
+        if (str[i] == ' ') {
+            while (str[i] == ' ') i++;
+            result += str.substr(i, 1).toupper();
+            result += str.substr(i + 1).substr(0, 1).toLowerCase();
+            i++;
+            while (i < str.size() && str[i] != ' ') i++;
         } else {
-            output += std::tolower(input[pos]);
-            pos++;
+            if (result.size() == 0) {
+                result = str.substr(i, 1).toupper();
+                i++;
+            } else {
+                result += str.substr(i, 1);
+                i++;
+            }
         }
     }
-
-    return output;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << toCamelCase(input) << std::endl;
-
-    return 0;
+    return result;
 }
