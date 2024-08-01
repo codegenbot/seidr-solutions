@@ -1,18 +1,23 @@
-```
 def bowling_score(game):
     score = 0
     roll = 0
-    frames = game.split('/')
-    for frame in frames:
-        if len(frame) == 1 or (len(frame) == 2 and frame[0] != 'X'):
-            score += 10 - int(frame)
+    for frame in game.split("/"):
+        if len(frame) == 1 or (len(frame) > 1 and int(frame[0]) + int(frame[1]) >= 10):
+            if len(frame) > 1:
+                score += 10
+            else:
+                score += int(frame)
+            roll = 0
+        elif frame[0] != "X":
+            strike = False
+            for char in frame:
+                if char == "X":
+                    strike = True
+            if strike:
+                score += 30
+            else:
+                score += 10 + int(frame[0])
         else:
-            if 'X' in frame:
-                if len(frame) > 1:
-                    roll = int(frame[:-1])
-                else:
-                    roll = 10
-            elif frame[0] == 'S':
-                roll = 5
-            score += roll
+            score += 10
+        roll += 1
     return score
