@@ -41,19 +41,15 @@ string sort_numbers(string numbers) {
         result += rev_num_map[num] + " ";
     }
     
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back();
     return result;
 }
 
-int main_func() { 
+int main() {
     string input_numbers;
     getline(cin, input_numbers);
     
     cout << sort_numbers(input_numbers) << endl;
     
     return 0;
-}
-
-int main() {
-    return main_func();
 }
