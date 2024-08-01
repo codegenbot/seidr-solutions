@@ -1,34 +1,38 @@
-int score(string s) {
-    int frame = 1, score = 0, i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            score += 10;
-            if (s[i+2] == 'X') {
-                score += 10 + (s[i+4] == 'X' ? 10 : s[i+4] - '0');
-            } else if (s[i+3] == '/') {
-                score += 10;
-            } else {
-                score += s[i+2] == '/' ? 10 : s[i+2] - '0';
-                score += s[i+3] == '/' ? 10 : s[i+3] - '0';
-            }
-            i++;
-        } else if (s[i+1] == '/') {
-            score += 10;
-            score += s[i+3] == 'X' ? 10 : s[i+3] - '0';
-            i += 2;
-        } else {
-            score += s[i] == '-' ? 0 : s[i] - '0';
-            score += s[i+1] == '-' ? 0 : s[i+1] - '0';
-            i += 2;
-        }
-        frame++;
-    }
-    return score;
-}
+#include <iostream>
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string bowling_round;
+    std::cin >> bowling_round;
+
+    int score = 0;
+    int frame = 1;
+    int rolls = 0;
+
+    for (char ch : bowling_round) {
+        if (ch == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (bowling_round[rolls + 1] == 'X') ? 10 : (bowling_round[rolls + 1] - '0');
+                score += (bowling_round[rolls + 2] == 'X') ? 10 : (bowling_round[rolls + 2] - '0');
+                rolls++;
+            }
+            frame++;
+        } else if (ch == '/') {
+            score += 10 - (bowling_round[rolls - 1] - '0');
+            score += (bowling_round[rolls + 1] == 'X') ? 10 : (bowling_round[rolls + 1] - '0');
+            frame++;
+            rolls++;
+        } else {
+            score += (ch == '-') ? 0 : (ch - '0');
+            if (frame < 10 && rolls % 2 == 0) {
+                if (ch != '0' && bowling_round[rolls + 1] == '/') {
+                    score += 10 - (ch - '0');
+                }
+            }
+            rolls++;
+        }
+    }
+
+    std::cout << score << std::endl;
     return 0;
 }
