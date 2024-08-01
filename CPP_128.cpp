@@ -8,5 +8,5 @@ int prod_signs(std::vector<int> arr) {
             return -32768; 
         product *= (num > 0 ? 1 : -1);
     }
-    return std::abs(accumulate(arr.begin(), arr.end(), 0));
+    return abs(accumulate(arr.begin(), arr.end(), 0));
 }
