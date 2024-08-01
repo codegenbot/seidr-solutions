@@ -22,11 +22,13 @@ std::vector<int> unique_digits(std::vector<int> x) {
     return result;
 }
 
+// Change the vector<int> to std::vector<int> in the issame function signature
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
+// Update the main function to return int instead of void
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), std::vector<int>{31, 135}));
     return 0;
 }
