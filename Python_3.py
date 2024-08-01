@@ -1,6 +1,5 @@
-from typing import List
-
-def below_zero(operations: List[int]) -> bool:
+def below_zero():
+    operations = list(map(int, input().split()))
     balance = 0
     for operation in operations:
         balance += operation
@@ -8,9 +7,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Read a list of integers from user input
-operations = list(map(int, input().split()))
 
-# Call the function below_zero with the input list
-result = below_zero(operations)
+result = below_zero()
 print(result)
