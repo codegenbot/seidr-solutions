@@ -1,4 +1,22 @@
-map<string, int> number_map = {
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <assert.h>
+
+string sort_numbers(string numbers);
+
+int main() {
+    string input_numbers;
+    getline(std::cin, input_numbers);
+    
+    std::cout << sort_numbers(input_numbers) << std::endl;
+    
+    return 0;
+}
+
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,9 +29,27 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-sort(numbers.begin(), numbers.end(), [&](const string& a, const string& b) {
-    return number_map[a] < number_map[b];
-});
-
-return numbers;
+string sort_numbers(string numbers) {
+    string result = "";
+    map<int, string> rev_num_map;
+    
+    for (auto const& pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
+    }
+    
+    vector<int> sorted_nums;
+    stringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        sorted_nums.push_back(num_map[word]);
+    }
+    
+    sort(sorted_nums.begin(), sorted_nums.end());
+    
+    for (int num : sorted_nums) {
+        result += rev_num_map[num] + " ";
+    }
+    
+    result.pop_back(); // Remove extra space at the end
+    return result;
 }
