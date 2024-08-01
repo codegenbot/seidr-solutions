@@ -1,14 +1,15 @@
 ```
 def smallest_change(arr):
     n = len(arr)
-    arr_pos = [*enumerate(arr)]
-    arr_pos.sort(key=lambda x: x[1])
-    
-    pos_dict = {v: k for k, v in arr_pos}
+    arr.sort()
+    hashmap = {val:i for i,val in enumerate(arr)}
     
     ans = 0
     for i in range(n):
-        if arr[i] != arr_pos[i][1]:
-            ans += 1
-    
+        if arr[i] != i:
+            j = hashmap[arr[i]]
+            arr[i],arr[j] = arr[j],arr[i]
+            hashmap[i],hashmap[arr[i]] = hashmap[arr[i]],i
+            ans +=1
+            
     return ans
