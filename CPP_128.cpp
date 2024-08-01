@@ -12,9 +12,3 @@ int prod_signs(const vector<int>& arr) {
     }
     return product * sum_magnitudes;
 }
-
-int main() {
-    vector<int> nums = {2, -3, 0, 4, -1};
-    int result = prod_signs(nums);
-    return 0;
-}
