@@ -1,6 +1,7 @@
+```cpp
 #include <boost/any.hpp>
-#include <vector>
 #include <list>
+#include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -8,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(isSameEqual(filter_integers({3, 3, 3}), vector<int>({3, 3, 3})));
+    assert(issame(filter_integers({3, 3, 3}), std::vector<int>({3, 3, 3})));
     return 0;
 }
 
