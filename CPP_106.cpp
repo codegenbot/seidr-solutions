@@ -1,35 +1,23 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 std::vector<int> f(int n){
     std::vector<int> result;
-    for (int i = 1; i <= n; ++i) {
+    for(int i = 1; i <= n; i++){
         result.push_back(i);
     }
     return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main(){
-    int n;
-    std::cin >> n;
-    std::vector<int> result = f(n);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    std::vector<int> test1 = f(5);
+    std::vector<int> test2 = {1, 2, 3, 4, 5};
+
+    assert(issame(test1, test2));
+    
     return 0;
 }
