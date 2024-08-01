@@ -14,6 +14,6 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    leaders(vector<int>()).size();
+    leaders(vector<int>()); 
     return 0;
 }
