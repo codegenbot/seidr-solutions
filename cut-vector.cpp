@@ -1,23 +1,36 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<int> left(n);
-    for (int i = 0; i < n; ++i)
-        left[i] = nums[i];
-    
-    if (n == 1) return {{nums}, {}}; // Edge case when the input is a single element
-    
-    int diffMin = INT_MAX;
-    int cutPoint = -1;
-    for (int i = 0; i < n - 1; ++i) {
-        int diff = abs(left[i] - left[n-1]);
-        if (diff <= diffMin) {
-            diffMin = diff;
-            cutPoint = i;
+vector<int> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int pos = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        if (abs(nums[i] - nums[0]) < minDiff) {
+            minDiff = abs(nums[i] - nums[0]);
+            pos = i;
         }
     }
-    
-    return {{}, nums.begin(), nums.end()};
+    return {vector<int>({nums.begin(), nums.begin() + pos}), vector<int>({nums.begin() + pos, nums.end()})};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (auto& num : nums) {
+        cin >> num;
+    }
+    auto res = cutVector(nums);
+    cout << res[0].size() << endl;
+    for (auto x : res[0]) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << res[1].size() << endl;
+    for (auto x : res[1]) {
+        cout << x << " ";
+    }
+    return 0;
 }
