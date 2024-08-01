@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 std::string decimal_to_binary(int decimal) {
     std::string binary = "db";
