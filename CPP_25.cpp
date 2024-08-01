@@ -1,3 +1,6 @@
+Here is the solution:
+
+```cpp
 #include <vector>
 
 using namespace std;
@@ -11,7 +14,7 @@ vector<int> factorize(int n) {
                 n /= i;
                 ++count;
             }
-            if (count > 0)
+            for (int j = 0; j < count; ++j)
                 factors.push_back(i);
         }
     }
