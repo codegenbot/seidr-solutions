@@ -1,5 +1,4 @@
 def sort_third(l: list):
-    # Pad list with zeros to make sure each sublist has exactly 3 elements
     l += [0] * ((3 - len(l) % 3) % 3)
     
     return [sorted(l[i:i+3]) for i in range(0, len(l), 3)]
