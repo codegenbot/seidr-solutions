@@ -1,11 +1,6 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-using namespace std;
-
 float mean_absolute_deviation(vector<float> numbers) {
     float sum = 0;
-    for (float num : numbers) {
+    for (auto num : numbers) {
         sum += abs(num - mean(numbers));
     }
     return sum / numbers.size();
