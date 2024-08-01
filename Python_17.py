@@ -1,6 +1,6 @@
 ```
 def parse_music(music_string: str) -> list:
-    notes = {'o': [4], 'o|': [2, 4], '.|': [1, 2, 4]}
+    notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
     i = 0
     while i < len(music_string):
@@ -8,9 +8,11 @@ def parse_music(music_string: str) -> list:
             i += 1
             continue
         note = ''
-        while i < len(music_string) and (music_string[i] in '|.' or music_string[i].isalnum()):
+        while i < len(music_string) and (music_string[i] in '|.'):
             note += music_string[i]
             i += 1
-        for value in notes.get(note, []):
-            result.append(value)
+        if note not in notes:
+            result.append(0)
+        else:
+            result.append(notes[note])
     return result
