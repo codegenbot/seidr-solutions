@@ -5,12 +5,9 @@ def solve_boolean(expression):
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    else:
-        result = eval(
-            " ".join(map(lambda x: f"True" if x == "T" else "False", list(expression)))
-        )
-        return result
-
-
-expression = input()
-print(solve_boolean(expression))
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (solve_boolean(left) and solve_boolean(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
