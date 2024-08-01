@@ -21,8 +21,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, 4, -5};
+    std::vector<int> nums = {1, -2, 3, -4};
     int result = count_nums(nums);
-    std::cout << "Count of positive sums: " << result << std::endl;
+    std::cout << "Number of numbers with at least one digit is: " << result << std::endl;
     return 0;
 }
