@@ -1,3 +1,4 @@
+```
 int main() {
     void toCamelCase(string s) {
         string result = "";
@@ -6,7 +7,7 @@ int main() {
                 if (!result.empty()) {
                     result[0] -= 32;
                 }
-                result += c + " ";
+                result += " ";
             } else if (c == ' ') {
                 if (!result.empty() && result.back() != '-') {
                     result[0] -= 32;
@@ -25,7 +26,6 @@ int main() {
 
     string input;
     cin >> input;
-
     toCamelCase(input);
 
     return 0;
