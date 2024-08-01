@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,7 +13,15 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 12, 123};
-    assert(specialFilter(nums) == 2);
+    std::vector<int> nums;
+    int num;
+    
+    while(std::cin >> num) {
+        nums.push_back(num);
+    }
+    
+    int result = specialFilter(nums);
+    std::cout << "The number of special numbers is: " << result << std::endl;
+    
     return 0;
 }
