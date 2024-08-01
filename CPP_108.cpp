@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-
 using namespace std;
 
 int count_nums(vector<int> nums) {
@@ -31,16 +29,5 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input; 
-    int num;
-    while (true) {
-        cout << "Enter a number (-1 to stop): ";
-        cin >> num;
-        if (num == -1) break;
-        input.push_back(num);
-    }
-
-    cout << "Count: " << count_nums(input) << endl;
-
-    return 0;
+    assert(count_nums({1}) == 1);
 }
