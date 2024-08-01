@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <numeric>
@@ -20,7 +19,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
     
-    return vector<float>({closest_pair.first, closest_pair.second});
+    return vector<float>(closest_pair.begin(), closest_pair.end());
 }
 
 int main() {
