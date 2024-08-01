@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    vector<int> leaders = leaders({1, 3, 4, 2, 5}); 
+    vector<int> leaders = leaders({1, 3, 4, 2, 5}); // test input
     return 0;
 }
 
