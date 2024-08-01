@@ -1,7 +1,5 @@
 ```cpp
-#include <string>
-
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const string& brackets) {
     int i = 0;
     while(i < brackets.length()) {
         if(brackets[i] == '<') {
