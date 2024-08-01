@@ -1,25 +1,26 @@
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    if(a.size() != b.size())
-        return false;
-    
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i])
-            return false;
-    }
+#include <iostream>
+#include <vector>
+#include <cassert>
 
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
+std::vector<int> even_odd_palindrome(const int& n);
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
-int main(){
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
-    
-    if(issame(vec1, vec2)){
-        std::cout << "Vectors are same." << std::endl;
+std::vector<int> even_odd_palindrome(const int& n){
+    std::vector<int> result;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
+            result.push_back(i);
+        }
     }
-    else{
-        std::cout << "Vectors are not the same." << std::endl;
+    for (int i = n; i >= 1; --i) {
+        if (i % 2 != 0) {
+            result.push_back(i);
+        }
     }
-    
-    return 0;
+    return result;
 }
