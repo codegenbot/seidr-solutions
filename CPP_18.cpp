@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -14,6 +13,5 @@ int how_many_times(const std::string& str, const std::string& substring) {
 
 int main() {
     assert(how_many_times("john doe", "john") == 1);
-    
     return 0;
 }
