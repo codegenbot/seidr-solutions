@@ -41,7 +41,6 @@ int main() {
     std::getline(std::cin, input);
     
     std::vector<std::string> a = split_words(input);
-    std::getline(std::cin, input); // read a new line for vector b
     std::vector<std::string> b = split_words(input);
     
     if (issame(a, b)) {
