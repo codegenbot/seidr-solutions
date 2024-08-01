@@ -7,7 +7,7 @@ def sort_third(l: list):
                 [
                     x
                     for j in range(len([x for x in l if i % 3 == 0]))
-                    for x in [x for x in l if i % 3 == 0 and j == (i - 1) // 3]
+                    for x in [y for y in l if i % 3 == 0 and j == (i // 3)]
                 ]
             )[0]
         )
