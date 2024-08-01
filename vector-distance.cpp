@@ -15,6 +15,7 @@ int main() {
     cin >> n;
     vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
+        cin.ignore(); // Ignore the comma separating the input values
         cin >> vec2[i];
     }
 
