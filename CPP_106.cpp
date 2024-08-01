@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-std::vector<int> f(int n){
+std::vector<int> f(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         result.push_back(i);
@@ -11,7 +11,7 @@ std::vector<int> f(int n){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,7 +23,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int solveProblem(){
+int solveProblem() {
     int n;
     std::cin >> n;
     std::vector<int> result = f(n);
