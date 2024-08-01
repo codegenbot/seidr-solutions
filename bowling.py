@@ -1,40 +1,26 @@
-def bowling_score(frames):
+```
+def bowling_game(bowling_score):
     score = 0
-    frame_count = 1
-    for char in frames:
-        if char.isdigit():
-            strike = False
-            if len(char) > 1:
-                spare = True
-                char = int(char)
+    roll = 0
+    for frame in range(10):
+        if bowling_score[roll] == 'X':
+            score += 30
+            roll += 2
+        elif bowling_score[roll:roll+2].count('X') > 0:
+            if bowling_score[roll:roll+3][1] == '/':
+                score += int(bowling_score[roll:roll+3][:1]) + 10
             else:
-                char = int(char)
-            if char == 10:
-                score += 10 + 10 * (frame_count - 1)
-                strike = True
-            elif spare:
+                score += 20 + int(bowling_score[roll:roll+2].replace('X', '0'))
+            roll += 2
+        elif bowling_score[roll] == '/':
+            score += int(bowling_score[roll:roll+3][:1])
+            roll += 2
+        else:
+            if str(int(bowling_score[roll]) + int(bowling_score[roll+1])) in ['11', '12', '13', '14', '15']:
+                score += 20 + int(bowling_score[roll:roll+2])
+            elif bowling_score[roll] == '0' and bowling_score[roll+1] == 'X':
                 score += 10
-                frame_count += 1
             else:
-                score += char
-                frame_count += 1
-        elif char == "X":
-            score += 10
-            strike = True
-            frame_count += 1
-        elif char == "-":
-            continue
-        if strike and frame_count < 10:
-            for _ in range(2):
-                if frames[frame_count].isdigit():
-                    char = int(frames[frame_count])
-                    if char != 10:
-                        score += char
-                    else:
-                        score += 10 + score // 10
-                    break
-                elif frames[frame_count] == "X":
-                    score += 10
-                    break
-            frame_count += 1
-        return score
+                score += int(bowling_score[roll]) + int(bowling_score[roll+1])
+            roll += 2
+    return score
