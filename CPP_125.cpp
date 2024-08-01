@@ -16,7 +16,18 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> split_words(std::string input) {
     std::vector<std::string> words;
-    // Code to split input string into words and store in 'words' vector
+    std::string word = "";
+    for (char c : input) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
     return words;
 }
 
