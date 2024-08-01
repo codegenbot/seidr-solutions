@@ -19,5 +19,4 @@ def sum_product():
         except ValueError:
             print("Invalid input. Please enter only integers.")
 
-
 print(sum_product())
