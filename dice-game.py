@@ -1,4 +1,7 @@
-Here is the completed code:
+Here is the Python solution:
 
-def dice_game(n, m):
-    return (m-1) / n if n > m else (n-1) / m
+n = int(input())
+m = int(input())
+
+probability = (n-1) / (n*m - 1)
+print("%.2f" % probability)
