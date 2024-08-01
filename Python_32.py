@@ -1,12 +1,9 @@
 def find_zero(xs: list):
-    a = xs[0]
-    b = xs[1]
-    c = xs[2]
-
-    if len(xs) == 4:
-        n = xs[3]
-        return (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a), (
-            -b - (b**2 - 4 * a * c) ** 0.5
-        ) / (2 * a)
-    else:
-        return -b / (2 * a)
+    xs = list(map(int, input().split()))
+    n = len(xs) - 1
+    if n % 2 == 1:
+        n -= 1
+    for i in range(0, n, 2):
+        if xs[i] * xs[i + 2] < 0:
+            return -xs[i + 1] / xs[i]
+    return None
