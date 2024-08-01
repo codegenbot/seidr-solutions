@@ -1,10 +1,10 @@
-// Determine whether a set of queens can be placed on a chessboard such that no queen attacks another.
+// Function signature: Determine if a set of queens can be placed on an NxN chessboard such that no two queens attack each other.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != reverse(str).s) return false;
+    if (str != reverse(str).substr(1, str.length() - 1)) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
