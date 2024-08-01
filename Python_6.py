@@ -12,4 +12,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return [
         max(depths[i:j])
         for i, j in zip(range(0, len(depths), 2), range(1, len(depths) + 1, 2))
-    ]  
+    ]
