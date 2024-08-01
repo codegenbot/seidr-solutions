@@ -2,10 +2,10 @@
 #include <cmath>
 
 int main() {
-    std::vector<float> lst;
+    std::vector<float> lst; 
     long long result = double_the_difference(lst); 
-    int odd_sum;
-
+    int odd_sum; 
+    
     return 0;
 }
 
