@@ -2,21 +2,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    // Count the number of correct colors at wrong positions
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+            code[i] = 'X'; // mark as used
+            guess[i] = 'X';
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i]) {
-                count++;
-            }
+    // Count the number of correct colors at right positions
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            white++;
+            code[i] = 'X'; // mark as used
+            guess[i] = 'X';
         }
-        white += count - (c == guess[0]);
     }
 
-    return black + white;
+    return black + white - 2;
 }
