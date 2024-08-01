@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 int fibfib(int n) {
@@ -15,7 +16,6 @@ int fibfib(int n) {
 }
 
 int main() {
-    int n = 14;
-    int result = fibfib(n);
-    // You can use result for further processing here
+    assert(fibfib(14) == 927);
+    return 0;
 }
