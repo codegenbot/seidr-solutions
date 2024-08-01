@@ -1,14 +1,10 @@
-```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.begin() + k, arr.end(),
-                  [&res](int a, int b) { return count(res.begin(), res.end(), a) < count(res.begin(), res.end(), b); });
-    return res;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
