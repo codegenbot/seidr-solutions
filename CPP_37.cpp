@@ -14,7 +14,11 @@ void sort_even(const std::vector<int>& l) {
     int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            // Update l directly not allowed due to const parameter, modify logic as needed
+            l[i] = sorted_even_values[sorted_even_index];
+            sorted_even_index++;
         }
     }
 }
+
+std::vector<int> l = {3, 2, 1, 4, 5, 6};
+sort_even(l);
