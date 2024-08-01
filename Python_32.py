@@ -4,7 +4,6 @@ def find_zero(a: int, b: int, c: int):
     else:
         return -b / (2 * c)
 
-
 # Read input from the user
 a, b, c = map(int, input().split())
 
