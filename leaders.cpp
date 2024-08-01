@@ -3,9 +3,7 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    if (arr.size() == 0) return result;
     int rightmost = arr.back();
-    result.push_back(rightmost);
     for (int i = arr.size() - 2; i >= 0; --i) {
         if (arr[i] >= rightmost) {
             rightmost = arr[i];
@@ -15,4 +13,7 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() { leaders(vector<int>()); return 0; }
+int main() {
+    leaders(vector<int>()); 
+    return 0;
+}
