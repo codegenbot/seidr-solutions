@@ -3,20 +3,6 @@
 #include <cassert>
 #include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int i = 0;
@@ -33,6 +19,20 @@ std::vector<int> parse_music(std::string music_string) {
         }
     }
     return beats;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
