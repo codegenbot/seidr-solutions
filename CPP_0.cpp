@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     std::vector<float> nums = numbers;
     std::sort(nums.begin(), nums.end());
