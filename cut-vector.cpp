@@ -18,7 +18,7 @@ int main() {
     int left_sum = 0, right_sum = 0;
     int min_diff = INT_MAX;
     int cut_spot = 0;
-    
+
     for (int i = 0; i < n; ++i) {
         left_sum += vec[i];
     }
