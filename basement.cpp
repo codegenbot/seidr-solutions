@@ -14,21 +14,11 @@ int basement(std::vector<int>& nums) {
 
 int main() {
     int n;
-    while (!(std::cin >> n)) {
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-
+    std::cin >> n;
     std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        while (!(std::cin >> nums[i])) {
-            std::cout << "Invalid input. Please enter an integer." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
+        std::cin >> nums[i];
     }
-
     std::cout << basement(nums) << std::endl;
     return 0;
 }
