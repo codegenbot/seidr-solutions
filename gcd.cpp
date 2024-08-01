@@ -34,17 +34,17 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    // Example usage
-    std::string text = "abracadabra";
-    std::string target = "bra";
-    
-    std::vector<int> result = indicesOfSubstring(text, target);
-    
-    for (int idx : result) {
-        cout << idx << " ";
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int index : result) {
+        cout << index << " ";
     }
-    
     cout << endl;
-    
+
     return 0;
 }
