@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result(n);
     for (int i = 1; i <= n; ++i) {
         result[i - 1] = i;
@@ -23,11 +23,6 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::vector<int> expected = {1, 2, 3};
-    std::vector<int> result = f(3);
-  
-    assert(issame(result, expected));
-    std::cout << "Test Passed!" << std::endl;
-  
+    assert(issame(f(3), {1, 2, 3}));
     return 0;
 }
