@@ -2,8 +2,14 @@
 #include <cassert>
 #include <cstring>
 
-int main() {
+void contestProblemSolution() {
     assert(strlen("asdasnakj") == 9);
     std::string str = "example";
-    return str.length();
+    int length = str.length();
+    // Add any other necessary computations here
+}
+
+int main() {
+    contestProblemSolution();
+    return 0;
 }
