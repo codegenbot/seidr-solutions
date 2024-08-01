@@ -1,6 +1,10 @@
 #include <vector>
 #include <algorithm>
 
+namespace std {
+    using vector;
+}
+
 std::vector<float> get_positive(const std::vector<float>& input) {
     std::vector<float> positive;
     for (float num : input) {
