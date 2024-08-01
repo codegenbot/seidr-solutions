@@ -16,21 +16,13 @@ int add_elements(vector<int> arr, int k) {
 int main() {
     vector<int> arr;
     int n, k;
-
     cout << "Enter the number of elements: ";
     cin >> n;
-
-    arr.resize(n);
-
     cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+        cin >> k;
+        arr.push_back(k);
     }
-
-    cout << "Enter k: ";
-    cin >> k;
-
-    int result = add_elements(arr, k);
-    cout << "Sum of elements that have a string representation size less than or equal to 2 is: " << result << endl;
+    cout << "Sum of elements with length <= 2 is: " << add_elements(arr, n) << endl;
     return 0;
 }
