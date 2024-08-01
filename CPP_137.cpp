@@ -11,17 +11,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::any_cast<double>(a) > std::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return (std::string)std::max(a.convert_to<std::string>(), b.convert_to<std::string>());
+        return std::max(a, b);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int aInt = std::any_cast<int>(a);
-        int bInt = std::stoi(std::any_cast<std::string>(b));
-        return aInt > bInt ? a : b;
+        int x = a.convert_to<int>();
+        long y = std::stoll(b.convert_to<std::string>());
+        return x > y ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        int aInt = std::stoi(std::any_cast<std::string>(a));
-        int bInt = std::any_cast<int>(b);
-        return aInt > bInt ? a : b;
+        long x = std::stoll(a.convert_to<std::string>());
+        int y = b.convert_to<int>();
+        return x > y ? a : b;
     }
     else {
         return boost::any("None");
